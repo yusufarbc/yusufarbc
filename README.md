@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-- 🔭 I’m currently a computer engineering student
-- 🌱 I’m currently learning cyber security
+- 🔭 I’m a computer engineer. a little more than engineer!
+- 🌱 I am currently studying and learning about cybersecurity. never ending learning!
 - 📫 How to reach me: https://t.me/yusufarbc
 - ⚡ Fun fact: codes don't lie, comments sometimes lie
