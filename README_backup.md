@@ -1,7 +1,15 @@
 # 👋 Hello, I'm Yusuf Talha ARABACI
 
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=BD5D38&center=true&vCenter=true&width=600&lines=Security+Engineer+%7C+SOC+Analyst;Malware+Researcher+%7C+Threat+Hunter;Cybersecurity+Professional;Always+Learning%2C+Always+Defending" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=BD5D38&center=true&vCenter=true&width=600&lines=Sec---
+
+<div align="center">
+  
+**💭 "In cybersecurity, you're not just protecting data - you're protecting dreams, privacy, and the digital future."**
+
+*Feel free to connect with me for collaborations, security discussions, or just to say hi! 👋*
+
+</div>r+%7C+SOC+Analyst;Malware+Researcher+%7C+Threat+Hunter;Cybersecurity+Professional;Always+Learning%2C+Always+Defending" alt="Typing SVG" />
 </div>
 
 <div align="center">
@@ -11,12 +19,14 @@
 *Ready to defend the digital frontier together? Let's connect! 🚀*
 
 [![LinkedIn](https://img.shields.io/badge/Connect_on_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yusufarbc/)
-[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=web&logoColor=white)](https://yusufarbc.github.io/yusufarbc/)
 [![Email](https://img.shields.io/badge/Send_Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:yusufarbc@yandex.com)
 
 </div>
 
 ---
+<div align="center">
+  <sub>🔄 Last updated: January 2025 | 🛡️ Always securing, always learning | 🚀 Building the future of cybersecurity</sub>
+</div>
 
 <div align="center">
   
@@ -37,8 +47,8 @@
 I'm a passionate **Security Engineer** specializing in cybersecurity operations, threat analysis, and incident response. My journey in cybersecurity is driven by curiosity about emerging threats and a commitment to protecting digital assets through innovative security solutions.
 
 🔭 **Currently Working**: SOC Analyst at **Garanti BBVA Technology**  
-🎓 **Education**: Computer Engineering, Bursa Technical University (2024)  
-🌱 **Always Learning**: Advanced threat hunting, malware analysis, detection engineering  
+� **Education**: Computer Engineering, Bursa Technical University (2024)  
+�🌱 **Always Learning**: Advanced threat hunting, malware analysis, detection engineering  
 💡 **Philosophy**: Combining defensive strategies with offensive security knowledge  
 🎯 **Specialization**: SOC operations, SIEM/EDR analysis, incident response  
 ⚡ **Research Focus**: Low-level system security (Assembly, C), threat intelligence  
@@ -153,7 +163,7 @@ I regularly share insights on cybersecurity, SOC operations, and threat analysis
 
 ### 📝 **Recent Blog Posts**
 - 🔍 [**SOC Evolution in 2024**](./blog/soc-evolution-2024.md) - *Modern security operations trends*
-- 🌐 [**DNS Security & Analysis**](./blog/dns-security-analysis.md) - *DNS protocol vulnerabilities and protection*
+- � [**DNS Security & Analysis**](./blog/dns-security-analysis.md) - *DNS protocol vulnerabilities and protection*
 - 🛡️ [**Network Security Fundamentals**](./blog/network-security-basics.md) - *Essential network protection strategies*
 - 📊 [**ELK Stack for SOC**](./blog/elk-stack-soc-setup.md) - *Building SIEM with Elasticsearch, Logstash, Kibana*
 - 💻 [**Windows System Administration**](./blog/windows-system-management.md) - *Professional Windows management guide*
@@ -200,9 +210,8 @@ I regularly share insights on cybersecurity, SOC operations, and threat analysis
 
 *Feel free to connect with me for collaborations, security discussions, or just to say hi! 👋*
 
-</div>
+</div>i there 👋
 
----
-<div align="center">
-  <sub>🔄 Last updated: August 2025 | 🛡️ Always securing, always learning | 🚀 Building the future of cybersecurity</sub>
-</div>
+- 🔭 I’m a Security Engineer.
+- 🌱 I am currently learning about cybersecurity. never end learning!
+- ⚡ Fun fact: Amateurs hack systems, Professionals hack people
