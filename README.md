@@ -20,30 +20,15 @@ Currently working as a **SOC Analyst** at **Garanti BBVA Technology**
 **🔎 Threat Hunting** → Advanced detection, behavioral analysis, MITRE ATT&CK mapping  
 **🦠 Malware Analysis** → Static/dynamic analysis, reverse engineering, sandboxing  
 **🚨 Incident Response** → SOC operations, alert triage, forensic investigation  
-**📊 Security Monitoring** → Log analysis, anomaly detection, IOC analysis  
-**⚔️ Penetration Testing** → Vulnerability assessment, security testing
+**📊 Security Monitoring** → Log analysis, anomaly detection, Vulnerability assessment
+**🔧 Security Infrastructure** → Installation, configuration, and management of security products
 
 ## 🛠️ Technologies
 
-**🔐 Security Platforms** → Splunk, QRadar, Elastic Security, CrowdStrike  
+**🔐 Security Platforms** → Splunk, QRadar, Elastic Security, CrowdStrike, Microsoft Defender and PAN Cortex Series
 **🔬 Analysis Tools** → YARA Rules, Wireshark, tcpdump, Kali Linux  
 **💻 Programming** → Python, PowerShell, Bash, C, Assembly
 
-## 🚀 Featured Projects
-
-| 🔒 Project | 📝 Description | ⚡ Tech Stack |
-|-----------|---------------|--------------|
-| [Malware Detection Engine](https://github.com/yusufarbc/malware-detection) | Advanced threat detection using ML | Python, TensorFlow, YARA |
-| [SOC Automation Tools](https://github.com/yusufarbc/soc-automation) | Automated incident response scripts | Python, Splunk API, PowerShell |
-| [Threat Intelligence Platform](https://github.com/yusufarbc/threat-intel) | IOC correlation and analysis | Python, ELK Stack, REST API |
-
-## 📝 Populer Articles
-
-💡 [Advanced Threat Hunting with YARA Rules](https://medium.com/@yusufarbc/advanced-threat-hunting-yara)  
-🛡️ [Building a SOC from Scratch: Best Practices](https://medium.com/@yusufarbc/building-soc-best-practices)  
-🔬 [Malware Analysis: From Static to Dynamic](https://medium.com/@yusufarbc/malware-analysis-guide)
-
----
 
 <div align="center">
 
