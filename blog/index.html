@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Yusuf Talha ARABACI'nın Siber Güvenlik Blogu - SOC Operasyonları, Tehdit Avcılığı, Malware Analizi ve Güvenlik Araştırmaları hakkında profesyonel görüşler" />
+    <meta name="keywords" content="siber güvenlik blog, SOC analisti, tehdit avcılığı, malware analizi, olay müdahalesi, güvenlik blog, siber güvenlik makaleleri" />
+    <meta name="author" content="Yusuf Talha ARABACI" />
+    <title>Siber Güvenlik Blogu - Yusuf Talha ARABACI</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
+
+    <!-- Font Awesome icons -->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+
+    <!-- Core theme CSS -->
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link href="../css/blog.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-shield-alt me-2"></i>Yusuf Talha ARABACI
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#about">Hakkımda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#experience">Deneyim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mailto:yusufarbc@yandex.com">İletişim</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="blog-hero bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center min-vh-50">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">Siber Güvenlik Araştırmaları ve Görüşler</h1>
+                    <p class="lead mb-4">
+                        Siber güvenlik alanındaki en son trendleri keşfediyor, pratik SOC deneyimlerini paylaşıyor, 
+                        tehdit analizi, malware araştırması ve olay müdahale metodolojileri üzerine derinlemesine incelemeler yapıyorum.
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-shield-alt fa-2x me-3 text-warning"></i>
+                                <div>
+                                    <h6 class="mb-0">SOC Operasyonları</h6>
+                                    <small class="opacity-75">Gelişmiş tehdit tespiti</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-search fa-2x me-3 text-info"></i>
+                                <div>
+                                    <h6 class="mb-0">Tehdit Avcılığı</h6>
+                                    <small class="opacity-75">Proaktif güvenlik analizi</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-bug fa-2x me-3 text-danger"></i>
+                                <div>
+                                    <h6 class="mb-0">Malware Analizi</h6>
+                                    <small class="opacity-75">Tersine mühendislik ve araştırma</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-code fa-2x me-3 text-success"></i>
+                                <div>
+                                    <h6 class="mb-0">Güvenlik Otomasyonu</h6>
+                                    <small class="opacity-75">Python ve script çözümleri</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="blog-stats-hero">
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <h3 class="text-warning mb-0" id="total-articles-hero">25+</h3>
+                                <small>Makale</small>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <h3 class="text-info mb-0">5K+</h3>
+                                <small>Okuyucu</small>
+                            </div>
+                            <div class="col-6">
+                                <h3 class="text-success mb-0">500+</h3>
+                                <small>Takipçi</small>
+                            </div>
+                            <div class="col-6">
+                                <h3 class="text-light mb-0">4</h3>
+                                <small>Kategori</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Articles Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="fw-bold">Öne Çıkan Makaleler</h2>
+                    <p class="text-muted">Siber güvenlik konularında derinlemesine incelemeler</p>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Featured Article 1 -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card border-0 shadow-lg h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="badge bg-warning text-dark me-2">Öne Çıkan</span>
+                                <span class="badge bg-primary">SOC Operasyonları</span>
+                            </div>
+                            <h3 class="card-title mb-3">2024'te SOC Operasyonlarının Evrimi</h3>
+                            <p class="card-text text-muted mb-4">
+                                Güvenlik Operasyon Merkezleri, yapay zeka destekli tespit, otomatik yanıt sistemleri 
+                                ve gelişmiş tehdit istihbaratı platformları ile önemli bir dönüşüm geçiriyor. Bu kapsamlı 
+                                analiz, modern SOC'ların gelişen tehdit manzarasına nasıl adapte olduğunu keşfediyor.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="d-flex align-items-center">
+                                    <img src="../assets/img/profile.jpg" alt="Yazar" class="rounded-circle me-2" width="32" height="32">
+                                    <small class="text-muted">Yusuf Talha ARABACI</small>
+                                </div>
+                                <small class="text-muted">
+                                    <i class="fas fa-calendar-alt me-1"></i>2 Ağustos 2025
+                                </small>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="blog-meta">
+                                    <small class="text-muted me-3">
+                                        <i class="fas fa-clock me-1"></i>8 dk okuma
+                                    </small>
+                                    <small class="text-muted me-3">
+                                        <i class="fas fa-eye me-1"></i>1.2K görüntüleme
+                                    </small>
+                                    <small class="text-muted">
+                                        <i class="fas fa-thumbs-up me-1"></i>89 beğeni
+                                    </small>
+                                </div>
+                                <a href="soc-evolution-2024.html" class="btn btn-primary">
+                                    <i class="fas fa-arrow-right me-1"></i>Devamını Oku
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Article 2 -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card border-0 shadow-lg h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="badge bg-info text-white me-2">Popüler</span>
+                                <span class="badge bg-danger">Malware Analizi</span>
+                            </div>
+                            <h3 class="card-title mb-3">Gelişmiş Kalıcı Tehditler: Tespit Stratejileri</h3>
+                            <p class="card-text text-muted mb-4">
+                                Modern APT grupları geleneksel güvenlik kontrollerini atlatmak için sofistike teknikler kullanıyor. 
+                                Bu makale, MITRE ATT&CK çerçevesi ve gelişmiş davranışsal analitik kullanarak kalıcı tehditleri 
+                                tanımlamak için tespit metodolojilerini keşfediyor.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="d-flex align-items-center">
+                                    <img src="../assets/img/profile.jpg" alt="Yazar" class="rounded-circle me-2" width="32" height="32">
+                                    <small class="text-muted">Yusuf Talha ARABACI</small>
+                                </div>
+                                <small class="text-muted">
+                                    <i class="fas fa-calendar-alt me-1"></i>28 Temmuz 2025
+                                </small>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="blog-meta">
+                                    <small class="text-muted me-3">
+                                        <i class="fas fa-clock me-1"></i>12 dk okuma
+                                    </small>
+                                    <small class="text-muted me-3">
+                                        <i class="fas fa-eye me-1"></i>987 görüntüleme
+                                    </small>
+                                    <small class="text-muted">
+                                        <i class="fas fa-thumbs-up me-1"></i>64 beğeni
+                                    </small>
+                                </div>
+                                <a href="apt-detection-strategies.html" class="btn btn-primary">
+                                    <i class="fas fa-arrow-right me-1"></i>Devamını Oku
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Articles Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="col-lg-8">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="fw-bold">Tüm Makaleler</h2>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-filter me-1"></i>Kategoriye Göre Filtrele
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item category-filter" href="#" data-category="all">Tüm Kategoriler</a></li>
+                                <li><a class="dropdown-item category-filter" href="#" data-category="soc">SOC Operasyonları</a></li>
+                                <li><a class="dropdown-item category-filter" href="#" data-category="malware">Malware Analizi</a></li>
+                                <li><a class="dropdown-item category-filter" href="#" data-category="threat-hunting">Tehdit Avcılığı</a></li>
+                                <li><a class="dropdown-item category-filter" href="#" data-category="programming">Programlama</a></li>
+                                <li><a class="dropdown-item category-filter" href="#" data-category="research">Araştırma</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Articles Container -->
+                    <div class="row" id="articles-container">
+                        <!-- Loading placeholder -->
+                        <div class="col-12 text-center py-5" id="loading-placeholder">
+                            <i class="fas fa-spinner fa-spin fa-2x text-primary mb-3"></i>
+                            <p class="text-muted">Medium'dan en son makaleler yükleniyor...</p>
+                        </div>
+                    </div>
+
+                    <!-- Fallback Articles -->
+                    <div class="row" id="fallback-articles" style="display: none;">
+                        <div class="col-md-6 mb-4">
+                            <div class="card border-0 shadow-sm blog-card h-100">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="fas fa-search text-info me-2"></i>
+                                        <span class="badge bg-info">Threat Hunting</span>
+                                    </div>
+                                    <h5 class="card-title">Behavioral Analytics in Cybersecurity</h5>
+                                    <p class="card-text text-muted">
+                                        How machine learning and behavioral analysis are revolutionizing threat detection 
+                                        and response in modern security operations centers.
+                                    </p>
+                                    <div class="mt-auto">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">
+                                                <i class="fas fa-calendar-alt me-1"></i>July 25, 2025
+                                            </small>
+                                            <small class="text-muted">
+                                                <i class="fas fa-clock me-1"></i>10 min read
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="card border-0 shadow-sm blog-card h-100">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="fas fa-code text-success me-2"></i>
+                                        <span class="badge bg-success">Programming</span>
+                                    </div>
+                                    <h5 class="card-title">Python for Security Automation</h5>
+                                    <p class="card-text text-muted">
+                                        Building efficient security tools and automating repetitive SOC tasks 
+                                        with Python scripting and API integrations.
+                                    </p>
+                                    <div class="mt-auto">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">
+                                                <i class="fas fa-calendar-alt me-1"></i>July 22, 2025
+                                            </small>
+                                            <small class="text-muted">
+                                                <i class="fas fa-clock me-1"></i>15 min read
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="card border-0 shadow-sm blog-card h-100">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="fas fa-brain text-warning me-2"></i>
+                                        <span class="badge bg-warning text-dark">Research</span>
+                                    </div>
+                                    <h5 class="card-title">The Psychology of Social Engineering</h5>
+                                    <p class="card-text text-muted">
+                                        Understanding human factors in cybersecurity and how attackers exploit 
+                                        psychological vulnerabilities in modern attack campaigns.
+                                    </p>
+                                    <div class="mt-auto">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">
+                                                <i class="fas fa-calendar-alt me-1"></i>July 20, 2025
+                                            </small>
+                                            <small class="text-muted">
+                                                <i class="fas fa-clock me-1"></i>18 min read
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+                            <div class="card border-0 shadow-sm blog-card h-100">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <i class="fas fa-shield-alt text-primary me-2"></i>
+                                        <span class="badge bg-primary">SOC Operations</span>
+                                    </div>
+                                    <h5 class="card-title">SIEM Rule Development Best Practices</h5>
+                                    <p class="card-text text-muted">
+                                        Creating effective detection rules for SIEM platforms, reducing false positives, 
+                                        and improving threat detection accuracy.
+                                    </p>
+                                    <div class="mt-auto">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">
+                                                <i class="fas fa-calendar-alt me-1"></i>July 18, 2025
+                                            </small>
+                                            <small class="text-muted">
+                                                <i class="fas fa-clock me-1"></i>14 min read
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Load More Button -->
+                    <div class="text-center mt-4">
+                        <button class="btn btn-outline-primary btn-lg" id="load-more-btn" style="display: none;">
+                            <i class="fas fa-plus me-2"></i>Load More Articles
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <!-- About Author -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body text-center">
+                            <img src="../assets/img/profile.jpg" alt="Yusuf Talha ARABACI" class="rounded-circle mb-3" width="120" height="120">
+                            <h5 class="card-title">Yusuf Talha ARABACI</h5>
+                            <p class="card-text text-muted">
+                                Security Engineer specializing in SOC Operations, Threat Hunting, and Malware Analysis. 
+                                Currently working at Garanti BBVA Technology, passionate about cybersecurity research.
+                            </p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="https://medium.com/@yusufarbc" class="btn btn-sm btn-outline-primary">
+                                    <i class="fab fa-medium"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/yusufarbc" class="btn btn-sm btn-outline-primary">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://github.com/yusufarbc" class="btn btn-sm btn-outline-primary">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="fas fa-tags me-2"></i>Categories
+                            </h5>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-outline-primary btn-sm text-start category-badge active" data-category="all">
+                                    <i class="fas fa-list me-2"></i>All Posts <span class="badge bg-primary ms-auto">25+</span>
+                                </button>
+                                <button class="btn btn-outline-danger btn-sm text-start category-badge" data-category="malware">
+                                    <i class="fas fa-shield-virus me-2"></i>Malware Analysis <span class="badge bg-danger ms-auto">8</span>
+                                </button>
+                                <button class="btn btn-outline-info btn-sm text-start category-badge" data-category="threat-hunting">
+                                    <i class="fas fa-search me-2"></i>Threat Hunting <span class="badge bg-info ms-auto">6</span>
+                                </button>
+                                <button class="btn btn-outline-success btn-sm text-start category-badge" data-category="programming">
+                                    <i class="fas fa-code me-2"></i>Programming <span class="badge bg-success ms-auto">5</span>
+                                </button>
+                                <button class="btn btn-outline-warning btn-sm text-start category-badge" data-category="research">
+                                    <i class="fas fa-brain me-2"></i>Research <span class="badge bg-warning ms-auto">4</span>
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm text-start category-badge" data-category="soc">
+                                    <i class="fas fa-shield-alt me-2"></i>SOC Operations <span class="badge bg-secondary ms-auto">7</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Comments -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="fas fa-comments me-2"></i>Recent Activity
+                            </h5>
+                            <div class="recent-activity">
+                                <div class="activity-item mb-3 pb-3 border-bottom">
+                                    <div class="d-flex">
+                                        <div class="activity-icon me-3">
+                                            <i class="fas fa-heart text-danger"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <small class="text-muted">New like on</small>
+                                            <h6 class="mb-1">SOC Evolution 2024</h6>
+                                            <small class="text-muted">2 hours ago</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="activity-item mb-3 pb-3 border-bottom">
+                                    <div class="d-flex">
+                                        <div class="activity-icon me-3">
+                                            <i class="fas fa-share text-info"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <small class="text-muted">Shared on LinkedIn</small>
+                                            <h6 class="mb-1">APT Detection Strategies</h6>
+                                            <small class="text-muted">1 day ago</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="d-flex">
+                                        <div class="activity-icon me-3">
+                                            <i class="fas fa-comment text-success"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <small class="text-muted">New comment on</small>
+                                            <h6 class="mb-1">Python Automation</h6>
+                                            <small class="text-muted">3 days ago</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="card border-0 shadow-sm bg-primary text-white">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="fas fa-envelope me-2"></i>Newsletter
+                            </h5>
+                            <p class="card-text">
+                                Get weekly cybersecurity insights and the latest research findings delivered to your inbox.
+                            </p>
+                            <form class="newsletter-form">
+                                <div class="input-group mb-3">
+                                    <input type="email" class="form-control" placeholder="Your email address" required>
+                                    <button class="btn btn-light" type="submit">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </form>
+                            <small class="opacity-75">
+                                <i class="fas fa-shield-alt me-1"></i>
+                                No spam, unsubscribe anytime.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="fas fa-shield-alt text-primary me-2"></i>
+                        Yusuf Talha ARABACI
+                    </h5>
+                    <p class="text-muted">
+                        Security Engineer passionate about sharing cybersecurity knowledge and research. 
+                        Specializing in SOC operations, threat hunting, and malware analysis.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://medium.com/@yusufarbc" class="text-light me-3">
+                            <i class="fab fa-medium fa-lg"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/yusufarbc" class="text-light me-3">
+                            <i class="fab fa-linkedin fa-lg"></i>
+                        </a>
+                        <a href="https://github.com/yusufarbc" class="text-light me-3">
+                            <i class="fab fa-github fa-lg"></i>
+                        </a>
+                        <a href="mailto:yusufarbc@yandex.com" class="text-light">
+                            <i class="fas fa-envelope fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold mb-3">Navigation</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="../index.html" class="text-muted text-decoration-none">Home</a></li>
+                        <li><a href="index.html" class="text-muted text-decoration-none">Blog</a></li>
+                        <li><a href="../index.html#about" class="text-muted text-decoration-none">About</a></li>
+                        <li><a href="../index.html#experience" class="text-muted text-decoration-none">Experience</a></li>
+                        <li><a href="mailto:yusufarbc@yandex.com" class="text-muted text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6 class="fw-bold mb-3">Categories</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">SOC Operations</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Malware Analysis</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Threat Hunting</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Programming</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Research</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6 class="fw-bold mb-3">Latest Posts</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="soc-evolution-2024.html" class="text-muted text-decoration-none small">
+                                SOC Operations Evolution 2024
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="apt-detection-strategies.html" class="text-muted text-decoration-none small">
+                                APT Detection Strategies
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-muted text-decoration-none small">
+                                Behavioral Analytics Guide
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" class="text-muted text-decoration-none small">
+                                Python Security Automation
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-muted">
+                        © 2024 Yusuf Talha ARABACI. All rights reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        <i class="fas fa-quote-left me-1"></i>
+                        <em>"Defending the digital frontier, one threat at a time"</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Blog JS -->
+    <script src="../js/blog-directory.js"></script>
+</body>
+</html>
