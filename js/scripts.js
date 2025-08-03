@@ -210,35 +210,6 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Enhanced Dark Mode Toggle
-function initializeTheme() {
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-    const html = document.documentElement;
-    
-    // Check for saved theme preference or default to 'light'
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    html.setAttribute('data-bs-theme', savedTheme);
-    updateThemeIcon(savedTheme, themeIcon);
-    
-    if (themeToggle) {
-        themeToggle.addEventListener('click', function() {
-            const currentTheme = html.getAttribute('data-bs-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            html.setAttribute('data-bs-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme, themeIcon);
-        });
-    }
-}
-
-function updateThemeIcon(theme, iconElement) {
-    if (iconElement) {
-        iconElement.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-    }
-}
-
 // Scroll Progress Indicator
 function createScrollProgress() {
     const progressBar = document.createElement('div');
@@ -341,7 +312,6 @@ function showToast(message, type = 'info') {
 
 // Initialize all features when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    initializeTheme();
     createScrollProgress();
     enhanceAnimations();
     createTypingEffect();
@@ -354,13 +324,4 @@ document.addEventListener('DOMContentLoaded', function() {
             section.classList.add('fade-in');
         }, index * 100);
     });
-});
-
-// Load dark mode preference (legacy support)
-document.addEventListener('DOMContentLoaded', function() {
-    const darkMode = localStorage.getItem('darkMode') === 'true';
-    if (darkMode && !localStorage.getItem('theme')) {
-        document.documentElement.setAttribute('data-bs-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-    }
 });
