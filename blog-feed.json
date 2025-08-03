@@ -1,0 +1,45 @@
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": "Yusuf Talha ARABACI - Cybersecurity Blog",
+  "home_page_url": "https://yusufarbc.github.io/yusufarbc/",
+  "feed_url": "https://yusufarbc.github.io/yusufarbc/blog-feed.json",
+  "description": "Latest cybersecurity articles, threat analysis, and security research by Yusuf Talha ARABACI",
+  "author": {
+    "name": "Yusuf Talha ARABACI",
+    "url": "https://medium.com/@yusufarbc"
+  },
+  "items": [
+    {
+      "id": "1",
+      "title": "Advanced Threat Hunting with YARA Rules",
+      "url": "https://medium.com/@yusufarbc/advanced-threat-hunting-yara",
+      "content_text": "Comprehensive guide to creating effective YARA rules for threat hunting and malware detection.",
+      "date_published": "2024-12-15T00:00:00Z",
+      "tags": ["YARA", "Threat Hunting", "Malware Analysis"]
+    },
+    {
+      "id": "2", 
+      "title": "Building a SOC from Scratch: Best Practices",
+      "url": "https://medium.com/@yusufarbc/building-soc-best-practices",
+      "content_text": "Essential steps and best practices for establishing an effective Security Operations Center.",
+      "date_published": "2024-11-28T00:00:00Z",
+      "tags": ["SOC", "Cybersecurity", "Best Practices"]
+    },
+    {
+      "id": "3",
+      "title": "Malware Analysis: From Static to Dynamic",
+      "url": "https://medium.com/@yusufarbc/malware-analysis-guide", 
+      "content_text": "Complete walkthrough of malware analysis techniques, from static analysis to dynamic sandboxing.",
+      "date_published": "2024-11-10T00:00:00Z",
+      "tags": ["Malware Analysis", "Reverse Engineering", "Security Research"]
+    },
+    {
+      "id": "4",
+      "title": "PowerShell for Incident Response",
+      "url": "https://medium.com/@yusufarbc/powershell-incident-response",
+      "content_text": "Practical PowerShell scripts and techniques for effective incident response and forensics.",
+      "date_published": "2024-10-25T00:00:00Z", 
+      "tags": ["PowerShell", "Incident Response", "Forensics"]
+    }
+  ]
+}
