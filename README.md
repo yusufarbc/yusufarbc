@@ -147,26 +147,6 @@ I'm a passionate **Security Engineer** specializing in cybersecurity operations,
 
 </details>
 
-## 📚 Blog & Knowledge Sharing
-
-I regularly share insights on cybersecurity, SOC operations, and threat analysis. Check out my latest articles:
-
-### 📝 **Recent Blog Posts**
-- 🔍 [**SOC Evolution in 2024**](./blog/soc-evolution-2024.md) - *Modern security operations trends*
-- 🌐 [**DNS Security & Analysis**](./blog/dns-security-analysis.md) - *DNS protocol vulnerabilities and protection*
-- 🛡️ [**Network Security Fundamentals**](./blog/network-security-basics.md) - *Essential network protection strategies*
-- 📊 [**ELK Stack for SOC**](./blog/elk-stack-soc-setup.md) - *Building SIEM with Elasticsearch, Logstash, Kibana*
-- 💻 [**Windows System Administration**](./blog/windows-system-management.md) - *Professional Windows management guide*
-
-### 🎯 **Writing Focus Areas**
-- 🔍 **SOC Operations** - Best practices and methodologies
-- 🦠 **Malware Analysis** - Reverse engineering techniques
-- 🛡️ **Threat Hunting** - Proactive security approaches
-- 📊 **SIEM Engineering** - Detection rule development
-- 🌐 **Cyber Threat Intelligence** - Threat landscape analysis
-
-➡️ **[View All Blog Posts](./blog/README.md)**
-
 ## 📊 GitHub Statistics
 
 <div align="center">
