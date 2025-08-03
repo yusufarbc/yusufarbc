@@ -26,8 +26,8 @@ Currently working as a **SOC Analyst** at **Garanti BBVA Technology**
 
 ## 🛠️ Technologies
 
-**🔍 SIEM Platforms** → Splunk, QRadar, Elastic Security, Wazuh
-**🖥️ EDR/XDR Solutions** → CrowdStrike, Carbon Black, SentinelOne, Cortex XDR, Microsoft Defender XDR 
+**🔍 SIEM Platforms** → Splunk, QRadar, Elastic Security, Wazuh  
+**🖥️ EDR/XDR Solutions** → CrowdStrike, Carbon Black, SentinelOne, Cortex XDR, Microsoft Defender XDR  
 **🌐 Network Security** → Palo Alto Networks, Cisco, Fortinet, Wireshark  
 **🦠 Malware Analysis** → Flare VM, Kali Linux, YARA Rules  
 **💻 Programming & Scripting** → Python, PowerShell, Bash, C, Assembly
