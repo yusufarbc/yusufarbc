@@ -17,10 +17,10 @@ Currently working as a **SOC Analyst** at **Garanti BBVA Technology**
 
 ## 🛡️ Abilities
 
-**💻 Programming & Scripting** → Python, PowerShell, Bash, C, Assembly
 **🔎 Threat Hunting** → Advanced detection, behavioral analysis, MITRE ATT&CK mapping  
 **🦠 Malware Analysis** → Static/dynamic analysis, reverse engineering, sandboxing  
 **🚨 Incident Response** → SOC operations, alert triage, forensic investigation  
 **📊 Security Monitoring** → Log analysis, anomaly detection, IOC analysis  
 **⚔️ Penetration Testing** → Vulnerability assessment, security testing  
 **🔧 Security Infrastructure** → Installation, configuration, and management of security products
+**💻 Programming & Scripting** → Python, PowerShell, Bash, C, Assembly
