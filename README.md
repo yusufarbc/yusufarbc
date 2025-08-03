@@ -14,11 +14,19 @@ Security Engineer specializing in cybersecurity operations and threat analysis. 
 
 **Education**: Computer Engineering, Bursa Technical University (2024)
 
-## Skills
+## Abilities
 
-**Security**: Splunk, QRadar, Elastic Security, CrowdStrike, MITRE ATT&CK, YARA  
-**Programming**: Python, PowerShell, Bash, C, Assembly  
-**Analysis**: Wireshark, Kali Linux, Malware Analysis, Threat Hunting
+**Threat Hunting**: Advanced threat detection, behavioral analysis, MITRE ATT&CK mapping  
+**Malware Analysis**: Static/dynamic analysis, reverse engineering, sandboxing techniques  
+**Incident Response**: SOC operations, alert triage, forensic investigation  
+**Security Monitoring**: Log analysis, anomaly detection, IOC analysis  
+**Penetration Testing**: Vulnerability assessment, security testing
+
+## Technologies
+
+**Security Platforms**: Splunk, QRadar, Elastic Security, CrowdStrike  
+**Analysis Tools**: YARA Rules, Wireshark, tcpdump, Kali Linux  
+**Programming**: Python, PowerShell, Bash, C, Assembly
 
 ## Projects
 
