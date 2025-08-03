@@ -38,11 +38,14 @@ Currently working as a **SOC Analyst** at **Garanti BBVA Technology**
 
 ## 📈 GitHub Analytics
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=yusufarbc&show_icons=true&theme=dark&hide_border=true&count_private=true&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9)
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=yusufarbc&show_icons=true&theme=dark&hide_border=true&count_private=true&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9"/>
+<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=yusufarbc&layout=compact&theme=dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9"/>
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=yusufarbc&layout=compact&theme=dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9)
+<br/>
 
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=yusufarbc&theme=dark&hide_border=true&background=0d1117&ring=58a6ff&fire=58a6ff&currStreakLabel=58a6ff)
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=yusufarbc&theme=dark&hide_border=true&background=0d1117&ring=58a6ff&fire=58a6ff&currStreakLabel=58a6ff"/>
+
+<br/><br/>
 
 **💬 Let's connect and discuss cybersecurity!**
 
