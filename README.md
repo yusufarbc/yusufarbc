@@ -2,9 +2,9 @@
 
 <div align="center">
   
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yusufarbc/)
-[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=flat&logo=web&logoColor=white)](https://yusufarbc.github.io/yusufarbc/)
-[![Medium](https://img.shields.io/badge/Medium-12100E?style=flat&logo=medium&logoColor=white)](https://medium.com/@yusufarbc)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yusufarbc/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=web&logoColor=white)](https://yusufarbc.github.io/yusufarbc/)
+[![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@yusufarbc)
 
 </div>
 
@@ -15,19 +15,22 @@ Currently working as a **SOC Analyst** at **Garanti BBVA Technology**
 
 🎓 **Computer Engineering** - Bursa Technical University (2024)
 
-## 🛡️ Core Abilities
+## 🛡️ Abilities
 
 **🔎 Threat Hunting** → Advanced detection, behavioral analysis, MITRE ATT&CK mapping  
 **🦠 Malware Analysis** → Static/dynamic analysis, reverse engineering, sandboxing  
 **🚨 Incident Response** → SOC operations, alert triage, forensic investigation  
-**📊 Security Monitoring** → Log analysis, anomaly detection, Vulnerability assessment
+**📊 Security Monitoring** → Log analysis, anomaly detection, IOC analysis  
+**⚔️ Penetration Testing** → Vulnerability assessment, security testing  
 **🔧 Security Infrastructure** → Installation, configuration, and management of security products
 
 ## 🛠️ Technologies
 
-**🔐 Security Platforms** → Splunk, QRadar, Elastic Security, CrowdStrike, Microsoft Defender and PAN Cortex Series
-**🔬 Analysis Tools** → YARA Rules, Wireshark, tcpdump, Kali Linux  
-**💻 Programming** → Python, PowerShell, Bash, C, Assembly
+**🔍 SIEM Platforms** → Splunk, QRadar, Elastic Security, Wazuh
+**🖥️ EDR/XDR Solutions** → CrowdStrike, Carbon Black, SentinelOne, Cortex XDR, Microsoft Defender XDR 
+**🌐 Network Security** → Palo Alto Networks, Cisco, Fortinet, Wireshark  
+**🦠 Malware Analysis** → Flare VM, Kali Linux, YARA Rules  
+**💻 Programming & Scripting** → Python, PowerShell, Bash, C, Assembly
 
 
 <div align="center">
