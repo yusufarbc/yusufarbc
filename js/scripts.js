@@ -9,6 +9,9 @@
 
 // Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', function() {
+    // Check if Bootstrap is loaded
+    console.log('Bootstrap loaded:', typeof bootstrap !== 'undefined');
+    
     // Smooth scrolling for anchor links
     const links = document.querySelectorAll('a[href^="#"]');
     
@@ -102,11 +105,32 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(typeWriter, 1000);
     }
 
-    // Initialize tooltips
-    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl);
-    });
+    // Initialize tooltips - Check if Bootstrap is loaded
+    if (typeof bootstrap !== 'undefined') {
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    } else {
+        console.warn('Bootstrap JavaScript is not loaded properly');
+    }
+
+    // Manual navbar toggle test
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    
+    if (navbarToggler && navbarCollapse) {
+        navbarToggler.addEventListener('click', function() {
+            console.log('Navbar toggle clicked');
+            if (typeof bootstrap !== 'undefined') {
+                console.log('Bootstrap is available');
+            } else {
+                console.log('Bootstrap is NOT available');
+                // Manual toggle for fallback
+                navbarCollapse.classList.toggle('show');
+            }
+        });
+    }
 
     // Form validation and submission
     const contactForm = document.getElementById('contactForm');
