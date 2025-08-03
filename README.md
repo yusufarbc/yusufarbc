@@ -24,11 +24,3 @@ Currently working as a **SOC Analyst** at **Garanti BBVA Technology**
 **📊 Security Monitoring** → Log analysis, anomaly detection, IOC analysis  
 **⚔️ Penetration Testing** → Vulnerability assessment, security testing  
 **🔧 Security Infrastructure** → Installation, configuration, and management of security products
-
----
-
-<div align="center">
-
-**💬 Let's connect and discuss cybersecurity!**
-
-</div>
