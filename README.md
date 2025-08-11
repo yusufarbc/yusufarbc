@@ -10,10 +10,37 @@
 
 ## 🔍 About Me
 
-**Security Engineer** specializing in cybersecurity operations and threat analysis  
-Currently working as a **SOC Analyst** at **Garanti BBVA Technology**
+<div align="center">
+  
+**🛡️ Cybersecurity Professional | 🔍 SOC Analyst | 🧬 Malware Researcher**
 
-🎓 **Computer Engineering** - Bursa Technical University (2024)
+*"To learn to defend, you need to know how to attack"*
+
+</div>
+
+---
+
+### 👨‍💻 Who I Am
+
+🚀 **Passionate Security Engineer** specializing in **SOC operations**, **threat analysis**, and **malware research**. I develop expertise in language-independent software concepts, conduct cutting-edge research in Cybersecurity, and continuously self-learn emerging security technologies.
+
+💼 Currently working as a **SOC Analyst** at **Garanti BBVA Technology**, where I focus on:
+- 🔍 Advanced threat hunting and behavioral analysis
+- 🚨 Real-time incident response and alert triage  
+- 🛡️ Development of detection scenarios against emerging threats
+- 🤝 Collaboration with L2-L3 Incident Response teams
+
+### 🎯 My Mission
+
+💻 Currently working on **cyber threats research** and focusing on **system-level languages** like Assembly and C, understanding that low-level programming is fundamental to all information systems. After all, we work with **1s and 0s**.
+
+🔬 I bridge the gap between **reactive threat detection** and **proactive infrastructure design**, combining operational defense skills with engineering principles to build and protect resilient systems.
+
+### 🎓 Education & Background
+
+**🎓 Computer Engineering** - Bursa Technical University (2019-2024)  
+📊 **GPA:** 3.4/4.0 | 🌍 **English Level:** B2  
+🛡️ **Specialization:** Cyber Security Operations
 
 ## 🛡️ Abilities
 
