@@ -22,7 +22,7 @@
 
 ### 👨‍💻 Who I Am
 
-🚀 **Network Security Engineer** specializing in **SOC operations**, **threat analysis**, and **malware research**. I develop expertise in language-independent software concepts, conduct cutting-edge research in Cybersecurity, and continuously self-learn emerging security technologies.
+🚀 **Network Security Engineer** specializing in **cyber defense**, **threat analysis**, and **malware research**. I develop expertise in language-independent software concepts, conduct cutting-edge research in Cybersecurity, and continuously self-learn emerging security technologies.
 
 💼 Currently working as a **SOC Analyst** at **Garanti BBVA Technology**
 
