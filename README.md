@@ -2,7 +2,21 @@
   
 # 👋 Hello, I'm Yusuf
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00D9FF&center=true&vCenter=true&width=435&lines=Cybersecurity+Professional;SOC+Analyst;Malware+Researcher;Threat+Hunter" alt="Typing SVG" />
+<img### 🔍 Threat Intelligence & Hunting
+```
+🎯 Advanced Threat Detection    🧠 ### 🎓 Education
+- **🎓 Computer Engineering** - Bursa Technical University (2019-2024)
+- **📊 GPA:** 3.4/4.0
+- **🌍 English Level:** B2
+- **🛡️ Specialization:** Cyber Security Operationsioral Analysis        🗺️ MITRE ATT&CK Mapping
+🔍 IOC Analysis               📊 Log Correlation           🚨 Anomaly Detection
+```
+
+### 🦠 Malware Analysis & Research
+```
+🔬 Static Analysis            🏃 Dynamic Analysis          🔄 Reverse Engineering
+🏖️ Sandboxing                💉 Payload Analysis          🔧 Tool Development
+```://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=00D9FF&center=true&vCenter=true&width=435&lines=Cybersecurity+Professional;SOC+Analyst;Malware+Researcher;Threat+Hunter" alt="Typing SVG" />
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yusufarbc/)
 [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=web&logoColor=white)](https://yusufarbc.github.io/yusufarbc/)
