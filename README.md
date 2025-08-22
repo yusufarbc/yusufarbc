@@ -14,7 +14,7 @@
 
 ## 🚀 About Me
 
-🛡️ **SOC Analyst** at Garanti BBVA Technology  
+🛡️ **Network Security Engineer** at Garanti BBVA Technology  
 🔍 **Cybersecurity Researcher** specializing in language-independent software concepts  
 🧠 **Cyber Intelligence Enthusiast** passionate about threat analysis and research  
 🎓 **Computer Engineering Graduate** from Bursa Technical University  
