@@ -14,9 +14,11 @@
 
 ## 🚀 About Me
 
-🛡️ **SOC Analyst** at Garanti BBVA Technology  
-🔍 **Cybersecurity Professional** passionate about threat hunting and malware analysis  
+🛡️ **Network Security Engineer** at Garanti BBVA Technology  
+🔍 **Cybersecurity Researcher** specializing in language-independent software concepts  
+🧠 **Cyber Intelligence Enthusiast** passionate about threat analysis and research  
 🎓 **Computer Engineering Graduate** from Bursa Technical University  
+📚 **Self-learner** who applies cutting-edge cybersecurity knowledge in practice
 
 > *"To learn to defend, you need to know how to attack"*
 
