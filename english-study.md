@@ -1,3 +1,49 @@
+Tabii Yusuf 👍. Senin bana bugüne kadar ilettiğin tüm **film ve dizi** isimlerini tek bir yerde topladım. Böylece tam listeyi net görebilirsin:  
+
+---
+
+## 🎬 Filmler
+- **Intouchables (2011)**  
+- **Up in the Air (2009)**  
+- **The Intern (2015)**  
+- **Forrest Gump (1994)**  
+- **The Pursuit of Happyness (2006)**  
+- **Finding Nemo (2003)**  
+- **The Social Network (2010)**  
+- **The Devil Wears Prada (2006)**  
+- **Toy Story (1995)**  
+- **Julie & Julia (2009)**  
+- **Notting Hill (1999)**  
+- **Home Alone (1990)**  
+- **Paddington (2014)**  
+- **The Secret Life of Pets (2016)**  
+- **Snowden (2016)**  
+- **Citizenfour (2014)**  
+- **WarGames (1983)**  
+- **Blackhat (2015)**  
+- **Harry Potter Serisi (2001–2011)**  
+
+---
+
+## 📺 Diziler
+- **Friends (1994–2004)**  
+- **Mr. Robot (2015–2019)**  
+- **Silicon Valley (2014–2019)**  
+- **Black Mirror (2011–)**  
+
+---
+
+## 🎥 Belgeseller
+- **The Great Hack (2019)**  
+- **Zero Days (2016)**  
+- **The Social Dilemma (2020)**  
+
+---
+
+👉 Bu liste senin bana attığın tüm yapımları kapsıyor. İstersen ben bunları **platformlara göre gruplayarak** (Netflix, Prime Video, HBO, Apple TV vs.) tablo halinde de çıkarabilirim. Böylece hangi filmi nerede bulabileceğini tek bakışta görürsün.  
+
+Bunu ister misin?
+
 ## 🎬 Filmler ve Diziler – Yayınlandıkları Platformlar
 
 | Yapım | Tür | Yayınlandığı Platformlar |
