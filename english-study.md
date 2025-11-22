@@ -1,32 +1,32 @@
+## 🎬 Filmler ve Diziler – Yayınlandıkları Platformlar
 
-## 🎬 YouTube İçerikleri
-
-| Yapım | YouTube’da Bulunabilen İçerikler |
-|-------|----------------------------------|
-| **Mr. Robot** | USA Network & resmi kanal: fragmanlar, sahne kesitleri, kamera arkası videolar |
-| **Silicon Valley** | HBO resmi kanal: fragmanlar, röportajlar, kısa sahneler |
-| **Black Mirror** | Netflix resmi kanal: fragmanlar, bölüm tanıtımları, özel sahne kesitleri |
-| **The Great Hack** | Netflix resmi kanal: resmi fragman, belgesel tanıtımı |
-| **Zero Days** | Fragman ve röportajlar (resmi belgesel tanıtımı) |
-| **Snowden (2016)** | Resmi fragman, röportajlar, basın tanıtımları |
-| **Citizenfour (2014)** | Fragman, festival tanıtımları, röportajlar |
-| **WarGames (1983)** | Resmi fragman, sahne kesitleri, nostaljik inceleme videoları |
-| **The Social Dilemma (2020)** | Netflix resmi kanal: fragman, kısa sahneler |
-| **Blackhat (2015)** | Resmi fragman, sahne kesitleri |
-| **Intouchables (2011)** | Resmi fragman, sahne kesitleri, röportajlar |
-| **Up in the Air (2009)** | Resmi fragman, röportajlar |
-| **The Intern (2015)** | Resmi fragman, sahne kesitleri |
-| **Friends (1994–2004)** | Resmi Warner Bros kanalında sahne kesitleri, “best moments” derlemeleri |
-| **Notting Hill (1999)** | Resmi fragman, sahne kesitleri |
-| **The Devil Wears Prada (2006)** | Resmi fragman, sahne kesitleri, röportajlar |
-| **Harry Potter Serisi (2001–2011)** | Warner Bros resmi kanal: fragmanlar, sahne kesitleri, kamera arkası içerikler |
+| Yapım | Tür | Yayınlandığı Platformlar |
+|-------|-----|--------------------------|
+| **Mr. Robot (2015–2019)** | Dizi | Netflix (2025 itibarıyla tüm sezonlar), Amazon Prime Video |
+| **Silicon Valley (2014–2019)** | Dizi | HBO Max (Türkiye’de TOD / BluTV üzerinden) |
+| **Black Mirror (2011–)** | Dizi | Netflix |
+| **The Great Hack (2019)** | Belgesel | Netflix |
+| **Zero Days (2016)** | Belgesel | Amazon Prime Video, Apple TV (kiralama) |
+| **Snowden (2016)** | Film | Amazon Prime Video, Apple TV, Google Play Movies |
+| **Citizenfour (2014)** | Belgesel | Amazon Prime Video, Apple TV (kiralama) |
+| **WarGames (1983)** | Film | Amazon Prime Video, Apple TV, Google Play Movies (kiralama) |
+| **The Social Dilemma (2020)** | Belgesel | Netflix |
+| **Blackhat (2015)** | Film | Amazon Prime Video, Apple TV |
+| **Intouchables (2011)** | Film | Amazon Prime Video, Apple TV, bazı bölgelerde Netflix |
+| **Up in the Air (2009)** | Film | Amazon Prime Video, Apple TV, Google Play Movies |
+| **The Intern (2015)** | Film | Netflix (Türkiye’de mevcut), Amazon Prime Video, Apple TV |
+| **Friends (1994–2004)** | Dizi | HBO Max (Türkiye’de TOD / BluTV), Amazon Prime Video |
+| **Notting Hill (1999)** | Film | Amazon Prime Video, Apple TV, bazı bölgelerde Netflix |
+| **The Devil Wears Prada (2006)** | Film | Amazon Prime Video, Apple TV, Disney+ (bazı bölgelerde) |
+| **Harry Potter Serisi (2001–2011)** | Film Serisi | HBO Max (Türkiye’de TOD / BluTV), Amazon Prime Video, Apple TV |
 
 ---
 
-## 📌 Özet
-- **Resmi fragmanlar ve sahne kesitleri** YouTube’da neredeyse hepsi için mevcut.  
-- **Tam bölümler / filmler** YouTube’da yasal olarak bulunmaz, sadece kiralama/satın alma seçeneği olabilir.  
-- Özellikle **Mr. Robot, Friends, Harry Potter** gibi yapımların resmi kanalları sahne kesitleri ve “best of” derlemeleri yayınlıyor.  
+## 📌 Notlar
+- **Netflix**: Black Mirror, The Great Hack, The Social Dilemma, Mr. Robot (2025 itibarıyla), The Intern.  
+- **Amazon Prime Video**: Çoğu film ve belgesel (Snowden, Citizenfour, Blackhat, Intouchables, Up in the Air, WarGames).  
+- **HBO içerikleri**: *Silicon Valley* ve *Friends* Türkiye’de genellikle **TOD** veya **BluTV** üzerinden erişilebilir.  
+- **Apple TV / Google Play Movies**: Kiralama veya satın alma seçenekleriyle hemen hemen tüm filmler mevcut.  
 
 
 
