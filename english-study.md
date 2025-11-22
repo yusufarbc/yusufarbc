@@ -1,4 +1,35 @@
 
+## 🎬 YouTube İçerikleri
+
+| Yapım | YouTube’da Bulunabilen İçerikler |
+|-------|----------------------------------|
+| **Mr. Robot** | USA Network & resmi kanal: fragmanlar, sahne kesitleri, kamera arkası videolar |
+| **Silicon Valley** | HBO resmi kanal: fragmanlar, röportajlar, kısa sahneler |
+| **Black Mirror** | Netflix resmi kanal: fragmanlar, bölüm tanıtımları, özel sahne kesitleri |
+| **The Great Hack** | Netflix resmi kanal: resmi fragman, belgesel tanıtımı |
+| **Zero Days** | Fragman ve röportajlar (resmi belgesel tanıtımı) |
+| **Snowden (2016)** | Resmi fragman, röportajlar, basın tanıtımları |
+| **Citizenfour (2014)** | Fragman, festival tanıtımları, röportajlar |
+| **WarGames (1983)** | Resmi fragman, sahne kesitleri, nostaljik inceleme videoları |
+| **The Social Dilemma (2020)** | Netflix resmi kanal: fragman, kısa sahneler |
+| **Blackhat (2015)** | Resmi fragman, sahne kesitleri |
+| **Intouchables (2011)** | Resmi fragman, sahne kesitleri, röportajlar |
+| **Up in the Air (2009)** | Resmi fragman, röportajlar |
+| **The Intern (2015)** | Resmi fragman, sahne kesitleri |
+| **Friends (1994–2004)** | Resmi Warner Bros kanalında sahne kesitleri, “best moments” derlemeleri |
+| **Notting Hill (1999)** | Resmi fragman, sahne kesitleri |
+| **The Devil Wears Prada (2006)** | Resmi fragman, sahne kesitleri, röportajlar |
+| **Harry Potter Serisi (2001–2011)** | Warner Bros resmi kanal: fragmanlar, sahne kesitleri, kamera arkası içerikler |
+
+---
+
+## 📌 Özet
+- **Resmi fragmanlar ve sahne kesitleri** YouTube’da neredeyse hepsi için mevcut.  
+- **Tam bölümler / filmler** YouTube’da yasal olarak bulunmaz, sadece kiralama/satın alma seçeneği olabilir.  
+- Özellikle **Mr. Robot, Friends, Harry Potter** gibi yapımların resmi kanalları sahne kesitleri ve “best of” derlemeleri yayınlıyor.  
+
+
+
 # 🛡️ THE ULTIMATE CYBER SECURITY ENGLISH ARCHIVE (MASTER LIST)
 *(2025 Güncel | B2 Hedefli | Mülakat Odaklı)*
 
