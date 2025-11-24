@@ -117,6 +117,17 @@
                 <h2 class="text-4xl md:text-6xl font-bold text-slate mb-6">
                     <span id="typewriter-text" class="typewriter"></span>
                 </h2>
+
+                <div class="flex flex-wrap gap-3 mb-8 max-w-3xl">
+                    <span class="px-3 py-1 border border-green/30 rounded-full text-green font-mono text-sm bg-green/5 hover:bg-green/10 transition-colors cursor-default">Digital Sovereignty</span>
+                    <span class="px-3 py-1 border border-green/30 rounded-full text-green font-mono text-sm bg-green/5 hover:bg-green/10 transition-colors cursor-default">Cloud-Native Security</span>
+                    <span class="px-3 py-1 border border-green/30 rounded-full text-green font-mono text-sm bg-green/5 hover:bg-green/10 transition-colors cursor-default">Open Source</span>
+                    <span class="px-3 py-1 border border-green/30 rounded-full text-green font-mono text-sm bg-green/5 hover:bg-green/10 transition-colors cursor-default">Data Privacy</span>
+                    <span class="px-3 py-1 border border-green/30 rounded-full text-green font-mono text-sm bg-green/5 hover:bg-green/10 transition-colors cursor-default">Next-Gen SOC</span>
+                    <span class="px-3 py-1 border border-green/30 rounded-full text-green font-mono text-sm bg-green/5 hover:bg-green/10 transition-colors cursor-default">Endpoint Protection</span>
+                    <span class="px-3 py-1 border border-green/30 rounded-full text-green font-mono text-sm bg-green/5 hover:bg-green/10 transition-colors cursor-default">Network Defense</span>
+                </div>
+
                 <p class="max-w-xl text-lg mb-8 leading-relaxed">
                     I'm a security engineer specializing in <span class="text-green">Digital Sovereignty</span>, <span class="text-green">Cloud-Native Security</span>, and building next-generation SOC architectures. Currently focused on open-source enterprise solutions.
                 </p>
@@ -133,7 +144,7 @@
 
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="#research" class="px-8 py-4 border-2 border-green text-green font-mono rounded hover:bg-green/10 transition-colors text-center">
-                        Check My Thesis
+                        Current Research
                     </a>
                     <a href="mailto:yusuftalhaarabaci@hotmail.com" class="px-8 py-4 bg-green text-navy font-mono font-bold rounded hover:bg-green/90 transition-colors text-center">
                         Contact Me
@@ -189,7 +200,7 @@
                 </div>
                 
                 <div class="relative z-10">
-                    <p class="font-mono text-green mb-2">Master's Thesis</p>
+                    <p class="font-mono text-green mb-2">Upcoming Master's Thesis (Planning Phase)</p>
                     <h3 class="text-2xl md:text-3xl font-bold text-white mb-6">Ubuntu-Based Open Source Enterprise Architecture</h3>
                     
                     <div class="bg-navy p-6 rounded-lg mb-8 shadow-inner border border-lightestNavy">
@@ -210,10 +221,6 @@
                         <span class="bg-lightestNavy px-3 py-1 rounded-full">OpenTofu</span>
                         <span class="bg-lightestNavy px-3 py-1 rounded-full">Zimbra</span>
                     </div>
-
-                    <a href="#" class="inline-flex items-center text-green hover:underline font-mono">
-                        Read Abstract <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
                 </div>
             </div>
         </div>
@@ -270,51 +277,114 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Technical Arsenal Section -->
     <section id="skills" class="py-24 bg-lightNavy/30 reveal">
-        <div class="container mx-auto px-6 max-w-5xl">
+        <div class="container mx-auto px-6 max-w-6xl">
             <div class="flex items-center mb-12">
                 <span class="font-mono text-2xl text-green mr-4">04.</span>
-                <h2 class="text-3xl font-bold text-white whitespace-nowrap">Technical Arsenal</h2>
+                <h2 class="text-3xl font-bold text-white whitespace-nowrap">Technical Arsenal & Architecture</h2>
                 <div class="h-px bg-lightestNavy w-full ml-6"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <!-- Cloud Native -->
-                <div class="glass-card p-6 rounded-lg hover-lift">
-                    <div class="text-green mb-4"><i class="fas fa-cloud fa-2x"></i></div>
-                    <h3 class="text-white font-bold mb-4">Cloud-Native</h3>
-                    <ul class="font-mono text-sm space-y-2">
-                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> Kubernetes</li>
-                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> Docker</li>
-                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> OpenTofu</li>
-                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> Ansible</li>
-                    </ul>
+                <!-- Column 1: Sovereign Defense -->
+                <div class="space-y-6">
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold text-white mb-2"><i class="fas fa-shield-alt text-green mr-2"></i>Sovereign Defense</h3>
+                        <p class="text-sm text-slate font-mono">Architecting cost-effective, data-sovereign defense stacks.</p>
+                    </div>
+
+                    <!-- Wazuh Card -->
+                    <div class="glass-card p-4 rounded-lg hover:border-blue-400 transition-all group">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-white font-bold group-hover:text-blue-400 transition-colors">Wazuh</h4>
+                            <span class="text-xs font-mono bg-blue-400/10 text-blue-400 px-2 py-1 rounded border border-blue-400/20">Thesis Core</span>
+                        </div>
+                        <p class="text-sm text-slate mb-2">Unified SIEM & XDR</p>
+                        <p class="text-xs text-slate/60 italic">Experienced in migrating rule-sets between commercial and open-source platforms.</p>
+                    </div>
+
+                    <!-- Elastic Card -->
+                    <div class="glass-card p-4 rounded-lg hover:border-yellow-400 transition-all group">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-white font-bold group-hover:text-yellow-400 transition-colors">Elastic Security</h4>
+                        </div>
+                        <p class="text-sm text-slate">Log Analysis & Big Data</p>
+                    </div>
+
+                    <!-- OpenVAS Card -->
+                    <div class="glass-card p-4 rounded-lg hover:border-green transition-all group">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-white font-bold group-hover:text-green transition-colors">OpenVAS</h4>
+                        </div>
+                        <p class="text-sm text-slate">Vulnerability Scanning</p>
+                    </div>
                 </div>
 
-                <!-- Defensive -->
-                <div class="glass-card p-6 rounded-lg hover-lift">
-                    <div class="text-green mb-4"><i class="fas fa-shield-halved fa-2x"></i></div>
-                    <h3 class="text-white font-bold mb-4">Defensive / SOC</h3>
-                    <ul class="font-mono text-sm space-y-2">
-                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> SentinelOne</li>
-                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> Wazuh</li>
-                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> Splunk</li>
-                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> CrowdStrike</li>
-                    </ul>
+                <!-- Column 2: Enterprise Operations -->
+                <div class="space-y-6">
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold text-white mb-2"><i class="fas fa-building text-purple-400 mr-2"></i>Enterprise Operations</h3>
+                        <p class="text-sm text-slate font-mono">Managing Tier-1 security suites in corporate environments.</p>
+                    </div>
+
+                    <!-- SentinelOne Card -->
+                    <div class="glass-card p-4 rounded-lg hover:border-purple-500 transition-all group">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-white font-bold group-hover:text-purple-500 transition-colors">SentinelOne</h4>
+                        </div>
+                        <p class="text-sm text-slate mb-2">Autonomous AI EDR</p>
+                        <p class="text-xs text-slate/60 italic">Experienced in migrating rule-sets between commercial and open-source platforms.</p>
+                    </div>
+
+                    <!-- CrowdStrike Card -->
+                    <div class="glass-card p-4 rounded-lg hover:border-red-500 transition-all group">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-white font-bold group-hover:text-red-500 transition-colors">CrowdStrike</h4>
+                        </div>
+                        <p class="text-sm text-slate">Falcon Endpoint Protection</p>
+                    </div>
+
+                    <!-- Splunk Card -->
+                    <div class="glass-card p-4 rounded-lg hover:border-green transition-all group">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-white font-bold group-hover:text-green transition-colors">Splunk</h4>
+                        </div>
+                        <p class="text-sm text-slate">Enterprise SIEM & Analytics</p>
+                    </div>
                 </div>
 
-                <!-- Offensive -->
-                <div class="glass-card p-6 rounded-lg hover-lift">
-                    <div class="text-green mb-4"><i class="fas fa-bug fa-2x"></i></div>
-                    <h3 class="text-white font-bold mb-4">Offensive</h3>
-                    <ul class="font-mono text-sm space-y-2">
-                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> Metasploit</li>
-                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> Burp Suite</li>
-                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> OWASP ZAP</li>
-                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> Python/Bash</li>
-                    </ul>
+                <!-- Column 3: Cloud-Native & Engineering -->
+                <div class="space-y-6">
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold text-white mb-2"><i class="fas fa-cloud text-blue-400 mr-2"></i>Cloud-Native & Ops</h3>
+                        <p class="text-sm text-slate font-mono">Securing modern infrastructure and pipelines.</p>
+                    </div>
+
+                    <!-- Kubernetes Card -->
+                    <div class="glass-card p-4 rounded-lg hover:border-blue-500 transition-all group">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-white font-bold group-hover:text-blue-500 transition-colors">Kubernetes</h4>
+                        </div>
+                        <p class="text-sm text-slate">Container Orchestration</p>
+                    </div>
+
+                    <!-- Docker Card -->
+                    <div class="glass-card p-4 rounded-lg hover:border-blue-300 transition-all group">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-white font-bold group-hover:text-blue-300 transition-colors">Docker</h4>
+                        </div>
+                        <p class="text-sm text-slate">Container Security</p>
+                    </div>
+
+                    <!-- Python/Bash Card -->
+                    <div class="glass-card p-4 rounded-lg hover:border-yellow-300 transition-all group">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-white font-bold group-hover:text-yellow-300 transition-colors">Python/Bash</h4>
+                        </div>
+                        <p class="text-sm text-slate">Automation & Scripting</p>
+                    </div>
                 </div>
 
             </div>
