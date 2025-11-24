@@ -1,705 +1,432 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Yusuf Talha ARABACI - Cybersecurity Professional, SOC Analyst, and Security Engineer specializing in threat analysis, incident response, and malware research." />
-        <meta name="keywords" content="cybersecurity, SOC analyst, threat hunting, malware analysis, incident response, security engineer, SIEM, EDR, XDR" />
-        <meta name="author" content="Yusuf Talha ARABACI" />
-        <meta property="og:title" content="Yusuf Talha ARABACI - Cybersecurity Professional" />
-        <meta property="og:description" content="SOC operations, threat analysis and incident response specialist" />
-        <meta property="og:type" content="website" />
-        <title>Yusuf Talha ARABACI - Cybersecurity Professional</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yusuf Talha ARABACI - Cyber Security Engineer & Digital Sovereignty Architect. Relocating to Tallinn, Estonia.">
+    <title>Yusuf Talha ARABACI | Cyber Security Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0a192f',
+                        lightNavy: '#112240',
+                        lightestNavy: '#233554',
+                        slate: '#8892b0',
+                        lightSlate: '#a8b2d1',
+                        white: '#e6f1ff',
+                        green: '#64ffda',
+                        ubuntuOrange: '#E95420'
+                    },
+                    fontFamily: {
+                        mono: ['"Fira Code"', 'monospace'],
+                        sans: ['"Inter"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a192f;
+            color: #8892b0;
+        }
+        .typewriter::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .glass-card {
+            background: rgba(17, 34, 64, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-green selection:text-navy">
 
-        <!-- Bootstrap 5 CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-        
-        <!-- Font Awesome icons -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-
-        <!-- Google fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
-
-        <!-- Custom CSS -->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100">
-        
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow" id="navbar">
-            <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="#hero">
-                    <img src="assets/img/profile.jpg" alt="Profile" class="rounded-circle me-2" width="32" height="32">
-                    <span class="fw-bold">Yusuf Talha ARABACI</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#hero">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#experience">Experience</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#education">Education</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#skills">Skills</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#projects">Projects</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#certifications">Certifications</a>
-                        </li>
-                    </ul>
-                </div>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-navy/90 backdrop-blur-sm shadow-lg transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-green font-mono text-xl font-bold border-2 border-green p-1 rounded hover:bg-green/10 transition-colors">
+                YTA
+            </a>
+            <div class="hidden md:flex space-x-8 font-mono text-sm">
+                <a href="#about" class="hover:text-green transition-colors"><span class="text-green">01.</span> About</a>
+                <a href="#research" class="hover:text-green transition-colors"><span class="text-green">02.</span> Research</a>
+                <a href="#experience" class="hover:text-green transition-colors"><span class="text-green">03.</span> Experience</a>
+                <a href="#skills" class="hover:text-green transition-colors"><span class="text-green">04.</span> Skills</a>
+                <a href="#contact" class="px-4 py-2 border border-green text-green rounded hover:bg-green/10 transition-colors">Resume</a>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section text-white py-5" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%) !important; color: white !important;">
-            <div class="container">
-                <div class="row align-items-center min-vh-100">
-                    <div class="col-lg-8 mx-auto text-center">
-                        <div class="mb-4">
-                            <img src="assets/img/profile.jpg" alt="Yusuf Talha ARABACI" 
-                                 class="rounded-circle shadow-lg mb-4 profile-img animate-pulse" width="200" height="200">
-                        </div>
-                        <h1 class="display-2 fw-bold mb-3 animate-fade-in" style="color: white !important;">
-                            Yusuf Talha <span class="text-warning" style="color: #ffc107 !important;">ARABACI</span>
-                        </h1>
-                        <div class="fs-3 mb-4 fw-medium" style="color: white !important;">
-                            <i class="fas fa-shield-alt me-2 text-warning" style="color: #ffc107 !important;"></i>Cybersecurity Professional
-                        </div>
-                        <p class="lead mb-4 px-md-5 fs-5" style="color: white !important;">
-                            🔒 Security Engineer specializing in SOC operations, threat analysis, and malware research. 
-                            Passionate about defending digital assets through innovative security solutions.
-                        </p>
-                        <div class="mb-4">
-                            <span class="badge bg-primary bg-gradient px-3 py-2 me-2 mb-2 fs-6 shadow-sm">
-                                <i class="fas fa-search me-1"></i>SOC Analyst
-                            </span>
-                            <span class="badge bg-success bg-gradient px-3 py-2 me-2 mb-2 fs-6 shadow-sm">
-                                <i class="fas fa-bug me-1"></i>Malware Researcher
-                            </span>
-                            <span class="badge bg-warning bg-gradient px-3 py-2 me-2 mb-2 fs-6 text-dark shadow-sm">
-                                <i class="fas fa-crosshairs me-1"></i>Threat Hunter
-                            </span>
-                        </div>
-                        <div class="mb-4">
-                            <div class="quote-container p-4 rounded bg-dark bg-opacity-25 backdrop-blur">
-                                <p class="fs-5 fst-italic text-warning mb-0">
-                                    <i class="fas fa-quote-left me-2"></i>
-                                    "To learn to defend, you need to know how to attack"
-                                    <i class="fas fa-quote-right ms-2"></i>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="contact-info mb-4">
-                            <div class="row g-3 justify-content-center">
-                                <div class="col-auto">
-                                    <div class="d-flex align-items-center" style="color: white !important;">
-                                        <i class="fas fa-map-marker-alt me-2" style="color: #ffc107 !important;"></i>
-                                        <span style="color: white !important;">Samsun, Turkey</span>
-                                    </div>
-                                </div>
-                                <div class="col-auto">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-envelope me-2" style="color: #ffc107 !important;"></i>
-                                        <a href="mailto:yusufarbc@yandex.com" class="text-decoration-none" style="color: white !important;">
-                                            yusufarbc@yandex.com
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="social-links">
-                            <a href="https://www.linkedin.com/in/yusufarbc/" class="btn btn-outline-light btn-lg me-2 mb-2 social-btn">
-                                <i class="fab fa-linkedin me-2"></i>LinkedIn
-                            </a>
-                            <a href="https://github.com/yusufarbc" class="btn btn-outline-light btn-lg me-2 mb-2 social-btn">
-                                <i class="fab fa-github me-2"></i>GitHub
-                            </a>
-                            <a href="https://medium.com/@yusufarbc" class="btn btn-outline-light btn-lg me-2 mb-2 social-btn">
-                                <i class="fab fa-medium me-2"></i>Medium
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="py-5 bg-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-10 mx-auto">
-                        <div class="text-center mb-5">
-                            <h2 class="display-5 fw-bold mb-4">
-                                <i class="fas fa-user-shield text-primary me-3"></i>About Me
-                            </h2>
-                            <div class="row">
-                                <div class="col-lg-8 mx-auto">
-                                    <p class="lead mb-4">
-                                        🚀 I am a passionate Security Engineer who develops expertise in language-independent software concepts, 
-                                        conducts cutting-edge research in Cybersecurity, specializes in Malware Analysis, 
-                                        and continuously self-learns and applies emerging security technologies.
-                                    </p>
-                                    <p class="mb-4">
-                                        💻 Currently working on current cyber threats research and focusing on system-level languages 
-                                        like Assembly and C, understanding that low-level programming is fundamental to all information systems. 
-                                        After all, we work with 1s and 0s.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row g-4">
-                            <div class="col-lg-4 col-md-6">
-                                <div class="card h-100 border-0 shadow-sm hover-card">
-                                    <div class="card-body text-center p-4">
-                                        <div class="icon-box mb-3">
-                                            <i class="fas fa-shield-alt fa-3x text-primary"></i>
-                                        </div>
-                                        <h5 class="fw-bold">Current Role</h5>
-                                        <p class="text-muted mb-2">SOC Analyst</p>
-                                        <p class="text-primary fw-medium mb-0">Garanti BBVA Technology</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="card h-100 border-0 shadow-sm hover-card">
-                                    <div class="card-body text-center p-4">
-                                        <div class="icon-box mb-3">
-                                            <i class="fas fa-graduation-cap fa-3x text-success"></i>
-                                        </div>
-                                        <h5 class="fw-bold">Education</h5>
-                                        <p class="text-muted mb-2">Computer Engineering</p>
-                                        <p class="text-success fw-medium mb-0">Bursa Technical University</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-12">
-                                <div class="card h-100 border-0 shadow-sm hover-card">
-                                    <div class="card-body text-center p-4">
-                                        <div class="icon-box mb-3">
-                                            <i class="fas fa-trophy fa-3x text-warning"></i>
-                                        </div>
-                                        <h5 class="fw-bold">Achievements</h5>
-                                        <p class="text-muted mb-2">15+ Certifications</p>
-                                        <p class="text-warning fw-medium mb-0">Cybersecurity Expert</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="py-5">
-            <div class="container">
-                <h2 class="display-5 fw-bold text-center mb-5">Professional Experience</h2>
-                <div class="row">
-                    <div class="col-lg-10 mx-auto">
-                        
-                        <!-- Current Role -->
-                        <div class="card mb-4 border-0 shadow-sm">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-md-8">
-                                        <h4 class="card-title mb-2">SOC Analyst</h4>
-                                        <h6 class="text-primary mb-2">
-                                            <i class="fas fa-building me-2"></i>
-                                            <a href="https://www.garantibbvateknoloji.com.tr/" class="text-decoration-none">
-                                                Garanti BBVA Technology
-                                            </a>
-                                        </h6>
-                                        <div class="mb-3">
-                                            <span class="badge bg-primary me-1">Security Operations</span>
-                                            <span class="badge bg-secondary me-1">Threat Analysis</span>
-                                            <span class="badge bg-info me-1">Incident Response</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 text-md-end">
-                                        <span class="badge bg-success fs-6">November 2024 - Present</span>
-                                    </div>
-                                </div>
-                                <ul class="list-unstyled mt-3">
-                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Security alarm analysis and threat investigation</li>
-                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Development of new alarm scenarios against emerging threats</li>
-                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Cyber Intelligence monitoring and analysis</li>
-                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Collaboration with L2-L3 Incident Response teams</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Previous Roles -->
-                        <div class="card mb-4 border-0 shadow-sm">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-md-8">
-                                        <h4 class="card-title mb-2">MDR Analyst</h4>
-                                        <h6 class="text-primary mb-2">
-                                            <i class="fas fa-building me-2"></i>
-                                            <a href="https://www.adeosecurity.com/" class="text-decoration-none">ADEO Cyber Security</a>
-                                        </h6>
-                                        <div class="mb-3">
-                                            <span class="badge bg-primary me-1">MITRE ATT&CK</span>
-                                            <span class="badge bg-secondary me-1">EDR/XDR</span>
-                                            <span class="badge bg-info me-1">Threat Intelligence</span>
-                                            <span class="badge bg-warning me-1">Network Security</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 text-md-end">
-                                        <span class="badge bg-secondary fs-6">September 2023 - July 2024</span>
-                                    </div>
-                                </div>
-                                <ul class="list-unstyled mt-3">
-                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>SIEM/EDR detailed event analysis</li>
-                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>MITRE ATT&CK Framework rule development</li>
-                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Active incident response participation</li>
-                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Advanced EDR/XDR threat monitoring</li>
-                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Network Security Analyst at Turksat Bilisim (assigned by ADEO)</li>
-                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Multi-platform SIEM/EDR/NDR analysis</li>
-                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Security architecture and vulnerability assessments</li>
-                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Weekly and monthly security reporting</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="card mb-4 border-0 shadow-sm">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-md-8">
-                                        <h4 class="card-title mb-2">IT Services & Cybersecurity Intern</h4>
-                                        <h6 class="text-primary mb-2">
-                                            <i class="fas fa-building me-2"></i>
-                                            <a href="https://www.consulta.com.tr/tr/" class="text-decoration-none">Consulta</a>
-                                        </h6>
-                                    </div>
-                                    <div class="col-md-4 text-md-end">
-                                        <span class="badge bg-secondary fs-6">April 2023 - September 2023</span>
-                                    </div>
-                                </div>
-                                <ul class="list-unstyled mt-3">
-                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Network monitoring and vulnerability assessment support</li>
-                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Active Directory asset inventory management</li>
-                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>IT Help Desk services</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="py-5 bg-light">
-            <div class="container">
-                <h2 class="display-5 fw-bold text-center mb-5">Education</h2>
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="card border-0 shadow-sm">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-md-2 text-center">
-                                        <i class="fas fa-graduation-cap fa-3x text-primary"></i>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <h4 class="card-title mb-2">Bursa Technical University</h4>
-                                        <h6 class="text-primary mb-2">Bachelor of Computer Engineering</h6>
-                                        <div class="mb-2">
-                                            <span class="badge bg-info me-2">GPA: 3.4/4.0</span>
-                                            <span class="badge bg-warning text-dark">B2 English</span>
-                                        </div>
-                                        <p class="text-muted mb-0">
-                                            <i class="fas fa-shield-alt me-2"></i>Field of Specialization: Cyber Security Operations
-                                        </p>
-                                    </div>
-                                    <div class="col-md-2 text-center">
-                                        <span class="badge bg-primary fs-6">2019 - 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-5">
-            <div class="container">
-                <h2 class="display-5 fw-bold text-center mb-5">Core Skills & Technologies</h2>
-                <div class="row">
-                    <div class="col-lg-10 mx-auto">
-                        
-                        <!-- Security Operations -->
-                        <div class="row g-4 mb-5">
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-primary mb-3">
-                                            <i class="fas fa-shield-alt me-2"></i>Security Operations
-                                        </h5>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <span class="badge bg-light text-dark mb-2 me-1">Incident Investigation</span>
-                                                <span class="badge bg-light text-dark mb-2 me-1">Incident Response</span>
-                                                <span class="badge bg-light text-dark mb-2 me-1">Incident Management</span>
-                                                <span class="badge bg-light text-dark mb-2 me-1">Threat Analysis</span>
-                                                <span class="badge bg-light text-dark mb-2 me-1">Threat Hunting</span>
-                                                <span class="badge bg-light text-dark mb-2 me-1">Threat Intelligence</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 shadow-sm">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-success mb-3">
-                                            <i class="fas fa-tools me-2"></i>Technical Skills
-                                        </h5>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <span class="badge bg-light text-dark mb-2 me-1">Network Monitoring</span>
-                                                <span class="badge bg-light text-dark mb-2 me-1">Security Tools Management</span>
-                                                <span class="badge bg-light text-dark mb-2 me-1">Active Directory</span>
-                                                <span class="badge bg-light text-dark mb-2 me-1">IT Help Desk</span>
-                                                <span class="badge bg-light text-dark mb-2 me-1">Vulnerability Assessment</span>
-                                                <span class="badge bg-light text-dark mb-2 me-1">Malware Analysis</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Security Tools -->
-                        <div class="card border-0 shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title text-center mb-4">
-                                    <i class="fas fa-cogs me-2"></i>Security Tools & Platforms
-                                </h5>
-                                <div class="row text-center">
-                                    <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                                        <div class="tool-item p-3">
-                                            <i class="fas fa-search fa-2x text-primary mb-2"></i>
-                                            <h6>SIEM Platforms</h6>
-                                            <small class="text-muted">Splunk, QRadar, Azure Sentinel, Elastic, Wazuh</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                                        <div class="tool-item p-3">
-                                            <i class="fas fa-desktop fa-2x text-success mb-2"></i>
-                                            <h6>EDR/XDR/NDR</h6>
-                                            <small class="text-muted">CrowdStrike, Defender XDR, Carbon Black, SentinelOne, Vectra AI, Darktrace</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                                        <div class="tool-item p-3">
-                                            <i class="fas fa-network-wired fa-2x text-info mb-2"></i>
-                                            <h6>Network Security</h6>
-                                            <small class="text-muted">Wireshark, PAN CORTEX, Cisco, Symantec, Fortinet</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                                        <div class="tool-item p-3">
-                                            <i class="fas fa-bug fa-2x text-warning mb-2"></i>
-                                            <h6>Malware Analysis</h6>
-                                            <small class="text-muted">Flare VM, Kali Linux, YARA, Cuckoo Sandbox, THOR, IDA</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Certifications Section -->
-        <section id="certifications" class="py-5 bg-light">
-            <div class="container">
-                <h2 class="display-5 fw-bold text-center mb-5">Professional Certifications</h2>
-                <div class="row">
-                    <div class="col-lg-10 mx-auto">
-                        
-                        <!-- LetsDefend Certifications -->
-                        <div class="card mb-4 border-0 shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title text-primary mb-3">
-                                    <i class="fas fa-shield-alt me-2"></i>LetsDefend Platform (9 Certifications)
-                                </h5>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <ul class="list-unstyled">
-                                            <li class="mb-2">
-                                                <i class="fas fa-trophy text-warning me-2"></i>Web Attack Detection and Analysis
-                                            </li>
-                                            <li class="mb-2">
-                                                <i class="fas fa-trophy text-warning me-2"></i>Information Security Specialist
-                                            </li>
-                                            <li class="mb-2">
-                                                <i class="fas fa-trophy text-warning me-2"></i>CompTIA CySA+ Preparation Path
-                                            </li>
-                                            <li class="mb-2">
-                                                <i class="fas fa-trophy text-warning me-2"></i>Detection Engineering Learning Path
-                                            </li>
-                                            <li class="mb-2">
-                                                <i class="fas fa-trophy text-warning me-2"></i>Programming for Cybersecurity
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <ul class="list-unstyled">
-                                            <li class="mb-2">
-                                                <i class="fas fa-trophy text-warning me-2"></i>Digital Forensics and Incident Response
-                                            </li>
-                                            <li class="mb-2">
-                                                <i class="fas fa-trophy text-warning me-2"></i>Incident Responder Learning Path
-                                            </li>
-                                            <li class="mb-2">
-                                                <i class="fas fa-trophy text-warning me-2"></i>Malware Analysis Skill Path
-                                            </li>
-                                            <li class="mb-2">
-                                                <i class="fas fa-trophy text-warning me-2"></i>SOC Analyst Learning Path
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Industry Certifications -->
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 shadow-sm">
-                                    <div class="card-body">
-                                        <h6 class="card-title text-success mb-3">
-                                            <i class="fas fa-certificate me-2"></i>Industry Certifications
-                                        </h6>
-                                        <ul class="list-unstyled">
-                                            <li class="mb-2">
-                                                <i class="fas fa-trophy text-warning me-2"></i>Cisco Jr. Cybersecurity Analyst
-                                            </li>
-                                            <li class="mb-2">
-                                                <i class="fas fa-trophy text-warning me-2"></i>Cisco Networking Devices Configuration
-                                            </li>
-                                            <li class="mb-2">
-                                                <i class="fas fa-trophy text-warning me-2"></i>BTK Siber Güvenlik Eğitim Kampı
-                                            </li>
-                                            <li class="mb-2">
-                                                <i class="fas fa-trophy text-warning me-2"></i>Eaquals B2 Level English
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-6">
-                                <div class="card h-100 border-0 shadow-sm">
-                                    <div class="card-body">
-                                        <h6 class="card-title text-info mb-3">
-                                            <i class="fas fa-keyboard me-2"></i>TryHackMe Learning Paths
-                                        </h6>
-                                        <ul class="list-unstyled">
-                                            <li class="mb-2">
-                                                <i class="fas fa-trophy text-warning me-2"></i>COMPTIA Pentest+
-                                            </li>
-                                            <li class="mb-2">
-                                                <i class="fas fa-trophy text-warning me-2"></i>Red Team Path
-                                            </li>
-                                            <li class="mb-2">
-                                                <i class="fas fa-trophy text-warning me-2"></i>Jr. Penetration Tester
-                                            </li>
-                                            <li class="mb-2">
-                                                <i class="fas fa-trophy text-warning me-2"></i>Presecurity Path
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Certification Stats -->
-                        <div class="row mt-4">
-                            <div class="col-12">
-                                <div class="text-center">
-                                    <h6 class="text-muted mb-3">Certification Statistics</h6>
-                                    <div class="row">
-                                        <div class="col-3">
-                                            <div class="stat-card">
-                                                <h4 class="text-primary mb-0">17+</h4>
-                                                <small class="text-muted">Total Certifications</small>
-                                            </div>
-                                        </div>
-                                        <div class="col-3">
-                                            <div class="stat-card">
-                                                <h4 class="text-success mb-0">9</h4>
-                                                <small class="text-muted">LetsDefend</small>
-                                            </div>
-                                        </div>
-                                        <div class="col-3">
-                                            <div class="stat-card">
-                                                <h4 class="text-info mb-0">4</h4>
-                                                <small class="text-muted">TryHackMe</small>
-                                            </div>
-                                        </div>
-                                        <div class="col-3">
-                                            <div class="stat-card">
-                                                <h4 class="text-warning mb-0">4</h4>
-                                                <small class="text-muted">Industry</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-5">
-            <div class="container">
-                <h2 class="display-5 fw-bold text-center mb-5">
-                    <i class="fas fa-code text-primary me-3"></i>Featured Projects
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center pt-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl">
+                <p class="font-mono text-green mb-5 ml-1">Hi, my name is</p>
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">
+                    Yusuf Talha ARABACI.
+                </h1>
+                <h2 class="text-4xl md:text-6xl font-bold text-slate mb-6">
+                    <span id="typewriter-text" class="typewriter"></span>
                 </h2>
-                <div class="row">
-                    <!-- DockerVuln Project -->
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100 border-0 shadow-sm project-card">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center mb-3">
-                                    <i class="fab fa-docker text-primary fs-3 me-3"></i>
-                                    <h5 class="card-title mb-0">DockerVuln</h5>
-                                </div>
-                                <p class="card-text">Docker container vulnerability assessment and security analysis tool for identifying misconfigurations and security weaknesses in containerized environments.</p>
-                                <div class="mb-3">
-                                    <span class="badge bg-primary me-1">Docker</span>
-                                    <span class="badge bg-success me-1">Security</span>
-                                    <span class="badge bg-warning me-1">Vulnerability</span>
-                                    <span class="badge bg-info me-1">Assessment</span>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <a href="https://github.com/yusufarbc/DockerVuln" class="btn btn-outline-primary btn-sm">
-                                        <i class="fab fa-github me-1"></i>View Code
-                                    </a>
-            
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- APIGOAT Project -->
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100 border-0 shadow-sm project-card">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center mb-3">
-                                    <i class="fas fa-code text-success fs-3 me-3"></i>
-                                    <h5 class="card-title mb-0">APIGOAT</h5>
-                                </div>
-                                <p class="card-text">Vulnerable API security testing framework designed for practicing API security assessment techniques and understanding common API vulnerabilities.</p>
-                                <div class="mb-3">
-                                    <span class="badge bg-primary me-1">API Security</span>
-                                    <span class="badge bg-dark me-1">Testing</span>
-                                    <span class="badge bg-info me-1">Vulnerability</span>
-                                    <span class="badge bg-warning me-1">Framework</span>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <a href="https://github.com/yusufarbc/APIGOAT" class="btn btn-outline-primary btn-sm">
-                                        <i class="fab fa-github me-1"></i>View Code
-                                    </a>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- DoS Attack Framework Project -->
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100 border-0 shadow-sm project-card">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center mb-3">
-                                    <i class="fas fa-shield-alt text-danger fs-3 me-3"></i>
-                                    <h5 class="card-title mb-0">DoS Attack Framework</h5>
-                                </div>
-                                <p class="card-text">Educational framework for understanding Denial of Service attack vectors and defense mechanisms. Designed for security research and testing purposes.</p>
-                                <div class="mb-3">
-                                    <span class="badge bg-danger me-1">DoS</span>
-                                    <span class="badge bg-dark me-1">Security Research</span>
-                                    <span class="badge bg-info me-1">Framework</span>
-                                    <span class="badge bg-warning me-1">Educational</span>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <a href="https://github.com/yusufarbc/DoS-Attack-Framework" class="btn btn-outline-primary btn-sm">
-                                        <i class="fab fa-github me-1"></i>View Code
-                                    </a>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <p class="max-w-xl text-lg mb-8 leading-relaxed">
+                    I'm a security engineer specializing in <span class="text-green">Digital Sovereignty</span>, <span class="text-green">Cloud-Native Security</span>, and building next-generation SOC architectures. Currently focused on open-source enterprise solutions.
+                </p>
+                
+                <div class="inline-flex items-center bg-lightNavy px-4 py-2 rounded-full border border-green/30 mb-10">
+                    <span class="flex h-3 w-3 relative mr-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-green"></span>
+                    </span>
+                    <span class="font-mono text-xs md:text-sm text-white">
+                        📍 Relocating to Tallinn, Estonia (Q1 2026)
+                    </span>
                 </div>
 
-                <!-- View All Projects Button -->
-                <div class="text-center mt-4">
-                    <a href="https://github.com/yusufarbc" class="btn btn-primary btn-lg">
-                        <i class="fab fa-github me-2"></i>View All Projects on GitHub
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#research" class="px-8 py-4 border-2 border-green text-green font-mono rounded hover:bg-green/10 transition-colors text-center">
+                        Check My Thesis
+                    </a>
+                    <a href="mailto:yusuftalhaarabaci@hotmail.com" class="px-8 py-4 bg-green text-navy font-mono font-bold rounded hover:bg-green/90 transition-colors text-center">
+                        Contact Me
                     </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Footer -->
-        <footer class="bg-dark text-light py-4">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <p class="mb-0">
-                            <i class="fas fa-code text-primary me-2"></i>
-                            Built with <i class="fas fa-heart text-danger"></i> by Yusuf Talha ARABACI
-                        </p>
-                    </div>
-                    <div class="col-md-6 text-md-end">
-                        <p class="mb-0">
-                            <i class="fas fa-shield-alt text-primary me-2"></i>
-                            <em>"Defending the digital frontier, one threat at a time"</em>
-                        </p>
-                    </div>
+    <!-- About Section -->
+    <section id="about" class="py-24">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="flex items-center mb-12">
+                <span class="font-mono text-2xl text-green mr-4">01.</span>
+                <h2 class="text-3xl font-bold text-white whitespace-nowrap">About Me</h2>
+                <div class="h-px bg-lightestNavy w-full ml-6"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="md:col-span-2 text-lg leading-relaxed">
+                    <p class="mb-6">
+                        Hello! I'm Yusuf, a passionate Security Engineer who develops expertise in language-independent software concepts and conducts cutting-edge research in Cybersecurity. My journey started with a curiosity about how systems work at a low level, leading me to specialize in <span class="text-green">Malware Analysis</span> and <span class="text-green">SOC Operations</span>.
+                    </p>
+                    <p class="mb-6">
+                        I believe in <span class="text-green">Digital Sovereignty</span> and the power of Open Source. My engineering approach is built on the philosophy that "To learn to defend, you need to know how to attack."
+                    </p>
+                    <p>
+                        Currently, I am working as a <span class="text-green">SOC Analyst</span> at Garanti BBVA Technology, where I investigate threats and develop alarm scenarios. I am also working on my master's thesis focused on replacing proprietary cloud stacks with sovereign, open-source alternatives.
+                    </p>
                 </div>
-                <hr class="my-3 bg-secondary">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <small class="text-muted">
-                            © 2024 Yusuf Talha ARABACI. Last updated: August 2025
-                        </small>
+                <div class="relative group">
+                    <div class="relative z-10">
+                        <img src="assets/img/profile.jpg" alt="Yusuf Talha ARABACI" class="rounded bg-cover grayscale hover:grayscale-0 transition-all duration-300 w-full object-cover shadow-xl border-2 border-green/50">
                     </div>
+                    <div class="absolute top-4 left-4 w-full h-full border-2 border-green rounded -z-0 transition-all duration-300 group-hover:top-2 group-hover:left-2"></div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </section>
 
-        <!-- Bootstrap 5 JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-        
-        <!-- Custom JS -->
-        <script src="js/scripts.js"></script>
-    </body>
+    <!-- Featured Research Section -->
+    <section id="research" class="py-24 bg-lightNavy/30">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="flex items-center mb-12">
+                <span class="font-mono text-2xl text-green mr-4">02.</span>
+                <h2 class="text-3xl font-bold text-white whitespace-nowrap">Featured Research</h2>
+                <div class="h-px bg-lightestNavy w-full ml-6"></div>
+            </div>
+
+            <div class="relative glass-card rounded-xl p-8 md:p-12 overflow-hidden group hover-lift">
+                <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <i class="fas fa-network-wired fa-10x text-green"></i>
+                </div>
+                
+                <div class="relative z-10">
+                    <p class="font-mono text-green mb-2">Master's Thesis</p>
+                    <h3 class="text-2xl md:text-3xl font-bold text-white mb-6">Ubuntu-Based Open Source Enterprise Architecture</h3>
+                    
+                    <div class="bg-navy p-6 rounded-lg mb-8 shadow-inner border border-lightestNavy">
+                        <p class="text-lightSlate mb-4">
+                            A comprehensive research project aimed at eliminating CLOUD Act risks by replacing proprietary cloud solutions (like Azure) with a fully sovereign, open-source stack.
+                        </p>
+                        <ul class="space-y-2 font-mono text-sm">
+                            <li class="flex items-center"><i class="fas fa-check text-green mr-2"></i> GDPR Compliance & Data Sovereignty</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green mr-2"></i> No Vendor Lock-in</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green mr-2"></i> Cost Efficiency via Open Source</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3 font-mono text-sm text-white mb-8">
+                        <span class="bg-lightestNavy px-3 py-1 rounded-full">Ubuntu Server</span>
+                        <span class="bg-lightestNavy px-3 py-1 rounded-full">Kubernetes</span>
+                        <span class="bg-lightestNavy px-3 py-1 rounded-full">Wazuh</span>
+                        <span class="bg-lightestNavy px-3 py-1 rounded-full">OpenTofu</span>
+                        <span class="bg-lightestNavy px-3 py-1 rounded-full">Zimbra</span>
+                    </div>
+
+                    <a href="#" class="inline-flex items-center text-green hover:underline font-mono">
+                        Read Abstract <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="flex items-center mb-12">
+                <span class="font-mono text-2xl text-green mr-4">03.</span>
+                <h2 class="text-3xl font-bold text-white whitespace-nowrap">Where I've Worked</h2>
+                <div class="h-px bg-lightestNavy w-full ml-6"></div>
+            </div>
+
+            <div class="relative border-l-2 border-lightestNavy ml-3 md:ml-6 space-y-12">
+                
+                <!-- Job 1 -->
+                <div class="relative pl-8 md:pl-12 group">
+                    <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-navy border-2 border-green group-hover:bg-green transition-colors"></div>
+                    <h3 class="text-xl font-bold text-white">Cyber Security Engineer <span class="text-green">@ Arma Bilisim</span></h3>
+                    <p class="font-mono text-sm text-slate mb-4">Oct 2025 - Present</p>
+                    <ul class="space-y-2 list-disc marker:text-green ml-4">
+                        <li>Focusing on SIEM architecture and XDR integration.</li>
+                        <li>Conducting advanced threat hunting operations.</li>
+                        <li>Designing secure network infrastructures.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="relative pl-8 md:pl-12 group">
+                    <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-navy border-2 border-lightSlate group-hover:border-green transition-colors"></div>
+                    <h3 class="text-xl font-bold text-white">SOC Analyst <span class="text-green">@ Garanti BBVA Technology</span></h3>
+                    <p class="font-mono text-sm text-slate mb-4">Nov 2024 - Oct 2025</p>
+                    <ul class="space-y-2 list-disc marker:text-green ml-4">
+                        <li>Analyzed security alarms and investigated potential threats using Splunk and EDR tools.</li>
+                        <li>Developed new alarm scenarios to detect emerging threats.</li>
+                        <li>Collaborated with L2/L3 teams for incident response.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="relative pl-8 md:pl-12 group">
+                    <div class="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-navy border-2 border-lightSlate group-hover:border-green transition-colors"></div>
+                    <h3 class="text-xl font-bold text-white">MDR Analyst <span class="text-green">@ ADEO Cyber Security</span></h3>
+                    <p class="font-mono text-sm text-slate mb-4">Sep 2023 - Jul 2024</p>
+                    <ul class="space-y-2 list-disc marker:text-green ml-4">
+                        <li>Performed detailed event analysis using SIEM/EDR/XDR.</li>
+                        <li>Developed detection rules mapped to MITRE ATT&CK framework.</li>
+                        <li>Provided network security analysis for Turksat Bilisim.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-lightNavy/30">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="flex items-center mb-12">
+                <span class="font-mono text-2xl text-green mr-4">04.</span>
+                <h2 class="text-3xl font-bold text-white whitespace-nowrap">Technical Arsenal</h2>
+                <div class="h-px bg-lightestNavy w-full ml-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Cloud Native -->
+                <div class="glass-card p-6 rounded-lg hover-lift">
+                    <div class="text-green mb-4"><i class="fas fa-cloud fa-2x"></i></div>
+                    <h3 class="text-white font-bold mb-4">Cloud-Native</h3>
+                    <ul class="font-mono text-sm space-y-2">
+                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> Kubernetes</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> Docker</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> OpenTofu</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> Ansible</li>
+                    </ul>
+                </div>
+
+                <!-- Defensive -->
+                <div class="glass-card p-6 rounded-lg hover-lift">
+                    <div class="text-green mb-4"><i class="fas fa-shield-halved fa-2x"></i></div>
+                    <h3 class="text-white font-bold mb-4">Defensive / SOC</h3>
+                    <ul class="font-mono text-sm space-y-2">
+                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> SentinelOne</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> Wazuh</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> Splunk</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> CrowdStrike</li>
+                    </ul>
+                </div>
+
+                <!-- Offensive -->
+                <div class="glass-card p-6 rounded-lg hover-lift">
+                    <div class="text-green mb-4"><i class="fas fa-bug fa-2x"></i></div>
+                    <h3 class="text-white font-bold mb-4">Offensive</h3>
+                    <ul class="font-mono text-sm space-y-2">
+                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> Metasploit</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> Burp Suite</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> OWASP ZAP</li>
+                        <li class="flex items-center"><i class="fas fa-caret-right text-green mr-2"></i> Python/Bash</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-24">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2 class="text-2xl font-bold text-white text-center mb-12 font-mono">
+                <span class="text-green">05.</span> Certifications & Badges
+            </h2>
+            
+            <div class="flex flex-wrap justify-center gap-6">
+                <div class="bg-lightNavy px-6 py-4 rounded border border-green/20 hover:border-green transition-colors">
+                    <span class="text-green font-mono text-sm block mb-1">USOM</span>
+                    <span class="text-white font-bold">Penetration Testing</span>
+                </div>
+                <div class="bg-lightNavy px-6 py-4 rounded border border-green/20 hover:border-green transition-colors">
+                    <span class="text-green font-mono text-sm block mb-1">LetsDefend</span>
+                    <span class="text-white font-bold">SOC Analyst</span>
+                </div>
+                <div class="bg-lightNavy px-6 py-4 rounded border border-green/20 hover:border-green transition-colors">
+                    <span class="text-green font-mono text-sm block mb-1">TryHackMe</span>
+                    <span class="text-white font-bold">Red Team</span>
+                </div>
+                <div class="bg-lightNavy px-6 py-4 rounded border border-green/20 hover:border-green transition-colors">
+                    <span class="text-green font-mono text-sm block mb-1">Cisco</span>
+                    <span class="text-white font-bold">Network Security</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training & Ranks Section -->
+    <section id="ranks" class="py-24 bg-lightNavy/30">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="flex items-center mb-12">
+                <span class="font-mono text-2xl text-green mr-4">06.</span>
+                <h2 class="text-3xl font-bold text-white whitespace-nowrap">Training & Ranks</h2>
+                <div class="h-px bg-lightestNavy w-full ml-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- TryHackMe -->
+                <a href="https://tryhackme.com/p/yusufarbc" target="_blank" class="glass-card p-6 rounded-lg hover-lift group block">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="text-green text-2xl"><i class="fas fa-bug"></i></div>
+                        <span class="font-mono text-xs text-green border border-green px-2 py-1 rounded">Red Team Path</span>
+                    </div>
+                    <h3 class="text-white font-bold text-xl group-hover:text-green transition-colors">TryHackMe</h3>
+                    <p class="text-sm text-slate mt-2">Top 1% Rank</p>
+                </a>
+
+                <!-- LetsDefend -->
+                <a href="https://app.letsdefend.io/user/yusufarbc" target="_blank" class="glass-card p-6 rounded-lg hover-lift group block">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="text-blue-400 text-2xl"><i class="fas fa-shield-alt"></i></div>
+                        <span class="font-mono text-xs text-blue-400 border border-blue-400 px-2 py-1 rounded">Blue Team Ops</span>
+                    </div>
+                    <h3 class="text-white font-bold text-xl group-hover:text-blue-400 transition-colors">LetsDefend</h3>
+                    <p class="text-sm text-slate mt-2">SOC Analyst Badge</p>
+                </a>
+
+                <!-- HackerRank -->
+                <a href="https://www.hackerrank.com/profile/yusufarbc" target="_blank" class="glass-card p-6 rounded-lg hover-lift group block">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="text-green text-2xl"><i class="fab fa-hackerrank"></i></div>
+                        <span class="font-mono text-xs text-green border border-green px-2 py-1 rounded">Engineering</span>
+                    </div>
+                    <h3 class="text-white font-bold text-xl group-hover:text-green transition-colors">HackerRank</h3>
+                    <p class="text-sm text-slate mt-2">Problem Solving</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-lightNavy py-12 text-center">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-8 mb-8">
+                <a href="https://www.linkedin.com/in/yusufarbc/" class="flex flex-col items-center group">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-lightestNavy text-slate group-hover:text-green group-hover:bg-navy transition-all mb-2">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </div>
+                    <span class="font-mono text-xs text-slate group-hover:text-green">Connect</span>
+                </a>
+                
+                <a href="https://github.com/yusufarbc" class="flex flex-col items-center group">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-lightestNavy text-slate group-hover:text-green group-hover:bg-navy transition-all mb-2">
+                        <i class="fab fa-github text-xl"></i>
+                    </div>
+                    <span class="font-mono text-xs text-slate group-hover:text-green">Code</span>
+                </a>
+
+                <a href="https://medium.com/@yusufarbc" class="flex flex-col items-center group">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-lightestNavy text-slate group-hover:text-green group-hover:bg-navy transition-all mb-2">
+                        <i class="fab fa-medium-m text-xl"></i>
+                    </div>
+                    <span class="font-mono text-xs text-slate group-hover:text-green">Research</span>
+                </a>
+
+                <a href="https://x.com/yusufarbc" class="flex flex-col items-center group">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-lightestNavy text-slate group-hover:text-green group-hover:bg-navy transition-all mb-2 relative">
+                        <i class="fab fa-x-twitter text-xl"></i>
+                        <span class="absolute -top-1 -right-1 flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-green"></span>
+                        </span>
+                    </div>
+                    <span class="font-mono text-xs text-slate group-hover:text-green">Cyber Insights</span>
+                </a>
+            </div>
+            
+            <div class="mb-8">
+                <a href="mailto:yusuftalhaarabaci@hotmail.com" class="font-mono text-green hover:underline">yusuftalhaarabaci@hotmail.com</a>
+            </div>
+
+            <p class="font-mono text-sm text-slate">
+                Built for <span class="text-green">Digital Sovereignty</span>.<br>
+                &copy; 2025 Yusuf Talha ARABACI
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Typewriter Effect
+        const text = "Cyber Security Engineer | Digital Sovereignty Architect";
+        const typewriterElement = document.getElementById('typewriter-text');
+        let i = 0;
+
+        function typeWriter() {
+            if (i < text.length) {
+                typewriterElement.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }
+
+        // Start typewriter when page loads
+        window.onload = typeWriter;
+    </script>
+</body>
 </html>
