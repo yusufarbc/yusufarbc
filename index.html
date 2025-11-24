@@ -35,7 +35,20 @@
     <style>
         body {
             background-color: #0a192f;
+            background-image: radial-gradient(circle at 50% 50%, #112240 0%, #0a192f 100%);
             color: #8892b0;
+            overflow-x: hidden;
+        }
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(100, 255, 218, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(100, 255, 218, 0.05) 1px, transparent 1px);
+            mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #e6f1ff, #64ffda);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .typewriter::after {
             content: '|';
@@ -49,6 +62,11 @@
             background: rgba(17, 34, 64, 0.7);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(100, 255, 218, 0.3);
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.1);
         }
         .hover-lift {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -57,9 +75,20 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
         }
+        
+        /* Scroll Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
-<body class="antialiased selection:bg-green selection:text-navy">
+<body class="antialiased selection:bg-green selection:text-navy bg-grid">
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-navy/90 backdrop-blur-sm shadow-lg transition-all duration-300" id="navbar">
@@ -82,7 +111,7 @@
         <div class="container mx-auto px-6">
             <div class="max-w-4xl">
                 <p class="font-mono text-green mb-5 ml-1">Hi, my name is</p>
-                <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight text-gradient">
                     Yusuf Talha ARABACI.
                 </h1>
                 <h2 class="text-4xl md:text-6xl font-bold text-slate mb-6">
@@ -115,7 +144,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-24">
+    <section id="about" class="py-24 reveal">
         <div class="container mx-auto px-6 max-w-5xl">
             <div class="flex items-center mb-12">
                 <span class="font-mono text-2xl text-green mr-4">01.</span>
@@ -146,7 +175,7 @@
     </section>
 
     <!-- Featured Research Section -->
-    <section id="research" class="py-24 bg-lightNavy/30">
+    <section id="research" class="py-24 bg-lightNavy/30 reveal">
         <div class="container mx-auto px-6 max-w-5xl">
             <div class="flex items-center mb-12">
                 <span class="font-mono text-2xl text-green mr-4">02.</span>
@@ -191,7 +220,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-24">
+    <section id="experience" class="py-24 reveal">
         <div class="container mx-auto px-6 max-w-4xl">
             <div class="flex items-center mb-12">
                 <span class="font-mono text-2xl text-green mr-4">03.</span>
@@ -242,7 +271,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-24 bg-lightNavy/30">
+    <section id="skills" class="py-24 bg-lightNavy/30 reveal">
         <div class="container mx-auto px-6 max-w-5xl">
             <div class="flex items-center mb-12">
                 <span class="font-mono text-2xl text-green mr-4">04.</span>
@@ -293,7 +322,7 @@
     </section>
 
     <!-- Certifications Section -->
-    <section id="certifications" class="py-24">
+    <section id="certifications" class="py-24 reveal">
         <div class="container mx-auto px-6 max-w-5xl">
             <h2 class="text-2xl font-bold text-white text-center mb-12 font-mono">
                 <span class="text-green">05.</span> Certifications & Badges
@@ -321,7 +350,7 @@
     </section>
 
     <!-- Training & Ranks Section -->
-    <section id="ranks" class="py-24 bg-lightNavy/30">
+    <section id="ranks" class="py-24 bg-lightNavy/30 reveal">
         <div class="container mx-auto px-6 max-w-5xl">
             <div class="flex items-center mb-12">
                 <span class="font-mono text-2xl text-green mr-4">06.</span>
@@ -366,37 +395,37 @@
     <!-- Footer -->
     <footer class="bg-lightNavy py-12 text-center">
         <div class="container mx-auto px-6">
-            <div class="flex flex-wrap justify-center gap-8 mb-8">
-                <a href="https://x.com/yusufarbc" class="flex flex-col items-center group">
-                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-lightestNavy text-slate group-hover:text-green group-hover:bg-navy transition-all mb-2 relative">
-                        <i class="fab fa-x-twitter text-xl"></i>
-                        <span class="absolute -top-1 -right-1 flex h-3 w-3">
+            <div class="flex flex-wrap justify-center gap-10 mb-12">
+                <a href="https://x.com/yusufarbc" class="flex flex-col items-center group transform hover:scale-110 transition-transform duration-300">
+                    <div class="w-16 h-16 flex items-center justify-center rounded-full bg-lightestNavy text-green border border-green/30 shadow-[0_0_15px_rgba(100,255,218,0.1)] group-hover:shadow-[0_0_25px_rgba(100,255,218,0.4)] group-hover:bg-navy transition-all mb-3 relative">
+                        <i class="fab fa-x-twitter text-3xl"></i>
+                        <span class="absolute -top-1 -right-1 flex h-4 w-4">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-3 w-3 bg-green"></span>
+                            <span class="relative inline-flex rounded-full h-4 w-4 bg-green"></span>
                         </span>
                     </div>
-                    <span class="font-mono text-xs text-slate group-hover:text-green">Cyber Insights</span>
+                    <span class="font-mono text-sm font-bold text-slate group-hover:text-green tracking-wide">Cyber Insights</span>
                 </a>
 
-                <a href="https://www.linkedin.com/in/yusufarbc/" class="flex flex-col items-center group">
-                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-lightestNavy text-slate group-hover:text-green group-hover:bg-navy transition-all mb-2">
-                        <i class="fab fa-linkedin-in text-xl"></i>
+                <a href="https://www.linkedin.com/in/yusufarbc/" class="flex flex-col items-center group transform hover:scale-110 transition-transform duration-300">
+                    <div class="w-16 h-16 flex items-center justify-center rounded-full bg-lightestNavy text-green border border-green/30 shadow-[0_0_15px_rgba(100,255,218,0.1)] group-hover:shadow-[0_0_25px_rgba(100,255,218,0.4)] group-hover:bg-navy transition-all mb-3">
+                        <i class="fab fa-linkedin-in text-3xl"></i>
                     </div>
-                    <span class="font-mono text-xs text-slate group-hover:text-green">Connect</span>
+                    <span class="font-mono text-sm font-bold text-slate group-hover:text-green tracking-wide">Connect</span>
                 </a>
                 
-                <a href="https://github.com/yusufarbc" class="flex flex-col items-center group">
-                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-lightestNavy text-slate group-hover:text-green group-hover:bg-navy transition-all mb-2">
-                        <i class="fab fa-github text-xl"></i>
+                <a href="https://github.com/yusufarbc" class="flex flex-col items-center group transform hover:scale-110 transition-transform duration-300">
+                    <div class="w-16 h-16 flex items-center justify-center rounded-full bg-lightestNavy text-green border border-green/30 shadow-[0_0_15px_rgba(100,255,218,0.1)] group-hover:shadow-[0_0_25px_rgba(100,255,218,0.4)] group-hover:bg-navy transition-all mb-3">
+                        <i class="fab fa-github text-3xl"></i>
                     </div>
-                    <span class="font-mono text-xs text-slate group-hover:text-green">Code</span>
+                    <span class="font-mono text-sm font-bold text-slate group-hover:text-green tracking-wide">Code</span>
                 </a>
 
-                <a href="https://medium.com/@yusufarbc" class="flex flex-col items-center group">
-                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-lightestNavy text-slate group-hover:text-green group-hover:bg-navy transition-all mb-2">
-                        <i class="fab fa-medium-m text-xl"></i>
+                <a href="https://medium.com/@yusufarbc" class="flex flex-col items-center group transform hover:scale-110 transition-transform duration-300">
+                    <div class="w-16 h-16 flex items-center justify-center rounded-full bg-lightestNavy text-green border border-green/30 shadow-[0_0_15px_rgba(100,255,218,0.1)] group-hover:shadow-[0_0_25px_rgba(100,255,218,0.4)] group-hover:bg-navy transition-all mb-3">
+                        <i class="fab fa-medium-m text-3xl"></i>
                     </div>
-                    <span class="font-mono text-xs text-slate group-hover:text-green">Research</span>
+                    <span class="font-mono text-sm font-bold text-slate group-hover:text-green tracking-wide">Research</span>
                 </a>
             </div>
             
@@ -425,8 +454,26 @@
             }
         }
 
+        // Scroll Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+
         // Start typewriter when page loads
-        window.onload = typeWriter;
+        window.onload = function() {
+            typeWriter();
+            reveal(); // Check for visible elements on load
+        };
     </script>
 </body>
 </html>
