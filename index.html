@@ -88,7 +88,9 @@
         }
     </style>
 </head>
-<body class="antialiased selection:bg-green selection:text-navy bg-grid">
+<body class="antialiased selection:bg-green selection:text-navy">
+    <!-- Background Grid Effect -->
+    <div class="fixed inset-0 bg-grid pointer-events-none"></div>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-navy/90 backdrop-blur-sm shadow-lg transition-all duration-300" id="navbar">
@@ -106,6 +108,7 @@
         </div>
     </nav>
 
+    <main class="relative z-10">
     <!-- Hero Section -->
     <section id="hero" class="min-h-screen flex items-center justify-center pt-20">
         <div class="container mx-auto px-6">
@@ -509,6 +512,7 @@
             </p>
         </div>
     </footer>
+    </main>
 
     <script>
         // Typewriter Effect
