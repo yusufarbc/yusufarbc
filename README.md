@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="assets/img/profile.jpg" width="150" height="150" style="border-radius: 50%; border: 2px solid #64ffda;" alt="Yusuf Talha ARABACI"/>
   
   # Yusuf Talha ARABACI
   
