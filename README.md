@@ -4,6 +4,8 @@
   # Yusuf Talha ARABACI
   
   **Cyber Security Engineer | Digital Sovereignty Architect**
+
+  Digital Sovereignty • Cloud-Native Security • Open Source • Data Privacy • Next-Gen SOC • Endpoint Protection • Network Defense
   
   [![Portfolio](https://img.shields.io/badge/Portfolio-Visit%20Site-64ffda?style=for-the-badge&logo=google-chrome&logoColor=0a192f)](https://yusufarbc.github.io/yusufarbc/)
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yusufarbc/)
