@@ -3,7 +3,7 @@
   
   # Yusuf Talha ARABACI
   
-  **Cyber Security Engineer | Digital Sovereignty Architect**
+  **Cyber Security Engineer**
 
   Digital Sovereignty • Cloud-Native Security • Open Source • Data Privacy • Next-Gen SOC • Endpoint Protection • Network Defense
   
