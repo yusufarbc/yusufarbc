@@ -83,6 +83,14 @@ a:hover {
     color: var(--red);
 }
 
+.text-yellow-400 {
+    color: var(--yellow);
+}
+
+.text-orange {
+    color: var(--orange);
+}
+
 /* Grid Background */
 .bg-grid {
     position: fixed;
