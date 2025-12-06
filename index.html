@@ -36,95 +36,60 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body class="antialiased selection:bg-green selection:text-navy">
+<body>
     <!-- Background Grid Effect -->
-    <div class="fixed inset-0 bg-grid pointer-events-none"></div>
+    <div class="bg-grid"></div>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-md fixed-top" id="navbar">
         <div class="container">
-            <a href="#"
-                class="navbar-brand text-green font-mono fs-5 fw-bold border border-2 border-green p-1 rounded hover:bg-green/10 transition-colors">
-                YTA
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a href="#" class="navbar-brand">YTA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <div class="navbar-nav font-mono text-sm">
-                    <a href="#about" class="nav-link hover:text-green transition-colors"><span
-                            class="text-green">01.</span> About</a>
-                    <a href="#experience" class="nav-link hover:text-green transition-colors"><span
-                            class="text-green">02.</span> Experience</a>
-                    <a href="#skills" class="nav-link hover:text-green transition-colors"><span
-                            class="text-green">03.</span> Skills</a>
-                    <a href="#projects" class="nav-link hover:text-green transition-colors"><span
-                            class="text-green">04.</span> Projects</a>
+                <div class="navbar-nav">
+                    <a href="#about" class="nav-link"><span class="text-green">01.</span> About</a>
+                    <a href="#experience" class="nav-link"><span class="text-green">02.</span> Experience</a>
+                    <a href="#skills" class="nav-link"><span class="text-green">03.</span> Skills</a>
+                    <a href="#projects" class="nav-link"><span class="text-green">04.</span> Projects</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <main class="position-relative z-10">
+    <main>
         <!-- Hero Section -->
-        <section id="hero" class="min-vh-100 d-flex align-items-center justify-content-center pt-5">
+        <section id="hero" class="min-vh-100 d-flex align-items-center pt-5">
             <div class="container">
-                <div class="col-lg-10">
-                    <p class="font-mono text-green mb-4 ms-1">Hi, my name is</p>
-                    <h1 class="display-1 fw-bold text-white mb-4 tracking-tight text-gradient">
-                        Yusuf Talha ARABACI.
-                    </h1>
-                    <h2 class="display-4 fw-bold text-slate mb-5">
-                        <span id="typewriter-text" class="typewriter"></span>
-                    </h2>
+                <div class="row">
+                    <div class="col-lg-10">
+                        <p class="font-mono text-green mb-3">Hi, my name is</p>
+                        <h1 class="display-1 fw-bold text-white mb-4 text-gradient">Yusuf Talha ARABACI.</h1>
+                        <h2 class="display-4 fw-bold text-slate mb-4">
+                            <span id="typewriter-text" class="typewriter"></span>
+                        </h2>
 
-                    <div class="d-flex flex-wrap gap-2 mb-5">
-                        <span
-                            class="px-3 py-1 border border-green/30 rounded-pill text-green font-mono text-sm bg-green/5 hover:bg-green/10 transition-colors cursor-default">Digital
-                            Sovereignty</span>
-                        <span
-                            class="px-3 py-1 border border-green/30 rounded-pill text-green font-mono text-sm bg-green/5 hover:bg-green/10 transition-colors cursor-default">Cloud-Native
-                            Security</span>
-                        <span
-                            class="px-3 py-1 border border-green/30 rounded-pill text-green font-mono text-sm bg-green/5 hover:bg-green/10 transition-colors cursor-default">Open
-                            Source</span>
-                        <span
-                            class="px-3 py-1 border border-green/30 rounded-pill text-green font-mono text-sm bg-green/5 hover:bg-green/10 transition-colors cursor-default">Data
-                            Privacy</span>
-                        <span
-                            class="px-3 py-1 border border-green/30 rounded-pill text-green font-mono text-sm bg-green/5 hover:bg-green/10 transition-colors cursor-default">Next-Gen
-                            SOC</span>
-                        <span
-                            class="px-3 py-1 border border-green/30 rounded-pill text-green font-mono text-sm bg-green/5 hover:bg-green/10 transition-colors cursor-default">Endpoint
-                            Protection</span>
-                        <span
-                            class="px-3 py-1 border border-green/30 rounded-pill text-green font-mono text-sm bg-green/5 hover:bg-green/10 transition-colors cursor-default">Network
-                            Defense</span>
-                    </div>
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            <span class="badge-custom">Digital Sovereignty</span>
+                            <span class="badge-custom">Cloud-Native Security</span>
+                            <span class="badge-custom">Open Source</span>
+                            <span class="badge-custom">Data Privacy</span>
+                            <span class="badge-custom">Next-Gen SOC</span>
+                        </div>
 
-                    <p class="col-lg-8 fs-5 mb-5 lh-base">
-                        I'm a security engineer specializing in <span class="text-green">Digital Sovereignty</span>,
-                        <span class="text-green">Cloud-Native Security</span>, and building next-generation SOC
-                        architectures. Currently focused on open-source enterprise solutions.
-                    </p>
+                        <p class="fs-5 mb-4 col-lg-8">
+                            I'm a security engineer specializing in <span class="text-green">Digital Sovereignty</span>,
+                            <span class="text-green">Cloud-Native Security</span>, and building next-generation SOC
+                            architectures.
+                        </p>
 
-                    <div
-                        class="d-inline-flex align-items-center bg-lightNavy px-4 py-2 rounded-pill border border-green/30 mb-5">
-                        <span class="d-flex h-3 w-3 position-relative me-3">
-                            <span
-                                class="animate-ping position-absolute d-inline-flex h-100 w-100 rounded-circle bg-green opacity-75"></span>
-                            <span class="position-relative d-inline-flex rounded-circle h-3 w-3 bg-green"></span>
-                        </span>
-                        <span class="font-mono text-xs md:text-sm text-white">
-                            📍 Relocating to Tallinn, Estonia (Q1 2026)
-                        </span>
-                    </div>
+                        <div class="status-badge mb-4">
+                            <span class="pulse-dot"></span>
+                            <span>📍 Relocating to Tallinn, Estonia (Q1 2026)</span>
+                        </div>
 
-                    <div class="d-flex flex-column flex-sm-row gap-4">
-                        <a href="mailto:yusuftalhaarabaci@hotmail.com" class="btn-custom">
-                            Contact Me
-                        </a>
+                        <a href="mailto:yusuftalhaarabaci@hotmail.com" class="btn-custom">Contact Me</a>
                     </div>
                 </div>
             </div>
@@ -133,57 +98,41 @@
         <!-- About Section -->
         <section id="about" class="py-5 reveal">
             <div class="container">
-                <div class="row align-items-center mb-5">
-                    <div class="col-auto">
-                        <span class="font-mono fs-2 text-green me-4">01.</span>
-                        <h2 class="fs-3 fw-bold text-white d-inline-block">About Me</h2>
-                    </div>
-                    <div class="col">
-                        <div class="hr bg-lightestNavy"></div>
-                    </div>
+                <div class="section-header mb-5">
+                    <span class="section-number">01.</span>
+                    <h2 class="section-title">About Me</h2>
+                    <div class="section-line"></div>
                 </div>
 
                 <div class="row g-5">
-                    <div class="col-md-8 fs-5 lh-base">
+                    <div class="col-md-8">
                         <p class="mb-4">
                             I am a <span class="text-green">Cyber Security Engineer</span> combining offensive
-                            foundations, enterprise SOC experience, and a strategic focus on digital sovereignty and
-                            cloud-native security. My professional approach bridges the gap between Tier-1 enterprise
-                            defense and the future of sovereign, open-source architectures.
+                            foundations,
+                            enterprise SOC experience, and a strategic focus on digital sovereignty and cloud-native
+                            security.
                         </p>
-
                         <p class="mb-4">
-                            <span class="text-white fw-bold">Current Academic Focus (MSc):</span> Researching "Data
-                            Sovereignty & Open Source Enterprise Architectures" to design cloud-independent
-                            infrastructures that mitigate CLOUD Act risks and vendor lock-in. My goal is to engineer
-                            GDPR-compliant, Ubuntu-based alternatives to proprietary cloud ecosystems using tools like
-                            Wazuh, OpenTofu, and Ansible.
+                            <strong>Current Academic Focus (MSc):</strong> Researching "Data Sovereignty & Open Source
+                            Enterprise Architectures"
+                            to design cloud-independent infrastructures that mitigate CLOUD Act risks and vendor
+                            lock-in.
                         </p>
-
-                        <p class="mb-4 fs-6">
-                            My technical expertise spans <span class="text-green">Cloud-Native Security</span>
-                            (Hardening K8s, DockerVuln), <span class="text-green">Next-Gen SOC</span> (Splunk, ELK,
-                            Vectra AI), and <span class="text-green">Endpoint Protection</span> (CrowdStrike,
-                            SentinelOne, Cortex XDR). I also focus on Data Privacy (DLP) and Network Defense (Zero-Trust
-                            architectures).
+                        <p class="mb-4">
+                            My technical expertise spans <span class="text-green">Cloud-Native Security</span>,
+                            <span class="text-green">Next-Gen SOC</span>, and <span class="text-green">Endpoint
+                                Protection</span>.
                         </p>
-
-                        <p class="mb-4 fs-6">
-                            <span class="text-white fw-bold">Offensive Security & Research:</span> OWASP chapter leader,
-                            USOM (TR-CERT) Penetration Testing training, APIGOAT creator, and active Red Teaming drills.
-                        </p>
-
                         <p>
-                            <span class="text-white fw-bold">Career Objective:</span> Relocating to <span
-                                class="text-green">Tallinn, Estonia (Q1 2026)</span> to contribute to Europe’s most
-                            advanced digital society. Open to roles in Cloud-Native Security, Next-Gen SOC, Digital
-                            Sovereignty, and Open-Source Architecture.
+                            <strong>Career Objective:</strong> Relocating to <span class="text-green">Tallinn, Estonia
+                                (Q1 2026)</span>
+                            to contribute to Europe's most advanced digital society.
                         </p>
                     </div>
                     <div class="col-md-4">
-                        <div class="position-relative profile-wrapper group">
-                            <div class="profile-border group-hover:top-2 group-hover:left-2"></div>
-                            <img src="assets/img/profile.jpg" alt="Yusuf Talha ARABACI" class="profile-img shadow-xl">
+                        <div class="profile-wrapper">
+                            <img src="assets/img/profile.jpg" alt="Yusuf Talha ARABACI" class="profile-img">
+                            <div class="profile-border"></div>
                         </div>
                     </div>
                 </div>
@@ -193,282 +142,123 @@
         <!-- Experience Section -->
         <section id="experience" class="py-5 reveal">
             <div class="container">
-                <div class="row align-items-center mb-5">
-                    <div class="col-auto">
-                        <span class="font-mono fs-2 text-green me-4">02.</span>
-                        <h2 class="fs-3 fw-bold text-white d-inline-block">Where I've Worked</h2>
-                    </div>
-                    <div class="col">
-                        <div class="hr bg-lightestNavy"></div>
-                    </div>
+                <div class="section-header mb-5">
+                    <span class="section-number">02.</span>
+                    <h2 class="section-title">Where I've Worked</h2>
+                    <div class="section-line"></div>
                 </div>
 
-                <div class="position-relative border-start border-2 border-lightestNavy ms-3 md:ms-6">
-
-                    <!-- Job 1 -->
-                    <div class="job-card group">
+                <div class="timeline">
+                    <div class="job-card">
                         <div class="job-marker"></div>
-                        <h3 class="fs-5 fw-bold text-white">Cyber Security Engineer <span class="text-green">@ Arma
+                        <h3 class="fw-bold text-white">Cyber Security Engineer <span class="text-green">@ Arma
                                 Bilisim</span></h3>
-                        <p class="font-mono fs-sm text-slate mb-4">Oct 2025 - Present</p>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><span class="text-green me-2">•</span>Focusing on SIEM architecture and XDR
-                                integration.</li>
-                            <li class="mb-2"><span class="text-green me-2">•</span>Conducting advanced threat hunting
-                                operations.</li>
-                            <li class="mb-2"><span class="text-green me-2">•</span>Designing secure network
-                                infrastructures.</li>
+                        <p class="font-mono text-slate mb-3">Oct 2025 - Present</p>
+                        <ul class="job-list">
+                            <li>Focusing on SIEM architecture and XDR integration.</li>
+                            <li>Conducting advanced threat hunting operations.</li>
+                            <li>Designing secure network infrastructures.</li>
                         </ul>
                     </div>
 
-                    <!-- Job 2 -->
-                    <div class="job-card group">
+                    <div class="job-card">
                         <div class="job-marker"></div>
-                        <h3 class="fs-5 fw-bold text-white">SOC Analyst <span class="text-green">@ Garanti BBVA
+                        <h3 class="fw-bold text-white">SOC Analyst <span class="text-green">@ Garanti BBVA
                                 Technology</span></h3>
-                        <p class="font-mono fs-sm text-slate mb-4">Nov 2024 - Oct 2025</p>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><span class="text-green me-2">•</span>Analyzed security alarms and
-                                investigated potential threats using Splunk and EDR tools.</li>
-                            <li class="mb-2"><span class="text-green me-2">•</span>Developed new alarm scenarios to
-                                detect emerging threats.</li>
-                            <li class="mb-2"><span class="text-green me-2">•</span>Collaborated with L2/L3 teams for
-                                incident response.</li>
+                        <p class="font-mono text-slate mb-3">Nov 2024 - Oct 2025</p>
+                        <ul class="job-list">
+                            <li>Analyzed security alarms using Splunk and EDR tools.</li>
+                            <li>Developed new alarm scenarios to detect emerging threats.</li>
+                            <li>Collaborated with L2/L3 teams for incident response.</li>
                         </ul>
                     </div>
 
-                    <!-- Job 3 -->
-                    <div class="job-card group">
+                    <div class="job-card">
                         <div class="job-marker"></div>
-                        <h3 class="fs-5 fw-bold text-white">MDR Analyst <span class="text-green">@ ADEO Cyber
-                                Security</span></h3>
-                        <p class="font-mono fs-sm text-slate mb-4">Sep 2023 - Jul 2024</p>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><span class="text-green me-2">•</span>Performed detailed event analysis
-                                using SIEM/EDR/XDR.</li>
-                            <li class="mb-2"><span class="text-green me-2">•</span>Developed detection rules mapped to
-                                MITRE ATT&CK framework.</li>
-                            <li class="mb-2"><span class="text-green me-2">•</span>Provided network security analysis
-                                for Turksat Bilisim.</li>
+                        <h3 class="fw-bold text-white">MDR Analyst <span class="text-green">@ ADEO Cyber Security</span>
+                        </h3>
+                        <p class="font-mono text-slate mb-3">Sep 2023 - Jul 2024</p>
+                        <ul class="job-list">
+                            <li>Performed detailed event analysis using SIEM/EDR/XDR.</li>
+                            <li>Developed detection rules mapped to MITRE ATT&CK framework.</li>
+                            <li>Provided network security analysis for Turksat Bilisim.</li>
                         </ul>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- Technical Arsenal Section -->
-        <section id="skills" class="py-5 bg-lightNavy/30 reveal">
+        <!-- Skills Section -->
+        <section id="skills" class="py-5 reveal">
             <div class="container">
-                <div class="row align-items-center mb-5">
-                    <div class="col-auto">
-                        <span class="font-mono fs-2 text-green me-4">03.</span>
-                        <h2 class="fs-3 fw-bold text-white d-inline-block">Technical Arsenal & Architecture</h2>
-                    </div>
-                    <div class="col">
-                        <div class="hr bg-lightestNavy"></div>
-                    </div>
+                <div class="section-header mb-5">
+                    <span class="section-number">03.</span>
+                    <h2 class="section-title">Technical Arsenal</h2>
+                    <div class="section-line"></div>
                 </div>
 
                 <div class="row g-4">
-
-                    <!-- Column 1: Sovereign Defense -->
+                    <!-- Sovereign Defense Column -->
                     <div class="col-md-4">
-                        <div class="mb-5">
-                            <h3 class="fs-5 fw-bold text-white mb-2"><i
-                                    class="fas fa-shield-alt text-green me-2"></i>Sovereign Defense</h3>
-                            <p class="text-sm text-slate font-mono">Architecting cost-effective, data-sovereign defense
-                                stacks.</p>
+                        <h3 class="skill-category mb-4"><i class="fas fa-shield-alt text-green me-2"></i>Sovereign
+                            Defense</h3>
+
+                        <div class="skill-card mb-3">
+                            <h4 class="text-white fw-bold">Wazuh</h4>
+                            <p class="text-slate mb-0">Unified SIEM & XDR</p>
                         </div>
 
-                        <!-- Wazuh Card -->
-                        <div class="glass-card p-4 rounded-lg hover:border-blue-400 transition-all group mb-4">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <h4 class="text-white fw-bold group-hover:text-blue-400 transition-colors">Wazuh</h4>
-                            </div>
-                            <p class="text-sm text-slate mb-2">Unified SIEM & XDR</p>
+                        <div class="skill-card mb-3">
+                            <h4 class="text-white fw-bold">Elastic Security</h4>
+                            <p class="text-slate mb-0">Log Analysis & Big Data</p>
                         </div>
 
-                        <!-- Elastic Card -->
-                        <div class="glass-card p-4 rounded-lg hover:border-yellow-400 transition-all group mb-4">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <h4 class="text-white fw-bold group-hover:text-yellow-400 transition-colors">Elastic
-                                    Security</h4>
-                            </div>
-                            <p class="text-sm text-slate">Log Analysis & Big Data</p>
-                        </div>
-
-                        <!-- OpenVAS Card -->
-                        <div class="glass-card p-4 rounded-lg hover:border-green transition-all group">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <h4 class="text-white fw-bold group-hover:text-green transition-colors">OpenVAS</h4>
-                            </div>
-                            <p class="text-sm text-slate">Vulnerability Scanning</p>
+                        <div class="skill-card">
+                            <h4 class="text-white fw-bold">OpenVAS</h4>
+                            <p class="text-slate mb-0">Vulnerability Scanning</p>
                         </div>
                     </div>
 
-                    <!-- Column 2: Enterprise Operations -->
+                    <!-- Enterprise Operations Column -->
                     <div class="col-md-4">
-                        <div class="mb-5">
-                            <h3 class="fs-5 fw-bold text-white mb-2"><i
-                                    class="fas fa-building text-purple-400 me-2"></i>Enterprise Operations</h3>
-                            <p class="text-sm text-slate font-mono">Managing Tier-1 security suites in corporate
-                                environments.</p>
+                        <h3 class="skill-category mb-4"><i class="fas fa-building text-purple-400 me-2"></i>Enterprise
+                            Operations</h3>
+
+                        <div class="skill-card mb-3">
+                            <h4 class="text-white fw-bold">SentinelOne</h4>
+                            <p class="text-slate mb-0">Autonomous AI EDR</p>
                         </div>
 
-                        <!-- SentinelOne Card -->
-                        <div class="glass-card p-4 rounded-lg hover:border-purple-500 transition-all group mb-4">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <h4 class="text-white fw-bold group-hover:text-purple-500 transition-colors">SentinelOne
-                                </h4>
-                            </div>
-                            <p class="text-sm text-slate mb-2">Autonomous AI EDR</p>
+                        <div class="skill-card mb-3">
+                            <h4 class="text-white fw-bold">CrowdStrike</h4>
+                            <p class="text-slate mb-0">Falcon Endpoint Protection</p>
                         </div>
 
-                        <!-- CrowdStrike Card -->
-                        <div class="glass-card p-4 rounded-lg hover:border-red-500 transition-all group mb-4">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <h4 class="text-white fw-bold group-hover:text-red-500 transition-colors">CrowdStrike
-                                </h4>
-                            </div>
-                            <p class="text-sm text-slate">Falcon Endpoint Protection</p>
-                        </div>
-
-                        <!-- Splunk Card -->
-                        <div class="glass-card p-4 rounded-lg hover:border-green transition-all group">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <h4 class="text-white fw-bold group-hover:text-green transition-colors">Splunk</h4>
-                            </div>
-                            <p class="text-sm text-slate">Enterprise SIEM & Analytics</p>
+                        <div class="skill-card">
+                            <h4 class="text-white fw-bold">Splunk</h4>
+                            <p class="text-slate mb-0">Enterprise SIEM & Analytics</p>
                         </div>
                     </div>
 
-                    <!-- Column 3: Cloud-Native & Engineering -->
+                    <!-- Cloud-Native Column -->
                     <div class="col-md-4">
-                        <div class="mb-5">
-                            <h3 class="fs-5 fw-bold text-white mb-2"><i
-                                    class="fas fa-cloud text-blue-400 me-2"></i>Cloud-Native & Ops</h3>
-                            <p class="text-sm text-slate font-mono">Securing modern infrastructure and pipelines.</p>
+                        <h3 class="skill-category mb-4"><i class="fas fa-cloud text-blue-400 me-2"></i>Cloud-Native &
+                            Ops</h3>
+
+                        <div class="skill-card mb-3">
+                            <h4 class="text-white fw-bold">Kubernetes</h4>
+                            <p class="text-slate mb-0">Container Orchestration</p>
                         </div>
 
-                        <!-- Kubernetes Card -->
-                        <div class="glass-card p-4 rounded-lg hover:border-blue-500 transition-all group mb-4">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <h4 class="text-white fw-bold group-hover:text-blue-500 transition-colors">Kubernetes
-                                </h4>
-                            </div>
-                            <p class="text-sm text-slate">Container Orchestration</p>
+                        <div class="skill-card mb-3">
+                            <h4 class="text-white fw-bold">Docker</h4>
+                            <p class="text-slate mb-0">Container Security</p>
                         </div>
 
-                        <!-- Docker Card -->
-                        <div class="glass-card p-4 rounded-lg hover:border-blue-300 transition-all group mb-4">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <h4 class="text-white fw-bold group-hover:text-blue-300 transition-colors">Docker</h4>
-                            </div>
-                            <p class="text-sm text-slate">Container Security</p>
+                        <div class="skill-card">
+                            <h4 class="text-white fw-bold">Python/Bash</h4>
+                            <p class="text-slate mb-0">Automation & Scripting</p>
                         </div>
-
-                        <!-- Python/Bash Card -->
-                        <div class="glass-card p-4 rounded-lg hover:border-yellow-300 transition-all group">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <h4 class="text-white fw-bold group-hover:text-yellow-300 transition-colors">Python/Bash
-                                </h4>
-                            </div>
-                            <p class="text-sm text-slate">Automation & Scripting</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Certifications Section -->
-        <section id="certifications" class="py-5 reveal">
-            <div class="container">
-                <h2 class="fs-2 fw-bold text-white text-center mb-5 font-mono">
-                    <span class="text-green">04.</span> Certifications & Badges
-                </h2>
-
-                <div class="d-flex flex-wrap justify-content-center gap-4">
-                    <div
-                        class="bg-lightNavy px-4 py-3 rounded border border-green/20 hover:border-green transition-colors">
-                        <span class="text-green font-mono text-sm d-block mb-1">USOM</span>
-                        <span class="text-white fw-bold">Penetration Testing</span>
-                    </div>
-                    <div
-                        class="bg-lightNavy px-4 py-3 rounded border border-green/20 hover:border-green transition-colors">
-                        <span class="text-green font-mono text-sm d-block mb-1">LetsDefend</span>
-                        <span class="text-white fw-bold">SOC Analyst</span>
-                    </div>
-                    <div
-                        class="bg-lightNavy px-4 py-3 rounded border border-green/20 hover:border-green transition-colors">
-                        <span class="text-green font-mono text-sm d-block mb-1">TryHackMe</span>
-                        <span class="text-white fw-bold">Red Team</span>
-                    </div>
-                    <div
-                        class="bg-lightNavy px-4 py-3 rounded border border-green/20 hover:border-green transition-colors">
-                        <span class="text-green font-mono text-sm d-block mb-1">Cisco</span>
-                        <span class="text-white fw-bold">Network Security</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Training & Ranks Section -->
-        <section id="ranks" class="py-5 bg-lightNavy/30 reveal">
-            <div class="container">
-                <div class="row align-items-center mb-5">
-                    <div class="col-auto">
-                        <span class="font-mono fs-2 text-green me-4">05.</span>
-                        <h2 class="fs-3 fw-bold text-white d-inline-block">Training & Ranks</h2>
-                    </div>
-                    <div class="col">
-                        <div class="hr bg-lightestNavy"></div>
-                    </div>
-                </div>
-
-                <div class="row g-4">
-                    <!-- TryHackMe -->
-                    <div class="col-md-4">
-                        <a href="https://tryhackme.com/p/yusufarbc" target="_blank"
-                            class="glass-card p-4 rounded-lg hover-lift group d-block text-decoration-none">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="text-green fs-2"><i class="fas fa-bug"></i></div>
-                                <span
-                                    class="font-mono text-xs text-green border border-green px-2 py-1 rounded">Offensive</span>
-                            </div>
-                            <h3 class="text-white fw-bold fs-5 group-hover:text-green transition-colors">TryHackMe</h3>
-                            <p class="text-sm text-slate mt-2">Top 1% Rank</p>
-                        </a>
-                    </div>
-
-                    <!-- LetsDefend -->
-                    <div class="col-md-4">
-                        <a href="https://app.letsdefend.io/user/yusufarbc" target="_blank"
-                            class="glass-card p-4 rounded-lg hover-lift group d-block text-decoration-none">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="text-blue-400 fs-2"><i class="fas fa-shield-alt"></i></div>
-                                <span
-                                    class="font-mono text-xs text-blue-400 border border-blue-400 px-2 py-1 rounded">Defensive</span>
-                            </div>
-                            <h3 class="text-white fw-bold fs-5 group-hover:text-blue-400 transition-colors">LetsDefend
-                            </h3>
-                            <p class="text-sm text-slate mt-2">SOC Analyst Badge</p>
-                        </a>
-                    </div>
-
-                    <!-- HackerRank -->
-                    <div class="col-md-4">
-                        <a href="https://www.hackerrank.com/profile/yusufarbc" target="_blank"
-                            class="glass-card p-4 rounded-lg hover-lift group d-block text-decoration-none">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="text-green fs-2"><i class="fab fa-hackerrank"></i></div>
-                                <span
-                                    class="font-mono text-xs text-green border border-green px-2 py-1 rounded">Coding</span>
-                            </div>
-                            <h3 class="text-white fw-bold fs-5 group-hover:text-green transition-colors">HackerRank</h3>
-                            <p class="text-sm text-slate mt-2">Problem Solving</p>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -477,158 +267,95 @@
         <!-- Projects Section -->
         <section id="projects" class="py-5 reveal">
             <div class="container">
-                <div class="row align-items-center mb-5">
-                    <div class="col-auto">
-                        <span class="font-mono fs-2 text-green me-4">06.</span>
-                        <h2 class="fs-3 fw-bold text-white d-inline-block">Featured Projects</h2>
-                    </div>
-                    <div class="col">
-                        <div class="hr bg-lightestNavy"></div>
-                    </div>
+                <div class="section-header mb-5">
+                    <span class="section-number">04.</span>
+                    <h2 class="section-title">Featured Projects</h2>
+                    <div class="section-line"></div>
                 </div>
 
                 <div class="row g-4">
-                    <!-- Project 1: NPM Supply Chain -->
                     <div class="col-md-6">
-                        <div class="glass-card p-4 rounded-lg hover-lift group">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="text-green fs-2"><i class="fas fa-project-diagram"></i></div>
-                                <span class="font-mono text-xs text-green border border-green px-2 py-1 rounded">Supply
-                                    Chain</span>
+                        <div class="project-card">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <i class="fas fa-project-diagram fs-3 text-green"></i>
+                                <span class="project-tag">Supply Chain</span>
                             </div>
-                            <h3 class="text-white fw-bold fs-5 group-hover:text-green transition-colors mb-2">NPM Supply
-                                Chain Network Analysis</h3>
-                            <p class="text-sm text-slate mb-4">Network analysis of NPM dependencies with centrality
-                                metrics for supply chain risk assessment.</p>
-                            <div class="d-flex gap-2 text-xs font-mono">
-                                <a href="https://yusufarbc.github.io/npm-supply-chain-network-analysis/" target="_blank"
-                                    class="text-green text-decoration-none hover:underline"><i
-                                        class="fas fa-external-link-alt me-1"></i>Web</a>
-                                <span class="text-slate">•</span>
-                                <a href="https://github.com/yusufarbc/npm-supply-chain-network-analysis" target="_blank"
-                                    class="text-slate text-decoration-none hover:text-green"><i
-                                        class="fab fa-github me-1"></i>GitHub</a>
+                            <h3 class="text-white fw-bold mb-3">NPM Supply Chain Network Analysis</h3>
+                            <p class="text-slate mb-3">Network analysis of NPM dependencies with centrality metrics for
+                                supply chain risk assessment.</p>
+                            <div class="project-links">
+                                <a href="https://yusufarbc.github.io/npm-supply-chain-network-analysis/"
+                                    target="_blank">
+                                    <i class="fas fa-external-link-alt me-1"></i>Web
+                                </a>
+                                <span class="mx-2">•</span>
+                                <a href="https://github.com/yusufarbc/npm-supply-chain-network-analysis"
+                                    target="_blank">
+                                    <i class="fab fa-github me-1"></i>GitHub
+                                </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 2: ApiGoat -->
                     <div class="col-md-6">
-                        <div class="glass-card p-4 rounded-lg hover-lift group">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="text-red-500 fs-2"><i class="fas fa-bug"></i></div>
-                                <span
-                                    class="font-mono text-xs text-red-500 border border-red-500 px-2 py-1 rounded">OWASP</span>
+                        <div class="project-card">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <i class="fas fa-bug fs-3 text-red-500"></i>
+                                <span class="project-tag">OWASP</span>
                             </div>
-                            <h3 class="text-white fw-bold fs-5 group-hover:text-green transition-colors mb-2">ApiGoat
-                            </h3>
-                            <p class="text-sm text-slate mb-4">Deliberately vulnerable REST API for OWASP Top 10 (2023)
-                                security testing and learning.</p>
-                            <div class="d-flex gap-2 text-xs font-mono">
-                                <a href="https://yusufarbc.github.io/apigoat/" target="_blank"
-                                    class="text-green text-decoration-none hover:underline"><i
-                                        class="fas fa-external-link-alt me-1"></i>Web</a>
-                                <span class="text-slate">•</span>
-                                <a href="https://github.com/yusufarbc/apigoat" target="_blank"
-                                    class="text-slate text-decoration-none hover:text-green"><i
-                                        class="fab fa-github me-1"></i>GitHub</a>
+                            <h3 class="text-white fw-bold mb-3">ApiGoat</h3>
+                            <p class="text-slate mb-3">Deliberately vulnerable REST API for OWASP Top 10 (2023) security
+                                testing and learning.</p>
+                            <div class="project-links">
+                                <a href="https://yusufarbc.github.io/apigoat/" target="_blank">
+                                    <i class="fas fa-external-link-alt me-1"></i>Web
+                                </a>
+                                <span class="mx-2">•</span>
+                                <a href="https://github.com/yusufarbc/apigoat" target="_blank">
+                                    <i class="fab fa-github me-1"></i>GitHub
+                                </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 3: MCP Agentic Security -->
                     <div class="col-md-6">
-                        <div class="glass-card p-4 rounded-lg hover-lift group">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="text-purple-400 fs-2"><i class="fas fa-robot"></i></div>
-                                <span
-                                    class="font-mono text-xs text-purple-400 border border-purple-400 px-2 py-1 rounded">AI
-                                    Security</span>
+                        <div class="project-card">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <i class="fas fa-robot fs-3 text-purple-400"></i>
+                                <span class="project-tag">AI Security</span>
                             </div>
-                            <h3 class="text-white fw-bold fs-5 group-hover:text-green transition-colors mb-2">MCP
-                                Agentic Security Review</h3>
-                            <p class="text-sm text-slate mb-4">Security analysis of MCP ecosystem – threats, defenses,
+                            <h3 class="text-white fw-bold mb-3">MCP Agentic Security Review</h3>
+                            <p class="text-slate mb-3">Security analysis of MCP ecosystem – threats, defenses,
                                 benchmarks, and agent interoperability.</p>
-                            <div class="d-flex gap-2 text-xs font-mono">
-                                <a href="https://yusufarbc.github.io/mcp-agentic-security-review/" target="_blank"
-                                    class="text-green text-decoration-none hover:underline"><i
-                                        class="fas fa-external-link-alt me-1"></i>Web</a>
-                                <span class="text-slate">•</span>
-                                <a href="https://github.com/yusufarbc/mcp-agentic-security-review" target="_blank"
-                                    class="text-slate text-decoration-none hover:text-green"><i
-                                        class="fab fa-github me-1"></i>GitHub</a>
+                            <div class="project-links">
+                                <a href="https://yusufarbc.github.io/mcp-agentic-security-review/" target="_blank">
+                                    <i class="fas fa-external-link-alt me-1"></i>Web
+                                </a>
+                                <span class="mx-2">•</span>
+                                <a href="https://github.com/yusufarbc/mcp-agentic-security-review" target="_blank">
+                                    <i class="fab fa-github me-1"></i>GitHub
+                                </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 4: WebVuln Runner -->
                     <div class="col-md-6">
-                        <div class="glass-card p-4 rounded-lg hover-lift group">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="text-blue-400 fs-2"><i class="fab fa-docker"></i></div>
-                                <span
-                                    class="font-mono text-xs text-blue-400 border border-blue-400 px-2 py-1 rounded">DevSecOps</span>
+                        <div class="project-card">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <i class="fab fa-docker fs-3 text-blue-400"></i>
+                                <span class="project-tag">DevSecOps</span>
                             </div>
-                            <h3 class="text-white fw-bold fs-5 group-hover:text-green transition-colors mb-2">WebVuln
-                                Runner</h3>
-                            <p class="text-sm text-slate mb-4">The ultimate Docker-based TUI runner for vulnerable web
-                                apps. Deploy OWASP Juice Shop, DVWA, WebGoat, and 15+ pentest labs with one click.</p>
-                            <div class="d-flex gap-2 text-xs font-mono">
-                                <a href="https://webvulnrunner.dev/" target="_blank"
-                                    class="text-green text-decoration-none hover:underline"><i
-                                        class="fas fa-external-link-alt me-1"></i>Web</a>
-                                <span class="text-slate">•</span>
-                                <a href="https://github.com/yusufarbc/webvuln-runner" target="_blank"
-                                    class="text-slate text-decoration-none hover:text-green"><i
-                                        class="fab fa-github me-1"></i>GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 5: ANKA UAV -->
-                    <div class="col-md-6">
-                        <div class="glass-card p-4 rounded-lg hover-lift group">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="text-yellow-400 fs-2"><i class="fas fa-plane"></i></div>
-                                <span
-                                    class="font-mono text-xs text-yellow-400 border border-yellow-400 px-2 py-1 rounded">Robotics</span>
-                            </div>
-                            <h3 class="text-white fw-bold fs-5 group-hover:text-green transition-colors mb-2">ANKA UAV
-                                TEKNO2022</h3>
-                            <p class="text-sm text-slate mb-4">International UAV Competition Mission Software –
-                                Autonomous Fixed-Wing UAV Controller & Payload Delivery.</p>
-                            <div class="d-flex gap-2 text-xs font-mono">
-                                <a href="https://yusufarbc.github.io/anka-uav-tekno2022/" target="_blank"
-                                    class="text-green text-decoration-none hover:underline"><i
-                                        class="fas fa-external-link-alt me-1"></i>Web</a>
-                                <span class="text-slate">•</span>
-                                <a href="https://github.com/yusufarbc/anka-uav-tekno2022" target="_blank"
-                                    class="text-slate text-decoration-none hover:text-green"><i
-                                        class="fab fa-github me-1"></i>GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 6: Turkish Spam Detection -->
-                    <div class="col-md-6">
-                        <div class="glass-card p-4 rounded-lg hover-lift group">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="text-orange-400 fs-2"><i class="fas fa-envelope"></i></div>
-                                <span
-                                    class="font-mono text-xs text-orange-400 border border-orange-400 px-2 py-1 rounded">ML/AI</span>
-                            </div>
-                            <h3 class="text-white fw-bold fs-5 group-hover:text-green transition-colors mb-2">Turkish
-                                Spam Mail Detection</h3>
-                            <p class="text-sm text-slate mb-4">Turkish spam email detection with KNN, preprocessing, and
-                                visualization.</p>
-                            <div class="d-flex gap-2 text-xs font-mono">
-                                <a href="https://yusufarbc.github.io/turkish-spam-mail-detection/" target="_blank"
-                                    class="text-green text-decoration-none hover:underline"><i
-                                        class="fas fa-external-link-alt me-1"></i>Web</a>
-                                <span class="text-slate">•</span>
-                                <a href="https://github.com/yusufarbc/turkish-spam-mail-detection" target="_blank"
-                                    class="text-slate text-decoration-none hover:text-green"><i
-                                        class="fab fa-github me-1"></i>GitHub</a>
+                            <h3 class="text-white fw-bold mb-3">WebVuln Runner</h3>
+                            <p class="text-slate mb-3">Docker-based TUI runner for vulnerable web apps. Deploy OWASP
+                                Juice Shop, DVWA, WebGoat, and 15+ pentest labs.</p>
+                            <div class="project-links">
+                                <a href="https://webvulnrunner.dev/" target="_blank">
+                                    <i class="fas fa-external-link-alt me-1"></i>Web
+                                </a>
+                                <span class="mx-2">•</span>
+                                <a href="https://github.com/yusufarbc/webvuln-runner" target="_blank">
+                                    <i class="fab fa-github me-1"></i>GitHub
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -639,31 +366,29 @@
         <!-- Footer -->
         <footer class="bg-lightNavy py-5 text-center">
             <div class="container">
-                <div class="d-flex flex-wrap justify-content-center gap-4 mb-5">
+                <div class="d-flex justify-content-center gap-4 mb-4">
                     <a href="https://x.com/yusufarbc" class="social-icon">
-                        <i class="fab fa-x-twitter fs-4"></i>
+                        <i class="fab fa-x-twitter"></i>
                     </a>
-
                     <a href="https://www.linkedin.com/in/yusufarbc/" class="social-icon">
-                        <i class="fab fa-linkedin-in fs-4"></i>
+                        <i class="fab fa-linkedin-in"></i>
                     </a>
-
                     <a href="https://github.com/yusufarbc" class="social-icon">
-                        <i class="fab fa-github fs-4"></i>
+                        <i class="fab fa-github"></i>
                     </a>
-
                     <a href="https://medium.com/@yusufarbc" class="social-icon">
-                        <i class="fab fa-medium-m fs-4"></i>
+                        <i class="fab fa-medium-m"></i>
                     </a>
                 </div>
 
-                <div class="mb-4">
-                    <a href="mailto:yusuftalhaarabaci@hotmail.com"
-                        class="font-mono text-green text-decoration-none hover:underline">yusuftalhaarabaci@hotmail.com</a>
+                <div class="mb-3">
+                    <a href="mailto:yusuftalhaarabaci@hotmail.com" class="text-green text-decoration-none">
+                        yusuftalhaarabaci@hotmail.com
+                    </a>
                 </div>
 
-                <p class="font-mono text-sm text-slate">
-                    Built for <span class="text-green">Digital Sovereignty</span>.<br>
+                <p class="font-mono text-slate mb-0">
+                    Built for <span class="text-green">Digital Sovereignty</span><br>
                     &copy; 2025 Yusuf Talha ARABACI
                 </p>
             </div>
