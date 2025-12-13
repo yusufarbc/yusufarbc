@@ -1,65 +1,80 @@
 <div align="center">
   
-  # Yusuf Talha ARABACI
-  
-  **Cyber Security Engineer**
+  <img src="assets/images/photo.jpeg" width="150" height="150" style="border-radius: 50%; border: 4px solid #38bdf8;" alt="Yusuf Talha ARABACI">
 
-  Digital Sovereignty • Cloud-Native Security • Open Source • Data Privacy • Next-Gen SOC • Endpoint Protection • Network Defense
+  <h1 style="border-bottom: none;">Hi, I'm Yusuf Talha ARABACI 👋</h1>
   
-  [![Portfolio](https://img.shields.io/badge/Portfolio-Visit%20Site-64ffda?style=for-the-badge&logo=google-chrome&logoColor=0a192f)](https://yusufarbc.github.io/yusufarbc/)
-  [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yusufarbc/)
-  [![Email](https://img.shields.io/badge/Email-Contact%20Me-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:yusuftalhaarabaci@hotmail.com)
-  
-  <br/>
-  
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=64ffda&background=0a192f00&center=true&vCenter=true&width=500&lines=Cyber+Security+Engineer;Digital+Sovereignty+Architect;Open+Source+Advocate;Next-Gen+SOC+Builder" alt="Typing SVG" />
+  <p align="center">
+    <b>Cyber Security Engineer</b> • <b>Digital Sovereignty Architect</b> • <b>Blue Team Specialist</b>
+  </p>
+
+  <p align="center">
+    <a href="https://yusufarbc.github.io/">
+      <img src="https://img.shields.io/badge/Portfolio-Visit%20Site-38bdf8?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio" />
+    </a>
+    <a href="https://linkedin.com/in/yusufarbc">
+      <img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+    </a>
+    <a href="mailto:yusuftalhaarabaci@hotmail.com">
+      <img src="https://img.shields.io/badge/Email-Contact%20Me-ea580c?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+    </a>
+  </p>
+
+  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&pause=1000&color=38bdf8&background=0f172a00&center=true&vCenter=true&width=600&lines=Cyber+Security+Engineer;Building+Sovereign+Infrastructures;Cloud-Native+Defense;Open+Source+Advocate" alt="Typing SVG" />
 </div>
 
 ---
 
 ## 🚀 About Me
 
-I am a **Cyber Security Engineer** combining offensive foundations, enterprise SOC experience, and a strategic focus on digital sovereignty and cloud-native security. My professional approach bridges the gap between Tier-1 enterprise defense and the future of sovereign, open-source architectures.
+I am a **Cyber Security Engineer** specializing in **Digital Sovereignty**, **Cloud-Native Security**, and **Next-Generation SOC Architectures**. My work bridges the gap between offensive knowledge and defensive strategy (*"To learn to defend, you need to know how to attack"*).
 
-- 🔭 **Current Role:** Cyber Security Engineer @ **Arma Bilisim**
-- 🎓 **Academic Focus:** MSc in "Data Sovereignty & Open Source Enterprise Architectures"
-- 📍 **Location:** Relocating to **Tallinn, Estonia** (Q1 2026)
-- 💡 **Philosophy:** *"To learn to defend, you need to know how to attack"*
+Currently, I am focused on designing cloud-independent infrastructures to mitigate vendor lock-in and CLOUD Act risks.
+
+*   🔭 **Current Role:** Cyber Security Engineer @ **Arma Bilisim**
+*   🎓 **Academic Focus:** MSc in "Data Sovereignty & Open Source Enterprise Architectures"
+*   📍 **Location:** Relocating to **Tallinn, Estonia** (Q1 2026)
+*   🛡️ **Mission:** Empowering organizations with sovereign, resilient, and open-source defense mechanisms.
 
 ## 🛠️ Technical Arsenal
 
 <div align="center">
 
-| **Sovereign Defense** | **Enterprise Operations** | **Cloud-Native & Ops** |
-|:---:|:---:|:---:|
-| ![Wazuh](https://img.shields.io/badge/Wazuh-00A9E0?style=flat-square&logo=wazuh&logoColor=white) | ![SentinelOne](https://img.shields.io/badge/SentinelOne-6B2F85?style=flat-square&logo=sentinelone&logoColor=white) | ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white) |
-| ![Elastic](https://img.shields.io/badge/Elastic-005571?style=flat-square&logo=elastic&logoColor=white) | ![CrowdStrike](https://img.shields.io/badge/CrowdStrike-FC0000?style=flat-square&logo=crowdstrike&logoColor=white) | ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white) |
-| ![OpenVAS](https://img.shields.io/badge/OpenVAS-00529B?style=flat-square&logo=scanner&logoColor=white) | ![Splunk](https://img.shields.io/badge/Splunk-000000?style=flat-square&logo=splunk&logoColor=white) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) |
+| **Core Defense & SIEM** | **Endpoint Security** | **Cloud & DevSecOps** | **Offensive Security** |
+|:---:|:---:|:---:|:---:|
+| ![Wazuh](https://img.shields.io/badge/Wazuh-00A9E0?style=flat-square&logo=wazuh&logoColor=white) | ![SentinelOne](https://img.shields.io/badge/SentinelOne-6B2F85?style=flat-square&logo=sentinelone&logoColor=white) | ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white) | ![Burp Suite](https://img.shields.io/badge/Burp%20Suite-eb5e28?style=flat-square&logo=burpsuite&logoColor=white) |
+| ![Elastic](https://img.shields.io/badge/Elastic-005571?style=flat-square&logo=elastic&logoColor=white) | ![CrowdStrike](https://img.shields.io/badge/CrowdStrike-FC0000?style=flat-square&logo=crowdstrike&logoColor=white) | ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white) | ![Metasploit](https://img.shields.io/badge/Metasploit-0466c8?style=flat-square&logo=metasploit&logoColor=white) |
+| ![Splunk](https://img.shields.io/badge/Splunk-000000?style=flat-square&logo=splunk&logoColor=white) | ![Defender](https://img.shields.io/badge/MS%20Defender-00a4ef?style=flat-square&logo=microsoft&logoColor=white) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) | ![Wireshark](https://img.shields.io/badge/Wireshark-16213e?style=flat-square&logo=wireshark&logoColor=white) |
 
 </div>
+
+## 📂 Featured Projects
+
+| Project | Description | Tech Stack |
+|---|---|---|
+| [**NPM Supply Chain Analysis**](https://github.com/yusufarbc/npm-supply-chain-network-analysis) | Analysis of NPM dependency risks using centrality metrics. | Python, NetworkX |
+| [**ApiGoat**](https://github.com/yusufarbc/apigoat) | Deliberately vulnerable REST API for OWASP Top 10 training. | Go, API Security |
+| [**MCP Agentic Review**](https://github.com/yusufarbc/mcp-agentic-security-review) | Security analysis of the Model Context Protocol ecosystem. | AI Security, Research |
+| [**WebVuln Runner**](https://github.com/yusufarbc/webvuln-runner) | Docker TUI runner for deploying vulnerable labs (Juice Shop, etc.). | Docker, Python |
 
 ## 📊 GitHub Stats
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=yusufarbc&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0a192f&title_color=64ffda&icon_color=64ffda&text_color=8892b0" height="180" alt="stats graph"  />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yusufarbc&layout=compact&theme=tokyonight&hide_border=true&bg_color=0a192f&title_color=64ffda&icon_color=64ffda&text_color=8892b0" height="180" alt="languages graph" />
+  <img src="https://github-readme-stats.vercel.app/api?username=yusufarbc&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0f172a&title_color=38bdf8&icon_color=38bdf8&text_color=94a3b8" height="160" alt="stats graph" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yusufarbc&layout=compact&theme=tokyonight&hide_border=true&bg_color=0f172a&title_color=38bdf8&icon_color=38bdf8&text_color=94a3b8" height="160" alt="languages graph" />
 </div>
 
-## 🏆 Certifications & Badges
+## 🏆 Certifications
 
-- **USOM** Penetration Testing
-- **LetsDefend** SOC Analyst
-- **TryHackMe** Red Team
-- **Cisco** Network Security
+*   **USOM** - Penetration Testing Specialist
+*   **LetsDefend** - SOC Analyst
+*   **TryHackMe** - Red Team Operator
+*   **Cisco** - Network Security
 
 ---
 
 <div align="center">
-  <p>Built for <span style="color: #64ffda;">Digital Sovereignty</span></p>
-  <a href="https://x.com/yusufarbc"><img src="https://img.shields.io/badge/X-Follow-000000?style=flat&logo=x&logoColor=white" alt="X"/></a>
-  <a href="https://medium.com/@yusufarbc"><img src="https://img.shields.io/badge/Medium-Read-12100E?style=flat&logo=medium&logoColor=white" alt="Medium"/></a>
-</div>
-
-**💬 Let's connect and collaborate!**
-
+  <p><i>"Digital Sovereignty is not luxury, it's a necessity."</i></p>
+  
+  <a href="https://x.com/yusufarbc"><img src="https://img.shields.io/twitter/follow/yusufarbc?style=social" alt="X Follow"/></a>
 </div>

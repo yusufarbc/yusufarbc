@@ -6,7 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yusuf Talha ARABACI | Cyber Security Engineer</title>
     <meta name="description"
-        content="Cyber Security Engineer & Digital Sovereignty Architect. Relocating to Tallinn, Estonia.">
+        content="Cyber Security Engineer & Digital Sovereignty Architect. Specializing in Cloud-Native Security, SOC Architecture, and Open Source Defense.">
+    <meta name="keywords"
+        content="Cyber Security, SOC, Blue Team, Cloud Security, Yusuf Talha ARABACI, Portfolio, Digital Sovereignty, DevSecOps">
+    <meta name="author" content="Yusuf Talha ARABACI">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yusufarbc.github.io/">
+    <meta property="og:title" content="Yusuf Talha ARABACI | Cyber Security Engineer">
+    <meta property="og:description"
+        content="Cyber Security Engineer & Digital Sovereignty Architect. Specializing in Cloud-Native Security, SOC Architecture, and Open Source Defense.">
+    <meta property="og:image" content="https://yusufarbc.github.io/assets/images/photo.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yusufarbc.github.io/">
+    <meta property="twitter:title" content="Yusuf Talha ARABACI | Cyber Security Engineer">
+    <meta property="twitter:description"
+        content="Cyber Security Engineer & Digital Sovereignty Architect. Specializing in Cloud-Native Security, SOC Architecture, and Open Source Defense.">
+    <meta property="twitter:image" content="https://yusufarbc.github.io/assets/images/photo.jpeg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,14 +37,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
         rel="stylesheet">
 
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- Config -->
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -30,185 +54,539 @@
                         mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
+                        slate: {
+                            850: '#151e2e',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
                         brand: {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            500: '#3b82f6',
-                            600: '#2563eb', /* Royal Blue */
-                            700: '#1d4ed8',
-                            900: '#1e3a8a',
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                        accent: {
+                            500: '#10b981', // Emerald
+                            600: '#059669',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
                         }
                     }
                 }
             }
         }
     </script>
+
     <style>
-        /* Custom Utilities if needed */
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
         }
 
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(30, 41, 59, 0.6);
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Gradient Text */
         .text-gradient {
-            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Background Grid */
+        .bg-grid {
+            background-size: 50px 50px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        }
+
+        /* Mouse Glow */
+        #mouse-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.5s ease;
+        }
+
+        /* Glitch Effect */
+        .glitch-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .glitch {
+            position: relative;
+            z-index: 1;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0f172a;
+            /* Match bg */
+        }
+
+        .glitch::before {
+            left: 2px;
+            text-shadow: -1px 0 #cc00ff;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            left: -2px;
+            text-shadow: -1px 0 #00ffff;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% {
+                clip: rect(40px, 9999px, 49px, 0);
+            }
+
+            5% {
+                clip: rect(72px, 9999px, 20px, 0);
+            }
+
+            10% {
+                clip: rect(6px, 9999px, 86px, 0);
+            }
+
+            15% {
+                clip: rect(68px, 9999px, 5px, 0);
+            }
+
+            20% {
+                clip: rect(25px, 9999px, 60px, 0);
+            }
+
+            25% {
+                clip: rect(98px, 9999px, 21px, 0);
+            }
+
+            30% {
+                clip: rect(4px, 9999px, 14px, 0);
+            }
+
+            35% {
+                clip: rect(56px, 9999px, 43px, 0);
+            }
+
+            40% {
+                clip: rect(31px, 9999px, 64px, 0);
+            }
+
+            45% {
+                clip: rect(81px, 9999px, 35px, 0);
+            }
+
+            50% {
+                clip: rect(29px, 9999px, 93px, 0);
+            }
+
+            55% {
+                clip: rect(4px, 9999px, 5px, 0);
+            }
+
+            60% {
+                clip: rect(67px, 9999px, 83px, 0);
+            }
+
+            65% {
+                clip: rect(23px, 9999px, 1px, 0);
+            }
+
+            70% {
+                clip: rect(89px, 9999px, 40px, 0);
+            }
+
+            75% {
+                clip: rect(9px, 9999px, 95px, 0);
+            }
+
+            80% {
+                clip: rect(33px, 9999px, 35px, 0);
+            }
+
+            85% {
+                clip: rect(13px, 9999px, 38px, 0);
+            }
+
+            90% {
+                clip: rect(59px, 9999px, 92px, 0);
+            }
+
+            95% {
+                clip: rect(2px, 9999px, 26px, 0);
+            }
+
+            100% {
+                clip: rect(12px, 9999px, 48px, 0);
+            }
+        }
+
+        @keyframes glitch-anim2 {
+            0% {
+                clip: rect(63px, 9999px, 47px, 0);
+            }
+
+            5% {
+                clip: rect(18px, 9999px, 22px, 0);
+            }
+
+            10% {
+                clip: rect(50px, 9999px, 80px, 0);
+            }
+
+            15% {
+                clip: rect(80px, 9999px, 6px, 0);
+            }
+
+            20% {
+                clip: rect(42px, 9999px, 96px, 0);
+            }
+
+            25% {
+                clip: rect(15px, 9999px, 23px, 0);
+            }
+
+            30% {
+                clip: rect(74px, 9999px, 58px, 0);
+            }
+
+            35% {
+                clip: rect(42px, 9999px, 98px, 0);
+            }
+
+            40% {
+                clip: rect(27px, 9999px, 17px, 0);
+            }
+
+            45% {
+                clip: rect(98px, 9999px, 81px, 0);
+            }
+
+            50% {
+                clip: rect(10px, 9999px, 59px, 0);
+            }
+
+            55% {
+                clip: rect(62px, 9999px, 26px, 0);
+            }
+
+            60% {
+                clip: rect(85px, 9999px, 78px, 0);
+            }
+
+            65% {
+                clip: rect(51px, 9999px, 15px, 0);
+            }
+
+            70% {
+                clip: rect(8px, 9999px, 44px, 0);
+            }
+
+            75% {
+                clip: rect(98px, 9999px, 52px, 0);
+            }
+
+            80% {
+                clip: rect(2px, 9999px, 9px, 0);
+            }
+
+            85% {
+                clip: rect(52px, 9999px, 7px, 0);
+            }
+
+            90% {
+                clip: rect(95px, 9999px, 12px, 0);
+            }
+
+            95% {
+                clip: rect(5px, 9999px, 32px, 0);
+            }
+
+            100% {
+                clip: rect(54px, 9999px, 79px, 0);
+            }
         }
     </style>
 </head>
 
-<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-100 selection:text-brand-900">
+<body
+    class="bg-slate-950 text-slate-300 font-sans antialiased selection:bg-brand-500 selection:text-white overflow-x-hidden">
+
+    <!-- Background Effects -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div id="mouse-glow"></div>
+        <div class="absolute top-0 left-0 w-full h-full bg-grid"></div>
+        <div
+            class="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-[120px] animate-pulse-slow">
+        </div>
+        <div class="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px] animate-pulse-slow"
+            style="animation-delay: 2s;"></div>
+    </div>
 
     <!-- Navbar -->
-    <nav class="fixed w-full top-0 z-50 glass-nav transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav class="fixed w-full top-0 z-50 glass transition-all duration-300 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logo / Photo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="group">
-                        <img class="h-12 w-12 rounded-full border-2 border-white shadow-md group-hover:scale-105 transition-transform duration-300 object-cover"
-                            src="assets/img/photo.jpeg" alt="YTB">
-                    </a>
-                </div>
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="relative w-10 h-10 group-hover:scale-110 transition-transform">
+                        <div class="absolute inset-0 bg-brand-500 blur-md opacity-50 rounded-full"></div>
+                        <img class="relative w-10 h-10 rounded-full border-2 border-white/10 object-cover"
+                            src="assets/images/photo.jpeg" alt="YTB">
+                    </div>
+                    <span
+                        class="font-mono font-bold text-lg text-slate-100 group-hover:text-brand-400 transition-colors">yusufarbc<span
+                            class="text-brand-500">.</span>dev</span>
+                </a>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8 items-center">
+                <div class="hidden md:flex space-x-1 items-center">
                     <a href="#about"
-                        class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors"><span
-                            class="text-brand-500 font-mono mr-1">01.</span>About</a>
+                        class="px-4 py-2 text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-all"><span
+                            class="text-brand-500 font-mono mr-1">01.</span> About</a>
                     <a href="#experience"
-                        class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors"><span
-                            class="text-brand-500 font-mono mr-1">02.</span>Experience</a>
+                        class="px-4 py-2 text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-all"><span
+                            class="text-brand-500 font-mono mr-1">02.</span> Experience</a>
                     <a href="#skills"
-                        class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors"><span
-                            class="text-brand-500 font-mono mr-1">03.</span>Skills</a>
+                        class="px-4 py-2 text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-all"><span
+                            class="text-brand-500 font-mono mr-1">03.</span> Skills</a>
                     <a href="#projects"
-                        class="text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors"><span
-                            class="text-brand-500 font-mono mr-1">04.</span>Projects</a>
+                        class="px-4 py-2 text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-all"><span
+                            class="text-brand-500 font-mono mr-1">04.</span> Projects</a>
+
                     <a href="mailto:yusuftalhaarabaci@hotmail.com"
-                        class="px-5 py-2.5 rounded-full bg-brand-600 text-white text-sm font-semibold shadow-lg hover:bg-brand-700 hover:shadow-brand-500/30 hover:-translate-y-0.5 transition-all duration-300">
+                        class="ml-4 px-6 py-2.5 rounded-lg bg-brand-600 text-white text-sm font-semibold hover:bg-brand-500 shadow-lg shadow-brand-500/20 hover:shadow-brand-500/40 hover:-translate-y-0.5 transition-all">
                         Contact Me
                     </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button class="text-slate-600 hover:text-brand-600 focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                    <!-- Note: Mobile menu JS implementation needed if interactive -->
-                </div>
+                <button class="md:hidden text-slate-300 hover:text-white p-2">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
             </div>
         </div>
     </nav>
 
-    <main class="pt-20">
+    <main class="relative z-10 pt-20">
+
         <!-- Hero Section -->
-        <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden">
-            <!-- Background Decors -->
-            <div
-                class="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-b from-blue-50 to-transparent opacity-50 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2">
+        <section class="min-h-[90vh] flex items-center justify-center relative px-4">
+            <div class="max-w-7xl w-full mx-auto grid lg:grid-cols-2 gap-12 items-center">
+
+                <div class="order-2 lg:order-1 space-y-6">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 font-mono text-sm">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                        </span>
+                        Open to Work
+                    </div>
+
+                    <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-white mb-4">
+                        Yusuf Talha <br />
+                        <span class="glitch-wrapper">
+                            <span class="text-gradient glitch" data-text="ARABACI">ARABACI</span>
+                        </span>
+                    </h1>
+
+                    <p class="text-xl md:text-2xl text-slate-400 font-light max-w-2xl leading-relaxed">
+                        I engineer <span class="text-white font-medium">Digital Sovereignty</span> & <span
+                            class="text-white font-medium">Cyber Resilience</span>.
+                    </p>
+
+                    <p class="text-slate-400 max-w-lg leading-relaxed border-l-2 border-brand-500/30 pl-4">
+                        Cyber Security Engineer specializing in Cloud-Native Security, Open Source Enterprise
+                        Architectures, and Next-Gen SOC.
+                        Currently relocating to <span class="text-white font-medium">Tallinn, Estonia 🇪🇪</span>.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#projects"
+                            class="px-8 py-3.5 rounded-lg bg-white text-slate-900 font-bold hover:bg-brand-50 transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)]">
+                            View Projects
+                        </a>
+                        <a href="#about"
+                            class="px-8 py-3.5 rounded-lg bg-slate-800 text-white font-medium border border-slate-700 hover:border-brand-500 hover:text-brand-400 transition-all">
+                            More About Me
+                        </a>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2 flex justify-center pb-10 lg:pb-0 relative">
+                    <!-- Tech Ring Decoration -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-brand-500/20 to-purple-500/20 rounded-full blur-[80px]">
+                    </div>
+
+                    <div class="relative w-72 h-72 md:w-96 md:h-96 animate-float">
+                        <div
+                            class="absolute inset-0 rounded-full border border-white/10 border-dashed animate-[spin_20s_linear_infinite]">
+                        </div>
+                        <div
+                            class="absolute inset-4 rounded-full border border-white/5 border-dotted animate-[spin_15s_linear_infinite_reverse]">
+                        </div>
+
+                        <!-- Floating Icons -->
+                        <div class="absolute -top-6 -right-6 bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-xl animate-bounce"
+                            style="animation-delay: 0s;">
+                            <i class="fab fa-docker text-3xl text-[#2496ED]"></i>
+                        </div>
+                        <div class="absolute top-1/2 -left-10 bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-xl animate-bounce"
+                            style="animation-delay: 1s;">
+                            <i class="fas fa-shield-alt text-3xl text-brand-500"></i>
+                        </div>
+                        <div class="absolute -bottom-6 -right-0 bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-xl animate-bounce"
+                            style="animation-delay: 2s;">
+                            <i class="fab fa-python text-3xl text-[#3776AB]"></i>
+                        </div>
+
+                        <img src="assets/images/photo.jpeg" alt="Yusuf Talha ARABACI"
+                            class="absolute inset-8 w-[calc(100%-4rem)] h-[calc(100%-4rem)] object-cover rounded-full border-4 border-slate-900 shadow-2xl grayscale hover:grayscale-0 transition-all duration-500">
+                    </div>
+                </div>
             </div>
 
-            <div class="max-w-5xl w-full mx-auto px-6 sm:px-6 lg:px-8 flex flex-col justify-center relative z-10">
-                <p class="font-mono text-brand-600 mb-5 animate-fade-in-up">Hi, my name is</p>
-                <h1 class="text-5xl md:text-7xl font-bold text-slate-900 mb-4 tracking-tight">
-                    Yusuf Talha ARABACI.
-                </h1>
-                <h2 class="text-4xl md:text-6xl font-bold text-slate-400 mb-8">
-                    I secure the digital frontier.
-                </h2>
-
-                <!-- Badges -->
-                <div class="flex flex-wrap gap-3 mb-8">
-                    <span
-                        class="px-4 py-1.5 bg-white text-brand-700 rounded-full text-sm font-medium border border-brand-100 shadow-sm">Digital
-                        Sovereignty</span>
-                    <span
-                        class="px-4 py-1.5 bg-white text-brand-700 rounded-full text-sm font-medium border border-brand-100 shadow-sm">Cloud-Native
-                        Security</span>
-                    <span
-                        class="px-4 py-1.5 bg-white text-brand-700 rounded-full text-sm font-medium border border-brand-100 shadow-sm">Open
-                        Source</span>
-                    <span
-                        class="px-4 py-1.5 bg-white text-brand-700 rounded-full text-sm font-medium border border-brand-100 shadow-sm">Next-Gen
-                        SOC</span>
-                </div>
-
-                <p class="text-lg text-slate-600 max-w-2xl leading-relaxed mb-8">
-                    I'm a security engineer specializing in <span class="text-brand-600 font-semibold">Digital
-                        Sovereignty</span>, <span class="text-brand-600 font-semibold">Cloud-Native Security</span>, and
-                    building next-generation SOC architectures.
-                </p>
-
-                <!-- Status -->
-                <div
-                    class="flex items-center gap-3 mb-10 px-4 py-2 bg-white rounded-lg w-fit shadow-md border border-slate-100/50 backdrop-blur-sm">
-                    <span class="relative flex h-3 w-3">
-                        <span
-                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                    </span>
-                    <span class="text-sm font-medium text-slate-600">Relocating to Tallinn, Estonia (Q1 2026)</span>
-                </div>
-
-                <div>
-                    <a href="#about"
-                        class="group px-8 py-4 rounded-xl bg-slate-900 text-white font-semibold shadow-xl hover:bg-brand-600 hover:-translate-y-1 transition-all duration-300 inline-flex items-center gap-2">
-                        Check out my work
-                        <i class="fas fa-arrow-down group-hover:translate-y-1 transition-transform"></i>
-                    </a>
-                </div>
-            </div>
+            <a href="#about"
+                class="absolute bottom-10 left-1/2 -translate-x-1/2 text-slate-500 hover:text-white transition-colors animate-bounce">
+                <i class="fas fa-chevron-down text-xl"></i>
+            </a>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-24 bg-white">
-            <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8">
-                <!-- Header -->
+        <section id="about" class="py-24 relative">
+            <div class="max-w-6xl mx-auto px-6">
                 <div class="flex items-center gap-4 mb-16">
-                    <span class="font-mono text-brand-600 text-xl">01.</span>
-                    <h2 class="text-3xl font-bold text-slate-900">About Me</h2>
-                    <div class="h-px bg-slate-200 flex-grow max-w-xs"></div>
+                    <span class="font-mono text-brand-400 text-xl">01.</span>
+                    <h2 class="text-3xl font-bold text-slate-100">About Me</h2>
+                    <div class="h-px bg-slate-800 flex-grow max-w-xs"></div>
                 </div>
 
                 <div class="grid md:grid-cols-5 gap-16">
-                    <!-- Text -->
-                    <div class="md:col-span-3 space-y-6 text-slate-600 leading-relaxed text-lg">
+                    <div class="md:col-span-3 space-y-6 text-slate-400 text-lg leading-relaxed">
                         <p>
-                            I am a <span class="text-brand-600 font-medium">Cyber Security Engineer</span> combining
-                            offensive foundations, enterprise SOC experience, and a strategic focus on digital
-                            sovereignty and cloud-native security.
+                            Hello! I am a Cyber Security Engineer who believes that <span class="text-brand-400">"to
+                                learn to defend, you need to know how to attack"</span>.
                         </p>
                         <p>
-                            <strong class="text-slate-900">Current Academic Focus (MSc):</strong> Researching "Data
-                            Sovereignty & Open Source Enterprise Architectures" to design cloud-independent
-                            infrastructures that mitigate CLOUD Act risks and vendor lock-in.
+                            My journey is fueled by a passion for <strong class="text-slate-200">Digital
+                                Sovereignty</strong>—building infrastructures that are secure, independent, and
+                            resilient against vendor lock-in and external surveillance (CLOUD Act risks).
                         </p>
                         <p>
-                            My technical expertise spans <span class="text-brand-600 font-medium">Cloud-Native
-                                Security</span>, <span class="text-brand-600 font-medium">Next-Gen SOC</span>, and <span
-                                class="text-brand-600 font-medium">Endpoint Protection</span>.
+                            I hold a BSc in Computer Engineering and am currently pursuing an <strong
+                                class="text-slate-200">MSc researching "Data Sovereignty & Open Source Enterprise
+                                Architectures"</strong>. My technical playground involves designing Next-Gen SOCs,
+                            hardening Cloud-Native environments, and automating defense with Python & Go.
                         </p>
-                        <div class="p-5 bg-brand-50 rounded-xl border border-brand-100 mt-6 shadow-sm">
-                            <p class="font-medium text-brand-900 text-base flex items-center gap-2">
-                                <i class="fas fa-plane-departure"></i>
-                                Career Objective: Relocating to <span
-                                    class="font-bold underline decoration-wavy decoration-brand-400">Tallinn, Estonia
-                                    (Q1 2026)</span> to contribute to Europe's most advanced digital society.
+                        <div class="mt-8 p-6 glass-card rounded-xl border-l-4 border-l-brand-500">
+                            <p class="text-slate-300 font-medium flex items-start gap-3">
+                                <i class="fas fa-plane-departure text-brand-400 mt-1"></i>
+                                <span>Future Goal: Relocating to <span
+                                        class="text-white font-bold decoration-wavy underline decoration-brand-500">Tallinn,
+                                        Estonia</span> in Q1 2026 to contribute to Europe's most advanced digital
+                                    society.</span>
                             </p>
                         </div>
                     </div>
-                    <!-- Image -->
-                    <div class="md:col-span-2">
-                        <div class="relative group w-full max-w-sm mx-auto">
-                            <div
-                                class="absolute inset-0 bg-brand-200 rounded-2xl transform translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300">
-                            </div>
-                            <img src="assets/img/photo.jpeg" alt="Yusuf Talha ARABACI"
-                                class="relative w-full rounded-2xl shadow-lg grayscale group-hover:grayscale-0 transition-all duration-500 z-10 block object-cover aspect-square border-4 border-white-50">
+
+                    <div class="md:col-span-2 space-y-6">
+                        <div class="glass-card p-6 rounded-2xl">
+                            <h3 class="font-bold text-white mb-4 flex items-center gap-2"><i
+                                    class="fas fa-bolt text-yellow-400"></i> Quick Stats</h3>
+                            <ul class="space-y-3 font-mono text-sm text-slate-400">
+                                <li class="flex justify-between">
+                                    <span>Experience</span>
+                                    <span class="text-white">3+ Years</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Focus</span>
+                                    <span class="text-white">Blue Team / SOC</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Location</span>
+                                    <span class="text-white">Turkey</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Status</span>
+                                    <span class="text-green-400">Available</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -216,30 +594,45 @@
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="py-24 bg-slate-50">
-            <div class="max-w-4xl mx-auto px-6 sm:px-6 lg:px-8">
-                <!-- Header -->
+        <section id="experience" class="py-24 bg-slate-900/50">
+            <div class="max-w-4xl mx-auto px-6">
                 <div class="flex items-center gap-4 mb-16">
-                    <span class="font-mono text-brand-600 text-xl">02.</span>
-                    <h2 class="text-3xl font-bold text-slate-900">Where I've Worked</h2>
-                    <div class="h-px bg-slate-200 flex-grow max-w-xs"></div>
+                    <span class="font-mono text-brand-400 text-xl">02.</span>
+                    <h2 class="text-3xl font-bold text-slate-100">Where I've Worked</h2>
+                    <div class="h-px bg-slate-800 flex-grow max-w-xs"></div>
                 </div>
 
-                <div class="relative border-l-2 border-slate-200 ml-3 md:ml-6 space-y-12 pl-8 md:pl-12">
+                <div class="relative border-l border-slate-800 ml-3 md:ml-6 space-y-12 pl-8 md:pl-12">
+
                     <!-- Job 1 -->
                     <div class="relative group">
                         <div
-                            class="absolute -left-[41px] md:-left-[59px] top-1 h-6 w-6 rounded-full border-4 border-white bg-brand-600 shadow-md group-hover:scale-110 transition-transform">
+                            class="absolute -left-[41px] md:-left-[59px] top-1 h-6 w-6 rounded-full border-4 border-slate-900 bg-brand-500 shadow-[0_0_10px_#0ea5e9]">
                         </div>
-                        <div
-                            class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                            <h3 class="text-xl font-bold text-slate-900 mb-1">Cyber Security Engineer <span
-                                    class="text-brand-600">@ Arma Bilisim</span></h3>
-                            <p class="font-mono text-sm text-slate-500 mb-4">Oct 2025 - Present</p>
-                            <ul class="space-y-2 text-slate-600 list-disc list-inside marker:text-brand-500">
-                                <li>Focusing on SIEM architecture and XDR integration.</li>
-                                <li>Conducting advanced threat hunting operations.</li>
-                                <li>Designing secure network infrastructures.</li>
+                        <div class="glass-card p-8 rounded-2xl hover:bg-slate-800/80 transition-all">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-bold text-white">Cyber Security Engineer <a href="#"
+                                        class="text-brand-400 hover:underline">@ Arma Bilisim</a></h3>
+                                <div
+                                    class="font-mono text-xs text-slate-500 mt-1 md:mt-0 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
+                                    Oct 2025 - Present</div>
+                            </div>
+                            <ul class="space-y-3 text-slate-400 list-none">
+                                <li class="flex gap-3">
+                                    <i class="fas fa-caret-right text-brand-500 mt-1.5"></i>
+                                    <span>Designing and deploying SIEM architectures and integrating XDR solutions for
+                                        enterprise clients.</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <i class="fas fa-caret-right text-brand-500 mt-1.5"></i>
+                                    <span>Conducting proactive threat hunting operations to identify undetected
+                                        breaches.</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <i class="fas fa-caret-right text-brand-500 mt-1.5"></i>
+                                    <span>Developing automated response playbooks to reduce MTTR (Mean Time to
+                                        Respond).</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -247,17 +640,32 @@
                     <!-- Job 2 -->
                     <div class="relative group">
                         <div
-                            class="absolute -left-[41px] md:-left-[59px] top-1 h-6 w-6 rounded-full border-4 border-white bg-brand-400 shadow-md group-hover:scale-110 transition-transform">
+                            class="absolute -left-[41px] md:-left-[59px] top-1 h-6 w-6 rounded-full border-4 border-slate-900 bg-slate-600 group-hover:bg-brand-400 transition-colors">
                         </div>
-                        <div
-                            class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                            <h3 class="text-xl font-bold text-slate-900 mb-1">SOC Analyst <span class="text-brand-600">@
-                                    Garanti BBVA Technology</span></h3>
-                            <p class="font-mono text-sm text-slate-500 mb-4">Nov 2024 - Oct 2025</p>
-                            <ul class="space-y-2 text-slate-600 list-disc list-inside marker:text-brand-500">
-                                <li>Analyzed security alarms using Splunk and EDR tools.</li>
-                                <li>Developed new alarm scenarios to detect emerging threats.</li>
-                                <li>Collaborated with L2/L3 teams for incident response.</li>
+                        <div class="glass-card p-8 rounded-2xl hover:bg-slate-800/80 transition-all">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-bold text-white">SOC Analyst <a href="#"
+                                        class="text-brand-400 hover:underline">@ Garanti BBVA Technology</a></h3>
+                                <div
+                                    class="font-mono text-xs text-slate-500 mt-1 md:mt-0 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
+                                    Nov 2024 - Oct 2025</div>
+                            </div>
+                            <ul class="space-y-3 text-slate-400 list-none">
+                                <li class="flex gap-3">
+                                    <i class="fas fa-caret-right text-brand-500 mt-1.5"></i>
+                                    <span>Monitored and analyzed high-volume security alerts using Splunk and various
+                                        EDR tools.</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <i class="fas fa-caret-right text-brand-500 mt-1.5"></i>
+                                    <span>Collaborated with L2/L3 analysts to investigate complex incidents and improve
+                                        detection logic.</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <i class="fas fa-caret-right text-brand-500 mt-1.5"></i>
+                                    <span>Created new correlation rules to detect emerging threats specific to the
+                                        banking sector.</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -265,412 +673,498 @@
                     <!-- Job 3 -->
                     <div class="relative group">
                         <div
-                            class="absolute -left-[41px] md:-left-[59px] top-1 h-6 w-6 rounded-full border-4 border-white bg-slate-400 shadow-md group-hover:scale-110 transition-transform">
+                            class="absolute -left-[41px] md:-left-[59px] top-1 h-6 w-6 rounded-full border-4 border-slate-900 bg-slate-700 group-hover:bg-brand-400 transition-colors">
                         </div>
-                        <div
-                            class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                            <h3 class="text-xl font-bold text-slate-900 mb-1">MDR Analyst <span class="text-brand-600">@
-                                    ADEO Cyber Security</span></h3>
-                            <p class="font-mono text-sm text-slate-500 mb-4">Sep 2023 - Jul 2024</p>
-                            <ul class="space-y-2 text-slate-600 list-disc list-inside marker:text-brand-500">
-                                <li>Performed detailed event analysis using SIEM/EDR/XDR.</li>
-                                <li>Developed detection rules mapped to MITRE ATT&CK framework.</li>
-                                <li>Provided network security analysis for Turksat Bilisim.</li>
+                        <div class="glass-card p-8 rounded-2xl hover:bg-slate-800/80 transition-all">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                                <h3 class="text-xl font-bold text-white">MDR Analyst <a href="#"
+                                        class="text-brand-400 hover:underline">@ ADEO Cyber Security</a></h3>
+                                <div
+                                    class="font-mono text-xs text-slate-500 mt-1 md:mt-0 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
+                                    Sep 2023 - Jul 2024</div>
+                            </div>
+                            <ul class="space-y-3 text-slate-400 list-none">
+                                <li class="flex gap-3">
+                                    <i class="fas fa-caret-right text-brand-500 mt-1.5"></i>
+                                    <span>Provided 24/7 monitoring and response for Managed Detection and Response (MDR)
+                                        clients.</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <i class="fas fa-caret-right text-brand-500 mt-1.5"></i>
+                                    <span>Mapped detection rules to the MITRE ATT&CK framework to identify coverage
+                                        gaps.</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <i class="fas fa-caret-right text-brand-500 mt-1.5"></i>
+                                    <span>Conducted network traffic analysis and anomaly detection for critical
+                                        infrastructure (Turksat).</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="py-24 bg-white">
-            <div class="max-w-6xl mx-auto px-6 sm:px-6 lg:px-8">
-                <!-- Header -->
+        <section id="skills" class="py-24 relative overflow-hidden">
+            <!-- Decor -->
+            <div
+                class="absolute top-1/2 right-0 w-96 h-96 bg-brand-500/5 rounded-full blur-[100px] pointer-events-none">
+            </div>
+
+            <div class="max-w-6xl mx-auto px-6 relative z-10">
                 <div class="flex items-center gap-4 mb-16">
-                    <span class="font-mono text-brand-600 text-xl">03.</span>
-                    <h2 class="text-3xl font-bold text-slate-900">Technical Arsenal</h2>
-                    <div class="h-px bg-slate-200 flex-grow max-w-xs"></div>
+                    <span class="font-mono text-brand-400 text-xl">03.</span>
+                    <h2 class="text-3xl font-bold text-slate-100">Technical Arsenal</h2>
+                    <div class="h-px bg-slate-800 flex-grow max-w-xs"></div>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Col 1 -->
-                    <div class="space-y-6">
-                        <h3 class="flex items-center gap-2 font-bold text-slate-900 mb-4">
-                            <i class="fas fa-shield-alt text-green-500"></i> Core Defense & SIEM
-                        </h3>
-                        <div class="space-y-4">
-                            <div
-                                class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-brand-300 hover:bg-white hover:shadow-md transition-all">
-                                <h4 class="font-semibold text-slate-900">Wazuh</h4>
-                                <p class="text-sm text-slate-500">Open-source Unified XDR</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Category 1: Defense & SIEM -->
+                    <div class="space-y-4">
+                        <div
+                            class="flex items-center gap-3 text-brand-400 font-mono text-sm uppercase tracking-wider mb-2">
+                            <i class="fas fa-shield-virus"></i> Defense & SIEM
+                        </div>
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-dog text-2xl text-slate-500 group-hover:text-blue-400 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Wazuh</div>
+                                <div class="text-xs text-slate-500">Unified XDR</div>
                             </div>
-                            <div
-                                class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-brand-300 hover:bg-white hover:shadow-md transition-all">
-                                <h4 class="font-semibold text-slate-900">Elastic Stack (ELK)</h4>
-                                <p class="text-sm text-slate-500">Log Management & Analytics</p>
+                        </div>
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-layer-group text-2xl text-slate-500 group-hover:text-teal-400 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Elastic Stack (ELK)</div>
+                                <div class="text-xs text-slate-500">Log Mgmt & Analytics</div>
                             </div>
-                            <div
-                                class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-brand-300 hover:bg-white hover:shadow-md transition-all">
-                                <h4 class="font-semibold text-slate-900">Splunk</h4>
-                                <p class="text-sm text-slate-500">Enterprise SIEM</p>
+                        </div>
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-magnifying-glass-chart text-2xl text-slate-500 group-hover:text-yellow-400 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Splunk</div>
+                                <div class="text-xs text-slate-500">Enterprise SIEM</div>
                             </div>
-                            <div
-                                class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-brand-300 hover:bg-white hover:shadow-md transition-all">
-                                <h4 class="font-semibold text-slate-900">IBM QRadar</h4>
-                                <p class="text-sm text-slate-500">Event Correlation</p>
+                        </div>
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-radar text-2xl text-slate-500 group-hover:text-blue-600 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">IBM QRadar</div>
+                                <div class="text-xs text-slate-500">Event Correlation</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Col 2 -->
-                    <div class="space-y-6">
-                        <h3 class="flex items-center gap-2 font-bold text-slate-900 mb-4">
-                            <i class="fas fa-laptop text-red-500"></i> Endpoint Security
-                        </h3>
-                        <div class="space-y-4">
-                            <div
-                                class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-brand-300 hover:bg-white hover:shadow-md transition-all">
-                                <h4 class="font-semibold text-slate-900">SentinelOne</h4>
-                                <p class="text-sm text-slate-500">Autonomous AI EDR</p>
+                    <!-- Category 2: Endpoint -->
+                    <div class="space-y-4">
+                        <div
+                            class="flex items-center gap-3 text-purple-400 font-mono text-sm uppercase tracking-wider mb-2">
+                            <i class="fas fa-laptop-medical"></i> Endpoint Security
+                        </div>
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-eye text-2xl text-slate-500 group-hover:text-purple-500 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">SentinelOne</div>
+                                <div class="text-xs text-slate-500">Autonomous AI EDR</div>
                             </div>
-                            <div
-                                class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-brand-300 hover:bg-white hover:shadow-md transition-all">
-                                <h4 class="font-semibold text-slate-900">Microsoft Defender</h4>
-                                <p class="text-sm text-slate-500">Integrated Threat Protection</p>
+                        </div>
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-brands fa-windows text-2xl text-slate-500 group-hover:text-blue-400 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">MS Defender XDR</div>
+                                <div class="text-xs text-slate-500">Threat Protection</div>
                             </div>
-                            <div
-                                class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-brand-300 hover:bg-white hover:shadow-md transition-all">
-                                <h4 class="font-semibold text-slate-900">CrowdStrike Falcon</h4>
-                                <p class="text-sm text-slate-500">Threat Hunting Platform</p>
+                        </div>
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-crow text-2xl text-slate-500 group-hover:text-red-500 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">CrowdStrike</div>
+                                <div class="text-xs text-slate-500">Falcon Platform</div>
                             </div>
-                            <div
-                                class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-brand-300 hover:bg-white hover:shadow-md transition-all">
-                                <h4 class="font-semibold text-slate-900">Cortex XDR</h4>
-                                <p class="text-sm text-slate-500">Palo Alto Extended Detection</p>
+                        </div>
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-shield-halved text-2xl text-slate-500 group-hover:text-orange-500 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Cortex XDR</div>
+                                <div class="text-xs text-slate-500">Palo Alto Detection</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Col 3 -->
-                    <div class="space-y-6">
-                        <h3 class="flex items-center gap-2 font-bold text-slate-900 mb-4">
-                            <i class="fas fa-bug text-yellow-500"></i> Vulnerability
-                        </h3>
-                        <div class="space-y-4">
-                            <div
-                                class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-brand-300 hover:bg-white hover:shadow-md transition-all">
-                                <h4 class="font-semibold text-slate-900">OpenVAS & Nessus</h4>
-                                <p class="text-sm text-slate-500">Vulnerability Scanning</p>
+                    <!-- Category 3: Vulnerability & Assessment -->
+                    <div class="space-y-4">
+                        <div
+                            class="flex items-center gap-3 text-red-400 font-mono text-sm uppercase tracking-wider mb-2">
+                            <i class="fas fa-bug"></i> Vuln & Assessment
+                        </div>
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-barcode text-2xl text-slate-500 group-hover:text-green-500 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">OpenVAS & Nessus</div>
+                                <div class="text-xs text-slate-500">Scanning</div>
                             </div>
-                            <div
-                                class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-brand-300 hover:bg-white hover:shadow-md transition-all">
-                                <h4 class="font-semibold text-slate-900">Wireshark</h4>
-                                <p class="text-sm text-slate-500">Deep Packet Inspection</p>
+                        </div>
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-fish text-2xl text-slate-500 group-hover:text-blue-500 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Wireshark</div>
+                                <div class="text-xs text-slate-500">Packet Inspection</div>
                             </div>
-                            <div
-                                class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-brand-300 hover:bg-white hover:shadow-md transition-all">
-                                <h4 class="font-semibold text-slate-900">Burp Suite & ZAP</h4>
-                                <p class="text-sm text-slate-500">Web App Security</p>
+                        </div>
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-spider text-2xl text-slate-500 group-hover:text-orange-400 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Burp Suite & ZAP</div>
+                                <div class="text-xs text-slate-500">Web App Security</div>
                             </div>
-                            <div
-                                class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-brand-300 hover:bg-white hover:shadow-md transition-all">
-                                <h4 class="font-semibold text-slate-900">Metasploit & Nmap</h4>
-                                <p class="text-sm text-slate-500">Exploitation & Discovery</p>
+                        </div>
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-bomb text-2xl text-slate-500 group-hover:text-red-500 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Metasploit & Nmap</div>
+                                <div class="text-xs text-slate-500">Exploit & Discover</div>
+                            </div>
+                        </div>
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-atom text-2xl text-slate-500 group-hover:text-cyan-400 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Nuclei</div>
+                                <div class="text-xs text-slate-500">Template Scanner</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Col 4 -->
-                    <div class="space-y-6">
-                        <h3 class="flex items-center gap-2 font-bold text-slate-900 mb-4">
-                            <i class="fas fa-cloud text-blue-500"></i> Cloud & DevSecOps
-                        </h3>
-                        <div class="space-y-4">
-                            <div
-                                class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-brand-300 hover:bg-white hover:shadow-md transition-all">
-                                <h4 class="font-semibold text-slate-900">Kubernetes/Docker</h4>
-                                <p class="text-sm text-slate-500">Container Orchestration</p>
+                    <!-- Category 4: Cloud & DevSecOps -->
+                    <div class="space-y-4">
+                        <div
+                            class="flex items-center gap-3 text-blue-400 font-mono text-sm uppercase tracking-wider mb-2">
+                            <i class="fas fa-cloud"></i> Cloud & DevSecOps
+                        </div>
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-brands fa-docker text-2xl text-slate-500 group-hover:text-blue-400 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">K8s / Docker</div>
+                                <div class="text-xs text-slate-500">Orchestration</div>
                             </div>
-                            <div
-                                class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-brand-300 hover:bg-white hover:shadow-md transition-all">
-                                <h4 class="font-semibold text-slate-900">Powershell/Bash</h4>
-                                <p class="text-sm text-slate-500">Automation & Scripting</p>
+                        </div>
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-terminal text-2xl text-slate-500 group-hover:text-gray-300 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Powershell / Bash</div>
+                                <div class="text-xs text-slate-500">Automation</div>
                             </div>
-                            <div
-                                class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-brand-300 hover:bg-white hover:shadow-md transition-all">
-                                <h4 class="font-semibold text-slate-900">Python/JS</h4>
-                                <p class="text-sm text-slate-500">Security Tool Development</p>
+                        </div>
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-brands fa-python text-2xl text-slate-500 group-hover:text-yellow-300 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Python / JS</div>
+                                <div class="text-xs text-slate-500">Development</div>
                             </div>
-                            <div
-                                class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-brand-300 hover:bg-white hover:shadow-md transition-all">
-                                <h4 class="font-semibold text-slate-900">Samba/Ansible</h4>
-                                <p class="text-sm text-slate-500">Identity & IaC</p>
+                        </div>
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-network-wired text-2xl text-slate-500 group-hover:text-red-400 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Samba / Ansible</div>
+                                <div class="text-xs text-slate-500">Identity & IaC</div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-24 bg-slate-50">
-            <div class="max-w-6xl mx-auto px-6 sm:px-6 lg:px-8">
-                <!-- Header -->
+        <section id="projects" class="py-24 bg-slate-900/50">
+            <div class="max-w-6xl mx-auto px-6">
                 <div class="flex items-center gap-4 mb-16">
-                    <span class="font-mono text-brand-600 text-xl">04.</span>
-                    <h2 class="text-3xl font-bold text-slate-900">Featured Projects</h2>
-                    <div class="h-px bg-slate-200 flex-grow max-w-xs"></div>
+                    <span class="font-mono text-brand-400 text-xl">04.</span>
+                    <h2 class="text-3xl font-bold text-slate-100">Featured Projects</h2>
+                    <div class="h-px bg-slate-800 flex-grow max-w-xs"></div>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
                     <!-- Project 1 -->
-                    <div
-                        class="group bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:border-brand-200 transition-all duration-300">
+                    <div class="glass-card rounded-xl p-8 flex flex-col group h-full">
                         <div class="flex justify-between items-start mb-6">
-                            <div class="p-3 bg-brand-50 rounded-lg text-brand-600">
-                                <i class="fas fa-project-diagram text-2xl"></i>
-                            </div>
-                            <div class="flex gap-4 text-slate-400">
+                            <i
+                                class="fas fa-folder text-4xl text-brand-500/80 group-hover:text-brand-400 transition-colors"></i>
+                            <div class="flex gap-4">
                                 <a href="https://github.com/yusufarbc/npm-supply-chain-network-analysis" target="_blank"
-                                    class="hover:text-brand-600 transition-colors"><i
+                                    class="text-slate-400 hover:text-white transition-colors"><i
                                         class="fab fa-github text-xl"></i></a>
                                 <a href="https://yusufarbc.github.io/npm-supply-chain-network-analysis/" target="_blank"
-                                    class="hover:text-brand-600 transition-colors"><i
+                                    class="text-slate-400 hover:text-white transition-colors"><i
                                         class="fas fa-external-link-alt text-xl"></i></a>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-600 transition-colors">
-                            NPM Supply Chain Network Analysis</h3>
-                        <p class="text-slate-600 mb-6 line-clamp-3">Network analysis of NPM dependencies with centrality
-                            metrics for supply chain risk assessment.</p>
-                        <div class="flex flex-wrap gap-2 font-mono text-xs text-brand-600">
-                            <span class="px-2 py-1 bg-brand-50 rounded">Python</span>
-                            <span class="px-2 py-1 bg-brand-50 rounded">NetworkX</span>
-                            <span class="px-2 py-1 bg-brand-50 rounded">Supply Chain</span>
+                        <h3 class="text-xl font-bold text-slate-100 mb-3 group-hover:text-brand-400 transition-colors">
+                            NPM Supply Chain Analysis</h3>
+                        <p class="text-slate-400 text-sm mb-6 flex-grow leading-relaxed">
+                            Analyzing the dependency network of NPM packages to identify critical nodes and supply chain
+                            risks using Centrality metrics.
+                        </p>
+                        <div class="flex flex-wrap gap-3 font-mono text-xs text-brand-500">
+                            <span>Python</span>
+                            <span>NetworkX</span>
+                            <span>Data Viz</span>
                         </div>
                     </div>
 
                     <!-- Project 2 -->
-                    <div
-                        class="group bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:border-brand-200 transition-all duration-300">
+                    <div class="glass-card rounded-xl p-8 flex flex-col group h-full">
                         <div class="flex justify-between items-start mb-6">
-                            <div class="p-3 bg-red-50 rounded-lg text-red-500">
-                                <i class="fas fa-bug text-2xl"></i>
-                            </div>
-                            <div class="flex gap-4 text-slate-400">
+                            <i
+                                class="fas fa-folder text-4xl text-brand-500/80 group-hover:text-brand-400 transition-colors"></i>
+                            <div class="flex gap-4">
                                 <a href="https://github.com/yusufarbc/apigoat" target="_blank"
-                                    class="hover:text-brand-600 transition-colors"><i
+                                    class="text-slate-400 hover:text-white transition-colors"><i
                                         class="fab fa-github text-xl"></i></a>
                                 <a href="https://yusufarbc.github.io/apigoat/" target="_blank"
-                                    class="hover:text-brand-600 transition-colors"><i
+                                    class="text-slate-400 hover:text-white transition-colors"><i
                                         class="fas fa-external-link-alt text-xl"></i></a>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-600 transition-colors">
+                        <h3 class="text-xl font-bold text-slate-100 mb-3 group-hover:text-brand-400 transition-colors">
                             ApiGoat</h3>
-                        <p class="text-slate-600 mb-6 line-clamp-3">Deliberately vulnerable REST API for OWASP Top 10
-                            (2023) security testing and learning.</p>
-                        <div class="flex flex-wrap gap-2 font-mono text-xs text-brand-600">
-                            <span class="px-2 py-1 bg-brand-50 rounded">OWASP</span>
-                            <span class="px-2 py-1 bg-brand-50 rounded">API Security</span>
-                            <span class="px-2 py-1 bg-brand-50 rounded">Go</span>
+                        <p class="text-slate-400 text-sm mb-6 flex-grow leading-relaxed">
+                            A deliberately vulnerable REST API designed to teach developers and security testers about
+                            the OWASP Top 10 API Security risks.
+                        </p>
+                        <div class="flex flex-wrap gap-3 font-mono text-xs text-brand-500">
+                            <span>Go</span>
+                            <span>OWASP</span>
+                            <span>API Security</span>
                         </div>
                     </div>
 
                     <!-- Project 3 -->
-                    <div
-                        class="group bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:border-brand-200 transition-all duration-300">
+                    <div class="glass-card rounded-xl p-8 flex flex-col group h-full">
                         <div class="flex justify-between items-start mb-6">
-                            <div class="p-3 bg-purple-50 rounded-lg text-purple-500">
-                                <i class="fas fa-robot text-2xl"></i>
-                            </div>
-                            <div class="flex gap-4 text-slate-400">
+                            <i
+                                class="fas fa-folder text-4xl text-brand-500/80 group-hover:text-brand-400 transition-colors"></i>
+                            <div class="flex gap-4">
                                 <a href="https://github.com/yusufarbc/mcp-agentic-security-review" target="_blank"
-                                    class="hover:text-brand-600 transition-colors"><i
+                                    class="text-slate-400 hover:text-white transition-colors"><i
                                         class="fab fa-github text-xl"></i></a>
                                 <a href="https://yusufarbc.github.io/mcp-agentic-security-review/" target="_blank"
-                                    class="hover:text-brand-600 transition-colors"><i
+                                    class="text-slate-400 hover:text-white transition-colors"><i
                                         class="fas fa-external-link-alt text-xl"></i></a>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-600 transition-colors">
-                            MCP Agentic Security Review</h3>
-                        <p class="text-slate-600 mb-6 line-clamp-3">Security analysis of MCP ecosystem – threats,
-                            defenses, benchmarks, and agent interoperability.</p>
-                        <div class="flex flex-wrap gap-2 font-mono text-xs text-brand-600">
-                            <span class="px-2 py-1 bg-brand-50 rounded">AI Security</span>
-                            <span class="px-2 py-1 bg-brand-50 rounded">LLM</span>
-                            <span class="px-2 py-1 bg-brand-50 rounded">Research</span>
+                        <h3 class="text-xl font-bold text-slate-100 mb-3 group-hover:text-brand-400 transition-colors">
+                            MCP Agentic Security</h3>
+                        <p class="text-slate-400 text-sm mb-6 flex-grow leading-relaxed">
+                            Comprehensive research and security review of the Model Context Protocol (MCP), focusing on
+                            agent interoperability risks.
+                        </p>
+                        <div class="flex flex-wrap gap-3 font-mono text-xs text-brand-500">
+                            <span>AI Security</span>
+                            <span>LLM</span>
+                            <span>Research</span>
                         </div>
                     </div>
 
                     <!-- Project 4 -->
-                    <div
-                        class="group bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:border-brand-200 transition-all duration-300">
+                    <div class="glass-card rounded-xl p-8 flex flex-col group h-full">
                         <div class="flex justify-between items-start mb-6">
-                            <div class="p-3 bg-blue-50 rounded-lg text-blue-500">
-                                <i class="fab fa-docker text-2xl"></i>
-                            </div>
-                            <div class="flex gap-4 text-slate-400">
+                            <i
+                                class="fas fa-folder text-4xl text-brand-500/80 group-hover:text-brand-400 transition-colors"></i>
+                            <div class="flex gap-4">
                                 <a href="https://github.com/yusufarbc/webvuln-runner" target="_blank"
-                                    class="hover:text-brand-600 transition-colors"><i
+                                    class="text-slate-400 hover:text-white transition-colors"><i
                                         class="fab fa-github text-xl"></i></a>
                                 <a href="https://webvulnrunner.dev/" target="_blank"
-                                    class="hover:text-brand-600 transition-colors"><i
+                                    class="text-slate-400 hover:text-white transition-colors"><i
                                         class="fas fa-external-link-alt text-xl"></i></a>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-600 transition-colors">
+                        <h3 class="text-xl font-bold text-slate-100 mb-3 group-hover:text-brand-400 transition-colors">
                             WebVuln Runner</h3>
-                        <p class="text-slate-600 mb-6 line-clamp-3">Docker-based TUI runner for vulnerable web apps.
-                            Deploy OWASP Juice Shop, DVWA, WebGoat, and 15+ pentest labs.</p>
-                        <div class="flex flex-wrap gap-2 font-mono text-xs text-brand-600">
-                            <span class="px-2 py-1 bg-brand-50 rounded">DevSecOps</span>
-                            <span class="px-2 py-1 bg-brand-50 rounded">Docker</span>
-                            <span class="px-2 py-1 bg-brand-50 rounded">TUI</span>
+                        <p class="text-slate-400 text-sm mb-6 flex-grow leading-relaxed">
+                            Docker-based TUI application to easily deploy hazardous web environments (Juice Shop, DVWA,
+                            etc.) for penetration testing practice.
+                        </p>
+                        <div class="flex flex-wrap gap-3 font-mono text-xs text-brand-500">
+                            <span>Docker</span>
+                            <span>Python/TUI</span>
+                            <span>DevSecOps</span>
                         </div>
                     </div>
 
                     <!-- Project 5 -->
-                    <div
-                        class="group bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:border-brand-200 transition-all duration-300">
+                    <div class="glass-card rounded-xl p-8 flex flex-col group h-full">
                         <div class="flex justify-between items-start mb-6">
-                            <div class="p-3 bg-yellow-50 rounded-lg text-yellow-500">
-                                <i class="fas fa-plane text-2xl"></i>
-                            </div>
-                            <div class="flex gap-4 text-slate-400">
-                                <a href="https://github.com/yusufarbc/anka-uav-tekno2022" target="_blank"
-                                    class="hover:text-brand-600 transition-colors"><i
+                            <i
+                                class="fas fa-folder text-4xl text-brand-500/80 group-hover:text-brand-400 transition-colors"></i>
+                            <div class="flex gap-4">
+                                <a href="https://github.com/yusufarbc/turkish-spam-mail-detection" target="_blank"
+                                    class="text-slate-400 hover:text-white transition-colors"><i
                                         class="fab fa-github text-xl"></i></a>
-                                <a href="https://yusufarbc.github.io/anka-uav-tekno2022/" target="_blank"
-                                    class="hover:text-brand-600 transition-colors"><i
+                                <a href="https://yusufarbc.github.io/turkish-spam-mail-detection/" target="_blank"
+                                    class="text-slate-400 hover:text-white transition-colors"><i
                                         class="fas fa-external-link-alt text-xl"></i></a>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-600 transition-colors">
-                            ANKA UAV TEKNO2022</h3>
-                        <p class="text-slate-600 mb-6 line-clamp-3">International UAV Competition Mission Software –
-                            Autonomous Fixed-Wing UAV Controller & Payload Delivery.</p>
-                        <div class="flex flex-wrap gap-2 font-mono text-xs text-brand-600">
-                            <span class="px-2 py-1 bg-brand-50 rounded">Robotics</span>
-                            <span class="px-2 py-1 bg-brand-50 rounded">C++</span>
-                            <span class="px-2 py-1 bg-brand-50 rounded">Autonomous</span>
+                        <h3 class="text-xl font-bold text-slate-100 mb-3 group-hover:text-brand-400 transition-colors">
+                            Spam Mail Detection</h3>
+                        <p class="text-slate-400 text-sm mb-6 flex-grow leading-relaxed">
+                            Machine Learning model trained to detect Turkish spam emails with high accuracy using NLP
+                            preprocessing and KNN classification.
+                        </p>
+                        <div class="flex flex-wrap gap-3 font-mono text-xs text-brand-500">
+                            <span>ML/AI</span>
+                            <span>NLP</span>
+                            <span>Python</span>
                         </div>
                     </div>
 
                     <!-- Project 6 -->
-                    <div
-                        class="group bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:border-brand-200 transition-all duration-300">
+                    <div class="glass-card rounded-xl p-8 flex flex-col group h-full">
                         <div class="flex justify-between items-start mb-6">
-                            <div class="p-3 bg-orange-50 rounded-lg text-orange-500">
-                                <i class="fas fa-envelope text-2xl"></i>
-                            </div>
-                            <div class="flex gap-4 text-slate-400">
-                                <a href="https://github.com/yusufarbc/turkish-spam-mail-detection" target="_blank"
-                                    class="hover:text-brand-600 transition-colors"><i
+                            <i
+                                class="fas fa-folder text-4xl text-brand-500/80 group-hover:text-brand-400 transition-colors"></i>
+                            <div class="flex gap-4">
+                                <a href="https://github.com/yusufarbc/anka-uav-tekno2022" target="_blank"
+                                    class="text-slate-400 hover:text-white transition-colors"><i
                                         class="fab fa-github text-xl"></i></a>
-                                <a href="https://yusufarbc.github.io/turkish-spam-mail-detection/" target="_blank"
-                                    class="hover:text-brand-600 transition-colors"><i
+                                <a href="https://yusufarbc.github.io/anka-uav-tekno2022/" target="_blank"
+                                    class="text-slate-400 hover:text-white transition-colors"><i
                                         class="fas fa-external-link-alt text-xl"></i></a>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand-600 transition-colors">
-                            Turkish Spam Mail Detection</h3>
-                        <p class="text-slate-600 mb-6 line-clamp-3">Turkish spam email detection with KNN,
-                            preprocessing, and visualization.</p>
-                        <div class="flex flex-wrap gap-2 font-mono text-xs text-brand-600">
-                            <span class="px-2 py-1 bg-brand-50 rounded">ML/AI</span>
-                            <span class="px-2 py-1 bg-brand-50 rounded">Python</span>
-                            <span class="px-2 py-1 bg-brand-50 rounded">NLP</span>
+                        <h3 class="text-xl font-bold text-slate-100 mb-3 group-hover:text-brand-400 transition-colors">
+                            ANKA UAV Software</h3>
+                        <p class="text-slate-400 text-sm mb-6 flex-grow leading-relaxed">
+                            Autonomous flight control software developed for the ANKA team in Teknofest 2022
+                            International UAV Competition.
+                        </p>
+                        <div class="flex flex-wrap gap-3 font-mono text-xs text-brand-500">
+                            <span>C++</span>
+                            <span>Robotics</span>
+                            <span>Autonomous</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Training Section -->
-        <section id="training" class="py-24 bg-white">
-            <div class="max-w-6xl mx-auto px-6 sm:px-6 lg:px-8">
-                <!-- Header -->
-                <div class="flex items-center gap-4 mb-16">
-                    <span class="font-mono text-brand-600 text-xl">05.</span>
-                    <h2 class="text-3xl font-bold text-slate-900">Training Platforms</h2>
-                    <div class="h-px bg-slate-200 flex-grow max-w-xs"></div>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Card 1 -->
-                    <div
-                        class="group relative overflow-hidden rounded-2xl bg-slate-900 p-8 text-center shadow-xl hover:-translate-y-2 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-red-600 opacity-0 group-hover:opacity-10 transition-opacity">
+        <!-- Training/Certifications -->
+        <section class="py-24 relative">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-slate-100 mb-12">Continuous Training</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <a href="https://tryhackme.com/p/yusufarbc" target="_blank"
+                        class="glass-card p-6 rounded-xl hover:bg-red-900/10 border-slate-700/50 hover:border-red-500/50 text-center transition-all group">
+                        <div
+                            class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-4 group-hover:bg-red-500 transition-colors">
+                            <i class="fas fa-bug text-xl text-red-500 group-hover:text-white"></i>
                         </div>
-                        <i class="fas fa-bug text-4xl text-red-500 mb-6"></i>
-                        <h3 class="text-xl font-bold text-white mb-2">Offensive</h3>
-                        <p class="text-slate-400 mb-6 text-sm leading-relaxed">Advanced penetration testing and red
-                            teaming simulations.</p>
-                        <a href="https://tryhackme.com/p/yusufarbc" target="_blank"
-                            class="inline-block w-full py-3 rounded-lg bg-white/10 text-white font-semibold hover:bg-red-600 hover:text-white transition-colors border border-white/10">View
-                            Profile</a>
-                    </div>
+                        <h3 class="text-lg font-bold text-white mb-2">TryHackMe</h3>
+                        <p class="text-sm text-slate-400">Top 1% Rank in offensive security simulations and CTFs.</p>
+                    </a>
 
-                    <!-- Card 2 -->
-                    <div
-                        class="group relative overflow-hidden rounded-2xl bg-slate-900 p-8 text-center shadow-xl hover:-translate-y-2 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-green-600 opacity-0 group-hover:opacity-10 transition-opacity">
+                    <a href="https://app.letsdefend.io/user/yusufarbc" target="_blank"
+                        class="glass-card p-6 rounded-xl hover:bg-blue-900/10 border-slate-700/50 hover:border-blue-500/50 text-center transition-all group">
+                        <div
+                            class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-500 transition-colors">
+                            <i class="fas fa-shield-halved text-xl text-blue-500 group-hover:text-white"></i>
                         </div>
-                        <i class="fas fa-shield-halved text-4xl text-green-500 mb-6"></i>
-                        <h3 class="text-xl font-bold text-white mb-2">Defensive</h3>
-                        <p class="text-slate-400 mb-6 text-sm leading-relaxed">SOC analysis, incident response, and
-                            threat hunting labs.</p>
-                        <a href="https://app.letsdefend.io/user/yusufarbc" target="_blank"
-                            class="inline-block w-full py-3 rounded-lg bg-white/10 text-white font-semibold hover:bg-green-600 hover:text-white transition-colors border border-white/10">View
-                            Profile</a>
-                    </div>
+                        <h3 class="text-lg font-bold text-white mb-2">LetsDefend</h3>
+                        <p class="text-sm text-slate-400">Specialized training in SOC alerting and incident response.
+                        </p>
+                    </a>
 
-                    <!-- Card 3 -->
-                    <div
-                        class="group relative overflow-hidden rounded-2xl bg-slate-900 p-8 text-center shadow-xl hover:-translate-y-2 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-10 transition-opacity">
+                    <a href="https://www.hackerrank.com/profile/yusufarbc" target="_blank"
+                        class="glass-card p-6 rounded-xl hover:bg-green-900/10 border-slate-700/50 hover:border-green-500/50 text-center transition-all group">
+                        <div
+                            class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-4 group-hover:bg-green-500 transition-colors">
+                            <i class="fas fa-code text-xl text-green-500 group-hover:text-white"></i>
                         </div>
-                        <i class="fas fa-code text-4xl text-blue-400 mb-6"></i>
-                        <h3 class="text-xl font-bold text-white mb-2">Coding</h3>
-                        <p class="text-slate-400 mb-6 text-sm leading-relaxed">Algorithmic problem solving and secure
-                            coding challenges.</p>
-                        <a href="https://www.hackerrank.com/profile/yusufarbc" target="_blank"
-                            class="inline-block w-full py-3 rounded-lg bg-white/10 text-white font-semibold hover:bg-blue-600 hover:text-white transition-colors border border-white/10">View
-                            Profile</a>
-                    </div>
+                        <h3 class="text-lg font-bold text-white mb-2">HackerRank</h3>
+                        <p class="text-sm text-slate-400">Regular algorithmic problem solving to stay sharp.</p>
+                    </a>
                 </div>
             </div>
         </section>
+
     </main>
 
-    <footer class="bg-white border-t border-slate-100 py-12 mt-20">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="https://linkedin.com/in/yusufarabaci" target="_blank"
-                    class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-[#0077b5] hover:text-white transition-all duration-300">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/yusufarbc" target="_blank"
-                    class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-[#333] hover:text-white transition-all duration-300">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://medium.com/@yusufarbc" target="_blank"
-                    class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-black hover:text-white transition-all duration-300">
-                    <i class="fab fa-medium-m"></i>
-                </a>
-                <a href="https://x.com/yusufarbc" target="_blank"
-                    class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 text-slate-600 hover:bg-black hover:text-white transition-all duration-300">
-                    <i class="fa-brands fa-x-twitter"></i>
-                </a>
-            </div>
-            <p class="font-mono text-xs text-slate-400">
-                Designed & Built by Yusuf Talha ARABACI
+    <!-- Footer -->
+    <footer class="bg-slate-950 pt-20 pb-10 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+
+            <h2 class="text-2xl font-bold text-white mb-6">Let's Secure the Future</h2>
+            <p class="text-slate-400 mb-8 max-w-xl mx-auto">
+                Whether you have a question, a project opportunity, or just want to discuss digital sovereignty, my
+                inbox is always open.
             </p>
+            <a href="mailto:yusuftalhaarabaci@hotmail.com"
+                class="inline-block px-8 py-3 rounded-lg border border-brand-500 text-brand-400 font-mono text-sm hover:bg-brand-500/10 transition-colors mb-16">
+                Say Hello
+            </a>
+
+            <div class="flex justify-center gap-8 mb-8">
+                <a href="https://github.com/yusufarbc" target="_blank"
+                    class="text-slate-400 hover:text-white hover:-translate-y-1 transition-all text-2xl"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yusufarbc" target="_blank"
+                    class="text-slate-400 hover:text-[#0077b5] hover:-translate-y-1 transition-all text-2xl"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://medium.com/@yusufarbc" target="_blank"
+                    class="text-slate-400 hover:text-white hover:-translate-y-1 transition-all text-2xl"><i
+                        class="fab fa-medium"></i></a>
+                <a href="https://x.com/yusufarbc" target="_blank"
+                    class="text-slate-400 hover:text-white hover:-translate-y-1 transition-all text-2xl"><i
+                        class="fab fa-x-twitter"></i></a>
+            </div>
+
+            <div class="font-mono text-xs text-slate-600">
+                <p>Designed & Built by Yusuf Talha ARABACI</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/scripts.js"></script>
 
 </body>
 
