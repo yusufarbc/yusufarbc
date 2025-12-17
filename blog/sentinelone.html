@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentinelOne Singularity Platform: Architecture & Security Analysis | Yusuf Talha ARABACI</title>
+    <meta name="description"
+        content="A comprehensive analysis of SentinelOne Singularity Platform: Single-agent architecture, AI-powered detection, autonomous response, and future-readiness.">
+    <meta name="author" content="Yusuf Talha ARABACI">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- PrismJS for Syntax Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <!-- Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#151e2e',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                    },
+                    typography: (theme) => ({
+                        DEFAULT: {
+                            css: {
+                                color: theme('colors.slate.300'),
+                                h1: { color: theme('colors.white') },
+                                h2: { color: theme('colors.white'), marginTop: '2em' },
+                                h3: { color: theme('colors.white'), marginTop: '1.5em' },
+                                strong: { color: theme('colors.white') },
+                                a: { color: theme('colors.brand.400') },
+                                code: { color: theme('colors.brand.300') },
+                                li: { marker: { color: theme('colors.brand.400') } },
+                            },
+                        },
+                    }),
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-slate-300 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full top-0 z-50 glass transition-all duration-300">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="../index.html"
+                    class="flex items-center gap-2 group text-slate-100 hover:text-brand-400 transition-colors">
+                    <i class="fas fa-arrow-left"></i>
+                    <span class="font-mono font-bold">Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6">
+        <article class="max-w-3xl mx-auto">
+            <!-- Header -->
+            <header class="mb-12 text-center">
+                <div class="flex justify-center gap-2 mb-6">
+                    <span
+                        class="px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-mono border border-brand-500/20">Cybersecurity
+                        analysis</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">SentinelOne Singularity: A Deep
+                    Dive into Next-Gen Security</h1>
+                <div class="flex items-center justify-center gap-6 text-slate-400 text-sm font-mono">
+                    <span><i class="far fa-calendar mr-2"></i> Dec 17, 2025</span>
+                    <span><i class="far fa-clock mr-2"></i> 15 min read</span>
+                </div>
+            </header>
+
+            <!-- Featured Image (Cover) -->
+            <img src="media/sentinelone.webp" class="w-full rounded-2xl mb-12 border border-slate-800"
+                alt="SentinelOne Cover">
+
+            <!-- Content -->
+            <div class="prose prose-invert prose-lg max-w-none hover:prose-a:text-brand-400">
+
+                <h2>1. Executive Summary</h2>
+                <p>The SentinelOne Singularity Platform represents a paradigm shift in cybersecurity, offering an
+                    autonomous, AI-driven solution tailored for today's rapidly evolving threat landscape. By
+                    consolidating multiple security layers—Endpoint Protection (EPP), Endpoint Detection and Response
+                    (EDR), Extended Detection and Response (XDR), and Identity Threat Detection and Response (ITDR)—into
+                    a unified platform, it delivers holistic protection without the operational overhead of disjointed
+                    tools.</p>
+
+                <p>Recognized as a "Leader" in the 2024 Gartner Magic Quadrant for the fourth consecutive year and
+                    achieving 100% detection efficacy in MITRE ATT&CK evaluations, SentinelOne is defining the standard
+                    for modern endpoint security. Its ability to function completely offline, coupled with automated
+                    incident response and patented rollback capabilities, empowers organizations to implement robust
+                    Zero Trust strategies with confidence.</p>
+
+                <img src="media/sentinelone_gartner.webp" class="rounded-xl my-8 border border-slate-800"
+                    alt="Gartner Recognition">
+
+                <h2>2. Architecture: Single Agent, Multi-Engine</h2>
+                <p>At the heart of the Singularity Platform lies its revolutionary <strong>"Single Agent — Multi
+                        Engine"</strong> architecture. Unlike legacy solutions that require multiple agents for
+                    different functions (e.g., one for AV, one for EDR, one for vulnerability management), SentinelOne
+                    delivers all capabilities through a single, lightweight agent.</p>
+
+                <p>This agent operates at the kernel level, monitoring file systems, processes, and memory activities in
+                    real-time. It leverages two distinct Artificial Intelligence engines working in tandem:</p>
+
+                <ul>
+                    <li><strong>Static AI Engine:</strong> This engine replaces traditional signatures. It analyzes the
+                        structure and code characteristics of files <em>before</em> they run (On-Write), preventing
+                        known and unknown malware without needing daily updates.</li>
+                    <li><strong>Behavioral AI Engine:</strong> This engine monitors the system in real-time
+                        (On-Execute). It tracks process relationships, API calls, and network connections to detect
+                        anomalous behaviors indicative of advanced attacks like fileless malware, lateral movement, and
+                        zero-day exploits.</li>
+                </ul>
+
+                <p>Crucially, this architecture enables <strong>Autonomous Decision Making</strong>. The agent does not
+                    rely on cloud connectivity to make a decision. Even if an endpoint is offline (e.g., an air-gapped
+                    system or a laptop on a plane), the AI models running locally on the device can detect and block
+                    threats instantly.</p>
+
+                <img src="media/singularity_data_lake.webp" class="rounded-xl my-8 border border-slate-800"
+                    alt="Singularity Data Lake">
+
+                <h2>3. Threat Detection and Deep Visibility</h2>
+                <p>SentinelOne’s detection strategy is comprehensive, covering the entire lifecycle of a file or
+                    process:</p>
+
+                <ul>
+                    <li><strong>Pre-Execution (On-Write):</strong> Files are analyzed immediately upon being written to
+                        disk. If the Static AI deems a file malicious, it is quarantined before it can execute.</li>
+                    <li><strong>Execution (On-Execute):</strong> If a process starts, the Behavioral AI watches its
+                        actions. If a legitimate process (like PowerShell) starts behaving maliciously (e.g., attempting
+                        to dump credentials), the agent intervenes.</li>
+                </ul>
+
+                <h3>Storyline™ Technology</h3>
+                <p>One of SentinelOne's most significant innovations is <strong>Storyline™</strong> technology. In
+                    traditional EDRs, analysts are flooded with thousands of independent alerts that they must manually
+                    correlate. SentinelOne automates this by assigning a unique "Storyline ID" to every process and its
+                    related activities.</p>
+
+                <p>When an incident occurs, the platform presents the entire attack chain—from the initial phishing
+                    email to the final payload execution—as a single, visualized timeline. This context drastically
+                    reduces Mean Time to Investigate (MTTI).</p>
+
+                <img src="media/sentinelone_mitigation.webp" class="rounded-xl my-8 border border-slate-800"
+                    alt="Threat Mitigation">
+
+                <h2>4. Incident Response and Automation</h2>
+                <p>Detection is only half the battle; response speed is critical. SentinelOne offers robust, automated
+                    response capabilities that can operate without human intervention:</p>
+
+                <ul>
+                    <li><strong>Kill & Quarantine:</strong> Automatically stops malicious processes and quarantines
+                        associated files.</li>
+                    <li><strong>Network Isolation:</strong> Instantly disconnects a compromised device from the network
+                        to prevent lateral movement, while maintaining a secure tunnel to the management console for
+                        remediation.</li>
+                    <li><strong>1-Click Remediation:</strong> Reverses all changes made by the threat (e.g., deleting
+                        dropped files, removing registry keys).</li>
+                    <li><strong>Rollback:</strong> The ultimate safety net. Using VSS (Volume Shadow Copy Service), the
+                        agent can restore files encrypted by ransomware to their pre-infection state. This renders
+                        ransomware attacks ineffective without the need to pay a ransom or restore from backups.</li>
+                </ul>
+
+                <h3>Advanced Hunting with S1QL</h3>
+                <p>For threat hunters, the platform offers <strong>S1QL</strong> (SentinelOne Query Language). This
+                    intuitive language allows analysts to search through historical telemetry data (retained for 14 to
+                    365 days) to find subtle indicators of compromise (IOCs).</p>
+
+                <pre><code class="language-sql">/* Example: Find processes executing 'net user' commands */
+SELECT Timestamp, DeviceName, ProcessName, CommandLine
+FROM ProcessActivities
+WHERE LOWER(CommandLine) LIKE '%net user%' AND Timestamp > NOW()-180d;</code></pre>
+
+                <h2>5. Operational Excellence: Policies & Licensing</h2>
+                <p>The platform is designed for flexibility, supporting diverse operational needs through granular
+                    Reference Policies:</p>
+
+                <ul>
+                    <li><strong>Detect-Only Mode:</strong> Ideal for initial deployment or highly sensitive servers,
+                        generating alerts without blocking processes.</li>
+                    <li><strong>Protect Mode:</strong> The standard for most endpoints, actively blocking and
+                        remediating threats in real-time.</li>
+                </ul>
+
+                <p>Licensing is structured to scale with organizational maturity:</p>
+                <ul>
+                    <li><strong>Singularity Core:</strong> Essential NGAV (Next-Gen Antivirus) capabilities.</li>
+                    <li><strong>Singularity Control:</strong> Adds device control (USB/Bluetooth), firewall control, and
+                        vulnerability management.</li>
+                    <li><strong>Singularity Complete:</strong> The flagship tier, including full EDR, Deep Visibility,
+                        and advanced hunting capabilities.</li>
+                    <li><strong>Singularity Commercial/Enterprise:</strong> Adds Identity security, managed threat
+                        hunting (WatchTower), and unlimited data retention options.</li>
+                </ul>
+
+                <h2>6. Integrations and Future Vision</h2>
+                <p>No security tool exists in a vacuum. The <strong>Singularity Marketplace</strong> offers over 70
+                    one-click integrations with leading security, IT, and DevOps tools—including Splunk, ServiceNow,
+                    Okta, and Zscaler. This allows SentinelOne to act as the "connective tissue" of the SOC, automating
+                    workflows across the entire stack.</p>
+
+                <h3>Security for AI vs. AI for Security</h3>
+                <p>SentinelOne is not just using AI to secure endpoints ("AI for Security"); it is also pioneering
+                    "Security for AI." With the acquisition of PingSafe (CNAPP) and the introduction of Purple AI, the
+                    platform is evolving to protect the very infrastructure that powers modern AI applications. This
+                    forward-looking approach ensures that as organizations adopt Generative AI, their security posture
+                    remains resilient.</p>
+
+                <h2>7. Conclusion</h2>
+                <p>SentinelOne Singularity is more than just an endpoint protection platform; it is a comprehensive
+                    enterprise security ecosystem. By combining autonomous AI, deep visibility, and automated
+                    remediation, it addresses the core challenges of modern SOCs: alert fatigue, skill shortages, and
+                    the increasing speed of attacks.</p>
+
+                <p>For organizations seeking to modernize their defenses, SentinelOne offers a compelling path: a single
+                    agent that handles prevention, detection, response, and hunting, all backed by the most advanced AI
+                    in the industry.</p>
+
+                <div class="mt-8 p-6 glass rounded-xl border-l-4 border-l-brand-500">
+                    <p class="text-white font-medium mb-2"><i class="fas fa-thumbtack text-brand-500 mr-2"></i>
+                        Recommendation</p>
+                    <p>Organizations should consider a Proof of Concept (PoC) to test the "Rollback" feature in a
+                        controlled environment. Seeing a ransomware infection reversed in seconds is often the deciding
+                        factor for security teams.</p>
+                </div>
+
+                <hr class="my-12 border-slate-800" />
+
+                <div class="text-sm text-slate-500">
+                    <p><strong>Compliance Note:</strong> SentinelOne supports compliance with major standards including
+                        GDPR, HIPAA, PCI-DSS, and SOC2 Type II. Data is encrypted both in transit (TLS 1.2+) and at rest
+                        (AES-256).</p>
+                </div>
+
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="flex justify-center gap-8 mb-8">
+                <a href="https://github.com/yusufarbc" target="_blank"
+                    class="text-slate-400 hover:text-white transition-colors text-2xl"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yusufarbc" target="_blank"
+                    class="text-slate-400 hover:text-[#0077b5] transition-colors text-2xl"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/yusufarbc" target="_blank"
+                    class="text-slate-400 hover:text-white transition-colors text-2xl"><i
+                        class="fab fa-x-twitter"></i></a>
+            </div>
+            <p class="text-slate-600 text-sm font-mono">© 2025 Yusuf Talha ARABACI</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

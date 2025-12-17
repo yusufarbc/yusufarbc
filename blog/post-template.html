@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post | Yusuf Talha ARABACI</title>
+    <meta name="description" content="Cyber Security Blog by Yusuf Talha ARABACI">
+    <meta name="author" content="Yusuf Talha ARABACI">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- PrismJS for Syntax Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <!-- Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#151e2e',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                    },
+                    typography: (theme) => ({
+                        DEFAULT: {
+                            css: {
+                                color: theme('colors.slate.300'),
+                                h1: { color: theme('colors.white') },
+                                h2: { color: theme('colors.white') },
+                                h3: { color: theme('colors.white') },
+                                strong: { color: theme('colors.white') },
+                                a: { color: theme('colors.brand.400') },
+                                code: { color: theme('colors.brand.300') },
+                            },
+                        },
+                    }),
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-slate-300 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full top-0 z-50 glass transition-all duration-300">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="../index.html"
+                    class="flex items-center gap-2 group text-slate-100 hover:text-brand-400 transition-colors">
+                    <i class="fas fa-arrow-left"></i>
+                    <span class="font-mono font-bold">Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6">
+        <article class="max-w-3xl mx-auto">
+            <!-- Header -->
+            <header class="mb-12 text-center">
+                <div class="flex justify-center gap-2 mb-6">
+                    <span
+                        class="px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-mono border border-brand-500/20">Category</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">Blog Post Title</h1>
+                <div class="flex items-center justify-center gap-6 text-slate-400 text-sm font-mono">
+                    <span><i class="far fa-calendar mr-2"></i> Oct 24, 2025</span>
+                    <span><i class="far fa-clock mr-2"></i> 5 min read</span>
+                </div>
+            </header>
+
+            <!-- Featured Image (Optional) -->
+            <!-- <img src="..." class="w-full rounded-2xl mb-12 border border-slate-800" alt="Cover"> -->
+
+            <!-- Content -->
+            <div class="prose prose-invert prose-lg max-w-none hover:prose-a:text-brand-400">
+                <p>Introduction paragraph...</p>
+
+                <h2>Section Title</h2>
+                <p>Content goes here...</p>
+
+                <pre><code class="language-python">print("Hello World")</code></pre>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="flex justify-center gap-8 mb-8">
+                <a href="https://github.com/yusufarbc" target="_blank"
+                    class="text-slate-400 hover:text-white transition-colors text-2xl"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yusufarbc" target="_blank"
+                    class="text-slate-400 hover:text-[#0077b5] transition-colors text-2xl"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/yusufarbc" target="_blank"
+                    class="text-slate-400 hover:text-white transition-colors text-2xl"><i
+                        class="fab fa-x-twitter"></i></a>
+            </div>
+            <p class="text-slate-600 text-sm font-mono">© 2025 Yusuf Talha ARABACI</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+
+</body>
+
+</html>
