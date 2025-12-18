@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post | Yusuf Talha ARABACI</title>
+    <meta name="description" content="Cyber Security Blog by Yusuf Talha ARABACI">
+    <meta name="author" content="Yusuf Talha ARABACI">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.ico">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- PrismJS for Syntax Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <!-- Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#151e2e',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                    },
+                    typography: (theme) => ({
+                        DEFAULT: {
+                            css: {
+                                color: theme('colors.slate.300'),
+                                h1: { color: theme('colors.white') },
+                                h2: { color: theme('colors.white') },
+                                h3: { color: theme('colors.white') },
+                                strong: { color: theme('colors.white') },
+                                a: { color: theme('colors.brand.400') },
+                                code: { color: theme('colors.brand.300') },
+                            },
+                        },
+                    }),
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Enhanced Content Styling - Stronger Rules */
+        .prose h3,
+        .prose .graf--h3,
+        h3.graf--h3 {
+            color: #f1f5f9 !important;
+            font-size: 1.75rem !important;
+            font-weight: 700 !important;
+            margin-top: 2.5rem !important;
+            margin-bottom: 1.25rem !important;
+            line-height: 1.3 !important;
+            display: block !important;
+            font-family: 'Inter', sans-serif !important;
+        }
+
+        .prose h2,
+        .prose .graf--h2,
+        h2.graf--h2 {
+            color: #f1f5f9 !important;
+            font-size: 2rem !important;
+            font-weight: 800 !important;
+            margin-top: 3rem !important;
+            margin-bottom: 1.5rem !important;
+            line-height: 1.2 !important;
+            display: block !important;
+            font-family: 'Inter', sans-serif !important;
+        }
+
+        .prose h4,
+        .prose .graf--h4,
+        h4.graf--h4 {
+            color: #e2e8f0 !important;
+            font-size: 1.25rem !important;
+            font-weight: 600 !important;
+            margin-top: 1.5rem !important;
+            margin-bottom: 0.75rem !important;
+            line-height: 1.4 !important;
+            display: block !important;
+        }
+
+        .prose p,
+        .prose .graf--p,
+        p.graf--p {
+            margin-bottom: 1.25rem !important;
+            line-height: 1.75 !important;
+            color: #cbd5e1 !important;
+            font-size: 1.05rem !important;
+        }
+
+        .prose ul,
+        .prose .postList,
+        ul.postList {
+            margin-top: 1rem !important;
+            margin-bottom: 1.5rem !important;
+            padding-left: 1.75rem !important;
+            list-style-type: disc !important;
+        }
+
+        .prose li,
+        .prose .graf--li,
+        li.graf--li {
+            margin-bottom: 0.75rem !important;
+            line-height: 1.7 !important;
+            color: #cbd5e1 !important;
+        }
+
+        .prose blockquote,
+        .prose .graf--blockquote,
+        blockquote.graf--blockquote {
+            border-left: 4px solid #38bdf8 !important;
+            padding-left: 1.25rem !important;
+            margin: 1.75rem 0 !important;
+            font-style: italic !important;
+            color: #cbd5e1 !important;
+            background: rgba(56, 189, 248, 0.08) !important;
+            padding: 1.25rem !important;
+            border-radius: 0.5rem !important;
+        }
+
+        .prose strong,
+        .markup--strong {
+            color: #f8fafc !important;
+            font-weight: 600 !important;
+        }
+
+        .prose figure,
+        .prose .graf--figure,
+        figure.graf--figure {
+            margin: 2.5rem 0 !important;
+        }
+
+        .prose img,
+        .prose .graf-image,
+        img.graf-image {
+            border-radius: 0.75rem !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+            max-width: 100% !important;
+            height: auto !important;
+        }
+
+        .imageCaption,
+        figcaption.imageCaption {
+            text-align: center !important;
+            font-size: 0.875rem !important;
+            color: #94a3b8 !important;
+            margin-top: 0.75rem !important;
+            font-style: italic !important;
+        }
+
+        /* Section spacing */
+        .section,
+        section.section {
+            margin-bottom: 2.5rem !important;
+        }
+
+        /* Code blocks */
+        .prose code,
+        .prose pre {
+            background: rgba(30, 41, 59, 0.6) !important;
+            border-radius: 0.375rem !important;
+            padding: 0.25rem 0.5rem !important;
+            font-family: 'JetBrains Mono', monospace !important;
+            font-size: 0.9rem !important;
+        }
+
+        .prose pre code {
+            padding: 0 !important;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-slate-300 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full top-0 z-50 glass transition-all duration-300">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="../index.html"
+                    class="flex items-center gap-2 group text-slate-100 hover:text-brand-400 transition-colors">
+                    <i class="fas fa-arrow-left"></i>
+                    <span class="font-mono font-bold">Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6">
+        <article class="max-w-3xl mx-auto">
+            <!-- Header -->
+            <header class="mb-12 text-center">
+                <div class="flex justify-center gap-2 mb-6">
+                    <span
+                        class="px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-mono border border-brand-500/20">WRITEUP</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">Threat Hunting with CTI
+                    Walkthrough — LetsDefend</h1>
+                <div class="flex items-center justify-center gap-6 text-slate-400 text-sm font-mono">
+                    <span><i class="far fa-calendar mr-2"></i> Sep 29, 2025</span>
+                    <span><i class="far fa-clock mr-2"></i> 5 min read</span>
+                </div>
+            </header>
+
+            <!-- Featured Image (Optional) -->
+            <!-- <img src="..." class="w-full rounded-2xl mb-12 border border-slate-800" alt="Cover"> -->
+
+            <!-- Content -->
+            <div class="prose prose-invert prose-lg max-w-none hover:prose-a:text-brand-400">
+                <section class="section section--body section--first" name="content">
+                    <figure class="graf graf--figure graf-after--h3" id="8b82" name="8b82"><img
+                            class="graf-image w-full rounded-lg shadow-lg my-8" data-height="399"
+                            data-image-id="0*FpGB8CsMakxWki-r.png" data-is-featured="true" data-width="764"
+                            src="https://cdn-images-1.medium.com/max/800/0*FpGB8CsMakxWki-r.png" />
+                        <figcaption class="imageCaption"><a class="markup--anchor markup--figure-anchor"
+                                data-href="https://letsdefend.io/" href="https://letsdefend.io/"
+                                rel="noopener ugc nofollow noopener noopener" target="_blank">LetsDefend — Blue Team
+                                Training Platform</a></figcaption>
+                    </figure>
+                    <h3 class="graf graf--h3 graf-after--figure" id="ae3c" name="ae3c">Introduction</h3>
+                    <p class="graf graf--p graf-after--h3" id="e6e5" name="e6e5">Cyber Threat Intelligence (CTI) refers
+                        to the information collected, evaluated, and analyzed about cyber threats. It includes how,
+                        where, and by whom cyber attacks are carried out, the targets of the attacks, and the techniques
+                        used. CTI helps security teams make informed decisions about cyber threats, develop defense
+                        strategies, and respond more effectively to cybersecurity incidents.</p>
+                    <h3 class="graf graf--h3 graf-after--p" id="7616" name="7616">Use of CTI</h3>
+                    <ul class="postList">
+                        <li class="graf graf--li graf-after--h3" id="77af" name="77af"><strong
+                                class="markup--strong markup--li-strong">Threat Hunting: </strong>CTI is used in threat
+                            hunting processes to help identify potential threats. Cybersecurity teams use CTI data to
+                            investigate suspicious activities and identify threats.</li>
+                        <li class="graf graf--li graf-after--li" id="7d2d" name="7d2d"><strong
+                                class="markup--strong markup--li-strong">Security Operations Center (SOC): </strong>SOC
+                            analysts use CTI data to monitor and analyze daily security incidents. Thus, it enables
+                            analysts to detect and respond to threats quickly.</li>
+                        <li class="graf graf--li graf-after--li" id="93da" name="93da"><strong
+                                class="markup--strong markup--li-strong">Malware Analysis: </strong>CTI is used in the
+                            analysis and detection of malware. Analysts use CTI data to understand the behavior and
+                            propagation methods of malicious software.</li>
+                        <li class="graf graf--li graf-after--li" id="b7b0" name="b7b0"><strong
+                                class="markup--strong markup--li-strong">Security Policies and Strategies: </strong>CTI
+                            contributes to the development of security policies and strategies. By providing information
+                            about the nature and scope of threats, it ensures that policies are more effective.</li>
+                        <li class="graf graf--li graf-after--li" id="7763" name="7763"><strong
+                                class="markup--strong markup--li-strong">Risk Assessment: </strong>CTI is used in the
+                            assessment of cyber risks. Integrated into risk management processes, it helps understand
+                            the potential impact and likelihood of threats.</li>
+                        <li class="graf graf--li graf-after--li" id="b9e0" name="b9e0"><strong
+                                class="markup--strong markup--li-strong">Attack Surface Analysis: </strong>CTI helps
+                            organizations analyze their attack surface and identify weak points. This enables the
+                            mitigation of vulnerabilities and the improvement of defense measures.</li>
+                    </ul>
+                    <p class="graf graf--p graf-after--li" id="c566" name="c566">This lesson has introduced the CTI and
+                        its use. The next lesson will introduce and cover “<strong
+                            class="markup--strong markup--p-strong">CTI Resources</strong>”.</p>
+                    <h3 class="graf graf--h3 graf-after--p" id="2bda" name="2bda">Questions</h3>
+                    <p class="graf graf--p graf-after--h3 graf--trailing" id="bf72" name="bf72">No Anser Needed</p>
+            </div>
+            </div>
+            </section>
+            <section class="section section--body" name="ab84">
+                <div class="section-content">
+                    <div class="section-inner sectionLayout--insetColumn">
+                        <h3 class="graf graf--h3 graf--leading" id="99e8" name="99e8">CTI Resources</h3>
+                        <p class="graf graf--p graf-after--h3" id="e225" name="e225">Cyber Threat Intelligence (CTI)
+                            resources are critical for detecting and analyzing cyber threats and developing defense
+                            strategies against them. CTI resources include information obtained from various sources
+                            such as open-source intelligence (OSINT), commercial CTI providers, dark web intelligence,
+                            and threat intelligence sharing networks (ISACs). These resources provide cybersecurity
+                            teams with up-to-date and accurate threat information, helping them prevent potential
+                            attacks and respond to incidents more quickly. In this lesson, different CTI resources and
+                            their roles in the threat hunting process will be discussed.</p>
+                        <h3 class="graf graf--h3 graf-after--p" id="5ece" name="5ece">Open Source Intelligence (OSINT)
+                        </h3>
+                        <p class="graf graf--p graf-after--h3" id="d4b7" name="d4b7">Open Source Intelligence (OSINT) is
+                            the process of creating threat intelligence using information collected from publicly
+                            available sources. It includes data and documents freely accessible on the internet.</p>
+                        <figure class="graf graf--figure graf-after--p" id="7d99" name="7d99"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="616"
+                                data-image-id="0*QCFb2afqMZEyappU.png" data-width="1278"
+                                src="https://cdn-images-1.medium.com/max/800/0*QCFb2afqMZEyappU.png" />
+                            <figcaption class="imageCaption">( <strong
+                                    class="markup--strong markup--figure-strong">Image Source</strong> : <a
+                                    class="markup--anchor markup--figure-anchor"
+                                    data-href="https://www.linkedin.com/pulse/osint-top-15-open-source-intelligence-tools-securetriad/"
+                                    href="https://www.linkedin.com/pulse/osint-top-15-open-source-intelligence-tools-securetriad/"
+                                    rel="noopener noreferrer noopener noopener"
+                                    target="_blank">https://www.linkedin.com/pulse/osint-top-15-open-source-intelligence-tools-securetriad/</a>
+                                )</figcaption>
+                        </figure>
+                        <h3 class="graf graf--h3 graf-after--figure" id="664e" name="664e">Objectives of OSINT</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="2a39" name="2a39"><strong
+                                    class="markup--strong markup--li-strong">Information Gathering: </strong>To collect
+                                information from various open sources to gain a comprehensive understanding of threat
+                                actors.</li>
+                            <li class="graf graf--li graf-after--li" id="ad4a" name="ad4a"><strong
+                                    class="markup--strong markup--li-strong">Analysis and Evaluation: </strong>To
+                                analyze collected information to assess potential threats.</li>
+                            <li class="graf graf--li graf-after--li" id="33b4" name="33b4"><strong
+                                    class="markup--strong markup--li-strong">Early Warning: </strong>To provide early
+                                warnings about potential threats and develop security measures.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="4a62" name="4a62">Workflow of OSINT</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="3f62" name="3f62"><strong
+                                    class="markup--strong markup--li-strong">Source Identification: </strong>Identifying
+                                reliable and relevant sources on the Internet.</li>
+                            <li class="graf graf--li graf-after--li" id="27c7" name="27c7"><strong
+                                    class="markup--strong markup--li-strong">Data Collection: </strong>The process of
+                                collecting data from identified sources can be manual or automated.</li>
+                            <li class="graf graf--li graf-after--li" id="4e04" name="4e04"><strong
+                                    class="markup--strong markup--li-strong">Data Analysis: </strong>Analyzing the
+                                collected data and transforming it into meaningful information.</li>
+                            <li class="graf graf--li graf-after--li" id="4be4" name="4be4"><strong
+                                    class="markup--strong markup--li-strong">Reporting: </strong>Reporting the results
+                                of the analysis and presenting them to the relevant parties.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="cc3c" name="cc3c">Sources of OSINT</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="2310" name="2310"><strong
+                                    class="markup--strong markup--li-strong">Social Media: </strong>Data from platforms
+                                like Twitter, Facebook, and LinkedIn.</li>
+                            <li class="graf graf--li graf-after--li" id="195d" name="195d"><strong
+                                    class="markup--strong markup--li-strong">Blogs and Forums: </strong>Blogs by
+                                security researchers and cybersecurity forums.</li>
+                            <li class="graf graf--li graf-after--li" id="ace4" name="ace4"><strong
+                                    class="markup--strong markup--li-strong">News Websites: </strong>Current news about
+                                cyberattacks and threats.</li>
+                            <li class="graf graf--li graf-after--li" id="40c2" name="40c2"><strong
+                                    class="markup--strong markup--li-strong">Official Publications: </strong>Reports and
+                                announcements by government and security organizations.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="dc98" name="dc98">Advantages of OSINT</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="8cdf" name="8cdf"><strong
+                                    class="markup--strong markup--li-strong">Accessibility: </strong>Freely accessible
+                                information provides access to a wide range of data sources.</li>
+                            <li class="graf graf--li graf-after--li" id="8d4f" name="8d4f"><strong
+                                    class="markup--strong markup--li-strong">Cost-Effectiveness: </strong>Threat
+                                intelligence is obtained using free or low-cost information sources.</li>
+                            <li class="graf graf--li graf-after--li" id="9ee8" name="9ee8"><strong
+                                    class="markup--strong markup--li-strong">Diversity: </strong>Data from diverse
+                                sources enables comprehensive and multifaceted analysis.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="10d8" name="10d8">Disadvantages of OSINT</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="b291" name="b291"><strong
+                                    class="markup--strong markup--li-strong">Lack of Accuracy and Reliability:
+                                </strong>It can be challenging to verify the accuracy and reliability of information
+                                from open sources.</li>
+                            <li class="graf graf--li graf-after--li" id="5c5d" name="5c5d"><strong
+                                    class="markup--strong markup--li-strong">Data Overload: </strong>Large volumes of
+                                data can make it difficult to distinguish meaningful information.</li>
+                            <li class="graf graf--li graf-after--li" id="b8dc" name="b8dc"><strong
+                                    class="markup--strong markup--li-strong">Issues of Privacy and Ethics:
+                                </strong>Privacy and ethical guidelines must be followed during the
+                                information-gathering process.</li>
+                        </ul>
+                        <p class="graf graf--p graf-after--li" id="6251" name="6251">In summary, Open Source
+                            Intelligence (OSINT) provides a broad and accessible source of information about cyber
+                            threats. When used with the right sources and analysis methods, OSINT supports cybersecurity
+                            strategies and plays a significant role in detecting threats.</p>
+                        <h3 class="graf graf--h3 graf-after--p" id="c1d3" name="c1d3">Commercial CTI Providers</h3>
+                        <p class="graf graf--p graf-after--h3" id="8a9c" name="8a9c">Commercial CTI providers are
+                            organizations that offer paid services to deliver comprehensive threat intelligence.
+                            Providers analyze data collected from various sources and present it to their clients.</p>
+                        <h3 class="graf graf--h3 graf-after--p" id="b8e0" name="b8e0">Objectives of Commercial CTI
+                            Providers</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="f6c5" name="f6c5"><strong
+                                    class="markup--strong markup--li-strong">Professional Service: </strong>To provide
+                                clients with high-quality and verified threat intelligence.</li>
+                            <li class="graf graf--li graf-after--li" id="a4da" name="a4da"><strong
+                                    class="markup--strong markup--li-strong">Risk Mitigation: </strong>To help clients
+                                reduce cybersecurity risks.</li>
+                            <li class="graf graf--li graf-after--li" id="e3e5" name="e3e5"><strong
+                                    class="markup--strong markup--li-strong">Incident Response: </strong>To provide
+                                necessary information for quick and effective responses to cybersecurity incidents.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="090a" name="090a">Workflow of CTI Products</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="f092" name="f092"><strong
+                                    class="markup--strong markup--li-strong">Data Collection: </strong>Data collection
+                                from multiple sources (open sources, dark web, specialized databases).</li>
+                            <li class="graf graf--li graf-after--li" id="71a0" name="71a0"><strong
+                                    class="markup--strong markup--li-strong">Analysis: </strong>Analysis of data by
+                                advanced analysis tools and expert analysts.</li>
+                            <li class="graf graf--li graf-after--li" id="858e" name="858e"><strong
+                                    class="markup--strong markup--li-strong">Reporting and Notification:
+                                </strong>Reporting of analysis results to clients.</li>
+                            <li class="graf graf--li graf-after--li" id="6c7b" name="6c7b"><strong
+                                    class="markup--strong markup--li-strong">Integration: </strong>Automation of threat
+                                data processing through integration with systems such as SIEM and EDR.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="08a3" name="08a3">Commercial CTI Sources</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="092e" name="092e"><strong
+                                    class="markup--strong markup--li-strong">Threat Intelligence Platforms:</strong>
+                                Platforms like MISP, ThreatConnect, and Anomali.</li>
+                            <li class="graf graf--li graf-after--li" id="e213" name="e213"><strong
+                                    class="markup--strong markup--li-strong">Security Companies:</strong> Companies like
+                                FireEye, CrowdStrike, and Recorded Future.</li>
+                            <li class="graf graf--li graf-after--li" id="8863" name="8863"><strong
+                                    class="markup--strong markup--li-strong">Special Reports and Analysis:</strong>
+                                Reports on specific threats and attack campaigns.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="735a" name="735a">Advantages of Commercial
+                            CTI Sources</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="2485" name="2485"><strong
+                                    class="markup--strong markup--li-strong">High Quality: </strong>It offers verified
+                                and high-quality threat intelligence with analysis.</li>
+                            <li class="graf graf--li graf-after--li" id="11c0" name="11c0"><strong
+                                    class="markup--strong markup--li-strong">Time-Saving: </strong>It eliminates the
+                                need for clients to collect and analyze data themselves.</li>
+                            <li class="graf graf--li graf-after--li" id="8a35" name="8a35"><strong
+                                    class="markup--strong markup--li-strong">Expert Analysis: </strong>It provides
+                                in-depth analysis and recommendations provided by security experts.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="7c0d" name="7c0d">Disadvantages of Commercial
+                            CTI Sources</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="c40c" name="c40c"><strong
+                                    class="markup--strong markup--li-strong">Cost: </strong>Commercial CTI services are
+                                often expensive.</li>
+                            <li class="graf graf--li graf-after--li" id="6616" name="6616"><strong
+                                    class="markup--strong markup--li-strong">Privacy Issues: </strong>Clients must
+                                ensure the confidentiality of shared information.</li>
+                            <li class="graf graf--li graf-after--li" id="c0e7" name="c0e7"><strong
+                                    class="markup--strong markup--li-strong">Dependency: </strong>Clients may become
+                                overly reliant on commercial providers for their security strategies.</li>
+                        </ul>
+                        <p class="graf graf--p graf-after--li" id="8cb4" name="8cb4">In summary, Commercial CTI
+                            providers offer in-depth knowledge and analysis, enhancing organizations’ security
+                            capabilities. These services are particularly critical for organizations facing large-scale
+                            and targeted attacks.</p>
+                        <h3 class="graf graf--h3 graf-after--p" id="fe4f" name="fe4f">Dark Web Intelligence</h3>
+                        <p class="graf graf--p graf-after--h3" id="8193" name="8193">Dark Web Intelligence refers to
+                            threat intelligence obtained from activities conducted in the hidden and restricted areas of
+                            the internet (dark web). The dark web is a hub for cybercriminal activities, where
+                            transactions are anonymous and difficult to trace.</p>
+                        <figure class="graf graf--figure graf-after--p" id="5040" name="5040"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="600"
+                                data-image-id="0*gLkIRKtsRkm_AvVk.png" data-width="1150"
+                                src="https://cdn-images-1.medium.com/max/800/0*gLkIRKtsRkm_AvVk.png" />
+                            <figcaption class="imageCaption">( <strong
+                                    class="markup--strong markup--figure-strong">Image Source</strong> : <a
+                                    class="markup--anchor markup--figure-anchor"
+                                    data-href="https://www.hawk-eye.io/2020/12/dark-web-and-threat-intelligence-darkint/"
+                                    href="https://www.hawk-eye.io/2020/12/dark-web-and-threat-intelligence-darkint/"
+                                    rel="noopener noreferrer noopener noopener"
+                                    target="_blank">https://www.hawk-eye.io/2020/12/dark-web-and-threat-intelligence-darkint/</a>
+                                )</figcaption>
+                        </figure>
+                        <h3 class="graf graf--h3 graf-after--figure" id="81b3" name="81b3">Objectives of Dark Web
+                            Intelligence</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="5135" name="5135"><strong
+                                    class="markup--strong markup--li-strong">Monitoring Cybercrime: </strong>Monitoring
+                                and analyzing cybercriminal activities on the dark web.</li>
+                            <li class="graf graf--li graf-after--li" id="c7b2" name="c7b2"><strong
+                                    class="markup--strong markup--li-strong">Preventive Measures: </strong>Using
+                                information from the dark web to take preventive measures against potential threats.
+                            </li>
+                            <li class="graf graf--li graf-after--li" id="a550" name="a550"><strong
+                                    class="markup--strong markup--li-strong">Incident Response: </strong>Quickly detect
+                                threats on the dark web and respond to incidents.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="3798" name="3798">Workflow of Dark Web Intelligence
+                        </h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="06fd" name="06fd"><strong
+                                    class="markup--strong markup--li-strong">Access and Monitoring:</strong> Accessing
+                                the dark web and collecting data from various sources.</li>
+                            <li class="graf graf--li graf-after--li" id="4fe3" name="4fe3"><strong
+                                    class="markup--strong markup--li-strong">Data Collection: </strong>Collecting data
+                                from dark web marketplaces, forums, and other sources.</li>
+                            <li class="graf graf--li graf-after--li" id="ce26" name="ce26"><strong
+                                    class="markup--strong markup--li-strong">Analysis: </strong>Analyzing collected data
+                                to extract meaningful insights.</li>
+                            <li class="graf graf--li graf-after--li" id="c9b0" name="c9b0"><strong
+                                    class="markup--strong markup--li-strong">Reporting: </strong>Reporting findings and
+                                presenting them to relevant teams.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="bc14" name="bc14">Dark Web Intelligence Sources
+                        </h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="fdaa" name="fdaa"><strong
+                                    class="markup--strong markup--li-strong">Dark Markets:</strong> Platforms where
+                                malware, stolen data, and counterfeit documents are sold.</li>
+                            <li class="graf graf--li graf-after--li" id="aef5" name="aef5"><strong
+                                    class="markup--strong markup--li-strong">Hacker Forums:</strong> Platforms where
+                                attackers share information and collaborate.</li>
+                            <li class="graf graf--li graf-after--li" id="821f" name="821f"><strong
+                                    class="markup--strong markup--li-strong">Dark Web Search Engines:</strong>
+                                Specialized search engines for finding information on the dark web.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="8d3b" name="8d3b">Advantages of Dark Web
+                            Intelligence</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="459d" name="459d"><strong
+                                    class="markup--strong markup--li-strong">Early Warning:</strong> It provides early
+                                warnings about activities on the dark web, enabling preparedness for potential threats.
+                            </li>
+                            <li class="graf graf--li graf-after--li" id="f716" name="f716"><strong
+                                    class="markup--strong markup--li-strong">In-Depth Knowledge:</strong> It offers
+                                detailed insights into cybercriminal activities.</li>
+                            <li class="graf graf--li graf-after--li" id="e7a6" name="e7a6"><strong
+                                    class="markup--strong markup--li-strong">Preventive Measures:</strong> It enables
+                                proactive preventive measures based on dark web intelligence.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="4696" name="4696">Disadvantages of Dark Web
+                            Intelligence</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="961c" name="961c"><strong
+                                    class="markup--strong markup--li-strong">Access Challenges: </strong>Accessing and
+                                collecting data from the dark web requires technical expertise and specialized tools.
+                            </li>
+                            <li class="graf graf--li graf-after--li" id="5a7f" name="5a7f"><strong
+                                    class="markup--strong markup--li-strong">Lack of Reliability: </strong>Ensuring the
+                                accuracy and reliability of collected information can be challenging.</li>
+                            <li class="graf graf--li graf-after--li" id="694b" name="694b"><strong
+                                    class="markup--strong markup--li-strong">Privacy and Legal Issues: </strong>Privacy
+                                and legal concerns may arise during the information-gathering process.</li>
+                        </ul>
+                        <p class="graf graf--p graf-after--li" id="2ead" name="2ead">In summary, Dark Web Intelligence
+                            plays a critical role in the early detection and prevention of cybersecurity threats.
+                            Monitoring and analyzing activities on the dark web strengthens organizations’ cybersecurity
+                            strategies and prepares them for potential threats.</p>
+                        <h3 class="graf graf--h3 graf-after--p" id="8e86" name="8e86">Threat Intelligence Sharing
+                            Networks (ISACs)</h3>
+                        <p class="graf graf--p graf-after--h3" id="609e" name="609e">Information Sharing and Analysis
+                            Centers (ISACs) are organizations established to facilitate threat intelligence sharing and
+                            collaboration among specific sectors or regions. ISACs encourage trusted information
+                            exchange among members, creating a collective defense mechanism against cyber threats.</p>
+                        <figure class="graf graf--figure graf-after--p" id="8611" name="8611"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="1442"
+                                data-image-id="0*ndThW-HJCSsjSzE-.png" data-width="1454"
+                                src="https://cdn-images-1.medium.com/max/800/0*ndThW-HJCSsjSzE-.png" />
+                            <figcaption class="imageCaption">( <strong
+                                    class="markup--strong markup--figure-strong">Image Source</strong> : <a
+                                    class="markup--anchor markup--figure-anchor"
+                                    data-href="https://www.anomali.com/blog/the-power-of-active-collaboration-in-isacs-isaos-and-security-interest-groups"
+                                    href="https://www.anomali.com/blog/the-power-of-active-collaboration-in-isacs-isaos-and-security-interest-groups"
+                                    rel="noopener noreferrer noopener noopener"
+                                    target="_blank">https://www.anomali.com/blog/the-power-of-active-collaboration-in-isacs-isaos-and-security-interest-groups</a>
+                                )</figcaption>
+                        </figure>
+                        <h3 class="graf graf--h3 graf-after--figure" id="a8a8" name="a8a8">Objectives of ISACs</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="3b07" name="3b07"><strong
+                                    class="markup--strong markup--li-strong">Information Sharing: </strong>They
+                                facilitate the sharing of information about cyber threats, vulnerabilities, and attack
+                                techniques among members.</li>
+                            <li class="graf graf--li graf-after--li" id="a9e1" name="a9e1"><strong
+                                    class="markup--strong markup--li-strong">Analysis and Evaluation: </strong>They
+                                analyze collected information to produce sector-specific threat assessments and reports.
+                            </li>
+                            <li class="graf graf--li graf-after--li" id="9aa2" name="9aa2"><strong
+                                    class="markup--strong markup--li-strong">Defense Strategies: </strong>They develop
+                                tailored security recommendations and defense strategies for members.</li>
+                            <li class="graf graf--li graf-after--li" id="8caa" name="8caa"><strong
+                                    class="markup--strong markup--li-strong">Incident Response Support: </strong>They
+                                provide support and guidance to members during cybersecurity incidents.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="8189" name="8189">Workflow of ISACs</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="e470" name="e470"><strong
+                                    class="markup--strong markup--li-strong">Membership: </strong>ISACs are typically
+                                sector-based and accept organizations from specific industries as members.</li>
+                            <li class="graf graf--li graf-after--li" id="1c84" name="1c84"><strong
+                                    class="markup--strong markup--li-strong">Information Collection and Distribution:
+                                </strong>ISACs collect threat information from members and various sources, analyze it,
+                                and distribute it back to members.</li>
+                            <li class="graf graf--li graf-after--li" id="94a5" name="94a5"><strong
+                                    class="markup--strong markup--li-strong">Collaboration and Coordination:
+                                </strong>They encourage collaboration among members, coordinate information sharing, and
+                                develop joint defense strategies.</li>
+                            <li class="graf graf--li graf-after--li" id="8eda" name="8eda"><strong
+                                    class="markup--strong markup--li-strong">Training and Awareness: </strong>ISACs
+                                organize training programs, workshops, and awareness campaigns for members.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="521e" name="521e">Examples of ISACs</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="626c" name="626c"><strong
+                                    class="markup--strong markup--li-strong">Financial Services ISAC (FS-ISAC):
+                                </strong>Threat intelligence sharing for the financial sector.</li>
+                            <li class="graf graf--li graf-after--li" id="956b" name="956b"><strong
+                                    class="markup--strong markup--li-strong">Health Information Sharing and Analysis
+                                    Center (H-ISAC): </strong>Threat intelligence sharing for the healthcare sector.
+                            </li>
+                            <li class="graf graf--li graf-after--li" id="fcc0" name="fcc0"><strong
+                                    class="markup--strong markup--li-strong">Automotive Information Sharing and Analysis
+                                    Center (Auto-ISAC): </strong>Threat intelligence sharing for the automotive sector.
+                            </li>
+                            <li class="graf graf--li graf-after--li" id="9860" name="9860"><strong
+                                    class="markup--strong markup--li-strong">Energy Information Sharing and Analysis
+                                    Center (E-ISAC): </strong>Threat intelligence sharing for the energy sector.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="04d0" name="04d0">Advantages of ISACs</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="85b1" name="85b1"><strong
+                                    class="markup--strong markup--li-strong">Early Warning: </strong>ISACs provide early
+                                warning of emerging threats across the industry.</li>
+                            <li class="graf graf--li graf-after--li" id="db2d" name="db2d"><strong
+                                    class="markup--strong markup--li-strong">Collective Defense:</strong> ISACs enable
+                                you to develop stronger and more coordinated defense strategies through information
+                                sharing.</li>
+                            <li class="graf graf--li graf-after--li" id="7ca8" name="7ca8"><strong
+                                    class="markup--strong markup--li-strong">Resource Efficiency: </strong>You can use
+                                security resources more efficiently through information sharing and collaboration.</li>
+                            <li class="graf graf--li graf-after--li" id="783d" name="783d"><strong
+                                    class="markup--strong markup--li-strong">Increased Trust: </strong>You can increase
+                                security awareness and collaboration across the industry.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="c552" name="c552">Disadvantages of ISACs</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="bd49" name="bd49"><strong
+                                    class="markup--strong markup--li-strong">Lack of Trust Between Partners:
+                                </strong>Building trust among members for information sharing might be challenging.</li>
+                            <li class="graf graf--li graf-after--li" id="6d5d" name="6d5d"><strong
+                                    class="markup--strong markup--li-strong">Data Privacy: </strong>Ensuring the
+                                confidentiality and proper use of shared information might be challenging.</li>
+                            <li class="graf graf--li graf-after--li" id="ed59" name="ed59"><strong
+                                    class="markup--strong markup--li-strong">Coordination Challenges:
+                                </strong>Facilitating coordination and collaboration among different organizations.</li>
+                        </ul>
+                        <p class="graf graf--p graf-after--li" id="6ec7" name="6ec7">Threat Intelligence Sharing
+                            Networks (ISACs) play a critical role in sector-specific cybersecurity. By promoting trusted
+                            information sharing among members, ISACs create a collective defense mechanism against cyber
+                            threats. Networks enhance the cybersecurity capabilities of sectors and provide a more
+                            resilient defense.</p>
+                        <p class="graf graf--p graf-after--p" id="8008" name="8008">This lesson has covered OSINT,
+                            commercial CTI providers, dark web intelligence, and threat intelligence sharing networks
+                            (ISACs). The next lesson will introduce and explain “ <strong
+                                class="markup--strong markup--p-strong">Threat Hunting Process with CTI</strong> “.</p>
+                        <h3 class="graf graf--h3 graf-after--p" id="c3dd" name="c3dd">Questions</h3>
+                        <p class="graf graf--p graf-after--h3 graf--trailing" id="25e6" name="25e6">No Anser Needed</p>
+                    </div>
+                </div>
+            </section>
+            <section class="section section--body" name="9458">
+                <div class="section-content">
+                    <div class="section-inner sectionLayout--insetColumn">
+                        <h3 class="graf graf--h3 graf--leading" id="aa95" name="aa95">Threat Hunting Process with CTI
+                        </h3>
+                        <p class="graf graf--p graf-after--h3" id="41b0" name="41b0">Cyber Threat Intelligence (CTI)
+                            provides critical information for detecting, analyzing, and responding to threats, while
+                            threat hunting processes proactively search for potential threats using this information. It
+                            plays a vital role in every stage of the threat hunting cycle, from hypothesis creation to
+                            uncovering new threat patterns.</p>
+                        <figure class="graf graf--figure graf-after--p" id="e5d4" name="e5d4"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="1378"
+                                data-image-id="0*166341rvbHYBcLS5.png" data-width="1334"
+                                src="https://cdn-images-1.medium.com/max/800/0*166341rvbHYBcLS5.png" />
+                            <figcaption class="imageCaption"><strong class="markup--strong markup--figure-strong">(Image
+                                    Source: </strong><a class="markup--anchor markup--figure-anchor"
+                                    data-href="https://www.researchgate.net/figure/The-Threat-Hunting-Loop_fig2_344319370"
+                                    href="https://www.researchgate.net/figure/The-Threat-Hunting-Loop_fig2_344319370"
+                                    rel="noopener noreferrer noopener noopener"
+                                    target="_blank">https://www.researchgate.net/figure/The-Threat-Hunting-Loop_fig2_344319370</a>
+                                <strong class="markup--strong markup--figure-strong">)</strong>
+                            </figcaption>
+                        </figure>
+                        <h3 class="graf graf--h3 graf-after--figure" id="c64a" name="c64a">Create Hypotheses</h3>
+                        <p class="graf graf--p graf-after--h3" id="ae8a" name="ae8a">CTI plays a significant role in
+                            creating hypotheses during the threat hunting process. At this stage, it contributes in the
+                            following ways:</p>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--p" id="8d17" name="8d17"><strong
+                                    class="markup--strong markup--li-strong">Threat Indicators (IOCs): </strong>CTI
+                                provides threat indicators such as malware signatures, malicious IP addresses, and
+                                domains. These indicators serve as foundational information for creating hypotheses.
+                            </li>
+                            <li class="graf graf--li graf-after--li" id="73e2" name="73e2"><strong
+                                    class="markup--strong markup--li-strong">Information on Threat Actors: </strong>CTI
+                                offers insights into the motivations, capabilities, and targets of specific threat
+                                actors. These insights are used to develop hypotheses about how and why potential
+                                threats might occur.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="7c85" name="7c85">Investigate With Tools and
+                            Techniques</h3>
+                        <p class="graf graf--p graf-after--h3" id="5d75" name="5d75">CTI provides critical information
+                            for the tools and techniques used during the investigation phase. At this stage, CTI offers:
+                        </p>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--p" id="6f5b" name="6f5b"><strong
+                                    class="markup--strong markup--li-strong">Threat Intelligence Integration:
+                                </strong>CTI data is integrated into SIEM, EDR, and other security tools to support the
+                                threat hunting process.</li>
+                            <li class="graf graf--li graf-after--li" id="fc75" name="fc75"><strong
+                                    class="markup--strong markup--li-strong">Advanced Analysis Techniques: </strong>CTI
+                                enables deeper analysis of threats. For example, understanding how specific malware
+                                operates and spreads allows this information to be used in analysis processes.</li>
+                            <li class="graf graf--li graf-after--li" id="a24b" name="a24b"><strong
+                                    class="markup--strong markup--li-strong">Threat Detection and Monitoring:
+                                </strong>CTI provides information on specific threat indicators (IOCs) and attack
+                                methods (TTPs), making it easier for security tools to detect and monitor threats.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="303c" name="303c">Uncover New Patterns and TTPs
+                        </h3>
+                        <p class="graf graf--p graf-after--h3" id="9c39" name="9c39">CTI plays a key role in uncovering
+                            new threat patterns and attack techniques (TTPs). At this stage, CTI’s offers:</p>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--p" id="7a43" name="7a43"><strong
+                                    class="markup--strong markup--li-strong">Data Enrichment: </strong>CTI enriches
+                                existing data, enabling the discovery of new threat patterns and TTPs.</li>
+                            <li class="graf graf--li graf-after--li" id="d035" name="d035"><strong
+                                    class="markup--strong markup--li-strong">Anomaly Detection: </strong>CTI helps
+                                identify deviations from normal behavior patterns and anomalies, leading to the
+                                identification of new threat patterns.</li>
+                            <li class="graf graf--li graf-after--li" id="957c" name="957c"><strong
+                                    class="markup--strong markup--li-strong">Continuously Updated Information:
+                                </strong>CTI provides up-to-date information on the evolving tactics and techniques of
+                                threat actors. This information helps threat hunters detect new threats more quickly.
+                            </li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="7918" name="7918">Inform and Enrich Analytics</h3>
+                        <p class="graf graf--p graf-after--h3" id="5d94" name="5d94">CTI plays a critical role in
+                            informing and enriching analytics during the threat hunting process. At this stage, CTI
+                            offers:</p>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--p" id="c440" name="c440"><strong
+                                    class="markup--strong markup--li-strong">Providing Contextual Information:
+                                </strong>CTI helps understand threats in a broader context. For example, it provides
+                                information not only about a malware file name but also about the threat actor group
+                                using it.</li>
+                            <li class="graf graf--li graf-after--li" id="f267" name="f267"><strong
+                                    class="markup--strong markup--li-strong">Data Correlation: </strong>Comparing
+                                information from multiple data sources with CTI data accelerates the detection of
+                                anomalies and threats.</li>
+                            <li class="graf graf--li graf-after--li" id="a85f" name="a85f"><strong
+                                    class="markup--strong markup--li-strong">Incident Validation: </strong>CTI data is
+                                used to validate detected incidents. For instance, when a security event matches an IOC
+                                in the CTI database, the event is verified.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="0b1c" name="0b1c">Summary</h3>
+                        <p class="graf graf--p graf-after--h3" id="e01a" name="e01a">CTI is essential in all threat
+                            hunting stages. From hypothesizing to uncovering new threat patterns, the information and
+                            analysis provided by CTI helps cybersecurity teams detect and respond to threats more
+                            effectively.</p>
+                        <p class="graf graf--p graf-after--p" id="d1fe" name="d1fe">This lesson has discussed the
+                            importance of CTI in each step of the threat hunting cycle. The next lesson will cover the “
+                            <strong class="markup--strong markup--p-strong">Phishing Campaign Hypothesis</strong> “.
+                        </p>
+                        <h3 class="graf graf--h3 graf-after--p" id="f012" name="f012">Questions</h3>
+                        <p class="graf graf--p graf-after--h3 graf--trailing" id="640a" name="640a">No Anser Needed</p>
+                    </div>
+                </div>
+            </section>
+            <section class="section section--body" name="2ad5">
+                <div class="section-content">
+                    <div class="section-inner sectionLayout--insetColumn">
+                        <h3 class="graf graf--h3 graf--leading" id="4f18" name="4f18">Phishing Campaign Hypothesis</h3>
+                        <h3 class="graf graf--h3 graf-after--h3" id="6f1c" name="6f1c">Hypothesis</h3>
+                        <p class="graf graf--p graf-after--h3" id="7286" name="7286">There may be a targeted phishing
+                            campaign against the employees of your organization. The campaign could be aimed at stealing
+                            employee credentials, accessing financial information, or installing malware.</p>
+                        <h3 class="graf graf--h3 graf-after--p" id="baab" name="baab">Data Sources</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="e03f" name="e03f"><strong
+                                    class="markup--strong markup--li-strong">Cyber Threat Intelligence (CTI) Platform:
+                                </strong>It collects and analyzes information about security threats.</li>
+                            <li class="graf graf--li graf-after--li" id="84f1" name="84f1"><strong
+                                    class="markup--strong markup--li-strong">Threat Intelligence Feeds: </strong>They
+                                provide information on known email addresses, URLs, and IP addresses used in phishing
+                                campaigns.</li>
+                            <li class="graf graf--li graf-after--li" id="f32c" name="f32c"><strong
+                                    class="markup--strong markup--li-strong">SIEM System:</strong> It is a tool for
+                                collecting and analyzing logs and security events.</li>
+                            <li class="graf graf--li graf-after--li" id="43e2" name="43e2"><strong
+                                    class="markup--strong markup--li-strong">Email Gateway Logs: </strong>It monitors
+                                incoming and outgoing email traffic.</li>
+                            <li class="graf graf--li graf-after--li" id="1525" name="1525"><strong
+                                    class="markup--strong markup--li-strong">Web Proxy Logs: </strong>It tracks users’
+                                internet access records.</li>
+                            <li class="graf graf--li graf-after--li" id="9ab4" name="9ab4"><strong
+                                    class="markup--strong markup--li-strong">Endpoint Detection and Response (EDR) Logs:
+                                </strong>It monitors endpoint device activities and detects abnormal behavior.</li>
+                            <li class="graf graf--li graf-after--li" id="2132" name="2132"><strong
+                                    class="markup--strong markup--li-strong">User and Entity Behavior Analytics (UEBA):
+                                </strong>It analyzes user and entity behavior to identify anomalies.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="221c" name="221c">Analysis Steps</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="0a4b" name="0a4b">Collect logs from SIEM, email
+                                gateway, web proxy, and EDR systems.</li>
+                            <li class="graf graf--li graf-after--li" id="5275" name="5275">Gather data about phishing
+                                campaigns from the CTI platform and threat intelligence feeds.</li>
+                            <li class="graf graf--li graf-after--li" id="7d3a" name="7d3a">Compare logs with information
+                                from the CTI platform and feeds.</li>
+                            <li class="graf graf--li graf-after--li" id="3ecb" name="3ecb">Match logs with known
+                                phishing email addresses, URLs, and IP addresses.</li>
+                            <li class="graf graf--li graf-after--li" id="ad4b" name="ad4b">Identify techniques used in
+                                phishing campaigns (e.g., fake websites, phishing emails) and search for traces of these
+                                techniques in the logs.</li>
+                            <li class="graf graf--li graf-after--li" id="9727" name="9727">Detect emails from known
+                                phishing email addresses in email gateway logs.</li>
+                            <li class="graf graf--li graf-after--li" id="8549" name="8549">Check web proxy logs for user
+                                access to phishing URLs.</li>
+                            <li class="graf graf--li graf-after--li" id="b9c1" name="b9c1">Identify abnormal activities
+                                on devices of users exposed to phishing attacks in EDR logs.</li>
+                            <li class="graf graf--li graf-after--li" id="686d" name="686d">Analyze the content of
+                                phishing emails and identify social engineering techniques.</li>
+                            <li class="graf graf--li graf-after--li" id="8766" name="8766">Analyze user behavior to
+                                identify users who clicked on phishing emails or accessed fake websites.</li>
+                            <li class="graf graf--li graf-after--li" id="e133" name="e133">Use UEBA to detect unusual
+                                user behavior and potential account compromise attempts.</li>
+                            <li class="graf graf--li graf-after--li" id="050e" name="050e">Forward detected suspicious
+                                emails and web access incidents to the incident response team.</li>
+                            <li class="graf graf--li graf-after--li" id="8782" name="8782">The incident response team
+                                analyzes the details of the phishing campaign and identifies targeted users.</li>
+                            <li class="graf graf--li graf-after--li" id="9232" name="9232">Based on the findings,
+                                isolate affected accounts and devices to prevent further damage.</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="ed4a" name="ed4a">Expected Outcomes</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="418d" name="418d">Details and techniques of the
+                                targeted phishing campaign will be identified.</li>
+                            <li class="graf graf--li graf-after--li" id="e627" name="e627">Phishing emails sent during
+                                the campaign and fake websites accessed by users will be determined.</li>
+                            <li class="graf graf--li graf-after--li" id="316c" name="316c">Suspicious behavior and
+                                potential account compromise attempts will be detected, and relevant users will be
+                                informed while necessary measures are taken.</li>
+                            <li class="graf graf--li graf-after--li" id="2b0a" name="2b0a">By correlating with CTI data,
+                                phishing attacks can be detected earlier and proactive measures can be taken quickly.
+                            </li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="e30a" name="e30a">Summary</h3>
+                        <p class="graf graf--p graf-after--h3" id="1493" name="1493">This hypothesis outlines steps for
+                            detecting phishing campaigns on the network using CTI. In order to strengthen the company’s
+                            security posture and prevent potential phishing attacks, these steps are critical.</p>
+                        <h3 class="graf graf--h3 graf-after--p" id="927b" name="927b">Questions</h3>
+                        <p class="graf graf--p graf-after--h3 graf--trailing" id="f3d3" name="f3d3">No Anser Needed</p>
+                    </div>
+                </div>
+            </section>
+            <section class="section section--body" name="5530">
+                <div class="section-content">
+                    <div class="section-inner sectionLayout--insetColumn">
+                        <h3 class="graf graf--h3 graf--leading" id="7673" name="7673">Practical Lab-1</h3>
+                        <h3 class="graf graf--h3 graf-after--h3" id="6608" name="6608">Hypothesis-1</h3>
+                        <p class="graf graf--p graf-after--h3" id="76f3" name="76f3"><strong
+                                class="markup--strong markup--p-strong">Note: </strong>The questions in this section are
+                            designed for threat hunting based on the following hypothesis.</p>
+                        <p class="graf graf--p graf-after--p" id="6e8c" name="6e8c"><strong
+                                class="markup--strong markup--p-strong">Hypothesis: </strong>Attackers may use social
+                            engineering techniques to deceive employees and deploy malware.</p>
+                        <h3 class="graf graf--h3 graf-after--p" id="54af" name="54af">Threat Hunting Lab Environment
+                        </h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="a324" name="a324"><strong
+                                    class="markup--strong markup--li-strong">Company Name: </strong>RiverKids</li>
+                            <li class="graf graf--li graf-after--li" id="a604" name="a604"><strong
+                                    class="markup--strong markup--li-strong">Company Domain: </strong>riverkidscorp.com
+                            </li>
+                            <li class="graf graf--li graf-after--li" id="74c3" name="74c3">CTI Events (<a
+                                    class="markup--anchor markup--li-anchor"
+                                    data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                    href="https://app.letsdefend.io/threath-intelligence-feed"
+                                    rel="noopener noreferrer noopener" target="_blank">Threat Intel LetsDefend
+                                    Platform</a>)</li>
+                            <li class="graf graf--li graf-after--li" id="1ce5" name="1ce5">Email Security (<a
+                                    class="markup--anchor markup--li-anchor"
+                                    data-href="https://app.letsdefend.io/email-security"
+                                    href="https://app.letsdefend.io/email-security" rel="noopener noreferrer noopener"
+                                    target="_blank">LetsDefend Platform</a>)</li>
+                            <li class="graf graf--li graf-after--li" id="9596" name="9596">SIEM (Wazuh)</li>
+                            <li class="graf graf--li graf-after--li" id="7e1a" name="7e1a">EDR Events (Sysmon)</li>
+                            <li class="graf graf--li graf-after--li" id="3305" name="3305">Firewall Traffic Events</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="5ac8" name="5ac8">Lab Notes</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="20b9" name="20b9">Analyze the logs between “Aug
+                                1, 2024 00:00 — Aug 7, 2024 00:00” to answer the questions below.</li>
+                            <li class="graf graf--li graf-after--li" id="e103" name="e103">Subsequent questions require
+                                correct answers from previous ones. <strong
+                                    class="markup--strong markup--li-strong">Answer all questions strictly in the order
+                                    they appear.</strong></li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="107f" name="107f">Questions</h3>
+                        <p class="graf graf--p graf-after--h3" id="11f5" name="11f5"><strong
+                                class="markup--strong markup--p-strong">Note:</strong> Analyze the logs between “Aug 1,
+                            2024 00:00 — Aug 7, 2024 00:00” to answer the questions below.</p>
+                        <p class="graf graf--p graf-after--p" id="c879" name="c879"><strong
+                                class="markup--strong markup--p-strong">Note:</strong> Subsequent questions require
+                            correct answers from previous ones. Answer all questions strictly in the order they appear.
+                        </p>
+                        <blockquote class="graf graf--blockquote graf-after--p" id="d5ba" name="d5ba"><strong
+                                class="markup--strong markup--blockquote-strong">According to the CTI Platform
+                                (LetsDefend — Threat Intel), what domain was registered with a name similar to the
+                                company?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="2d28" name="2d28">Let's take a look at the
+                            information provided to us, then search for a domain similar to this name on the threat
+                            intelligence platform.</p>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--p" id="b859" name="b859"><strong
+                                    class="markup--strong markup--li-strong">Company Name: </strong>RiverKids</li>
+                            <li class="graf graf--li graf-after--li" id="d208" name="d208"><strong
+                                    class="markup--strong markup--li-strong">Company Domain: </strong>riverkidscorp.com
+                            </li>
+                        </ul>
+                        <figure class="graf graf--figure graf-after--li" id="0e60" name="0e60"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="496"
+                                data-image-id="1*yekAJru0KMyVhlg6bpmN6A.png" data-width="1003"
+                                src="https://cdn-images-1.medium.com/max/800/1*yekAJru0KMyVhlg6bpmN6A.png" />
+                            <figcaption class="imageCaption">Threat Intel Platform</figcaption>
+                        </figure>
+                        <p class="graf graf--p graf-after--figure" id="81c3" name="81c3"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>riverkidscompany.com</p>
+                        <figure class="graf graf--figure graf-after--p" id="6702" name="6702"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="92"
+                                data-image-id="1*eqSXziyOfwwoJ53kaNcWOQ.png" data-width="827"
+                                src="https://cdn-images-1.medium.com/max/800/1*eqSXziyOfwwoJ53kaNcWOQ.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="55c4" name="55c4"><strong
+                                class="markup--strong markup--blockquote-strong">According to the email security
+                                platform (LetsDefend — Email Security), what is the recipient email address of the email
+                                sent to company staff from the domain similar to the company’s name?</strong>
+                        </blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="fc2a" name="fc2a">When we search for the
+                            email address we found in email security, we find the relevant email.</p>
+                        <figure class="graf graf--figure graf-after--p" id="2f9e" name="2f9e"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="222"
+                                data-image-id="1*Pxwjuuz1HFyqSglRUJg30A.png" data-width="998"
+                                src="https://cdn-images-1.medium.com/max/800/1*Pxwjuuz1HFyqSglRUJg30A.png" />
+                            <figcaption class="imageCaption">Email Security</figcaption>
+                        </figure>
+                        <p class="graf graf--p graf-after--figure" id="adc1" name="adc1">We caught the phishing email!
+                        </p>
+                        <figure class="graf graf--figure graf-after--p" id="38ca" name="38ca"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="503"
+                                data-image-id="1*ZKap_okrbnuoS-Wx9yXUlw.png" data-width="957"
+                                src="https://cdn-images-1.medium.com/max/800/1*ZKap_okrbnuoS-Wx9yXUlw.png" />
+                            <figcaption class="imageCaption">Phishing Email</figcaption>
+                        </figure>
+                        <p class="graf graf--p graf-after--figure" id="8222" name="8222"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>mike@riverkidscorp.com</p>
+                        <figure class="graf graf--figure graf-after--p" id="7b2d" name="7b2d"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="123"
+                                data-image-id="1*5d15bAExCgOM6kBBzZSuLQ.png" data-width="840"
+                                src="https://cdn-images-1.medium.com/max/800/1*5d15bAExCgOM6kBBzZSuLQ.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="8254" name="8254"><strong
+                                class="markup--strong markup--blockquote-strong">According to the email security
+                                platform (</strong><a class="markup--anchor markup--blockquote-anchor"
+                                data-href="https://app.letsdefend.io/email-security"
+                                href="https://app.letsdefend.io/email-security" rel="noopener noreferrer noopener"
+                                target="_blank"><strong
+                                    class="markup--strong markup--blockquote-strong">LetsDefend — Email
+                                    Security</strong></a><strong class="markup--strong markup--blockquote-strong">) what
+                                is the sender’s email address of the email sent to company staff from the domain similar
+                                to the company’s name?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="20b0" name="20b0"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>support@riverkidscompany.com
+                        </p>
+                        <figure class="graf graf--figure graf-after--p" id="a956" name="a956"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="112"
+                                data-image-id="1*7JSWzpHE1uJMtG9fX3vv_A.png" data-width="841"
+                                src="https://cdn-images-1.medium.com/max/800/1*7JSWzpHE1uJMtG9fX3vv_A.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="1c5f" name="1c5f"><strong
+                                class="markup--strong markup--blockquote-strong">According to the email security
+                                platform (LetsDefend — Email Security), what action was taken for the email sent to
+                                company staff from the domain similar to the company’s name?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="d2d7" name="d2d7"><strong
+                                class="markup--strong markup--p-strong">Answer:
+                            </strong>supportcenter.login.vpnccloudd.io</p>
+                        <figure class="graf graf--figure graf-after--p" id="2c49" name="2c49"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="115"
+                                data-image-id="1*XnJPvu9tSbR-XsOLVEVkEA.png" data-width="838"
+                                src="https://cdn-images-1.medium.com/max/800/1*XnJPvu9tSbR-XsOLVEVkEA.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="4215" name="4215"><strong
+                                class="markup--strong markup--blockquote-strong">According to the Threat Intel
+                                (</strong><a class="markup--anchor markup--blockquote-anchor"
+                                data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                href="https://app.letsdefend.io/threath-intelligence-feed"
+                                rel="noopener noreferrer noopener" target="_blank"><strong
+                                    class="markup--strong markup--blockquote-strong">LetsDefend</strong></a><strong
+                                class="markup--strong markup--blockquote-strong">) source, what is the category (TAG) of
+                                the domain included in the email sent to company staff from the domain similar to the
+                                company’s name?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="f097" name="f097">Search for the domain in
+                            the LetsDefend Threat Intel module.</p>
+                        <figure class="graf graf--figure graf-after--p" id="2fa3" name="2fa3"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="445"
+                                data-image-id="1*g2esRTQHtNb0XrjnKlYQ8g.png" data-width="968"
+                                src="https://cdn-images-1.medium.com/max/800/1*g2esRTQHtNb0XrjnKlYQ8g.png" />
+                            <figcaption class="imageCaption">Threat Intel Module</figcaption>
+                        </figure>
+                        <p class="graf graf--p graf-after--figure" id="3599" name="3599"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>phishing</p>
+                        <figure class="graf graf--figure graf-after--p" id="d157" name="d157"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="103"
+                                data-image-id="1*c0BoESPwDPtS1IFQOBMWPw.png" data-width="877"
+                                src="https://cdn-images-1.medium.com/max/800/1*c0BoESPwDPtS1IFQOBMWPw.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="9c10" name="9c10"><strong
+                                class="markup--strong markup--blockquote-strong">What is the IP address of the endpoint
+                                attempting to access the domain included in the email sent to company staff from the
+                                domain similar to the company’s name?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="8fae" name="8fae">In the wazuh SIEM, search
+                            for the domain using the filter “data.win.eventdata.queryName: [domain_name]” and find the
+                            “agent.ip” value in the results.</p>
+                        <figure class="graf graf--figure graf-after--p" id="87a8" name="87a8"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="666"
+                                data-image-id="1*MnrquF9HFTs54z9kKVQHGQ.png" data-width="1870"
+                                src="https://cdn-images-1.medium.com/max/800/1*MnrquF9HFTs54z9kKVQHGQ.png" />
+                            <figcaption class="imageCaption">wazuh search</figcaption>
+                        </figure>
+                        <p class="graf graf--p graf-after--figure" id="a567" name="a567"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>192.168.16.54</p>
+                        <figure class="graf graf--figure graf-after--p" id="56aa" name="56aa"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="106"
+                                data-image-id="1*jnK249p3Rv6oQ_nZ94bJ-Q.png" data-width="867"
+                                src="https://cdn-images-1.medium.com/max/800/1*jnK249p3Rv6oQ_nZ94bJ-Q.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="7929" name="7929"><strong
+                                class="markup--strong markup--blockquote-strong">What process on the endpoint,
+                                identified in the previous question, sent the DNS request for the domain mentioned in
+                                the email that was sent to company staff from the domain resembling the company’s
+                                name?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="b170" name="b170">In the SIEM, search for the
+                            domain using the filter “data.win.eventdata.queryName: [domain_name]” and find the
+                            “data.win.eventdata.image” value in the results.</p>
+                        <figure class="graf graf--figure graf-after--p" id="39ac" name="39ac"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="819"
+                                data-image-id="1*Fq2HwaplZwaRH9a-_mO_Cw.png" data-width="1880"
+                                src="https://cdn-images-1.medium.com/max/800/1*Fq2HwaplZwaRH9a-_mO_Cw.png" />
+                            <figcaption class="imageCaption">wazuh search</figcaption>
+                        </figure>
+                        <p class="graf graf--p graf-after--figure" id="7a40" name="7a40"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>outlook.exe</p>
+                        <figure class="graf graf--figure graf-after--p" id="6450" name="6450"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="133"
+                                data-image-id="1*-9bmE04JZ54U5ox3oR6IJA.png" data-width="881"
+                                src="https://cdn-images-1.medium.com/max/800/1*-9bmE04JZ54U5ox3oR6IJA.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="8f99" name="8f99"><strong
+                                class="markup--strong markup--blockquote-strong">What is the IP address of the URL
+                                contained in the email sent to company staff from the domain detected as similar to the
+                                company name?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="c0a3" name="c0a3">In the SIEM, search for the
+                            domain using the filter “data.win.eventdata.queryName: [domain_name]” and find the
+                            “data.win.eventdata.queryResults” value in the results.</p>
+                        <figure class="graf graf--figure graf-after--p" id="6fe2" name="6fe2"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="212"
+                                data-image-id="1*lOwxv9KQu_KFIVzOY44tDA.png" data-width="1475"
+                                src="https://cdn-images-1.medium.com/max/800/1*lOwxv9KQu_KFIVzOY44tDA.png" /></figure>
+                        <p class="graf graf--p graf-after--figure" id="3ed4" name="3ed4"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>111.222.111.222</p>
+                        <figure class="graf graf--figure graf-after--p" id="c527" name="c527"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="88"
+                                data-image-id="1*tqKZvyHyVL6ksLSSaCj1nA.png" data-width="896"
+                                src="https://cdn-images-1.medium.com/max/800/1*tqKZvyHyVL6ksLSSaCj1nA.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="6826" name="6826"><strong
+                                class="markup--strong markup--blockquote-strong">What is the action taken for the access
+                                attempt to the IP address of the URL contained in the email sent to company staff from
+                                the domain detected as similar to the company name?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="3688" name="3688">In the SIEM, apply the
+                            filter “data.dstip: [IP_Address]” and check the “data.action” value in the results.</p>
+                        <figure class="graf graf--figure graf-after--p" id="749f" name="749f"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="803"
+                                data-image-id="1*ReStdK8t9Nb3Whp8CGUR-Q.png" data-width="1897"
+                                src="https://cdn-images-1.medium.com/max/800/1*ReStdK8t9Nb3Whp8CGUR-Q.png" />
+                            <figcaption class="imageCaption">wazuh search</figcaption>
+                        </figure>
+                        <p class="graf graf--p graf-after--figure" id="2c05" name="2c05"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>deny</p>
+                        <figure class="graf graf--figure graf-after--p graf--trailing" id="269d" name="269d"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="113"
+                                data-image-id="1*Gmgyn6K9WEEeLku8z4fthQ.png" data-width="838"
+                                src="https://cdn-images-1.medium.com/max/800/1*Gmgyn6K9WEEeLku8z4fthQ.png" /></figure>
+                    </div>
+                </div>
+            </section>
+            <section class="section section--body" name="a774">
+                <div class="section-content">
+                    <div class="section-inner sectionLayout--insetColumn">
+                        <h3 class="graf graf--h3 graf--leading" id="7327" name="7327">Practical Lab-2</h3>
+                        <h3 class="graf graf--h3 graf-after--h3" id="a62a" name="a62a">Hypothesis-2</h3>
+                        <p class="graf graf--p graf-after--h3" id="fa99" name="fa99"><strong
+                                class="markup--strong markup--p-strong">Note: </strong>The questions in this section are
+                            designed for threat hunting based on the following hypothesis.</p>
+                        <p class="graf graf--p graf-after--p" id="23fa" name="23fa"><strong
+                                class="markup--strong markup--p-strong">Hypothesis: </strong>Published indicators of
+                            compromise (IoCs) associated with the APT-ENR-88 group that targets the energy sector may be
+                            present in system events.</p>
+                        <h3 class="graf graf--h3 graf-after--p" id="7fb6" name="7fb6">Threat Hunting Lab Environment
+                        </h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="e9b5" name="e9b5"><strong
+                                    class="markup--strong markup--li-strong">DMZ Server IP Block</strong>: 172.16.8.0/24
+                            </li>
+                            <li class="graf graf--li graf-after--li" id="5d9b" name="5d9b">CTI Events (<a
+                                    class="markup--anchor markup--li-anchor"
+                                    data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                    href="https://app.letsdefend.io/threath-intelligence-feed"
+                                    rel="noopener noreferrer noopener" target="_blank">Threat Intel LetsDefend
+                                    Platform</a>)</li>
+                            <li class="graf graf--li graf-after--li" id="cee3" name="cee3">SIEM (Wazuh)</li>
+                            <li class="graf graf--li graf-after--li" id="437e" name="437e">EDR Events (Sysmon)</li>
+                            <li class="graf graf--li graf-after--li" id="e2d8" name="e2d8">Firewall Traffic Events</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="f97f" name="f97f">Lab Notes</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="ae18" name="ae18">Analyze the logs between “Aug
+                                1, 2024 00:00 — Aug 7, 2024 00:00” to answer the questions below.</li>
+                            <li class="graf graf--li graf-after--li" id="80ee" name="80ee">Subsequent questions require
+                                correct answers from previous ones. <strong
+                                    class="markup--strong markup--li-strong">Answer all questions strictly in the order
+                                    they appear.</strong></li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="d586" name="d586">Questions</h3>
+                        <p class="graf graf--p graf-after--h3" id="14b8" name="14b8"><strong
+                                class="markup--strong markup--p-strong">Note:</strong> Analyze the logs between “Aug 1,
+                            2024 00:00 — Aug 7, 2024 00:00” to answer the questions below.</p>
+                        <p class="graf graf--p graf-after--p" id="156c" name="156c"><strong
+                                class="markup--strong markup--p-strong">Note:</strong> Subsequent questions require
+                            correct answers from previous ones. Answer all questions strictly in the order they appear.
+                        </p>
+                        <blockquote class="graf graf--blockquote graf-after--p" id="482a" name="482a"><strong
+                                class="markup--strong markup--blockquote-strong">According to the CTI Platform
+                                (</strong><a class="markup--anchor markup--blockquote-anchor"
+                                data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                href="https://app.letsdefend.io/threath-intelligence-feed"
+                                rel="noopener noreferrer noopener" target="_blank"><strong
+                                    class="markup--strong markup--blockquote-strong">LetsDefend — Threat
+                                    Intel</strong></a><strong class="markup--strong markup--blockquote-strong">), how
+                                many different IoCs of the “APT-ENR-88” group were published?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="993b" name="993b">Search for the APT group
+                            name in the CTI platform.</p>
+                        <figure class="graf graf--figure graf-after--p" id="1a7d" name="1a7d"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="526"
+                                data-image-id="1*5Yuk_f52Y7TVsNN1wozHhQ.png" data-width="1535"
+                                src="https://cdn-images-1.medium.com/max/800/1*5Yuk_f52Y7TVsNN1wozHhQ.png" />
+                            <figcaption class="imageCaption">CTI platform</figcaption>
+                        </figure>
+                        <p class="graf graf--p graf-after--figure" id="7c7e" name="7c7e"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>3</p>
+                        <figure class="graf graf--figure graf-after--p" id="0601" name="0601"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="131"
+                                data-image-id="1*OFq10HlazVH4-1m47GftKA.png" data-width="805"
+                                src="https://cdn-images-1.medium.com/max/800/1*OFq10HlazVH4-1m47GftKA.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="3e85" name="3e85"><strong
+                                class="markup--strong markup--blockquote-strong">According to the CTI Platform
+                                (</strong><a class="markup--anchor markup--blockquote-anchor"
+                                data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                href="https://app.letsdefend.io/threath-intelligence-feed"
+                                rel="noopener noreferrer noopener" target="_blank"><strong
+                                    class="markup--strong markup--blockquote-strong">LetsDefend — Threat
+                                    Intel</strong></a><strong class="markup--strong markup--blockquote-strong">), what
+                                is the IP address of the system that communicated with the IP address listed in the IoCs
+                                of the “APT-ENR-88” group?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="aa2e" name="aa2e">Find the IP address among
+                            IoCs. Query IP address as destination IP address in SIEM. (data.dstip: 123.123.123.123)</p>
+                        <figure class="graf graf--figure graf-after--p" id="de2a" name="de2a"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="780"
+                                data-image-id="1*0d8zs5GYGq5AfOg8lySnRg.png" data-width="1908"
+                                src="https://cdn-images-1.medium.com/max/800/1*0d8zs5GYGq5AfOg8lySnRg.png" /></figure>
+                        <p class="graf graf--p graf-after--figure" id="be65" name="be65"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>192.168.123.123</p>
+                        <figure class="graf graf--figure graf-after--p" id="e96e" name="e96e"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="130"
+                                data-image-id="1*PC6mnau3Vpt421Z3joovIQ.png" data-width="806"
+                                src="https://cdn-images-1.medium.com/max/800/1*PC6mnau3Vpt421Z3joovIQ.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="2c6c" name="2c6c"><strong
+                                class="markup--strong markup--blockquote-strong">According to the CTI Platform
+                                (</strong><a class="markup--anchor markup--blockquote-anchor"
+                                data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                href="https://app.letsdefend.io/threath-intelligence-feed"
+                                rel="noopener noreferrer noopener" target="_blank"><strong
+                                    class="markup--strong markup--blockquote-strong">LetsDefend — Threat
+                                    Intel</strong></a><strong class="markup--strong markup--blockquote-strong">) what
+                                was the name of the process that communicated with the IP address listed in the IOCs
+                                published regarding the group APT-ENR-88?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="a06f" name="a06f">Search for the IP address
+                            in SIEM using the destination IP address filter (“data.win.eventdata.destinationIp:
+                            [IP_Address]”).</p>
+                        <figure class="graf graf--figure graf-after--p" id="8a00" name="8a00"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="803"
+                                data-image-id="1*77gDh5EzbCf2l-IX5_fpfA.png" data-width="1876"
+                                src="https://cdn-images-1.medium.com/max/800/1*77gDh5EzbCf2l-IX5_fpfA.png" />
+                            <figcaption class="imageCaption">wazuh search</figcaption>
+                        </figure>
+                        <p class="graf graf--p graf-after--figure" id="c04b" name="c04b"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>netapp0.exe</p>
+                        <figure class="graf graf--figure graf-after--p" id="ba47" name="ba47"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="148"
+                                data-image-id="1*i9S0sk7Z3f8fGyoR_Zn5yQ.png" data-width="812"
+                                src="https://cdn-images-1.medium.com/max/800/1*i9S0sk7Z3f8fGyoR_Zn5yQ.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="a785" name="a785"><strong
+                                class="markup--strong markup--blockquote-strong">According to the CTI Platform
+                                (</strong><a class="markup--anchor markup--blockquote-anchor"
+                                data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                href="https://app.letsdefend.io/threath-intelligence-feed"
+                                rel="noopener noreferrer noopener" target="_blank"><strong
+                                    class="markup--strong markup--blockquote-strong">LetsDefend — Threat
+                                    Intel</strong></a><strong class="markup--strong markup--blockquote-strong">), what
+                                is the IP address of the system where the hash (listed in the IOCs for threat group
+                                ‘APT-ENR-88’) was detected?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="a167" name="a167">Search for the hash in the
+                            SIEM using “*[Hash_Value]*” or “data.win.eventdata.hashes” filter with “MD5=[Hash_Value]”.
+                        </p>
+                        <figure class="graf graf--figure graf-after--p" id="886c" name="886c"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="664"
+                                data-image-id="1*EqomnGHWJy4E4AHcqXnRnA.png" data-width="1853"
+                                src="https://cdn-images-1.medium.com/max/800/1*EqomnGHWJy4E4AHcqXnRnA.png" />
+                            <figcaption class="imageCaption">wazuh search</figcaption>
+                        </figure>
+                        <p class="graf graf--p graf-after--figure" id="8dd1" name="8dd1"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>192.168.123.123</p>
+                        <figure class="graf graf--figure graf-after--p" id="1ec6" name="1ec6"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="119"
+                                data-image-id="1*kT63X4o_kgQsMH130lQfOA.png" data-width="840"
+                                src="https://cdn-images-1.medium.com/max/800/1*kT63X4o_kgQsMH130lQfOA.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="8797" name="8797"><strong
+                                class="markup--strong markup--blockquote-strong">According to the CTI Platform
+                                (</strong><a class="markup--anchor markup--blockquote-anchor"
+                                data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                href="https://app.letsdefend.io/threath-intelligence-feed"
+                                rel="noopener noreferrer noopener" target="_blank"><strong
+                                    class="markup--strong markup--blockquote-strong">LetsDefend — Threat
+                                    Intel</strong></a><strong class="markup--strong markup--blockquote-strong">), what
+                                is the name of the process in the event where the hash listed in the IoCs of
+                                “APT-ENR-88” group was detected?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="8705" name="8705">Search for the hash as
+                            “*[Hash_Value]*” in SIEM, or search by entering “MD5=[Hash_Value]” in the
+                            “data.win.eventdata.hashes” field. Then, find the value “data.win.eventdata.image” in the
+                            output.</p>
+                        <p class="graf graf--p graf-after--p" id="3897" name="3897"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>C:\Program Files\App\app0.exe
+                        </p>
+                        <figure class="graf graf--figure graf-after--p" id="604a" name="604a"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="144"
+                                data-image-id="1*OTzASTm8XfJBVN-KCNrN_g.png" data-width="835"
+                                src="https://cdn-images-1.medium.com/max/800/1*OTzASTm8XfJBVN-KCNrN_g.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="0e71" name="0e71"><strong
+                                class="markup--strong markup--blockquote-strong">According to the CTI Platform
+                                (</strong><a class="markup--anchor markup--blockquote-anchor"
+                                data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                href="https://app.letsdefend.io/threath-intelligence-feed"
+                                rel="noopener noreferrer noopener" target="_blank"><strong
+                                    class="markup--strong markup--blockquote-strong">LetsDefend — Threat
+                                    Intel</strong></a><strong class="markup--strong markup--blockquote-strong">), what
+                                is the firewall action for the access logs related to the IP address listed in the IoCs
+                                of the “APT-ENR-88” group?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="3582" name="3582">In the SIEM’s firewall
+                            events, apply the filter “data.dstip: [IP_Address]” and find the “data.action” value.</p>
+                        <figure class="graf graf--figure graf-after--p" id="38b6" name="38b6"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="794"
+                                data-image-id="1*VfcxKaLhEbOxymFXcFH5og.png" data-width="1903"
+                                src="https://cdn-images-1.medium.com/max/800/1*VfcxKaLhEbOxymFXcFH5og.png" />
+                            <figcaption class="imageCaption">wazuh search</figcaption>
+                        </figure>
+                        <p class="graf graf--p graf-after--figure" id="21ef" name="21ef"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>deny</p>
+                        <figure class="graf graf--figure graf-after--p" id="5ab0" name="5ab0"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="124"
+                                data-image-id="1*nKIDHVE_5oVV9mW1KJ-Z9A.png" data-width="826"
+                                src="https://cdn-images-1.medium.com/max/800/1*nKIDHVE_5oVV9mW1KJ-Z9A.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="fbe2" name="fbe2"><strong
+                                class="markup--strong markup--blockquote-strong">According to the CTI Platform
+                                (</strong><a class="markup--anchor markup--blockquote-anchor"
+                                data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                href="https://app.letsdefend.io/threath-intelligence-feed"
+                                rel="noopener noreferrer noopener" target="_blank"><strong
+                                    class="markup--strong markup--blockquote-strong">LetsDefend — Threat
+                                    Intel</strong></a><strong class="markup--strong markup--blockquote-strong">), what
+                                is the access log action for the IP address that the domain (listed in the IoCs of the
+                                group “APT-ENR-88”) resolved to?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="71e7" name="71e7">Apply the
+                            “data.win.eventdata.queryName:” [Domain]” filter. Find the “QueryResults” value in the
+                            “data.win.system.message” field of the result, then search the firewall logs with the
+                            “data.dstip: [IP Address]” filter. Finally, check the “data.action” value in the result.</p>
+                        <figure class="graf graf--figure graf-after--p" id="17b3" name="17b3"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="758"
+                                data-image-id="1*EtU9JpvdEEO5-a_z6uUVNg.png" data-width="1864"
+                                src="https://cdn-images-1.medium.com/max/800/1*EtU9JpvdEEO5-a_z6uUVNg.png" />
+                            <figcaption class="imageCaption">wazuh search</figcaption>
+                        </figure>
+                        <p class="graf graf--p graf-after--figure" id="8e2f" name="8e2f">We found the IP address
+                            returned by the query response to be "18.22.0.44." Let's check the firewall logs for access
+                            to this IP address.</p>
+                        <figure class="graf graf--figure graf--startsWithDoubleQuote graf-after--p" id="67e3"
+                            name="67e3"><img class="graf-image w-full rounded-lg shadow-lg my-8" data-height="740"
+                                data-image-id="1*GUauV7aGVrW6-Zo53Yujeg.png" data-width="1834"
+                                src="https://cdn-images-1.medium.com/max/800/1*GUauV7aGVrW6-Zo53Yujeg.png" />
+                            <figcaption class="imageCaption">“18.22.0.44” access logs</figcaption>
+                        </figure>
+                        <p class="graf graf--p graf-after--figure" id="63d8" name="63d8">We see that access is allowed
+                            from here.</p>
+                        <p class="graf graf--p graf-after--p" id="cbf8" name="cbf8"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>allow</p>
+                        <figure class="graf graf--figure graf-after--p" id="1fa8" name="1fa8"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="122"
+                                data-image-id="1*AciJMgtZ5zsX86eXkZC1Yg.png" data-width="842"
+                                src="https://cdn-images-1.medium.com/max/800/1*AciJMgtZ5zsX86eXkZC1Yg.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="3904" name="3904"><strong
+                                class="markup--strong markup--blockquote-strong">According to the CTI Platform
+                                (</strong><a class="markup--anchor markup--blockquote-anchor"
+                                data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                href="https://app.letsdefend.io/threath-intelligence-feed"
+                                rel="noopener noreferrer noopener" target="_blank"><strong
+                                    class="markup--strong markup--blockquote-strong">LetsDefend — Threat
+                                    Intel</strong></a><strong class="markup--strong markup--blockquote-strong">), what
+                                was the target IP address within the organization’s network that received connection
+                                attempts from the IP address listed in the IoCs of the “APT-ENR-88” group?</strong>
+                        </blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="03e4" name="03e4">In the SIEM’s firewall
+                            events, apply the filter “data.srcip: [IP_Address]” and check the “data.dstip” value.</p>
+                        <figure class="graf graf--figure graf-after--p" id="53b6" name="53b6"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="731"
+                                data-image-id="1*nnRFUmUVzzSZUTbvFe9S1g.png" data-width="1902"
+                                src="https://cdn-images-1.medium.com/max/800/1*nnRFUmUVzzSZUTbvFe9S1g.png" />
+                            <figcaption class="imageCaption">wazuh search</figcaption>
+                        </figure>
+                        <p class="graf graf--p graf-after--figure" id="4275" name="4275"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>172.16.8.5</p>
+                        <figure class="graf graf--figure graf-after--p" id="9bb3" name="9bb3"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="114"
+                                data-image-id="1*3pwV0CkT0kfvgtpif8qvYw.png" data-width="816"
+                                src="https://cdn-images-1.medium.com/max/800/1*3pwV0CkT0kfvgtpif8qvYw.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="6e51" name="6e51"><strong
+                                class="markup--strong markup--blockquote-strong">According to the CTI Platform
+                                (</strong><a class="markup--anchor markup--blockquote-anchor"
+                                data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                href="https://app.letsdefend.io/threath-intelligence-feed"
+                                rel="noopener noreferrer noopener" target="_blank"><strong
+                                    class="markup--strong markup--blockquote-strong">LetsDefend — Threat
+                                    Intel</strong></a><strong class="markup--strong markup--blockquote-strong">), what
+                                was the name of the IPS attack event triggered by access attempts from the IP address
+                                (listed in IoCs for the “APT-ENR-88” group) to the organization’s systems?</strong>
+                        </blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="2c6a" name="2c6a">In the SIEM’s firewall
+                            events, apply the filters “data.srcip: [IP_Address]” and “data.subtype: ips”, then find the
+                            “data.attack” value.</p>
+                        <figure class="graf graf--figure graf-after--p" id="5882" name="5882"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="201"
+                                data-image-id="1*yfpmGF6Qhoo7pWeuG2qfHQ.png" data-width="1502"
+                                src="https://cdn-images-1.medium.com/max/800/1*yfpmGF6Qhoo7pWeuG2qfHQ.png" />
+                            <figcaption class="imageCaption">IPS log</figcaption>
+                        </figure>
+                        <p class="graf graf--p graf-after--figure" id="e3a5" name="e3a5"><strong
+                                class="markup--strong markup--p-strong">Answer:
+                            </strong>Apache.Log4j.Remote.Code.Execution</p>
+                        <figure class="graf graf--figure graf-after--p" id="82c5" name="82c5"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="126"
+                                data-image-id="1*GlUWLDW7W8y8H4Yntn_OCw.png" data-width="830"
+                                src="https://cdn-images-1.medium.com/max/800/1*GlUWLDW7W8y8H4Yntn_OCw.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="4f28" name="4f28"><strong
+                                class="markup--strong markup--blockquote-strong">According to the CTI Platform
+                                (</strong><a class="markup--anchor markup--blockquote-anchor"
+                                data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                href="https://app.letsdefend.io/threath-intelligence-feed"
+                                rel="noopener noreferrer noopener" target="_blank"><strong
+                                    class="markup--strong markup--blockquote-strong">LetsDefend — Threat
+                                    Intel</strong></a><strong class="markup--strong markup--blockquote-strong">), what
+                                action did the IPS product take against the attack event triggered by access attempts
+                                from the IP address (listed in IoCs for “APT-ENR-88”) to organization’s
+                                systems?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="ded7" name="ded7">When we look at the action
+                            field in the log, we see the answer.</p>
+                        <p class="graf graf--p graf-after--p" id="36d8" name="36d8"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>dropped</p>
+                        <figure class="graf graf--figure graf-after--p graf--trailing" id="43fc" name="43fc"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="124"
+                                data-image-id="1*gYGSs3ryd1QXYwme6XrTEw.png" data-width="830"
+                                src="https://cdn-images-1.medium.com/max/800/1*gYGSs3ryd1QXYwme6XrTEw.png" /></figure>
+                    </div>
+                </div>
+            </section>
+            <section class="section section--body section--last" name="f45e">
+                <div class="section-content">
+                    <div class="section-inner sectionLayout--insetColumn">
+                        <h3 class="graf graf--h3 graf--leading" id="8c1c" name="8c1c">Practical Lab-3</h3>
+                        <h3 class="graf graf--h3 graf-after--h3" id="0bde" name="0bde">Hypothesis-3</h3>
+                        <p class="graf graf--p graf-after--h3" id="ec50" name="ec50"><strong
+                                class="markup--strong markup--p-strong">Note: </strong>The questions in this section are
+                            designed for threat hunting based on the following hypothesis.</p>
+                        <p class="graf graf--p graf-after--p" id="1bc4" name="1bc4"><strong
+                                class="markup--strong markup--p-strong">Hypothesis: </strong>A threat actor group might
+                            be preparing a Business Email Compromise (BEC) attack targeting this organization.</p>
+                        <h3 class="graf graf--h3 graf-after--p" id="4f3d" name="4f3d">Threat Hunting Lab Environment
+                        </h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="5d8a" name="5d8a"><strong
+                                    class="markup--strong markup--li-strong">Company Name:</strong> CNCHome</li>
+                            <li class="graf graf--li graf-after--li" id="5b9e" name="5b9e"><strong
+                                    class="markup--strong markup--li-strong">Company Domain: </strong>cnchomecorp.io
+                            </li>
+                            <li class="graf graf--li graf-after--li" id="b516" name="b516"><strong
+                                    class="markup--strong markup--li-strong">Third-Party Companies:</strong>
+                                vertexenterprise.io , universalventures.io , pioneersystems.io</li>
+                            <li class="graf graf--li graf-after--li" id="65db" name="65db">CTI Events (<a
+                                    class="markup--anchor markup--li-anchor"
+                                    data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                    href="https://app.letsdefend.io/threath-intelligence-feed"
+                                    rel="noopener noreferrer noopener" target="_blank">Threat Intel LetsDefend
+                                    Platform</a>)</li>
+                            <li class="graf graf--li graf-after--li" id="dd8d" name="dd8d">Email Security (<a
+                                    class="markup--anchor markup--li-anchor"
+                                    data-href="https://app.letsdefend.io/email-security"
+                                    href="https://app.letsdefend.io/email-security" rel="noopener noreferrer noopener"
+                                    target="_blank">LetsDefend Platform</a>)</li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="6430" name="6430">Lab Notes</h3>
+                        <ul class="postList">
+                            <li class="graf graf--li graf-after--h3" id="549f" name="549f">Analyze the logs between “Aug
+                                1, 2024 00:00 — Aug 7, 2024 00:00” to answer the questions below.</li>
+                            <li class="graf graf--li graf-after--li" id="3b73" name="3b73">Subsequent questions require
+                                correct answers from previous ones. <strong
+                                    class="markup--strong markup--li-strong">Answer all questions strictly in the order
+                                    they appear.</strong></li>
+                        </ul>
+                        <h3 class="graf graf--h3 graf-after--li" id="7659" name="7659">Questions</h3>
+                        <p class="graf graf--p graf-after--h3" id="c3a1" name="c3a1"><strong
+                                class="markup--strong markup--p-strong">Note:</strong> Analyze the logs between “Aug 1,
+                            2024 00:00 — Aug 7, 2024 00:00” to answer the questions below.</p>
+                        <p class="graf graf--p graf-after--p" id="588e" name="588e"><strong
+                                class="markup--strong markup--p-strong">Note:</strong> Subsequent questions require
+                            correct answers from previous ones. Answer all questions strictly in the order they appear.
+                        </p>
+                        <blockquote class="graf graf--blockquote graf-after--p" id="2443" name="2443"><strong
+                                class="markup--strong markup--blockquote-strong">According to the CTI Platform
+                                (</strong><a class="markup--anchor markup--blockquote-anchor"
+                                data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                href="https://app.letsdefend.io/threath-intelligence-feed"
+                                rel="noopener noreferrer noopener" target="_blank"><strong
+                                    class="markup--strong markup--blockquote-strong">LetsDefend — Threat
+                                    Intel</strong></a><strong class="markup--strong markup--blockquote-strong">), which
+                                suspicious domain, suspected to belong to a third-party company the organization works
+                                with, was reported?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="ae1d" name="ae1d">Search for domains similar
+                            to third-party company names in the CTI platform. we have three <strong
+                                class="markup--strong markup--p-strong">Third-Party domain</strong>s:
+                            vertexenterprise.io , universalventures.io , pioneersystems.io. When we search for
+                            universalventures, we find results.</p>
+                        <figure class="graf graf--figure graf-after--p" id="12f2" name="12f2"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="463"
+                                data-image-id="1*ua7S4nb6DNNl4oqnLNtrcQ.png" data-width="1702"
+                                src="https://cdn-images-1.medium.com/max/800/1*ua7S4nb6DNNl4oqnLNtrcQ.png" />
+                            <figcaption class="imageCaption">Threat Intel</figcaption>
+                        </figure>
+                        <p class="graf graf--p graf-after--figure" id="4fb3" name="4fb3"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>universalventures.top</p>
+                        <figure class="graf graf--figure graf-after--p" id="820d" name="820d"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="110"
+                                data-image-id="1*DDaOijlpvt4V2OpR9e_ixA.png" data-width="800"
+                                src="https://cdn-images-1.medium.com/max/800/1*DDaOijlpvt4V2OpR9e_ixA.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="2b65" name="2b65"><strong
+                                class="markup--strong markup--blockquote-strong">According to the CTI Platform
+                                (</strong><a class="markup--anchor markup--blockquote-anchor"
+                                data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                href="https://app.letsdefend.io/threath-intelligence-feed"
+                                rel="noopener noreferrer noopener" target="_blank"><strong
+                                    class="markup--strong markup--blockquote-strong">LetsDefend — Threat
+                                    Intel</strong></a><strong class="markup--strong markup--blockquote-strong">), what
+                                is the TAG (CTI category) of the suspicious domain suspected to belong to a third-party
+                                company the organization works with, reported?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="0619" name="0619">Search for domains similar
+                            to third-party company names in the CTI platform. Check the TAG.</p>
+                        <p class="graf graf--p graf-after--p" id="4a0d" name="4a0d"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>phishing</p>
+                        <figure class="graf graf--figure graf-after--p" id="6dd2" name="6dd2"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="141"
+                                data-image-id="1*VqdaS78Ws4oLPuNhFQolRg.png" data-width="794"
+                                src="https://cdn-images-1.medium.com/max/800/1*VqdaS78Ws4oLPuNhFQolRg.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="8a53" name="8a53"><strong
+                                class="markup--strong markup--blockquote-strong">According to the CTI Platform
+                                (</strong><a class="markup--anchor markup--blockquote-anchor"
+                                data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                href="https://app.letsdefend.io/threath-intelligence-feed"
+                                rel="noopener noreferrer noopener" target="_blank"><strong
+                                    class="markup--strong markup--blockquote-strong">LetsDefend — Threat
+                                    Intel</strong></a><strong class="markup--strong markup--blockquote-strong">), what
+                                is the email address of the sender of the email sent to the organization from the
+                                suspicious domain suspected to belong to a third-party company?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="3b84" name="3b84">Search for the suspicious
+                            domain in the “Email Security” module.<br />The subject line of the email indicates an
+                            urgent call regarding a bank account. This is a well-known phishing tactic. Three emails
+                            were quarantined, while one was delivered to the user.</p>
+                        <figure class="graf graf--figure graf-after--p" id="d509" name="d509"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="450"
+                                data-image-id="1*bGbWtToYCmuqTiLaa-fYAw.png" data-width="1340"
+                                src="https://cdn-images-1.medium.com/max/800/1*bGbWtToYCmuqTiLaa-fYAw.png" /></figure>
+                        <p class="graf graf--p graf-after--figure" id="6d91" name="6d91"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>john@universalventures.top</p>
+                        <figure class="graf graf--figure graf-after--p" id="3efd" name="3efd"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="110"
+                                data-image-id="1*zE5kH1ztCuVG7cLF3hDUiQ.png" data-width="1039"
+                                src="https://cdn-images-1.medium.com/max/800/1*zE5kH1ztCuVG7cLF3hDUiQ.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="7065" name="7065"><strong
+                                class="markup--strong markup--blockquote-strong">According to the CTI Platform
+                                (</strong><a class="markup--anchor markup--blockquote-anchor"
+                                data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                href="https://app.letsdefend.io/threath-intelligence-feed"
+                                rel="noopener noreferrer noopener" target="_blank"><strong
+                                    class="markup--strong markup--blockquote-strong">LetsDefend — Threat
+                                    Intel</strong></a><strong class="markup--strong markup--blockquote-strong">), how
+                                many different email accounts in the organization received emails from the suspicious
+                                domain suspected to belong to a third-party company?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="ef35" name="ef35">We found the answer in the
+                            previous question. anna@cnchomecorp.io, suzan@cnchomecorp.io, and eric@cnchomecorp.io</p>
+                        <p class="graf graf--p graf-after--p" id="37a5" name="37a5"><strong
+                                class="markup--strong markup--p-strong">Answer: 3</strong></p>
+                        <figure class="graf graf--figure graf-after--p" id="f3f1" name="f3f1"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="122"
+                                data-image-id="1*Du_xuBHSPOaxb2OifGfqNQ.png" data-width="1091"
+                                src="https://cdn-images-1.medium.com/max/800/1*Du_xuBHSPOaxb2OifGfqNQ.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="c4f1" name="c4f1"><strong
+                                class="markup--strong markup--blockquote-strong">According to the CTI Platform
+                                (</strong><a class="markup--anchor markup--blockquote-anchor"
+                                data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                href="https://app.letsdefend.io/threath-intelligence-feed"
+                                rel="noopener noreferrer noopener" target="_blank"><strong
+                                    class="markup--strong markup--blockquote-strong">LetsDefend — Threat
+                                    Intel</strong></a><strong class="markup--strong markup--blockquote-strong">), what
+                                is the recipient email address of the successfully delivered email sent from the
+                                suspicious domain (suspected to belong to a third-party company)?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="63a7" name="63a7">We found the answer in the
+                            previous question</p>
+                        <p class="graf graf--p graf-after--p" id="708a" name="708a"><strong
+                                class="markup--strong markup--p-strong">Answer: </strong>anna@cnchomecorp</p>
+                        <figure class="graf graf--figure graf-after--p" id="8418" name="8418"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="122"
+                                data-image-id="1*tb_QjISiTu62kXXDp0CCUw.png" data-width="1091"
+                                src="https://cdn-images-1.medium.com/max/800/1*tb_QjISiTu62kXXDp0CCUw.png" /></figure>
+                        <blockquote class="graf graf--blockquote graf-after--figure" id="c884" name="c884"><strong
+                                class="markup--strong markup--blockquote-strong">According to the CTI Platform
+                                (</strong><a class="markup--anchor markup--blockquote-anchor"
+                                data-href="https://app.letsdefend.io/threath-intelligence-feed"
+                                href="https://app.letsdefend.io/threath-intelligence-feed"
+                                rel="noopener noreferrer noopener" target="_blank"><strong
+                                    class="markup--strong markup--blockquote-strong">LetsDefend — Threat
+                                    Intel</strong></a><strong class="markup--strong markup--blockquote-strong">), were
+                                any emails sent from the organization to the suspicious domain suspected to belong to
+                                the third-party company?</strong></blockquote>
+                        <p class="graf graf--p graf-after--blockquote" id="8156" name="8156">Search for the suspicious
+                            domain in the “Email Security” module using the “Recipients:” field in “Detailed Search”. we
+                            see that no response mail exist.</p>
+                        <p class="graf graf--p graf-after--p" id="152e" name="152e"><strong
+                                class="markup--strong markup--p-strong">Answer: No</strong></p>
+                        <figure class="graf graf--figure graf-after--p graf--trailing" id="46cc" name="46cc"><img
+                                class="graf-image w-full rounded-lg shadow-lg my-8" data-height="122"
+                                data-image-id="1*lkGq5dGpu6eSWAY6ZSwKsA.png" data-width="1091"
+                                src="https://cdn-images-1.medium.com/max/800/1*lkGq5dGpu6eSWAY6ZSwKsA.png" /></figure>
+                    </div>
+                </div>
+            </section>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="flex justify-center gap-8 mb-8">
+                <a href="https://github.com/yusufarbc" target="_blank"
+                    class="text-slate-400 hover:text-white transition-colors text-2xl"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yusufarbc" target="_blank"
+                    class="text-slate-400 hover:text-[#0077b5] transition-colors text-2xl"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/yusufarbc" target="_blank"
+                    class="text-slate-400 hover:text-white transition-colors text-2xl"><i
+                        class="fab fa-x-twitter"></i></a>
+            </div>
+            <p class="text-slate-600 text-sm font-mono">© 2025 Yusuf Talha ARABACI</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+
+</body>
+
+</html>
