@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writeups | Yusuf Talha ARABACI</title>
+    <meta name="description" content="Cyber Security Writeups & Walkthroughs by Yusuf Talha ARABACI.">
+    <meta name="keywords" content="Cyber Security, Writeups, CTF, Walkthrough, LetsDefend, Blue Team">
+    <meta name="author" content="Yusuf Talha ARABACI">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yusufarbc.github.io/writeups.html">
+    <meta property="og:title" content="Writeups | Yusuf Talha ARABACI">
+    <meta property="og:description" content="Cyber Security Writeups & Walkthroughs by Yusuf Talha ARABACI.">
+    <meta property="og:image" content="https://yusufarbc.github.io/assets/images/photo.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yusufarbc.github.io/writeups.html">
+    <meta property="twitter:title" content="Writeups | Yusuf Talha ARABACI">
+    <meta property="twitter:description" content="Cyber Security Writeups & Walkthroughs by Yusuf Talha ARABACI.">
+    <meta property="twitter:image" content="https://yusufarbc.github.io/assets/images/photo.jpeg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#151e2e',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(30, 41, 59, 0.6);
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Background Grid */
+        .bg-grid {
+            background-size: 50px 50px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-950 text-slate-300 font-sans antialiased selection:bg-brand-500 selection:text-white overflow-x-hidden">
+
+    <!-- Background Effects -->
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute top-0 left-0 w-full h-full bg-grid"></div>
+        <div class="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-[120px]">
+        </div>
+        <div class="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px]">
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full top-0 z-50 glass transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="relative w-8 h-8 group-hover:scale-110 transition-transform">
+                        <div class="absolute inset-0 bg-brand-500 blur-md opacity-50 rounded-full"></div>
+                        <img class="relative w-8 h-8 rounded-full border-2 border-white/10 object-cover"
+                            src="assets/images/photo.jpeg" alt="YTB">
+                    </div>
+                    <span
+                        class="font-mono font-bold text-lg text-slate-100 group-hover:text-brand-400 transition-colors">yusufarbc<span
+                            class="text-brand-500">.</span>dev</span>
+                </a>
+
+                <!-- Back to Home -->
+                <a href="index.html"
+                    class="flex items-center gap-2 text-slate-400 hover:text-brand-400 transition-colors">
+                    <i class="fas fa-arrow-left"></i>
+                    <span class="font-mono font-medium">Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative z-10 pt-32 pb-24">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <span class="font-mono text-brand-400 text-sm tracking-wider uppercase mb-4 block">Archive</span>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Security Writeups</h1>
+                <p class="text-slate-400 max-w-2xl mx-auto text-lg">
+                    Detailed walkthroughs, CTF solutions, and technical deep dives into various cybersecurity topics.
+                </p>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Card 1 -->
+                <a href="writeup/threat-hunting-with-cti-walkthrough-letsdefend-bac6b76d5008.html"
+                    class="glass-card rounded-xl p-6 group block h-full flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-mono border border-brand-500/20">LetsDefend</span>
+                        <span class="text-slate-500 text-xs font-mono">Sep 2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100 mb-2 group-hover:text-brand-400 transition-colors">
+                        Threat Hunting with CTI</h3>
+                    <p class="text-slate-400 text-sm mb-4 flex-grow">A guide to using Cyber Threat Intelligence in
+                        threat hunting, covering OSINT, commercial providers, and practical labs.</p>
+                    <div class="mt-auto flex items-center text-brand-500 text-sm font-medium">
+                        Read Writeup <i
+                            class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="writeup/threat-hunting-with-deception-walkthrough-letsdefend-4f56d902d026.html"
+                    class="glass-card rounded-xl p-6 group block h-full flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs font-mono border border-purple-500/20">Deception</span>
+                        <span class="text-slate-500 text-xs font-mono">Sep 2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100 mb-2 group-hover:text-brand-400 transition-colors">
+                        Threat Hunting with Deception</h3>
+                    <p class="text-slate-400 text-sm mb-4 flex-grow">Exploring deception technologies, honeypots, and
+                        how to use them to detect attacker presence.</p>
+                    <div class="mt-auto flex items-center text-brand-500 text-sm font-medium">
+                        Read Writeup <i
+                            class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="writeup/threat-hunting-with-dns-walkthrough-letsdefend-362531cddb8e.html"
+                    class="glass-card rounded-xl p-6 group block h-full flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 text-xs font-mono border border-yellow-500/20">DNS</span>
+                        <span class="text-slate-500 text-xs font-mono">Sep 2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100 mb-2 group-hover:text-brand-400 transition-colors">
+                        Threat Hunting with DNS</h3>
+                    <p class="text-slate-400 text-sm mb-4 flex-grow">Analyzing DNS logs to detect C2 channels, data
+                        exfiltration, and DGA domains.</p>
+                    <div class="mt-auto flex items-center text-brand-500 text-sm font-medium">
+                        Read Writeup <i
+                            class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="writeup/threat-hunting-with-email-security-walkthrough-letsdefend-431068145b56.html"
+                    class="glass-card rounded-xl p-6 group block h-full flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-mono border border-blue-500/20">Email</span>
+                        <span class="text-slate-500 text-xs font-mono">Sep 2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100 mb-2 group-hover:text-brand-400 transition-colors">
+                        Threat Hunting with Email Security</h3>
+                    <p class="text-slate-400 text-sm mb-4 flex-grow">Investigating phishing attempts, analyzing email
+                        headers, and securing mail gateways.</p>
+                    <div class="mt-auto flex items-center text-brand-500 text-sm font-medium">
+                        Read Writeup <i
+                            class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Card 5 -->
+                <a href="writeup/threat-hunting-with-firewalls-walkthrough-letsdefend-0a27c813da8d.html"
+                    class="glass-card rounded-xl p-6 group block h-full flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="px-3 py-1 rounded-full bg-red-500/10 text-red-400 text-xs font-mono border border-red-500/20">Firewall</span>
+                        <span class="text-slate-500 text-xs font-mono">Sep 2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100 mb-2 group-hover:text-brand-400 transition-colors">
+                        Threat Hunting with Firewalls</h3>
+                    <p class="text-slate-400 text-sm mb-4 flex-grow">Analyzing firewall logs to detect port scanning,
+                        lateral movement, and unauthorized access.</p>
+                    <div class="mt-auto flex items-center text-brand-500 text-sm font-medium">
+                        Read Writeup <i
+                            class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Card 6 -->
+                <a href="writeup/threat-hunting-with-ips-ids-walkthrough-letsdefend-4edd6aabe8d4.html"
+                    class="glass-card rounded-xl p-6 group block h-full flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-mono border border-green-500/20">IDS/IPS</span>
+                        <span class="text-slate-500 text-xs font-mono">Sep 2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100 mb-2 group-hover:text-brand-400 transition-colors">
+                        Threat Hunting with IDS/IPS</h3>
+                    <p class="text-slate-400 text-sm mb-4 flex-grow">Understanding signature-based detection and
+                        analyzing IDS alerts for false positives and real threats.</p>
+                    <div class="mt-auto flex items-center text-brand-500 text-sm font-medium">
+                        Read Writeup <i
+                            class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Card 7 -->
+                <a href="writeup/threat-hunting-with-siem-walkthrough-letsdefend-84114373900e.html"
+                    class="glass-card rounded-xl p-6 group block h-full flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 text-xs font-mono border border-orange-500/20">SIEM</span>
+                        <span class="text-slate-500 text-xs font-mono">Sep 2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100 mb-2 group-hover:text-brand-400 transition-colors">
+                        Threat Hunting with SIEM</h3>
+                    <p class="text-slate-400 text-sm mb-4 flex-grow">Leveraging SIEM for log aggregation, correlation,
+                        and detecting complex attack patterns.</p>
+                    <div class="mt-auto flex items-center text-brand-500 text-sm font-medium">
+                        Read Writeup <i
+                            class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Card 8 -->
+                <a href="writeup/threat-hunting-with-waf-walkthrough-letsdefend-99b4f9dbd283.html"
+                    class="glass-card rounded-xl p-6 group block h-full flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <span
+                            class="px-3 py-1 rounded-full bg-teal-500/10 text-teal-400 text-xs font-mono border border-teal-500/20">WAF</span>
+                        <span class="text-slate-500 text-xs font-mono">Sep 2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100 mb-2 group-hover:text-brand-400 transition-colors">
+                        Threat Hunting with WAF</h3>
+                    <p class="text-slate-400 text-sm mb-4 flex-grow">Protecting web applications, detecting SQL
+                        injection, XSS, and other OWASP Top 10 attacks.</p>
+                    <div class="mt-auto flex items-center text-brand-500 text-sm font-medium">
+                        Read Writeup <i
+                            class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="flex justify-center gap-8 mb-8">
+                <a href="https://github.com/yusufarbc" target="_blank"
+                    class="text-slate-400 hover:text-white transition-colors text-2xl"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yusufarbc" target="_blank"
+                    class="text-slate-400 hover:text-[#0077b5] transition-colors text-2xl"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/yusufarbc" target="_blank"
+                    class="text-slate-400 hover:text-white transition-colors text-2xl"><i
+                        class="fab fa-x-twitter"></i></a>
+            </div>
+            <p class="text-slate-600 text-sm font-mono">© 2025 Yusuf Talha ARABACI</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
