@@ -1124,6 +1124,26 @@
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Blog Post (npm Supply Chain) -->
+                    <a href="blog/npm-supply-chain.html"
+                        class="glass-card rounded-xl p-8 flex flex-col group h-full hover:bg-slate-800/80 transition-all border-l-4 border-l-red-500">
+                        <div class="flex justify-between items-start mb-6">
+                            <span
+                                class="px-3 py-1 rounded-full bg-red-500/10 text-red-400 text-xs font-mono border border-red-500/20">Supply
+                                Chain</span>
+                            <span class="text-slate-500 text-xs font-mono">Dec 19, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-100 mb-3 group-hover:text-red-400 transition-colors">
+                            Analysis of Software Supply Chain Security and the npm Ecosystem</h3>
+                        <p class="text-slate-400 text-sm mb-6 flex-grow leading-relaxed">
+                            Analyzing the Shai-Hulud worm, structural npm vulnerabilities, and the move towards
+                            Zero-Trust Execution for software supply chain security.
+                        </p>
+                        <div class="flex items-center gap-2 text-red-500 text-sm font-medium mt-auto">
+                            Read Article <i
+                                class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </a>
                     <!-- Blog Post 3 (SentinelOne) -->
                     <a href="blog/sentinelone.html"
                         class="glass-card rounded-xl p-8 flex flex-col group h-full hover:bg-slate-800/80 transition-all">
@@ -1188,84 +1208,33 @@
                         </div>
                     </a>
 
+
+                    <!-- Writeups Card -->
+                    <a href="writeup/writeups.html"
+                        class="glass-card rounded-xl p-8 flex flex-col group h-full hover:bg-slate-800/80 transition-all border-l-4 border-l-green-500">
+                        <div class="flex justify-between items-start mb-6">
+                            <span
+                                class="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-mono border border-green-500/20">Research</span>
+                            <span class="text-slate-500 text-xs font-mono">Ongoing</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-100 mb-3 group-hover:text-green-400 transition-colors">
+                            Technical Writeups & Research</h3>
+                        <p class="text-slate-400 text-sm mb-6 flex-grow leading-relaxed">
+                            A comprehensive collection of threat hunting guides, red team operational drills, and
+                            security research (CTI, Deception, DNS, EDR).
+                        </p>
+                        <div class="flex items-center gap-2 text-green-500 text-sm font-medium mt-auto">
+                            View Collection <i
+                                class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </a>
+
                 </div>
             </div>
             </div>
         </section>
 
-        <!-- Writeups Section -->
-        <section id="writeups" class="py-24 bg-slate-900/50">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="flex items-center gap-4 mb-16">
-                    <span class="font-mono text-brand-400 text-xl">06.</span>
-                    <h2 class="text-3xl font-bold text-slate-100">Featured Writeups</h2>
-                    <div class="h-px bg-slate-800 flex-grow max-w-xs"></div>
-                </div>
 
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Card 1 -->
-                    <a href="writeup/threat-hunting-cti.html"
-                        class="glass-card rounded-xl p-6 group block h-full flex flex-col">
-                        <div class="flex justify-between items-start mb-4">
-                            <span
-                                class="px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-mono border border-brand-500/20">LetsDefend</span>
-                            <span class="text-slate-500 text-xs font-mono">Sep 2025</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-100 mb-2 group-hover:text-brand-400 transition-colors">
-                            Threat Hunting with CTI</h3>
-                        <p class="text-slate-400 text-sm mb-4 flex-grow">A guide to using Cyber Threat Intelligence in
-                            threat hunting, covering OSINT, commercial providers, and practical labs.</p>
-                        <div class="mt-auto flex items-center text-brand-500 text-sm font-medium">
-                            Read Writeup <i
-                                class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                        </div>
-                    </a>
-
-                    <!-- Card 2 -->
-                    <a href="writeup/threat-hunting-deception.html"
-                        class="glass-card rounded-xl p-6 group block h-full flex flex-col">
-                        <div class="flex justify-between items-start mb-4">
-                            <span
-                                class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs font-mono border border-purple-500/20">Deception</span>
-                            <span class="text-slate-500 text-xs font-mono">Sep 2025</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-100 mb-2 group-hover:text-brand-400 transition-colors">
-                            Threat Hunting with Deception</h3>
-                        <p class="text-slate-400 text-sm mb-4 flex-grow">Exploring deception technologies, honeypots,
-                            and how to use them to detect attacker presence.</p>
-                        <div class="mt-auto flex items-center text-brand-500 text-sm font-medium">
-                            Read Writeup <i
-                                class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                        </div>
-                    </a>
-
-                    <!-- Card 3 -->
-                    <a href="writeup/threat-hunting-dns.html"
-                        class="glass-card rounded-xl p-6 group block h-full flex flex-col">
-                        <div class="flex justify-between items-start mb-4">
-                            <span
-                                class="px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 text-xs font-mono border border-yellow-500/20">DNS</span>
-                            <span class="text-slate-500 text-xs font-mono">Sep 2025</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-100 mb-2 group-hover:text-brand-400 transition-colors">
-                            Threat Hunting with DNS</h3>
-                        <p class="text-slate-400 text-sm mb-4 flex-grow">Analyzing DNS logs to detect C2 channels, data
-                            exfiltration, and DGA domains.</p>
-                        <div class="mt-auto flex items-center text-brand-500 text-sm font-medium">
-                            Read Writeup <i
-                                class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="mt-12 text-center">
-                    <a href="writeups.html"
-                        class="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-slate-800 text-white font-medium border border-slate-700 hover:border-brand-500 hover:text-brand-400 transition-all shadow-lg hover:shadow-brand-500/10">
-                        View All Writeups <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
 
         <!-- Training/Certifications -->
         <section class="py-24 relative">
