@@ -1,19 +1,60 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SentinelOne Singularity Platform: Architecture & Security Analysis | Yusuf Talha ARABACI</title>
+    <title>Under the Hood: Deep Dive into SentinelOne Singularity | Yusuf Talha ARABACI</title>
     <meta name="description"
-        content="A comprehensive analysis of SentinelOne Singularity Platform: Single-agent architecture, AI-powered detection, autonomous response, and future-readiness.">
+        content="No marketing fluff. A technical deep dive into SentinelOne's kernel-level architecture, offline AI capabilities, and why 'Storyline' changes the EDR game.">
     <meta name="author" content="Yusuf Talha ARABACI">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
 
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://yusufarbc.dev/portfolio/blog/sentinelone.html">
+    <meta property="og:title" content="Under the Hood: Deep Dive into SentinelOne Singularity">
+    <meta property="og:description"
+        content="Kernel hooks, offline inference, and atomic rollback. An engineer's analysis of S1.">
+    <meta property="og:image" content="https://yusufarbc.dev/assets/images/photo.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yusufarbc.dev/portfolio/blog/sentinelone.html">
+    <meta property="twitter:title" content="Under the Hood: Deep Dive into SentinelOne Singularity">
+    <meta property="twitter:description"
+        content="Kernel hooks, offline inference, and atomic rollback. An engineer's analysis of S1.">
+    <meta property="twitter:image" content="https://yusufarbc.dev/assets/images/photo.jpeg">
+
+    <!-- JSON-LD SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Under the Hood: Deep Dive into SentinelOne Singularity",
+      "image": "https://yusufarbc.dev/assets/images/photo.jpeg",
+      "author": {
+        "@type": "Person",
+        "name": "Yusuf Talha ARABACI",
+        "url": "https://yusufarbc.dev/"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Yusuf Talha ARABACI",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://yusufarbc.dev/assets/images/photo.jpeg"
+        }
+      },
+      "datePublished": "2025-12-19",
+      "description": "A technical analysis of SentinelOne's architecture, distinguishing between static AI, behavioral AI, and automated remediation mechanisms."
+    }
+    </script>
+
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,7 +109,11 @@
                                 strong: { color: theme('colors.white') },
                                 a: { color: theme('colors.brand.400') },
                                 code: { color: theme('colors.brand.300') },
-                                li: { marker: { color: theme('colors.brand.400') } },
+                                blockquote: {
+                                    color: theme('colors.slate.400'),
+                                    borderLeftColor: theme('colors.brand.500'),
+                                    fontStyle: 'italic'
+                                },
                             },
                         },
                     }),
@@ -77,31 +122,8 @@
         }
     </script>
 
-    <style>
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
-        }
-
-        .glass {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body class="bg-slate-950 text-slate-300 font-sans antialiased selection:bg-brand-500 selection:text-white">
@@ -125,179 +147,145 @@
             <header class="mb-12 text-center">
                 <div class="flex justify-center gap-2 mb-6">
                     <span
-                        class="px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-mono border border-brand-500/20">Cybersecurity
-                        analysis</span>
+                        class="px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-mono border border-brand-500/20">Engineering</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-mono border border-blue-500/20">Deep
+                        Dive</span>
                 </div>
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">SentinelOne Singularity: A Deep
-                    Dive into Next-Gen Security</h1>
+                <h1 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">Under the Hood: How SentinelOne
+                    Actually Works</h1>
                 <div class="flex items-center justify-center gap-6 text-slate-400 text-sm font-mono">
                     <span><i class="far fa-calendar mr-2"></i> Dec 17, 2025</span>
-                    <span><i class="far fa-clock mr-2"></i> 15 min read</span>
+                    <span><i class="far fa-clock mr-2"></i> 12 min read</span>
                 </div>
             </header>
 
-            <!-- Featured Image (Cover) -->
-            <img src="media/sentinelone.webp" class="w-full rounded-2xl mb-12 border border-slate-800"
-                alt="SentinelOne Cover">
-
             <!-- Content -->
             <div class="prose prose-invert prose-lg max-w-none hover:prose-a:text-brand-400">
+                <p class="lead text-xl text-slate-200">
+                    I've deployed a lot of EDRs. Most of them are just cloud-forwarders—dumb agents that collect logs,
+                    ship
+                    them to a server, and wait for instructions. <strong>SentinelOne is different.</strong>
+                </p>
 
-                <h2>1. Executive Summary</h2>
-                <p>The SentinelOne Singularity Platform represents a paradigm shift in cybersecurity, offering an
-                    autonomous, AI-driven solution tailored for today's rapidly evolving threat landscape. By
-                    consolidating multiple security layers—Endpoint Protection (EPP), Endpoint Detection and Response
-                    (EDR), Extended Detection and Response (XDR), and Identity Threat Detection and Response (ITDR)—into
-                    a unified platform, it delivers holistic protection without the operational overhead of disjointed
-                    tools.</p>
+                <p>
+                    It’s built on a philosophy that every engineer respects: <strong>"Assume the link is down."</strong>
+                    Today, I want to skip the Gartner Magic Quadrant marketing fluff and talk about the actual
+                    engineering
+                    under the hood—how the agent hooks the kernel, how the offline inference works, and why "Storyline"
+                    is more than just a buzzword.
+                </p>
 
-                <p>Recognized as a "Leader" in the 2024 Gartner Magic Quadrant for the fourth consecutive year and
-                    achieving 100% detection efficacy in MITRE ATT&CK evaluations, SentinelOne is defining the standard
-                    for modern endpoint security. Its ability to function completely offline, coupled with automated
-                    incident response and patented rollback capabilities, empowers organizations to implement robust
-                    Zero Trust strategies with confidence.</p>
+                <h2>1. The "Single Agent" Architecture: Kernel vs. User Space</h2>
+                <p>
+                    In the bad old days, you installed an AV agent, an EDR agent, and a Vulnerability Management
+                    scanner.
+                    It was "Agent Bloat" hell. Performance tanked.
+                </p>
+                <p>
+                    SentinelOne collapses this into a single binary. But the magic is where it lives. The agent installs
+                    kernel-level drivers (or eBPF probes on modern Linux) to intercept IO at the source. This isn't just
+                    scanning files on disk; it's monitoring syscalls in real-time.
+                </p>
 
-                <img src="media/sentinelone_gartner.webp" class="rounded-xl my-8 border border-slate-800"
-                    alt="Gartner Recognition">
-
-                <h2>2. Architecture: Single Agent, Multi-Engine</h2>
-                <p>At the heart of the Singularity Platform lies its revolutionary <strong>"Single Agent — Multi
-                        Engine"</strong> architecture. Unlike legacy solutions that require multiple agents for
-                    different functions (e.g., one for AV, one for EDR, one for vulnerability management), SentinelOne
-                    delivers all capabilities through a single, lightweight agent.</p>
-
-                <p>This agent operates at the kernel level, monitoring file systems, processes, and memory activities in
-                    real-time. It leverages two distinct Artificial Intelligence engines working in tandem:</p>
-
-                <ul>
-                    <li><strong>Static AI Engine:</strong> This engine replaces traditional signatures. It analyzes the
-                        structure and code characteristics of files <em>before</em> they run (On-Write), preventing
-                        known and unknown malware without needing daily updates.</li>
-                    <li><strong>Behavioral AI Engine:</strong> This engine monitors the system in real-time
-                        (On-Execute). It tracks process relationships, API calls, and network connections to detect
-                        anomalous behaviors indicative of advanced attacks like fileless malware, lateral movement, and
-                        zero-day exploits.</li>
-                </ul>
-
-                <p>Crucially, this architecture enables <strong>Autonomous Decision Making</strong>. The agent does not
-                    rely on cloud connectivity to make a decision. Even if an endpoint is offline (e.g., an air-gapped
-                    system or a laptop on a plane), the AI models running locally on the device can detect and block
-                    threats instantly.</p>
-
-                <img src="media/singularity_data_lake.webp" class="rounded-xl my-8 border border-slate-800"
-                    alt="Singularity Data Lake">
-
-                <h2>3. Threat Detection and Deep Visibility</h2>
-                <p>SentinelOne’s detection strategy is comprehensive, covering the entire lifecycle of a file or
-                    process:</p>
-
-                <ul>
-                    <li><strong>Pre-Execution (On-Write):</strong> Files are analyzed immediately upon being written to
-                        disk. If the Static AI deems a file malicious, it is quarantined before it can execute.</li>
-                    <li><strong>Execution (On-Execute):</strong> If a process starts, the Behavioral AI watches its
-                        actions. If a legitimate process (like PowerShell) starts behaving maliciously (e.g., attempting
-                        to dump credentials), the agent intervenes.</li>
-                </ul>
-
-                <h3>Storyline™ Technology</h3>
-                <p>One of SentinelOne's most significant innovations is <strong>Storyline™</strong> technology. In
-                    traditional EDRs, analysts are flooded with thousands of independent alerts that they must manually
-                    correlate. SentinelOne automates this by assigning a unique "Storyline ID" to every process and its
-                    related activities.</p>
-
-                <p>When an incident occurs, the platform presents the entire attack chain—from the initial phishing
-                    email to the final payload execution—as a single, visualized timeline. This context drastically
-                    reduces Mean Time to Investigate (MTTI).</p>
-
-                <img src="media/sentinelone_mitigation.webp" class="rounded-xl my-8 border border-slate-800"
-                    alt="Threat Mitigation">
-
-                <h2>4. Incident Response and Automation</h2>
-                <p>Detection is only half the battle; response speed is critical. SentinelOne offers robust, automated
-                    response capabilities that can operate without human intervention:</p>
-
-                <ul>
-                    <li><strong>Kill & Quarantine:</strong> Automatically stops malicious processes and quarantines
-                        associated files.</li>
-                    <li><strong>Network Isolation:</strong> Instantly disconnects a compromised device from the network
-                        to prevent lateral movement, while maintaining a secure tunnel to the management console for
-                        remediation.</li>
-                    <li><strong>1-Click Remediation:</strong> Reverses all changes made by the threat (e.g., deleting
-                        dropped files, removing registry keys).</li>
-                    <li><strong>Rollback:</strong> The ultimate safety net. Using VSS (Volume Shadow Copy Service), the
-                        agent can restore files encrypted by ransomware to their pre-infection state. This renders
-                        ransomware attacks ineffective without the need to pay a ransom or restore from backups.</li>
-                </ul>
-
-                <h3>Advanced Hunting with S1QL</h3>
-                <p>For threat hunters, the platform offers <strong>S1QL</strong> (SentinelOne Query Language). This
-                    intuitive language allows analysts to search through historical telemetry data (retained for 14 to
-                    365 days) to find subtle indicators of compromise (IOCs).</p>
-
-                <pre><code class="language-sql">/* Example: Find processes executing 'net user' commands */
-SELECT Timestamp, DeviceName, ProcessName, CommandLine
-FROM ProcessActivities
-WHERE LOWER(CommandLine) LIKE '%net user%' AND Timestamp > NOW()-180d;</code></pre>
-
-                <h2>5. Operational Excellence: Policies & Licensing</h2>
-                <p>The platform is designed for flexibility, supporting diverse operational needs through granular
-                    Reference Policies:</p>
-
-                <ul>
-                    <li><strong>Detect-Only Mode:</strong> Ideal for initial deployment or highly sensitive servers,
-                        generating alerts without blocking processes.</li>
-                    <li><strong>Protect Mode:</strong> The standard for most endpoints, actively blocking and
-                        remediating threats in real-time.</li>
-                </ul>
-
-                <p>Licensing is structured to scale with organizational maturity:</p>
-                <ul>
-                    <li><strong>Singularity Core:</strong> Essential NGAV (Next-Gen Antivirus) capabilities.</li>
-                    <li><strong>Singularity Control:</strong> Adds device control (USB/Bluetooth), firewall control, and
-                        vulnerability management.</li>
-                    <li><strong>Singularity Complete:</strong> The flagship tier, including full EDR, Deep Visibility,
-                        and advanced hunting capabilities.</li>
-                    <li><strong>Singularity Commercial/Enterprise:</strong> Adds Identity security, managed threat
-                        hunting (WatchTower), and unlimited data retention options.</li>
-                </ul>
-
-                <h2>6. Integrations and Future Vision</h2>
-                <p>No security tool exists in a vacuum. The <strong>Singularity Marketplace</strong> offers over 70
-                    one-click integrations with leading security, IT, and DevOps tools—including Splunk, ServiceNow,
-                    Okta, and Zscaler. This allows SentinelOne to act as the "connective tissue" of the SOC, automating
-                    workflows across the entire stack.</p>
-
-                <h3>Security for AI vs. AI for Security</h3>
-                <p>SentinelOne is not just using AI to secure endpoints ("AI for Security"); it is also pioneering
-                    "Security for AI." With the acquisition of PingSafe (CNAPP) and the introduction of Purple AI, the
-                    platform is evolving to protect the very infrastructure that powers modern AI applications. This
-                    forward-looking approach ensures that as organizations adopt Generative AI, their security posture
-                    remains resilient.</p>
-
-                <h2>7. Conclusion</h2>
-                <p>SentinelOne Singularity is more than just an endpoint protection platform; it is a comprehensive
-                    enterprise security ecosystem. By combining autonomous AI, deep visibility, and automated
-                    remediation, it addresses the core challenges of modern SOCs: alert fatigue, skill shortages, and
-                    the increasing speed of attacks.</p>
-
-                <p>For organizations seeking to modernize their defenses, SentinelOne offers a compelling path: a single
-                    agent that handles prevention, detection, response, and hunting, all backed by the most advanced AI
-                    in the industry.</p>
-
-                <div class="mt-8 p-6 glass rounded-xl border-l-4 border-l-brand-500">
-                    <p class="text-white font-medium mb-2"><i class="fas fa-thumbtack text-brand-500 mr-2"></i>
-                        Recommendation</p>
-                    <p>Organizations should consider a Proof of Concept (PoC) to test the "Rollback" feature in a
-                        controlled environment. Seeing a ransomware infection reversed in seconds is often the deciding
-                        factor for security teams.</p>
+                <div class="glass-card p-6 rounded-xl my-8 not-prose">
+                    <h4 class="text-white font-bold mb-4">The Logic Flow (Simplified)</h4>
+                    <ul class="space-y-4 text-sm font-mono text-slate-400">
+                        <li class="flex items-start gap-4">
+                            <span class="text-brand-400 font-bold">01</span>
+                            <div>
+                                <strong class="text-white block">Pre-Execution (Static AI)</strong>
+                                File hits disk. Static engine extracts headers/strings. Is it a known variant? Packed?
+                                Obfuscated? (Decision time: &lt;10ms)
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="text-brand-400 font-bold">02</span>
+                            <div>
+                                <strong class="text-white block">Execution (Behavioral AI)</strong>
+                                Process starts. Agent monitors behavior. Is `svchost.exe` dropping a binary in
+                                `AppData`? Is PowerShell making network calls?
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="text-brand-400 font-bold">03</span>
+                            <div>
+                                <strong class="text-white block">Remediation (Atomic)</strong>
+                                Malicious behavior confirmed. Agent kills process tree, quarantines file, and invokes
+                                VSS trigger.
+                            </div>
+                        </li>
+                    </ul>
                 </div>
 
-                <hr class="my-12 border-slate-800" />
+                <h2>2. Offline Autonomy: The "Desert Island" Test</h2>
+                <p>
+                    This is my favorite feature. Most EDRs are useless if you pull the ethernet cable. They can't check
+                    hash
+                    reputations; they can't ask the cloud "is this bad?".
+                </p>
+                <p>
+                    SentinelOne agents carry the trained model <strong>on the device</strong>. It's not shipping
+                    telemetry
+                    up to be analyzed; it's running inference locally. This means if a laptop gets infected on a plane
+                    (zero connectivity), the agent still kills the ransomware. It doesn't need to "phone home" to know
+                    it's
+                    being attacked.
+                </p>
 
-                <div class="text-sm text-slate-500">
-                    <p><strong>Compliance Note:</strong> SentinelOne supports compliance with major standards including
-                        GDPR, HIPAA, PCI-DSS, and SOC2 Type II. Data is encrypted both in transit (TLS 1.2+) and at rest
-                        (AES-256).</p>
+                <h2>3. Storyline™: Solving the "Alert Fatigue" Crisis</h2>
+                <p>
+                    If you've worked in a SOC, you know the pain. You get an alert: <code>Process A started B</code>.
+                    Then
+                    another: <code>Process B started C</code>. Then <code>Process C deleted D</code>. You spend 4 hours
+                    in
+                    Excel trying to stitch it together.
+                </p>
+                <p>
+                    SentinelOne automates the correlation ID. Every process spawns with a unique <strong>Storyline
+                        ID</strong>. The agent tracks this ID across forks, injections, and network calls.
+                </p>
+
+                <h3>Use Case: The PowerShell Script</h3>
+                <p>
+                    Imagine a user runs a malicious macro.
+                    <br>
+                    1. Word spawns <code>cmd.exe</code>
+                    <br>
+                    2. <code>cmd.exe</code> spawns <code>powershell.exe</code>
+                    <br>
+                    3. PowerShell reaches out to `evil-site.com`
+                </p>
+                <p>
+                    In Splunk, these look like 3 different events. In SentinelOne, they share one Storyline ID. One
+                    click
+                    shows the entire tree. This turns a 2-hour investigation into a 2-minute confirmation.
+                </p>
+
+                <h2>4. The "Undo" Button: Ransomware Rollback</h2>
+                <p>
+                    Honestly, this feels like magic the first time you see it. When the agent detects ransomware
+                    encryption
+                    activity, it doesn't just kill the process. It leverages Windows <strong>VSS (Volume Shadow Copy
+                        Service)</strong>.
+                </p>
+                <p>
+                    Because the agent was tracking the process, it knows exactly which files were touched. "Rollback"
+                    isn't
+                    a full system restore; it's a surgical reversion of <em>only</em> the files modified by the
+                    malicious
+                    Storyline ID. You don't lose the user's legit work—you just lose the encryption.
+                </p>
+
+                <div class="mt-12 p-8 bg-slate-800/50 rounded-xl border-l-4 border-l-blue-500">
+                    <h3 class="text-xl font-bold text-white mb-4">Engineer's Verdict</h3>
+                    <p class="text-slate-400 mb-0">
+                        SentinelOne wins because it respects the endpoint's reality. It knows networks fail. It knows
+                        users
+                        click things they shouldn't. It doesn't rely on a perfect world—it builds a resilient one right
+                        on
+                        the metal. If you're building a modern stack, this is the foundation you want.
+                    </p>
                 </div>
 
             </div>
@@ -305,19 +293,9 @@ WHERE LOWER(CommandLine) LIKE '%net user%' AND Timestamp > NOW()-180d;</code></p
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 pt-16 pb-8 border-t border-slate-800">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <div class="flex justify-center gap-8 mb-8">
-                <a href="https://github.com/yusufarbc" target="_blank"
-                    class="text-slate-400 hover:text-white transition-colors text-2xl"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/yusufarbc" target="_blank"
-                    class="text-slate-400 hover:text-[#0077b5] transition-colors text-2xl"><i
-                        class="fab fa-linkedin"></i></a>
-                <a href="https://x.com/yusufarbc" target="_blank"
-                    class="text-slate-400 hover:text-white transition-colors text-2xl"><i
-                        class="fab fa-x-twitter"></i></a>
-            </div>
-            <p class="text-slate-600 text-sm font-mono">© 2025 Yusuf Talha ARABACI</p>
+    <footer class="py-12 border-t border-white/5 bg-slate-950">
+        <div class="max-w-4xl mx-auto px-6 text-center text-slate-500 text-sm">
+            <p>&copy; 2025 Yusuf Talha ARABACI. All rights reserved.</p>
         </div>
     </footer>
 
