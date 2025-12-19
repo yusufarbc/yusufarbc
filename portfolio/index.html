@@ -10,7 +10,7 @@
     <meta name="keywords"
         content="Cyber Security, SOC, Blue Team, Cloud Security, Yusuf Talha ARABACI, Portfolio, Digital Sovereignty, DevSecOps">
     <meta name="author" content="Yusuf Talha ARABACI">
-    <link rel="canonical" href="https://yusufarbc.github.io/">
+    <link rel="canonical" href="https://yusufarbc.dev/">
 
     <!-- JSON-LD SEO -->
     <script type="application/ld+json">
@@ -18,7 +18,7 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Yusuf Talha ARABACI",
-      "url": "https://yusufarbc.github.io/",
+      "url": "https://yusufarbc.dev/",
       "jobTitle": "Cyber Security Engineer",
       "sameAs": [
         "https://linkedin.com/in/yusufarbc",
@@ -31,19 +31,19 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yusufarbc.github.io/">
+    <meta property="og:url" content="https://yusufarbc.dev/">
     <meta property="og:title" content="Yusuf Talha ARABACI | Cyber Security Engineer">
     <meta property="og:description"
         content="Cyber Security Engineer & Digital Sovereignty Architect. Specializing in Cloud-Native Security, SOC Architecture, and Open Source Defense.">
-    <meta property="og:image" content="https://yusufarbc.github.io/assets/images/photo.jpeg">
+    <meta property="og:image" content="https://yusufarbc.dev/assets/images/photo.jpeg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://yusufarbc.github.io/">
+    <meta property="twitter:url" content="https://yusufarbc.dev/">
     <meta property="twitter:title" content="Yusuf Talha ARABACI | Cyber Security Engineer">
     <meta property="twitter:description"
         content="Cyber Security Engineer & Digital Sovereignty Architect. Specializing in Cloud-Native Security, SOC Architecture, and Open Source Defense.">
-    <meta property="twitter:image" content="https://yusufarbc.github.io/assets/images/photo.jpeg">
+    <meta property="twitter:image" content="https://yusufarbc.dev/assets/images/photo.jpeg">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
@@ -110,294 +110,8 @@
         }
     </script>
 
-    <style>
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
-        }
-
-        /* Glassmorphism */
-        .glass {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .glass-card {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .glass-card:hover {
-            background: rgba(30, 41, 59, 0.6);
-            border-color: rgba(56, 189, 248, 0.3);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Gradient Text */
-        .text-gradient {
-            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .text-gradient-gold {
-            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Background Grid */
-        .bg-grid {
-            background-size: 50px 50px;
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-        }
-
-        /* Mouse Glow */
-        #mouse-glow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 0;
-            transform: translate(-50%, -50%);
-            transition: opacity 0.5s ease;
-        }
-
-        /* Glitch Effect */
-        .glitch-wrapper {
-            position: relative;
-            display: inline-block;
-        }
-
-        .glitch {
-            position: relative;
-            z-index: 1;
-        }
-
-        .glitch::before,
-        .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #0f172a;
-            /* Match bg */
-        }
-
-        .glitch::before {
-            left: 2px;
-            text-shadow: -1px 0 #cc00ff;
-            clip: rect(44px, 450px, 56px, 0);
-            animation: glitch-anim 5s infinite linear alternate-reverse;
-        }
-
-        .glitch::after {
-            left: -2px;
-            text-shadow: -1px 0 #00ffff;
-            clip: rect(44px, 450px, 56px, 0);
-            animation: glitch-anim2 5s infinite linear alternate-reverse;
-        }
-
-        @keyframes glitch-anim {
-            0% {
-                clip: rect(40px, 9999px, 49px, 0);
-            }
-
-            5% {
-                clip: rect(72px, 9999px, 20px, 0);
-            }
-
-            10% {
-                clip: rect(6px, 9999px, 86px, 0);
-            }
-
-            15% {
-                clip: rect(68px, 9999px, 5px, 0);
-            }
-
-            20% {
-                clip: rect(25px, 9999px, 60px, 0);
-            }
-
-            25% {
-                clip: rect(98px, 9999px, 21px, 0);
-            }
-
-            30% {
-                clip: rect(4px, 9999px, 14px, 0);
-            }
-
-            35% {
-                clip: rect(56px, 9999px, 43px, 0);
-            }
-
-            40% {
-                clip: rect(31px, 9999px, 64px, 0);
-            }
-
-            45% {
-                clip: rect(81px, 9999px, 35px, 0);
-            }
-
-            50% {
-                clip: rect(29px, 9999px, 93px, 0);
-            }
-
-            55% {
-                clip: rect(4px, 9999px, 5px, 0);
-            }
-
-            60% {
-                clip: rect(67px, 9999px, 83px, 0);
-            }
-
-            65% {
-                clip: rect(23px, 9999px, 1px, 0);
-            }
-
-            70% {
-                clip: rect(89px, 9999px, 40px, 0);
-            }
-
-            75% {
-                clip: rect(9px, 9999px, 95px, 0);
-            }
-
-            80% {
-                clip: rect(33px, 9999px, 35px, 0);
-            }
-
-            85% {
-                clip: rect(13px, 9999px, 38px, 0);
-            }
-
-            90% {
-                clip: rect(59px, 9999px, 92px, 0);
-            }
-
-            95% {
-                clip: rect(2px, 9999px, 26px, 0);
-            }
-
-            100% {
-                clip: rect(12px, 9999px, 48px, 0);
-            }
-        }
-
-        @keyframes glitch-anim2 {
-            0% {
-                clip: rect(63px, 9999px, 47px, 0);
-            }
-
-            5% {
-                clip: rect(18px, 9999px, 22px, 0);
-            }
-
-            10% {
-                clip: rect(50px, 9999px, 80px, 0);
-            }
-
-            15% {
-                clip: rect(80px, 9999px, 6px, 0);
-            }
-
-            20% {
-                clip: rect(42px, 9999px, 96px, 0);
-            }
-
-            25% {
-                clip: rect(15px, 9999px, 23px, 0);
-            }
-
-            30% {
-                clip: rect(74px, 9999px, 58px, 0);
-            }
-
-            35% {
-                clip: rect(42px, 9999px, 98px, 0);
-            }
-
-            40% {
-                clip: rect(27px, 9999px, 17px, 0);
-            }
-
-            45% {
-                clip: rect(98px, 9999px, 81px, 0);
-            }
-
-            50% {
-                clip: rect(10px, 9999px, 59px, 0);
-            }
-
-            55% {
-                clip: rect(62px, 9999px, 26px, 0);
-            }
-
-            60% {
-                clip: rect(85px, 9999px, 78px, 0);
-            }
-
-            65% {
-                clip: rect(51px, 9999px, 15px, 0);
-            }
-
-            70% {
-                clip: rect(8px, 9999px, 44px, 0);
-            }
-
-            75% {
-                clip: rect(98px, 9999px, 52px, 0);
-            }
-
-            80% {
-                clip: rect(2px, 9999px, 9px, 0);
-            }
-
-            85% {
-                clip: rect(52px, 9999px, 7px, 0);
-            }
-
-            90% {
-                clip: rect(95px, 9999px, 12px, 0);
-            }
-
-            95% {
-                clip: rect(5px, 9999px, 32px, 0);
-            }
-
-            100% {
-                clip: rect(54px, 9999px, 79px, 0);
-            }
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body
@@ -447,7 +161,7 @@
                     <a href="#blog"
                         class="px-4 py-2 text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-all"><span
                             class="text-brand-500 font-mono mr-1">05.</span> Blog</a>
-                    <a href="writeups.html"
+                    <a href="writeup/writeups.html"
                         class="px-4 py-2 text-sm font-medium text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition-all"><span
                             class="text-brand-500 font-mono mr-1">06.</span> Writeups</a>
 
@@ -458,9 +172,34 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button class="md:hidden text-slate-300 hover:text-white p-2">
+                <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-2">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="hidden md:hidden absolute top-20 left-0 w-full bg-slate-950/95 border-b border-white/5 backdrop-blur-xl p-4 flex flex-col space-y-4 shadow-xl transition-all duration-300 transform origin-top scale-y-0 opacity-0">
+                <a href="#about"
+                    class="text-slate-400 hover:text-white block py-2 px-4 hover:bg-white/5 rounded-lg transition-colors"><span
+                        class="text-brand-500 font-mono mr-2">01.</span> About</a>
+                <a href="#experience"
+                    class="text-slate-400 hover:text-white block py-2 px-4 hover:bg-white/5 rounded-lg transition-colors"><span
+                        class="text-brand-500 font-mono mr-2">02.</span> Experience</a>
+                <a href="#skills"
+                    class="text-slate-400 hover:text-white block py-2 px-4 hover:bg-white/5 rounded-lg transition-colors"><span
+                        class="text-brand-500 font-mono mr-2">03.</span> Skills</a>
+                <a href="#projects"
+                    class="text-slate-400 hover:text-white block py-2 px-4 hover:bg-white/5 rounded-lg transition-colors"><span
+                        class="text-brand-500 font-mono mr-2">04.</span> Projects</a>
+                <a href="#blog"
+                    class="text-slate-400 hover:text-white block py-2 px-4 hover:bg-white/5 rounded-lg transition-colors"><span
+                        class="text-brand-500 font-mono mr-2">05.</span> Blog</a>
+                <a href="writeups.html"
+                    class="text-slate-400 hover:text-white block py-2 px-4 hover:bg-white/5 rounded-lg transition-colors"><span
+                        class="text-brand-500 font-mono mr-2">06.</span> Writeups</a>
+                <a href="mailto:yusuftalhaarabaci@hotmail.com"
+                    class="text-brand-500 font-bold block py-2 px-4 hover:bg-brand-500/10 rounded-lg transition-colors">Contact
+                    Me</a>
             </div>
         </div>
     </nav>
@@ -487,17 +226,21 @@
                         <span class="glitch-wrapper">
                             <span class="text-gradient glitch" data-text="ARABACI">ARABACI</span>
                         </span>
+                        <i class="fa-solid fa-circle-check text-blue-500 ml-4 text-3xl md:text-5xl align-middle"
+                            title="Verified"></i>
                     </h1>
 
-                    <p class="text-xl md:text-2xl text-slate-400 font-light max-w-2xl leading-relaxed">
-                        I engineer <span class="text-white font-medium">Digital Sovereignty</span> & <span
-                            class="text-white font-medium">Cyber Resilience</span>.
+                    <p class="text-xl md:text-xl text-slate-400 font-light max-w-2xl leading-relaxed mb-6">
+                        Cyber Security Engineer | <span class="text-white font-medium">Digital Sovereignty</span> •
+                        Cloud-Native Security • Open Source • Data Privacy • Next-Gen SOC • Endpoint Protection •
+                        Network
+                        Defense
                     </p>
 
-                    <p class="text-slate-400 max-w-lg leading-relaxed border-l-2 border-brand-500/30 pl-4">
-                        Cyber Security Engineer specializing in Cloud-Native Security, Open Source Enterprise
-                        Architectures, and Next-Gen SOC.
-                        Currently relocating to <span class="text-white font-medium">Tallinn, Estonia 🇪🇪</span>.
+                    <p class="text-slate-400 max-w-lg leading-relaxed border-l-2 border-brand-500/30 pl-4 mb-8">
+                        Cyber Security Engineer combining offensive foundations and enterprise SOC experience with
+                        digital sovereignty and cloud-native security strategies. Focused on replacing traditional
+                        dependencies with open-source, secure, and autonomous infrastructures
                     </p>
 
                     <div class="flex flex-wrap gap-4 pt-4">
@@ -564,32 +307,90 @@
                 <div class="grid md:grid-cols-5 gap-16">
                     <div class="md:col-span-3 space-y-6 text-slate-400 text-lg leading-relaxed">
                         <p>
-                            Hello! I am a Cyber Security Engineer who believes that <span class="text-brand-400">"to
-                                learn to defend, you need to know how to attack"</span>.
+                            I am a <strong class="text-slate-200">Cyber Security Engineer and Digital Sovereignty
+                                Advocate</strong> who adopts the principle <strong class="text-brand-400">"To learn
+                                defense, one must know offense,"</strong> combining offensive security foundations with
+                            enterprise-level defense strategies.
                         </p>
-                        <p>
-                            My journey is fueled by a passion for <strong class="text-slate-200">Digital
-                                Sovereignty</strong>—building infrastructures that are secure, independent, and
-                            resilient against vendor lock-in and external surveillance (CLOUD Act risks).
-                        </p>
-                        <p>
-                            I hold a BSc in Computer Engineering and am currently pursuing an <strong
-                                class="text-slate-200">MSc researching "Data Sovereignty & Open Source Enterprise
-                                Architectures"</strong>. My technical playground involves designing Next-Gen SOCs,
-                            hardening Cloud-Native environments, and automating defense with Python & Go.
-                        </p>
-                        <div class="mt-8 p-6 glass-card rounded-xl border-l-4 border-l-brand-500">
-                            <p class="text-slate-300 font-medium flex items-start gap-3">
-                                <i class="fas fa-plane-departure text-brand-400 mt-1"></i>
-                                <span>Future Goal: Relocating to <span
-                                        class="text-white font-bold decoration-wavy underline decoration-brand-500">Tallinn,
-                                        Estonia</span> in Q1 2026 to contribute to Europe's most advanced digital
-                                    society.</span>
-                            </p>
+
+                        <div class="space-y-6 text-base">
+                            <!-- Experience -->
+                            <div>
+                                <strong class="text-brand-400 block mb-2 text-lg">Experience & Operational
+                                    Competence</strong>
+                                <p class="mb-3">My journey began with a Red Team internship at <strong
+                                        class="text-slate-200">BG-TEK</strong> and security research on <strong
+                                        class="text-slate-200">PwnLab.me</strong>. Throughout my professional career:
+                                </p>
+                                <ul class="space-y-2 list-disc pl-4 marker:text-brand-500">
+                                    <li><strong class="text-white">Garanti BBVA Technology:</strong> SOC Analyst
+                                        (Incident Investigation, Response, Management).</li>
+                                    <li><strong class="text-white">ADEO Cyber Security:</strong> MDR & Threat Hunting
+                                        Analyst (Threat Intelligence, Attack Analysis).</li>
+                                    <li><strong class="text-white">Consulta:</strong> IT & Cyber Security (Active
+                                        Directory, Infrastructure Security).</li>
+                                </ul>
+                            </div>
+
+                            <!-- Technical Depth -->
+                            <div>
+                                <strong class="text-brand-400 block mb-2 text-lg">Technical Depth & Infrastructure
+                                    Vision</strong>
+                                <p>I believe the foundation of systems lies in low-level languages like Assembly and C.
+                                    I specialize in rule writing and dashboard development for SIEM solutions (<strong
+                                        class="text-slate-200">Splunk, IBM QRadar, Wazuh</strong>) and managing
+                                    enterprise EDR/XDR platforms (<strong class="text-slate-200">SentinelOne,
+                                        CrowdStrike Falcon, Microsoft Defender XDR</strong>).</p>
+                            </div>
+
+                            <!-- Academic -->
+                            <div>
+                                <strong class="text-brand-400 block mb-2 text-lg">Academic Focus & Future
+                                    Vision</strong>
+                                <p>
+                                    I successfully completed my undergraduate studies with the "APIGOAT" (OWASP API Top
+                                    10) project. Currently pursuing a Master's thesis on <strong
+                                        class="text-slate-200">"Ubuntu-Based Open Source Enterprise
+                                        Architecture."</strong>
+                                </p>
+                            </div>
                         </div>
+
+
                     </div>
 
                     <div class="md:col-span-2 space-y-6">
+                        <!-- Goal Card -->
+                        <div class="glass-card p-6 rounded-2xl border-l-4 border-l-brand-500">
+                            <h3 class="font-bold text-white mb-2 flex items-center gap-2">
+                                <i class="fas fa-bullseye text-brand-400"></i> Goal
+                            </h3>
+                            <p class="text-slate-400 text-sm">
+                                Building a <strong class="text-slate-200">resilient and sovereign digital
+                                    infrastructure</strong> designed to eliminate vendor lock-in, prioritizing supply
+                                chain security and automated compliance through an <strong
+                                    class="text-brand-400">integrated open-source ecosystem</strong>.
+                            </p>
+                        </div>
+
+                        <!-- Career Objective Card -->
+                        <div class="glass-card p-6 rounded-2xl border-l-4 border-l-purple-500">
+                            <h3 class="font-bold text-white mb-2 flex items-center gap-2">
+                                <i class="fas fa-plane-departure text-purple-400"></i> Career Objective
+                            </h3>
+                            <p class="text-slate-400 text-sm mb-3">
+                                Relocating to <strong class="text-white">Tallinn, Estonia</strong> (Q1 2026) to
+                                contribute to Europe’s most advanced digital society.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="text-xs font-mono text-purple-400 bg-purple-500/10 px-2 py-1 rounded">Cloud-Native
+                                    Security</span>
+                                <span
+                                    class="text-xs font-mono text-purple-400 bg-purple-500/10 px-2 py-1 rounded">Digital
+                                    Sovereignty</span>
+                            </div>
+                        </div>
                         <div class="glass-card p-6 rounded-2xl">
                             <h3 class="font-bold text-white mb-4 flex items-center gap-2"><i
                                     class="fas fa-bolt text-yellow-400"></i> Quick Stats</h3>
@@ -814,188 +615,240 @@
                     <div class="h-px bg-slate-800 flex-grow max-w-xs"></div>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Category 1: Defense & SIEM -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Category 1: Security Operations -->
                     <div class="space-y-4">
                         <div
                             class="flex items-center gap-3 text-brand-400 font-mono text-sm uppercase tracking-wider mb-2">
-                            <i class="fas fa-shield-virus"></i> Defense & SIEM
+                            <i class="fas fa-shield-alt"></i> Security Operations
                         </div>
+
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-eye text-2xl text-slate-500 group-hover:text-purple-500 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">SentinelOne Singularity</div>
+                                <div class="text-xs text-slate-500">Autonomous AI EDR</div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-brands fa-windows text-2xl text-slate-500 group-hover:text-blue-400 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Microsoft Defender XDR</div>
+                                <div class="text-xs text-slate-500">Integrated Threat Protection</div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-crow text-2xl text-slate-500 group-hover:text-red-500 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">CrowdStrike Falcon</div>
+                                <div class="text-xs text-slate-500">Cloud-based Endpoint Protection</div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-shield-halved text-2xl text-slate-500 group-hover:text-orange-500 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Palo Alto Cortex XDR</div>
+                                <div class="text-xs text-slate-500">Cross-Layer Detection & Response</div>
+                            </div>
+                        </div>
+
                         <div
                             class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
                             <i
                                 class="fa-solid fa-dog text-2xl text-slate-500 group-hover:text-blue-400 transition-colors"></i>
                             <div>
                                 <div class="font-bold text-slate-200">Wazuh</div>
-                                <div class="text-xs text-slate-500">Unified XDR</div>
+                                <div class="text-xs text-slate-500">Unified XDR & SIEM</div>
                             </div>
                         </div>
-                        <div
-                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
-                            <i
-                                class="fa-solid fa-layer-group text-2xl text-slate-500 group-hover:text-teal-400 transition-colors"></i>
-                            <div>
-                                <div class="font-bold text-slate-200">Elastic Stack (ELK)</div>
-                                <div class="text-xs text-slate-500">Log Mgmt & Analytics</div>
-                            </div>
-                        </div>
+
                         <div
                             class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
                             <i
                                 class="fa-solid fa-magnifying-glass-chart text-2xl text-slate-500 group-hover:text-yellow-400 transition-colors"></i>
                             <div>
                                 <div class="font-bold text-slate-200">Splunk</div>
-                                <div class="text-xs text-slate-500">Enterprise SIEM</div>
+                                <div class="text-xs text-slate-500">Corporate SIEM Solution</div>
                             </div>
                         </div>
+
                         <div
                             class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
                             <i
-                                class="fa-solid fa-radar text-2xl text-slate-500 group-hover:text-blue-600 transition-colors"></i>
+                                class="fa-solid fa-layer-group text-2xl text-slate-500 group-hover:text-teal-400 transition-colors"></i>
                             <div>
-                                <div class="font-bold text-slate-200">IBM QRadar</div>
-                                <div class="text-xs text-slate-500">Event Correlation</div>
+                                <div class="font-bold text-slate-200">Elastic Stack</div>
+                                <div class="text-xs text-slate-500">Log Management & Analytics</div>
                             </div>
                         </div>
+
+
                     </div>
 
-                    <!-- Category 2: Endpoint -->
-                    <div class="space-y-4">
-                        <div
-                            class="flex items-center gap-3 text-purple-400 font-mono text-sm uppercase tracking-wider mb-2">
-                            <i class="fas fa-laptop-medical"></i> Endpoint Security
-                        </div>
-                        <div
-                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
-                            <i
-                                class="fa-solid fa-eye text-2xl text-slate-500 group-hover:text-purple-500 transition-colors"></i>
-                            <div>
-                                <div class="font-bold text-slate-200">SentinelOne</div>
-                                <div class="text-xs text-slate-500">Autonomous AI EDR</div>
-                            </div>
-                        </div>
-                        <div
-                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
-                            <i
-                                class="fa-brands fa-windows text-2xl text-slate-500 group-hover:text-blue-400 transition-colors"></i>
-                            <div>
-                                <div class="font-bold text-slate-200">MS Defender XDR</div>
-                                <div class="text-xs text-slate-500">Threat Protection</div>
-                            </div>
-                        </div>
-                        <div
-                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
-                            <i
-                                class="fa-solid fa-crow text-2xl text-slate-500 group-hover:text-red-500 transition-colors"></i>
-                            <div>
-                                <div class="font-bold text-slate-200">CrowdStrike</div>
-                                <div class="text-xs text-slate-500">Falcon Platform</div>
-                            </div>
-                        </div>
-                        <div
-                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
-                            <i
-                                class="fa-solid fa-shield-halved text-2xl text-slate-500 group-hover:text-orange-500 transition-colors"></i>
-                            <div>
-                                <div class="font-bold text-slate-200">Cortex XDR</div>
-                                <div class="text-xs text-slate-500">Palo Alto Detection</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Category 3: Vulnerability & Assessment -->
+                    <!-- Category 2: Vulnerability & Assessment -->
                     <div class="space-y-4">
                         <div
                             class="flex items-center gap-3 text-red-400 font-mono text-sm uppercase tracking-wider mb-2">
                             <i class="fas fa-bug"></i> Vuln & Assessment
                         </div>
+
                         <div
                             class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
                             <i
                                 class="fa-solid fa-barcode text-2xl text-slate-500 group-hover:text-green-500 transition-colors"></i>
                             <div>
-                                <div class="font-bold text-slate-200">OpenVAS & Nessus</div>
-                                <div class="text-xs text-slate-500">Scanning</div>
+                                <div class="font-bold text-slate-200">OpenVAS</div>
+                                <div class="text-xs text-slate-500">Vuln Scanning & Management</div>
                             </div>
                         </div>
-                        <div
-                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
-                            <i
-                                class="fa-solid fa-fish text-2xl text-slate-500 group-hover:text-blue-500 transition-colors"></i>
-                            <div>
-                                <div class="font-bold text-slate-200">Wireshark</div>
-                                <div class="text-xs text-slate-500">Packet Inspection</div>
-                            </div>
-                        </div>
-                        <div
-                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
-                            <i
-                                class="fa-solid fa-spider text-2xl text-slate-500 group-hover:text-orange-400 transition-colors"></i>
-                            <div>
-                                <div class="font-bold text-slate-200">Burp Suite & ZAP</div>
-                                <div class="text-xs text-slate-500">Web App Security</div>
-                            </div>
-                        </div>
-                        <div
-                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
-                            <i
-                                class="fa-solid fa-bomb text-2xl text-slate-500 group-hover:text-red-500 transition-colors"></i>
-                            <div>
-                                <div class="font-bold text-slate-200">Metasploit & Nmap</div>
-                                <div class="text-xs text-slate-500">Exploit & Discover</div>
-                            </div>
-                        </div>
+
                         <div
                             class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
                             <i
                                 class="fa-solid fa-atom text-2xl text-slate-500 group-hover:text-cyan-400 transition-colors"></i>
                             <div>
                                 <div class="font-bold text-slate-200">Nuclei</div>
-                                <div class="text-xs text-slate-500">Template Scanner</div>
+                                <div class="text-xs text-slate-500">Template-based Vuln Scanner</div>
                             </div>
                         </div>
+
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-satellite-dish text-2xl text-slate-500 group-hover:text-green-500 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Nmap</div>
+                                <div class="text-xs text-slate-500">Network Discovery & Scanning</div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-bomb text-2xl text-slate-500 group-hover:text-red-500 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Metasploit Framework</div>
+                                <div class="text-xs text-slate-500">Exploitation Tool</div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-spider text-2xl text-slate-500 group-hover:text-orange-400 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Burp Suite</div>
+                                <div class="text-xs text-slate-500">Web App Security Testing</div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-mask text-2xl text-slate-500 group-hover:text-blue-500 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">OWASP ZAP</div>
+                                <div class="text-xs text-slate-500">Open Source Web Proxy</div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-fish text-2xl text-slate-500 group-hover:text-blue-500 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Wireshark</div>
+                                <div class="text-xs text-slate-500">Deep Packet Inspection</div>
+                            </div>
+                        </div>
+
+
                     </div>
 
-                    <!-- Category 4: Cloud & DevSecOps -->
+                    <!-- Category 3: Cloud & Infrastructure -->
                     <div class="space-y-4">
                         <div
                             class="flex items-center gap-3 text-blue-400 font-mono text-sm uppercase tracking-wider mb-2">
-                            <i class="fas fa-cloud"></i> Cloud & DevSecOps
+                            <i class="fas fa-cloud"></i> Cloud & Infrastructure
                         </div>
                         <div
                             class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
                             <i
-                                class="fa-brands fa-docker text-2xl text-slate-500 group-hover:text-blue-400 transition-colors"></i>
+                                class="fa-brands fa-docker text-2xl text-slate-500 group-hover:text-blue-500 transition-colors"></i>
                             <div>
-                                <div class="font-bold text-slate-200">K8s / Docker</div>
-                                <div class="text-xs text-slate-500">Orchestration</div>
+                                <div class="font-bold text-slate-200">Kubernetes & Docker</div>
+                                <div class="text-xs text-slate-500">Container Orchestration & Runtime</div>
                             </div>
                         </div>
+
                         <div
                             class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
                             <i
-                                class="fa-solid fa-terminal text-2xl text-slate-500 group-hover:text-gray-300 transition-colors"></i>
+                                class="fa-solid fa-chart-line text-2xl text-slate-500 group-hover:text-orange-500 transition-colors"></i>
                             <div>
-                                <div class="font-bold text-slate-200">Powershell / Bash</div>
-                                <div class="text-xs text-slate-500">Automation</div>
+                                <div class="font-bold text-slate-200">Prometheus & Grafana</div>
+                                <div class="text-xs text-slate-500">Observability & Monitoring</div>
                             </div>
                         </div>
+
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-robot text-2xl text-slate-500 group-hover:text-red-400 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Ansible</div>
+                                <div class="text-xs text-slate-500">Configuration Management & Automation</div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-id-badge text-2xl text-slate-500 group-hover:text-purple-400 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Authentik & Samba</div>
+                                <div class="text-xs text-slate-500">Identity & Directory Services</div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
+                            <i
+                                class="fa-solid fa-envelope text-2xl text-slate-500 group-hover:text-blue-300 transition-colors"></i>
+                            <div>
+                                <div class="font-bold text-slate-200">Zimbra CE</div>
+                                <div class="text-xs text-slate-500">Enterprise Email Suite</div>
+                            </div>
+                        </div>
+
                         <div
                             class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
                             <i
                                 class="fa-brands fa-python text-2xl text-slate-500 group-hover:text-yellow-300 transition-colors"></i>
                             <div>
-                                <div class="font-bold text-slate-200">Python / JS</div>
-                                <div class="text-xs text-slate-500">Development</div>
+                                <div class="font-bold text-slate-200">Python</div>
+                                <div class="text-xs text-slate-500">Automation & Security Tools Development</div>
                             </div>
                         </div>
+
                         <div
                             class="glass-card hover:bg-slate-800 p-4 rounded-xl flex items-center gap-4 transition-all group">
                             <i
-                                class="fa-solid fa-network-wired text-2xl text-slate-500 group-hover:text-red-400 transition-colors"></i>
+                                class="fa-solid fa-terminal text-2xl text-slate-500 group-hover:text-gray-300 transition-colors"></i>
                             <div>
-                                <div class="font-bold text-slate-200">Samba / Ansible</div>
-                                <div class="text-xs text-slate-500">Identity & IaC</div>
+                                <div class="font-bold text-slate-200">PowerShell & Bash</div>
+                                <div class="text-xs text-slate-500">Cross-Platform Scripting</div>
                             </div>
                         </div>
                     </div>
@@ -1014,30 +867,6 @@
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                    <!-- Project: Medium Series -->
-                    <div class="glass-card rounded-xl p-8 flex flex-col group h-full">
-                        <div class="flex justify-between items-start mb-6">
-                            <i
-                                class="fas fa-folder text-4xl text-brand-500/80 group-hover:text-brand-400 transition-colors"></i>
-                            <div class="flex gap-4">
-                                <a href="https://medium.com/@yusufarbc/list/threat-hunting-walkthroughs-letsdefend-b7e8c5db9eca"
-                                    target="_blank" class="text-slate-400 hover:text-white transition-colors"><i
-                                        class="fab fa-medium text-xl"></i></a>
-                            </div>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-100 mb-3 group-hover:text-brand-400 transition-colors">
-                            Threat Hunting Walkthroughs</h3>
-                        <p class="text-slate-400 text-sm mb-6 flex-grow leading-relaxed">
-                            A comprehensive series of walkthroughs for LetsDefend blue team scenarios, covering
-                            investigation analysis, incident response, and threat hunting techniques.
-                        </p>
-                        <div class="flex flex-wrap gap-3 font-mono text-xs text-brand-500">
-                            <span>Threat Hunting</span>
-                            <span>LetsDefend</span>
-                            <span>Blue Team</span>
-                        </div>
-                    </div>
 
                     <!-- Project 1 -->
                     <div class="glass-card rounded-xl p-8 flex flex-col group h-full">
@@ -1338,16 +1167,27 @@
                         </div>
                     </a>
 
-                    <!-- Medium More Link -->
-                    <a href="https://medium.com/@yusufarbc" target="_blank"
-                        class="glass-card rounded-xl p-8 flex flex-col items-center justify-center group h-full hover:bg-slate-800/80 transition-all border-dashed border-2 border-slate-800 hover:border-brand-500/50">
-                        <i
-                            class="fab fa-medium text-4xl text-slate-600 group-hover:text-white mb-4 transition-colors"></i>
-                        <h3 class="text-xl font-bold text-slate-400 group-hover:text-white transition-colors">More on
-                            Medium</h3>
-                        <p class="text-slate-500 text-sm text-center mt-2">Read my past articles on SOC Architecture &
-                            Threat Hunting</p>
+                    <!-- Blog Post 3 (Agentic AI) -->
+                    <a href="blog/agentic-ai.html"
+                        class="glass-card rounded-xl p-8 flex flex-col group h-full hover:bg-slate-800/80 transition-all">
+                        <div class="flex justify-between items-start mb-6">
+                            <span
+                                class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 text-xs font-mono border border-purple-500/20">Agentic
+                                AI</span>
+                            <span class="text-slate-500 text-xs font-mono">Dec 19, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-100 mb-3 group-hover:text-brand-400 transition-colors">
+                            The Agentic Frontier: The Rise of Autonomous AI</h3>
+                        <p class="text-slate-400 text-sm mb-6 flex-grow leading-relaxed">
+                            Exploring the shift from RAG to Autonomous Agentic AI, the architecture of autonomy, and the
+                            critical security threats facing these systems.
+                        </p>
+                        <div class="flex items-center gap-2 text-brand-500 text-sm font-medium mt-auto">
+                            Read Article <i
+                                class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </div>
                     </a>
+
                 </div>
             </div>
             </div>
