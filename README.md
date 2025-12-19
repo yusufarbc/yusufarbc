@@ -1,11 +1,11 @@
 <div align="center">
   
-  <img src="assets/images/photo.jpeg" width="150" height="150" style="border-radius: 50%; border: 4px solid #38bdf8;" alt="Yusuf Talha ARABACI">
+  <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1221667" style='border:none;'></iframe>
 
   <h1 style="border-bottom: none;">Hi, I'm Yusuf Talha ARABACI 👋</h1>
   
   <p align="center">
-    <b>Cyber Security Engineer</b> • <b>Digital Sovereignty Architect</b> • <b>Blue Team Specialist</b>
+    <b>Digital Sovereignty</b> • <b>Cloud-Native Security</b> • <b>Open Source</b> • <b>Data Privacy</b> • <b>Next-Gen SOC</b> • <b>Endpoint Protection</b> • <b>Network Defense</b>
   </p>
 
   <p align="center">
@@ -18,6 +18,9 @@
     <a href="mailto:yusuftalhaarabaci@hotmail.com">
       <img src="https://img.shields.io/badge/Email-Contact%20Me-ea580c?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
     </a>
+    <a href="https://x.com/yusufarbc">
+      <img src="https://img.shields.io/badge/Twitter-Follow-000000?style=for-the-badge&logo=x&logoColor=white" alt="Twitter" />
+    </a>
   </p>
 
   <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&pause=1000&color=38bdf8&background=0f172a00&center=true&vCenter=true&width=600&lines=Cyber+Security+Engineer;Building+Sovereign+Infrastructures;Cloud-Native+Defense;Open+Source+Advocate" alt="Typing SVG" />
@@ -27,7 +30,7 @@
 
 ## 🚀 About Me
 
-I am a **Cyber Security Engineer** specializing in **Digital Sovereignty**, **Cloud-Native Security**, and **Next-Generation SOC Architectures**. My work bridges the gap between offensive knowledge and defensive strategy (*"To learn to defend, you need to know how to attack"*).
+Cyber Security Engineer combining offensive foundations and enterprise SOC experience with digital sovereignty and cloud-native security strategies. Focused on replacing traditional dependencies with open-source, secure, and autonomous infrastructures.
 
 Currently, I am focused on designing cloud-independent infrastructures to mitigate vendor lock-in and CLOUD Act risks.
 
@@ -61,7 +64,6 @@ Currently, I am focused on designing cloud-independent infrastructures to mitiga
 
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=yusufarbc&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0f172a&title_color=38bdf8&icon_color=38bdf8&text_color=94a3b8" height="160" alt="stats graph" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yusufarbc&layout=compact&theme=tokyonight&hide_border=true&bg_color=0f172a&title_color=38bdf8&icon_color=38bdf8&text_color=94a3b8" height="160" alt="languages graph" />
 </div>
 
 ## 🏆 Certifications
