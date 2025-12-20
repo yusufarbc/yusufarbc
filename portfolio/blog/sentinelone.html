@@ -294,6 +294,79 @@
                     Storyline ID. You don't lose the user's legit work—you just lose the encryption.
                 </p>
 
+                <h2>5. Beyond Endpoint: The XDR Scope</h2>
+                <p>
+                    Endpoint is just the entry point. A modern attack moves laterally to the cloud and exploits
+                    identity. SentinelOne unifies this data into the <strong>Singularity Data Lake</strong>.
+                </p>
+
+                <h3>Cloud Security (CNAPP)</h3>
+                <p>
+                    This isn't just checking AWS Config rules. SentinelOne uses <strong>eBPF</strong> (Extended Berkeley
+                    Packet Filter) on Linux workloads.
+                </p>
+                <ul class="list-disc pl-6 text-slate-400 mb-4">
+                    <li><strong>Runtime Protection (CWPP):</strong> eBPF allows the agent to monitor kernel-level system
+                        calls without loading heavy kernel modules that risk stability (kernel panics). It's safer,
+                        faster, and immutable.</li>
+                    <li><strong>Agentless Scanning (CSPM):</strong> With the PingSafe acquisition, S1 scans your cloud
+                        posture API-side, finding misconfigurations before an agent is even deployed.</li>
+                </ul>
+
+                <h3>Identity Security (ITDR)</h3>
+                <p>
+                    Attackers love Active Directory. They hunt for privileged accounts to move laterally. SentinelOne's
+                    ITDR module places <strong>Deception</strong> lures—fake credentials and honey-tokens—on endpoints.
+                </p>
+                <div class="glass-card p-4 rounded-lg my-4 not-prose">
+                    <p class="text-sm text-slate-300">
+                        When an attacker dumps `lsass.exe` and tries to use a fake admin credential, the trap triggers.
+                        It's high-fidelity. No user accidentally tries to log in with a hidden honeypot account.
+                    </p>
+                </div>
+
+                <h2>6. Validating the Tech: MITRE ATT&CK</h2>
+                <p>
+                    Marketing claims are cheap. MITRE evaluations are the truth serum. In the 2024 evaluations,
+                    SentinelOne achieved <strong>100% Protection</strong> and <strong>100% Detection</strong>.
+                </p>
+                <div class="my-8">
+                    <img src="media/sentinelone_gartner.webp" class="rounded-xl border border-slate-800 shadow-2xl"
+                        alt="MITRE Evaluation Results">
+                    <p class="text-sm text-center text-slate-500 mt-2 italic">Figure 3: Consistently leading in EDR
+                        efficacy.</p>
+                </div>
+                <p>
+                    But the most important metric? <strong>Signal-to-Noise Ratio</strong>. SentinelOne produced ~88%
+                    fewer alerts than competitors because of Storyline correlation. Instead of 100 "file modification"
+                    alerts, you get 1 "Ransomware Attack" story.
+                </p>
+
+                <h2>7. The Autonomous SOC: Purple AI</h2>
+                <p>
+                    The future isn't learning complex query languages like SPL or KQL. It's natural language.
+                    <strong>Purple AI</strong> sits on top of the Data Lake.
+                </p>
+                <div class="glass-card p-6 rounded-xl my-6 not-prose border-l-4 border-purple-500">
+                    <div class="font-mono text-sm space-y-4">
+                        <div class="flex gap-4">
+                            <span class="text-purple-400 font-bold">Analyst:</span>
+                            <span class="text-slate-300">"Show me all endpoints that executed PowerShell scripts
+                                connecting to external IPs in Russia during the last 24 hours."</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-blue-400 font-bold">Purple AI:</span>
+                            <span class="text-slate-400">translating to DQL... executing query...</span>
+                        </div>
+                        <div class="p-3 bg-slate-900/50 rounded text-green-400">
+                            Found 3 hits. Storyline IDs correlating to APT29 behavior.
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    This democratizes threat hunting. A Tier-1 analyst can now perform Tier-3 investigations.
+                </p>
+
                 <div class="mt-12 p-8 bg-slate-800/50 rounded-xl border-l-4 border-l-blue-500">
                     <h3 class="text-xl font-bold text-white mb-4">Engineer's Verdict</h3>
                     <p class="text-slate-400 mb-0">

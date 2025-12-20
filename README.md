@@ -30,14 +30,22 @@
 
 ## 🚀 About Me
 
-Cyber Security Engineer combining offensive foundations and enterprise SOC experience with digital sovereignty and cloud-native security strategies. Focused on replacing traditional dependencies with open-source, secure, and autonomous infrastructures.
+I am a **Cyber Security Engineer** operating on the principle: *"To learn defense, one must master offense."* I bridge low-level system understanding with enterprise-scale defense architectures.
 
-Currently, I am focused on designing cloud-independent infrastructures to mitigate vendor lock-in and CLOUD Act risks.
+### The Architectural Frontier
+Security starts at the hardware level. By mastering **Assembly and C**, I use granular system knowledge to design **Security Observability** strategies that turn hardware limits into defensive advantages.
 
-*   🔭 **Current Role:** Cyber Security Engineer @ **Arma Bilisim**
-*   🎓 **Academic Focus:** MSc in "Data Sovereignty & Open Source Enterprise Architectures"
-*   📍 **Location:** Relocating to **Tallinn, Estonia** (Q1 2026)
-*   🛡️ **Mission:** Empowering organizations with sovereign, resilient, and open-source defense mechanisms.
+### From Offensive Roots to Enterprise Defense
+Starting in Red Team operations, I scaled this adversarial mindset into defensive engineering:
+*   **Incident Response:** Neutralizing complex threats in financial sectors.
+*   **Threat Hunting:** Converting intelligence into proactive defense.
+*   **Hardening:** Optimizing resilience and system integrity.
+
+### Engineering Digital Sovereignty
+My focus is **The Ubuntu Sovereign Stack**—architecting an open-source enterprise alternative for total data autonomy, integrating:
+*   **Automated Orchestration:** Self-healing environments.
+*   **Unified IAM:** Secure, open-source directory services.
+*   **Full-Stack Observability:** Deep visibility via SIEM.
 
 ## 🛠️ Technical Arsenal
 
@@ -55,6 +63,8 @@ Currently, I am focused on designing cloud-independent infrastructures to mitiga
 
 | Project | Description | Tech Stack |
 |---|---|---|
+| [**Ubuntu Sovereign Stack**](https://github.com/yusufarbc/ubuntu-sovereign-stack) | Open-source infrastructure stack for digital sovereignty. | Ubuntu, Self-Hosted |
+| [**Elastic Stack Builder**](https://github.com/yusufarbc/elk-ubuntu-jammy-build) | Automated Elastic Stack deployment on Ubuntu Jammy (22.04). | ELK, Ubuntu, SIEM |
 | [**NPM Supply Chain Analysis**](https://github.com/yusufarbc/npm-supply-chain-network-analysis) | Analysis of NPM dependency risks using centrality metrics. | Python, NetworkX |
 | [**ApiGoat**](https://github.com/yusufarbc/apigoat) | Deliberately vulnerable REST API for OWASP Top 10 training. | Go, API Security |
 | [**MCP Agentic Review**](https://github.com/yusufarbc/mcp-agentic-security-review) | Security analysis of the Model Context Protocol ecosystem. | AI Security, Research |

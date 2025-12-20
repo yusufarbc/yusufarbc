@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silicon Logic: From Metal to Mastermind | Yusuf Talha ARABACI</title>
+    <meta name="description"
+        content="A comprehensive deep dive into x86 Architecture, Assembly, C Programming, and Operating Systems concepts.">
+    <meta name="author" content="Yusuf Talha ARABACI">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://yusufarbc.dev/portfolio/blog/silicon-logic.html">
+    <meta property="og:title" content="Silicon Logic: From Metal to Mastermind">
+    <meta property="og:description"
+        content="From registers to race conditions: An integrated guide to how computers actually work.">
+    <meta property="og:image" content="https://yusufarbc.dev/assets/images/photo.jpeg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yusufarbc.dev/portfolio/blog/silicon-logic.html">
+    <meta property="twitter:title" content="Silicon Logic: From Metal to Mastermind">
+    <meta property="twitter:description"
+        content="From registers to race conditions: An integrated guide to how computers actually work.">
+    <meta property="twitter:image" content="https://yusufarbc.dev/assets/images/photo.jpeg">
+
+    <!-- JSON-LD SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Silicon Logic: From Metal to Mastermind",
+      "image": "https://yusufarbc.dev/assets/images/photo.jpeg",
+      "author": {
+        "@type": "Person",
+        "name": "Yusuf Talha ARABACI",
+        "url": "https://yusufarbc.dev/"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Yusuf Talha ARABACI",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://yusufarbc.dev/assets/images/photo.jpeg"
+        }
+      },
+      "datePublished": "2025-12-20",
+      "description": "An integrated exploration of computer architecture, low-level programming, and system orchestration."
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- PrismJS for Syntax Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <!-- Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#151e2e',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                            100: '#0ea5e9',
+                        },
+                    },
+                    typography: (theme) => ({
+                        DEFAULT: {
+                            css: {
+                                color: theme('colors.slate.300'),
+                                h1: { color: theme('colors.white') },
+                                h2: { color: theme('colors.white'), marginTop: '2em' },
+                                h3: { color: theme('colors.white'), marginTop: '1.5em' },
+                                strong: { color: theme('colors.white') },
+                                a: { color: theme('colors.brand.400') },
+                                code: { color: theme('colors.brand.300') },
+                                blockquote: {
+                                    color: theme('colors.slate.400'),
+                                    borderLeftColor: theme('colors.brand.500'),
+                                    fontStyle: 'italic'
+                                },
+                            },
+                        },
+                    }),
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body class="bg-slate-950 text-slate-300 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full top-0 z-50 glass transition-all duration-300">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="../index.html"
+                    class="flex items-center gap-2 group text-slate-100 hover:text-brand-400 transition-colors">
+                    <i class="fas fa-arrow-left"></i>
+                    <span class="font-mono font-bold">Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6">
+        <article class="max-w-3xl mx-auto">
+            <!-- Header -->
+            <header class="mb-12 text-center">
+                <div class="flex justify-center gap-2 mb-6">
+                    <span
+                        class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-mono border border-blue-500/20">Computer
+                        Architecture</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-mono border border-brand-500/20">OS
+                        Internals</span>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">Silicon Logic: From Metal to
+                    Mastermind</h1>
+                <div class="flex items-center justify-center gap-6 text-slate-400 text-sm font-mono">
+                    <span><i class="far fa-calendar mr-2"></i> Dec 20, 2025</span>
+                    <span><i class="far fa-clock mr-2"></i> 25 min read</span>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <img src="media/silicon-logic.webp"
+                class="w-full h-auto rounded-2xl mb-12 border border-slate-800 shadow-2xl shadow-blue-900/20"
+                alt="Silicon Logic Cover">
+
+            <!-- Content -->
+            <div class="prose prose-invert prose-lg max-w-none hover:prose-a:text-brand-400">
+                <p class="lead text-xl text-slate-200">
+                    To build true defense, one must understand the rules of the machine. The cloud is just a metaphor;
+                    underneath the abstraction layers, it is still electricity flowing through silicon gates, governed
+                    by the rigid logic of the CPU and the orchestrating will of the Operating System.
+                </p>
+
+                <div class="glass-card p-6 rounded-xl border-l-4 border-brand-500 my-8 not-prose">
+                    <h3 class="text-white font-bold mb-2">The Integrated View</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Security flaws often hide in the gaps between these layers. A buffer overflow in C abuses memory
+                        management; a rootkit manipulates OS structures; a side-channel attack exploits CPU branch
+                        prediction. Mastering these fundamentals is not just academic—it's the bedrock of effective
+                        cybersecurity.
+                    </p>
+                </div>
+
+                <h2>1. The Silicon Heart: x86 Architecture</h2>
+                <p>
+                    At the core of over 90% of desktop and server computing lies the <strong>x86</strong> architecture.
+                    It is a complex beast, evolved over decades, but its fundamental structure remains deterministic.
+                </p>
+
+                <h3>Anatomy of a Processor</h3>
+                <p>
+                    Modern x86 processors split their work into two logical powerhouses to maximize efficiency:
+                </p>
+
+                <div class="my-8">
+                    <img src="media/x86_arch.webp" class="w-full rounded-xl border border-slate-800 shadow-2xl"
+                        alt="x86 Internal Architecture">
+                    <p class="text-sm text-center text-slate-500 mt-2 italic">Figure 1: The dual-engine design of the
+                        x86: BIU fetching data, EU crushing numbers.</p>
+                </div>
+
+                <ul class="space-y-4 list-none pl-0">
+                    <li class="glass-card p-4 rounded-lg">
+                        <strong class="text-brand-400 block mb-1">Bus Interface Unit (BIU) & The Pipeline</strong>
+                        The logistics manager. It fetches instructions from memory, calculates addresses, and manages
+                        the <strong>Instruction Queue</strong>. The BIU implements <strong>Pipelining</strong>—fetching
+                        the next instruction while the previous one is still being executed.
+                        <br><br>
+                        <em class="text-slate-400 text-sm">However, pipelines face <strong>Hazards</strong>:</em>
+                        <ul class="list-disc pl-4 mt-2 text-sm text-slate-400">
+                            <li><strong>Data Hazards:</strong> Waiting for previous instruction's result.</li>
+                            <li><strong>Control Hazards:</strong> Jumps/Branches change the execution flow.</li>
+                        </ul>
+                        <span class="text-slate-400 text-sm mt-2 block">To mitigate this, modern CPUs use <strong>Branch
+                                Prediction</strong>—guessing which way a loop will go before it happens.</span>
+                    </li>
+                    <li class="glass-card p-4 rounded-lg">
+                        <strong class="text-brand-400 block mb-1">Execution Unit (EU)</strong>
+                        The worker. It decodes the raw manufacturing instructions and executes them. It contains the
+                        <strong>ALU</strong> (Arithmetic Logic Unit) which performs the actual math, and the Control
+                        Unit which directs traffic based on those instructions.
+                    </li>
+                </ul>
+
+                <h3>Registers: The CPU's Workbench</h3>
+                <p>
+                    The CPU doesn't like reaching out to RAM—it's too slow. Instead, it uses strictly defined internal
+                    memory slots called <strong>Registers</strong>.
+                </p>
+
+                <div class="my-8">
+                    <img src="media/x86_regs.webp" class="w-full rounded-xl border border-slate-800 shadow-2xl"
+                        alt="x86 Registers">
+                    <p class="text-sm text-center text-slate-500 mt-2 italic">Figure 2: The General Purpose Registers
+                        (AX, BX, CX, DX) are the primary workspace.</p>
+                </div>
+
+                <h4>Segment Registers: Mapping the Map</h4>
+                <p>
+                    To manage large amounts of memory, x86 uses <strong>Segmentation</strong>. Memory is divided into
+                    logical chunks (segments). Segment registers hold the starting addresses of these chunks:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose mb-6">
+                    <div class="glass-card p-4 rounded-lg">
+                        <ul class="text-sm text-slate-400 space-y-2">
+                            <li><strong class="text-white">CS (Code Segment):</strong> Where the executable instructions
+                                live.</li>
+                            <li><strong class="text-white">DS (Data Segment):</strong> Where your variables generally
+                                live.</li>
+                            <li><strong class="text-white">SS (Stack Segment):</strong> The LIFO structure for function
+                                calls and local variables.</li>
+                        </ul>
+                    </div>
+                    <div class="glass-card p-4 rounded-lg">
+                        <ul class="text-sm text-slate-400 space-y-2">
+                            <li><strong class="text-white">ES, FS, GS:</strong> Extra segments for additional data
+                                storage. (FS/GS are often used by the OS for thread-specific data structures like the
+                                TIB).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4>The Flag Register: The CPU's Mood Ring</h4>
+                <p>
+                    How do we know if a calculation resulted in zero? Or if it was negative? The <strong>FLAGS</strong>
+                    register keeps track of the state of the processor.
+                </p>
+                <ul class="list-disc pl-6 text-slate-400 space-y-1 mb-6">
+                    <li><strong>ZF (Zero Flag):</strong> Set if the result is zero. Crucial for loops and comparisons.
+                    </li>
+                    <li><strong>CF (Carry Flag):</strong> Set if an arithmetic operation generates a carry (unsigned
+                        overflow).</li>
+                    <li><strong>SF (Sign Flag):</strong> Set if the result is negative.</li>
+                    <li><strong>OF (Overflow Flag):</strong> Set if a signed arithmetic overflow occurs.</li>
+                    <li><strong>IF (Interrupt Flag):</strong> Controls whether the CPU responds to external interrupts
+                        (like keyboards).</li>
+                </ul>
+
+                <h2>2. Speaking the Language: Assembly</h2>
+                <p>
+                    Machine code is a stream of 1s and 0s. <strong>Assembly</strong> is the mnemonic representation of
+                    this chaos. It is a 1:1 mapping to hardware instructions.
+                </p>
+
+                <h3>Instruction Set Architecture (ISA) & Directives</h3>
+                <p>
+                    Assembly isn't just commands; it's also about directing the assembler itself.
+                </p>
+                <div class="grid grid-cols-2 gap-4 not-prose mb-6">
+                    <div class="glass-card p-3 rounded-lg">
+                        <code class="text-brand-300 font-bold">db / dw</code>
+                        <p class="text-xs text-slate-400">Define Byte / Define Word. Allocates raw storage.</p>
+                    </div>
+                    <div class="glass-card p-3 rounded-lg">
+                        <code class="text-brand-300 font-bold">ORG</code>
+                        <p class="text-xs text-slate-400">Origin. Sets the starting address for code generation.</p>
+                    </div>
+                </div>
+
+                <h3>The Palette of Logic</h3>
+                <p>
+                    Beyond simple math (`ADD`, `SUB`, `MUL`, `DIV`), Assembly gives us bitwise control:
+                </p>
+                <div class="overflow-x-auto my-6 border border-slate-800 rounded-lg">
+                    <table class="w-full text-sm text-left text-slate-400">
+                        <thead class="text-xs text-slate-200 uppercase bg-slate-800/50">
+                            <tr>
+                                <th class="px-6 py-3">Instruction</th>
+                                <th class="px-6 py-3">Function</th>
+                                <th class="px-6 py-3">Use Case</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800">
+                            <tr>
+                                <td class="px-6 py-3 font-mono text-brand-300">AND / OR / XOR</td>
+                                <td class="px-6 py-3">Logical Operations</td>
+                                <td class="px-6 py-3">Masking bits, clearing registers (XOR AX, AX), setting flags.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 font-mono text-brand-300">SHL / SHR</td>
+                                <td class="px-6 py-3">Shift Left/Right</td>
+                                <td class="px-6 py-3">Fast multiplication/division by 2.</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-3 font-mono text-brand-300">CMP</td>
+                                <td class="px-6 py-3">Compare</td>
+                                <td class="px-6 py-3">Subtracts operand2 from operand1 solely to set flags for the next
+                                    JUMP.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>The Stack: LIFO Storage</h3>
+                <p>
+                    The <strong>Stack</strong> is a temporary scratchpad.
+                </p>
+                <div class="glass-card p-4 rounded-lg mb-6 not-prose">
+                    <ul class="text-sm space-y-2 font-mono text-slate-300">
+                        <li><span class="text-brand-400">PUSH AX</span> -> Decrements SP, saves AX to [SP].</li>
+                        <li><span class="text-brand-400">POP AX</span> -> Loads AX from [SP], increments SP.</li>
+                    </ul>
+                    <p class="text-xs text-slate-500 mt-2 italic">Crucial for saving state before function calls
+                        (CALL/RET).</p>
+                </div>
+
+                <h3>Addressing Modes: Fetching the Data</h3>
+                <p>
+                    Assembly instructions need operands. <strong>Addressing Modes</strong> define how the CPU calculates
+                    the memory address of an operand. This is where high-level variables strictly translate to hardware
+                    reality.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose mb-6">
+                    <div class="glass-card p-4 rounded-lg">
+                        <strong class="text-brand-400 block mb-2">Immediate Addressing</strong>
+                        <pre><code class="language-asm">MOV AX, 5</code></pre>
+                        <p class="text-xs text-slate-400 mt-2">The data (5) is encoded directly into the instruction.
+                            Fast, but hardcoded.</p>
+                    </div>
+                    <div class="glass-card p-4 rounded-lg">
+                        <strong class="text-brand-400 block mb-2">Register Addressing</strong>
+                        <pre><code class="language-asm">MOV AX, BX</code></pre>
+                        <p class="text-xs text-slate-400 mt-2">Moves data between CPU registers. The fastest possible
+                            transfer.</p>
+                    </div>
+                    <div class="glass-card p-4 rounded-lg">
+                        <strong class="text-brand-400 block mb-2">Direct Addressing</strong>
+                        <pre><code class="language-asm">MOV AX, [1234]</code></pre>
+                        <p class="text-xs text-slate-400 mt-2">Goes to memory address 1234 to fetch the data. Slower due
+                            to memory access.</p>
+                    </div>
+                    <div class="glass-card p-4 rounded-lg">
+                        <strong class="text-brand-400 block mb-2">Register Indirect</strong>
+                        <pre><code class="language-asm">MOV AX, [BX]</code></pre>
+                        <p class="text-xs text-slate-400 mt-2">Uses the address stored in BX to find the data. This is
+                            how <strong>pointers</strong> work!</p>
+                    </div>
+                </div>
+
+                <h3>Flow Control: Jumps and Loops</h3>
+                <p>
+                    The CPU reads linearly unless told otherwise.
+                </p>
+                <div class="not-prose my-6">
+                    <pre><code class="language-asm">MOV CX, 5       ; Set loop counter to 5
+START_LOOP:
+    DEC CX      ; Decrement counter
+    CMP CX, 0   ; Check if zero
+    JNZ START_LOOP ; Jump if Not Zero back to start</code></pre>
+                </div>
+                <p>
+                    This mechanic—Compare (`CMP`) followed by a Conditional Jump (`JNZ`, `JE`, `JG`)—is the physical
+                    realization of `if`, `for`, and `while` loops in high-level languages.
+                </p>
+
+                <h2>3. The Unifying Bridge: C Programming</h2>
+                <p>
+                    If Assembly is the native tongue, <strong>C</strong> is the universal translator. Created by
+                    <strong>Dennis Ritchie</strong> in 1972, it was the successor to the <strong>B</strong> language
+                    (which came from <strong>BCPL</strong>). Its purpose? To rewrite <strong>Unix</strong>.
+                </p>
+
+                <h3>From Code to Binary: The Compilation Process</h3>
+                <p>
+                    C doesn't run directly. It undergoes a metamorphosis:
+                </p>
+                <ol class="list-decimal pl-6 text-slate-400 space-y-2">
+                    <li><strong>Preprocessing:</strong> Handles `#include` and macros, expanding the code.</li>
+                    <li><strong>Compilation:</strong> Translates C code into Assembly code.</li>
+                    <li><strong>Assembly:</strong> Translates Assembly into machine code object files (`.o` or `.obj`).
+                    </li>
+                    <li><strong>Linking:</strong> Combines object files and libraries into a final executable (`.exe` or
+                        `a.out`).</li>
+                </ol>
+
+                <h3>Memory Layout: Stack vs Heap</h3>
+                <p>
+                    When a C program runs, it doesn't just "have memory". It has a strict layout:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose mb-6">
+                    <div class="glass-card p-4 rounded-lg border-l-2 border-brand-500">
+                        <strong class="text-white block mb-1">The Stack</strong>
+                        <p class="text-xs text-slate-400">Automatic storage. Fast. Grows downwards. Used for local
+                            variables (`int x;`). Cleared when function exits.</p>
+                    </div>
+                    <div class="glass-card p-4 rounded-lg border-l-2 border-purple-500">
+                        <strong class="text-white block mb-1">The Heap</strong>
+                        <p class="text-xs text-slate-400">Dynamic storage. Manual. Grows upwards. Used for `malloc()`.
+                            Persists until `free()`.</p>
+                    </div>
+                </div>
+
+                <h3>Pointers: Power and Peril</h3>
+                <p>
+                    C is often called "portable assembly" because it exposes memory addresses directly via
+                    <strong>Pointers</strong>.
+                    An integer variable `int a` lives at a specific address. A pointer `int *p = &a` stores that
+                    address.
+                </p>
+                <div class="glass-card p-4 rounded-lg border-l-4 border-yellow-500 my-6 not-prose">
+                    <h4 class="text-yellow-400 font-bold text-sm mb-2">Why C is Dangerous</h4>
+                    <p class="text-slate-400 text-sm">
+                        C does not check boundaries. If you have an array of 5 items and try to write to the 6th, C will
+                        happily
+                        overwrite whatever data is next in memory—potentially the return address of a function. This is
+                        the mechanism
+                        behind the infamous <strong>Buffer Overflow</strong> exploit.
+                    </p>
+                </div>
+
+                <h2>4. The Grand Orchestrator: Operating Systems</h2>
+                <p>
+                    A CPU without an Operating System is like a powerful engine sitting on a garage floor. It runs, but
+                    it goes nowhere. The <strong>Operating System (OS)</strong> converts this raw power into a usable
+                    environment via <strong>Resource Abstraction</strong>.
+                </p>
+
+                <h3>History of Control</h3>
+                <p>
+                    From the manual <strong>Batch Processing</strong> of the 50s, to the revolutionary
+                    <strong>Time-Sharing</strong> Unix systems of the 70s, to the GUI-driven Windows and Linux
+                    distributions of today, the goal has remained: hiding hardware complexity.
+                </p>
+
+                <h3>The Process: Life of a Program</h3>
+                <p>
+                    A program on disk is passive. Loaded into memory, it becomes a <strong>Process</strong>.
+                </p>
+                <div class="my-8">
+                    <img src="media/process_state.webp" class="w-full rounded-xl border border-slate-800 shadow-2xl"
+                        alt="Process State Diagram">
+                    <p class="text-sm text-center text-slate-500 mt-2 italic">Figure 3: The lifecycle of a process. A
+                        process moves from New -> Ready -> Running. It can be interrupted (back to Ready) or wait for
+                        I/O (Waiting).</p>
+                </div>
+
+                <h4>The PCB (Process Control Block)</h4>
+                <p>
+                    To manage this, the OS creates a data structure called the PCB for every process, storing:
+                </p>
+                <ul class="list-disc pl-6 text-slate-400 mb-6">
+                    <li>**Process State:** (Running, Waiting, etc.)</li>
+                    <li>**Program Counter:** Address of the next instruction.</li>
+                    <li>**CPU Registers:** Saved state when context switching.</li>
+                    <li>**Memory Limits:** Access rights to prevent crashes.</li>
+                </ul>
+
+                <h4>Context Switching: The Cost of Multitasking</h4>
+                <p class="text-sm text-slate-400 mb-4">
+                    Switching from Process A to Process B is expensive. The OS must save A's registers to its PCB,
+                    load B's registers, and often <strong>flush the TLB</strong> (Translation Lookaside Buffer), which
+                    temporarily kills memory access performance.
+                </p>
+
+                <h4>Threading Models</h4>
+                <div class="space-y-2 text-sm text-slate-400 mb-6">
+                    <p><strong class="text-white">1:1 (Kernel-Level):</strong> True parallelism. OS manages every
+                        thread. Heavy.</p>
+                    <p><strong class="text-white">N:1 (User-Level):</strong> Fast switching, but one blocked thread
+                        blocks all.</p>
+                </div>
+
+                <h3>Synchronization: Order from Chaos</h3>
+                <p>
+                    When multiple processes (or <strong>Threads</strong>) access shared memory, we get <strong>Race
+                        Conditions</strong>. To prevent data corruption, we use synchronization primitives:
+                </p>
+                <ul class="list-disc pl-6 text-slate-400 space-y-2">
+                    <li><strong>Mutex (Mutual Exclusion):</strong> A lock. Only one thread can hold the key.</li>
+                    <li><strong>Semaphore:</strong> A counter. Allows a set number of threads to access a resource.</li>
+                    <li><strong>Monitor:</strong> A high-level abstraction (used in Java/C#) that handles locking
+                        automatically.</li>
+                </ul>
+
+                <h4>The Nightmare: Deadlock</h4>
+                <p>
+                    Synchronization can lead to <strong>Deadlock</strong>, where processes wait on each other forever.
+                    It happens if and only if four conditions are met (The Coffman Conditions):
+                </p>
+                <div class="glass-card p-4 rounded-lg border-l-4 border-red-500 my-4 not-prose text-slate-400 text-sm">
+                    <ol class="list-decimal pl-4 space-y-1">
+                        <li><strong>Mutual Exclusion:</strong> Resources cannot be shared.</li>
+                        <li><strong>Hold and Wait:</strong> Holding one resource while waiting for another.</li>
+                        <li><strong>No Preemption:</strong> Resources cannot be forcibly taken away.</li>
+                        <li><strong>Circular Wait:</strong> Process A waits for B, B waits for A.</li>
+                    </ol>
+                </div>
+
+                <h3>Memory Management</h3>
+                <p>
+                    The OS pulls a magic trick called <strong>Virtual Memory</strong> used by the MMU (Memory Management
+                    Unit).
+                </p>
+                <div class="my-8">
+                    <img src="media/virtual_memory.webp" class="w-full rounded-xl border border-slate-800 shadow-2xl"
+                        alt="Virtual Memory Mapping">
+                    <p class="text-sm text-center text-slate-500 mt-2 italic">Figure 4: Virtual Memory maps logical
+                        addresses to physical RAM frames.</p>
+                </div>
+                <p>
+                    It uses techniques like <strong>Paging</strong> (fixed-size blocks) or <strong>Segmentation</strong>
+                    (variable-size blocks) to fit programs into RAM. When RAM is full, it moves inactive pages to the
+                    hard disk—a process called <strong>Swapping</strong>.
+                </p>
+
+                <h3>Disk Management & Scheduling</h3>
+                <p>
+                    Disks are slow. The OS optimizes I/O requests using scheduling algorithms:
+                </p>
+                <ul class="list-disc pl-6 text-slate-400 space-y-1">
+                    <li><strong>FCFS (First-Come First-Served):</strong> Fair but slow.</li>
+                    <li><strong>SSTF (Shortest Seek Time First):</strong> Fast, but can starve distant requests.</li>
+                    <li><strong>SCAN (Elevator):</strong> The disk head moves in one direction, servicing all requests,
+                        then reverses.</li>
+                    <li><strong>C-SCAN:</strong> Like SCAN, but only services requests in one direction (like a circular
+                        list), providing more uniform wait times.</li>
+                </ul>
+
+                <div class="my-8">
+                    <img src="media/os_structure.jpg" class="w-full rounded-xl border border-slate-800 shadow-2xl"
+                        alt="Operating System Structure">
+                    <p class="text-sm text-center text-slate-500 mt-2 italic">Figure 5: The OS structure: User Space on
+                        top, Kernel Space managing Hardware below.</p>
+                </div>
+
+
+
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 bg-slate-950">
+        <div class="max-w-4xl mx-auto px-6 text-center text-slate-500 text-sm">
+            <p>&copy; 2025 Yusuf Talha ARABACI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-asm6502.min.js"></script>
+
+</body>
+
+</html>
