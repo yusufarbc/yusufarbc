@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Cryptology Fundamentals: Introduction · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Cryptology Fundamentals:#1 Introduction
+  
+    
+    Link to heading
+  
+
+
+Hello, in this first article of the cryptology basics series, I will talk about what cryptology is, traditional encryption techniques and how to create a strong password.
+
+
+  Cryptology Overview
+  
+    
+    Link to heading
+  
+
+In this type of science, called encryption science, things that are intended to be kept secret are encrypted using different techniques and methods within a system. At the same time, the science of cryptology also works to prevent encrypted messages from being deciphered by unwanted people.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Cryptology Fundamentals: Introduction">
+  <meta name="twitter:description" content="Cryptology Fundamentals:#1 IntroductionLink to headingHello, in this first article of the cryptology basics series, I will talk about what cryptology is, traditional encryption techniques and how to create a strong password.
+Cryptology OverviewLink to headingIn this type of science, called encryption science, things that are intended to be kept secret are encrypted using different techniques and methods within a system. At the same time, the science of cryptology also works to prevent encrypted messages from being deciphered by unwanted people.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2023/03/cryptology-fundamentals-introduction/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Cryptology Fundamentals: Introduction">
+  <meta property="og:description" content="Cryptology Fundamentals:#1 IntroductionLink to headingHello, in this first article of the cryptology basics series, I will talk about what cryptology is, traditional encryption techniques and how to create a strong password.
+Cryptology OverviewLink to headingIn this type of science, called encryption science, things that are intended to be kept secret are encrypted using different techniques and methods within a system. At the same time, the science of cryptology also works to prevent encrypted messages from being deciphered by unwanted people.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-03-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-03-28T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2023/03/cryptology-fundamentals-introduction/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2023/03/kriptoloji-temelleri-giri%C5%9F/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2023/03/cryptology-fundamentals-introduction/">
+              Cryptology Fundamentals: Introduction
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-03-28T00:00:00Z">
+                March 28, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              11-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="cryptology-fundamentals1-introduction">
+  Cryptology Fundamentals:#1 Introduction
+  <a class="heading-link" href="#cryptology-fundamentals1-introduction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_uorh6uYHB7AdEDpEbCO_Tw.png" alt=""></p>
+<p>Hello, in this first article of the cryptology basics series, I will talk about what cryptology is, traditional encryption techniques and how to create a strong password.</p>
+<hr>
+<h3 id="cryptology-overview">
+  Cryptology Overview
+  <a class="heading-link" href="#cryptology-overview">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In this type of science, called encryption science, things that are intended to be kept secret are encrypted using different techniques and methods within a system. At the same time, the science of cryptology also works to prevent encrypted messages from being deciphered by unwanted people.</p>
+<p><img src="/images/1_hjisKMmnXD1yQQXQ3IOFjA.png" alt=""></p>
+<p>Cryptology is the science of passwords. Cryptography deals with information security, Cryptoanalysis is the exact opposite of cryptography, in other words, breaking secure information. Cryptoanalysts generally work based on decryption. Cryptology is a <a href="https://tr.wikipedia.org/wiki/Matematik" title="Mathematics"  class="external-link" target="_blank" rel="noopener">mathematics</a> science and is generally based on number theory.</p>
+<p><strong>Cryptography</strong> is the science of secret writing for the purpose of concealing the meaning of a message.</p>
+<p><strong>Cryptanalysis</strong> is the science of breaking and deciphering crypto systems.</p>
+<hr>
+<h3 id="historical-development">
+  Historical Development
+  <a class="heading-link" href="#historical-development">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The first cryptologist was an Egyptian scribe who lived 4000 years ago. He created hieroglyphs in an encrypted way while telling the story of his master&rsquo;s life, and some of the hieroglyphs had never been used before.</p>
+<p>Although cryptography began this way, it developed almost nothing for the first 3000 years of its life. It was used in the most basic way in different parts of the world, but with the collapse of civilizations, the next steps could not be taken.</p>
+<p>In China, the leading civilization of the period, cryptography could not be developed at all because it was very difficult to even write without encryption.</p>
+<p>Later (5th — 6th century BC), cryptography entered the military field due to the need for secrecy in military intelligence. The first cryptographers in the military field were the Spartans.</p>
+<p>In the 9th century, <a href="https://tr.wikipedia.org/wiki/Kind%C3%AE" title="Kindî"  class="external-link" target="_blank" rel="noopener">Kindî</a> was the first person to discover frequency analysis by developing the single-alphabet substitution encryption method applied in the science of cryptology. Kindi was the first person to discover frequency analysis by developing the single-alphabet substitution encryption method discovered and applied by Julius Caesar (50 BC) in the field of cryptology.</p>
+<hr>
+<h3 id="traditional-encryption-techniques">
+  Traditional Encryption Techniques
+  <a class="heading-link" href="#traditional-encryption-techniques">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Historically, many basic encryption algorithms have been developed and used. Nowadays, with the developing computer technology, it has become very easy to crack these passwords. Now let&rsquo;s talk in detail about these encryption techniques and their weaknesses.</p>
+<h4 id="substitution-password">
+  Substitution Password
+  <a class="heading-link" href="#substitution-password">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>One of the simplest methods for encrypting a text, the substitution cipher has been used many times throughout history and is a good example of basic cryptography.<br>
+The idea is very simple, we replace each letter of the alphabet with another. For example;<br>
+A → k<br>
+B → d<br>
+C → w<br>
+In this example, <em>ABBA</em> will be encrypted as <em>kddk</em>.</p>
+<p>Let&rsquo;s assume that we choose completely randomly the substitution table in which we determine which letter corresponds to which letter. The substitution table becomes the key to this encryption system. As always in symmetric cryptography, the key must be kept secret, that is, distributed securely between A and B. To get detailed information about Symmetric-Asymmetric cryptography, you can look at our previous <a href="https://pwnlab.me/tr-kriptografiye-giris/"  class="external-link" target="_blank" rel="noopener">article</a>.<br>
+ As you can imagine, this password is quite easy to crack. At this point, we can benefit from classical cryptanalysis techniques.</p>
+<h4 id="first-attack-brute-force-or-comprehensive-keysearch">
+  First Attack: Brute Force or Comprehensive Key Search
+  <a class="heading-link" href="#first-attack-brute-force-or-comprehensive-keysearch">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Brute force attacks are based on a simple concept: The attacker has the ciphertext and a short piece of plaintext (e.g. the header of the ciphertext). In this case, it decrypts the ciphertext by trying all possible keys. If the resulting plaintext matches the short piece of plaintext, it has found the correct key. In practice, a brute force attack can be more complex because wrong keys can yield false, positive results.</p>
+<p>It is important to note that a brute force attack against symmetric passwords is always possible in principle. Whether it is applicable in practice depends on the number of possible keys that exist for a given cipher. If it takes too much time to test all the keys, i.e. several decades, the password is safe from a brute force attack.</p>
+<p>Find the key space of the substitution cipher.Let&rsquo;s break it down: When choosing the letter that will replace the first letter A, we choose a random letter from the 26 letters of the alphabet (we chose k in the example above). The equivalent of the next alphabet letter B is chosen randomly from the remaining 25 letters, etc. Therefore, the key space of the substitution cipher = 26 · 25 · ….. · 3 · 2 · 1 = 26! It is possible.</p>
+<p>Even with hundreds of thousands of high-power computers, such a search would take several decades. Therefore, we can consider the substitution password to be secure. However, this is wrong because there is another, stronger attack.</p>
+<h4 id="second-attack-letter-frequencyanalysis">
+  Second Attack: Letter Frequency Analysis
+  <a class="heading-link" href="#second-attack-letter-frequencyanalysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Frequency Analysis was proposed by Al-Kindi in the 9th century. It is based on repetitions in the language.</p>
+<p>For any language, the frequency of use of letters in that language is calculated. The table containing the frequency of use of letters in the English language is given below.</p>
+<p><img src="/images/0_9LADpthWZ361CIFT.png" alt=""></p>
+<p>As can be seen from the table, the most frequently used letter in the English language is the letter &lsquo;E&rsquo;, and the second most frequently used letter is the letter &lsquo;T&rsquo;. If the ciphertext is long, the most visible letter most likely corresponds to E in the plaintext, the second most visible letter most likely corresponds to T, and so on.</p>
+<p>The substitution cipher can be easily cracked by such an analytical attack. The biggest weakness of the password is that every character of the plaintext is replaced with the same character every time.</p>
+<h4 id="caesar-code">
+  Caesar Code
+  <a class="heading-link" href="#caesar-code">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The Caesar cipher, also known as the shift cipher, is actually a special case of the substitution cipher. The shift cipher itself is extremely simple: We shift each letter of the plaintext by a fixed number of positions in the alphabet. For example, if we shift 3 positions, d instead of A, e instead of B, etc. would come. The only problem arises towards the end of the alphabet: what should we do with X, Y, Z? In this case, we go back to the beginning. In this case, X-&gt;a is replaced by Y-&gt;b and Z-&gt;c.<br>
+ Historically, Julius Caesar used this cipher with a three-position shift. This is where the name Caesar cipher comes from.<br>
+ For the mathematical expression of the cipher, the letters of the alphabet are numerically encoded as shown in the table below.</p>
+<p><img src="/images/0_0ATssVLmJQigP6cg.png" alt=""></p>
+<p>Let the key be k = 17 and the plaintext is:</p>
+<p>Let ATTACK = x1,x2,…,x6 = 0,19,19,0,2,10.s</p>
+<p>Ciphertext is calculated as follows:</p>
+<p>y1,y2,…,y6 = 17,10,10,17,19,1 = rkkrtb</p>
+<p>Like the substitution password, the shift password is not secure at all. Likewise, we have two ways to crack this password:<br>
+ 1. Since the key space consists of 26 keys, we can crack the password of a given ciphertext by brute force by trying to decrypt it with all 26 possible keys. If the resulting plaintext is readable, we have found the key.<br>
+ 2. Frequency analysis can be used as in the substitution cipher.</p>
+<h4 id="vigenere-cipher">
+  Vigenere Cipher
+  <a class="heading-link" href="#vigenere-cipher">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Vigenere encryption, a simple form of multi-alphabet encryption, is an improvement of the Caesar encryption algorithm based on single-alphabet shift and substitution encryption methods. While Caesar cipher uses only one alphabet for shift and substitution operations, Vigenere cipher uses more than one alphabet. Thus, different letters emerge as a result of encrypting the same letters in the message to be encrypted.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*QLwvLTeM5X8wzRbJ" alt=""></p>
+<p>In the encryption method, first the key to be used during the encryption process is selected. The first letter of the message to be encrypted is shifted in proportion to the order of the first letter of the key value in the alphabet and the encrypted letter is obtained. According to the order of each letter in the key value, each letter in the message to be encrypted is encrypted with a different alphabet and the encryption process is completed.</p>
+<h4 id="playfair-password">
+  Playfair Password
+  <a class="heading-link" href="#playfair-password">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Proposed by Charles Wheatstone in 1854, Lord Playfair encouraged its use. It is aimed to create a stronger encryption by using more than one letter change.</p>
+<p>A 5×5 table containing the key and the rest of the alphabet is used in encryption. Knowing the key and 4 simple rules is enough to use the system.</p>
+<p><strong>Rules:</strong></p>
+<p>1- If two letters are the same or there is only one letter left, an &ldquo;X&rdquo; letter is added after the first letter.</p>
+<p>2- If two letters are on the same line, each letter is replaced with the letter to its right. (if a letter is at the end of a line, it is replaced with the letter at the beginning of the line)</p>
+<p>3-If two letters are in the same column, each letter is replaced with the letter below it (if a letter is at the end of the column, it is replaced with the letter at the beginning of the column).</p>
+<p>4-If they are not in the same column or row as the letter, the letters are considered as two corners of a rectangle and the letters are placed in the letter in the opposite corner.is replaced with . Let&rsquo;s explain with an example.</p>
+<p><strong>our message: cryptology</strong><br>
+<strong>our password: keyword</strong></p>
+<p>In this case, the table will be as shown in the figure. The key is written first. The same letters are used once. The rest of the 5×5 grid is filled with the remaining letters. To reduce the number to 25 letters, the letter I and J are placed in the same box.</p>
+<p><img src="/images/0_Vo-d0ErN-moY0kLR.jpg" alt=""></p>
+<blockquote>
+<p><em>plaintext: for kr ip to lo ji</em></p>
+</blockquote>
+<blockquote>
+<p><em>ciphertext: becomes rf hq kz sc jx</em></p>
+</blockquote>
+<p>Binary letter exchange systems such as Plafair are not robust to two-letter frequency analysis. It is possible to crack short length letter changes with computers.</p>
+<p>To crack the code, the frequency of occurrence of binary letter groups in the language is calculated and the message is then tried to be deciphered. This process may seem intimidating at first, but it is not difficult at all for a computer. A powerful computer system is capable of performing frequency analysis up to 8-letter</p>
+<h4 id="affine-password">
+  Affine Password
+  <a class="heading-link" href="#affine-password">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Affine encryption is a variant of mono-alphabetic substitution encryption methods. In the method, first a numerical value is assigned to each letter of the alphabet to be used, and these values ​​are kept in a table. This table must be present on both sides who want to communicate mutually.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*Z-cr2RD4JROMRDIQ" alt=""></p>
+<p>For each character of the clear message to be encrypted, the number value corresponding to the character is sent as input to a simple mathematical function. This number value produced as output from the function, whatever character it represents in the table, forms the structure of the encrypted message.</p>
+<h4 id="vernam-cipher">
+  Vernam Cipher
+  <a class="heading-link" href="#vernam-cipher">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Although this method, which we can also call unbreakable encryption, is very reliable, it is quite difficult to implement in practice. In this method, a long string of random characters/bits is generated to be used one time. The plain text is XORed with a one-time pad to obtain the cipher text. XORing the ciphertext with the one-time pad returns the plaintext.</p>
+<p><img src="/images/0_6s6SoNCSSj-Sqs27.png" alt=""></p>
+<p>As its name suggests, also known as one-time pad, it should be disposable and completely randomly produced. .Reusing the same key causes weakness in encryption and allows it to be broken.</p>
+<p>This encryption technique provides perfect confidentiality because the ciphertext does not contain any information about the plaintext. Frequency analysis cannot be used in this technique. It is also possible to use a version that works on letters or characters instead of bits.</p>
+<p>In addition, the fact that the key is very long (the same length as the message) and difficult to distribute makes it difficult to use this cipher in practice.</p>
+<hr>
+<h3 id="strong-password">
+  Strong Password
+  <a class="heading-link" href="#strong-password">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The characteristics of a strong password are that it is both long and diverse. A simple password combination like “1234” can be easily guessed. Even if it is unpredictable, an internet hacker who attacks with the help of a program can easily obtain your password after a few hours of scanning (sometimes shorter). The diversity in our password, the length of our password and the inclusion of different characters in our password make it difficult and sometimes impossible to crack our password with methods such as brute force.</p>
+<p>You can create a strong password yourself or get help from a tool: <a href="https://passwordsgenerator.net/"  class="external-link" target="_blank" rel="noopener">https://passwordsgenerator.net/</a></p>
+<h4 id="for-a-strong-password">
+  For a strong password:
+  <a class="heading-link" href="#for-a-strong-password">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li>Aim for maximum length</li>
+<li>Do not create your password with only numbers or letters</li>
+<li>Include extra characters in your password</li>
+</ol>
+<h4 id="strong-password-examples">
+  Strong password examples
+  <a class="heading-link" href="#strong-password-examples">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>Tu\9a;gMD
+*hb!(Bz8XE
+*5}JBqseLL</li>
+<li>`zhx!8BBF
+*u$7sSsX3#</li>
+</ul>
+<p>Of course, it can be difficult to remember such passwords. You can use password manager software for this.</p>
+<hr>
+<p>In this article, I explained the subject of cryptology. In my next article, I will talk about cryptography and cryptanalysis. You can find the list of the series on my profile.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

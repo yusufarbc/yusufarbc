@@ -1,4 +1,5 @@
 ---
+series: ["Threat Hunting Walkthroughs"]
 title: "Threat Hunting with SIEM Walkthrough — LetsDefend"
 date: 2025-09-21
 draft: false

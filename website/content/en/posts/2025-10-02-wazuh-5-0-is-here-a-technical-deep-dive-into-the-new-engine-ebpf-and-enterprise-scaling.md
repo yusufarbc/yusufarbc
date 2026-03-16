@@ -1,4 +1,5 @@
 ---
+series: ["Wazuh"]
 title: "Wazuh 5.0 is Here: A Technical Deep Dive into the New Engine, eBPF, and Enterprise Scaling"
 date: 2025-10-02
 draft: false

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  OpenCV ile Görüntü İşlemeye Giriş · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  OpenCV ile Görüntü İşlemeye Giriş
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba, bu yazımızda, OpenCVnin ne olduğundan, bilgisayarlı görüden ve Python ile bu işlemlerin nasıl yapılacağından bahsedeceğiz.
+
+  OpenCV’ye Genel Bakış
+  
+    
+    Başlık Linki
+  
+
+
+  Bilgisayarlı Görü Nedir?
+  
+    
+    Başlık Linki
+  
+
+Bilgisayarlı görü (computer vision), görüntülerin ve videoların bilgisayar ortamında nasıl depolandıklarını ve onlardan nasıl veri alabileceğimizi anlamlandırdığımız bir süreçtir. Bilgisayarlı görünün amacı görüntünün içeriğini bilmektir. Bunun için, yapay zeka ve makine öğrenmesi teknolojilerinden yararlanır.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="OpenCV ile Görüntü İşlemeye Giriş">
+  <meta name="twitter:description" content="OpenCV ile Görüntü İşlemeye GirişBaşlık LinkiMerhaba, bu yazımızda, OpenCVnin ne olduğundan, bilgisayarlı görüden ve Python ile bu işlemlerin nasıl yapılacağından bahsedeceğiz.
+OpenCV’ye Genel BakışBaşlık LinkiBilgisayarlı Görü Nedir?Başlık LinkiBilgisayarlı görü (computer vision), görüntülerin ve videoların bilgisayar ortamında nasıl depolandıklarını ve onlardan nasıl veri alabileceğimizi anlamlandırdığımız bir süreçtir. Bilgisayarlı görünün amacı görüntünün içeriğini bilmektir. Bunun için, yapay zeka ve makine öğrenmesi teknolojilerinden yararlanır.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2022-02-04-opencv-ile-g-r-nt-lemeye-giri/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="OpenCV ile Görüntü İşlemeye Giriş">
+  <meta property="og:description" content="OpenCV ile Görüntü İşlemeye GirişBaşlık LinkiMerhaba, bu yazımızda, OpenCVnin ne olduğundan, bilgisayarlı görüden ve Python ile bu işlemlerin nasıl yapılacağından bahsedeceğiz.
+OpenCV’ye Genel BakışBaşlık LinkiBilgisayarlı Görü Nedir?Başlık LinkiBilgisayarlı görü (computer vision), görüntülerin ve videoların bilgisayar ortamında nasıl depolandıklarını ve onlardan nasıl veri alabileceğimizi anlamlandırdığımız bir süreçtir. Bilgisayarlı görünün amacı görüntünün içeriğini bilmektir. Bunun için, yapay zeka ve makine öğrenmesi teknolojilerinden yararlanır.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-02-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-02-04T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2022-02-04-opencv-ile-g-r-nt-lemeye-giri/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2022-02-04-opencv-ile-g-r-nt-lemeye-giri/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2022-02-04-opencv-ile-g-r-nt-lemeye-giri/">
+              OpenCV ile Görüntü İşlemeye Giriş
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-02-04T00:00:00Z">
+                Şubat 4, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              9 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="opencv-ile-görüntü-işlemeyegiriş">
+  OpenCV ile Görüntü İşlemeye Giriş
+  <a class="heading-link" href="#opencv-ile-g%c3%b6r%c3%bcnt%c3%bc-i%c5%9flemeyegiri%c5%9f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/0_tAmPWiGxMp-BWqSx.png" alt=""></p>
+<p>Merhaba, bu yazımızda, OpenCVnin ne olduğundan, bilgisayarlı görüden ve Python ile bu işlemlerin nasıl yapılacağından bahsedeceğiz.</p>
+<h3 id="opencvye-genelbakış">
+  OpenCV’ye Genel Bakış
+  <a class="heading-link" href="#opencvye-genelbak%c4%b1%c5%9f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="bilgisayarlı-görünedir">
+  Bilgisayarlı Görü Nedir?
+  <a class="heading-link" href="#bilgisayarl%c4%b1-g%c3%b6r%c3%bcnedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bilgisayarlı görü (computer vision), görüntülerin ve videoların bilgisayar ortamında nasıl depolandıklarını ve onlardan nasıl veri alabileceğimizi anlamlandırdığımız bir süreçtir. Bilgisayarlı görünün amacı görüntünün içeriğini bilmektir. Bunun için, yapay zeka ve makine öğrenmesi teknolojilerinden yararlanır.</p>
+<h3 id="opencv-nedir">
+  OpenCV Nedir?
+  <a class="heading-link" href="#opencv-nedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>OpenCV (Open Source Computer Vision Library) açık kaynak bir bilgisayarlı görü kütüphanesidir. Bilgisayarlı görü uygulamaları için çok işlevsel bir platformdur. Genellikle görüntü işleme, yüz tanıma, video yakalama ve nesne tanımada kullanılır.<br>
+ OpenCV; C++, Python, MATLAB ve Java arayüzlerine sahiptir. Windows, Linux, MacOS, iOS ve Android’i destekler. Optimize edilmiş C/C++ ile yazılmıştır. Gerçek zamanlı bilgisayarlı görü uygulamalarına yönelik tasarlanmıştır. 2500&rsquo;den fazla optimize edilmiş algoritmayı bünyesinde barındırır. Ayrıca detaylı bir <a href="https://docs.opencv.org/3.4/index.html"  class="external-link" target="_blank" rel="noopener">dokümantasyon sayfası</a> da vardır.</p>
+<h3 id="opencv-bileşenleri">
+  OpenCV Bileşenleri
+  <a class="heading-link" href="#opencv-bile%c5%9fenleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>OpenCV beş temel bileşenden oluşmaktadır:</p>
+<ol>
+<li><strong>CV(Computer Vision-Bilgisayarla Görme) Bileşeni:</strong> Temel görüntü işleme fonksiyonlarını barındıran kütüphanedir.</li>
+<li><strong>MLL(Machine Learning Library) Bileşeni:</strong> Makine Öğrenmesi için gerekli fonksiyonları içeren bir kütüphanedir.</li>
+<li><strong>HighgGUI Bileşeni:</strong> Kütüphane içerisinde tanımlı nesnelerin oluşturulduğu, resim ve videoların kaydedilip silindiği fonksiyonları içerir.</li>
+<li><strong>CXCore Bileşeni:</strong> Genel veri yapılarını barındıran, görüntü üzerinde çizim yapmayı sağlayan ve XML desteği sağlayan kütüphanedir.</li>
+<li><strong>CvAux Bileşeni:</strong> Ağız hareketleri izleme(mouth-tracking), yüz tanıma(face-recognition), şekil eşleştirme(shape matching) gibi algoritmaları içeren kütüphanedir.</li>
+</ol>
+<h3 id="numpy-nedir">
+  NumPy Nedir?
+  <a class="heading-link" href="#numpy-nedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Numpy, dizilerle çalışmak için kullanılan bir Python kütüphanesidir. Ayrıca doğrusal cebir ve matrisler alanında çalışmak için de gerekli işlevlere sahiptir. NumPy, Numerical Python (Sayısal Python)’un kısaltmasıdır. OpenCV modülüyle birlikte çokça NumPy modülüne kullanırız. Çünkü, görüntü de bir matristir ve görüntüyü NumPy dizileri şeklinde tutmak bize NumPy’nin sunduğu bir çok fonksiyonu kullanabilme olanağı tanır. Numpy ile alakalı daha detaylı bilgi için bu <a href="https://pwnlab.me/tr-veri-analizi-numpy/"  class="external-link" target="_blank" rel="noopener">yazımıza</a> bakabilirsiniz.</p>
+<p>Görüntü işleme, gelişmiş bir görüntü elde etmek veya ondan bazı yararlı bilgiler çıkarmak için bir görüntü üzerinde bazı işlemleri gerçekleştirme yöntemidir. Görüntü işlemenin temel tanımından bahsedecek olursak, “Görüntü işleme, sayısallaştırılmış bir görüntünün, özellikle kalitesini artırmak için analiz edilmesi ve işlenmesidir”.<br>
+ Görüntü işleme temel olarak üç adımda gerçekleşir:</p>
+<ul>
+<li>Görüntüyü içe aktarma</li>
+<li>Görüntüyü analiz etme</li>
+<li>Analiz sonucunu dışa aktarma</li>
+</ul>
+<h3 id="python-ileopencv">
+  Python ile OpenCV
+  <a class="heading-link" href="#python-ileopencv">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="opencv-kurulumu">
+  OpenCV Kurulumu
+  <a class="heading-link" href="#opencv-kurulumu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Python ile OpenCV kütüphanesini kullanmak için öncelikle pip paket yükleme sistemiyle kurulum yapmamız gerekmektedir. PyPI’da modül sayfasına <a href="https://pypi.org/project/opencv-python/"  class="external-link" target="_blank" rel="noopener">buradan</a> erişebiliriz. Kurulumu yapmak için terminale aşağıdaki kodu yazarız.</p>
+<pre tabindex="0"><code>pip install opencv-python
+</code></pre><p>OpenCV’yi python uygulamamızda kullanmak için ilk olarak import etmemiz gerekir. OpenCV ile birlikte sık kullandığımız numpy modülünüde ‘np’ olarak import edebiliriz.</p>
+<pre tabindex="0"><code>import cv2 import numpy as np
+</code></pre><h3 id="resim-okuma">
+  Resim Okuma
+  <a class="heading-link" href="#resim-okuma">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Resimler, bilgisayar belleğinde görüntü matrisleri şeklinde tutulurlar. Bu matrislerin her hücresi bir pixeldir. Bu pixellerin barındırdığı veri türüne göre resimleri farklı renk uzaylarında bellekte tutabiliriz. Bu renk uzaylarına örnek olarak; RBG, HSV ve Gray renk uzaylarını verebilriiz.<br>
+ Opencv-python kütüphanesinde resim okuma işlemi <em>imread()</em> fonksiyonu ile yapılır. Bu fonksiyon parametre olarak, okuyacağı resmin yolunu ve kullanacağı formatı alır. Varsayılan olarak RGB renk uzayında okuma yapar.</p>
+<pre tabindex="0"><code>cv2.imread(path, flag)
+</code></pre><p>Ayrıca, okuduğumuz resmi göstermek için de <em>imshow()</em> fonksiyonu kullanılır. Parametre olarak ise açılacak pencerenin ismini ve resimi tuttuğumuz değişkeni alır.</p>
+<pre tabindex="0"><code>cv2.imshow(window_name, image)
+</code></pre><p>Bu fonksiyonu çağırdıktan sonra pencere açılıp program sonlanacaktır. Programın sonlanmasını engellemek için aşağıdaki fonksiyonaları kullanırız. Bu sayede pencere kapatılmadığı sürece program sonlanmaz ve pencere açık kalır.</p>
+<pre tabindex="0"><code>cv2.waitKey(0) cv2.destroyAllWindows()
+</code></pre><p>Şimdi, python ile bu fonksiyonların nasıl kullanılacağına ve yukarıda bahsettiğimiz renk uzaylarına daha detaylı bakalım.</p>
+<h4 id="bgr-renkuzayı">
+  BGR Renk Uzayı
+  <a class="heading-link" href="#bgr-renkuzay%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>OpenCV’de RGB renk uzayı BGR(Blue-Green-Red) olarak yani, mavi, kırmızı, yeşil renklerinin sıralamasıyla gerçekleştirilir. Bu renklerin karışımıyla diğer renkler elde edilir. Her renk 0–255 aralığında bir sayıdır ve resmin her pixeli bu 3 renk için 0–255 aralığında olan sayılardan oluşan 3 elemanlı bir dizidir. Bu yüzden BGR 3-kanallı renk uzayıdır.<br>
+ OpenCV’de <em>imread()</em> fonksiyonu varsayılan olarak BGR renk uzayında okuma yapar.</p>
+<pre tabindex="0"><code>image = cv2.imread(&#34;picture.png&#34;) cv2.imshow(&#34;BGR&#34;,image)
+</code></pre><h4 id="hsv-renkuzayı">
+  HSV Renk Uzayı
+  <a class="heading-link" href="#hsv-renkuzay%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>HSV (Hue, Saturation, Value) renkleri sırasıyla renk özü, doygunluk ve parlaklık olarak tanımlar. Doygunluk rengin canlılığını belirlerken parlaklık rengin aydınlığını ifade eder. HSV uzayında siyah renk için renk ve doygunluk değerleri 0 ile 255 arasında herhangi bir sayı alabilir iken parlaklık değeri sıfırdır. Beyaz renkte ise ise parlaklık değeri 255&rsquo;dir.</p>
+<p>BGR’da olduğu gibi resmin her pixeli 0–255 arası sayılardan oluşan 3 elemanlı bir dizidir ve HSV’de 3 kanallı bir renk uzayıdır.<br>
+ OpenCV’de resim BGR renk uzayından HSV renk uzayına çevirilebilir. Bunun için <em>cvtColor()</em> fonksiyonunu kullanırız.</p>
+<pre tabindex="0"><code>image = cv2.imread(&#34;picture.png&#34;) image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV) cv2.imshow(&#34;HSV&#34;,image)
+</code></pre><h4 id="gray-renkuzayı">
+  Gray Renk Uzayı
+  <a class="heading-link" href="#gray-renkuzay%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Gray renk uzayı, renkleri gri tonlamalı olarak tanımlayan bir renk uzayıdır. Her renk pixeli 0–255 arası bir sayıdır ve bir siyahtan başlayıp beyaza kadar giden gri tonlamalarını ifade eder. 0 siyahı, 255 ise beyazı tanımlar. Her pixel için tek bir sayı kullanıldığından tek kanallı bir renk uzayıdır.<br>
+ OpenCV’de <em>imread()</em> fonksiyonuna 0 parametresini verdiğimizde Gray renk uzaıynda okuma yapar.</p>
+<pre tabindex="0"><code>image = cv2.imread(&#34;picture.png&#34;,0) cv2.imshow(&#34;Gray&#34;,image)
+</code></pre><h3 id="resim-düzenleme">
+  Resim Düzenleme
+  <a class="heading-link" href="#resim-d%c3%bczenleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>OpenCV ile resim üzerinde düzenleme işlemleri yapabiliriz. Bir resmi kırpabilir, resim üzerine yazılar veya şekiller ekleyebiliriz.</p>
+<h4 id="resim-kırpma">
+  Resim Kırpma
+  <a class="heading-link" href="#resim-k%c4%b1rpma">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Resimler birer matris olduğu için resmi kırpmak istediğimizde bu matrisin bir kısmını alabiliriz. Resim matrisinin enine 200 ile 500 pixelleri boyuna 400 ile 800 pixelleri arasını kırpalım.</p>
+<pre tabindex="0"><code>frame = picture[200:500,400:800]
+</code></pre><h4 id="çizgi-ekleme">
+  Çizgi Ekleme
+  <a class="heading-link" href="#%c3%a7izgi-ekleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Resim üzerine bir çizgi eklemek için line() fonksiyonunu kullanırız. Bu fonksiyon parametre olarak sırasıyla resmin tutulduğu değişkeni, çizginin başlayacağı pixeli, çizginin biteceği pixeli, çizginin rengini ve çizginin kalınlığını alır. Resim matrisinde (0,0)’ıncı pixelden (100,100)’üncü pixele giden mavi renkte ve 4 birim kalınlıkta bir çizgi ekleyelim. Rengi BGR(blue,green,red) türünde vereceğiz dolayısıyla blue değerini 255 yapıp diğer değerleri 0 yaparsak mavi rengi elde etmiş oluruz.</p>
+<pre tabindex="0"><code>cv2.line(picture,(0,0),(100,100),(255,0,0),thickness=4)
+</code></pre><h4 id="çember-ekleme">
+  Çember Ekleme
+  <a class="heading-link" href="#%c3%a7ember-ekleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Resim üzerine bir daire eklemek için circle() fonksiyonunu kullanırız. Bu fonksiyon parametre olarak sırasıyla resmin tutulduğu değişkeni, çemberin merkez pixeli, çemberin yarıçapını, çemberin rengini ve çizginin kalınlığını alır. Resim üzerinde merkezi (100,100) pixeli, yarıçapı 70 pixel uzunluğunda olan kırmızı renkli bir çember oluşturalım.</p>
+<pre tabindex="0"><code>cv2.circle(picture,(500,200),70,(0,0,255),thickness=8)
+</code></pre><h4 id="dikdörtgen-ekleme">
+  Dikdörtgen Ekleme
+  <a class="heading-link" href="#dikd%c3%b6rtgen-ekleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Resim üzerine bir dikdörtgen eklemek için rectangle() fonksiyonunu kullanırızç Bu fonksiyon parametre olarak sırasıyla resmin tutulduğu değişkeni, dikdörtgenin bir uç köşesinin bulunacağı pixeli, dikdörtgenin diğer uç köşesinin bulunacağı pixeli, çizginin rengini ve kalınlığını alır. Bir ucu (200,100) pixelinde, diğer ucu (700,400) pixelinde olan yeşil renkli bir dikdörtgen oluşturalım.</p>
+<pre tabindex="0"><code>cv2.rectangle(original_image,(200,100),(700,400),(0,255,0),thickness=3)
+</code></pre><h4 id="metin-ekleme">
+  Metin Ekleme
+  <a class="heading-link" href="#metin-ekleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Resim üzerine bir metin eklemek için putText() fonksiyonu kullanılır. Bu fonksiyom parametre olarak sırasıyla resmin tutuluğu değişkeni, resim üzerine yazılacak yazıyı, yazının; resim üzerinde konumunu, fontunu, boyutunu, rengini ve kalınlığını alır. Resim üzerine (50,200) konumuna, HERSHEY_COMPLEX fontunda, 2 boyutunda, yeşil bir “Hello World” yazdıralım.</p>
+<pre tabindex="0"><code>cv2.putText(picture,&#34;Hello World&#34;,(100,200),cv2.FONT_HERSHEY_COMPLEX,2,(0,255,0),thickness=2)
+</code></pre><h3 id="görüntü-filtreleri">
+  Görüntü Filtreleri
+  <a class="heading-link" href="#g%c3%b6r%c3%bcnt%c3%bc-filtreleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Görüntü filtreleme, pikselin gölgelerini veya rengini değiştirerek bir görüntüyü değiştirme işlemidir. Parlaklığı ve kontrastı artırmak için de kullanılır. Birçok farklı filtre türü vardır. Bu filtreleri denerken aşağıdaki resimi kullanacağız.</p>
+<p>Mean yani ortalama filtresinde piksel değeri komşu piksel değerlerinin ortalaması ile değiştirilir. src: işlenecek resmi, ksize: ortalaması alınacak pixel matrisinin boyutunu (yükseklik genişlik, 3&rsquo;e 3, 5&rsquo;e 5 gibi) belirtir.</p>
+<pre tabindex="0"><code>cv2.blur(src, ksize)
+</code></pre><h4 id="gaussian-blur">
+  Gaussian Blur
+  <a class="heading-link" href="#gaussian-blur">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Görüntü üzerinde düzleştirme işlemi uygular. sigmaX- Gauss çekirdek standart sapmasıdır. Varsayılan olarak 0&rsquo;dır.</p>
+<pre tabindex="0"><code>cv2.GaussianBlur(src, ksize, sigmaX)
+</code></pre><h4 id="median-blur">
+  Median Blur
+  <a class="heading-link" href="#median-blur">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Medyan filtresi, piksel değerini komşu piksel değerlerinin ortalaması ile değiştirmek yerine , komşu pikselleri sıralayıp sıranın ortasındaki değer ile değiştirir. Yani görüntüdeki tüm piksellerin medyanını alır ve kullanılacak filtrenin medyan değeriyle değiştirir. Gürültüyü etkili bir şekilde azaltır.</p>
+<pre tabindex="0"><code>cv2.medianBlur(src, ksize)
+</code></pre><h4 id="erosiondilation">
+  Erosion — Dilation
+  <a class="heading-link" href="#erosiondilation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Erosion, ön plandaki nesnenin sınırlarını aşındırır. Dilation ise bunun tam tersidir.</p>
+<p>Dilation alanı kapatmaya çalışır yani beyaz alanı arttırırken, erosion küçük beyaz gürültüleri ve ön plandaki nesneyi çıkarmakta yararlıdır.</p>
+<p>Dilation bütünsel yapmaya çalışır, erosion ise daha spesifik yapmaktadır</p>
+<pre tabindex="0"><code>cv2.erode(image, kernel) cv2.dilate(image, kernel)
+</code></pre><p>Opening görüntü üzerindeki nesnenin daha belirgin olmasını sağlar bunu boşlukları açıp renk farkını arttırarak yapar.</p>
+<p>Closing görüntü üzerindeki nesneyi kapatıp beyaz alanı arttırıp görüntü üzerindeki gürültüleri kaldırır.</p>
+<p>Filtrelemede kullanılan daha gelişmiş fonksiyonlarda vardır. Bunlardan bazıları: <strong>bilateralFilter(), boxfilter()</strong> ve <strong>Filter2D()</strong> ‘dir. Bu filtreler ile ilgili daha detaylı bilgiye <a href="https://www.javatpoint.com/opencv-image-filters"  class="external-link" target="_blank" rel="noopener">buradan</a> ulaşabilirsiniz.</p>
+<p>Tresholdun temel konsepti, analiz için görsel verileri daha basit hale getirmektir. Görüntüyü gri skalaya dönüştürdüğümüzde her pixel 0–255 arasındaki değerler içerir. Threshold, eşik değerine bağlı olarak her pixeli beyaza veya siyaha dönüştürülür. Yani basit olarak, gri tonlamalı bir resmi siyah-beyaz resme dönüştürme işlemidir. Ancak bunun dışında daha gelişmiş uygulamaları da vardır. Eşik değeri 125 (255 üzerinden) olmasını istediğimizi varsayalım, o zaman 125&rsquo;in altındaki pixeller 0&rsquo;a yani siyaha dönüştürülür ve 125&rsquo;in üzerindeki pixeller 255&rsquo;e yani beyaza dönüştürülür. Thresholdingi uygulamanın birkaç farklı yolu vardır. Bunlara hep beraber bakalım.</p>
+<h4 id="simple-tresholding">
+  Simple Tresholding
+  <a class="heading-link" href="#simple-tresholding">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Simple Tresholding’de yukarıda bahsettiğimiz gibi her piksel için, aynı eşik değeri uygulanır. Piksel değeri eşikten daha küçükse, 0 olarak ayarlanır, aksi takdirde maksimum değere ayarlanır. treshold() fonksiyonu eşiği uygulamak için kullanılır. İlk parametre, gri tonlamalı bir görüntüdür. İkinci parametre, piksel değerlerini sınıflandırmak için kullanılan eşik değeridir. Üçüncü parametre, eşiği aşan piksel değerlerine atanan maksimum değerdir. Dördüncü parametre ise OpenCV tarafından verilen farklı eşik türleri sağlar. Tüm basic threshold tipleri:</p>
+<p>Bu Threshold türleri, threshold() fonksiyonuna parametre olarak verilir.</p>
+<pre tabindex="0"><code>ret, thresh1 = cv2.threshold(image, 160, 255, cv2.THRESH_BINARY) cv2.imshow(&#34;simple thresholding&#34;,thresh1) ret, thresh2 = cv2.threshold(image, 160, 255, cv2.THRESH_BINARY_INV) cv2.imshow(&#34;simple thresholding&#34;,thresh2)
+</code></pre><h4 id="adaptive-tresholding">
+  Adaptive Tresholding
+  <a class="heading-link" href="#adaptive-tresholding">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Adaptive Tresholding de, tüm pixel değerleri için aynı eşik değeri kullanmak yerine, pixel etrafındaki bölgeye göre her pixel için ayrı eşik değerleri belirlenir. Bu sayede, aynı görüntünün farklı bölgelerinde, farklı eşik değerleri kullanabiliriz. Bu da çeşitli aydınlatmalı görüntüler için daha iyi sonuçlar verir. Bunun için kullanabileceğimiz iki farklı yöntem vardır:</p>
+<ul>
+<li>cv2.ADAPTIVE_THRESH_MEAN_C: Eşik değeri, pixel çevresindeki bölgenin ortalamasıdır.</li>
+<li>cv2.ADAPTIVE_THRESH_GAUSSIAN_C: Eşik değeri, pixel çevresindeki bölgenin ağırlıklı toplamıdır.</li>
+</ul>
+<pre tabindex="0"><code>thresh1 = cv2.adaptiveThreshold(image, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY,11,2) cv2.imshow(&#34;ADAPTIVE_THRESH_MEAN_C&#34;,thresh1) thresh2 = cv2.adaptiveThreshold(image, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY,11,2) cv2.imshow(&#34;ADAPTIVE_THRESH_GAUSSIAN_C&#34;,thresh2)
+</code></pre><h4 id="otsu-thersholding">
+  Otsu Thersholding
+  <a class="heading-link" href="#otsu-thersholding">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Otsu yönteminde, görüntü histogramından optimum bir sabit eşik değeri belirlenir. Histogram sadece iki zirveden oluşur ve iyi bir eşik bu iki değerin ortalaması olacaktır. Bunu yapmak için Threshold() fonksiyonuna, cv2.thresh_otsu’nun ilave bir bayrak olarak eklenir. Eşik değeri keyfi seçilebilir. Algoritma daha sonra en uygun eşik değerini bulur.</p>
+<pre tabindex="0"><code>ret,thresh = cv2.threshold(image, 0, 255,cv2.THRESH_BINARY+cv2.THRESH_OTSU) cv2.imshow(&#34;Otsu Thersholding&#34;,thresh)
+</code></pre><h3 id="video-yakalama">
+  Video Yakalama
+  <a class="heading-link" href="#video-yakalama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>OpenCV’de video yakalama videoCapture() fonksiyonu ile yapılır. Bu fonksiyon ile bilgisayarınıza bağlı olan bir kamerayı çalıştırabilir ve gerçek-zamanlı olarak aldığınız görüntüyü işleyebilirsiniz. Fonksiyona verdiğiniz 0 parametresi bilgisayarınızın webcamini belirtir. Eğer harici bir kamera bağladıysanız 1 değerini vermeniz gerekir. Aşağıdaki kod bilgisayarınızın webcamini çalıştırarak, alınan görüntüyü size gösterecektir. Programı sonlandırmak için ESC tuşuna basmanız yeterli olacaktır.</p>
+<pre tabindex="0"><code>importcv2 cam = cv2.VideoCapture(0) while True: ret,goruntu=cam.read() cv2.imshow(&#34;video capture&#34;,goruntu) if cv2.waitKey(30)==27: #ESC&#39;ye basılırsa döngüden çık break cam.release() cv2.destroyAllWindows()
+</code></pre><h3 id="canny-edge-detection">
+  Canny Edge Detection
+  <a class="heading-link" href="#canny-edge-detection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Canny Edge Detection, popüler bir kenar algılama algoritmasıdır. OpenCV’de bu algoritmayı canny() fonksiyonu ile uygularız. Fonksiyonun ilk parametresi kaynak görüntüdür. İkinci ve üçüncü parametreler sırasıyla minimum ve maksimum eşik değerleridir.</p>
+<pre tabindex="0"><code>cv2.Canny(image, treshold1, treshold2)
+</code></pre><h4 id="eğlenceli-biruygulama">
+  Eğlenceli bir uygulama
+  <a class="heading-link" href="#e%c4%9flenceli-biruygulama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Canny() fonksiyonu ile daha iyi sonuçlar elde etmek için treshold değerlerinin iyi belirlenmesi ve resmin yumuşatılması gerekir. Ayrıca, Treshold değerlerinin görüntü matrisinin medyanına görede belirleyebiliriz. Bu sayede, thresold değerleri otomatik hesaplanmış olur. Webcam ile gerçek zamanlı olarak canny algoritmasını uyguladığımız bir uygulama yapalım.</p>
+<pre tabindex="0"><code>import cv2 as cv  
+import numpy as np  
+  
+cam = cv.VideoCapture(0)  
+  
+def autoCanny(blur, sigma=0.33):   
+  median = np.median(blur)
+</code></pre><hr>
+<p><em>Originally published at</em> <a href="https://pwnlab.me/tr-opencv-ile-goruntu-islemeye-giris/"  class="external-link" target="_blank" rel="noopener"><em>https://pwnlab.me</em></a> <em>on February 4, 2022.</em></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

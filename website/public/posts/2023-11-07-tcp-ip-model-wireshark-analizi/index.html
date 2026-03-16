@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  TCP/IP Model Wireshark Analysis · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  TCP/IP Model Wireshark Analysis
+  
+    
+    Link to heading
+  
+
+
+Hello, in this article, I tried to explain the TCP/IP model and how to perform a basic network analysis with Wireshark.
+
+
+  Understanding Network Traffic Flows
+  
+    
+    Link to heading
+  
+
+
+  Switching
+  
+    
+    Link to heading
+  
+
+Switches forward packets based on the destination MAC address (also known as the destination hardware address, physical address) contained in the MAC header (like the Ethernet header).">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="TCP/IP Model Wireshark Analysis">
+  <meta name="twitter:description" content="TCP/IP Model Wireshark AnalysisLink to headingHello, in this article, I tried to explain the TCP/IP model and how to perform a basic network analysis with Wireshark.
+Understanding Network Traffic FlowsLink to headingSwitchingLink to headingSwitches forward packets based on the destination MAC address (also known as the destination hardware address, physical address) contained in the MAC header (like the Ethernet header).">
+
+<meta property="og:url" content="http://localhost:1313/posts/2023-11-07-tcp-ip-model-wireshark-analizi/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="TCP/IP Model Wireshark Analysis">
+  <meta property="og:description" content="TCP/IP Model Wireshark AnalysisLink to headingHello, in this article, I tried to explain the TCP/IP model and how to perform a basic network analysis with Wireshark.
+Understanding Network Traffic FlowsLink to headingSwitchingLink to headingSwitches forward packets based on the destination MAC address (also known as the destination hardware address, physical address) contained in the MAC header (like the Ethernet header).">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-11-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-11-07T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2023-11-07-tcp-ip-model-wireshark-analizi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About Me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2023-11-07-tcp-ip-model-wireshark-analizi/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2023-11-07-tcp-ip-model-wireshark-analizi/">
+              TCP/IP Model Wireshark Analysis
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-11-07T00:00:00Z">
+                November 7, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              14-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="tcpip-model-wireshark-analysis">
+  TCP/IP Model Wireshark Analysis
+  <a class="heading-link" href="#tcpip-model-wireshark-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_vQHzVUN_qVpKQQbS9Cr4Ug.png" alt=""></p>
+<p>Hello, in this article, I tried to explain the TCP/IP model and how to perform a basic network analysis with Wireshark.</p>
+<hr>
+<h3 id="understanding-network-traffic-flows">
+  Understanding Network Traffic Flows
+  <a class="heading-link" href="#understanding-network-traffic-flows">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="switching">
+  Switching
+  <a class="heading-link" href="#switching">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Switches forward packets based on the destination MAC address (also known as the destination hardware address, physical address) contained in the MAC header (like the Ethernet header).</p>
+<p><img src="/images/1_NsSETtT4IofH-5OXSKDrzQ.png" alt=""></p>
+<p>Switches do not change MAC or IP addresses in packets</p>
+<p>When a packet reaches a switch, the switch checks the packet to make sure it has the correct checksum. If the packet&rsquo;s checksum is incorrect, the packet is considered bad and the packet is discarded. Switches should keep error counters that show how many packets they throw away due to bad checksums. If the checksum is correct, the switch examines the packet&rsquo;s destination MAC address and consults its MAC address table to determine whether it knows which switch port goes to the host using that MAC address. If the switch does not have the destination MAC address in its tables, it forwards the packet through all the switch ports hoping to discover the responding destination. This process is done with the <strong>ARP</strong> protocol. If the switch has the destination MAC address in its tables, it forwards the packet to the appropriate port.</p>
+<h4 id="routing">
+  Routing
+  <a class="heading-link" href="#routing">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Routers forward packets based on the destination IP address in the IP header. When a packet is sent to the router&rsquo;s MAC address, that router examines the checksum to make sure the packet is valid. If the checksum is invalid, the packet is dropped. If the checksum is valid, the router extracts the MAC header (e.g. Ethernet header) and examines the IP header to determine the “TTL” (Time to Live) and its destination. package. If the packet is too “old” (Time to Live value is 1), the router discards the packet and an ICMP Time to Live Exceeded message is sent back to the sender. If the packet is not stale(TTL time has not been Exceeded), the router looks at the routing tables to determine if the destination IP network is known. If the router is directly connected to the destination network, it can send the packet to the destination. The router reduces the IP header Time to Live value and then creates and applies a new MAC header to the packet before forwarding it</p>
+<p><img src="/images/1_Utuq1h526m5eoCl4wWYJGQ.png" alt=""></p>
+<p>Routers change destination MAC address to destination or next router</p>
+<p>If the destination is not on a locally connected network, the router forwards the packet to the next hop router it learned from looking at the routing tables.</p>
+<p>Routers may contain rules that block or allow packets based on addressing information. Many routers provide firewall features and can block/allow traffic based on other features.</p>
+<h4 id="proxy-firewall-andnatpat">
+  Proxy, Firewall and NAT/PAT
+  <a class="heading-link" href="#proxy-firewall-andnatpat">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Firewalls are created to inspect traffic and allow/deny communication based on a set of rules. For example, you may want to block all TCP connection attempts from hosts outside the firewall that are forwarded to port 21 on internal servers.</p>
+<p>Basic firewalls operate at Layer 3 of the OSI model, the network layer. In this capacity, the firewall acts as a router when processing network traffic and forwards traffic that is not blocked by firewall rules. The firewall adds a new MAC header to the packet before forwarding it. If the firewall supports additional features such as Network Address Translation (NAT) or proxy capabilities, additional packet switching will occur.</p>
+<p><img src="/images/1_0sZI8QkhS5eWd1ef0qJyXw.png" alt=""></p>
+<p>Firewall uses NAT to hide the real source IP address</p>
+<p>NAT systems change the IP addresses in the packet as shown in Figure. This is often used to hide the client&rsquo;s private IP address. A basic NAT system simply swaps the source and destination IP address of the packet and tracks the connection relationships in a table to properly forward traffic when a response is received.</p>
+<p>Port Address Translation (PAT) systems also exchange port information and use this as a method to demultiplex multiple internal connections while using a single outgoing address. The IP addresses you see on one side of a NAT/PAT device are the IP addresses you see on the other side of the NAT/PAT device.will not match. To correlate communications on both sides of a NAT device, you will need to look beyond the IP header to identify matching packets.</p>
+<h4 id="other-technologies">
+  Other Technologies
+  <a class="heading-link" href="#other-technologies">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>There are many other technologies that affect network traffic patterns and packet contents.</p>
+<p>Virtual LAN (VLAN) tagging (defined as 802.1Q) adds an ID (tag) to packets. This tag is used to create virtual networks in a switched environment. Figure 7 shows the VLAN tag in an Ethernet frame. In this case, the sender belongs to VLAN 32.</p>
+<p>Multiprotocol Label Switching (MPLS) is a method of creating virtual connections between remote hosts. MPLS packets are prefixed with a special header by MPLS edge devices. For example, a packet sent from a client reaches an MPLS router where the MPLS label is placed on the packet. The packet is now forwarded based on the MPLS tag rather than routing table lookups. The MPLS label is stripped when the packet leaves the MPLS network.</p>
+<hr>
+<h3 id="tcpip-model">
+  TCP/IP Model
+  <a class="heading-link" href="#tcpip-model">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>It shows the basic TCP/IP elements along with the TCP/IP Model and the OSI Model. Although the elements of TCP/IP match nicely with the TCP/IP Model, the OSI Model is still constantly referred to in our industry. “Layer 2” devices (switches) and “Layer 3” devices (routers) receive numerical identification according to the OSI Model, not the TCP/IP Model.</p>
+<p><img src="/images/1_X4_tzi-NjihAqIAJEunVWA.png" alt=""></p>
+<p>TCP/IP elements with the TCP/IP Model and OSI Model</p>
+<p>Many network errors or violations can be attributed to TCP/IP protocol or application problems. To recognize these problems we need to know what normal behavior is. Commonly used protocols in the TCP/IP structure are:</p>
+<ul>
+<li><strong>Internet Protocol (IPv4/IPv6)</strong> serves as a routable network layer protocol used to receive packets end-to-end across a network. Routers use the information contained in the IP header to make routing decisions. Layer 3 switches can also route traffic.</li>
+<li><strong>User Datagram Protocol (UDP) and Transmission Control Protocol (TCP)</strong> provide connectionless and connection-oriented transport layer services, respectively. The port fields in the UDP and TCP headers identify the application used. TCP headers contain fields that also provide sorting and validation services. UDP and TCP are mapped to Layer 4 (Transport Layer) of the OSI Model.</li>
+<li><strong>Routing Information Protocol (RIP) and Open Shortest Path First (OSPF)</strong> are two examples of protocols that enable the exchange of network and path information between routing devices.</li>
+<li><strong>Internet Control Message Protocol (ICMP/ICMPv6)</strong> is used to provide network information and is commonly recognized as the protocol used for ping. ICMPv6 is used to check and see if an IPv6 address is already in use (duplicate address detection).</li>
+<li><strong>Domain Name System (DNS)</strong> provides hostname-to-IP address resolution services. When you type telnet station3, DNS resolves the station3 name to its IP address. Alias ​​(such as Mail Exchange or MX records) can also be resolved by DNS.</li>
+<li><strong>Dynamic Host Configuration Protocol (DHCP)</strong> provides dynamic client configuration and service discovery services, not just IP address information. DHCP can also provide default gateway settings, DNS server settings, and more.</li>
+<li><strong>Address Resolution Protocol (ARP)</strong> provides hardware address lookup services for a local device. ARP also allows us to check and see if an IPv4 address is already in use (duplicate address test).</li>
+</ul>
+<p>If everything goes well with TCP/IP communication, clients find services quickly. These services respond quickly to requests, and client systems do not need to request a service multiple times. <strong>An analyst</strong> can uncover large delays between communications, name parsing errors, duplicate requests and retransmissions, insecure practices, and much more. Before analyzing traffic to identify errors, you need to know what is considered normal network communication.</p>
+<hr>
+<h3 id="clientftp-server-scenario">
+  Client — FTP Server Scenario
+  <a class="heading-link" href="#clientftp-server-scenario">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>TCP/IP uses a multi-step resolution process when a client communicates with a server. In our example, both the client and server are on the same network. This process includes the following steps:</p>
+<ul>
+<li>Identify the source and destination ports used by the application (port number resolution).</li>
+<li>h if necessaryResolve the edef name to an IP address (network name resolution).</li>
+<li>If the target is on the local network, obtain the target&rsquo;s hardware address (local MAC address resolution).</li>
+<li>If the destination is remote, determine the best router to use to reach the destination (route analysis).</li>
+<li>If the destination is remote, determine the router&rsquo;s MAC address (local MAC address resolution again).</li>
+</ul>
+<p><img src="/images/1_AWmwmBOwxbf1QyEXXsjg0Q.png" alt=""></p>
+<p>TCP/IP resolution processes</p>
+<p>In our example we will consider the connection between a client and the FTP Server.</p>
+<p><img src="/images/1_cPS6KAp-bJl1xjrg96dEMg.png" alt=""></p>
+<p>The client wants to make an FTP connection to CORPFS1</p>
+<h4 id="step-1-port-number-resolution">
+  Step 1: Port Number Resolution
+  <a class="heading-link" href="#step-1-port-number-resolution">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In our example, the user typed ftp CORPFS1. FTP generally uses port 20 or a dynamic port for data transfer and port 21 for commands such as login and password sending functions, USER and PASS. In our example, the client is trying to connect to the FTP server using port 21. This port number is located in the etc/services file on the client. This number will be placed in the destination port field of the outgoing packet&rsquo;s TCP header. The client uses a dynamic (temporary) port for the source port field value. This process does not create traffic on the network. Therefore, we cannot see any information in the trace file.</p>
+<h4 id="step-2-network-name-resolution-optional">
+  Step 2: Network Name Resolution (Optional)
+  <a class="heading-link" href="#step-2-network-name-resolution-optional">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>If an explicit destination IP address is defined by the client, network name resolution is not required. If the client has defined a target hostname (CORPFS1 in our example), network name resolution is required to obtain the IP address of the target host.</p>
+<p>When performing name resolution, you must follow a certain order:</p>
+<ol>
+<li>Look in the DNS resolver cache for the name.</li>
+<li>If the entry is not in the DNS resolver cache, examine the local hosts file (if available).</li>
+<li>If the local hosts file does not exist or the requested name/address is not in the hosts file, send a request to the DNS server (if one is configured for the local system).</li>
+</ol>
+<p>If no response is received from the first DNS server in the configured DNS server list, the client can try to redirect the query to the first DNS server or query the next known DNS server. Still no answer? Are there no other known DNS servers? If the client cannot resolve the value to be placed in the destination IP address field, it cannot create the packet.</p>
+<p>In our example, we can see that the client sends a DNS query to the first DNS server listed in its local configuration. (If all goes well) we should see a response from a DNS server containing the IP address of CORPFS1.</p>
+<p>This process can generate traffic on the network, as shown by TX in Figure 181. If name resolution uses the local hosts file or retrieves the requested information from the cache, no packets are sent. If a DNS query needs to be sent, it will appear in the trace file.</p>
+<h4 id="step-3-route-analysis-when-destination-is-local">
+  Step 3: Route Analysis-When Destination is Local
+  <a class="heading-link" href="#step-3-route-analysis-when-destination-is-local">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>During this process, the client determines whether the target device is local (on the same network) or remote (on the other side of a router). The client compares its network address with the target network address to determine whether a target is on the same network. In the example shown in Figure 180, the client&rsquo;s IP address is 10.1.0.1/8 (network 10). The IP address of the server is 10.2.99.99. The target is also on network 10.</p>
+<p>Consider possible consequences depending on the client&rsquo;s IP address and subnet mask.</p>
+<ul>
+<li>Source address 10.1.22.4 with subnet mask 255.0.0.0 = CORPFS1 is local (go to step 4)</li>
+<li>Source address 10.1.22.4 with subnet mask 255.255.0.0 = CORPFS1 is remote (go to step 5)</li>
+<li>Source address 10.2.22.4 with subnet mask 255.255.0.0 = CORPFS1 is local (go to step 4)</li>
+</ul>
+<p>This process does not generate traffic on the network.</p>
+<h4 id="step-4-local-mac-address-resolution">
+  Step 4: Local MAC Address Resolution
+  <a class="heading-link" href="#step-4-local-mac-address-resolution">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>If the target device is local, the client must resolve the MAC address of the local target. The client first checks the ARP cache for this information. If this information is not available, the client sends an ARP broadcast to find the hardware address of the target. When an ARP response is received, the client updates the ARP cache.</p>
+<p>This process may generate traffic on the network as indicated by TX. If the MAC address is cached, no packets will be sent. If an ARP query needs to be sent, it will appear in the query trace file.</p>
+<h4 id="step-5-route-analysis-when-the-destination-is-far">
+  Step 5: Route Analysis-When the Destination is Far
+  <a class="heading-link" href="#step-5-route-analysis-when-the-destination-is-far">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>If the target device is remote, the client must perform route analysis to determine the appropriate nexthop router.takes it. The client looks at local routing tables to determine if a host or network route entry exists for the destination. If there is no entry, the client checks for a default gateway entry. This process does not create traffic on the network.</p>
+<p>The Default Gateway provides a “blind faith” path — since the client has no route to the destination, it sends the packet to the default gateway and hopes the default gateway can figure out what to do with the packet.</p>
+<p>Default gateways usually either forward the packet (if they have the best route to the destination), send an ICMP redirect response pointing to another local router with the best route to the destination, or return a response indicating that they have no idea where to send the packet (ICMP Destination Unreachable).</p>
+<h4 id="step-6-local-mac-address-resolution-for-a-gateway">
+  Step 6: Local MAC Address Resolution for a Gateway
+  <a class="heading-link" href="#step-6-local-mac-address-resolution-for-a-gateway">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Finally, the client must resolve the MAC address of the next hop router or default gateway. The client first checks the ARP cache. If the information is not in the cache, the client sends an ARP broadcast to retrieve the information.<br>
+Next updates the router&rsquo;s MAC address and ARP cache.<br>
+This process may generate traffic on the network as indicated by TX. If a requested router&rsquo;s MAC address is cached, no packets will be sent. If an ARP query needs to be sent to the requested router, this query will appear in the trace file.</p>
+<h4 id="package-analysis">
+  Package Analysis
+  <a class="heading-link" href="#package-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>If all goes well (and in this case the target is local), we should have resolved the following information during this process:</p>
+<ul>
+<li>Destination MAC address</li>
+<li>Destination IP address</li>
+<li>Source and destination port numbers</li>
+</ul>
+<p><img src="/images/1_tCpXIwj6CXujGOtmMVR_pA.png" alt=""></p>
+<p>Discovered information for TCP/IP packet over Ethernet</p>
+<hr>
+<h4 id="tcpip-trafficanalysis">
+  TCP/IP Traffic Analysis
+  <a class="heading-link" href="#tcpip-trafficanalysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In this section, we will examine the http-riverbed-one.pcapng and http-riverbed-two.pcapng files. You can access it from the bibliography section.</p>
+<p>These two files belong to a client that accessed <a href="http://www.riverbed.com"  class="external-link" target="_blank" rel="noopener">www.riverbed.com</a> 89 seconds apart.</p>
+<p>In the http-riverbed-<strong>one</strong>.pcapng file, we naturally see that there are DNS queries first. In order to create packets, the client must resolve the domain and obtain destination IP information.</p>
+<p><img src="https://cdn-images-1.medium.com/max/1200/1*iUj1JBtBuMGtEUw5Y6zaCg.png" alt=""></p>
+<p>DNS queries for domain resolution in the http-riverbed-one.pcapng file</p>
+<p>We notice that there are no initial DNS queries to the http-riverbed-<strong>two</strong>.pcapng file. This indicates that the client has some of the requested IP addresses in its DNS cache, so there is no need to create a DNS query for these names.</p>
+<p><img src="https://cdn-images-1.medium.com/max/1200/1*6zV7mvLrjJnykjirRuBkdQ.png" alt=""></p>
+<p>DNS queries do not appear in the http-riverbed-two.pcapng file.</p>
+<p>Most of the DNS responses in the http-riverbed-one.pcapng file cached the client&rsquo;s name resolution information for a short period of time and did not resubmit the DNS query.</p>
+<p>However, if the session time is exceeded, we can see in the http-riverbed-two.pcapng file that our browser sends DNS queries to re-resolve these names.</p>
+<p><img src="https://cdn-images-1.medium.com/max/1200/1*SodfEwNqxAcl739FUVO_kA.png" alt=""></p>
+<p>Revamped DNS resolutions in http-riverbed-two.pcapng</p>
+<p>You will also notice that the total number of packages in http-riverbed-two.pcapng is only 319. In addition to fetching some of the DNS information from the cache, the browser also displayed a large number of page elements from the cache.</p>
+<p>When we look at the protocol statistics (Statistic | Protocol hierarchy) in the http-riverbed-<strong>one</strong>.pcapng file, we see that most of the traffic uses TCP. Because the HTTP protocol uses TCP. When we look at UDP traffic, we see that it uses the Domain Name System (DNS) protocol.</p>
+<p><img src="/images/1_zal0jQY1slYuV6RDm5UdCg.png" alt=""></p>
+<p>http-riverbed-<strong>one</strong>.pcapng Protocol Statistics</p>
+<p>To see the dominant traffic in http-riverbed-<strong>one</strong>.pcapng file Statistic| We can open the Conversations window. If we sort by packets when we open the IPv4 tab here, we can say that the dominant traffic is between IPs <strong>24.61.173.220</strong> and <strong>208.70.196.59</strong> with 1140 packets going between hosts.</p>
+<p><img src="/images/1_Hb4M03jKQ_8Lp1YzMShv2Q.png" alt=""></p>
+<p>conversations</p>
+<p>Statistic| in http-riverbed-<strong>one</strong>.pcapng IP name mentioned in traffic in the Endpoints windowWe can see the pictures. All of the IP addresses here seem to be public IP addresses. Therefore, we can say that the traffic was captured on an external network.</p>
+<p><img src="/images/1_5XvOPLu2866hRTPDdvUjig.png" alt=""></p>
+<p>endpoints</p>
+<p>Statistic| in http-riverbed-<strong>one</strong>.pcapng HTTP| In the Requests window, we can view the web addresses visited in the pcap file.</p>
+<p><img src="/images/1_2QwpmwBds_gI3oZfGyMGKA.png" alt=""></p>
+<p>Requests</p>
+<p>In http-riverbed-<strong>one</strong>.pcapng <br>
+ip.addr == 24.6.173.220 &amp;&amp; ip.addr == 208.70.196.59 <br>
+Let&rsquo;s examine the dominant traffic we found before by typing its filter.</p>
+<p><img src="/images/1_MkagBTP5iI4imfNHp5V5nw.png" alt=""></p>
+<p>Dominant Traffic</p>
+<p>If we click on the HTTP packet and select the follow HTTP Stream option, we can view all HTTP traffic.</p>
+<p><img src="/images/1_-2JPla-66SZrjX-kKCsECg.png" alt=""></p>
+<p>Follow HTTP Stream</p>
+<p>We are faced with a long flow. Here he found the traffic to and from <a href="http://www.riverbed.com"  class="external-link" target="_blank" rel="noopener">www.riverbed.com</a>. We can see the HTTP connections established with this address as request (red text) and response (blue text).</p>
+<p><img src="/images/1_4B5HtycWS34GEws6jMxlnA.png" alt=""></p>
+<p><a href="https://www.riverbed.com"  class="external-link" target="_blank" rel="noopener">www.riverbed.com</a> HTTP Stream</p>
+<hr>
+<h3 id="references">
+  References
+  <a class="heading-link" href="#references">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Wireshark Network Analysis, Second Edition, Laura Chappell, <a href="https://www.chappell-university.com/studyguide"  class="external-link" target="_blank" rel="noopener">https://www.chappell-university.com/studyguide</a></li>
+<li>Trace Files: <a href="https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip"  class="external-link" target="_blank" rel="noopener">https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip</a></li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

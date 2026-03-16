@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  ELK Stack Log Yönetimi ve Analizi · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  ELK Stack Log Yönetimi ve Analizi
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in log yönetimini, yani log toplama, parse etme ve zenginleştirme işlemlerine değineceğim. Logstash ile loglar Nasıl Toplanır, İşlenir ve Gönderilir?
+
+  Log Yönetimi Nedir?
+  
+    
+    Başlık Linki
+  
+
+Log yönetimi, bir sistemin veya uygulamanın ürettiği tüm günlük kayıtlarını (logları) toplama, depolamak, analiz etmek ve yönetmek sürecidir. Bu loglar, sistemin çalışmasıyla ilgili önemli bilgiler içerir ve sorun giderme, güvenlik analizi, performans takibi gibi birçok alanda kullanılır.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="ELK Stack Log Yönetimi ve Analizi">
+  <meta name="twitter:description" content="ELK Stack Log Yönetimi ve AnaliziBaşlık LinkiMerhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in log yönetimini, yani log toplama, parse etme ve zenginleştirme işlemlerine değineceğim. Logstash ile loglar Nasıl Toplanır, İşlenir ve Gönderilir?
+Log Yönetimi Nedir?Başlık LinkiLog yönetimi, bir sistemin veya uygulamanın ürettiği tüm günlük kayıtlarını (logları) toplama, depolamak, analiz etmek ve yönetmek sürecidir. Bu loglar, sistemin çalışmasıyla ilgili önemli bilgiler içerir ve sorun giderme, güvenlik analizi, performans takibi gibi birçok alanda kullanılır.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2024/11/elk-stack-log-y%C3%B6netimi-ve-analizi/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="ELK Stack Log Yönetimi ve Analizi">
+  <meta property="og:description" content="ELK Stack Log Yönetimi ve AnaliziBaşlık LinkiMerhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in log yönetimini, yani log toplama, parse etme ve zenginleştirme işlemlerine değineceğim. Logstash ile loglar Nasıl Toplanır, İşlenir ve Gönderilir?
+Log Yönetimi Nedir?Başlık LinkiLog yönetimi, bir sistemin veya uygulamanın ürettiği tüm günlük kayıtlarını (logları) toplama, depolamak, analiz etmek ve yönetmek sürecidir. Bu loglar, sistemin çalışmasıyla ilgili önemli bilgiler içerir ve sorun giderme, güvenlik analizi, performans takibi gibi birçok alanda kullanılır.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-11-08T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-11-08T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2024/11/elk-stack-log-y%C3%B6netimi-ve-analizi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2024/11/elk-stack-log-management-and-analysis/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2024/11/elk-stack-log-y%C3%B6netimi-ve-analizi/">
+              ELK Stack Log Yönetimi ve Analizi
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-11-08T00:00:00Z">
+                Kasım 8, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              6 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="elk-stack-log-yönetimi-veanalizi">
+  ELK Stack Log Yönetimi ve Analizi
+  <a class="heading-link" href="#elk-stack-log-y%c3%b6netimi-veanalizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_O7bMqTbQv_OX5x75qkY6Ug.png" alt=""></p>
+<p>Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in log yönetimini, yani log toplama, parse etme ve zenginleştirme işlemlerine değineceğim. Logstash ile loglar Nasıl Toplanır, İşlenir ve Gönderilir?</p>
+<h3 id="log-yönetiminedir">
+  Log Yönetimi Nedir?
+  <a class="heading-link" href="#log-y%c3%b6netiminedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Log yönetimi</strong>, bir sistemin veya uygulamanın ürettiği tüm günlük kayıtlarını (logları) toplama, depolamak, analiz etmek ve yönetmek sürecidir. Bu loglar, sistemin çalışmasıyla ilgili önemli bilgiler içerir ve sorun giderme, güvenlik analizi, performans takibi gibi birçok alanda kullanılır.</p>
+<p>ELK Stack (Elasticsearch, Logstash, Kibana) ile log toplama yöntemleri:</p>
+<ol>
+<li><strong>Syslog</strong>: UNIX tabanlı sistemlerde yaygın olan bu protokol ile Logstash veya Beats aracılığıyla log toplanabilir.</li>
+<li><strong>Beats</strong>: Log toplama için farklı araçlar sunar. <strong>Metricbeat</strong> performans metriklerini toplarken, <strong>Winlogbeat</strong> Windows olaylarını toplar. <strong>Heartbeat</strong> ise sunucuların durumunu izler. .<strong>Filebeat</strong> ise dosya sistemlerinden log dosyalarını toplar ve bu verileri Logstash veya Elasticsearch’a gönderir. Herbirinin ayrı kurulumu gerekmektedir.</li>
+<li><strong>Agent Kurulumu</strong>: Log kaynağı olan sistemlere (sunucular, ağ cihazları vb.) agent kurulumu yapılır ve bu agentlar Logstash veya Beats’e veri gönderir.</li>
+</ol>
+<p><strong>Agent Kurulumu Avantajları:</strong></p>
+<ol>
+<li><strong>Merkezi Yönetim</strong>: Log verilerini toplamak ve yönetmek için merkezi bir nokta sağlar. Bu, log verilerinin düzenli bir şekilde saklanmasını ve analiz edilmesini kolaylaştırır.</li>
+<li><strong>Gerçek Zamanlı İzleme</strong>: Agentlar, olayları gerçek zamanlı olarak izleyebilir ve anında raporlama yapabilir. Bu, anormallikleri hızlı bir şekilde tespit etmeyi sağlar.</li>
+<li><strong>Özelleştirilebilirlik</strong>: Agentlar, belirli gereksinimlere göre yapılandırılabilir. Farklı kaynaklardan gelen log verilerini toplamak ve dönüştürmek için çeşitli kurallar ve filtreler uygulayabilirsiniz.</li>
+<li><strong>Gelişmiş Güvenlik</strong>: Agentlar, log verilerinin güvenli bir şekilde iletilmesini sağlamak için şifreleme protokollerini destekler.</li>
+<li><strong>Performans İzleme</strong>: Agentlar, sistem performansını izlemek ve performans sorunlarını tespit etmek için kullanılabilir.</li>
+</ol>
+<p><strong>Agent Kurulumu Dezavantajları:</strong></p>
+<ol>
+<li><strong>Kaynak Kullanımı</strong>: Agentlar, kurulu oldukları sistemlerde kaynak tüketimi yaratabilir. Bu, özellikle yüksek yoğunluklu sistemlerde performans sorunlarına neden olabilir.</li>
+<li><strong>Yönetim Karmaşıklığı</strong>: Birden fazla agentın yönetimi, özellikle büyük ölçekli sistemlerde karmaşık olabilir. Her bir agentın güncellenmesi ve yönetilmesi zaman alıcı olabilir.</li>
+<li><strong>Güvenlik Riskleri</strong>: Yanlış yapılandırılmış agentlar, güvenlik açıklarına neden olabilir. Bu nedenle, agentların güvenli bir şekilde yapılandırılması ve yönetilmesi önemlidir.</li>
+<li><strong>Uyumluluk Sorunları</strong>: Farklı sistemler ve platformlar arasında uyumluluk sorunları yaşanabilir. Bazı agentlar, belirli sistemlerde tam işlevselliğe sahip olmayabilir.</li>
+</ol>
+<p>Biz bu yazımızda bir linux sistemden beats ile log gönderim ve logstash ile log toplama yapacağız.</p>
+<hr>
+<h3 id="1--logstash-yapılandırması">
+  1- Logstash Yapılandırması
+  <a class="heading-link" href="#1--logstash-yap%c4%b1land%c4%b1rmas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Logstash’ı bir boru hattı olarak hayal ettiğinizde anlamak daha kolaydır. Bu boru hattının bir ucunda veri kaynaklarını temsil eden <strong>girdiler</strong> bulunur. Günlük kayıtları Logstash boru hattından geçerken, gereksinimlerinize göre zenginleştirilebilir, filtrelenebilir veya manipüle edilebilir. Nihayetinde, boru hattının sonuna ulaştıklarında, Logstash bu günlükleri depolama veya analiz için yapılandırılmış hedeflere teslim edebilir.</p>
+<p><img src="/images/1_sf3D7DyNWppst-cVl_z42g.png" alt=""></p>
+<p>Logstash Boru Hattı</p>
+<p>Bu veri işleme işlem hattını oluşturmak için Logstash’ı bir yapılandırma dosyası kullanarak yapılandırabilirsiniz. Tipik bir logstash yapılandırma dosyası:</p>
+<pre tabindex="0"><code>input {  
+      plugin_name{...}  
+ }  
+  
+filter {  
+     plugin_name{...}  
+}  
+  
+output {  
+     plugin_name{...}  
+}
+</code></pre><p>Şimdi bu bileşenleri inceleyelim:</p>
+<ul>
+<li><code>input</code>: dosyalar veya uç noktalar gibi log kaynaklarını temsil eder.</li>
+<li><code>filtre</code>(isteğe bağlı): log kayıtlarını birleştirir ve dönüştürür.</li>
+<li><code>çıktı</code>: işlenen logların iletileceği hedef.</li>
+</ul>
+<p>Bu girdilerin, filtrelerin ve çıktıların rollerini yerine getirebilmeleri için eklentilere ihtiyaçları vardır. Bu eklentiler Logstash’ı güçlendiren ve çok çeşitli görevleri yerine getirmesini sağlayan yapı taşlarıdır. Logstash’ın yeteneklerini daha iyi anlamanızı sağlamak için bu eklentileri inceleyelim.</p>
+<h3 id="logstash-girdi-eklentileri">
+  Logstash girdi eklentileri
+  <a class="heading-link" href="#logstash-girdi-eklentileri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Girdiler için Logstash, aşağıdaki gibi çeşitli kaynaklardan logları toplayabilen girdi <a href="https://www.elastic.co/guide/en/logstash/current/input-plugins.html"  class="external-link" target="_blank" rel="noopener">eklentileri</a> sağlar:</p>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html"  class="external-link" target="_blank" rel="noopener">HTTP</a>: HTTP uç noktaları üzerinden günlük kayıtlarını alır.</li>
+<li><a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-beats.html"  class="external-link" target="_blank" rel="noopener">Beats</a>: Beats çerçevesinden günlükleri toplar.</li>
+<li><a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-redis.html"  class="external-link" target="_blank" rel="noopener">Redis</a>: bir Redis örneğinden günlük kayıtlarını toplar.</li>
+<li><a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-unix.html"  class="external-link" target="_blank" rel="noopener">Unix</a>: günlük kayıtlarını bir Unix soketi üzerinden okuyun.</li>
+</ul>
+<h3 id="logstash-filtre-eklentileri">
+  Logstash filtre eklentileri
+  <a class="heading-link" href="#logstash-filtre-eklentileri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Günlükleri manipüle etmek, zenginleştirmek veya değiştirmek istediğinizde, buradaki filtre <a href="https://www.elastic.co/guide/en/logstash/current/plugins-filters-elasticsearch.html"  class="external-link" target="_blank" rel="noopener">eklentilerinden</a> bazıları bunu yapmanıza yardımcı olabilir:</p>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/logstash/current/plugins-filters-json.html"  class="external-link" target="_blank" rel="noopener">JSON</a>: JSON günlüklerini ayrıştırır.</li>
+<li><a href="https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html"  class="external-link" target="_blank" rel="noopener">Grok</a>: günlük verilerini ayrıştırır ve yapılandırır.</li>
+<li><a href="https://www.elastic.co/guide/en/logstash/current/plugins-filters-i18n.html"  class="external-link" target="_blank" rel="noopener">I18n</a>: günlük kayıtlarınızdan özel karakterleri kaldırır.</li>
+<li><a href="https://www.elastic.co/guide/en/logstash/current/plugins-filters-geoip.html"  class="external-link" target="_blank" rel="noopener">Geoip</a>: coğrafi bilgi ekler.</li>
+</ul>
+<h3 id="logstash-çıktı-eklentileri">
+  Logstash çıktı eklentileri
+  <a class="heading-link" href="#logstash-%c3%a7%c4%b1kt%c4%b1-eklentileri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Verileri işledikten sonra, aşağıdaki <a href="https://www.elastic.co/guide/en/logstash/current/output-plugins.html"  class="external-link" target="_blank" rel="noopener">çıktı</a> eklentileri yararlı olabilir:</p>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-websocket.html"  class="external-link" target="_blank" rel="noopener">WebSocket</a>: günlükleri bir WebSocket uç noktasına iletin.</li>
+<li><a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-s3.html"  class="external-link" target="_blank" rel="noopener">S3</a>: günlük kayıtlarını Amazon Simple Storage Service’e (Amazon S3) gönderin.</li>
+<li><a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-syslog.html"  class="external-link" target="_blank" rel="noopener">Syslog</a>: günlükleri bir Syslog sunucusuna iletin.</li>
+<li><a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html"  class="external-link" target="_blank" rel="noopener">Elasticsearch</a>: günlük girdilerini Elastic yığınının bir parçası olan Elasticsearch’e iletin.</li>
+</ul>
+<p>Logstash pipeline’nı kurmak için <code>etc/logstash/conf.d</code> dizininde bir yapılandırma dosyası oluşturun.</p>
+<pre tabindex="0"><code>sudo nano /etc/logstash/conf.d/logstash.conf
+</code></pre><p>Biz beats ile log aktarımı yapacağız. Bunun için konfigürasyon dosyamız:</p>
+<pre tabindex="0"><code># Sample Logstash configuration for creating a simple  
+# Beats -&gt; Logstash -&gt; Elasticsearch pipeline.  
+  
+input {  
+  beats {  
+    port =&gt; 5044  
+  }  
+}  
+  
+filter {  
+  grok {  
+    # Match nginx headers  
+    match =&gt; {  
+      &#34;message&#34; =&gt; &#39;%{IP:client_ip} - - \[%{HTTPDATE:access_time}\] &#34;%{WORD:http_method} %{URIPATH:request_page} HTTP/%{NUMBER:http_version}&#34; %{NUMBER:response_code} %{NUMBER:response_size} &#34;-&#34; &#34;%{GREEDYDATA:user_agent}&#34;&#39;  
+    }  
+  }  
+  }  
+  
+output {  
+  elasticsearch {  
+    hosts =&gt; [&#34;https://&lt;host-ip&gt;:9200&#34;]  
+    index =&gt; &#34;filebeat-test-%{+YYYY.MM.dd}&#34;  
+    ssl =&gt; true  
+    ssl_certificate_verification =&gt; false  
+    user =&gt; &#34;elastic&#34;  
+    password =&gt; &#34;changeme&#34;  
+  }  
+}                                                                                         beats {                                                                                                           port =&gt; 5044                                                                                                  }                                                                                                             }                                                                                                                                                                                                                               filter {                                                                                                          grok {                                                                                                            # Match nginx headers                                                                                           match =&gt; {                                                                                                        &#34;message&#34; =&gt; &#39;%{IP:client_ip} - - \[%{HTTPDATE:access_time}\] &#34;%{WORD:http_method} %{URIPATH:request_page} HTTP/%{NUMBER:http_version}&#34; %{NUMBER:response_code} %{NUMBER:response_size} &#34;-&#34; &#34;%{GREEDYDATA:user_agent}&#34;&#39;       }                                                                                                             }                                                                                                               }                                                                                                                                                                                                                             output {                                                                                                          elasticsearch {                                                                                                   hosts =&gt; [&#34;https://192.168.1.100:9200&#34;]                                                                         index =&gt; &#34;filebeat-test-%{+YYYY.MM.dd}&#34;                                                                         ssl =&gt; true                                                                                                     ssl_certificate_verification =&gt; false                                                                           user =&gt; &#34;elastic&#34;                                                                                               password =&gt; &#34;123456&#34;                                                                                          }                                                                                                             }
+</code></pre><p>Bu dosyada password alanına kendi “elastic” kullanıcınızın parolasını yazmanız gerekli.</p>
+<p>Logstash üzerinde filter olarak grok eklentisini kullandım. grok çok iyi bir parser eklentisidir. Gelen loglarımızı logstash üzerinde grok eklentisi ile parse ediyor olacağız.</p>
+<p>Şimdi <code>/usr/share/logstash/data</code> dizininin sahipliğini <code>logstash</code> kullanıcısına değiştirin:</p>
+<p><img src="/images/1_AQQWHHMHTuYtBxAsZ0DWzg.png" alt=""></p>
+<p>Logstash data dizinin sahipliğini değiştirme</p>
+<pre tabindex="0"><code>sudo chown -R logstash:logstash /usr/share/logstash/data
+</code></pre><p>Şimdi, yapılandırma dosyasının yolunu ileterek Logstash’ı başlatın:</p>
+<pre tabindex="0"><code>sudo -u logstash /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/logstash.conf
+</code></pre><p><img src="/images/1_IN4dRRoxrItJa5eUNsAFqw.png" alt=""></p>
+<p>Logstashi başlatma</p>
+<p>Logstash konfigürasyon dosyası ile başlattığınızda eğer herhangi bir hata yok ise pipeline’ın dinlemede ve hazır olduğuna dair bir mesaj alacaksınız.</p>
+<p><img src="/images/1_eGddI0ws1vfegy_IhfJl_w.png" alt=""></p>
+<p>Pipeline dinlemede</p>
+<p><img src="/images/1_j93RhXtzHMuobzrXoKpjDQ.png" alt=""></p>
+<p>Logstash Servis Durumu</p>
+<p>Artık pipilenımız hazır. Servisimiz ayakta ve çalışıyor. Bir sonraki adıma geçebiliriz.</p>
+<h3 id="2--beats-yapılandırması">
+  2- Beats Yapılandırması
+  <a class="heading-link" href="#2--beats-yap%c4%b1land%c4%b1rmas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>ELK sunucumuzda çalışan Logstash servisimize clientlar üzerinden log göndermek için beats aracını kullanacağız. Client sistemlere beats kurulumu yaparak sistemlerden log gönderebiliriz.</p>
+<p>Her Beat ayrı olarak kurulabilir bir üründür:</p>
+<ul>
+<li><a href="https://www.elastic.co/guide/en/beats/auditbeat/8.15/auditbeat-installation-configuration.html"  class="external-link" target="_blank" rel="noopener">Auditbeat</a></li>
+<li><a href="https://www.elastic.co/guide/en/beats/filebeat/8.15/filebeat-installation-configuration.html"  class="external-link" target="_blank" rel="noopener">Filebeat</a></li>
+<li><a href="https://www.elastic.co/guide/en/beats/heartbeat/8.15/heartbeat-installation-configuration.html"  class="external-link" target="_blank" rel="noopener">Heartbeat</a></li>
+<li><a href="https://www.elastic.co/guide/en/beats/metricbeat/8.15/metricbeat-installation-configuration.html"  class="external-link" target="_blank" rel="noopener">Metricbeat</a></li>
+<li><a href="https://www.elastic.co/guide/en/beats/packetbeat/8.15/packetbeat-installation-configuration.html"  class="external-link" target="_blank" rel="noopener">Packetbeat</a></li>
+<li><a href="https://www.elastic.co/guide/en/beats/winlogbeat/8.15/winlogbeat-installation-configuration.html"  class="external-link" target="_blank" rel="noopener">Winlogbeat</a></li>
+</ul>
+<p>Gördüğünüz gibi birçok beat ürünü var. Biz bunlardan sistemimizdeki log dosyalarını göndermek için <strong>filebeat</strong> ürününü kullanalım.</p>
+<p>Client sistemimizde kuruluma başlıyoruz. Ben yine aynı sistemimde devam edeceğim. ELK sistemimi kurduğum sunucum ayrıca clientım olacak.</p>
+<pre tabindex="0"><code>wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.15.3-amd64.deb  
+sudo dpkg -i filebeat-8.15.3-amd64.deb
+</code></pre><p><img src="/images/1_h8EWICxmNAUUwQgfbizXjQ.png" alt=""></p>
+<p>Filebeat kurulumu</p>
+<p>Filebeati indirip kurduktan sonra konfigürasyon işlemlerine geçiyoruz.</p>
+<pre tabindex="0"><code>sudo nano /etc/filebeat/filebeat.yml
+</code></pre><p><img src="/images/1_CigAmS2AF5tsJWQYLetpkg.png" alt=""></p>
+<p>Elasticsearch Output</p>
+<p>Biz çıktımızı logstashe yönlendireceğimiz için elasticsearch kısmını kare işareti ile kapatıyoruz.</p>
+<p><img src="/images/1_Hnz7Cpp4QzquIrc10rjBdQ.png" alt=""></p>
+<p>Logstash Output</p>
+<p>Logstash bölümüne Logstash sunucumuzun IPsini ve port numarasını giriyoruz.</p>
+<p><img src="/images/1_MBSKQNv8BjcCL-dWN4oZCg.png" alt=""></p>
+<p>Log Toplama Yaplandırması</p>
+<p>Paths kısmında beatimizin toplayacağı logları yapılandırbiliriz. Varsayılan olarak /var/log/ dizini altındaki log dosyalarını topluyor. Daha fazlası için bu kısma sunucumuzda çalışan önemli servislerin(WEB, DNS, DHCP vb.) loglarını ekleyebiliriz.</p>
+<p>Yapılandırma ayarlarımız tamamlandığında dosyayı kaydedip çıkabiliriz.</p>
+<p>Şimdi sıra filebeatimizi başlatmada.</p>
+<pre tabindex="0"><code>sudo systemctl daemon-reload  
+sudo systemctl enable filebeat.service  
+sudo systemctl start filebeat.service
+</code></pre><p><img src="/images/1_5fkN3mf3RSkcR8i5pj_eXg.png" alt=""></p>
+<p>Filebeat Servis Durumu</p>
+<p>Artık filebeat yapılandırmamızı da tamamladık ve servisimizi başlattık. Servisimiz ayakta ve çalışıyor.</p>
+<p>Diğer beats ürünlerini de benzre şekilde kurup yapılandırabilirsiniz.</p>
+<hr>
+<h3 id="3--kibana-yapılandırması">
+  3- Kibana Yapılandırması
+  <a class="heading-link" href="#3--kibana-yap%c4%b1land%c4%b1rmas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Logstash ve Filebeat kurulumlarımızı tamamladık. Şimdi kibana arayüzümüzü açalım. Ardından elasticsearch bölümüne girelim. Indicies alanında indeximiz gelmiş mi kontrol edelim.</p>
+<p><img src="/images/1_Y2bco0zQhKvUxE1T2mvOxw.png" alt=""></p>
+<p>Kibana Arayüzü</p>
+<p>Bu arayüzde gelen indeximizi görebiliyoruz. Şimdi “Discover” bölümüne gidelim.</p>
+<p><img src="/images/1_t9aAyIPyNRzcWZK7wsbouA.png" alt=""></p>
+<p>Discover Paneli</p>
+<p>Create Data View butonuna tıklayarak yeni bir data view oluşturacağız.</p>
+<p><img src="/images/1_oDaljym5JgsWwDuNrK5cjg.png" alt=""></p>
+<p>Data View Oluşturma</p>
+<p>Bir isim verin ve index pattern seçin, oluşturulduğu zamana rağmen filebeat dizinini istediğiniz için adını filebeat* olarak vermek isteyebilirsiniz, filebat-test-2023.10.03* seçerseniz yalnızca bir dizin yüklenecek ve yeni dizin farklı veriler altında olacağından gerçek zamanlı veri alamayacaktır. Bu nedenle, bundan kaçınmalısınız.</p>
+<p>Data Viewi kaydettikten sonra discover paneline logların gelmiş olması lazım. Gelmediyse bir sorun vardır.</p>
+<p><img src="/images/1_yXjPbz-6CYRJekTkqSvHwQ.png" alt=""></p>
+<p>Discover Paneli</p>
+<p>Artık bu panel üzerinden log search yani log arama işlemi yapabiliriz.</p>
+<hr>
+<p>Bu yazımda ELK sistemimize bir log kaynağı ekledik. Logları parse edip elasticsearche gönderdik. Kibana arayüzünde gerekli yapılandırmaları yaptık.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

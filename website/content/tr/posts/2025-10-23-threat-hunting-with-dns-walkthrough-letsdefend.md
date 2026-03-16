@@ -1,4 +1,5 @@
 ---
+series: ["Threat Hunting Walkthroughs"]
 title: "Threat Hunting with DNS Walkthrough — LetsDefend"
 date: 2025-10-23
 draft: false

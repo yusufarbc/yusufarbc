@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Cryptology Fundamentals:#4 Blockchain · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Cryptology Fundamentals:#4 Blockchain
+  
+    
+    Link to heading
+  
+
+
+Hello, in this article of the cryptology basics series, I will talk about what blockchain is, how it works and where it is used.
+
+
+  What is Blockchain?
+  
+    
+    Link to heading
+  
+
+Blockchain(blockchain) is an ever-growing list of records blocks, linked and secured using cryptography.
+
+Blockchain technology was invented by Satoshi Nakamoto in 2008. Since it has gained great importance in the last few years, many countries have started working to develop the technology and use it in various fields. Blockchain is highly appreciated by FinTech organizations. Practical applications of Blockchain Technology such as Digital Identities, Bitcoin and Ethereum have made it clear that this technology is here to stay. It is a combination of various technologies, including distributed data storage, encryption algorithms and consensus mechanism. Technology has the ability to revolutionize the working models of departments such as finance, banking and cybersecurity departments.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Cryptology Fundamentals:#4 Blockchain">
+  <meta name="twitter:description" content="Cryptology Fundamentals:#4 BlockchainLink to headingHello, in this article of the cryptology basics series, I will talk about what blockchain is, how it works and where it is used.
+What is Blockchain?Link to headingBlockchain(blockchain) is an ever-growing list of records blocks, linked and secured using cryptography.
+Blockchain technology was invented by Satoshi Nakamoto in 2008. Since it has gained great importance in the last few years, many countries have started working to develop the technology and use it in various fields. Blockchain is highly appreciated by FinTech organizations. Practical applications of Blockchain Technology such as Digital Identities, Bitcoin and Ethereum have made it clear that this technology is here to stay. It is a combination of various technologies, including distributed data storage, encryption algorithms and consensus mechanism. Technology has the ability to revolutionize the working models of departments such as finance, banking and cybersecurity departments.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2023/04/cryptology-fundamentals%234-blockchain/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Cryptology Fundamentals:#4 Blockchain">
+  <meta property="og:description" content="Cryptology Fundamentals:#4 BlockchainLink to headingHello, in this article of the cryptology basics series, I will talk about what blockchain is, how it works and where it is used.
+What is Blockchain?Link to headingBlockchain(blockchain) is an ever-growing list of records blocks, linked and secured using cryptography.
+Blockchain technology was invented by Satoshi Nakamoto in 2008. Since it has gained great importance in the last few years, many countries have started working to develop the technology and use it in various fields. Blockchain is highly appreciated by FinTech organizations. Practical applications of Blockchain Technology such as Digital Identities, Bitcoin and Ethereum have made it clear that this technology is here to stay. It is a combination of various technologies, including distributed data storage, encryption algorithms and consensus mechanism. Technology has the ability to revolutionize the working models of departments such as finance, banking and cybersecurity departments.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-04-12T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-04-12T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2023/04/cryptology-fundamentals%234-blockchain/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2023/04/kriptoloji-temelleri%234-blokzincir/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2023/04/cryptology-fundamentals%234-blockchain/">
+              Cryptology Fundamentals:#4 Blockchain
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-04-12T00:00:00Z">
+                April 12, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              6-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="cryptology-fundamentals4-blockchain">
+  Cryptology Fundamentals:#4 Blockchain
+  <a class="heading-link" href="#cryptology-fundamentals4-blockchain">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_Ci1P1v2xXKNrCvqur5DbQQ.png" alt=""></p>
+<p>Hello, in this article of the cryptology basics series, I will talk about what blockchain is, how it works and where it is used.</p>
+<hr>
+<h3 id="what-isblockchain">
+  What is Blockchain?
+  <a class="heading-link" href="#what-isblockchain">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Blockchain</strong>(blockchain) is an ever-growing list of <a href="https://en.wikipedia.org/wiki/Record_%28computer_science%29" title="en:Record (computer science)"  class="external-link" target="_blank" rel="noopener">records</a> blocks, linked and secured using <a href="https://tr.wikipedia.org/wiki/Cryptography" title="Cryptography"  class="external-link" target="_blank" rel="noopener">cryptography</a>.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*_mqEk43FYCnMOB8k" alt=""></p>
+<p>Blockchain technology was invented by Satoshi Nakamoto in 2008. Since it has gained great importance in the last few years, many countries have started working to develop the technology and use it in various fields. Blockchain is highly appreciated by FinTech organizations. Practical applications of Blockchain Technology such as Digital Identities, Bitcoin and Ethereum have made it clear that this technology is here to stay. It is a combination of various technologies, including distributed data storage, encryption algorithms and consensus mechanism. Technology has the ability to revolutionize the working models of departments such as finance, banking and cybersecurity departments.</p>
+<h4 id="some-of-the-advantages-of-blockchain-technology">
+  <strong>Some of the advantages of blockchain technology:</strong>
+  <a class="heading-link" href="#some-of-the-advantages-of-blockchain-technology">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>No third party intervention.</li>
+<li>Data cannot be modified or deleted.</li>
+<li>Secure data notebook.</li>
+<li>All blocks in the blockchain are timestamped.</li>
+<li>Transparent transactions.</li>
+<li>Distributed to each node in the blockchain.</li>
+<li>There is no risk of duplication or fraud.</li>
+</ul>
+<hr>
+<h3 id="how-does-blockchainwork">
+  How Does Blockchain Work?
+  <a class="heading-link" href="#how-does-blockchainwork">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Briefly, the blockchain works like this: Each block typically contains transaction data, the hash of the previous block, and a timestamp. By design, a blockchain is resistant to subsequent modification of records. The ledger used is “an open, distributed ledger that can record transactions between two parties in an efficient, verifiable and persistent manner.” For use as a distributed ledger, a blockchain is typically managed by a peer-to-peer network for inter-node communication and validating new blocks, collectively tied to a protocol. If the data in any block is wanted to be changed later, the block containing the data and all subsequent blocks will need to be changed. This requires being elected in the node selection for each block write and approval by the majority of the nodes in the network each time before the next node is written. In addition, since it is clear who modified each block, it is possible to detect possible abuse.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*8FN6t57s1kOFav3O" alt=""></p>
+<p>Blockchain works on three leading technologies:</p>
+<h4 id="1--cryptography-keys">
+  1- Cryptography keys
+  <a class="heading-link" href="#1--cryptography-keys">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Cryptography keys are of two types — Private key and Public key. Both parties in a network have these two keys, thus helping to create a secure digital identity. These keys help in the successful execution of transactions between these two people. This secure identity is the most important aspect of Blockchain technology, called a &lsquo;digital signature&rsquo; when it comes to cryptocurrency.</p>
+<h4 id="2--a-peer-to-peer-network-with-a-shared-ledger">
+  2- A peer-to-peer network with a shared ledger
+  <a class="heading-link" href="#2--a-peer-to-peer-network-with-a-shared-ledger">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The digital signature is then combined with a peer-to-peer network; A large number of individuals acting as authorities and using the digital signature to reach the consensus of others on transactions, among all other matters.</p>
+<h4 id="3--a-computing-tool-for-sharing-the-records-and-transactions-of-the-network">
+  3- A computing tool for sharing the records and transactions of the network
+  <a class="heading-link" href="#3--a-computing-tool-for-sharing-the-records-and-transactions-of-the-network">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Once they all consent to an agreement, it is confirmed by a mathematical verification that results in a secure transaction between two parties on a shared network.</p>
+<p>Thus, in Blockchain technology, users use cryptography keys to perform different digital transactions over a peer-to-peer network.</p>
+<hr>
+<h3 id="where-is-blockchain-used">
+  Where is Blockchain Used?
+  <a class="heading-link" href="#where-is-blockchain-used">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Blockchain technology can be integrated into multiple domains. The primary use of blockchains today is cryptocurrencies, most notably bitcoin.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*r5VtfCsKzSlSziWt" alt=""></p>
+<p>Blockchain technology has great potential to transform business operating models in the long term. Blockchain distributed ledger technology is typically a “low cost” technology based on its potential to create new foundations for global economic and social systems.It is a more fundamental technology than a disruptive technology that attacks a traditional business model with a costly solution and quickly consumes incumbents. The use of blockchains promises to bring significant efficiency to global supply chains, financial transactions, ledgers of assets, and decentralized social networks.</p>
+<h4 id="smart-contracts">
+  Smart contracts
+  <a class="heading-link" href="#smart-contracts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Blockchain-based smart contracts are contracts that can be executed or enforced in whole or in part without human interaction. One of the main purposes of a smart contract is automatic escrow. The IMF believes that blockchains can reduce moral damages and optimize the use of contracts in general. Its legal status is unclear due to lack of widespread use.</p>
+<h4 id="decentralizednetworks">
+  Decentralized networks
+  <a class="heading-link" href="#decentralizednetworks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>The Backfeed project develops a distributed governance system for blockchain-based applications that enables collaborative creation and distribution of value across networks of simultaneously occurring peers.</li>
+<li>The Alexandria project is a blockchain-based Distributed Library.</li>
+<li>Tezos is a blockchain project that governs itself through the vote of token holders. <a href="https://tr.wikipedia.org/wiki/Bitcoin" title="Bitcoin"  class="external-link" target="_blank" rel="noopener">Bitcoin</a> implements the blockchain as a cryptocurrency and payment system. The Ethereum blockchain added a smart contract system on top of a blockchain. The Tezos blockchain will add an autonomy system — a decentralized code Development function on top of both the bitcoin and Ethereum blockchains.</li>
+</ul>
+<h4 id="governments-and-national-currencies">
+  Governments and national currencies
+  <a class="heading-link" href="#governments-and-national-currencies">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Jose Arrieta, Operations Manager for IT Contract Planning at the U.S. General Services Administration, explained at the ACT-IAC (American Technology Council and Industry Advisory Council) Forum in September 2017 that the organization is using blockchain distributed ledger technology through automation to streamline the FASt Lane process of IT Schedule 70 contracts.</p>
+<p>The Commercial Clearance Advisory Committee, a subcommittee of U.S. Customs and Border Protection, is working to find practical ways blockchain can be applied to its missions.</p>
+<h4 id="banks">
+  Banks
+  <a class="heading-link" href="#banks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Large parts of the financial industry are implementing distributed ledgers for use in banking, and according to a September 2016 IBM study, this is happening faster than expected. Banks are interested in this technology because it has the potential to speed up back-office settlement systems.</p>
+<h4 id="other-financial-companies">
+  Other financial companies
+  <a class="heading-link" href="#other-financial-companies">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Credit and debit payment company MasterCard has added three blockchain-based APIs for programmers to enhance both person-to-person (P2P) and business-to-business (B2B) payment systems.</p>
+<p>CLS Group is using blockchain technology to increase the number of foreign exchange deals it can extend.</p>
+<p>VISA payment systems, Mastercard, Unionpay and SWIFT have announced their plans and developments to use blockchain technology.</p>
+<hr>
+<h3 id="blockchaintypes">
+  Blockchain Types
+  <a class="heading-link" href="#blockchaintypes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Currently, there are three types of <strong>blockchain</strong> networks:<br>
+public blockchains, private blockchains and consortium blockchains.</p>
+<h4 id="public-blockchains">
+  Public blockchains
+  <a class="heading-link" href="#public-blockchains">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>A public blockchain has absolutely no access restrictions. Anyone with an Internet connection can make transactions and gain validity (that is, participate in the execution of a consensus protocol). Often, such networks offer economic incentives for people who secure them and use a Proof of Stake or Proof of Work algorithm.</p>
+<p>Some of the largest, best-known public blockchains are Bitcoin and Ethereum.</p>
+<h4 id="private-blockchains">
+  Private blockchains
+  <a class="heading-link" href="#private-blockchains">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>These types of blockchains can be considered a middle ground for companies interested in blockchain technology in general but not comfortable with a level of control offered by public networks. Typically, they try not to incorporate blockchain into accounting and record-keeping procedures without compromising their autonomy and exposing sensitive data to public internet risk.</p>
+<h4 id="consortium-blockchains">
+  Consortium blockchains
+  <a class="heading-link" href="#consortium-blockchains">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>A consortium blockchain is often said to be semi-decentralized. He is also on leave; But instead of a single organization controlling it, each company can operate a node in such a network. Administrators of a consortium chain restrict users&rsquo; read rights as they see fit, allowing only a limited number of trusted nodes to execute a consortium protocol.</p>
+<hr>
+<p>In this article, I talked about blockchain. You can find the list of the series on my profile.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

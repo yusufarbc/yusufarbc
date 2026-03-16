@@ -1,4 +1,5 @@
 ---
+series: ["Wazuh"]
 title: "Siber Güvenlik için İşletim Sistemi Dağıtımları ve Lab Ortamları"
 date: 2024-12-02
 draft: false

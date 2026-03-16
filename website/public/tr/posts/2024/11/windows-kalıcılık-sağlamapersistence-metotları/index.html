@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Windows Kalıcılık Sağlama(Persistence) Metotları · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Windows Kalıcılık Sağlama(Persistence) Metotları
+  
+    
+    Başlık Linki
+  
+
+
+Windows’ta kalıcılık sağlama (persistence) yöntemleri, bir sistemin yeniden başlatılması veya kullanıcı oturumunun kapatılması durumunda bile zararlı yazılımların veya yetkisiz erişimlerin devam etmesini sağlamak için kullanılır.
+
+  1- Kullanıcı Manipülasyonu (Users)
+  
+    
+    Başlık Linki
+  
+
+Saldırganlar tarafından kalıcılığı sürdürmek için yaygın olarak kullanılan bir yöntem de kullanıcı yaratmaktır. Aslında bunun yapılmasının tek nedeni kalıcılığı sağlamak değildir. Saldırgan(lar)ın “Administrator” hesabının kontrolünü ele geçirdiklerinde yeni kullanıcılar oluşturduklarını gözlemliyoruz. Çünkü bu önemli bir kullanıcıdır ve faaliyetleri düzenli olarak takip edilebilir. Bu nedenle, çok dikkat çekmeyecek yeni bir kullanıcı yaratıyorlar ve mümkünse bu kullanıcının ayrıcalıklarını artırıyorlar.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Windows Kalıcılık Sağlama(Persistence) Metotları">
+  <meta name="twitter:description" content="Windows Kalıcılık Sağlama(Persistence) MetotlarıBaşlık LinkiWindows’ta kalıcılık sağlama (persistence) yöntemleri, bir sistemin yeniden başlatılması veya kullanıcı oturumunun kapatılması durumunda bile zararlı yazılımların veya yetkisiz erişimlerin devam etmesini sağlamak için kullanılır.
+1- Kullanıcı Manipülasyonu (Users)Başlık LinkiSaldırganlar tarafından kalıcılığı sürdürmek için yaygın olarak kullanılan bir yöntem de kullanıcı yaratmaktır. Aslında bunun yapılmasının tek nedeni kalıcılığı sağlamak değildir. Saldırgan(lar)ın “Administrator” hesabının kontrolünü ele geçirdiklerinde yeni kullanıcılar oluşturduklarını gözlemliyoruz. Çünkü bu önemli bir kullanıcıdır ve faaliyetleri düzenli olarak takip edilebilir. Bu nedenle, çok dikkat çekmeyecek yeni bir kullanıcı yaratıyorlar ve mümkünse bu kullanıcının ayrıcalıklarını artırıyorlar.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2024/11/windows-kal%C4%B1c%C4%B1l%C4%B1k-sa%C4%9Flamapersistence-metotlar%C4%B1/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Windows Kalıcılık Sağlama(Persistence) Metotları">
+  <meta property="og:description" content="Windows Kalıcılık Sağlama(Persistence) MetotlarıBaşlık LinkiWindows’ta kalıcılık sağlama (persistence) yöntemleri, bir sistemin yeniden başlatılması veya kullanıcı oturumunun kapatılması durumunda bile zararlı yazılımların veya yetkisiz erişimlerin devam etmesini sağlamak için kullanılır.
+1- Kullanıcı Manipülasyonu (Users)Başlık LinkiSaldırganlar tarafından kalıcılığı sürdürmek için yaygın olarak kullanılan bir yöntem de kullanıcı yaratmaktır. Aslında bunun yapılmasının tek nedeni kalıcılığı sağlamak değildir. Saldırgan(lar)ın “Administrator” hesabının kontrolünü ele geçirdiklerinde yeni kullanıcılar oluşturduklarını gözlemliyoruz. Çünkü bu önemli bir kullanıcıdır ve faaliyetleri düzenli olarak takip edilebilir. Bu nedenle, çok dikkat çekmeyecek yeni bir kullanıcı yaratıyorlar ve mümkünse bu kullanıcının ayrıcalıklarını artırıyorlar.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-11-18T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-11-18T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2024/11/windows-kal%C4%B1c%C4%B1l%C4%B1k-sa%C4%9Flamapersistence-metotlar%C4%B1/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2024/11/windows-persistence-methods/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2024/11/windows-kal%C4%B1c%C4%B1l%C4%B1k-sa%C4%9Flamapersistence-metotlar%C4%B1/">
+              Windows Kalıcılık Sağlama(Persistence) Metotları
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-11-18T00:00:00Z">
+                Kasım 18, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="windows-kalıcılık-sağlamapersistence-metotları">
+  Windows Kalıcılık Sağlama(Persistence) Metotları
+  <a class="heading-link" href="#windows-kal%c4%b1c%c4%b1l%c4%b1k-sa%c4%9flamapersistence-metotlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_embmEuQRxJRHe7TWE4Y6hw.png" alt=""></p>
+<p>Windows’ta kalıcılık sağlama (persistence) yöntemleri, bir sistemin yeniden başlatılması veya kullanıcı oturumunun kapatılması durumunda bile zararlı yazılımların veya yetkisiz erişimlerin devam etmesini sağlamak için kullanılır.</p>
+<h3 id="1--kullanıcı-manipülasyonu-users">
+  1- Kullanıcı Manipülasyonu (Users)
+  <a class="heading-link" href="#1--kullan%c4%b1c%c4%b1-manip%c3%bclasyonu-users">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Saldırganlar tarafından kalıcılığı sürdürmek için yaygın olarak kullanılan bir yöntem de kullanıcı yaratmaktır. Aslında bunun yapılmasının tek nedeni kalıcılığı sağlamak değildir. Saldırgan(lar)ın “Administrator” hesabının kontrolünü ele geçirdiklerinde yeni kullanıcılar oluşturduklarını gözlemliyoruz. Çünkü bu önemli bir kullanıcıdır ve faaliyetleri düzenli olarak takip edilebilir. Bu nedenle, çok dikkat çekmeyecek yeni bir kullanıcı yaratıyorlar ve mümkünse bu kullanıcının ayrıcalıklarını artırıyorlar.</p>
+<p>Oluşturulan kullanıcılar genellikle “support”, “sysadmin”, “admin” gibi anahtar kelimeler içerir. Çoğu şirkette bu gibi isimlere sahip kullanıcılar fazla dikkat çekmeyecektir.</p>
+<p>Bilgisayarda var olan hesapları görüntülemek için “net users” komutunu kullanabiliriz.</p>
+<p><img src="/images/1_HvOGzRb3pHx18C05BL9HYg.png" alt=""></p>
+<p>net user</p>
+<p>Bir olay müdahale prosedürü sırasında, hızlı bir şekilde değerlendirmemiz gereken 2 şey vardır. Şu anda sistemde olmaması gereken bir kullanıcı var mı? Saldırı sırasında bir kullanıcı oluşturuldu ve daha sonra silindi mi?</p>
+<p>Oluşturulan ve silinen kullanıcıları görmek için EventViewer üzerinde araştırabiliriz.</p>
+<ol>
+<li><strong>Kullanıcı Oluşturma</strong>:</li>
+</ol>
+<ul>
+<li><strong>Event ID 4720</strong>: Yeni bir kullanıcı hesabı oluşturulduğunda bu olay kaydedilir.</li>
+</ul>
+<ol>
+<li><strong>Kullanıcı Silme</strong>:</li>
+</ol>
+<ul>
+<li><strong>Event ID 4726</strong>: Bir kullanıcı hesabı silindiğinde bu olay kaydedilir.</li>
+</ul>
+<p><img src="/images/1_4nn-RZO_QOj2Z31N2iW__Q.png" alt=""></p>
+<p>Event Viewer Filtereleme</p>
+<p>Olay Görüntüleyecisinde yer alan kayıtlarda oluşturulan kullanıcıyı, zamanını ve hangi kullanıcı üzerinden oluşturulduğunu görebiliriz.</p>
+<p><img src="/images/1_1xVpZh22clB0-MLj_t8dfA.png" alt=""></p>
+<p>EventViewer log inceleme</p>
+<hr>
+<h3 id="2--zamanlanmış-görevler-scheduled-task">
+  2- Zamanlanmış Görevler (Scheduled Task)
+  <a class="heading-link" href="#2--zamanlanm%c4%b1%c5%9f-g%c3%b6revler-scheduled-task">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>En çok kullanılan kalıcılık yöntemlerinden biri zamanlanmış görevler oluşturmaktır. Virüslerden fidye yazılımlarına kadar çoğu zararlı şey, kalıcılığı korumak için zamanlanmış görevler kullanır. Saldırgan, zamanlanmış görevler kullanarak zararlı dosyanın düzenli aralıklarla çalışmasını sağlar. Sistemde aktif olarak çalışan şüpheli zamanlanmış görevleri tespit etmenin çeşitli yolları vardır. Öncelikle bir sysinternals aracı olan “Autoruns” kullanılarak bunun nasıl yapıldığını gösterelim. Autoruns: <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns"  class="external-link" target="_blank" rel="noopener">İndir</a>.</p>
+<p><img src="/images/1_idpBPfOpk5jfDLg-y3C8wA.png" alt=""></p>
+<p>Autoruns aracı ile analiz</p>
+<p>Autorun aracı ile scheduled tasks bölümüne baktığımızda OneDrive servisinin zamanlanmış görevlerini görebiliriz. Tabi bu servis microsoft imzalı ve doğrulanmış olduğu için güvenli ve yasaldır.</p>
+<hr>
+<h3 id="3--kayıt-defteri-çalıştırma-anahtarlarıregistry-runkeys">
+  3- Kayıt Defteri Çalıştırma Anahtarları(Registry Run Keys)
+  <a class="heading-link" href="#3--kay%c4%b1t-defteri-%c3%a7al%c4%b1%c5%9ft%c4%b1rma-anahtarlar%c4%b1registry-runkeys">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Registry run keyleri</strong>, Windows işletim sisteminde, belirli programların veya komutların otomatik olarak başlatılmasını sağlamak için kullanılan yerlerdir. Bu anahtarlar, sistem açıldığında veya bir kullanıcı oturum açtığında devreye girer. Zararlı yazılımlar, bu anahtarları kullanarak sistemde kalıcılık (persistence) sağlamaya çalışır, yani sistem yeniden başlatıldığında veya kullanıcı oturum açtığında kendilerini yeniden başlatabilirler.</p>
+<p>Registry keyleri regedit aracı ile düzenlenebilir.</p>
+<p><img src="/images/1_KJ7xCp0G-BiHtQ1-wsCjBw.jpeg" alt=""></p>
+<p>registry editor</p>
+<p><strong>Aşağıdaki çalıştırma anahtarları Windows sistemlerinde varsayılan olarak oluşturulur:</strong><br>
+ <br>
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run<br>
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce <br>
+ ● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<br>
+ ● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce</p>
+<p><strong>Başlangıç klasörü öğelerini kalıcılık için ayarlamak üzere aşağıdaki Kayıt Defteri anahtarları kullanılabilir:</strong></p>
+<p>● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserShellFolders<br>
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellFolders <br>
+ ● HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellFolders <br>
+ ● HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\UserShellFolders</p>
+<p><strong>Aşağıdaki Kayıt Defteri anahtarları, önyükleme sırasında hizmetlerin otomatik olarak başlatılmasını kontrol edebilir:</strong></p>
+<p>● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices Once <br>
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunServices Once <br>
+ ● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices <br>
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunServices</p>
+<p><strong>Başlangıç programlarını belirtmek için ilke ayarlarını kullanmak, iki Kayıt Defteri anahtarından birinde karşılık gelen değerleri oluşturur:</strong></p>
+<p>● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run<br>
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</p>
+<p>Bu anahtarlar ile boot zamanında veya logon zamanında programlar başlatıabilir. Autoruns aracı ile başlatılan programlaarı görebiliriz.</p>
+<p><img src="/images/1_y3d5O0LdaV4GmOdbHnHpng.png" alt=""></p>
+<p>Autoruns Logon Keys</p>
+<p><img src="/images/1_Z-1VEztRVjoi7huNxW_u3A.png" alt=""></p>
+<p>Autoruns Boot Keys</p>
+<hr>
+<h3 id="4-başlangıç-klasörüstartup-folder">
+  4-Başlangıç Klasörü(Startup Folder)
+  <a class="heading-link" href="#4-ba%c5%9flang%c4%b1%c3%a7-klas%c3%b6r%c3%bcstartup-folder">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Başlangıç dosyasına eklenen dosyaları görüntülemek için aşağıdaki indekslerin işaretlenmesi gerekmektedir.</p>
+<ul>
+<li>C:\Users[Username]\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup</li>
+<li>C:\Programshell:startupData\Microsoft\Windows\Start Menu\Programs\StartUp</li>
+</ul>
+<p>Windowsta win+R tuşları ile açılan çalıştır penceresi ile başlandıç klasörüne erişebiliriz.</p>
+<blockquote>
+<p>shell:startup</p>
+</blockquote>
+<p><img src="/images/1_1VKN6kfhHUHtAxIC_SMn-g.png" alt=""></p>
+<p>startup folder</p>
+<p>Çalıştır aracı ile açtığımız başlangıç klasöründe zararlının bırakmış olduğu dosyaları görebiliriz.</p>
+<p><img src="/images/1_wYEoJlBvJhUvXomYDotB-g.png" alt=""></p>
+<p>Başlangıç Klasörü</p>
+<hr>
+<h3 id="5--hizmetlerservices">
+  5- Hizmetler(Services)
+  <a class="heading-link" href="#5--hizmetlerservices">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Saldırganlar, zararlı komutlar çalıştırmak için yeni bir hizmet oluşturabilir veya mevcut bir hizmeti değiştirebilir. Oluşturdukları veya değiştirdikleri hizmetin tespit edilmesini zorlaştırmak için “Chrome Update” gibi yasal kod adları kullanabilirler.</p>
+<p>Olay Günlüklerinden yeni oluşturulmuş bir hizmeti tespit etmek için <strong>4697</strong>:<strong>Sisteme bir hizmet yüklendi</strong> ID’li log kullanılabilir.</p>
+<p>Kalıcılığın yanı sıra hack faaliyetlerini kolaylıkla yürütebilmek için güvenlik önlemleri için çalıştırılan “Windows Defender”, “Firewall” vb. servisleri sürekli durdururlar.</p>
+<p>Bu nedenlerle bir Windows cihazı analiz edilirken hangi servislerin oluşturulduğu/değiştirildiği ve hangi sistemlerin durdurulduğu incelenmelidir.</p>
+<p>Bu incelemede yine autoruns aracı ve olay görüntületyicisi kullanılabilir.</p>
+<p>Not: Test makinem ransomware bulaşması sonucu çöktüğü için bu bölümün resimlerini alamadım, tekrar kurmayla da uğraşmak istemedim :)</p>
+<h4 id="6-bits-jobs">
+  6-BITS Jobs
+  <a class="heading-link" href="#6-bits-jobs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><strong>BITS (Background Intelligent Transfer Service)</strong>, Windows işletim sisteminin bir bileşenidir ve genellikle güncellemeleri ve dosya aktarımı işlemlerini gerçekleştirmek için kullanılır.Ancak, kötü niyetli kullanıcılar BITS’yi kötü amaçlı yazılımlar için kullanabilir.</p>
+<p><strong>BITS Jobs ile malware persistence</strong> şu şekilde gerçekleşebilir:</p>
+<ol>
+<li>Dosya İndirme ve Yürütme: Kötü niyetli bir uygulama BITS job oluşturarak bir dosyayı indirebilir ve bu dosyayı yürütebilir. Bu, uygulamanın uzun süre çalışmasını sağlar ve sistem yeniden başlatıldığında bile etkili olabilir.</li>
+<li>Gizlilik ve Güvenlik Bypass: BITS jobs, genellikle güvenlik duvarları tarafından izin verilir ve kötü amaçlı işlemler için ideal bir yöntem olabilir. Bu, kötü niyetli uygulamaların tespiti ve engellenmesini zorlaştırır.</li>
+<li>Komut Çalıştırma: BITS jobs, belirli bir komutu yürütmek için kullanılabilir. Bu komut, BITS job tamamlandığında veya hata oluştuğunda çalıştırılabilir.</li>
+</ol>
+<p>Örnek olarak, kötü niyetli bir uygulama BITSAdmin aracılığıyla bir job oluşturabilir ve bu job, belirli bir dosyayı indirip çalıştıracak şekilde ayarlanabilir.</p>
+<hr>
+<p>Bu yazımda zararlı yazılımların bilgisayarlarda kalıcılık sağlama yöntemlerine değindim. Daha fazlası için mitre attack enterprise matrisinin persistence taktiğini inceleyebilirsiniz. Bknz: <a href="https://attack.mitre.org/tactics/TA0003/"  class="external-link" target="_blank" rel="noopener">https://attack.mitre.org/tactics/TA0003/</a></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

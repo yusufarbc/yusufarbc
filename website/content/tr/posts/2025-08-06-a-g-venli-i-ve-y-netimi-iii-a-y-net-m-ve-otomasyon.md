@@ -1,4 +1,5 @@
 ---
+series: ["Ağ Güvenliği ve Yönetimi"]
 title: "Ağ Güvenliği ve Yönetimi III: AĞ YÖNETİMİ VE OTOMASYON"
 date: 2025-08-06
 draft: false

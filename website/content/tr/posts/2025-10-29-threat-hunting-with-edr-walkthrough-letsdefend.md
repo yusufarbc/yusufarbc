@@ -1,4 +1,5 @@
 ---
+series: ["Threat Hunting Walkthroughs"]
 title: "Threat Hunting with EDR Walkthrough — LetsDefend"
 date: 2025-10-29
 draft: false

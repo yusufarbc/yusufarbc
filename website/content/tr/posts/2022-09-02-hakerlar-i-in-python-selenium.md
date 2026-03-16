@@ -1,4 +1,5 @@
 ---
+series: ["Hakerlar için Python"]
 title: "Hakerlar için Python: selenium"
 date: 2022-09-02
 draft: false

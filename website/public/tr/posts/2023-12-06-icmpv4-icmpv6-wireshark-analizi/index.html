@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  ICMPv4/ICMPv6 Wireshark Analizi · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  ICMPv4/ICMPv6 Wireshark Analizi
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba bu yazımda ICMPv4 ve ICMPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+
+
+  ICMP Nedir?
+  
+    
+    Başlık Linki
+  
+
+ICMP, bir IP ağındaki hatalar, uyarılar ve genel bildirimler için bir mesajlaşma sistemi olarak kullanılır. Aşağıdakiler de dahil olmak üzere birçok ICMP mesaj türü vardır:
+
+Echo Message: ping ve traceroute tarafından uçtan uca bağlantıyı test etmek için kullanılır. Bunların çok fazla olması bir keşif işlemine veya muhtemelen bir Hizmet Reddi saldırısına işaret edebilir.
+Redirect Message: Yönlendiriciler tarafından kaynağa bir hedefe giden daha iyi bir yol olduğunu bildirmek için kullanılır. Bu paket bir yönlendirici tarafından gönderilmemişse, şüpheli olarak değerlendirilmelidir.
+Destination Unreachable messages: Kaynak ana bilgisayara paketlerinin bir nedenden dolayı teslim edilemediğini söylemek için kullanılır — nedeni Hedefe Ulaşılamıyor mesajında belirtilir. Bu yanıt paketlerinin çok sayıda olması, başarısız bir UDP bağlantı noktası taramasının devam ettiğini veya bir hizmetin düzgün çalışmadığını gösterebilir.
+
+Ağınızdaki ICMP trafiğini birkaç saat veya gün boyunca inceleyerek, ağın ne kadar verimli bir şekilde tasarlandığını belirleyebilir ve çok sayıda yapılandırma hatasını, işlevsel sorunu veya güvenlik ihlalini tespit edebilirsiniz. ICMPv4 RFC 792&rsquo;de tanımlanmıştır.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="ICMPv4/ICMPv6 Wireshark Analizi">
+  <meta name="twitter:description" content="ICMPv4/ICMPv6 Wireshark AnaliziBaşlık LinkiMerhaba bu yazımda ICMPv4 ve ICMPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+ICMP Nedir?Başlık LinkiICMP, bir IP ağındaki hatalar, uyarılar ve genel bildirimler için bir mesajlaşma sistemi olarak kullanılır. Aşağıdakiler de dahil olmak üzere birçok ICMP mesaj türü vardır:
+Echo Message: ping ve traceroute tarafından uçtan uca bağlantıyı test etmek için kullanılır. Bunların çok fazla olması bir keşif işlemine veya muhtemelen bir Hizmet Reddi saldırısına işaret edebilir. Redirect Message: Yönlendiriciler tarafından kaynağa bir hedefe giden daha iyi bir yol olduğunu bildirmek için kullanılır. Bu paket bir yönlendirici tarafından gönderilmemişse, şüpheli olarak değerlendirilmelidir. Destination Unreachable messages: Kaynak ana bilgisayara paketlerinin bir nedenden dolayı teslim edilemediğini söylemek için kullanılır — nedeni Hedefe Ulaşılamıyor mesajında belirtilir. Bu yanıt paketlerinin çok sayıda olması, başarısız bir UDP bağlantı noktası taramasının devam ettiğini veya bir hizmetin düzgün çalışmadığını gösterebilir. Ağınızdaki ICMP trafiğini birkaç saat veya gün boyunca inceleyerek, ağın ne kadar verimli bir şekilde tasarlandığını belirleyebilir ve çok sayıda yapılandırma hatasını, işlevsel sorunu veya güvenlik ihlalini tespit edebilirsiniz. ICMPv4 RFC 792’de tanımlanmıştır.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2023-12-06-icmpv4-icmpv6-wireshark-analizi/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="ICMPv4/ICMPv6 Wireshark Analizi">
+  <meta property="og:description" content="ICMPv4/ICMPv6 Wireshark AnaliziBaşlık LinkiMerhaba bu yazımda ICMPv4 ve ICMPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+ICMP Nedir?Başlık LinkiICMP, bir IP ağındaki hatalar, uyarılar ve genel bildirimler için bir mesajlaşma sistemi olarak kullanılır. Aşağıdakiler de dahil olmak üzere birçok ICMP mesaj türü vardır:
+Echo Message: ping ve traceroute tarafından uçtan uca bağlantıyı test etmek için kullanılır. Bunların çok fazla olması bir keşif işlemine veya muhtemelen bir Hizmet Reddi saldırısına işaret edebilir. Redirect Message: Yönlendiriciler tarafından kaynağa bir hedefe giden daha iyi bir yol olduğunu bildirmek için kullanılır. Bu paket bir yönlendirici tarafından gönderilmemişse, şüpheli olarak değerlendirilmelidir. Destination Unreachable messages: Kaynak ana bilgisayara paketlerinin bir nedenden dolayı teslim edilemediğini söylemek için kullanılır — nedeni Hedefe Ulaşılamıyor mesajında belirtilir. Bu yanıt paketlerinin çok sayıda olması, başarısız bir UDP bağlantı noktası taramasının devam ettiğini veya bir hizmetin düzgün çalışmadığını gösterebilir. Ağınızdaki ICMP trafiğini birkaç saat veya gün boyunca inceleyerek, ağın ne kadar verimli bir şekilde tasarlandığını belirleyebilir ve çok sayıda yapılandırma hatasını, işlevsel sorunu veya güvenlik ihlalini tespit edebilirsiniz. ICMPv4 RFC 792’de tanımlanmıştır.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-12-06T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-12-06T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2023-12-06-icmpv4-icmpv6-wireshark-analizi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2023-12-06-icmpv4-icmpv6-wireshark-analizi/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2023-12-06-icmpv4-icmpv6-wireshark-analizi/">
+              ICMPv4/ICMPv6 Wireshark Analizi
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-12-06T00:00:00Z">
+                Aralık 6, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              13 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="icmpv4icmpv6-wireshark-analizi">
+  ICMPv4/ICMPv6 Wireshark Analizi
+  <a class="heading-link" href="#icmpv4icmpv6-wireshark-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_qw1Nso3IaiA7Jptb-0T1qQ.png" alt=""></p>
+<p>Merhaba bu yazımda ICMPv4 ve ICMPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
+<hr>
+<h3 id="icmp-nedir">
+  ICMP Nedir?
+  <a class="heading-link" href="#icmp-nedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>ICMP, bir IP ağındaki hatalar, uyarılar ve genel bildirimler için bir mesajlaşma sistemi olarak kullanılır. Aşağıdakiler de dahil olmak üzere birçok ICMP mesaj türü vardır:</p>
+<ul>
+<li><strong>Echo Message:</strong> ping ve traceroute tarafından uçtan uca bağlantıyı test etmek için kullanılır. Bunların çok fazla olması bir keşif işlemine veya muhtemelen bir Hizmet Reddi saldırısına işaret edebilir.</li>
+<li><strong>Redirect Message:</strong> Yönlendiriciler tarafından kaynağa bir hedefe giden daha iyi bir yol olduğunu bildirmek için kullanılır. Bu paket bir yönlendirici tarafından gönderilmemişse, şüpheli olarak değerlendirilmelidir.</li>
+<li><strong>Destination Unreachable messages:</strong> Kaynak ana bilgisayara paketlerinin bir nedenden dolayı teslim edilemediğini söylemek için kullanılır — nedeni Hedefe Ulaşılamıyor mesajında belirtilir. Bu yanıt paketlerinin çok sayıda olması, başarısız bir UDP bağlantı noktası taramasının devam ettiğini veya bir hizmetin düzgün çalışmadığını gösterebilir.</li>
+</ul>
+<p>Ağınızdaki ICMP trafiğini birkaç saat veya gün boyunca inceleyerek, ağın ne kadar verimli bir şekilde tasarlandığını belirleyebilir ve çok sayıda yapılandırma hatasını, işlevsel sorunu veya güvenlik ihlalini tespit edebilirsiniz. ICMPv4 RFC 792&rsquo;de tanımlanmıştır.</p>
+<p><img src="/images/1_LHTLnK4dnNwCs20ZDNBf8g.png" alt=""></p>
+<p>ICMP, IP ağlarında mesajlaşma hizmetleri sunar</p>
+<p>RFC 4443, ICMPv6&rsquo;nın amacını ve işlevselliğini tanımlar. ICMPv6 paket yapısı ICMPv4 paket yapısı ile aynıdır.</p>
+<hr>
+<h3 id="icmp-trafikanalizi">
+  ICMP Trafik Analizi
+  <a class="heading-link" href="#icmp-trafikanalizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>ICMP trafiğini tanımlamak zordur çünkü bu her ağ için özeldir. Bazı ağ personeli bağlantı testleri için ping kullanırken, bazı şirketler ICMP Echo İsteklerini/Yanıtlarını kısıtlar. Bu ping testlerinden gelen ICMP trafiğini ve traceroute testlerinden gelen ICMP trafiğini “normal ICMP trafiği” olarak tanımlayabiliriz. ICMP tabanlı pingler echo İstekleri için ICMP Tip 8 ve echo reply için ICMP Tip 0 kullanır.</p>
+<p><img src="/images/1_4qv9iLVW9NDKL4GxWnpXKw.png" alt=""></p>
+<p>ICMP Echo Request</p>
+<p><img src="/images/1_gdUehz7murFdf2ZsU48Cmw.png" alt=""></p>
+<p>ICMP Echo Reply</p>
+<p>Şekiller ICMPv4 echo request ve echo reply paketlerini göstermektedir.</p>
+<p><img src="/images/1_2A2yFLq4vs7G70TfEM0oHw.png" alt=""></p>
+<p>ICMPv6</p>
+<p>Şekilde bir ICMPv6 echo request paketi gösterilmektedir. Bu tracedeki paketler 6to4 paketleridir.</p>
+<p>Traceroute’un üç çeşidi vardır-ICMP tabanlı, TCP tabanlı ve UDP tabanlı. ICMP tabanlı traceroute, ICMP echo İsteklerini kullanır ve IP başlığındaki Yaşam Süresi (TTL) değerini değiştirir. Paketler yol boyunca yönlendiricilere ulaştığında, gelen TTL değeri incelenir. Gelen TTL değeri 1 ise, yönlendirici bir ICMP Time Exceeded/Time to Live Exceeded in Transit (Tip 11, Kod 0) ile yanıt verir (bu yanıt yönlendiricide devre dışı bırakılmamışsa). Bu, yönlendiricinin IP adresini bulmanızı sağlar.</p>
+<p>Traceroute’un üç çeşidi vardır-ICMP tabanlı, TCP tabanlı ve UDP tabanlı. ICMP tabanlı traceroute, ICMP echo İsteklerini kullanır ve IP başlığındaki Yaşam Süresi (TTL) değerini değiştirir. Paketler yol boyunca yönlendiricilere ulaştığında, gelen TTL değeri incelenir. Gelen TTL değeri 1 ise, yönlendirici bir ICMP Time Exceeded/Time to Live Exceeded in Transit (Tip 11, Kod 0) ile yanıt verir (bu yanıt yönlendiricide devre dışı bırakılmamışsa). Bu, yönlendiricinin IP adresini bulmanızı sağlar.</p>
+<p><img src="/images/1_bJcu5LI83HlJKEJlBK6QUQ.png" alt=""></p>
+<p>ICMP Ping Request — no response</p>
+<p><img src="/images/1_EPaLsDeBtWdcmSiyOLbZbw.png" alt=""></p>
+<p>ICMP Time-to-live-exceed</p>
+<p>Şekillerde, bir traceroute işlemi sırasında varsayılan renklendirme etkinleştirildiğinde Wireshark’ın gösterdiği tipik şeritlemeyi göstermektedir.</p>
+<h4 id="icmpv4-problemleri">
+  ICMPv4 Problemleri
+  <a class="heading-link" href="#icmpv4-problemleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Yaygın bir ICMP sorunu, bir hedefe bağlantı olmadığını gösteren yanıt almayan bir echo testidir. ICMP trafiğinin düştüğü noktayı belirlemek için Wireshark sistemini paket kaybının meydana geldiği noktaya ulaşana kadar yol boyunca hareket ettirmeniz gerekir.</p>
+<p>Bununla birlikte, ICMP’nin kendisi diğer birçok ağ sorununu ve güvenlik sorununu tespit etmeye yardımcı olabilir. Örneğin, bir DNS sorgusu Hedefe Ulaşılamıyor/Port Erişilemiyor (Tip 3/Kod 3) sonucunu veriyorsa, ya istemci DNS sorgularını yanlış hedefe gönderiyordur ya da sunucuda ad hizmeti çalışmıyordur.</p>
+<p>Başka bir örnek de aşırı yönlendirmeler olabilir.</p>
+<p><img src="/images/1_09eyyZQ32tAra5CruF7ajQ.png" alt=""></p>
+<p>ICMP Redirect</p>
+<p>Şekilde, 10.2.99.98 adresindeki başka bir ağ geçidini(gateway) işaret eden bir ICMP Yönlendirme paketini göstermektedir. Bu paket, alıcı yönlendirici gönderici için daha iyi bir yönlendirici belirlediğinde gönderilir. Alıcı yönlendirici, kullanılması önerilen yönlendiriciyi içeren bir ICMP Yönlendirme (Tip 5/Kod 1) paketi oluşturur. Alındığında, bir host yönlendirme tablosunu güncellemelidir. Yönlendirmeler yalnızca yönlendiriciler tarafından gönderilmelidir.</p>
+<p>ICMP Redirect ve ICMP Destination Unreachable paketleri gibi bazı ICMP paketleri, ICMP yanıtını tetikleyen orijinal paketin bir bölümünü içerir. Şekilde, ICMP başlığını ICMP yanıtını tetikleyen paketin orijinal IP başlığı takip eder.</p>
+<p>TCP bağlantı istekleri ya bir TCP SYN/ACK ya da bir TCP Sıfırlaması ortaya çıkarması gerektiğinden, TCP el sıkışma bağlantı isteklerine ICMP Hedefe Ulaşılamıyor yanıtları olağandışıdır. Bu TCP el sıkışma bağlantı isteklerine verilen ICMP yanıtı, bir hostun güvenlik duvarının bir portu engellediğinin muhtemel bir göstergesidir.</p>
+<hr>
+<h3 id="icmpv4-paketyapısı">
+  ICMPv4 Paket Yapısı
+  <a class="heading-link" href="#icmpv4-paketyap%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>ICMP paketleri UDP veya TCP başlığı içermez-port filtreleme ayarları ICMP trafiğini etkileyemez(çünkü port kullanmaz). ICMP paketleri IP başlığından sonra yalnızca üç gerekli alan içerir: tür, kod ve sağlama toplamı(checksum). Bazı ICMP paketleri, mesaj hakkında bilgi veya ayrıntı sağlamak için ek alanlar içerir. Örneğin, bir ICMP Yönlendirme paketinin, bir hostun kullanması için yönlendirildiği ağ geçidinin(gateway) adresini içermesi gerekir. Bu paketin alınmasının ardından, bir host yönlendirme tablolarına dinamik bir rota girişi eklemeli ve yeni yönlendirme bilgilerini hemen kullanmaya başlamalıdır.</p>
+<h4 id="type">
+  Type
+  <a class="heading-link" href="#type">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Aşağıdaki liste, ağ üzerinde gönderilebilecek ICMP mesajlarının türlerini tanımlar. Bu liste, en son 23 Nisan 2012 tarihinde güncellenen IANA belgelerine dayanmaktadır. Bu listenin en güncel sürümünü edinmek için <a href="http://www.iana.org/assignments/icmp-parameters"  class="external-link" target="_blank" rel="noopener">www.iana.org/assignments/icmp-parameters</a> adresini ziyaret edin.</p>
+<ul>
+<li>Type 0: Echo Reply [RFC 792]</li>
+<li>Type 1: Unassigned</li>
+<li>Type 2: Unassigned</li>
+<li>Type 3: Destination Unreachable [RFC 792]</li>
+<li>Type 4: Source Quench [RFC 792]</li>
+<li>Type 5: Redirect [RFC 792]</li>
+<li>Type 6: Alternate Host Address</li>
+<li>Type 7: Unassigned</li>
+<li>Type 8: Echo [RFC 792]</li>
+<li>Type 9:Router Advertisement [RFC 1256]</li>
+<li>Type 10:Router Solicitation [RFC 1256]</li>
+<li>Type 11: Time Exceeded [RFC 792]</li>
+<li>Type 12: Parameter Problem [RFC 792]</li>
+<li>Type 13: Timestamp [RFC 792]</li>
+<li>Type 14: Timestamp Reply [RFC 792]</li>
+<li>Type 15: Information Request [RFC 792]</li>
+<li>Type 16: Information Reply [RFC 792]</li>
+<li>Type 17: Address Mask Request [RFC 950]</li>
+<li>Type 18: Address Mask Reply [RFC 950]</li>
+<li>Type 19: Reserved (for Security)</li>
+<li>TypeS 20–29: Reserved (for Robustness Experiment)</li>
+<li>Type 30: Traceroute [RFC 1393]</li>
+<li>Type 31: Datagram Conversion Error [RFC 1475]</li>
+<li>Type 32: Mobile Host Redirect</li>
+<li>Type 33: IPv6 Where-Are-You</li>
+<li>Type 34: IPv6 I-Am-Here</li>
+<li>Type 35: Mobile Registration Request</li>
+<li>Type 36: Mobile Registration Reply</li>
+<li>Type 37: Domain Name Request</li>
+<li>Type 38: Domain Name Reply</li>
+<li>Type 39: SKIP</li>
+<li>Type 40: Photuris</li>
+<li>Types 41–252: Unassigned</li>
+<li>Type 253: RFC3692-style Experiment 1</li>
+<li>Type 254: RFC3692-style Experiment 2</li>
+</ul>
+<h4 id="code">
+  Code
+  <a class="heading-link" href="#code">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Birçok ICMP paket tipinin birkaç olası Kod alanı değeri vardır. Aşağıdaki listede daha yaygın kod alanlarının açıklamaları yer almaktadır.</p>
+<h4 id="type-3-destination-unreachable-kodları">
+  Type 3 Destination Unreachable kodları
+  <a class="heading-link" href="#type-3-destination-unreachable-kodlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>Kod 0: Ağa Erişilemiyor — ICMP göndericisi ağı biliyor, ancak şu anda açık olmadığına inanıyor — belki de çok uzakta veya yalnızca bilinmeyen bir rota üzerinden erişilebilir.</li>
+<li>Kod 1: Ana Bilgisayara Ulaşılamıyor — ICMP göndericisi ana bilgisayarı biliyor, ancak bir ARP yanıtı almıyor, bu da ana bilgisayarın şu anda çalışmadığını gösteriyor.</li>
+<li>Kod 2: Protokol Erişilemez — IP başlığında tanımlanan protokol bir nedenden dolayı işlenemez — bu yanıt bir IP taramasında görülür.</li>
+<li>Kod 3: Port Ulaşılamıyor — ICMP göndericisi ulaşmaya çalıştığınız port numarasını desteklemiyor — bu paketlerin çok sayıda olması bir yapılandırma sorununa veya muhtemelen bir UDP port taramasına işaret eder; bu paketler bir TCP el sıkışma girişimine yanıt olarak gönderiliyorsa, hedef portun muhtemelen güvenlik duvarına sahip olduğunu gösterir.</li>
+<li>Kod 4: Parçalama Gerekli ve Parçalama Yapma Ayarlandı — Yönlendiricinin paketi daha küçük bir MTU boyutunu destekleyen bir bağlantı üzerinden iletmek için parçalaması gerekiyordu, ancak uygulama Parçalama Yapma bitini ayarladı.</li>
+<li>Kod 5: Kaynak Rotası Başarısız — ICMP göndericisi orijinal pakette belirtilen katı veya gevşek kaynak yönlendirme yolunu kullanamaz.</li>
+<li>Kod 6: Hedef Ağ Bilinmiyor-ICMP göndericisinin hedef ağ için bir rota girişi yoktur, bu da hedef ağın hiçbir zaman kullanılabilir bir ağ olmadığını gösterir.</li>
+<li>Kod 7: Hedef Ana Bilgisayar Bilinmiyor-ICMP göndericisinin bağlı ağda hiç bulunmamış olabileceğini gösteren bir ana bilgisayar girişi yoktur.</li>
+<li>Kod 8: Kaynak Ana Bilgisayar İzole Edildi-ICMP göndericisi (yönlendirici) kaynaktan gelen paketleri iletmeyecek şekilde yapılandırılmıştır. Çoğu yönlendirici bu yanıt kodunu üretmez — hangisi uygunsa 0 (ağa ulaşılamıyor) ve 1 (ana bilgisayara ulaşılamıyor) kodlarını üretirler.</li>
+<li>Kod 9: Hedef Ağ ile İletişim İdari Olarak Yasaklanmıştır — ICMP göndericisi (yönlendirici) istenen hedef ağa erişimi engelleyecek şekilde yapılandırılmıştır.</li>
+<li>Kod 10: Hedef Ana Bilgisayarla İletişim İdari Olarak Yasaklandı — ICMP göndericisi (yönlendirici) istenen hedef ana bilgisayara erişimi engelleyecek şekilde yapılandırılmıştır.</li>
+<li>Kod 11: Hedef Ağ Hizmet Türü için Erişilemez-orijinal gönderici tarafından kullanılan Hizmet Türü (TOS) göstergesi söz konusu ağ için bu yönlendirici aracılığıyla kullanılamaz-daha güncel ağların TOS veya Öncelik kullanmayabileceğini unutmayın-bunun yerine DiffServ kullanabilirler.</li>
+<li>Kod 12: Hedef Ana Bilgisayara Hizmet Türü için Ulaşılamıyor — orijinal gönderici tarafından kullanılan TOS göstergesi bu yönlendirici aracılığıyla söz konusu ana bilgisayar için kullanılamaz — daha güncel ağların TOS veya Öncelik kullanmayabileceğini unutmayın — bunun yerine DiffServ kullanabilirler.</li>
+<li>Kod 13: İletişim İdari Olarak Yasaklandı — ICMP göndericisi şu anda iletişim için uygun değil; bu, ayrıntılı bir güvenlik duvarı tarafından gönderiliyor olabilir.</li>
+<li>Kod 14: Ana Bilgisayar Öncelik İhlali — gönderenin orijinal IP başlığında tanımlanan Öncelik değerine izin verilmez (örneğin, Flash Override önceliği kullanılarak) — daha güncel ağların TOS veya Öncelik kullanmayabileceğini unutmayın — bunun yerine DiffServ kullanabilirler.</li>
+<li>Kod 15: Öncelik Kesintisi Yürürlükte — Ağ yöneticisi bir yönlendirici tarafından hizmet verilmesi için minimum öncelik düzeyi belirlemiştir, ancak daha düşük öncelikli bir paket alınmıştır.</li>
+</ul>
+<h4 id="type-5-redirectkodları">
+  Type 5 Redirect Kodları
+  <a class="heading-link" href="#type-5-redirectkodlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>Kod 0: Ağ (veya alt ağ) için Datagramı Yeniden Yönlendir — ICMP göndericisi (yönlendirici) istenen ağa ulaşmanın en iyi yolu değildir. Yanıt, hedefe giden en iyi yönlendiricinin IP adresini içerir. Orijinal göndericinin rota tablolarına dinamik olarak bir ağ girişi ekler</li>
+<li>Kod 1: Ana Bilgisayar için Datagramı Yeniden Yönlendir — ICMP göndericisi (yönlendirici) istenen ana bilgisayara ulaşmanın en iyi yolu değildir. Yanıt, hedefe giden en iyi yönlendiricinin IP adresini içerir. Orijinal göndericinin rota tablolarına dinamik olarak bir ana bilgisayar girişi ekler</li>
+<li>Kod 2: Hizmet Türü ve Ağ için Datagramı Yeniden Yönlendir — ICMP göndericisi (yönlendirici) talep edilen TOS’u kullanarak hedef ağa bir yol sunmaz. Orijinal göndericinin rota tablolarına dinamik olarak bir ağ girişi ekler — daha güncel ağların TOS veya Öncelik kullanmayabileceğini unutmayın — bunun yerine DiffServ kullanabilirler</li>
+<li>Kod 3: Hizmet Türü ve Ana Bilgisayar için Datagramı Yeniden Yönlendir — ICMP göndericisi (yönlendirici), talep edilen TOS’u kullanarak hedef ana bilgisayara bir yol sunmaz. Orijinal göndericinin rota tablolarına dinamik olarak bir ana bilgisayar girişi ekler — daha güncel ağların TOS veya Öncelik kullanmayabileceğini unutmayın — bunun yerine DiffServ kullanabilirler</li>
+</ul>
+<h4 id="type-11-time-exceededkodları">
+  Type 11 Time Exceeded Kodları
+  <a class="heading-link" href="#type-11-time-exceededkodlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>Kod 0: Aktarımda Yaşam Süresi Aşıldı — ICMP göndericisi (yönlendirici), göndericinin paketinin 1 TTL ile geldiğini belirtir. Yönlendiriciler TTL değerini 0&rsquo;a düşüremez ve bir paketi</li>
+<li>Kod 1: Parça Yeniden Birleştirme Süresi Aşıldı — ICMP göndericisi (hedef ana bilgisayar), alınan ilk parçanın TTL değerinin süresi dolmadan (bekletme süresi saniye cinsinden) önce tüm parça parçalarını almadı.</li>
+</ul>
+<h4 id="checksum">
+  Checksum
+  <a class="heading-link" href="#checksum">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Sağlama toplamı alanı yalnızca ICMP başlığını kapsar.</p>
+<hr>
+<h3 id="icmpv6-paketyapısı">
+  ICMPv6 Paket Yapısı
+  <a class="heading-link" href="#icmpv6-paketyap%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>ICMP paketleri UDP veya TCP başlığı içermez-port filtreleme ayarları ICMP trafiğini etkileyemez(çünkü port kullanmaz). ICMP paketleri IP başlığından sonra yalnızca üç gerekli alan içerir: tür, kod ve sağlama toplamı(checksum).</p>
+<h4 id="type-1">
+  Type
+  <a class="heading-link" href="#type-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Aşağıdaki liste, ağ üzerinde gönderilebilecek ICMPv6 mesaj türlerini tanımlar. Bu liste, en son 28 Mart 2012 tarihinde güncellenen IANA belgelerine dayanmaktadır. Bu listenin en güncel sürümünü edinmek için <a href="http://www.iana.org/assignments/icmpv6-parameters"  class="external-link" target="_blank" rel="noopener">www.iana.org/assignments/icmpv6-parameters</a> adresini ziyaret edin.</p>
+<ul>
+<li>Type 0 Reserved</li>
+<li>Type 1 Destination Unreachable [RFC4443]</li>
+<li>Type 2 Packet Too Big [RFC4443]</li>
+<li>Type 3 Time Exceeded [RFC4443]</li>
+<li>Type 4 Parameter Problem [RFC4443]</li>
+<li>Type 100 Private Experimentation [RFC4443]</li>
+<li>Type 101 Private Experimentation [RFC4443]</li>
+<li>Type 102–126 Reserved</li>
+<li>Type 127 Reserved for Expansion of ICMPv6 error messages [RFC4443]</li>
+<li>Type 128 Echo Request [RFC4443]</li>
+<li>Type 129 Echo Reply [RFC4443]</li>
+<li>Type 130 Multicast Listener Query [RFC2710] — sent by an IPv6 router to locate general or specific multicast listeners on the local network</li>
+<li>Type 131 Multicast Listener Report [RFC2710] — sent by IPv6 hosts to indicate they are listening for a particular multicast address on an interface</li>
+<li>Type 132 Multicast Listener Done [RFC2710] — can be sent by an IPv6 node to indicate that it has stopped listening to a multicast address on an interface</li>
+<li>Type 133 Router Solicitation [RFC4861] — can be sent when an interface becomes enabled, to request routers to generate Router Advertisements immediately rather than at their next scheduled time</li>
+<li>Type 134 Router Advertisement [RFC4861] — used by IPv6 routers to advertise their presence together with various link and Internet parameters either periodically, or in response to a Router Solicitation<br>
+message</li>
+<li>Type 135 Neighbor Solicitation [RFC4861] — sent by a node to determine the link-layer address of a neighbor or to verify that a neighbor is still reachable via a cached link-layer address. Neighbor solicitations are also used for Duplicate Address Detection as seen in Figure 207.</li>
+<li>Type 136 Neighbor Advertisement [RFC4861] — a response to a Neighbor Solicitation message. A node may also send unsolicited Neighbor Advertisements to announce a link-layer address change.</li>
+<li>Type 137 Redirect Message [RFC4861]</li>
+<li>Type 138 Router Renumbering [Crawford]</li>
+<li>Type 139 ICMP Node Information Query [RFC4620]</li>
+<li>Type 140 ICMP Node Information Response [RFC4620]</li>
+<li>Type 141 Inverse Neighbor Discovery Solicitation Message [RFC3122]</li>
+<li>Type 142 Inverse Neighbor Discovery Advertisement Message [RFC3122]</li>
+<li>Type 143 Version 2 Multicast Listener Report [RFC3810]</li>
+<li>Type 144 Home Agent Address Discovery Request Message [RFC6275]</li>
+<li>Type 145 Home Agent Address Discovery Reply Message [RFC6275]</li>
+<li>Type 146 Mobile Prefix Solicitation [RFC6275]</li>
+<li>Type 147 Mobile Prefix Advertisement [RFC6275]</li>
+<li>Type 148 Certification Path Solicitation Message [RFC3971]</li>
+<li>Type 149 Certification Path Advertisement Message [RFC3971]</li>
+<li>Type 150 ICMP messages utilized by experimental mobility protocols such as Seamoby [RFC4065]</li>
+<li>Type 151 Multicast Router Advertisement [RFC4286]</li>
+<li>Type 152 Multicast Router Solicitation [RFC4286]</li>
+<li>Type 153 Multicast Router Termination [RFC4286]</li>
+<li>Type 154 FMIPv6 Messages [RFC5568]</li>
+<li>Type 155 RPL Control Message [RFC-ietf-roll-rpl-19.txt]</li>
+<li>Types 156–199 Unassigned</li>
+<li>Type 200 Private experimentation [RFC4443]</li>
+<li>Type 201 Private experimentation [RFC4443]</li>
+<li>Type 255 Reserved for expansion of ICMPv6 informational messages [RFC4443]</li>
+</ul>
+<h4 id="code-1">
+  Code
+  <a class="heading-link" href="#code-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Aşağıdaki liste, kod alanlarını destekleyen veya ilginç bir kullanıma sahip olan daha yaygın ICMPv6 Türlerinin açıklamalarını sunmaktadır.</p>
+<h4 id="type-1-destination-unreachable-codes">
+  Type 1 Destination Unreachable Codes
+  <a class="heading-link" href="#type-1-destination-unreachable-codes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>Kod 0: No route to destination -bir yönlendiriciye kadar ulaştınız, ancak paketinizi iletmek için mevcut bir yönlendirme girişi yok (RFC bunun bir güvenlik duvarı filtresi nedeniyle de gönderilebileceğini söylese de, muhtemelen güvenlik duvarının bu kadar ayrıntılı olmak yerine paketleri sessizce attığını görmeyi tercih ederiz)</li>
+<li>Kod 1: Hedefle iletişim idari olarak yasaklandı — korumalı bir ağa giden yetkisiz paketleri sessizce atmak istiyorsanız görmemeyi tercih edeceğiniz bir şey</li>
+<li>Kod 2: Kaynak adresin kapsamı dışında — bu, bir paketin bağlantı yerel kaynak adresine ve küresel kapsamda bir hedefe sahip olması durumunda oluşturulur</li>
+<li>Kod 3: Adrese ulaşılamıyor — bu, başka herhangi bir kod numarasına sığmayan tüm sorunlar için genel bir hata mesajıdır</li>
+<li>Kod 4: Bağlantı noktasına ulaşılamıyor — normal ICMP ile aynı</li>
+<li>Kod 5: Kaynak adresi giriş/çıkış ilkesinde başarısız oldu — yine — muhtemelen ağ üzerinden göndermek istemediğiniz bir şey</li>
+<li>Kod 6: Hedefe giden yolu reddet — trafiğinizin hedefine ulaşamadığını gösteren genel bir gösterge</li>
+<li>Kod 7: Kaynak Yönlendirme Başlığında Hata [RFC-ietf-roll-rpl-19.txt]</li>
+</ul>
+<h4 id="type-2-packet-too-bigcode">
+  Type 2 Packet Too Big Code
+  <a class="heading-link" href="#type-2-packet-too-bigcode">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>Kod 0: Bu, şu anda tanımlanan tek kod değeridir. Bu paket bir MTU değeri içerir ve Yol MTU keşfi için kullanılır.</li>
+</ul>
+<h4 id="type-3-time-exceededcodes">
+  Type 3 Time Exceeded Codes
+  <a class="heading-link" href="#type-3-time-exceededcodes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>Kod 0: Aktarım sırasında atlama sınırı aşıldı-bu standart ICMP mesajıyla eşleşir.</li>
+<li>Kod 1: Parça yeniden birleştirme süresi aşıldı-bu standart ICMP mesajıyla eşleşir.</li>
+</ul>
+<h4 id="type-4-parameter-problemcodes">
+  Type 4 Parameter Problem Codes
+  <a class="heading-link" href="#type-4-parameter-problemcodes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>Kod 0: Hatalı başlık alanıyla karşılaşıldı — IPv6 başlığındaki bir şey mantıklı gelmedi</li>
+<li>Kod 1: Tanınmayan Sonraki Başlık türüyle karşılaşıldı — Sonraki Başlık alanı olağandışı bir şey içeriyordu — atanmış IPv6 Sonraki Başlık/IPv4 Protokolü alan değerlerinin listesi için <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xml"  class="external-link" target="_blank" rel="noopener">www.iana.org/assignments/protocol-numbers/protocol-numbers.xml</a> adresine bakın</li>
+<li>Kod 2: Tanınmayan IPv6 seçeneğiyle karşılaşıldı-bu paket, içinde geçersiz bir seçenek bulunan bir veya daha fazla Uzantı Başlığı olan bir IPv6 paketine yanıt olarak gönderilebilir.</li>
+</ul>
+<h4 id="type-128-echo-requestcode">
+  Type 128 Echo Request Code
+  <a class="heading-link" href="#type-128-echo-requestcode">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>Kod 0: Bu, şu anda tanımlanan tek kod değeridir. Bu paketin eşleştirmek için kullanılan bir Tanımlayıcı alanı vardır bu Yankı İsteğini bir Yankı Yanıtına.</li>
+</ul>
+<h4 id="type-129-echo-replycode">
+  Type 129 Echo Reply Code
+  <a class="heading-link" href="#type-129-echo-replycode">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>Kod 0: Bu, şu anda tanımlanan tek kod değeridir. Bu pakette, ilgili Yankı İsteği paketinden alınan bir Tanımlayıcı alanı vardır</li>
+</ul>
+<h4 id="type-138-router-renumbering-codes">
+  Type 138 Router Renumbering Codes
+  <a class="heading-link" href="#type-138-router-renumbering-codes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>Kod 0: Yönlendirici Yeniden Numaralandırma Komutu</li>
+<li>Kod 1: Yönlendirici Yeniden Numaralandırma Sonucu</li>
+<li>Kod 255: Sıra Numarası Sıfırlama</li>
+</ul>
+<h4 id="type-139-icmp-node-information-querycodes">
+  Type 139 ICMP Node Information Query Codes
+  <a class="heading-link" href="#type-139-icmp-node-information-querycodes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>Kod 0: Veri alanı, bu Sorgunun Konusu olan bir IPv6 adresi içerir — tahmin edebileceğiniz gibi, bu tür bir paket keşif için kullanılabilir. Daha fazla ayrıntı için RFC 4620, “IPv6 Düğüm Bilgisi Sorguları” bölümünü okuyun.</li>
+<li>Kod 1: Veri alanı bu Sorgunun Konusu olan bir ad içerir veya birNOOP durumunda olduğu gibi boştur.</li>
+<li>Kod 2: Veri alanı, bu Sorgunun Konusu olan bir IPv4 adresi içerir.</li>
+</ul>
+<h4 id="type-140-icmp-node-information-responsecodes">
+  Type 140 ICMP Node Information Response Codes
+  <a class="heading-link" href="#type-140-icmp-node-information-responsecodes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>Kod 0: Başarılı bir yanıt. Yanıt Verisi alanı boş olabilir veya olmayabilir.</li>
+<li>Kod 1: Yanıtlayıcı yanıt vermeyi reddediyor. Yanıt Verisi alanı boş olacaktır.</li>
+<li>Kod 2: Sorgunun Q tipi Yanıtlayıcı tarafından bilinmiyor. Yanıt Verisi alanı boş olacaktır.</li>
+</ul>
+<p>ICMPv6 türü ve kod numaraları hakkında daha fazla bilgi için <a href="http://www.iana.org/assignments/icmpv6-parameters"  class="external-link" target="_blank" rel="noopener">www.iana.org/assignments/icmpv6-parameters</a> adresine bakın.</p>
+<hr>
+<h3 id="kaynakça">
+  Kaynakça
+  <a class="heading-link" href="#kaynak%c3%a7a">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Wireshark Network Analysis, Second Edition, Laura Chappel, <a href="https://www.chappell-university.com/studyguide"  class="external-link" target="_blank" rel="noopener">https://www.chappell-university.com/studyguide</a></li>
+<li>Trace Files: <a href="https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip"  class="external-link" target="_blank" rel="noopener">https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip</a></li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

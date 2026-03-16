@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Basic Microprocessor Architecture · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Basic Microprocessor Architecture
+  
+    
+    Link to heading
+  
+
+
+
+  What is a Microprocessor?
+  
+    
+    Link to heading
+  
+
+The microprocessor works like the central processing unit of a computer. It carries out the vital functions of the computer. The functional configuration of a microprocessor is:
+
+Loggers
+Command decoder
+Arithmetic and Logic unit
+Frequency generator
+Timing and Control elements
+
+creates. As can be seen, the microprocessor represents a structure consisting of many parts.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Basic Microprocessor Architecture">
+  <meta name="twitter:description" content="Basic Microprocessor ArchitectureLink to headingWhat is a Microprocessor?Link to headingThe microprocessor works like the central processing unit of a computer. It carries out the vital functions of the computer. The functional configuration of a microprocessor is:
+Loggers Command decoder Arithmetic and Logic unit Frequency generator Timing and Control elements creates. As can be seen, the microprocessor represents a structure consisting of many parts.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2023-01-20-temel-mikroi-lemci-mimarisi/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Basic Microprocessor Architecture">
+  <meta property="og:description" content="Basic Microprocessor ArchitectureLink to headingWhat is a Microprocessor?Link to headingThe microprocessor works like the central processing unit of a computer. It carries out the vital functions of the computer. The functional configuration of a microprocessor is:
+Loggers Command decoder Arithmetic and Logic unit Frequency generator Timing and Control elements creates. As can be seen, the microprocessor represents a structure consisting of many parts.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-01-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-01-20T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2023-01-20-temel-mikroi-lemci-mimarisi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About Me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2023-01-20-temel-mikroi-lemci-mimarisi/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2023-01-20-temel-mikroi-lemci-mimarisi/">
+              Basic Microprocessor Architecture
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-01-20T00:00:00Z">
+                January 20, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="basic-microprocessor-architecture">
+  Basic Microprocessor Architecture
+  <a class="heading-link" href="#basic-microprocessor-architecture">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_eBP9qyGpkYsx-Zgy3Jvsqg.png" alt=""></p>
+<h3 id="what-is-a-microprocessor">
+  What is a Microprocessor?
+  <a class="heading-link" href="#what-is-a-microprocessor">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The microprocessor works like the central processing unit of a computer. It carries out the vital functions of the computer. The functional configuration of a microprocessor is:</p>
+<ul>
+<li>Loggers</li>
+<li>Command decoder</li>
+<li>Arithmetic and Logic unit</li>
+<li>Frequency generator</li>
+<li>Timing and Control elements</li>
+</ul>
+<p>creates. As can be seen, the microprocessor represents a structure consisting of many parts.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*3j-qADs2-A3sg6Jz" alt=""></p>
+<p>a standard microprocessor architecture</p>
+<p>Microprocessors, called the heart and brain of the computer, are also called Central Processing Unit (CPU). The CPU generally performs the following operations:</p>
+<ul>
+<li>Retrieves commands from memory</li>
+<li>Decodes the command</li>
+<li>Provides control signals to all elements and units in the system</li>
+<li>Execute Arithmetic and Logic operations</li>
+<li>Responds to requests from other hardware units</li>
+</ul>
+<p>If the architectural structure of a microprocessor is to be expressed in the simplest way, it consists of a group of registers, Arithmetic Logic Unit and a Control Unit that controls what work the system will do and when.</p>
+<h4 id="registers">
+  Registers
+  <a class="heading-link" href="#registers">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>While a program is executing on the processor, registers are needed inside the processor, right next to it.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*0vAWs-tWxevtC27o" alt=""></p>
+<p>loggers</p>
+<p>Registers have an important place in the microprocessor architecture and are one of the elements that directly determine the processor architecture. Loggers are primarily responsible for the maneuvering and temporary retention of data.</p>
+<h4 id="arithmetic-and-logic-unitalu">
+  Arithmetic and Logic Unit (ALU)
+  <a class="heading-link" href="#arithmetic-and-logic-unitalu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>ALU is one of the most important units in the microprocessor where arithmetic and logic operations are performed. Input operations to this unit can be between the accumulator register and the data retrieved from memory, or between the accumulator and other registers.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*42MUW3fUda9LsAzC" alt=""></p>
+<p>ALU</p>
+<p>All operations taking place in the ALU are carried out simultaneously under the supervision of the Control Unit through control signals. The ALU receives the instruction and data (operand) and executes the order on this data.</p>
+<h4 id="control-unit">
+  Control Unit
+  <a class="heading-link" href="#control-unit">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This part, which constitutes the third part of the Central Processing Unit, is responsible for the entire operation of the system and the timeliness of the transaction. The control unit produces the control signals necessary to retrieve the instruction code in the program section in memory, decode it, process it by the ALU, and retrieve the result and put it back into memory. All internal and external elements in the computer system are controlled by these control signals.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*x0gYM5EH_2agDzdP" alt=""></p>
+<p>control unit</p>
+<p>In a simple microprocessor, this section performs three different functions:</p>
+<ol>
+<li><strong>Timing Control:</strong> The processor has an internal-clock circuit that receives input from a unit that generates an external clock signal. This signal is received and converted into timing signals according to demand and distributed to the system.</li>
+<li><strong>Instruction decoder:</strong> This circuit interprets the instructions held in the instruction register (IR) and sends appropriate signals to the ALU to operate with the registers. (referring to timing and interrupt signals)</li>
+<li><strong>Interrupt logic unit:</strong> This unit is similar to other control elements. It warns the processor by receiving interrupt signals when necessary.</li>
+</ol>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

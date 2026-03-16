@@ -1,0 +1,62 @@
+{{ define "title" }}
+  {{ title (i18n (lower .Title)) | default .Title }} · {{ .Site.Title }}
+{{ end }}
+{{ define "content" }}
+  <section class="container list">
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="{{ .Permalink | safeURL }}">
+          {{ title (i18n (lower .Title)) | default .Title }}
+        </a>
+      </h1>
+    </header>
+
+    {{/* Series at the top */}}
+    {{ $series := .Site.Taxonomies.series }}
+    {{ if gt (len $series) 0 }}
+    <div class="series-list-top">
+      <h3>{{ if eq .Site.Language.Lang "tr" }}Yazı Serileri{{ else }}Article Series{{ end }}</h3>
+      <div class="series-tags">
+        {{ range $key, $value := $series }}
+          <a href="{{ "series/" | relLangURL }}{{ $key | urlize | lower }}/" class="series-tag">#{{ $key }}</a>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    <hr>
+
+    {{ .Content }}
+    <ul>
+      {{- range .Paginator.Pages -}}
+        {{- .Render "li" -}}
+      {{- end -}}
+    </ul>
+
+    {{ partial "pagination.html" . }}
+  </section>
+
+  <style>
+    .series-list-top {
+      margin-bottom: 2rem;
+    }
+    .series-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .series-tag {
+      padding: 5px 12px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      font-size: 0.9em;
+      transition: all 0.2s;
+    }
+    .series-tag:hover {
+      border-color: var(--primary-accent);
+      background: var(--primary-accent);
+      color: white !important;
+    }
+  </style>
+{{ end }}

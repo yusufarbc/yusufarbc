@@ -1,4 +1,5 @@
 ---
+series: ["Ağ Güvenliği ve Yönetimi"]
 title: "Ağ Yönetimi ve Güvenliği II: Ağ Protokolleri, Yönlendirme ve Adresleme"
 date: 2025-08-09
 draft: false

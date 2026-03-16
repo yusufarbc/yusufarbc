@@ -1,4 +1,5 @@
 ---
+series: ["Ağ Güvenliği ve Yönetimi"]
 title: "Ağ Yönetimi ve Güvenliği III: Ağ Donanımları ve Fiziksel Altyapı Güvenliği"
 date: 2025-08-10
 draft: false

@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Docker Temelleri · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Docker Temelleri
+  
+    
+    Başlık Linki
+  
+
+
+
+  Docker Nedir?
+  
+    
+    Başlık Linki
+  
+
+Docker, sanallaştırılmış ortamlarda uygulamalar geliştirmek, dağıtmak ve yönetmek için kullanılan açık kaynak kodlu bir kapsayıcı platformudur. İşletim sisteminin kaynaklarını yönettiği uygulamalara dağıtan bir teknolojidir. Docker, sanal makinelerden daha hafif ve daha hızlıdır.
+
+docker vs virtual machines
+Docker kapsayıcıları(containers), çalışan uygulamalar için hafif sanallaştırılmış çalışma ortamları sağlar. Uygulamaları izole ortamlarda paketlemek; uygulamaları geliştirmeyi, dağıtmayı ve bakımını kolaylaştırır. Konteynırlar, ana bilgisayardan ve ana bilgisayar üzerinde çalışan diğer uygulamalardan bağımsız ve izoledir.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Docker Temelleri">
+  <meta name="twitter:description" content="Docker TemelleriBaşlık LinkiDocker Nedir?Başlık LinkiDocker, sanallaştırılmış ortamlarda uygulamalar geliştirmek, dağıtmak ve yönetmek için kullanılan açık kaynak kodlu bir kapsayıcı platformudur. İşletim sisteminin kaynaklarını yönettiği uygulamalara dağıtan bir teknolojidir. Docker, sanal makinelerden daha hafif ve daha hızlıdır.
+docker vs virtual machines
+Docker kapsayıcıları(containers), çalışan uygulamalar için hafif sanallaştırılmış çalışma ortamları sağlar. Uygulamaları izole ortamlarda paketlemek; uygulamaları geliştirmeyi, dağıtmayı ve bakımını kolaylaştırır. Konteynırlar, ana bilgisayardan ve ana bilgisayar üzerinde çalışan diğer uygulamalardan bağımsız ve izoledir.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2023-01-02-docker-temelleri/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Docker Temelleri">
+  <meta property="og:description" content="Docker TemelleriBaşlık LinkiDocker Nedir?Başlık LinkiDocker, sanallaştırılmış ortamlarda uygulamalar geliştirmek, dağıtmak ve yönetmek için kullanılan açık kaynak kodlu bir kapsayıcı platformudur. İşletim sisteminin kaynaklarını yönettiği uygulamalara dağıtan bir teknolojidir. Docker, sanal makinelerden daha hafif ve daha hızlıdır.
+docker vs virtual machines
+Docker kapsayıcıları(containers), çalışan uygulamalar için hafif sanallaştırılmış çalışma ortamları sağlar. Uygulamaları izole ortamlarda paketlemek; uygulamaları geliştirmeyi, dağıtmayı ve bakımını kolaylaştırır. Konteynırlar, ana bilgisayardan ve ana bilgisayar üzerinde çalışan diğer uygulamalardan bağımsız ve izoledir.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-01-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-01-02T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2023-01-02-docker-temelleri/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2023-01-02-docker-temelleri/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2023-01-02-docker-temelleri/">
+              Docker Temelleri
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-01-02T00:00:00Z">
+                Ocak 2, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              5 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="docker-temelleri">
+  Docker Temelleri
+  <a class="heading-link" href="#docker-temelleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_2Vt-GnSjtWGchPVgF1fX6g.png" alt=""></p>
+<h3 id="docker-nedir">
+  Docker Nedir?
+  <a class="heading-link" href="#docker-nedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Docker, sanallaştırılmış ortamlarda uygulamalar geliştirmek, dağıtmak ve yönetmek için kullanılan açık kaynak kodlu bir kapsayıcı platformudur. İşletim sisteminin kaynaklarını yönettiği uygulamalara dağıtan bir teknolojidir. Docker, sanal makinelerden daha hafif ve daha hızlıdır.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*Q1duQRvSkdgwr289" alt=""></p>
+<p>docker vs virtual machines</p>
+<p>Docker kapsayıcıları(containers), çalışan uygulamalar için hafif sanallaştırılmış çalışma ortamları sağlar. Uygulamaları izole ortamlarda paketlemek; uygulamaları geliştirmeyi, dağıtmayı ve bakımını kolaylaştırır. Konteynırlar, ana bilgisayardan ve ana bilgisayar üzerinde çalışan diğer uygulamalardan bağımsız ve izoledir.</p>
+<h4 id="docker-hubnedir">
+  Docker Hub Nedir?
+  <a class="heading-link" href="#docker-hubnedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Docker’ın repository servisidir. Bu platforma üye olup hazırladığınız docker konteynırlarını burada saklayabilirsiniz. Ayrıca hazır docker konteynırlarını da yine bu platform üzerinden indirip hızlı bir şekilde kurabilirsiniz. Docker hub’a <a href="https://hub.docker.com/"  class="external-link" target="_blank" rel="noopener"><em>buradan</em></a> ulaşabilirsiniz.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*t1XOZZHUt_GtjX9F" alt=""></p>
+<hr>
+<h3 id="docker-kurulumu">
+  Docker Kurulumu
+  <a class="heading-link" href="#docker-kurulumu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Docker windows, mac ve linux platformlarını destekler.</p>
+<h4 id="docker-daemonkurulumu">
+  Docker Daemon Kurulumu
+  <a class="heading-link" href="#docker-daemonkurulumu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Docker servisini, <a href="https://docs.docker.com/get-docker/"  class="external-link" target="_blank" rel="noopener">websitesinde</a> bulunan adımları izleyerek kolay bir şekilde kurabilirsiniz.</p>
+<p>Linux kurulumu için: <a href="https://docs.docker.com/desktop/install/linux-install/"  class="external-link" target="_blank" rel="noopener">https://docs.docker.com/desktop/install/linux-install/</a></p>
+<p>Windows kurulumu için: <a href="https://docs.docker.com/desktop/install/windows-install/"  class="external-link" target="_blank" rel="noopener">https://docs.docker.com/desktop/install/windows-install/</a></p>
+<p>MacOS kurulumu için: <a href="https://docs.docker.com/desktop/install/mac-install/"  class="external-link" target="_blank" rel="noopener">https://docs.docker.com/desktop/install/mac-install/</a></p>
+<h4 id="docker-imajkurulumu">
+  Docker Imaj Kurulumu
+  <a class="heading-link" href="#docker-imajkurulumu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Yukarıda bahsettiğimiz gibi docker bir repository servisine sahiptir. Docker hub üzerinden hazır imajları direk kurabiliriz. Bu hazır imajlar içinde çeşitli web uygulamaları, sistem araçları ve servis yazılımları vardır.</p>
+<p>Bu imajların kurulumu için Docker CLI komutlarını kullanabilirsiniz veya dekstop uygulaması üzerinden kurulum yapabilirsiniz.</p>
+<p>Örnek olarak, <a href="https://github.com/vulhub/vulhub"  class="external-link" target="_blank" rel="noopener">vulnhub</a>’ı verebiliriz. Siber Güvenlik alanında pratik yapmak için test ortamlarına ihtiyaç duyulmaktadır. Bu noktada, docker konteynırları çok kullanışlı bir hale gelir. vulnhubda bu konteynırları kurulumunu kolaylaştıran bir docker compose’dur.</p>
+<p>Zafiyetli web uygulamalarını kurmanın daha kolay bir yolu ise <a href="https://github.com/yusufarbc/DockerVuln"  class="external-link" target="_blank" rel="noopener">dockervuln</a> aracıdır. Bu araç bir grafik arayüz ile indexlenmiş imajların otomatik kurulumunu ve çalıştırılmasını sağlamaktadır. Tavsiye ederim :)</p>
+<hr>
+<h3 id="docker-mimarisi">
+  Docker Mimarisi
+  <a class="heading-link" href="#docker-mimarisi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Docker mimarisi, birçok alt programdan oluşur. Docker CLI ve API’ın görevi kullanıcının docker daemon ile iletişim kurabilmesini sağlamaktır.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*oBvVrZxl7WnZ3EAf" alt=""></p>
+<p>docker mimarisi</p>
+<h4 id="docker-image">
+  Docker Image
+  <a class="heading-link" href="#docker-image">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Docker konteynırlarını oluşturmak için kullanılan imajdır. Docker tarafından sağlanan base imajlar vardır. Bu base imajlar kullanılarak yeni imajlar oluşturulabilir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*GTA-gR97eLVfV8dy" alt=""></p>
+<h4 id="docker-container">
+  Docker Container
+  <a class="heading-link" href="#docker-container">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Docker konteynırları, içlerine kurulan uygulamaları ana sistemden bağımsız ve izole bir şekilde çalıştıran yapılardır.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*aXW2UYqzuJdk-7yx" alt=""></p>
+<h4 id="docker-volume">
+  Docker Volume
+  <a class="heading-link" href="#docker-volume">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Konteynır silinse dahi içindeki dataları tutmak istiyorsak docker volume kullanırız. Volume, docker konteynırı tarafından üretilen ve verileri ana bilgisayarda saklayan bir mekanizmadır.</p>
+<p><img src="/images/0_wWoNuW_cAt4LTNiH.jpg" alt=""></p>
+<p>Docker volume içindeki datalar birden fazla konteynırda kullanılabilir. Docker imaj güncellemesi yapılsa bile volume içerisindeki datalar değişmez. Docker volume içerisindeki datalar taşınabilir ve yedeklenebilir. Docker volumes konteynır boyutunu arttırmaz.</p>
+<h4 id="docker-network">
+  Docker Network
+  <a class="heading-link" href="#docker-network">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Aynı ağ üzerindeki konteynırların birbiriyle iletişim kurmasını sağlar. Çoklu network trafiğini bölümlere ayırır. Konteynırların birden fazla networke dahil edilebilmesini sağlar.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*8VlhQr5TKVSiZYPW" alt=""></p>
+<hr>
+<h3 id="docker-cli-command-line-interface">
+  Docker CLI (Command Line Interface)
+  <a class="heading-link" href="#docker-cli-command-line-interface">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu bölümde docker’ın temel komutlarına değineceğiz.</p>
+<p>Docker komutlarını öğrenmek ve pratik yapmak için “<a href="https://www.docker.com/play-with-docker/"  class="external-link" target="_blank" rel="noopener">play with docker</a>” uygulamasını da kullanabilirsiniz.</p>
+<h4 id="docker-info">
+  docker info
+  <a class="heading-link" href="#docker-info">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Mevcut işletim sisteminde, docker özelinde bir çok bilginin tamamını veren komuttur. Docker ile ilgili detayları getirir.</p>
+<h4 id="docker-ps">
+  docker ps
+  <a class="heading-link" href="#docker-ps">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Docker ortamında çalışan konteynırları gösterir.</p>
+<h4 id="docker-ps-a">
+  docker ps -a
+  <a class="heading-link" href="#docker-ps-a">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Docker ortamında kurulu olan bütün konteynırları gösterir.</p>
+<h4 id="docker-run">
+  docker run <container>
+  <a class="heading-link" href="#docker-run">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Belirtilen konteynırın imaj dosyasını kurar ve çalıştırır.</p>
+<h4 id="docker-container-run--it--bash">
+  docker container run -it <container> bash
+  <a class="heading-link" href="#docker-container-run--it--bash">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Yeni bir konteynır yaratır ve shelline girer.</p>
+<h4 id="docker-container-start-container_name">
+  docker container start &lt;container_name&gt;
+  <a class="heading-link" href="#docker-container-start-container_name">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Mevcut konteynırı başlatmak için kullanılır.</p>
+<h4 id="docker-container-exec-container_id">
+  docker container exec &lt;container_id&gt; <command>
+  <a class="heading-link" href="#docker-container-exec-container_id">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Belirtilen komutu ilgili konteynırda çalıştırır ve sonucu döndürür.</p>
+<h4 id="docker-container-exec--it-container_id-bash">
+  docker container exec -it &lt;container_id&gt; bash
+  <a class="heading-link" href="#docker-container-exec--it-container_id-bash">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Çalışan bir konteynırın shelline bağlanır.</p>
+<h4 id="docker-container-run--d">
+  docker container run -d <container>
+  <a class="heading-link" href="#docker-container-run--d">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>deattach modda yani arka planda konteynırı yaratıp çalıştırır.</p>
+<h4 id="docker-container-stop-container_name">
+  docker container stop &lt;container_name&gt;
+  <a class="heading-link" href="#docker-container-stop-container_name">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>çalışan bir konteynırı durdumak için kullanılır.</p>
+<h4 id="docker-container-kill-container_id">
+  docker container kill &lt;container_id&gt;
+  <a class="heading-link" href="#docker-container-kill-container_id">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>çalışan konteynırı direk kapatır.</p>
+<h4 id="docker-container-inspect-container_id">
+  docker container inspect &lt;container_id&gt;
+  <a class="heading-link" href="#docker-container-inspect-container_id">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Konteynırın bütün detaylarını getirir.</p>
+<h4 id="docker-container-rm-container_id">
+  docker container rm &lt;container_id&gt;
+  <a class="heading-link" href="#docker-container-rm-container_id">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Konteynırı silmek için kullanılır. Çalışan konteynırı silemez!</p>
+<h4 id="docker-images">
+  docker images
+  <a class="heading-link" href="#docker-images">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>kurulu imajları listeler.</p>
+<h4 id="docker-pull-docker_image">
+  docker pull &lt;docker_image&gt;
+  <a class="heading-link" href="#docker-pull-docker_image">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Docker imajı indirmek için kullanılır.</p>
+<h4 id="docker-push-docker_repo">
+  docker push &lt;docker_repo&gt;
+  <a class="heading-link" href="#docker-push-docker_repo">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Docker reposuna imajı yüklemek için kullanılır.</p>
+<hr>
+<h3 id="docker-file">
+  Docker File
+  <a class="heading-link" href="#docker-file">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Docker file, docker imajlarını oluşturmak için kullandığımız bir dosyadır. Dockerfile dosyasında bulunan komutlar sırayla docker engine tarafından çalıştırılır. Docker build sonunda elimizde uygulamamıza ait bir docker imaj oluşmuş olur. Daha sonra bu imaj kullanılarak docker konteynırları oluşturulabilir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*9ZQ34zEz4UwTDF2j" alt=""></p>
+<p>Dockerfile yazılırken bir base imaj seçilir. Belirtilen komutlar bu base imajda çalıştırılır ve yeni imaj oluşturulmuş olur.</p>
+<h4 id="dockerfile-komutları">
+  Dockerfile Komutları
+  <a class="heading-link" href="#dockerfile-komutlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>FROM:</strong> base imajınızı belirteceğiniz komut.</li>
+<li><strong>RUN:</strong> ilgili uygulama içerisinde build aşamasında komut çalıştırmak için kullanılır.</li>
+<li><strong>CMD:</strong> konteynır ayağa kalktığında çalıştırılacak komutlar için kullanılır.</li>
+<li><strong>LABEL:</strong> isimlendirme yapmak için kullanılır</li>
+<li><strong>MAINTAINER:</strong> dosyayı oluşturan ile ilgili bilgiler içerir.</li>
+<li><strong>EXPOSE:</strong> konteynıra port açmak için kullanılır.</li>
+<li><strong>ENV:</strong> ortamda değişken tanımlamak için kullanılır.</li>
+<li><strong>ADD:</strong> localden veya internetten dosya kopyalamak için kullanılır.</li>
+<li><strong>COPY:</strong> belirtilen dosyaları direk olarak konteynırda belirtilen yere kopyalar.</li>
+<li><strong>ENTRYPOINT:</strong> konteynır çalıştığında varsayılan bir parametre tanımlar.</li>
+<li><strong>VOLUME:</strong> konteynırdaki dataların tutulacağı bir volume tanımlar.</li>
+<li><strong>USER:</strong> kullanıcıda bulunan yetkili kullanıcıyı tanımlar.</li>
+<li><strong>WORKDIR:</strong> konteynırın çalışma dizinini belirler.</li>
+<li><strong>MKDIR:</strong> konteynırda dizin oluşturur.</li>
+</ul>
+<h4 id="dockerfile-örneği">
+  Dockerfile örneği
+  <a class="heading-link" href="#dockerfile-%c3%b6rne%c4%9fi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<pre tabindex="0"><code># syntax=docker/dockerfile:1  
+FROM golang:1.16-alpine AS build  
+  
+# Install tools required for project  
+# Run `docker build --no-cache .` to update dependencies  
+RUN apk add --no-cache git  
+RUN go get github.com/golang/dep/cmd/dep  
+  
+# List project dependencies with Gopkg.toml and Gopkg.lock  
+# These layers are only re-built when Gopkg files are updated  
+COPY Gopkg.lock Gopkg.toml /go/src/project/  
+WORKDIR /go/src/project/  
+# Install library dependencies  
+RUN dep ensure -vendor-only  
+  
+# Copy the entire project and build it  
+# This layer is rebuilt when a file changes in the project directory  
+COPY . /go/src/project/  
+RUN go build -o /bin/project  
+  
+# This results in a single layer image  
+FROM scratch  
+COPY --from=build /bin/project /bin/project  
+ENTRYPOINT [&#34;/bin/project&#34;]  
+CMD [&#34;--help&#34;]
+</code></pre>
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

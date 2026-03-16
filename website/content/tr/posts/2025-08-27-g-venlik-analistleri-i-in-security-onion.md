@@ -1,4 +1,5 @@
 ---
+series: ["Threat Hunting Walkthroughs"]
 title: "Güvenlik Analistleri için Security Onion"
 date: 2025-08-27
 draft: false

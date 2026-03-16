@@ -1,6 +1,6 @@
 baseURL = "https://yusufarbc.dev/"
 languageCode = "en"
-title = "Yusuf Arbac"
+title = "Yusuf Talha ARABACI"
 theme = "hugo-coder"
 
 defaultContentLanguage = "en"
@@ -15,15 +15,17 @@ enableEmoji = true
     [languages.en.params]
       author = "Yusuf Talha ARABACI"
       info = "Security Engineer"
-      description = "Security Engineer specializing in Cloud-Native Security, SOC Architecture, and Open Source Defense."
-      keywords = "cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting"
     [[languages.en.menu.main]]
       name = "Posts"
       weight = 1
       url = "posts/"
     [[languages.en.menu.main]]
-      name = "About"
+      name = "Series"
       weight = 2
+      url = "series/"
+    [[languages.en.menu.main]]
+      name = "About"
+      weight = 3
       url = "about/"
 
   [languages.tr]
@@ -33,15 +35,17 @@ enableEmoji = true
     [languages.tr.params]
       author = "Yusuf Talha ARABACI"
       info = "Güvenlik Mühendisi"
-      description = "Bulut Yerli Güvenlik, SOC Mimarisi ve Açık Kaynak Savunma konularında uzmanlaşmış Güvenlik Mühendisi."
-      keywords = "siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi"
     [[languages.tr.menu.main]]
       name = "Yazılar"
       weight = 1
       url = "posts/"
     [[languages.tr.menu.main]]
-      name = "Hakkımda"
+      name = "Seriler"
       weight = 2
+      url = "series/"
+    [[languages.tr.menu.main]]
+      name = "Hakkımda"
+      weight = 3
       url = "about/"
 
 [sitemap]
@@ -54,10 +58,10 @@ enableEmoji = true
   description = "Security Engineer specializing in Cloud-Native Security, SOC Architecture, and Open Source Defense."
   keywords = "cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting"
   info = "Security Engineer"
-  avatarURL = "images/avatar.png"
+  avatarURL = "images/profile.jpeg"
   
   # Technical SEO
-  images = ["images/avatar.png"]
+  images = ["images/profile.jpeg"]
   titleSeparator = "|"
   customCSS = ["css/custom.css"]
   
@@ -70,38 +74,41 @@ enableEmoji = true
   enableLanguageInTitle = true
   
   # Theme mode toggle
-  colorProtocol = "auto"
+  colorScheme = "auto"
   showMenuItemIcon = true
   
   # Footer
-  footerContent = "Yusuf Arbac"
+  footerContent = "Yusuf Talha ARABACI"
   
   # Social links
   [[params.social]]
     name = "Github"
-    icon = "fa fa-2x fa-github"
+    icon = "fa-brands fa-github fa-2x"
     weight = 1
     url = "https://github.com/yusufarbc/"
   [[params.social]]
     name = "LinkedIn"
-    icon = "fa fa-2x fa-linkedin"
+    icon = "fa-brands fa-linkedin fa-2x"
     weight = 2
     url = "https://www.linkedin.com/in/yusufarbc/"
   [[params.social]]
     name = "Mastodon"
-    icon = "fa fa-2x fa-mastodon"
+    icon = "fa-brands fa-mastodon fa-2x"
     weight = 3
     url = "https://infosec.exchange/@yusufarbc"
   [[params.social]]
-    name = "Telegram"
-    icon = "fa fa-2x fa-telegram"
+    name = "Email"
+    icon = "fa-solid fa-envelope fa-2x"
     weight = 4
-    url = "https://t.me/yusufarbc"
+    url = "mailto:yusuf.talhaarabaci@owasp.org"
 
 [taxonomies]
   category = "categories"
   tag = "tags"
   series = "series"
+
+[permalinks]
+  posts = "/posts/:year/:month/:title/"
 
 [markup]
   [markup.highlight]
@@ -115,4 +122,4 @@ enableEmoji = true
 
 [minify]
   disableXML = false
-  minifyOutput = true
+  minifyOutput = false

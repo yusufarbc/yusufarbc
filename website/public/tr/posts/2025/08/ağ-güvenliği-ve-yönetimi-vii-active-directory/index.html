@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Ağ Güvenliği ve Yönetimi VII: Active Directory · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Ağ Güvenliği ve Yönetimi VII: Active Directory
+  
+    
+    Başlık Linki
+  
+
+
+Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolünü ve neden birincil saldırı hedefi olduğunu detaylı bir şekilde incelemektedir. “Kimlik, yeni güvenlik çevresidir” paradigmasından yola çıkarak, bu çalışma, AD’yi bir güvenlik zafiyetinden bir savunma kalesine dönüştürmeyi amaçlayan kapsamlı bir strateji sunmaktadır. Rapor, Kerberoasting, Pass-the-Hash ve Golden Ticket gibi yaygın saldırı vektörlerini, Yönetimsel Katman Modeli (Tiered Model), Credential Guard ve Grup Yönetimli Hizmet Hesapları (gMSA) gibi gelişmiş savunma mekanizmalarını, hibrit kimlik altyapılarının güvenliğini ve sürekli izleme ile felaket kurtarma operasyonlarını teknik ayrıntılarıyla ele almaktadır. Bu kılavuz, güvenlik liderleri ve teknik uygulayıcılar için AD altyapılarının güvenliğini ve dayanıklılığını artırmaya yönelik eyleme geçirilebilir bir yol haritası sunarak son bulmaktadır.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Ağ Güvenliği ve Yönetimi VII: Active Directory">
+  <meta name="twitter:description" content="Ağ Güvenliği ve Yönetimi VII: Active DirectoryBaşlık LinkiActive Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolünü ve neden birincil saldırı hedefi olduğunu detaylı bir şekilde incelemektedir. “Kimlik, yeni güvenlik çevresidir” paradigmasından yola çıkarak, bu çalışma, AD’yi bir güvenlik zafiyetinden bir savunma kalesine dönüştürmeyi amaçlayan kapsamlı bir strateji sunmaktadır. Rapor, Kerberoasting, Pass-the-Hash ve Golden Ticket gibi yaygın saldırı vektörlerini, Yönetimsel Katman Modeli (Tiered Model), Credential Guard ve Grup Yönetimli Hizmet Hesapları (gMSA) gibi gelişmiş savunma mekanizmalarını, hibrit kimlik altyapılarının güvenliğini ve sürekli izleme ile felaket kurtarma operasyonlarını teknik ayrıntılarıyla ele almaktadır. Bu kılavuz, güvenlik liderleri ve teknik uygulayıcılar için AD altyapılarının güvenliğini ve dayanıklılığını artırmaya yönelik eyleme geçirilebilir bir yol haritası sunarak son bulmaktadır.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi-vii-active-directory/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Ağ Güvenliği ve Yönetimi VII: Active Directory">
+  <meta property="og:description" content="Ağ Güvenliği ve Yönetimi VII: Active DirectoryBaşlık LinkiActive Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolünü ve neden birincil saldırı hedefi olduğunu detaylı bir şekilde incelemektedir. “Kimlik, yeni güvenlik çevresidir” paradigmasından yola çıkarak, bu çalışma, AD’yi bir güvenlik zafiyetinden bir savunma kalesine dönüştürmeyi amaçlayan kapsamlı bir strateji sunmaktadır. Rapor, Kerberoasting, Pass-the-Hash ve Golden Ticket gibi yaygın saldırı vektörlerini, Yönetimsel Katman Modeli (Tiered Model), Credential Guard ve Grup Yönetimli Hizmet Hesapları (gMSA) gibi gelişmiş savunma mekanizmalarını, hibrit kimlik altyapılarının güvenliğini ve sürekli izleme ile felaket kurtarma operasyonlarını teknik ayrıntılarıyla ele almaktadır. Bu kılavuz, güvenlik liderleri ve teknik uygulayıcılar için AD altyapılarının güvenliğini ve dayanıklılığını artırmaya yönelik eyleme geçirilebilir bir yol haritası sunarak son bulmaktadır.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-07T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2025/08/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi-vii-active-directory/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2025/08/network-security-and-management-vii-active-directory/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2025/08/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi-vii-active-directory/">
+              Ağ Güvenliği ve Yönetimi VII: Active Directory
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-08-07T00:00:00Z">
+                Ağustos 7, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              28 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="ağ-güvenliği-ve-yönetimi-vii-active-directory">
+  Ağ Güvenliği ve Yönetimi VII: Active Directory
+  <a class="heading-link" href="#a%c4%9f-g%c3%bcvenli%c4%9fi-ve-y%c3%b6netimi-vii-active-directory">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_xHCEWIgWsOG-PR1mgpcXvQ.png" alt=""></p>
+<p>Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolünü ve neden birincil saldırı hedefi olduğunu detaylı bir şekilde incelemektedir. “Kimlik, yeni güvenlik çevresidir” paradigmasından yola çıkarak, bu çalışma, AD’yi bir güvenlik zafiyetinden bir savunma kalesine dönüştürmeyi amaçlayan kapsamlı bir strateji sunmaktadır. Rapor, Kerberoasting, Pass-the-Hash ve Golden Ticket gibi yaygın saldırı vektörlerini, Yönetimsel Katman Modeli (Tiered Model), Credential Guard ve Grup Yönetimli Hizmet Hesapları (gMSA) gibi gelişmiş savunma mekanizmalarını, hibrit kimlik altyapılarının güvenliğini ve sürekli izleme ile felaket kurtarma operasyonlarını teknik ayrıntılarıyla ele almaktadır. Bu kılavuz, güvenlik liderleri ve teknik uygulayıcılar için AD altyapılarının güvenliğini ve dayanıklılığını artırmaya yönelik eyleme geçirilebilir bir yol haritası sunarak son bulmaktadır.</p>
+<hr>
+<h3 id="active-directory-mimarisi-ve-güvenlik-temelleri">
+  Active Directory Mimarisi ve Güvenlik Temelleri
+  <a class="heading-link" href="#active-directory-mimarisi-ve-g%c3%bcvenlik-temelleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="giriş-kimlik-yeni-güvenlikçevresi">
+  Giriş: Kimlik, Yeni Güvenlik Çevresi
+  <a class="heading-link" href="#giri%c5%9f-kimlik-yeni-g%c3%bcvenlik%c3%a7evresi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Geleneksel ağ güvenliği yaklaşımları, ağ çevresini (perimeter) korumaya odaklanmaktaydı. Ancak bulut bilişim, mobilite ve hibrit çalışma modellerinin yaygınlaşmasıyla birlikte bu çevre belirsizleşmiştir. Günümüz siber güvenlik paradigmasında, kimlik (identity) birincil güvenlik sınırı olarak kabul edilmektedir. Bu yeni düzende, bir kuruluşun tüm kullanıcı, bilgisayar, uygulama ve kaynak kimliklerini yöneten merkezi otorite olan Active Directory, kelimenin tam anlamıyla “krallığın anahtarlarını” elinde tutmaktadır. AD, kimin kim olduğunu (kimlik doğrulama) ve kimin neye erişebileceğini (yetkilendirme) belirleyen temel mekanizmadır. Bu nedenle, Active Directory’nin güvenliği, artık sadece bir altyapı bileşeninin güvenliği değil, tüm kurumsal güvenliğin temel taşıdır ve bir ihlali, feci sonuçlara yol açabilir.</p>
+<h3 id="active-directorynin-anatomisi-mantıksal-ve-fiziksel-bileşenler">
+  Active Directory’nin Anatomisi: Mantıksal ve Fiziksel Bileşenler
+  <a class="heading-link" href="#active-directorynin-anatomisi-mant%c4%b1ksal-ve-fiziksel-bile%c5%9fenler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Active Directory’nin gücü ve karmaşıklığı, hiyerarşik ve mantıksal yapısından kaynaklanır. Bu yapı, doğru yapılandırıldığında, sadece yönetim kolaylığı sağlamakla kalmaz, aynı zamanda doğal bir güvenlik katmanlaması da sunar.</p>
+<h4 id="etki-alanları-domains-ağaçlar-trees-ve-ormanlar-forests-güvenlik-ve-yönetim-sınırları">
+  Etki Alanları (Domains), Ağaçlar (Trees) ve Ormanlar (Forests): Güvenlik ve Yönetim Sınırları
+  <a class="heading-link" href="#etki-alanlar%c4%b1-domains-a%c4%9fa%c3%a7lar-trees-ve-ormanlar-forests-g%c3%bcvenlik-ve-y%c3%b6netim-s%c4%b1n%c4%b1rlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>AD’nin mantıksal yapısı üç ana katmandan oluşur: etki alanları, ağaçlar ve ormanlar.</p>
+<ul>
+<li><strong>Etki Alanı (Domain):</strong> Birbirleriyle ilişkili kullanıcılar, bilgisayarlar ve diğer nesnelerden oluşan bir gruptur. Bir etki alanı, temel bir <strong>yönetim sınırıdır</strong>. Belirli bir etki alanındaki nesneler tek bir veritabanında saklanır ve birlikte yönetilir. Bu yapı, verilerin yalnızca ihtiyaç duyulan yerlere çoğaltılmasına (replikasyon) olanak tanıyarak AD’nin küresel ölçekte verimli çalışmasını sağlar.</li>
+<li><strong>Ağaç (Tree):</strong> Ortak bir bitişik ad alanını paylaşan bir veya daha fazla etki alanının birleşimidir.</li>
+<li><strong>Orman (Forest):</strong> Bir veya daha fazla ağaçtan oluşan en üst düzey AD yapısıdır. Bir orman, en temel <strong>güvenlik sınırıdır</strong>. Farklı ormanlardaki nesneler, yöneticiler arasında açıkça bir güven (trust) ilişkisi kurulmadıkça birbirleriyle etkileşime giremezler.</li>
+</ul>
+<p>Bu mimari ayrım, bir saldırganın hareket alanını doğal olarak sınırlar. Bir etki alanının ele geçirilmesi, otomatik olarak tüm ormanın ele geçirildiği anlamına gelmez. Ormanlar arasındaki güvenlik sınırı, bir ihlalin yayılmasını önlemek için proaktif olarak kullanılabilecek en güçlü pasif savunma mekanizmalarından biridir.</p>
+<h4 id="kuruluş-birimleri-organizational-unitsous-yetki-devri-ve-politikauygulama">
+  Kuruluş Birimleri (Organizational Units — OUs): Yetki Devri ve Politika Uygulama
+  <a class="heading-link" href="#kurulu%c5%9f-birimleri-organizational-unitsous-yetki-devri-ve-politikauygulama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Kuruluş Birimleri (OU’lar), bir etki alanı içindeki nesneleri (kullanıcılar, gruplar, bilgisayarlar) mantıksal hiyerarşilere ayırmak için kullanılan kapsayıcılardır. OU’ların iki temel güvenlik işlevi vardır:</p>
+<ol>
+<li><strong>Yetki Devri (Delegation of Authority):</strong> OU’lar, yönetimsel görevlerin daha az ayrıcalıklı hesaplara devredilmesini sağlar. Örneğin, bir yardım masası ekibine yalnızca “Pazarlama” OU’sundaki kullanıcıların parolalarını sıfırlama yetkisi verilebilir. Bu, “en az ayrıcalık” ilkesinin uygulanmasını kolaylaştırır.</li>
+<li><strong>Grup İlkesi Uygulaması:</strong> Grup İlkesi Nesneleri (GPO’lar), belirli OU’lara bağlanarak o OU içindeki kullanıcılar ve bilgisayarlar için özel güvenlik ayarlarının uygulanmasını sağlar. Bu, farklı departmanlar veya sunucu türleri için farklı güvenlik politikaları oluşturmayı mümkün kılar.</li>
+</ol>
+<h4 id="etki-alanı-denetleyicileri-dcs-global-katalog-gc-ve-şemaschema">
+  Etki Alanı Denetleyicileri (DCs), Global Katalog (GC) ve Şema (Schema)
+  <a class="heading-link" href="#etki-alan%c4%b1-denetleyicileri-dcs-global-katalog-gc-ve-%c5%9femaschema">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Etki Alanı Denetleyicileri (Domain Controllers — DCs):</strong> AD DS hizmetini çalıştıran ve AD veritabanının (NTDS.dit dosyası) bir kopyasını barındıran sunuculardır. Ağdaki kimlik doğrulama isteklerine yanıt verirler ve dizinde yapılan değişiklikleri diğer DC’lere çoğaltırlar.</li>
+<li><strong>Global Katalog (Global Catalog — GC):</strong> Kendi etki alanındaki tüm nesnelerin tam bir kopyasını ve ormandaki diğer tüm etki alanlarındaki tüm nesnelerin kısmi bir kopyasını içeren özel bir DC türüdür. Bu, kullanıcıların ve uygulamaların, nesnenin hangi etki alanında olduğunu bilmeden orman genelinde arama yapmasını sağlar.</li>
+<li><strong>Şema (Schema):</strong> AD’de oluşturulabilecek her nesne sınıfının (örneğin, kullanıcı, bilgisayar) ve bu nesnelerin sahip olabileceği her özniteliğin (örneğin, telefon numarası, parola) resmi tanımlarını içeren kurallar bütünüdür.</li>
+</ul>
+<h3 id="temel-kimlik-doğrulama-ve-yetkilendirme-protokolleri">
+  Temel Kimlik Doğrulama ve Yetkilendirme Protokolleri
+  <a class="heading-link" href="#temel-kimlik-do%c4%9frulama-ve-yetkilendirme-protokolleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>AD’nin güvenliği, temelini oluşturan protokollere dayanır. Bu protokollerin nasıl çalıştığını ve zafiyetlerini anlamak, savunma stratejileri geliştirmek için kritiktir.</p>
+<ul>
+<li><strong>Kerberos:</strong> Windows etki alanlarında varsayılan kimlik doğrulama protokolüdür. Bilet Verme Hizmeti (TGS) ve Bilet Verme Biletleri (TGT) gibi kavramlara dayanan, karşılıklı kimlik doğrulaması sağlayan güvenli bir mekanizma sunar. Güvenli kabul edilse de, Kerberoasting ve Golden Ticket gibi gelişmiş saldırılar bu protokolün özelliklerini kötüye kullanabilir.</li>
+<li><strong>NTLM (NT LAN Manager):</strong> Kerberos’un kullanılamadığı durumlarda (örneğin, etki alanı denetleyicisine ulaşılamadığında veya eski sistemlerle iletişimde) kullanılan bir geri dönüş (fallback) protokolüdür. Challenge-response mekanizmasına dayanır ancak Pass-the-Hash gibi saldırılara karşı doğası gereği zayıftır. Modern ortamlarda kullanımı mümkün olduğunca kısıtlanmalıdır.</li>
+<li><strong>LDAP (Lightweight Directory Access Protocol):</strong> AD dizinindeki nesneleri sorgulamak ve değiştirmek için kullanılan standart bir protokoldür. Güvenli yapılandırılmadığında (örneğin, LDAP imzalama zorunlu kılınmadığında), saldırganların ağ trafiğini dinleyerek veya değiştirerek hassas bilgiler elde etmesine olanak tanıyabilir.</li>
+</ul>
+<h3 id="grup-ilkesi-nesneleri-gpos-merkezi-güvenlik-yönetiminin-gücü">
+  Grup İlkesi Nesneleri (GPOs): Merkezi Güvenlik Yönetiminin Gücü
+  <a class="heading-link" href="#grup-ilkesi-nesneleri-gpos-merkezi-g%c3%bcvenlik-y%c3%b6netiminin-g%c3%bcc%c3%bc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Grup İlkesi Nesneleri (GPO’lar), AD’nin en güçlü güvenlik yönetimi araçlarından biridir. GPO’lar aracılığıyla yöneticiler, binlerce bilgisayar ve kullanıcı için güvenlik ayarlarını merkezi olarak yapılandırabilir ve zorunlu kılabilirler. Bu ayarlar arasında parola politikaları, hesap kilitleme politikaları, denetim ayarları, yazılım kısıtlamaları ve Windows Güvenlik Duvarı kuralları gibi kritik kontroller bulunur. GPO’ların OU’lara bağlanabilmesi, farklı risk seviyelerindeki varlıklar için farklı güvenlik temelleri (security baselines) oluşturulmasına olanak tanır. Bu, AD sıkılaştırmasının temelini oluşturur.</p>
+<p>Bir saldırgan genellikle düşük yetkili bir kullanıcı hesabını ele geçirerek bir ağa sızar. Bu hesap, belirli bir OU içinde yer alır ve GPO’lar tarafından belirlenen kısıtlamalara tabidir. Saldırganın nihai hedefi, genellikle yanal hareket (lateral movement) yoluyla bir Etki Alanı Yöneticisi (Domain Admin) gibi Tier 0 seviyesinde bir hesaba ulaşmaktır. Eğer AD mimarisi ve GPO’lar “En Az Ayrıcalık İlkesi”ne göre doğru tasarlanmışsa, bu ilk ele geçirilen hesabın erişebileceği sistemler ve gerçekleştirebileceği eylemler son derece sınırlı olacaktır. Bu durum, saldırganı bir üst yönetimsel sınıra (örneğin, farklı bir OU’daki sunuculara veya doğrudan bir Etki Alanı Denetleyicisine) geçmek için ek zafiyetler aramaya zorlar. Dolayısıyla, iyi yapılandırılmış bir AD mimarisi, saldırıyı yavaşlatan, daha fazla iz bırakmasına neden olan ve tespit için güvenlik ekiplerine daha fazla fırsat tanıyan pasif bir savunma mekanizması işlevi görür. Aksine, kötü yapılandırılmış bir AD, saldırgan için hedefine giden düz bir otoban gibidir.</p>
+<hr>
+<h3 id="active-directory-saldırı-yüzeyi-tehdit-vektörleri-ve-teknikleri">
+  Active Directory Saldırı Yüzeyi: Tehdit Vektörleri ve Teknikleri
+  <a class="heading-link" href="#active-directory-sald%c4%b1r%c4%b1-y%c3%bczeyi-tehdit-vekt%c3%b6rleri-ve-teknikleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Active Directory, merkezi doğası gereği saldırganlar için son derece cazip bir hedeftir. Bir saldırgan ağa sızdıktan sonra, genellikle AD’yi bir yol haritası olarak kullanarak ayrıcalıklarını yükseltmeye ve hedeflerine ulaşmaya çalışır.</p>
+<h3 id="keşif-ve-numaralandırma-reconnaissance-and-enumeration">
+  Keşif ve Numaralandırma (Reconnaissance and Enumeration)
+  <a class="heading-link" href="#ke%c5%9fif-ve-numaraland%c4%b1rma-reconnaissance-and-enumeration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bir saldırganın ilk adımı, bulunduğu ortamı anlamaktır. AD, bu keşif aşaması için zengin bir bilgi kaynağıdır.</p>
+<h4 id="ldap-keşfi-ve-powerview">
+  LDAP Keşfi ve PowerView
+  <a class="heading-link" href="#ldap-ke%c5%9ffi-ve-powerview">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Saldırganlar, standart LDAP sorguları veya PowerView gibi PowerShell tabanlı araçlar kullanarak AD’yi sorgular. Bu sorgularla ayrıcalıklı kullanıcıların kimler olduğunu, hangi grupların (örneğin, Domain Admins) var olduğunu, bilgisayarların hangi işletim sistemlerini kullandığını ve kullanıcıların hangi sistemlerde oturum açtığını öğrenebilirler. Bu bilgiler, saldırının sonraki adımlarını planlamak için kullanılır.</p>
+<h4 id="bloodhound-ile-saldırı-yollarının-haritalanması">
+  BloodHound ile Saldırı Yollarının Haritalanması
+  <a class="heading-link" href="#bloodhound-ile-sald%c4%b1r%c4%b1-yollar%c4%b1n%c4%b1n-haritalanmas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>BloodHound, modern AD saldırılarında devrim yaratmış bir araçtır. Hem saldırganlar (red team) hem de savunmacılar (blue team) tarafından kullanılır. BloodHound, AD’deki karmaşık izinleri ve ilişkileri (örneğin, kimin hangi bilgisayarda yerel yönetici olduğu, hangi grubun hangi nesne üzerinde hakları olduğu) toplar ve bu verileri bir graf veritabanına (Neo4j) aktarır.</p>
+<ul>
+<li><strong>Veri Toplama:</strong> SharpHound gibi veri toplayıcılar, ağdaki sistemlerden oturum bilgileri, yerel yönetici grup üyelikleri ve ACL (Access Control List) bilgileri gibi verileri toplar.</li>
+<li><strong>Görselleştirme:</strong> BloodHound, bu verileri kullanarak potansiyel ayrıcalık yükseltme ve yanal hareket yollarını görsel bir harita olarak sunar. Saldırganlar, “Domain Admins grubuna en kısa yol” gibi önceden tanımlanmış sorguları kullanarak, düşük yetkili bir hesaptan başlayarak etki alanı hakimiyetine giden en kolay yolu saniyeler içinde bulabilirler.</li>
+</ul>
+<h3 id="kimlik-bilgisi-hırsızlığı-ve-kötüye-kullanımı-credential-theft-andabuse">
+  Kimlik Bilgisi Hırsızlığı ve Kötüye Kullanımı (Credential Theft and Abuse)
+  <a class="heading-link" href="#kimlik-bilgisi-h%c4%b1rs%c4%b1zl%c4%b1%c4%9f%c4%b1-ve-k%c3%b6t%c3%bcye-kullan%c4%b1m%c4%b1-credential-theft-andabuse">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Keşif aşamasından sonra saldırganlar, yanal hareket etmek ve ayrıcalıklarını artırmak için kimlik bilgilerini çalmaya odaklanır.</p>
+<h4 id="parola-spreyleme-password-spraying-ve-kaba-kuvvet-bruteforce">
+  Parola Spreyleme (Password Spraying) ve Kaba Kuvvet (Brute Force)
+  <a class="heading-link" href="#parola-spreyleme-password-spraying-ve-kaba-kuvvet-bruteforce">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu yöntemler en temel kimlik bilgisi saldırılarıdır. Kaba kuvvet saldırılarında, tek bir hesaba karşı binlerce parola denenirken, parola spreyi saldırılarında “Password123” veya “Winter2024” gibi az sayıda yaygın parola, çok sayıda kullanıcı hesabına karşı denenir. Parola spreyi, hesap kilitleme politikalarını tetikleme olasılığı daha düşük olduğu için daha gizli bir yöntemdir.</p>
+<h4 id="llmnrnbt-ns-zehirlenmesi-ve-responder-aracı">
+  LLMNR/NBT-NS Zehirlenmesi ve Responder Aracı
+  <a class="heading-link" href="#llmnrnbt-ns-zehirlenmesi-ve-responder-arac%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Link-Local Multicast Name Resolution (LLMNR) ve NetBIOS Name Service (NBT-NS), bir ağda DNS sunucusu yanıt vermediğinde devreye giren eski ad çözümleme protokolleridir. Saldırganlar, Responder gibi araçları kullanarak bu protokollere yönelik ad çözümleme isteklerini dinler ve kendilerini istenen kaynak (örneğin, bir dosya sunucusu) gibi tanıtarak sahte yanıtlar gönderir. Kurbanın bilgisayarı bu sahte sunucuya bağlanmaya çalıştığında, kimlik doğrulama için NTLMv2 parolasının hash’ini gönderir ve saldırgan bu hash’i yakalar. Bu hash’ler daha sonra çevrimdışı olarak kırılabilir veya Pass-the-Hash saldırılarında kullanılabilir.</p>
+<h4 id="teknik-derin-bakış-pass-the-hash-pth-saldırısı">
+  Teknik Derin Bakış: Pass-the-Hash (PtH) Saldırısı
+  <a class="heading-link" href="#teknik-derin-bak%c4%b1%c5%9f-pass-the-hash-pth-sald%c4%b1r%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Pass-the-Hash (PtH), bir saldırganın, bir kullanıcının düz metin parolasını bilmesine gerek kalmadan, yalnızca parolasının NTLM hash’ini kullanarak kimlik doğrulaması yapmasını sağlayan güçlü bir yanal hareket tekniğidir.</p>
+<ul>
+<li><strong>Mekanizma:</strong> Bu saldırı, NTLM kimlik doğrulama protokolünün doğasından kaynaklanır. NTLM’de, parola hiçbir zaman ağ üzerinden düz metin olarak gönderilmez; bunun yerine hash’i kullanılır. Bir sunucu, bir kullanıcıdan kimlik doğrulaması istediğinde, kullanıcının hash’ini doğrular. Dolayısıyla, hash’e sahip olmak, parolaya sahip olmakla işlevsel olarak eşdeğerdir.</li>
+<li><strong>Yürütme:</strong> Saldırganlar, bir makinede yönetici hakları elde ettikten sonra, Mimikatz gibi araçlar kullanarak Local Security Authority Subsystem Service (LSASS) belleğinden veya Güvenlik Hesapları Yöneticisi (SAM) veritabanından parola hash’lerini çalarlar. <code>sekurlsa::pth</code> gibi Mimikatz komutları, çalınan bu hash&rsquo;i mevcut oturuma enjekte ederek saldırganın o kullanıcı kimliğiyle başka sistemlere erişmesini sağlar.</li>
+<li><strong>Etkisi:</strong> PtH, saldırganların ağ içinde hızla yayılmasına olanak tanır, çünkü bir hash, parola değiştirilene kadar geçerliliğini korur.</li>
+</ul>
+<h3 id="kerberos-tabanlı-gelişmiş-saldırılar">
+  Kerberos Tabanlı Gelişmiş Saldırılar
+  <a class="heading-link" href="#kerberos-tabanl%c4%b1-geli%c5%9fmi%c5%9f-sald%c4%b1r%c4%b1lar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Kerberos, NTLM’den daha güvenli olsa da, kendi zafiyetlerine sahiptir ve saldırganlar bu zafiyetleri sömürmek için gelişmiş teknikler geliştirmiştir.</p>
+<h4 id="teknik-derin-bakış-kerberoasting">
+  Teknik Derin Bakış: Kerberoasting
+  <a class="heading-link" href="#teknik-derin-bak%c4%b1%c5%9f-kerberoasting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Kerberoasting, özellikle hizmet hesaplarını (service accounts) hedef alan son derece gizli ve etkili bir saldırıdır.</p>
+<ul>
+<li><strong>Mekanizma:</strong> Saldırı, Active Directory’deki Hizmet Asıl Adı (Service Principal Name — SPN) kaydına sahip kullanıcı veya bilgisayar hesaplarını hedefler. SPN’ler, bir hizmeti (örneğin, bir SQL sunucusu hizmeti) bir hesapla ilişkilendirir. Kerberos protokolü gereği, herhangi bir doğrulanmış etki alanı kullanıcısı, herhangi bir SPN için bir Kerberos hizmet bileti (TGS/ST) talep edebilir.</li>
+<li><strong>Yürütme:</strong> Saldırgan, Rubeus gibi bir araç kullanarak hedef hizmet için bir hizmet bileti talep eder. Anahtar Dağıtım Merkezi (KDC), bu bileti hizmet hesabının NTLM parola hash’i ile şifreleyerek saldırgana gönderir. Saldırgan bu bileti alır ve ağdan çıkararak çevrimdışı bir ortamda Hashcat veya John the Ripper gibi araçlarla kaba kuvvet saldırısı uygular. Bu yöntem, ağda başarısız oturum açma denemeleri gibi “gürültülü” izler bırakmadığı için tespiti çok zordur.</li>
+<li><strong>Risk:</strong> Hizmet hesapları genellikle veritabanları veya uygulamalar gibi kritik sistemlere erişim için yüksek ayrıcalıklara sahiptir ve parolaları nadiren değiştirilir veya zayıftır. Bu durum, başarılı bir Kerberoasting saldırısını bir etki alanını ele geçirmek için güçlü bir basamak haline getirir.</li>
+</ul>
+<h4 id="teknik-derin-bakış-golden-ve-silver-ticket-saldırıları">
+  Teknik Derin Bakış: Golden ve Silver Ticket Saldırıları
+  <a class="heading-link" href="#teknik-derin-bak%c4%b1%c5%9f-golden-ve-silver-ticket-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu saldırılar, Kerberos protokolünün temel güven mekanizmalarını hedef alır ve bir etki alanı üzerinde mutlak kontrol sağlar.</p>
+<ul>
+<li><strong>Golden Ticket:</strong> Bu, AD’ye yönelik en yıkıcı saldırılardan biridir. Saldırganın hedefi, etki alanındaki tüm Kerberos biletlerini şifrelemek ve imzalamak için kullanılan gizli anahtar olan <code>krbtgt</code> hesabının parola hash&rsquo;ini ele geçirmektir. Saldırgan, <code>krbtgt</code> hash&rsquo;ini (örneğin, bir DCSync saldırısıyla) ele geçirdikten sonra, Mimikatz gibi araçlar kullanarak etki alanındaki <em>herhangi bir kullanıcı</em> adına, istediği herhangi bir grup üyeliğiyle (örneğin, Domain Admins) ve neredeyse süresiz (varsayılan 10 yıl) bir geçerlilik süresiyle sahte bir Bilet Verme Bileti (TGT) oluşturabilir. Bu sahte &ldquo;altın bilet&rdquo;, saldırgana etki alanı üzerinde tam ve kalıcı bir hakimiyet sağlar.</li>
+<li><strong>Silver Ticket:</strong> Bu saldırı, <code>krbtgt</code> yerine belirli bir hizmetin (örneğin, bir dosya sunucusunun CIFS hizmeti) parola hash&rsquo;ini hedefler. Saldırgan, bu hash&rsquo;i ele geçirdiğinde, yalnızca o belirli hizmete erişim sağlayan sahte hizmet biletleri (TGS) oluşturabilir. Golden Ticket&rsquo;a göre daha sınırlı bir etkiye sahiptir ancak tespiti daha zordur çünkü tüm iletişim sadece kurban hizmet ve istemci arasında gerçekleşir, KDC&rsquo;ye başvurulmaz.</li>
+</ul>
+<h3 id="etki-alanı-hakimiyeti-domain-dominance-teknikleri">
+  Etki Alanı Hakimiyeti (Domain Dominance) Teknikleri
+  <a class="heading-link" href="#etki-alan%c4%b1-hakimiyeti-domain-dominance-teknikleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu teknikler, saldırganların bir etki alanındaki tüm kimlik bilgilerini ele geçirerek tam kontrol sağlamasını hedefler.</p>
+<h4 id="ntdsdit-veritabanı-çıkarımı">
+  NTDS.dit Veritabanı Çıkarımı
+  <a class="heading-link" href="#ntdsdit-veritaban%c4%b1-%c3%a7%c4%b1kar%c4%b1m%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><code>NTDS.dit</code>, tüm etki alanı nesnelerini ve en önemlisi tüm kullanıcıların parola hash&rsquo;lerini içeren Active Directory veritabanı dosyasıdır. Bu dosya, etki alanı denetleyicilerinde bulunur. Bir saldırgan bir DC&rsquo;de yönetici hakları elde ederse, bu dosyayı (genellikle Volume Shadow Copy gibi tekniklerle) kopyalayabilir. Dosyayı ele geçirdikten sonra, çevrimdışı araçlar kullanarak içindeki tüm parola hash&rsquo;lerini çıkarabilir ve kırabilir.</p>
+<h4 id="dcsync-saldırısı">
+  DCSync Saldırısı
+  <a class="heading-link" href="#dcsync-sald%c4%b1r%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>DCSync, bir saldırganın kendisini sahte bir etki alanı denetleyicisi gibi tanıtarak, meşru bir DC’den çoğaltma (replication) protokolü üzerinden parola verilerini istemesine olanak tanıyan bir Mimikatz tekniğidir. Bu saldırıyı gerçekleştirmek için saldırganın,</p>
+<p><code>Replicating Directory Changes</code> ve <code>Replicating Directory Changes All</code> gibi özel izinlere sahip bir hesabı (örneğin, bir Domain Admin veya yedekleme operatörü) ele geçirmesi gerekir. DCSync, DC üzerinde herhangi bir dosya işlemi yapmadığı ve meşru çoğaltma trafiğini taklit ettiği için son derece gizlidir. Genellikle <code>krbtgt</code> hesabının hash&rsquo;ini çalarak Golden Ticket saldırısına zemin hazırlamak için kullanılır. Mimikatz&rsquo;in<code>lsadump::dcsync</code> komutu bu saldırı için özel olarak tasarlanmıştır.</p>
+<p>AD saldırıları genellikle tek bir olaydan ziyade bir dizi bağlantılı eylemden oluşan bir zincir reaksiyonu şeklinde ilerler. Bir zafiyetin sömürülmesi, bir sonrakinin kapısını aralar. Örneğin, zayıf bir ağ segmentinde LLMNR/NBT-NS protokollerinin aktif olması , bir saldırganın Responder aracıyla düşük yetkili bir kullanıcının NTLM hash’ini yakalamasına olanak tanır. Saldırgan bu hash’i kıramasa bile, Pass-the-Hash tekniğini kullanarak aynı kimlik bilgileriyle diğer makinelere yanal olarak hareket edebilir. Bu yeni erişilen makinelerden birinde, BloodHound gibi bir araçla yapılan keşif, zayıf bir parolaya sahip bir SQL hizmet hesabının varlığını ortaya çıkarabilir. Bu noktada saldırgan, Kerberoasting saldırısı ile bu hizmet hesabının biletini talep eder ve parolasını çevrimdışı olarak kırar. Bu hizmet hesabının yerel yönetici olduğu sunuculara erişim kazandıktan sonra, bu sunuculardan birinde daha önce oturum açmış bir Domain Admin’in önbelleğe alınmış kimlik bilgilerini Mimikatz ile çalabilir veya bu hizmet hesabının yanlışlıkla<code>Replicating Directory Changes</code> iznine sahip olduğunu keşfedebilir. Bu izinle, DCSync saldırısı gerçekleştirerek<code>krbtgt</code> hesabının hash&rsquo;ini çalar ve son adım olarak bir Golden Ticket oluşturarak tüm etki alanında kalıcı ve mutlak kontrol sağlar. Bu zincir, AD güvenliğinin tek bir noktayı korumaktan ziyade, tüm saldırı zincirinin halkalarını kırmaya odaklanması gerektiğini açıkça göstermektedir.</p>
+<p>Saldırı Tekniği (MITRE ATT&amp;CK ID)Çalışma Prensibi (Özet)Birincil Savunma Stratejileriİlgili Araçlar (Saldırı/Savunma)<strong>Kerberoasting</strong> (T1558.003)SPN’i olan hizmet bileti hash’ini çevrimdışı kırma.</p>
+<p>Grup Yönetimli Hizmet Hesapları (gMSA), 25+ karakterli karmaşık hizmet hesabı parolaları, AES şifrelemesini zorunlu kılma.</p>
+<p><img src="/images/1_YontK_x4FdZcm4LQIPCUtw.png" alt=""></p>
+<hr>
+<h3 id="savunma-derinliği-çok-katmanlı-güvenlik-stratejileri">
+  Savunma Derinliği: Çok Katmanlı Güvenlik Stratejileri
+  <a class="heading-link" href="#savunma-derinli%c4%9fi-%c3%a7ok-katmanl%c4%b1-g%c3%bcvenlik-stratejileri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Active Directory’yi korumak, tek bir teknoloji veya ürünle değil, birbirini tamamlayan çok katmanlı bir savunma stratejisiyle mümkündür. Bu stratejinin temel felsefesi, bir saldırganın işini zorlaştırmak, hareket alanını kısıtlamak ve eninde sonunda kimlik bilgisi hırsızlığına dayalı saldırılarını işlevsiz hale getirmektir.</p>
+<h3 id="en-az-ayrıcalık-ilkesinin-polpprinciple-of-least-privilege-uygulanması">
+  En Az Ayrıcalık İlkesinin (PoLP — Principle of Least Privilege) Uygulanması
+  <a class="heading-link" href="#en-az-ayr%c4%b1cal%c4%b1k-ilkesinin-polpprinciple-of-least-privilege-uygulanmas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>En Az Ayrıcalık İlkesi (PoLP), siber güvenliğin temel taşlarından biridir. Bu ilkeye göre, bir kullanıcıya, uygulamaya veya hizmete, görevini yerine getirmesi için gereken mutlak minimum düzeyde izin ve erişim hakkı verilmelidir. Bir hesap ele geçirildiğinde, bu ilke sayesinde saldırganın verebileceği potansiyel zarar büyük ölçüde sınırlanır. Örneğin, e-postalarını okumak için standart bir kullanıcı hesabıyla oturum açan bir yöneticinin bir oltalama (phishing) saldırısına kurban gitmesi durumunda, virüs yalnızca o kullanıcının verilerine erişebilir. Ancak aynı yönetici, bir Domain Admin hesabıyla oturum açmış olsaydı, virüs tüm etki alanına yayılabilirdi.</p>
+<p>Uygulamada en büyük zorluklardan biri “ayrıcalık sürünmesi”dir (privilege creep). Bu, kullanıcılara geçici projeler için verilen ek izinlerin proje bittikten sonra geri alınmaması ve zamanla birikmesi durumudur. Bu riski azaltmak için, izinlerin düzenli olarak gözden geçirilmesi ve denetlenmesi kritik öneme sahiptir.</p>
+<h3 id="yönetimsel-katman-modeli-tiered-administrative-model">
+  Yönetimsel Katman Modeli (Tiered Administrative Model)
+  <a class="heading-link" href="#y%c3%b6netimsel-katman-modeli-tiered-administrative-model">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Yönetimsel Katman Modeli, PoLP’nin Active Directory’ye uygulanmış en yapısal halidir. Bu model, kimlik bilgisi hırsızlığını ve saldırganların ağ içinde yanal hareket etmesini önlemek amacıyla AD varlıklarını ve yönetici hesaplarını kontrol katmanlarına ayırır.</p>
+<h4 id="katmanların-tanımlanması">
+  Katmanların Tanımlanması:
+  <a class="heading-link" href="#katmanlar%c4%b1n-tan%c4%b1mlanmas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Model üç temel katmandan oluşur :</p>
+<ul>
+<li><strong>Tier 0 (Kontrol Düzlemi):</strong> Ormanın ve kimlik altyapısının tam kontrolünü sağlayan en kritik varlıklardır. Bunlar arasında Etki Alanı Denetleyicileri (DC), Active Directory Federation Services (ADFS) sunucuları, Azure AD Connect sunucuları, Public Key Infrastructure (PKI) sunucuları ve bu varlıkları yöneten hesaplar (Domain Admins, Enterprise Admins, Schema Admins) bulunur. Bu katmanın ele geçirilmesi, tüm ortamın ele geçirilmesi anlamına gelir.</li>
+<li><strong>Tier 1 (Yönetim Düzlemi):</strong> Kurumsal sunucuları ve uygulamaları barındırır. Dosya sunucuları, veritabanı sunucuları, uygulama sunucuları ve bu sistemleri yöneten sunucu yöneticisi hesapları bu katmandadır.</li>
+<li><strong>Tier 2 (Kullanıcı Düzlemi):</strong> Son kullanıcı cihazlarını (iş istasyonları, dizüstü bilgisayarlar) ve bu cihazları yöneten yardım masası gibi destek hesaplarını içerir.</li>
+</ul>
+<h4 id="temel-kural-ve-uygulama">
+  Temel Kural ve Uygulama:
+  <a class="heading-link" href="#temel-kural-ve-uygulama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Modelin en temel ve katı kuralı şudur: <strong>Daha yüksek bir katmana ait bir kimlik bilgisi (örneğin, bir Tier 0 yönetici hesabı), asla daha düşük bir katmandaki bir sisteme (örneğin, bir Tier 2 iş istasyonu) giriş yapmamalıdır</strong>. Bu kural, yüksek değerli kimlik bilgilerinin, daha az güvenli olan alt katmanlardaki sistemlerin belleğinde önbelleğe alınmasını ve çalınmasını engeller. Bu teknik kontrol, GPO’lar aracılığıyla “Deny log on locally”, “Deny access to this computer from the network” ve “Deny log on through Remote Desktop Services” gibi kullanıcı hakları atamaları kullanılarak uygulanır. Örneğin, Tier 1 sunucularını hedefleyen bir GPO’da, Tier 0 yönetici gruplarına (Domain Admins vb.) bu haklar atanarak oturum açmaları engellenir.</p>
+<p>Her katmanın yönetimi için <strong>Ayrıcalıklı Erişim İş İstasyonları (PAWs — Privileged Access Workstations)</strong> kullanılması şiddetle tavsiye edilir. Bir Tier 0 yöneticisi, Tier 0 varlıklarını yönetmek için yalnızca özel olarak sıkılaştırılmış, izole edilmiş ve internet erişimi olmayan bir Tier 0 PAW kullanmalıdır.</p>
+<h3 id="kritik-varlıkların-sıkılaştırılması-hardening-criticalassets">
+  Kritik Varlıkların Sıkılaştırılması (Hardening Critical Assets)
+  <a class="heading-link" href="#kritik-varl%c4%b1klar%c4%b1n-s%c4%b1k%c4%b1la%c5%9ft%c4%b1r%c4%b1lmas%c4%b1-hardening-criticalassets">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Katman modeline ek olarak, belirli varlıkların kendi içlerinde de sıkılaştırılması gerekir.</p>
+<h4 id="etki-alanı-denetleyicilerinin-güvenliğini-sağlama">
+  Etki Alanı Denetleyicilerinin Güvenliğini Sağlama
+  <a class="heading-link" href="#etki-alan%c4%b1-denetleyicilerinin-g%c3%bcvenli%c4%9fini-sa%c4%9flama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>DC’ler, AD’nin kalbidir ve en sıkı şekilde korunmalıdır. Temel sıkılaştırma adımları arasında DC’lere fiziksel erişimin kısıtlanması, gereksiz yazılım ve hizmetlerin kaldırılması, uygulama beyaz listeleme (AppLocker gibi) kullanılması, en son güvenlik yamalarının derhal uygulanması ve yalnızca Tier 0 PAW’lardan yönetilmesine izin verilmesi yer alır.</p>
+<h4 id="microsoft-laps-local-administrator-password-solution">
+  Microsoft LAPS (Local Administrator Password Solution)
+  <a class="heading-link" href="#microsoft-laps-local-administrator-password-solution">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>LAPS, etki alanına dahil olan tüm Windows bilgisayarlarındaki yerel yönetici hesabının parolasını yönetmek için tasarlanmış ücretsiz bir Microsoft aracıdır. Her bilgisayar için benzersiz, rastgele ve karmaşık bir parola oluşturur, bu parolayı AD’deki ilgili bilgisayar nesnesinin bir özniteliğinde güvenli bir şekilde saklar ve parolayı düzenli olarak değiştirir. Bu, saldırganların bir makinedeki yerel yönetici parolasını çalıp diğer makinelere yanal olarak hareket etmek için kullanmasını (Pass-the-Hash saldırılarının yaygın bir senaryosu) engeller.</p>
+<h4 id="teknik-derin-bakış-grup-yönetimli-hizmet-hesapları-gmsagroup-managed-service-accounts">
+  Teknik Derin Bakış: Grup Yönetimli Hizmet Hesapları (gMSA — Group Managed Service Accounts)
+  <a class="heading-link" href="#teknik-derin-bak%c4%b1%c5%9f-grup-y%c3%b6netimli-hizmet-hesaplar%c4%b1-gmsagroup-managed-service-accounts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Geleneksel hizmet hesapları, Kerberoasting saldırıları için birincil hedeftir çünkü parolaları genellikle zayıftır, asla değiştirilmez ve birden çok sunucuda paylaşılır.</p>
+<ul>
+<li><strong>Çözüm:</strong> gMSA’lar, bu sorunu çözmek için tasarlanmış özel AD nesneleridir. Bir gMSA oluşturulduğunda, parola yönetimi tamamen Windows işletim sistemine devredilir. Sistem, 25 karakterden uzun, son derece karmaşık ve rastgele parolalar oluşturur ve bu parolaları varsayılan olarak her 30 günde bir otomatik olarak değiştirir.</li>
+<li><strong>Güvenlik Faydası:</strong> En önemlisi, bu parolalara hiçbir insan erişemez veya bilemez. Parola, AD tarafından yönetilir ve yalnızca yetkilendirilmiş ana bilgisayarlar tarafından alınabilir. Bu özellikler, gMSA’ları Kerberoasting saldırılarına karşı neredeyse tamamen bağışık hale getirir, çünkü çevrimdışı olarak kırılması pratik olarak imkansız olan çok güçlü parolalar kullanırlar.</li>
+</ul>
+<h3 id="gelişmiş-kimlik-bilgisikoruma">
+  Gelişmiş Kimlik Bilgisi Koruma
+  <a class="heading-link" href="#geli%c5%9fmi%c5%9f-kimlik-bilgisikoruma">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="windows-defender-credential-guard">
+  Windows Defender Credential Guard
+  <a class="heading-link" href="#windows-defender-credential-guard">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Credential Guard, Windows 10/11 Enterprise ve Windows Server 2016 ve sonrası sürümlerde bulunan, kimlik bilgisi hırsızlığına karşı donanım tabanlı bir koruma mekanizmasıdır.</p>
+<ul>
+<li><strong>Mekanizma:</strong> Credential Guard, Sanallaştırma Tabanlı Güvenlik (VBS) teknolojisini kullanarak, kimlik bilgisi sırlarını (NTLM hash’leri, Kerberos TGT’leri) depolayan LSASS sürecini, normal işletim sisteminden izole edilmiş, hipervizör korumalı sanal bir alana (LSAIso.exe) taşır.</li>
+<li><strong>Koruma:</strong> Bu derin izolasyon sayesinde, bir saldırgan sistemde tam yönetici (Administrator veya SYSTEM) hakları elde etse bile, bu korumalı belleğe erişip kimlik bilgilerini çalamaz.</li>
+<li><strong>Etkisi:</strong> Credential Guard, Mimikatz gibi araçların LSASS belleğinden kimlik bilgisi dökmesini etkili bir şekilde engeller. Bu da, Pass-the-Hash ve Pass-the-Ticket gibi temel yanal hareket tekniklerini doğrudan ve neredeyse tamamen ortadan kaldırır. Credential Guard’ın çalışması için Secure Boot ve TPM gibi donanım özelliklerinin etkinleştirilmesi gerekir ve GPO veya Intune üzerinden yapılandırılabilir.</li>
+</ul>
+<h3 id="güçlü-parola-politikaları-ve-çok-faktörlü-kimlik-doğrulama-mfa">
+  Güçlü Parola Politikaları ve Çok Faktörlü Kimlik Doğrulama (MFA)
+  <a class="heading-link" href="#g%c3%bc%c3%a7l%c3%bc-parola-politikalar%c4%b1-ve-%c3%a7ok-fakt%c3%b6rl%c3%bc-kimlik-do%c4%9frulama-mfa">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="nist-yönergelerine-uygun-modern-parola-politikaları">
+  NIST Yönergelerine Uygun Modern Parola Politikaları
+  <a class="heading-link" href="#nist-y%c3%b6nergelerine-uygun-modern-parola-politikalar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Ulusal Standartlar ve Teknoloji Enstitüsü (NIST), parola politikaları için modern en iyi uygulamaları yayınlamıştır. Bu yaklaşımlar, geleneksel yöntemlerden önemli ölçüde farklıdır:</p>
+<ul>
+<li><strong>Uzunluk &gt; Karmaşıklık:</strong> Geleneksel karmaşıklık kuralları (örneğin, en az bir büyük harf, bir rakam, bir özel karakter) yerine, parola uzunluğuna odaklanılması önerilir. Minimum 15–20 karakterlik parolalar (passphrases) teşvik edilmelidir.</li>
+<li><strong>Parola Değişimini Zorlamama:</strong> Kullanıcıları periyodik olarak (örneğin, her 90 günde bir) parolalarını değiştirmeye zorlamak, daha zayıf ve tahmin edilebilir parolalar oluşturmalarına neden olduğu için artık önerilmemektedir. Parola değişimi yalnızca bir sızıntı şüphesi olduğunda zorunlu kılınmalıdır.</li>
+<li><strong>Bilinen Kötü Parolaları Engelleme:</strong> Yeni oluşturulan parolalar, sızdırılmış parola veritabanları, sözlük kelimeleri ve basit sıralamalardan oluşan bir “kara listeye” karşı kontrol edilmeli ve eşleşme durumunda reddedilmelidir.</li>
+</ul>
+<h4 id="şirket-içi-on-premise-ad-için-mfa-çözümleri">
+  Şirket İçi (On-Premise) AD için MFA Çözümleri
+  <a class="heading-link" href="#%c5%9firket-i%c3%a7i-on-premise-ad-i%c3%a7in-mfa-%c3%a7%c3%b6z%c3%bcmleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Çok Faktörlü Kimlik Doğrulama (MFA), çalınan bir parolanın tek başına işe yaramamasını sağlayarak güvenliği önemli ölçüde artıran kritik bir katmandır. Şirket içi AD için doğrudan yerleşik bir MFA çözümü olmasa da, bu işlevselliği sağlayan üçüncü taraf çözümler mevcuttur. Bu çözümler genellikle aşağıdaki yöntemlerle çalışır:</p>
+<ul>
+<li><strong>Windows Oturum Açma Entegrasyonu:</strong> Kullanıcılar Windows’ta oturum açarken parola girdikten sonra ikinci bir faktör (örneğin, mobil uygulama onayı veya OTP kodu) istenir.</li>
+<li><strong>RADIUS veya SAML Proxy:</strong> VPN veya diğer ağ cihazları için kimlik doğrulama isteklerini bir proxy sunucusu üzerinden geçirerek MFA uygularlar. Bu çözümleri (örneğin, UserLock, Rublon, Silverfort) seçerken, çevrimdışı veya ağ bağlantısı olmadığında çalışabilme, granüler politika uygulama (örneğin, yalnızca belirli bağlantı türleri için MFA isteme) ve mevcut AD altyapısıyla sorunsuz entegrasyon gibi özellikler dikkate alınmalıdır.</li>
+</ul>
+<p>Bu savunma mekanizmaları, tek başlarına değerli olsalar da, asıl güçleri bir araya geldiklerinde ortaya çıkar. Bu, saldırganın işini neredeyse imkansız hale getiren birleşik bir savunma felsefesi oluşturur. Bir saldırgan Tier 2&rsquo;de bir hesap ele geçirdiğinde, Tiered Model onun Tier 0 varlıklarına ulaşmasını engeller. Aynı katman içinde yanal hareket etmeye çalıştığında, LAPS sayesinde her makinenin farklı bir yerel yönetici parolası olduğundan PtH saldırıları etkisiz kalır. Bir şekilde bir makinede yönetici hakları elde etse bile, Credential Guard LSASS’ten kimlik bilgisi çalmasını önleyerek PtH ve PtT saldırılarını temelden bozar. Hizmet hesaplarını hedeflemeye çalıştığında ise, gMSA’ların kırılması imkansıza yakın parolaları sayesinde Kerberoasting saldırısı başarısız olur. Bu katmanlı savunma, saldırganın en temel silahları olan kimlik bilgisi hırsızlığı ve yeniden kullanımını işlevsiz kılarak AD’yi bir kale haline getirir.</p>
+<p><img src="/images/1_m6kPdehFatPSmDwBEF0fDw.png" alt=""></p>
+<hr>
+<h3 id="hibrit-kimlik-altyapılarının-güvenliği">
+  Hibrit Kimlik Altyapılarının Güvenliği
+  <a class="heading-link" href="#hibrit-kimlik-altyap%c4%b1lar%c4%b1n%c4%b1n-g%c3%bcvenli%c4%9fi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Kuruluşlar şirket içi (on-premise) altyapılarını bulut hizmetleriyle (örneğin, Microsoft 365) entegre ettikçe, kimlik yönetimi de hibrit bir yapıya bürünür. Bu hibrit yapı, yeni yetenekler sunarken aynı zamanda yeni ve karmaşık saldırı yüzeyleri de oluşturur. Güvenin kendisi bir saldırı vektörüne dönüşebilir.</p>
+<h3 id="microsoft-azure-ad-connect-yapılandırma-ve-güvenlik-en-iyi-uygulamaları">
+  Microsoft Azure AD Connect: Yapılandırma ve Güvenlik En İyi Uygulamaları
+  <a class="heading-link" href="#microsoft-azure-ad-connect-yap%c4%b1land%c4%b1rma-ve-g%c3%bcvenlik-en-iyi-uygulamalar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Azure AD Connect, şirket içi Active Directory ile buluttaki Azure Active Directory (Microsoft Entra ID) arasında kimlik nesnelerini (kullanıcılar, gruplar, parola hash’leri) senkronize eden kritik bir köprüdür. Bu köprünün güvenliği, tüm hibrit kimlik altyapısının güvenliği için hayati önem taşır.</p>
+<ul>
+<li><strong>Azure AD Connect Sunucusunun Tier 0 Varlığı Olarak Korunması:</strong> Azure AD Connect sunucusu, hem şirket içi AD’ye hem de Azure AD’ye yüksek ayrıcalıklı erişime sahiptir. Bu sunucunun ele geçirilmesi, saldırganın her iki ortamda da tam kontrol sağlamasına olanak tanıyabilir. Bu nedenle, Azure AD Connect sunucusu kesinlikle bir <strong>Tier 0</strong> varlığı olarak kabul edilmeli, bir etki alanı denetleyicisi gibi korunmalı, fiziksel ve mantıksal erişimi en aza indirilmeli ve yalnızca özel olarak atanmış yöneticiler tarafından bir PAW üzerinden yönetilmelidir.</li>
+<li><strong>Kimlik Doğrulama Yöntemleri ve Güvenlik Değerlendirmesi:</strong> Azure AD Connect üç ana kimlik doğrulama yöntemi sunar: Parola Hash Senkronizasyonu (PHS), Geçişli Kimlik Doğrulama (PTA) ve Federasyon (ADFS). Güvenlik açısından, PHS genellikle en güvenli seçeneklerden biri olarak kabul edilir. PTA, kimlik doğrulama isteklerini şirket içi bir ajana yönlendirdiği için, bu ajanın çalıştığı sunucunun ele geçirilmesi durumunda AADInternals gibi araçlarla ortadaki adam (man-in-the-middle) saldırılarına ve parola hırsızlığına açık hale gelebilir.</li>
+<li><strong>Senkronizasyon Kapsamının Sınırlandırılması:</strong> En kritik güvenlik uygulamalarından biri, şirket içi yönetici hesaplarının (Domain Admins, Enterprise Admins vb.) Azure AD’ye senkronize edilmesini engellemektir. Azure AD Connect varsayılan olarak bu hesapları filtreler ve bu ayar kesinlikle değiştirilmemelidir. Bu hesapların buluta senkronize edilmesi, şirket içi bir ihlalin doğrudan buluta sıçraması için bir kapı açar.</li>
+</ul>
+<h3 id="şirket-içi-ortamdan-buluta-yönelik-saldırı-vektörleri">
+  Şirket İçi Ortamdan Buluta Yönelik Saldırı Vektörleri
+  <a class="heading-link" href="#%c5%9firket-i%c3%a7i-ortamdan-buluta-y%c3%b6nelik-sald%c4%b1r%c4%b1-vekt%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Hibrit modelde, şirket içi altyapının güvenliği ile bulutun güvenliği birbirine sıkı sıkıya bağlıdır. Şirket içinde elde edilen bir ayrıcalık, buluta doğru dikey bir hareket için kullanılabilir.</p>
+<h4 id="federasyon-güvenliği-ve-golden-saml-saldırısı">
+  Federasyon Güvenliği ve Golden SAML Saldırısı
+  <a class="heading-link" href="#federasyon-g%c3%bcvenli%c4%9fi-ve-golden-saml-sald%c4%b1r%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Active Directory Federation Services (ADFS) gibi federasyon çözümleri kullanıldığında, şirket içi AD ile bulut hizmeti (örneğin, Microsoft 365) arasında bir güven ilişkisi kurulur. Bu güven, ADFS sunucusunun oluşturduğu ve özel bir anahtarla (token-signing certificate) imzaladığı SAML (Security Assertion Markup Language) token’larına dayanır.</p>
+<ul>
+<li><strong>Golden SAML Saldırısı:</strong> Bu saldırı, “Golden Ticket” saldırısının federasyon ve bulut dünyasındaki karşılığıdır. Bir saldırgan, ADFS sunucusunu (bir Tier 0 varlığı) ele geçirip SAML token’larını imzalayan özel anahtarı çalarsa, artık şirket içi AD’ye ihtiyaç duymadan, internet üzerinden herhangi bir kullanıcı (örneğin, bir Global Administrator) adına geçerli, imzalı bir SAML token’ı oluşturabilir. Bu sahte token, Azure AD tarafından geçerli kabul edilir ve saldırgana bulut kaynaklarına tam erişim sağlar. Bu durum, ADFS sunucularının etki alanı denetleyicileri kadar sıkı korunması gerektiğini göstermektedir.</li>
+</ul>
+<h4 id="adinternals-gibi-araçlarla-dikey-hareketriskleri">
+  ADInternals Gibi Araçlarla Dikey Hareket Riskleri
+  <a class="heading-link" href="#adinternals-gibi-ara%c3%a7larla-dikey-hareketriskleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>AADInternals gibi PowerShell modülleri, hibrit kimlik ortamlarındaki zayıflıkları sömürmek için özel olarak tasarlanmıştır. Bir saldırgan, şirket içi ağda yönetici hakları elde ettikten sonra bu tür araçları kullanarak:</p>
+<ul>
+<li>PTA ajanını manipüle ederek yanlış parola girilse bile kimlik doğrulamasını başarılı gibi gösterebilir ve parola çalabilir.</li>
+<li>Şirket içi AD’den Azure AD’ye dikey olarak hareket edebilir.</li>
+<li>Bulutta arka kapılar (backdoors) oluşturabilir ve hatta bazı durumlarda MFA korumalarını atlayabilir.</li>
+</ul>
+<h3 id="hibrit-ortamlar-için-güvenlik-stratejileri">
+  Hibrit Ortamlar için Güvenlik Stratejileri
+  <a class="heading-link" href="#hibrit-ortamlar-i%c3%a7in-g%c3%bcvenlik-stratejileri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Hibrit kimlik altyapılarını korumak, güven ilişkilerini en aza indirmeyi ve kontrol düzlemlerini ayırmayı gerektirir.</p>
+<ul>
+<li><strong>Bulut Tabanlı Kimlik Doğrulamayı Tercih Etme:</strong> Mümkün olduğunda, karmaşıklığı ve saldırı yüzeyini azaltmak için ADFS gibi federasyon yapılarından kaçınıp Parola Hash Senkronizasyonu (PHS) gibi daha basit ve doğrudan bulut tabanlı kimlik doğrulama yöntemleri kullanılmalıdır.</li>
+<li><strong>Ayrıcalıklı Hesapların İzolasyonu:</strong> Bulut yönetici hesapları (Global Admins vb.) kesinlikle “sadece bulut” (cloud-only) hesaplar olmalıdır. Bu hesaplar şirket içi AD’de bulunmamalı ve oradan senkronize edilmemelidir. Bu, şirket içi bir ihlalin bulut yönetici hesaplarını doğrudan etkilemesini önler.</li>
+<li><strong>Phishing’e Dayanıklı MFA:</strong> Tüm yönetici hesapları (hem şirket içi hem de bulut) ve mümkünse tüm kullanıcılar için Windows Hello for Business, FIDO2 güvenlik anahtarları veya Microsoft Authenticator gibi phishing’e dayanıklı MFA yöntemleri zorunlu kılınmalıdır.</li>
+<li><strong>Tam Zamanında Erişim (Just-In-Time — JIT):</strong> Azure AD Privileged Identity Management (PIM) gibi çözümler kullanılarak, yöneticilere bulut rollerine kalıcı olarak değil, yalnızca ihtiyaç duydukları süre boyunca (örneğin, 2 saatliğine) ve bir onay sürecinden geçerek erişim hakkı verilmelidir. Bu, ayrıcalıklı erişimin riskini önemli ölçüde azaltır.</li>
+</ul>
+<p>Hibrit kimlik altyapılarında, şirket içi AD ile Azure AD arasındaki güven ilişkisi, saldırganlar için bir köprü işlevi görebilir. Bir kuruluş, kullanıcı deneyimini iyileştirmek amacıyla ADFS ile federasyon kurduğunda, aslında Azure AD’ye “ADFS sunucusundan gelen imzalı SAML token’larına güven” talimatı vermiş olur. Eğer bir saldırgan, şirket içi ağdaki bir zafiyetten faydalanarak ADFS sunucusuna yönetici erişimi elde ederse , bu güvenin temelini oluşturan token imzalama özel anahtarını çalabilir. Bu noktadan sonra saldırgan, şirket içi ağa artık ihtiyaç duymadan, internet üzerinden herhangi bir kullanıcı (örneğin, bir Global Admin) adına geçerli ve imzalı bir SAML token’ı oluşturabilir. Azure AD, bu token’ı meşru bir kimlik kanıtı olarak kabul edecek ve saldırgana bulut ortamında tam kontrol sağlayacaktır. Bu senaryo, hibrit modelde en zayıf halkanın tüm zinciri kopardığını ve ADFS gibi hibrit bileşenlerin güvenliğinin, tüm bulut kimlik altyapısının güvenliği haline geldiğini net bir şekilde ortaya koymaktadır.</p>
+<hr>
+<h3 id="sürekli-izleme-denetim-vekurtarma">
+  Sürekli İzleme, Denetim ve Kurtarma
+  <a class="heading-link" href="#s%c3%bcrekli-izleme-denetim-vekurtarma">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Güvenlik, bir defalık bir proje değil, sürekli bir süreçtir. En iyi sıkılaştırma önlemleri bile, sürekli izleme, denetim ve etkili bir kurtarma planı olmadan eksik kalır. Saldırganların eylemlerini tespit etmek ve bir felaket anında hızla toparlanabilmek, dayanıklılığın temelini oluşturur.</p>
+<h3 id="active-directory-denetim-politikaları-ve-siem-entegrasyonu">
+  Active Directory Denetim Politikaları ve SIEM Entegrasyonu
+  <a class="heading-link" href="#active-directory-denetim-politikalar%c4%b1-ve-siem-entegrasyonu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Active Directory’de gerçekleşen olayları kaydetmek ve analiz etmek, şüpheli aktiviteleri tespit etmenin ve olaylara müdahale etmenin ilk adımıdır.</p>
+<h4 id="izlenmesi-gereken-kritikolaylar">
+  İzlenmesi Gereken Kritik Olaylar
+  <a class="heading-link" href="#izlenmesi-gereken-kritikolaylar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Etkili bir denetim için, GPO’lar aracılığıyla “Gelişmiş Denetim Politikası Yapılandırması” etkinleştirilmeli ve aşağıdaki gibi yüksek riskli olay kategorilerine odaklanılmalıdır:</p>
+<ul>
+<li><strong>Kullanıcı ve Grup Yönetimi:</strong> Yeni kullanıcı oluşturma (Event ID 4720), kullanıcı silme (4726), hesap kilitlemeleri (4740) ve özellikle Domain Admins, Enterprise Admins gibi ayrıcalıklı gruplara üye eklenmesi (4728) veya çıkarılması (4729) gibi olaylar yakından izlenmelidir.</li>
+<li><strong>Grup İlkesi Değişiklikleri:</strong> GPO’ların oluşturulması, silinmesi veya ayarlarının değiştirilmesi (Event ID 5136, 5137), tüm etki alanını etkileyebilecek potansiyel olarak tehlikeli değişikliklerdir ve mutlaka denetlenmelidir.</li>
+<li><strong>Oturum Açma Olayları:</strong> Başarısız oturum açma denemeleri (Event ID 4625), kaba kuvvet veya parola spreyi saldırılarının bir göstergesi olabilir. Başarılı ağ oturum açma olayları (Event ID 4624, Logon Type 3) ise yanal hareket aktivitelerini izlemek için kritiktir.</li>
+<li><strong>Dizin Hizmeti Değişiklikleri:</strong> Belirli nesnelere erişim (Event ID 4662), doğru filtrelendiğinde DCSync gibi gizli saldırıları tespit etmek için kullanılabilir.</li>
+</ul>
+<h4 id="windows-olay-yönlendirme-wef-ve-siem-entegrasyonu">
+  Windows Olay Yönlendirme (WEF) ve SIEM Entegrasyonu
+  <a class="heading-link" href="#windows-olay-y%c3%b6nlendirme-wef-ve-siem-entegrasyonu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Her etki alanı denetleyicisindeki olay günlüklerini ayrı ayrı incelemek pratik değildir.</p>
+<ul>
+<li><strong>Windows Olay Yönlendirme (WEF):</strong> Windows’un bu yerleşik özelliği, birden çok kaynak bilgisayardaki (örneğin, tüm DC’ler) olay günlüklerini, merkezi bir Toplayıcı (Collector) sunucusuna yönlendirmek için kullanılır. Bu, logları SIEM’e göndermeden önce verimli bir toplama katmanı oluşturur.</li>
+<li><strong>SIEM (Security Information and Event Management) Entegrasyonu:</strong> Merkezi olarak toplanan bu loglar, bir SIEM çözümüne aktarılmalıdır. SIEM, farklı kaynaklardan gelen olayları birleştirerek korelasyon kuralları oluşturmaya, anormallikleri tespit etmeye ve önceden tanımlanmış tehlikeli senaryolar (örneğin, 5 dakika içinde 10 farklı hesaptan başarısız oturum açma) gerçekleştiğinde otomatik uyarılar (alerts) üretmeye olanak tanır.</li>
+</ul>
+<h3 id="gelişmiş-tehdit-tespiti-microsoft-defender-foridentity">
+  Gelişmiş Tehdit Tespiti: Microsoft Defender for Identity
+  <a class="heading-link" href="#geli%c5%9fmi%c5%9f-tehdit-tespiti-microsoft-defender-foridentity">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Microsoft Defender for Identity, geleneksel denetimin ötesine geçen, davranışsal analize dayalı bir Kimlik Tehdit Tespiti ve Yanıtı (ITDR) çözümüdür.</p>
+<ul>
+<li><strong>Mimari:</strong> Defender for Identity, etki alanı denetleyicileri, ADFS ve AD CS sunucularına kurulan sensörler aracılığıyla ağ trafiğini ve Windows olaylarını yakalar. Bu veriler, analiz için Microsoft bulut hizmetine gönderilir.</li>
+<li><strong>Tespit Yetenekleri:</strong> Kullanıcı ve Varlık Davranış Analizi (UEBA) ve makine öğrenmesi algoritmaları kullanarak her kullanıcı ve cihaz için bir “normal davranış” profili oluşturur. Bu profilden sapmalar (örneğin, bir kullanıcının normalde hiç erişmediği bir sunucuya gece yarısı erişmesi) şüpheli olarak işaretlenir. Pass-the-Hash, Pass-the-Ticket, Golden Ticket, Kerberoasting, DCSync gibi birçok gelişmiş saldırıyı, imzaya dayalı olmadan, davranışsal olarak tespit edebilir.</li>
+<li><strong>Güvenlik Duruşu Değerlendirmesi:</strong> Sadece reaktif tespit yapmakla kalmaz, aynı zamanda Yanal Hareket Yolları (Lateral Movement Paths) gibi değerlendirmeler sunarak, bir saldırganın düşük yetkili bir hesaptan başlayarak Domain Admin’e nasıl ulaşabileceğini gösterir. Bu, zafiyetlerin saldırganlardan önce kapatılmasına olanak tanır.</li>
+</ul>
+<h3 id="active-directory-yedekleme-ve-felaketkurtarma">
+  Active Directory Yedekleme ve Felaket Kurtarma
+  <a class="heading-link" href="#active-directory-yedekleme-ve-felaketkurtarma">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bir saldırının başarılı olması durumunda, iş sürekliliğini sağlamak için güvenilir bir yedekleme ve kurtarma planı hayati önem taşır. Ancak AD kurtarma, basit bir yedekten dönme işleminden çok daha karmaşıktır.</p>
+<h4 id="en-iyi-yedekleme-uygulamaları">
+  En İyi Yedekleme Uygulamaları
+  <a class="heading-link" href="#en-iyi-yedekleme-uygulamalar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Kapsam ve Sıklık:</strong> Her etki alanından en az iki DC (özellikle FSMO rollerini barındıranlar) yedeklenmelidir. Yedeklemeler düzenli olarak (genellikle günlük) yapılmalı ve yedeklerin yaşı, AD’nin “Tombstone Lifetime” (varsayılan 180 gün) süresini aşmamalıdır, aksi takdirde geri yüklenen nesneler diğer DC’ler tarafından silinmiş olarak kabul edilebilir.</li>
+<li><strong>Depolama ve Test:</strong> Yedekler, fidye yazılımlarından etkilenmemesi için mutlaka güvenli, çevrimdışı (offline) veya değiştirilemez (immutable) depolama alanlarında saklanmalıdır. En kritik adım ise, kurtarma planının düzenli olarak (örneğin, yılda en az bir kez) tamamen izole bir laboratuvar ortamında test edilmesidir.</li>
+</ul>
+<h4 id="orman-kurtarma-forest-recovery-ve-krbtgt-parola-sıfırlama">
+  Orman Kurtarma (Forest Recovery) ve KRBTGT Parola Sıfırlama
+  <a class="heading-link" href="#orman-kurtarma-forest-recovery-ve-krbtgt-parola-s%c4%b1f%c4%b1rlama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir fidye yazılımı saldırısı gibi tüm ormanın ele geçirildiği durumlarda, hangi yedeğin “temiz” olduğunu bilmek neredeyse imkansızdır. Saldırganların ağda kalma süresi (dwell time) genellikle ayları bulabilir, bu da son birkaç aylık tüm yedeklerin de potansiyel olarak “enfekte” olduğu anlamına gelir. Bu nedenle, basitçe en son yedeğe dönmek, saldırganı da sisteme geri yüklemek anlamına gelebilir.</p>
+<p>Modern yaklaşım, tek bir DC’yi bilinen en eski ve güvenilir yedekten yetkili (authoritative) olarak geri yüklemek, diğer tüm DC’lerin meta verilerini temizlemek ve onları sıfırdan kurup bu geri yüklenen DC ile replike olmalarını sağlamaktır.</p>
+<p>Bu sürecin en kritik adımı <strong>KRBTGT hesabı parolasının sıfırlanmasıdır</strong>:</p>
+<ul>
+<li><strong>Neden Önemli:</strong> <code>krbtgt</code> hesabı, tüm Kerberos TGT&rsquo;lerini imzalar. Bu hesabın parolasını sıfırlamak, saldırganların oluşturmuş olabileceği tüm Golden Ticket&rsquo;ları geçersiz kılar.</li>
+<li><strong>Neden İki Kez:</strong> Active Directory, replikasyon sırasında oluşabilecek zamanlama sorunlarını önlemek için hem mevcut <code>krbtgt</code> parolasını hem de bir önceki parolayı geçerli kabul eder. Bu, <code>msDS-KeyVersionNumber</code> özniteliği ile yönetilen bir mekanizmadır. Saldırganın elindeki eski (çalınmış) parolanın tamamen geçersiz kılınması için, parolanın iki kez sıfırlanması gerekir. Bu, parola geçmişini (password history) etkili bir şekilde temizler.</li>
+</ul>
+<p><strong>Adım Adım Kılavuz:</strong></p>
+<ol>
+<li>Microsoft’un sağladığı <code>Reset-KrbTgt-Password-For-RWDCs-And-RODCs.ps1</code> gibi özel betikler kullanılmalıdır.</li>
+<li>İlk sıfırlama işlemi gerçekleştirilir.</li>
+<li>Acil bir durum yoksa, mevcut Kerberos biletlerinin doğal olarak süresinin dolması ve replikasyonun tüm DC’lere yayılması için <strong>en az 10 saat beklenmesi</strong> şiddetle tavsiye edilir. Bu, hizmet kesintilerini en aza indirir. Acil bir kurtarma senaryosunda bu bekleme süresi atlanabilir, ancak bu durum geçici kimlik doğrulama sorunlarına yol açabilir.</li>
+<li>İkinci sıfırlama işlemi gerçekleştirilerek parola geçmişi tamamen temizlenir ve orman yeniden güvenli hale getirilir.</li>
+</ol>
+<p><img src="/images/1_LthF_GXjUk5o1DenNl0tAw.png" alt=""></p>
+<p>olay güvenliği</p>
+<hr>
+<h3 id="sonuç-ve-stratejik-öneriler">
+  Sonuç ve Stratejik Öneriler
+  <a class="heading-link" href="#sonu%c3%a7-ve-stratejik-%c3%b6neriler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="active-directory-güvenliğinde-geleceğe-yönelik-yaklaşımlar">
+  Active Directory Güvenliğinde Geleceğe Yönelik Yaklaşımlar
+  <a class="heading-link" href="#active-directory-g%c3%bcvenli%c4%9finde-gelece%c4%9fe-y%c3%b6nelik-yakla%c5%9f%c4%b1mlar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Active Directory, on yıllardır kurumsal ağların temel taşı olmuştur ve olmaya devam edecektir. Ancak tehdit manzarası sürekli gelişmektedir ve AD güvenlik stratejileri de buna ayak uydurmalıdır. Geleceğe yönelik yaklaşımlar, statik savunmalardan dinamik ve akıllı sistemlere doğru bir evrimi gerektirmektedir.</p>
+<ul>
+<li><strong>Sıfır Güven (Zero Trust) Mimarisi:</strong> Bu yaklaşım, “asla güvenme, her zaman doğrula” ilkesine dayanır. Ağın içinden veya dışından gelmesine bakılmaksızın, her erişim isteğinin kimliği doğrulanmalı, yetkilendirilmeli ve şifrelenmelidir. AD bağlamında bu, katı ağ segmentasyonu, mikro segmentasyon, her yönetici eylemi için MFA ve kimlik bilgilerinin asla güvenilmeyen bir sisteme maruz kalmamasını sağlayan Yönetimsel Katman Modeli gibi ilkelerin sıkı bir şekilde uygulanması anlamına gelir.</li>
+<li><strong>Kimlik Tehdit Tespiti ve Yanıtı (ITDR):</strong> Geleneksel uç nokta (EDR) ve ağ (NDR) güvenliği yeterli değildir. Kimlik odaklı saldırılar, kimlik düzleminde tespit edilmelidir. Microsoft Defender for Identity gibi ITDR çözümleri, davranışsal analiz ve makine öğrenmesi kullanarak normalin dışındaki kimlik aktivitelerini tespit eder ve saldırıları daha başlamadan durdurma potansiyeli sunar.</li>
+<li><strong>Otomasyon ve Orkestrasyon:</strong> Güvenlik operasyonlarının hızı ve ölçeği, manuel süreçlerle yönetilemeyecek kadar artmıştır. Güvenlik politikalarının (GPO’lar, LAPS) uygulanması, denetimlerin yapılması ve hatta bazı olay müdahale adımlarının (örneğin, şüpheli bir hesabın otomatik olarak devre dışı bırakılması) otomasyonu, insan hatasını azaltır ve müdahale süresini kısaltır.</li>
+</ul>
+<h3 id="eyleme-geçirilebilir-sıkılaştırma-kontrollistesi">
+  Eyleme Geçirilebilir Sıkılaştırma Kontrol Listesi
+  <a class="heading-link" href="#eyleme-ge%c3%a7irilebilir-s%c4%b1k%c4%b1la%c5%9ft%c4%b1rma-kontrollistesi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu rapor boyunca tartışılan karmaşık konuları özetleyen, kuruluşların AD güvenlik duruşlarını iyileştirmek için hemen uygulamaya başlayabilecekleri önceliklendirilmiş bir kontrol listesi aşağıda sunulmuştur:</p>
+<p><strong>Temel Hijyen ve İzolasyon:</strong></p>
+<ul>
+<li><strong>Tier 0 Varlıklarını Belirle ve İzole Et:</strong> Etki Alanı Denetleyicilerinizi, ADFS/Azure AD Connect sunucularınızı ve PKI altyapınızı belirleyin. Bu sistemlere erişimi yalnızca özel, sıkılaştırılmış Ayrıcalıklı Erişim İş İstasyonlarından (PAW) gelen Tier 0 yönetici hesaplarıyla sınırlandırın.</li>
+<li><strong>Microsoft LAPS’ı Dağıt:</strong> Tüm etki alanına dahil edilmiş iş istasyonları ve sunuculardaki yerel yönetici parolalarını merkezileştirmek ve rastgele hale getirmek için LAPS’ı derhal uygulayın. Bu, yanal hareketin en yaygın yollarından birini kapatır.</li>
+<li><strong>LLMNR/NBT-NS’i Devre Dışı Bırak:</strong> GPO aracılığıyla tüm ağınızda bu eski ve güvensiz protokolleri devre dışı bırakarak Responder gibi araçlarla yapılan hash yakalama saldırılarını önleyin.</li>
+</ul>
+<p><strong>Kimlik Bilgisi Koruma:</strong></p>
+<ul>
+<li><strong>Credential Guard’ı Etkinleştir:</strong> Uygun donanıma sahip tüm Windows 10/11 Enterprise ve Windows Server 2016+ sistemlerinde Credential Guard’ı GPO ile etkinleştirin. Bu, Pass-the-Hash ve Pass-the-Ticket saldırılarına karşı en etkili savunmalardan biridir.</li>
+<li><strong>Hizmet Hesaplarını Güvence Altına Al:</strong> Mümkün olan her yerde geleneksel hizmet hesaplarını Grup Yönetimli Hizmet Hesaplarına (gMSA) dönüştürün. gMSA kullanılamayan durumlar için, hizmet hesaplarına en az 25 karakterli, rastgele oluşturulmuş ve bir parola kasasında saklanan son derece karmaşık parolalar atayın.</li>
+<li><strong>Ayrıcalıklı Hesaplar için MFA’yı Zorunlu Kıl:</strong> Tüm yönetici hesapları ve hassas verilere erişimi olan tüm hesaplar için Çok Faktörlü Kimlik Doğrulamayı (MFA) zorunlu kılın.</li>
+</ul>
+<p><strong>Sürekli İzleme ve Kurtarma:</strong></p>
+<ul>
+<li><strong>KRBTGT Parolasını Düzenli Olarak Sıfırla:</strong> <code>krbtgt</code> hesabının parolasını, aralarında en az 10 saat olacak şekilde iki aşamalı olarak, yılda en az iki kez sıfırlamak için bir prosedür ve takvim oluşturun. Bu, Golden Ticket riskini azaltır.</li>
+<li><strong>Kritik Olayları İzle ve Uyar:</strong> SIEM veya ITDR çözümünüzde, bu raporda belirtilen kritik olay kimlikleri (özellikle ayrıcalıklı grup değişiklikleri, GPO değişiklikleri ve DCSync girişimleri) için gerçek zamanlı uyarılar yapılandırın.</li>
+<li><strong>AD Kurtarma Planını Test Et:</strong> Active Directory orman kurtarma planınızı, izole bir laboratuvar ortamında yılda en az bir kez baştan sona test edin. Bu test, yalnızca teknik adımları değil, aynı zamanda iletişim planlarını ve karar verme süreçlerini de kapsamalıdır.</li>
+</ul>
+<p>Active Directory, doğru yapılandırıldığında ve korunduğunda bir kuruluşun en güçlü güvenlik varlıklarından biri olabilir. Ancak ihmal edildiğinde, en büyük zafiyeti haline gelir. Bu raporda sunulan stratejiler, bu kritik altyapıyı modern tehditlere karşı güçlendirmek için kapsamlı ve eyleme geçirilebilir bir çerçeve sunmaktadır.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

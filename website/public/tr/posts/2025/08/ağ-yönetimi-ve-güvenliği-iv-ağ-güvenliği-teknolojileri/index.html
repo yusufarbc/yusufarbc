@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Ağ Yönetimi ve Güvenliği IV: Ağ Güvenliği Teknolojileri · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Ağ Yönetimi ve Güvenliği IV: Ağ Güvenliği Teknolojileri
+  
+    
+    Başlık Linki
+  
+
+
+Dijital altyapıların karmaşıklığı ve siber tehditlerin sofistike doğası, ağ güvenliği yaklaşımlarında köklü bir dönüşümü zorunlu kılmıştır. Geleneksel “kale ve hendek” (castle and moat) olarak bilinen çevre güvenliği modeli, ağın sınırlarını güçlü bir şekilde koruyarak içerideki her varlığa örtük bir güven atfederdi. Ancak, bulut bilişim, mobilite, uzaktan çalışma ve Nesnelerin İnterneti (IoT) gibi modern IT paradigmalarının yükselişiyle birlikte, bu net bir şekilde tanımlanmış ağ çevresi giderek belirsizleşmiştir. Bu dağıtık ve dinamik ortamlarda, geleneksel modelin tehditleri engellemedeki yetersizliği, savunma-derinlik (defense-in-depth) ve Sıfır Güven (Zero Trust) gibi daha bütünleşik ve kimlik merkezli mimarilerin benimsenmesini sağlamıştır.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Ağ Yönetimi ve Güvenliği IV: Ağ Güvenliği Teknolojileri">
+  <meta name="twitter:description" content="Ağ Yönetimi ve Güvenliği IV: Ağ Güvenliği TeknolojileriBaşlık LinkiDijital altyapıların karmaşıklığı ve siber tehditlerin sofistike doğası, ağ güvenliği yaklaşımlarında köklü bir dönüşümü zorunlu kılmıştır. Geleneksel “kale ve hendek” (castle and moat) olarak bilinen çevre güvenliği modeli, ağın sınırlarını güçlü bir şekilde koruyarak içerideki her varlığa örtük bir güven atfederdi. Ancak, bulut bilişim, mobilite, uzaktan çalışma ve Nesnelerin İnterneti (IoT) gibi modern IT paradigmalarının yükselişiyle birlikte, bu net bir şekilde tanımlanmış ağ çevresi giderek belirsizleşmiştir. Bu dağıtık ve dinamik ortamlarda, geleneksel modelin tehditleri engellemedeki yetersizliği, savunma-derinlik (defense-in-depth) ve Sıfır Güven (Zero Trust) gibi daha bütünleşik ve kimlik merkezli mimarilerin benimsenmesini sağlamıştır.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-iv-a%C4%9F-g%C3%BCvenli%C4%9Fi-teknolojileri/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Ağ Yönetimi ve Güvenliği IV: Ağ Güvenliği Teknolojileri">
+  <meta property="og:description" content="Ağ Yönetimi ve Güvenliği IV: Ağ Güvenliği TeknolojileriBaşlık LinkiDijital altyapıların karmaşıklığı ve siber tehditlerin sofistike doğası, ağ güvenliği yaklaşımlarında köklü bir dönüşümü zorunlu kılmıştır. Geleneksel “kale ve hendek” (castle and moat) olarak bilinen çevre güvenliği modeli, ağın sınırlarını güçlü bir şekilde koruyarak içerideki her varlığa örtük bir güven atfederdi. Ancak, bulut bilişim, mobilite, uzaktan çalışma ve Nesnelerin İnterneti (IoT) gibi modern IT paradigmalarının yükselişiyle birlikte, bu net bir şekilde tanımlanmış ağ çevresi giderek belirsizleşmiştir. Bu dağıtık ve dinamik ortamlarda, geleneksel modelin tehditleri engellemedeki yetersizliği, savunma-derinlik (defense-in-depth) ve Sıfır Güven (Zero Trust) gibi daha bütünleşik ve kimlik merkezli mimarilerin benimsenmesini sağlamıştır.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-10T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-10T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-x-soc-ve-noc-s%C3%BCre%C3%A7leri/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-ix-bulut-g%C3%BCvenli%C4%9Fi-ve-hibrit-a%C4%9F-mimarileri/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-vi-a%C4%9F-protokolleri-g%C3%BCvenli%C4%9Fi-ve-analizi/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-viii-a%C4%9F-y%C3%B6netimi-izleme-ve-otomasyon/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-iii-a%C4%9F-donan%C4%B1mlar%C4%B1-ve-fiziksel-altyap%C4%B1-g%C3%BCvenli%C4%9Fi/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-v-kimlik-ve-eri%C5%9Fim-y%C3%B6netimi-iam/">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-iv-a%C4%9F-g%C3%BCvenli%C4%9Fi-teknolojileri/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2025/08/network-management-and-security-iv-network-security-technologies/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-iv-a%C4%9F-g%C3%BCvenli%C4%9Fi-teknolojileri/">
+              Ağ Yönetimi ve Güvenliği IV: Ağ Güvenliği Teknolojileri
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-08-10T00:00:00Z">
+                Ağustos 10, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              39 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="ağ-yönetimi-ve-güvenliği-iv-ağ-güvenliği-teknolojileri">
+  Ağ Yönetimi ve Güvenliği IV: Ağ Güvenliği Teknolojileri
+  <a class="heading-link" href="#a%c4%9f-y%c3%b6netimi-ve-g%c3%bcvenli%c4%9fi-iv-a%c4%9f-g%c3%bcvenli%c4%9fi-teknolojileri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_Fhet-NIJbKlNzPESUc1Ttw.png" alt=""></p>
+<p>Dijital altyapıların karmaşıklığı ve siber tehditlerin sofistike doğası, ağ güvenliği yaklaşımlarında köklü bir dönüşümü zorunlu kılmıştır. Geleneksel “kale ve hendek” (castle and moat) olarak bilinen çevre güvenliği modeli, ağın sınırlarını güçlü bir şekilde koruyarak içerideki her varlığa örtük bir güven atfederdi. Ancak, bulut bilişim, mobilite, uzaktan çalışma ve Nesnelerin İnterneti (IoT) gibi modern IT paradigmalarının yükselişiyle birlikte, bu net bir şekilde tanımlanmış ağ çevresi giderek belirsizleşmiştir. Bu dağıtık ve dinamik ortamlarda, geleneksel modelin tehditleri engellemedeki yetersizliği, savunma-derinlik (defense-in-depth) ve Sıfır Güven (Zero Trust) gibi daha bütünleşik ve kimlik merkezli mimarilerin benimsenmesini sağlamıştır.</p>
+<p>Bu evrim, reaktif savunma mekanizmalarından proaktif kontrol stratejilerine doğru temel bir geçişi temsil etmektedir. Başlangıçta, tehditlerin büyük ölçüde dış kaynaklı olduğu varsayımıyla, ağın çevresine bir güvenlik duvarı (firewall) yerleştirmek yeterli görülüyordu. Ancak saldırganlar, bu savunmayı aşmak için uygulama katmanını (OSI Layer 7) hedef almaya başladığında, Web Uygulama Güvenlik Duvarları (WAF) ve Saldırı Önleme Sistemleri (IPS) gibi daha derine inebilen ve içeriği analiz edebilen araçlara ihtiyaç duyuldu. Tehdit aktörlerinin kimlik bilgilerini çalma ve içeriden gelen tehditleri (insider threats) istismar etme yeteneklerinin artmasıyla, ağın içindeki bir kullanıcı veya cihazın dahi varsayılan olarak güvenilir olamayacağı anlaşıldı. Bu farkındalık, her erişim talebinin, kimden ve nereden geldiğine bakılmaksızın, dinamik olarak doğrulanması ve yetkilendirilmesi gerektiğini öngören Sıfır Güven mimarisinin temel felsefesini oluşturmuştur. Dolayısıyla, ağ güvenliği teknolojilerinin evrimi, yalnızca teknik bir ilerleme değil, aynı zamanda “güven” kavramına yönelik felsefi bir değişimin somut bir yansımasıdır. Bu rapor, günümüzün ağ güvenliği teknolojilerini, bu modern paradigmalar çerçevesinde, mimari, protokol ve strateji düzeyinde kapsamlı bir şekilde incelemeyi amaçlamaktadır.</p>
+<hr>
+<h3 id="bölüm-1-ağ-sınır-güvenliğinin-temel-taşı-güvenlik-duvarı-firewall-teknolojileri">
+  Bölüm 1: Ağ Sınır Güvenliğinin Temel Taşı: Güvenlik Duvarı (Firewall) Teknolojileri
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-1-a%c4%9f-s%c4%b1n%c4%b1r-g%c3%bcvenli%c4%9finin-temel-ta%c5%9f%c4%b1-g%c3%bcvenlik-duvar%c4%b1-firewall-teknolojileri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Güvenlik duvarları, ağ güvenliği mimarilerinin en temel ve vazgeçilmez bileşenleridir. Görevleri, önceden tanımlanmış güvenlik kurallarına dayanarak gelen ve giden ağ trafiğini izlemek ve kontrol etmektir. Teknolojinin evrimi, bu temel görevin giderek daha sofistike yöntemlerle yerine getirilmesini sağlamıştır.</p>
+<h3 id="11-evrimsel-bir-bakış-paket-filtrelemeden-durum-denetimine-stateful-inspection">
+  1.1. Evrimsel Bir Bakış: Paket Filtrelemeden Durum Denetimine (Stateful Inspection)
+  <a class="heading-link" href="#11-evrimsel-bir-bak%c4%b1%c5%9f-paket-filtrelemeden-durum-denetimine-stateful-inspection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Güvenlik duvarlarının ilk nesli, <strong>durum bilgisi olmayan (stateless) paket filtreleme</strong> teknolojisine dayanıyordu. Bu yaklaşım, OSI modelinin 3. (Ağ) ve 4. (Taşıma) katmanlarında çalışarak, her bir ağ paketini diğerlerinden bağımsız olarak değerlendirir. Karar mekanizması, paketin başlığında yer alan statik bilgilere dayanır: kaynak IP adresi, hedef IP adresi, kaynak port numarası, hedef port numarası ve kullanılan protokol. Bu basit ve hızlı yöntem, temel erişim kontrolü sağlasa da önemli zafiyetler barındırır. En büyük zayıflığı, bağlantının bağlamını anlayamamasıdır. Örneğin, bir saldırgan, kaynak IP adresini taklit ederek (IP spoofing) veya bir TCP oturumunun ortasına sahte bir “yanıt” paketi ekleyerek bu tür bir güvenlik duvarını kolayca aldatabilir.</p>
+<p>Bu zafiyetlere çözüm olarak <strong>durum denetimli (stateful inspection)</strong> veya diğer adıyla <strong>dinamik paket filtreleme</strong> teknolojisi geliştirilmiştir. Bu teknoloji, ağ güvenliğine “hafıza” ve “bağlam” kavramlarını getirerek bir devrim yaratmıştır. Stateless firewall’lar her paketi yalıtılmış olarak değerlendirirken, stateful firewall’lar ağ bağlantılarının durumunu aktif olarak takip eder. Bu işlemi, <strong>durum tablosu (state table)</strong> veya <strong>bağlantı tablosu (connection table)</strong> adı verilen bir yapıda, devam eden tüm oturumların bilgilerini saklayarak yapar.</p>
+<p>Bir TCP bağlantısı örneğinde bu süreç şu şekilde işler:</p>
+<ol>
+<li>İç ağdaki bir istemci, dış ağdaki bir sunucuya bağlantı başlatmak için bir <code>SYN</code> paketi gönderir. Stateful firewall bu giden paketi görür ve durum tablosuna yeni bir giriş ekler. Bu giriş, kaynak ve hedef IP/port bilgileri, protokol (TCP) ve bağlantının durumu (<code>SYN_SENT</code>) gibi bilgileri içerir.</li>
+<li>Sunucu, bu isteğe bir <code>SYN-ACK</code> paketi ile yanıt verir. Firewall, gelen bu paketin durum tablosundaki mevcut bir girişe karşılık gelip gelmediğini kontrol eder. Eşleşme bulduğunda, paketin geçişine izin verir ve tablodaki bağlantı durumunu <code>ESTABLISHED</code> olarak günceller.</li>
+<li>Eğer dışarıdan, içeride başlatılmış bir bağlantıya karşılık gelmeyen, istenmeyen bir <code>SYN-ACK</code> paketi gelirse, firewall durum tablosunda bir eşleşme bulamayacağı için bu paketi otomatik olarak reddeder. Bu, stateless firewall&rsquo;ların savunmasız olduğu birçok saldırı türünü engeller.</li>
+<li>Bağlantı <code>FIN</code> veya <code>RST</code> paketleriyle sonlandırıldığında, ilgili giriş durum tablosundan kaldırılır ve portlar tekrar kapatılır.</li>
+</ol>
+<p>Bu “hafıza” mekanizması, güvenlik duvarının sadece statik kurallara değil, aynı zamanda ağdaki meşru iletişim akışlarının mantıksal bütünlüğüne dayalı kararlar vermesini sağlar. Bu, daha sonraki anomali tespiti ve davranışsal analiz teknolojilerinin de temelini atan bir konsepttir.</p>
+<h3 id="12-yeni-nesil-güvenlik-duvarları-ngfw-uygulama-katmanında-derinlemesine-analiz">
+  1.2. Yeni Nesil Güvenlik Duvarları (NGFW): Uygulama Katmanında Derinlemesine Analiz
+  <a class="heading-link" href="#12-yeni-nesil-g%c3%bcvenlik-duvarlar%c4%b1-ngfw-uygulama-katman%c4%b1nda-derinlemesine-analiz">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Stateful inspection, ağ güvenliğini önemli ölçüde artırmış olsa da, uygulama katmanındaki (Layer 7) tehditlere karşı kör kalmaktadır. Geleneksel bir stateful firewall, 80 veya 443 portundan geçen trafiğin HTTP veya HTTPS olduğunu varsayar, ancak bu trafiğin içeriğinde ne olduğunu veya hangi spesifik uygulamaya (örneğin Facebook, YouTube, Skype) ait olduğunu anlayamaz. Bu boşluğu doldurmak üzere <strong>Yeni Nesil Güvenlik Duvarları (Next-Generation Firewalls — NGFW)</strong> geliştirilmiştir.</p>
+<p>NGFW’ler, stateful inspection’ın tüm yeteneklerini barındırmakla birlikte, en ayırt edici özelliği olarak <strong>Derinlemesine Paket İncelemesi (Deep Packet Inspection — DPI)</strong> teknolojisini kullanır. DPI, ağ paketlerinin sadece başlık bilgilerini değil, aynı zamanda veri yükünü (payload) de analiz eder. Bu sayede, port numarasından bağımsız olarak trafiğin hangi uygulamaya ait olduğunu, hatta uygulamanın hangi özelliğinin kullanıldığını tespit edebilir. Bu yetenek, <strong>uygulama farkındalığı (application awareness)</strong> olarak adlandırılır ve güvenlik politikalarında devrim niteliğinde bir granülerlik sağlar. Örneğin, “80 portundan gelen tüm trafiğe izin ver” gibi geniş bir kural yerine, bir NGFW ile “Tüm çalışanların LinkedIn kullanmasına izin ver, ancak dosya yüklemesini engelle” veya “YouTube erişimine izin ver, ancak video indirmeyi yasakla” gibi çok daha spesifik ve etkili politikalar oluşturulabilir.</p>
+<p>Ayrıca, modern NGFW’ler genellikle <strong>Saldırı Önleme Sistemi (Intrusion Prevention System — IPS)</strong> gibi ek güvenlik modüllerini de entegre bir platformda sunar. Bu, bilinen zafiyetleri istismar etmeye yönelik saldırı imzalarını tespit edip proaktif olarak engelleyerek ek bir koruma katmanı sağlar.</p>
+<h3 id="13-ngfwnin-gelişmiş-yetenekleri-ssltls-denetimi-ve-sandboxanalizi">
+  1.3. NGFW’nin Gelişmiş Yetenekleri: SSL/TLS Denetimi ve Sandbox Analizi
+  <a class="heading-link" href="#13-ngfwnin-geli%c5%9fmi%c5%9f-yetenekleri-ssltls-denetimi-ve-sandboxanalizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Tehdit aktörleri, zararlı yazılımları ve komuta-kontrol (C2) iletişimlerini gizlemek için giderek daha fazla şifreli trafik (SSL/TLS) kullanmaktadır. Bu durum, DPI ve IPS gibi içerik tabanlı denetim mekanizmalarını etkisiz hale getirir, çünkü şifreli paketin içeriği görülemez. NGFW’ler bu sorunu <strong>SSL/TLS Denetimi (SSL/TLS Inspection)</strong> yeteneği ile aşar.</p>
+<p>SSL/TLS denetimi, NGFW’nin istemci ile sunucu arasında meşru bir “aradaki adam” (Man-in-the-Middle — MitM) olarak konumlanması prensibine dayanır. Süreç şu şekilde işler:</p>
+<ol>
+<li>İstemci, bir HTTPS sunucusuna bağlantı talebi gönderir.</li>
+<li>NGFW, bu talebi yakalar ve istemci adına sunucuyla bir SSL/TLS oturumu kurar. Sunucu, sertifikasını NGFW’ye gönderir.</li>
+<li>NGFW, sunucunun sertifikasını doğrular. Ardından, sunucunun kimliğini taklit eden ve kendi kök sertifikası (Root CA) ile anında imzaladığı yeni bir sertifika üretir ve bunu istemciye sunar.</li>
+<li>İstemcinin bu sahte sertifikayı kabul etmesi için, NGFW’nin kök sertifikasının istemcinin “Güvenilir Kök Sertifika Yetkilileri” deposunda önceden yüklü olması gerekir.</li>
+<li>İstemci sertifikayı kabul ettiğinde, NGFW ile istemci arasında ikinci bir şifreli tünel kurulur.</li>
+<li>Bu noktadan sonra NGFW, istemciden gelen trafiğin şifresini çözer, içeriği güvenlik politikalarına (DPI, IPS, Antivirüs vb.) göre denetler, zararlı bir içerik yoksa tekrar şifreler ve sunucuya iletir. Aynı işlemi sunucudan gelen yanıtlar için de ters yönde gerçekleştirir.</li>
+</ol>
+<p>Bu mekanizma, şifreli trafik içinde gizlenen tehditlere karşı tam görünürlük sağlarken, aynı zamanda önemli bir gizlilik ve yönetim sorununu da beraberinde getirir. Güvenliği artırmak için gizliliğin teknik olarak “kırılması”, özellikle finans ve sağlık gibi sıkı regülasyonlara tabi sektörlerde yasal ve etik tartışmalara yol açmaktadır.</p>
+<p>Sıfır gün (zero-day) tehditleri ve geleneksel imza tabanlı yöntemlerle tespit edilemeyen gelişmiş zararlı yazılımlarla mücadele etmek için NGFW’ler, <strong>Sandbox Analizi (Korumalı Alan)</strong> teknolojisini kullanır. Bu teknoloji, ağa giren şüpheli veya bilinmeyen dosyaları (örneğin, e-posta ekleri, web indirmeleri), ana üretim ağından tamamen yalıtılmış, kontrollü bir sanal ortamda (sandbox) çalıştırır. Bu sanal ortamda dosyanın davranışları (dosya sistemi değişiklikleri, ağ bağlantı denemeleri, kayıt defteri (registry) manipülasyonları, anormal işlem başlatma vb.) detaylı olarak izlenir. Eğer dosya zararlı bir davranış sergilerse, bu bir tehdit olarak işaretlenir, ağa girişi engellenir ve bu yeni tehdit için bir imza oluşturularak tehdit istihbaratı veritabanı güncellenir. Ancak, gelişmiş zararlı yazılımlar, içinde bulundukları ortamın bir sandbox olup olmadığını anlamaya yönelik <strong>sandbox’tan kaçınma (sandbox evasion)</strong> teknikleri kullanabilirler. Bu teknikler arasında sanal makine artefaktlarını (belirli sürücüler, MAC adresleri) kontrol etme, zaman tabanlı gecikmelerle (örneğin, zararlı eylemi 10 dakika sonra başlatarak sandbox’ın analiz süresini aşma) veya kullanıcı etkileşimi (fare hareketi, klavye girişi) bekleyerek analizi atlatma gibi yöntemler bulunur.</p>
+<h3 id="14-politika-ve-kural-yönetiminin-bilimi-etkinlik-optimizasyon-ve-nist-çerçevesi">
+  1.4. Politika ve Kural Yönetiminin Bilimi: Etkinlik, Optimizasyon ve NIST Çerçevesi
+  <a class="heading-link" href="#14-politika-ve-kural-y%c3%b6netiminin-bilimi-etkinlik-optimizasyon-ve-nist-%c3%a7er%c3%a7evesi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Etkili bir güvenlik duvarı, sadece donanım ve yazılımdan ibaret değildir; aynı zamanda iyi yapılandırılmış, düzenli olarak gözden geçirilen ve optimize edilen bir kural ve politika setine dayanır. Güvenlik duvarı yönetiminin temel ilkesi, <strong>“varsayılan olarak reddet, istisnai olarak izin ver” (deny-all, allow-by-exception)</strong> yaklaşımıdır. Bu, yalnızca iş için kesinlikle gerekli olan trafiğe açıkça izin verildiği ve geri kalan her şeyin varsayılan olarak engellendiği anlamına gelir.</p>
+<p>Zamanla, kurumsal ağların büyümesi ve uygulama sayısının artmasıyla güvenlik duvarı kural setleri karmaşıklaşır. Bu durum, <strong>gölge kurallar</strong> (daha üstteki bir kural tarafından etkisiz hale getirilen kurallar), <strong>gereksiz kurallar</strong> (artık kullanılmayan sistemlere veya uygulamalara ait kurallar) ve <strong>çakışan kurallar</strong> gibi anormalliklere yol açabilir. Bu tür kural anormallikleri, hem güvenlik duvarının performansını düşürür hem de potansiyel güvenlik açıkları yaratır. Bu nedenle, kural setlerinin düzenli olarak (örneğin, üç ayda bir) denetlenmesi, kullanılmayan veya gereksiz kuralların temizlenmesi ve kuralların mantıksal bir sıraya konulması (en sık eşleşen kuralların en üste yerleştirilmesi gibi) kritik bir en iyi uygulamadır.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*MyFNGDm32b4GFCmw" alt=""></p>
+<p>NIST</p>
+<p>ABD Ulusal Standartlar ve Teknoloji Enstitüsü (NIST) gibi kuruluşlar, güvenlik duvarı politikalarının oluşturulması ve yönetilmesi için kapsamlı çerçeveler sunar. Bu çerçeveler, kural değişikliklerinin belgelenmesi, her kuralın amacının açıkça belirtilmesi, en az ayrıcalık ilkesine (principle of least privilege) uyulması ve düzenli denetimlerin yapılması gibi konuları kapsar.</p>
+<h3 id="15-log-analizi-ve-adli-bilişim-güvenlik-duvarı-kayıtlarından-anlamçıkarmak">
+  1.5. Log Analizi ve Adli Bilişim: Güvenlik Duvarı Kayıtlarından Anlam Çıkarmak
+  <a class="heading-link" href="#15-log-analizi-ve-adli-bili%c5%9fim-g%c3%bcvenlik-duvar%c4%b1-kay%c4%b1tlar%c4%b1ndan-anlam%c3%a7%c4%b1karmak">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Güvenlik duvarı logları, bir ağdaki güvenlik duruşunun anlaşılması, tehditlerin tespit edilmesi ve bir güvenlik ihlali sonrası adli analizin (forensics) yapılabilmesi için hayati öneme sahiptir. Her bir log kaydı, ağdaki bir trafik akışına ilişkin değerli bilgiler içerir. Tipik bir log kaydı şu alanları barındırır: zaman damgası, eylem (izin verildi/engellendi), protokol, kaynak IP adresi, kaynak portu, hedef IP adresi ve hedef portu.</p>
+<p>Bu logların sistematik olarak analiz edilmesiyle, çeşitli kötü niyetli aktiviteler tespit edilebilir :</p>
+<ul>
+<li><strong>Port Taraması:</strong> Tek bir kaynaktan çok sayıda farklı porta veya hedefe yönelik kısa sürede çok sayıda engellenen bağlantı denemesi, bir keşif faaliyetine işaret eder.</li>
+<li><strong>Yetkisiz Erişim Denemeleri:</strong> Kritik sunuculara veya servislere yönelik sürekli engellenen bağlantı logları, bir kaba kuvvet (brute-force) saldırısı veya yetkisiz erişim girişimi olabilir.</li>
+<li><strong>Anormal Bant Genişliği Kullanımı:</strong> Belirli bir kaynaktan veya hedefe doğru beklenmedik derecede yüksek hacimli izin verilen trafik, bir veri sızıntısı veya DDoS saldırısının parçası olabilir.</li>
+<li><strong>Kötü Amaçlı Yazılım Faaliyetleri:</strong> Bilinen kötü amaçlı IP adreslerinden veya komuta-kontrol sunucularından gelen bağlantı denemeleri, ağ içinde bir sistemin ele geçirildiğini gösterebilir.</li>
+</ul>
+<p>Etkili bir log analizi için, tüm güvenlik duvarlarından ve diğer ağ cihazlarından gelen logların <strong>Syslog</strong> gibi standart bir protokol kullanılarak merkezi bir <strong>Güvenlik Bilgi ve Olay Yönetimi (SIEM)</strong> platformuna gönderilmesi esastır. Syslog mesajları genellikle <code>&lt;PRI&gt;TIMESTAMP HOSTNAME: MESSAGE</code> formatını takip eder; burada <code>&lt;PRI&gt;</code> değeri, mesajın hem önem (severity) hem de kaynak (facility) bilgisini içerir. Örneğin, bir Cisco ASA güvenlik duvarı tarafından üretilen <code>%ASA-6-106100</code> gibi bir mesaj, cihazın türünü (ASA), önem seviyesini (6 - Informational) ve spesifik olay kimliğini (106100) içerir. Bu yapılandırılmış veriler, SIEM platformlarında olay korelasyonu ve otomatik uyarı üretimi için temel oluşturur.</p>
+<p><img src="/images/1_B1xzRwD1QjcobyhgHaewZQ.png" alt=""></p>
+<p><strong>Firewall Teknolojileri Karşılaştırması</strong></p>
+<h3 id="16-dmz-tasarım-desenleri-tek-ve-çift-güvenlik-duvarı-mimarileri">
+  1.6. DMZ Tasarım Desenleri: Tek ve Çift Güvenlik Duvarı Mimarileri
+  <a class="heading-link" href="#16-dmz-tasar%c4%b1m-desenleri-tek-ve-%c3%a7ift-g%c3%bcvenlik-duvar%c4%b1-mimarileri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>DMZ (Demilitarized Zone — Askerden Arındırılmış Bölge)</strong>, bir kuruluşun iç ağı (LAN) ile dış dünya (genellikle internet) arasında konumlandırılan, güvenlik duvarları ile korunan bir ara ağ katmanıdır. Temel amacı, dışarıdan erişilmesi gereken sunucuları (web sunucusu, e-posta sunucusu gibi) iç ağdaki kritik sistemlerden izole ederek ek bir güvenlik katmanı oluşturmaktır. Bu sayede, olası bir siber saldırıda saldırganların doğrudan iç ağa sızması engellenir.</p>
+<p>DMZ oluşturmak için temel olarak iki popüler tasarım deseni bulunmaktadır:</p>
+<h4 id="tek-güvenlik-duvarı-üç-bacaklı-modelthree-legged-model">
+  <strong>Tek Güvenlik Duvarı (Üç Bacaklı Model — Three-Legged Model):</strong>
+  <a class="heading-link" href="#tek-g%c3%bcvenlik-duvar%c4%b1-%c3%bc%c3%a7-bacakl%c4%b1-modelthree-legged-model">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu mimaride, en az üç ağ arayüzüne sahip tek bir güvenlik duvarı kullanılır. Her bir arayüz farklı bir ağa bağlanır:</p>
+<ul>
+<li><strong>Dış Bacak (External Leg):</strong> İnternete bağlıdır.</li>
+<li><strong>İç Bacak (Internal Leg):</strong> Kuruluşun özel iç ağına (LAN) bağlıdır.</li>
+<li><strong>DMZ Bacağı (DMZ Leg):</strong> DMZ ağındaki sunuculara bağlıdır.</li>
+</ul>
+<p>Güvenlik duvarı, bu üç bacak arasındaki trafiği önceden tanımlanmış kurallara göre yönetir. Örneğin, internetten gelen taleplerin yalnızca DMZ’deki web sunucusunun belirli portlarına (örn. HTTP için 80, HTTPS için 443) erişmesine izin verilirken, DMZ’den iç ağa doğru başlatılan bağlantılar genellikle engellenir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*MY9iINeS9IzeD6mt" alt=""></p>
+<p>Three-Legged Model</p>
+<p><strong>Avantajları:</strong></p>
+<ul>
+<li>Daha düşük maliyetlidir.</li>
+<li>Kurulumu ve yönetimi daha basittir.</li>
+</ul>
+<p><strong>Dezavantajları:</strong></p>
+<ul>
+<li>Tek bir güvenlik duvarı, tüm ağın güvenliği için tek bir hata noktası (single point of failure) oluşturur. Güvenlik duvarının ele geçirilmesi durumunda tüm ağ riske girer.</li>
+</ul>
+<h4 id="çift-güvenlik-duvarı-modeli-dual-firewall-model">
+  <strong>Çift Güvenlik Duvarı Modeli (Dual-Firewall Model):</strong>
+  <a class="heading-link" href="#%c3%a7ift-g%c3%bcvenlik-duvar%c4%b1-modeli-dual-firewall-model">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu daha güvenli olan yaklaşımda, iki ayrı güvenlik duvarı kullanılır:</p>
+<ul>
+<li><strong>Dış Güvenlik Duvarı (Frontend Firewall):</strong> İnternet ile DMZ arasına yerleştirilir. İnternetten gelen trafiğin yalnızca DMZ’deki sunuculara erişmesine izin verecek şekilde yapılandırılır.</li>
+<li><strong>İç Güvenlik Duvarı (Backend Firewall):</strong> DMZ ile iç ağ arasına konumlandırılır. Bu güvenlik duvarı, iç ağdan DMZ’ye ve daha da önemlisi DMZ’den iç ağa olan erişimi çok daha sıkı kurallarla denetler. Genellikle, yalnızca iç ağdan başlatılan ve DMZ’deki sunuculara yapılan belirli isteklere izin verilir.</li>
+</ul>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*RYT2WgTFAYQUGQ8s" alt=""></p>
+<p>Dual-Firewall Model</p>
+<p><strong>Avantajları:</strong></p>
+<ul>
+<li>Katmanlı bir güvenlik yaklaşımı sunar. Bir saldırganın dış güvenlik duvarını aşması durumunda, iç ağa ulaşmak için ikinci bir engelle daha karşılaşması gerekir.</li>
+<li>Farklı üreticilerin güvenlik duvarları kullanılarak (vendor diversity) tek bir zafiyetin her iki duvarı da etkileme olasılığı azaltılabilir.</li>
+</ul>
+<p><strong>Dezavantajları:</strong></p>
+<ul>
+<li>Daha yüksek maliyetlidir.</li>
+<li>Yapılandırması ve yönetimi daha karmaşıktır.</li>
+</ul>
+<h3 id="17-güvenli-sunucu-yerleşimi-hangi-sunucular-dmzdeolmalı">
+  1.7. Güvenli Sunucu Yerleşimi: Hangi Sunucular DMZ’de Olmalı?
+  <a class="heading-link" href="#17-g%c3%bcvenli-sunucu-yerle%c5%9fimi-hangi-sunucular-dmzdeolmal%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Genel kural, dış dünyadan doğrudan bağlantı kabul etmesi gereken tüm sunucuların DMZ’ye yerleştirilmesidir. İç ağda bulunan ve hassas verileri barındıran sunucuların ise kesinlikle DMZ’de olmaması gerekir.</p>
+<h4 id="dmzye-yerleştirilmesi-yaygın-sunucutürleri">
+  <strong>DMZ’ye Yerleştirilmesi Yaygın Sunucu Türleri:</strong>
+  <a class="heading-link" href="#dmzye-yerle%c5%9ftirilmesi-yayg%c4%b1n-sunucut%c3%bcrleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Web Sunucuları:</strong> Kurumun web sitesini barındıran sunuculardır ve internetten gelen ziyaretçi trafiğini karşılamalıdır.</li>
+<li><strong>E-posta Sunucuları (Mail Gateway/Relay):</strong> Dışarıdan gelen e-postaları alan ve iç ağdaki posta sunucusuna ileten veya iç ağdan gönderilen e-postaları dış dünyaya ileten sunuculardır. Gerçek posta kutuları ve hassas e-postalar iç ağdaki sunucularda tutulmalıdır.</li>
+<li><strong>FTP Sunucuları:</strong> Dış kullanıcılarla dosya alışverişi için kullanılan sunuculardır.</li>
+<li><strong>DNS Sunucuları (Harici):</strong> Alan adlarını IP adreslerine çeviren ve dış dünyadan erişilebilir olması gereken DNS sunucularıdır.</li>
+<li><strong>Proxy Sunucuları (Ters Proxy — Reverse Proxy):</strong> İnternetten gelen istekleri alıp iç ağdaki uygun uygulama sunucusuna yönlendiren ve ek bir güvenlik katmanı sağlayan sunuculardır.</li>
+<li><strong>VPN Sunucuları:</strong> Uzaktan erişim için kullanılan VPN sonlandırma noktaları DMZ’de konumlandırılabilir.</li>
+</ul>
+<h4 id="güvenli-sunucu-yerleşimi-için-en-iyi-uygulamalar">
+  <strong>Güvenli Sunucu Yerleşimi İçin En İyi Uygulamalar:</strong>
+  <a class="heading-link" href="#g%c3%bcvenli-sunucu-yerle%c5%9fimi-i%c3%a7in-en-iyi-uygulamalar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Minimum Yetki Prensibi:</strong> DMZ’deki sunucuların iç ağa erişimi mutlak minimumda tutulmalıdır. Yalnızca gerekli olan belirli portlar ve protokoller üzerinden, belirli iç ağ sunucularına erişime izin verilmelidir. Örneğin, bir web sunucusunun iç ağdaki bir veritabanı sunucusuna yalnızca veritabanı portu üzerinden erişmesi gibi.</li>
+<li><strong>Trafik Akış Yönü:</strong> Güvenlik duvarı kuralları, bağlantıların hangi yönde başlatılabileceğini sıkı bir şekilde kontrol etmelidir. İdeal olarak, DMZ’deki bir sunucunun iç ağa doğru yeni bir bağlantı başlatmasına asla izin verilmemelidir.</li>
+<li><strong>Veritabanı Sunucuları İç Ağda Tutulmalıdır:</strong> Müşteri bilgileri, finansal veriler gibi hassas bilgileri içeren veritabanı sunucuları kesinlikle DMZ’ye yerleştirilmemelidir. Bu sunucular, iç ağın daha da güvenli bir segmentinde tutulmalı ve yalnızca DMZ’deki uygulama sunucularından gelen belirli isteklere yanıt vermelidir.</li>
+<li><strong>Sürekli İzleme ve Güncelleme:</strong> DMZ’deki sunucular sürekli olarak izlenmeli, güvenlik yamaları ve güncellemeleri gecikmeden uygulanmalıdır. DMZ, saldırılara en açık bölge olduğu için bu sunucuların güvenliğinin sağlanması kritik öneme sahiptir.</li>
+<li><strong>Sertifikasyon ve Kimlik Doğrulama:</strong> DMZ ve iç ağ arasındaki iletişimde güçlü kimlik doğrulama mekanizmaları ve şifreleme kullanılmalıdır.</li>
+</ul>
+<p>Sonuç olarak, doğru tasarlanmış bir DMZ mimarisi ve dikkatli bir sunucu yerleşim stratejisi, bir kuruluşun siber güvenlik duruşunu önemli ölçüde güçlendirir. Bu, dışarıya açık hizmetler sunarken aynı zamanda içerdeki değerli varlıkları korumak için hayati bir adımdır.</p>
+<hr>
+<h3 id="bölüm-2-web-uygulamalarının-koruyucu-kalkanı-web-application-firewallwaf">
+  Bölüm 2: Web Uygulamalarının Koruyucu Kalkanı: Web Application Firewall (WAF)
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-2-web-uygulamalar%c4%b1n%c4%b1n-koruyucu-kalkan%c4%b1-web-application-firewallwaf">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Web uygulamalarının ve API’lerin iş dünyasının merkezine yerleşmesiyle, bu platformları hedef alan saldırılar da giderek artmış ve sofistike hale gelmiştir. Geleneksel ağ güvenlik duvarları (NGFW’ler dahil), genel ağ trafiğini korumada etkili olsalar da, web uygulamalarının karmaşık mantığına ve işleyişine özgü tehditleri anlamada yetersiz kalabilirler. Bu noktada, OSI modelinin 7. katmanında, özellikle HTTP ve HTTPS protokollerine odaklanarak çalışan <strong>Web Application Firewall (WAF)</strong> devreye girer.</p>
+<h3 id="21-waf-mimarisi-ve-çalışma-prensipleri-pozitif-ve-negatif-güvenlik-modelleri">
+  2.1. WAF Mimarisi ve Çalışma Prensipleri: Pozitif ve Negatif Güvenlik Modelleri
+  <a class="heading-link" href="#21-waf-mimarisi-ve-%c3%a7al%c4%b1%c5%9fma-prensipleri-pozitif-ve-negatif-g%c3%bcvenlik-modelleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bir WAF, tipik olarak web sunucusunun önünde bir <strong>ters proxy (reverse proxy)</strong> olarak konumlandırılır. Bu mimaride, dış dünyadan gelen tüm kullanıcı istekleri önce WAF tarafından karşılanır, güvenlik denetiminden geçirilir ve yalnızca güvenli kabul edilen istekler arka plandaki web sunucusuna iletilir. Bu denetim, iki temel güvenlik modelinden birine veya her ikisinin birleşimine (hibrit model) dayanır :</p>
+<ol>
+<li><strong>Negatif Güvenlik Modeli (Blocklisting):</strong> Bu model, “varsayılan olarak izin ver” (default allow) ilkesiyle çalışır ve bilinen kötü niyetli kalıpları veya imzaları içeren bir engelleme listesi kullanır. Örneğin, bir WAF, SQL enjeksiyon saldırılarında sıkça kullanılan <code>' OR '1'='1'</code> gibi dizeleri veya siteler arası betik çalıştırma (XSS) saldırılarında kullanılan <code>&lt;script&gt;</code> etiketlerini içeren istekleri tespit edip engeller. Bu modelin uygulanması daha kolaydır ve meşru trafiği yanlışlıkla engelleme (false positive) riski daha düşüktür. Ancak en büyük zayıflığı, yalnızca bilinen saldırı türlerine karşı koruma sağlaması ve daha önce görülmemiş, yani imzası olmayan sıfır gün (zero-day) saldırılarına karşı etkisiz kalmasıdır.</li>
+<li><strong>Pozitif Güvenlik Modeli (Allowlisting):</strong> Bu model, “varsayılan olarak reddet” (default deny) gibi çok daha katı bir ilkeyi benimser. Sadece önceden tanımlanmış, bilinen ve meşru olan trafik desenlerine izin verir. Bu, uygulamanın tüm geçerli URL’lerini, parametrelerini, izin verilen karakter setlerini ve beklenen değer aralıklarını WAF’a “öğretmeyi” gerektirir. Bu model, tanımlanmamış her şeyi potansiyel bir tehdit olarak gördüğü için sıfır gün saldırılarına karşı doğası gereği çok daha güçlü bir koruma sağlar. Ancak, uygulama her güncellendiğinde veya yeni bir fonksiyon eklendiğinde WAF politikasının da güncellenmesini gerektirdiği için yapılandırması ve bakımı çok daha zordur ve yanlış pozitif riski daha yüksektir.</li>
+</ol>
+<p>Bu iki model arasındaki seçim, bir bilgi asimetrisi ve yönetim yükü tercihidir. Negatif model, “düşmanın neye benzediğini biliyorum” varsayımına dayanırken, pozitif model “dostun neye benzediğini biliyorum” varsayımını temel alır. Güvenlik etkinliği ile operasyonel esneklik arasındaki bu denge, WAF stratejisinin temelini oluşturur.</p>
+<h3 id="22-owasp-top-10-tehditlerine-karşı-proaktif-savunma-mekanizmaları">
+  2.2. OWASP Top 10 Tehditlerine Karşı Proaktif Savunma Mekanizmaları
+  <a class="heading-link" href="#22-owasp-top-10-tehditlerine-kar%c5%9f%c4%b1-proaktif-savunma-mekanizmalar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>WAF’ların en temel ve kritik görevlerinden biri, Open Web Application Security Project (OWASP) tarafından düzenli olarak yayınlanan en kritik 10 web uygulama zafiyetine karşı koruma sağlamaktır. WAF’lar, bu yaygın saldırı vektörlerini hedef alan özelleşmiş denetim mekanizmalarına sahiptir :</p>
+<ul>
+<li><strong>A03:2021 — Injection:</strong> Bu kategori, SQL, NoSQL, OS komutu ve LDAP enjeksiyonu gibi saldırıları içerir. Bir WAF, HTTP isteklerinin gövdesini, başlıklarını ve URL parametrelerini analiz ederek, veritabanı sorgularını veya işletim sistemi komutlarını manipüle etmeye yönelik zararlı karakterleri (örneğin, tek tırnak, noktalı virgül, tire) ve kalıpları tespit eder. Örneğin, <code>username=admin'--</code> gibi bir girdiyi, bir SQL sorgusunun mantığını bozmaya yönelik bir girişim olarak algılayıp engeller. Benzer şekilde, Siteler Arası Betik Çalıştırma (XSS) saldırılarına karşı, kullanıcı girdilerinde <code>&lt;script&gt;</code>, <code>onerror</code>, <code>onload</code> gibi tehlikeli HTML etiketlerini ve JavaScript olaylarını filtreler.</li>
+<li><strong>A01:2021 — Broken Access Control (Bozuk Erişim Kontrolü):</strong> Bu zafiyet, kullanıcıların yetkileri dışındaki verilere veya fonksiyonlara erişebilmesi durumunda ortaya çıkar. Bir WAF, kullanıcı oturumlarını ve rollerini takip ederek bu tür zafiyetlere karşı koruma sağlayabilir. Örneğin, bir kullanıcının URL’yi manuel olarak değiştirerek (<code>/view?invoice_id=123</code> yerine <code>/view?invoice_id=124</code> yazarak) başka bir kullanıcının faturasına erişmeye çalışmasını (Insecure Direct Object References - IDOR) tespit edebilir. WAF, <code>invoice_id=124</code>&lsquo;ün o anki oturuma ait kullanıcıyla ilişkili olup olmadığını kontrol eden kurallarla bu tür yetkisiz erişimleri engelleyebilir.</li>
+</ul>
+<h3 id="23-otomatize-tehditlerle-mücadele-gelişmiş-bot-yönetimi-ve-ratelimiting">
+  2.3. Otomatize Tehditlerle Mücadele: Gelişmiş Bot Yönetimi ve Rate Limiting
+  <a class="heading-link" href="#23-otomatize-tehditlerle-m%c3%bccadele-geli%c5%9fmi%c5%9f-bot-y%c3%b6netimi-ve-ratelimiting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Günümüz web trafiğinin önemli bir bölümü, insan kullanıcılar yerine otomatik yazılımlar olan <strong>botlar</strong> tarafından oluşturulmaktadır. Bu botlar, arama motorlarının siteleri indekslemesi gibi meşru amaçlarla kullanılabileceği gibi, web sitelerinden veri kazıma (web scraping), kimlik bilgisi doldurma (credential stuffing), envanter tüketme ve uygulama katmanı hizmet reddi (DDoS) saldırıları gibi kötü niyetli amaçlarla da kullanılabilir.</p>
+<p>Modern WAF’lar, bu otomatize tehditlerle mücadele etmek için gelişmiş <strong>bot yönetimi (bot management)</strong> yetenekleri sunar. Bu yetenekler, basit IP engellemenin ötesine geçerek çok katmanlı bir tespit mekanizması kullanır:</p>
+<ul>
+<li><strong>İmza ve İtibar Analizi:</strong> Bilinen iyi botları (Googlebot gibi) ve kötü botları IP adresleri, User-Agent dizeleri ve davranışsal imzaları aracılığıyla tanır.</li>
+<li><strong>Davranışsal Analiz:</strong> Bir istemcinin fare hareketleri, sayfa gezinme hızı ve istekler arasındaki zamanlama gibi davranışlarını analiz ederek insan ile bot arasında ayrım yapar.</li>
+<li><strong>Cihaz Parmak İzi (Device Fingerprinting):</strong> Tarayıcı türü, sürümü, kurulu eklentiler ve ekran çözünürlüğü gibi bilgileri toplayarak her bir istemci için benzersiz bir parmak izi oluşturur ve bu izi takip eder.</li>
+<li><strong>Meydan Okuma (Challenge) Mekanizmaları:</strong> Şüpheli görülen trafiğe CAPTCHA gibi testler sunarak insan doğrulamasını zorunlu kılar.</li>
+</ul>
+<p><strong>Rate Limiting (Hız Sınırlama)</strong>, özellikle kaba kuvvet (brute-force) saldırıları ve uygulama katmanı DDoS saldırılarına karşı kullanılan bir diğer kritik WAF özelliğidir. Bu mekanizma, belirli bir zaman aralığında tek bir kaynaktan (genellikle IP adresi, ancak oturum kimliği veya API anahtarı gibi daha granüler tanımlayıcılar da olabilir) gelen istek sayısını sınırlar. Örneğin, bir giriş (login) sayfası için “her IP adresinden dakikada en fazla 10 istek” gibi bir kural tanımlanabilir. Bu eşiği aşan sonraki istekler, belirli bir süre boyunca engellenir (mitigation timeout) veya yavaşlatılır (throttling). Bu, otomatize saldırı araçlarının saniyede yüzlerce veya binlerce deneme yapmasını etkili bir şekilde önler.</p>
+<h3 id="24-hassas-ayar-tuning-sanatı-yanlış-pozitif-false-positive-oranını-minimize-etme-stratejileri">
+  2.4. Hassas Ayar (Tuning) Sanatı: Yanlış Pozitif (False Positive) Oranını Minimize Etme Stratejileri
+  <a class="heading-link" href="#24-hassas-ayar-tuning-sanat%c4%b1-yanl%c4%b1%c5%9f-pozitif-false-positive-oran%c4%b1n%c4%b1-minimize-etme-stratejileri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bir WAF’ın en büyük operasyonel zorluklarından biri, meşru ve geçerli kullanıcı trafiğini yanlışlıkla saldırı olarak tanımlamasıdır. Bu durum <strong>yanlış pozitif (false positive)</strong> olarak adlandırılır ve hem son kullanıcı deneyimini olumsuz etkiler (meşru işlemlerin engellenmesi) hem de güvenlik ekipleri için <strong>alarm yorgunluğuna (alert fatigue)</strong> yol açar.</p>
+<p>Bu sorunu çözmek için WAF politikalarının, koruduğu spesifik uygulamaya göre <strong>hassas ayarlanması (tuning)</strong> gerekir. Bu, sürekli ve döngüsel bir süreçtir. OWASP Core Rule Set (CRS) gibi standart kural setleri, genel bir koruma sağlasa da her uygulama için özelleştirilmelidir. Tuning süreci genellikle şu adımları içerir :</p>
+<ol>
+<li><strong>Gözlem Modu:</strong> WAF, başlangıçta trafiği engellemek yerine sadece loglama ve uyarı üretme modunda çalıştırılır.</li>
+<li><strong>Analiz:</strong> Belirli bir süre boyunca toplanan loglar incelenerek, hangi kuralların hangi meşru istekler için yanlışlıkla tetiklendiği tespit edilir.</li>
+<li><strong>İstisna (Exclusion) Oluşturma:</strong> Yanlış pozitiflere neden olan kurallar tamamen devre dışı bırakmak yerine, bu kurallar için istisnalar tanımlanır. Örneğin, belirli bir URL yolunda, belirli bir parametrede veya belirli bir kaynak IP adresinden gelen istekler için spesifik bir kuralın atlanması sağlanabilir. Bu, güvenliği tehlikeye atmadan meşru trafiğe izin vermenin en etkili yoludur.</li>
+<li><strong>Engelleme Moduna Geçiş:</strong> Yanlış pozitif oranı kabul edilebilir bir seviyeye indirildikten sonra WAF, aktif engelleme moduna alınır ve süreç düzenli olarak tekrarlanır.</li>
+</ol>
+<p>Doğrudan kural dosyalarını değiştirmek, gelecekteki güncellemelerde yapılan özelleştirmelerin kaybolmasına neden olacağı için kesinlikle önerilmez. Bunun yerine, WAF platformlarının sunduğu istisna mekanizmaları kullanılmalıdır.</p>
+<hr>
+<h3 id="bölüm-3-ağ-trafiğindeki-anormalliklerin-tespiti-saldırı-tespit-ve-önleme-sistemleri-idsips">
+  Bölüm 3: Ağ Trafiğindeki Anormalliklerin Tespiti: Saldırı Tespit ve Önleme Sistemleri (IDS/IPS)
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-3-a%c4%9f-trafi%c4%9findeki-anormalliklerin-tespiti-sald%c4%b1r%c4%b1-tespit-ve-%c3%b6nleme-sistemleri-idsips">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Ağ trafiğini derinlemesine analiz ederek kötü niyetli aktiviteleri ve politika ihlallerini tespit etmek amacıyla tasarlanan Saldırı Tespit Sistemleri (Intrusion Detection Systems — IDS) ve Saldırı Önleme Sistemleri (Intrusion Prevention Systems — IPS), modern siber savunma mimarilerinin kritik bileşenleridir. IDS, pasif bir izleme ve uyarı mekanizmasıyken (out-of-band), IPS aktif bir şekilde trafiğin içinde yer alarak (in-line) tehditleri tespit ettiği anda engelleme yeteneğine sahiptir.</p>
+<h3 id="31-tespit-metodolojilerinin-derinlemesine-incelenmesi-imza-anomali-ve-davranışanalizi">
+  3.1. Tespit Metodolojilerinin Derinlemesine İncelenmesi: İmza, Anomali ve Davranış Analizi
+  <a class="heading-link" href="#31-tespit-metodolojilerinin-derinlemesine-incelenmesi-imza-anomali-ve-davran%c4%b1%c5%9fanalizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>IDS/IPS sistemleri, tehditleri tespit etmek için temel olarak üç farklı metodoloji kullanır. Bu metodolojilerin her birinin kendine özgü avantajları ve dezavantajları vardır:</p>
+<ol>
+<li><strong>İmza Tabanlı Tespit (Signature-based Detection):</strong> Bu yöntem, bilinen saldırıların, zararlı yazılımların veya zafiyet istismarlarının ağ trafiğinde bıraktığı benzersiz desenleri (imzaları) arar. Tıpkı bir antivirüs yazılımının bilinen virüsleri imzalarıyla tanıması gibi, IDS/IPS de gelen/giden paketleri geniş bir saldırı imzası veritabanıyla karşılaştırır. Bir eşleşme bulunduğunda, bir uyarı üretilir (IDS) veya paket engellenir (IPS). Bu yöntem, bilinen tehditlere karşı son derece hızlı ve etkilidir ve yanlış pozitif oranı düşüktür. Ancak en büyük zayıflığı, daha önce hiç görülmemiş, yani imzası henüz oluşturulmamış <strong>sıfır gün (zero-day)</strong> saldırılarına karşı tamamen kör olmasıdır.</li>
+<li><strong>Anomali Tabanlı Tespit (Anomaly-based Detection):</strong> Bu yaklaşım, belirli bir saldırı imzası aramak yerine, ağın “normal” davranışını öğrenir ve bu normalden sapmaları potansiyel bir tehdit olarak işaretler. Sistem, belirli bir süre boyunca ağ trafiği metriklerini (örneğin, bant genişliği kullanımı, kullanılan protokoller, bağlantı sayıları) gözlemleyerek bir <strong>temel profil (baseline)</strong> oluşturur. Bu temel profilden istatistiksel olarak anlamlı bir sapma tespit edildiğinde (örneğin, gece yarısı beklenmedik bir FTP trafiği artışı), bir anomali uyarısı tetiklenir. Bu yöntemin en büyük avantajı, imzası olmayan yeni ve bilinmeyen saldırıları tespit etme potansiyelidir. Ancak, meşru ama beklenmedik ağ aktivitelerini (örneğin, yeni bir uygulamanın devreye alınması) de anomali olarak işaretleyebileceği için <strong>yüksek yanlış pozitif (false positive)</strong> oranına sahip olma eğilimindedir.</li>
+<li><strong>Davranışsal Analiz (Behavioral Analysis):</strong> Bu, anomali tabanlı tespitin daha gelişmiş bir formudur. Sadece trafik hacmi gibi istatistiksel sapmalara odaklanmak yerine, protokollerin ve uygulamaların davranışsal mantığını analiz eder. Örneğin, bir DNS sunucusunun normalde yapmaması gereken bir şekilde dışarıya doğru büyük miktarda veri transferi yapması veya bir web sunucusunun bir komut satırı (shell) başlatmaya çalışması gibi protokol ihlallerini veya beklenmedik eylem dizilerini tespit eder. Bu yöntem, daha fazla bağlam bilgisi kullandığı için anomali tabanlı tespitten daha isabetli sonuçlar üretebilir.</li>
+</ol>
+<p><img src="/images/1_PjPS0Bfp8Mb94zqFwP74Dw.png" alt=""></p>
+<p><strong>IDS/IPS Tespit Yöntemleri Karşılaştırması</strong></p>
+<h3 id="32-açık-kaynak-idsips-motorlarının-mimarisi-snort-suricata-ve-zeek-bro-karşılaştırması">
+  3.2. Açık Kaynak IDS/IPS Motorlarının Mimarisi: Snort, Suricata ve Zeek (Bro) Karşılaştırması
+  <a class="heading-link" href="#32-a%c3%a7%c4%b1k-kaynak-idsips-motorlar%c4%b1n%c4%b1n-mimarisi-snort-suricata-ve-zeek-bro-kar%c5%9f%c4%b1la%c5%9ft%c4%b1rmas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Açık kaynak topluluğu, IDS/IPS alanında son derece yetenekli ve yaygın olarak kullanılan araçlar geliştirmiştir. Bu araçlar, ticari çözümlere güçlü alternatifler sunar ve farklı mimari yaklaşımları temsil ederler:</p>
+<h4 id="snort">
+  <strong>Snort</strong>
+  <a class="heading-link" href="#snort">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>1998&rsquo;de geliştirilen Snort, dünyanın en yaygın kullanılan NIDS/IPS’idir ve endüstri standardı haline gelmiştir. Mimarisi temel olarak üç bileşenden oluşur:</p>
+<ul>
+<li><strong>Paket Çözücü (Packet Decoder)</strong>, ağdan gelen ham paketleri analiz için hazırlar; <strong>Tespit Motoru (Detection Engine)</strong>, bu paketleri tanımlı kurallara göre analiz eder; ve <strong>Loglama/Uyarı Alt Sistemi</strong>, tespit edilen olayları kaydeder veya uyarı üretir. Snort, kural tabanlı bir sistemdir ve geleneksel olarak</li>
+<li><strong>tek iş parçacıklı (single-threaded)</strong> bir mimariye sahiptir. Bu, tüm işlemlerin tek bir CPU çekirdeği üzerinde sıralı olarak yapılması anlamına gelir ve bu durum, yüksek hızlı modern ağlarda performans darboğazlarına neden olabilir.</li>
+</ul>
+<h4 id="suricata">
+  <strong>Suricata</strong>
+  <a class="heading-link" href="#suricata">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Snort’un performans sınırlamalarına bir yanıt olarak geliştirilen Suricata, en önemli mimari farkı olan <strong>çoklu iş parçacıklı (multi-threaded)</strong> yapısıyla öne çıkar. Bu mimari, Suricata’nın modern çok çekirdekli işlemcilerin gücünden tam olarak yararlanmasını sağlar. Gelen paketleri farklı iş parçacıklarına dağıtarak paralel işleme yapar, bu da çok daha yüksek trafik hacimlerini paket kaybı olmadan analiz etmesine olanak tanır. Ayrıca, Suricata’nın</p>
+<ul>
+<li><strong>otomatik protokol tespiti</strong> yeteneği vardır. Snort gibi trafiği port numarasına göre (örn. 80 portu HTTP’dir) sınıflandırmak yerine, Suricata paket içeriğini analiz ederek protokolü kendisi tanır. Bu, standart dışı portlarda çalışan kötü amaçlı yazılım trafiğini tespit etmede önemli bir avantaj sağlar.</li>
+</ul>
+<h4 id="zeek-eski-adıylabro">
+  <strong>Zeek (eski adıyla Bro)</strong>
+  <a class="heading-link" href="#zeek-eski-ad%c4%b1ylabro">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Zeek, geleneksel imza tabanlı IDS/IPS’lerden temelde farklı bir felsefeye sahiptir. O, bir saldırı tespit aracından çok, bir <strong>ağ analiz çerçevesidir (Network Analysis Framework)</strong>. Zeek’in mimarisi iki ana katmandan oluşur:</p>
+<ul>
+<li><strong>Olay Motoru (Event Engine)</strong> ve <strong>Betik Yorumlayıcısı (Script Interpreter)</strong>. Olay motoru, ham ağ trafiğini yakalar ve onu yüksek seviyeli, anlamlı <strong>olaylara</strong> dönüştürür; örneğin, <code>http_request</code>, <code>dns_query</code>, <code>ssl_certificate</code> veya <code>new_connection</code> gibi. Bu olaylar daha sonra, esnek ve güçlü bir betik diliyle yazılmış politikaları yürüten betik yorumlayıcısına gönderilir. Sonuç olarak Zeek, basit &ldquo;uyarı&rdquo; mesajları yerine, ağda gerçekleşen her aktiviteye dair son derece zengin, bağlamsal ve yapılandırılmış loglar (örneğin, <code>conn.log</code>, <code>http.log</code>, <code>dns.log</code>, <code>files.log</code>) üretir.</li>
+</ul>
+<p>Bu mimari fark, tespit araçlarının evriminde önemli bir adımı temsil eder. Snort ve Suricata gibi sistemler, “Bilinen bir kötü olay (imza) gerçekleşti mi?” sorusuna odaklanırken, Zeek, “Ağımda tam olarak ne tür aktiviteler (olaylar) yaşanıyor?” sorusuna yanıt arar. Bu, güvenlik analizini reaktif alarm takibinden, bir olayın tüm bağlamını ve potansiyel nedenlerini anlamaya yönelik proaktif <strong>tehdit avcılığına (threat hunting)</strong> dönüştürür.</p>
+<h3 id="33-olay-yönetimi-ve-alarm-korelasyonu-sinyal-gürültü-oranını-iyileştirme">
+  3.3. Olay Yönetimi ve Alarm Korelasyonu: Sinyal-Gürültü Oranını İyileştirme
+  <a class="heading-link" href="#33-olay-y%c3%b6netimi-ve-alarm-korelasyonu-sinyal-g%c3%bcr%c3%bclt%c3%bc-oran%c4%b1n%c4%b1-iyile%c5%9ftirme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Yüksek hacimli ağlarda, IDS/IPS sistemleri günde on binlerce, hatta milyonlarca uyarı üretebilir. Bu uyarıların büyük bir kısmı yanlış pozitif veya düşük öncelikli olaylar olabilir. Bu durum, güvenlik analistleri için <strong>alarm yorgunluğu (alert fatigue)</strong> adı verilen ciddi bir operasyonel soruna yol açar. Bu gürültü içinde gerçek ve önemli tehdit sinyallerini ayırt etmek imkansız hale gelebilir.</p>
+<p>Bu sorunu çözmek için IDS/IPS’ten gelen uyarıların merkezi bir <strong>SIEM</strong> platformuna gönderilmesi ve burada diğer güvenlik sistemlerinden (firewall, proxy, endpoint vb.) gelen loglarla birleştirilmesi esastır. SIEM, <strong>olay korelasyonu</strong> adı verilen bir teknik kullanarak farklı kaynaklardan gelen, tek başlarına anlamsız görünen olayları ilişkilendirerek daha büyük bir saldırı zincirini ortaya çıkarabilir. Örneğin, bir SIEM korelasyon kuralı şu şekilde bir senaryoyu tespit edebilir :</p>
+<ol>
+<li><strong>Olay A:</strong> IDS, dışarıdan gelen bir IP adresinin (<code>1.2.3.4</code>) iç ağdaki bir sunucuyu (<code>10.0.0.5</code>) taradığını belirten bir &ldquo;Port Taraması&rdquo; uyarısı üretir.</li>
+<li><strong>Olay B:</strong> Birkaç dakika sonra, firewall logları aynı kaynak IP’den (<code>1.2.3.4</code>) aynı hedef sunucuya (<code>10.0.0.5</code>) yönelik çok sayıda engellenmiş bağlantı denemesi kaydeder.</li>
+<li><strong>Olay C:</strong> Kısa bir süre sonra, IPS, yine aynı kaynak ve hedefe yönelik, bilinen bir web sunucusu zafiyetini (örneğin, Apache Struts) istismar etmeye çalışan bir saldırı imzasını tespit eder ve engeller.</li>
+</ol>
+<p>Bu üç olay tek tek ele alındığında farklı seviyelerde risk taşısa da, SIEM tarafından birleştirildiğinde, bir saldırganın keşif, deneme ve istismar aşamalarından oluşan çok adımlı bir saldırı girişiminde bulunduğunu net bir şekilde gösterir.</p>
+<h3 id="34-yanlış-pozitif-ve-yanlış-negatif-dengesi-tespit-etkinliğini-optimizeetme">
+  3.4. Yanlış Pozitif ve Yanlış Negatif Dengesi: Tespit Etkinliğini Optimize Etme
+  <a class="heading-link" href="#34-yanl%c4%b1%c5%9f-pozitif-ve-yanl%c4%b1%c5%9f-negatif-dengesi-tespit-etkinli%c4%9fini-optimizeetme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>IDS/IPS sistemlerinin etkinliği, iki tür hata arasındaki dengeyi ne kadar iyi yönettiğine bağlıdır:</p>
+<ul>
+<li><strong>Yanlış Pozitif (False Positive):</strong> Meşru bir ağ aktivitesinin yanlışlıkla kötü niyetli olarak işaretlenmesi. Bu durum, gereksiz alarmlara ve IPS sistemlerinde meşru trafiğin engellenmesine yol açarak iş süreçlerini kesintiye uğratabilir.</li>
+<li><strong>Yanlış Negatif (False Negative):</strong> Gerçek bir saldırının tespit edilemeden ağdan geçmesi. Bu, en tehlikeli durumdur çünkü güvenlik sisteminin başarısız olduğu ve bir ihlalin gerçekleşmiş olabileceği anlamına gelir.</li>
+</ul>
+<p>Bu iki hata türü arasında genellikle ters bir ilişki vardır. Sistemi daha hassas hale getirmek (daha fazla kuralı etkinleştirmek, anomali eşiklerini düşürmek) yanlış negatifleri azaltma eğilimindeyken, yanlış pozitifleri artırır. Tersi durumda, yanlış pozitifleri azaltmak için sistemi daha az hassas hale getirmek, gerçek saldırıları kaçırma riskini (yanlış negatif) artırır.</p>
+<p>Bu dengeyi optimize etmek, sürekli bir <strong>ayar (tuning)</strong> süreci gerektirir. Bu süreç, organizasyonun özel ağ ortamına ve risk iştahına göre kural setlerini özelleştirmeyi, anomali tabanlı sistemler için temel profilleri (baseline) düzenli olarak güncellemeyi ve harici tehdit istihbaratı gibi bağlamsal verileri kullanarak alarmları zenginleştirmeyi içerir.</p>
+<hr>
+<h3 id="bölüm-4-güvenli-iletişim-tünelleri-sanal-özel-ağlarvpn">
+  Bölüm 4: Güvenli İletişim Tünelleri: Sanal Özel Ağlar (VPN)
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-4-g%c3%bcvenli-ileti%c5%9fim-t%c3%bcnelleri-sanal-%c3%b6zel-a%c4%9flarvpn">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Sanal Özel Ağlar (VPN), güvenli olmayan genel ağlar (örneğin, internet) üzerinden özel bir ağa güvenli bir şekilde erişim sağlamak için kullanılan teknolojilerdir. VPN’ler, verileri şifreleyerek ve kimlik doğrulaması yaparak gizlilik, bütünlük ve erişim kontrolü sağlar. Temel olarak iki farklı protokol ailesi üzerine inşa edilmişlerdir: IPSec ve SSL/TLS.</p>
+<h3 id="41-ipsec-protokol-ailesi-ah-ve-espnin-kriptografik-analizi-tünel-ve-taşımamodları">
+  4.1. IPSec Protokol Ailesi: AH ve ESP’nin Kriptografik Analizi, Tünel ve Taşıma Modları
+  <a class="heading-link" href="#41-ipsec-protokol-ailesi-ah-ve-espnin-kriptografik-analizi-t%c3%bcnel-ve-ta%c5%9f%c4%b1mamodlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Internet Protocol Security (IPSec)</strong>, OSI modelinin 3. katmanı olan Ağ Katmanı’nda çalışan ve IP paketleri için güvenlik sağlayan bir protokoller bütünüdür. Bu, IPSec’in üzerinde çalışan tüm uygulama ve protokollerden (TCP, UDP, HTTP vb.) şeffaf bir şekilde koruma sağladığı anlamına gelir. IPSec, iki ana güvenlik protokolü kullanır:</p>
+<ol>
+<li><strong>Authentication Header (AH):</strong> RFC 2402&rsquo;de tanımlanan AH, <strong>bağlantısız veri bütünlüğü</strong>, <strong>veri kaynağı kimlik doğrulaması</strong> ve <strong>tekrar oynatma (replay) saldırılarına karşı koruma</strong> sağlar. Bunu, paketin içeriği ve IP başlığının değişmeyen kısımları üzerinden hesaplanan bir HMAC (Hash-based Message Authentication Code) değeri ile yapar. Ancak AH, veri gizliliği, yani <strong>şifreleme sağlamaz</strong>.</li>
+<li><strong>Encapsulating Security Payload (ESP):</strong> RFC 4303&rsquo;te tanımlanan ESP, AH’nin sağladığı tüm güvenlik hizmetlerine ek olarak <strong>veri gizliliği (şifreleme)</strong> de sunar. ESP, hem şifreleme hem de kimlik doğrulama, sadece şifreleme veya sadece kimlik doğrulama modlarında çalışabilir, ancak şifrelemenin kimlik doğrulama olmadan kullanılması kesinlikle önerilmez.</li>
+</ol>
+<p>Bu protokoller, iki farklı modda uygulanabilir:</p>
+<ul>
+<li><strong>Taşıma Modu (Transport Mode):</strong> Bu modda, güvenlik protokolü (AH veya ESP) orijinal IP başlığı ile IP yükü (payload) arasına eklenir. Sadece IP yükü (yani Taşıma Katmanı segmenti) korunur, orijinal IP başlığına dokunulmaz. Bu mod, daha az başlık bilgisi (overhead) eklediği için daha verimlidir ve genellikle iki uç nokta (host-to-host) arasındaki iletişimi güvence altına almak için kullanılır.</li>
+<li><strong>Tünel Modu (Tunnel Mode):</strong> Bu modda, orijinal IP paketinin tamamı (başlık ve yük) şifrelenir ve/veya kimliği doğrulanır. Ardından bu korunan paket, yeni bir dış IP başlığı ile tamamen kapsüllenir. Bu mod, genellikle iki ağ geçidi (örneğin, iki ofis router’ı) arasında güvenli bir tünel oluşturmak (site-to-site VPN) veya uzaktaki bir kullanıcının kurumsal ağa bağlanması (remote access VPN) için kullanılır.</li>
+</ul>
+<h3 id="42-ssltls-tabanlı-vpn-çözümleri-mimarisi-ve-ipsec-ile-karşılaştırmalı-analizi">
+  4.2. SSL/TLS Tabanlı VPN Çözümleri: Mimarisi ve IPSec ile Karşılaştırmalı Analizi
+  <a class="heading-link" href="#42-ssltls-tabanl%c4%b1-vpn-%c3%a7%c3%b6z%c3%bcmleri-mimarisi-ve-ipsec-ile-kar%c5%9f%c4%b1la%c5%9ft%c4%b1rmal%c4%b1-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>SSL/TLS VPN’ler</strong>, adından da anlaşılacağı gibi, web trafiğini güvence altına almak için geliştirilen Secure Sockets Layer (SSL) ve onun halefi Transport Layer Security (TLS) protokollerini kullanır. IPSec’in aksine, SSL/TLS VPN’ler OSI modelinin daha üst katmanlarında, genellikle Uygulama Katmanı’nda (Layer 7) çalışır.</p>
+<p>Bu mimari fark, iki teknoloji arasında önemli işlevsel ayrımlara yol açar:</p>
+<ul>
+<li><strong>Erişim Granülerliği:</strong> IPSec, Ağ Katmanı’nda çalıştığı için bir istemciye bağlandığında ona tüm ağa tam erişim sağlar. Bu, “her şey ya da hiçbir şey” yaklaşımıdır. SSL/TLS VPN ise Uygulama Katmanı’nda çalıştığı için çok daha granüler erişim kontrolü sunar. Yöneticiler, kullanıcılara tüm ağ yerine yalnızca belirli web uygulamalarına veya dosya paylaşımlarına erişim izni verebilir.</li>
+<li><strong>İstemci Yazılımı:</strong> IPSec VPN’ler genellikle istemci cihazlara özel bir VPN yazılımının kurulmasını gerektirir. SSL/TLS VPN’ler ise genellikle standart bir web tarayıcısı üzerinden çalıştığı için istemci tarafında ek bir yazılım kurulumuna ihtiyaç duymaz (clientless VPN), bu da dağıtımı ve kullanımı kolaylaştırır.</li>
+<li><strong>Ağ Uyumluluğu:</strong> IPSec, belirli protokoller (ESP için protokol 50, AH için 51) ve portlar (IKE için UDP 500) kullandığından, kısıtlayıcı firewall’lar veya NAT (Network Address Translation) cihazları tarafından engellenebilir. SSL/TLS VPN ise standart HTTPS trafiği (TCP port 443) gibi göründüğü için bu tür ağ engellerini daha kolay aşar.</li>
+</ul>
+<h3 id="43-modern-bir-alternatif-wireguard-protokolünün-mimarisi-ve-kriptografik-avantajları">
+  4.3. Modern Bir Alternatif: WireGuard Protokolünün Mimarisi ve Kriptografik Avantajları
+  <a class="heading-link" href="#43-modern-bir-alternatif-wireguard-protokol%c3%bcn%c3%bcn-mimarisi-ve-kriptografik-avantajlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>IPSec ve OpenVPN gibi eski ve karmaşık protokollere modern bir alternatif olarak geliştirilen <strong>WireGuard</strong>, basitlik, yüksek performans ve güçlü güvenlik özellikleriyle öne çıkmaktadır. WireGuard, kasıtlı olarak küçük bir kod tabanına (yaklaşık 4,000 satır C kodu) sahip olacak şekilde tasarlanmıştır, bu da onu denetlemeyi ve güvenlik açıklarını bulmayı çok daha kolay hale getirir.</p>
+<p>Mimarisi, işletim sistemi çekirdeğinde (kernel) çalışan sanal bir ağ arayüzü (örneğin, <code>wg0</code>) oluşturmaya dayanır. Bu, standart işletim sistemi ağ araçları (<code>ip</code>, <code>ifconfig</code> vb.) ile kolayca yapılandırılıp yönetilebilmesini sağlar. WireGuard, kriptografi alanındaki en son gelişmelerden yararlanır ve &ldquo;Crypto-Agility&rdquo; (farklı şifreleme algoritmaları arasında pazarlık yapma) kavramını reddederek, mevcut en güçlü ve modern kabul edilen tek bir algoritma setini kullanır. Bu set, şifreleme için <strong>ChaCha20</strong>, mesaj kimlik doğrulaması için <strong>Poly1305</strong>, anahtar değişimi için <strong>Curve25519</strong> (eliptik eğri Diffie-Hellman), ve hashing için <strong>BLAKE2s</strong>&lsquo;i içerir. Bu yaklaşım, yanlış yapılandırma riskini ortadan kaldırır ve varsayılan olarak güçlü bir güvenlik duruşu sağlar.</p>
+<h3 id="44-gelişmiş-vpn-konfigürasyonları-always-on-vpn-split-tunneling-ve-nat-traversal">
+  4.4. Gelişmiş VPN Konfigürasyonları: Always-On VPN, Split Tunneling ve NAT Traversal
+  <a class="heading-link" href="#44-geli%c5%9fmi%c5%9f-vpn-konfig%c3%bcrasyonlar%c4%b1-always-on-vpn-split-tunneling-ve-nat-traversal">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="always-on-vpn">
+  <strong>Always-On VPN</strong>
+  <a class="heading-link" href="#always-on-vpn">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Özellikle kurumsal mobil ve uzaktan çalışanlar için tasarlanmış bir özelliktir. Cihaz internete bağlandığı anda, kullanıcı müdahalesi olmadan otomatik olarak güvenli bir VPN tüneli kurar ve bu bağlantıyı sürekli aktif tutar. Bu, verilerin her zaman şifreli bir tünel üzerinden iletilmesini garanti altına alır. Genellikle iki tür tünel kullanılır:</p>
+<ul>
+<li><strong>Cihaz Tüneli (Device Tunnel)</strong>, kullanıcı oturum açmadan önce cihazın kendisini doğrular ve yönetim sunucularına (Active Directory, SCCM vb.) erişim sağlar; <strong>Kullanıcı Tüneli (User Tunnel)</strong> ise kullanıcı oturum açtıktan sonra kurulur ve kurumsal kaynaklara erişim sağlar.</li>
+</ul>
+<h4 id="split-tunneling">
+  <strong>Split Tunneling</strong>
+  <a class="heading-link" href="#split-tunneling">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir VPN kullanıcısının trafiğini ikiye bölen bir tekniktir. Kurumsal kaynaklara yönelik trafik şifreli VPN tüneli üzerinden gönderilirken, genel internet trafiği (örneğin, video akışı, sosyal medya) doğrudan kullanıcının yerel internet bağlantısı üzerinden yönlendirilir. Bu, VPN sunucusu üzerindeki yükü ve bant genişliği tüketimini azaltarak performansı artırır. Ancak, ciddi güvenlik riskleri barındırır. Tünel dışına çıkan trafik, kurumun güvenlik politikalarından (URL filtreleme, IPS, DLP vb.) ve izleme mekanizmalarından kaçmış olur. Bu durum, kullanıcının cihazının internetten bir zararlı yazılım kapmasına ve ardından bu zararlı yazılımın VPN tüneli üzerinden kurumsal ağa sızmasına olanak tanıyan bir “arka kapı” oluşturabilir.</p>
+<h4 id="nat-traversal-nat-t">
+  <strong>NAT Traversal (NAT-T)</strong>
+  <a class="heading-link" href="#nat-traversal-nat-t">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>IPSec, paketlerin bütünlüğünü doğrulamak için IP başlıklarını kullandığından, NAT cihazları tarafından kaynak IP adresinin veya portunun değiştirilmesi kimlik doğrulama sürecini bozar. <strong>NAT Traversal</strong>, bu sorunu çözmek için geliştirilmiş bir mekanizmadır. NAT-T, IPSec (özellikle ESP) paketlerini bir UDP başlığı içine kapsüller. Bu UDP paketleri genellikle 4500 portunu kullanır. NAT cihazları bu UDP paketlerinin port bilgisini değiştirerek yönlendirme yapsa bile, içindeki orijinal ESP paketi bozulmadan kalır ve hedefteki VPN ağ geçidi tarafından doğru bir şekilde işlenebilir.</p>
+<p><img src="/images/1_qcfN3w9nucr_-rFUjvihHg.png" alt=""></p>
+<p><strong>VPN Protokolleri Karşılaştırması</strong></p>
+<hr>
+<h3 id="bölüm-5-güvenlik-operasyonlarının-merkezi-sinir-sistemi-siem-vesoar">
+  Bölüm 5: Güvenlik Operasyonlarının Merkezi Sinir Sistemi: SIEM ve SOAR
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-5-g%c3%bcvenlik-operasyonlar%c4%b1n%c4%b1n-merkezi-sinir-sistemi-siem-vesoar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Modern siber güvenlik operasyonları, büyük miktarda verinin toplanması, anlamlandırılması ve bu verilere dayalı olarak hızlı ve etkili kararlar alınması üzerine kuruludur. Bu sürecin merkezinde, Güvenlik Bilgi ve Olay Yönetimi (SIEM) ve Güvenlik Orkestrasyonu, Otomasyonu ve Müdahalesi (SOAR) platformları yer alır. Bu iki teknoloji, bir güvenlik operasyon merkezinin (SOC) beyni ve sinir sistemi gibi çalışır.</p>
+<h3 id="51-siem-mimarisi-log-toplama-normalizasyon-korelasyon-ve-anomalitespiti">
+  5.1. SIEM Mimarisi: Log Toplama, Normalizasyon, Korelasyon ve Anomali Tespiti
+  <a class="heading-link" href="#51-siem-mimarisi-log-toplama-normalizasyon-korelasyon-ve-anomalitespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bir <strong>SIEM</strong> platformunun temel amacı, bir kuruluşun tüm IT altyapısından (ağ cihazları, sunucular, uç noktalar, uygulamalar, bulut servisleri vb.) gelen log verilerini ve olayları tek bir merkezi noktada toplamaktır. Bu, güvenlik ekiplerine tüm ortam üzerinde bütünsel bir görünürlük sağlar. SIEM’in iş akışı genellikle şu adımlardan oluşur:</p>
+<ol>
+<li><strong>Log Toplama (Collection/Aggregation):</strong> Farklı kaynaklardan üretilen loglar, ajanlar (agents) aracılığıyla veya Syslog gibi standart protokoller kullanılarak SIEM platformuna güvenli bir şekilde iletilir.</li>
+<li><strong>Normalizasyon ve Ayrıştırma (Normalization &amp; Parsing):</strong> Ham log verileri, farklı cihazlar ve uygulamalar tarafından farklı formatlarda üretilir. Normalizasyon, bu heterojen verileri analiz edilebilir, ortak ve yapılandırılmış bir formata dönüştürme işlemidir. Örneğin, farklı sistemlerdeki zaman damgaları evrensel bir formata (UTC) çevrilir, “login failed”, “authentication error”, “user logon failure” gibi farklı ifadeler tek bir standart olay kimliğine (<code>Failed_Logon</code>) eşlenir.</li>
+<li><strong>Korelasyon (Correlation):</strong> Bu, SIEM’in en güçlü yeteneğidir. Korelasyon motoru, normalleştirilmiş veriler üzerinde önceden tanımlanmış kurallar çalıştırarak, tek başlarına şüpheli görünmeyen ancak bir araya geldiklerinde kötü niyetli bir aktiviteye işaret eden olaylar zincirini tespit eder. Örneğin, bir korelasyon kuralı, “bir kullanıcıdan 5 dakika içinde 10&rsquo;dan fazla başarısız oturum açma denemesi gelmesi ve ardından aynı IP’den başarılı bir oturum açılması” durumunu bir kaba kuvvet saldırısı olarak işaretleyebilir.</li>
+<li><strong>Uyarı (Alerting) ve Raporlama:</strong> Bir korelasyon kuralı tetiklendiğinde, SIEM bir uyarı (alert) oluşturur ve bunu güvenlik analistlerinin incelemesi için bir arayüze (dashboard) yansıtır. Ayrıca, uyumluluk (compliance) denetimleri ve yönetim için düzenli raporlar üretir.</li>
+</ol>
+<h3 id="52-soar-ile-otonom-savunma-orkestrasyon-otomasyon-ve-otomatik-olay-müdahalesi-playbooklar">
+  5.2. SOAR ile Otonom Savunma: Orkestrasyon, Otomasyon ve Otomatik Olay Müdahalesi (Playbook’lar)
+  <a class="heading-link" href="#52-soar-ile-otonom-savunma-orkestrasyon-otomasyon-ve-otomatik-olay-m%c3%bcdahalesi-playbooklar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SIEM, tehditleri tespit etme ve uyarı üretme konusunda mükemmel olsa da, bu uyarılara müdahale etme süreci genellikle manuel ve zaman alıcıdır. Bir analistin, bir uyarıyı doğrulamak, bağlamını anlamak ve müdahale etmek için birden fazla güvenlik aracı arasında geçiş yapması gerekebilir. <strong>SOAR</strong> platformları, bu müdahale sürecini otomatize ederek ve kolaylaştırarak SIEM’in yeteneklerini bir sonraki seviyeye taşır. SOAR, üç temel kavram üzerine kuruludur:</p>
+<ol>
+<li><strong>Orkestrasyon (Orchestration):</strong> Farklı güvenlik araçlarının (SIEM, firewall, EDR, tehdit istihbaratı platformu vb.) API’ler aracılığıyla birbiriyle konuşmasını ve entegre bir şekilde çalışmasını sağlar. Bu, analistlerin tek bir konsoldan tüm araçları yönetebilmesine olanak tanır.</li>
+<li><strong>Otomasyon (Automation):</strong> Tekrarlayan, düşük seviyeli ve manuel görevlerin makineler tarafından otomatik olarak gerçekleştirilmesidir. Örneğin, bir IP adresinin itibarını kontrol etme, bir dosya hash’ini sandbox’a gönderme veya bir destek bileti açma gibi işlemler otomatize edilebilir.</li>
+<li><strong>Müdahale (Response) ve Playbook’lar:</strong> SOAR’ın kalbi <strong>playbook</strong>’lardır. Bir playbook, belirli bir güvenlik olayı türü (örneğin, phishing e-postası, zararlı yazılım tespiti) için önceden tanımlanmış, adım adım bir iş akışıdır. Bu adımlar hem otomatik görevleri (örneğin, “E-postadaki URL’yi tehdit istihbaratı veritabanında kontrol et”) hem de manuel adımları (örneğin, “Analist, URL’nin kötü niyetli olduğunu onaylarsa devam et”) içerebilir. Bir SIEM uyarısı playbook’u tetiklediğinde, SOAR platformu tanımlı adımları otomatik olarak yürüterek müdahale sürecini saniyeler veya dakikalar içinde tamamlayabilir.</li>
+</ol>
+<h3 id="53-platform-karşılaştırması-önde-gelen-siem-ve-soar-çözümlerinin-mimarileri-ve-yetenekleri">
+  5.3. Platform Karşılaştırması: Önde Gelen SIEM ve SOAR Çözümlerinin Mimarileri ve Yetenekleri
+  <a class="heading-link" href="#53-platform-kar%c5%9f%c4%b1la%c5%9ft%c4%b1rmas%c4%b1-%c3%b6nde-gelen-siem-ve-soar-%c3%a7%c3%b6z%c3%bcmlerinin-mimarileri-ve-yetenekleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SIEM ve SOAR, birbirinin yerine geçen değil, birbirini tamamlayan teknolojilerdir. SIEM “tespit” ve “analiz” odaklıyken, SOAR “müdahale” ve “otomasyon” odaklıdır. Bir SOC’nin olgunluk yolculuğunda genellikle önce sağlam bir SIEM altyapısı kurulur, ardından operasyonel verimliliği artırmak için SOAR yetenekleri eklenir.</p>
+<p>Piyasada bu hizmetleri sunan birçok platform bulunmaktadır ve her birinin farklı mimari yaklaşımları vardır:</p>
+<ul>
+<li><strong>Splunk:</strong> Genellikle büyük ölçekli, şirket içi (on-premise) dağıtımlar için güçlü bir seçenek olarak kabul edilir. Esnek veri alımı ve güçlü arama dili (SPL) ile bilinir. Ancak, lisanslama modeli genellikle veri hacmine dayalı olduğu için maliyetli olabilir.</li>
+<li><strong>IBM QRadar:</strong> Köklü ve olgun bir SIEM platformudur. Özellikle kural tabanlı korelasyon ve uyumluluk raporlaması konularında güçlüdür. Genellikle Splunk’a göre daha uygun maliyetli bir seçenek olarak görülür, ancak arayüzü bazı kullanıcılar tarafından daha eski olarak değerlendirilebilir.</li>
+<li><strong>Microsoft Sentinel:</strong> Bulut tabanlı (cloud-native) bir SIEM ve SOAR çözümüdür. Özellikle Azure bulut hizmetleriyle derin entegrasyonu ve yapay zeka destekli analiz yetenekleri ile öne çıkar. Altyapı yönetimi gerektirmediği ve ölçeklenebilir olduğu için modern bulut ortamları için popüler bir seçenektir.</li>
+</ul>
+<p><img src="/images/1_pGGWBXfh3FmW4dBdnSiGIA.png" alt=""></p>
+<p><strong>SIEM ve SOAR Arasındaki Temel Farklar</strong></p>
+<hr>
+<h3 id="bölüm-6-ağa-erişimde-sıfır-güven-ağ-erişim-kontrolünac">
+  Bölüm 6: Ağa Erişimde Sıfır Güven: Ağ Erişim Kontrolü (NAC)
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-6-a%c4%9fa-eri%c5%9fimde-s%c4%b1f%c4%b1r-g%c3%bcven-a%c4%9f-eri%c5%9fim-kontrol%c3%bcnac">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Ağ Erişim Kontrolü (Network Access Control — NAC), bir ağa bağlanan cihazların ve kullanıcıların kimliğini doğrulayan ve bu cihazların önceden tanımlanmış güvenlik politikalarına uygunluğunu denetleyen bir güvenlik yaklaşımıdır. NAC’ın temel amacı, yalnızca yetkili ve “sağlıklı” cihazların ağ kaynaklarına erişmesini sağlayarak saldırı yüzeyini azaltmaktır. Bu, Sıfır Güven mimarisinin “asla güvenme, her zaman doğrula” ilkesinin ağa ilk giriş noktasında uygulanmasıdır.</p>
+<h3 id="61-cihaz-güvenlik-durumu-değerlendirmesi-posture-assessment-kriterler-ve-politikalar">
+  6.1. Cihaz Güvenlik Durumu Değerlendirmesi (Posture Assessment): Kriterler ve Politikalar
+  <a class="heading-link" href="#61-cihaz-g%c3%bcvenlik-durumu-de%c4%9ferlendirmesi-posture-assessment-kriterler-ve-politikalar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>NAC’ın en temel yeteneklerinden biri, ağa bağlanmaya çalışan her bir cihaz için <strong>duruş değerlendirmesi (posture assessment)</strong> yapmasıdır. Bu süreç, cihazın kurumsal güvenlik standartlarını karşılayıp karşılamadığını kontrol eden bir dizi denetimden oluşur. Bu denetimler sırasında kontrol edilen yaygın kriterler şunlardır :</p>
+<ul>
+<li><strong>Antivirüs/Antimalware Durumu:</strong> Cihazda kurumsal standartlara uygun bir antivirüs yazılımının kurulu olup olmadığı, çalışır durumda olup olmadığı ve imza veritabanının güncel olup olmadığı kontrol edilir.</li>
+<li><strong>İşletim Sistemi ve Yama Seviyesi:</strong> Cihazın işletim sisteminin güncel olup olmadığı ve kritik güvenlik yamalarının yüklenip yüklenmediği doğrulanır.</li>
+<li><strong>Güvenlik Duvarı Durumu:</strong> Cihazın yerel güvenlik duvarının etkin olup olmadığı denetlenir.</li>
+<li><strong>Yazılım Varlığı:</strong> Cihazda yetkisiz veya yasaklanmış yazılımların (örneğin, P2P dosya paylaşım uygulamaları) bulunup bulunmadığı kontrol edilebilir.</li>
+<li><strong>Disk Şifrelemesi:</strong> Hassas verilerin korunması için cihazın sabit diskinin şifrelenmiş olup olmadığı doğrulanabilir.</li>
+</ul>
+<p>Bu denetimlerin sonucuna göre, cihaz <strong>uyumlu (compliant)</strong> veya <strong>uyumsuz (non-compliant)</strong> olarak sınıflandırılır. Uyumsuz cihazlar için NAC çözümleri çeşitli eylemler uygulayabilir :</p>
+<ul>
+<li><strong>Karantinaya Alma (Quarantine):</strong> Cihaz, ağın geri kalanından yalıtılmış, sınırlı erişime sahip bir ağ segmentine (VLAN) yerleştirilir.</li>
+<li><strong>İyileştirme (Remediation):</strong> Karantina ağındayken, cihaza eksik yamaları veya güncellemeleri alabileceği sunuculara (örneğin, WSUS, antivirüs sunucusu) erişim izni verilir. Cihaz uyumlu hale geldikten sonra tekrar denetlenir ve tam ağ erişimi sağlanır.</li>
+<li><strong>Erişimi Engelleme:</strong> Kritik uyumsuzluklar durumunda cihazın ağa erişimi tamamen engellenebilir.</li>
+</ul>
+<h3 id="62-ieee-8021x-standardı-port-tabanlı-kimlik-doğrulama-mekanizması">
+  6.2. IEEE 802.1X Standardı: Port Tabanlı Kimlik Doğrulama Mekanizması
+  <a class="heading-link" href="#62-ieee-8021x-standard%c4%b1-port-tabanl%c4%b1-kimlik-do%c4%9frulama-mekanizmas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>IEEE 802.1X</strong>, hem kablolu (Ethernet) hem de kablosuz (Wi-Fi) ağlarda port tabanlı kimlik doğrulama sağlayan bir standarttır ve NAC çözümlerinin temelini oluşturur. Bu standart, bir cihazın fiziksel veya mantıksal bir porta bağlanır bağlanmaz kimliğini kanıtlamasını gerektirir. 802.1X mimarisi üç ana bileşenden oluşur:</p>
+<ol>
+<li><strong>Supplicant (İstemci):</strong> Ağa erişim talep eden uç cihazdır (örneğin, bir dizüstü bilgisayar veya akıllı telefon). Bu cihazda 802.1X kimlik doğrulamasını destekleyen bir yazılım çalışır.</li>
+<li><strong>Authenticator (Kimlik Doğrulayıcı):</strong> İstemcinin fiziksel olarak bağlandığı ağ cihazıdır (örneğin, bir switch veya kablosuz erişim noktası — AP). Authenticator, istemci ile kimlik doğrulama sunucusu arasında bir aracı görevi görür ve kimlik doğrulama başarılı olana kadar istemcinin portunu kapalı tutar.</li>
+<li><strong>Authentication Server (Kimlik Doğrulama Sunucusu):</strong> Genellikle bir <strong>RADIUS (Remote Authentication Dial-In User Service)</strong> sunucusudur. İstemciden gelen kimlik bilgilerini kontrol eden, kimlik doğrulama kararını veren ve bu kararı Authenticator’a bildiren merkezi otoritedir.</li>
+</ol>
+<p>Kimlik doğrulama süreci, <strong>Genişletilebilir Kimlik Doğrulama Protokolü (Extensible Authentication Protocol — EAP)</strong> kullanılarak gerçekleştirilir ve bu EAP mesajları, istemci ile authenticator arasında <strong>EAP over LAN (EAPoL)</strong> çerçeveleri içinde taşınır. Temel akış şu şekildedir:</p>
+<ol>
+<li>İstemci (Supplicant) ağa bağlanır. Port başlangıçta sadece EAPoL trafiğine izin verecek şekilde kapalıdır.</li>
+<li>İstemci bir <code>EAPoL-Start</code> mesajı göndererek kimlik doğrulama sürecini başlatır.</li>
+<li>Authenticator, istemciden kimliğini talep eden bir <code>EAP-Request/Identity</code> mesajı gönderir.</li>
+<li>İstemci, kimliğini (kullanıcı adı veya sertifika gibi) bir <code>EAP-Response/Identity</code> mesajıyla yanıtlar.</li>
+<li>Authenticator, bu EAP mesajını bir RADIUS <code>Access-Request</code> paketi içine kapsülleyerek Kimlik Doğrulama Sunucusu&rsquo;na (RADIUS) iletir.</li>
+<li>RADIUS sunucusu, kendi veritabanı veya Active Directory gibi bir kimlik deposu üzerinden kimlik bilgilerini doğrular.</li>
+<li>Doğrulama başarılı olursa, RADIUS sunucusu Authenticator’a bir <code>RADIUS Access-Accept</code> mesajı gönderir. Başarısız olursa <code>Access-Reject</code> gönderir.</li>
+<li>Authenticator, <code>Access-Accept</code> mesajını aldığında, istemcinin bağlı olduğu portu açar ve normal ağ trafiğine izin verir. Aynı zamanda istemciye bir <code>EAP-Success</code> mesajı gönderir.</li>
+</ol>
+<h3 id="63-misafir-ağ-yönetimi-ve-uyumsuz-cihazların-iyileştirilmesi-remediation">
+  6.3. Misafir Ağ Yönetimi ve Uyumsuz Cihazların İyileştirilmesi (Remediation)
+  <a class="heading-link" href="#63-misafir-a%c4%9f-y%c3%b6netimi-ve-uyumsuz-cihazlar%c4%b1n-iyile%c5%9ftirilmesi-remediation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>NAC çözümleri, kurumsal ağa geçici olarak erişmesi gereken misafirler, danışmanlar veya iş ortakları için güvenli ve kontrollü bir erişim sağlamada kritik bir rol oynar. NAC, bu tür kullanıcılar için genellikle internet erişimi olan ancak iç kurumsal kaynaklara erişimi olmayan, tamamen yalıtılmış bir <strong>misafir ağı (guest network)</strong> oluşturur. Misafir kullanıcılar, genellikle bir web portalı (captive portal) üzerinden kendilerini kaydederek veya geçici kimlik bilgileri alarak bu ağa bağlanabilirler.</p>
+<p>Daha önce bahsedildiği gibi, uyumsuz (non-compliant) kurumsal cihazlar için <strong>iyileştirme (remediation)</strong> süreci, NAC’ın en önemli faydalarından biridir. Bir cihazın güvenlik duruşu değerlendirmesinden geçememesi durumunda, cihaz otomatik olarak bir iyileştirme VLAN’ına yönlendirilir. Bu VLAN’da, cihazın sadece Windows Update sunucuları, antivirüs imza sunucuları veya yama yönetimi sistemleri gibi iyileştirme için gerekli olan kaynaklara erişimi vardır. Cihaz, gerekli güncellemeleri alıp uyumlu hale geldikten sonra, NAC tarafından yeniden değerlendirilir ve başarılı olursa tam ağ erişimi verilir. Bu otomatik süreç, hem ağ güvenliğini sağlar hem de IT departmanının manuel müdahale yükünü önemli ölçüde azaltır.</p>
+<hr>
+<h3 id="bölüm-7-kablosuz-ağların-güvenlik-protokolleri">
+  Bölüm 7: Kablosuz Ağların Güvenlik Protokolleri
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-7-kablosuz-a%c4%9flar%c4%b1n-g%c3%bcvenlik-protokolleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Kablosuz ağlar, sağladıkları esneklik ve mobilite nedeniyle modern IT altyapılarının ayrılmaz bir parçası haline gelmiştir. Ancak bu kolaylık, doğru güvenlik protokolleri ve yapılandırmaları olmadan ciddi güvenlik risklerini de beraberinde getirir. Kablosuz ağ güvenliği, WEP’in zayıflıklarından WPA3&rsquo;ün gelişmiş kriptografik korumalarına kadar uzun bir evrim geçirmiştir.</p>
+<h3 id="71-wpa2den-wpa3e-geçiş-kriptografik-gelişmeler-ve-sae-el-sıkışması">
+  7.1. WPA2&rsquo;den WPA3&rsquo;e Geçiş: Kriptografik Gelişmeler ve SAE El Sıkışması
+  <a class="heading-link" href="#71-wpa2den-wpa3e-ge%c3%a7i%c5%9f-kriptografik-geli%c5%9fmeler-ve-sae-el-s%c4%b1k%c4%b1%c5%9fmas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Wi-Fi Protected Access 2 (WPA2)</strong>, uzun yıllar boyunca kablosuz ağ güvenliğinin standardı olmuştur. AES (Advanced Encryption Standard) şifrelemesini kullanarak güçlü bir koruma sağlasa da, zamanla önemli zafiyetleri ortaya çıkmıştır. En bilinen zafiyetlerinden biri, <strong>KRACK (Key Reinstallation Attacks)</strong>’tir. Bu saldırı, WPA2&rsquo;nin 4 yönlü el sıkışma (4-way handshake) sürecindeki bir zayıflıktan faydalanarak şifreleme anahtarlarının yeniden kullanılmasına ve trafiğin çözülmesine olanak tanır. Ayrıca, WPA2-Personal modunda kullanılan Önceden Paylaşılmış Anahtar (Pre-Shared Key — PSK), zayıf parolalar kullanıldığında <strong>çevrimdışı sözlük saldırılarına (offline dictionary attacks)</strong> karşı savunmasızdır. Bir saldırgan, 4 yönlü el sıkışma trafiğini yakalayarak, ağa bağlı olmadan, kendi sisteminde parola denemeleri yapabilir. Bu zafiyetleri gidermek amacıyla 2018 yılında <strong>Wi-Fi Protected Access 3 (WPA3)</strong> standardı tanıtılmıştır. WPA3, WPA2&rsquo;ye göre bir dizi temel kriptografik yenilik getirir :</p>
+<ul>
+<li><strong>Simultaneous Authentication of Equals (SAE) El Sıkışması:</strong> WPA3-Personal modunun en önemli yeniliğidir. PSK’nın yerine geçen SAE (Dragonfly olarak da bilinir), güvenli bir parola tabanlı anahtar değişim protokolüdür. WPA2&rsquo;nin aksine, SAE el sıkışması sırasında saldırganın çevrimdışı sözlük saldırısı yapmasını imkansız hale getirir. Çünkü her kimlik doğrulama denemesi, ağ ile aktif bir etkileşim gerektirir. Bir saldırgan trafiği yakalasa bile, parolayı kırmak için erişim noktasıyla (AP) her bir deneme için ayrı ayrı etkileşime girmek zorundadır. Bu, AP’nin belirli bir sayıda başarısız denemeden sonra saldırganı engellemesine olanak tanır ve kaba kuvvet saldırılarını pratik olarak olanaksız kılar.</li>
+<li><strong>Daha Güçlü Şifreleme:</strong> WPA3-Enterprise modu, 128-bit AES şifrelemesine ek olarak, daha yüksek güvenlik gerektiren ortamlar için 192-bit’lik bir güvenlik paketi seçeneği sunar.</li>
+<li><strong>İleri Gizlilik (Forward Secrecy):</strong> SAE, doğası gereği ileri gizlilik sağlar. Bu, bir oturumun şifreleme anahtarı bir şekilde ele geçirilse bile, geçmişteki veya gelecekteki oturumların şifresinin çözülemeyeceği anlamına gelir, çünkü her oturum için benzersiz, geçici anahtarlar kullanılır.</li>
+<li><strong>Açık Ağlar için Geliştirilmiş Güvenlik (Enhanced Open):</strong> WPA3, parola gerektirmeyen halka açık Wi-Fi ağlarında bile bireysel veri şifrelemesi sağlayan <strong>Opportunistic Wireless Encryption (OWE)</strong>’ı tanıtır. Bu, her kullanıcı ile erişim noktası arasında benzersiz bir şifreleme anahtarı oluşturarak, aynı açık ağdaki diğer kullanıcıların trafiğinizi dinlemesini engeller.</li>
+</ul>
+<h3 id="72-genişletilebilir-kimlik-doğrulama-protokolü-eap-türleri-eap-tls-ve-peap-karşılaştırması">
+  7.2. Genişletilebilir Kimlik Doğrulama Protokolü (EAP) Türleri: EAP-TLS ve PEAP Karşılaştırması
+  <a class="heading-link" href="#72-geni%c5%9fletilebilir-kimlik-do%c4%9frulama-protokol%c3%bc-eap-t%c3%bcrleri-eap-tls-ve-peap-kar%c5%9f%c4%b1la%c5%9ft%c4%b1rmas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Kurumsal ortamlarda kullanılan WPA2/WPA3-Enterprise modu, her kullanıcı için ayrı kimlik bilgileri gerektirir ve kimlik doğrulama için 802.1X çerçevesini kullanır. Bu çerçeve içinde, kimlik doğrulama yöntemini belirleyen çeşitli <strong>Genişletilebilir Kimlik Doğrulama Protokolü (EAP)</strong> türleri bulunur. En yaygın kullanılan iki EAP türü EAP-TLS ve PEAP’tır :</p>
+<ul>
+<li><strong>EAP-TLS (EAP-Transport Layer Security):</strong> En güvenli EAP yöntemi olarak kabul edilir.</li>
+<li><strong>Karşılıklı kimlik doğrulaması</strong> gerektirir; yani hem kimlik doğrulama sunucusu (RADIUS) hem de istemci cihaz, kimliklerini kanıtlamak için dijital sertifikalar kullanır. Bu, parola tabanlı saldırıları (phishing, kaba kuvvet) tamamen ortadan kaldırır. Ancak, her istemci cihaza bir sertifika dağıtılmasını ve yönetilmesini gerektirdiği için bir <strong>Açık Anahtar Altyapısı (Public Key Infrastructure — PKI)</strong> gerektirir, bu da kurulum ve yönetim karmaşıklığını artırır.</li>
+<li><strong>PEAP (Protected EAP):</strong> Dağıtımı daha kolay olduğu için yaygın olarak kullanılır. PEAP, istemci ile sunucu arasında güvenli bir TLS tüneli oluşturur. Bu tünelin içinde, asıl kimlik doğrulama başka bir yöntemle (iç yöntem) yapılır. En yaygın iç yöntem <strong>MS-CHAPv2</strong>&lsquo;dir ve kullanıcı adı/parola tabanlıdır. Bu modelde sadece sunucunun bir sertifikaya ihtiyacı vardır; istemci ise kimlik bilgilerini (kullanıcı adı/parola) gönderir. Bu, PKI yönetimi gerektirmediği için daha basittir, ancak parola tabanlı olduğu için EAP-TLS’e göre daha az güvenlidir ve kimlik bilgisi hırsızlığına karşı savunmasızdır.</li>
+</ul>
+<h3 id="73-sahte-erişim-noktası-tehditleri-rogue-ap-ve-evil-twin-saldırılarına-karşıkorunma">
+  7.3. Sahte Erişim Noktası Tehditleri: Rogue AP ve Evil Twin Saldırılarına Karşı Korunma
+  <a class="heading-link" href="#73-sahte-eri%c5%9fim-noktas%c4%b1-tehditleri-rogue-ap-ve-evil-twin-sald%c4%b1r%c4%b1lar%c4%b1na-kar%c5%9f%c4%b1korunma">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Kablosuz ağlar, fiziksel erişim gerektirmedikleri için belirli saldırı türlerine karşı daha savunmasızdır. Bunlardan en tehlikelileri, yetkisiz erişim noktalarıyla ilgilidir:</p>
+<ul>
+<li><strong>Rogue AP (Sahte Erişim Noktası):</strong> Bir çalışanın bilgisi dahilinde veya dışında, kurumsal ağa yetkisiz bir kablosuz erişim noktasının (AP) bağlanmasıdır. Bu AP, genellikle güvenlik yapılandırmalarından yoksundur ve kurumsal ağın güvenlik politikalarını atlayarak saldırganlar için bir arka kapı oluşturur.</li>
+<li><strong>Evil Twin (Şeytan İkizi):</strong> Meşru bir kablosuz ağın (örneğin, “Ofis_WiFi”) SSID’sini (ağ adını) kopyalayan kötü niyetli bir erişim noktasıdır. Saldırgan, kendi AP’sinin sinyal gücünü meşru AP’den daha yüksek ayarlayarak, yakındaki kullanıcıların cihazlarının otomatik olarak kendi sahte ağına bağlanmasını sağlar. Kullanıcı sahte ağa bağlandığında, saldırgan kullanıcı ile internet arasında bir <strong>aradaki adam (Man-in-the-Middle)</strong> konumuna geçer ve tüm trafiği dinleyebilir, manipüle edebilir veya kullanıcıları sahte giriş sayfalarına yönlendirerek kimlik bilgilerini çalabilir.</li>
+</ul>
+<p>Bu tehditlere karşı korunmak için çok katmanlı bir yaklaşım gereklidir :</p>
+<h4 id="teknik-önlemler">
+  <strong>Teknik Önlemler</strong>
+  <a class="heading-link" href="#teknik-%c3%b6nlemler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Kablosuz Saldırı Önleme Sistemleri (WIPS):</strong> Bu sistemler, radyo frekansı spektrumunu sürekli olarak tarayarak yetkisiz AP’leri ve Evil Twin’leri tespit eder. Tespit ettiklerinde, bu cihazların yerini belirleyebilir ve hatta meşru istemcilerin bu sahte AP’lere bağlanmasını engelleyen de-authentication paketleri göndererek aktif olarak müdahale edebilirler.</li>
+<li><strong>802.1X Kimlik Doğrulaması:</strong> WPA2/WPA3-Enterprise ve 802.1X kullanmak, Evil Twin saldırılarına karşı güçlü bir savunma sağlar. Bir istemci bir Evil Twin AP’ye bağlansa bile, Evil Twin’in meşru RADIUS sunucusunun sertifikasına sahip olmaması nedeniyle kimlik doğrulama süreci başarısız olur ve istemci ağa tam erişim sağlayamaz.</li>
+</ul>
+<h4 id="idari-önlemler">
+  <strong>İdari Önlemler</strong>
+  <a class="heading-link" href="#idari-%c3%b6nlemler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Düzenli Ağ Taramaları:</strong> Ağın düzenli olarak taranarak yetkisiz cihazların tespit edilmesi önemlidir.</li>
+<li><strong>Kullanıcı Eğitimi:</strong> Kullanıcıları, bilinmeyen veya şüpheli Wi-Fi ağlarına bağlanmanın riskleri, sertifika uyarılarına dikkat etme ve halka açık ağlarda VPN kullanmanın önemi konusunda eğitmek, en önemli savunma hatlarından biridir.</li>
+</ul>
+<p><img src="/images/1_1MluVyG6UZhxsJniWxTz2g.png" alt=""></p>
+<p><strong>WPA2 ve WPA3 Karşılaştırması</strong></p>
+<hr>
+<h3 id="sonuç">
+  Sonuç
+  <a class="heading-link" href="#sonu%c3%a7">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu kapsamlı teknik yazı, modern ağ güvenliği teknolojilerinin evrimini ve mevcut durumunu ortaya koymaktadır. Analizler göstermektedir ki, güvenlik duvarlarından kablosuz protokollere kadar her alanda, yalıtılmış ve reaktif çözümlerden, entegre, proaktif ve bağlam farkındalığı yüksek sistemlere doğru net bir kayma yaşanmaktadır. Artık Firewall, WAF, IPS, VPN, NAC ve SIEM/SOAR gibi teknolojiler, birbirinden bağımsız çalışan silolar olarak değil, bütünleşik bir savunma mimarisinin birbirini tamamlayan bileşenleri olarak görülmektedir.</p>
+<p>Bu modern mimarinin temel felsefesi, Sıfır Güven (Zero Trust) ilkeleri etrafında şekillenmektedir: ağın hiçbir bölümüne (iç veya dış) varsayılan olarak güvenilmemesi ve her erişim talebinin, kimlik, cihaz sağlığı, konum ve diğer bağlamsal veriler kullanılarak sürekli olarak doğrulanması. Bu yaklaşım, NGFW’lerin uygulama ve kullanıcı bazlı politikalarından, NAC’ın cihaz duruşu değerlendirmesine ve WAF’ın pozitif güvenlik modeline kadar incelenen birçok teknolojinin temel mantığını oluşturmaktadır.</p>
+<p>Geleceğe bakıldığında, bu entegrasyonun yapay zeka ve makine öğrenimi ile daha da derinleşeceği açıktır. SIEM platformları, anomali tespitinde daha isabetli hale gelirken, SOAR çözümleri, karmaşık tehditlere karşı insan müdahalesi olmadan otonom müdahale senaryoları (playbook’lar) yürütebilecektir. Tehditleri daha hızlı ve doğru bir şekilde tespit etme (MTTD — Mean Time to Detect) ve bu tehditlere daha hızlı yanıt verme (MTTR — Mean Time to Respond) hedefleri, bu akıllı ve otomatize sistemlerin başarısının temel ölçütleri olmaya devam edecektir. Sonuç olarak, geleceğin ağ güvenliği, insan analistlerin stratejik tehdit avcılığı ve olay müdahalesi gibi üst düzey görevlere odaklanmasını sağlayan, rutin ve tekrarlayan görevleri ise akıllı otomasyon sistemlerine devreden, dinamik ve kendi kendini iyileştiren bir ekosisteme doğru evrilmektedir.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

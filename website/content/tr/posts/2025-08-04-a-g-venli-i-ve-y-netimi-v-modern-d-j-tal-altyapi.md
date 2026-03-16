@@ -1,4 +1,5 @@
 ---
+series: ["Ağ Güvenliği ve Yönetimi"]
 title: "Ağ Güvenliği ve Yönetimi V: MODERN DİJİTAL ALTYAPI"
 date: 2025-08-04
 draft: false

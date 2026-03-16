@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve Analizi · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve Analizi
+  
+    
+    Başlık Linki
+  
+
+
+Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web, Alan Adı Sistemi (DNS) ve dosya transferi — kapsamlı bir şekilde analiz etmek üzere yapılandırılmıştır. Her bölüm, ilgili protokol ailesinin tarihsel gelişimini, tasarımından kaynaklanan doğal zafiyetlerini, bu zafiyetleri gidermek için geliştirilen modern güvenlik mekanizmalarını ve günümüzün karmaşık tehdit ortamındaki yerlerini derinlemesine inceleyecektir. Raporun temel amacı, sadece protokolleri ve güvenlik eklentilerini ayrı ayrı tanımlamak değil, aynı zamanda aralarındaki karmaşık etkileşimleri, bağımlılıkları ve birleşik bir güvenlik mimarisi içindeki rollerini ortaya koymaktır. Örneğin, güvenli bir e-posta altyapısının, güvenilir bir DNS altyapısına nasıl bağımlı olduğu veya güvenli web trafiğinin, hem taşıma katmanında hem de uygulama katmanında nasıl katmanlı bir savunma gerektirdiği gibi konular, bütüncül bir bakış açısıyla ele alınacaktır. Bu metodoloji, okuyucuya izole bilgi parçaları yerine, birbiriyle entegre, stratejik bir protokol güvenliği anlayışı sunmayı hedeflemektedir.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve Analizi">
+  <meta name="twitter:description" content="Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve AnaliziBaşlık LinkiBu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web, Alan Adı Sistemi (DNS) ve dosya transferi — kapsamlı bir şekilde analiz etmek üzere yapılandırılmıştır. Her bölüm, ilgili protokol ailesinin tarihsel gelişimini, tasarımından kaynaklanan doğal zafiyetlerini, bu zafiyetleri gidermek için geliştirilen modern güvenlik mekanizmalarını ve günümüzün karmaşık tehdit ortamındaki yerlerini derinlemesine inceleyecektir. Raporun temel amacı, sadece protokolleri ve güvenlik eklentilerini ayrı ayrı tanımlamak değil, aynı zamanda aralarındaki karmaşık etkileşimleri, bağımlılıkları ve birleşik bir güvenlik mimarisi içindeki rollerini ortaya koymaktır. Örneğin, güvenli bir e-posta altyapısının, güvenilir bir DNS altyapısına nasıl bağımlı olduğu veya güvenli web trafiğinin, hem taşıma katmanında hem de uygulama katmanında nasıl katmanlı bir savunma gerektirdiği gibi konular, bütüncül bir bakış açısıyla ele alınacaktır. Bu metodoloji, okuyucuya izole bilgi parçaları yerine, birbiriyle entegre, stratejik bir protokol güvenliği anlayışı sunmayı hedeflemektedir.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2025-08-12-a-y-netimi-ve-g-venli-i-vi-a-protokolleri-g-venli-i-ve-analizi/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve Analizi">
+  <meta property="og:description" content="Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve AnaliziBaşlık LinkiBu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web, Alan Adı Sistemi (DNS) ve dosya transferi — kapsamlı bir şekilde analiz etmek üzere yapılandırılmıştır. Her bölüm, ilgili protokol ailesinin tarihsel gelişimini, tasarımından kaynaklanan doğal zafiyetlerini, bu zafiyetleri gidermek için geliştirilen modern güvenlik mekanizmalarını ve günümüzün karmaşık tehdit ortamındaki yerlerini derinlemesine inceleyecektir. Raporun temel amacı, sadece protokolleri ve güvenlik eklentilerini ayrı ayrı tanımlamak değil, aynı zamanda aralarındaki karmaşık etkileşimleri, bağımlılıkları ve birleşik bir güvenlik mimarisi içindeki rollerini ortaya koymaktır. Örneğin, güvenli bir e-posta altyapısının, güvenilir bir DNS altyapısına nasıl bağımlı olduğu veya güvenli web trafiğinin, hem taşıma katmanında hem de uygulama katmanında nasıl katmanlı bir savunma gerektirdiği gibi konular, bütüncül bir bakış açısıyla ele alınacaktır. Bu metodoloji, okuyucuya izole bilgi parçaları yerine, birbiriyle entegre, stratejik bir protokol güvenliği anlayışı sunmayı hedeflemektedir.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-12T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-12T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2025-08-12-a-y-netimi-ve-g-venli-i-vi-a-protokolleri-g-venli-i-ve-analizi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2025-08-12-a-y-netimi-ve-g-venli-i-vi-a-protokolleri-g-venli-i-ve-analizi/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2025-08-12-a-y-netimi-ve-g-venli-i-vi-a-protokolleri-g-venli-i-ve-analizi/">
+              Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve Analizi
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-08-12T00:00:00Z">
+                Ağustos 12, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              42 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="ağ-yönetimi-ve-güvenliği-vi-ağ-protokolleri-güvenliği-veanalizi">
+  Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve Analizi
+  <a class="heading-link" href="#a%c4%9f-y%c3%b6netimi-ve-g%c3%bcvenli%c4%9fi-vi-a%c4%9f-protokolleri-g%c3%bcvenli%c4%9fi-veanalizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_4B83QjV-QTWjVqB0z6ktug.png" alt=""></p>
+<p>Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web, Alan Adı Sistemi (DNS) ve dosya transferi — kapsamlı bir şekilde analiz etmek üzere yapılandırılmıştır. Her bölüm, ilgili protokol ailesinin tarihsel gelişimini, tasarımından kaynaklanan doğal zafiyetlerini, bu zafiyetleri gidermek için geliştirilen modern güvenlik mekanizmalarını ve günümüzün karmaşık tehdit ortamındaki yerlerini derinlemesine inceleyecektir. Raporun temel amacı, sadece protokolleri ve güvenlik eklentilerini ayrı ayrı tanımlamak değil, aynı zamanda aralarındaki karmaşık etkileşimleri, bağımlılıkları ve birleşik bir güvenlik mimarisi içindeki rollerini ortaya koymaktır. Örneğin, güvenli bir e-posta altyapısının, güvenilir bir DNS altyapısına nasıl bağımlı olduğu veya güvenli web trafiğinin, hem taşıma katmanında hem de uygulama katmanında nasıl katmanlı bir savunma gerektirdiği gibi konular, bütüncül bir bakış açısıyla ele alınacaktır. Bu metodoloji, okuyucuya izole bilgi parçaları yerine, birbiriyle entegre, stratejik bir protokol güvenliği anlayışı sunmayı hedeflemektedir.</p>
+<hr>
+<h3 id="bölüm-1-e-posta-iletişiminin-güvenlikmimarisi">
+  Bölüm 1: E-posta İletişiminin Güvenlik Mimarisi
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-1-e-posta-ileti%c5%9fiminin-g%c3%bcvenlikmimarisi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>E-posta, kurumsal ve kişisel iletişimin en kritik araçlarından biri olmaya devam etmektedir. Ancak temelini oluşturan SMTP protokolünün güvenliği göz ardı edilerek tasarlanmış olması, onu siber saldırganlar için birincil hedef haline getirmiştir. Bu bölüm, e-posta iletişiminin temel taşı olan SMTP’den başlayarak, modern e-posta güvenliğini tanımlayan kimlik doğrulama ve politika uygulama katmanlarına kadar uzanan bütüncül bir analiz sunmaktadır.</p>
+<h3 id="11-smtp-e-postanın-temel-taşı-ve-doğal-zafiyetleri">
+  1.1. SMTP: E-postanın Temel Taşı ve Doğal Zafiyetleri
+  <a class="heading-link" href="#11-smtp-e-postan%c4%b1n-temel-ta%c5%9f%c4%b1-ve-do%c4%9fal-zafiyetleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="smtpnin-temel-mimarisi-veişleyişi">
+  SMTP’nin Temel Mimarisi ve İşleyişi
+  <a class="heading-link" href="#smtpnin-temel-mimarisi-vei%c5%9fleyi%c5%9fi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Basit Posta Aktarım Protokolü (Simple Mail Transfer Protocol — SMTP), TCP/IP protokol takımının uygulama katmanında çalışan ve e-posta mesajlarının sunucular arasında aktarımını sağlayan temel protokoldür. Bu protokolün işleyişi, bir Posta Kullanıcı Aracısı (Mail User Agent — MUA), örneğin Outlook veya bir Gmail web arayüzü, tarafından oluşturulan bir e-postanın, bir Posta Aktarım Aracısı’na (Mail Transfer Agent — MTA), yani e-posta sunucusuna gönderilmesi ve bu sunucunun mesajı alıcının MTA’sına iletmesi sürecini yönetir.</p>
+<p>İletişim, genellikle 25, 465 (SMTPS) veya 587 (Submission) numaralı portlar üzerinden kurulan bir TCP bağlantısı ile başlar. Bağlantı kurulduktan sonra, istemci ve sunucu arasında bir dizi komut ve yanıt alışverişi gerçekleşir. Temel komut dizisi şu adımlardan oluşur:</p>
+<ol>
+<li><code>HELO</code> veya daha modern <code>EHLO</code> (Extended HELO): İstemci sunucuyu selamlar ve iletişim oturumunu başlatır.</li>
+<li><code>MAIL FROM</code>: E-postanın &ldquo;zarf göndericisini&rdquo; (envelope sender) belirtir. Bu adres, e-postanın teslim edilememesi durumunda geri sekme (bounce) mesajlarının gönderileceği adrestir.</li>
+<li><code>RCPT TO</code>: E-postanın bir veya daha fazla alıcısını tanımlar. Her alıcı için bu komut tekrarlanır.</li>
+<li><code>DATA</code>: Mesajın başlık (header) ve gövde (body) kısmının başlayacağını bildirir. Mesaj içeriği, tek bir nokta (<code>.</code>) içeren bir satırla sonlandırılır.</li>
+</ol>
+<p>E-posta alıcı sunucuya başarıyla ulaştıktan sonra, alıcının MUA’sı tarafından gelen kutusundan okunması için Posta Ofisi Protokolü (POP3) veya İnternet Mesaj Erişim Protokolü (IMAP) gibi farklı protokoller kullanılır. SMTP yalnızca giden ve sunucular arası posta aktarımından sorumludur.</p>
+<h4 id="tarihsel-güvenlik-zafiyetleri-tasarımdan-gelenriskler">
+  Tarihsel Güvenlik Zafiyetleri: Tasarımdan Gelen Riskler
+  <a class="heading-link" href="#tarihsel-g%c3%bcvenlik-zafiyetleri-tasar%c4%b1mdan-gelenriskler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>SMTP, 1980&rsquo;lerde, internetin bugünkü gibi küresel ve potansiyel olarak düşmanca bir ortam olmadığı, daha küçük ve güvene dayalı bir ağ olduğu varsayımıyla tasarlanmıştır. Bu tarihsel bağlam nedeniyle, protokolün orijinal spesifikasyonlarında yerleşik kimlik doğrulama veya şifreleme mekanizmaları bulunmamaktadır. Bu temel tasarım eksikliği, günümüzde hala etkileri hissedilen iki kritik zafiyete yol açmıştır:</p>
+<ul>
+<li><strong>Open Relay (Açık Röle):</strong> Yanlış yapılandırılmış bir SMTP sunucusunun, ne göndericisi ne de alıcısı kendi yerel yetki alanında olmayan e-postaları kabul edip üçüncü taraflara iletmesi durumudur. Bu zafiyet, sunucunun kimliği belirsiz kişiler tarafından büyük hacimli spam, phishing veya kötü amaçlı yazılım içeren e-postalar göndermek için bir araç olarak kötüye kullanılmasına olanak tanır. Bir kurumun sunucusunun açık röle olarak kullanılması, o sunucunun IP adresinin ve alan adının itibarını ciddi şekilde zedeler ve DNS tabanlı kara delik listelerine (DNS-based Blackhole Lists — DNSBL) girmesine neden olarak meşru e-posta iletişiminin de engellenmesine yol açabilir. Modern e-posta sunucuları, bu riski bertaraf etmek için varsayılan olarak yalnızca kimliği doğrulanmış kullanıcılardan veya önceden tanımlanmış güvenilir IP aralıklarından gelen e-postaları aktaracak şekilde yapılandırılır.</li>
+<li><strong>Kimlik Sahtekarlığı (Spoofing):</strong> SMTP protokolü, <code>MAIL FROM</code> komutunda belirtilen gönderici adresinin veya daha önemlisi, son kullanıcının e-posta istemcisinde gördüğü <code>From:</code> başlığındaki adresin doğruluğunu kontrol etmek için herhangi bir mekanizma içermez. Bu durum, bir saldırganın e-posta başlıklarını kolayca manipüle ederek, e-postanın güvenilir bir kaynaktan (örneğin, bir CEO, bir banka veya bir devlet kurumu) geliyormuş gibi görünmesini sağlamasına olanak tanır. Bu temel zafiyet, günümüzün en yaygın ve en tehlikeli siber saldırı türleri olan oltalama (phishing) ve İş E-postası Sahtekarlığı (Business Email Compromise - BEC) saldırılarının temelini oluşturur.</li>
+</ul>
+<h4 id="modern-tehditler-ve-saldırı-vektörleri">
+  Modern Tehditler ve Saldırı Vektörleri
+  <a class="heading-link" href="#modern-tehditler-ve-sald%c4%b1r%c4%b1-vekt%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>SMTP’nin temel zafiyetleri üzerine inşa edilen daha sofistike ve modern saldırı teknikleri de ortaya çıkmıştır:</p>
+<ul>
+<li><strong>SMTP Smuggling (SMTP Kaçakçılığı):</strong> Bu gelişmiş saldırı tekniği, farklı SMTP sunucu yazılımlarının, bir e-postanın veri (DATA) bölümünün sonunu belirten karakter dizisini (<code>&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;</code> gibi) farklı yorumlamasından kaynaklanan bir zafiyeti sömürür. Bir saldırgan, giden (outbound) ve gelen (inbound) sunucular arasındaki bu yorumlama farkından yararlanarak, tek bir meşru e-posta mesajı içine gizlenmiş ikinci, sahte bir e-posta mesajı &ldquo;kaçırabilir&rdquo;. Giden sunucu bunu tek bir e-posta olarak görürken, gelen sunucu bunu iki ayrı e-posta olarak yorumlar. Bu ikinci, sahte e-posta, giden sunucunun güvenlik kontrollerinden (örneğin SPF) hiç geçmediği için, saldırganın bu koruma mekanizmalarını atlayarak güvenilir bir alan adı adına sahte e-postalar göndermesine olanak tanır. Bu saldırı, Postfix gibi popüler MTA&rsquo;ları etkilemiş ve bu tür belirsizlikleri ortadan kaldırmak için <code>smtpd_forbid_bare_newline=yes</code> gibi özel yapılandırma direktifleriyle önlem alınmasını gerektirmiştir.</li>
+<li><strong>CRLF Injection:</strong> Web uygulamaları veya posta istemcileri gibi kaynaklardan gelen kullanıcı girdilerinin (örneğin, e-posta konu satırı veya alıcı adresleri) düzgün bir şekilde temizlenmemesi (sanitization) durumunda, saldırganların SMTP komut dizisine Satır Başı (Carriage Return — CR, <code>\r</code>) ve Yeni Satır (Line Feed - LF, <code>\n</code>) karakterleri enjekte etmesine olanak tanır. Bu karakterler SMTP komutlarını birbirinden ayırmak için kullanıldığından, saldırgan mevcut bir komutu erken sonlandırıp <code>RCPT TO</code> veya <code>DATA</code> gibi yeni ve yetkisiz SMTP komutları ekleyebilir. Bu durum, mesajın alıcılarını değiştirmeye, içeriğini manipüle etmeye veya sunucuyu tamamen farklı bir spam mesajı göndermek için kullanmaya yol açabilir.</li>
+</ul>
+<h3 id="12-e-posta-kimlik-doğrulama-üçgeni-spf-dkim-vedmarc">
+  1.2. E-posta Kimlik Doğrulama Üçgeni: SPF, DKIM ve DMARC
+  <a class="heading-link" href="#12-e-posta-kimlik-do%c4%9frulama-%c3%bc%c3%a7geni-spf-dkim-vedmarc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SMTP’nin doğasında bulunan kimlik doğrulama eksikliğini gidermek amacıyla, her biri farklı bir sorunu çözmeye odaklanan ve DNS üzerine inşa edilmiş üç temel protokol geliştirilmiştir. Bu protokoller, SPF, DKIM ve DMARC, tek başlarına tam bir koruma sağlamazlar; ancak bir araya geldiklerinde e-posta sahtekarlığına karşı katmanlı ve güçlü bir savunma mekanizması oluştururlar. Bu üçlü yapı, modern e-posta güvenliğinin temelini teşkil eder.</p>
+<h4 id="121-spf-sender-policy-framework-zarf-göndericisinin-doğrulanması">
+  1.2.1. SPF (Sender Policy Framework): Zarf Göndericisinin Doğrulanması
+  <a class="heading-link" href="#121-spf-sender-policy-framework-zarf-g%c3%b6ndericisinin-do%c4%9frulanmas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<h4 id="çalışma-prensibi">
+  Çalışma Prensibi
+  <a class="heading-link" href="#%c3%a7al%c4%b1%c5%9fma-prensibi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Gönderen Politikası Çerçevesi (Sender Policy Framework — SPF), bir alan adı sahibinin, kendi alan adı adına e-posta göndermeye yetkili olan posta sunucularının IP adreslerini kamuya açık bir şekilde beyan etmesine olanak tanıyan bir e-posta kimlik doğrulama yöntemidir. Bu beyan, alan adının DNS ayarlarında özel olarak biçimlendirilmiş bir TXT kaydı olarak yayınlanır.</p>
+<p>Bir alıcı e-posta sunucusu, bir alan adından geldiğini iddia eden bir e-posta aldığında, aşağıdaki adımları izler:</p>
+<ol>
+<li>E-postayı gönderen sunucunun kaynak IP adresini tespit eder.</li>
+<li>SMTP oturumu sırasında kullanılan <code>MAIL FROM</code> (zarf göndericisi) komutundaki alan adını alır.</li>
+<li>Bu alan adının DNS’ini sorgulayarak SPF kaydını bulur.</li>
+<li>Gönderen sunucunun IP adresinin, SPF kaydında listelenen yetkili IP adresleri veya mekanizmalar arasında olup olmadığını kontrol eder.</li>
+</ol>
+<p>Bu kontrol sonucuna göre, e-postanın meşru bir kaynaktan gelip gelmediğine dair bir karar verilir.</p>
+<h4 id="dns-kayıt-yapısı-ve-sözdizimi">
+  DNS Kayıt Yapısı ve Söz Dizimi
+  <a class="heading-link" href="#dns-kay%c4%b1t-yap%c4%b1s%c4%b1-ve-s%c3%b6zdizimi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir SPF kaydı, her zaman sürüm bilgisi olan <code>v=spf1</code> etiketiyle başlar. Ardından, yetkili göndericileri tanımlayan bir veya daha fazla mekanizma gelir. Yaygın olarak kullanılan mekanizmalar şunlardır:</p>
+<ul>
+<li><code>ip4:</code> ve <code>ip6:</code>: Belirli IPv4 veya IPv6 adreslerini veya CIDR aralıklarını yetkilendirir.</li>
+<li><code>a</code>: Alan adının A veya AAAA kaydında bulunan IP adresini yetkilendirir.</li>
+<li><code>mx</code>: Alan adının MX kayıtlarında tanımlı olan posta sunucularını yetkilendirir.</li>
+<li><code>include:</code>: Başka bir alan adının SPF kaydını mevcut politikaya dahil eder. Bu, e-posta gönderimi için üçüncü taraf hizmetler (örn. Google Workspace, SendGrid) kullanıldığında yaygın olarak kullanılır.</li>
+</ul>
+<p>Her SPF kaydının sonunda, listedeki mekanizmalarla eşleşmeyen tüm diğer kaynaklar için ne yapılacağını belirten bir “niteleyici” (qualifier) bulunur :</p>
+<ul>
+<li><code>-all</code> (Hard Fail): Yetkisiz IP adreslerinden gelen e-postaların reddedilmesini şiddetle önerir. Bu, en güvenli ve en çok tavsiye edilen seçenektir.</li>
+<li><code>~all</code> (Soft Fail): E-postaların reddedilmek yerine kabul edilmesini ancak şüpheli olarak işaretlenmesini (örneğin, spam klasörüne taşınmasını) önerir. Genellikle DMARC&rsquo;a geçiş dönemlerinde kullanılır.</li>
+<li><code>?all</code> (Neutral): Politika hakkında herhangi bir görüş belirtmez. Genellikle test amaçlıdır ve üretim ortamlarında önerilmez.</li>
+</ul>
+<h4 id="sınırlılıklar-ve-zorluklar">
+  Sınırlılıklar ve Zorluklar
+  <a class="heading-link" href="#s%c4%b1n%c4%b1rl%c4%b1l%c4%b1klar-ve-zorluklar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>SPF, e-posta kimlik doğrulamasına önemli bir katkı sağlasa da, tek başına tam bir çözüm değildir ve bazı önemli sınırlılıklara sahiptir:</p>
+<ul>
+<li><code>From:</code> <strong>Başlığı Doğrulaması Eksikliği:</strong> SPF&rsquo;nin en temel sınırlılığı, yalnızca SMTP zarfındaki <code>MAIL FROM</code> (RFC 5321) adresini doğrulamasıdır. Son kullanıcının e-posta istemcisinde gördüğü ve genellikle sahtekarlığın yapıldığı <code>From:</code> (RFC 5322) başlığını kontrol etmez. Bu nedenle, bir saldırgan <code>MAIL FROM</code> adresinde kendi kontrolündeki bir alan adını kullanırken, <code>From:</code> başlığında hedeflediği kurumun alan adını taklit edebilir ve bu durumda e-posta SPF kontrolünü geçebilir.</li>
+<li><strong>E-posta Yönlendirme Sorunları:</strong> Bir e-posta, bir sunucudan diğerine yönlendirildiğinde (forwarding), mesajı yeniden gönderen sunucu yönlendiren sunucudur. Alıcı sunucu, SPF kontrolünü bu yönlendiren sunucunun IP adresi üzerinden yapar. Yönlendiren sunucunun IP adresi, orijinal gönderenin SPF kaydında yer almadığı için, bu meşru e-posta SPF kontrolünden başarısız olur.</li>
+<li><strong>10 DNS Sorgu Limiti:</strong> Bir SPF kaydının doğrulanması sırasında, <code>include:</code>, <code>a:</code>, <code>mx:</code> gibi mekanizmalar nedeniyle yapılan toplam DNS sorgu sayısı 10&rsquo;u geçemez. Bu limitin aşılması, &ldquo;PermError&rdquo; (Kalıcı Hata) olarak bilinen bir duruma yol açar ve SPF doğrulamasının tamamen başarısız olmasına neden olur. Bu durum, özellikle çok sayıda üçüncü taraf e-posta hizmeti kullanan büyük kuruluşlar için bir zorluk teşkil etmektedir.</li>
+</ul>
+<h4 id="122-dkim-domainkeys-identified-mail-mesaj-bütünlüğünün-kriptografik-olarak-mühürlenmesi">
+  1.2.2. DKIM (DomainKeys Identified Mail): Mesaj Bütünlüğünün Kriptografik Olarak Mühürlenmesi
+  <a class="heading-link" href="#122-dkim-domainkeys-identified-mail-mesaj-b%c3%bct%c3%bcnl%c3%bc%c4%9f%c3%bcn%c3%bcn-kriptografik-olarak-m%c3%bch%c3%bcrlenmesi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<h4 id="çalışma-prensibi-1">
+  Çalışma Prensibi
+  <a class="heading-link" href="#%c3%a7al%c4%b1%c5%9fma-prensibi-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>DomainKeys Identified Mail (DKIM), e-postanın içeriğinin taşıma sırasında değiştirilmediğini (bütünlük) ve e-postanın gerçekten iddia edilen alan adından sorumlu bir sunucu tarafından gönderildiğini (kaynak doğruluğu) doğrulamak için açık anahtar kriptografisi kullanan bir yöntemdir.</p>
+<p>DKIM’in çalışma süreci şu şekildedir:</p>
+<ol>
+<li><strong>İmzalama:</strong> Gönderen e-posta sunucusu, giden her e-posta için benzersiz bir dijital imza oluşturur. Bu imza, e-postanın belirli başlıklarının (örneğin, <code>From:</code>, <code>To:</code>, <code>Subject:</code>) ve e-posta gövdesinin bir özetini (body hash) içerir.</li>
+<li><strong>Kriptografik Mühür:</strong> Sunucu, bu özeti kendi alan adına ait özel bir anahtar (private key) ile şifreler.</li>
+<li><strong>Başlık Ekleme:</strong> Oluşturulan bu şifreli imza, e-postanın başlıklarına <code>DKIM-Signature</code> adında yeni bir başlık olarak eklenir.</li>
+</ol>
+<h4 id="doğrulama-süreci">
+  Doğrulama Süreci
+  <a class="heading-link" href="#do%c4%9frulama-s%c3%bcreci">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Alıcı e-posta sunucusu, DKIM imzalı bir e-posta aldığında, aşağıdaki doğrulama adımlarını gerçekleştirir:</p>
+<ol>
+<li><code>DKIM-Signature</code> başlığını e-postadan okur.</li>
+<li>Bu başlık içinde yer alan <code>d=</code> (domain - imzalayan alan adı) ve <code>s=</code> (selector - anahtar seçici) etiketlerini kullanarak, imzalayan alan adının DNS&rsquo;inde belirli bir TXT kaydını sorgular. Sorgu adresi <code>s._domainkey.d</code> formatındadır (örneğin, <code>google._domainkey.example.com</code>).</li>
+<li>DNS’ten, imzalama için kullanılan özel anahtarın karşılığı olan genel anahtarı (public key) alır.</li>
+<li>Alıcı sunucu, e-postanın aynı başlıklarını ve gövdesini kullanarak kendi özetini hesaplar.</li>
+<li>DNS’ten aldığı genel anahtarı kullanarak <code>DKIM-Signature</code> başlığındaki şifreli imzayı çözer ve orijinal özeti elde eder.</li>
+<li>Kendi hesapladığı özet ile imzadan çözdüğü özeti karşılaştırır. Eğer iki özet eşleşirse, DKIM doğrulaması başarılı olur. Bu, mesajın belirtilen alan adı tarafından gerçekten gönderildiğini ve yolda değiştirilmediğini kanıtlar. Bu protokolün detayları RFC 6376 standardında tanımlanmıştır.</li>
+</ol>
+<h4 id="yapılandırma-ve-anahtaryönetimi">
+  Yapılandırma ve Anahtar Yönetimi
+  <a class="heading-link" href="#yap%c4%b1land%c4%b1rma-ve-anahtary%c3%b6netimi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>DKIM’in uygulanması, DNS’te bir genel anahtar yayınlamayı gerektirir. “Seçici” (selector) kavramı, bir alan adının aynı anda birden fazla DKIM anahtarı kullanmasına olanak tanır. Bu, farklı e-posta gönderme hizmetlerinin (örneğin, kurumsal sunucular, pazarlama otomasyon platformları) aynı alan adı adına e-posta gönderirken kendi ayrı anahtar çiftlerini kullanmalarını sağlar. Ayrıca, anahtar rotasyonunu, yani eski anahtarları geçersiz kılarken yenilerini devreye almayı, hizmet kesintisi olmadan kolaylaştırır.</p>
+<h4 id="123-dmarc-domain-based-message-authentication-reporting-and-conformance-politika-hizalama-ve-raporlama">
+  1.2.3. DMARC (Domain-based Message Authentication, Reporting, and Conformance): Politika, Hizalama ve Raporlama
+  <a class="heading-link" href="#123-dmarc-domain-based-message-authentication-reporting-and-conformance-politika-hizalama-ve-raporlama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<h4 id="çalışma-prensibi-2">
+  Çalışma Prensibi
+  <a class="heading-link" href="#%c3%a7al%c4%b1%c5%9fma-prensibi-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Alan Adı Tabanlı Mesaj Doğrulama, Raporlama ve Uygunluk (Domain-based Message Authentication, Reporting, and Conformance — DMARC), SPF ve DKIM’in üzerine inşa edilmiş bir politika ve raporlama katmanıdır. DMARC’ın temel amacı, bir alan adı sahibinin, kendi alan adından geliyormuş gibi görünen ancak SPF veya DKIM kimlik doğrulama kontrollerinden geçemeyen e-postalara ne yapılması gerektiği konusunda alıcı sunuculara net talimatlar vermesini sağlamaktır. Bu talimatlar, alan adının DNS’inde<code>_dmarc.example.com</code> adresinde yayınlanan tek bir TXT kaydı aracılığıyla iletilir. DMARC, RFC 7489 standardı ile tanımlanmıştır.</p>
+<h4 id="hizalama-alignment">
+  Hizalama (Alignment)
+  <a class="heading-link" href="#hizalama-alignment">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>DMARC’ın en kritik ve güçlü konsepti “hizalama”dır (alignment). Bir e-postanın DMARC kontrolünü geçebilmesi için, sadece SPF veya DKIM doğrulamalarından birini geçmesi yeterli değildir; aynı zamanda bu doğrulamanın, son kullanıcının gördüğü <code>From:</code> başlığındaki alan adıyla &ldquo;hizalanmış&rdquo; olması gerekir.</p>
+<ul>
+<li><strong>SPF Hizalaması:</strong> E-postanın DMARC için SPF’i geçmesi, gönderen sunucu IP’sinin <code>MAIL FROM</code> (zarf göndericisi) adresindeki alan adının SPF kaydında bulunması VE <code>MAIL FROM</code> adresindeki alan adının, <code>From:</code> başlığındaki alan adıyla eşleşmesi (veya bir alt alan adı olması) anlamına gelir.</li>
+<li><strong>DKIM Hizalaması:</strong> E-postanın DMARC için DKIM’i geçmesi, DKIM imzasının geçerli olması VE <code>DKIM-Signature</code> başlığındaki <code>d=</code> etiketinde belirtilen alan adının, <code>From:</code> başlığındaki alan adıyla eşleşmesi (veya bir alt alan adı olması) anlamına gelir.</li>
+</ul>
+<p>Bu hizalama kontrolü, SPF ve DKIM’in tek başlarına etkili bir şekilde çözemediği <code>From:</code> başlığı sahtekarlığı sorununu doğrudan hedefler ve engeller.</p>
+<h4 id="politika-uygulama-ve-raporlama">
+  Politika Uygulama ve Raporlama
+  <a class="heading-link" href="#politika-uygulama-ve-raporlama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir DMARC kaydı, <code>p</code> (policy) etiketi aracılığıyla alıcı sunuculara üç farklı eylem talimatı verebilir:</p>
+<ul>
+<li><code>p=none</code>: &ldquo;İzleme modu&rdquo; olarak da bilinir. Alıcı sunucudan, DMARC kontrolünden başarısız olan e-postalar üzerinde herhangi bir işlem yapmamasını, sadece onları teslim etmesini ister. Ancak bu modda bile, alan adı sahibi <code>rua</code> etiketiyle belirtilen adrese toplu raporlar alır. Bu, DMARC&rsquo;ı ilk kez uygularken e-posta akışını analiz etmek ve meşru gönderim kaynaklarını tespit etmek için kullanılır.</li>
+<li><code>p=quarantine</code>: Alıcı sunucudan, DMARC kontrolünden başarısız olan e-postaları reddetmek yerine şüpheli olarak işaretlemesini ve genellikle kullanıcının spam veya gereksiz posta klasörüne taşımasını talep eder.</li>
+<li><code>p=reject</code>: En katı politikadır. Alıcı sunucudan, DMARC kontrolünden başarısız olan e-postaları tamamen reddetmesini ve teslim etmemesini talep eder. Bu, alan adı sahtekarlığına karşı en güçlü korumayı sağlar ve tüm kuruluşlar için nihai hedeftir.</li>
+</ul>
+<p>DMARC’ın raporlama özelliği, alan adı sahipleri için paha biçilmezdir. <code>rua</code> (Reporting URI for Aggregate data) etiketi, alıcı sunucuların günlük olarak gönderdiği, hangi IP&rsquo;lerden ne kadar e-postanın SPF/DKIM/DMARC kontrollerini geçtiğini veya geçemediğini özetleyen XML tabanlı toplu raporların gönderileceği e-posta adresini belirtir. <code>ruf</code> (Reporting URI for Forensic data) etiketi ise, kimlik doğrulama hatalarının spesifik örneklerini içeren adli raporların gönderileceği adresi tanımlar. Bu raporlar, bir kurumun e-posta ekosisteminin sağlığını izlemek, yapılandırma hatalarını gidermek ve kendi alan adını kullanarak yapılan sahtekarlık girişimlerini tespit etmek için kritik öneme sahiptir.</p>
+<p>SPF ve DKIM, e-posta güvenliğini artırmak için bağımsız teknolojiler olarak ortaya çıkmıştır. Ancak, politika uygulama mekanizmalarının olmaması ve <code>From:</code> başlığı sahtekarlığına karşı tek başlarına yetersiz kalmaları, benimsenmelerini sınırlamıştır. DMARC&rsquo;ın ortaya çıkışı bu denklemi temelden değiştirmiştir. DMARC, SPF ve DKIM&rsquo;in doğrulama sonuçlarını alıp onlara bir &ldquo;anlam&rdquo; ve &ldquo;eylem&rdquo; (yani bir politika) yüklemiştir. <code>p=reject</code> gibi katı bir DMARC politikası uygulamak isteyen bir kurum, artık SPF ve DKIM&rsquo;i doğru bir şekilde yapılandırmak <em>zorundadır</em>; aksi takdirde kendi meşru e-postalarının da engellenmesi riskiyle karşı karşıya kalır. Bu durum, DMARC&rsquo;ın kendisinin bir &ldquo;politika motoru&rdquo; olarak hareket ederek, kendisinden önceki iki protokolün hem daha yaygın bir şekilde benimsenmesini hem de daha doğru bir şekilde yapılandırılmasını teşvik eden bir katalizör görevi görmesine yol açmıştır. Bu, bir üst katman standardının, kendisini oluşturan temel bileşenlerin benimsenmesini ve olgunlaşmasını nasıl zorunlu kılabileceğine dair siber güvenlikte önemli bir örnektir.</p>
+<p><img src="/images/1_-0B-a2lIL3ynJWniGhKLgg.png" alt=""></p>
+<p>SPF, DKIM, DMARC</p>
+<h3 id="13-gelişmiş-e-posta-tehditleri-ve-bütüncül-korunma-stratejileri">
+  1.3. Gelişmiş E-posta Tehditleri ve Bütüncül Korunma Stratejileri
+  <a class="heading-link" href="#13-geli%c5%9fmi%c5%9f-e-posta-tehditleri-ve-b%c3%bct%c3%bcnc%c3%bcl-korunma-stratejileri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SPF, DKIM ve DMARC gibi protokol düzeyindeki kontroller, e-posta sahtekarlığının teknik temelini zayıflatmada kritik bir rol oynasa da, saldırganlar sürekli olarak bu savunmaları aşmaya veya insan faktörünü hedef almaya yönelik yeni yöntemler geliştirmektedir.</p>
+<h4 id="saldırı-anatomisi-phishing-spear-phishing-vebec">
+  Saldırı Anatomisi: Phishing, Spear Phishing ve BEC
+  <a class="heading-link" href="#sald%c4%b1r%c4%b1-anatomisi-phishing-spear-phishing-vebec">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Phishing (Oltalama):</strong> Geniş bir kitleye yönelik olarak gerçekleştirilen, genellikle tanınmış ve güvenilir bir kurum (banka, sosyal medya platformu, kargo şirketi) taklit edilerek gönderilen sahte e-postalardır. Bu e-postalar, genellikle kullanıcıda bir aciliyet veya panik hissi yaratarak (örneğin, “hesabınız askıya alındı”, “şüpheli bir giriş tespit edildi”) onları sahte bir web sitesine yönlendiren bir bağlantıya tıklamaya veya kötü amaçlı bir eki açmaya teşvik eder. Amaç, kullanıcıların kimlik bilgileri, kredi kartı numaraları veya diğer hassas verilerini çalmaktır.</li>
+<li><strong>Spear Phishing (Hedefli Oltalama):</strong> Belirli bir kişiyi, grubu veya kurumu hedef alan, çok daha kişiselleştirilmiş ve dolayısıyla daha inandırıcı olan oltalama saldırılarıdır. Saldırgan, saldırıyı gerçekleştirmeden önce hedef hakkında sosyal medya, kurumsal web siteleri veya diğer açık kaynaklardan bilgi toplar. Bu bilgiler (örneğin, hedefin adı, pozisyonu, çalıştığı projeler, iş arkadaşları) e-postayı daha meşru ve kişiye özel göstermek için kullanılır, bu da hedefin tuzağa düşme olasılığını önemli ölçüde artırır.</li>
+<li><strong>Business Email Compromise (BEC — İş E-postası Sahtekarlığı):</strong> Finansal motivasyonu en yüksek ve en sofistike e-posta saldırı türlerinden biridir. BEC saldırılarında, saldırgan genellikle kurum içindeki üst düzey bir yöneticiyi (CEO, CFO) veya güvenilir bir iş ortağını (avukat, tedarikçi) taklit eder. Hedef, genellikle finans veya insan kaynakları departmanında para transferi yapma veya hassas verilere erişme yetkisine sahip bir çalışandır. Saldırı, genellikle kötü amaçlı bir bağlantı veya ek içermez; bunun yerine, sosyal mühendislik teknikleri kullanarak hedefi acil ve gizli bir para transferi yapmaya veya çalışanların maaş bilgileri gibi hassas verileri paylaşmaya ikna etmeye odaklanır. Saldırganlar, hedefin güvenini kazanmak için benzer alan adları (örneğin, <code>example.com</code> yerine <code>examp1e.com</code>), ele geçirilmiş meşru e-posta hesapları veya sahte <code>From:</code> başlıkları kullanabilirler.</li>
+</ul>
+<h4 id="bütüncül-savunma-katmanları">
+  Bütüncül Savunma Katmanları
+  <a class="heading-link" href="#b%c3%bct%c3%bcnc%c3%bcl-savunma-katmanlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Etkili bir e-posta güvenliği stratejisi, yalnızca teknik kontrollere dayanmaz; teknolojiyi, insan faktörünü ve kurumsal süreçleri bir araya getiren katmanlı bir savunma (defense-in-depth) yaklaşımı gerektirir.</p>
+<h4 id="teknik-önlemler">
+  <strong>Teknik Önlemler</strong>
+  <a class="heading-link" href="#teknik-%c3%b6nlemler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Temel Kimlik Doğrulama:</strong> SPF, DKIM ve DMARC’ın <code>p=reject</code> politikasıyla tam olarak ve doğru bir şekilde uygulanması, alan adı sahtekarlığına dayalı saldırıların büyük çoğunluğunu daha gelen kutusuna ulaşmadan engeller. Bu, temel ve vazgeçilmez bir ilk savunma hattıdır.</li>
+<li><strong>Güvenli E-posta Ağ Geçitleri (Secure Email Gateways — SEG):</strong> Bu çözümler, e-posta trafiğini kurumsal ağa girmeden önce analiz ederek ek güvenlik katmanları sunar. Gelişmiş Tehdit Koruması (Advanced Threat Protection — ATP) modülleri, bilinmeyen kötü amaçlı yazılımları tespit etmek için sanal alan (sandbox) analizi yapar. İçerik filtreleme özellikleri, hassas verilerin sızmasını önlerken, spam ve phishing filtreleri bilinen tehditleri engeller.</li>
+<li><strong>Protokol Güvenliği:</strong> SMTP iletişiminin kendisi, STARTTLS kullanılarak şifrelenmelidir. Bu, istemci ile sunucu arasındaki iletişimin gizliliğini ve bütünlüğünü sağlayarak ortadaki adam (man-in-the-middle) saldırılarına karşı koruma sağlar.</li>
+</ul>
+<h4 id="insan-faktörü-ve-kullanıcı-eğitimi">
+  <strong>İnsan Faktörü ve Kullanıcı Eğitimi</strong>
+  <a class="heading-link" href="#insan-fakt%c3%b6r%c3%bc-ve-kullan%c4%b1c%c4%b1-e%c4%9fitimi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Teknik kontroller ne kadar güçlü olursa olsun, sosyal mühendislik saldırıları en zayıf halka olan insanı hedef alır. Bu nedenle, son savunma hattı her zaman kullanıcıdır.</p>
+<ul>
+<li><strong>Farkındalık Eğitimleri:</strong> Çalışanlara yönelik düzenli ve sürekli siber güvenlik farkındalık eğitimleri düzenlenmelidir. Bu eğitimler, şüpheli e-postaların ortak özelliklerini (ani aciliyet hissi, beklenmedik talepler, dilbilgisi ve yazım hataları, gönderici adresindeki tutarsızlıklar) tanıma ve bildirme becerilerini artırmalıdır.</li>
+<li><strong>Simüle Edilmiş Phishing Saldırıları:</strong> Kurum içinde periyodik olarak kontrollü ve simüle edilmiş phishing saldırıları düzenlemek, çalışanların farkındalık seviyesini ölçmek ve eğitimlerin etkinliğini değerlendirmek için kritik bir araçtır. Bu testlerin sonuçları, zayıf alanları belirleyerek gelecekteki eğitim programlarını şekillendirmek için kullanılmalıdır.</li>
+</ul>
+<h4 id="prosedürel-kontroller">
+  <strong>Prosedürel Kontroller</strong>
+  <a class="heading-link" href="#prosed%c3%bcrel-kontroller">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Bant Dışı Doğrulama (Out-of-Band Verification):</strong> Özellikle para transferi, ödeme bilgilerinin değiştirilmesi veya hassas verilerin paylaşılması gibi kritik talepler için, e-posta dışında ikinci bir doğrulama kanalı zorunlu kılınmalıdır. Örneğin, bir yöneticiden gelen acil bir para transferi talebi, e-posta ile yanıtlanmak yerine, önceden bilinen bir telefon numarasından sözlü olarak teyit edilmelidir. Bu basit prosedür, BEC saldırılarına karşı en etkili önlemlerden biridir.</li>
+</ul>
+<p>SPF, DKIM ve DMARC gibi protokoller, SMTP oturumunun temel yapısını, yani kimin kiminle konuştuğunu ve mesajın ne olduğunu doğru bir şekilde varsayar. Ancak SMTP Smuggling saldırısı , bu temel varsayıma meydan okur. Saldırgan, iki MTA arasındaki protokol yorumlama farklılıklarını kullanarak, tek bir SMTP oturumunun içine ikinci, sahte bir oturum “saklar”. Giden sunucu bunu tek bir e-posta olarak görür ve güvenlik kontrollerini uygular. Ancak gelen sunucu, veri akışındaki bir belirsizlikten dolayı bunu iki ayrı e-posta olarak yorumlar. İkinci (sahte) e-posta, giden sunucunun SPF/DKIM kontrollerinden hiç geçmediği için bu korumaları etkili bir şekilde atlatır. Bu durum, en sağlam güvenlik katmanlarının bile, altındaki temel protokolün en ince ve beklenmedik uygulama farklılıklarındaki zafiyetlerden etkilenebileceğini göstermektedir. Güvenlik, sadece protokolün teorik tanımında değil, aynı zamanda onun heterojen uygulamalarının kesişim noktasında da sağlanmalıdır. Bu, protokol standartlarının ve uygulamalarının sürekli olarak gözden geçirilmesi ve sıkılaştırılması gerektiğini ortaya koyan önemli bir bulgudur.</p>
+<hr>
+<h3 id="bölüm-2-web-iletişiminin-güvenlikmimarisi">
+  Bölüm 2: Web İletişiminin Güvenlik Mimarisi
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-2-web-ileti%c5%9fiminin-g%c3%bcvenlikmimarisi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Web, modern bilgi alışverişinin, ticaretin ve sosyal etkileşimin merkez üssüdür. Bu ekosistemin temelini oluşturan HTTP protokolü, başlangıçta güvenlik kaygıları olmaksızın tasarlanmıştır. Bu bölüm, web’in temel iletişim protokolü olan HTTP’nin güvenli hali HTTPS’i, bu güvenliği sağlayan temel kriptografik protokol olan TLS’i, tarayıcı düzeyinde ek güvenlik katmanları sunan HSTS ve diğer OWASP güvenlik başlıklarını ve son olarak uygulama katmanındaki kritik zafiyetleri ve önleme tekniklerini derinlemesine incelemektedir.</p>
+<h3 id="21-httpden-httpse-evrim-güvenli-webin-temelleri">
+  2.1. HTTP’den HTTPS’e Evrim: Güvenli Web’in Temelleri
+  <a class="heading-link" href="#21-httpden-httpse-evrim-g%c3%bcvenli-webin-temelleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="httpnin-güvensizdoğası">
+  HTTP’nin Güvensiz Doğası
+  <a class="heading-link" href="#httpnin-g%c3%bcvensizdo%c4%9fas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Köprü Metni Aktarım Protokolü (Hypertext Transfer Protocol — HTTP), web tarayıcıları (istemciler) ve web sunucuları arasındaki iletişimi sağlayan temel uygulama katmanı protokolüdür. Ancak, HTTP’nin orijinal tasarımı, verileri ağ üzerinde şifrelenmemiş, yani düz metin (cleartext) olarak iletir. Bu, istemci ile sunucu arasındaki ağ trafiğini dinleyebilen herhangi bir üçüncü tarafın (örneğin, aynı Wi-Fi ağındaki bir saldırgan veya bir internet servis sağlayıcısı), iletilen tüm verileri — kullanıcı adları, şifreler, kredi kartı bilgileri, kişisel mesajlar — kolayca okuyabileceği ve hatta değiştirebileceği anlamına gelir. Bu tür bir saldırı, Ortadaki Adam (Man-in-the-Middle — MitM) saldırısı olarak bilinir ve HTTP’nin en temel güvenlik zafiyetidir.</p>
+<h4 id="httpsin-sağladığı-güvenliküçgeni">
+  HTTPS’in Sağladığı Güvenlik Üçgeni
+  <a class="heading-link" href="#httpsin-sa%c4%9flad%c4%b1%c4%9f%c4%b1-g%c3%bcvenlik%c3%bc%c3%a7geni">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>HTTPS (HTTP Secure), HTTP protokolünün Güvenli Soket Katmanı (Secure Sockets Layer — SSL) veya onun modern halefi olan Taşıma Katmanı Güvenliği (Transport Layer Security — TLS) protokolü ile şifrelenmiş halidir. URL’deki “S” harfi “Secure” (Güvenli) anlamına gelir ve üç temel güvenlik garantisi sunarak HTTP’nin zafiyetlerini giderir:</p>
+<ol>
+<li><strong>Gizlilik (Confidentiality):</strong> İstemci ve sunucu arasındaki tüm veri alışverişi, güçlü kriptografik algoritmalar kullanılarak şifrelenir. Bu, ağ trafiğini dinleyen bir saldırganın, ele geçirdiği verinin içeriğini anlamasını engeller. Veri, anlamsız bir karakter dizisi olarak görünür.</li>
+<li><strong>Bütünlük (Integrity):</strong> İletilen verinin, gönderildiği andan alındığı ana kadar değiştirilip değiştirilmediği, mesaj kimlik doğrulama kodları (MAC) aracılığıyla kontrol edilir. Bu, bir saldırganın yoldaki veriyi (örneğin, bir para transferi miktarını) fark edilmeden değiştirmesini önler.</li>
+<li><strong>Kimlik Doğrulama (Authentication):</strong> Kullanıcının, gerçekten iletişim kurmak istediği sunucuya bağlandığını (örneğin, <code>banka.com</code> yerine sahte bir <code>banka-dolandirici.com</code> sitesine değil) doğrular. Bu, sunucunun, tarayıcılar tarafından güvenilen bir Sertifika Otoritesi (Certificate Authority - CA) tarafından verilmiş bir dijital sertifika (SSL/TLS sertifikası) sunmasıyla sağlanır. Modern web tarayıcıları, güvenli bir HTTPS bağlantısını, adres çubuğunda belirgin bir kilit simgesi göstererek kullanıcıya bildirir ve bu da kullanıcı güvenini artırır.</li>
+</ol>
+<h3 id="22-tls-protokolünün-derinlemesine-analizi">
+  2.2. TLS Protokolünün Derinlemesine Analizi
+  <a class="heading-link" href="#22-tls-protokol%c3%bcn%c3%bcn-derinlemesine-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>HTTPS’in sağladığı güvenliğin temelinde yatan teknoloji TLS protokolüdür. TLS, istemci ve sunucu arasında güvenli bir iletişim kanalı kurmak için karmaşık bir kriptografik süreç işletir.</p>
+<h4 id="221-tls-el-sıkışması-handshake-güvenli-kanalınkurulumu">
+  2.2.1. TLS El Sıkışması (Handshake): Güvenli Kanalın Kurulumu
+  <a class="heading-link" href="#221-tls-el-s%c4%b1k%c4%b1%c5%9fmas%c4%b1-handshake-g%c3%bcvenli-kanal%c4%b1nkurulumu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<h4 id="genel-amaç">
+  Genel Amaç
+  <a class="heading-link" href="#genel-ama%c3%a7">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>TLS el sıkışması (handshake), istemci ve sunucunun asıl şifreli veri alışverişine başlamadan önce gerçekleştirdiği bir müzakere ve kimlik doğrulama sürecidir. Bu sürecin temel hedefleri şunlardır:</p>
+<ul>
+<li>Kullanılacak TLS protokolü sürümünde (örneğin, TLS 1.2, TLS 1.3) anlaşmak.</li>
+<li>Kullanılacak şifreleme algoritmaları setinde (cipher suite) anlaşmak.</li>
+<li>Sunucunun kimliğini, dijital sertifikası aracılığıyla doğrulamak.</li>
+<li>Oturum boyunca verileri simetrik olarak şifrelemek için kullanılacak olan ve her oturum için benzersiz olan “oturum anahtarlarını” (session keys) güvenli bir şekilde oluşturmak ve paylaşmak.</li>
+</ul>
+<h4 id="tls-12-el-sıkışması-adımları">
+  TLS 1.2 El Sıkışması Adımları
+  <a class="heading-link" href="#tls-12-el-s%c4%b1k%c4%b1%c5%9fmas%c4%b1-ad%c4%b1mlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>TLS 1.2 ve önceki sürümlerdeki el sıkışma süreci, genellikle iki tam gidiş-dönüş süresi (Round-Trip Time — RTT) gerektirir ve şu adımlardan oluşur:</p>
+<ol>
+<li><strong>ClientHello:</strong> İstemci (tarayıcı), sunucuya bir <code>ClientHello</code> mesajı gönderir. Bu mesaj, desteklediği en yüksek TLS sürümünü, desteklediği şifre takımlarının bir listesini ve &ldquo;istemci rastgele&rdquo; (client random) adı verilen 32 byte&rsquo;lık rastgele bir veri parçasını içerir.</li>
+<li><strong>ServerHello:</strong> Sunucu, istemcinin listesinden ortaklaşa desteklenen en yüksek TLS sürümünü ve en güçlü şifre takımını seçer. Kendi “sunucu rastgele” (server random) verisini oluşturur ve istemciye bir <code>ServerHello</code> mesajı ile yanıt verir.</li>
+<li><strong>Certificate &amp; ServerHelloDone:</strong> Sunucu, kimliğini kanıtlamak için dijital sertifikasını (ve gerekirse ara sertifikaları) istemciye gönderir. Ardından, el sıkışmasının kendi tarafındaki ilk bölümünü tamamladığını bildiren bir <code>ServerHelloDone</code> mesajı gönderir. Bu, ilk gidiş-dönüşü tamamlar.</li>
+<li><strong>ClientKeyExchange &amp; ChangeCipherSpec &amp; Finished:</strong> İstemci, sunucunun sertifikasını doğrular. Ardından, “pre-master secret” adı verilen bir başka rastgele sır oluşturur. Bu sırrı, sunucunun sertifikasından aldığı genel anahtar (public key) ile şifreler ve bir <code>ClientKeyExchange</code> mesajı ile sunucuya gönderir. Daha sonra, hem istemci hem de sunucu, bu üç rastgele veriyi (istemci rastgele, sunucu rastgele, pre-master secret) kullanarak bağımsız olarak aynı oturum anahtarlarını hesaplar. İstemci, bundan sonraki tüm iletişimin bu yeni anahtarlarla şifreleneceğini bildiren bir <code>ChangeCipherSpec</code> mesajı ve el sıkışmasının kendi tarafında bittiğini belirten şifreli bir <code>Finished</code> mesajı gönderir.</li>
+<li><strong>ChangeCipherSpec &amp; Finished (Sunucu):</strong> Sunucu da istemciden aldığı <code>ChangeCipherSpec</code> ve <code>Finished</code> mesajlarından sonra kendi <code>ChangeCipherSpec</code> ve şifreli <code>Finished</code> mesajlarını göndererek el sıkışmayı tamamlar. Bu, ikinci gidiş-dönüşü tamamlar.</li>
+</ol>
+<h4 id="tls-13-rfc-8446-ile-gelen-yenilikler">
+  TLS 1.3 (RFC 8446) ile Gelen Yenilikler
+  <a class="heading-link" href="#tls-13-rfc-8446-ile-gelen-yenilikler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Ağustos 2018&rsquo;de yayınlanan RFC 8446 ile standartlaştırılan TLS 1.3, protokolün yirmi yıllık tarihindeki en önemli güncellemelerden biridir ve el sıkışma sürecini hem daha hızlı hem de daha güvenli hale getirmiştir.</p>
+<p><strong>Hızlandırılmış El Sıkışması (1-RTT):</strong> TLS 1.3&rsquo;ün en büyük performans iyileştirmesi, el sıkışmasını tek bir gidiş-dönüşe (1-RTT) indirmesidir. Bu, şu şekilde başarılır: İstemci, <code>ClientHello</code> mesajında artık sadece desteklediği şifre takımlarını listelemekle kalmaz, aynı zamanda en olası anahtar değişim algoritmasını (genellikle Eliptik Eğri Diffie-Hellman - ECDHE) tahmin eder ve bu algoritma için gerekli olan kendi anahtar paylaşım verisini de peşinen gönderir. Bu sayede sunucu, <code>ServerHello</code> mesajını gönderdiği anda oturum anahtarlarını hesaplamak için yeterli bilgiye sahip olur ve el sıkışmasını kendi tarafında tamamlayabilir. Bu optimizasyon, ikinci gidiş-dönüş ihtiyacını ortadan kaldırarak, özellikle yüksek gecikmeli mobil ağlarda bağlantı kurma süresini önemli ölçüde azaltır.</p>
+<p><strong>Artırılmış Güvenlik:</strong> TLS 1.3, güvenliği çeşitli yollarla artırır:</p>
+<ul>
+<li><strong>Eski Algoritmaların Kaldırılması:</strong> MD5, SHA-1 gibi zayıf hash algoritmaları ve RC4, 3DES gibi güvensiz simetrik şifreler tamamen kaldırılmıştır. Ayrıca, RSA anahtar değişimi gibi “ileriye dönük gizlilik” (forward secrecy) sağlamayan mekanizmalar da protokolden çıkarılmıştır.</li>
+<li><strong>İleriye Dönük Gizlilik (Forward Secrecy) Zorunluluğu:</strong> TLS 1.3, yalnızca her oturum için geçici ve benzersiz anahtarlar oluşturan anahtar değişim algoritmalarını (ECDHE gibi) destekler. Bu, bir saldırganın gelecekte sunucunun uzun vadeli özel anahtarını ele geçirmesi durumunda bile, geçmişte kaydedilmiş şifreli oturumları çözememesini sağlar.</li>
+<li><strong>Daha Fazla Şifreleme:</strong> TLS 1.2&rsquo;de sunucu sertifikası gibi bazı el sıkışma mesajları şifresiz gönderilirken, TLS 1.3 el sıkışmasının daha büyük bir bölümünü şifreleyerek gizliliği artırır ve ağ üzerindeki analizleri zorlaştırır.</li>
+</ul>
+<h4 id="222-dijital-sertifika-yaşam-döngüsüyönetimi">
+  2.2.2. Dijital Sertifika Yaşam Döngüsü Yönetimi
+  <a class="heading-link" href="#222-dijital-sertifika-ya%c5%9fam-d%c3%b6ng%c3%bcs%c3%bcy%c3%b6netimi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<h4 id="sertifika-otoriteleri-ca-ve-güvenzinciri">
+  Sertifika Otoriteleri (CA) ve Güven Zinciri
+  <a class="heading-link" href="#sertifika-otoriteleri-ca-ve-g%c3%bcvenzinciri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Dijital sertifikalar, bir web sitesinin kimliğini ve sahipliğini doğrulayan elektronik belgelerdir. Bu sertifikalar, tarayıcıların ve işletim sistemlerinin “kök deposunda” (root store) önceden güvenilir olarak tanımlanmış olan Sertifika Otoriteleri (CA) tarafından verilir. Güven modeli, hiyerarşik bir “güven zinciri” (chain of trust) üzerine kuruludur. Bir son kullanıcı sertifikası (örneğin, <code>www.example.com</code> için), genellikle doğrudan bir kök CA tarafından değil, o kök CA tarafından imzalanmış bir veya daha fazla ara CA (intermediate CA) tarafından imzalanır. Tarayıcı, sertifikanın geçerliliğini, bu zinciri takip ederek güvendiği bir kök CA&rsquo;ya ulaşana kadar her bir imzayı doğrulayarak kontrol eder.</p>
+<h4 id="sertifika-türleri">
+  Sertifika Türleri
+  <a class="heading-link" href="#sertifika-t%c3%bcrleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Sertifikalar, doğrulama seviyelerine göre farklılık gösterir:</p>
+<ul>
+<li><strong>Alan Adı Doğrulamalı (Domain Validated — DV):</strong> En temel seviyedir. CA, sadece sertifika talebinde bulunan kişinin alan adını kontrol etme yetkisine sahip olduğunu doğrular.</li>
+<li><strong>Kuruluş Doğrulamalı (Organization Validated — OV):</strong> CA, alan adı sahipliğine ek olarak, talepte bulunan kuruluşun yasal varlığını da doğrular.</li>
+<li><strong>Genişletilmiş Doğrulama (Extended Validation — EV):</strong> En katı doğrulama sürecini içerir ve geçmişte tarayıcılarda yeşil adres çubuğu ile gösterilirdi.</li>
+</ul>
+<p>Ayrıca, bir alan adının tüm alt alan adlarını (<code>*.example.com</code>) tek bir sertifika ile güvence altına alan <strong>Wildcard</strong> sertifikalar da mevcuttur.</p>
+<h4 id="yaşam-döngüsü">
+  Yaşam Döngüsü
+  <a class="heading-link" href="#ya%c5%9fam-d%c3%b6ng%c3%bcs%c3%bc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Sertifikaların sınırlı bir geçerlilik süresi vardır (şu anda genellikle bir yıl). Bu nedenle, sertifika yönetimi kritik bir operasyonel süreçtir. Bu yaşam döngüsü; sertifikaların ağ içinde keşfedilmesi, yeni sertifikaların üretilmesi veya satın alınması, sunuculara yüklenmesi, envanterinin tutulması, geçerlilik sürelerinin izlenmesi ve en önemlisi, süresi dolmadan önce zamanında yenilenmesi adımlarını içerir. Süresi dolmuş bir sertifika, kullanıcıların web sitesine erişirken güvenlik uyarıları almasına ve sitenin erişilemez hale gelmesine neden olur. Bu tür hizmet kesintilerini ve insan hatalarını önlemek için, Azure Key Vault veya diğer sertifika yönetimi platformları aracılığıyla yenileme süreçlerinin otomatikleştirilmesi, modern altyapılar için en iyi uygulama olarak kabul edilmektedir.</p>
+<h3 id="23-tarayıcı-ve-sunucu-güvenliğini-artıran-politikalar">
+  2.3. Tarayıcı ve Sunucu Güvenliğini Artıran Politikalar
+  <a class="heading-link" href="#23-taray%c4%b1c%c4%b1-ve-sunucu-g%c3%bcvenli%c4%9fini-art%c4%b1ran-politikalar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>HTTPS, taşıma katmanında güvenliği sağlarken, sunucular tarafından gönderilen ek HTTP başlıkları, modern tarayıcıların güvenlik özelliklerini etkinleştirerek ek savunma katmanları oluşturabilir.</p>
+<h4 id="231-hsts-http-strict-transport-security-protokol-düşürme-saldırılarına-karşısavunma">
+  2.3.1. HSTS (HTTP Strict Transport Security): Protokol Düşürme Saldırılarına Karşı Savunma
+  <a class="heading-link" href="#231-hsts-http-strict-transport-security-protokol-d%c3%bc%c5%9f%c3%bcrme-sald%c4%b1r%c4%b1lar%c4%b1na-kar%c5%9f%c4%b1savunma">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<h4 id="çalışma-prensibi-3">
+  Çalışma Prensibi
+  <a class="heading-link" href="#%c3%a7al%c4%b1%c5%9fma-prensibi-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir kullanıcı bir web sitesini ilk kez güvenli bir şekilde (HTTPS üzerinden) ziyaret ettiğinde, sunucu yanıtıyla birlikte <code>Strict-Transport-Security</code> HTTP başlığını gönderebilir. Bu başlık, tarayıcıya şu talimatı verir: &ldquo;Bu alan adına, belirtilen süre (<code>max-age</code> direktifi ile saniye cinsinden tanımlanır) boyunca yalnızca ve yalnızca HTTPS kullanarak bağlan.&rdquo;. Tarayıcı bu politikayı aldıktan sonra, yerel deposuna kaydeder. Bu süre zarfında, kullanıcı bu siteye <code>http://</code> protokolü ile erişmeye çalışsa veya güvensiz bir HTTP bağlantısına tıklasa bile, tarayıcı herhangi bir ağ isteği yapmadan önce bu isteği otomatik olarak ve dahili olarak <code>https://</code> protokolüne yükseltir.</p>
+<h4 id="koruma-mekanizması">
+  Koruma Mekanizması
+  <a class="heading-link" href="#koruma-mekanizmas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>HSTS’nin temel amacı, “SSL-stripping” olarak da bilinen protokol düşürme (protocol downgrade) saldırılarını engellemektir. Bu tür bir MitM saldırısında, saldırgan kullanıcı ile sunucu arasına girer ve kullanıcının tarayıcısına güvensiz bir HTTP bağlantısı sunarken, kendisi sunucu ile güvenli bir HTTPS bağlantısı kurar. Bu sayede, kullanıcı ile arasındaki şifrelenmemiş trafiği dinleyebilir. HSTS politikası aktif olan bir tarayıcı, siteye yönelik tüm bağlantıları zorunlu olarak HTTPS’e yükselttiği için bu tür bir düşürme saldırısına izin vermez ve bağlantıyı sonlandırır.</p>
+<p><code>includeSubDomains</code> ve <code>preload</code></p>
+<p>HSTS başlığı, iki önemli ek direktif içerebilir:</p>
+<ul>
+<li><code>includeSubDomains</code>: Bu direktif, HSTS politikasının yalnızca ana alan adı için değil, tüm alt alan adları için de geçerli olmasını sağlar.</li>
+<li><code>preload</code>: HSTS&rsquo;nin zayıf noktası, politikanın etkili olabilmesi için kullanıcının siteyi en az bir kez güvenli bir şekilde ziyaret etmesi gerekliliğidir. Bu &ldquo;ilk bağlantı&rdquo; anında kullanıcı hala bir SSL-stripping saldırısına karşı savunmasızdır. <code>preload</code> direktifi bu sorunu çözer. Bu direktife sahip siteler, tarayıcı üreticileri (Google, Mozilla vb.) tarafından yönetilen ve doğrudan tarayıcılara gömülü olan bir &ldquo;HSTS önyükleme listesine&rdquo; dahil edilmek için başvurabilirler. Bir alan adı bu listede yer aldığında, tarayıcı o siteyi daha önce hiç ziyaret etmemiş olsa bile, ona her zaman HTTPS ile bağlanması gerektiğini bilir. Bu, ilk bağlantı zafiyetini tamamen ortadan kaldırır.</li>
+</ul>
+<h4 id="232-owasp-güvenlik-başlıkları-tarayıcı-davranışını-yönlendirme">
+  2.3.2. OWASP Güvenlik Başlıkları: Tarayıcı Davranışını Yönlendirme
+  <a class="heading-link" href="#232-owasp-g%c3%bcvenlik-ba%c5%9fl%c4%b1klar%c4%b1-taray%c4%b1c%c4%b1-davran%c4%b1%c5%9f%c4%b1n%c4%b1-y%c3%b6nlendirme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Open Web Application Security Project (OWASP), web uygulaması güvenliğini artırmak için bir dizi HTTP yanıt başlığının kullanılmasını önermektedir. Bu başlıklar, tarayıcının belirli davranışlarını kısıtlayarak çeşitli saldırı türlerine karşı koruma sağlar.</p>
+<ul>
+<li><strong>Content-Security-Policy (CSP):</strong> Bir web sayfasının hangi tür kaynakları (JavaScript, CSS, resimler, fontlar vb.) ve bu kaynakları hangi konumlardan (URL’ler) yükleyebileceğini ayrıntılı bir şekilde tanımlayan son derece güçlü bir güvenlik mekanizmasıdır. Düzgün yapılandırılmış bir CSP, Siteler Arası Betik Çalıştırma (Cross-Site Scripting — XSS) ve veri enjeksiyonu saldırılarının etkisini büyük ölçüde azaltabilir veya tamamen engelleyebilir. Örneğin,<code>script-src 'self' https://apis.google.com</code> direktifi, tarayıcının yalnızca sayfanın kendi kaynağından veya <code>apis.google.com</code> adresinden gelen JavaScript dosyalarını çalıştırmasına izin verir, diğer tüm kaynakları engeller.</li>
+<li><strong>X-Frame-Options:</strong> Bir web sayfasının <code>&lt;frame&gt;</code>, <code>&lt;iframe&gt;</code>, <code>&lt;embed&gt;</code> veya <code>&lt;object&gt;</code> gibi etiketler kullanılarak başka bir site içine gömülüp gömülemeyeceğini kontrol eder. Bu başlığın temel amacı, kullanıcının farkında olmadan zararlı bir eylem gerçekleştirmesini sağlamak için sayfanın görünmez bir çerçeve içine yerleştirildiği &ldquo;clickjacking&rdquo; saldırılarını önlemektir. <code>DENY</code> değeri çerçevelemeyi tamamen engellerken, <code>SAMEORIGIN</code> yalnızca aynı kaynaktan gelen sayfaların çerçevelemesine izin verir. Bu başlığın işlevselliği, modern tarayıcılarda CSP&rsquo;nin <code>frame-ancestors</code> direktifi tarafından devralınmıştır ve bu direktifin kullanılması tavsiye edilir.</li>
+<li><code>X-Content-Type-Options: nosniff</code>: Tarayıcının, bir kaynağın MIME türünü, sunucunun gönderdiği <code>Content-Type</code> başlığından farklı olarak &ldquo;tahmin etmesini&rdquo; (MIME-sniffing) engeller. Bu, örneğin bir metin dosyasının çalıştırılabilir bir betik olarak yorumlanmasını önleyerek güvenlik risklerini azaltır.</li>
+<li><code>Referrer-Policy</code>: Bir kullanıcı bir siteden diğerine bir bağlantı aracılığıyla geçtiğinde, tarayıcının <code>Referer</code> başlığında kaynak URL hakkında ne kadar bilgi göndereceğini kontrol eder. Bu, hassas bilgilerin URL&rsquo;ler aracılığıyla sızmasını önlemeye yardımcı olabilir.</li>
+</ul>
+<h3 id="24-web-uygulama-zafiyetleri-ve-önleme-teknikleri-owasp-top10">
+  2.4. Web Uygulama Zafiyetleri ve Önleme Teknikleri (OWASP Top 10)
+  <a class="heading-link" href="#24-web-uygulama-zafiyetleri-ve-%c3%b6nleme-teknikleri-owasp-top10">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>HTTPS ve diğer güvenlik başlıkları, veriyi taşıma katmanında ve tarayıcı düzeyinde korurken, uygulamanın kendisindeki mantık hatalarını veya kodlama zafiyetlerini düzeltmezler. OWASP Top 10, web uygulamalarında en sık karşılaşılan ve en kritik güvenlik risklerini belgeleyen, endüstri standardı bir farkındalık dokümanıdır.</p>
+<h4 id="a032021injection-enjeksiyon">
+  A03:2021 — Injection (Enjeksiyon)
+  <a class="heading-link" href="#a032021injection-enjeksiyon">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Enjeksiyon zafiyetleri, güvenilmeyen kullanıcı girdisinin, bir komut veya sorgunun bir parçası olarak bir yorumlayıcıya (örneğin, bir SQL veritabanı veya işletim sistemi kabuğu) gönderilmesiyle ortaya çıkar.</p>
+<h4 id="sql-injection-sqli">
+  <strong>SQL Injection (SQLi)</strong>
+  <a class="heading-link" href="#sql-injection-sqli">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>En bilinen enjeksiyon türüdür. Bir saldırgan, bir web formu veya URL parametresi aracılığıyla, uygulamanın arka planda çalıştırdığı SQL sorgusunu manipüle edecek şekilde özel olarak hazırlanmış SQL komutları enjekte eder. Başarılı bir SQLi saldırısı, saldırganın veritabanındaki tüm verileri okumasına, değiştirmesine veya silmesine, kimlik doğrulama mekanizmalarını atlamasına ve hatta bazı durumlarda temel işletim sistemi üzerinde komut çalıştırmasına olanak tanıyabilir.</p>
+<ul>
+<li><strong>Önleme:</strong> SQL enjeksiyonunu önlemenin en etkili ve standart yolu, kullanıcı girdisini doğrudan sorgu dizesine birleştirmek yerine <strong>parametreli sorgular (prepared statements)</strong> kullanmaktır. Bu teknikte, SQL sorgusu önce bir şablon olarak veritabanına gönderilir ve kullanıcı girdisi daha sonra ayrı bir parametre olarak iletilir. Bu yöntem, veritabanının, kullanıcı girdisini her zaman veri olarak ele almasını ve asla çalıştırılabilir bir komut olarak yorumlamamasını sağlar, bu da enjeksiyonu temelden imkansız hale getirir.</li>
+</ul>
+<h4 id="cross-site-scripting-xss">
+  Cross-Site Scripting (XSS)
+  <a class="heading-link" href="#cross-site-scripting-xss">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>XSS, bir enjeksiyon zafiyetidir ve saldırganın, güvenilmeyen bir girdiyi (genellikle JavaScript kodu) bir web sayfasına enjekte etmesi ve bu kodun başka bir kullanıcının tarayıcısında çalıştırılmasını sağlamasıyla gerçekleşir. Başarılı bir XSS saldırısı, saldırganın kurban kullanıcının oturum çerezlerini (session cookies) çalmasına, sayfa içeriğini değiştirmesine, hassas bilgileri ele geçirmesine veya kullanıcı adına eylemler gerçekleştirmesine olanak tanır.</p>
+<h4 id="türleri">
+  <strong>Türleri:</strong>
+  <a class="heading-link" href="#t%c3%bcrleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Reflected (Yansıtılan) XSS:</strong> Zararlı betik, genellikle bir URL parametresi aracılığıyla sunucuya gönderilir ve sunucu bu betiği hemen yanıtın bir parçası olarak geri “yansıtır”. Saldırı, kurbanın özel olarak hazırlanmış bir bağlantıya tıklamasıyla tetiklenir.</li>
+<li><strong>Stored (Depolanan) XSS:</strong> En tehlikeli türdür. Saldırgan, zararlı betiği web sitesinin veritabanına (örneğin, bir yorum, forum gönderisi veya kullanıcı profili aracılığıyla) kaydeder. Bu zararlı betik, daha sonra bu içeriği görüntüleyen her kullanıcının tarayıcısında çalışır.</li>
+<li><strong>DOM-based XSS:</strong> Zafiyet, sunucu tarafı kodda değil, sayfanın istemci tarafı JavaScript kodundadır. Betik, URL’nin bir parçasını (örneğin, <code>location.hash</code>) güvensiz bir şekilde okuyup DOM&rsquo;a yazdığında ortaya çıkar.</li>
+</ul>
+<h4 id="önleme-yöntemleri">
+  <strong>Önleme Yöntemleri:</strong>
+  <a class="heading-link" href="#%c3%b6nleme-y%c3%b6ntemleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Çıktı Kodlaması (Output Encoding):</strong> XSS’e karşı en temel ve en önemli savunma, kullanıcıdan gelen tüm verileri, HTML’de görüntüleneceği bağlama göre uygun şekilde kodlamaktır. Örneğin, HTML gövdesine yazdırılacak bir veri için <code>&lt;</code> karakteri <code>&amp;lt;</code>, <code>&gt;</code> karakteri <code>&amp;gt;</code> olarak kodlanmalıdır. Bu, tarayıcının bu karakterleri HTML etiketi olarak değil, düz metin olarak yorumlamasını sağlar.</li>
+<li><strong>Content Security Policy (CSP):</strong> İkinci bir savunma hattı olarak, güçlü bir CSP, yetkisiz betiklerin çalışmasını engelleyerek, kodlama hatası olsa bile bir XSS zafiyetinin sömürülmesini önleyebilir.</li>
+<li><code>HttpOnly</code> <strong>Cookie Bayrağı:</strong> Oturum çerezleri <code>HttpOnly</code> bayrağı ile ayarlandığında, bu çerezlere istemci tarafı betikleri (JavaScript) aracılığıyla erişilemez. Bu, bir XSS zafiyeti başarılı olsa bile, saldırganın en değerli hedef olan oturum çerezini çalmasını engeller.</li>
+</ul>
+<p>Web güvenliği, iki temel ve birbirinden ayrı katmanda ele alınmalıdır: taşıma katmanı ve uygulama katmanı. HTTPS ve TLS, verinin istemci ile sunucu arasında <em>taşınması</em> sırasındaki güvenliğini, yani gizliliğini ve bütünlüğünü sağlar. Ancak bu, verinin sunucuya ulaştıktan sonra <em>uygulama</em> tarafından nasıl işlendiği ve yorumlandığı konusunda hiçbir güvence vermez. SQL Injection ve XSS gibi kritik zafiyetler, tamamen güvenli ve şifreli bir HTTPS kanalı üzerinden sömürülebilir. Bu durum, siber güvenlikteki “derinlemesine savunma” (defense-in-depth) ilkesinin web mimarisindeki en net ve en önemli örneklerinden biridir. Güvenlik, tek bir noktada sağlanan bir özellik değil, sistemin her katmanında (ağ, taşıma, uygulama, veri) uygulanması gereken bir süreçtir.</p>
+<p>Geleneksel web modelinde sunucu, içeriği gönderir ve tarayıcı bu içeriği kendi varsayılan kurallarına göre işler. Ancak CSP ve diğer OWASP güvenlik başlıkları , bu dinamiği kökten değiştirir. Sunucu artık sadece içerik göndermekle kalmaz, aynı zamanda o içeriğin tarayıcıda <em>nasıl</em> işleneceğine, hangi kaynakları yükleyebileceğine ve hangi eylemleri gerçekleştirebileceğine dair katı kurallar içeren bir “politika belgesi” de gönderir. Örneğin, <code>Content-Security-Policy: script-src 'self'</code> başlığı, tarayıcıya &ldquo;Sana gönderdiğim bu HTML belgesinin içinde, benden (aynı kaynaktan) gelmeyen hiçbir JavaScript kodunu çalıştırmana izin vermiyorum&rdquo; talimatını verir. Bu, sunucunun, istemci tarafındaki (tarayıcı) yürütme ortamının güvenlik sınırlarını dinamik olarak ve her yanıt için özel olarak tanımlamasını sağlar. Sunucu, bu modelde tarayıcının güvenlik motoru için bir nevi uzaktan kural yapılandırıcısı haline gelir. Bu, sunucu ve istemci arasındaki sorumluluk paylaşımında önemli bir paradigma değişikliğidir ve güvenliğin sorumluluğunu daha proaktif bir şekilde sunucu tarafına yükler.</p>
+<p><img src="/images/1_C_77zQqrn-BGzkE5DYFK1A.png" alt=""></p>
+<p>TLS Türleri</p>
+<hr>
+<h3 id="bölüm-3-dns-altyapısının-güvenlikmimarisi">
+  Bölüm 3: DNS Altyapısının Güvenlik Mimarisi
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-3-dns-altyap%c4%b1s%c4%b1n%c4%b1n-g%c3%bcvenlikmimarisi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Alan Adı Sistemi (DNS), internetin temel bir bileşeni olarak, kullanıcıların karmaşık IP adresleri yerine hatırlanabilir alan adları kullanarak web sitelerine ve diğer hizmetlere erişmesini sağlar. İnternetin bu “telefon rehberi”, işleyişi açısından kritik olduğu kadar, tarihsel olarak güvenlik kaygıları ikinci planda tutularak tasarlandığı için siber saldırganlar için de cazip bir hedef olmuştur. Bu bölüm, DNS’in temel işleyişini, onu hedef alan klasik saldırıları ve bu saldırılara karşı geliştirilen iki temel ve birbirini tamamlayan güvenlik katmanını inceler: DNSSEC ile veri bütünlüğü ve DoH/DoT ile sorgu gizliliği.</p>
+<h3 id="31-dns-protokolü-ve-klasik-saldırı-vektörleri">
+  3.1. DNS Protokolü ve Klasik Saldırı Vektörleri
+  <a class="heading-link" href="#31-dns-protokol%c3%bc-ve-klasik-sald%c4%b1r%c4%b1-vekt%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="dnsin-hiyerarşik-yapısı-ve-temelkayıtlar">
+  DNS’in Hiyerarşik Yapısı ve Temel Kayıtlar
+  <a class="heading-link" href="#dnsin-hiyerar%c5%9fik-yap%c4%b1s%c4%b1-ve-temelkay%c4%b1tlar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Alan Adı Sistemi (DNS), insan tarafından okunabilir alan adlarını (örneğin, <code>www.example.com</code>) makinelerin ağ üzerinde iletişim kurmak için kullandığı IP adreslerine (örneğin, <code>192.0.2.1</code>) çeviren, dünya çapında dağıtık ve hiyerarşik bir veritabanı sistemidir. Bu hiyerarşi, en tepede bulunan kök (<code>.</code>) sunuculardan başlar ve sırasıyla Üst Düzey Alan Adı (Top-Level Domain - TLD) sunucularına (örneğin, <code>.com</code>, <code>.org</code>, <code>.tr</code>) ve son olarak belirli bir alan adının kayıtlarını barındıran yetkili (authoritative) ad sunucularına kadar uzanır.</p>
+<p>Ağ yönetimi ve hizmetlerin doğru çalışması için DNS’te çeşitli kayıt türleri kullanılır. En temel ve yaygın olanları şunlardır:</p>
+<ul>
+<li><code>A</code> <strong>ve</strong> <code>AAAA</code> <strong>Kayıtları:</strong> Bir alan adını sırasıyla bir IPv4 ve bir IPv6 adresine eşler. Bu, en temel DNS kaydıdır.</li>
+<li><code>CNAME</code> <strong>(Canonical Name) Kaydı:</strong> Bir alan adını başka bir alan adına yönlendiren bir takma ad (alias) oluşturur. Örneğin, <code>www.example.com</code> adresi <code>example.com</code> adresine bir CNAME kaydı ile yönlendirilebilir.</li>
+<li><code>MX</code> <strong>(Mail Exchange) Kaydı:</strong> Belirli bir alan adına gönderilen e-postaların hangi posta sunucusu tarafından işlenmesi gerektiğini belirtir. Birden fazla MX kaydı olabilir ve öncelik (priority) değeri daha düşük olan sunucu önce denenir.</li>
+<li><code>TXT</code> <strong>(Text) Kaydı:</strong> Alan adıyla ilgili metin tabanlı bilgileri depolamak için kullanılır. Modern internette en önemli kullanım alanlarından biri, SPF, DKIM ve DMARC gibi e-posta kimlik doğrulama politikalarını yayınlamaktır.</li>
+<li><code>NS</code> <strong>(Name Server) Kaydı:</strong> Bir alan adı veya alt alan adı için yetkili olan ad sunucularını tanımlar.</li>
+<li><code>SOA</code> <strong>(Start of Authority) Kaydı:</strong> Bir DNS bölgesinin (zone) birincil ad sunucusu, yönetici e-posta adresi, seri numarası ve yenileme zamanlamaları gibi temel yetki bilgilerini içerir.</li>
+</ul>
+<h4 id="dns-spoofing-ve-cache-poisoning-saldırıları">
+  DNS Spoofing ve Cache Poisoning Saldırıları
+  <a class="heading-link" href="#dns-spoofing-ve-cache-poisoning-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>DNS, SMTP gibi, güvenliğin birincil tasarım hedefi olmadığı bir dönemde geliştirilmiştir. Bu nedenle, DNS protokolü, özellikle DNS önbellek zehirlenmesi (cache poisoning) olarak bilinen saldırı türüne karşı doğal olarak savunmasızdır.</p>
+<ul>
+<li><strong>Çalışma Mekanizması:</strong> Bir kullanıcı bir web sitesini ziyaret etmek istediğinde, bilgisayarı bu alan adının IP adresini öğrenmek için bir DNS çözümleyicisine (resolver), genellikle internet servis sağlayıcısının (İSS) sunucusuna, bir sorgu gönderir. Çözümleyici, bu bilgiyi kendi önbelleğinde (cache) bulamazsa, DNS hiyerarşisini takip ederek yetkili ad sunucusundan doğru bilgiyi alır. Performansı artırmak için, çözümleyici bu yanıtı belirli bir süre (Time-to-Live — TTL) boyunca kendi önbelleğinde saklar. DNS önbellek zehirlenmesi saldırısında, bir saldırgan, çözümleyicinin yetkili sunucudan gerçek yanıtı almasını beklemeden, o sorguya karşılık gelen sahte bir DNS yanıtı gönderir. Saldırgan, bu sahte yanıtın kabul edilmesi için işlem ID’si (transaction ID) ve kaynak port numarası gibi bazı teknik detayları doğru tahmin etmelidir. Eğer sahte yanıt, gerçek yanıttan önce çözümleyiciye ulaşır ve bu parametreler eşleşirse, çözümleyici bu sahte bilgiyi meşru kabul ederek önbelleğine alır.</li>
+<li><strong>Sonuç:</strong> Önbellek bir kez “zehirlendiğinde”, o çözümleyiciyi kullanan tüm kullanıcılar, meşru bir siteye (örneğin, bir online bankacılık sitesi) gitmeye çalıştıklarında, farkında olmadan saldırganın kontrolündeki kötü amaçlı bir sunucuya yönlendirilirler. Bu sahte site, genellikle orijinal sitenin birebir kopyasıdır ve kullanıcıların kimlik bilgilerini, parolalarını veya finansal verilerini çalmak (phishing), bilgisayarlarına kötü amaçlı yazılım yüklemek veya daha karmaşık saldırılar başlatmak için kullanılır.</li>
+</ul>
+<h3 id="32-dns-veri-bütünlüğü-ve-kaynak-doğrulama-dnssec">
+  3.2. DNS Veri Bütünlüğü ve Kaynak Doğrulama: DNSSEC
+  <a class="heading-link" href="#32-dns-veri-b%c3%bct%c3%bcnl%c3%bc%c4%9f%c3%bc-ve-kaynak-do%c4%9frulama-dnssec">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>DNS önbellek zehirlenmesi gibi saldırıların temel nedeni, standart DNS protokolünün gelen yanıtlarda herhangi bir kimlik doğrulama veya bütünlük kontrolü yapmamasıdır. DNS Güvenlik Eklentileri (DNS Security Extensions — DNSSEC), bu temel zafiyeti gidermek için tasarlanmıştır.</p>
+<h4 id="çalışma-prensibi-4">
+  Çalışma Prensibi
+  <a class="heading-link" href="#%c3%a7al%c4%b1%c5%9fma-prensibi-4">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>DNSSEC, DNS verilerinin kaynağını doğrulamak (origin authentication) ve bu verilerin taşıma sırasında değiştirilmediğini garanti etmek (data integrity) için DNS protokolüne açık anahtar kriptografisi tabanlı bir dijital imza mekanizması ekler. Önemli bir nokta, DNSSEC’in DNS sorgularını ve yanıtlarını şifrelememesidir; veriler hala düz metin olarak görülebilir. DNSSEC’in sağladığı tek güvence, alınan verinin gerçekten yetkili sunucudan geldiği ve bütünlüğünün bozulmadığıdır.</p>
+<h4 id="güven-zinciri-chain-oftrust">
+  Güven Zinciri (Chain of Trust)
+  <a class="heading-link" href="#g%c3%bcven-zinciri-chain-oftrust">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>DNSSEC’in güven modeli, DNS’in kendi hiyerarşik yapısını takip eden bir “güven zinciri” üzerine kuruludur. Bu zincir, en tepede bulunan ve tüm DNSSEC uyumlu çözümleyiciler tarafından önceden güvenilen DNS kök bölgesinin (root zone) genel anahtarı ile başlar. Bu anahtar, “güven çapası” (trust anchor) olarak işlev görür.</p>
+<p>Süreç şu şekilde işler:</p>
+<ol>
+<li>Her DNS bölgesi (örneğin, <code>.com</code> veya <code>example.com</code>), kendi kayıtlarını imzalamak için bir anahtar çifti (genel ve özel) oluşturur.</li>
+<li>Bir alt bölge (örneğin, <code>example.com</code>), kendi genel anahtarının bir özetini (hash) içeren bir <code>DS</code> (Delegation Signer) kaydı oluşturur ve bu kaydı üst bölgesine (<code>.com</code>) kaydettirir.</li>
+<li>Üst bölge (<code>.com</code>), bu <code>DS</code> kaydını kendi özel anahtarıyla imzalayarak alt bölgenin anahtarının geçerliliğini onaylar. Bir DNS çözümleyicisi, bir alan adının kaydını doğrulamak istediğinde, kök bölgesinin güvenilir anahtarından başlayarak bu <code>DS</code> ve <code>DNSKEY</code> kayıt zincirini adım adım takip eder. Her adımda, bir üst bölgenin imzası, bir alt bölgenin anahtarını doğrular ve bu süreç, sorgulanan kayda ulaşana kadar devam eder. Bu kesintisiz kriptografik zincir, yanıtın her seviyede doğrulanmasını sağlar.</li>
+</ol>
+<h4 id="dnssec-kayıt-türleri-rfc4034">
+  DNSSEC Kayıt Türleri (RFC 4034)
+  <a class="heading-link" href="#dnssec-kay%c4%b1t-t%c3%bcrleri-rfc4034">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>DNSSEC, işlevselliğini sağlamak için DNS’e yeni kaynak kaydı türleri ekler :</p>
+<ul>
+<li><code>DNSKEY</code><strong>:</strong> Bir bölgenin imzalanmasında kullanılan genel anahtarı (public key) içerir. Genellikle biri anahtar imzalama anahtarı (Key Signing Key - KSK), diğeri ise bölge imzalama anahtarı (Zone Signing Key - ZSK) olmak üzere iki anahtar kullanılır.</li>
+<li><code>RRSIG</code> <strong>(Resource Record Signature):</strong> Belirli bir DNS kayıt setinin (örneğin, bir alan adının A kayıtları) dijital imzasını içerir. Çözümleyici, bu imzayı ilgili <code>DNSKEY</code> ile doğrular.</li>
+<li><code>DS</code> <strong>(Delegation Signer):</strong> Bir alt bölgenin <code>DNSKEY</code> kaydının özetini (hash) içerir ve üst bölgede bulunur. Güven zincirinin en kritik halkasıdır.</li>
+<li><code>NSEC</code><strong>/</strong><code>NSEC3</code><strong>:</strong> Bir alan adının veya kaydın &ldquo;var olmadığını&rdquo; kriptografik olarak kanıtlamak için kullanılır (authenticated denial of existence). Bu, saldırganların var olmayan alt alan adları için sahte yanıtlar enjekte etmesini önler.</li>
+</ul>
+<h3 id="33-dns-sorgularında-gizlilik-doh-ve-dot-karşılaştırması">
+  3.3. DNS Sorgularında Gizlilik: DoH ve DoT Karşılaştırması
+  <a class="heading-link" href="#33-dns-sorgular%c4%b1nda-gizlilik-doh-ve-dot-kar%c5%9f%c4%b1la%c5%9ft%c4%b1rmas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>DNSSEC, DNS yanıtlarının doğruluğunu ve bütünlüğünü garanti altına alırken, DNS sorgularının kendisi hala şifresiz, düz metin olarak gönderilir. Bu durum, bir internet servis sağlayıcısının (İSS), ağ yöneticisinin veya ağ trafiğini dinleyen herhangi birinin, bir kullanıcının hangi web sitelerini ziyaret ettiğini görmesine ve bu bilgiyi toplamasına olanak tanır. TLS üzerinden DNS (DNS over TLS — DoT) ve HTTPS üzerinden DNS (DNS over HTTPS — DoH), bu gizlilik sorununu çözmek için geliştirilmiş iki modern protokoldür.</p>
+<h4 id="dns-over-tlsdot">
+  DNS over TLS (DoT)
+  <a class="heading-link" href="#dns-over-tlsdot">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Teknik Yapı:</strong> DoT, standart DNS sorgularını ve yanıtlarını, doğrudan bir Taşıma Katmanı Güvenliği (TLS) tüneli içinde şifreler. Bu amaçla, IANA tarafından özel olarak atanmış olan <strong>TCP Port 853</strong>&lsquo;ü kullanır. İletişim, temel olarak hala DNS protokolüdür, sadece güvenli bir TLS katmanıyla sarmalanmıştır.</li>
+<li><strong>Avantajlar ve Dezavantajlar:</strong> DoT’nin kendine özgü bir port kullanması, ağ yöneticilerinin DNS trafiğini kolayca tanımlamasını, izlemesini ve filtrelemesini sağlar. Bu, kurumsal ağlarda güvenlik politikalarını (örneğin, kötü amaçlı sitelere erişimi engelleme) uygulamak için önemli bir avantajdır. Ancak, bu belirginlik aynı zamanda DoT trafiğinin sansür veya engelleme amacıyla da kolayca hedef alınabileceği anlamına gelir.</li>
+</ul>
+<h4 id="dns-over-https-doh-rfc8484">
+  DNS over HTTPS (DoH) (RFC 8484)
+  <a class="heading-link" href="#dns-over-https-doh-rfc8484">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Teknik Yapı:</strong> DoH, DNS sorgularını ve yanıtlarını standart bir HTTPS <code>GET</code> veya <code>POST</code> isteği olarak biçimlendirir. Bu istekler, tüm diğer web trafiği ile aynı olan <strong>TCP Port 443</strong> üzerinden gönderilir. Bu mimari, DNS sorgularının, normal web&rsquo;de gezinme, API çağrıları veya video akışı gibi diğer HTTPS trafiği arasında tamamen gizlenmesini ve onlardan ayırt edilemez hale gelmesini sağlar.</li>
+<li><strong>Avantajlar ve Dezavantajlar:</strong> DNS trafiğini diğer web trafiği içinde kamufle etmesi, DoH’u kullanıcı gizliliğini en üst düzeye çıkarmada ve ağ düzeyinde sansür veya engellemeyi atlatmada son derece etkili kılar. Ancak bu durum, kurumsal ağ yöneticileri için ciddi bir zorluk yaratır. Tarayıcılar veya uygulamalar, işletim sisteminin veya ağın DNS ayarlarını tamamen atlayarak kendi yerleşik DoH çözümleyicilerini kullanabilirler. Bu, kurumsal güvenlik filtrelerini, ebeveyn kontrollerini ve içerik filtreleme politikalarını etkisiz hale getirebilir. Bu durum, ağ yöneticileri için önemli bir “kör nokta” ve ağ üzerindeki kontrolün kaybı anlamına gelir.</li>
+</ul>
+<p>DNS güvenliği, iki ayrı ama birbiriyle ilişkili problemi çözmek üzere iki farklı teknolojiye ayrılmıştır. DNSSEC, “Bu DNS yanıtı doğru mu ve gerçekten yetkili sunucudan mı geliyor?” sorusuna cevap vererek <strong>bütünlük</strong> ve <strong>kimlik doğrulama</strong> sağlar. DoH ve DoT ise, “Bu DNS sorgusunu kimin yaptığını ve ne sorduğunu üçüncü bir taraf görebilir mi?” sorusuna cevap vererek <strong>gizlilik</strong> sağlar. Bu iki teknoloji birbirinin alternatifi değildir; tam tersine, bütüncül ve modern bir DNS güvenliği mimarisi için her ikisinin de bir arada kullanılması gerekmektedir. Birinin varlığı diğerini gereksiz kılmaz.</p>
+<p>DoH’un temel tasarım felsefesi, DNS trafiğini standart HTTPS trafiği içinde “kamufle etmektir”. Bu, bireysel kullanıcı gizliliği ve sansürü aşma açısından bir zaferken, kurumsal ağ yönetimi ve güvenliği açısından bir kabustur. Geleneksel olarak, ağ yöneticileri DNS sorgularını izleyerek kötü amaçlı yazılım komuta-kontrol (C2) iletişimini, veri sızıntısı girişimlerini ve kurumsal politika ihlallerini tespit ederdi. DoH, bu görünürlüğü ortadan kaldırarak, kullanıcıların veya uygulamaların kurumsal politikaları atlayarak kendi DNS çözümleyicilerini kullanabildiği bir “gölge BT” (shadow IT) durumu yaratır. Bu durum, siber güvenlik dünyasındaki en temel gerilimlerden birini temsil eder: bireysel gizlilik ile kurumsal kontrol ve güvenlik arasındaki denge. Bu çatışma, internetin gelecekteki mimarisini ve yönetimini şekillendirecek en önemli tartışma konularından biridir.</p>
+<p><img src="/images/1_EH_7Ex7NamcxzJeldgLUEQ.png" alt=""></p>
+<p>DoT vs DoH</p>
+<hr>
+<h3 id="bölüm-4-dosya-transfer-protokollerinin-güvenlikmimarisi">
+  Bölüm 4: Dosya Transfer Protokollerinin Güvenlik Mimarisi
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-4-dosya-transfer-protokollerinin-g%c3%bcvenlikmimarisi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Dosya Aktarım Protokolü (FTP), internetin en eski ve en temel protokollerinden biri olarak, makineler arasında dosya transferi için onlarca yıldır kullanılmaktadır. Ancak, güvenlik düşünülerek tasarlanmamış olması, onu modern ağlar için büyük bir risk haline getirmiştir. Bu bölüm, eski FTP protokolünün doğal zafiyetlerini, bu sorunları çözmek için ortaya çıkan iki farklı ve sıkça karıştırılan güvenli yaklaşımı (FTPS ve SFTP) ve bu iki protokol arasındaki temel mimari farkları derinlemesine incelemektedir.</p>
+<h3 id="41-eski-ftp-protokolünün-güvenlikriskleri">
+  4.1. Eski FTP Protokolünün Güvenlik Riskleri
+  <a class="heading-link" href="#41-eski-ftp-protokol%c3%bcn%c3%bcn-g%c3%bcvenlikriskleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="temel-işleyiş-ve-zafiyetler">
+  Temel İşleyiş ve Zafiyetler
+  <a class="heading-link" href="#temel-i%c5%9fleyi%c5%9f-ve-zafiyetler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Dosya Aktarım Protokolü (File Transfer Protocol — FTP), bir istemci ile sunucu arasında dosya yükleme (upload) ve indirme (download) işlemleri için tasarlanmış standart bir ağ protokolüdür. Ancak, en temel ve kritik zafiyeti, tüm iletişimi — kullanıcı adı, parola ve aktarılan dosya verileri dahil — ağ üzerinde şifresiz, yani düz metin olarak gerçekleştirmesidir. Bu durum, ağ trafiğini dinleyen herhangi bir saldırganın, kimlik bilgilerini ve transfer edilen dosyaların içeriğini kolayca ele geçirebileceği anlamına gelir. Bu temel güvenlik eksikliği nedeniyle, PCI DSS (Ödeme Kartı Sektörü Veri Güvenliği Standardı) ve HIPAA (Sağlık Sigortası Taşınabilirlik ve Sorumluluk Yasası) gibi modern güvenlik ve uyumluluk standartları tarafından hassas verilerin transferi için kullanımı kesinlikle kabul edilmez.</p>
+<h4 id="komut-ve-veri-kanalları-sorunu">
+  Komut ve Veri Kanalları Sorunu
+  <a class="heading-link" href="#komut-ve-veri-kanallar%c4%b1-sorunu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>FTP’nin mimarisi, işleyişini ve güvenliğini karmaşıklaştıran bir diğer önemli özelliğe sahiptir: iki ayrı TCP bağlantısı kullanması.</p>
+<ul>
+<li><strong>Komut Kanalı (Control Channel):</strong> Genellikle standart olarak 21 numaralı port üzerinden kurulur. Bu kanal, istemcinin sunucuya bağlanması, kimlik doğrulaması yapması ve <code>LIST</code> (dosyaları listele), <code>RETR</code> (dosya indir), <code>STOR</code> (dosya yükle) gibi komutları göndermesi için kullanılır.</li>
+<li><strong>Veri Kanalı (Data Channel):</strong> Gerçek dosya içeriğinin veya dizin listelerinin aktarıldığı kanaldır. Bu kanalın port numarası, komut kanalı üzerinden dinamik olarak belirlenir ve her transfer için yeni bir bağlantı kurulur.</li>
+</ul>
+<p>Bu çift kanallı yapı, özellikle modern ağlarda yaygın olarak kullanılan güvenlik duvarları (firewall) ve Ağ Adresi Çevirimi (Network Address Translation — NAT) cihazları arkasında ciddi yapılandırma zorluklarına yol açar. Güvenlik duvarlarının, bu dinamik olarak açılan veri kanalı portlarına izin verecek şekilde özel olarak yapılandırılması gerekir, bu da hem karmaşıklığı artırır hem de ağın saldırı yüzeyini genişleterek potansiyel güvenlik riskleri oluşturur.</p>
+<h3 id="42-güvenli-alternatifler-ftps-ve-sftpnin-karşılaştırmalı-analizi">
+  4.2. Güvenli Alternatifler: FTPS ve SFTP’nin Karşılaştırmalı Analizi
+  <a class="heading-link" href="#42-g%c3%bcvenli-alternatifler-ftps-ve-sftpnin-kar%c5%9f%c4%b1la%c5%9ft%c4%b1rmal%c4%b1-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>FTP’nin doğal güvensizliğini gidermek için, her ikisi de güvenli dosya transferi sağlayan ancak temelde tamamen farklı teknolojilere dayanan iki ana protokol geliştirilmiştir: FTPS ve SFTP.</p>
+<h4 id="421-ftps-ftp-over-ssltls-ftpnin-güvenli-hale-getirilmesi">
+  4.2.1. FTPS (FTP over SSL/TLS): FTP’nin Güvenli Hale Getirilmesi
+  <a class="heading-link" href="#421-ftps-ftp-over-ssltls-ftpnin-g%c3%bcvenli-hale-getirilmesi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<h4 id="mimari">
+  Mimari
+  <a class="heading-link" href="#mimari">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>FTPS (FTP Secure), mevcut standart FTP protokolünün üzerine, web trafiğini güvence altına almak için de kullanılan Güvenli Soket Katmanı (SSL) veya onun modern halefi Taşıma Katmanı Güvenliği (TLS) protokolünün bir güvenlik katmanı olarak eklenmesiyle çalışır. FTPS, temelde hala FTP’dir; aynı komutları kullanır ve aynı çift kanallı mimariye sahiptir, ancak bu kanallar üzerinden geçen iletişim artık şifrelenmiştir. Bu yapı, HTTPS’in HTTP’ye olan ilişkisine oldukça benzerdir.</p>
+<h4 id="explicit-vs-implicitmod">
+  Explicit vs. Implicit Mod
+  <a class="heading-link" href="#explicit-vs-implicitmod">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>FTPS’in iki farklı çalışma modu vardır:</p>
+<ul>
+<li><strong>Explicit (Açık) FTPS (FTPES):</strong> Bu modda, istemci standart FTP portu olan 21 üzerinden sunucuya şifresiz bir bağlantı başlatır. Ardından, <code>AUTH TLS</code> veya <code>AUTH SSL</code> komutunu göndererek sunucudan bağlantıyı güvenli bir TLS oturumuna yükseltmesini &ldquo;açıkça&rdquo; talep eder. Bu mod, hem güvenli hem de güvensiz bağlantılara aynı port üzerinden izin verebildiği için daha esnek ve modern uygulamalarda daha yaygın olarak kullanılır.</li>
+<li><strong>Implicit (Örtük) FTPS:</strong> Bu eski modda, istemci doğrudan FTPS için ayrılmış özel bir port (genellikle 990) üzerinden sunucuya bağlanır. Bağlantı kurulduğu anda, herhangi bir FTP komutu gönderilmeden önce bir TLS el sıkışması beklenir. Bu modda, tüm oturumun baştan sona şifreli olması zorunludur. Günümüzde kullanımı azalmıştır ve genellikle eski sistemlerle uyumluluk için desteklenir.</li>
+</ul>
+<h4 id="zorluklar">
+  Zorluklar
+  <a class="heading-link" href="#zorluklar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>FTPS, FTP’nin çift kanal (komut ve veri) yapısını miras aldığı için, onunla ilişkili sorunları da devralır. Veri kanalı için hala dinamik olarak portlar açılması gerektiğinden, güvenlik duvarı yapılandırması karmaşık olabilir ve ağ yöneticilerinin geniş bir port aralığına izin vermesini gerektirebilir. Bu durum, hem operasyonel zorluklara hem de potansiyel güvenlik risklerine yol açabilir.</p>
+<h4 id="422-sftp-ssh-file-transfer-protocol-ssh-üzerinden-dosyaaktarımı">
+  4.2.2. SFTP (SSH File Transfer Protocol): SSH Üzerinden Dosya Aktarımı
+  <a class="heading-link" href="#422-sftp-ssh-file-transfer-protocol-ssh-%c3%bczerinden-dosyaaktar%c4%b1m%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<h4 id="mimari-1">
+  Mimari
+  <a class="heading-link" href="#mimari-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>SFTP, ismindeki “FTP” kısaltmasına rağmen, teknik olarak FTP ile hiçbir ilişkisi olmayan, tamamen farklı bir protokoldür. SFTP, Güvenli Kabuk (Secure Shell — SSH) protokolünün bir uzantısı olarak, güvenli dosya transferi sağlamak amacıyla sıfırdan tasarlanmıştır. FTP’nin metin tabanlı komut yapısının aksine, SFTP paket tabanlı bir protokoldür, bu da onu daha verimli hale getirebilir.</p>
+<h4 id="tek-port-üzerinden-çalışma">
+  Tek Port Üzerinden Çalışma
+  <a class="heading-link" href="#tek-port-%c3%bczerinden-%c3%a7al%c4%b1%c5%9fma">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>SFTP’nin en büyük mimari avantajı, tüm iletişimi — kimlik doğrulama, komutlar ve veri aktarımı — standart SSH portu olan <strong>TCP Port 22</strong> üzerinden tek bir şifreli kanal kullanarak gerçekleştirmesidir. Bu, FTPS’in çoklu port sorununu tamamen ortadan kaldırır ve güvenlik duvarı yapılandırmasını büyük ölçüde basitleştirir. Ağ yöneticilerinin sadece tek bir portu açması yeterlidir, bu da ağın saldırı yüzeyini önemli ölçüde azaltır.</p>
+<h4 id="gelişmiş-özellikler-ve-kimlik-doğrulama">
+  Gelişmiş Özellikler ve Kimlik Doğrulama
+  <a class="heading-link" href="#geli%c5%9fmi%c5%9f-%c3%b6zellikler-ve-kimlik-do%c4%9frulama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>SFTP, temelini oluşturan SSH protokolünün güçlü güvenlik ve işlevsellik özelliklerini miras alır:</p>
+<ul>
+<li><strong>Kimlik Doğrulama:</strong> Standart kullanıcı adı/parola ile kimlik doğrulamaya ek olarak, SFTP çok daha güvenli kabul edilen <strong>SSH anahtar tabanlı kimlik doğrulamasını</strong> (public key authentication) destekler. Bu yöntemde, kullanıcılar parolalar yerine kriptografik anahtar çiftleri kullanarak kimliklerini doğrularlar, bu da kaba kuvvet (brute-force) saldırılarına karşı çok daha yüksek bir koruma sağlar.</li>
+<li><strong>Dosya Yönetimi:</strong> SFTP, basit dosya transferinin ötesinde, uzak dosya sistemi üzerinde daha zengin işlemler yapılmasına olanak tanır. Dosya kilitleme, sembolik link oluşturma ve dosya izinlerini (permissions) düzenleme gibi gelişmiş dosya sistemi işlemleri için standartlaştırılmış komutlar sunar.</li>
+</ul>
+<h3 id="43-modern-ve-güvenli-dosya-transferi-için-en-iyi-uygulamalar">
+  4.3. Modern ve Güvenli Dosya Transferi için En İyi Uygulamalar
+  <a class="heading-link" href="#43-modern-ve-g%c3%bcvenli-dosya-transferi-i%c3%a7in-en-iyi-uygulamalar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="protokol-seçimi">
+  Protokol Seçimi
+  <a class="heading-link" href="#protokol-se%c3%a7imi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Modern ağ altyapıları için protokol seçimi yapılırken, SFTP genellikle FTPS’e göre daha üstün bir seçenek olarak kabul edilir. Tek port kullanımı sayesinde güvenlik duvarı yönetiminin daha basit ve güvenli olması, SSH anahtar tabanlı kimlik doğrulamanın sağladığı üstün güvenlik ve daha zengin dosya yönetimi yetenekleri, SFTP’yi çoğu senaryo için tercih edilen protokol yapmaktadır. FTPS, özellikle kurumun mevcut altyapısında zaten bir PKI (Açık Anahtar Altyapısı) ve SSL/TLS sertifika yönetimi süreçleri varsa veya eski sistemlerle uyumluluk bir zorunluluksa geçerli bir alternatif olabilir. Standart, şifresiz FTP ise, hassas olmayan verilerin aktarıldığı ve güvenlik riskinin bilinçli olarak kabul edildiği çok sınırlı iç ağ senaryoları dışında kesinlikle kullanılmamalıdır.</p>
+<h4 id="sunucu-sıkılaştırma-hardening">
+  Sunucu Sıkılaştırma (Hardening)
+  <a class="heading-link" href="#sunucu-s%c4%b1k%c4%b1la%c5%9ft%c4%b1rma-hardening">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Hangi güvenli protokol seçilirse seçilsin, sunucunun kendisinin güvenli bir şekilde yapılandırılması esastır. En iyi uygulamalar şunları içerir:</p>
+<ul>
+<li>Anonim girişlerin (anonymous login) devre dışı bırakılması.</li>
+<li>Güçlü parola politikalarının zorunlu kılınması ve düzenli olarak değiştirilmesi.</li>
+<li>Belirli bir süre içinde yapılan başarısız giriş denemelerinin sınırlandırılması (brute-force saldırılarını yavaşlatmak için).</li>
+<li>Kullanılmayan veya eski kullanıcı hesaplarının düzenli olarak temizlenmesi.</li>
+<li>Erişimin yalnızca belirli IP adresleri veya ağlarla sınırlandırılması.</li>
+</ul>
+<h4 id="bulut-tabanlı-dosya-transfer-hizmetleri">
+  Bulut Tabanlı Dosya Transfer Hizmetleri
+  <a class="heading-link" href="#bulut-tabanl%c4%b1-dosya-transfer-hizmetleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Geleneksel dosya transferi protokollerinin yanı sıra, özellikle büyük dosyaların güvenli ve kolay bir şekilde paylaşılması için modern alternatifler de mevcuttur. Filemail, WeTransfer, Dropbox ve TransferNow gibi Yönetilen Dosya Transferi (Managed File Transfer — MFT) ve bulut tabanlı hizmetler, kullanıcı dostu arayüzler sunar. Bu hizmetler genellikle protokollerin karmaşıklığını kullanıcıdan soyutlar ve ek güvenlik özellikleri sağlar. Bu özellikler arasında uçtan uca şifreleme, paylaşılan dosyalar için parola koruması, erişim kontrolü, indirme takibi ve dosyalar için otomatik son kullanma tarihi belirleme gibi yetenekler bulunur. Bu platformlar, özellikle teknik olmayan kullanıcıların güvenli bir şekilde dosya paylaşımı yapması için etkili çözümler sunar.</p>
+<p>FTPS ve SFTP, güvensiz bir protokol olan FTP’nin güvenlik sorunlarına yönelik iki farklı felsefeyi temsil eder. FTPS, mevcut ve yaygın olarak kullanılan bir protokolü (FTP) alıp, üzerine bir güvenlik katmanı (SSL/TLS) “yamayarak” <strong>evrimsel</strong> bir çözüm sunar. Bu yaklaşım, mevcut sistemlerle geriye dönük uyumluluğu kolaylaştırır ancak temel mimarinin zayıf yönlerini (örneğin, çift kanallı yapı ve bunun getirdiği güvenlik duvarı karmaşıklığı) miras alır. Buna karşılık SFTP, problemi sıfırdan ele alarak, güvenli bir temel (SSH) üzerine inşa edilmiş <strong>devrimsel</strong> bir çözüm sunar. Bu yaklaşım, geriye dönük uyumluluk kaygısı olmadan, daha temiz, daha verimli ve doğası gereği daha güvenli bir mimariyle sonuçlanır. Bu durum, siber güvenlikte sıkça karşılaşılan bir ikilemi göstermektedir: Mevcut bir sistemi iyileştirmek mi, yoksa sıfırdan güvenli bir alternatif inşa etmek mi? SFTP’nin modern ağlarda daha çok tercih edilmesi, genellikle ikinci yaklaşımın uzun vadede daha sürdürülebilir ve güvenli olduğunu göstermektedir.</p>
+<p><img src="/images/1_7ANigANBbyhJp_SS0wNP2A.png" alt=""></p>
+<p>FTP, FTPS, SFTP</p>
+<hr>
+<h3 id="sonuç">
+  Sonuç:
+  <a class="heading-link" href="#sonu%c3%a7">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu kapsamlı teknik inceleme, modern dijital iletişimin temelini oluşturan e-posta, web, DNS ve dosya transferi protokollerinin güvenlik mimarilerini derinlemesine analiz etmiştir. Analizler, iki temel ve birbiriyle ilişkili stratejik sonucu ortaya koymaktadır: protokoller arası bağımlılık ve katmanlı savunma zorunluluğu.</p>
+<p>Rapor boyunca incelenen protokollerin, izole ve bağımsız sistemler olmadığı açıkça görülmüştür. Aksine, bir protokolün güvenliği, bir diğerinin güvenilirliğine ve doğru yapılandırılmasına sıkı sıkıya bağlıdır. Güvenli bir e-posta kimlik doğrulama çerçevesi (DMARC), politikalarını yayınlamak ve doğrulamak için güvenilir ve bütünlüğü korunmuş bir DNS’e (DNSSEC) mutlak surette ihtiyaç duyar. Güvenli bir web sitesi (HTTPS), kimliğini doğrulamak için güvenilir bir sertifika otoritesi (CA) altyapısına ve kullanıcıları doğru sunucuya yönlendirmek için sahtekarlığa karşı korunmuş bir DNS’e bağlıdır. Bu karmaşık ilişkiler ağı, protokol güvenliğinin, en zayıf halkası kadar güçlü olan, birbiriyle kenetlenmiş bir zincir olduğunu göstermektedir. Bir alandaki güvenlik açığı, görünüşte ilgisiz başka bir alanda zincirleme bir etkiyle feci sonuçlara yol açabilir. Bu nedenle, protokol güvenliği bütüncül bir yaklaşımla ele alınmalı, her bir bileşenin diğerleri üzerindeki etkisi göz önünde bulundurularak tasarlanmalıdır.</p>
+<p>Analiz edilen her bir alanda, hiçbir teknolojinin veya protokolün tek başına siber tehditlere karşı tam bir koruma sağlayamadığı sonucuna varılmıştır. Etkili bir siber güvenlik duruşu, “derinlemesine savunma” (defense-in-depth) ilkesini benimsemeyi gerektirir. Bu strateji, saldırganın hedefine ulaşmasını zorlaştırmak için birbiri ardına sıralanmış, farklı nitelikteki güvenlik kontrollerinden oluşan katmanlı bir mimari oluşturmayı hedefler. Bu rapor bağlamında, etkili bir katmanlı savunma stratejisi şu bileşenleri içermelidir:</p>
+<ul>
+<li><strong>Taşıma Katmanı:</strong> Tüm iletişim kanallarında (web, e-posta, DNS) verinin gizliliğini ve bütünlüğünü sağlamak için TLS gibi güçlü şifreleme protokollerinin zorunlu kılınması.</li>
+<li><strong>Kimlik Doğrulama Katmanı:</strong> Verinin ve kaynakların kimliğini doğrulamak için SPF, DKIM, DMARC ve DNSSEC gibi güçlü ve standartlaşmış mekanizmaların eksiksiz bir şekilde uygulanması.</li>
+<li><strong>Uygulama Katmanı:</strong> Taşıma katmanının koruyamadığı, uygulamanın kendi mantığındaki zafiyetleri gidermek için OWASP Top 10 gibi kılavuzlara dayalı güvenli kodlama pratiklerinin benimsenmesi ve CSP gibi tarayıcı düzeyinde politikaların uygulanması.</li>
+<li><strong>İnsan Katmanı:</strong> Teknik kontrollerin kaçınılmaz olarak yetersiz kalacağı sosyal mühendislik saldırılarına karşı en kritik savunma hattı olan kullanıcıların, sürekli ve uygulamalı farkındalık eğitimleri ile güçlendirilmesi.</li>
+<li><strong>Prosedürel Katman:</strong> Özellikle finansal işlemleri hedef alan BEC gibi sofistike saldırılara karşı, teknolojiye ek olarak bant dışı doğrulama gibi kurumsal süreçlerin ve politikaların hayata geçirilmesi.</li>
+</ul>
+<p>Sonuç olarak, ağ protokollerinin güvenliği, statik bir hedef değil, sürekli bir süreçtir. Tehditler evrildikçe, protokoller ve savunma stratejileri de buna adapte olmalıdır. Kurumlar için stratejik hedef, bu katmanların her birini sürekli olarak değerlendirmek, güçlendirmek ve birbiriyle uyumlu bir şekilde çalışmalarını sağlayarak dijital iletişimin temel taşlarını sağlamlaştırmaktır.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

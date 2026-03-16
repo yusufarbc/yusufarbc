@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  ELK Stack Kural Yazımı ve Alerting · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  ELK Stack Kural Yazımı ve Alerting
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash, Kibana) ile kural yazımı ve uyarı (alerting) işlemleri, veri analizi ve yönetimini kolaylaştırır.
+
+  IoC ve IoA Nedir?
+  
+    
+    Başlık Linki
+  
+
+IoC (Indicators of Compromise) ve IoA (Indicators of Attack), siber güvenlik alanında önemli kavramlardır ve saldırıların tespiti ve analizinde kullanılırlar.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="ELK Stack Kural Yazımı ve Alerting">
+  <meta name="twitter:description" content="ELK Stack Kural Yazımı ve AlertingBaşlık LinkiMerhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash, Kibana) ile kural yazımı ve uyarı (alerting) işlemleri, veri analizi ve yönetimini kolaylaştırır.
+IoC ve IoA Nedir?Başlık LinkiIoC (Indicators of Compromise) ve IoA (Indicators of Attack), siber güvenlik alanında önemli kavramlardır ve saldırıların tespiti ve analizinde kullanılırlar.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2024-11-16-elk-stack-kural-yaz-m-ve-alerting/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="ELK Stack Kural Yazımı ve Alerting">
+  <meta property="og:description" content="ELK Stack Kural Yazımı ve AlertingBaşlık LinkiMerhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash, Kibana) ile kural yazımı ve uyarı (alerting) işlemleri, veri analizi ve yönetimini kolaylaştırır.
+IoC ve IoA Nedir?Başlık LinkiIoC (Indicators of Compromise) ve IoA (Indicators of Attack), siber güvenlik alanında önemli kavramlardır ve saldırıların tespiti ve analizinde kullanılırlar.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-11-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-11-16T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2024-11-16-elk-stack-kural-yaz-m-ve-alerting/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2024-11-16-elk-stack-kural-yaz-m-ve-alerting/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2024-11-16-elk-stack-kural-yaz-m-ve-alerting/">
+              ELK Stack Kural Yazımı ve Alerting
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-11-16T00:00:00Z">
+                Kasım 16, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              18 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="elk-stack-kural-yazımı-vealerting">
+  ELK Stack Kural Yazımı ve Alerting
+  <a class="heading-link" href="#elk-stack-kural-yaz%c4%b1m%c4%b1-vealerting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_YtvtZTc7PJHVByo3n9E_lg.png" alt=""></p>
+<p>Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. <strong>ELK Stack</strong> (Elasticsearch, Logstash, Kibana) ile kural yazımı ve uyarı (alerting) işlemleri, veri analizi ve yönetimini kolaylaştırır.</p>
+<h3 id="ioc-ve-ioanedir">
+  IoC ve IoA Nedir?
+  <a class="heading-link" href="#ioc-ve-ioanedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>IoC (Indicators of Compromise)</strong> ve <strong>IoA (Indicators of Attack)</strong>, siber güvenlik alanında önemli kavramlardır ve saldırıların tespiti ve analizinde kullanılırlar.</p>
+<p>Bu belirteçler, bir saldırının tespiti ve durdurulmasında kritik öneme sahiptir. IoC, saldırının gerçekleştiğini tespit ederken, IoA, saldırının yöntemlerini ve amaçlarını anlamaya yardımcı olur.</p>
+<h4 id="indicators-of-compromise-ioc">
+  Indicators of Compromise (IoC)
+  <a class="heading-link" href="#indicators-of-compromise-ioc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>IoC, bir sistemde zararlı etkinliklerin veya saldırıların varlığını gösteren belirteçlerdir. Bu belirteçler, bir saldırının veya ihlalin gerçekleştiğini tespit etmeye yardımcı olur. IoC örnekleri şunları içerebilir:</p>
+<ul>
+<li><strong>Malware İmzaları</strong>: Bilinen zararlı yazılımların imzaları.</li>
+<li><strong>IP Adresleri</strong>: Kötü niyetli etkinliklere bağlı IP adresleri.</li>
+<li><strong>Domain Adresleri</strong>: Kötü niyetli etkinliklerle ilişkili alan adları.</li>
+<li><strong>Dosya Hash Değerleri</strong>: Zararlı dosyaların hash değerleri.</li>
+</ul>
+<h4 id="indicators-of-attackioa">
+  Indicators of Attack (IoA)
+  <a class="heading-link" href="#indicators-of-attackioa">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>IoA, bir saldırının gerçekleştirilmekte olduğunu veya gerçekleşme aşamasında olduğunu gösteren belirteçlerdir. IoA, daha geniş bir perspektiften saldırının metodolojisini ve saldırganın amaçlarını anlamaya yardımcı olur. IoA örnekleri şunları içerebilir:</p>
+<ul>
+<li><strong>Tuhaf Kullanıcı Davranışları</strong>: Normalden farklı kullanıcı davranışları, örneğin yetkisiz veri erişim denemeleri.</li>
+<li><strong>Sistem Değişiklikleri</strong>: Beklenmedik sistem yapılandırma değişiklikleri.</li>
+<li><strong>Komuta ve Kontrol Trafiği</strong>: Saldırganın sistemle uzaktan iletişim kurma girişimleri.</li>
+<li><strong>Dosya Sisteminde Değişiklikler</strong>: Beklenmeyen dosya eklemeleri veya silinmeleri.</li>
+<li><strong>Yazılım Açıkları Kullanımı</strong>: Bilinen yazılım açıklarını istismar etme girişimleri.</li>
+</ul>
+<hr>
+<h3 id="elastalert">
+  Elastalert
+  <a class="heading-link" href="#elastalert">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Elastalert, Elasticsearch’te belirli koşulların gerçekleştiğinde uyarılar oluşturmanıza olanak tanır. Elastalert, belirli filtreler ve koşullarla yapılandırılabilir ve uyarılar e-posta, webhook, Slack gibi çeşitli kanallarda bildirilebilir. bknz: <a href="https://elastalert.readthedocs.io/en/latest/elastalert.html"  class="external-link" target="_blank" rel="noopener">https://elastalert.readthedocs.io/en/latest/elastalert.html</a></p>
+<p><img src="/images/1_49Mk87Ovld-HkJr8fx3uUA.png" alt=""></p>
+<p>ELK Stack</p>
+<p>ElastAlert, Elasticsearch’teki verilerden anomaliler, ani artışlar veya diğer ilgi çekici modeller hakkında uyarı vermek için basit bir çerçevedir.</p>
+<p>Elasticsearch’e gerçek zamanlı olarak veri yazıyorsanız ve bu veriler belirli kalıplarla eşleştiğinde uyarı almak istiyorsanız, ElastAlert tam size göre bir araç.</p>
+<p>Kibana, Elasticsearch’te uyarılar oluşturmanın ve yönetmenin kolay bir arayüzü sağlar. Kibana’da, uyarılar ve eylemler bölümünde yeni uyarılar oluşturabilir ve mevcut uyarıları yönetebilirsiniz.</p>
+<hr>
+<h3 id="alerting">
+  Alerting
+  <a class="heading-link" href="#alerting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Uyarılar, belirli durumlar veya anormallikler tespit edildiğinde otomatik olarak bildirilmesi anlamına gelir. Elasticsearch’te uyarılar, veri analizi ve yönetim süreçlerini optimize eder.</p>
+<p>Kural yazımı, belirli koşulların gerçekleştiğinde belirli eylemler alınmasını sağlar. Elasticsearch’te kural yazımı için kullanılan API’ler ve araçlar arasında Elastalert ve Kibana bulunur.</p>
+<h4 id="kibana-uyarılar">
+  Kibana Uyarılar
+  <a class="heading-link" href="#kibana-uyar%c4%b1lar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Kibana’da uyarılar oluşturmak ve yönetmek için aşağıdaki adımları izleyebilirsiniz:</p>
+<ol>
+<li><strong>Kibana’ya Giriş Yapın</strong>: Kibana’ya giriş yapın ve yönetim bölümüne gidin.</li>
+<li><strong>Uyarılar ve Eylemler Bölümüne Git</strong>: Uyarılar ve eylemler bölümünde yeni uyarılar oluşturabilirsiniz.</li>
+<li><strong>Uyarıyı Yapılandırın</strong>: Uyarıyı belirli filtreler ve koşullarla yapılandırın.</li>
+<li><strong>Eylemleri Bağlayın</strong>: Uyarıları e-posta, webhook, Slack gibi çeşitli kanallara bağlayın.</li>
+</ol>
+<p><img src="/images/1_HOGFGHf9G27KLYAsknxMTQ.png" alt=""></p>
+<p>Rules Menüsü</p>
+<p><img src="/images/1_bs5pPfXzAcVKHNfjcZ0TRQ.png" alt=""></p>
+<p>Rule Type</p>
+<p><img src="/images/1_lxEwyHDi0nyIRYpEKS4skg.png" alt=""></p>
+<p>Create Rule</p>
+<p>Örnek olarak CPU kullanım kuralını aktif ettik. Makinedeki CPU Kullanım oranı %10u aşarsa uyarı oluşturacak.</p>
+<p>Bu menü üzerinden her türlü kural yazımını yapabilirsiniz.</p>
+<hr>
+<h3 id="tehdit-odaklı-savunma-stratejisinin-değişenyüzü">
+  Tehdit Odaklı Savunma Stratejisinin Değişen Yüzü
+  <a class="heading-link" href="#tehdit-odakl%c4%b1-savunma-stratejisinin-de%c4%9fi%c5%9feny%c3%bcz%c3%bc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Siber güvenlik alanında, tehdit odaklı savunma (threat-informed defense) stratejisi, geleneksel imza tabanlı tespit yöntemlerinin yetersiz kaldığı bir dönemde giderek daha fazla önem kazanmıştır. Geleneksel yaklaşımlar, bilinen kötü amaçlı yazılım türlerine odaklanırken, modern saldırganlar sürekli olarak taktiklerini ve tekniklerini değiştirerek savunmaları aşmaya çalışmaktadır. Bu noktada, MITRE ATT&amp;CK (Adversarial Tactics, Techniques, and Common Knowledge) çerçevesi, siber güvenlik dünyası için dönüştürücü bir kaynak haline gelmiştir.</p>
+<p>MITRE ATT&amp;CK, bir saldırının yaşam döngüsünü taktikler (saldırganın hedefleri) ve teknikler (bu hedeflere ulaşmak için kullandığı yöntemler) olarak yapılandıran, dünya çapında kabul görmüş bir bilgi tabanıdır. Bu çerçeve, saldırganların kullandığı araçlardan ziyade, davranışsal kalıplarına odaklanarak daha dayanıklı bir savunma mekanizması oluşturulmasını sağlar. Bir saldırganın kullandığı spesifik bir yazılımı engellemek yerine, o yazılımın Keşif, Yürütme veya Yetki Yükseltme gibi aşamalarda sergilediği davranışları hedeflemek, savunma stratejilerini daha kapsamlı ve esnek hale getirir. Bu yaklaşım, güvenlik ekiplerine saldırıları daha bütünsel bir bağlamda anlama, tehdit avcılığı yapma ve olaylara daha etkili müdahale etme olanağı tanır. Ayrıca, ATT&amp;CK, güvenlik operasyon merkezi (SOC), tehdit istihbaratı ve yöneticiler gibi farklı paydaşlar arasında tehditler hakkında ortak bir dil oluşturarak güvenlik olgunluğunu değerlendirmek için de kritik bir araç haline gelmiştir.</p>
+<h3 id="elk-stack-modern-socun-açık-kaynakkalbi">
+  ELK Stack: Modern SOC’un Açık Kaynak Kalbi
+  <a class="heading-link" href="#elk-stack-modern-socun-a%c3%a7%c4%b1k-kaynakkalbi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>ELK Stack, log yönetimi ve analizi için kullanılan, açık kaynak kodlu ve son derece popüler bir platformdur. Elasticsearch, Logstash ve Kibana olmak üzere üç ana bileşenden oluşur ve birlikte çalışarak ham log verilerini eyleme dönüştürülebilir güvenlik bilgisine dönüştürürler. Elasticsearch, dağıtık ve RESTful bir arama ve analiz motoru olarak yığın halindeki log verilerini JSON belgeleri şeklinde depolar ve anında sorgulanabilir hale getirir. Yatay ölçeklenebilirlik mimarisi sayesinde, yüksek hacimli verileri ve sorgu yükünü rahatlıkla yönetebilir.</p>
+<p>Logstash, veri işleme hattının merkezinde yer alır ve çeşitli kaynaklardan (dosyalar, sistem logları, veritabanları) veri alarak onları işler, dönüştürür ve zenginleştirir. Bu süreç, üç ana aşamadan oluşur: giriş (inputs), filtreleme (filters) ve çıkış (outputs). Filtreler, yapılandırılmamış verileri (<code>Grok</code> desenleri kullanarak) anlamlı alanlara ayırmak ve IP adreslerine göre coğrafi konum bilgisi eklemek gibi işlemleri gerçekleştirerek veriyi daha anlamlı hale getirir. Son olarak, Kibana, Elasticsearch&rsquo;te depolanan verileri görselleştirmek için kullanılan sezgisel bir web arayüzüdür. Kullanıcılar, etkileşimli panolar oluşturabilir, filtreler uygulayabilir ve ham log verisi üzerinde arama yapabilir. Kibana&rsquo;nın modern versiyonları, makine öğrenimi tabanlı anomali tespiti ve uyarı özelliklerini de içermektedir.</p>
+<p>ELK Stack, log yönetimi, altyapı izleme, uygulama sorun giderme ve güvenlik analizi gibi çeşitli kullanım senaryolarına hizmet eder. Ancak, bu platformun “kutu dışı” tam teşekküllü bir SIEM (Security Information and Event Management) çözümü olmadığı bilinmelidir. ELK, log toplama, işleme, depolama ve sorgulama yeteneklerini sağlasa da, karmaşık olay korelasyonu, yerleşik uyarı mekanizmaları ve otomatik olay müdahale yetenekleri gibi özellikler için ek bileşenlere veya özel yapılandırmalara ihtiyaç duyar. Bu nedenle, bu raporun amacı, ELK’in güçlü yönlerini kullanarak bu açıkları kapatan ve tehditleri MITRE ATT&amp;CK çerçevesinde anlamlandıran yapılandırılmış bir kural seti ve entegrasyon rehberi sunmaktır.</p>
+<h3 id="kural-seti-için-gerekli-temel-yapılandırmalar-ve-kaynaklar">
+  Kural Seti için Gerekli Temel Yapılandırmalar ve Kaynaklar
+  <a class="heading-link" href="#kural-seti-i%c3%a7in-gerekli-temel-yap%c4%b1land%c4%b1rmalar-ve-kaynaklar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bir ELK altyapısı üzerinde MITRE ATT&amp;CK odaklı bir kural seti oluşturmanın temelinde, doğru log kaynaklarının toplanması, bu verilerin standartlaştırılması ve verimli bir şekilde işlenmesi yatar. Bu bölüm, tespit yeteneklerini en üst düzeye çıkarmak için olmazsa olmaz olan bu temel yapılandırmaları detaylandırmaktadır.</p>
+<h3 id="log-kaynağı-gereksinimlerinin-haritası">
+  Log Kaynağı Gereksinimlerinin Haritası
+  <a class="heading-link" href="#log-kayna%c4%9f%c4%b1-gereksinimlerinin-haritas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bir saldırganın davranışlarını tespit edebilmek için gereken en önemli log kaynakları, saldırının gerçekleştiği ortama göre farklılık gösterir. MITRE ATT&amp;CK Enterprise, Mobile ve ICS alanlarının her biri için farklı veri kaynakları hayati öneme sahiptir.</p>
+<p><strong>Windows Sistemleri için Zorunlu Loglar:</strong></p>
+<ul>
+<li><strong>Sysmon:</strong> Sysmon (System Monitor), Windows Event Log’ları üzerinden sistem üzerindeki süreç oluşturma, ağ bağlantıları, dosya erişimi gibi kritik güvenlik olaylarını yakalayan bir Windows sistem hizmetidir. Özellikle Sysmon’un Event ID 1 (Process creation) olayı, bir sürecin tam komut satırı argümanları, ana süreç bilgisi ve hash değerleri gibi zengin veriler sunduğu için T1059 (Komut ve Script Yorumlayıcısı) ve T1087 (Hesap Keşfi) gibi teknikleri tespit etmede Windows’un varsayılan güvenlik loglarından çok daha değerli bir kaynaktır.</li>
+<li><strong>Windows Security Event Logs:</strong> Sysmon’a ek olarak, Windows’un yerleşik güvenlik logları, hesap yönetimiyle ilgili önemli olayları kaydeder. Örneğin, bir kullanıcı hesabının oluşturulması, silinmesi veya bir gruba eklenmesi/çıkarılması, saldırganların kalıcılık sağlamak veya yetki yükseltmek için kullandığı davranışları tespit etmek için kritik veriler sağlar.</li>
+</ul>
+<p><strong>Linux Sistemleri için Zorunlu Loglar:</strong></p>
+<ul>
+<li><strong>Auditd:</strong> Linux’ta <code>auditd</code> hizmeti, sistem çağrılarını, dosya erişimlerini ve süreç oluşturma gibi çekirdek düzeyindeki etkinlikleri izlemek için kullanılır. <code>Auditd</code> logları, saldırganların bir sisteme sızdıktan sonra sergilediği davranışları (örn. <code>net.exe</code> benzeri komutlar) tespit etmede vazgeçilmez bir kaynaktır. <code>Filebeat</code> ve <code>Auditd Manager</code> entegrasyonları, bu logların ELK&rsquo;ye kolayca aktarılmasını sağlar.</li>
+</ul>
+<p><strong>Ağ ve Diğer Kaynaklar:</strong></p>
+<ul>
+<li><strong>Ağ Akış Logları:</strong> Ağ trafiği akış logları (örn. NetFlow) veya <code>Packetbeat</code> gibi araçlarla toplanan veriler, T1046 (Ağ Hizmeti Keşfi) gibi keşif taktiklerini tespit etmek için hayati öneme sahiptir. Bu loglar, bir kaynaktan birden çok hedefe veya porta yapılan anormal bağlantı girişimlerini (port taraması) belirlemede kullanılır.</li>
+<li><strong>İçgörü:</strong> Kural setinin etkinliği, yalnızca log kaynaklarının mevcudiyetine değil, aynı zamanda toplanan verinin kalitesine de bağlıdır. Yalnızca logları toplamak yetmez; logların, saldırganın amacını ve eylemlerini net bir şekilde ortaya koyan zenginleştirilmiş bilgiler (komut satırı argümanları, kullanıcı adları, ana süreçler) içermesi gerekmektedir. Bu, tespit yeteneklerini maksimize etmek için kritik bir unsurdur.</li>
+</ul>
+<h3 id="veri-normalizasyonu-elastic-common-schema-ecs-ile-standardizasyon">
+  Veri Normalizasyonu: Elastic Common Schema (ECS) ile Standardizasyon
+  <a class="heading-link" href="#veri-normalizasyonu-elastic-common-schema-ecs-ile-standardizasyon">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Farklı platformlar ve cihazlar, her biri kendine özgü bir formatta log verisi üretir. Bu durum, log verilerini analiz etmeyi, birbiriyle ilişkilendirmeyi ve tehdit avcılığı sorgularını oluşturmayı son derece karmaşık hale getirir. Elastic Common Schema (ECS), bu sorunu çözmek için geliştirilmiş, olay verilerini Elasticsearch’te depolarken kullanılmak üzere standart bir alan kümesi tanımlayan açık kaynaklı bir spesifikasyondur.</p>
+<p>ECS, farklı log türleri (örn. Windows olayları, Linux süreçleri, ağ trafiği) için ortak alan adları (<code>process.name</code>, <code>source.ip</code>, <code>destination.port</code> gibi) sağlayarak veriyi standartlaştırır. Bu standardizasyon, log kaynakları arasında veri korelasyonunu kolaylaştırır ve tek bir sorgu ile birden fazla kaynaktan veri çekilmesini mümkün kılar. Bu, güvenlik analistlerinin her log formatı için ayrı sorgular yazma yükünü ortadan kaldırır ve keşif süreçlerini hızlandırır.</p>
+<p>Bir güvenlik ekibi, tehdit avcılığı yaparken veya bir olayla ilgili kök neden analizi gerçekleştirirken, ECS uyumlu veriler sayesinde zamandan tasarruf eder. Saldırganın bir sistemde başlattığı sürecin, ağ üzerinden başka bir sisteme nasıl bağlandığını veya hangi dosyaları değiştirdiğini, farklı log kaynaklarından gelen verileri tek bir standart sorguyla ilişkilendirerek çok daha hızlı bir şekilde anlayabilir. Bu durum, olay müdahale ekiplerinin bir olayı tespit etme süresini (MTTD) ve müdahale etme süresini (MTTR) önemli ölçüde azaltır.</p>
+<h3 id="veri-işleme-pipelineları-logstash-ve-ingestnode">
+  Veri İşleme Pipeline’ları: Logstash ve Ingest Node
+  <a class="heading-link" href="#veri-i%c5%9fleme-pipelinelar%c4%b1-logstash-ve-ingestnode">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Ham log verileri, tespit kuralları için uygun hale getirilmeden önce işlenmeli ve zenginleştirilmelidir. ELK Stack’te bu işlem için iki temel mekanizma bulunur: Logstash filtreleri ve Elasticsearch Ingest Node pipeline’ları. Her birinin kendi avantajları ve ideal kullanım senaryoları vardır.</p>
+<ul>
+<li><strong>Logstash Filtreleri:</strong> Logstash, giriş, filtre ve çıkış aşamalarından oluşan esnek bir mimariye sahiptir. Özellikle <code>Grok</code> filtreleri, yapılandırılmamış metin tabanlı logları, önceden tanımlanmış desenler aracılığıyla anlamlı alanlara ayırmada oldukça güçlüdür. Bu filtreler, loglara coğrafi konum bilgisi (<code>geoip</code>), alan dönüştürme (<code>mutate</code>) veya koşullu işlem (<code>if</code>) gibi zenginleştirme işlemleri uygulamak için idealdir. Logstash, veri akışında bir ara katman olarak görev yaparak, verinin Elasticsearch&rsquo;e gönderilmeden önce karmaşık bir şekilde işlenmesine olanak tanır.</li>
+<li><strong>Elasticsearch Ingest Node Pipeline’ları:</strong> Ingest Node, Elasticsearch kümesi içerisinde çalışan ve veri indekslenmeden hemen önce basit dönüşümler gerçekleştiren bir özelliktir. Logstash’e göre daha hafif ve basit işlemleri hedef alan Ingest Node, özellikle <code>grok</code> veya <code>set</code> gibi işlemcilerle veri üzerinde temel dönüşümleri yapmak için uygundur. Entegrasyonlar aracılığıyla otomatik olarak yapılandırılabilen bu pipeline&rsquo;lar, Logstash&rsquo;in karmaşıklığına ihtiyaç duymayan senaryolarda mimariyi basitleştirebilir.</li>
+</ul>
+<p>Her iki yöntem arasında stratejik bir seçim yapmak, altyapının performansı ve ölçeklenebilirliği açısından önemlidir. Kaynaklar, Logstash’in karmaşık veri dönüşümü, zenginleştirme, farklı girdi kaynakları ve birden fazla çıktı hedefi için daha uygun olduğunu belirtirken, Ingest Node’un ise daha basit işlem ihtiyaçları için mimariyi sadeleştirdiğini gösterir. Yoğun log hacmi veya karmaşık bir veri işleme gereksinimi olan durumlarda Logstash kullanımı tercih edilebilirken, daha basit <code>Grok</code> veya alan dönüştürme işlemleri için Ingest Node, mimariyi basitleştirme ve yönetim yükünü azaltma potansiyeli sunar.</p>
+<h3 id="kural-formatı-ve-meta-veri-standartları">
+  Kural Formatı ve Meta Veri Standartları
+  <a class="heading-link" href="#kural-format%c4%b1-ve-meta-veri-standartlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>MITRE ATT&amp;CK odaklı bir kural seti oluştururken, her kuralın belirli bir standarda ve yapıya uyması, kural setinin yönetilebilirliğini ve güvenlik ekibi için kullanılabilirliğini artırır. Bu bölüm, kural yapısının temel bileşenlerini ve MITRE ATT&amp;CK ile doğru ilişkilendirme yöntemlerini açıklamaktadır.</p>
+<h3 id="kural-yapılandırma-metodolojisi">
+  Kural Yapılandırma Metodolojisi
+  <a class="heading-link" href="#kural-yap%c4%b1land%c4%b1rma-metodolojisi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Her kural, tehditleri etkili bir şekilde tespit etmek ve güvenlik ekiplerine eyleme geçirilebilir bilgi sunmak için temel bileşenler içermelidir. Bu bileşenler şunlardır:</p>
+<ul>
+<li><strong>Kural Kimliği (</strong><code>rule_id</code><strong>):</strong> Her kural için benzersiz bir tanımlayıcı olmalıdır. Bu kimlik, kuralın yaşam döngüsü boyunca izlenmesini, güncellenmesini ve raporlanmasını kolaylaştırır. Örneğin, <code>PS-Encoded-Cmd-Detection-001</code> gibi açıklayıcı bir kimlik kullanılması önerilir.</li>
+<li><strong>Ciddiyet (</strong><code>severity</code><strong>):</strong> Kuralın tetiklediği olayın potansiyel etkisini gösteren bir değerdir. Genellikle <code>Kritik</code>, <code>Yüksek</code>, <code>Orta</code> veya <code>Düşük</code> gibi derecelendirmeler kullanılır. Bu, güvenlik analistlerinin hangi alarmlara öncelik vermesi gerektiğini belirlemelerine yardımcı olur.</li>
+<li><strong>Tanım (</strong><code>description</code><strong>):</strong> Kuralın neyi tespit ettiğini, neden önemli olduğunu ve saldırganın hangi hedefe ulaşmaya çalıştığını net bir şekilde açıklayan metindir. İyi yazılmış bir tanım, bir olayın ilk müdahale (triage) aşamasını hızlandırır.</li>
+</ul>
+<h3 id="mitre-attck-etiketleme">
+  MITRE ATT&amp;CK Etiketleme
+  <a class="heading-link" href="#mitre-attck-etiketleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Kural setinin en önemli unsurlarından biri, her kuralın tespit ettiği MITRE ATT&amp;CK taktiği ve tekniği ile doğru bir şekilde etiketlenmesidir. Bu etiketleme, ham log verisini saldırı bağlamına oturtarak güvenlik ekiplerinin bir olayın arkasındaki amacı daha hızlı anlamasını sağlar.</p>
+<p>Kibana’da bir kural oluştururken, <code>mitre.tactic</code> ve <code>mitre.technique_id</code> gibi özel alanlar aracılığıyla bu etiketleri eklemek mümkündür. Örneğin, bir kuralın JSON çıktısı şu şekilde olabilir:</p>
+<pre tabindex="0"><code>{  
+  &#34;mitre.technique_id&#34;: &#34;T1059&#34;,  
+  &#34;mitre.tactic&#34;: &#34;execution&#34;  
+}
+</code></pre><p>Bu etiketler, güvenlik analistleri için bir köprü görevi görerek, bir alarmı gördüklerinde saldırganın ne yapmaya çalıştığını (taktik) ve hangi yöntemi (teknik) kullandığını anında kavrayabilmelerini sağlar. Bu bilgi, olay müdahale sürecini hızlandırır ve savunma stratejisinin bütünsel bir resmini görmeye olanak tanır.</p>
+<h3 id="mitre-attck-taktiklerine-göre-kural-örnekleri-vetespiti">
+  MITRE ATT&amp;CK Taktiklerine Göre Kural Örnekleri ve Tespiti
+  <a class="heading-link" href="#mitre-attck-taktiklerine-g%c3%b6re-kural-%c3%b6rnekleri-vetespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu bölümde, Keşif ve Yürütme taktikleri altında yer alan seçilmiş MITRE ATT&amp;CK teknikleri için somut ve uygulanabilir kural örnekleri sunulmuştur. Bu örnekler, farklı log kaynaklarından elde edilen verilere dayanarak oluşturulmuş olup, hem kural mantığını hem de ilgili bağlamı açıklamaktadır.</p>
+<h3 id="taktik-yürütme-executionta0002">
+  Taktik: Yürütme (Execution — TA0002)
+  <a class="heading-link" href="#taktik-y%c3%bcr%c3%bctme-executionta0002">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu taktik, saldırganların bir sistemde kendi kodlarını veya komutlarını çalıştırma girişimlerini kapsar.</p>
+<h4 id="teknik-t1059-komut-ve-script-yorumlayıcısı">
+  Teknik: T1059 Komut ve Script Yorumlayıcısı
+  <a class="heading-link" href="#teknik-t1059-komut-ve-script-yorumlay%c4%b1c%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Saldırganlar, yerleşik işletim sistemi araçları olan komut ve script yorumlayıcılarını (örneğin, PowerShell, Bash, <code>cmd.exe</code>) kullanarak sistem üzerinde kod çalıştırma eğilimindedir. Bu teknik, saldırı kampanyalarında en sık kullanılan yöntemlerden biridir. PowerShell, özellikle savunma mekanizmalarını atlatmak, bellekte zararlı yükleri çalıştırmak ve karmaşık komutları gizlemek için sıklıkla kötüye kullanılır.</p>
+<p>Kural Örneği 1: Şüpheli PowerShell Komutları Tespiti (T1059.001)</p>
+<p>Bu kural, PowerShell’in komutları gizlemek için sıklıkla kullanılan <code>--EncodedCommand</code> parametresiyle çalıştırılmasını tespit eder. Bu tür kodlama, genellikle meşru olmayan script&rsquo;lerin güvenlik çözümleri tarafından statik analizden kaçınması amacıyla kullanılır.</p>
+<ul>
+<li><strong>Kural Kimliği:</strong> <code>PS-Encoded-Cmd-Detection-001</code></li>
+<li><strong>Ciddiyet:</strong> <code>Yüksek</code></li>
+<li><strong>Tanım:</strong> “PowerShell’in <code>--EncodedCommand</code> parametresi ile çalıştırılmasını tespit eder. Bu, genellikle zararlı yazılımlar tarafından komutları gizlemek ve güvenlik çözümlerini atlatmak için kullanılır.&quot;</li>
+<li><strong>MITRE ATT&amp;CK Etiketi:</strong> <code>mitre.tactic: execution</code>, <code>mitre.technique_id: T1059, T1059.001</code></li>
+<li><strong>Log Kaynağı:</strong> Kuralın tespiti için en ideal log kaynağı, Sysmon tarafından üretilen Event ID 1 (Process creation) logları veya Windows PowerShell Script Block Logging’dir. Bu kaynaklar, tam komut satırı argümanlarını detaylı bir şekilde kaydeder.</li>
+<li><strong>Kural Mantığı:</strong></li>
+<li>Kibana EQL (Event Query Language) Sorgusu:</li>
+<li>process where process.name == “powershell.exe” and process.command_line : “*EncodedCommand*”</li>
+<li>Bu sorgu, <code>process.name</code> alanı <code>powershell.exe</code> olan ve <code>process.command_line</code> alanında <code>EncodedCommand</code> anahtar kelimesini içeren tüm olayları bulur.</li>
+<li><strong>Yanlış Pozitif Analizi:</strong> Meşru yönetim scriptleri de bazen karmaşık veya hassas komutları kodlayarak çalıştırabilir. Bu tür durumlarda, bilinen ve güvenilen yönetim süreçleri veya IP adresleri için istisna listeleri oluşturularak kural gürültüsü azaltılabilir.</li>
+</ul>
+<p>Kural Örneği 2: <code>vssadmin.exe</code> ile Gölge Kopyaların Silinmesi (T1490)</p>
+<p>Bu teknik, <code>Impact</code> (Etki) taktiği ile ilişkilendirilse de, bir saldırganın <code>vssadmin.exe</code> gibi yerleşik bir Windows aracını çalıştırmasıyla başladığı için <code>Execution</code> taktiğiyle de doğrudan bağlantılıdır. Bu kural, sistemdeki gölge kopyaların silinmesini tespit ederek veri kurtarmayı engellemeye yönelik tehditleri ortaya çıkarır.</p>
+<ul>
+<li><strong>Kural Kimliği:</strong> <code>VssAdmin-Shadow-Delete-002</code></li>
+<li><strong>Ciddiyet:</strong> <code>Kritik</code></li>
+<li><strong>Tanım:</strong> “Sistem bütünlüğünü ve veri kurtarmayı engelleme amacıyla <code>vssadmin.exe</code> kullanılarak gölge kopyaların silinmesini tespit eder.&quot;</li>
+<li><strong>MITRE ATT&amp;CK Etiketi:</strong> <code>mitre.tactic: impact</code>, <code>mitre.technique_id: T1490</code></li>
+<li><strong>Log Kaynağı:</strong> Sysmon Event ID 1 (Process creation) en iyi kaynak olmakla birlikte, Windows Security Event Logları da kullanılabilir.</li>
+<li><strong>Kural Mantığı:</strong></li>
+<li>Kibana Custom Query (KQL):</li>
+<li>event.action:”Process Create (rule: ProcessCreate)” and process.name:”vssadmin.exe” and process.args:(“delete” and “shadows”)</li>
+<li>Bu sorgu, Sysmon logları gibi <code>winlogbeat</code> ile toplanan verilerde, <code>vssadmin.exe</code> sürecinin <code>delete</code> ve <code>shadows</code> argümanlarıyla birlikte çalıştırılmasını arar. Bu komutun meşru kullanımı son derece nadir olduğu için, bu kural tetiklendiğinde yüksek güvenilirlikli bir alarm üretmesi beklenir.</li>
+</ul>
+<h3 id="taktik-keşif-discoveryta0007">
+  Taktik: Keşif (Discovery — TA0007)
+  <a class="heading-link" href="#taktik-ke%c5%9fif-discoveryta0007">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu taktik, saldırganların bir ağa girdikten sonra çevre hakkında bilgi toplama çabalarını içerir.</p>
+<h4 id="teknik-t1087-hesapkeşfi">
+  Teknik: T1087 Hesap Keşfi
+  <a class="heading-link" href="#teknik-t1087-hesapke%c5%9ffi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Saldırganlar, yetki yükseltme veya yanal hareket için kullanabilecekleri geçerli kullanıcı hesaplarını bulmak amacıyla yerel veya etki alanı hesaplarını numaralandırmaya çalışabilirler.</p>
+<p>Kural Örneği 1: <code>net.exe</code> ile Hesap Keşfi (T1087)</p>
+<p>Windows’un yerleşik <code>net.exe</code> aracı, hesapları ve grupları listelemek için sıklıkla kullanılır.</p>
+<ul>
+<li><strong>Kural Kimliği:</strong> <code>Net-User-Recon-003</code></li>
+<li><strong>Ciddiyet:</strong> <code>Orta</code></li>
+<li><strong>Tanım:</strong> “Windows’un yerleşik <code>net.exe</code> aracını kullanarak yerel veya etki alanı hesaplarının listelenmesini tespit eder.&quot;</li>
+<li><strong>MITRE ATT&amp;CK Etiketi:</strong> <code>mitre.tactic: discovery</code>, <code>mitre.technique_id: T1087</code></li>
+<li><strong>Log Kaynağı:</strong> Sysmon Event ID 1, Windows Security Event Logları.</li>
+<li><strong>Kural Mantığı:</strong></li>
+<li>Kibana EQL Sorgusu:</li>
+<li>process where (process.name == “net.exe” or process.name == “net1.exe”) and process.command_line : (“user” or “users”)</li>
+<li>Bu sorgu, <code>net.exe</code> veya <code>net1.exe</code> süreçlerinin <code>user</code> veya <code>users</code> argümanlarıyla çalıştırıldığı olayları yakalar.</li>
+<li><strong>Yanlış Pozitif Analizi:</strong> Sistem yöneticileri rutin görevler için bu komutları kullanabilir. Bu nedenle, kuralın <code>process.parent_name</code> gibi ek bağlam bilgileriyle birlikte kullanılması veya zaman penceresi tabanlı bir eşik kuralı olarak değerlendirilmesi gerekebilir.</li>
+</ul>
+<h4 id="teknik-t1046-ağ-hizmetikeşfi">
+  Teknik: T1046 Ağ Hizmeti Keşfi
+  <a class="heading-link" href="#teknik-t1046-a%c4%9f-hizmetike%c5%9ffi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Saldırganlar, ağ üzerindeki potansiyel zafiyetlere sahip hizmetleri ve açık portları bulmak için port taraması yaparlar.</p>
+<p>Kural Örneği 2: Ağ Hizmeti Keşfi (T1046)</p>
+<p>Bu kural, tek bir kaynaktan çok sayıda hedefe veya porta yapılan şüpheli bağlantı girişimlerini (port taraması) tespit eder.</p>
+<ul>
+<li><strong>Kural Kimliği:</strong> <code>Port-Scan-Detection-004</code></li>
+<li><strong>Ciddiyet:</strong> <code>Orta</code></li>
+<li><strong>Tanım:</strong> “Bir kaynaktan, kısa bir zaman diliminde çok sayıda hedefe veya porta yapılan şüpheli bağlantı girişimlerini (port tarama) tespit eder.”</li>
+<li><strong>MITRE ATT&amp;CK Etiketi:</strong> <code>mitre.tactic: discovery</code>, <code>mitre.technique_id: T1046</code></li>
+<li><strong>Log Kaynağı:</strong> Ağ akış logları, <code>Packetbeat</code> veya <code>Filebeat</code> ile toplanan firewall logları.</li>
+<li><strong>Kural Mantığı:</strong></li>
+<li><strong>Kibana Threshold Rule:</strong></li>
+<li><strong>Index:</strong> <code>packetbeat-*</code></li>
+<li><strong>Aggregated on:</strong> <code>source.ip</code></li>
+<li><strong>Field to count:</strong> <code>destination.port</code></li>
+<li><strong>Threshold:</strong> <code>unique_count(destination.port) &gt; 20</code> within <code>1 minute</code></li>
+<li>Bu kural, tek bir kaynak IP adresinden (<code>source.ip</code>), bir dakika içinde 20&rsquo;den fazla farklı hedef porta (<code>destination.port</code>) yapılan bağlantı girişimlerini sayarak bir eşiği aşan durumları tespit eder.</li>
+<li><strong>Yanlış Pozitif Analizi:</strong> Yük dengeleyiciler, iç ağ tarama araçları veya geliştirme ortamlarındaki rutin testler bu kuralı tetikleyebilir. Bu nedenle, bilinen IP aralıkları veya meşru tarama araçları için istisna listeleri oluşturulması gereklidir.</li>
+</ul>
+<h3 id="mobil-ve-ics-ortamları-için-kural-geliştirme-yaklaşımı">
+  Mobil ve ICS Ortamları için Kural Geliştirme Yaklaşımı
+  <a class="heading-link" href="#mobil-ve-ics-ortamlar%c4%b1-i%c3%a7in-kural-geli%c5%9ftirme-yakla%c5%9f%c4%b1m%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>ELK Stack’in esnekliği, sadece geleneksel Enterprise ortamları için değil, aynı zamanda daha niş olan Mobile ve ICS (Industrial Control Systems) alanları için de tehdit tespiti yapılmasına olanak tanır.</p>
+<h4 id="mobil-ortamlar">
+  Mobil Ortamlar
+  <a class="heading-link" href="#mobil-ortamlar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>MITRE ATT&amp;CK for Mobile matrisi, Android ve iOS platformlarına özgü taktik ve teknikleri içerir. Mobil tehditlerin tespiti, geleneksel uç nokta loglamasına göre farklı bir yaklaşım gerektirir.</p>
+<ul>
+<li><strong>Log Kaynakları:</strong> Mobil tehditler genellikle uygulama içi davranışlarla veya cihazın kendisiyle ilgili loglarla tespit edilir. Uygulama geliştiricileri, <code>swift-log-elk</code> gibi loglama kütüphanelerini kullanarak doğrudan logları Logstash&rsquo;e gönderebilir. Ayrıca, Android&rsquo;in <code>logcat</code> aracı, <code>adb</code> komutu aracılığıyla cihaz loglarını izlemek için kullanılabilir. Mobile Device Management (MDM) çözümlerinin sağladığı loglar da bu analizler için değerli bir kaynaktır.</li>
+<li><strong>Kural Örneği (Teorik):</strong> Köklü bir Android cihazda hassas dosyalara (<code>/etc/passwd</code>) erişim girişimi, <code>logcat</code> loglarında belirli bir süreç ve dosya yolu kombinasyonu aranarak tespit edilebilir.</li>
+</ul>
+<h4 id="ics-endüstriyel-kontrol-sistemleri-ortamları">
+  ICS (Endüstriyel Kontrol Sistemleri) Ortamları
+  <a class="heading-link" href="#ics-end%c3%bcstriyel-kontrol-sistemleri-ortamlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>MITRE ATT&amp;CK for ICS, endüstriyel süreçleri hedef alan saldırıları modellemek için özel olarak tasarlanmıştır. ICS ortamlarındaki en büyük zorluk, standart IT loglarından farklı olarak, özel endüstriyel protokollerden (Modbus, OPC, PROFINET) gelen logların işlenmesi ve standartlaştırılmasıdır.</p>
+<ul>
+<li><strong>Log Kaynakları:</strong> Standart IT loglarının yanı sıra, OT ortamlarına özgü protokollerden gelen loglar hayati önem taşır. Bu loglar genellikle Windows Event Log’ları, metin dosyaları veya veritabanları şeklinde toplanır.</li>
+<li><strong>Kural Örneği (Teorik):</strong> Bir PLC’nin çalışma modunun (<code>Run</code> -&gt; <code>Program</code>) yetkisiz bir şekilde değiştirilmesi veya OPC protokolü üzerinden alışılmadık bir şekilde veri toplanması, ICS loglarında belirli bir olay deseni aranarak tespit edilebilir.</li>
+</ul>
+<h3 id="entegrasyon-ve-kural-setinin-doğrulanması">
+  Entegrasyon ve Kural Setinin Doğrulanması
+  <a class="heading-link" href="#entegrasyon-ve-kural-setinin-do%c4%9frulanmas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Oluşturulan kural setinin işlevsel ve güvenilir olması için, ELK Stack’e doğru bir şekilde entegre edilmesi ve etkinliğinin düzenli olarak test edilmesi gerekmektedir.</p>
+<h3 id="kural-setinin-elk-stacke-yüklenmesi">
+  Kural Setinin ELK Stack’e Yüklenmesi
+  <a class="heading-link" href="#kural-setinin-elk-stacke-y%c3%bcklenmesi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Kuralları ELK Stack’e entegre etmenin birden fazla yolu vardır. En modern ve yönetilebilir yaklaşım, Kibana’nın yerleşik Security uygulaması ve API’lerini kullanmaktır.</p>
+<ul>
+<li><strong>Kibana Security App:</strong> Yeni kurallar, Kibana’nın <code>Security &gt; Detections</code> bölümünden görsel arayüz aracılığıyla oluşturulabilir. Bu arayüz, tehdit istihbaratı entegrasyonu (<code>Indicator match</code>) veya korelasyon kuralları gibi farklı kural türlerini destekler.</li>
+<li><strong>Detection as Code (DaC):</strong> Daha büyük ekipler ve otomasyon süreçleri için ideal olan bu yaklaşım, kuralların <code>TOML</code> veya <code>JSON</code> dosyaları şeklinde bir kod deposunda (<code>elastic/detection-rules</code> gibi) saklanmasını ve API aracılığıyla Kibana&rsquo;ya otomatik olarak yüklenmesini sağlar. Bu yöntem, kuralların versiyonlanmasını, CI/CD süreçlerine entegrasyonunu ve ekip içi iş birliğini kolaylaştırır.</li>
+<li><strong>Veri İşleme Entegrasyonları:</strong> Kural mantığına göre, log verisini doğru formatta hazırlamak için Logstash pipeline’ları veya Ingest Node pipeline’ları kullanılabilir. Logstash, karmaşık filtreler (<code>grok</code>, <code>mutate</code>, <code>geoip</code>) ile veri üzerinde derinleşimli dönüşümler yapabilir. Elasticsearch Ingest Node ise daha basit işlemler için kullanılır.</li>
+</ul>
+<h3 id="kural-setinin-testedilmesi">
+  Kural Setinin Test Edilmesi
+  <a class="heading-link" href="#kural-setinin-testedilmesi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bir kural setinin potansiyelini anlamak için teorik olarak neyi tespit ettiğini bilmek yeterli değildir. Kuralın gerçek bir saldırı senaryosunda ne kadar etkili olduğunu doğrulamak hayati öneme sahiptir. Atomic Red Team, bu amaçla MITRE ATT&amp;CK tekniklerini taklit eden basit, izole edilmiş testlerden oluşan açık kaynaklı bir kütüphanedir.</p>
+<ul>
+<li><strong>Test Ortamının Hazırlığı:</strong> Öncelikle, üretim ortamının bir kopyası olacak şekilde izole bir test makinesi (VM) kurulmalıdır. Bu makinede, <code>Sysmon</code> gibi gerekli loglama araçları ve ELK&rsquo;ya log gönderen ajanlar (örneğin, <code>Winlogbeat</code>) çalışıyor olmalıdır.</li>
+<li><strong>Testin Seçimi ve Uygulanması:</strong> <code>Atomic Red Team</code> kütüphanesinden, test edilmek istenen MITRE ATT&amp;CK tekniğine (<code>T1059</code> gibi) karşılık gelen testler seçilir. <code>Invoke-AtomicRedTeam</code> gibi bir araçla bu testler çalıştırılır.</li>
+<li><strong>Doğrulama ve İyileştirme:</strong> Test çalıştırıldıktan sonra, Kibana’da loglar incelenerek oluşturulan kuralın beklenen alarmı üretip üretmediği doğrulanır. Eğer kural tetiklenmezse veya çok fazla yanlış pozitif üretirse, kural mantığı veya kullanılan log kaynakları gözden geçirilerek iyileştirme yapılır. Bu, kural setinin sürekli olarak güncel ve etkili kalmasını sağlayan bir geri bildirim döngüsüdür.</li>
+</ul>
+<p><strong>Örnek MITRE ATT&amp;CK Kural Listesi</strong></p>
+<p>Kural AdıKural Mantığı (EQL/Threshold)CiddiyetTanımMITRE TaktikMITRE Teknik ID<code>PS-Encoded-Cmd-Detection-001process where process.name == &quot;powershell.exe&quot; and process.command_line : &quot;*EncodedCommand*&quot;</code>YüksekPowerShell&rsquo;in <code>--EncodedCommand</code> parametresi ile çalıştırılmasını tespit eder.KeşifT1059.001<code>VssAdmin-Shadow-Delete-002process where process.name : &quot;vssadmin.exe&quot; and process.args : &quot;delete&quot; and process.args : &quot;shadows&quot;</code>Kritik<code>vssadmin.exe</code> ile gölge kopyaların silinmesini tespit eder.EtkiT1490<code>Net-User-Recon-003process where (process.name == &quot;net.exe&quot; or process.name == &quot;net1.exe&quot;) and process.command_line : (&quot;user&quot; or &quot;users&quot;)</code>Orta<code>net.exe</code> aracını kullanarak hesap keşfi aktivitesini tespit eder.KeşifT1087<code>Port-Scan-Detection-004count(destination.port) by source.ip &gt; 20</code> in <code>1m</code>OrtaTek bir IP&rsquo;den çok sayıda farklı porta yapılan bağlantı girişimlerini tespit eder.KeşifT1046</p>
+<h3 id="sonuç-kural-seti-kullanımına-yönelik-ekipler-için-kılavuz-ve-ileriokumalar">
+  Sonuç: Kural Seti Kullanımına Yönelik Ekipler için Kılavuz ve İleri Okumalar
+  <a class="heading-link" href="#sonu%c3%a7-kural-seti-kullan%c4%b1m%c4%b1na-y%c3%b6nelik-ekipler-i%c3%a7in-k%c4%b1lavuz-ve-ileriokumalar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu rapor, ELK Stack üzerinde MITRE ATT&amp;CK çerçevesine dayalı kapsamlı bir olay tespiti kural seti oluşturma ve yönetme sürecine dair detaylı bir yol haritası sunmaktadır. Elde edilen bulgular, bu kural setini kullanacak siber güvenlik ekipleri için bazı temel çıkarımları ve en iyi uygulamaları ortaya koymaktadır.</p>
+<p><strong>En İyi Uygulamalar:</strong></p>
+<ul>
+<li><strong>Tehditleri Önceliklendirme:</strong> Kuruluşun risk profili ve tehdit istihbaratına dayanarak en kritik MITRE ATT&amp;CK taktiklerini ve tekniklerini belirlemek, tüm kuralları etkinleştirmek yerine daha odaklı ve verimli bir savunma stratejisi oluşturur.</li>
+<li><strong>Sürekli İyileştirme:</strong> Bir kural seti “bir kez oluşturulup unutulacak” bir kaynak değildir. Yeni tehditler, yanlış pozitifler ve değişen altyapı koşullarına göre düzenli olarak test edilmeli ve iyileştirilmelidir. Bu sürekli döngü, savunma yeteneklerini olgunlaştıran bir yaklaşımdır.</li>
+<li><strong>Ekip İçi İş Birliği:</strong> Kırmızı ve Mavi takımların iş birliği yapması, kural setinin gerçekçi saldırı senaryolarına karşı etkinliğini test etmek ve geliştirmek için en etkili yöntemdir.</li>
+</ul>
+<p><strong>Gelecek Öneriler:</strong></p>
+<ul>
+<li><strong>Makine Öğrenimi (ML) Entegrasyonu:</strong> ELK Stack’in makine öğrenimi yeteneklerini kullanarak, normal kullanıcı ve sistem davranışlarını öğrenen ve anormal sapmaları tespit eden kurallar oluşturmak mümkündür. Bu, özellikle bilinen imzaları olmayan yeni tehditleri yakalamada büyük bir avantaj sağlar.</li>
+<li><strong>Tehdit İstihbaratı Entegrasyonu:</strong> Tehdit istihbaratı beslemelerini (IoC’ler) doğrudan ELK Stack’e entegre ederek <code>Indicator Match</code> kuralları oluşturulabilir. Bu, bilinen kötü amaçlı IP&rsquo;lere, alan adlarına veya dosya hash&rsquo;lerine karşı hızlı bir şekilde tespit ve uyarı mekanizması kurulmasını sağlar.</li>
+<li><strong>Otomatik Müdahale:</strong> İleri düzey bir entegrasyon olarak, tespit kurallarının bir SOAR (Security Orchestration, Automation and Response) platformu ile birleştirilmesi, alarmlara otomatik olarak yanıt verilmesini sağlayabilir. Örneğin, şüpheli bir süreç tespit edildiğinde, ilgili ana bilgisayarın ağdan izole edilmesi veya kullanıcının hesabının askıya alınması gibi otomatik müdahale eylemleri gerçekleştirilebilir.</li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

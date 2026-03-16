@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Temel Mikroişlemci Mimarisi · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Temel Mikroişlemci Mimarisi
+  
+    
+    Başlık Linki
+  
+
+
+
+  Mikroişlemci Nedir?
+  
+    
+    Başlık Linki
+  
+
+Mikroişlemci, bir bilgisayarın merkezi işlem birimi gibi çalışır. Bilgisayarın hayati fonksiyonlarını yürütür. Bir mikroişlemcinin fonksiyonel konfigürasyonunu ise:
+
+Kaydediciler
+Komut kod-çözücüsü
+Aritmetik ve Mantık birimi
+Frekans üreteci
+Zamanlama ve Kontrol elemanları
+
+oluşturur. Görüldüğü gibi mikroişlemci birçok bölümden meydana gelmiş bir yapıyı temsil eder.
+
+standart bir mikroişlemci mimarisi
+Bilgisayarın kalbi ve beyni olarak adlandırılan mikroişlemciler aynı zamanda Merkezi İşlem Birimi (CPU) olarak anılırlar. CPU genel olarak aşağıdaki işlemleri yapar:">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Temel Mikroişlemci Mimarisi">
+  <meta name="twitter:description" content="Temel Mikroişlemci MimarisiBaşlık LinkiMikroişlemci Nedir?Başlık LinkiMikroişlemci, bir bilgisayarın merkezi işlem birimi gibi çalışır. Bilgisayarın hayati fonksiyonlarını yürütür. Bir mikroişlemcinin fonksiyonel konfigürasyonunu ise:
+Kaydediciler Komut kod-çözücüsü Aritmetik ve Mantık birimi Frekans üreteci Zamanlama ve Kontrol elemanları oluşturur. Görüldüğü gibi mikroişlemci birçok bölümden meydana gelmiş bir yapıyı temsil eder.
+standart bir mikroişlemci mimarisi
+Bilgisayarın kalbi ve beyni olarak adlandırılan mikroişlemciler aynı zamanda Merkezi İşlem Birimi (CPU) olarak anılırlar. CPU genel olarak aşağıdaki işlemleri yapar:">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2023-01-20-temel-mikroi-lemci-mimarisi/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Temel Mikroişlemci Mimarisi">
+  <meta property="og:description" content="Temel Mikroişlemci MimarisiBaşlık LinkiMikroişlemci Nedir?Başlık LinkiMikroişlemci, bir bilgisayarın merkezi işlem birimi gibi çalışır. Bilgisayarın hayati fonksiyonlarını yürütür. Bir mikroişlemcinin fonksiyonel konfigürasyonunu ise:
+Kaydediciler Komut kod-çözücüsü Aritmetik ve Mantık birimi Frekans üreteci Zamanlama ve Kontrol elemanları oluşturur. Görüldüğü gibi mikroişlemci birçok bölümden meydana gelmiş bir yapıyı temsil eder.
+standart bir mikroişlemci mimarisi
+Bilgisayarın kalbi ve beyni olarak adlandırılan mikroişlemciler aynı zamanda Merkezi İşlem Birimi (CPU) olarak anılırlar. CPU genel olarak aşağıdaki işlemleri yapar:">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-01-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-01-20T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2023-01-20-temel-mikroi-lemci-mimarisi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2023-01-20-temel-mikroi-lemci-mimarisi/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2023-01-20-temel-mikroi-lemci-mimarisi/">
+              Temel Mikroişlemci Mimarisi
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-01-20T00:00:00Z">
+                Ocak 20, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              2 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="temel-mikroişlemci-mimarisi">
+  Temel Mikroişlemci Mimarisi
+  <a class="heading-link" href="#temel-mikroi%c5%9flemci-mimarisi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_eBP9qyGpkYsx-Zgy3Jvsqg.png" alt=""></p>
+<h3 id="mikroişlemci-nedir">
+  Mikroişlemci Nedir?
+  <a class="heading-link" href="#mikroi%c5%9flemci-nedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Mikroişlemci, bir bilgisayarın merkezi işlem birimi gibi çalışır. Bilgisayarın hayati fonksiyonlarını yürütür. Bir mikroişlemcinin fonksiyonel konfigürasyonunu ise:</p>
+<ul>
+<li>Kaydediciler</li>
+<li>Komut kod-çözücüsü</li>
+<li>Aritmetik ve Mantık birimi</li>
+<li>Frekans üreteci</li>
+<li>Zamanlama ve Kontrol elemanları</li>
+</ul>
+<p>oluşturur. Görüldüğü gibi mikroişlemci birçok bölümden meydana gelmiş bir yapıyı temsil eder.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*3j-qADs2-A3sg6Jz" alt=""></p>
+<p>standart bir mikroişlemci mimarisi</p>
+<p>Bilgisayarın kalbi ve beyni olarak adlandırılan mikroişlemciler aynı zamanda Merkezi İşlem Birimi (CPU) olarak anılırlar. CPU genel olarak aşağıdaki işlemleri yapar:</p>
+<ul>
+<li>Bellekten komut alıp getirir</li>
+<li>Komutun kodunu çözer</li>
+<li>Sistemdeki tüm elemanlar ve birimlere kontrol sinyalleri sağlar</li>
+<li>Aritmetik ve Mantık işlemlerini yürütür</li>
+<li>Diğer donanım birimlerinden gelen taleplere cevap verir</li>
+</ul>
+<p>Bir mikroişlemcinin mimari yapısı en basit şekilde ifade edilmek istenirse, bir grup kaydedici, Aritmetik Mentık Birimi ve bir de sistemin ne zaman hangi işi yapcağını denetleyen Kontrol Biriminden meydana gelmektedir.</p>
+<h4 id="kaydediciler-registers">
+  Kaydediciler (registers)
+  <a class="heading-link" href="#kaydediciler-registers">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>İşlemcide bir program yürütülürken, işlemcinin içerisinde yani yanı başında kaydedicilere (registers) ihtiyaç duyulur.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*0vAWs-tWxevtC27o" alt=""></p>
+<p>Kaydediciler</p>
+<p>Kaydediciler mikroişlemci mimarisinde önemli bir yer tutar ve doğrudan işlemci mimarisini belirleyen elemanlardan birisidir. Kaydediciler, verinin manevrasında ve geçici olarak tutulmasında birinci dereceden görevlidirler.</p>
+<h4 id="aritmetik-ve-mantık-birimialu">
+  Aritmetik ve Mantık Birimi (ALU)
+  <a class="heading-link" href="#aritmetik-ve-mant%c4%b1k-birimialu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>ALU, mikroişlemcide aritmetik ve mantık işlemlerinin yapıldığı en önemli birimlerden birisidir. Bu birime giriş işlemleri, akümülatör kaydedicisiyle bellekten alınan veri arasında veya akümülatörle diğer kaydediciler arasında olabilir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*42MUW3fUda9LsAzC" alt=""></p>
+<p>ALU</p>
+<p>ALU’da gerçekleşen bütün işlemler kontrol sinyalleri vasıtasıyla Kontrol Biriminin gözetiminde eşzamanlı olarak yapılır. ALU, instruction(emir) ve verileri (operand) alır ve emri bu veriler üzerinde gerçekleştirir.</p>
+<h4 id="kontrol-birimi">
+  Kontrol Birimi
+  <a class="heading-link" href="#kontrol-birimi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Merkezi İşlem Biriminin üçüncü bölümünü meydana getiren bu kısım, sistemin tüm işleyişinden ve işlemin zamanında yapılmasından sorumludur. Kontrol birimi, bellekte program bölümünde bulunan komut kodunun alınıp getirilmesi, kodunun çözülmesi, ALU tarafından işlenmesi ve sonucun alınıp belleğe geri konulması için gerekli olan kontrol sinyallerini üretir. Bilgisayar sisteminde bulunan dahili ve harici bütün elemanlar bu kontrol sinyalleri ile denetlenir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*x0gYM5EH_2agDzdP" alt=""></p>
+<p>Control Unit</p>
+<p>Basit bir mikroişlemcide bu bölüm üç değişik işlevi yerine getirir:</p>
+<ol>
+<li><strong>Zamanlama Kontrolü:</strong> İşlemci, harici saat sinyali üreten bir birimden giriş alan iç-saat devresine sahiptir. Bu sinyal alınarak talebe göre zamanlama sinyallerine çevrilerek sisteme dağıtılır.</li>
+<li><strong>Komut kod-çözücüsü:</strong> Bu devre komut kaydedicisinde (IR) tutulan komutları yorumlar ve ALU’ya kaydedicilerle çalışması için uygun sinyaller gönderir. (kastedilen zamanlama ve kesme sinyalleri)</li>
+<li><strong>Kesme mantık birimi:</strong> Bu birim de diğer kontrol elemanlarına benzer. Gerekli durumlarda kesme sinyallerini alarak işlemciyi uyarır.</li>
+</ol>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

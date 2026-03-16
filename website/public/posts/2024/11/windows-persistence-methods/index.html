@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Windows Persistence Methods · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Windows Persistence Methods
+  
+    
+    Link to heading
+  
+
+
+Persistence methods in Windows are used to ensure that malicious software or unauthorized access continues even if a system is restarted or the user is logged off.
+
+  1- User Manipulation (Users)
+  
+    
+    Link to heading
+  
+
+A commonly used method by attackers to maintain persistence is to create users. In fact, the only reason for doing this is not to ensure permanence. We observe that the attacker(s) create new users when they take control of the &ldquo;Administrator&rdquo; account. Because this is an important user and his activities can be monitored regularly. So they create a new user who won&rsquo;t attract much attention and, if possible, increase that user&rsquo;s privileges.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Windows Persistence Methods">
+  <meta name="twitter:description" content="Windows Persistence MethodsLink to headingPersistence methods in Windows are used to ensure that malicious software or unauthorized access continues even if a system is restarted or the user is logged off.
+1- User Manipulation (Users)Link to headingA commonly used method by attackers to maintain persistence is to create users. In fact, the only reason for doing this is not to ensure permanence. We observe that the attacker(s) create new users when they take control of the “Administrator” account. Because this is an important user and his activities can be monitored regularly. So they create a new user who won’t attract much attention and, if possible, increase that user’s privileges.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2024/11/windows-persistence-methods/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Windows Persistence Methods">
+  <meta property="og:description" content="Windows Persistence MethodsLink to headingPersistence methods in Windows are used to ensure that malicious software or unauthorized access continues even if a system is restarted or the user is logged off.
+1- User Manipulation (Users)Link to headingA commonly used method by attackers to maintain persistence is to create users. In fact, the only reason for doing this is not to ensure permanence. We observe that the attacker(s) create new users when they take control of the “Administrator” account. Because this is an important user and his activities can be monitored regularly. So they create a new user who won’t attract much attention and, if possible, increase that user’s privileges.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-11-18T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-11-18T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2024/11/windows-persistence-methods/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2024/11/windows-kal%C4%B1c%C4%B1l%C4%B1k-sa%C4%9Flamapersistence-metotlar%C4%B1/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2024/11/windows-persistence-methods/">
+              Windows Persistence Methods
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-11-18T00:00:00Z">
+                November 18, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              5-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="windows-persistence-methods">
+  Windows Persistence Methods
+  <a class="heading-link" href="#windows-persistence-methods">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_embmEuQRxJRHe7TWE4Y6hw.png" alt=""></p>
+<p>Persistence methods in Windows are used to ensure that malicious software or unauthorized access continues even if a system is restarted or the user is logged off.</p>
+<h3 id="1--user-manipulation-users">
+  1- User Manipulation (Users)
+  <a class="heading-link" href="#1--user-manipulation-users">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>A commonly used method by attackers to maintain persistence is to create users. In fact, the only reason for doing this is not to ensure permanence. We observe that the attacker(s) create new users when they take control of the &ldquo;Administrator&rdquo; account. Because this is an important user and his activities can be monitored regularly. So they create a new user who won&rsquo;t attract much attention and, if possible, increase that user&rsquo;s privileges.</p>
+<p>Generated users usually contain keywords such as “support”, “sysadmin”, “admin”. In most companies, users with names like these will not attract much attention.</p>
+<p>We can use the “net users” command to view existing accounts on the computer.</p>
+<p><img src="/images/1_HvOGzRb3pHx18C05BL9HYg.png" alt=""></p>
+<p>netuser</p>
+<p>During an incident response procedure, there are 2 things we need to quickly evaluate. Is there a user that shouldn&rsquo;t be on the system right now? Was a user created during the attack and deleted later?</p>
+<p>We can search on EventViewer to see created and deleted users.</p>
+<ol>
+<li><strong>Creating User</strong>:</li>
+</ol>
+<ul>
+<li><strong>Event ID 4720</strong>: This event is logged when a new user account is created.</li>
+</ul>
+<ol>
+<li><strong>User Deletion</strong>:</li>
+</ol>
+<ul>
+<li><strong>Event ID 4726</strong>: This event is logged when a user account is deleted.</li>
+</ul>
+<p><img src="/images/1_4nn-RZO_QOj2Z31N2iW__Q.png" alt=""></p>
+<p>Event Viewer Filtering</p>
+<p>In the records in the Event Viewer, we can see the user created, the time and the user through whom it was created.</p>
+<p><img src="/images/1_1xVpZh22clB0-MLj_t8dfA.png" alt=""></p>
+<p>EventViewer log review</p>
+<hr>
+<h3 id="2--scheduled-task">
+  2- Scheduled Task
+  <a class="heading-link" href="#2--scheduled-task">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>One of the most used persistence methods is to create scheduled tasks. From viruses to ransomware, most malicious things use scheduled tasks to maintain persistence. The attacker uses scheduled tasks to ensure that the malicious file runs at regular intervals. There are various ways to detect suspicious scheduled tasks actively running on the system. First, let&rsquo;s show how to do this using “Autoruns”, a sysinternals tool. Autoruns: <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns"  class="external-link" target="_blank" rel="noopener">Download</a>.</p>
+<p><img src="/images/1_idpBPfOpk5jfDLg-y3C8wA.png" alt=""></p>
+<p>Analysis with Autoruns tool</p>
+<p>When we look at the scheduled tasks section with the Autorun tool, we can see the scheduled tasks of the OneDrive service. Of course, this service is safe and legal because it is signed and verified by Microsoft.</p>
+<hr>
+<h3 id="3--registry-run-keys">
+  3- Registry Run Keys
+  <a class="heading-link" href="#3--registry-run-keys">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Registry run keys</strong> are places used in the Windows operating system to enable certain programs or commands to start automatically. These switches are activated when the system is turned on or a user logs on. By using these keys, malware tries to establish persistence in the system, that is, they can reboot themselves when the system is restarted or the user logs in.</p>
+<p>Registry keys can be edited with the regedit tool.</p>
+<p><img src="/images/1_KJ7xCp0G-BiHtQ1-wsCjBw.jpeg" alt=""></p>
+<p>registry editor</p>
+<p><strong>The following run keys are created by default on Windows systems:</strong><br>
+ <br>
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run<br>
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce <br>
+ ● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<br>
+ ● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce</p>
+<p><strong>The following Registry keys can be used to set startup folder items for persistence:</strong></p>
+<p>● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserShellFolders<br>
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellFolders <br>
+ ● HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellFolders <br>
+ ● HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\UserShellFolders</p>
+<p><strong>The following Registry keys can control automatic startup of services at boot:</strong></p>
+<p>● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices Once <br>
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunServices Once <br>
+ ● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices <br>
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunServices</p>
+<p><strong>Using policy settings to specify startup programs creates corresponding values in one of two Registry keys:</strong></p>
+<p>● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run<br>
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</p>
+<p>With these keys, programs can be started at boot time or logon time. We can see the programs launched with the Autoruns tool.</p>
+<p><img src="/images/1_y3d5O0LdaV4GmOdbHnHpng.png" alt=""></p>
+<p>Autoruns Logon Keys</p>
+<p><img src="/images/1_Z-1VEztRVjoi7huNxW_u3A.png" alt=""></p>
+<p>Autoruns Boot Keys</p>
+<hr>
+<h3 id="4-startup-folder">
+  4-Startup Folder
+  <a class="heading-link" href="#4-startup-folder">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>To view the files added to the startup file, the following indexes must be marked.</p>
+<ul>
+<li>C:\Users[Username]\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup</li>
+<li>C:\Programshell:startupData\Microsoft\Windows\Start Menu\Programs\StartUp</li>
+</ul>
+<p>We can access the startup folder with the run window opened by pressing the Win + R keys in Windows.</p>
+<blockquote>
+<p>shell:startup</p>
+</blockquote>
+<p><img src="/images/1_1VKN6kfhHUHtAxIC_SMn-g.png" alt=""></p>
+<p>startup folder</p>
+<p>We can see the files left by the malware in the startup folder we open with the Run tool.</p>
+<p><img src="/images/1_wYEoJlBvJhUvXomYDotB-g.png" alt=""></p>
+<p>Startup Folder</p>
+<hr>
+<h3 id="5--services">
+  5- Services
+  <a class="heading-link" href="#5--services">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Attackers can create a new service or modify an existing service to run malicious commands. They may use legitimate code names like “Chrome Update” to make it harder to detect the service they created or modified.</p>
+<p>To detect a newly created service from the Event Logs, the log with ID <strong>4697</strong>:<strong>A service has been installed in the system</strong> can be used.</p>
+<p>In addition to permanence, &ldquo;Windows Defender&rdquo;, &ldquo;Firewall&rdquo; etc. are used for security measures to easily carry out hacking activities. They constantly stop the services.</p>
+<p>For these reasons, when analyzing a Windows device, it should be examined which services were created/changed and which systems were stopped.</p>
+<p>The autoruns tool and event viewer can again be used in this analysis.</p>
+<p>Note: Since my test machine crashed due to ransomware infection, I couldn&rsquo;t take pictures of this section, and I didn&rsquo;t want to deal with reinstalling it :)</p>
+<h4 id="6-bits-jobs">
+  6-BITS Jobs
+  <a class="heading-link" href="#6-bits-jobs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><strong>BITS (Background Intelligent Transfer Service)</strong> is a component of the Windows operating system and is often used to perform updates and file transfer operations. However, malicious users can use BITS for malware.</p>
+<p><strong>Malware persistence with BITS Jobs</strong> can occur as follows:</p>
+<ol>
+<li>File Download and Execution: A malicious application can download a file and execute it by creating a BITS job. This keeps the application running for a long time and can be effective even when the system is rebooted.</li>
+<li>Privacy and Security Bypass: BITS jobs are often allowed by firewalls and can be an ideal method for malicious operations. This makes it difficult to detect and block malicious applications.</li>
+<li>Command Execution: BITS jobs can be used to execute a specific command. This command can be run when the BITS job is completed or an error occurs.</li>
+</ol>
+<p>For example, a malicious application can create a job via BITSAdmin and this job can be set to download and run a specific file.</p>
+<hr>
+<p>In this article, I touched upon the methods of maintaining the persistence of malicious software on computers. For more, you can examine the persistence tactic of the Miter attack enterprise matrix. See: <a href="https://attack.mitre.org/tactics/TA0003/"  class="external-link" target="_blank" rel="noopener">https://attack.mitre.org/tactics/TA0003/</a></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

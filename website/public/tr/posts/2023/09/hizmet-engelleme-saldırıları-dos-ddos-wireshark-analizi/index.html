@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Hizmet Engelleme Saldırıları (DoS-DDoS) Wireshark Analizi · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Hizmet Engelleme Saldırıları (DoS-DDoS) Wireshark Analizi
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.
+
+
+  Wireshark
+  
+    
+    Başlık Linki
+  
+
+Wireshark, bir ağ analiz aracı olarak kullanılan açık kaynaklı bir yazılımdır. Wireshark, ağ trafiğini yakalayabilir, inceleyebilir ve analiz edebilir, böylece ağ sorunlarını teşhis etmek, güvenlik tehditlerini tespit etmek veya ağ performansını izlemek için kullanılabilir.
+Detaylı bilgi için: https://www.wireshark.org/">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Hizmet Engelleme Saldırıları (DoS-DDoS) Wireshark Analizi">
+  <meta name="twitter:description" content="Hizmet Engelleme Saldırıları (DoS-DDoS) Wireshark AnaliziBaşlık LinkiMerhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.
+WiresharkBaşlık LinkiWireshark, bir ağ analiz aracı olarak kullanılan açık kaynaklı bir yazılımdır. Wireshark, ağ trafiğini yakalayabilir, inceleyebilir ve analiz edebilir, böylece ağ sorunlarını teşhis etmek, güvenlik tehditlerini tespit etmek veya ağ performansını izlemek için kullanılabilir.
+Detaylı bilgi için: https://www.wireshark.org/">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2023/09/hizmet-engelleme-sald%C4%B1r%C4%B1lar%C4%B1-dos-ddos-wireshark-analizi/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Hizmet Engelleme Saldırıları (DoS-DDoS) Wireshark Analizi">
+  <meta property="og:description" content="Hizmet Engelleme Saldırıları (DoS-DDoS) Wireshark AnaliziBaşlık LinkiMerhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.
+WiresharkBaşlık LinkiWireshark, bir ağ analiz aracı olarak kullanılan açık kaynaklı bir yazılımdır. Wireshark, ağ trafiğini yakalayabilir, inceleyebilir ve analiz edebilir, böylece ağ sorunlarını teşhis etmek, güvenlik tehditlerini tespit etmek veya ağ performansını izlemek için kullanılabilir.
+Detaylı bilgi için: https://www.wireshark.org/">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-09-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-09-15T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2023/09/hizmet-engelleme-sald%C4%B1r%C4%B1lar%C4%B1-dos-ddos-wireshark-analizi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2023/09/denial-of-service-attacks-dos-ddos-wireshark-analysis/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2023/09/hizmet-engelleme-sald%C4%B1r%C4%B1lar%C4%B1-dos-ddos-wireshark-analizi/">
+              Hizmet Engelleme Saldırıları (DoS-DDoS) Wireshark Analizi
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-09-15T00:00:00Z">
+                Eylül 15, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              11 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="hizmet-engelleme-saldırıları-dos-ddos-wireshark-analizi">
+  Hizmet Engelleme Saldırıları (DoS-DDoS) Wireshark Analizi
+  <a class="heading-link" href="#hizmet-engelleme-sald%c4%b1r%c4%b1lar%c4%b1-dos-ddos-wireshark-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_tKGgOxt2Mq5piyQ3_CJDdg.png" alt=""></p>
+<p>Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.</p>
+<hr>
+<h3 id="wireshark">
+  Wireshark
+  <a class="heading-link" href="#wireshark">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Wireshark, bir ağ analiz aracı olarak kullanılan açık kaynaklı bir yazılımdır. Wireshark, ağ trafiğini yakalayabilir, inceleyebilir ve analiz edebilir, böylece ağ sorunlarını teşhis etmek, güvenlik tehditlerini tespit etmek veya ağ performansını izlemek için kullanılabilir.</p>
+<p>Detaylı bilgi için: <a href="https://www.wireshark.org/"  class="external-link" target="_blank" rel="noopener">https://www.wireshark.org/</a></p>
+<p>Wireshark’ı bilgisayarınıza kurmak için aşağıdaki adımları izleyebilirsiniz. Unutmayın ki işletim sisteminize ve kullanım amacınıza bağlı olarak bu adımlar değişebilir. İşte Wireshark’ı kurmanın genel adımları:</p>
+<h4 id="windows-işletim-sistemiiçin">
+  <strong>Windows İşletim Sistemi için:</strong>
+  <a class="heading-link" href="#windows-i%c5%9fletim-sistemii%c3%a7in">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ol>
+<li>Wireshark’ın Resmi İnternet Sitesini Ziyaret Edin: Wireshark’ı resmi web sitesinden indirmeniz önerilir. Resmi web sitesine şu adresten ulaşabilirsiniz: <a href="https://www.wireshark.org/"  class="external-link" target="_blank" rel="noopener">https://www.wireshark.org/</a></li>
+<li>İndirme Sayfasına Git: Ana sayfada, “Download” veya “İndir” bağlantısına tıklayın.</li>
+<li>İndirme Seçeneklerini Belirleyin: Windows için Wireshark sürümünü seçin ve indirme işlemine başlayın. İndirdiğiniz dosya .exe uzantılı olacaktır.</li>
+<li>Kurulum Sihirbazını Çalıştırın: İndirilen .exe dosyasını çalıştırın. Windows UAC (Kullanıcı Hesap Kontrolü) izni gerektirebilir. İzni verin ve kurulum işlemine devam edin.</li>
+<li>Yükleme Seçeneklerini Ayarlayın: Kurulum sırasında Wireshark ve WinPcap (bazı sürümlerde Npcap) gibi bileşenlerin yüklenip yüklenmeyeceğini seçebilirsiniz. Genellikle önerilen ayarları kabul etmek iyi bir seçenektir.</li>
+<li>Kurulumu Tamamlayın: Kurulum işlemini tamamlamak için gerekli adımları takip edin. Kurulum tamamlandığında, Wireshark’ı başlatma seçeneğiniz olacaktır.</li>
+<li>Wireshark’ı Başlatın: Kurulum tamamlandığında Wireshark’ı başlatın. Artık ağ trafiğini yakalayabilir ve analiz edebilirsiniz.</li>
+</ol>
+<h4 id="linux-işletim-sistemiiçin">
+  <strong>Linux İşletim Sistemi için:</strong>
+  <a class="heading-link" href="#linux-i%c5%9fletim-sistemii%c3%a7in">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Wireshark, birçok Linux dağıtımının depolarında bulunur, bu yüzden aşağıdaki komutları kullanarak paketi yükleyebilirsiniz. Örneğin, Debian veya Ubuntu tabanlı bir sistemde:</p>
+<pre tabindex="0"><code>sudo apt update  
+sudo apt install wireshark
+</code></pre><p>Kurulum sırasında sudo ile yönetici izni gerekebilir. Ayrıca, Wireshark’ı kullanabilmek için kullanıcıyı “wireshark” grubuna eklemek veya sudo ile başlatmak gerekebilir.</p>
+<h4 id="mac-işletim-sistemiiçin">
+  <strong>Mac İşletim Sistemi için:</strong>
+  <a class="heading-link" href="#mac-i%c5%9fletim-sistemii%c3%a7in">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Wireshark’ı Mac OS X üzerinde kullanmak için, resmi web sitesinden bir DMG dosyasını indirebilir ve kurabilirsiniz. Kurulum sırasında sık sık yönergeleri takip etmelisiniz.</p>
+<p>Wireshark’ı kurduktan sonra, ağ trafiğini yakalamak ve analiz etmek için kullanmaya başlayabilirsiniz. Unutmayın ki ağ trafiği izleme işlemi, belirli izinler gerektirebilir ve bu işlemi yasal ve etik kurallara uygun bir şekilde yapmalısınız.</p>
+<hr>
+<h3 id="dosddos">
+  DoS — DDoS
+  <a class="heading-link" href="#dosddos">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Denial of Service (DoS) ve Distributed Denial of Service (DDoS) saldırıları, bilgisayar sistemlerine veya ağlara hizmet sağlama yeteneklerini geçici veya kalıcı olarak engellemeyi amaçlayan siber saldırı türleridir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*CnVj85vNvqXwZqbI" alt=""></p>
+<p>DoS (Denial of Service) saldırısı, tek bir kaynaktan gelen trafiği kullanılamaz hale getirme girişimidir. DDoS (Distributed Denial of Service) saldırısı ise birçok kaynaktan gelen koordineli trafiği kullanılamaz hale getirme girişimidir. Temel fark, DoS’ün tek kaynaktan gelmesi, DDoS’ün ise çoklu kaynaklardan gelmesidir. DDoS, daha büyük ve daha etkili bir saldırı türüdür.</p>
+<p>Bu saldırıları kendi lab ortamınızda gerçekleştirmek için bir linux makine üzerinde <a href="https://www.kali.org/tools/hping3/"  class="external-link" target="_blank" rel="noopener">hping3</a> aracını kullanabilirsiniz. Bunun yanında <a href="https://github.com/yusufarbc/DoS-Attack-Framework"  class="external-link" target="_blank" rel="noopener">DoS Attack Framework</a> aracı da DoS saldırıları yapmak için size bir etkileşimli arayüz sunar.</p>
+<hr>
+<h3 id="tcp-saldırıları">
+  TCP Saldırıları
+  <a class="heading-link" href="#tcp-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>TCP (Transmission Control Protocol), bilgisayarlar arasında güvenilir ve sıralı veri iletimi sağlamak için kullanılan bir iletişim protokolüdür. TCP’nin çalışma şekli, bayraklar olarak adlandırılan kontrol işaretçileri kullanılarak yönetilir. TCP’nin çalışma prensipleri ve bayraklarının açıklamaları verilmiştir:</p>
+<ol>
+<li><strong>Başlatma (SYN — Synchronize):</strong> İstemci(client) taraf, bağlantıyı başlatmak için bir “SYN” bayrağı içeren bir paket gönderir.</li>
+<li><strong>Yanıt (SYN-ACK — Synchronize Acknowledgment):</strong> Sunucu tarafı, bağlantıyı kabul ediyorsa, “SYN-ACK” bayrağı içeren bir yanıt gönderir.</li>
+<li><strong>Onay (ACK — Acknowledgment):</strong> İstemci taraf, ikinci tarafın kabul yanıtını aldığını doğrulamak için bir “ACK” bayrağı içeren bir yanıt gönderir ve bağlantı tamamlanır.</li>
+<li><strong>Veri İletimi (PSH — Push, URG — Urgent, FIN — Finish, RST — Reset):</strong> Bağlantı kurulduktan sonra, taraflar veri iletimine başlarlar. İletilecek veri paketleri bu bayraklarla işaretlenerek iletilir:</li>
+</ol>
+<ul>
+<li><strong>PSH (Push):</strong> Verinin hızlı iletilmesini istediğini belirtir.</li>
+<li><strong>URG (Urgent):</strong> Öncelikli veri olduğunu belirtir.</li>
+<li><strong>FIN (Finish):</strong> Veri iletimini sonlandırır.</li>
+<li><strong>RST (Reset):</strong> Bağlantıyı sıfırlar ve sonlandırır.</li>
+</ul>
+<p>TCP, gönderilen verinin sırasını ve güvenilirliğini sağlamak için bayraklarını kullanır. Veri paketleri belirli bir sırada iletilir ve eksik veya hatalı paketler yeniden talep edilir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*pzIithfwbR4guk5-" alt=""></p>
+<p>Üç Yollu El Sıkışma (Three Way Handshake)</p>
+<p>TCP protokolünün kullanıldığı hizmet engelleme saldırıları, genellikle ağ veya sunucu kaynaklarını tüketmek ve hizmet kesintilerine neden olmak amacıyla gerçekleştirilen saldırılardır. Bu tür saldırılar, TCP/IP iletişimi üzerindeki zayıf noktalardan yararlanarak hedef ağ veya sunucuları etkileyebilir. İşte TCP protokolünün kullanıldığı bazı hizmet engelleme saldırıları:</p>
+<h4 id="syn-flood-saldırısı">
+  SYN Flood Saldırısı
+  <a class="heading-link" href="#syn-flood-sald%c4%b1r%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu saldırıda, saldırganlar hedef sunucuya çok sayıda sahte bağlantı isteği (SYN isteği) gönderirler. Hedef sunucu bu istekleri yanıtlamaya çalışırken kaynaklarını tüketir ve gerçek kullanıcılara hizmet veremez hale gelir.</p>
+<p>Wireshark ile SYN Flood saldırısı yakaladığımızda çok kısa zaman aralıklarıyla gönderilmiş birçok SYN bayraklı TCP paketi görürüz.</p>
+<p><img src="/images/1_8f1IfL0GBQhChQvtBIMM1w.png" alt=""></p>
+<p>SYN-Flood</p>
+<h4 id="rst-flood-saldırısı">
+  RST Flood Saldırısı
+  <a class="heading-link" href="#rst-flood-sald%c4%b1r%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Saldırganlar, hedef sunucuya sahte TCP RST paketleri göndererek mevcut bağlantıları sıfırlarlar. Bu, hedef sunucunun işleyişini bozabilir ve hizmetleri kullanılamaz hale getirebilir.</p>
+<p>Wireshark ile RST Flood saldırısı yakaladığımızda çok kısa zaman aralıklarıyla gönderilmiş birçok RST bayraklı TCP paketi görür. Kaynak adresini de manipüle eder farklı IP adreslerinden geliyormuş gibi gösterir.</p>
+<p><img src="/images/1_3YLM5vaoxJjO3zo5h_nA1w.png" alt=""></p>
+<p>RST Flood</p>
+<h4 id="ack-psh-flood-saldırısı">
+  ACK-PSH Flood Saldırısı
+  <a class="heading-link" href="#ack-psh-flood-sald%c4%b1r%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu tür saldırılarda, saldırganlar hedef sunucuya büyük miktarda sahte TCP ACK ve PSH (Push) paketleri gönderirler. Bu, sunucunun kaynaklarını tüketmeye ve hizmetlerin yavaşlamasına neden olabilir.</p>
+<p>Wireshark ile ACK-PSH Flood saldırısı yakaladığımızda çok kısa zaman aralıklarıyla gönderilmiş birçok PSH+ACK bayraklı TCP paketi görür. Kaynak adresini manipüle eder farklı IP adreslerinden geliyormuş gibi gösterir.</p>
+<p><img src="/images/1_N5dYU-KK2LY19L4dcajOuw.png" alt=""></p>
+<p>ACK-PSH Flood</p>
+<h4 id="ack-flood-saldırısı">
+  ACK Flood Saldırısı
+  <a class="heading-link" href="#ack-flood-sald%c4%b1r%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Saldırganlar, hedef sunucuya büyük miktarda sahte TCP ACK (Acknowledgment) paketi gönderirler. Bu, sunucunun kaynaklarını hızla tüketebilir.</p>
+<p>ACK-PSH’e benzer şekilde ACK Flooda da wireshark ile baktığımızda çok kısa aralıklarla gönderilmiş ACK bayraklı TCP paketleri görüyoruz. Kaynak adresi manipüle edilerek farklı kaynaktan geliyormuş gibi gösterilmiş.</p>
+<p><img src="/images/1_UgJojmwpCwsycIQG5kO7UQ.png" alt=""></p>
+<p>ACK Flood</p>
+<p>Bu tür saldırılar, sunucuların ve ağların aşırı yüklendiği durumlar yaratır ve hizmet kesintilerine neden olabilir. Bu nedenle, hedefler genellikle saldırıları tespit etmek ve savunmak için güvenlik önlemleri ve siber güvenlik çözümleri kullanırlar. Bu çözümler, trafiği filtreleme, güvenlik duvarları, saldırı tespiti sistemleri ve yük dengeleme gibi önlemleri içerebilir. Ayrıca, ağ güvenliği politikaları ve iyi güvenlik uygulamaları da önemlidir.</p>
+<hr>
+<h3 id="udp-saldırıları">
+  UDP Saldırıları
+  <a class="heading-link" href="#udp-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>UDP (User Datagram Protocol), IP tabanlı ağlarda veri iletimi için kullanılan bir iletişim protokolüdür. UDP, veri paketlerinin hızlı ve düşük gecikme ile iletilmesini sağlar, ancak verilerin güvenilir bir şekilde iletilmesini veya alınmasını garanti etmez. UDP, genellikle ses ve video akışları gibi uygulamalarda ve ağ oyunlarında kullanılır.</p>
+<p>UDP, veriyi güvenli bir şekilde iletmek veya almak için TCP gibi güvenlik ve güvenilirlik mekanizmalarını içermez. Bu nedenle, UDP saldırıları daha öngörülemez ve savunması daha zor olabilir. Bazı UDP saldırıları ve açıklamaları:</p>
+<h4 id="udp-flood-saldırısı">
+  <strong>UDP Flood Saldırısı</strong>
+  <a class="heading-link" href="#udp-flood-sald%c4%b1r%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu tür bir saldırıda, saldırganlar hedef sunucuya büyük miktarda sahte UDP paketi gönderirler. Bu paketler, hedef sunucunun kaynaklarını tüketmeye ve hizmetlerini kullanılamaz hale getirmeye çalışır. Bu tür saldırılar, hedef sunucunun yanıt veremediği kadar hızlı bir şekilde paket göndermeyi içerebilir.</p>
+<p>TCP saldırılarına benzer şekilde UDP salrıılarında da wireshark ile baktığımızda çok kısa aralıklarla gönderilmiş paketler görürüz. Farklı olan nokta bu sefer TCP değil UDP paketleri mevcut. Ayrıca yine kaynak adresi manipüle edilerek farklı kaynaktan geliyormuş gibi gösterilmiş.</p>
+<p><img src="/images/1_VNf1wUYOGRdXBuNUeU0qPg.png" alt=""></p>
+<p>UDP Flood</p>
+<h4 id="udp-fragmentation-saldırıları">
+  <strong>UDP Fragmentation Saldırıları</strong>
+  <a class="heading-link" href="#udp-fragmentation-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu tür saldırılarda, saldırganlar büyük UDP paketlerini küçük parçalara böler ve hedef sunucuya bu parçaları gönderirler. Bu, hedef sunucunun paketleri yeniden monte etmek için kaynaklarını tüketmesine neden olabilir.</p>
+<p>UDP saldırılarına karşı korunma, trafik filtreleme, güvenlik duvarları, paket dengeleme ve saldırı tespiti sistemleri gibi güvenlik önlemleri içerebilir. Ayrıca, hedef sunucunun kaynakları ve ağ trafiği izlenmeli ve anormal durumlar tespit edildiğinde müdahale edilmelidir.</p>
+<hr>
+<h3 id="icmp-saldırıları">
+  ICMP Saldırıları
+  <a class="heading-link" href="#icmp-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>ICMP (Internet Control Message Protocol), IP ağı üzerinde hata bildirimi, ağ yönlendirme bilgileri ve diğer ağ yönetimi işlevlerini gerçekleştirmek için kullanılan bir iletişim protokolüdür. ICMP saldırıları, bu protokolü kötü niyetli amaçlarla kullanarak bir hizmeti veya ağı etkisiz hale getirmeyi amaçlar. Aşağıda, yaygın ICMP saldırılarının bazıları ve açıklamaları verilmiştir:</p>
+<h4 id="ping-saldırıları-pingflood">
+  <strong>Ping Saldırıları (Ping Flood)</strong>
+  <a class="heading-link" href="#ping-sald%c4%b1r%c4%b1lar%c4%b1-pingflood">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Saldırganlar, hedef sunucuya büyük miktarda ICMP Echo Request (ping) isteği gönderirler. Bu istekler, hedef sunucunun yanıtlamasını gerektirir ve sunucunun kaynaklarını tüketebilir.</p>
+<p>Wireshark ile ağ trafiğini incelediğimizde çok sayıda ICMP echo request paketi görüyoruz. Bu istekler tek bir kaynaktan gelmiş.</p>
+<p><img src="/images/1_dqsZopEHHSShzDAVlx62gA.png" alt=""></p>
+<p>Ping Flood</p>
+<h4 id="smurf-saldırıları">
+  Smurf Saldırıları
+  <a class="heading-link" href="#smurf-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu tür saldırılarda, saldırganlar sahte kaynak IP adresleri kullanarak büyük miktarda ICMP Echo Request isteği gönderirler. Bu istekler, ağdaki tüm cihazlara iletilir ve tüm cihazlar yanıt verir, bu da hedef sunucunun aşırı yüklenmesine neden olur.</p>
+<p>Wireshark ile ağ trafiğini incelediğimizde çok sayıda ICMP echo request paketi görüyoruz. Bu istekler manipüle edilmiş kaynaklardan gelmiş görünüyor.</p>
+<p><img src="/images/1_KKFdMVKStomIrgb24zsXWA.png" alt=""></p>
+<p>Smurf Attack</p>
+<h4 id="icmp-redirect-saldırıları">
+  <strong>ICMP Redirect Saldırıları</strong>
+  <a class="heading-link" href="#icmp-redirect-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Saldırganlar, hedef ağdaki cihazları sahte ICMP Redirect istekleriyle yanıltmaya çalışır. Bu, ağ trafiğini kötü amaçlı bir sunucuya yönlendirmek için kullanılabilir.</p>
+<h4 id="icmp-time-exceeded-saldırıları">
+  <strong>ICMP Time Exceeded Saldırıları</strong>
+  <a class="heading-link" href="#icmp-time-exceeded-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu tür saldırılarda, saldırganlar ICMP Time Exceeded mesajları göndererek hedef sunucunun kaynaklarını tüketmeye çalışır. Bu mesajlar, ICMP trafiği tarafından oluşturulan trafiği artırabilir.</p>
+<p>ICMP saldırıları, hedef ağı veya sunucuyu aşırı yükleyerek hizmet kesintilerine neden olabilir. Bu tür saldırılara karşı korunma, güvenlik duvarları, IPS (Intrusion Prevention System), ICMP trafiği filtreleme ve sızma testleri gibi güvenlik önlemlerini içerebilir. Ayrıca, ağ yöneticilerinin ağ trafiğini izlemesi ve anormal aktiviteyi tespit etmesi önemlidir.</p>
+<hr>
+<h3 id="httphttps-saldırıları">
+  HTTP/HTTPS Saldırıları
+  <a class="heading-link" href="#httphttps-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>HTTP ve HTTPS hizmet engelleme (DoS — Denial of Service) saldırıları, web sunucularını veya web uygulamalarını hedef alarak bu hizmetlere erişimi engellemeyi amaçlar. Bu tür saldırılar, sunucuların aşırı yüklenmesine ve hizmet kesintilerine neden olabilir. İşte HTTP ve HTTPS hizmetlerine yönelik bazı hizmet engelleme saldırıları:</p>
+<h4 id="http-flood-saldırıları">
+  <strong>HTTP Flood Saldırıları</strong>
+  <a class="heading-link" href="#http-flood-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Saldırganlar, hedef web sunucusuna çok sayıda HTTP isteği gönderirler. Bu, sunucunun kaynaklarını tüketebilir ve hizmet verememesine neden olabilir.</p>
+<p>Bu saldırının gerçekleştirilmesi için python dili ile yazılmış bir araç buldum. Linki <a href="https://github.com/D4Vinci/PyFlooder"  class="external-link" target="_blank" rel="noopener">burada</a>. Kendi lokalimde kurduğum bir web sunucusuna HTTP flood saldırısı gerçekleştirdim.</p>
+<p>Wireshark ile trafiği incelediğimizde çok kısa aralıklarla çok sayıda HTTP GET paketi gittiğini görüyoruz.</p>
+<p><img src="/images/1_wr8sajciDuwntDmn68NOdw.png" alt=""></p>
+<p>HTTP GET Flood</p>
+<h4 id="slowloris-saldırıları">
+  <strong>Slowloris Saldırıları</strong>
+  <a class="heading-link" href="#slowloris-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Saldırganlar, web sunucusu ile yavaş bir bağlantı kurarlar ve bu bağlantıyı açık tutarlar. Bu, sunucunun yeni bağlantılara yanıt vermesini engelleyebilir.</p>
+<h4 id="ssltls-handshake-saldırıları">
+  <strong>SSL/TLS Handshake Saldırıları</strong>
+  <a class="heading-link" href="#ssltls-handshake-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Saldırganlar, SSL/TLS el sıkışma süreçlerini aşırı yükleyerek sunucuların kaynaklarını tüketebilirler. Bunun için hedef web sunucusunun HTTPS protokolünü kullanması ve SSL sertifikasının olması gerekir.</p>
+<h4 id="beast-browser-exploit-against-ssltls-saldırıları">
+  <strong>BEAST (Browser Exploit Against SSL/TLS) Saldırıları</strong>
+  <a class="heading-link" href="#beast-browser-exploit-against-ssltls-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu tür saldırılarda, saldırganlar önceden şifrelenmiş verileri çözmeye çalışarak güvenli bağlantıları etkileyebilirler. Bunun için hedef web sunucusunun HTTPS protokolünü kullanması ve SSL sertifikasının olması gerekir.</p>
+<h4 id="heartbleed-saldırıları">
+  <strong>Heartbleed Saldırıları</strong>
+  <a class="heading-link" href="#heartbleed-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Heartbleed zafiyeti, SSL/TLS sunucularını hedef alan bir saldırı türüdür. Saldırganlar sunucudan hassas bilgileri çalabilirler. Aynı şekilde bu saldırı için hedef web sunucusunun HTTPS protokolünü kullanması ve SSL sertifikasının olması gerekir.</p>
+<p>Hizmet engelleme saldırılarına karşı korunma yöntemleri, trafik filtreleme, güvenlik duvarları, yük dengeleme, CDN (Content Delivery Network) kullanımı ve hizmet izleme gibi güvenlik önlemlerini içerebilir. Ayrıca, güncel yazılım yamaları ve güvenlik politikalarının uygulanması da önemlidir.</p>
+<hr>
+<h3 id="dns-saldırıları">
+  DNS Saldırıları
+  <a class="heading-link" href="#dns-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>DNS (Domain Name System), internet üzerindeki alan adlarını (örneğin, <a href="http://www.example.com"  class="external-link" target="_blank" rel="noopener">www.example.com</a>) IP adreslerine (örneğin, 192.0.2.1) çeviren ve bu çevirme işlemini sağlayan bir hizmet ve protokoldür. DNS, insanlar için anlaşılabilir olan alan adlarını, bilgisayarlar için anlaşılabilir olan IP adreslerine çevirir. Bu, internet tarayıcıları gibi uygulamaların kullanıcıların girdiği alan adlarını gerçek IP adreslerine dönüştürmesine olanak tanır.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*BCj832ixsuIArXfY" alt=""></p>
+<p>DNS</p>
+<p>DNS hizmet engelleme saldırıları, bu hizmetin çalışmasını aksatmayı veya kesmeyi amaçlayan siber saldırılardır. DNS hizmetlerine yönelik yapılan hizmet engelleme saldırıları şunlar olabilir:</p>
+<h4 id="dns-flood-saldırıları">
+  DNS Flood Saldırıları
+  <a class="heading-link" href="#dns-flood-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Saldırganlar, hedef DNS sunucusuna çok sayıda sahte DNS sorgusu gönderirler. Bu sorguları işlemek için sunucunun kaynakları hızla tükenir ve DNS hizmeti kesilir.</p>
+<h4 id="dns-amplifikasyon-saldırıları">
+  DNS Amplifikasyon Saldırıları
+  <a class="heading-link" href="#dns-amplifikasyon-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Saldırganlar, DNS sunucusuna büyük boyutlu sorgular gönderirler, bu sorgular DNS sunucusundan daha büyük yanıtları tetikler. Yanıtlar, hedef sunucuya doğru yönlendirilir ve hedef sunucunun aşırı yüklenmesine neden olur.</p>
+<h4 id="dns-cache-poisoning-zehirleme-saldırıları">
+  DNS Cache Poisoning (Zehirleme) Saldırıları
+  <a class="heading-link" href="#dns-cache-poisoning-zehirleme-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Saldırganlar, hedef DNS sunucusunun önbelleğine sahte veri eklemeye çalışırlar. Bu, hedefin kullanıcılarına yanlış IP adresleri göndererek kullanıcıları yanıltabilir.</p>
+<h4 id="nxdomain-saldırıları">
+  NXDOMAIN Saldırıları
+  <a class="heading-link" href="#nxdomain-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Saldırganlar, hedef sunucunun yanıt verdiği sahte NXDOMAIN (Domain Bulunamadı) sorguları göndererek hedefin kaynaklarını tüketirler.</p>
+<p>DNS hizmet engelleme saldırıları, internet erişimini kesmek veya web sitelerini kullanılamaz hale getirmek gibi ciddi sonuçlara yol açabilir. Bu tür saldırılara karşı korunma, DNS sunucularının güvenlik ayarlarının iyileştirilmesi, trafiği izleme ve filtreleme, DNS güvenlik uzantılarının kullanılması ve yedek DNS sunucularının bulundurulması gibi önlemleri içerebilir. DNS sunucularının ve altyapının güncel ve güvende olduğundan emin olmak da önemlidir.</p>
+<hr>
+<h3 id="macof-saldırısı">
+  Macof Saldırısı
+  <a class="heading-link" href="#macof-sald%c4%b1r%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>MACOF (MAC Flooding) saldırısı, Ethernet ağlarında gerçekleştirilen bir ağ saldırısı türüdür. Bu saldırı, ağdaki cihazların MAC (Media Access Control) adreslerini kötü niyetli bir şekilde sızdırmak veya ağ performansını bozmak amacıyla gerçekleştirilir. MACOF, genellikle yerel ağlarda veya kablosuz ağlarda gerçekleştirilir. Saldırının çalışma şekli şu şekildedir:</p>
+<ol>
+<li>Saldırgan, ağa bağlı bir cihaz gibi davranarak çok sayıda rastgele MAC adresi oluşturur.</li>
+<li>Bu sahte MAC adresleri, ağdaki tüm cihazlara yönlendirilen Ethernet çerçeveleri (frames) içerisinde kullanılır. Saldırgan, bu sahte MAC adresleriyle normal ağ trafiği gibi veri paketleri gönderir.</li>
+<li>Ağdaki anahtarlayıcılar (switches) normalde bir MAC adresi ve bağlı olduğu bağlantı noktası arasındaki ilişkiyi öğrenir ve bu bilgiyi bir öğrenme tablosuna kaydederler. Ancak, saldırgan sahte MAC adresleriyle bu tabloyu hızla doldurarak anahtarlayıcıları aşırı yükler.</li>
+<li>Aşırı yüklenen anahtarlayıcılar, veri paketlerini tüm bağlantı noktalarına iletir, bu da ağ trafiğini yavaşlatır veya kesintilere neden olabilir.</li>
+</ol>
+<p>MACOF saldırısı, anahtarlayıcıların normal işlevini bozarak ağı etkisiz hale getirmeyi amaçlar. Bu tür bir saldırıya karşı korunma, güvenlik duvarları ve güvenlik politikaları ile ağ trafiğini izleme ve anormal trafiği tespit etme gibi önlemler içerebilir. Ayrıca, ağdaki anahtarlayıcıların güvenlik ayarlarının doğru bir şekilde yapılandırılması önemlidir.</p>
+<hr>
+<h3 id="kaynaklar">
+  Kaynaklar
+  <a class="heading-link" href="#kaynaklar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><a href="https://wiki.wireshark.org/SampleCaptures#sample-captures" title="https://wiki.wireshark.org/SampleCaptures#sample-captures"  class="external-link" target="_blank" rel="noopener"><strong>SampleCaptures</strong><br>
+*So you&rsquo;re at home tonight, having just installed Wireshark. You want to take the program for a test drive. But your…*wiki.wireshark.org</a></p>
+<p><a href="https://github.com/topics/dns-amplification-attack" title="https://github.com/topics/dns-amplification-attack"  class="external-link" target="_blank" rel="noopener"><strong>Build software better, together</strong><br>
+*GitHub is where people build software. More than 100 million people use GitHub to discover, fork, and contribute to…*github.com</a></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

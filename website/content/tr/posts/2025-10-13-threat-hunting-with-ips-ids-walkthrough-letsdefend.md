@@ -1,4 +1,5 @@
 ---
+series: ["Threat Hunting Walkthroughs"]
 title: "Threat Hunting with IPS/IDS Walkthrough — LetsDefend"
 date: 2025-10-13
 draft: false

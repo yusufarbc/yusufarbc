@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Operating System Concept · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Operating System Concept
+  
+    
+    Link to heading
+  
+
+
+Hello, in this article I will talk about the structure, concept and features of operating systems. Design challenges of the operating system, security requirements and more are in this article!
+
+
+  Operating System
+  
+    
+    Link to heading
+  
+
+An operating system is a program that manages a computer&rsquo;s hardware. It also provides a basis for application programs and acts as an intermediary between the computer user and the computer hardware.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Operating System Concept">
+  <meta name="twitter:description" content="Operating System ConceptLink to headingHello, in this article I will talk about the structure, concept and features of operating systems. Design challenges of the operating system, security requirements and more are in this article!
+Operating SystemLink to headingAn operating system is a program that manages a computer’s hardware. It also provides a basis for application programs and acts as an intermediary between the computer user and the computer hardware.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2023/06/operating-system-concept/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Operating System Concept">
+  <meta property="og:description" content="Operating System ConceptLink to headingHello, in this article I will talk about the structure, concept and features of operating systems. Design challenges of the operating system, security requirements and more are in this article!
+Operating SystemLink to headingAn operating system is a program that manages a computer’s hardware. It also provides a basis for application programs and acts as an intermediary between the computer user and the computer hardware.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-06-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-06-09T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2023/06/operating-system-concept/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2023/06/i%C5%9Fletim-sistemi-konsepti/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2023/06/operating-system-concept/">
+              Operating System Concept
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-06-09T00:00:00Z">
+                June 9, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              29-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="operating-systemconcept">
+  Operating System Concept
+  <a class="heading-link" href="#operating-systemconcept">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_IvUopr4Tqf2K6eew539ATw.png" alt=""></p>
+<p>Hello, in this article I will talk about the structure, concept and features of operating systems. Design challenges of the operating system, security requirements and more are in this article!</p>
+<hr>
+<h3 id="operating-system">
+  Operating System
+  <a class="heading-link" href="#operating-system">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>An operating system is a program that manages a computer&rsquo;s hardware. It also provides a basis for application programs and acts as an intermediary between the computer user and the computer hardware.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*KFZFAbrFac3gB6ED" alt=""></p>
+<p>At this point, we are talking about a system that depends on the hardware it will run on. Therefore, operating systems are directly related to system hardware. Single and multi-processor architectures and organizations containing more than one persistent memory-disk must be supported by the operating system.</p>
+<p>In addition, it must provide a working environment to the applications running on it, for this it must allocate resources to the applications and allow them to perform operations with system calls. Moreover, it must have the ability to work integrated with other externally connected devices.</p>
+<p>Yes, we are talking about an extremely complex system. Making all components interoperable does not seem to be an easy task.</p>
+<h4 id="operating-systemstructure">
+  Operating System Structure
+  <a class="heading-link" href="#operating-systemstructure">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>An operating system is software that acts as an interface between computer hardware and software and manages the computer&rsquo;s resources. The operating system regulates access to the computer&rsquo;s resources such as memory, processor, file systems, device drivers and network connections and ensures that users can use these resources effectively.</p>
+<p><img src="/images/1_Xpk60lGLgXPw0S25Wf7sxw.jpeg" alt=""></p>
+<p>Operating System Structure</p>
+<p>The operating system generally consists of two basic components: the kernel and the user interface (shell).</p>
+<p><strong>1. Kernel:</strong> The kernel is the fundamental part of the operating system and manages hardware resources at the lowest level. It performs basic functions such as memory management, process management, file systems, drivers, and network connections. The kernel communicates directly with the hardware and provides applications with access to these resources.</p>
+<p><strong>2. User Interface (Shell):</strong> The user interface is a layer that allows users to interact with the operating system. There are two basic types of user interfaces: graphical user interface (GUI) and command line interface (CLI).</p>
+<ul>
+<li><strong>Graphical User Interface (GUI):</strong> A GUI is an interface through which users interact with input/output devices such as a mouse, keyboard, and screen. This interface allows users to easily use the operating system by using graphical elements such as menus, windows, and icons. Examples include Windows&rsquo; desktop environment or macOS&rsquo;s Aqua interface.</li>
+<li><strong>Command Line Interface (CLI):</strong> CLI is an interface through which users instruct the operating system with text-based commands. Users can issue orders to the operating system by entering predefined commands or using scripts. Examples include the Bash shell used on Unix or Linux-based systems or the Command Prompt in Windows.</li>
+</ul>
+<p>This basic structure may differ depending on the different features and designs of operating systems. For example, operating systems such as Windows, macOS, Linux, Unix and Android.</p>
+<h4 id="operating-system-tasks">
+  Operating System Tasks
+  <a class="heading-link" href="#operating-system-tasks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The operating system performs a number of important tasks in computer systems. Here are some of the basic tasks of the operating system:</p>
+<p><strong>1. Resource Management:</strong> The operating system effectively manages hardware resources. These resources include memory, processing power, disk space, network connections, and other peripherals. The operating system allocates, prioritizes and coordinates these resources according to demands.</p>
+<p><strong>2. Process Management:</strong> The operating system manages the processes running on the computer. Transaction management includes operations such as creating a transaction, pausing, resuming, prioritizing, and operating across time periods. The operating system effectively schedules processor usage and can run multiple processes simultaneously.</p>
+<p><strong>3. Memory Management:</strong> The operating system manages the computer&rsquo;s memory. Memory management includes operations such as memory allocation, memory release, and virtual memory management. The operating system shares memory among programs and monitors memory usage.</p>
+<p><strong>4. File Management:</strong> BusinessThe operating system manages file systems to store, organize, and access users&rsquo; data. File management provides operations such as creating, reading, writing, deleting, moving and renaming files. The operating system also ensures the organization and security of files.</p>
+<p><strong>5. Input/Output Management:</strong> The operating system enables communication with external devices (keyboard, mouse, printer, disk drives, etc.). Input/output management controls data transfer between these devices, manages the input/output sequence, and deals with error conditions.</p>
+<p><strong>6. Network Management:</strong> The operating system manages network connections and enables communication on the network. Network management includes tasks such as configuring network settings, controlling the transmission of data packets, ensuring network security, and regulating access to the network.</p>
+<p><strong>7. Security and Access Control</strong>: The operating system takes security measures to keep the computer system safe. Controls user access, provides authorization, manages user accounts and ensures data security</p>
+<hr>
+<h3 id="processes">
+  Processes
+  <a class="heading-link" href="#processes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In an operating system environment, a process is an executable instance of a program. A process is an entity that is managed, uses resources (such as memory, processor time, files, and input/output devices) and is executed by the operating system.</p>
+<p>The process occurs when a program becomes executable. A program exists in the form of a file stored on disk, while the process represents its state while running in memory. The process contains program code, variables, execution status (program counter, pointers, etc.), and other running information.</p>
+<p>We would like to emphasize that a program is not a process in itself.<br>
+A program is a passive entity, such as a file containing a list of instructions stored on disk. In contrast, a process is an active entity with a program counter and a set of associated resources that specify the next instruction to be executed. A program becomes a process when an executable file is loaded into memory.</p>
+<h4 id="transaction-status">
+  Transaction Status
+  <a class="heading-link" href="#transaction-status">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Changes state while an operation is executing. The state of a process is partially defined by the current activity of that process. A transaction may be in one of the following states.</p>
+<ul>
+<li><em>New</em>— Creating the transaction.</li>
+<li><em>Running</em>— Instructions are being executed.</li>
+<li><em>Waiting</em>— The process is waiting for an event to occur (for example, an I/O<br>
+completion or reception of a signal).</li>
+<li><em>Ready</em>— The process is waiting to be assigned to a processor.</li>
+<li>*Terminated —*The execution of the transaction is complete.</li>
+</ul>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*Hj9WhWCNWzvDVKIi" alt=""></p>
+<p>-Process Status Diagram</p>
+<h4 id="pcbprocess-controlblock">
+  PCB(Process Control Block)
+  <a class="heading-link" href="#pcbprocess-controlblock">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Each process is represented by a process control block (PCB) in the operating system. It contains many pieces of information associated with a particular process, including:</p>
+<ul>
+<li><strong>Process status:</strong> Status is new, ready, running, waiting, stopped, etc.<br>
+it could be.</li>
+<li><strong>Program counter:</strong> The counter indicates the next instruction to be executed for this operation.<br>
+shows the address.</li>
+<li><strong>CPU registers</strong>: Registers vary in number and type depending on the computer architecture. These include accumulators, index registers, stack pointers, and general-purpose registers, as well as any status code information. This status information, along with the program counter, must be recorded when an interrupt occurs to ensure that the operation continues correctly at a later time.</li>
+<li><strong>CPU timing information:</strong> This information is a process priority, timing<br>
+Contains pointers to queues and other timing parameters.</li>
+<li><strong>Memory management information:</strong> This information may include items such as the value of base and boundary registers and page tables or segment tables, depending on the memory system used by the operating system.</li>
+<li><strong>Accounting information:</strong> This information includes the amount of CPU and actual time used, time limits, account numbers, job or transaction numbers, etc. Contains.</li>
+<li><strong>I/O status information:</strong> This information includes information about the I/O devices allocated to the process.<br>
+list, list of open files, etc. Contains.</li>
+</ul>
+<p><img src="/images/1_RrcLvg5ZJ9nHEVCHm7VEeA.png" alt=""></p>
+<p>Process control block (PCB)</p>
+<h4 id="inter-processcommunication">
+  Inter-Process Communication
+  <a class="heading-link" href="#inter-processcommunication">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Processes running concurrently in the operating system can be independent processes or collaborating processes. A process is <strong>independent</strong> if it does not affect or is affected by other processes running in the system. Any process that does not share data with another process is independent. A process affects other processes running in the system.Knowing or being influenced by them is a <strong>collaborative</strong> process.<br>
+There are several reasons to provide an environment conducive to process collaboration:</p>
+<ul>
+<li>Information sharing</li>
+<li>Calculation acceleration</li>
+<li>Modularity</li>
+<li>Convenience</li>
+</ul>
+<p>Collaborating processes will enable them to exchange data and information<br>
+It requires an inter-process communication (IPC) mechanism. interprocess<br>
+There are two basic models of communication: <em>shared memory</em> and <em>message passing.</em></p>
+<h4 id="threads">
+  Threads
+  <a class="heading-link" href="#threads">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>A thread is a basic unit of CPU usage; It consists of a thread ID, a program counter, a register set, and a stack. It shares the code section, data section, and other operating system resources such as open files and signals with other threads belonging to the same process. A traditional process has a single thread of control. A process can have multiple threads.</p>
+<p><img src="/images/1_Oj15rspOQ1TXXtw4k4d2xQ.png" alt=""></p>
+<p>Threaded Processing</p>
+<h4 id="multithreading-models">
+  Multithreading Models
+  <a class="heading-link" href="#multithreading-models">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Support for threads may be provided at the user level for <em>user threads</em> or by the kernel for <em>kernel threads</em>. <br>
+While user threads are supported on top of the kernel and managed without kernel support, kernel threads are supported and managed directly by the operating system. Nearly all contemporary operating systems, including Windows, Linux, Mac OS X, and Solaris, support kernel threads. After all, there must be a relationship between user threads and kernel threads. These models:</p>
+<ul>
+<li>Many-to-One Model (Multiple user threads to one core thread)</li>
+<li>One to One Model (One user thread to one kernel thread)</li>
+<li>Many to Many Model (Multiple user threads to multiple seed threads)</li>
+</ul>
+<p>Linux implements the same model as the Windows family of operating systems.</p>
+<hr>
+<h3 id="cpu-scheduling">
+  CPU Scheduling
+  <a class="heading-link" href="#cpu-scheduling">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>CPU scheduling is the process by which the operating system manages the running time of processes or threads in the processor and switches between time slots. The operating system uses the CPU scheduling mechanism to run multiple processes or threads fairly.</p>
+<p>The operating system determines how it schedules threads or processes using the CPU scheduling mechanism. The operating system often uses scheduling algorithms. The operating system allocates time slots based on the priorities of the processes or threads sharing processor time. For example, different scheduling algorithms such as <em>Round Robin</em>, <em>Priority Scheduling</em>, <em>Shortest Job First (SJF)</em> can be used.</p>
+<h4 id="transaction-synchronization">
+  Transaction Synchronization
+  <a class="heading-link" href="#transaction-synchronization">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The process may have a section of code called the critical section, where the process modifies public variables. While a process is executing in the critical section, no other processes are allowed to execute in the critical section. That is, two processes cannot run on their critical section at the same time.</p>
+<p>The solution to the critical section problem must meet the following three requirements:</p>
+<ol>
+<li><strong>Mutual exclusion:</strong> if the process is running on its critical section, no other<br>
+The process cannot run on the critical section.</li>
+<li><strong>Progress:</strong> If no process is running on its critical partition and some<br>
+If processes want to enter the critical section, only the remaining<br>
+The processes that do not work in the sections should be transferred to the next critical section.<br>
+may participate in deciding whether to enter, and this choice may last indefinitely.<br>
+It cannot be postponed.</li>
+<li><strong>Limited waiting</strong>e: After a transaction, other transactions have critical<br>
+a limit or limit on the number of people allowed into the section<br>
+There is.</li>
+</ol>
+<p><a href="http://boron.physics.metu.edu.tr/ozdogan/OperatingSystems/week7/node1.html"  class="external-link" target="_blank" rel="noopener"><em>Peterson Solution</em></a> was developed for these requirements.</p>
+<p>Software-based solutions like Peterson&rsquo;s are not guaranteed to work on modern computer architectures. All these solutions are based on locking, that is, protecting critical areas through the use of locks.</p>
+<p>A situation in which multiple processes access and manipulate the same data simultaneously and the outcome of the execution depends on the specific order in which the access occurs is called a race condition.</p>
+<h4 id="mutex-locks">
+  Mutex Locks
+  <a class="heading-link" href="#mutex-locks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Hardware-based solutions to the critical cross-section problem are complex and often inaccessible to application programmers. Instead, operating system designers develop software tools to solve the critical section problem. The simplest of these tools is the mutex lock. (In fact, the term mutex is short for mutual exclusion.) MWe use uteks lock to protect critical regions and thus prevent race conditions. So, one<br>
+The transaction must acquire the lock before entering a critical section; from critical section<br>
+When it comes out, it releases the lock.</p>
+<p><img src="/images/1_6IRXR8Sw9EndL-QKPRmL6w.png" alt=""></p>
+<p>Use of mutex locks</p>
+<p>The <em>acquire()</em> function acquires the lock and the <em>release()</em> function releases the lock. Calls to <em>acquire()</em> or <em>release()</em> must be executed atomically. <br>
+A mutex lock has a boolean variable whose value indicates whether the lock is usable. If the lock is usable, the <em>acquire()</em> call succeeds and the lock is then considered unusable. A process attempting to acquire an unusable lock is blocked until the lock is released.</p>
+<h4 id="semaphores">
+  Semaphores
+  <a class="heading-link" href="#semaphores">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It acts similar to a mutex lock, but locks down the activities of processes.<br>
+It can also provide more complex ways for them to sync.<br>
+A semaphore S is an integer variable that is accessed by only two standard atomic operations other than initialization.</p>
+<p>Operating systems often distinguish between counting and binary semaphores. The value of a <em>counting semaphore</em> can vary over an unlimited area. The value of a <em>binary semaphore</em> can only vary between 0 and 1. Therefore, binary semaphores behave similarly to mutex locks.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*MVu1lrfs6ciG-dEC" alt=""></p>
+<p>Counting semaphores can be used to control access to a specific resource consisting of a finite number of instances. The semaphore is initialized to the number of available resources. Each process that wants to use a resource performs a wait() operation on the semaphore (thus reducing the count). When a process releases a resource, it performs a signal() operation (increments the count). When the number of semaphores drops to 0, all resources are being used. After that, processes that want to use a resource are blocked until the count is greater than 0.</p>
+<h4 id="monitors">
+  Monitors
+  <a class="heading-link" href="#monitors">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Although semaphores provide a convenient and effective mechanism for process synchronization, their misuse can cause timing errors that are difficult to detect, because these errors occur only when certain execution sequences occur, and these sequences do not always occur.</p>
+<p>Monitors do not require any specific implementation of an abstract data type (ADT).<br>
+data with a set of functions that will operate on that data independently<br>
+covers. The monitor structure allows only one process to be active within the monitor at a time.<br>
+makes it happen.</p>
+<p><img src="/images/1_1yFRNX_7QPDEhWUFWc-61w.png" alt=""></p>
+<p>monitor</p>
+<p>A function defined within a monitor can only access variables declared locally within the monitor and its formal parameters. Similarly, a monitor&rsquo;s local variables can only be accessed by local functions.</p>
+<h4 id="deadlocks">
+  Deadlocks
+  <a class="heading-link" href="#deadlocks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In a deadlock, processes never finish executing and system resources are tied up in a way that prevents other jobs from starting.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*CH9-cCR_FTNViJ6l" alt=""></p>
+<p>A deadlock condition can occur in a system if the following four conditions occur simultaneously:</p>
+<ol>
+<li><strong>Mutual exclusion:</strong> At least one resource must be kept in non-shareable mode;<br>
+that is, only one process can use the resource at a time. another process<br>
+If it requests this resource, the requesting process will wait until the resource is released.<br>
+should be postponed until</li>
+<li><strong>Hold and wait:</strong> A process is holding at least one resource and other processes<br>
+It must be waiting to receive additional resources held by</li>
+<li><strong>No prioritization:</strong> Resources cannot be prioritized; that is, a resource can only be voluntarily released by the process holding it after that process has completed its task.</li>
+<li><strong>Circular waiting:</strong> The set of waiting processes {P , P01 , …, Pn }, where P0 is waiting for a resource held by P1, P1 is waiting for a resource held by P2, …, Pn−1 is waiting for a resource held by Pn<br>
+It must exist as it expects and as Pn expects.</li>
+</ol>
+<p>All four conditions must be met for a deadlock to occur.<br>
+We emphasize that it is necessary. The cyclic wait condition requires the wait and hold condition, so the four conditions are not completely independent.</p>
+<p>In general, we can deal with the deadlock problem in one of three ways:</p>
+<ul>
+<li>A protocol to prevent or avoid deadlocks<br>
+to ensure that the system never enters a deadlock state by using<br>
+we can provide.</li>
+<li>Allow the system to enter a crash stateWe can detect it and recover it.</li>
+<li>You can completely ignore the problem and avoid any crashes in the system.<br>
+We can assume that it did not occur.</li>
+</ul>
+<hr>
+<h3 id="memory-management">
+  Memory Management
+  <a class="heading-link" href="#memory-management">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The operating system&rsquo;s memory management refers to the process of effectively allocating and controlling the computer&rsquo;s memory resources. Thanks to memory management, the operating system monitors the memory usage of processes and programs, allocates and retrieves memory space when necessary.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*p0FxSir6Up3i3hAC" alt=""></p>
+<p>Main memory (RAM) and registers located inside the processor (Cache) are the only general-purpose storage areas that the CPU can directly access. There are machine instructions that take memory addresses as arguments, but there are no instructions that take disk addresses. Therefore, all instructions being executed and all data used by the instructions must be on one of these direct access storage devices. If the data is not in memory, it must be moved to main memory (RAM) before the CPU can operate on it.<br>
+An address generated by the CPU is usually called a logical address.<br>
+An address seen by the memory unit — that is, the address loaded into the memory address register of the memory — is usually called a physical address. The runtime mapping from virtual addresses to physical addresses is done by a hardware device called a memory management unit (MMU).</p>
+<h4 id="swap">
+  Swap
+  <a class="heading-link" href="#swap">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>For a process to be executed, it must be in memory. However, a process can be temporarily moved from memory to disk and then brought back to memory to continue execution.</p>
+<p><img src="/images/1_iB_t0Cpvz9x4aAf2_0bu9A.png" alt=""></p>
+<p>Swap transaction</p>
+<h4 id="memory-allocation">
+  Memory Allocation
+  <a class="heading-link" href="#memory-allocation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Main memory supports both the operating system and various user processes.<br>
+should contain. Therefore, we need to allocate main memory in the most efficient way possible.</p>
+<p>One of the simplest methods for memory allocation is to divide memory into several fixed-size partitions. Each section can contain exactly one transaction. Thus, the degree of multiprogramming depends on the number of partitions. In this multi-partition method, when a partition is empty, a process is selected from the input queue and loaded into the empty partition. When the process ends, the partition becomes available for another process.</p>
+<p>In a variable partition scheme, the operating system determines which parts of the memory<br>
+keeps a table showing which ones are available and which are occupied. Available memory blocks consist of a series of spaces of various sizes distributed throughout memory. When a process arrives and needs memory, the system looks for a space large enough for that process. If there is too much space<br>
+If it is large, it is divided into two parts. A piece is allocated to the incoming process; the other is sent back to the set of spaces. When a process terminates, it frees the block of memory, which is then placed back into the set of holes.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*XAENmzVV04429w9N" alt=""></p>
+<p>Memory Allocation</p>
+<p>Strategies developed for this process:</p>
+<ul>
+<li><strong>First-Fit:</strong> Allocate to the first space that is large enough. The search can start from the beginning of the hole cluster or from the position where the previous first suitability search ended. Once we find a big enough gap we can stop the search.</li>
+<li><strong>Best-Fit:</strong> Allocate the smallest space that is large enough. Unless the list is sorted by size we must search the entire list. This strategy produces the smallest remaining gap.</li>
+<li><strong>Worst-Fit:</strong> Allocate to the largest gap. Again, we need to search the entire list unless it is sorted by size. This strategy produces the largest residual gap, which may be more beneficial than the smaller residual gap obtained from the optimal approach.</li>
+</ul>
+<h4 id="segmentation">
+  Segmentation
+  <a class="heading-link" href="#segmentation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Considering memory in terms of its physical properties is harmful for both the operating system and the programmer. What if hardware could provide a memory mechanism that mapped the programmer&rsquo;s view to actual physical memory? While the system would have more freedom to manage memory, the programmer would have a more natural programming environment. Segmentation provides such a mechanism.</p>
+<p><img src="/images/1_-jrsYdgi6mk5r2ySy2Dp9Q.png" alt=""></p>
+<p>Segmentation Hardware</p>
+<p>Each segment has a name and length. Addresses specify both the segment name and the offset within the segment. Therefore, the programmer specifies each address with two quantities: a segment name and an offset. Segments for ease of applicationIt is classified and referred to by the segment number instead of the segment name. Thus, a logical address consists of two tuples:</p>
+<h4 id="paging">
+  Paging
+  <a class="heading-link" href="#paging">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Segmentation allows the physical address space of a process to be non-contiguous. Paging is another memory management scheme that offers this advantage. However, paging prevents and compresses external fragmentation, whereas segmentation does not. Additionally, different sizes of memory<br>
+It also solves the important problem of fitting parts into the support tank.</p>
+<p><img src="/images/1_0Ir0o5wtu7y2mwjfFarrHA.png" alt=""></p>
+<p>Paging Hardware</p>
+<p>The basic method for implementing paging involves dividing physical memory into fixed-size blocks called frames and dividing logical memory into blocks of the same size called pages. When a process is to be executed, its pages are loaded from their source (a file system or backing store) into any available memory frame. The backing store is divided into fixed-size blocks that are the same size as memory frames or clusters of multiple frames. This rather simple idea has great functionality and wide implications. For example, the logical address space is now completely separate from the physical address space, so a process can have a logical 64-bit address space even if the system has less than 264 bytes of physical memory.</p>
+<h4 id="virtual-memory">
+  Virtual Memory
+  <a class="heading-link" href="#virtual-memory">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Virtual memory involves separating logical memory from physical memory as perceived by users. This allocation allows an extremely large amount of virtual memory to be available to programmers when only smaller physical memory is available. Virtual memory makes the programming task much easier because the programmer no longer needs to worry about the amount of physical memory available; instead<br>
+can concentrate on the problem to be programmed.</p>
+<p><img src="/images/1_QvvtOf3Vf930Fs19eSHqjQ.png" alt=""></p>
+<p>Virtual Memory</p>
+<p>A process&rsquo;s virtual address space refers to the logical (or virtual) view of how a process is stored in memory. Typically, this view is that a process starts at a particular logical address (e.g. address 0) and exists in contiguous memory.</p>
+<p>In addition to separating logical memory from physical memory, virtual memory allows files and memory to be shared by two or more processes through page sharing. This leads to the following advantages:</p>
+<ul>
+<li>System libraries can be shared by several processes by mapping the shared object to a virtual address space. Although each process sees the libraries as part of the virtual address space, the actual pages where the libraries reside in physical memory are shared by all processes. Typically, a library is mapped read-only to the space of each process associated with it.</li>
+<li>Similarly, processes can share memory. Recall from Chapter 3 that two or more processes can communicate through the use of shared memory. Virtual memory allows a process to create a region of memory that it can share with another process. Processes sharing this region consider it part of their virtual address space, but the actual physical pages of memory are shared.</li>
+<li>Pages can be shared with the fork() system call during process creation, thus speeding up process creation.</li>
+</ul>
+<hr>
+<h3 id="disk-management-mass-storage-management">
+  Disk Management (Mass Storage Management)
+  <a class="heading-link" href="#disk-management-mass-storage-management">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>It is a component that allows the operating system to manage large data storage units on the computer. These volumes typically include devices such as hard disk drives, SSDs, external disks, USB sticks, and network shared storage (NAS).</p>
+<h4 id="disk-structure">
+  Disk Structure
+  <a class="heading-link" href="#disk-structure">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>A disk is a storage unit where data is permanently stored and accessed. Disks commonly used in computer systems are divided into two main categories: hard disk drives (Hard Disk Drive — HDD) and solid state drives (Solid State Drive — SSD).</p>
+<p><img src="/images/1_zfPPKDtSp7k9jBGej2m-dw.png" alt=""></p>
+<p>HDD Disk</p>
+<p>Modern magnetic disk drives are treated as large one-dimensional arrays. logical blocks, where logical block is the smallest transfer unit. The logical block size is usually 512 bytes, but some disks may be low-level formatted to have a different logical block size, such as 1,024 bytes.</p>
+<h4 id="disk-connection">
+  Disk Connection
+  <a class="heading-link" href="#disk-connection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Disk Attachment refers to how a disk drive connects and communicates with the computer system. discs,They use a specific connection interface to transfer data to the computer. Here are some commonly used disk connections:</p>
+<ul>
+<li>ATA (Advanced Technology Attachment)</li>
+<li>SATA (Serial ATA)</li>
+<li>SCSI (Small Computer System Interface)</li>
+<li>NVMe (Non-Volatile Memory Express)</li>
+</ul>
+<p>These connectivity standards allow disk drives to be connected to the system motherboard or additional cards. Each connection standard comes with different speeds, features and supported devices.</p>
+<h4 id="disk-scheduling">
+  Disk Scheduling
+  <a class="heading-link" href="#disk-scheduling">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Disk Scheduling is an operating system concept used to manage and optimize access to data on disk. Data access on disks is achieved by performing read or write requests in the order given by the operating system. Accessing data on disks is a time-consuming process due to physical delays caused by their location. Disk scheduling algorithms are used to minimize disk access times and make data access efficient.</p>
+<p>Disk scheduling algorithms manage incoming requests and determine the order in which they will be processed. The most commonly used disk scheduling algorithms are:</p>
+<ul>
+<li><strong>FCFS (First-Come, First-Served):</strong> This algorithm processes incoming requests sequentially and processes incoming requests first. However, this algorithm does not take into account physical locations on the disk and can increase disk access times in case of an out-of-order sorting.</li>
+</ul>
+<p><img src="/images/1_kVk--dRni90LbzTYov3b4w.png" alt=""></p>
+<p>FCFS</p>
+<ul>
+<li><strong>SSTF (Shortest Seek Time First):</strong> This algorithm processes the request with the shortest travel distance from where the disk head is currently positioned. That is, requests where the head must travel the shortest distance are processed with priority. This algorithm reduces the total disk access time and provides better performance.</li>
+</ul>
+<p><img src="/images/1__3w6z61oJ6PQpjmsAAPmmg.png" alt=""></p>
+<p>SSTF</p>
+<ul>
+<li><strong>SCAN (Elevator):</strong> This algorithm processes requests when moving the disk head in a specific direction (for example, inward or outward). As the head progresses, it processes all the requests and when it reaches the end, it turns away from the direction and comes back. This way, it constantly scans for requests on the disk. The SCAN algorithm processes requests fairly and reduces waiting times for on-disk requests.</li>
+</ul>
+<p><img src="/images/1_t7kHcp1t1Z8vX1HjZq4I-w.png" alt=""></p>
+<p>SCAN</p>
+<ul>
+<li><strong>C-SCAN (Circular SCAN):</strong> This algorithm processes requests similar to the SCAN algorithm, but unlike SCAN, it starts from the last request when returning. That is, it moves across the disk in one direction as it processes requests, and when it reaches the last request it quickly moves to the other end and starts again. C-SCAN provides a fairer request processing order than SCAN.</li>
+</ul>
+<p><img src="/images/1_3GQpsL_MjPT6VphPF1Uerw.png" alt=""></p>
+<p>C-SCAN</p>
+<p>In addition to these algorithms, there are other disk timing algorithms such as LOOK, C-LOOK, N-Step-SCAN and N-Step-LOOK. Disk Scheduling algorithms use various strategies to optimize on-disk data access and reduce wait times. every</p>
+<h4 id="disk-management">
+  Disk Management
+  <a class="heading-link" href="#disk-management">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Disk Management, as an operating system component, is a tool or service that performs operations such as creating, partitioning, formatting, defragmenting and managing disks. Disk Management allows users or system administrators to organize and manage disks.</p>
+<p>Here are some basic functions that disk management provides:</p>
+<ol>
+<li>
+<p>Disk Creation and Management: Disk Management allows adding and defining new disks to the system. This could be physically adding a new disk drive or creating a virtual disk. Disk Management associates disks with existing disks in the system and assigns a drive letter or path.</p>
+</li>
+<li>
+<p>Disk Partitioning: Disk Management is used to divide disks into logical regions (partitions). Partitioning allows splitting a disk drive into multiple logical drives. This may be done to accommodate different operating systems, organize data storage, or use different file systems.</p>
+</li>
+<li>
+<p>Formatting: Disk Management performs formatting of a partitioned disk. Formatting makes the disk drive ready for use by creating the file system. Formatting will delete all data on the disk, so important data may need to be backed up beforehand.</p>
+</li>
+<li>
+<p>Disk Defragmentation: Disk Management, multiple disksPerforms defragmentation of the isk drive. Disk defragmentation combines separate disk drives to create a single logical volume (a defragmented disk). This may be done to expand data storage or provide higher performance.</p>
+</li>
+<li>
+<p>Disk Targeting and Monitoring: Disk Management provides the opportunity to monitor the physical and logical status of disks. Disk targeting means assigning a specific path for a particular disk drive to be used by the operating system. Disk Monitoring provides the ability to monitor disk health, space used, free space, and other performance statistics.</p>
+</li>
+</ol>
+<p>Disk Management makes it easy for users or system administrators to configure, manage and troubleshoot disks. Users, Disk Management</p>
+<h4 id="file-system">
+  File System
+  <a class="heading-link" href="#file-system">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>A file is a named collection of related information saved on secondary storage. From the user&rsquo;s perspective, a file is the smallest piece of logical secondary storage; that is, data cannot be written to secondary storage unless it is in a file.</p>
+<p>File Systems are a structural and logical system that manages the organization, storage and access of data in computer systems. File systems perform operations such as organizing, storing, naming, copying, moving and deleting files. Additionally, file systems include methods that determine the structure of files and how blocks of data are placed on disk.</p>
+<p>Operating systems often support a variety of file systems and provide data storage and access to users or applications. The most commonly used file systems in operating systems include:</p>
+<ol>
+<li>
+<p><strong>FAT (File Allocation Table):</strong> FAT file system is a file system developed by Microsoft and used especially in Windows operating systems. FAT uses a file table to store files and has a file allocation table that determines the location of files on the disk.</p>
+</li>
+<li>
+<p><strong>NTFS (New Technology File System)</strong>: NTFS is a file system developed by Microsoft and widely used in Windows NT-based operating systems. NTFS offers advanced security features, such as file encryption, file compression, fault tolerance, and journaling.</p>
+</li>
+<li>
+<p><strong>HFS+ (Hierarchical File System Plus)</strong>: HFS+ is a file system used in Apple&rsquo;s macOS operating systems. HFS+ is an improved version of the previous HFS file system and features features such as large file sizes, journaling, file encryption, and Unicode support.</p>
+</li>
+<li>
+<p><strong>ext4 (Fourth Extended File System)</strong>: ext4 is a file system used in Linux operating systems. ext4 is an improved version of the previous ext2 and ext3 file systems, providing no journaling, larger file and partition sizes, faster data access, and better data integrity.</p>
+</li>
+<li>
+<p><strong>APFS (Apple File System)</strong>: APFS is a new file system used in Apple&rsquo;s macOS and iOS operating systems. APFS supports features such as fast data access, high performance, file encryption, space compression, and fault tolerance.</p>
+</li>
+</ol>
+<p>File systems use a variety of structures and methods for data organization and management. These include organizing data into folders and subfolders in a hierarchical order, naming files,</p>
+<h4 id="access-methods">
+  Access Methods
+  <a class="heading-link" href="#access-methods">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Files store information. When used, this information must be accessed and read into computer memory. The information in the file can be accessed in various ways. Some systems provide only one access method for files. Others support many access methods, and choosing the right one for a particular application is a major design challenge.</p>
+<p>Below are the access methods with their explanations:</p>
+<ol>
+<li><strong>Sequential Access:</strong> The simplest access method is sequential access. The information in the file is processed sequentially, one record after the other. This form of access is the most common; for example, editors and compilers often access files this way.</li>
+<li><strong>Direct Access:</strong> Direct access files are very useful for instant access to large amounts of information. Databases are often of this type. When a query comes in on a particular topic, we calculate which block contains the answer and then read that block directly to provide the desired information.</li>
+<li><strong>Other Access Methods:</strong> Other access methods can be built directly on top of the access method. With this methodr usually involves creating a directory for the file. An index contains pointers to various blocks, like the index at the back of a book. To find a record in the file, we first search the index and then use the pointer to directly access the file and find the desired record.</li>
+</ol>
+<hr>
+<h3 id="protection-and-security">
+  Protection and Security
+  <a class="heading-link" href="#protection-and-security">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Protection and Security is an important issue in operating systems to protect users and system resources from unauthorized access and ensure data security. Operating systems have various mechanisms and methods for protection and security.</p>
+<p>In terms of operating system security, the concepts of &ldquo;confidentiality&rdquo;, &ldquo;integrity&rdquo; and &ldquo;availability&rdquo; play an important role. These concepts work together to ensure operating system security. Confidentiality ensures that data is protected from unauthorized access, while integrity ensures that data is secure in terms of accuracy and immutability. Compatibility ensures the ability of systems to provide continuous service. Operating system security is achieved by a balanced application of these three concepts and ensures the security of users&rsquo; data, systems and resources.</p>
+<h4 id="accessibility">
+  Accessibility
+  <a class="heading-link" href="#accessibility">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Operating systems ensure data security by setting rights and permissions on files and folders. These rights control operations such as reading, writing, executing and sharing files. Different access rights can be defined between file owners, groups and other users. This way, sensitive data can only be accessed by authorized users.</p>
+<p>Access control is a mechanism used in operating systems to manage and control the access rights of users and resources. Access control is used to prevent unauthorized access, block unauthorized access to sensitive data or system resources, and enforce security policies.</p>
+<p>Access control in operating systems consists of the following components:</p>
+<ol>
+<li>
+<p><strong>User and Group Management:</strong> The operating system manages user accounts and groups. User accounts contain each user&rsquo;s credentials, authorizations, and access rights. Users can be assigned to specific groups, and groups bring together users with similar privileges. In this way, the operating system provides user- and group-based access control.</p>
+</li>
+<li>
+<p><strong>Permissions and Rights:</strong> The operating system determines permissions and rights on files, directories and other resources. These permissions define the access levels and authority of users or groups to certain resources. For example, a file may have read, write, or execute permissions, and these permissions can be determined on a user or group basis. The operating system ensures that users can only access authorized resources and blocks access to resources for which they are not authorized.</p>
+</li>
+<li>
+<p><strong>Access Control Lists (ACL) and Role-Based Access Control (RBAC):</strong> Operating systems provide more granular and complex access control using mechanisms such as ACL and RBAC. ACLs are user or group-based permission lists defined separately for each resource. RBAC is a management approach that assigns access rights to users with specific roles. These mechanisms are used to manage more complex access scenarios.</p>
+</li>
+<li>
+<p><strong>Audit Logs:</strong> The operating system maintains audit logs to record users&rsquo; activities and access attempts. These logs are used to track security events, perform troubleshooting, and perform security audits. Audit logs are an important tool in assessing the effectiveness and security posture of access control.</p>
+</li>
+</ol>
+<p>Access control ensures that the operating system enforces security policies, prevents unauthorized access, and keeps sensitive data or system resources safe.</p>
+<h4 id="security-updates">
+  Security Updates
+  <a class="heading-link" href="#security-updates">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Security updates are updates released by operating systems or software to fix security vulnerabilities or fix bugs. These updates are important to increase the security of the system or software, protect it from malicious attacks and keep users&rsquo; data and resources safe.</p>
+<p><strong>Patch Updates</strong>: A patch is a small update released to fix vulnerabilities or fix bugs in an existing software or operating system. This update does not make the system or software more secure.It completes the deficiencies for k. Patch updates often contain important fixes for common vulnerabilities or attacks. Users should ensure that the system remains up-to-date and secure by downloading and installing these updates regularly.</p>
+<p><strong>Zero-day Vulnerabilities:</strong> Zero-day vulnerabilities are vulnerabilities that have not yet been discovered or published. Attackers may attempt to infiltrate and attack systems or software by using such vulnerabilities. The reason zero-day vulnerabilities are potentially dangerous is that software developers become targets of attacks before they have the opportunity to discover and fix them.</p>
+<p>Security updates are vital to keep systems and software up to date and secure. It is important for users to regularly monitor updates and install the necessary updates to fix security vulnerabilities. This supports protecting from malicious attacks and ensuring data security.</p>
+<hr>
+<p>In this article, I tried to explain the general concept of operating systems. I talked about what features it has and what difficulties it has. You can look at this link for more details: <a href="https://www.geeksforgeeks.org/operating-systems/"  class="external-link" target="_blank" rel="noopener">https://www.geeksforgeeks.org/operating-systems/</a> If there are points I am missing, you can write a comment.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

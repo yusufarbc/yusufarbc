@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Hakerlar için Python: selenium · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Hakerlar için Python: selenium
+  
+    
+    Başlık Linki
+  
+
+
+
+  Giriş
+  
+    
+    Başlık Linki
+  
+
+Merhaba bu yazımızda web siteleri üzerinde bir kullanıcı gibi işlemler yapmamızı sağlayan selenium modülünü tanıyacağız.
+
+  Selenium Nedir?
+  
+    
+    Başlık Linki
+  
+
+Selenium bir web otomasyon kütüphanesidir. Selenium ile bir web sitesini ziyaret edip etkileşimde bulunabiliriz.
+
+  Kurulum
+  
+    
+    Başlık Linki
+  
+
+Selenium modülünü kurmak ve çalıştırmak için birkaç farklı yöntem izleyebilirsiniz. Herşeyi manuel olarak kurup bilgisayarınızda çalıştırabilirsiniz, tarayıcınızı çalıştıracak driverı otomatik kurabilirsiniz veya docker teknoloisinden faydalanabilirsiniz.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Hakerlar için Python: selenium">
+  <meta name="twitter:description" content="Hakerlar için Python: seleniumBaşlık LinkiGirişBaşlık LinkiMerhaba bu yazımızda web siteleri üzerinde bir kullanıcı gibi işlemler yapmamızı sağlayan selenium modülünü tanıyacağız.
+Selenium Nedir?Başlık LinkiSelenium bir web otomasyon kütüphanesidir. Selenium ile bir web sitesini ziyaret edip etkileşimde bulunabiliriz.
+KurulumBaşlık LinkiSelenium modülünü kurmak ve çalıştırmak için birkaç farklı yöntem izleyebilirsiniz. Herşeyi manuel olarak kurup bilgisayarınızda çalıştırabilirsiniz, tarayıcınızı çalıştıracak driverı otomatik kurabilirsiniz veya docker teknoloisinden faydalanabilirsiniz.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2022/09/hakerlar-i%C3%A7in-python-selenium/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Hakerlar için Python: selenium">
+  <meta property="og:description" content="Hakerlar için Python: seleniumBaşlık LinkiGirişBaşlık LinkiMerhaba bu yazımızda web siteleri üzerinde bir kullanıcı gibi işlemler yapmamızı sağlayan selenium modülünü tanıyacağız.
+Selenium Nedir?Başlık LinkiSelenium bir web otomasyon kütüphanesidir. Selenium ile bir web sitesini ziyaret edip etkileşimde bulunabiliriz.
+KurulumBaşlık LinkiSelenium modülünü kurmak ve çalıştırmak için birkaç farklı yöntem izleyebilirsiniz. Herşeyi manuel olarak kurup bilgisayarınızda çalıştırabilirsiniz, tarayıcınızı çalıştıracak driverı otomatik kurabilirsiniz veya docker teknoloisinden faydalanabilirsiniz.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-09-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-09-02T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2022/09/hakerlar-i%C3%A7in-python-selenium/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2022/09/python-for-hackers-selenium/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2022/09/hakerlar-i%C3%A7in-python-selenium/">
+              Hakerlar için Python: selenium
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-09-02T00:00:00Z">
+                Eylül 2, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="hakerlar-için-pythonselenium">
+  <strong>Hakerlar için Python: selenium</strong>
+  <a class="heading-link" href="#hakerlar-i%c3%a7in-pythonselenium">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_0uUmJ2J01vpcie8grd91Yw.png" alt=""></p>
+<h3 id="giriş">
+  Giriş
+  <a class="heading-link" href="#giri%c5%9f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Merhaba bu yazımızda web siteleri üzerinde bir kullanıcı gibi işlemler yapmamızı sağlayan selenium modülünü tanıyacağız.</p>
+<h3 id="selenium-nedir">
+  Selenium Nedir?
+  <a class="heading-link" href="#selenium-nedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><a href="https://selenium-python.readthedocs.io/"  class="external-link" target="_blank" rel="noopener">Selenium</a> bir web otomasyon kütüphanesidir. Selenium ile bir web sitesini ziyaret edip etkileşimde bulunabiliriz.</p>
+<h3 id="kurulum">
+  Kurulum
+  <a class="heading-link" href="#kurulum">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><a href="https://pypi.org/project/selenium/"  class="external-link" target="_blank" rel="noopener">Selenium</a> modülünü kurmak ve çalıştırmak için birkaç farklı yöntem izleyebilirsiniz. Herşeyi manuel olarak kurup bilgisayarınızda çalıştırabilirsiniz, tarayıcınızı çalıştıracak driverı otomatik kurabilirsiniz veya docker teknoloisinden faydalanabilirsiniz.</p>
+<p>Klasik manuel kurulumdan başlayalım; <br>
+Bunun için aşağıdaki komutu terminalde çalıştırın.</p>
+<pre tabindex="0"><code>pip install selenium
+</code></pre><p>Selenium bir web tarayıcı üzerinde çalıştığı için bu tarayıcı yönetecek bir drivera ihtiyacımız var.</p>
+<p><strong>Chrome</strong>:<br>
+<a href="https://chromedriver.chromium.org/downloads"  class="external-link" target="_blank" rel="noopener">https://chromedriver.chromium.org/downloads</a></p>
+<p><strong>Edge</strong>:<br>
+<a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/"  class="external-link" target="_blank" rel="noopener">https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/</a></p>
+<p><strong>Firefox</strong>:<br>
+<a href="https://github.com/mozilla/geckodriver/releases"  class="external-link" target="_blank" rel="noopener">https://github.com/mozilla/geckodriver/releases</a></p>
+<p><strong>Safari</strong>:<br>
+<a href="https://webkit.org/blog/6900/webdriver-support-in-safari-10/"  class="external-link" target="_blank" rel="noopener">https://webkit.org/blog/6900/webdriver-support-in-safari-10/</a></p>
+<p>Buradan kullanmak istediğiniz tarayıcının driverini indirebilirsiniz Driverı indirirken tarayıcınızın sürümü ile uyumlu olmasına dikkat edin. Ardından driverı python dosyanızla aynı dizine kopyalayın.</p>
+<p>Şimdi ilk test kodumuzu çalıştırabiliriz.</p>
+<pre tabindex="0"><code>from selenium import webdriver  
+driver = webdriver.Chrome()  
+driver.get(&#34;http://google.com&#34;)
+</code></pre><p>Driverı elle kurmak yerine otomatik olarak son sürümü kuran webdriver_manager modülünü de kurabiliriz.</p>
+<pre tabindex="0"><code>pip install webdriver-manager
+</code></pre><p>Bu modülü kurduktan sonra aşağıdaki test kodunu çalıştırabiliriz.</p>
+<pre tabindex="0"><code>from selenium import webdriver  
+from webdriver_manager.chrome import ChromeDriverManager
+</code></pre><pre tabindex="0"><code>driver = webdriver.Chrome(ChromeDriverManager().install())  
+driver.get(&#34;http://google.com&#34;)
+</code></pre><p>Seleniumu <a href="https://hub.docker.com/r/selenium/standalone-firefox"  class="external-link" target="_blank" rel="noopener">docker</a> ile çalıştırmak için ise <a href="https://github.com/SeleniumHQ/docker-selenium"  class="external-link" target="_blank" rel="noopener">github</a> sayfasınındaki yönlendirmeleri izleyebilirsiniz. Dockerı kurup çalıştırınca <a href="http://localhost:4444/"  class="external-link" target="_blank" rel="noopener">http://localhost:4444</a> adresinde seslenium grid arayüzüne erişebilirsiniz.</p>
+<p><img src="/images/1_ibMLsRZmjC54Fxcif1XP_A.png" alt=""></p>
+<p><a href="http://localhost:7900/"  class="external-link" target="_blank" rel="noopener">http://localhost:7900/</a> adresinden de web tarayıcıyı görüntüleyebiliriz. Varsayılan parola <em>secret</em> dır.<br>
+ Docker ayakta iken aşağıdaki test kodunu çalıştırabiliriz.</p>
+<pre tabindex="0"><code>from selenium import webdriver  
+from selenium.webdriver.common.keys import Keys  
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities  
+					   
+driver = webdriver.Remote(  
+   command_executor=&#34;http://127.0.0.1:4444/wd/hub&#34;,  
+   desired_capabilities={&#34;browserName&#34;: &#34;firefox&#34;})  
+driver.get(&#34;http://google.com&#34;)
+</code></pre><p>Burada browserName kısmına dockerı hangi browser ile kurduysanız o browserın ismini yazmalısınız. Kodu çalıştırılınca <a href="http://localhost:7900/"  class="external-link" target="_blank" rel="noopener">http://localhost:7900/</a> adresi üzerinde google’ın açıldığını görebilirsiniz.</p>
+<p><img src="/images/1_WoWx7BtNKQIIwMPjVnMg4w.png" alt=""></p>
+<p>Python kodu çalıştırıldı ve selenium grid üzerinde bir sesssion oluşturuldu. Bu session ile google.com adresine gittik. Ancak bu oturumu kapatmadan python kodumuz sonlandı ve oturumumuz açık kaldı. Sessionı kapatmadan başka python kodları çalıştıramayız. Oturumu kapatmak için python kodumuzun sonuna <em>driver.quit()</em> ekleyebiliriz ya da docker’ı yeniden başlatabilrisiniz.</p>
+<h3 id="selenium-modülü-nasıl-kullanılır">
+  Selenium Modülü Nasıl Kullanılır?
+  <a class="heading-link" href="#selenium-mod%c3%bcl%c3%bc-nas%c4%b1l-kullan%c4%b1l%c4%b1r">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Kurulum kısmında selenium ile tarayıcıyı açmayı ve bir sayfaya gitmeyi görmüştük. Sayfaya gittikten sonra o sayfada çeşitli işlemler yapabiliriz. Örneğin sayfadaki belli bir metini almak isteyebiliriz, sayfadaki bir butona basmak isteyebiliriz veya sayfayı yukarı-aşağı kaydırmak isteyebiliriz. Bunların hepsi bot yapımında bizim için gereken işlemlerdir.</p>
+<p>Web sayfası üzerinde her ne yapmak istersek isteyelim önce o işlemi yapacağımız HTML elemenına erişmemiz gerekir. Bunun için birkaç farklı yol var. Bunlardan bazıları:,</p>
+<ul>
+<li>ID: Elemena bir id değeri atanmışsa bu değer ile elemana erişebiliriz. Id değerleri benzersizdir.</li>
+<li>NAME: Elemana bir name değeri atanmışsa bu değer ile elemana erişebiliriz. Name değerleri benzersiz değildir, bir sayfada aynı name değerinde başka elemanlar olabilir. Bu durumda ilk bulduğunu alır.</li>
+<li>CLASS: Elemana bir class değeri eklenmişse bu class değeri ile erişebiliriz.</li>
+<li>XPATH: Sayfa kaynağında erişmek istediğimiz elemanın xpath’ini vererek erişebiliriz. Xpath’i inspector aracından kopyalayabiliriz.</li>
+</ul>
+<p><img src="/images/1_6iylSyMtw2y6d-OsZcECpA.png" alt=""></p>
+<p>Burada Google’daki arama çubuğunun XPath’ini almış olduk. Şimdi küçük bir örnek uygulama üzerinde temel mantığı anlamaya çalışalım.</p>
+<pre tabindex="0"><code>#import işlemleri
+</code></pre><pre tabindex="0"><code>from selenium import webdriver                    
+from selenium.webdriver.common.keys import Keys  
+from selenium.webdriver.common.by import By  
+import time
+</code></pre><pre tabindex="0"><code>#driver nesnesini çağır (Ben seleniumu docker üzerinde çalıştırdım)					
+</code></pre><pre tabindex="0"><code>driver = webdriver.Remote(  
+   command_executor=&#34;http://127.0.0.1:4444/wd/hub&#34;,  
+   desired_capabilities={&#34;browserName&#34;: &#34;firefox&#34;})
+</code></pre><pre tabindex="0"><code>driver.get(&#34;https://github.com&#34;) #github web sayfasına git
+</code></pre><pre tabindex="0"><code># XPATH ile github sayfasındaki arama çubuğuna eriş  
+searchInput = driver.find_element(By.XPATH, &#34;/html/body/div[1]/header/div/div[2]/div[2]/div[1]/div/div/form/label/input[1]&#34;)
+</code></pre><pre tabindex="0"><code>time.sleep(1)  
+searchInput.send_keys(&#34;CVE&#34;) # arama çubuğuna ‘CVE’ yaz.  
+time.sleep(3)  
+searchInput.send_keys(Keys.ENTER) # arama çubuğunda ENTER’a bas.  
+time.sleep(5)
+</code></pre><pre tabindex="0"><code>driver.quit()
+</code></pre><p>Örnek uygulamayı çalıştırdığımızda, github web sayfası açılır, arama çubuğunu CVE yazılıp arama sayfasına gidilir. Ardından 5 saniye sonra tarayıcı kapanacaktır.</p>
+<p><img src="/images/1_MWyxd0MQQ9IsRkFYJK7s8w.png" alt=""></p>
+<p>Burada çıkan sonuçları çekip indeksleyebiliriz. Bu işleme web scraping diyoruz.</p>
+<h3 id="shodan">
+  Shodan
+  <a class="heading-link" href="#shodan">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Şimdi Shodan üzerinde çalışan bir web botu uygulaması yapalım. Bunun için <a href="https://www.shodan.io/"  class="external-link" target="_blank" rel="noopener">shodan.io</a>’a girip buradaki arana çubuğununun Xpath değerini kopyalıyoruz. Bu değeri uygulamamızda arama çubuğuna erişmek için kullanacağız.</p>
+<p><img src="/images/1_e5yR7mUfSRno_MxYDkshNg.png" alt=""></p>
+<p>Şimdi kodumuzu yazmaya başlayabiliriz. Öncellikle yukarıda bahsettiğimiz gibi import işlemlerini yapıp driver nesnemizi oluşturacağız. Ardından aldığımız xpath değeri ile arama çubuğuna sorgulayacağımız değeri gönderip ‘<em>ENTER’</em> değerini göndereceğiz.</p>
+<pre tabindex="0"><code>from selenium import webdriver  
+from selenium.webdriver.common.keys import Keys  
+from selenium.webdriver.common.by import By  
+import time
+</code></pre><pre tabindex="0"><code>driver = webdriver.Remote(  
+   command_executor=&#34;http://127.0.0.1:4444/wd/hub&#34;,  
+   desired_capabilities={&#34;browserName&#34;: &#34;firefox&#34;})
+</code></pre><pre tabindex="0"><code>driver.get(&#34;https://www.shodan.io/&#34;)
+</code></pre><pre tabindex="0"><code>searchInput = driver.find_element(By.XPATH, &#34;/html/body/div[2]/div/div/div[1]/form/div/div/input&#34;)
+</code></pre><pre tabindex="0"><code>searchInput.send_keys(&#34;phpMyAdmin&#34;, Keys.ENTER)
+</code></pre><pre tabindex="0"><code>time.sleep(10)  
+driver.quit()
+</code></pre><p>Uygulamamızı çalıştırdığımızda arama çubuğuna ‘phpMyAdmin’ yazıp sorgulayacaktır. Şimdi dönen değerleri almaya çalışalım.</p>
+<p><img src="/images/1_nryPmk-rhb0RiU-lv0zniw.png" alt=""></p>
+<p>Gördüğümüz gibi dönen bütün sonuçların class isimleri ‘result’ olarak atanmış. Bu durumdan yararlanarak gelen sonuçlara erişebiliriz.</p>
+<pre tabindex="0"><code>results = driver.find_elements(By.CLASS_NAME, &#39;result&#39;)  
+print(results)
+</code></pre><p><img src="/images/1_YjRwxuXoOD18s9ceUn04MA.png" alt=""></p>
+<p>Burada alınan elementleri görebiliyoruz.</p>
+<h3 id="twitter-bot">
+  Twitter Bot
+  <a class="heading-link" href="#twitter-bot">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Twitterdaki bot hesapları elbet duymuşsunuzdur. Bu botlar sosyal medya hesaplarını otomatize etmenin yanı sıra, Twitter üzerinde yapay gündem oluşturmak, çeşitli manipülasyon ve propaganda faaliyetleri için de kullanılıyor. Twitter bot hesapları engellemek için çeşitli önlemler alıyor. Örneğin, agresif biçimde hızlı işlem yapan kullanıcıları yakalıyor. Bunun dışında elemanlara erişimi zorlaştırmak için id, name değerleri ile oynuyor, xpath’i işlevsiz kılıyor. <br>
+ <br>
+ Twitterın eski versiyonunda selenium ile yazılmış bot örneklerini webde kolayca bulabilirsiniz. Ne yazık ki bugünkü versiyonunda bu botlar çalışmıyor. <br>
+ Bunun dışında Twitterın kendi apisi ile çeşitli uygulamalar hazırlayabilirsiniz. Ancak apiler tamamen twitterın denetimine tabi. Kısacası Twitter tamamen kontrolü eline aldı diyebiliriz.<br>
+ <br>
+ Aynı durum instagram ve facebook içinde geçerlidir. Birçok web uygulaması botlara karşı önlemler almış durumda.</p>
+<h3 id="son">
+  Son
+  <a class="heading-link" href="#son">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Sonuç olarak, selenium modülü gerçek bir browser üzerinde otomatize işlemler yapmamıza, botlar oluşturmamıza yardımcı olan güzel bir modül ancak bazı web uygulamaları bu botlara karşı önlemler almış durumda. Selenium ile başka ne tür uygulamalar yapılabilir yorumlara beklerim…</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

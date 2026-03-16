@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Kriptoloji Temelleri:#4 Blokzincir · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Kriptoloji Temelleri:#4 Blokzincir
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba, kriptoloji temelleri serisinin bu yazısında blokzincirin ne olduğundan nasıl çalıştığından ve nerelerde kullanıldığından bahsedeceğim.
+
+
+  Blok Zincir Nedir?
+  
+    
+    Başlık Linki
+  
+
+Blok zinciri(blockchain), kriptografi kullanılarak bağlanan ve güvenli hale getirilen, bloklar ile sürekli büyüyen bir kayıt listesidir.
+
+Blockchain teknolojisi 2008 yılında Satoshi Nakamoto tarafından icat edildi. Son birkaç yıldır büyük önem kazandığı için birçok ülke teknolojiyi geliştirmek ve çeşitli alanlarda kullanmak için çalışmalara başladı. Blockchain, FinTech kuruluşları tarafından büyük beğeni topluyor. Blockchain Teknolojisinin Dijital Kimlikler, Bitcoin ve Ethereum gibi pratik uygulamaları, bu teknolojinin kalıcı olduğunu açıkça ortaya koydu. Dağıtılmış veri depolama, şifreleme algoritmaları ve fikir birliği mekanizması dahil olmak üzere çeşitli teknolojilerin bir kombinasyonudur. Teknoloji, finans, bankacılık ve siber güvenlik departmanları gibi departmanların çalışma modellerinde devrim yaratma yeteneğine sahiptir.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Kriptoloji Temelleri:#4 Blokzincir">
+  <meta name="twitter:description" content="Kriptoloji Temelleri:#4 BlokzincirBaşlık LinkiMerhaba, kriptoloji temelleri serisinin bu yazısında blokzincirin ne olduğundan nasıl çalıştığından ve nerelerde kullanıldığından bahsedeceğim.
+Blok Zincir Nedir?Başlık LinkiBlok zinciri(blockchain), kriptografi kullanılarak bağlanan ve güvenli hale getirilen, bloklar ile sürekli büyüyen bir kayıt listesidir.
+Blockchain teknolojisi 2008 yılında Satoshi Nakamoto tarafından icat edildi. Son birkaç yıldır büyük önem kazandığı için birçok ülke teknolojiyi geliştirmek ve çeşitli alanlarda kullanmak için çalışmalara başladı. Blockchain, FinTech kuruluşları tarafından büyük beğeni topluyor. Blockchain Teknolojisinin Dijital Kimlikler, Bitcoin ve Ethereum gibi pratik uygulamaları, bu teknolojinin kalıcı olduğunu açıkça ortaya koydu. Dağıtılmış veri depolama, şifreleme algoritmaları ve fikir birliği mekanizması dahil olmak üzere çeşitli teknolojilerin bir kombinasyonudur. Teknoloji, finans, bankacılık ve siber güvenlik departmanları gibi departmanların çalışma modellerinde devrim yaratma yeteneğine sahiptir.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2023/04/kriptoloji-temelleri%234-blokzincir/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Kriptoloji Temelleri:#4 Blokzincir">
+  <meta property="og:description" content="Kriptoloji Temelleri:#4 BlokzincirBaşlık LinkiMerhaba, kriptoloji temelleri serisinin bu yazısında blokzincirin ne olduğundan nasıl çalıştığından ve nerelerde kullanıldığından bahsedeceğim.
+Blok Zincir Nedir?Başlık LinkiBlok zinciri(blockchain), kriptografi kullanılarak bağlanan ve güvenli hale getirilen, bloklar ile sürekli büyüyen bir kayıt listesidir.
+Blockchain teknolojisi 2008 yılında Satoshi Nakamoto tarafından icat edildi. Son birkaç yıldır büyük önem kazandığı için birçok ülke teknolojiyi geliştirmek ve çeşitli alanlarda kullanmak için çalışmalara başladı. Blockchain, FinTech kuruluşları tarafından büyük beğeni topluyor. Blockchain Teknolojisinin Dijital Kimlikler, Bitcoin ve Ethereum gibi pratik uygulamaları, bu teknolojinin kalıcı olduğunu açıkça ortaya koydu. Dağıtılmış veri depolama, şifreleme algoritmaları ve fikir birliği mekanizması dahil olmak üzere çeşitli teknolojilerin bir kombinasyonudur. Teknoloji, finans, bankacılık ve siber güvenlik departmanları gibi departmanların çalışma modellerinde devrim yaratma yeteneğine sahiptir.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-04-12T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-04-12T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2023/04/kriptoloji-temelleri%234-blokzincir/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2023/04/cryptology-fundamentals%234-blockchain/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2023/04/kriptoloji-temelleri%234-blokzincir/">
+              Kriptoloji Temelleri:#4 Blokzincir
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-04-12T00:00:00Z">
+                Nisan 12, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              6 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="kriptoloji-temelleri4-blokzincir">
+  Kriptoloji Temelleri:#4 Blokzincir
+  <a class="heading-link" href="#kriptoloji-temelleri4-blokzincir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_Ci1P1v2xXKNrCvqur5DbQQ.png" alt=""></p>
+<p>Merhaba, kriptoloji temelleri serisinin bu yazısında blokzincirin ne olduğundan nasıl çalıştığından ve nerelerde kullanıldığından bahsedeceğim.</p>
+<hr>
+<h3 id="blok-zincirnedir">
+  Blok Zincir Nedir?
+  <a class="heading-link" href="#blok-zincirnedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Blok zinciri</strong>(blockchain), <a href="https://tr.wikipedia.org/wiki/Kriptografi" title="Kriptografi"  class="external-link" target="_blank" rel="noopener">kriptografi</a> kullanılarak bağlanan ve güvenli hale getirilen, bloklar ile sürekli büyüyen bir <a href="https://en.wikipedia.org/wiki/Record_%28computer_science%29" title="en:Record (computer science)"  class="external-link" target="_blank" rel="noopener">kayıt</a> listesidir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*_mqEk43FYCnMOB8k" alt=""></p>
+<p>Blockchain teknolojisi 2008 yılında Satoshi Nakamoto tarafından icat edildi. Son birkaç yıldır büyük önem kazandığı için birçok ülke teknolojiyi geliştirmek ve çeşitli alanlarda kullanmak için çalışmalara başladı. Blockchain, FinTech kuruluşları tarafından büyük beğeni topluyor. Blockchain Teknolojisinin Dijital Kimlikler, Bitcoin ve Ethereum gibi pratik uygulamaları, bu teknolojinin kalıcı olduğunu açıkça ortaya koydu. Dağıtılmış veri depolama, şifreleme algoritmaları ve fikir birliği mekanizması dahil olmak üzere çeşitli teknolojilerin bir kombinasyonudur. Teknoloji, finans, bankacılık ve siber güvenlik departmanları gibi departmanların çalışma modellerinde devrim yaratma yeteneğine sahiptir.</p>
+<h4 id="blockchain-teknolojisinin-avantajlarından-bazıları">
+  <strong>Blockchain teknolojisinin avantajlarından bazıları:</strong>
+  <a class="heading-link" href="#blockchain-teknolojisinin-avantajlar%c4%b1ndan-baz%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>Üçüncü taraf müdahalesi yok.</li>
+<li>Veriler değiştirilemez veya silinemez.</li>
+<li>Güvenli veri defteri.</li>
+<li>Blockchain’deki tüm bloklar zaman damgalıdır.</li>
+<li>Şeffaf işlemler.</li>
+<li>Blockchain’deki her bir düğüme dağıtılır.</li>
+<li>Çoğaltma veya dolandırıcılık riski yoktur.</li>
+</ul>
+<hr>
+<h3 id="blok-zincir-nasılçalışır">
+  Blok Zincir Nasıl Çalışır?
+  <a class="heading-link" href="#blok-zincir-nas%c4%b1l%c3%a7al%c4%b1%c5%9f%c4%b1r">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Blok zinciri kısaca şöyle işler: Her blok tipik olarak işlem verilerini, önceki bloğun hash değerini ve bir zaman damgasını içerir. Tasarım gereği, bir blok zinciri, kayıtların sonradan değiştirilmesine dirençlidir. Kullanılan kayıt listesi, “iki taraf arasındaki işlemleri verimli, doğrulanabilir ve kalıcı bir şekilde kaydedebilen açık, dağıtılmış bir defterdir”. Dağıtılmış bir defter olarak kullanmak için, bir blok zinciri tipik olarak, topluca bir protokole bağlı düğümler arası iletişim ve yeni blokları onaylamak için bir eşler arası (peer-to-peer) ağ tarafından yönetilir. Herhangi bir bloktaki veriler sonradan değiştirilmek istendiğinde, verinin bulunduğu blok ve sonraki tüm blokların değiştirilmesi gerekecektir. Bu da bir sonraki düğüm yazılmadan önce, her blok yazımı için düğüm seçiminde seçilmeyi ve her seferde ağdaki düğümlerin çoğunluğunun onayını gerektirir. Ayrıca her blokta kimin değiştirdiği belli olduğundan, olası bir kötüye kullanımın tespit edilmesi de mümkündür.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*8FN6t57s1kOFav3O" alt=""></p>
+<p>Blockchain, önde gelen üç teknoloji üzerinde çalışır:</p>
+<h4 id="1--kriptografi-anahtarları">
+  1- Kriptografi anahtarları
+  <a class="heading-link" href="#1--kriptografi-anahtarlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Kriptografi anahtarları iki türdür — Özel anahtar ve Genel anahtar. Bir ağdaki her iki taraf da bu iki anahtara sahiptir ve böylece güvenli bir dijital kimlik oluşturmaya yardımcı olur. Bu anahtarlar, bu iki kişi arasındaki işlemlerin başarılı bir şekilde gerçekleştirilmesine yardımcı olur. Bu güvenli kimlik, kripto para birimi söz konusu olduğunda ‘dijital imza’ olarak adlandırılan Blockchain teknolojisinin en önemli yönüdür.</p>
+<h4 id="2--paylaşılan-bir-deftere-sahip-eşler-arası-birağ">
+  2- Paylaşılan bir deftere sahip eşler arası bir ağ
+  <a class="heading-link" href="#2--payla%c5%9f%c4%b1lan-bir-deftere-sahip-e%c5%9fler-aras%c4%b1-bira%c4%9f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Dijital imza daha sonra eşler arası bir ağ ile birleştirilir; yetkili olarak hareket eden ve dijital imzayı diğer tüm konuların yanı sıra işlemlerde başkalarının fikir birliğine varmak için kullanan çok sayıda kişi.</p>
+<h4 id="3--ağın-kayıtlarını-ve-işlemlerini-paylaşmak-için-bir-bilgi-işlemaracı">
+  3- Ağın kayıtlarını ve işlemlerini paylaşmak için bir bilgi işlem aracı
+  <a class="heading-link" href="#3--a%c4%9f%c4%b1n-kay%c4%b1tlar%c4%b1n%c4%b1-ve-i%c5%9flemlerini-payla%c5%9fmak-i%c3%a7in-bir-bilgi-i%c5%9flemarac%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Hepsi bir anlaşmaya izin verdiğinde, bu, paylaşılan bir ağda iki taraf arasında güvenli bir işlemle sonuçlanan matematiksel bir doğrulama ile onaylanır.</p>
+<p>Böylece Blockchain teknolojisinde kullanıcılar, eşler arası ağ üzerinden farklı dijital işlemleri gerçekleştirmek için kriptografi anahtarları kullanır.</p>
+<hr>
+<h3 id="blok-zincir-nerelerde-kullanılır">
+  Blok Zincir Nerelerde Kullanılır?
+  <a class="heading-link" href="#blok-zincir-nerelerde-kullan%c4%b1l%c4%b1r">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Blok zinciri teknolojisi çoklu alanlara entegre edilebilir. Günümüzde blok zincirlerinin birincil kullanımı, en başta bitcoin olmak üzere, kripto para birimleridir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*r5VtfCsKzSlSziWt" alt=""></p>
+<p>Blok zinciri teknolojisi, uzun vadede iş işletme modellerini dönüştürmek için büyük bir potansiyele sahiptir. Blok zinciri dağıtılmış defter teknolojisi, genellikle, küresel ekonomik ve sosyal sistemler için yeni temeller oluşturma potansiyeline dayanan, tipik olarak “düşük maliyetli bir çözümle geleneksel bir iş modeline saldırı yapan ve görevdeki firmaları hızla tüketen yıkıcı bir teknolojiden” daha temel bir teknolojidir. Blok zincirlerin kullanımı, küresel tedarik zincirlerine, finansal işlemlere, varlık defterlerine ve merkezi olmayan sosyal ağlara önemli verimlilik getirme vadediyor.</p>
+<h4 id="akıllı-sözleşmeler">
+  Akıllı sözleşmeler
+  <a class="heading-link" href="#ak%c4%b1ll%c4%b1-s%c3%b6zle%c5%9fmeler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Blok zinciri tabanlı akıllı sözleşmeler, insan etkileşimi olmadan kısmen veya tamamen yürütülebilen veya uygulanabilen sözleşmelerdir. Akıllı bir sözleşmenin ana amaçlarından biri otomatik emanettir. IMF, blok zincirlerinin manevi zararları azaltabileceğini ve genel olarak sözleşmelerin kullanımını optimize edebileceğine inanıyor. Yaygın kullanım eksikliği nedeniyle yasal statüsü belirsizdir.</p>
+<h4 id="merkezi-olmayanağlar">
+  Merkezi olmayan ağlar
+  <a class="heading-link" href="#merkezi-olmayana%c4%9flar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>Backfeed projesi, eşzamanlı olarak ortaya çıkan eşlerin ağlarında işbirlikçi oluşum ve değerin dağıtımını sağlayan blok zincir tabanlı uygulamalar için dağıtılmış bir yönetim sistemi geliştirir.</li>
+<li>İskenderiye projesi blok zincir tabanlı Dağıtılmış Kütüphane’dir.</li>
+<li>Tezos, token sahiplerinin oyu ile kendisini yöneten bir blok zincir projesidir. <a href="https://tr.wikipedia.org/wiki/Bitcoin" title="Bitcoin"  class="external-link" target="_blank" rel="noopener">Bitcoin</a> blok zinciri bir kripto para birimi ve ödeme sistemi olarak gerçekleştirir. Ethereum blok zinciri, bir blok zincirinin üstüne akıllı sözleşme sistemi ekledi. Tezos blok zinciri, hem bitcoin hem de Ethereum blok zincirlerinin üzerinde bir özerklik sistemi — merkezi olmayan bir kod Geliştirme fonksiyonu ekleyecektir.</li>
+</ul>
+<h4 id="hükümetler-ve-ulusal-para-birimleri">
+  Hükümetler ve ulusal para birimleri
+  <a class="heading-link" href="#h%c3%bck%c3%bcmetler-ve-ulusal-para-birimleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>ABD Genel Hizmetler İdaresi’nde görevli BT Sözleşme Planlama Operasyon Müdürü Jose Arrieta, Eylül 2017&rsquo;de ACT-IAC (Amerikan Teknoloji Konseyi ve Endüstri Danışma Konseyi) Forumu’nda organizasyon blok zinciri dağıtılmış defter teknolojisini BT Çizelgesi 70 sözleşmelerini FASt Lane sürecini hızlandırmak için otomasyon yoluyla kullandığını açıkladı.</p>
+<p>ABD Gümrük ve Sınır Korumasının bir alt komitesi olan Ticari Gümrük İşlemleri Danışma Komitesi, blok zincirinin görevlerinde uygulanabilecek pratik yollarını bulmak için çalışıyor.</p>
+<h4 id="bankalar">
+  Bankalar
+  <a class="heading-link" href="#bankalar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Finans sektörünün büyük bölümleri bankacılıkta kullanılmak üzere dağıtılmış defterleri uyguluyor ve Eylül 2016&rsquo;da yapılan bir IBM araştırmasına göre, bu beklenenden daha hızlı gerçekleşiyor. Bankalar, bu teknolojiye ilgi duyuyor çünkü arka ofis yerleşim sistemlerini hızlandırma potansiyeli var.</p>
+<h4 id="diğer-finans-şirketleri">
+  Diğer finans şirketleri
+  <a class="heading-link" href="#di%c4%9fer-finans-%c5%9firketleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Kredi ve borç ödeme şirketi MasterCard, programcılar için hem kişiden kişiye (P2P) hem de işletmeler arası (B2B) ödeme sistemlerini geliştirmek için üç blok zincir tabanlı API ekledi.</p>
+<p>CLS Group, uzayabileceği döviz ticareti anlaşmalarının sayısını artırmak için blok zinciri teknolojisini kullanıyor.</p>
+<p>VISA ödeme sistemleri, Mastercard, Unionpay ve SWIFT, blok zincir teknolojisini kullanma planlarını ve gelişmelerini açıkladı.</p>
+<hr>
+<h3 id="blok-zincirtürleri">
+  Blok Zincir Türleri
+  <a class="heading-link" href="#blok-zincirt%c3%bcrleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Halihazırda, üç tip <strong>blok zincir</strong> ağı vardır:<br>
+genel blok zincirleri, özel blok zincirleri ve konsorsiyum blok zincirleri.</p>
+<h4 id="genel-blok-zincirleri">
+  Genel blok zincirleri
+  <a class="heading-link" href="#genel-blok-zincirleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir genel blok zincirinin kesinlikle erişim kısıtlaması yoktur. İnternet bağlantısına sahip olan herkes, işlem gerçekleştirebilir ve bir geçerlilik kazanabilir (yani, bir konsensüs protokolünün yürütülmesine katılabilir). Genellikle, bu tür ağlar onları güvenceye alan ve bir Proof of Stake veya Proof of Work algoritması kullanan kişiler için ekonomik teşvikler sunar.</p>
+<p>En büyük, en bilinen genel blok zincirlerinden bazıları Bitcoin ve Ethereum’dur.</p>
+<h4 id="özel-blok-zincirleri">
+  Özel blok zincirleri
+  <a class="heading-link" href="#%c3%b6zel-blok-zincirleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu tip blok zincirler genel olarak blok zinciri teknolojisiyle ilgilenen ancak kamu ağları tarafından sunulan bir kontrol seviyesinde rahat olmayan şirketler için bir orta zemin olarak düşünülebilir. Tipik olarak, blok zincirini kendi özerkliklerinden ödün vermeden muhasebe ve kayıt tutma prosedürlerine dahil etmemeye ve hassas verileri kamuya açık internet riskiyle karşı karşıya bırakmamaya çalışırlar.</p>
+<h4 id="konsorsiyum-blok-zincirleri">
+  Konsorsiyum blok zincirleri
+  <a class="heading-link" href="#konsorsiyum-blok-zincirleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir konsorsiyum blok zincirinin genellikle yarı-merkezsiz olduğu söylenir. Aynı zamanda izinlidir; ancak bunu kontrol eden tek bir kuruluş yerine, her bir şirket böyle bir ağda bir düğüm işletebilir. Bir konsorsiyum zincirinin yöneticileri, kullanıcıların okuma haklarını uygun gördükleri şekilde kısıtlar ve yalnızca sınırlı sayıda güvenilir düğümlerin bir konsorsiyum protokolü yürütmesine izin verir.</p>
+<hr>
+<p>Bu yazımda blokzincir konusunu anlattım. Serinin listesini profilimde bulabilirsiniz.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

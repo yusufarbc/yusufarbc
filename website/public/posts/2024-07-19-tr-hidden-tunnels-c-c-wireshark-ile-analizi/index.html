@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  [TR] Hidden Tunnels (C&amp;C) Analysis with Wireshark · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  [TR] Hidden Tunnels (C&amp;C) Analysis with Wireshark
+  
+    
+    Link to heading
+  
+
+Hello, in this article I will talk about HTTP tunneling techniques.
+
+In the field of computer security, the term “Hidden Tunnels” generally refers to hidden or unauthorized network connections used for various purposes such as malicious data exfiltration, command and control (C&amp;C), or bypassing network detection. These secret tunnels help attackers hide their activities and bypass security measures.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="[TR] Hidden Tunnels (C&C) Analysis with Wireshark">
+  <meta name="twitter:description" content="[TR] Hidden Tunnels (C&amp;C) Analysis with WiresharkLink to headingHello, in this article I will talk about HTTP tunneling techniques.
+In the field of computer security, the term “Hidden Tunnels” generally refers to hidden or unauthorized network connections used for various purposes such as malicious data exfiltration, command and control (C&amp;C), or bypassing network detection. These secret tunnels help attackers hide their activities and bypass security measures.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2024-07-19-tr-hidden-tunnels-c-c-wireshark-ile-analizi/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="[TR] Hidden Tunnels (C&C) Analysis with Wireshark">
+  <meta property="og:description" content="[TR] Hidden Tunnels (C&amp;C) Analysis with WiresharkLink to headingHello, in this article I will talk about HTTP tunneling techniques.
+In the field of computer security, the term “Hidden Tunnels” generally refers to hidden or unauthorized network connections used for various purposes such as malicious data exfiltration, command and control (C&amp;C), or bypassing network detection. These secret tunnels help attackers hide their activities and bypass security measures.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-07-19T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-07-19T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2024-07-19-tr-hidden-tunnels-c-c-wireshark-ile-analizi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About Me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2024-07-19-tr-hidden-tunnels-c-c-wireshark-ile-analizi/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2024-07-19-tr-hidden-tunnels-c-c-wireshark-ile-analizi/">
+              [TR] Hidden Tunnels (C&amp;C) Analysis with Wireshark
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-07-19T00:00:00Z">
+                July 19, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              7-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="tr-hidden-tunnels-cc-analysis-with-wireshark">
+  [TR] Hidden Tunnels (C&amp;C) Analysis with Wireshark
+  <a class="heading-link" href="#tr-hidden-tunnels-cc-analysis-with-wireshark">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Hello, in this article I will talk about HTTP tunneling techniques.</p>
+<p><img src="/images/1_cWRqt_otCGQkQf0iobOVnw.png" alt=""></p>
+<p>In the field of computer security, the term “Hidden Tunnels” generally refers to hidden or unauthorized network connections used for various purposes such as malicious data exfiltration, command and control (C&amp;C), or bypassing network detection. These secret tunnels help attackers hide their activities and bypass security measures.</p>
+<hr>
+<h3 id="httphttps-tunneling">
+  HTTP/HTTPS Tunneling
+  <a class="heading-link" href="#httphttps-tunneling">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>HTTP/HTTPS tunneling is a technique used to bypass network security measures. This method is accomplished by encapsulating non-HTTP traffic inside HTTP or HTTPS packets. HTTP/HTTPS tunneling can be used for legitimate purposes, such as accessing websites or services trapped in environments with restrictive web filtering policies, but it can also be used for malicious activities such as data exfiltration or remote control of compromised systems.</p>
+<ol>
+<li><strong>Encapsulation:</strong> In HTTP/HTTPS tunneling, non-HTTP traffic is encapsulated into HTTP or HTTPS packets. This means packaging another application or protocol&rsquo;s data like regular web traffic.</li>
+<li><strong>Sending:</strong> The encapsulated data is then sent to a remote server or destination over an HTTP or HTTPS connection. The target server treats incoming HTTP/HTTPS requests and responses as normal web requests, making it difficult for network security devices to identify the true nature of the traffic.</li>
+<li><strong>De-encapsulation:</strong> On the receiving side, HTTP/HTTPS packets are decompressed and the original non-HTTP data is extracted. This data is then processed or executed as required.</li>
+</ol>
+<p>From a security perspective, the use of HTTP/HTTPS tunneling means that traditional security devices may have difficulty detecting and blocking such covert communication channels. To combat this problem, organizations often use advanced threat detection and prevention solutions that can examine traffic more deeply, looking for anomalies and signs of suspicious behavior. Additionally, security policies and network monitoring are important to identify and mitigate risks associated with HTTP/HTTPS tunneling.</p>
+<p>Using HTTP or HTTPS protocols, cybercriminals can create hidden tunnels within web traffic, allowing them to exfiltrate data or control infected systems.</p>
+<p>HTTP/HTTPS tunneling is a technique used to route or tunnel HTTP (Hypertext Transfer Protocol) or HTTPS (HTTP Secure) traffic over a network to another server. This type of tunneling can pose a significant problem, especially in terms of network security.</p>
+<h4 id="how-to-do-httphttps-tunneling">
+  How to do HTTP/HTTPS Tunneling?
+  <a class="heading-link" href="#how-to-do-httphttps-tunneling">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>HTTP/HTTPS tunneling is used to transmit or redirect HTTP or HTTPS requests or responses, normally considered web traffic, to another server. They can use several different methods for this:</p>
+<ol>
+<li><strong>HTTP Proxy Servers</strong>: Users or malware access the internet through an HTTP proxy server. This proxy server receives users&rsquo; requests, forwards them to the target server, and tunnels the responses back to the user.</li>
+<li><strong>VPN (Virtual Private Network)</strong>: VPNs are a type of tunneling technology that users use to provide privacy and security on the internet. By creating an encrypted tunnel between the VPN client and server, HTTP or HTTPS traffic can pass through the tunnel.</li>
+<li><strong>SSH (Secure Shell):</strong> SSH is a method used to create a secure communication channel between two devices on the network. This is used to encrypt and secure data transmission between computers. SSH tunnel is widely used, especially when secure data transmission over the internet is required.</li>
+</ol>
+<h4 id="httphttps-tunneling-analysis">
+  HTTP/HTTPS Tunneling Analysis
+  <a class="heading-link" href="#httphttps-tunneling-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>HTTP/HTTPS tunneling is an issue that must be carefully monitored for network security. Firewalls, IDS/IPS (Intrusion Detection System/Intrusion Prevention System) systems, and other security measures can be used to monitor and detect such tunneling traffic. Additionally, user education and security policies can help reduce risks associated with HTTP/HTTPS tunneling.</p>
+<hr>
+<h3 id="dns-tunneling">
+  <strong>DNS Tunneling</strong>
+  <a class="heading-link" href="#dns-tunneling">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>DNS tunneling sends data over the DNS protocol, which is a protocol not designed for data transfer.It is a method used to reach. This is done for the purpose of carrying other types of data within DNS packets or communicating with another server. DNS tunneling can pose a significant problem, especially in terms of network security. One reason for this is that DNS pacts can pass through security products such as firewalls without getting stuck.</p>
+<h4 id="how-is-dns-tunneling-done">
+  How is DNS Tunneling done?
+  <a class="heading-link" href="#how-is-dns-tunneling-done">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>DNS tunneling is accomplished by hiding DNS queries and responses within normal DNS traffic.</p>
+<ol>
+<li>The attacker registers a domain name like <em>badsite.com</em>. The server of the domain points to the attacker&rsquo;s server where the tunneling program is installed.</li>
+<li>The attacker infects a computer with malware, usually behind a company&rsquo;s firewall. Since DNS requests are always allowed in and out of the firewall, the infected computer is allowed to send a query to the DNS resolver.</li>
+<li>DNS resolver is a server that forwards IP address requests to the root and top-level domain servers. This directs the query to the attacker&rsquo;s command and control server where the tunneling program is installed.</li>
+<li>A connection has now been established between the victim and the attacker via the DNS resolver. This tunnel can be used to exfiltrate data or other malicious purposes. Since there is no direct connection between the attacker and the victim, it is more difficult to track down the attacker&rsquo;s computer.</li>
+</ol>
+<p><img src="/images/1_gpckGRQF8yG7icj509DazA.png" alt=""></p>
+<p>DNS Tunneling</p>
+<h4 id="dns-tunneling-analysis">
+  DNS Tunneling Analysis
+  <a class="heading-link" href="#dns-tunneling-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>wireshark</p>
+<p>DNS tunneling can pose a serious threat to network security, so firewalls, IDS/IPS systems, and DNS controls should be used to protect against such attacks. Additionally, a good security policy and DNS traffic monitoring and analysis capabilities can help detect such threats.</p>
+<hr>
+<h3 id="icmp-tunneling">
+  <strong>ICMP</strong> Tunneling
+  <a class="heading-link" href="#icmp-tunneling">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>ICMP tunneling or ICMP covert channels is a method used to create covert communication channels within ICMP (Internet Control Message Protocol) packets. ICMP is typically used for network troubleshooting and error reporting, but attackers can surreptitiously use this protocol for data transmission. This technique is also known as “ICMP tunneling” because it involves encapsulating non-ICMP traffic within ICMP packets to bypass network security controls.</p>
+<p>How ICMP tunneling works:</p>
+<ol>
+<li><strong>Encapsulation:</strong> ICMP tunneling involves encapsulating non-ICMP data or traffic within ICMP “echo request” and “echo reply” packets, which are typically used for network diagnostic purposes, such as ICMP “ping” requests.</li>
+<li><strong>Transmission:</strong> The encapsulated data is then transmitted as ICMP traffic between the sender and receiver. The sender and receiver are often compromised systems or devices under the control of an attacker.</li>
+<li><strong>De-encapsulation:</strong> At the receiving end, ICMP packets are decompressed to extract the original non-ICMP data, which is then processed or used as required.</li>
+</ol>
+<p>While ICMP tunneling can be used for malicious purposes, it can also have legitimate applications when used for network diagnostics in certain scenarios.</p>
+<p>From a security perspective, ICMP tunneling can present challenges in detection and prevention. Network security solutions should use advanced anomaly detection techniques to identify abnormal or unauthorized ICMP traffic patterns. Additionally, organizations should implement network segmentation and access control to limit the use of ICMP traffic and reduce the risk of covert channel abuse.</p>
+<p>ICMP (Internet Control Message Protocol) tunneling is a technique that allows cyber attackers to transmit and scan data by bypassing network security measures. ICMP is a protocol used to transmit error messages and other control messages between network devices. ICMP tunneling is used to tunnel data through these control messages.</p>
+<h4 id="how-to-do-icmp-tunneling">
+  How to do ICMP tunneling?
+  <a class="heading-link" href="#how-to-do-icmp-tunneling">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>ICMP tunneling may involve the following basic steps:</p>
+<ol>
+<li><strong>Tunnel Initiation</strong>: First, cyber attackers typically initiate an ICMP tunnel to gain access to a target server or network. This is usually done using a malware or attack tool.</li>
+<li><strong>Sending Data</strong>: Attackers hide data within ICMP packets. This data may contain information that needs to be transmitted to the target server or network.</li>
+<li><strong>Sending ICMP Packets</strong>: Data,Once hidden within ICMP packets, these packets are sent to the destination server or network. These packets may appear to be normal ICMP traffic.</li>
+<li><strong>Receiving Side</strong>: A receiving party on the target server or network intercepts incoming ICMP packets and extracts obfuscated data from them.</li>
+</ol>
+<p>Cyber attacks and ICMP tunneling:</p>
+<p>Cyber attackers can use ICMP tunneling for malicious purposes. Here are some examples:</p>
+<ol>
+<li>
+<p>**Data Exfiltration**: Attackers can hide the data they need to exfiltrate to the target server or network using ICMP tunneling. This can make it easier for sensitive information to be stolen.</p>
+</li>
+<li>
+<p>**Blocking and Filtering Bypass**: Some network firewalls or filters can be used to block or limit ICMP traffic. ICMP tunneling can be used to bypass such blocking.</p>
+</li>
+<li>
+<p>Scanning and Reconnaissance: Attackers can use ICMP tunneling to detect vulnerabilities in the target network and scan targets.</p>
+</li>
+</ol>
+<p>ICMP tunneling can pose a serious threat to network security because it can be difficult to monitor and block such traffic. Therefore, network firewalls and IDS/IPS (Intrusion Detection System/Intrusion Prevention System) systems must be well configured to detect and block ICMP tunneling traffic. Additionally, regular security audits and security policies can also help guard against such threats.</p>
+<hr>
+<h3 id="resources">
+  Resources
+  <a class="heading-link" href="#resources">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

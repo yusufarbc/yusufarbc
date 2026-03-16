@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  DNS Wireshark Analizi · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  DNS Wireshark Analizi
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+
+
+  DNS Nasıl Çalışır?
+  
+    
+    Başlık Linki
+  
+
+DNS, www.wiresharktraining.com gibi sembolik ana bilgisayar adlarını IP adreslerine dönüştürmek için kullanılır. DNS ayrıca ad bilgilerini DNS sunucuları arasında aktarmak, bir IP adresiyle ilişkili ana bilgisayar adını belirlemek (ters veya işaretçi sorgusu) ve MX (posta alışverişi) kaydı gibi diğer ad öğelerini aramak için de kullanılabilir.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="DNS Wireshark Analizi">
+  <meta name="twitter:description" content="DNS Wireshark AnaliziBaşlık LinkiMerhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+DNS Nasıl Çalışır?Başlık LinkiDNS, www.wiresharktraining.com gibi sembolik ana bilgisayar adlarını IP adreslerine dönüştürmek için kullanılır. DNS ayrıca ad bilgilerini DNS sunucuları arasında aktarmak, bir IP adresiyle ilişkili ana bilgisayar adını belirlemek (ters veya işaretçi sorgusu) ve MX (posta alışverişi) kaydı gibi diğer ad öğelerini aramak için de kullanılabilir.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2023-11-15-dns-wireshark-analizi/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="DNS Wireshark Analizi">
+  <meta property="og:description" content="DNS Wireshark AnaliziBaşlık LinkiMerhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+DNS Nasıl Çalışır?Başlık LinkiDNS, www.wiresharktraining.com gibi sembolik ana bilgisayar adlarını IP adreslerine dönüştürmek için kullanılır. DNS ayrıca ad bilgilerini DNS sunucuları arasında aktarmak, bir IP adresiyle ilişkili ana bilgisayar adını belirlemek (ters veya işaretçi sorgusu) ve MX (posta alışverişi) kaydı gibi diğer ad öğelerini aramak için de kullanılabilir.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-11-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-11-15T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2023-11-15-dns-wireshark-analizi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2023-11-15-dns-wireshark-analizi/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2023-11-15-dns-wireshark-analizi/">
+              DNS Wireshark Analizi
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-11-15T00:00:00Z">
+                Kasım 15, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              7 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="dns-wireshark-analizi">
+  DNS Wireshark Analizi
+  <a class="heading-link" href="#dns-wireshark-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1__OuE2zljUjPrg0g7TfljyQ.png" alt=""></p>
+<p>Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
+<hr>
+<h3 id="dns-nasılçalışır">
+  DNS Nasıl Çalışır?
+  <a class="heading-link" href="#dns-nas%c4%b1l%c3%a7al%c4%b1%c5%9f%c4%b1r">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>DNS, <a href="http://www.wiresharktraining.com"  class="external-link" target="_blank" rel="noopener">www.wiresharktraining.com</a> gibi sembolik ana bilgisayar adlarını IP adreslerine dönüştürmek için kullanılır. DNS ayrıca ad bilgilerini DNS sunucuları arasında aktarmak, bir IP adresiyle ilişkili ana bilgisayar adını belirlemek (ters veya işaretçi sorgusu) ve MX (posta alışverişi) kaydı gibi diğer ad öğelerini aramak için de kullanılabilir.</p>
+<p>DNS ağ üzerindeki en önemli uygulamalardan biridir. Bir DNS sorunu, bilgisayarların hostname bilgilerini kullanırken birbirlerini bulmalarını engelleyecektir.</p>
+<p><img src="/images/1_-XBRoGHxww1KuVqyLDEznA.png" alt=""></p>
+<p>DNS paketi</p>
+<p>DNS UDP veya TCP üzerinden çalışabilir. Yaygın olarak UDP kullanan DNS sorguları ve yanıtları görürsünüz. Bölge aktarımları TCP üzerinden çalışır. DNS için varsayılan port numarası 53dür.</p>
+<p><a href="https://www.rfc-editor.org/rfc/rfc1035"  class="external-link" target="_blank" rel="noopener">RFC 1035</a>, Domain Names — Implementation and Specification, UDP paket yükü üzerinden DNS’yi 512 bayt ile sınırlar. Bu genellikle bir DNS sorgusu için yeterlidir. Ancak bir yanıt 512 bayttan fazla alan gerektirdiğinde, yanıtta bir kesme bayrağı biti gönderilir. Bu, çözümleyicinin DNS sorgusunu daha büyük bir paket boyutuna izin veren TCP kullanarak tekrar göndermesini tetikler.</p>
+<p><a href="https://www.rfc-editor.org/rfc/rfc2671"  class="external-link" target="_blank" rel="noopener">RFC 2671</a>, DNS için Uzatma Mekanizmaları (EDNS0), UDP üzerinden 512 bayttan daha fazlasına izin verir.</p>
+<hr>
+<h3 id="dns-queryresponse-analizi">
+  DNS Query/Response Analizi
+  <a class="heading-link" href="#dns-queryresponse-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Domain çözümlemesi DNS sorgu ve yanıt işlemleri çok basittir. Bir istemci DNS sunucusuna bir DNS sorgusu göndererek genellikle bir domain karşılığında bir IP adresi ister. DNS sunucusu ya doğrudan sahip olduğu bilgilerle yanıt verir ya da istemciler adına diğer DNS sunucularına sorar.</p>
+<p><img src="/images/1_2Ye8QGf5KQIGJriwo33-jQ.png" alt=""></p>
+<p>A kaydı DNS Sorgusu</p>
+<p>Şekilde <a href="https://www.winpcap.org"  class="external-link" target="_blank" rel="noopener">www.winpcap.org</a> için A kaydına (CNAME) yönelik standart bir DNS isteğini göstermektedir. Bu DNS sorgusu, kullanıcının domaini tarayıcı URL bölümüne girip Enter tuşuna bastığında otomatik olarak oluşturulmuştur.</p>
+<p>Bir istemcinin talep ettiği ad, hedefin gerçek adı olmayabilir. Bu durumda, <a href="https://www.winpcap.org"  class="external-link" target="_blank" rel="noopener">www.winpcap.org</a> için bir canonical name(CNAME) veya gerçek ad döndürülmüştür. CNAME <a href="http://www.winpcap.org"  class="external-link" target="_blank" rel="noopener">winpcap.org</a>dur ve bu ana bilgisayarın adresi 128.121.79.138&rsquo;dür.</p>
+<hr>
+<h3 id="dns-hatalarıanalizi">
+  DNS Hataları Analizi
+  <a class="heading-link" href="#dns-hatalar%c4%b1analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>En yaygın DNS sorunu, bir adın ad namse server veritabanında bulunmaması nedeniyle oluşan hatadır. Bunun nedeni yanlış bir ad girilmesi veya henüz İnternet name serverlarına yayılmamış yeni bir name girilmesi olabilir.</p>
+<p><img src="/images/1_QGZ4PNFbyz1aVA6W3cqXLQ.png" alt=""></p>
+<p>Bulunamayan Domain Sorgusu</p>
+<p>Şekilde bir kullanıcı 2.26.64.24.in-addr.arpa adresine erişmeye çalışmaktadır. Name Server böyle bir domain olmadığını belirterek yanıt verir. Kullanıcı domain çözümleyemezse, hedef adrese ulaşamaz.</p>
+<p>Sunucu hatası yanıtları, name serverın bir hata nedeniyle istemci için bilgileri çözümleyemediğini gösterir. Bu, name serverın başka bir name servera bir sorgu göndermesi (özyinelemeli bir sorgu yoluyla) ve yanıt beklerken zaman aşımına uğraması veya bir tür dahili hata nedeniyle yanıtın anlaşılamaması veya bir sorguyla bağlantılı olmaması olabilir.</p>
+<p><img src="/images/1_ubKDRzHewQqeMyGqbDFqMw.png" alt=""></p>
+<p>DNS Hataları Sonucu IP Çözümlemesi Yapılamıyor</p>
+<p>Şekilde <a href="http://www.nmap.org"  class="external-link" target="_blank" rel="noopener">www.nmap.org</a> adresine ulaşmaya çalışırken alınan sunucu hatası yanıtı gösterilmektedir. Bunun geçerli bir adres olduğunu biliyoruz, ancak DNS bunu çözümleyemiyor. Bir DNS sorunu nedeniyle siteye ulaşamıyoruz. Zaman sütununa dikkat edin; istemcinin bir DNS sorgusu gönderdiğini, ardından sorguyu yeniden göndermeden önce yanıt için 1 saniye beklediğini görebiliriz. İstemci üçüncü sorgudan önce 1 saniye daha beklemiş, ancak dördüncü DNS sorgusundan önce bu bekleme süresini iki katına çıkararak yaklaşık 2 saniyeye çıkarmıştır.</p>
+<p>DNS sorunlarının nedenini bulmak için Wireshark’ı DNS sunucusunun yukarısına taşıyarak bu konumdaki arama işlemini izlemeniz gerekebilir.</p>
+<p><img src="/images/1_CaxBBdj7NrXCZ3tIF-Gxxg.png" alt=""></p>
+<p>ICMP cevabı hedefde 53 portuun açık oladığını belirtir.</p>
+<p>Şekilde istemcimiz DNS sorguları göndermekte ve bu sorgular ICMP Destination Unreachable/Port Unreachable yanıtlarıyla yanıtlanarak 53 numaralı portun bu hostta açık olmadığını göstermektedir.</p>
+<p>Bu durumda hatanın nerde olduğu, istemcinin DNS sunucusunun doğru IP adresine sahip olup olmadığına ya da DNS sunucusu servisinin istek atılan IP üzerinde çalışıyor olup olmadığına bağlıdır. Bu durumda, istemci tekrar dener — yapılandırılmış yalnızca bir DNS sunucusu vardır(genelde 2 tane olur), bu nedenle aramayı tekrar dener. Sunucu bu portun dinlemediğini belirttiği için istemcinin isteği yine reddedilir.</p>
+<hr>
+<h3 id="dns-paketyapısı">
+  DNS Paket Yapısı
+  <a class="heading-link" href="#dns-paketyap%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Tek bir transport protokolü (UDP veya TCP) kullanan diğer uygulamaların aksine, DNS hem UDP hem de TCP kullanır. DNS genellikle name resolution istekleri ve yanıtları için UDP-53&rsquo;ü, zone transferleri ile daha büyük name resolutionlar ve yanıtları için TCP-53&rsquo;ü kullanır.</p>
+<p><img src="/images/1_WDRDLWOoT1bKcj8KM2dyVA.png" alt=""></p>
+<p><a href="http://www.winpcap.com"  class="external-link" target="_blank" rel="noopener">www.winpcap.com</a> adresine yapılan DNS name reqestleri</p>
+<p>Tüm DNS paketleri Şekilde gösterildiği gibi dört ana bölümden oluşan tek bir temel yapı kullanır.</p>
+<h4 id="transaction-id">
+  Transaction ID
+  <a class="heading-link" href="#transaction-id">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>İşlem Kimliği alanı, DNS sorgularını yanıtlarla ilişkilendirir. Bu alana ve değere filtre uygulayabilirsiniz (örneğin, dns.id==0x05b5) tüm ilişkili DNS sorgularını/yanıtlarını görüntülemek için.</p>
+<h4 id="flags">
+  Flags
+  <a class="heading-link" href="#flags">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bayraklar baytı, sorgu özelliklerini tanımlayan çok sayıda alandan oluşur.</p>
+<h4 id="queryresponse">
+  Query/Response
+  <a class="heading-link" href="#queryresponse">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Sorgu/Yanıt biti paketin bir sorgu mu (0) yoksa bir yanıt mı (1) olduğunu gösterir. DNS sorgularını (dns.flags.response==0) veya yanıtlarını (dns.flags.response==1) görüntülemek için bir Wireshark filtresi oluşturabilirsiniz.</p>
+<h4 id="opcode">
+  Opcode
+  <a class="heading-link" href="#opcode">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Opcode alanı sorgu türünü belirtir. En yaygın olarak, bu alan standart sorgular için 0000 içerir ve yanıtlarda alan 0000 olarak bırakılır.</p>
+<h4 id="authoritative-answer">
+  Authoritative Answer
+  <a class="heading-link" href="#authoritative-answer">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Yanıtlarda kullanılan Yetkili Yanıt alanı, yanıtın alan adı için yetkili bir sunucudan geldiğini gösterir.</p>
+<h4 id="truncation">
+  Truncation
+  <a class="heading-link" href="#truncation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Kesme alanı, DNS yanıtının uzunluk nedeniyle kesildiğini gösterir. Bir istemci kesilmiş bir DNS yanıtı görürse, sorguyu TCP üzerinden yeniden denemelidir. TCP tabanlı sorgular/yanıtlar görmek çok yaygın değildir.</p>
+<h4 id="recursion-desired">
+  Recursion Desired
+  <a class="heading-link" href="#recursion-desired">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Sunucunun özyinelemeli sorgu işlemlerini kullanıp kullanamayacağını belirtmek için DNS sorgularında özyineleme tanımlanabilir. Yineleme, bir DNS sunucusunun istemci adına başka bir sunucudan yanıt istemesine olanak tanır. Yerel ad sunucusu yanıta sahipse, doğrudan yanıt verecektir. Cevaba sahip değilse, istemci adına arama işlemine başlayacaktır.</p>
+<h4 id="recursion-available">
+  Recursion Available
+  <a class="heading-link" href="#recursion-available">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Yanıtlarda tanımlanan bu ayar, DNS sunucusunda yinelemenin kullanılabilir olup olmadığını belirtir.</p>
+<h4 id="reserved">
+  Reserved
+  <a class="heading-link" href="#reserved">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan 0 olarak ayarlanmıştır.</p>
+<h4 id="rcode-response-code">
+  Rcode (Response Code)
+  <a class="heading-link" href="#rcode-response-code">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Rcode alanı yanıtta bir hata durumu olup olmadığını gösterir. Aşağıdaki tabloda olası Rcode değerleri listelenmektedir.</p>
+<ul>
+<li>Kod 0: Hata durumu yok.</li>
+<li>Kod 1: Biçim hatası-sorgu yorumlanamadı.</li>
+<li>Kod 2: Sunucu hatası-sunucu, ad sunucusundaki bir sorun nedeniyle sorguyu işleyemedi.</li>
+<li>Kod 3: Ad hatası-alan adı mevcut değil.</li>
+<li>Kod 4: Uygulanmadı.</li>
+<li>Kod 5: Reddedildi-ad sunucusu ilke nedeniyle işlevi gerçekleştirmeyi reddediyor.</li>
+</ul>
+<h4 id="question-count">
+  Question Count
+  <a class="heading-link" href="#question-count">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan Soru bölümündeki soru sayısını gösterir. Genellikle sorgu paketi başına yalnızca bir soru görürsünüz.</p>
+<h4 id="answer-resource-record-rrcount">
+  Answer Resource Record (RR) Count
+  <a class="heading-link" href="#answer-resource-record-rrcount">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan, Yanıt RR’leri bölümündeki yanıtların sayısını gösterir. Bir yanıt CNAME bilgisi içeriyorsa, Yanıt RR Sayısı alanında muhtemelen iki sayı göreceksiniz — biri CNAME için diğeri CNAME kaydının IP adresi için.</p>
+<h4 id="authority-rrscount">
+  Authority RRs Count
+  <a class="heading-link" href="#authority-rrscount">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan Yetki RR’leri bölümündeki yanıtların sayısını gösterir. Bu yanıtlar, adlandırma hiyerarşisinde hedef ada daha yakın olan sunuculardan gelir.</p>
+<h4 id="additional-rrscount">
+  Additional RRs Count
+  <a class="heading-link" href="#additional-rrscount">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan, Ek RR’ler bölümündeki yanıt sayısını gösterir. Bu bölümde, Yetki RR bölümündeki sunucular için A kayıtları bulabilirsiniz.</p>
+<h4 id="queries">
+  Queries
+  <a class="heading-link" href="#queries">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu değişken uzunluktaki alan, çözümlenmekte olan adı ve istenen bilgi türünü tanımlar.</p>
+<h4 id="name">
+  Name
+  <a class="heading-link" href="#name">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan çözümlenmekte olan adı içerir. Biçim, addaki alfanümerik bayt sayısını belirtmek için sayısal bir sınırlayıcı kullanan değişken uzunluktadır. Aşağıda bazı örnekler verilmiştir:</p>
+<ul>
+<li>3www9wireshark3org0</li>
+<li>3www4iana3org0</li>
+</ul>
+<h4 id="type">
+  Type
+  <a class="heading-link" href="#type">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan sorgu türünü gösterir. Kayıtlı tip numaralarının tam listesi için <a href="http://www.iana.org/assignments/dns-parameters"  class="external-link" target="_blank" rel="noopener">www.iana.org/assignments/dns-parameters</a> adresine bakın.</p>
+<ul>
+<li>Type A: Host addres</li>
+<li>Type NS: Authoritative name server</li>
+<li>Type CNAME: Canonical name for an alias</li>
+<li>Type SOA: Start of Zone Authority</li>
+<li>Type PTR: Pointer record</li>
+<li>Type HINFO: Host information</li>
+<li>Type MX: Mail exchange</li>
+<li>Type AAAA: IPv6 address</li>
+</ul>
+<h4 id="class">
+  Class
+  <a class="heading-link" href="#class">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan, TCP/IP iletişimleri için bir İnternet sınıfı adresini belirtmek üzere 1 olarak ayarlanır.</p>
+<h4 id="answer-rrs">
+  Answer RRs
+  <a class="heading-link" href="#answer-rrs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan, Sorular alanındaki bu bölümle aynı formatı kullanır.</p>
+<h4 id="authority-rrs">
+  Authority RRs
+  <a class="heading-link" href="#authority-rrs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan, Questions alanındaki bu bölümle aynı formatı kullanır.</p>
+<h4 id="additional-rrs">
+  Additional RRs
+  <a class="heading-link" href="#additional-rrs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan, Questions alanındaki bu bölümle aynı formatı kullanır.</p>
+<h4 id="resource-record-time-to-live-ttlvalue">
+  Resource Record Time to Live (TTL) Value
+  <a class="heading-link" href="#resource-record-time-to-live-ttlvalue">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan DNS yanıtlarının Yanıt bölümünde yer alır ve alıcının DNS bilgilerini önbellekte ne kadar süre tutabileceğini gösterir. DNS’deki her yanıt, o DNS bilgisi için bir TTL değeri içerecektir.<br>
+RR bilgileriyle yanıt veren DNS sunucuları, kalan TTL değerini sürekli olarak geri sayar; aynı DNS sorgusunu on saniye arayla yapmak, sunulan TTL değerinde on saniyelik bir fark gösterecektir.</p>
+<hr>
+<h4 id="dnsmdns-trafiği-filtreleri">
+  DNS/mDNS Trafiği Filtreleri
+  <a class="heading-link" href="#dnsmdns-trafi%c4%9fi-filtreleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>DNS trafiği için capture filter port numarasını temel alır çünkü tcpdump filtre biçimi dns protokolünü algılayamıyor. Libpcap ve WinPcap güncellendikçe bu durum değişebilir.</p>
+<p>UDP veya TCP üzerinden standart DNS trafiği için yakalama filtresi 53 numaralı bağlantı noktası iken mDNS 5353 numaralı portu kullanır.</p>
+<p>Görüntüleme filtresi sözdizimi basitçe dns’dir. Bu filtre hem DNS hem de mDNS trafiğini görüntüler. Aşağıda ek DNS görüntüleme filtreleri listelenmektedir.</p>
+<ul>
+<li>dns.flags.response==0 : DNS query</li>
+<li>dns.flags.response==1 : DNs response</li>
+<li>dns.flags.rcode != 0 : Hata içeren DNS responselar</li>
+<li>dns.count.answers &gt; 5 : 5den fazla response içeren DNS responselar</li>
+<li>dns.qry.name==”www.abc.com&quot; : <a href="http://www.abc.com"  class="external-link" target="_blank" rel="noopener">www.abc.com</a> için DNS query</li>
+<li>dns contains “abc” : “abc içeren” DNS query ya da responselar</li>
+<li>dns.qry.type==0x0001 : Bir hostname için olan DNS sorguları.</li>
+<li>dns.qry.type==0x000c : Bir alan adı işaretçisi sorgusu(inverse query) için DNS sorguları.</li>
+<li>dns.resp.type==0x0005 : CNAME değeri içeren DNS responselar (canonical name)</li>
+<li>dns.resp.type==0x0006 : SOA (Start of Authority) içeren DNS responselar</li>
+<li>dns.flags.recdesired==1 : recursion desired olan DNS Queryleri</li>
+<li>dns.flags.recavail==1 : recursion availabl ile başlayan DNS responselar</li>
+</ul>
+<p>Daha fazla Display filter seçeneği Wireshark’ın şu adresteki Referansında bulunabilir <a href="http://www.wireshark.org/docs/dfref/d/dns.html"  class="external-link" target="_blank" rel="noopener">www.wireshark.org/docs/dfref/d/dns.html</a>.</p>
+<hr>
+<h3 id="kaynakça">
+  Kaynakça
+  <a class="heading-link" href="#kaynak%c3%a7a">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Wireshark Network Analysis, Second Edition, Laura Chappel, <a href="https://www.chappell-university.com/studyguide"  class="external-link" target="_blank" rel="noopener">https://www.chappell-university.com/studyguide</a></li>
+<li>Trace Files: <a href="https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip"  class="external-link" target="_blank" rel="noopener">https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip</a></li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

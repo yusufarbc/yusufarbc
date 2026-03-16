@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wazuh on Yusuf Talha ARABACI</title>
+    <link>http://localhost:1313/tr/series/wazuh/</link>
+    <description>Recent content in Wazuh on Yusuf Talha ARABACI</description>
+    <generator>Hugo</generator>
+    <language>tr</language>
+    <lastBuildDate>Thu, 02 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tr/series/wazuh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Wazuh 5.0 is Here: A Technical Deep Dive into the New Engine, eBPF, and Enterprise Scaling</title>
+      <link>http://localhost:1313/tr/posts/2025/10/wazuh-5.0-is-here-a-technical-deep-dive-into-the-new-engine-ebpf-and-enterprise-scaling/</link>
+      <pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tr/posts/2025/10/wazuh-5.0-is-here-a-technical-deep-dive-into-the-new-engine-ebpf-and-enterprise-scaling/</guid>
+      <description>&lt;hr&gt;&#xA;&lt;h3 id=&#34;wazuh-50-is-here-a-technical-deep-dive-into-the-new-engine-ebpf-and-enterprise-scaling&#34;&gt;&#xD;&#xA;  Wazuh 5.0 is Here: A Technical Deep Dive into the New Engine, eBPF, and Enterprise Scaling&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#wazuh-50-is-here-a-technical-deep-dive-into-the-new-engine-ebpf-and-enterprise-scaling&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Başlık Linki&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Başlık Linki&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h3&gt;&#xD;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn-images-1.medium.com/max/800/0*5VajKV0S7rEIU9VN&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://wazuh.com/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;wazuh&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Wazuh 5.0 marks a foundational overhaul of the platform, shifting its core architecture to embrace next-generation capabilities required for true XDR and large-scale SIEM environments. For security teams and architects managing hundreds or thousands of endpoints, this release delivers not just new features, but the underlying performance and resilience needed to maintain real-time threat detection under immense load.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Wazuh 5.0&#39;da Neler Yeni? Siber Tehdit İstihbaratında Devrim ve Uç Nokta Güvenliğinde Yeni Bir Çağ</title>
+      <link>http://localhost:1313/tr/posts/2025/10/wazuh-5.0da-neler-yeni-siber-tehdit-istihbarat%C4%B1nda-devrim-ve-u%C3%A7-nokta-g%C3%BCvenli%C4%9Finde-yeni-bir-%C3%A7a%C4%9F/</link>
+      <pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tr/posts/2025/10/wazuh-5.0da-neler-yeni-siber-tehdit-istihbarat%C4%B1nda-devrim-ve-u%C3%A7-nokta-g%C3%BCvenli%C4%9Finde-yeni-bir-%C3%A7a%C4%9F/</guid>
+      <description>&lt;hr&gt;&#xA;&lt;h3 id=&#34;wazuh-50da-neler-yeni-siber-tehdit-istihbaratında-devrim-ve-uç-nokta-güvenliğinde-yeni-birçağ&#34;&gt;&#xD;&#xA;  Wazuh 5.0&amp;rsquo;da Neler Yeni? Siber Tehdit İstihbaratında Devrim ve Uç Nokta Güvenliğinde Yeni Bir Çağ&#xD;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#wazuh-50da-neler-yeni-siber-tehdit-istihbarat%c4%b1nda-devrim-ve-u%c3%a7-nokta-g%c3%bcvenli%c4%9finde-yeni-bir%c3%a7a%c4%9f&#34;&gt;&#xD;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Başlık Linki&#34;&gt;&lt;/i&gt;&#xD;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Başlık Linki&lt;/span&gt;&#xD;&#xA;  &lt;/a&gt;&#xD;&#xA;&lt;/h3&gt;&#xD;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn-images-1.medium.com/max/800/0*EOeMobbpF6asHcmm&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://wazuh.com/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;wazuh&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Wazuh, Host-Based Intrusion Detection System (HIDS) mirasını modern siber güvenlik ihtiyaçlarıyla birleştirerek, Güvenlik Bilgi ve Olay Yönetimi (SIEM) ve Genişletilmiş Tespit ve Yanıt (XDR) yeteneklerini tek bir platformda topladı. Wazuh 5.0, bu birleşimi bir üst seviyeye taşıyarak, özellikle büyük ölçekli ve yüksek hacimli ortamlarda stabilite, ölçeklenebilirlik ve tehdit istihbaratı konusunda çığır açan yenilikler sunuyor. Platform, tamamen açık kaynaklı olup, bileşenleri &lt;strong&gt;GNU GPL v2&lt;/strong&gt; ve &lt;strong&gt;Apache 2.0 (ALv2)&lt;/strong&gt; gibi açık kaynak lisanslarına tabidir.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

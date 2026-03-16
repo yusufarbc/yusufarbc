@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Network Management and Security X: SOC and NOC Processes · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Network Management and Security X: SOC and NOC Processes
+  
+    
+    Link to heading
+  
+
+
+SOC (Security Operations Center) and NOC (Network Operations Center) are two central structures that complement each other but have different focuses. NOC monitors an organization&rsquo;s network infrastructure, system performance and service continuity 24/7 and aims to minimize downtime. Its core functions include network/server monitoring, fault logging, maintenance and update management. SOC is the center that protects the information technology infrastructure against external/internal threats, malware and security breaches. SOC teams work 24/7 to detect and analyze security incidents in advance and respond immediately to a possible attack.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Network Management and Security X: SOC and NOC Processes">
+  <meta name="twitter:description" content="Network Management and Security X: SOC and NOC ProcessesLink to headingSOC (Security Operations Center) and NOC (Network Operations Center) are two central structures that complement each other but have different focuses. NOC monitors an organization’s network infrastructure, system performance and service continuity 24/7 and aims to minimize downtime. Its core functions include network/server monitoring, fault logging, maintenance and update management. SOC is the center that protects the information technology infrastructure against external/internal threats, malware and security breaches. SOC teams work 24/7 to detect and analyze security incidents in advance and respond immediately to a possible attack.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2025/08/network-management-and-security-x-soc-and-noc-processes/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Network Management and Security X: SOC and NOC Processes">
+  <meta property="og:description" content="Network Management and Security X: SOC and NOC ProcessesLink to headingSOC (Security Operations Center) and NOC (Network Operations Center) are two central structures that complement each other but have different focuses. NOC monitors an organization’s network infrastructure, system performance and service continuity 24/7 and aims to minimize downtime. Its core functions include network/server monitoring, fault logging, maintenance and update management. SOC is the center that protects the information technology infrastructure against external/internal threats, malware and security breaches. SOC teams work 24/7 to detect and analyze security incidents in advance and respond immediately to a possible attack.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-19T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-19T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2025/08/network-management-and-security-x-soc-and-noc-processes/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-x-soc-ve-noc-s%C3%BCre%C3%A7leri/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2025/08/network-management-and-security-x-soc-and-noc-processes/">
+              Network Management and Security X: SOC and NOC Processes
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-08-19T00:00:00Z">
+                August 19, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              17-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="network-management-and-security-x-soc-and-noc-processes">
+  Network Management and Security X: SOC and NOC Processes
+  <a class="heading-link" href="#network-management-and-security-x-soc-and-noc-processes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_S7cMHBrZlktBq6LvzR_AYQ.png" alt=""></p>
+<p>SOC (Security Operations Center) and NOC (Network Operations Center) are two central structures that complement each other but have different focuses. NOC monitors an organization&rsquo;s network infrastructure, system performance and service continuity 24/7 and aims to minimize downtime. Its core functions include network/server monitoring, fault logging, maintenance and update management. SOC is the center that protects the information technology infrastructure against external/internal threats, malware and security breaches. SOC teams work 24/7 to detect and analyze security incidents in advance and respond immediately to a possible attack.</p>
+<hr>
+<h3 id="soc-and-noc-definition-and-key-differences">
+  SOC and NOC Definition and Key Differences
+  <a class="heading-link" href="#soc-and-noc-definition-and-key-differences">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_wT8UMU4_ZcVdPNLwUlYoYg.png" alt=""></p>
+<p>SOC vs NOC</p>
+<p>In summary, NOC ensures that the network remains “alive” while SOC ensures that this service remains secure. NOC is performance/usability focused; SOC, on the other hand, is security oriented. Even though the two centers were built separately, integration and coordination have gained importance in modern applications.</p>
+<h3 id="organizational-structure-and-technical-function">
+  Organizational Structure and Technical Function
+  <a class="heading-link" href="#organizational-structure-and-technical-function">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Both SOC and NOC typically work on a <strong>24/7 shift schedule</strong> and are organized in a multi-layered specialty structure. NOC teams consist of network and systems administration experts; The first level (L1) NOC engineers perform basic network/system monitoring and simple interventions, the second level (L2) analyzes and solves complex problems, and the third level (L3) deals with infrastructure design, optimization and strategic innovations. Similarly, SOC teams are divided into L1/L2/L3 analyst tiers: L1 analysts monitor incoming security alerts and triage simple threats, L2 analysts perform in-depth threat analysis and incident response, and L3 analysts hunt for advanced attacks (e.g. APTs) and improve SOC processes. Attached to the SOC level is a “SOC Manager” or “Manager” in most organizations; This person manages the team and oversees reporting and compliance processes. On the NOC side, roles such as NOC Manager or Network Manager manage the organization.</p>
+<p>From a technical standpoint, <strong>NOC</strong> monitors network devices (switch/router), servers, buses, and performance metrics. It constantly collects data and detects faults/baseline deviations with network monitoring platforms (e.g. SolarWinds, Nagios, Zabbix, etc.) and SNMP-based tools. In addition, NOC staff works integrated with customer help desk systems to open or update tickets for problems. <strong>SOC</strong>, on the other hand, collects all internal/external log sources (server, endpoint, firewall, application logs, etc.) on platforms such as SIEM and constantly analyzes them. The SOC infrastructure includes security tools such as IDS/IPS systems, EDR agents, DLP and threat intelligence services. Both services, as well as NOC and SOC internal teams, can be outsourced (MSP/MSSP); if needed, it can also be managed as an <strong>integrated team</strong> or within the same <strong>Unified Operations Center</strong>. In all cases, NOC and SOC teams are obliged to collect, analyze and take correct action on the log and alarm data produced.</p>
+<h3 id="workflows-monitoring-analysis-response-processes">
+  Workflows: Monitoring, Analysis, Response Processes
+  <a class="heading-link" href="#workflows-monitoring-analysis-response-processes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Continuous Monitoring:</strong> NOC monitors network traffic, device status and performance metrics (throughput, connection latency, CPU load, etc.) 24/7. SOC, on the other hand, monitors network and system logs (firewall, server, endpoint logs) with SIEM/IDS/IPS tools. In both centers, events (e.g. unusual traffic, failed login attempts) are detected with automation and alarm rules.</li>
+<li><strong>Event Detection and Recording:</strong> Alarms generated as a result of monitoring are generally seen in the NOC as system failure, connection interruption or capacity overloads; In SOC, security breaches such as malware, unauthorized access or data leakage are the trigger. For each detected incident, a ticket is opened immediately and directed to the relevant level (L1 NOC/SOC analyst or higher). SLA management is NOC&rsquo;s main priority; For every outage experienced, the aim is to fix the fault as soon as possible.</li>
+<li><strong>Event Analysis:</strong> The first level that records the event (NOC L1 or SOC L1) examines the conditions and transfers it to the L2 level if necessary. NOC L2 engineers focus on root cause analysis, troubleshooting configuration errors and performance issues. SOC L2 analysts determine the source of the attack by performing detailed log and threat analysis and identify the attacker&rsquo;s identity. It examines the techniques used. For example, IDS/SIEM coordination in a brute-force detection and isolating the affected machines from the network in a ransomware incident are examples of L2/L3 intervention.</li>
+<li><strong>Intervention and Recovery:</strong> NOC intervenes with hardware replacement, configuration correction or patch depending on the type of problem and makes the service accessible again. SOC, on the other hand, isolates the affected systems, cleans the malware and applies the necessary updates (patch) to stop the attack. Both centers report intervention results in detail. While network performance reports are prepared in NOC, post-incident forensic analyzes are performed in SOC and comprehensive reports are presented to management/compliance units.</li>
+<li><strong>Feedback and Improvement:</strong> After the intervention, the SOC team evaluates the attack methods, updates security policies and organizes personnel awareness training. On the NOC side, the network infrastructure is restructured and backup procedures are reviewed. Thanks to this closed loop, subsequent events are detected and resolved faster.</li>
+</ul>
+<p>SOC and NOC processes work intertwined with each other; For example, a DDoS attack disrupts network performance and keeps NOC teams busy, as well as raising security concerns and keeping SOC teams busy. Therefore, data sharing and coordination between both centers is vital.</p>
+<h3 id="tools-and-technologies-used">
+  Tools and Technologies Used
+  <a class="heading-link" href="#tools-and-technologies-used">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>NOC and SOC teams utilize a wide range of software and hardware tools that enable monitoring and response:</p>
+<ul>
+<li><strong>SIEM (Security Information and Event Management):</strong> Collects all logs and correlates them. SIEM solutions such as Splunk, IBM QRadar, ArcSight are used to detect anomalies in the SOC. For example, Splunk is a platform frequently preferred by SOC analysts.</li>
+<li><strong>IDS/IPS (Intrusion Detection/Prevention Systems):</strong> Detects suspicious activities in network traffic. Snort and Suricata are widely preferred IDS/IPS software. SOC analysts catch real-time threats with these tools.</li>
+<li><strong>Firewall and Network Security:</strong> Firewalls such as Palo Alto, Fortinet, Cisco ASA control network traffic and are managed by the SOC. These tools enable SOC analysts to enforce access policies.</li>
+<li><strong>Network Monitoring and Performance Tools:</strong> Tools such as SolarWinds, Nagios, Zabbix are used by NOC; Thanks to SNMP-based monitoring, the status of network devices is monitored 24/7. NetFlow analysis tools display traffic trends.</li>
+<li><strong>Ticketing / Incident Management Systems:</strong> Ticket tracking systems such as JIRA and ServiceNow play a critical role in NOC and SOC processes. Every alarm/ticket that occurs is recorded here and the intervention process is followed. In this way, operational transparency is ensured and the intervention history is documented.</li>
+<li><strong>Endpoint and Enterprise Security Tools:</strong> SOC installs EDR (Endpoint Detection and Response) agents on servers and workstations in the enterprise. CrowdStrike, CarbonBlack etc. EDR solutions prevent potential threats by monitoring login habits. Additionally, DLP, encryption and data loss prevention systems support data security.</li>
+<li><strong>Automation and SOAR:</strong> In large-scale structures, <strong>Security Orchestration, Automation and Response (SOAR)</strong> solutions are used to ensure automatic classification of alarms and automation of repetitive tasks. Artificial intelligence-supported tools accelerate anomaly detection.</li>
+</ul>
+<p>Both centers can share live data using common dashboards and panels. Modern solutions offer hybrid structures where SOC and NOC can share data on the same platform, so events are analyzed simultaneously from both network and security perspectives.</p>
+<h3 id="job-descriptions-and-roles">
+  Job Descriptions and Roles
+  <a class="heading-link" href="#job-descriptions-and-roles">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Roles in SOC and NOC organizations are divided by levels:</p>
+<ul>
+<li><strong>NOC Engineer (L1):</strong> Monitors the live status of system and network equipment, evaluates alarms, performs basic troubleshooting, and escalates unresolved events to the upper (L2) unit. It also creates initial records for SLA-compliant intervention.</li>
+<li><strong>NOC Engineer (L2):</strong> Handles complex events from L1. It performs detailed root cause analysis, fixes network configuration errors, eliminates performance bottlenecks and implements permanent solutions.</li>
+<li><strong>NOC Engineer (L3):</strong> Solves the most critical infrastructure problems. It troubleshoots software/hardware malfunctions, optimizes at the architectural level and performs new technology integrations. It also develops proactive measures for network security.</li>
+<li><strong>NOC Manager:</strong> Coordinates NOC teams, plans operations and prepares performance reports. Resource management etc. Process improvement is the responsibility of the NOC manager.</li>
+<li><strong>SOC Analyst (L1):</strong> Evaluates and prioritizes security alarms and analyzes simple attacks. Triages suspicious activities and identifies those that require immediate intervention. Records incidents and implements solutions according to standard procedures.</li>
+<li><strong>SOC Analyst (L2):</strong> Examines and responds to more complex threats. It performs deep analysis to determine the source of the incident, uses threat intelligence and takes steps such as blocking and system cleaning when necessary.</li>
+<li><strong>SOC Analyst (L3) / Threat Hunter:</strong> Investigates advanced attacks (e.g. APTs) and performs threat hunting. It determines proactive measures against future attacks by developing SOC processes, alarm rules and game plans.</li>
+<li><strong>SOC Manager:</strong> Manages the entire SOC operation, carries out in-team training and recruitment processes, and supervises the implementation of security policies. It also reports to senior management and monitors compliance requirements.</li>
+</ul>
+<p>Duties increasingly overlap in both centres; For example, in some large organizations, NOC and SOC teams can work under a single <strong>unified operations center</strong> (for example, “Fusion Center”).</p>
+<h3 id="career-development-and-certifications">
+  Career Development and Certifications
+  <a class="heading-link" href="#career-development-and-certifications">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>NOC Career:</strong> Advancement in NOC is usually through network engineering. Beginners can start as an L1/NOC Technician and progress to the L2/L3 levels. They can advance to advanced “Network Management” or “NOC Manager” roles. <strong>Cisco CCNA/CCNP</strong>, <strong>CompTIA Network+</strong> etc. in a career focused on network configurations and problem solving. Certificates are frequently preferred. For example, the CompTIA Network+ certification provides basic knowledge especially for working in the &ldquo;Network Operations Center (NOC)&rdquo; environment. At the CCNP level, mid-level positions such as Network Manager are targeted.</p>
+<p><strong>SOC Career:</strong> A person who starts as a SOC analyst progresses to senior analyst or incident response specialist with experience. He/she may then move into senior security roles such as SOC Manager, Security Operations Manager, or CISO. Important certificates in this field are security-based certificates such as <strong>CompTIA Security+</strong>, (EC-Council) <strong>Certified SOC Analyst (CSA)</strong> and <strong>ISC2 CISSP</strong>. Additionally, certifications specific to SIEM tools, such as Splunk Certified User/Administrator, are frequently recommended for SOC analysts. According to Bilişim Academy, thanks to these certifications, SOC analysts improve their skills in monitoring threats and making the right response. In addition to technical certifications, experienced analysts also look towards management/audit certifications such as <strong>CISM, CISA</strong>. In terms of career development, advanced SOC analysts can advance to security management positions.</p>
+<p>The table below summarizes the key differences between these two approaches.</p>
+<p><img src="/images/1_ONz6_-qBi4Nekat2qavKdg.png" alt=""></p>
+<p><strong>SOC vs NOC Comparison</strong></p>
+<h3 id="soc-and-noc-collaboration-and-integration">
+  SOC and NOC Collaboration and Integration
+  <a class="heading-link" href="#soc-and-noc-collaboration-and-integration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Nowadays, it has been seen that security incidents can lead to infrastructure outages; For example, a DDoS attack affects both the NOC by disrupting network performance and the SOC by threatening security. For this reason, NOC and SOC teams should not be <strong>separate camps</strong>, but structures that constantly share data with each other and work in coordination. Modern solutions allow both teams to view data and evaluate events together, using common dashboards and analytics platforms. In practice, some institutions establish NOC and SOC under one roof as a “unified operations center” or form integrated teams. Accordingly, NOC and SOC act as complements to each other. Proper integration allows incidents to be viewed from both network and security perspectives, making response both faster and more effective. In summary, in the digital business environment where SOC security and NOC ensure continuity, close cooperation between both centers plays a key role in the uninterrupted and secure management of digital assets.</p>
+<hr>
+<h3 id="soc-and-noc-tools">
+  SOC and NOC Tools
+  <a class="heading-link" href="#soc-and-noc-tools">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>This white paper for IT and cybersecurity teams dives into open source and commercial tools commonly used in SOC (Security Operations Center) and NOC (Network Operations Center) processes under functional categories. For each tool, architecture, installation, basic configuration, integration, scaling, operational best practices and common errors are presented.</p>
+<ul>
+<li><strong>NOC focus:</strong> Availability, capacity, performance, SLA. (Zabbix, Prometheus, LibreNMS, PRTG, Cacti)</li>
+<li><strong>SOC focus:</strong> Threat detection, incident response, log correlation, threat hunting. (Elastic Stack, Wazuh, Suricata, Zeek, Snort, Security Onion, Graylog, QRadar/Splunk, TheHive/Cortex)</li>
+<li><strong>Intersection area:</strong> Event management, alerting channels, automation (SOAR), common data lake (Elastic/S3), CMDB/ITSM integrations (ServiceNow, Jira), network tap/SPAN infrastructure, time synchronization (NTP), and identity management (SSO/LDAP).</li>
+</ul>
+<p><strong>Recommended high-level architecture:</strong></p>
+<ul>
+<li><strong>Aggregation layer:</strong> Beats/Filebeat | Logstash | Syslog-ng | Wazuh Agent | Suricata eve.json | Zeek TSV/JSON.</li>
+<li><strong>Storage/Search:</strong> Elasticsearch/OpenSearch or Splunk/QRadar (enterprise).</li>
+<li><strong>Visualization:</strong> Kibana/Grafana/Graylog UI.</li>
+<li><strong>Processing/Correlation:</strong> Wazuh rules, ElastAlert/Kibana Alerting, Sigma rules.</li>
+<li><strong>Automation (SOAR):</strong> TheHive+Cortex, Shuffle/StackStorm.</li>
+<li><strong>Incident management:</strong> TheHive, Jira/ServiceNow.</li>
+</ul>
+<hr>
+<h3 id="1-network--system-monitoring-monitoring--noc-focused">
+  1) Network &amp; System Monitoring (Monitoring / NOC Focused)
+  <a class="heading-link" href="#1-network--system-monitoring-monitoring--noc-focused">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="11-zabbix">
+  1.1 Zabbix
+  <a class="heading-link" href="#11-zabbix">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Summary:</strong> Enterprise-scale SNMP/Agent-based monitoring; trigger, discovery, maps, automation.</p>
+<p><strong>Architecture &amp; Components</strong></p>
+<ul>
+<li>Zabbix Server, Frontend (PHP), DB (MySQL/PostgreSQL), Proxy (edge collection), Agent/Agent2.</li>
+<li>Passive/active control, low latency trapper, SNMPv1/v2c/v3, IPMI, JMX, HTTP agent.</li>
+</ul>
+<p><strong>Setup (Ubuntu example)</strong></p>
+<pre tabindex="0"><code>wget https://repo.zabbix.com/zabbix/6.0/ubuntu/pool/main/z/zabbix-release_6.0-1+ubuntu22.04_all.deb  
+sudo dpkg -i zabbix-release_6.0-1+ubuntu22.04_all.deb &amp;&amp; sudo apt update  
+sudo apt install -y zabbix-server-pgsql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent2 postgresql  
+sudo -u postgres psql -c &#34;CREATE USER zbx WITH PASSWORD &#39;StrongP@ss&#39;;&#34;  
+sudo -u postgres psql -c &#34;CREATE DATABASE zabbix OWNER zbx;&#34;  
+zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz | psql -U zbx -d zabbix -h 127.0.0.1
+</code></pre><p><strong>Basic Configuration</strong></p>
+<ul>
+<li><code>/etc/zabbix/zabbix_server.conf</code>: <code>DBPassword</code>, <code>StartPollers</code>, <code>AlertScriptsPath</code>.</li>
+<li>Agent2 (Go): eBPF plugins, Prometheus exporter scraping.</li>
+</ul>
+<p><strong>Integrations</strong></p>
+<ul>
+<li>ServiceNow/Jira/Teams/Slack via webhook.</li>
+<li>Zabbix → SIEM: sending events to Wazuh/Elastic via syslog or HTTP webhook.</li>
+<li>Dynamic host/port discovery with low-level discovery; Template repo (Cisco/Juniper/Linux/Windows).</li>
+</ul>
+<p><strong>Scaling &amp; HA</strong></p>
+<ul>
+<li>Proxy hierarchy, patroni/pgpool-II for DB, frontend multiplexing, HA failover (Pacemaker/Keepalived).</li>
+</ul>
+<p><strong>Tuning</strong></p>
+<ul>
+<li>Trapper and poller numbers; Housekeeping period; history/trends retention; TimescaleDB integration.</li>
+</ul>
+<p><strong>Common Mistakes</strong></p>
+<ul>
+<li>Housekeeper allocation insufficient → DB bloat. SNMPv3 auth/priv parameter error. Trigger thresholds are unrealistic.</li>
+</ul>
+<h3 id="12-nagios-core">
+  1.2 Nagios (Core)
+  <a class="heading-link" href="#12-nagios-core">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Summary:</strong> Host/service health-check; plugin ecosystem; Icinga forks available.</p>
+<p><strong>Installation &amp; Config</strong></p>
+<ul>
+<li>Static definition with <code>nagios.cfg</code>, <code>objects/hosts.cfg</code>, <code>services.cfg</code>; NRPE/NRDP/NSClient++ agents.</li>
+<li>Automation with event handler scripts.</li>
+</ul>
+<p><strong>Integration</strong></p>
+<ul>
+<li>Grafana/NagiosJSON; syslog to SIEM. Modernization with Icinga2.</li>
+</ul>
+<p><strong>Pros/Cons</strong></p>
+<ul>
+<li>Simple and stable; — High management overhead, config file complexity in large environment.</li>
+</ul>
+<h3 id="13-prometheus--grafana">
+  1.3 Prometheus + Grafana
+  <a class="heading-link" href="#13-prometheus--grafana">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Summary:</strong> Time-series (pull) metrics collector; PromQL; service discovery; Dashboard/alerting with Grafana.</p>
+<p><strong>Architecture</strong></p>
+<ul>
+<li>Prometheus server + exporters (node_exporter, blackbox_exporter, snmp_exporter) + Alertmanager.</li>
+<li>Federation, long-term storage with remote_write (Thanos/Cortex/Mimir).</li>
+</ul>
+<p><strong>Installation (container)</strong></p>
+<pre tabindex="0"><code># docker-compose.yml (summary)  
+services:  
+  Prometheus:  
+    image: prom/prometheus  
+    volumes:  
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml  
+  alertmanager:  
+    image: prom/alertmanager  
+  grafana:  
+    image: grafana/grafana
+</code></pre><p><strong>Config (SNMP Exporter)</strong></p>
+<ul>
+<li><code>snmp.yml</code> community/OID maps; Correlation with LibreNMS data.</li>
+</ul>
+<p><strong>Integration</strong></p>
+<ul>
+<li>Alertmanager → Slack/Email/Webhook → TheHive/StackStorm.</li>
+<li>Grafana Alerting; Unified observability with Grafana Loki/Tempo/Tempo-OTEL.</li>
+</ul>
+<h3 id="14-librenms">
+  1.4 LibreNMS
+  <a class="heading-link" href="#14-librenms">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Summary:</strong> SNMP discovery, automatic maps, RANCID/Oxidized integration, syslog/alerting.</p>
+<p><strong>Setup</strong></p>
+<ul>
+<li>PHP+Nginx+MariaDB; Config backup with Oxidized; Syslog and SNMP trap receiver.</li>
+</ul>
+<p><strong>Pros/Cons</strong></p>
+<ul>
+<li>Ready-made templates for network equipment; — DB/Redis tuning may be required on a large scale.</li>
+</ul>
+<h3 id="15-prtg-commercial-memo--16-cacti">
+  1.5 PRTG (commercial memo) &amp; 1.6 Cacti
+  <a class="heading-link" href="#15-prtg-commercial-memo--16-cacti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>PRTG:</strong> Sensor-based licensing, auto-discovery, maps, easy to install.</li>
+<li><strong>Cacti:</strong> RRDTool based graphing; Traffic/port history via SNMP; low resource.</li>
+</ul>
+<hr>
+<h3 id="2-log-management--siem-soc-core">
+  2) Log Management &amp; SIEM (SOC Core)
+  <a class="heading-link" href="#2-log-management--siem-soc-core">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="21-elastic-stack-elasticsearch--logstash--kibana--beats">
+  2.1 Elastic Stack (Elasticsearch + Logstash + Kibana + Beats)
+  <a class="heading-link" href="#21-elastic-stack-elasticsearch--logstash--kibana--beats">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Summary:</strong> Central log, search, analytics, visualization; X-Pack security; Elastic Security (SIEM) module.</p>
+<p><strong>Architecture</strong></p>
+<ul>
+<li>Data/master/ingest node separation; ILM (index lifecycle), hot-warm-cold; CCR/Snapshot-S3.</li>
+<li>Beats family: Filebeat (modules: system, nginx, suricata), Winlogbeat, Auditbeat, Packetbeat, Metricbeat.</li>
+</ul>
+<p><strong>Setup — Summary</strong></p>
+<pre tabindex="0"><code># Elasticsearch &amp; Kibana (short for Debian/Ubuntu)  
+sudo apt install elasticsearch kibana  
+# Security: built-in users, TLS; kibana.yml: elasticsearch.hosts, server.publicBaseUrl
+</code></pre><p><strong>Logstash Pipeline Example</strong></p>
+<pre tabindex="0"><code>input { beats { port =&gt; 5044 } }  
+filter { geoip { source =&gt; &#34;[source][ip]&#34; } }  
+output { elasticsearch { hosts =&gt; [&#34;http://es1:9200&#34;] index =&gt; &#34;logs-%{[@metadata][beat]}-%{+YYYY.MM.dd}&#34; } }
+</code></pre><p><strong>Alarming</strong></p>
+<ul>
+<li>Kibana Alerting/Rules; ElastAlert (community); SIEM detected rules + Sigma → ES Queries.</li>
+</ul>
+<p><strong>Integration</strong></p>
+<ul>
+<li>Wazuh Manager/Indexer/Dashboard (based on Elastic).</li>
+<li>Filebeat modules for Suricata <code>eve.json</code> and Zeek logs.</li>
+<li>TheHive/Shuffle webhook; SOAR playbook triggering.</li>
+</ul>
+<p><strong>Scaling &amp; Tuning</strong></p>
+<ul>
+<li>Heap = min(node RAM/2, 31GB); shard and refresh interval settings; rollover with ILM; Hot-Warm architecture.</li>
+<li>Ingest pipeline (grok/dissect), ECS schema; dedup and sampling.</li>
+</ul>
+<p><strong>Common Mistakes</strong></p>
+<ul>
+<li>Excessive number of shards; Multiple roles to a single node; JVM GC edition; Mapping explosion in index.</li>
+</ul>
+<h3 id="22-wazuh-siem--xdr">
+  2.2 Wazuh (SIEM + XDR)
+  <a class="heading-link" href="#22-wazuh-siem--xdr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Summary:</strong> OSSEC based HIDS/XDR; FIM, rootkit, vulnerability, compatibility; ActiveResponse; On elastic.</p>
+<p><strong>Architecture</strong></p>
+<ul>
+<li>Wazuh Manager, Indexer (ES), Dashboard (Kibana app), Agents.</li>
+<li>Agent–manager TLS, UDP fallback; agentless syslog collector.</li>
+</ul>
+<p><strong>Setup — Summary</strong></p>
+<pre tabindex="0"><code>curl -s https://packages.wazuh.com/4.x/install.sh | bash  
+# or component based installation; for agent: WAZUH_MANAGER=&#34;10.0.0.10&#34; ./wazuh-agent.sh
+</code></pre><p><strong>Agent Config (Linux)</strong></p>
+<pre tabindex="0"><code>&lt;ossec_config&gt;  
+  &lt;client&gt;&lt;server&gt;&lt;address&gt;10.0.0.10&lt;/address&gt;&lt;/server&gt;&lt;/client&gt;  
+  &lt;syscheck&gt;&lt;directories check_all=&#34;yes&#34;&gt;/etc,/var/www&lt;/directories&gt;&lt;/syscheck&gt;  
+  &lt;active-response&gt;&lt;command&gt;host-deny&lt;/command&gt;&lt;location&gt;local&lt;/location&gt;&lt;/active-response&gt;  
+&lt;/ossec_config&gt;
+</code></pre><p><strong>Integration</strong></p>
+<ul>
+<li>Suricata/Zeek/Snort log ingest; Malware detection with VirusTotal/YARA; AWS/Azure/GCP modules.</li>
+<li>TheHive, ServiceNow; Sigma rules → Wazuh.</li>
+</ul>
+<p><strong>Tuning</strong></p>
+<ul>
+<li>Customization of rules (local_rules.xml), SCA policy, FIM registration; agent group management.</li>
+</ul>
+<p><strong>Common Mistakes</strong></p>
+<ul>
+<li>Excessive noise → missing rule suppression; agent hour/certificate issues.</li>
+</ul>
+<h3 id="23-graylog">
+  2.3 Graylog
+  <a class="heading-link" href="#23-graylog">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Summary:</strong> Central log powered by Elasticsearch/OpenSearch; pipeline processors; stream/alert.</p>
+<p><strong>Setup</strong></p>
+<ul>
+<li>Graylog Server + MongoDB + ES/OS cluster; GELF/Beats input.</li>
+</ul>
+<p><strong>Pros/Cons</strong></p>
+<ul>
+<li>Simple setup/UI; — ES dependency, high volume scaling requirements.</li>
+</ul>
+<h3 id="24-commercial-qradar-splunk-open-source-ossim-security-onion">
+  2.4 Commercial: QRadar, Splunk; Open Source: OSSIM, Security Onion
+  <a class="heading-link" href="#24-commercial-qradar-splunk-open-source-ossim-security-onion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>QRadar:</strong> DSM (device support), offense engine, AQL, flows (QFlow), Ariel DB.</li>
+<li><strong>Splunk:</strong> Indexer/SH/CM/DS roles, SPL language, ES (Enterprise Security) app, SOAR.</li>
+<li><strong>OSSIM:</strong> Open source, core correlation and HIDS integrations based on AlienVault.</li>
+<li><strong>Security Onion:</strong> Integrated platform; Zeek+Suricata+Elastic+SO Console; quick installation profiles.</li>
+</ul>
+<hr>
+<h3 id="3-network-based-threat-detection-idsips--ndr">
+  3) Network Based Threat Detection (IDS/IPS &amp; NDR)
+  <a class="heading-link" href="#3-network-based-threat-detection-idsips--ndr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="31-snort-2x3x">
+  3.1 Snort (2.x/3.x)
+  <a class="heading-link" href="#31-snort-2x3x">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Architecture</strong></p>
+<ul>
+<li>Packet Decoder → Preprocessors → Detection Engine → Output.</li>
+<li>Snort3: Lua config, multi-threading, DAQ improvements.</li>
+</ul>
+<p><strong>Installation/Operation</strong></p>
+<pre tabindex="0"><code>sudo apt install snort  
+snort -c /etc/snort/snort.conf -i eth0 -A fast
+</code></pre><p><strong>Basic Settings</strong></p>
+<ul>
+<li><code>ipvar HOME_NET 10.0.0.0/8</code>; <code>rule-path</code>; Talos/ET rulesets; preprocessors (frag3, stream5).</li>
+</ul>
+<p><strong>IPS Mode</strong></p>
+<ul>
+<li>Inline: NFQUEUE/AF_PACKET; Redirection with iptables.</li>
+</ul>
+<p><strong>Integration</strong></p>
+<ul>
+<li>Unified2/JSON → Filebeat/Logstash; Wazuh rule mapping; Security Onion roles.</li>
+</ul>
+<p><strong>Tuning</strong></p>
+<ul>
+<li>Rule selection (policy), fast_pattern, flowbits optimization; CPU pinning.</li>
+</ul>
+<h3 id="32-suricata">
+  3.2 Suricata
+  <a class="heading-link" href="#32-suricata">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Architecture</strong></p>
+<ul>
+<li>Multi-thread; AF_PACKET/PF_RING/DPDK; detection engine + app-layer parsers.</li>
+<li>Output: <code>eve.json</code>, <code>fast.log</code>, <code>stats.log</code>, pcap-log (alert/flow based).</li>
+</ul>
+<p><strong>Setup</strong></p>
+<pre tabindex="0"><code>sudo add-apt-repository ppa:oisf/suricata-stable -y  
+sudo apt install suricata
+</code></pre><p><strong>Config (summary)</strong></p>
+<pre tabindex="0"><code>vars:  
+  address-groups:  
+    HOME_NET: [10.0.0.0/8]  
+outputs:  
+  - home-log:  
+      enabled: yes  
+      filetype: regular  
+      filename: /var/log/suricata/eve.json  
+af-packet:  
+  - interface: eth0  
+    cluster-type: cluster_flow
+</code></pre><p><strong>Integration</strong></p>
+<ul>
+<li>Filebeat suricata module; Wazuh integration; ET/Open/Pro rulesets; Hyperscan.</li>
+</ul>
+<p><strong>Tuning</strong></p>
+<ul>
+<li><code>max-pending-packets</code>, <code>detect-thread-ratio</code>; NIC RSS, IRQ pinning; hyperscan enable.</li>
+</ul>
+<h3 id="33-zeek-bro">
+  3.3 Zeek (Bro)
+  <a class="heading-link" href="#33-zeek-bro">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Architecture</strong></p>
+<ul>
+<li>Protocol analyzers; ZeekControl; cluster: manager/proxy/workers.</li>
+<li>Logs: <code>conn.log</code>, <code>dns.log</code>, <code>http.log</code>, <code>ssl.log</code>, <code>notice.log</code>, <code>weird.log</code>.</li>
+</ul>
+<p><strong>Setup</strong></p>
+<pre tabindex="0"><code>sudo apt install zeek  
+zeekctl deploy
+</code></pre><p><strong>Scripting</strong></p>
+<ul>
+<li><code>notice</code> framework; intel feeds; file extraction; DCE/RPC, SMB, TLS details.</li>
+</ul>
+<p><strong>Integration</strong></p>
+<ul>
+<li>Filebeat zeek module; Elastic ECS mapping; Wazuh JSON ingest; Security Onion native.</li>
+</ul>
+<p><strong>Tuning</strong></p>
+<ul>
+<li>Load balancing (PF_RING/AF_Packet + cluster); disk IO (log rotation/compress).</li>
+</ul>
+<h3 id="34-arkime-moloch">
+  3.4 Arkime (Moloch)
+  <a class="heading-link" href="#34-arkime-moloch">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Summary:</strong> Large-scale PCAP capture, indexing (Elastic/OpenSearch), fast search with web UI.</p>
+<p><strong>Setup/Notes</strong></p>
+<ul>
+<li>Capture node + Viewer + ES cluster; PCAP ring buffer; SPI index fields.</li>
+<li>correlation with SO/ELK; disk throughput critical (NVMe recommended).</li>
+</ul>
+<h3 id="35-wiresharktcpdump">
+  3.5 Wireshark/tcpdump
+  <a class="heading-link" href="#35-wiresharktcpdump">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>In-depth packet analysis, pcap filters; Worth its weight in gold during IR.</li>
+</ul>
+<hr>
+<h3 id="4-endpoint-security-edrxdrhids">
+  4) Endpoint Security (EDR/XDR/HIDS)
+  <a class="heading-link" href="#4-endpoint-security-edrxdrhids">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="41-fail2ban">
+  4.1 Fail2Ban
+  <a class="heading-link" href="#41-fail2ban">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Summary:</strong> Log-based brute-force blocking (iptables/nftables), jails + filters.</p>
+<p><strong>Setup/Basic Configuration</strong></p>
+<pre tabindex="0"><code>sudo apt install fail2ban  
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local  
+# sshd jail example  
+[sshd]  
+enabled = true  
+port = 22  
+maxretry = 5  
+bantime = 1h  
+logpath = /var/log/auth.log
+</code></pre><p><strong>Integration</strong></p>
+<ul>
+<li>Syslog/Filebeat → Elastic/Wazuh; TheHive webhook (ban event → case).</li>
+</ul>
+<p><strong>Tuning</strong></p>
+<ul>
+<li>CIDR ignoreip, incremental bantime, recidive jail; Fast drop with ipset.</li>
+</ul>
+<h3 id="42-ossec-in-wazuh">
+  4.2 OSSEC (in Wazuh)
+  <a class="heading-link" href="#42-ossec-in-wazuh">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Syscheck (FIM), rootcheck, active response; alone or extended with Wazuh.</li>
+</ul>
+<h3 id="43-crowdstrike-falcon-commercial-memo">
+  4.3 CrowdStrike Falcon (commercial memo)
+  <a class="heading-link" href="#43-crowdstrike-falcon-commercial-memo">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Cloud-based EDR/XDR; sensor agent; real-time telemetry; RTR; Threat Intel.</li>
+</ul>
+<h3 id="44-thor-project-nextron">
+  4.4 Thor Project (Nextron)
+  <a class="heading-link" href="#44-thor-project-nextron">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>YARA/Sigma/IOC scan; IR and threat hunting; triage packages; Linux/Windows support.</li>
+</ul>
+<hr>
+<h3 id="5-threat-intelligence-cti--ioc">
+  5) Threat Intelligence (CTI / IOC)
+  <a class="heading-link" href="#5-threat-intelligence-cti--ioc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="51-misp">
+  5.1 MISP
+  <a class="heading-link" href="#51-misp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Summary:</strong> IOC sharing platform (hash, domain, IP, YARA, Sigma); taxonomy &amp; galaxy; sync/feeds.</p>
+<p><strong>Integration</strong></p>
+<ul>
+<li>Zeek intel framework; Suricata <code>threshold</code>/<code>reputation</code> lists; Wazuh enrich; TheHive tasking.</li>
+</ul>
+<h3 id="52-opencti--yeti">
+  5.2 OpenCTI / Yeti
+  <a class="heading-link" href="#52-opencti--yeti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Entity model (intrusion-set, malware, TTP); connectors (MITRE, VirusTotal, MISP sync).</li>
+</ul>
+<h3 id="53-commercial-intel">
+  5.3 Commercial Intel
+  <a class="heading-link" href="#53-commercial-intel">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>CrowdStrike, Anomaly, Recorded Future — SIEM/SOAR enrichment with API.</li>
+</ul>
+<hr>
+<h3 id="6-incident-management--ir-soar">
+  6) Incident Management &amp; IR (SOAR)
+  <a class="heading-link" href="#6-incident-management--ir-soar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="61-thehive-project">
+  6.1 TheHive Project
+  <a class="heading-link" href="#61-thehive-project">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Case management, observable management, TLP/Sensitivity, task workflows.</p>
+<p><strong>Setup</strong></p>
+<ul>
+<li>TheHive + Cassandra/Elastic; Integrated with Cortex; webhooks.</li>
+</ul>
+<h3 id="62-cortex">
+  6.2 Cortex
+  <a class="heading-link" href="#62-cortex">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Analyzer/Responder ecosystem (VT, HybridAnalysis, MISP, Mail, Slack, Wazuh ban, etc.).</p>
+<h3 id="63-shuffle--stackstorm">
+  6.3 Shuffle / StackStorm
+  <a class="heading-link" href="#63-shuffle--stackstorm">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>No-code/low-code playbooks; webhook/SIEM trigger; IR automation (containment, ticket opening).</p>
+<hr>
+<h3 id="7-malware-analysis--digital-forensics">
+  7) Malware Analysis &amp; Digital Forensics
+  <a class="heading-link" href="#7-malware-analysis--digital-forensics">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="71-cuckoo-sandbox">
+  7.1 Cuckoo Sandbox
+  <a class="heading-link" href="#71-cuckoo-sandbox">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Dynamic analysis on isolated VMs; network capture; Correlation with Suricata/Zeek; reports (JSON/HTML).</p>
+<h3 id="72-volatility">
+  7.2 Volatility
+  <a class="heading-link" href="#72-volatility">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Memory dump analysis; plugins: malfind, psxview, netscan; Windows/Linux profiles.</p>
+<h3 id="73-autopsysleuth-kit">
+  7.3 Autopsy/Sleuth Kit
+  <a class="heading-link" href="#73-autopsysleuth-kit">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>File system timeline, artifact analysis; disk images; hash set comparison.</p>
+<h3 id="74-yara">
+  7.4 YARA
+  <a class="heading-link" href="#74-yara">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Signature-based file scanning; rules repo; Wazuh/Cortex integration (on-demand scan).</p>
+<hr>
+<h3 id="quick-start-scenarios">
+  Quick Start Scenarios
+  <a class="heading-link" href="#quick-start-scenarios">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>SME SOC:</strong> Security Onion (standalone) + Wazuh Agents + Filebeat modules + TheHive (single server) + Zabbix (separate VM).</li>
+<li><strong>Enterprise SOC/NOC:</strong> Discrete ES hot/warm cluster, multiple Suricata/Zeek sensors, Wazuh manager HA, Prometheus+Grafana, Zabbix proxies, SOAR (Shuffle) and ITSM integration.</li>
+</ul>
+<h3 id="result">
+  Result
+  <a class="heading-link" href="#result">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>This report gathered the core tools that SOC and NOC teams need in their daily operations under functional categories and presented the rapid installation, configuration, integration and scaling perspectives of each. As the level of organizational maturity increases, the integration of tools with each other (SIEM + NDR + HIDS + SOAR + ITSM) is decisive for success. Best results; It is achieved with the right architecture, noise reduction, automation and sustainable data lifecycle policies.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

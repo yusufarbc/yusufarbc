@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Passive Information Gathering Techniques · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Passive Information Gathering Techniques
+  
+    
+    Link to heading
+  
+
+
+Hello, in this article that we prepared with my teacher Mehmet Bulut, we will talk about Passive Information Gathering Techniques.
+
+  What is Passive Information Collection?
+  
+    
+    Link to heading
+  
+
+Passive Information Collection is a type of information collection that is done without direct contact with the target. For example; Asking questions to the person next to you about someone sitting across from you is passive information gathering.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Passive Information Gathering Techniques">
+  <meta name="twitter:description" content="Passive Information Gathering TechniquesLink to headingHello, in this article that we prepared with my teacher Mehmet Bulut, we will talk about Passive Information Gathering Techniques.
+What is Passive Information Collection?Link to headingPassive Information Collection is a type of information collection that is done without direct contact with the target. For example; Asking questions to the person next to you about someone sitting across from you is passive information gathering.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2021/11/passive-information-gathering-techniques/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Passive Information Gathering Techniques">
+  <meta property="og:description" content="Passive Information Gathering TechniquesLink to headingHello, in this article that we prepared with my teacher Mehmet Bulut, we will talk about Passive Information Gathering Techniques.
+What is Passive Information Collection?Link to headingPassive Information Collection is a type of information collection that is done without direct contact with the target. For example; Asking questions to the person next to you about someone sitting across from you is passive information gathering.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-11-26T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-11-26T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2021/11/passive-information-gathering-techniques/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2021/11/pasif-bilgi-toplama-teknikleri/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2021/11/passive-information-gathering-techniques/">
+              Passive Information Gathering Techniques
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2021-11-26T00:00:00Z">
+                November 26, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              6-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="passive-information-gathering-techniques">
+  Passive Information Gathering Techniques
+  <a class="heading-link" href="#passive-information-gathering-techniques">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/0_2NsHt2LZX3ORPYxb.jpg" alt=""></p>
+<p>Hello, in this article that we prepared with my teacher Mehmet Bulut, we will talk about Passive Information Gathering Techniques.</p>
+<h3 id="what-is-passive-information-collection">
+  What is Passive Information Collection?
+  <a class="heading-link" href="#what-is-passive-information-collection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Passive Information Collection is a type of information collection that is done without direct contact with the target. For example; Asking questions to the person next to you about someone sitting across from you is passive information gathering.</p>
+<p>In penetration tests, first information about the system is collected and classified. Most of this information is available on the internet. Apart from this, different information collection methods can also be used.</p>
+<hr>
+<h3 id="information-gathering-techniques-via-ip-and-domain-names">
+  Information Gathering Techniques via IP and Domain Names
+  <a class="heading-link" href="#information-gathering-techniques-via-ip-and-domain-names">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>With the Whois query, we can access information about the owner of a domain or IP address. These; Information such as IP ranges about the target, the responsible administrator and the e-mail addresses of these administrators.</p>
+<p>IP address and domain name distribution around the world is managed from a single center. Apart from this main center called <a href="https://www.icann.org/"  class="external-link" target="_blank" rel="noopener">ICANN</a>(Internet Corporation for Assigned Named and Numbers), five different RIRs; In other words, there is a regional internet logger.</p>
+<p>Whois queries can be made through these RIRs. If the queried IP address is not under the control of the RIR we queried, it will give you the information of the relevant RIR.</p>
+<p>You can also learn the information about an IP address from the Linux terminal screen.</p>
+<p>It is a web page that can display information about the operating system hosting the queried IP address or domain name, kernel version, software running as a web service, and even uptime information. Netcraft queries the target system and makes predictions based on the answers returned.</p>
+<p>We can access the relevant site at <a href="http://www.netcraft.com"  class="external-link" target="_blank" rel="noopener">www.netcraft.com</a>.</p>
+<p>Shodan is a search engine that helps find various services and applications around the world. Although its name is a search engine, it differs from other search engines due to the work it does. While other search engines cannot answer the question &ldquo;We want to find servers using nginx?&rdquo;, Shodan can answer this question.</p>
+<p>Shoda has many features. The most effective of these is that it can record the data obtained with the &ldquo;banner grabbing&rdquo; technique and return results to you with various filters.</p>
+<p>We can search for countries, cities, service providers, services, versions and platforms on Shodan.</p>
+<p>We can access the relevant site at <a href="https://www.shodan.io"  class="external-link" target="_blank" rel="noopener">www.shodan.io</a>.</p>
+<h3 id="dnsdumpster">
+  DNSdumpster
+  <a class="heading-link" href="#dnsdumpster">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>DNSdumpster is a free passive information gathering tool that can discover host servers associated with a domain. Finding servers that are visible from the attackers&rsquo; perspective is an important part of the security assessment process.</p>
+<p>We can access the relevant site at <a href="http://dnsdumpster.com"  class="external-link" target="_blank" rel="noopener">www.dnsdumpster.com</a>.</p>
+<h3 id="centralops">
+  Centralops
+  <a class="heading-link" href="#centralops">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>IP, detailed whois information, DNS records and TcpQuery information of a domain on the centralops address are obtained. In the Nslookup section, very advanced DNS queries can be made. It is among the indispensable sites for passive information collection.</p>
+<p>We can access the relevant site at <a href="http://www.centralops.net"  class="external-link" target="_blank" rel="noopener">www.centralops.net</a>.</p>
+<h3 id="ip-location">
+  IP Location
+  <a class="heading-link" href="#ip-location">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>It provides geographical location detection by querying the target IP address in 5 different RIRs. The results of this query may vary between service providers.</p>
+<p>We can access the relevant site at <a href="https://www.iplocation.net/"  class="external-link" target="_blank" rel="noopener">www.iplocation.net</a>.</p>
+<h3 id="archive-sites">
+  Archive Sites
+  <a class="heading-link" href="#archive-sites">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>It is a system that has been recording the entire internet since 1996. It brings up that snapshot of pages by year, month, day. Useful for finding previous versions of a website.</p>
+<p>We can access the relevant site at <a href="http://www.archive.org"  class="external-link" target="_blank" rel="noopener">www.archive.org</a>.</p>
+<p>Maltego is a tool that allows us to analyze and visualize the data found through open sources. As shown in the example below, when we write the name of a website and run it to query, it shows many data such as DNS, mail server, nameserver addresses registered to this name. In addition to these procedures</p>
+<ul>
+<li>Subdomains and public IP addresses</li>
+<li>Usernames and passwords</li>
+<li>Directory list</li>
+<li>Publicly sensitive documents and files</li>
+<li>You can access information such as leaked identity information.</li>
+</ul>
+<hr>
+<h3 id="information-gathering-techniques-via-username">
+  Information Gathering Techniques via Username
+  <a class="heading-link" href="#information-gathering-techniques-via-username">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="name-checkup">
+  Name Checkup
+  <a class="heading-link" href="#name-checkup">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Name Checkup is a simple tool that helps us find out on which other platforms the given username is used..</p>
+<p>We can access the relevant site at <a href="https://namecheckup.com/"  class="external-link" target="_blank" rel="noopener">www.namecheckup.com</a>.</p>
+<h3 id="username-search">
+  Username Search
+  <a class="heading-link" href="#username-search">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Another tool where we can find out which platforms usernames are used is Instant Username Search. It can search on more platforms than Name CheckUp.</p>
+<p>We can access the relevant site at <a href="https://instantusername.com/#/"  class="external-link" target="_blank" rel="noopener">www.instantusername.com</a>.</p>
+<hr>
+<h3 id="information-gathering-techniques-through-images">
+  Information Gathering Techniques Through Images
+  <a class="heading-link" href="#information-gathering-techniques-through-images">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="image-search">
+  Image Search
+  <a class="heading-link" href="#image-search">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>It is a search engine technology that uploads an image file and returns similar images and results related to the image. By making a reverse image:</p>
+<ul>
+<li>The source of an image</li>
+<li>Whether it has been installed before</li>
+<li>Whether it is under copyright or not</li>
+<li>Features of products or objects we do not know</li>
+<li>Identifying the actual source of images that cause disinformation</li>
+</ul>
+<p>We can use it in situations. The most commonly used Image Search Engines are <a href="https://www.google.com/imghp"  class="external-link" target="_blank" rel="noopener">Google</a> and <a href="https://tineye.com/"  class="external-link" target="_blank" rel="noopener">TinyEye</a>.</p>
+<p>Exif is where the data about the photo is located. This section contains a lot of information such as the place, date and time where the photo was taken. The most commonly used tools to collect this information are <a href="https://exiftool.org/"  class="external-link" target="_blank" rel="noopener">ExifTool</a> and <a href="http://exif.regex.info/exif.cgi"  class="external-link" target="_blank" rel="noopener">Jeffrey&rsquo;s Image Metadata Viewer</a>.</p>
+<hr>
+<h3 id="general-information-gathering-techniques">
+  General Information Gathering Techniques
+  <a class="heading-link" href="#general-information-gathering-techniques">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="google-hacking">
+  Google Hacking
+  <a class="heading-link" href="#google-hacking">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Google Hacking is an information gathering technique with parameters that can make the queries we make on Google specific. We call the queries we write with these parameters dork. For example;</p>
+<pre tabindex="0"><code>inurl:&#34;pwnlab&#34; intitle:&#34;passive information collection&#34;
+</code></pre><p>We talked about these dorks and their usage techniques in detail in our article titled <a href="https://pwnlab.me/tr-google-dorks-ve-google-hacking/"  class="external-link" target="_blank" rel="noopener">Google Dorks and Google Hacking</a>. To learn more about Google hacking, you can check out this article.</p>
+<h3 id="theharvester">
+  theHarvester
+  <a class="heading-link" href="#theharvester">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>theHarvester is a tool that runs on Linux. With this tool, we can collect information from open sources by scanning many websites such as Linkedin, Google, Twitter, Yahoo.</p>
+<p>We download our tool with the command below.</p>
+<p>sudo apt install theharvester</p>
+<p>After installation, the following command will display the information it found on Google about the pwnlab.me site.</p>
+<p>theHarvester -d pwnlab.me -b google</p>
+<p>You can also detect site-based information with commands such as linkedin, bing, all etc. instead of google.</p>
+<p>To get detailed information about its usage, you can go to <a href="https://github.com/laramies/theHarvester"  class="external-link" target="_blank" rel="noopener">https://github.com/laramies/theHarvester</a>.</p>
+<h3 id="osint-framework">
+  OSINT Framework
+  <a class="heading-link" href="#osint-framework">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Osint Framework is a website where you can access hundreds of passive information collection tools. Clicking on the section within the categories that suits your target allows you to make more detailed inquiries. Additionally, if there is a (T) text to the right of the options, you can see that you can only do this through the terminal.</p>
+<p>We can access the relevant site at <a href="http://osintframework.com"  class="external-link" target="_blank" rel="noopener">www.osintframework.com</a>.</p>
+<hr>
+<p><em>Originally published at</em> <a href="https://pwnlab.me/tr-pasif-bilgi-toplama-teknikleri/"  class="external-link" target="_blank" rel="noopener"><em>https://pwnlab.me</em></a> <em>on November 26, 2021.</em></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

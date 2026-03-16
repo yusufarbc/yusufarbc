@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  C Programming Fundamentals · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  C Programming Fundamentals
+  
+    
+    Link to heading
+  
+
+
+
+  What is Syntax?
+  
+    
+    Link to heading
+  
+
+It is an English word with Turkish meaning and syntax. All the rules of the language used in programming are called syntax. In this article, we will talk about the syntax of the C language.
+
+
+  Definitions
+  
+    
+    Link to heading
+  
+
+
+  Variable &amp; Constant Definition
+  
+    
+    Link to heading
+  
+
+Variables and Constants are the components we use to hold data. The point we need to pay attention to when defining these components is the data type that the variable or constant accepts. There are 5 types of data types in standard C:">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="C Programming Fundamentals">
+  <meta name="twitter:description" content="C Programming FundamentalsLink to headingWhat is Syntax?Link to headingIt is an English word with Turkish meaning and syntax. All the rules of the language used in programming are called syntax. In this article, we will talk about the syntax of the C language.
+DefinitionsLink to headingVariable &amp; Constant DefinitionLink to headingVariables and Constants are the components we use to hold data. The point we need to pay attention to when defining these components is the data type that the variable or constant accepts. There are 5 types of data types in standard C:">
+
+<meta property="og:url" content="http://localhost:1313/posts/2023-01-21-c-programlama-temelleri/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="C Programming Fundamentals">
+  <meta property="og:description" content="C Programming FundamentalsLink to headingWhat is Syntax?Link to headingIt is an English word with Turkish meaning and syntax. All the rules of the language used in programming are called syntax. In this article, we will talk about the syntax of the C language.
+DefinitionsLink to headingVariable &amp; Constant DefinitionLink to headingVariables and Constants are the components we use to hold data. The point we need to pay attention to when defining these components is the data type that the variable or constant accepts. There are 5 types of data types in standard C:">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-01-21T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-01-21T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2023-01-21-c-programlama-temelleri/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About Me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2023-01-21-c-programlama-temelleri/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2023-01-21-c-programlama-temelleri/">
+              C Programming Fundamentals
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-01-21T00:00:00Z">
+                January 21, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              17-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="c-programming-fundamentals">
+  C Programming Fundamentals
+  <a class="heading-link" href="#c-programming-fundamentals">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_wb7CfskOL2Lhc26j2XpbTQ.png" alt=""></p>
+<h3 id="what-is-syntax">
+  What is Syntax?
+  <a class="heading-link" href="#what-is-syntax">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>It is an English word with Turkish meaning and syntax. All the rules of the language used in programming are called syntax. In this article, we will talk about the syntax of the C language.</p>
+<hr>
+<h3 id="definitions">
+  Definitions
+  <a class="heading-link" href="#definitions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="variable--constant-definition">
+  Variable &amp; Constant Definition
+  <a class="heading-link" href="#variable--constant-definition">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Variables and Constants are the components we use to hold data. The point we need to pay attention to when defining these components is the data type that the variable or constant accepts. There are 5 types of data types in standard C:</p>
+<ul>
+<li>int — used for integer values.</li>
+<li>float — used for decimal number values.</li>
+<li>double — used for large decimal number values.</li>
+<li>char — used for character values.</li>
+<li>void — means without type.</li>
+</ul>
+<p>We can define variables using these data types:</p>
+<pre tabindex="0"><code>int a = 5;            // a variable of integer type named a with value &#39;5&#39;  
+float b = 7.5;        //a variable named b of type float with value &#39;7.5&#39;  
+char c = &#39;a&#39;;         //A variable named c with value &#39;a&#39; of type char  
+double d = 8965.3645; //A variable of double type named d with value &#39;8965.3645&#39;
+</code></pre><p>If we want to define constants with these data types, all we need to do is add the &lsquo;const&rsquo; keyword to the beginning of the variable definition.</p>
+<pre tabindex="0"><code>const int a = 5;            // a constant of integer type named a with value &#39;5&#39;  
+const float b = 7.5;        //a constant named b of type float with value &#39;7.5&#39;  
+const char c = &#39;a&#39;;         //Create a constant named c with value &#39;a&#39; of type char  
+const double d = 8965.3645; //a constant with the name d of type double and the value &#39;8965.3645&#39;
+</code></pre><p>Constants, unlike variables, remain at the same value throughout the program&rsquo;s runtime. If you try to change the value they hold in the program flow, they will give an error.</p>
+<h4 id="array-definition">
+  Array Definition
+  <a class="heading-link" href="#array-definition">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The definition of arrays is very similar to variables. In fact, arrays are structures that hold more than one variable of the same type. For example, an array of type int; It contains integer values ​​that can change.</p>
+<p>The most important point when defining arrays is to specify the array size. When the program runs, it requests space from memory according to the size of this array, and this size does not change during the program&rsquo;s runtime.</p>
+<p>We can define arrays in two ways. One of them is specifying its size and the other is specifying the values it will take:</p>
+<pre tabindex="0"><code>int array1[10];            //A 10-element integer array.  
+int array2[] = {1,2,3,4} //A 4-element integer array.
+</code></pre><pre tabindex="0"><code>To access the elements of the arrays, we write the index of the element we will access in square brackets. The index of an element is the number that indicates the rank of that element in the array. The first element of an array is at index 0, and when each element is added, it gets the next index value.
+</code></pre><pre tabindex="0"><code>number1 = array2[0];  //assigns the first element of array2 to number1  
+number2 = array2[1];  //assigns the second element of array2 to number2  
+number3 = array3[2];  //assigns the third element of array2 to number3  
+number4 = array4[3];  //assigns the fourth element of array2 to number4
+</code></pre><p>We can access the elements of the array named array2, which we defined in the previous example, as above.</p>
+<p>We could only receive a single character with the char variable type. We need strings of characters to get a word.</p>
+<pre tabindex="0"><code>char str1[20]; //Definition of a 20-character string  
+char str2[] = &#34;string expression&#34;; //character array with a certain value (string)
+</code></pre><h4 id="printf--scanf-functions">
+  printf() &amp; scanf() functions
+  <a class="heading-link" href="#printf--scanf-functions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>These are two functions we use to interact with the user while making console applications in C language. printf() is used to return a message to the user and scanf() is used to get a value from the user.</p>
+<pre tabindex="0"><code>printf(&#34;Hello World\n&#34;);
+</code></pre><p>With printf, we can return the message we want to the user within double quotes. The &lsquo;\n&rsquo; statement at the end is used to move to the next line in the console.</p>
+<p>If we want to suppress the console screen of a variable or get a value from the console, we need specifiers. Some of them are:</p>
+<ul>
+<li>%d: used for integer values.</li>
+<li>%f: Used for float values.</li>
+<li>%lf : used for double values.</li>
+<li>%c: used for char values.</li>
+<li>%s : used for string values.</li>
+<li>%x: used for hexadecimal values.</li>
+</ul>
+<p>We can take input from the user and give output using these specifiers:</p>
+<pre tabindex="0"><code>int number;  
+printf(&#34;Enter a number: &#34;);  
+scanf(&#34;%d&#34;, &amp;number);  
+printf(&#34;The entered number is %d&#34;, number);
+</code></pre><p>What we need to pay attention to heres;<br>
+In the scanf() function, placing the &lsquo;&amp;&rsquo; sign when specifying the variable to which the value will be assigned and using the specifiers in the first parameter and in double quotes in both functions.</p>
+<pre tabindex="0"><code>char[20] name;  //Definition of a 20-character string named name  
+printf(&#34;enter your name: &#34;);
+</code></pre><p>In the example above, a program was written that takes a string from the user and returns this value to the user in a message.</p>
+<hr>
+<h3 id="condition-structures">
+  Condition Structures
+  <a class="heading-link" href="#condition-structures">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In our second volume, we touched on condition structures and made examples of these structures. There are three types of conditionals in the C language. Comparison operators and logical operators are used in these conditionals.</p>
+<p>Comparison operators:</p>
+<ul>
+<li>== — if equal</li>
+<li>!= — if not equal</li>
+<li>
+<blockquote>
+<p> — if greater</p>
+</blockquote>
+</li>
+<li>&lt; — if small</li>
+<li>&lt; = — if greater than or equal to</li>
+<li>
+<blockquote>
+<p>= — if less than equal</p>
+</blockquote>
+</li>
+</ul>
+<p>Logical operators:</p>
+<ul>
+<li>&amp;&amp; — and</li>
+<li>|| - or</li>
+<li>! — not</li>
+</ul>
+<h4 id="if-else-structure">
+  if-else structure
+  <a class="heading-link" href="#if-else-structure">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The if else structure is one of the structures we can use to define condition statements. It always starts with an <em>if</em> statement, and falls into an <em>else</em> statement if the condition is not met. <em>else if</em> statement can be used to define more than one condition.</p>
+<pre tabindex="0"><code>if(a==b){  
+  printf(&#34;a and b equal&#34;);  
+}else if(a&gt;b){  
+  printf(&#34;a is greater than b&#34;);  
+}else{  
+  printf(&#34;a is less than b&#34;);  
+}  
+printf(&#34;outside condition);
+</code></pre><p>If the if condition is met, the statements within the condition are executed and the program flow continues outside the condition statement. If the <em>if</em> condition is not met, the next <em>else looks at the condition in if</em> (if any), if no condition is met, it falls to <em>else</em> (if any).</p>
+<h4 id="switch-case-structure">
+  switch-case structure
+  <a class="heading-link" href="#switch-case-structure">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The switch-case structure is a structure developed to deal with multiple situations.</p>
+<pre tabindex="0"><code>int number;  
+printf(&#34;Enter a number: &#34;);   
+scanf(&#34;%d&#34;, &amp;number);  
+  
+switch(number){  
+  case 1:  
+    printf(&#34;Number 1 entered&#34;);  
+    break;  
+  case 2:  
+    //Since we don&#39;t break it, it continues to run with case3.  
+  case 3:  
+    printf(&#34;The number 2 or 3 was entered&#34;);  
+    break;  
+  case 4:  
+    printf(&#34;The number 4 was entered&#34;);  
+    //Since we do not put a break statement, it also works as default  
+  default:  
+    printf(&#34;undefined number&#34;);  
+}
+</code></pre><p>It executes the statements in <em>case</em> that are appropriate based on the value of the given condition variable. This condition variable can only be of type <em>int</em> and <em>char</em>. Execution of statements continues until you see a <em>break</em> statement. That is, unless there is a <em>break</em>, the program continues to execute the statements in other <em>cases</em>.</p>
+<h4 id="ternary-operator">
+  ternary operator
+  <a class="heading-link" href="#ternary-operator">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>ternaty operator is used to define fast and short conditional expressions in a single line.</p>
+<pre tabindex="0"><code>(a==b)?printf(&#34;a and b are equal&#34;):printf(&#34;a and b are not equal&#34;);
+</code></pre><p>A condition is written in parentheses, followed by a question mark. The section after the question mark is the section that will be executed if the condition is true. Two points are placed after this section. The next part runs if the condition is false.</p>
+<hr>
+<h3 id="loops">
+  Loops
+  <a class="heading-link" href="#loops">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>A loop statement allows us to execute a statement or group of statements multiple times. Below is the general form of a loop statement in most programming languages:</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*tZ55-KwCaatkE92j" alt=""></p>
+<p>There are three types of loops in C language. These are for, while and do-while loops.</p>
+<h4 id="for-loop">
+  for loop
+  <a class="heading-link" href="#for-loop">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It executes statements multiple times and shortens the code that manages the loop variable.</p>
+<pre tabindex="0"><code>//Program that prints numbers from 0 to 10  
+for(int i=0;i&lt;=10;++i){  
+    printf(&#34;number: %d\n&#34;,i);  
+}
+</code></pre><p>Loop expressions can be nested, this is called a nested loop. This is mostly used in matrix operations.</p>
+<pre tabindex="0"><code>//Program that prints the indices of a 20x20 matrix  
+for(int i=1;i&lt;=20;++i}{  
+  for(int j=1;j&lt;=20;++j){  
+    printf(&#34;(%d,%d)\n&#34;,i,j);  
+  }  
+}
+</code></pre><p><img src="https://cdn-images-1.medium.com/max/800/0*oZLlTX132HC6pdpw" alt=""></p>
+<h4 id="while-loop">
+  while loop
+  <a class="heading-link" href="#while-loop">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Repeats a statement or group of statements when a given condition is true. Tests the condition before executing the loop body.</p>
+<pre tabindex="0"><code>//Program that prints numbers from 10 to 1  
+int i = 10;  
+while(i&gt;0){  
+  printf(&#34;number: %d\n&#34;,i);  
+  i--;  
+}
+</code></pre><p>If the condition inside the while loop is always true, an infinite loop occurs. Since there is no condition to stop the loop, the loop continues until the program is terminated.</p>
+<pre tabindex="0"><code>//Value 1 represents true value  
+while(1){  
+  printf(&#34;this is an infinite loop&#34;);  
+}
+</code></pre><h4 id="do-whileloop">
+  do while loop
+  <a class="heading-link" href="#do-whileloop">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Unlike the while loop, it checks the loop condition at the end, not at the beginning.</p>
+<pre tabindex="0"><code>//Program that prints numbers from 10 to 1  
+int number=10;  
+do{  
+  printf(&#34;number: %d\n&#34;, number);  
+  number--;  
+}while(number&gt;0);
+</code></pre><p>The do-while loop first executes the statements and then queries the condition. This can be quite useful in some situations.</p>
+<pre tabindex="0"><code>//program that prints the numbers received from the user until 0 is reached.  
+int number;  
+do{  
+  printf(&#34;Enter a number: &#34;);  
+  scanf(&#34;%d&#34;, &amp;number);  
+  printf(&#34;\nEntered number: %d&#34;, number);  
+}while(number!=0);
+</code></pre><p><img src="https://cdn-images-1.medium.com/max/800/0*LIayjiTDiNr-k5rJ" alt=""></p>
+<h4 id="loop-control-statements">
+  Loop control statements
+  <a class="heading-link" href="#loop-control-statements">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><strong>break statement:</strong> Terminates the loop statement and transfers execution to the statement immediately after the loop.</p>
+<pre tabindex="0"><code>//program to press q to exit the loop  
+char c;  
+while(1){  
+  printf(&#34;enter a character: &#34;);  
+  scanf(&#34;%c&#34;, &amp;c);  
+  if(c==&#39;q&#39;){  
+    break;  
+  }  
+  printf(&#34;\n loop continues&#34;);  
+}  
+printf(&#34;\n loop ended&#34;);
+</code></pre><p><strong>continue statement:</strong> Skips the rest of the body of the loop and moves on to the next iteration of the loop.</p>
+<pre tabindex="0"><code>for(;;){ // infinite loop with for  
+  printf(&#34;this statement works&#34;);  
+  continue;  
+  printf(&#34;this statement does not work&#34;);  
+}
+</code></pre><p>In the example above, if the remainder is below the continue statement, printf() will not work at all because it skips the statements under continue and starts the loop.</p>
+<hr>
+<h3 id="functions-andstructures">
+  Functions and Structures
+  <a class="heading-link" href="#functions-andstructures">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The main function of functions and structures is to group/package statements. In general, we can say that functions are working statements and structures are groups of data.</p>
+<h4 id="struct-definition">
+  Struct Definition
+  <a class="heading-link" href="#struct-definition">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Structs are used to represent a record. Let&rsquo;s say you want to keep track of your books in the library. You may want to keep the following properties associated with each book:</p>
+<ul>
+<li>Book name</li>
+<li>Subject</li>
+<li>Author</li>
+<li>Number of Pages</li>
+</ul>
+<p>If we want to define this book with a struct:</p>
+<pre tabindex="0"><code>struct books {  
+   char title[50];  
+   char author[50];  
+   char subject[100];  
+   int pages;  
+} books;
+</code></pre><p>We can define it as . As can be seen, we obtain a wider range of data types by using many data types. To use this broad data type:</p>
+<pre tabindex="0"><code>struct Books book1;   
+//A data type definition named book1 of type struct books  
+strcpy(book1.title, &#34;C programming&#34;);  
+strcpy(book1.author, &#34;author name&#34;);   
+strcpy(book1.subject, &#34;C&#34;);  
+book1.pages = 680;
+</code></pre><p>In the above code snippet, the strcpy() function is used to assign string values. Other values ​​can be assigned with the &lsquo;=&rsquo; operator.</p>
+<h4 id="typedef">
+  <strong>typedef</strong>
+  <a class="heading-link" href="#typedef">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>typedef is a keyword used in C programming to provide a new name for existing data types. The typedef keyword is used to redefine the name that already exists. It is very common to use it with the struct statement. This way, we don&rsquo;t have to reuse the struct keyword in each definition:</p>
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;  
+#include &lt;string.h&gt;  
+    
+typedef struct students   
+{  
+  char name[50];  
+  char branch[50];  
+  int ID_no;  
+} students;  
+    
+int main()  
+{  
+  students st;  //We did not use the struct keyword in the definition  
+  strcpy(st.name,   
+         &#34;Ahmet Yilmaz&#34;);  
+  strcpy(st.branch,   
+         &#34;Computer Science&#34;);  
+  st.ID_no = 108;  
+      
+  return 0;  
+}
+</code></pre><h4 id="function-definition">
+  Function Definition
+  <a class="heading-link" href="#function-definition">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>A function is a group of statements that together perform a task. Every C program has at least one function, main(). Functions are symbolized with following () signs.</p>
+<p>Defining a function:</p>
+<pre tabindex="0"><code>return_type function_name( parameters) {  
+   function body  
+  return   
+}
+</code></pre><ul>
+<li><strong>return type:</strong> Specifies the type of value returned by the function with the return statement.</li>
+<li><strong>function name:</strong> The name we use when calling the function.</li>
+<li><strong>parameters:</strong> parameter is like a placeholder. When the function is called, values ​​are given to the parameters and this is called the actual value.</li>
+<li><strong>function body:</strong> The section where the statements inside the function are written.</li>
+</ul>
+<pre tabindex="0"><code>//returns an integer value and returns num1 and num2 values in integer type.   
+//a function named field max  
+int max(int num1, int num2) {  
+int result;  
+   
+   if (num1 &gt; num2)  
+      result = num1;  
+   else  
+      result = num2;  
+   
+   return result;   
+}
+</code></pre><p><strong>function signature/declaration</strong></p>
+<p>A function declaration tells the compiler a function name and information about how to call the function. The actual body of the function can be defined separately.</p>
+<pre tabindex="0"><code>int max(int num1, int num2);   //function signature
+</code></pre><p><strong>function call</strong></p>
+<p>To use a function, you must call that function according to the defined parameters.</p>
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;  
+   
+/* function signature*/  
+int max(int num1, int num2);  
+/* main function */  
+int main(){  
+   int a = 100;  
+   int b = 200;  
+   int rejection;  
+   
+   /* function call*/  
+   ret = max(a, b);  
+   
+   printf( &#34;Max value is : %d\n&#34;, ret );  
+   
+   return 0;  
+}  
+   
+/* function definition */  
+int max(int num1, int num2) {  
+   int result;  
+   
+   if (num1 &gt; num2)  
+      result = num1;  
+   else  
+      result = num2;  
+   
+   return result;   
+}
+</code></pre><h4 id="recursive-functions">
+  Recursive Functions
+  <a class="heading-link" href="#recursive-functions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>They are loop-like structures created with functions that call themselves. In short, it is a function calling itself.</p>
+<pre tabindex="0"><code>void recursion() {  
+   recursion(); /* function calls itself */  
+}  
+  
+int main() {  
+   recursion();  
+}
+</code></pre><p>As seen above, the function named recursion calls itself. However, in this usage, the program continues forever, because there is no condition to stop it. Therefore, two cases are required when using recursive functions:</p>
+<p>Base case: The state in which the function stops calling itself.</p>
+<p>Recursive case: This is the case where the function calls itself.</p>
+<pre tabindex="0"><code>int factorial(unsigned int i) {  
+if(i &lt;= 1) {  
+      return 1;  //base case  
+   }  
+   return i * factorial(i - 1); //recursive case  
+}
+</code></pre><hr>
+<h3 id="referencing">
+  Referencing
+  <a class="heading-link" href="#referencing">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="pointers">
+  Pointers
+  <a class="heading-link" href="#pointers">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Pointers are part of what makes the C programming language a systems language. With pointers, we can access and manage memory as much as the operating system allows. Some C programming tasks are more easily accomplished with pointers, and other tasks, such as dynamic memory allocation, cannot be accomplished without using pointers.</p>
+<p>A pointer is a variable whose value is the address of another variable, that is, the direct address (physical address) of the memory location. We can directly access memory cells using pointers. An array or function in C is actually a pointer, it points to the starting address of the array or function in memory.</p>
+<pre tabindex="0"><code>int *ip;    /* pointer to an integer */  
+double *dp;    /* pointer to a double */  
+float *fp;    /* pointer to a float */  
+char *ch /* pointer to a character */
+</code></pre><p>Above you see the definitions of different types of pointers. Two operators are important in the use of pointers:</p>
+<ul>
+<li>referencing * : returns the value held at the referenced address.</li>
+<li>de-referencing &amp;: retrieves the memory location address of a value.</li>
+</ul>
+<p>We can think of these two operators as opposites of each other. While the * operator retrieves the memory address of the value, the &amp; operator retrieves the value at the given address.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*xhwIoaH5XH3vBH9k" alt=""></p>
+<p>referencing de-referencing</p>
+<p>Let p be a variable that holds the memory address, that is, a pointer. *p returns the value at the memory address held in p, &amp;p returns the memory address of p itself.</p>
+<p>With this logic, we can create another pointer that references a pointer.</p>
+<p><img src="/images/0_fqOhphnMCqrtdVI2.jpg" alt=""></p>
+<p>pointer to pointer</p>
+<p>Let&rsquo;s have a variable named var and assign the address of this variable to ptr. Afterwards, let&rsquo;s assign the address of ptr to another pointer named pptr.</p>
+<pre tabindex="0"><code>int var = 1234;  
+int *ptr = &amp;var;  
+int **pptr = &amp;ptr;
+</code></pre><p>We defined the pointer to pointer case above. We can extend this situation as a chain as long as we want. Below is a working example.</p>
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;  
+   
+int main() {  
+  
+   int var;  
+   int *ptr;  
+   int **pptr;  
+  
+   var = 3000;  
+  
+   /* take the address of var */  
+   ptr = &amp;var;  
+  
+   /* take the address of ptr using address of operator &amp; */  
+   pptr = &amp;ptr;  
+  
+   /* take the value using pptr */  
+   printf(&#34;Value of var = %d\n&#34;, var );  
+   printf(&#34;Value available at *ptr = %d\n&#34;, *ptr );  
+   printf(&#34;Value available at **pptr = %d\n&#34;, **pptr);  
+  
+   return 0;  
+}
+</code></pre><h4 id="pointer-arithmetic">
+  pointer arithmetic
+  <a class="heading-link" href="#pointer-arithmetic">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In the previous section, we mentioned that pointers are variables that hold memory addresses. That is, the value it holds is only the memory address. However, we have seen it defined in different types such as int, float, char, double. These 4 definitions actually hold the same type of value. So what are the differences?</p>
+<p>This is where pointer arithmetic comes into play. The pointer in c is an address, which is a numeric value. Therefore, you can perform arithmetic operations on a pointer as well as on a numeric value. These arithmetic operations will be performed depending on the type you define the pointer. For example:</p>
+<ul>
+<li>char — 1 byte: increment the pointer by one and it will point to the next location in memory by 1 byte.</li>
+<li>int — 4 bytes: increment the pointer by one and it will point to the next 4 bytes in memory.</li>
+<li>float — 4byte: signWhen you increase the value by one, it will point to the next 4 bytes in memory.</li>
+<li>double — 8byte: increment the pointer by one and it will point to the next 8 bytes in memory.</li>
+</ul>
+<p>This logic comes in handy in TV series. Consider an integer array with 10 elements; You can easily navigate that array with an integer pointer. When you increment the pointer by one, it moves to the next element. When you lower it, it moves to the previous element. However, you must be careful not to stray from the sequence!</p>
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;  
+  
+const int MAX = 3;  
+  
+int main() {  
+  
+   int var[] = {10, 100, 200};  
+   int i, *ptr;  
+  
+   /* let us have array address in pointer */  
+   ptr = var;  
+   
+   for ( i = 0; i &lt; MAX; i++) {  
+  
+      printf(&#34;Address of var[%d] = %x\n&#34;, i, ptr );  
+      printf(&#34;Value of var[%d] = %d\n&#34;, i, *ptr );  
+  
+      /* move to the next location */  
+      ptr++;  
+   }  
+   
+   return 0;  
+}
+</code></pre><p>The example above gives an example of navigating an array with pointers. ptr++ points to the next location 4 bytes in memory.</p>
+<h4 id="dynamic-memorymanagement">
+  Dynamic Memory Management
+  <a class="heading-link" href="#dynamic-memorymanagement">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This section explains dynamic memory management in C. The C programming language provides various functions for memory allocation and management. These are:</p>
+<ul>
+<li><strong>malloc():</strong> allocates a certain size of space from memory.</li>
+<li><strong>calloc():</strong> clears and allocates a certain size of space from memory.</li>
+<li><strong>realloc():</strong> resizes and reallocates an area in memory.</li>
+<li><strong>free():</strong> terminates the allocation of an area in memory.</li>
+</ul>
+<p>If you know the size of an array while programming, you can define it as a static array. The space of this array is allocated when the program starts and persists until the program terminates. However, if you want to define or modify an array within the program flow, you cannot do this statically. To define an array dynamically you have to use dynamic memory management.</p>
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;  
+#include &lt;stdlib.h&gt;  
+#include &lt;string.h&gt;  
+  
+int main() {  
+  
+   char name[100];  
+   char *a1;  
+  
+   strcpy(name, &#34;Zara Ali&#34;);  
+  
+   /* allocate memory dynamically */  
+   a1 = malloc( 200 * sizeof(char) );  
+   
+   printf(&#34;Name = %s\n&#34;, name );  
+   printf(&#34;Description: %s\n&#34;, a1);  
+    
+  free(a1);  
+}
+</code></pre><p>In the above program, a space of 200 chars is allocated dynamically from memory. This area is left with free() at the end of the program.</p>
+<hr>
+<h3 id="file-operations">
+  File operations
+  <a class="heading-link" href="#file-operations">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>We need some functions to read/write from a file in C language. These are fopen() and fclose() functions. File opening modes are important when performing operations with these functions. Operations can be performed in whatever mode the file is opened in. <br>
+File opening modes:</p>
+<ul>
+<li>r: Opens an existing text file for reading.</li>
+<li>w: Opens a text file for writing. If it does not exist, a new file is created. If it exists, it overwrites it.</li>
+<li>a: Opens a text file for writing in insertion mode. If it does not exist, a new file is created. It will start adding content to the file if it is available.</li>
+<li>r+: Opens a text file for both reading and writing.</li>
+<li>w+: Opens a text file for both reading and writing. If it exists, it first resets the file,. Otherwise it creates a file.</li>
+<li>a+: Opens a text file for both reading and writing. If the file does not exist, it creates the file. Reading will start from the beginning, but text can only be added.</li>
+</ul>
+<p>We can use these functions and modes together to open and close files.</p>
+<pre tabindex="0"><code>FILE *fp;  
+fp = fopen( filename, mode );
+</code></pre><p>Below is a working example of file operations.</p>
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;  
+  
+void main() {  
+   FILE *fp;  
+  
+   fp = fopen(&#34;/tmp/test.txt&#34;, &#34;w+&#34;);  
+   fprintf(fp, &#34;This is testing for fprintf...\n&#34;);  
+   fputs(&#34;This is testing for fputs...\n&#34;, fp);  
+   fclose(fp);  
+}
+</code></pre>
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

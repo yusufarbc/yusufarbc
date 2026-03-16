@@ -1,4 +1,5 @@
 ---
+series: ["Threat Hunting Walkthroughs"]
 title: "Threat Hunting with Email Security Walkthrough — LetsDefend"
 date: 2025-10-30
 draft: false

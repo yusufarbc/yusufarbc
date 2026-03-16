@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Temel C Programlama Eğitimi #2 · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Temel C Programlama Eğitimi #2
+  
+    
+    Başlık Linki
+  
+
+Bu yazımda ikinci haftasını tamamladığımız Temel C Programlama Eğitiminin notlarını ve alıştırma sorularını paylaşacağım. Eğitimin ilk haftasına buradan ulaşabilirsiniz.
+
+
+  Döngüler
+  
+    
+    Başlık Linki
+  
+
+Bir döngü deyimi, bir deyimi veya deyimler grubunu birden çok kez yürütmemize izin verir. Aşağıda, programlama dillerinin çoğunda bir döngü ifadesinin genel biçimi verilmiştir:
+
+C dilinde 3 çeşit döngü vardır. Bunlar for, while ve do-while döngüleridir.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Temel C Programlama Eğitimi #2">
+  <meta name="twitter:description" content="Temel C Programlama Eğitimi #2Başlık LinkiBu yazımda ikinci haftasını tamamladığımız Temel C Programlama Eğitiminin notlarını ve alıştırma sorularını paylaşacağım. Eğitimin ilk haftasına buradan ulaşabilirsiniz.
+DöngülerBaşlık LinkiBir döngü deyimi, bir deyimi veya deyimler grubunu birden çok kez yürütmemize izin verir. Aşağıda, programlama dillerinin çoğunda bir döngü ifadesinin genel biçimi verilmiştir:
+C dilinde 3 çeşit döngü vardır. Bunlar for, while ve do-while döngüleridir.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2022-12-22-temel-c-programlama-e-itimi-2/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Temel C Programlama Eğitimi #2">
+  <meta property="og:description" content="Temel C Programlama Eğitimi #2Başlık LinkiBu yazımda ikinci haftasını tamamladığımız Temel C Programlama Eğitiminin notlarını ve alıştırma sorularını paylaşacağım. Eğitimin ilk haftasına buradan ulaşabilirsiniz.
+DöngülerBaşlık LinkiBir döngü deyimi, bir deyimi veya deyimler grubunu birden çok kez yürütmemize izin verir. Aşağıda, programlama dillerinin çoğunda bir döngü ifadesinin genel biçimi verilmiştir:
+C dilinde 3 çeşit döngü vardır. Bunlar for, while ve do-while döngüleridir.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-12-22T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-12-22T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2022-12-22-temel-c-programlama-e-itimi-2/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2022-12-22-temel-c-programlama-e-itimi-2/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2022-12-22-temel-c-programlama-e-itimi-2/">
+              Temel C Programlama Eğitimi #2
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-12-22T00:00:00Z">
+                Aralık 22, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              5 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="temel-c-programlama-eğitimi2">
+  Temel C Programlama Eğitimi #2
+  <a class="heading-link" href="#temel-c-programlama-e%c4%9fitimi2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu yazımda ikinci haftasını tamamladığımız Temel C Programlama Eğitiminin notlarını ve alıştırma sorularını paylaşacağım. Eğitimin ilk haftasına <a href="https://medium.com/@yusufarbc/temel-c-programlama-e%c4%9fitimi-1-b5ef99fe4262"  class="external-link" target="_blank" rel="noopener">buradan</a> ulaşabilirsiniz.</p>
+<hr>
+<h3 id="döngüler">
+  Döngüler
+  <a class="heading-link" href="#d%c3%b6ng%c3%bcler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bir döngü deyimi, bir deyimi veya deyimler grubunu birden çok kez yürütmemize izin verir. Aşağıda, programlama dillerinin çoğunda bir döngü ifadesinin genel biçimi verilmiştir:</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*srHR3o1A16Y8ddWa" alt=""></p>
+<p>C dilinde 3 çeşit döngü vardır. Bunlar for, while ve do-while döngüleridir.</p>
+<h4 id="for-döngüsü">
+  for döngüsü
+  <a class="heading-link" href="#for-d%c3%b6ng%c3%bcs%c3%bc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Deyimleri birden çok kez yürütür ve döngü değişkenini yöneten kodu kısaltır.</p>
+<pre tabindex="0"><code>//0&#39;dan 10a kadar olan sayıları yazdıran program  
+for(int i=0;i&lt;=10;++i){  
+    printf(&#34;sayi: %d \n&#34;,i);  
+}
+</code></pre><p>Döngü ifadeleri iç içe kullanılabilir buna iç-içe döngü(nested loop) denir. Bu daha çok matris işlemlerinde kullanılır.</p>
+<pre tabindex="0"><code>//20x20lik bir matrisin indislerini yazdıran program  
+for(int i=1;i&lt;=20;++i}{  
+  for(int j=1;j&lt;=20;++j){  
+    printf(&#34;(%d,%d)\n&#34;,i,j);  
+  }  
+}
+</code></pre><p><img src="https://cdn-images-1.medium.com/max/800/0*XyQbq3v5a6xiEvZT" alt=""></p>
+<h4 id="while-döngüsü">
+  while döngüsü
+  <a class="heading-link" href="#while-d%c3%b6ng%c3%bcs%c3%bc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Belirli bir koşul doğruyken bir ifadeyi veya ifade grubunu tekrarlar. Döngü gövdesini yürütmeden önce durumu test eder.</p>
+<pre tabindex="0"><code>//10dan 1&#39;e kadar olan sayıları yazdıran program  
+int i = 10;  
+while(i&gt;0){  
+  printf(&#34;sayi: %d \n&#34;,i);  
+  i--;  
+}
+</code></pre><p>while döngüsü içindeki koşul sürekli doğru olursa sonsuz döngü oluşur. Döngüyü durduracak bir koşul olmadığı için döngü program sonlandırılana dek devam eder.</p>
+<pre tabindex="0"><code>//1 değeri doğru(True) değeri temsil eder  
+while(1){  
+  printf(&#34;bu bir sonsuz dongudur&#34;);  
+}
+</code></pre><h4 id="do-whiledöngüsü">
+  do while döngüsü
+  <a class="heading-link" href="#do-whiled%c3%b6ng%c3%bcs%c3%bc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>while döngüsünden farklı olarak döngü koşulunu başta değil sonda kontrol eder.</p>
+<pre tabindex="0"><code>//10dan 1&#39;e kadar olan sayıları yazdıran program  
+int sayi=10;  
+do{  
+  printf(&#34;sayi: %d \n&#34;, sayi);  
+  sayi--;  
+}while(sayi&gt;0);
+</code></pre><p>do-while döngüsü önce deyimleri yürütür sonra koşulu sorgular. Bu bazı durumlarda oldukça kullanışlı olabilir.</p>
+<pre tabindex="0"><code>//kullanıcıdan 0 gelinceye kadar alınan sayıları ekrana bastıran program.  
+int sayi;  
+do{  
+  printf(&#34; Bir sayi giriniz: &#34;);  
+  scanf(&#34;%d&#34;, &amp;sayi);  
+  printf(&#34;\n Girilen sayi: %d&#34;,sayi);  
+}while(sayi!=0);
+</code></pre><p><img src="https://cdn-images-1.medium.com/max/800/0*vOFsWpd6gw0nvsbR" alt=""></p>
+<h4 id="döngü-kontrol-deyimleri">
+  Döngü kontrol deyimleri
+  <a class="heading-link" href="#d%c3%b6ng%c3%bc-kontrol-deyimleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><strong>break deyimi:</strong> Döngü ifadesini sonlandırır ve yürütmeyi döngünün hemen sonrasındaki ifadeye aktarır.</p>
+<pre tabindex="0"><code>//donguden çıkmak için q&#39;ya basmak gereken program  
+char c;  
+while(1){  
+  printf(&#34;bir karakter giriniz: &#34;);  
+  scanf(&#34;%c&#34;, &amp;c);  
+  if(c==&#39;q&#39;){  
+    break;  
+  }  
+  printf(&#34;\n dongu devam ediyor&#34;);  
+}  
+  
+printf(&#34;\n dongu sonlandı&#34;);
+</code></pre><p><strong>continue deyimi:</strong> Döngünün gövdesinin geri kalanını atlar ve döngünün sonraki iterasyonuna geçer.</p>
+<pre tabindex="0"><code>for(;;){    // for ile sonsuz döngü  
+  printf(&#34;bu deyim çalışır&#34;);  
+  continue;  
+  printf(&#34;bu deyim çalışmaz&#34;);  
+}
+</code></pre><p>yukarıdaki örnekte continue deyiminin altınsa kalan printf(), continue altında kalan deyimleri atlayıp döngüyü başa aldığı için hiç çalışmaz.</p>
+<hr>
+<h3 id="fonksiyonlar-veyapılar">
+  Fonksiyonlar ve Yapılar
+  <a class="heading-link" href="#fonksiyonlar-veyap%c4%b1lar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Fonksiyonlar ve yapıların temel işlevi deyimleri gruplamak/paketlemektir. Genel olarak fonskiyonlar çalışan deyimleri, yapılar verileri gruplar diyebiliriz.</p>
+<h4 id="struct-tanımlama">
+  Struct Tanımlama
+  <a class="heading-link" href="#struct-tan%c4%b1mlama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Structlar bir kaydı temsil etmek için kullanılır. Kitaplıktaki kitaplarınızın kaydını tutmak istediğinizi varsayalım. Her kitapla ilgili aşağıdaki özellikleri tutmak isteyebilirsiniz:</p>
+<ul>
+<li>Kitap adı</li>
+<li>Konu</li>
+<li>Yazar</li>
+<li>Sayfa Sayısı</li>
+</ul>
+<p>Bu kitabı bir struct ile tanımlamak istersek:</p>
+<pre tabindex="0"><code>struct Books {  
+   char  title[50];  
+   char  author[50];  
+   char  subject[100];  
+   int   pages;  
+} book;
+</code></pre><p>şeklinde tanımlayabiliriz. Görüldüğü gibi bir çok veri türünü kullanarak daha geniş bir veri türü elde ediyoruz. Bu geniş veri türünü kullanmak için:</p>
+<pre tabindex="0"><code>struct Books kitap1;   
+//struct books türünde kitap1 isminde bir veri tipi tanımı  
+  
+strcpy( kitap1.title, &#34;C programlama&#34;);  
+strcpy( kitap1.author, &#34;yazar adi&#34;);   
+strcpy( kitap1.subject, &#34;C&#34;);  
+kitap1.pages = 680;
+</code></pre><p>Yukaridaki kod parçasında karakter dizisi(string) değerlerini atamak için strcpy() fonksiyonu kullanılır. Diğer değerler ‘=’ operatörü ile atanabilir.</p>
+<p><strong>typedef</strong></p>
+<p>typedef, C programlamasında mevcut veri türlerine yeni bir ad sağlamak için kullanılan bir anahtar kelimedir. typedef anahtar sözcüğü, zaten var olan adı yeniden tanımlamak için kullanılır. struct deyimiyle kullanımı çok yaygındır. Bu sayede struct anahtar kelimesini her tanımlamada tekrar kullanmamız gerekmez:</p>
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;  
+#include &lt;string.h&gt;  
+    
+typedef struct students   
+{  
+  char name[50];  
+  char branch[50];  
+  int ID_no;  
+} students;  
+    
+int main()  
+{  
+  students st;  //Tanımlamadas struct anahtar kelimesini kullanmadık  
+  strcpy(st.name,   
+         &#34;Ahmet Yılmaz&#34;);  
+  strcpy(st.branch,   
+         &#34;Bilgisayar Bilimleri&#34;);  
+  st.ID_no = 108;  
+      
+  return 0;  
+}
+</code></pre><h4 id="fonksiyonlar">
+  Fonksiyonlar
+  <a class="heading-link" href="#fonksiyonlar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir fonksiyon, birlikte bir görevi gerçekleştiren deyimler grubudur. Her C programının en az bir işlevi vardır, bu da main()’dir. Fonksiyonlar devamında gelen () işaretleriyle simgelenir.</p>
+<p>Bir fonksiyon tanımlama:</p>
+<pre tabindex="0"><code>dönüş_tipi fonksiyon_ismi( parametreler) {  
+   fonksiyon gövdesi  
+  return   
+}
+</code></pre><ul>
+<li><strong>dönüş tipi:</strong> Fonksiyonun return deyimiyle döndürdüğü değerin türünü belirtir.</li>
+<li><strong>fonksiyon ismi:</strong> fonksiyonu cağırırken kullandığımız isim.</li>
+<li><strong>parametreler:</strong> parametre bir yer tutucu gibidir. Fonksiyon çağrıldığında parametrelere değerler verilir ve bu gerçek değer olarak adlandırılır.</li>
+<li><strong>fonksiyon gövdesi:</strong> fonksiyonun içindeki deyimlerin yazıldığı bölüm.</li>
+</ul>
+<pre tabindex="0"><code>//integer türünde değer dönen ve integer türünde num1 ve num2 değerlerini   
+//alan max isminde bir fonksiyon  
+int max(int num1, int num2) {  
+  
+   int result;  
+   
+   if (num1 &gt; num2)  
+      result = num1;  
+   else  
+      result = num2;  
+   
+   return result;   
+}
+</code></pre><p><strong>fonksiyon imzası/bildirimi</strong></p>
+<p>Bir fonksiyon bildirimi, derleyiciye bir işlev adı ve işlevin nasıl çağrılacağı hakkında bilgi verir. Fonksiyonun gerçek gövdesi ayrı ayrı tanımlanabilir.</p>
+<pre tabindex="0"><code>int max(int num1, int num2);   //fonksiyon imzası
+</code></pre><p><strong>fonksiyon çağrısı</strong></p>
+<p>Bir fonksiyonu kullanmak için, tanımlanan parametrelere göre o fonksiyonu çağırmanız gerekir.</p>
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;  
+   
+/* fonksiyon imzası*/  
+int max(int num1, int num2);  
+  
+/* main fonksiyonu */  
+int main () {  
+  
+   int a = 100;  
+   int b = 200;  
+   int ret;  
+   
+   /* fonksiyon çağrısı*/  
+   ret = max(a, b);  
+   
+   printf( &#34;Max value is : %d\n&#34;, ret );  
+   
+   return 0;  
+}  
+   
+/* fonksiyon tanımı */  
+int max(int num1, int num2) {  
+  
+   int result;  
+   
+   if (num1 &gt; num2)  
+      result = num1;  
+   else  
+      result = num2;  
+   
+   return result;   
+}
+</code></pre><h4 id="özyinelemeli-fonksiyonlar">
+  Özyinelemeli Fonksiyonlar
+  <a class="heading-link" href="#%c3%b6zyinelemeli-fonksiyonlar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Kendini çağıran fonksiyonlarla oluşturulmuş döngüye benzer yapılardır. Kısaca bir fonksiyonun kendini çağırmasıdır.</p>
+<pre tabindex="0"><code>void recursion() {  
+   recursion(); /* fonksiyon kendini çağırıyor*/  
+}  
+  
+int main() {  
+   recursion();  
+}
+</code></pre><p>Yukarıda görüldüğü gibi recursion isimli fonksiyon kendini çağırıyor. Ancak bu kullanımda program sonsuza dek devam eder, çünkü durduracak bir koşul yok. Bu yüzden, özyinelemeli fonksiyonların kullanımında 2 durum gereklidir:</p>
+<p>Temel durum: fonksiyonun kendini çağırmayı bıraktığı durumudur.</p>
+<p>Rekürsif durum: fonksiyonun kendini çağırdığı durumdur.</p>
+<pre tabindex="0"><code>int factorial(unsigned int i) {  
+  
+   if(i &lt;= 1) {  
+      return 1;  //temel durum  
+   }  
+   return i * factorial(i - 1); //rekürsif durum  
+}
+</code></pre><hr>
+<h3 id="alıştırma-soruları">
+  Alıştırma Soruları
+  <a class="heading-link" href="#al%c4%b1%c5%9ft%c4%b1rma-sorular%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="soru-1">
+  soru-1
+  <a class="heading-link" href="#soru-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bilgisayar isminde bir struct oluşturup, işlemcisi, bellek kapasitesi, disk kapasitesi gibi tanımlamalar yapınız ve bu tanımlamalara atamalar yapınız.</p>
+<h4 id="soru-2">
+  soru-2
+  <a class="heading-link" href="#soru-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Ders isminde bir struct oluşturup, dersin adını, dersi veren öğretmeni, dersin sınıfını ve dersin kodunu bu structta tanımlayınız. Bu verileri kayıt bölümünde kullanıcıdan alıp, kontrol bölümünde istenilen dersi ekrana basan programı yazınız.</p>
+<h4 id="soru-3">
+  soru-3
+  <a class="heading-link" href="#soru-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Parametre olarak bir isim alan ve aldığı isimle ekrana “merhaba _isim_” yazdıran fonksiyonu yazınız.</p>
+<h4 id="soru-4">
+  soru-4
+  <a class="heading-link" href="#soru-4">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>seçilen bir işlem türüne göre dairenin alanını veya çevresini hesaplayabilecek fonksiyonu yazınız ve programda kullanınız.</p>
+<h4 id="soru-5">
+  soru-5
+  <a class="heading-link" href="#soru-5">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>25 elemanlı bir veri dizisi için ortalamayı hesaplayan fonksiyonu yazıp programda kullanınız.</p>
+<h4 id="soru-6">
+  soru-6
+  <a class="heading-link" href="#soru-6">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>klavyeden girilen iki sayı için minimum değer, maximum değer ve ortalama değerleri dönen 3 foksiyon tanımlayıp bunları kullanan programı yazınız.</p>
+<h4 id="soru-7">
+  soru-7
+  <a class="heading-link" href="#soru-7">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Verilen bir stringi tersine çeviren fonksiyonu tanımlayınız ve programda kullanınız.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

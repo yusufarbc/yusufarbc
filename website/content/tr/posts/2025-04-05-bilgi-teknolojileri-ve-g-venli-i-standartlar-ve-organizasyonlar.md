@@ -1,4 +1,5 @@
 ---
+series: ["Incident Response"]
 title: "Bilgi Teknolojileri ve Güvenliği Standartları ve Organizasyonları"
 date: 2025-04-05
 draft: false

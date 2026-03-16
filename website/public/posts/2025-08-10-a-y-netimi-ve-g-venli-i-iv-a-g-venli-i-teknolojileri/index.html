@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Network Management and Security IV: Network Security Technologies · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Network Management and Security IV: Network Security Technologies
+  
+    
+    Link to heading
+  
+
+
+The complexity of digital infrastructures and the sophisticated nature of cyber threats have necessitated a radical transformation in network security approaches. The traditional “castle and moat” perimeter security model strongly guarded the boundaries of the network, assigning implicit trust to every entity within. However, with the rise of modern IT paradigms such as cloud computing, mobility, remote working and the Internet of Things (IoT), this clearly defined network perimeter has become increasingly blurred. In these distributed and dynamic environments, the inability of the traditional model to prevent threats has led to the adoption of more integrated and identity-centered architectures such as defense-in-depth and Zero Trust.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Network Management and Security IV: Network Security Technologies">
+  <meta name="twitter:description" content="Network Management and Security IV: Network Security TechnologiesLink to headingThe complexity of digital infrastructures and the sophisticated nature of cyber threats have necessitated a radical transformation in network security approaches. The traditional “castle and moat” perimeter security model strongly guarded the boundaries of the network, assigning implicit trust to every entity within. However, with the rise of modern IT paradigms such as cloud computing, mobility, remote working and the Internet of Things (IoT), this clearly defined network perimeter has become increasingly blurred. In these distributed and dynamic environments, the inability of the traditional model to prevent threats has led to the adoption of more integrated and identity-centered architectures such as defense-in-depth and Zero Trust.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2025-08-10-a-y-netimi-ve-g-venli-i-iv-a-g-venli-i-teknolojileri/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Network Management and Security IV: Network Security Technologies">
+  <meta property="og:description" content="Network Management and Security IV: Network Security TechnologiesLink to headingThe complexity of digital infrastructures and the sophisticated nature of cyber threats have necessitated a radical transformation in network security approaches. The traditional “castle and moat” perimeter security model strongly guarded the boundaries of the network, assigning implicit trust to every entity within. However, with the rise of modern IT paradigms such as cloud computing, mobility, remote working and the Internet of Things (IoT), this clearly defined network perimeter has become increasingly blurred. In these distributed and dynamic environments, the inability of the traditional model to prevent threats has led to the adoption of more integrated and identity-centered architectures such as defense-in-depth and Zero Trust.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-10T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-10T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2025-08-10-a-y-netimi-ve-g-venli-i-iv-a-g-venli-i-teknolojileri/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About Me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2025-08-10-a-y-netimi-ve-g-venli-i-iv-a-g-venli-i-teknolojileri/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2025-08-10-a-y-netimi-ve-g-venli-i-iv-a-g-venli-i-teknolojileri/">
+              Network Management and Security IV: Network Security Technologies
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-08-10T00:00:00Z">
+                August 10, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              15-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="network-management-and-security-iv-network-security-technologies">
+  Network Management and Security IV: Network Security Technologies
+  <a class="heading-link" href="#network-management-and-security-iv-network-security-technologies">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_Fhet-NIJbKlNzPESUc1Ttw.png" alt=""></p>
+<p>The complexity of digital infrastructures and the sophisticated nature of cyber threats have necessitated a radical transformation in network security approaches. The traditional “castle and moat” perimeter security model strongly guarded the boundaries of the network, assigning implicit trust to every entity within. However, with the rise of modern IT paradigms such as cloud computing, mobility, remote working and the Internet of Things (IoT), this clearly defined network perimeter has become increasingly blurred. In these distributed and dynamic environments, the inability of the traditional model to prevent threats has led to the adoption of more integrated and identity-centered architectures such as defense-in-depth and Zero Trust.</p>
+<p>This evolution represents a fundamental shift from reactive defense mechanisms to proactive control strategies. Initially, it was considered sufficient to place a firewall around the network, assuming that the threats were largely external. However, when attackers began to target the application layer (OSI Layer 7) to bypass this defense, tools that could go deeper and analyze the content, such as Web Application Firewalls (WAF) and Intrusion Prevention Systems (IPS), were needed. With the increasing ability of threat actors to steal credentials and exploit insider threats, it has become clear that even a user or device inside the network cannot be trusted by default. This awareness has formed the basic philosophy of the Zero Trust architecture, which stipulates that every access request must be dynamically verified and authorized, regardless of who and where it comes from. Therefore, the evolution of network security technologies is not only a technical advance, but also a concrete reflection of a philosophical shift towards the concept of “trust”. This report aims to comprehensively examine today&rsquo;s network security technologies within the framework of these modern paradigms, at the level of architecture, protocol and strategy.</p>
+<hr>
+<h3 id="chapter-1-the-cornerstone-of-network-border-security-firewall-technologies">
+  Chapter 1: The Cornerstone of Network Border Security: Firewall Technologies
+  <a class="heading-link" href="#chapter-1-the-cornerstone-of-network-border-security-firewall-technologies">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Firewalls are the most basic and indispensable components of network security architectures. Their job is to monitor and control incoming and outgoing network traffic based on predefined security rules. The evolution of technology has enabled this fundamental task to be accomplished in increasingly sophisticated ways.</p>
+<h3 id="11-an-evolutionary-view-from-packet-filtering-to-stateful-inspection">
+  1.1. An Evolutionary View: From Packet Filtering to Stateful Inspection
+  <a class="heading-link" href="#11-an-evolutionary-view-from-packet-filtering-to-stateful-inspection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The first generation of firewalls were based on stateless packet filtering technology. This approach operates at layers 3 (Network) and 4 (Transport) of the OSI model, evaluating each network packet independently of the others. The decision mechanism is based on static information contained in the header of the packet: source IP address, destination IP address, source port number, destination port number and the protocol used. Although this simple and fast method provides basic access control, it has significant vulnerabilities. Its biggest weakness is its inability to understand the context of the link. For example, an attacker can easily spoof this type of firewall by spoofing the source IP address (IP spoofing) or inserting a fake “reply” packet in the middle of a TCP session.</p>
+<p>As a solution to these vulnerabilities, <strong>stateful inspection</strong> or also known as <strong>dynamic packet filtering</strong> technology has been developed. This technology has revolutionized network security by introducing the concepts of &ldquo;memory&rdquo; and &ldquo;context&rdquo;. While stateless firewalls treat each packet as isolated, stateful firewalls actively monitor the status of network connections. It does this by storing the information of all ongoing sessions in a structure called <strong>state table</strong> or <strong>connection table</strong>.</p>
+<p>In the example of a TCP connection, this process works like this:</p>
+<ol>
+<li>A client on the internal network sends a <code>SYN</code> packet to initiate a connection to a server on the external network. The stateful firewall sees this outgoing packet and adds a new entry to the state table. This entry contains information such as source and destination IP/port information, protocol (TCP) and the status of the connection (<code>SYN_SENT</code>).</li>
+<li>The server responds to this request with a <code>SYN-ACK</code> packet. The firewall checks the status table for this incoming packet and checks if it corresponds to an entry. When it finds a match, it allows the packet to pass through and updates the connection status in the table to <code>ESTABLISHED</code>.</li>
+<li>If an unwanted &lsquo;SYN-ACK&rsquo; packet arrives from outside, which does not correspond to an internally initiated connection, the firewall automatically rejects this packet because it cannot find a match in the status table. This blocks many types of attacks that stateless firewalls are vulnerable to.</li>
+<li>When the connection is terminated with <code>FIN</code> or <code>RST</code> packets, the relevant entry is removed from the state table and the ports are closed again.</li>
+</ol>
+<p>This “memory” mechanism allows the firewall to make decisions based not only on static rules but also on the logical integrity of legitimate communication flows in the network. This is a concept that laid the foundation for later anomaly detection and behavioral analysis technologies.</p>
+<h3 id="12-next-generation-firewalls-ngfw-in-depth-analysis-at-the-application-layer">
+  1.2. Next Generation Firewalls (NGFW): In-Depth Analysis at the Application Layer
+  <a class="heading-link" href="#12-next-generation-firewalls-ngfw-in-depth-analysis-at-the-application-layer">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Although stateful inspection has significantly increased network security, it remains blind to threats at the application layer (Layer 7). A traditional stateful firewall assumes that traffic passing through port 80 or 443 is HTTP or HTTPS, but cannot understand what that traffic contains or which specific application (e.g. Facebook, YouTube, Skype) it belongs to. <strong>Next-Generation Firewalls (NGFW)</strong> have been developed to fill this gap.</p>
+<p>While NGFWs have all the capabilities of stateful inspection, their most distinctive feature is <strong>Deep Packet Inspection (DPI)</strong> technology. DPI analyzes not only the header information of network packets, but also the payload. In this way, regardless of the port number, it can detect which application the traffic belongs to and even which feature of the application is used. This capability is called <strong>application awareness</strong> and provides revolutionary granularity in security policies. For example, instead of a broad rule like “Allow all traffic from port 80,” an NGFW can create much more specific and effective policies like “Allow all employees to use LinkedIn, but prevent file uploads” or “Allow YouTube access, but prohibit video downloads.”</p>
+<p>Additionally, modern NGFWs often offer additional security modules such as the <strong>Intrusion Prevention System — IPS</strong> on an integrated platform. This provides an additional layer of protection by detecting and proactively blocking attack signatures intended to exploit known vulnerabilities.</p>
+<h3 id="13-ngfws-advanced-capabilities-ssltls-inspection-and-sandbox-analysis">
+  1.3. NGFW’s Advanced Capabilities: SSL/TLS Inspection and Sandbox Analysis
+  <a class="heading-link" href="#13-ngfws-advanced-capabilities-ssltls-inspection-and-sandbox-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Threat actors are increasingly using encrypted traffic (SSL/TLS) to disguise malware and command-and-control (C2) communications. This makes content-based control mechanisms such as DPI and IPS ineffective because the contents of the encrypted packet cannot be seen. NGFWs overcome this problem with the <strong>SSL/TLS Inspection</strong> capability.</p>
+<p>SSL/TLS inspection is based on the principle that NGFW is positioned as a legitimate “Man-in-the-Middle — MitM” between the client and the server. The process works like this:</p>
+<ol>
+<li>The client sends a connection request to an HTTPS server.</li>
+<li>NGFW intercepts this request and establishes an SSL/TLS session with the server on behalf of the client. The server sends its certificate to NGFW.</li>
+<li>NGFW verifies the server&rsquo;s certificate. It then generates a new certificate that impersonates the server, which it signs on the fly with its own root certificate (Root CA), and presents it to the client.</li>
+<li>In order for the client to accept this fake certificate, NGFW&rsquo;s root certificate must be pre-installed in the client&rsquo;s “Trusted Root Certification Authorities” store.</li>
+<li>Once the client accepts the certificate, a second encrypted tunnel is established between NGFW and the client.</li>
+<li>From this point on, NGFW decrypts the traffic coming from the client, checks the content according to security policies (DPI, IPS, Antivirus, etc.), if there is no harmful content, encrypts it again and transmits it to the server. It performs the same process in reverse for responses from the server.</li>
+</ol>
+<p>While this mechanism provides full visibility into threats hiding within encrypted traffic, it also introduces a significant privacy and management issue. The technical “breaking” of privacy to increase security is a subject of legal and ethical debate, especially in highly regulated industries such as finance and healthcare. It creates a gap.</p>
+<p>To combat zero-day threats and advanced malware that cannot be detected by traditional signature-based methods, NGFWs use <strong>Sandbox Analysis</strong> technology. This technology runs suspicious or unknown files that enter the network (e.g., email attachments, web downloads) in a controlled virtual environment (sandbox) that is completely isolated from the main production network. In this virtual environment, the behavior of the file (file system changes, network connection attempts, registry manipulations, abnormal process initiation, etc.) is monitored in detail. If the file exhibits malicious behavior, it is marked as a threat, blocked from entering the network, and the threat intelligence database is updated by creating a signature for this new threat. However, advanced malware can use sandbox evasion techniques to determine whether the environment they are in is a sandbox or not. These techniques include checking for virtual machine artifacts (specific drivers, MAC addresses), circumventing analysis by time-based delays (e.g. exceeding the sandbox&rsquo;s analysis time by starting the malicious action after 10 minutes), or by waiting for user interaction (mouse movement, keyboard input).</p>
+<h3 id="14-the-science-of-policy-and-rules-management-efficiency-optimization-and-the-nist-framework">
+  1.4. The Science of Policy and Rules Management: Efficiency, Optimization, and the NIST Framework
+  <a class="heading-link" href="#14-the-science-of-policy-and-rules-management-efficiency-optimization-and-the-nist-framework">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>An effective firewall is not just about hardware and software; It is also based on a well-structured set of rules and policies that are regularly reviewed and optimized. The basic principle of firewall management is the &ldquo;deny-by-default, allow-by-exception&rdquo; approach. This means that only traffic that is absolutely necessary for work is explicitly allowed, and everything else is blocked by default.</p>
+<p>Over time, as corporate networks grow and the number of applications increases, firewall rule sets become more complex. This can lead to anomalies such as <strong>shadow rules</strong> (rules overridden by a higher rule), <strong>redundant rules</strong> (rules belonging to systems or applications that are no longer used), and <strong>conflicting rules</strong>. Such rule anomalies both degrade the performance of the firewall and create potential security vulnerabilities. Therefore, a critical best practice is to audit rule sets regularly (for example, quarterly), purge unused or unnecessary rules, and put the rules in a logical order (such as placing the most frequently matching rules at the top).</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*MyFNGDm32b4GFCmw" alt=""></p>
+<p>NIST</p>
+<p>Organizations such as the US National Institute of Standards and Technology (NIST) provide comprehensive frameworks for creating and managing firewall policies. These frameworks cover issues such as documenting rule changes, clearly stating the purpose of each rule, adhering to the principle of least privilege, and conducting regular audits.</p>
+<h3 id="15-log-analysis-and-computer-forensics-extracting-meaning-from-firewall-logs">
+  1.5. Log Analysis and Computer Forensics: Extracting Meaning from Firewall Logs
+  <a class="heading-link" href="#15-log-analysis-and-computer-forensics-extracting-meaning-from-firewall-logs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Firewall logs are vital for understanding the security posture of a network, detecting threats, and performing forensics after a security breach. Each log record contains valuable information about a traffic flow on the network. A typical log contains the following fields: timestamp, action (allowed/blocked), protocol, source IP address, source port, destination IP address, and destination port.</p>
+<p>By systematically analyzing these logs, various malicious activities can be detected:</p>
+<ul>
+<li><strong>Port Scanning:</strong> A large number of blocked connection attempts from a single source to many different ports or destinations in a short period of time indicates a reconnaissance activity.</li>
+<li><strong>Unauthorized Access Attempts:</strong> Constantly blocked connection logs to critical servers or services may be a brute-force attack or unauthorized access attempt.</li>
+<li><strong>Abnormal Bandwidth Usage:</strong> An unexpectedly high volume of allowed traffic from a particular source or destination may be part of a data leak or DDoS attack.</li>
+<li><strong>Malware Activity:</strong> Connection attempts from known malicious IP addresses or command-and-control servers may indicate that a system has been compromised within the network.</li>
+</ul>
+<p>For effective log analysis, all firewall logs and logs from other network devices should be sent to a central <strong>Security Information and Event Management (SIEM)</strong> platform using a standard protocol such as <strong>Syslog</strong>. Syslog messages generally follow the format <code>&lt;PRI&gt;TIMESTAMP HOSTNAME: MESSAGE</code>; where the <code>&lt;PRI&gt;</code> value contains both the severity and source (facility) information of the message. For example, a message such as <code>%ASA-6-106100</code> produced by a Cisco ASA firewall includes the device type (ASA), severity level (6 - Informational), and specific event ID (106100). This structured data forms the basis for event correlation and automatic alert generation in SIEM platforms.</p>
+<p><img src="/images/1_B1xzRwD1QjcobyhgHaewZQ.png" alt=""></p>
+<p><strong>Firewall Technologies Comparison</strong></p>
+<h3 id="16-dmz-design-patterns-single-and-double-firewall-architectures">
+  1.6. DMZ Design Patterns: Single and Double Firewall Architectures
+  <a class="heading-link" href="#16-dmz-design-patterns-single-and-double-firewall-architectures">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>DMZ (Demilitarized Zone)</strong> is an intermediate network layer protected by firewalls located between an organization&rsquo;s internal network (LAN) and the outside world (usually the Internet). Its main purpose is to create an additional layer of security by isolating servers that need to be accessed from the outside (such as web servers, e-mail servers) from critical systems in the internal network. In this way, attackers are prevented from directly infiltrating the internal network in the event of a possible cyber attack.</p>
+<p>There are basically two popular design patterns for creating DMZs:</p>
+<h4 id="single-firewall-three-legged-model">
+  <strong>Single Firewall (Three-Legged Model):</strong>
+  <a class="heading-link" href="#single-firewall-three-legged-model">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In this architecture, a single firewall with at least three network interfaces is used. Each interface connects to a different network:</p>
+<ul>
+<li><strong>External Leg:</strong> Connected to the Internet.</li>
+<li><strong>Internal Leg:</strong> It is connected to the organization&rsquo;s private internal network (LAN).</li>
+<li><strong>DMZ Leg:</strong> Depends on the servers in the DMZ network.</li>
+</ul>
+<p>The firewall manages traffic between these three legs according to predefined rules. For example, requests from the internet are only allowed to access certain ports of the web server in the DMZ (e.g. 80 for HTTP, 443 for HTTPS), while connections initiated from the DMZ to the internal network are generally blocked.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*MY9iINeS9IzeD6mt" alt=""></p>
+<p>Three-Legged Model</p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>It is lower cost.</li>
+<li>Installation and management are simpler.</li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>A single firewall creates a single point of failure for the security of the entire network. If the firewall is compromised, the entire network is at risk.</li>
+</ul>
+<h4 id="dual-firewall-model">
+  <strong>Dual-Firewall Model:</strong>
+  <a class="heading-link" href="#dual-firewall-model">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This more secure approach uses two separate firewalls:</p>
+<ul>
+<li><strong>External Firewall (Frontend Firewall):</strong> It is placed between the Internet and the DMZ. It is configured to allow traffic from the Internet to only reach servers in the DMZ.</li>
+<li><strong>Internal Firewall (Backend Firewall):</strong> It is positioned between the DMZ and the internal network. This firewall controls access from the internal network to the DMZ and, more importantly, from the DMZ to the internal network, with much stricter rules. Generally, only certain requests initiated from the internal network and made to servers in the DMZ are allowed.</li>
+</ul>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*RYT2WgTFAYQUGQ8s" alt=""></p>
+<p>Dual-Firewall Model</p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Offers a layered security approach. If an attacker breaches the external firewall, he or she must face a second obstacle to reach the internal network.</li>
+<li>By using firewalls from different manufacturers (vendor diversity), the possibility of a single vulnerability affecting both walls can be reduced.</li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>It costs more.</li>
+<li>More complex to configure and manage.</li>
+</ul>
+<h3 id="17-secure-server-placement-which-servers-should-be-in-the-dmz">
+  1.7. Secure Server Placement: Which Servers Should Be in the DMZ?
+  <a class="heading-link" href="#17-secure-server-placement-which-servers-should-be-in-the-dmz">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The general rule is that all servers that need to accept direct connections from the outside world are placed in the DMZ. Servers on the internal network that contain sensitive data should definitely not be in the DMZ.</p>
+<h4 id="common-server-types-to-place-in-dmz">
+  <strong>Common Server Types to Place in DMZ:</strong>
+  <a class="heading-link" href="#common-server-types-to-place-in-dmz">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Web Servers:</strong> These are the servers that host the institution&rsquo;s website and must accommodate visitor traffic from the internet.</li>
+<li><strong>E-mail Servers (Mail Gateway/Relay):</strong> These are the servers that receive e-mails from outside and forward them to the mail server in the internal network or forward the e-mails sent from the internal network to the outside world. Real mailboxes and sensitive emails should be kept on servers on the internal network.</li>
+<li><strong>FTP Servers:</strong> These are servers used to exchange files with external users.</li>
+<li><strong>DNS Servers (External):</strong> Servers that translate domain names into IP addresses and are accessible from the outside world. What you need to know are the DNS servers.</li>
+<li><strong>Proxy Servers (Reverse Proxy):</strong> These are servers that receive requests from the Internet and direct them to the appropriate application server in the internal network and provide an additional layer of security.</li>
+<li><strong>VPN Servers:</strong> VPN termination points used for remote access can be located in the DMZ.</li>
+</ul>
+<h4 id="best-practices-for-secure-server-deployment">
+  <strong>Best Practices for Secure Server Deployment:</strong>
+  <a class="heading-link" href="#best-practices-for-secure-server-deployment">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Principle of Minimum Authority:</strong> Access to the internal network by servers in the DMZ should be kept to an absolute minimum. Access to specific internal network servers should only be allowed over specific ports and protocols that are necessary. For example, a web server can access a database server on the internal network only through the database port.</li>
+<li><strong>Traffic Flow Direction:</strong> Firewall rules should tightly control which direction connections can be initiated. Ideally, a server in the DMZ should never be allowed to initiate a new connection towards the internal network.</li>
+<li><strong>Database Servers Should Be Kept in the Internal Network:</strong> Database servers containing sensitive information such as customer information and financial data should never be placed in the DMZ. These servers should be kept in an even more secure segment of the internal network and should only respond to specific requests from application servers in the DMZ.</li>
+<li><strong>Continuous Monitoring and Update:</strong> Servers in the DMZ should be constantly monitored and security patches and updates should be applied without delay. Since the DMZ is the area most vulnerable to attacks, it is critical to secure these servers.</li>
+<li><strong>Certification and Authentication:</strong> Strong authentication mechanisms and encryption should be used in communication between the DMZ and the internal network.</li>
+</ul>
+<p>As a result, a properly designed DMZ architecture and careful server placement strategy significantly strengthens an organization&rsquo;s cybersecurity posture. This is a vital step in providing services to the outside while also protecting valuable assets inside.</p>
+<hr>
+<h3 id="chapter-2-protective-shield-of-web-applications-web-application-firewall-waf">
+  Chapter 2: Protective Shield of Web Applications: Web Application Firewall (WAF)
+  <a class="heading-link" href="#chapter-2-protective-shield-of-web-applications-web-application-firewall-waf">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>As web applications and APIs have become central to the business world, attacks targeting these platforms have increased and become more sophisticated. While traditional network firewalls (including NGFWs) are effective at protecting general network traffic, they may fall short of understanding threats specific to the complex logic and operation of web applications. At this point, <strong>Web Application Firewall (WAF)</strong>, which operates at the 7th layer of the OSI model, focusing especially on HTTP and HTTPS protocols, comes into play.</p>
+<h3 id="21-waf-architecture-and-working-principles-positive-and-negative-security-models">
+  2.1. WAF Architecture and Working Principles: Positive and Negative Security Models
+  <a class="heading-link" href="#21-waf-architecture-and-working-principles-positive-and-negative-security-models">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>A WAF is typically positioned as a reverse proxy in front of the web server. In this architecture, all user requests coming from the outside world are first met by the WAF, passed through a security audit, and only requests deemed safe are forwarded to the web server in the background. This control is based on one or a combination of two basic security models (hybrid model):</p>
+<ol>
+<li><strong>Negative Security Model (Blocklisting):</strong> This model works on the “allow by default” principle and uses a blocklist containing known malicious patterns or signatures. For example, a WAF detects and blocks requests that contain strings such as `` OR &lsquo;1&rsquo;=&lsquo;1&rsquo;<code>, which are frequently used in SQL injection attacks, or </code><script>` tags, which are used in cross-site scripting (XSS) attacks. This model is easier to implement and has a lower risk of accidentally blocking legitimate traffic (false positives). However, its biggest weakness is that it only protects against known attack types and is ineffective against zero-day attacks that have not been seen before, that is, have no signature.</li>
+<li><strong>Positive Security Model (Allowlisting):</strong> This model adopts a much stricter principle such as “deny by default”. It only allows traffic patterns that are predefined, known and legitimate. This requires “teaching” the application all valid URLs, parameters, allowed character sets, and expected value ranges to the WAF. This model inherently provides much stronger protection against zero-day attacks because it sees anything unidentified as a potential threat. However, since it requires updating the WAF policy every time the application is updated or a new function is added, it is much more difficult to configure and maintain, and the risk of false positives is high.</li>
+</ol>
+<p>The choice between these two models is a choice of information asymmetry and management burden. The negative model is based on the assumption “I know what the enemy looks like”, while the positive model is based on the assumption “I know what the friend is like”. This balance between security effectiveness and operational flexibility forms the basis of the WAF strategy.</p>
+<h3 id="22-proactive-defense-mechanisms-against-owasp-top-10-threats">
+  2.2. Proactive Defense Mechanisms Against OWASP Top 10 Threats
+  <a class="heading-link" href="#22-proactive-defense-mechanisms-against-owasp-top-10-threats">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>One of the most basic and critical tasks of WAFs is to protect against the 10 most critical web application vulnerabilities regularly published by the Open Web Application Security Project (OWASP). WAFs have specialized control mechanisms that target these common attack vectors:</p>
+<ul>
+<li><strong>A03:2021 — Injection:</strong> This category includes attacks such as SQL, NoSQL, OS command, and LDAP injection. A WAF analyzes the body, headers, and URL parameters of HTTP requests to detect malicious characters (for example, single quotes, semicolons, dashes) and patterns intended to manipulate database queries or operating system commands. For example, it detects an entry such as <code>username=admin'--</code> as an attempt to circumvent the logic of a SQL query and blocks it. Similarly, it filters dangerous HTML tags and JavaScript events such as <code>&lt;script&gt;</code>, <code>onerror</code>, <code>onload</code> in user inputs against Cross-Site Scripting (XSS) attacks.</li>
+<li><strong>A01:2021 — Broken Access Control:</strong> This vulnerability occurs when users can access data or functions outside their authorization. A WAF can protect against such vulnerabilities by tracking user sessions and roles. For example, it can detect when a user tries to access another user&rsquo;s invoice (Insecure Direct Object References — IDOR) by manually changing the URL (by typing <code>/view?invoice_id=124</code> instead of <code>/view?invoice_id=123</code>). WAF can prevent such unauthorized access with rules that check whether <code>invoice_id=124</code> is associated with the user of the current session.</li>
+</ul>
+<h3 id="23-combating-automated-threats-advanced-bot-management-and-rate-limiting">
+  2.3. Combating Automated Threats: Advanced Bot Management and Rate Limiting
+  <a class="heading-link" href="#23-combating-automated-threats-advanced-bot-management-and-rate-limiting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>A significant portion of today&rsquo;s web traffic is generated by bots, which are automated software rather than human users. These bots can be used for legitimate purposes such as indexing sites by search engines, as well as for malicious purposes such as web scraping, credential stuffing, inventory consumption and application layer denial of service (DDoS) attacks.</p>
+<p>Modern WAFs offer advanced bot management capabilities to combat these automated threats. These capabilities go beyond simple IP blocking and use a multi-layered detection mechanism:</p>
+<ul>
+<li><strong>Signature and Reputation Analysis:</strong> Recognizes known good bots (like Googlebot) and bad bots through their IP addresses, User-Agent strings and behavioral signatures.</li>
+<li><strong>Behavioral Analysis:</strong> Distinguishes between a human and a bot by analyzing a client&rsquo;s behavior such as mouse movements, page navigation speed, and timing between requests.</li>
+<li><strong>Device Fingerprinting:</strong> Creates and tracks a unique fingerprint for each client by collecting information such as browser type, version, installed plug-ins and screen resolution.</li>
+<li><strong>Challenge Mechanisms:</strong> Enforces human verification by offering tests such as CAPTCHA to suspicious traffic.</li>
+</ul>
+<p><strong>Rate Limiting</strong> is another critical WAF feature used especially against brute-force attacks and application layer DDoS attacks. This mechanism limits the number of requests from a single source (usually an IP address, but can also be more granular identifiers such as a session ID or API key) in a given time period. For example, a rule such as “no more than 10 requests per minute from each IP address” can be defined for a login page. Subsequent requests exceeding this threshold are blocked (mitigation timeout) or throttling for a certain period of time. This effectively prevents automated attack tools from making hundreds or thousands of attempts per second.</p>
+<h3 id="24-the-art-of-fine-tuning-strategies-to-minimize-the-false-positive-rate">
+  2.4. The Art of Fine Tuning: Strategies to Minimize the False Positive Rate
+  <a class="heading-link" href="#24-the-art-of-fine-tuning-strategies-to-minimize-the-false-positive-rate">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>One of the biggest operational challenges of a WAF is that it mistakenly identifies legitimate and valid user traffic as attacks. This is called a <strong>false positive</strong> and not only negatively impacts the end user experience (blocking legitimate transactions) but also causes alert fatigue for security teams.</p>
+<p>To resolve this issue, WAF policies need to be <strong>fine-tuned</strong> to the specific application it protects. This is a continuous and cyclical process. Although standard rule sets such as OWASP Core Rule Set (CRS) provide general protection, they must be customized for each application. The tuning process usually includes these steps:</p>
+<ol>
+<li><strong>Observation Mode:</strong> WAF is run in logging and alerting mode only, instead of blocking traffic at startup.</li>
+<li><strong>Analysis:</strong> By examining the logs collected over a certain period of time, it is determined which rules were accidentally triggered for which legitimate requests.</li>
+<li><strong>Creating Exceptions:</strong> Instead of completely disabling the rules that cause false positives, exceptions are defined for these rules. For example, a specific rule can be bypassed for requests coming from a specific URL path, a specific parameter, or a specific source IP address. This is the most efficient way to allow legitimate traffic without compromising security.</li>
+<li><strong>Switching to Blocking Mode:</strong> After the false positive rate is reduced to an acceptable level, the WAF is put into active blocking mode and the process is repeated regularly.</li>
+</ol>
+<p>Changing rules files directly is strongly not recommended as it will result in loss of customizations in future updates. Instead, exception mechanisms provided by WAF platforms should be used.</p>
+<hr>
+<h3 id="chapter-3-detecting-anomalies-in-network-traffic-intrusion-detection-and-prevention-systems-idsips">
+  Chapter 3: Detecting Anomalies in Network Traffic: Intrusion Detection and Prevention Systems (IDS/IPS)
+  <a class="heading-link" href="#chapter-3-detecting-anomalies-in-network-traffic-intrusion-detection-and-prevention-systems-idsips">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Intrusion Detection Systems (IDS) and Intrusion Prevention Systems (IPS), designed to detect malicious activities and policy violations by thoroughly analyzing network traffic, are critical components of modern cyber defense architectures. While IDS is a passive monitoring and warning mechanism (out-of-band), IPS has the ability to actively take part in traffic (in-line) and block threats as soon as they are detected.</p>
+<h3 id="31-deep-dive-into-detection-methodologies-signature-anomaly-and-behavior-analysis">
+  3.1. Deep Dive into Detection Methodologies: Signature, Anomaly and Behavior Analysis
+  <a class="heading-link" href="#31-deep-dive-into-detection-methodologies-signature-anomaly-and-behavior-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>IDS/IPS systems basically use three different methodologies to detect threats. Each of these methodologies has its own advantages and disadvantages:</p>
+<ol>
+<li><strong>Signature-based Detection:</strong> This method looks for unique patterns (signatures) left in network traffic by known attacks, malware or vulnerability exploits. Just as an antivirus software recognizes known viruses by their signatures, IDS/IPS compares incoming/outgoing packets against a large database of attack signatures. When a match is found, an alert is generated (IDS) or the packet is blocked (IPS). This method is extremely fast and effective against known threats and has a low false positive rate. However, its biggest weakness is that it is completely blind to zero-day attacks that have never been seen before, that is, whose signature has not yet been created.</li>
+<li><strong>Anomaly-based Detection:</strong> Instead of looking for a specific attack signature, this approach learns the “normal” behavior of the network and flags deviations from this normal as a potential threat. The system creates a <strong>baseline</strong> by observing network traffic metrics (for example, bandwidth usage, protocols used, connection counts) over a period of time. Whenever a statistically significant deviation from this baseline profile is detected (for example, an unexpected increase in FTP traffic in the middle of the night), an anomaly alert is triggered. The biggest advantage of this method is its potential to detect new and unknown attacks without a signature. However, it tends to have a <strong>high false positive rate</strong> because it can also flag legitimate but unexpected network activity (for example, the deployment of a new application) as anomalies.</li>
+<li><strong>Behavioral Analysis:</strong> This is a more advanced form of anomaly-based detection. Rather than focusing solely on statistical deviations such as traffic volume, it analyzes the behavioral logic of protocols and applications. For example, when a DNS server transfers large amounts of data outward in a way it normally shouldn&rsquo;t, or when a web server tries to launch a command line (shell), the protocol detects violations or unexpected sequences of actions. This method can produce more accurate results than anomaly-based detection because it uses more context information.</li>
+</ol>
+<p><img src="/images/1_PjPS0Bfp8Mb94zqFwP74Dw.png" alt=""></p>
+<p><strong>IDS/IPS Detection Methods Comparison</strong></p>
+<h3 id="32-architecture-of-open-source-idsips-engines-comparison-of-snort-suricata-and-zeek-bro">
+  3.2. Architecture of Open Source IDS/IPS Engines: Comparison of Snort, Suricata and Zeek (Bro)
+  <a class="heading-link" href="#32-architecture-of-open-source-idsips-engines-comparison-of-snort-suricata-and-zeek-bro">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The open source community has developed highly capable and widely used tools in the IDS/IPS space. These tools offer powerful alternatives to commercial solutions and represent different architectural approaches:</p>
+<h4 id="snort">
+  <strong>Snort</strong>
+  <a class="heading-link" href="#snort">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Developed in 1998, Snort is the world&rsquo;s most widely used NIDS/IPS and has become the industry standard. Its architecture basically consists of three components:</p>
+<ul>
+<li><strong>Packet Decoder</strong> prepares raw packets coming from the network for analysis; <strong>Detection Engine</strong> analyzes these packets according to defined rules; and <strong>Logging/Alerting Subsystem</strong> records detected events or generates alerts. Snort is a rule-based system and traditionally</li>
+<li>**has a single-threaded architecture. This means that all operations are done sequentially on a single CPU core, which can cause performance bottlenecks on modern high-speed networks.</li>
+</ul>
+<h4 id="suricata">
+  <strong>Suricata</strong>
+  <a class="heading-link" href="#suricata">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Developed as a response to Snort&rsquo;s performance limitations, Suricata stands out with its <strong>multi-threaded</strong> structure, which is its most important architectural difference. This architecture allows Suricata to take full advantage of the power of modern multi-core processors. It performs parallel processing by distributing incoming packets across different threads, allowing it to analyze much higher traffic volumes without packet loss. Additionally, Suricata has <strong>automatic protocol detection</strong> capability. Instead of classifying traffic by port number like Snort (e.g. port 80 is HTTP), Suricata recognizes the protocol itself by analyzing the packet content. This provides a significant advantage in detecting malware traffic running on non-standard ports.</p>
+<h4 id="zeek-formerly-bro">
+  <strong>Zeek (formerly Bro)</strong>
+  <a class="heading-link" href="#zeek-formerly-bro">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Zeek has a fundamentally different philosophy than traditional signature-based IDS/IPSs. It is a Network Analysis Framework rather than an intrusion detection tool. Zeek&rsquo;s architecture consists of two main layers:</p>
+<ul>
+<li><strong>Event Engine</strong> and <strong>Script Interpreter</strong>. The event engine captures raw network traffic and transforms it into high-level, meaningful <strong>events</strong>; for example, <code>http_request</code>, <code>dns_query</code>, <code>ssl_certificate</code> or <code>new_connection</code>. These events are then sent to the script interpreter, which executes policies written in a flexible and powerful scripting language. As a result, instead of simple &ldquo;alert&rdquo; messages, Zeek produces extremely rich, contextual and structured logs (e.g. <code>conn.log</code>, <code>http.log</code>, <code>dns.log</code>, <code>files.log</code>) of every activity occurring on the network.</li>
+</ul>
+<p>This architectural difference represents an important step in the evolution of detection tools. Systems such as Snort and Suricata ask, “Has a known bad event (signature) occurred?” While focusing on the question, Zeek asks, “Exactly what kind of activities (events) are happening on my network?” It looks for an answer to the question. This transforms security analysis from reactive alarm tracking to proactive threat hunting to understand the full context and potential causes of an event.</p>
+<h3 id="33-event-management-and-alarm-correlation-improving-signal-to-noise-ratio">
+  3.3. Event Management and Alarm Correlation: Improving Signal-to-Noise Ratio
+  <a class="heading-link" href="#33-event-management-and-alarm-correlation-improving-signal-to-noise-ratio">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In high-volume networks, IDS/IPS systems can generate tens of thousands or even millions of alerts per day. A large portion of these alerts may be false positives or low priority events. This causes a serious operational problem for security analysts called <strong>alert fatigue</strong>. It can become impossible to distinguish real and significant threat signals among this noise.</p>
+<p>To solve this problem, it is essential to send alerts from IDS/IPS to a central <strong>SIEM</strong> platform and combine them with logs from other security systems (firewall, proxy, endpoint, etc.). Using a technique called <strong>event correlation</strong>, SIEM can reveal a larger attack chain by correlating events from different sources that may seem meaningless on their own. For example, a SIEM correlation rule might detect a scenario like this:</p>
+<ol>
+<li><strong>Event A:</strong> IDS detects an external IP address (<code>1.2.3.4</code>) scanning a server (<code>10.0.0.5</code>) on the internal network. It produces a &ldquo;Port Scan&rdquo; warning.</li>
+<li><strong>Event B:</strong> After a few minutes, the firewall logs record numerous blocked connection attempts from the same source IP (<code>1.2.3.4</code>) to the same target server (<code>10.0.0.5</code>).</li>
+<li><strong>Event C:</strong> After a short time, IPS detects and blocks an attack signature that attempts to exploit a known web server vulnerability (for example, Apache Struts), also against the same source and target.</li>
+</ol>
+<p>While these three events pose different levels of risk when taken individually, when combined by SIEM, they clearly indicate that an attacker is attempting a multi-step attack consisting of discovery, trial, and exploitation phases.</p>
+<h3 id="34-balance-of-false-positives-and-false-negatives-optimizing-detection-effectiveness">
+  3.4. Balance of False Positives and False Negatives: Optimizing Detection Effectiveness
+  <a class="heading-link" href="#34-balance-of-false-positives-and-false-negatives-optimizing-detection-effectiveness">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The effectiveness of IDS/IPS systems depends on how well they manage the balance between two types of errors:</p>
+<ul>
+<li><strong>False Positive:</strong> Falsely marking legitimate network activity as malicious. This can disrupt business processes by causing unnecessary alarms and blocking of legitimate traffic on IPS systems.</li>
+<li><strong>False Negative:</strong> When a real attack passes through the network without being detected. This is the most dangerous situation because it means that the security system has failed and a breach may have occurred.</li>
+</ul>
+<p>There is often an inverse relationship between these two types of errors. Making the system more sensitive (enabling more rules, lowering anomaly thresholds) tends to reduce false negatives but increases false positives. Conversely, making the system less sensitive to reduce false positives increases the risk of missing real attacks (false negatives).</p>
+<p>Optimizing this balance requires a continuous process of <strong>tuning</strong>. This process includes customizing rule sets based on the organization&rsquo;s specific network environment and risk appetite, regularly updating baselines for anomaly-based systems, and enriching alerts using contextual data such as external threat intelligence.</p>
+<hr>
+<h3 id="chapter-4-secure-communication-tunnels-virtual-private-networks-vpn">
+  Chapter 4: Secure Communication Tunnels: Virtual Private Networks (VPN)
+  <a class="heading-link" href="#chapter-4-secure-communication-tunnels-virtual-private-networks-vpn">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Virtual Private Networks (VPN) are technologies used to securely access a private network over unsecured public networks (for example, the internet). VPNs provide confidentiality, integrity, and access control by encrypting and authenticating data. They are basically built on two different protocol families: IPSec and SSL/TLS.</p>
+<h3 id="41-ipsec-protocol-family-cryptographic-analysis-tunneling-and-transport-modes-of-ah-and-esp">
+  4.1. IPSec Protocol Family: Cryptographic Analysis, Tunneling and Transport Modes of AH and ESP
+  <a class="heading-link" href="#41-ipsec-protocol-family-cryptographic-analysis-tunneling-and-transport-modes-of-ah-and-esp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Internet Protocol Security (IPSec)</strong> is a set of protocols that operate at the Network Layer, the 3rd layer of the OSI model, and provide security for IP packets. This means that IPSec protects transparently from all applications and protocols running on it (TCP, UDP, HTTP, etc.). IPSec uses two main security protocols:</p>
+<ol>
+<li><strong>Authentication Header (AH):</strong> Defined in RFC 2402, AH provides <strong>connectionless data integrity</strong>, <strong>data source authentication</strong> and <strong>protection against replay attacks</strong>. It does this with an HMAC (Hash-based Message Authentication Code) value calculated from the contents of the packet and the unchanging parts of the IP header. However, AH does not provide data confidentiality, i.e. <strong>encryption</strong>.</li>
+<li><strong>Encapsulating Security Payload (ESP):</strong> ESP, defined in RFC 4303, offers <strong>data confidentiality (encryption)</strong> in addition to all the security services provided by AH. ESP can operate in both encryption and authentication, encryption only, or authentication only modes, but using encryption without authentication is strongly discouraged.</li>
+</ol>
+<p>These protocols can be implemented in two different modes:</p>
+<ul>
+<li><strong>Transport Mode:</strong> In this mode, the security protocol (AH or ESP) is added between the original IP header and the IP payload. Only the IP payload (i.e. the Transport Layer segment) is preserved, the original IP header is left untouched. This mode is more efficient because it adds less overhead information and is often used to secure communication between two endpoints (host-to-host).</li>
+<li><strong>Tunnel Mode:</strong> In this mode, the entire original IP packet (header and payload) is encrypted and/or authenticated. This protected packet is then fully encapsulated with a new external IP header. This mode is typically used to create a secure tunnel between two gateways (for example, two office routers) (site-to-site VPN) or for a remote user to connect to the corporate network (remote access VPN).</li>
+</ul>
+<h3 id="42-ssltls-based-vpn-solutions-architecture-and-comparative-analysis-with-ipsec">
+  4.2. SSL/TLS Based VPN Solutions: Architecture and Comparative Analysis with IPSec
+  <a class="heading-link" href="#42-ssltls-based-vpn-solutions-architecture-and-comparative-analysis-with-ipsec">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>SSL/TLS VPNs</strong>, as the name suggests, use Secure Sockets Layer (SSL) and its successor Transport Layer Security (TLS) protocols, which were developed to secure web traffic. Unlike IPSec, SSL/TLS VPNs operate at higher layers of the OSI model, typically the Application Layer (Layer 7).</p>
+<p>This architectural difference leads to important functional distinctions between the two technologies:</p>
+<ul>
+<li><strong>Access Granularity:</strong> Since IPSec operates at the Network Layer, when connected to a client, it gives it full access to the entire network. This is the “everything or nothing” approach. SSL/TLS VPN, on the other hand, offers much more granular access control because it operates at the Application Layer. Administrators can grant users access to only specific web applications or file shares rather than the entire network.</li>
+<li><strong>Client Software:</strong> IPSec VPNs often require special VPN software to be installed on client devices. Since SSL/TLS VPNs generally work through a standard web browser, they do not require additional software installation on the client side (clientless VPN), which makes them easier to deploy and use.</li>
+<li><strong>Network Compatibility:</strong> Because IPSec uses certain protocols (protocol 50 for ESP, 51 for AH) and ports (UDP 500 for IKE), it can be blocked by restrictive firewalls or NAT (Network Address Translation) devices. SSL/TLS VPN, on the other hand, bypasses such network barriers more easily because it looks like standard HTTPS traffic (TCP port 443).</li>
+</ul>
+<h3 id="43-a-modern-alternative-architecture-and-cryptographic-advantages-of-the-wireguard-protocol">
+  4.3. A Modern Alternative: Architecture and Cryptographic Advantages of the WireGuard Protocol
+  <a class="heading-link" href="#43-a-modern-alternative-architecture-and-cryptographic-advantages-of-the-wireguard-protocol">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Developed as a modern alternative to old and complex protocols such as IPSec and OpenVPN, <strong>WireGuard</strong> stands out with its simplicity, high performance and strong security features. WireGuard is intentionally designed to have a small code base (about 4,000 lines of C code), making it much easier to audit and find vulnerabilities.</p>
+<p>Its architecture is based on creating a virtual network interface (for example, <code>wg0</code>) running in the operating system kernel. This allows it to be easily configured and managed with standard operating system networking tools (<code>ip</code>, <code>ifconfig</code> etc.). WireGuard takes advantage of the latest advances in cryptography and rejects the concept of &ldquo;Crypto-Agility&rdquo; (negotiating between different encryption algorithms), using a single set of algorithms that are considered the most powerful and modern available. This set includes <strong>ChaCha20</strong> for encryption, <strong>Poly1305</strong> for message authentication, <strong>Curve25519</strong> (elliptic curve Diffie-Hellman) for key exchange, and <strong>BLAKE2s</strong> for hashing. This approach eliminates the risk of misconfiguration and provides a strong security posture by default.</p>
+<h3 id="44-advanced-vpn-configurations-always-on-vpn-split-tunneling-and-nat-traversal">
+  4.4. Advanced VPN Configurations: Always-On VPN, Split Tunneling and NAT Traversal
+  <a class="heading-link" href="#44-advanced-vpn-configurations-always-on-vpn-split-tunneling-and-nat-traversal">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="always-on-vpn">
+  <strong>Always-On VPN</strong>
+  <a class="heading-link" href="#always-on-vpn">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It is a feature designed especially for corporate mobile and remote workers. As soon as the device connects to the internet, it automatically establishes a secure VPN tunnel without user intervention and keeps this connection constantly active. This ensures that data is always transmitted via an encrypted tunnel. Two types of tunnels are generally used:</p>
+<ul>
+<li><strong>Device Tunnel</strong> authenticates the device itself before the user logs in and provides access to management servers (Active Directory, SCCM, etc.); <strong>User Tunnel</strong> is established after the user logs in and provides access to corporate resources.</li>
+</ul>
+<h4 id="split-tunneling">
+  <strong>Split Tunneling</strong>
+  <a class="heading-link" href="#split-tunneling">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It is a technique that splits a VPN user&rsquo;s traffic into two. Traffic destined for corporate resources is sent through the encrypted VPN tunnel, while general internet traffic (e.g. streaming video, social media) is routed directly through the user&rsquo;s local internet connection. This improves performance by reducing the load and bandwidth consumption on the VPN server. However, it poses serious security risks. Traffic leaving the tunnel escapes the institution&rsquo;s security policies (URL filtering, IPS, DLP, etc.) and monitoring mechanisms. This could create a “backdoor” that allows the user’s device to pick up malware from the internet and then infiltrate the corporate network through the VPN tunnel.</p>
+<h4 id="nat-traversal-nat-t">
+  <strong>NAT Traversal (NAT-T)</strong>
+  <a class="heading-link" href="#nat-traversal-nat-t">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Because IPSec uses IP headers to verify the integrity of packets, the source IP address or port cannot be detected by NAT devices.Changing it will disrupt the authentication process. <strong>NAT Traversal</strong> is a mechanism developed to solve this problem. NAT-T encapsulates IPSec (specifically ESP) packets within a UDP header. These UDP packets generally use port 4500. Even if NAT devices redirect by changing the port information of these UDP packets, the original ESP packet inside remains intact and can be processed correctly by the VPN gateway at the destination.</p>
+<p><img src="/images/1_qcfN3w9nucr_-rFUjvihHg.png" alt=""></p>
+<p><strong>VPN Protocols Comparison</strong></p>
+<hr>
+<h3 id="chapter-5-the-central-nervous-system-of-security-operations-siem-and-soar">
+  Chapter 5: The Central Nervous System of Security Operations: SIEM and SOAR
+  <a class="heading-link" href="#chapter-5-the-central-nervous-system-of-security-operations-siem-and-soar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Modern cyber security operations are based on collecting and interpreting large amounts of data and making fast and effective decisions based on this data. At the core of this process are Security Information and Event Management (SIEM) and Security Orchestration, Automation and Response (SOAR) platforms. These two technologies work like the brain and nervous system of a security operations center (SOC).</p>
+<h3 id="51-siem-architecture-log-aggregation-normalization-correlation-and-anomaly-detection">
+  5.1. SIEM Architecture: Log Aggregation, Normalization, Correlation and Anomaly Detection
+  <a class="heading-link" href="#51-siem-architecture-log-aggregation-normalization-correlation-and-anomaly-detection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The main purpose of a <strong>SIEM</strong> platform is to collect log data and events from an organization&rsquo;s entire IT infrastructure (network devices, servers, endpoints, applications, cloud services, etc.) in one central point. This gives security teams holistic visibility over the entire environment. SIEM&rsquo;s workflow usually consists of these steps:</p>
+<ol>
+<li><strong>Log Collection (Aggregation):</strong> Logs produced from different sources are securely transmitted to the SIEM platform through agents or using standard protocols such as Syslog.</li>
+<li><strong>Normalization &amp; Parsing:</strong> Raw log data is produced in different formats by different devices and applications. Normalization is the process of transforming these heterogeneous data into an analysable, common and structured format. For example, timestamps on different systems are converted to a universal format (UTC), different expressions such as “login failed”, “authentication error”, “user logon failure” are mapped to a single standard event ID (<code>Failed_Logon</code>).</li>
+<li><strong>Correlation:</strong> This is the most powerful capability of SIEM. By running predefined rules on normalized data, the correlation engine detects chains of events that do not appear suspicious on their own, but when taken together indicate malicious activity. For example, a correlation rule might flag “more than 10 failed login attempts from a user within 5 minutes followed by a successful login from the same IP” as a brute force attack.</li>
+<li><strong>Alerting and Reporting:</strong> When a correlation rule is triggered, SIEM creates an alert and reflects it on a dashboard for security analysts to review. It also produces regular reports for compliance audits and management.</li>
+</ol>
+<h3 id="52-autonomous-defense-with-soar-orchestration-automation-and-automated-incident-response-playbooks">
+  5.2. Autonomous Defense with SOAR: Orchestration, Automation and Automated Incident Response (Playbooks)
+  <a class="heading-link" href="#52-autonomous-defense-with-soar-orchestration-automation-and-automated-incident-response-playbooks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>While SIEM is excellent at detecting threats and generating alerts, the process of responding to these alerts is often manual and time-consuming. An analyst may need to switch between multiple security tools to verify an alert, understand its context, and respond. <strong>SOAR</strong> platforms take SIEM capabilities to the next level by automating and streamlining this response process. SOAR is based on three basic concepts:</p>
+<ol>
+<li><strong>Orchestration:</strong> It enables different security tools (SIEM, firewall, EDR, threat intelligence platform, etc.) to talk to each other and work in an integrated manner through APIs. This allows analysts to manage all tools from a single console.</li>
+<li><strong>Automation:</strong> It is the automatic performance of repetitive, low-level and manual tasks by machines. For example, actions such as checking the reputation of an IP address, sending a file hash to the sandbox, or opening a support ticket can be automated.</li>
+<li><strong>Response and Playbooks:</strong> The heart of SOAR is <strong>playbooks</strong>. A playbook is a predefined, step-by-step workflow for a specific type of security incident (for example, phishing email, malware detection). These steps include both automated tasks (for example, “Check the URL in the email against the threat intelligence database”) and manual steps (for example,It may include “If the analyst confirms the URL is malicious, continue”). When a SIEM alert triggers the playbook, the SOAR platform can automatically execute the defined steps, completing the response process in seconds or minutes.</li>
+</ol>
+<h3 id="53-platform-comparison-architectures-and-capabilities-of-leading-siem-and-soar-solutions">
+  5.3. Platform Comparison: Architectures and Capabilities of Leading SIEM and SOAR Solutions
+  <a class="heading-link" href="#53-platform-comparison-architectures-and-capabilities-of-leading-siem-and-soar-solutions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>SIEM and SOAR are technologies that complement each other, not replace each other. While SIEM is focused on “detection” and “analysis”, SOAR is focused on “intervention” and “automation”. In a SOC&rsquo;s maturity journey, a solid SIEM infrastructure is typically established first, then SOAR capabilities are added to increase operational efficiency.</p>
+<p>There are many platforms on the market that offer these services, and each has different architectural approaches:</p>
+<ul>
+<li><strong>Splunk:</strong> Generally considered a strong option for large-scale, on-premise deployments. It is known for its flexible data retrieval and powerful search language (SPL). However, it can be costly as the licensing model is often based on data volume.</li>
+<li><strong>IBM QRadar:</strong> It is a well-established and mature SIEM platform. It is particularly strong in rule-based correlation and compliance reporting. It is generally seen as a more cost-effective option than Splunk, but its interface may be considered outdated by some users.</li>
+<li><strong>Microsoft Sentinel:</strong> It is a cloud-native SIEM and SOAR solution. It stands out especially with its deep integration with Azure cloud services and artificial intelligence-supported analysis capabilities. It is a popular option for modern cloud environments because it does not require infrastructure management and is scalable.</li>
+</ul>
+<p><img src="/images/1_pGGWBXfh3FmW4dBdnSiGIA.png" alt=""></p>
+<p><strong>Key Differences Between SIEM and SOAR</strong></p>
+<hr>
+<h3 id="chapter-6-zero-trust-in-network-access-network-access-control-nac">
+  Chapter 6: Zero Trust in Network Access: Network Access Control (NAC)
+  <a class="heading-link" href="#chapter-6-zero-trust-in-network-access-network-access-control-nac">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Network Access Control — NAC is a security approach that authenticates devices and users connected to a network and monitors their compliance with predefined security policies. The main purpose of NAC is to reduce the attack surface by ensuring that only authorized and “healthy” devices access network resources. This is the application of the “never trust, always verify” principle of the Zero Trust architecture at the initial point of entry into the network.</p>
+<h3 id="61-device-security-posture-assessment-criteria-and-policies">
+  6.1. Device Security Posture Assessment: Criteria and Policies
+  <a class="heading-link" href="#61-device-security-posture-assessment-criteria-and-policies">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>One of NAC&rsquo;s most basic capabilities is to perform a posture assessment for each device that tries to connect to the network. This process consists of a series of checks that check whether the device meets corporate security standards. Common criteria checked during these audits include:</p>
+<ul>
+<li><strong>Antivirus/Antimalware Status:</strong> It is checked whether antivirus software that complies with corporate standards is installed on the device, whether it is running, and whether the signature database is up to date.</li>
+<li><strong>Operating System and Patch Level:</strong> It is verified whether the device&rsquo;s operating system is up to date and whether critical security patches are installed.</li>
+<li><strong>Firewall Status:</strong> It is checked whether the device&rsquo;s local firewall is active or not.</li>
+<li><strong>Software Presence:</strong> The device can be checked for unauthorized or prohibited software (for example, P2P file sharing applications).</li>
+<li><strong>Disk Encryption:</strong> It can be verified whether the device&rsquo;s hard disk is encrypted to protect sensitive data.</li>
+</ul>
+<p>Depending on the results of these checks, the device is classified as <strong>compliant</strong> or <strong>non-compliant</strong>. For incompatible devices, NAC solutions can implement various actions:</p>
+<ul>
+<li><strong>Quarantine:</strong> The device is placed in a limited-access network segment (VLAN) isolated from the rest of the network.</li>
+<li><strong>Remediation:</strong> While in the quarantine network, the device is granted access to servers (e.g. WSUS, antivirus server) where it can retrieve missing patches or updates. Once the device becomes compatible, it is inspected again and full network access is provided.</li>
+<li><strong>Prohibiting Access:</strong> In case of critical incompatibilities, the device&rsquo;s access to the network may be completely blocked.</li>
+</ul>
+<h3 id="62-ieee-8021x-standard-port-based-authentication-mechanism">
+  6.2. IEEE 802.1X Standard: Port-Based Authentication Mechanism
+  <a class="heading-link" href="#62-ieee-8021x-standard-port-based-authentication-mechanism">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>IEEE 802.1X</strong> is a standard that provides port-based authentication in both wired (Ethernet) and wireless (Wi-Fi) networks and forms the basis of NAC solutions. This standard requires a device to prove its identity as soon as it connects to a physical or logical port. Its 802.1X architecture consists of three main components:</p>
+<ol>
+<li><strong>Supplicant:</strong> The end device (for example, a laptop or smartphone) that requests access to the network. This device runs software that supports 802.1X authentication.</li>
+<li><strong>Authenticator:</strong> The network device to which the client is physically connected (for example, a switch or wireless access point — AP). The Authenticator acts as an intermediary between the client and the authentication server and keeps the client&rsquo;s port closed until authentication is successful.</li>
+<li><strong>Authentication Server:</strong> Usually a <strong>RADIUS (Remote Authentication Dial-In User Service)</strong> server. It is the central authority that checks the credentials coming from the client, makes the authentication decision and notifies this decision to the Authenticator.</li>
+</ol>
+<p>The authentication process is performed using the <strong>Extensible Authentication Protocol — EAP</strong> and these EAP messages are carried between the client and the authenticator within <strong>EAP over LAN (EAPoL)</strong> frames. The basic flow is as follows:</p>
+<ol>
+<li>The client connects to the network. The port is initially closed to allow only EAPoL traffic.</li>
+<li>The client starts the authentication process by sending an <code>EAPoL-Start</code> message.</li>
+<li>Authenticator sends an <code>EAP-Request/Identity</code> message from the client requesting its identity.</li>
+<li>The client responds with an <code>EAP-Response/Identity</code> message with its identity (such as username or certificate).</li>
+<li>Authenticator encapsulates this EAP message into a RADIUS <code>Access-Request</code> packet and forwards it to the Authentication Server (RADIUS).</li>
+<li>The RADIUS server verifies credentials against its own database or an identity store such as Active Directory.</li>
+<li>If authentication is successful, the RADIUS server sends a <code>RADIUS Access-Accept</code> message to the Authenticator. If it fails, it sends <code>Access-Reject</code>.</li>
+<li>When the Authenticator receives the <code>Access-Accept</code> message, it opens the port to which the client is connected and allows normal network traffic. It also sends an <code>EAP-Success</code> message to the client.</li>
+</ol>
+<h3 id="63-guest-network-management-and-remediation-of-incompatible-devices">
+  6.3. Guest Network Management and Remediation of Incompatible Devices
+  <a class="heading-link" href="#63-guest-network-management-and-remediation-of-incompatible-devices">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>NAC solutions play a critical role in providing secure and controlled access for guests, consultants or partners who need temporary access to the corporate network. NAC creates a completely isolated guest network for such users, typically with internet access but no access to internal corporate resources. Guest users can connect to this network by registering themselves or obtaining temporary credentials, usually through a web portal (captive portal).</p>
+<p>As mentioned before, the remediation process for non-compliant enterprise devices is one of the most important benefits of NAC. If a device fails the security posture assessment, it is automatically routed to a remediation VLAN. In this VLAN, the device only has access to resources necessary for remediation, such as Windows Update servers, antivirus signature servers, or patch management systems. Once the device has received the necessary updates and become compliant, it is re-evaluated by NAC and, if successful, full network access is granted. This automated process ensures network security and significantly reduces the burden of manual intervention on the IT department.</p>
+<hr>
+<h3 id="chapter-7-security-protocols-of-wireless-networks">
+  Chapter 7: Security Protocols of Wireless Networks
+  <a class="heading-link" href="#chapter-7-security-protocols-of-wireless-networks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Wireless networks have become an integral part of modern IT infrastructures due to the flexibility and mobility they provide. However, this convenience also brings serious security risks without the right security protocols and configurations. Wireless network security has undergone a long evolution from the weaknesses of WEP to the advanced cryptographic protections of WPA3.</p>
+<h3 id="71-wpa2-to-wpa3-transition-cryptographic-advances-and-sae-handshake">
+  7.1. WPA2 to WPA3 Transition: Cryptographic Advances and SAE Handshake
+  <a class="heading-link" href="#71-wpa2-to-wpa3-transition-cryptographic-advances-and-sae-handshake">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Wi-Fi Protected Access 2 (WPA2)</strong> has been the standard for wireless network security for many years. Although it provides strong protection using AES (Advanced Encryption Standard) encryption, significant vulnerabilities have emerged over time. One of the most well-known vulnerabilities is <strong>KRACK (Key Reinstallation Attacks)</strong>. This attack exploits a weakness in WPA2&rsquo;s 4-way handshake process, allowing encryption keys to be reused and traffic decrypted. Additionally, the Pre-Shared Key (PSK) used in WPA2-Personal mode is a weak password when used, they are vulnerable to offline dictionary attacks. By intercepting 4-way handshake traffic, an attacker can attempt passwords on his own system without being connected to the network. In order to eliminate these vulnerabilities, the <strong>Wi-Fi Protected Access 3 (WPA3)</strong> standard was introduced in 2018. WPA3 introduces a number of key cryptographic innovations over WPA2:</p>
+<ul>
+<li><strong>Simultaneous Authentication of Equals (SAE) Handshake:</strong> It is the most important innovation of WPA3-Personal mode. SAE (also known as Dragonfly), which replaced PSK, is a secure password-based key exchange protocol. Unlike WPA2, SAE makes it impossible for an attacker to perform an offline dictionary attack during the handshake. Because every authentication attempt requires active interaction with the network. Even if an attacker intercepts the traffic, he or she must interact with the access point (AP) on a case-by-case basis to crack the password. This allows the AP to block the attacker after a certain number of failed attempts, making brute force attacks practically impossible.</li>
+<li><strong>Stronger Encryption:</strong> In addition to 128-bit AES encryption, WPA3-Enterprise mode offers a 192-bit security suite option for environments requiring higher security.</li>
+<li><strong>Forward Secrecy:</strong> SAE provides forward secrecy by its nature. This means that even if a session&rsquo;s encryption key is somehow compromised, past or future sessions cannot be decrypted because unique, temporary keys are used for each session.</li>
+<li><strong>Enhanced Security for Open Networks (Enhanced Open):</strong> WPA3 introduces <strong>Opportunistic Wireless Encryption (OWE)</strong>, which provides individual data encryption even on public Wi-Fi networks that do not require a password. This creates a unique encryption key between each user and the access point, preventing other users on the same open network from eavesdropping on your traffic.</li>
+</ul>
+<h3 id="72-extensible-authentication-protocol-eap-types-eap-tls-vs-peap">
+  7.2. Extensible Authentication Protocol (EAP) Types: EAP-TLS vs PEAP
+  <a class="heading-link" href="#72-extensible-authentication-protocol-eap-types-eap-tls-vs-peap">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>WPA2/WPA3-Enterprise mode, used in enterprise environments, requires separate credentials for each user and uses the 802.1X framework for authentication. Within this framework, there are various types of <strong>Extensible Authentication Protocol (EAP)</strong> that determine the authentication method. The two most commonly used EAP types are EAP-TLS and PEAP:</p>
+<ul>
+<li><strong>EAP-TLS (EAP-Transport Layer Security):</strong> It is considered the most secure EAP method.</li>
+<li><strong>Requires mutual authentication</strong>; that is, both the authentication server (RADIUS) and the client device use digital certificates to prove their identity. This completely eliminates password-based attacks (phishing, brute force). However, it requires a Public Key Infrastructure (PKI) as it requires a certificate to be distributed and managed on each client device, increasing installation and management complexity.</li>
+<li><strong>PEAP (Protected EAP):</strong> It is widely used because it is easier to distribute. PEAP creates a secure TLS tunnel between the client and the server. Inside this tunnel, the actual authentication is done by another method (internal method). The most common internal method is <strong>MS-CHAPv2</strong> and is username/password based. In this model, only the server needs a certificate; The client sends credentials (username/password). This is simpler as it does not require PKI management, but is less secure than EAP-TLS because it is password based and is vulnerable to credential theft.</li>
+</ul>
+<h3 id="73-rogue-hotspot-threats-protecting-against-rogue-ap-and-evil-twin-attacks">
+  7.3. Rogue Hotspot Threats: Protecting Against Rogue AP and Evil Twin Attacks
+  <a class="heading-link" href="#73-rogue-hotspot-threats-protecting-against-rogue-ap-and-evil-twin-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Wireless networks are more vulnerable to certain types of attacks because they do not require physical access. The most dangerous of these relate to unauthorized access points:</p>
+<ul>
+<li><strong>Rogue AP (Rogue Access Point):</strong> The connection of an unauthorized wireless access point (AP) to the corporate network, with or without an employee&rsquo;s knowledge. This AP often lacks security configurations and bypasses the security policies of the corporate network, creating a backdoor for attackers.</li>
+<li><strong>Evil Twin:</strong> A malicious access point that copies the SSID (network name) of a legitimate wireless network (for example, “Office_WiFi”). By setting the signal strength of his own AP higher than that of the legitimate AP, the attacker causes nearby users&rsquo; devices to automatically connect to his fake network. Once connected to the network, the attacker acts as a Man-in-the-Middle between the user and the Internet and can eavesdrop and manipulate all traffic or steal credentials by redirecting users to fake login pages.</li>
+</ul>
+<p>A multi-layered approach is required to protect against these threats:</p>
+<h4 id="technical-precautions">
+  <strong>Technical Precautions</strong>
+  <a class="heading-link" href="#technical-precautions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Wireless Intrusion Prevention Systems (WIPS):</strong> These systems detect unauthorized APs and Evil Twins by constantly scanning the radio frequency spectrum. Once detected, they can locate these devices and even actively intervene by sending de-authentication packets that prevent legitimate clients from connecting to these rogue APs.</li>
+<li><strong>802.1X Authentication:</strong> Using WPA2/WPA3-Enterprise and 802.1X provides strong defense against Evil Twin attacks. Even if a client connects to an Evil Twin AP, the authentication process will fail because the Evil Twin does not have the certificate of the legitimate RADIUS server and the client will not be able to gain full access to the network.</li>
+</ul>
+<h4 id="administrative-measures">
+  <strong>Administrative Measures</strong>
+  <a class="heading-link" href="#administrative-measures">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Regular Network Scans:</strong> It is important to detect unauthorized devices by regularly scanning the network.</li>
+<li><strong>User Education:</strong> Educating users about the risks of connecting to unknown or suspicious Wi-Fi networks, paying attention to certificate warnings, and the importance of using a VPN on public networks is one of the most important lines of defense.</li>
+</ul>
+<p><img src="/images/1_1MluVyG6UZhxsJniWxTz2g.png" alt=""></p>
+<p><strong>WPA2 and WPA3 Comparison</strong></p>
+<hr>
+<h3 id="result">
+  Result
+  <a class="heading-link" href="#result">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>This comprehensive technical article reveals the evolution and current state of modern network security technologies. Analysis shows that in everything from firewalls to wireless protocols, there is a clear shift from isolated and reactive solutions to integrated, proactive and context-aware systems. Technologies such as Firewall, WAF, IPS, VPN, NAC and SIEM/SOAR are now seen as complementary components of an integrated defense architecture, rather than as silos working independently of each other.</p>
+<p>The core philosophy of this modern architecture revolves around the principles of Zero Trust: no part of the network (internal or external) is trusted by default, and every access request is constantly verified using identity, device health, location, and other contextual data. This approach forms the basic logic of many technologies examined, from the application and user-based policies of NGFWs to the device posture assessment of NAC and the positive security model of WAF.</p>
+<p>Looking to the future, it is clear that this integration will deepen even further with artificial intelligence and machine learning. While SIEM platforms become more accurate in anomaly detection, SOAR solutions will be able to run autonomous response scenarios (playbooks) against complex threats without human intervention. The goals of detecting threats faster and more accurately (MTTD — Mean Time to Detect) and responding to these threats faster (MTTR — Mean Time to Respond) will continue to be the key criteria for the success of these intelligent and automated systems. As a result, the network security of the future is evolving towards a dynamic and self-healing ecosystem that allows human analysts to focus on high-level tasks such as strategic threat hunting and incident response, while delegating routine and repetitive tasks to intelligent automation systems.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

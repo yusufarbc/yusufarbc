@@ -1,4 +1,5 @@
 ---
+series: ["Hakerlar için Python"]
 title: "Hakerlar için Python: paramiko"
 date: 2022-09-26
 draft: false

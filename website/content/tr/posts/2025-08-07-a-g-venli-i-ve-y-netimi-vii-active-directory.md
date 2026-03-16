@@ -1,4 +1,5 @@
 ---
+series: ["Ağ Güvenliği ve Yönetimi"]
 title: "Ağ Güvenliği ve Yönetimi VII: Active Directory"
 date: 2025-08-07
 draft: false

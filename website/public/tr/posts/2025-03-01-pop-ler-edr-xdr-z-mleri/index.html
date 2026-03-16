@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Popüler EDR/XDR Çözümleri · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Popüler EDR/XDR Çözümleri
+  
+    
+    Başlık Linki
+  
+
+Bu yazımda, dünya genelinde popüler olarak kullanılan uç nokta güvenliği çözümlerine göz atacağız. Bu çözümleri özellikler, artıarı ve eksileri ile ele alacağız.
+
+Dijitalleşen dünyada bilgi güvenliği artık sadece kurumsal sınırları korumaktan ibaret değil. Bu sınırların ötesindeki tehditleri de tespit etmek, değerlendirmek ve bunlara yanıt vermek gerekiyor. Bu bağlamda, Endpoint Detection and Response (EDR) ve eXtended Detection and Response (XDR) sistemleri, siber güvenlik tehditlerine karşı savunma ve bunlara yanıt verme konusunda en gelişmiş sistemlerden biri olarak ön plana çıkıyor.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Popüler EDR/XDR Çözümleri">
+  <meta name="twitter:description" content="Popüler EDR/XDR ÇözümleriBaşlık LinkiBu yazımda, dünya genelinde popüler olarak kullanılan uç nokta güvenliği çözümlerine göz atacağız. Bu çözümleri özellikler, artıarı ve eksileri ile ele alacağız.
+Dijitalleşen dünyada bilgi güvenliği artık sadece kurumsal sınırları korumaktan ibaret değil. Bu sınırların ötesindeki tehditleri de tespit etmek, değerlendirmek ve bunlara yanıt vermek gerekiyor. Bu bağlamda, Endpoint Detection and Response (EDR) ve eXtended Detection and Response (XDR) sistemleri, siber güvenlik tehditlerine karşı savunma ve bunlara yanıt verme konusunda en gelişmiş sistemlerden biri olarak ön plana çıkıyor.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2025-03-01-pop-ler-edr-xdr-z-mleri/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Popüler EDR/XDR Çözümleri">
+  <meta property="og:description" content="Popüler EDR/XDR ÇözümleriBaşlık LinkiBu yazımda, dünya genelinde popüler olarak kullanılan uç nokta güvenliği çözümlerine göz atacağız. Bu çözümleri özellikler, artıarı ve eksileri ile ele alacağız.
+Dijitalleşen dünyada bilgi güvenliği artık sadece kurumsal sınırları korumaktan ibaret değil. Bu sınırların ötesindeki tehditleri de tespit etmek, değerlendirmek ve bunlara yanıt vermek gerekiyor. Bu bağlamda, Endpoint Detection and Response (EDR) ve eXtended Detection and Response (XDR) sistemleri, siber güvenlik tehditlerine karşı savunma ve bunlara yanıt verme konusunda en gelişmiş sistemlerden biri olarak ön plana çıkıyor.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-03-01T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2025-03-01-pop-ler-edr-xdr-z-mleri/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2025-03-01-pop-ler-edr-xdr-z-mleri/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2025-03-01-pop-ler-edr-xdr-z-mleri/">
+              Popüler EDR/XDR Çözümleri
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-03-01T00:00:00Z">
+                Mart 1, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              7 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="popüler-edrxdr-çözümleri">
+  Popüler EDR/XDR Çözümleri
+  <a class="heading-link" href="#pop%c3%bcler-edrxdr-%c3%a7%c3%b6z%c3%bcmleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu yazımda, dünya genelinde popüler olarak kullanılan uç nokta güvenliği çözümlerine göz atacağız. Bu çözümleri özellikler, artıarı ve eksileri ile ele alacağız.</p>
+<p><img src="/images/1_BXOc1yXaiBaFvxECQ6ekEg.png" alt=""></p>
+<p>Dijitalleşen dünyada bilgi güvenliği artık sadece kurumsal sınırları korumaktan ibaret değil. Bu sınırların ötesindeki tehditleri de tespit etmek, değerlendirmek ve bunlara yanıt vermek gerekiyor. Bu bağlamda, Endpoint Detection and Response (EDR) ve eXtended Detection and Response (XDR) sistemleri, siber güvenlik tehditlerine karşı savunma ve bunlara yanıt verme konusunda en gelişmiş sistemlerden biri olarak ön plana çıkıyor.</p>
+<p>Geleneksel antivirüs çözümlerinin ve güvenlik duvarı tipi güvenlik cihazlarının ötesine geçen bu sistemler, ağların karmaşık tehditleri anlama ve bunlara hızla yanıt verme kapasitesini artırıyor. Hem EDR hem de XDR araçları güvenlik operasyonlarının etkinliğini ve hızını optimize ederken tehdit avcılığından proaktif korumaya kadar geniş bir yelpazede yetenekler sunar.</p>
+<hr>
+<h3 id="crowdstrike-falcon">
+  CrowdStrike Falcon
+  <a class="heading-link" href="#crowdstrike-falcon">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>CrowdStrike Falcon, bulut tabanlı bir uç nokta algılama ve yanıt (EDR) platformudur. Aynı zamanda XDR özellikleri de sunar. Tamamen bulut odaklı yapısı sayesinde hızlı dağıtım ve ölçeklenebilirlik avantajları sunar. Tek bir hafif istemci yazılımı (agent) üzerinden çalışarak kapsamlı koruma sağlar, bu da uç nokta performansı üzerindeki etkiyi en aza indirir. Özellikle proaktif tehdit avcılığı yetenekleri ve kapsamlı tehdit istihbarat ağı ile biliniyor. Bu, kuruluşlara gerçek zamanlı tehdit bilgileri sağlayarak daha hızlı ve daha etkili bir şekilde yanıt vermelerini sağlar. Ayrıca makine öğrenimi tabanlı algoritmaları sayesinde bilinmeyen tehditlere karşı uyarlanabilir koruma sunar. CrowdStrike Falcon hem büyük ölçekli kuruluşlar hem de küçük işletmeler için uygundur ve sektörde öne çıkan bir EDR çözümü olarak kabul edilir.</p>
+<p><img src="/images/1__kgTgnMeuxdWZpaqUIRQuA.png" alt=""></p>
+<p><a href="https://www.crowdstrike.com/cybersecurity-101/what-is-xdr/"  class="external-link" target="_blank" rel="noopener">https://www.crowdstrike.com/cybersecurity-101/what-is-xdr/</a></p>
+<hr>
+<h3 id="cybereason">
+  Cybereason
+  <a class="heading-link" href="#cybereason">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Cybereason, siber güvenlik endüstrisinde önemli bir oyuncudur ve özellikle uç nokta tespit ve yanıt (EDR) yetenekleriyle bilinir. Ayrıca XDR özellikleri de sunmaktadır. Cybereason, EDR ve EPP yeteneklerini şirket içinde sunabilen nadir çözümlerden biridir. XDR yetenekleri ise sadece bulut platformunda mevcut.</p>
+<p>Platform, siber tehditleri tespit etmek, analiz etmek ve yanıt vermek için geliştirilmiş yapay zekaya dayalı bir sisteme sahip. Bu sayede kurumlar karmaşık siber saldırıları gerçek zamanlı olarak izleyebiliyor, tehditleri daha derinlemesine anlayabiliyor ve olası güvenlik ihlallerine hızlı bir şekilde yanıt verebiliyor. Cybereason’ın “Operasyon Merkezli” yaklaşımı, güvenlik uzmanlarının olayları daha geniş bir bağlamda değerlendirmelerini ve kötü niyetli faaliyetlerin tüm hikayesini görmelerini sağlar. Cybereason’ın “Malop” özelliği “Kötü Amaçlı Operasyon ”un kısaltmasıdır ve şirketin platformunun merkezi bir bileşenidir. “Malop” tehditleri otomatik olarak tespit etmek, kötü niyetli bir operasyonun veya saldırının tüm bileşenlerini ve etkilerini görselleştirmek ve analiz etmek için tasarlanmıştır.</p>
+<p>Ayrıca, platform sadece reaktif değil aynı zamanda proaktif koruma yetenekleriyle de öne çıkıyor, böylece tehditler sistemlere sızmadan önce tespit edilebiliyor ve engellenebiliyor.</p>
+<p><img src="/images/1_aAxP6F9J1jCk4t9qtoMjtw.png" alt=""></p>
+<p><a href="https://www.cybereason.com/platform"  class="external-link" target="_blank" rel="noopener">https://www.cybereason.com/platform</a></p>
+<hr>
+<h3 id="microsoft-defender-forendpoint">
+  Microsoft Defender for Endpoint
+  <a class="heading-link" href="#microsoft-defender-forendpoint">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Eskiden Microsoft Defender Advanced Threat Protection (ATP) olarak bilinen bu çözüm, Microsoft’un kapsamlı bir uç nokta tespit ve yanıt (EDR) çözümüdür. Ancak Microsoft, Defender ATP’yi fazla mesai ile genişleterek ve diğer güvenlik ürünleriyle daha derin entegrasyonlar oluşturarak platformunu genişletilmiş bir algılama ve yanıt (XDR) çözümüne dönüştürdü ve Microsoft 365 Defender adını verdi. Windows işletim sistemine tamamen entegre ve yerleşik olan bu hizmet, siber tehditlere karşı gelişmiş koruma sağlıyor. Microsoft Defender, karmaşık siber saldırıları tespit etmek, kökenlerini belirlemek ve olaylara hızlı bir şekilde yanıt vermek için gelişmiş algoritmalar ve yapay zeka tabanlı analizler kullanıyor.</p>
+<p>Platform, yalnızca mevcut tehditleri değil, potansiyel riskleri ve sızıntıları belirlemeye yardımcı olan proaktif tehdit avı yetenekleri sunar. Defender ATP’nin bulut tabanlı yapısı, sürekli güncellenen tehdit istihbaratı ile kurumların her zaman en son tehditlere karşı korunmasını sağlar. Ek olarak, Uç Nokta için Microsoft Defender, Microsoft 365 Güvenlik Merkezi aracılığıyla merkezi bir pano üzerinden yönetilebilir ve güvenlik uzmanlarının tehditleri daha etkili bir şekilde izlemesine ve yönetmesine olanak tanır.</p>
+<p>Özetlemek gerekirse, Uç Nokta için Microsoft Defender, modern tehdit ortamıyla mücadele etmek için gerekli araçları ve yetenekleri sağlayarak kurumların siber güvenliğini güçlendiren bir platformdur. Uç Nokta için Microsoft Defender, uç nokta verileri üzerinde ve diğer kaynaklardan gelen potansiyel tehditlere karşı da koruma sağladığı için artık bir XDR çözümü olarak kabul edilmektedir.</p>
+<p><img src="/images/1_V8WCU_-sfrU6AN97IFk8mQ.png" alt=""></p>
+<p><a href="https://www.infusedinnovations.com/blog/secure-intelligent-workplace/budgeting-for-microsoft-defender-xdr-and-zero-trust-security"  class="external-link" target="_blank" rel="noopener">https://www.infusedinnovations.com/blog/secure-intelligent-workplace/budgeting-for-microsoft-defender-xdr-and-zero-trust-security</a></p>
+<hr>
+<h3 id="palo-alto-cortexxdr">
+  Palo Alto Cortex XDR
+  <a class="heading-link" href="#palo-alto-cortexxdr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Palo Alto Cortex XDR, Palo Alto Networks’ün Gelişmiş Siber Güvenlik Platformu’nun bir parçası olan genişletilmiş bir algılama ve yanıt (XDR) çözümüdür. XDR kategorisinde öncü olan bu platform, birçok farklı veri kaynağına dayalı olarak siber tehditleri tespit eder, analiz eder ve bunlara yanıt verir. Uç noktalardan ağlara ve bulut hizmetlerine kadar çok çeşitli tehdit vektörlerini kapsar.</p>
+<p>Cortex XDR, gelişmiş yapay zeka ve büyük veri analizi kullanarak karmaşık ve sürekli değişen bir tehdit ortamına karşı koruma sağlar. Klasik EDR çözümlerinden farklı olarak Cortex XDR, birden fazla veri kaynağından gelen bilgileri birleştirerek daha geniş ve derinlemesine görünürlük sunar. Bu, hem bilinen hem de bilinmeyen tehditleri hızlı bir şekilde tespit etme ve bunlara yanıt verme yeteneğini artırır.</p>
+<p>Platform, otomatik tehdit avcılığı, olay müdahalesi ve sürekli izleme gibi özellikleriyle bilinir. Ayrıca Palo Alto’nun diğer güvenlik ürünleri ve üçüncü taraf uygulamalarıyla sorunsuz entegrasyon sağlayarak güvenlik operasyonlarını merkezileştirmeyi ve otomatikleştirmeyi kolaylaştırıyor.</p>
+<p>Özetlemek gerekirse, Palo Alto Cortex XDR, kuruluşların siber tehditlere karşı daha etkili ve proaktif bir savunma oluşturmasına yardımcı olmak için tasarlanmış kapsamlı, genişletilmiş bir algılama ve yanıt platformudur.</p>
+<p><img src="/images/1_isZKTqF4Dh4MoKGRIFmEBw.png" alt=""></p>
+<p><a href="https://www.xcitium.com/palo-alto-cortex-xdr/"  class="external-link" target="_blank" rel="noopener">https://www.xcitium.com/palo-alto-cortex-xdr/</a></p>
+<hr>
+<h3 id="sentinelone">
+  SentinelOne
+  <a class="heading-link" href="#sentinelone">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SentinelOne XDR, siber güvenlik sektörünün önde gelen şirketlerinden SentinelOne tarafından sunulan genişletilmiş tespit ve yanıt (XDR) çözümüdür. Bu platform, şirketleri hem bilinen hem de bilinmeyen tehditlere karşı korumak için yapay zeka (AI) ve makine öğrenimi teknolojilerini kullanır.</p>
+<p>SentinelOne, uç noktalardan başlayarak çok çeşitli tehditleri tespit edebilir ve bunlara hızlı bir şekilde yanıt verebilir. Bu, kötü amaçlı yazılımlardan sıfırıncı gün tehditlerine kadar geniş bir saldırı yelpazesine karşı koruma sağlamak için hem statik hem de davranışsal analizi birleştirir. Ayrıca, otomatik tehdit avcılığı ve olay müdahalesi gibi özelliklerle güvenlik işlemlerinin basit, otomatik ve etkili bir şekilde gerçekleştirilmesine yardımcı olur.</p>
+<p>Platform sadece tespit ve müdahale ile sınırlı kalmayıp, otomatik saldırı haritalama ve olay inceleme gibi özelliklere de sahip. Bu da saldırıların kaynağını ve etkisini hızlı bir şekilde anlama becerisini artırıyor.</p>
+<p>Entegrasyon konusunda ise SentinelOne XDR, diğer güvenlik ürünleri ve üçüncü parti uygulamalarla kolayca entegre olabiliyor ve güvenlik altyapısının merkezileştirilmesini ve güçlendirilmesini sağlıyor.</p>
+<p>Özetlemek gerekirse SentinelOne XDR, modern tehdit ortamına karşı proaktif ve kapsamlı koruma sağlayarak kurumların siber güvenlik duruşlarını güçlendirmelerine yardımcı olan lider bir güvenlik platformudur.</p>
+<p><img src="/images/1_OezKFGZY0Xx-TjZ1ZpmN7A.png" alt=""></p>
+<p><a href="https://www.sentinelone.com/platform/"  class="external-link" target="_blank" rel="noopener">https://www.sentinelone.com/platform/</a></p>
+<hr>
+<h3 id="vmware-carbonblack">
+  VMware Carbon Black
+  <a class="heading-link" href="#vmware-carbonblack">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>VMware Carbon Black, Uç Nokta Tespit ve Yanıt (EDR) ve Genişletilmiş Tespit ve Yanıt (XDR) özellikleri sunan kapsamlı bir siber güvenlik platformudur. EDR, uç noktalar için gerçek zamanlı görünürlük, tehdit avcılığı ve otomatik yanıt sağlarken, XDR karmaşık saldırıları tespit etmek için verileri ilişkilendirerek korumayı ağlar, bulutlar ve iş yükleri genelinde genişletir. Platform hem şirket içi hem de bulut tabanlı dağıtımlarda kullanılabilir. Şirket içi çözümler, verileri üzerinde tam kontrole ihtiyaç duyan kuruluşlara hitap eder ve düzenlemeye tabi sektörler için idealdir. Bulut tabanlı platform ölçeklenebilirlik, gerçek zamanlı güncellemeler ve merkezi yönetim sunarak dağıtık veya hibrit ortamlar için mükemmeldir. Davranışsal analitik, makine öğrenimi ve VMware ekosistemiyle entegrasyon gibi özelliklerle Carbon Black, gelişmiş tehditlere karşı güçlü koruma sağlayarak modern işletmeler için proaktif savunma ve basitleştirilmiş güvenlik yönetimi sağlar.</p>
+<p><img src="/images/1_o3iQ7r-BtNGQaYYCkPoItw.jpeg" alt=""></p>
+<p><a href="https://www.vmware.com/docs/vmw-datasheet-carbon-black-hosted-edr"  class="external-link" target="_blank" rel="noopener">https://www.vmware.com/docs/vmw-datasheet-carbon-black-hosted-edr</a></p>
+<hr>
+<h3 id="wazuh">
+  Wazuh
+  <a class="heading-link" href="#wazuh">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Wazuh, açık kaynaklı bir siber güvenlik platformu olarak uç nokta koruma, log yönetimi, tehdit avı, uyumluluk denetimleri ve zafiyet tespiti gibi çeşitli güvenlik ihtiyaçlarını karşılar. <strong>Uç nokta koruma</strong> özellikleriyle dosya bütünlüğünü izler, kötü amaçlı yazılımları tespit eder ve gerçek zamanlı tehdit avı yapar. <strong>SIEM</strong> yetenekleri sayesinde farklı kaynaklardan gelen logları toplar, analiz eder ve anormal davranışları tespit eder. <strong>Uyumluluk</strong> modülleri, PCI DSS, GDPR, HIPAA gibi düzenlemelere uyum sağlamaya yardımcı olurken, <strong>zafiyet tespiti</strong> özelliği sistemlerdeki bilinen güvenlik açıklarını tarar ve raporlar. Wazuh, gerçek zamanlı izleme ve otomatik yanıt mekanizmalarıyla proaktif bir savunma sağlar. Açık kaynaklı olması, esnek yapısı ve bulut veya şirket içi altyapılarda çalışabilmesi, onu küçük ve orta ölçekli işletmeler için ekonomik ve etkili bir çözüm haline getirir.</p>
+<p><img src="/images/1_SRprtJmrWdmwclsziL7B7w.png" alt=""></p>
+<p><a href="https://documentation.wazuh.com/current/getting-started/components/index.html"  class="external-link" target="_blank" rel="noopener">https://documentation.wazuh.com/current/getting-started/components/index.html</a></p>
+<hr>
+<h3 id="elastic-security">
+  Elastic Security
+  <a class="heading-link" href="#elastic-security">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Elastic Security, güçlü bir siber güvenlik çözümü olarak, tehdit tespiti, olay müdahalesi ve uç nokta güvenliği gibi kapsamlı özellikler sunar. Bulut, şirket içi ve hibrit ortamlarda gerçek zamanlı tehdit analizi yapabilen bu platform, yapay zeka ve makine öğrenimi teknolojileriyle anormal davranışları tespit edebilir. Merkezi bir panodan tüm güvenlik olaylarını izleyebilme, otomatik alarmlar ve entegre log yönetimi ile kullanıcıların hızlıca aksiyon almasını sağlar. Ayrıca, uç nokta cihazlarını korumak için gelişmiş önleyici kontroller ve kötü amaçlı yazılım tespiti sunar. Elastic Security, açık kaynaklı Elastic Stack (ELK Stack) altyapısı üzerine kuruludur ve esnek yapısı sayesinde kurumların özel ihtiyaçlarına uyum sağlayabilir. Bu özellikleriyle, modern siber tehditlere karşı kapsamlı bir koruma ve analiz imkanı sunar.</p>
+<p><img src="/images/1_eM1tia-nqbzoMV6tho98xw.png" alt=""></p>
+<p><a href="https://dzlab.github.io/2023/04/26/elastic-cybersecurity/"  class="external-link" target="_blank" rel="noopener">https://dzlab.github.io/2023/04/26/elastic-cybersecurity/</a></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

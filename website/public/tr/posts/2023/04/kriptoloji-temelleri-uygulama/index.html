@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Kriptoloji Temelleri: Uygulama · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Kriptoloji Temelleri:#5 Uygulama
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba, kriptoloji temelleri serisinin bu son yazısında kriptografik protokollerin nasıl uygulandığından bahsedeceğim. Uygulama aşamasında Java programalama dilini kullanacağım.
+
+
+  MD5 Uygulaması
+  
+    
+    Başlık Linki
+  
+
+MD5, herhangi bir giriş verisi için sabit boyutlu bir çıktı (128 bit) üretebilen, yaygın olarak kullanılan bir özet fonksiyonudur. Java’da, Java Security API’nin bir parçası olan MessageDigest sınıfını kullanarak bir stringin veya dosyanın MD5 özet değerini hesaplayabilirsiniz.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Kriptoloji Temelleri: Uygulama">
+  <meta name="twitter:description" content="Kriptoloji Temelleri:#5 UygulamaBaşlık LinkiMerhaba, kriptoloji temelleri serisinin bu son yazısında kriptografik protokollerin nasıl uygulandığından bahsedeceğim. Uygulama aşamasında Java programalama dilini kullanacağım.
+MD5 UygulamasıBaşlık LinkiMD5, herhangi bir giriş verisi için sabit boyutlu bir çıktı (128 bit) üretebilen, yaygın olarak kullanılan bir özet fonksiyonudur. Java’da, Java Security API’nin bir parçası olan MessageDigest sınıfını kullanarak bir stringin veya dosyanın MD5 özet değerini hesaplayabilirsiniz.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2023/04/kriptoloji-temelleri-uygulama/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Kriptoloji Temelleri: Uygulama">
+  <meta property="og:description" content="Kriptoloji Temelleri:#5 UygulamaBaşlık LinkiMerhaba, kriptoloji temelleri serisinin bu son yazısında kriptografik protokollerin nasıl uygulandığından bahsedeceğim. Uygulama aşamasında Java programalama dilini kullanacağım.
+MD5 UygulamasıBaşlık LinkiMD5, herhangi bir giriş verisi için sabit boyutlu bir çıktı (128 bit) üretebilen, yaygın olarak kullanılan bir özet fonksiyonudur. Java’da, Java Security API’nin bir parçası olan MessageDigest sınıfını kullanarak bir stringin veya dosyanın MD5 özet değerini hesaplayabilirsiniz.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-04-12T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-04-12T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2023/04/kriptoloji-temelleri-uygulama/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2023/04/cryptology-fundamentals-application/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2023/04/kriptoloji-temelleri-uygulama/">
+              Kriptoloji Temelleri: Uygulama
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-04-12T00:00:00Z">
+                Nisan 12, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              11 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="kriptoloji-temelleri5-uygulama">
+  Kriptoloji Temelleri:#5 Uygulama
+  <a class="heading-link" href="#kriptoloji-temelleri5-uygulama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_Sk1u0b-kaNN7j57oE13CBA.png" alt=""></p>
+<p>Merhaba, kriptoloji temelleri serisinin bu son yazısında kriptografik protokollerin nasıl uygulandığından bahsedeceğim. Uygulama aşamasında Java programalama dilini kullanacağım.</p>
+<hr>
+<h3 id="md5-uygulaması">
+  MD5 Uygulaması
+  <a class="heading-link" href="#md5-uygulamas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>MD5, herhangi bir giriş verisi için sabit boyutlu bir çıktı (128 bit) üretebilen, yaygın olarak kullanılan bir özet fonksiyonudur. Java’da, Java Security API’nin bir parçası olan MessageDigest sınıfını kullanarak bir stringin veya dosyanın MD5 özet değerini hesaplayabilirsiniz.</p>
+<p>Java’da bir sitringin MD5 hashinin nasıl hesaplanacağına dair bir örnek:</p>
+<pre tabindex="0"><code>import java.security.MessageDigest;  
+import java.security.NoSuchAlgorithmException;  
+  
+public class MD5Example {  
+    public static void main(String[] args) {  
+        String input = &#34;Hello, world!&#34;;  
+        String md5Hash = calculateMD5(input);  
+        System.out.println(&#34;MD5 hash of &#39;&#34; + input + &#34;&#39; is: &#34; + md5Hash);  
+    }  
+  
+    public static String calculateMD5(String input) {  
+        try {  
+            MessageDigest md = MessageDigest.getInstance(&#34;MD5&#34;);  
+            byte[] hash = md.digest(input.getBytes());  
+            StringBuilder sb = new StringBuilder();  
+            for (byte b : hash) {  
+                sb.append(String.format(&#34;%02x&#34;, b));  
+            }  
+            return sb.toString();  
+        } catch (NoSuchAlgorithmException e) {  
+            throw new RuntimeException(&#34;MD5 algorithm not available&#34;, e);  
+        }  
+    }  
+}
+</code></pre><p>Bu örnekte, önce MessageDigest sınıfını içe aktarıyoruz ve bir string girişi alan ve MD5 değerini bir string olarak döndüren bir <em>calculateMD5</em> metodu tanımlıyoruz.</p>
+<p>calculateMD5 metodunun içinde, önce <em>getInstance</em> metodunu kullanarak ve “MD5” algoritmasını parametre olarak vererek MessageDigest sınıfının yeni bir örneğini oluşturuyoruz. Daha sonra, MessageDigest nesnesinde hash metodunu çağırırız ve MD5 özetini hesaplamak için giriş stringini bir bayt dizisi olarak iletiriz.</p>
+<p>Son olarak, her baytı iki basamaklı onaltılık bir sayı olarak biçimlendirmek için bir StringBuilder nesnesi ve String.format metodunu kullanarak bayt dizisini bir stringe dönüştürürüz. Daha sonra ortaya çıkan diziyi MD5 özeti olarak döndürürüz.</p>
+<hr>
+<h3 id="sha-1-uygulaması">
+  SHA-1 Uygulaması
+  <a class="heading-link" href="#sha-1-uygulamas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SHA-1 (Secure HashAlgorithm 1), herhangi bir giriş verisi için sabit boyutlu bir çıktı (160 bit) oluşturabilen, yaygın olarak kullanılan bir özet fonksiyonudur. Java’da, Java Security API’sinin bir parçası olan MessageDigest sınıfını kullanarak bir stringin veya dosyanın SHA-1 özetini hesaplayabilirsiniz.</p>
+<p>Java’da bir stringin SHA-1 özetinin nasıl hesaplanacağına dair bir örnek:</p>
+<pre tabindex="0"><code>import java.security.MessageDigest;  
+import java.security.NoSuchAlgorithmException;  
+  
+public class SHA1Example {  
+    public static void main(String[] args) {  
+        String input = &#34;Hello, world!&#34;;  
+        String sha1Hash = calculateSHA1(input);  
+        System.out.println(&#34;SHA-1 hash of &#39;&#34; + input + &#34;&#39; is: &#34; + sha1Hash);  
+    }  
+  
+    public static String calculateSHA1(String input) {  
+        try {  
+            MessageDigest md = MessageDigest.getInstance(&#34;SHA-1&#34;);  
+            byte[] hash = md.digest(input.getBytes());  
+            StringBuilder sb = new StringBuilder();  
+            for (byte b : hash) {  
+                sb.append(String.format(&#34;%02x&#34;, b));  
+            }  
+            return sb.toString();  
+        } catch (NoSuchAlgorithmException e) {  
+            throw new RuntimeException(&#34;SHA-1 algorithm not available&#34;, e);  
+        }  
+    }  
+}
+</code></pre><p>Bu örnekte, önce MessageDigest sınıfını içe aktarıyoruz ve bir string girişi alan ve SHA-1 özetini bir string olarak döndüren bir <em>calculateSHA1</em> metodu tanımlıyoruz.</p>
+<p><em>calculateSHA1</em> metodunun içinde, önce <em>getInstance</em> metodunu kullanarak ve “SHA-1” algoritmasını parametre olarak vererek MessageDigest sınıfının yeni bir örneğini oluşturuyoruz. Daha sonra, MessageDigest nesnesinde hash metodunu çağırırız ve SHA-1 özet değerini hesaplamak için giriş stringini bir bayt dizisi olarak iletiriz.</p>
+<p>Son olarak, her baytı iki basamaklı onaltılık bir sayı olarak biçimlendirmek için bir StringBuilder nesnesi ve String.format metodu kullanarak bayt dizisini bir stringe dönüştürürüz. Daha sonra ortaya çıkan diziyi SHA-1 özeti olarak döndürürüz.</p>
+<hr>
+<h3 id="des-uygulaması">
+  DES Uygulaması
+  <a class="heading-link" href="#des-uygulamas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>DES (Data Encryption Standard), verileri şifrelemek ve şifresini çözmek için kullanılabilen simetrik anahtarlı bir şifreleme algoritmasıdır. Java’da, DES şifrelemesini ve şifre çözmeyi uygulamak için Java Cryptography Architecture’dan (JCA) Cipher sınıfını kullanabilirsiniz.</p>
+<p>Java’da DES kullanarak bir dizenin nasıl şifreleneceğine ve şifresinin çözüleceğine dair bir örnek:</p>
+<pre tabindex="0"><code>import javax.crypto.Cipher;  
+import javax.crypto.spec.SecretKeySpec;  
+import java.nio.charset.StandardCharsets;  
+import java.util.Base64;  
+  
+public class DESExample {  
+    public static void main(String[] args) throws Exception {  
+        String originalString = &#34;Hello, world!&#34;;  
+        String secretKey = &#34;mysecretkey&#34;;  
+          
+        // Encrypt the original string  
+        String encryptedString = encrypt(originalString, secretKey);  
+        System.out.println(&#34;Encrypted string: &#34; + encryptedString);  
+  
+        // Decrypt the encrypted string  
+        String decryptedString = decrypt(encryptedString, secretKey);  
+        System.out.println(&#34;Decrypted string: &#34; + decryptedString);  
+    }  
+  
+    public static String encrypt(String plainText, String secretKey) throws Exception {  
+        Cipher cipher = Cipher.getInstance(&#34;DES/ECB/PKCS5Padding&#34;);  
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), &#34;DES&#34;);  
+        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);  
+        byte[] encryptedBytes = cipher.doFinal(plainText.getBytes(StandardCharsets.UTF_8));  
+        return Base64.getEncoder().encodeToString(encryptedBytes);  
+    }  
+  
+    public static String decrypt(String encryptedText, String secretKey) throws Exception {  
+        Cipher cipher = Cipher.getInstance(&#34;DES/ECB/PKCS5Padding&#34;);  
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), &#34;DES&#34;);  
+        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);  
+        byte[] decodedBytes = Base64.getDecoder().decode(encryptedText);  
+        byte[] decryptedBytes = cipher.doFinal(decodedBytes);  
+        return new String(decryptedBytes, StandardCharsets.UTF_8);  
+    }  
+}
+</code></pre><p>Bu örnekte, önce gerekli sınıfları içe aktarıyoruz ve giriş olarak bir düz metin stringi ve bir gizli anahtar stringi alan ve karşılık gelen şifrelenmiş veya şifresi çözülmüş dizeyi döndüren <em>encrypt</em> ve <em>decrypt</em> metodlarını tanımlıyoruz.</p>
+<p>Her yöntemin içinde, önce Elektronik Kod Kitabı (ECB) modu ve PKCS5 dolgusu ile DES şifreleme algoritmasını belirten “DES/ECB/PKCS5Padding” dönüştürme stringini kullanarak bir Cipher nesnesi oluşturuyoruz.</p>
+<p>Daha sonra gizli anahtar dizgisini ve “DES” algoritmasını kullanarak bir SecretKeySpec nesnesi oluşturuyoruz ve uygun kiple (Cipher.ENCRYPT_MODE veya Cipher.DECRYPT_MODE) init yöntemini kullanarak gizli anahtarla cipher nesnesini başlatıyoruz.</p>
+<p>Şifreleme için, düz metin stringini bir bayt dizisine dönüştürüyoruz ve verileri şifrelemek için cipher nesnesinde doFinal metodunu çağırıyoruz. Ardından, ortaya çıkan bayt dizisini Base64 sınıfını kullanarak base64 ile kodlanmış bir stringe dönüştürür ve şifreli diziyi döndürürüz.</p>
+<p>Şifre çözme için, Base64 sınıfını kullanarak base64 ile kodlanmış stringin kodunu bir bayt dizisine geri döndürürüz, verilerin şifresini çözmek için cipher nesnesinde doFinal metodunu çağırırız ve elde edilen bayt dizisini uygun karakter kümesini kullanarak bir stringe dönüştürürüz (bunda durum, StandardCharsets.UTF_8). Daha sonra şifresi çözülmüş diziyi döndürürüz.</p>
+<hr>
+<h3 id="aes-uygulaması">
+  AES Uygulaması
+  <a class="heading-link" href="#aes-uygulamas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>AES (Gelişmiş Şifreleme Standardı), verileri şifrelemek ve şifresini çözmek için kullanılabilen simetrik anahtarlı bir şifreleme algoritmasıdır. Java’da, AES şifreleme ve şifre çözmeyi uygulamak için Java Cryptography Architecture’daki (JCA) Cipher sınıfını kullanabilirsiniz.</p>
+<p>Java’da AES kullanarak bir dizenin nasıl şifreleneceğine ve şifresinin çözüleceğine bir örnek:</p>
+<pre tabindex="0"><code>import javax.crypto.Cipher;  
+import javax.crypto.spec.SecretKeySpec;  
+import java.nio.charset.StandardCharsets;  
+import java.util.Base64;  
+  
+public class AESExample {  
+    public static void main(String[] args) throws Exception {  
+        String originalString = &#34;Hello, world!&#34;;  
+        String secretKey = &#34;mysecretkey&#34;;  
+          
+        // Encrypt the original string  
+        String encryptedString = encrypt(originalString, secretKey);  
+        System.out.println(&#34;Encrypted string: &#34; + encryptedString);  
+  
+        // Decrypt the encrypted string  
+        String decryptedString = decrypt(encryptedString, secretKey);  
+        System.out.println(&#34;Decrypted string: &#34; + decryptedString);  
+    }  
+  
+    public static String encrypt(String plainText, String secretKey) throws Exception {  
+        Cipher cipher = Cipher.getInstance(&#34;AES/ECB/PKCS5Padding&#34;);  
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), &#34;AES&#34;);  
+        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);  
+        byte[] encryptedBytes = cipher.doFinal(plainText.getBytes(StandardCharsets.UTF_8));  
+        return Base64.getEncoder().encodeToString(encryptedBytes);  
+    }  
+  
+    public static String decrypt(String encryptedText, String secretKey) throws Exception {  
+        Cipher cipher = Cipher.getInstance(&#34;AES/ECB/PKCS5Padding&#34;);  
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), &#34;AES&#34;);  
+        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);  
+        byte[] decodedBytes = Base64.getDecoder().decode(encryptedText);  
+        byte[] decryptedBytes = cipher.doFinal(decodedBytes);  
+        return new String(decryptedBytes, StandardCharsets.UTF_8);  
+    }  
+}
+</code></pre><p>Bu örnekte, önce gerekli sınıfları içe aktarıyoruz ve giriş olarak bir düz metin stringi ve bir gizli anahtar stringi alan ve karşılık gelen şifrelenmiş veya şifresi çözülmüş stringi döndüren <em>encrypt</em> ve <em>decrypt</em> metodlarını tanımlıyoruz.</p>
+<p>Her metodun içinde, önce Elektronik Kod Kitabı (ECB) modu ve PKCS5 dolgusu ile AES şifreleme algoritmasını belirten “AES/ECB/PKCS5Padding” dönüştürme stringini kullanarak bir Cipher nesnesi oluşturuyoruz.</p>
+<p>Daha sonra gizli anahtar stringini ve “AES” algoritmasını kullanarak bir SecretKeySpec nesnesi oluşturuyoruz ve uygun kiple (Cipher.ENCRYPT_MODE veya Cipher.DECRYPT_MODE) init yöntemini kullanarak gizli anahtarla cipher nesnesini başlatıyoruz.</p>
+<p>Şifreleme için, düz metin stringini bir bayt stringine dönüştürüyoruz ve verileri şifrelemek için cipher nesnesinde doFinal metodunu çağırıyoruz. Ardından, ortaya çıkan bayt dizisini Base64 sınıfını kullanarak base64 ile kodlanmış bir stringe dönüştürür ve şifreli diziyi döndürürüz.</p>
+<p>Şifre çözme için, Base64 sınıfını kullanarak base64 ile kodlanmış stringin kodunu bir bayt dizisine geri döndürürüz, verilerin şifresini çözmek için cipher nesnesinde doFinal yöntemini çağırırız ve elde edilen bayt dizisini uygun karakter kümesini kullanarak bir dizeye dönüştürürüz (bunda durum, StandardCharsets.UTF_8). Daha sonra şifresi çözülmüş diziyi döndürürüz.</p>
+<hr>
+<h3 id="rsa-uygulaması">
+  RSA Uygulaması
+  <a class="heading-link" href="#rsa-uygulamas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>RSA (Rivest–Shamir–Adleman), verileri güvenli bir şekilde şifrelemek ve şifresini çözmek için kullanılabilen bir açık anahtarlı şifreleme algoritmasıdır. Java’da, RSA şifrelemesini ve şifre çözmeyi uygulamak için Java Cryptography Architecture’daki (JCA) KeyPairGenerator ve Cipher sınıflarını kullanabilirsiniz.</p>
+<p>Java’da bir RSA anahtar çiftinin nasıl oluşturulacağına, ortak anahtarı kullanarak bir stringin nasıl şifreleneceğine ve şifrelenmiş stringin şifresinin nasıl çözüleceğine ilişkin bir örnek aşağıda verilmiştir:</p>
+<pre tabindex="0"><code>import javax.crypto.Cipher;  
+import java.security.KeyPair;  
+import java.security.KeyPairGenerator;  
+import java.util.Base64;  
+  
+public class RSAExample {  
+    public static void main(String[] args) throws Exception {  
+        String originalString = &#34;Hello, world!&#34;;  
+          
+        // Generate an RSA key pair  
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(&#34;RSA&#34;);  
+        keyPairGenerator.initialize(2048);  
+        KeyPair keyPair = keyPairGenerator.generateKeyPair();  
+          
+        // Get the public and private keys from the key pair  
+        byte[] publicKeyBytes = keyPair.getPublic().getEncoded();  
+        byte[] privateKeyBytes = keyPair.getPrivate().getEncoded();  
+  
+        // Encrypt the original string using the public key  
+        byte[] encryptedBytes = encrypt(originalString.getBytes(), publicKeyBytes);  
+        String encryptedString = Base64.getEncoder().encodeToString(encryptedBytes);  
+        System.out.println(&#34;Encrypted string: &#34; + encryptedString);  
+  
+        // Decrypt the encrypted string using the private key  
+        byte[] decryptedBytes = decrypt(Base64.getDecoder().decode(encryptedString), privateKeyBytes);  
+        String decryptedString = new String(decryptedBytes);  
+        System.out.println(&#34;Decrypted string: &#34; + decryptedString);  
+    }  
+  
+    public static byte[] encrypt(byte[] plainBytes, byte[] publicKeyBytes) throws Exception {  
+        Cipher cipher = Cipher.getInstance(&#34;RSA&#34;);  
+        cipher.init(Cipher.ENCRYPT_MODE, KeyFactory.getInstance(&#34;RSA&#34;).generatePublic(new X509EncodedKeySpec(publicKeyBytes)));  
+        return cipher.doFinal(plainBytes);  
+    }  
+  
+    public static byte[] decrypt(byte[] encryptedBytes, byte[] privateKeyBytes) throws Exception {  
+        Cipher cipher = Cipher.getInstance(&#34;RSA&#34;);  
+        cipher.init(Cipher.DECRYPT_MODE, KeyFactory.getInstance(&#34;RSA&#34;).generatePrivate(new PKCS8EncodedKeySpec(privateKeyBytes)));  
+        return cipher.doFinal(encryptedBytes);  
+    }  
+}
+</code></pre><p>Bu örnekte, önce gerekli sınıfları içeri aktarıyoruz ve giriş olarak düz metin veya şifreli verilerden oluşan bir bayt dizisini ve genel veya özel anahtardan oluşan bir bayt dizisini alan ve karşılık gelen şifreli veya şifresi çözülmüş bayt dizisini döndüren <em>encrypt</em> ve <em>decrypt</em> metodlarını tanımlıyoruz. .</p>
+<p>Main metot içerisinde öncelikle KeyPairGenerator sınıfını kullanarak “RSA” algoritması ve 2048 bitlik bir anahtar boyutu ile bir RSA anahtar çifti oluşturuyoruz. Daha sonra <em>getEncoded</em> metodunu kullanarak genel ve özel anahtarları anahtar çiftinden bayt dizileri olarak çıkarırız.</p>
+<p>Şifreleme için, bir bayt dizisine dönüştürülmüş orijinal string ve giriş olarak genel anahtar bayt dizisi ile <em>encrypt</em> metodunu çağırıyoruz. Encrypt metodunun içinde “RSA” algoritmasını kullanarak bir Cipher nesnesi oluşturuyoruz ve bunu init metodunu kullanarak uygun modla (Cipher.ENCRYPT_MODE) kullanarak public key ile başlatıyoruz. Ardından, verileri şifrelemek ve elde edilen bayt dizisini döndürmek için cipher nesnesinde doFinal metodunu çağırırız.</p>
+<p>Şifre çözme için, bir bayt dizisine dönüştürülen base64-deşifre edilmiş şifrelenmiş string ve giriş olarak özel anahtar bayt dizisi ile <em>decrypt</em> metodunu çağırıyoruz. Decrypt yönteminin içinde “RSA” algoritmasını kullanarak başka bir Cipher nesnesi oluşturuyoruz ve uygun mod ile init metodunu kullanarak özel anahtarla başlatıyoruz.</p>
+<hr>
+<h3 id="ecdh-uygulaması">
+  ECDH Uygulaması
+  <a class="heading-link" href="#ecdh-uygulamas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>ECDH (Elliptic Curve Diffie-Hellman), iki tarafın güvenli olmayan bir iletişim kanalı üzerinden paylaşılan bir sır oluşturmasına izin veren bir anahtar anlaşma protokolüdür. Java’da, eliptik eğri şifreleme kullanarak ECDH anahtar değişimini uygulamak için Java Cryptography Architecture’dan (JCA) KeyAgreement ve KeyPairGenerator sınıflarını kullanabilirsiniz.</p>
+<p>Java kullanarak bir ECDH anahtar çifti oluşturmanın, başka bir tarafla anahtar değişimi gerçekleştirmenin ve paylaşılan bir anahtarı türetmenin bir örneğini burada bulabilirsiniz:</p>
+<pre tabindex="0"><code>import javax.crypto.KeyAgreement;  
+import javax.crypto.SecretKey;  
+import javax.crypto.spec.ECGenParameterSpec;  
+import java.security.*;  
+import java.security.spec.ECParameterSpec;  
+import java.security.spec.ECPublicKeySpec;  
+import java.security.spec.InvalidKeySpecException;  
+  
+public class ECDHExample {  
+    public static void main(String[] args) throws Exception {  
+        // Generate an ECDH key pair  
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(&#34;EC&#34;);  
+        ECGenParameterSpec ecGenParameterSpec = new ECGenParameterSpec(&#34;secp256r1&#34;);  
+        keyPairGenerator.initialize(ecGenParameterSpec);  
+        KeyPair keyPair = keyPairGenerator.generateKeyPair();  
+        PrivateKey privateKey = keyPair.getPrivate();  
+        PublicKey publicKey = keyPair.getPublic();  
+  
+        // Simulate the other party by generating its own ECDH key pair  
+        KeyPair otherKeyPair = keyPairGenerator.generateKeyPair();  
+        PrivateKey otherPrivateKey = otherKeyPair.getPrivate();  
+        PublicKey otherPublicKey = otherKeyPair.getPublic();  
+  
+        // Perform key exchange with the other party  
+        KeyAgreement keyAgreement = KeyAgreement.getInstance(&#34;ECDH&#34;);  
+        keyAgreement.init(privateKey);  
+        keyAgreement.doPhase(otherPublicKey, true);  
+  
+        // Derive the shared secret  
+        byte[] sharedSecret = keyAgreement.generateSecret();  
+  
+        // Simulate the other party deriving the shared secret using its private key  
+        KeyFactory keyFactory = KeyFactory.getInstance(&#34;EC&#34;);  
+        ECParameterSpec ecParameterSpec = ((ECPublicKeySpec) otherPublicKey.getKeySpec(ECPublicKeySpec.class)).getParams();  
+        PublicKey simulatedOtherPublicKey = keyFactory.generatePublic(new ECPublicKeySpec(((java.security.spec.ECPoint) otherPublicKey).getW(), ecParameterSpec));  
+        KeyAgreement simulatedKeyAgreement = KeyAgreement.getInstance(&#34;ECDH&#34;);  
+        simulatedKeyAgreement.init(otherPrivateKey);  
+        simulatedKeyAgreement.doPhase(publicKey, true);  
+        byte[] simulatedSharedSecret = simulatedKeyAgreement.generateSecret();  
+  
+        // Compare the two shared secrets (should be equal)  
+        System.out.println(&#34;Shared secret: &#34; + bytesToHex(sharedSecret));  
+        System.out.println(&#34;Simulated shared secret: &#34; + bytesToHex(simulatedSharedSecret));  
+        System.out.println(&#34;Shared secrets match: &#34; + bytesToHex(sharedSecret).equals(bytesToHex(simulatedSharedSecret)));  
+    }  
+  
+    public static String bytesToHex(byte[] bytes) {  
+        StringBuilder sb = new StringBuilder();  
+        for (byte b : bytes) {  
+            sb.append(String.format(&#34;%02X&#34;, b));  
+        }  
+        return sb.toString();  
+    }  
+}
+</code></pre><p>Bu örnekte, önce gerekli sınıfları içeri aktarıyoruz ve bir bayt dizisini onaltılık dizgiye dönüştürmek için bir bytesToHex yöntemi tanımlıyoruz.</p>
+<p>Ana yöntemin içinde, önce “EC” algoritması ve “secp256r1” eliptik eğri parametre özelliği ile KeyPairGenerator sınıfını kullanarak bir ECDH anahtar çifti oluşturuyoruz. Daha sonra özel ve genel anahtarları anahtar çiftinden çıkarıyoruz.</p>
+<p>Aynı eğri parametrelerini kullanarak kendi ECDH anahtar çiftini oluşturarak karşı tarafı simüle ediyoruz.</p>
+<hr>
+<h3 id="ecdsa-uygulaması">
+  ECDSA Uygulaması
+  <a class="heading-link" href="#ecdsa-uygulamas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>ECDSA (Elliptic Curve Digital Signature Algorithm), eliptik eğri kriptografisine dayalı bir dijital imza algoritmasıdır. Java’da, ECDSA’yı uygulamak için Java Cryptography Architecture’dan (JCA) Signature ve KeyPairGenerator sınıflarını kullanabilirsiniz.</p>
+<p>Java kullanarak bir ECDSA anahtar çiftinin nasıl oluşturulacağına, bir mesajın özel anahtarla nasıl imzalanacağına ve imzanın ortak anahtarla nasıl doğrulanacağına ilişkin bir örneği burada bulabilirsiniz:</p>
+<pre tabindex="0"><code>import java.security.*;  
+import java.security.spec.ECGenParameterSpec;  
+import java.security.spec.InvalidKeySpecException;  
+import java.security.spec.PKCS8EncodedKeySpec;  
+import java.security.spec.X509EncodedKeySpec;  
+  
+public class ECDSAExample {  
+    public static void main(String[] args) throws Exception {  
+        // Generate an ECDSA key pair  
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(&#34;EC&#34;);  
+        ECGenParameterSpec ecGenParameterSpec = new ECGenParameterSpec(&#34;secp256r1&#34;);  
+        keyPairGenerator.initialize(ecGenParameterSpec);  
+        KeyPair keyPair = keyPairGenerator.generateKeyPair();  
+        PrivateKey privateKey = keyPair.getPrivate();  
+        PublicKey publicKey = keyPair.getPublic();  
+  
+        // Sign a message with the private key  
+        byte[] message = &#34;Hello, world!&#34;.getBytes();  
+        Signature signature = Signature.getInstance(&#34;SHA256withECDSA&#34;);  
+        signature.initSign(privateKey);  
+        signature.update(message);  
+        byte[] signatureBytes = signature.sign();  
+  
+        // Verify the signature with the public key  
+        Signature verifier = Signature.getInstance(&#34;SHA256withECDSA&#34;);  
+        verifier.initVerify(publicKey);  
+        verifier.update(message);  
+        boolean signatureValid = verifier.verify(signatureBytes);  
+  
+        System.out.println(&#34;Signature valid: &#34; + signatureValid);  
+    }  
+}
+</code></pre><p>Bu örnekte öncelikle gerekli sınıfları import ediyoruz.</p>
+<p>Ana yöntemin içinde, “EC” algoritması ve “secp256r1” eliptik eğri parametre özelliği ile KeyPairGenerator sınıfını kullanarak bir ECDSA anahtar çifti oluşturuyoruz. Anahtar çiftinden özel ve genel anahtarları çıkarıyoruz.</p>
+<p>Daha sonra imzalamak için bir mesaj oluştururuz ve mesajı özel anahtarla imzalamak için Signature sınıfını kullanırız. SHA-256&rsquo;yı hash fonksiyonu olarak kullanmak için “SHA256withECDSA” algoritmasını belirtiyoruz.</p>
+<p>Daha sonra, Signature sınıfını kullanarak bir doğrulayıcı nesne yaratırız ve onu ortak anahtarla başlatırız. Doğrulayıcıyı aynı mesajla güncelleriz ve doğrulama yöntemini kullanarak imzayı doğrularız. İmzanın geçerli olup olmadığını belirlemek için sonucu true ile karşılaştırırız.</p>
+<p>Gerçek dünya senaryosunda, iletim sırasında imzanın kurcalanmadığından emin olmak için genellikle imzalı mesajı ve ortak anahtarı doğrulayıcıya ayrı ayrı ileteceğinizi unutmayın.</p>
+<hr>
+<p>Bu yazımda Java ile kriptoloji uygulamaları yaptım. Yazı serisine profilimden ulaşabilirsiniz. Beğenmeyi ve takip etmeyi unutmayın.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

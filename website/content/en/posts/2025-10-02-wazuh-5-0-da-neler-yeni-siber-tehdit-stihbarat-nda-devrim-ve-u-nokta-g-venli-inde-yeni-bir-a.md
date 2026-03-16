@@ -1,4 +1,5 @@
 ---
+series: ["Wazuh"]
 title: "What's New in Wazuh 5.0? Revolution in Cyber ​​Threat Intelligence and a New Era in Endpoint Security"
 date: 2025-10-02
 draft: false

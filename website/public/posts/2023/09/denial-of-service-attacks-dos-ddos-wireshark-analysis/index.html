@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Denial of Service Attacks (DoS-DDoS) Wireshark Analysis · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Denial of Service Attacks (DoS-DDoS) Wireshark Analysis
+  
+    
+    Link to heading
+  
+
+
+Hello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.
+
+
+  Wireshark
+  
+    
+    Link to heading
+  
+
+Wireshark is open source software used as a network analysis tool. Wireshark can capture, inspect and analyze network traffic so it can be used to diagnose network problems, detect security threats or monitor network performance.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Denial of Service Attacks (DoS-DDoS) Wireshark Analysis">
+  <meta name="twitter:description" content="Denial of Service Attacks (DoS-DDoS) Wireshark AnalysisLink to headingHello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.
+WiresharkLink to headingWireshark is open source software used as a network analysis tool. Wireshark can capture, inspect and analyze network traffic so it can be used to diagnose network problems, detect security threats or monitor network performance.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2023/09/denial-of-service-attacks-dos-ddos-wireshark-analysis/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Denial of Service Attacks (DoS-DDoS) Wireshark Analysis">
+  <meta property="og:description" content="Denial of Service Attacks (DoS-DDoS) Wireshark AnalysisLink to headingHello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.
+WiresharkLink to headingWireshark is open source software used as a network analysis tool. Wireshark can capture, inspect and analyze network traffic so it can be used to diagnose network problems, detect security threats or monitor network performance.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-09-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-09-15T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2023/09/denial-of-service-attacks-dos-ddos-wireshark-analysis/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2023/09/hizmet-engelleme-sald%C4%B1r%C4%B1lar%C4%B1-dos-ddos-wireshark-analizi/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2023/09/denial-of-service-attacks-dos-ddos-wireshark-analysis/">
+              Denial of Service Attacks (DoS-DDoS) Wireshark Analysis
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-09-15T00:00:00Z">
+                September 15, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              13-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="denial-of-service-attacks-dos-ddos-wireshark-analysis">
+  Denial of Service Attacks (DoS-DDoS) Wireshark Analysis
+  <a class="heading-link" href="#denial-of-service-attacks-dos-ddos-wireshark-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_tKGgOxt2Mq5piyQ3_CJDdg.png" alt=""></p>
+<p>Hello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.</p>
+<hr>
+<h3 id="wireshark">
+  Wireshark
+  <a class="heading-link" href="#wireshark">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Wireshark is open source software used as a network analysis tool. Wireshark can capture, inspect and analyze network traffic so it can be used to diagnose network problems, detect security threats or monitor network performance.</p>
+<p>For detailed information: <a href="https://www.wireshark.org/"  class="external-link" target="_blank" rel="noopener">https://www.wireshark.org/</a></p>
+<p>You can follow the steps below to install Wireshark on your computer. Please note that these steps may vary depending on your operating system and intended use. Here are the general steps to install Wireshark:</p>
+<h4 id="for-windows-operating-system">
+  <strong>For Windows Operating System:</strong>
+  <a class="heading-link" href="#for-windows-operating-system">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li>Visit Wireshark&rsquo;s Official Website: It is recommended to download Wireshark from its official website. You can access the official website at: <a href="https://www.wireshark.org/"  class="external-link" target="_blank" rel="noopener">https://www.wireshark.org/</a></li>
+<li>Go to Download Page: On the home page, click on the “Download” or “Download” link.</li>
+<li>Select Download Options: Select the Wireshark version for Windows and begin the download. The file you download will have the .exe extension.</li>
+<li>Run the Installation Wizard: Run the downloaded .exe file. May require Windows UAC (User Account Control) permission. Grant the permission and continue with the installation process.</li>
+<li>Set Installation Options: During installation, you can choose whether to install components such as Wireshark and WinPcap (Npcap in some versions). It is usually a good option to accept the recommended settings.</li>
+<li>Complete the Installation: Follow the necessary steps to complete the installation process. Once the installation is complete, you will have the option to launch Wireshark.</li>
+<li>Launch Wireshark: Once the installation is complete, launch Wireshark. You can now capture and analyze network traffic.</li>
+</ol>
+<h4 id="for-linux-operating-system">
+  <strong>For Linux Operating System:</strong>
+  <a class="heading-link" href="#for-linux-operating-system">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Wireshark is available in the repositories of many Linux distributions, so you can install the package using the commands below. For example, on a Debian or Ubuntu based system:</p>
+<pre tabindex="0"><code>sudo apt update  
+sudo apt install wireshark
+</code></pre><p>Administrator permission with sudo may be required during installation. Additionally, in order to use Wireshark, it may be necessary to add the user to the “wireshark” group or start it with sudo.</p>
+<h4 id="for-mac-os">
+  <strong>For Mac OS:</strong>
+  <a class="heading-link" href="#for-mac-os">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>To use Wireshark on Mac OS X, you can download and install a DMG file from the official website. You should frequently follow the instructions during installation.</p>
+<p>Once you install Wireshark, you can start using it to capture and analyze network traffic. Remember that monitoring network traffic may require certain permissions and you must do so in a legal and ethical manner.</p>
+<hr>
+<h3 id="dosddos">
+  DoS — DDoS
+  <a class="heading-link" href="#dosddos">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Denial of Service (DoS) and Distributed Denial of Service (DDoS) attacks are types of cyber attacks that aim to temporarily or permanently disrupt the ability to provide services to computer systems or networks.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*CnVj85vNvqXwZqbI" alt=""></p>
+<p>A DoS (Denial of Service) attack is an attempt to make traffic from a single source unusable. DDoS (Distributed Denial of Service) attack is an attempt to make coordinated traffic coming from many sources unusable. The main difference is that DoS comes from a single source whereas DDoS comes from multiple sources. DDoS is a larger and more effective type of attack.</p>
+<p>You can use the <a href="https://www.kali.org/tools/hping3/"  class="external-link" target="_blank" rel="noopener">hping3</a> tool on a Linux machine to perform these attacks in your own lab environment. In addition, the <a href="https://github.com/yusufarbc/DoS-Attack-Framework"  class="external-link" target="_blank" rel="noopener">DoS Attack Framework</a> tool offers you an interactive interface to perform DoS attacks.</p>
+<hr>
+<h3 id="tcp-attacks">
+  TCP Attacks
+  <a class="heading-link" href="#tcp-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>TCP (Transmission Control Protocol) is a communication protocol used to ensure reliable and sequential data transmission between computers. The way TCP works is managed using control pointers called flags. Explanations of TCP&rsquo;s operating principles and flags are given:</p>
+<ol>
+<li><strong>Initialization (SYN — Synchronize):</strong> The client side sends a packet containing a “SYN” flag to initiate the connection.</li>
+<li><strong>Response (SYN-ACK — Synchronize Acknowledgment):</strong> If the server side accepts the connection, it sends a response containing the “SYN-ACK” flag.</li>
+<li>**Acknowledgment (ACK — Acknowledgment):**The client party sends a response containing an “ACK” flag to confirm that the second party has received the acceptance response, and the connection is completed.</li>
+<li><strong>Data Transmission (PSH — Push, URG — Urgent, FIN — Finish, RST — Reset):</strong> After the connection is established, the parties start data transmission. The data packets to be transmitted are marked with these flags:</li>
+</ol>
+<ul>
+<li><strong>PSH (Push):</strong> Indicates that you want the data to be transmitted quickly.</li>
+<li><strong>URG (Urgent):</strong> Indicates that it is priority data.</li>
+<li><strong>FIN (Finish):</strong> Ends data transmission.</li>
+<li><strong>RST (Reset):</strong> Resets and terminates the connection.</li>
+</ul>
+<p>TCP uses flags to ensure the order and reliability of sent data. Data packets are transmitted in a specific order, and missing or faulty packets are re-requested.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*pzIithfwbR4guk5-" alt=""></p>
+<p>Three Way Handshake</p>
+<p>Denial of service attacks using the TCP protocol are attacks that generally aim to consume network or server resources and cause service interruptions. These types of attacks can affect target networks or servers by exploiting vulnerabilities in TCP/IP communications. Here are some denial of service attacks using the TCP protocol:</p>
+<h4 id="syn-flood-attack">
+  SYN Flood Attack
+  <a class="heading-link" href="#syn-flood-attack">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In this attack, attackers send a large number of fraudulent connection requests (SYN requests) to the target server. While the target server tries to respond to these requests, it consumes its resources and becomes unable to serve real users.</p>
+<p>When we detect a SYN Flood attack with Wireshark, we see many TCP packets with SYN flags sent at very short time intervals.</p>
+<p><img src="/images/1_8f1IfL0GBQhChQvtBIMM1w.png" alt=""></p>
+<p>SYN-Flood</p>
+<h4 id="rst-flood-attack">
+  RST Flood Attack
+  <a class="heading-link" href="#rst-flood-attack">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Attackers reset existing connections by sending spoofed TCP RST packets to the target server. This may disrupt the functioning of the target server and render services unusable.</p>
+<p>When we detect an RST Flood attack with Wireshark, we see many RST flagged TCP packets sent at very short time intervals. It also manipulates the source address and makes it appear as if it comes from different IP addresses.</p>
+<p><img src="/images/1_3YLM5vaoxJjO3zo5h_nA1w.png" alt=""></p>
+<p>RST Flood</p>
+<h4 id="ack-psh-flood-attack">
+  ACK-PSH Flood Attack
+  <a class="heading-link" href="#ack-psh-flood-attack">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In this type of attack, attackers send large amounts of fake TCP ACK and PSH (Push) packets to the target server. This can consume the server&rsquo;s resources and cause services to slow down.</p>
+<p>When we detect an ACK-PSH Flood attack with Wireshark, we see many TCP packets with PSH+ACK flags sent in very short time intervals. It manipulates the source address and makes it appear as if it comes from different IP addresses.</p>
+<p><img src="/images/1_N5dYU-KK2LY19L4dcajOuw.png" alt=""></p>
+<p>ACK-PSH Flood</p>
+<h4 id="ack-flood-attack">
+  ACK Flood Attack
+  <a class="heading-link" href="#ack-flood-attack">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Attackers send large amounts of fake TCP ACK (Acknowledgment) packets to the target server. This can quickly consume the server&rsquo;s resources.</p>
+<p>Similar to ACK-PSH, when we look at ACK Floo with wireshark, we see TCP packets with ACK flags sent at very short intervals. The source address was manipulated to appear as coming from a different source.</p>
+<p><img src="/images/1_UgJojmwpCwsycIQG5kO7UQ.png" alt=""></p>
+<p>ACK Flood</p>
+<p>These types of attacks create situations where servers and networks are overloaded and can cause service outages. Therefore, targets often use security measures and cybersecurity solutions to detect and defend against attacks. These solutions may include measures such as traffic filtering, firewalls, intrusion detection systems, and load balancing. Additionally, network security policies and good security practices are also important.</p>
+<hr>
+<h3 id="udp-attacks">
+  UDP Attacks
+  <a class="heading-link" href="#udp-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>UDP (User Datagram Protocol) is a communication protocol used for data transmission in IP-based networks. UDP allows data packets to be transmitted quickly and with low latency, but does not guarantee reliable transmission or reception of data. UDP is often used in applications such as audio and video streaming and network gaming.</p>
+<p>UDP does not include security and reliability mechanisms like TCP to transmit or receive data securely. Therefore, UDP attacks can be more unpredictable and harder to defend against. Some UDP attacks and their explanations:</p>
+<h4 id="udp-flood-attack">
+  <strong>UDP Flood Attack</strong>
+  <a class="heading-link" href="#udp-flood-attack">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In this type of attack, attackers send a large amount of spoofed UDP packets to the target server. These packets attempt to exhaust the target server&rsquo;s resources and render its services unusable.Such attacks may involve sending packets so fast that the target server cannot respond.</p>
+<p>Similar to TCP attacks, when we look at UDP attacks with Wireshark, we see packets sent at very short intervals. The difference is this time there are UDP packets, not TCP. In addition, the source address was manipulated and shown as coming from a different source.</p>
+<p><img src="/images/1_VNf1wUYOGRdXBuNUeU0qPg.png" alt=""></p>
+<p>UDP Flood</p>
+<h4 id="udp-fragmentation-attacks">
+  <strong>UDP Fragmentation Attacks</strong>
+  <a class="heading-link" href="#udp-fragmentation-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In this type of attack, attackers divide large UDP packets into small pieces and send these pieces to the target server. This may cause the target server to exhaust its resources to reassemble packages.</p>
+<p>Protection against UDP attacks may include security measures such as traffic filtering, firewalls, packet balancing, and intrusion detection systems. Additionally, the target server&rsquo;s resources and network traffic should be monitored and intervention should be taken when abnormal situations are detected.</p>
+<hr>
+<h3 id="icmp-attacks">
+  ICMP Attacks
+  <a class="heading-link" href="#icmp-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>ICMP (Internet Control Message Protocol) is a communication protocol used to perform error notification, network routing information, and other network management functions on an IP network. ICMP attacks aim to disable a service or network by using this protocol for malicious purposes. Below are some of the common ICMP attacks and their descriptions:</p>
+<h4 id="ping-attacks-pingflood">
+  <strong>Ping Attacks (Ping Flood)</strong>
+  <a class="heading-link" href="#ping-attacks-pingflood">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Attackers send large amounts of ICMP Echo Request (ping) requests to the target server. These requests require the target server to respond and may consume the server&rsquo;s resources.</p>
+<p>When we examine the network traffic with Wireshark, we see many ICMP echo request packets. These requests came from a single source.</p>
+<p><img src="/images/1_dqsZopEHHSShzDAVlx62gA.png" alt=""></p>
+<p>Ping Flood</p>
+<h4 id="smurf-attacks">
+  Smurf Attacks
+  <a class="heading-link" href="#smurf-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In this type of attack, attackers send large amounts of ICMP Echo Requests using spoofed source IP addresses. These requests are forwarded to all devices on the network and all devices respond, causing the target server to become overloaded.</p>
+<p>When we examine the network traffic with Wireshark, we see many ICMP echo request packets. These requests appear to come from manipulated sources.</p>
+<p><img src="/images/1_KKFdMVKStomIrgb24zsXWA.png" alt=""></p>
+<p>Smurf Attack</p>
+<h4 id="icmp-redirect-attacks">
+  <strong>ICMP Redirect Attacks</strong>
+  <a class="heading-link" href="#icmp-redirect-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Attackers attempt to spoof devices on the target network with spoofed ICMP Redirect requests. This can be used to redirect network traffic to a malicious server.</p>
+<h4 id="icmp-time-exceeded-attacks">
+  <strong>ICMP Time Exceeded Attacks</strong>
+  <a class="heading-link" href="#icmp-time-exceeded-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In this type of attack, attackers try to exhaust the target server&rsquo;s resources by sending ICMP Time Exceeded messages. These messages may increase traffic generated by ICMP traffic.</p>
+<p>ICMP attacks can overload the target network or server, causing service interruptions. Protection against such attacks may include security measures such as firewalls, IPS (Intrusion Prevention System), ICMP traffic filtering and penetration tests. Additionally, it is important for network administrators to monitor network traffic and detect abnormal activity.</p>
+<hr>
+<h3 id="httphttps-attacks">
+  HTTP/HTTPS Attacks
+  <a class="heading-link" href="#httphttps-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>HTTP and HTTPS denial of service (DoS — Denial of Service attacks aim to target web servers or web applications and prevent access to these services. Such attacks can cause server overload and service outages. Here are some denial of service attacks against HTTP and HTTPS services:</p>
+<h4 id="http-flood-attacks">
+  <strong>HTTP Flood Attacks</strong>
+  <a class="heading-link" href="#http-flood-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Attackers send a large number of HTTP requests to the target web server. This can consume the server&rsquo;s resources and cause it to become unavailable.</p>
+<p>I found a tool written in Python to perform this attack. Link <a href="https://github.com/D4Vinci/PyFlooder"  class="external-link" target="_blank" rel="noopener">here</a>. I performed an HTTP flood attack on a web server I set up at my local location.</p>
+<p>When we examine the traffic with Wireshark, we see that many HTTP GET packets are sent in very short intervals.</p>
+<p><img src="/images/1_wr8sajciDuwntDmn68NOdw.png" alt=""></p>
+<p>HTTP GET Flood</p>
+<h4 id="slowloris-attacks">
+  <strong>Slowloris Attacks</strong>
+  <a class="heading-link" href="#slowloris-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Attackers establish a slow connection to the web server and keep that connection open. This may prevent the server from responding to new connections.</p>
+<h4 id="ssltls-handshake-attacks">
+  <strong>SSL/TLS Handshake Attacks</strong>
+  <a class="heading-link" href="#ssltls-handshake-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Attackers can exhaust servers&rsquo; resources by overloading SSL/TLS handshake processes. For this, the target web serverIt must use the HTTPS protocol and have an SSL certificate.</p>
+<h4 id="beast-browser-exploit-against-ssltls-attacks">
+  <strong>BEAST (Browser Exploit Against SSL/TLS) Attacks</strong>
+  <a class="heading-link" href="#beast-browser-exploit-against-ssltls-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In such attacks, attackers can compromise secure connections by trying to decrypt previously encrypted data. For this, the target web server must use the HTTPS protocol and have an SSL certificate.</p>
+<h4 id="heartbleed-attacks">
+  <strong>Heartbleed Attacks</strong>
+  <a class="heading-link" href="#heartbleed-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Heartbleed vulnerability is a type of attack that targets SSL/TLS servers. Attackers can steal sensitive information from the server. Likewise, for this attack, the target web server must use the HTTPS protocol and have an SSL certificate.</p>
+<p>Methods of protection against denial of service attacks may include security measures such as traffic filtering, firewalls, load balancing, use of CDN (Content Delivery Network) and service monitoring. It is also important to apply up-to-date software patches and security policies.</p>
+<hr>
+<h3 id="dns-attacks">
+  DNS Attacks
+  <a class="heading-link" href="#dns-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>DNS (Domain Name System) is a service and protocol that translates domain names on the Internet (for example, <a href="http://www.example.com"  class="external-link" target="_blank" rel="noopener">www.example.com</a>) into IP addresses (for example, 192.0.2.1) and provides this translation process. DNS translates domain names understandable to humans into IP addresses understandable to computers. This allows applications such as internet browsers to convert domain names entered by users into real IP addresses.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*BCj832ixsuIArXfY" alt=""></p>
+<p>DNS</p>
+<p>DNS denial of service attacks are cyber attacks that aim to disrupt or interrupt the operation of this service. Denial of service attacks against DNS services can include:</p>
+<h4 id="dns-flood-attacks">
+  DNS Flood Attacks
+  <a class="heading-link" href="#dns-flood-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Attackers send large numbers of spoofed DNS queries to the target DNS server. The server quickly runs out of resources to process these queries and the DNS service is interrupted.</p>
+<h4 id="dns-amplification-attacks">
+  DNS Amplification Attacks
+  <a class="heading-link" href="#dns-amplification-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Attackers send large-sized queries to the DNS server, which trigger larger responses from the DNS server. Responses are routed towards the target server, causing the target server to become overloaded.</p>
+<h4 id="dns-cache-poisoning-attacks">
+  DNS Cache Poisoning Attacks
+  <a class="heading-link" href="#dns-cache-poisoning-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Attackers attempt to insert spoofed data into the target DNS server&rsquo;s cache. This can mislead users by sending false IP addresses to the target&rsquo;s users.</p>
+<h4 id="nxdomain-attacks">
+  NXDOMAIN Attacks
+  <a class="heading-link" href="#nxdomain-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Attackers exhaust the target&rsquo;s resources by sending fake NXDOMAIN (Domain Not Found) queries to which the target server responds.</p>
+<p>DNS denial of service attacks can have serious consequences, such as disrupting internet access or rendering websites unusable. Protecting against such attacks may include measures such as improving the security settings of DNS servers, monitoring and filtering traffic, using DNS security extensions, and maintaining backup DNS servers. It is also important to ensure that DNS servers and infrastructure are up to date and secure.</p>
+<hr>
+<h3 id="macof-attack">
+  Macof Attack
+  <a class="heading-link" href="#macof-attack">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>MACOF (MAC Flooding) attack is a type of network attack performed on Ethernet networks. This attack is carried out with the aim of maliciously leaking the MAC (Media Access Control) addresses of devices on the network or disrupting network performance. MACOF is typically performed on local networks or wireless networks. Here&rsquo;s how the attack works:</p>
+<ol>
+<li>The attacker creates a large number of random MAC addresses by pretending to be a device connected to the network.</li>
+<li>These spoofed MAC addresses are used in Ethernet frames directed to all devices on the network. The attacker sends data packets with these spoofed MAC addresses like normal network traffic.</li>
+<li>Switches in the network normally learn the relationship between a MAC address and the port it is connected to and record this information in a learning table. However, the attacker quickly fills this table with spoofed MAC addresses, overloading the switchers.</li>
+<li>Overloaded switchers forward data packets to all ports, which can slow down network traffic or cause outages.</li>
+</ol>
+<p>The MACOF attack aims to disable the network by disrupting the normal function of the switchers. Protecting against this type of attack may include firewalls and security policies, as well as measures such as monitoring network traffic and detecting anomalous traffic. Additionally, it is important to configure the security settings of the switchers in the network correctly.</p>
+<hr>
+<h3 id="resources">
+  Resources
+  <a class="heading-link" href="#resources">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><a href="https://wiki.wireshark.org/SampleCaptures#sample-captures" title="https://wiki.wireshark.org/SampleCaptures#sample-captures"  class="external-link" target="_blank" rel="noopener"><strong>SampleCaptures</strong><br>
+*So you&rsquo;re at home tonight,Having just installed Wireshark. You want to take the program for a test drive. But your…*wiki.wireshark.org</a></p>
+<p><a href="https://github.com/topics/dns-amplification-attack" title="https://github.com/topics/dns-amplification-attack"  class="external-link" target="_blank" rel="noopener"><strong>Build software better, together</strong><br>
+*GitHub is where people build software. More than 100 million people use GitHub to discover, fork, and contribute to…*github.com</a></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  TheHive Olay Müdahale Platformu · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  TheHive Olay Müdahale Platformu
+  
+    
+    Başlık Linki
+  
+
+
+
+  1. Temel İşlevleri ve Çalışma Şekli
+  
+    
+    Başlık Linki
+  
+
+TheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olarak tasarlanmıştır. Olay yönetimi, takım temelli işbirliği ve tehdit zekâsı entegrasyonuna odaklanır. TheHive’in temel işlevleri arasında alarmların toplanması, olay vakalarına (case) dönüştürülmesi, vakalara atanan alt görevlerin ve “gözlemlenebilir” (observable) göstergelerin izlenmesi yer alır. Örneğin, gelen bir uyarı TheHive’e aktarıldığında yeni bir vaka oluşturulur ve bu vaka “tanımlama, düzeltme, kontrol” gibi önceden tanımlı görevlerle incelenir. Her görev için analistler log kaydı bırakabilir; bu loglar zengin metin veya Markdown formatında olabilir[1]. Ayrıca TheHive, şablon motoru ile benzer tipteki vakalar için tekrar kullanılabilir önceden tanımlı görev listeleri (case template) oluşturulmasına imkân verir, böylece rutin analiz iş akışları hızla başlatılabilir[2]. TheHive, çok sayıda analisti aynı anda destekleyerek toplu işbirliği yapmaya uygundur[3]. Örneğin alarm besleyicilerle (TheHive4py ile) dış sistemlerden gelen alarmlar otomatik çekilerek ortak bir panoda gösterilir; analistler bu alarmları inceleyip gerekirse vaka başlatabilir[3][1].">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="TheHive Olay Müdahale Platformu">
+  <meta name="twitter:description" content="TheHive Olay Müdahale PlatformuBaşlık Linki1. Temel İşlevleri ve Çalışma ŞekliBaşlık LinkiTheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olarak tasarlanmıştır. Olay yönetimi, takım temelli işbirliği ve tehdit zekâsı entegrasyonuna odaklanır. TheHive’in temel işlevleri arasında alarmların toplanması, olay vakalarına (case) dönüştürülmesi, vakalara atanan alt görevlerin ve “gözlemlenebilir” (observable) göstergelerin izlenmesi yer alır. Örneğin, gelen bir uyarı TheHive’e aktarıldığında yeni bir vaka oluşturulur ve bu vaka “tanımlama, düzeltme, kontrol” gibi önceden tanımlı görevlerle incelenir. Her görev için analistler log kaydı bırakabilir; bu loglar zengin metin veya Markdown formatında olabilir[1]. Ayrıca TheHive, şablon motoru ile benzer tipteki vakalar için tekrar kullanılabilir önceden tanımlı görev listeleri (case template) oluşturulmasına imkân verir, böylece rutin analiz iş akışları hızla başlatılabilir[2]. TheHive, çok sayıda analisti aynı anda destekleyerek toplu işbirliği yapmaya uygundur[3]. Örneğin alarm besleyicilerle (TheHive4py ile) dış sistemlerden gelen alarmlar otomatik çekilerek ortak bir panoda gösterilir; analistler bu alarmları inceleyip gerekirse vaka başlatabilir[3][1].">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2025/08/thehive-olay-m%C3%BCdahale-platformu/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="TheHive Olay Müdahale Platformu">
+  <meta property="og:description" content="TheHive Olay Müdahale PlatformuBaşlık Linki1. Temel İşlevleri ve Çalışma ŞekliBaşlık LinkiTheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olarak tasarlanmıştır. Olay yönetimi, takım temelli işbirliği ve tehdit zekâsı entegrasyonuna odaklanır. TheHive’in temel işlevleri arasında alarmların toplanması, olay vakalarına (case) dönüştürülmesi, vakalara atanan alt görevlerin ve “gözlemlenebilir” (observable) göstergelerin izlenmesi yer alır. Örneğin, gelen bir uyarı TheHive’e aktarıldığında yeni bir vaka oluşturulur ve bu vaka “tanımlama, düzeltme, kontrol” gibi önceden tanımlı görevlerle incelenir. Her görev için analistler log kaydı bırakabilir; bu loglar zengin metin veya Markdown formatında olabilir[1]. Ayrıca TheHive, şablon motoru ile benzer tipteki vakalar için tekrar kullanılabilir önceden tanımlı görev listeleri (case template) oluşturulmasına imkân verir, böylece rutin analiz iş akışları hızla başlatılabilir[2]. TheHive, çok sayıda analisti aynı anda destekleyerek toplu işbirliği yapmaya uygundur[3]. Örneğin alarm besleyicilerle (TheHive4py ile) dış sistemlerden gelen alarmlar otomatik çekilerek ortak bir panoda gösterilir; analistler bu alarmları inceleyip gerekirse vaka başlatabilir[3][1].">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-29T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2025/08/thehive-olay-m%C3%BCdahale-platformu/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2025/08/thehive-incident-response-platform/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2025/08/thehive-olay-m%C3%BCdahale-platformu/">
+              TheHive Olay Müdahale Platformu
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-08-29T00:00:00Z">
+                Ağustos 29, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              10 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="thehive-olay-müdahale-platformu">
+  TheHive Olay Müdahale Platformu
+  <a class="heading-link" href="#thehive-olay-m%c3%bcdahale-platformu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_f8PP6v-xaqnfWogAG6RITw.png" alt=""></p>
+<h3 id="1-temel-işlevleri-ve-çalışmaşekli">
+  1. Temel İşlevleri ve Çalışma Şekli
+  <a class="heading-link" href="#1-temel-i%c5%9flevleri-ve-%c3%a7al%c4%b1%c5%9fma%c5%9fekli">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>TheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olarak tasarlanmıştır. Olay yönetimi, <strong>takım temelli işbirliği</strong> ve tehdit zekâsı entegrasyonuna odaklanır. TheHive’in <strong>temel işlevleri</strong> arasında alarmların toplanması, olay vakalarına (case) dönüştürülmesi, vakalara atanan alt görevlerin ve “gözlemlenebilir” (observable) göstergelerin izlenmesi yer alır. Örneğin, gelen bir uyarı TheHive’e aktarıldığında yeni bir vaka oluşturulur ve bu vaka “tanımlama, düzeltme, kontrol” gibi önceden tanımlı görevlerle incelenir. Her görev için analistler <em>log</em> kaydı bırakabilir; bu loglar zengin metin veya Markdown formatında olabilir<a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=A%20case%20can%20be%20generated,text%20editor"  class="external-link" target="_blank" rel="noopener">[1]</a>. Ayrıca TheHive, <strong>şablon motoru</strong> ile benzer tipteki vakalar için tekrar kullanılabilir önceden tanımlı görev listeleri (case template) oluşturulmasına imkân verir, böylece rutin analiz iş akışları hızla başlatılabilir<a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=You%20don%E2%80%99t%20need%20to%20add,apply%20and%20there%20you%20go"  class="external-link" target="_blank" rel="noopener">[2]</a>. TheHive, çok sayıda analisti aynı anda destekleyerek toplu işbirliği yapmaya uygundur<a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=TheHive%2C%20as%20a%20SIRP%2C%20allows,preview%20new%20alerts%20to%20decide"  class="external-link" target="_blank" rel="noopener">[3]</a>. Örneğin alarm besleyicilerle (TheHive4py ile) dış sistemlerden gelen alarmlar otomatik çekilerek ortak bir panoda gösterilir; analistler bu alarmları inceleyip gerekirse vaka başlatabilir<a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=TheHive%2C%20as%20a%20SIRP%2C%20allows,preview%20new%20alerts%20to%20decide"  class="external-link" target="_blank" rel="noopener">[3]</a><a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=A%20case%20can%20be%20generated,text%20editor"  class="external-link" target="_blank" rel="noopener">[1]</a>.</p>
+<h3 id="2-soc-analistlerine-sağladığı-avantajlar-ve-kullanım-senaryoları">
+  2. SOC Analistlerine Sağladığı Avantajlar ve Kullanım Senaryoları
+  <a class="heading-link" href="#2-soc-analistlerine-sa%c4%9flad%c4%b1%c4%9f%c4%b1-avantajlar-ve-kullan%c4%b1m-senaryolar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>TheHive, özellikle SOC/CSIRT ekipleri için tasarlanmış avantajlar sunar. <strong>Tehdit istihbaratı entegrasyonu</strong> güçlüdür: Cortex analiz motoru ve MISP gibi açık kaynak CTI platformlarıyla sıkı entegrasyon sayesinde, vakaların içine dışardan zengin veri çekilebilir. Kullanıcı deneyimleri TheHive’in <strong>otomasyon</strong> ile operasyonel yükü azalttığını göstermektedir. Örneğin bir French CERT ekibi, “Cortex ile olay müdahalelerini otomatikleştirmenin analistlere paha biçilmez zaman kazandırdığını” belirtmiştir<a href="https://strangebee.com/#:~:text=CERT%20Ark%C3%A9a%20has%20been%20using,precious%20time%20in%20resolving%20incidents"  class="external-link" target="_blank" rel="noopener">[4]</a>. Başka bir kullanıcı, “TheHive’in en iyi yanının Cortex ve MISP gibi çoklu tehdit istihbarat araçlarıyla entegrasyonu” olduğunu vurgulamıştır<a href="https://strangebee.com/#:~:text=The%20best%20part%20of%20TheHive,incident%20response%20and%20case%20management"  class="external-link" target="_blank" rel="noopener">[5]</a>. Bu özellikler sayesinde tipik <strong>kullanım senaryoları</strong> arasında şu örnekler öne çıkar:</p>
+<ul>
+<li><strong>Alarm Triage (Sınıflandırma):</strong> SIEM, EDR veya üçüncü taraf sistemlerden gelen binlerce uyarı TheHive’e otomatik çekilerek önceliklendirilir. Özel JavaScript fonksiyonlarıyla akıllı iş akışları tanımlanabilir; örneğin IP adresi veya dosya hash’i içeren uyarılarda Cortex analizleri otomatik başlatılarak gerçek zamanlı tehdit raporu alınır<a href="https://strangebee.com/use-cases-thehive/#:~:text=TheHive%E2%80%99s%20automated%20triage%20optimizes%20alert,time%20threat%20reports"  class="external-link" target="_blank" rel="noopener">[6]</a>.</li>
+<li><strong>Vaka (Case) Yönetimi:</strong> Zararlı uyarılar şablon bazlı vakalara dönüştürülür. Her vaka adım adım takip edilir, analiz süreci dokümante edilir. Günlükler, ekler ve etiketler yardımıyla vaka içeriği zenginleştirilir (örneğin IOC işaretleme ve not alma). Vaka sonuçları PDF/Markdown raporu olarak dışa aktarılabilir<a href="https://strangebee.com/thehive/#:~:text=reporting"  class="external-link" target="_blank" rel="noopener">[7]</a>.</li>
+<li><strong>Otomatik Müdahale:</strong> TheHive-Cortex entegrasyonu ile bir gözlemlenebilir (örneğin kötü amaçlı bir IP) üzerine toplu analiz yapılabilir ve doğrulanırsa anında yanıt aksiyonları tetiklenebilir. Örneğin bir IP bulunursa proxy’de engelleme veya ilgili ekiplere e-posta gönderme gibi otomatik eylemler gerçekleştirilebilir<a href="https://docs.strangebee.com/cortex/#:~:text=TheHive%20can%20also%20leverage%20Cortex,of%20urgently%20and%20much%20more"  class="external-link" target="_blank" rel="noopener">[8]</a>.</li>
+<li><strong>İşbirliği ve İş Dağıtımı:</strong> Vakalar ve görevler, SOC analistleri arasında atanabilir. Analistler her görevin ilerlemesini takip edebilir; örneğin “takım arkadaşlarına görev atayıp vakayı takip etmek” tipik bir iş akışıdır<a href="https://strangebee.com/thehive/#:~:text=TheHive%20helps%20us%20create%20and,SIEMs%2C%20Threat%20Intel%20tools%2C%20etc"  class="external-link" target="_blank" rel="noopener">[9]</a>. Bu sayede birden çok analist paralel çalışıp iş bölümü yaparken, ekip içi koordinasyon sağlanır.</li>
+</ul>
+<h3 id="3-cortex-ve-misp-entegrasyonları-ne-işe-yarar-nasılyapılır">
+  3. Cortex ve MISP Entegrasyonları: Ne İşe Yarar, Nasıl Yapılır
+  <a class="heading-link" href="#3-cortex-ve-misp-entegrasyonlar%c4%b1-ne-i%c5%9fe-yarar-nas%c4%b1lyap%c4%b1l%c4%b1r">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Cortex</strong> ve <strong>MISP</strong>, TheHive ile sıkı şekilde entegre olan iki ana bileşendir. Cortex, TheHive için analiz ve otomasyon motorudur. TheHive, bir veya birden çok Cortex sunucusu ile REST API üzerinden konuşur. Bu sayede bir vaka veya uyarı içindeki IP, alan adı, dosya hash’i gibi gözlemlenebilirleri tek tıkla ya da topluca analiz ettirebilir. TheHive içinden bir analiz başlatıldığında Cortex bir iş (job) oluşturur ve analiz tamamlandığında TheHive’ye kısa (mini) ve uzun raporlar döner<a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text="  class="external-link" target="_blank" rel="noopener">[10]</a><a href="https://docs.strangebee.com/cortex/#:~:text=TheHive%20can%20also%20leverage%20Cortex,of%20urgently%20and%20much%20more"  class="external-link" target="_blank" rel="noopener">[8]</a>. TheHive arayüzü üzerinden 200’den fazla hazır <em>analyzer</em> ve <em>responder</em> (örn. VirusTotal, Shodan, Yara, AbuseIPDB gibi) seçilebilir<a href="https://strangebee.com/thehive/#:~:text=Automated%20analysis%20%26%20response"  class="external-link" target="_blank" rel="noopener">[11]</a>. Ayrıca özel bir analizör geliştirip eklemek de mümkündür. Cortex yanıtlayıcılarıyla (responder) da bağlanarak analiz sonuçlarına göre otomatik yanıt mekanizmaları oluşturulabilir; örneğin bir kötü domain tespit edilirse DNS sunucuda engelleme, ya da bir FTP virüsü görünce antivirüs taraması tetikleme gibi aksiyonlar alınabilir<a href="https://docs.strangebee.com/cortex/#:~:text=TheHive%20can%20also%20leverage%20Cortex,of%20urgently%20and%20much%20more"  class="external-link" target="_blank" rel="noopener">[8]</a><a href="https://strangebee.com/thehive/#:~:text=Automated%20analysis%20%26%20response"  class="external-link" target="_blank" rel="noopener">[11]</a>.</p>
+<p><img src="/images/1_SORLbZSRUDrUTApG84U7IA.png" alt=""></p>
+<p><strong>MISP entegrasyonu</strong> ise tehdit verisinin paylaşımı içindir. TheHive, bağlı MISP sunucularındaki güncel olayları (event) alarmlar listesinde gösterebilir ve bunları vakalara dönüştürebilir<a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=TheHive%2C%20as%20a%20SIRP%2C%20allows,preview%20new%20alerts%20to%20decide"  class="external-link" target="_blank" rel="noopener">[3]</a>. Öte yandan vakalarda ortaya çıkan IOC’ler (IP, domain, hash vb.) topluca MISP’ye aktarılabilir, böylece diğer topluluklarla paylaşılabilir<a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=Observables%20can%20be%20tagged%2C%20flagged,you%20can%20use%20to%20add"  class="external-link" target="_blank" rel="noopener">[12]</a><a href="https://strangebee.com/thehive/#:~:text=,framework%20TTPs%20from%20MITRE%20ATT%26CK"  class="external-link" target="_blank" rel="noopener">[13]</a>. TheHive arayüzünde arama analyzeri (MISP Search Analyzer) ile de MISP veritabanında IOC arayarak tehdit bağlamı zenginleştirilir. Bu sayede hem gelen bilgiyi MISP’den içe alır, hem de analiz sonucunda elde edilen bulguları tekrar MISP’e ihraç eder. Tüm entegrasyon, API anahtarlarıyla yapılandırılır ve TheHive arayüzünden kolayca etkinleştirilebilir<a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=,preview%20new%20alerts%20to%20decide"  class="external-link" target="_blank" rel="noopener">[14]</a><a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=Observables%20can%20be%20tagged%2C%20flagged,you%20can%20use%20to%20add"  class="external-link" target="_blank" rel="noopener">[12]</a>.</p>
+<h3 id="4-kurulum-ve-yapılandırma-adımları-ön-koşullar">
+  4. Kurulum ve Yapılandırma Adımları (Ön Koşullar)
+  <a class="heading-link" href="#4-kurulum-ve-yap%c4%b1land%c4%b1rma-ad%c4%b1mlar%c4%b1-%c3%b6n-ko%c5%9fullar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>TheHive’in kurulumu öncesi <strong>ön koşullar</strong> olarak şu bileşenler gereklidir: Java 11 (Amazon Corretto gibi güncel bir OpenJDK dağıtımı kullanılması önerilir)<a href="https://docs.strangebee.com/thehive/installation/step-by-step-installation-guide/#:~:text=Java%20Virtual%20Machine"  class="external-link" target="_blank" rel="noopener">[15]</a>, Apache Cassandra veritabanı (örneğin 4.1.x serisi)<a href="https://docs.strangebee.com/thehive/installation/step-by-step-installation-guide/#:~:text=Apache%20Cassandra%20is%20a%20highly,x"  class="external-link" target="_blank" rel="noopener">[16]</a> ve Elasticsearch (7.x veya 8.x, analiz ve arama için)<a href="https://docs.strangebee.com/thehive/installation/step-by-step-installation-guide/#:~:text=5,for%20storing%20audit%20logs"  class="external-link" target="_blank" rel="noopener">[17]</a>. Ayrıca Python 3, pip ve ağ erişimi (kullanılacak portlar) gibi standart yazılım ve izinler olmalıdır.</p>
+<p><strong>Kurulum adımları (örnek Ubuntu/Debian):</strong></p>
+<ul>
+<li>Cassandra kurulumu: Apache Cassandra deposu eklenip apt install cassandra ile yüklenir. /etc/cassandra/cassandra.yaml içindeki cluster_name, listen_address vb. parametreleri düzenlenir, servisi başlatıp otomatik başlatma için etkinleştirilir<a href="https://docs.strangebee.com/thehive/installation/step-by-step-installation-guide/#:~:text=Apache%20Cassandra%20is%20a%20highly,x"  class="external-link" target="_blank" rel="noopener">[16]</a>.</li>
+<li>Elasticsearch kurulumu: Elastic’in 7.x deposu eklenir ve apt install elasticsearch komutu ile kurulum yapılır. Elasticsearch ayarlarında TCP portu (9200) açılır, servis başlatılır. TheHive, Elasticsearch’u dokümantasyon ve arama motoru olarak kullanır<a href="https://docs.strangebee.com/thehive/installation/step-by-step-installation-guide/#:~:text=5,for%20storing%20audit%20logs"  class="external-link" target="_blank" rel="noopener">[17]</a>.</li>
+<li>TheHive kurulumu: Resmi paketler veya binary olarak kurulabilir. Örneğin StrangeBee’dan alınan .deb paketi indirilir ve dpkg -i ile kurulur. Kurulum sırasında application.conf dosyasına Cassandra ve Elasticsearch bağlantı bilgileri girilir, istemci sertifikaları tanımlanır.</li>
+<li>Yapılandırma ve başlatma: /etc/thehive/application.conf dosyasında anahtar parametreler (Cassandra hosts, Elasticsearch endpoint, kullanıcı/şifre) ayarlanır. Gerekirse LDAP/AD, MISP, Cortex bağlantı ayarları yapılır. Servis başlatıldıktan sonra http://<sunucu>:9000 adresinden web arayüzüne erişilerek yönetici hesabı oluşturulur.</li>
+</ul>
+<p>Bu temel adımlar başarıyla tamamlandığında TheHive servisi ayağa kalkar ve organizasyona özel ayarlarla kullanım için hazır hale gelir<a href="https://docs.strangebee.com/thehive/installation/step-by-step-installation-guide/#:~:text=Java%20Virtual%20Machine"  class="external-link" target="_blank" rel="noopener">[15]</a><a href="https://docs.strangebee.com/thehive/installation/step-by-step-installation-guide/#:~:text=Apache%20Cassandra%20is%20a%20highly,x"  class="external-link" target="_blank" rel="noopener">[16]</a>. (Not: TheHive’in detaylı güncel kurulum dökümantasyonu StrangeBee sitesinde ve TheHive GitHub Wiki’sinde mevcuttur.)</p>
+<h3 id="5-olay-yönetimi-vaka-takibi-ve-görev-dağılımı-fonksiyonları">
+  5. Olay Yönetimi, Vaka Takibi ve Görev Dağılımı Fonksiyonları
+  <a class="heading-link" href="#5-olay-y%c3%b6netimi-vaka-takibi-ve-g%c3%b6rev-da%c4%9f%c4%b1l%c4%b1m%c4%b1-fonksiyonlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>TheHive’de <strong>alarm yönetimi ve vaka takibi</strong> bir arada yürütülür. Gelen güvenlik alarmları merkezî bir panoda toplanır; analistler benzer uyarıları gruplayabilir veya yorum bırakıp önem seviyesine göre işaretleyebilir. Potansiyel bir tehdit olduğunda bu alarm tek tıkla yeni bir vaka (investigation case) haline dönüştürülür<a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=TheHive%2C%20as%20a%20SIRP%2C%20allows,preview%20new%20alerts%20to%20decide"  class="external-link" target="_blank" rel="noopener">[3]</a><a href="https://strangebee.com/thehive/#:~:text=,framework%20TTPs%20from%20MITRE%20ATT%26CK"  class="external-link" target="_blank" rel="noopener">[18]</a>. Her vaka, alt görevler (görevler) ve gözlemlenebilirler (örn. IP, URL, dosya hash’i) şeklinde yapılandırılır. Analistler görevler üzerinde ilerledikçe “log” girişi yaparak (Markdown desteğiyle) ilerlemeyi kayıt altına alır<a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=A%20case%20can%20be%20generated,text%20editor"  class="external-link" target="_blank" rel="noopener">[1]</a>. Benzer tipteki olaylar için önceden tanımlı <em>vaka şablonları</em> sayesinde her seferinde aynı görevleri el ile girmek zorunda kalınmaz<a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=You%20don%E2%80%99t%20need%20to%20add,apply%20and%20there%20you%20go"  class="external-link" target="_blank" rel="noopener">[2]</a>.</p>
+<p>Vakaya eklenmiş gözlemlenebilir öğeler etiketlenebilir veya IOC olarak işaretlenebilir, çeşitli renk kodları (TLP) atanabilir<a href="https://strangebee.com/thehive/#:~:text=,Protocol%20level%20for%20each%20observable"  class="external-link" target="_blank" rel="noopener">[19]</a>. Aynı türden birden fazla vaka oluşmuşsa bu vakalar hızlıca <strong>birleştirilebilir</strong>, böylece tekrar eden analiz adımları engellenir. Vaka içindeki her görev özel bir analiste atanabilir; atanan kişi görev durumunu güncelleyebilir ve yorum girebilir. Örneğin müşteri organizasyonlardan birinin değerlendirmesine göre “takım arkadaşlarına görev atayıp vakayı takip etmek” doğal bir iş akışıdır<a href="https://strangebee.com/thehive/#:~:text=TheHive%20helps%20us%20create%20and,SIEMs%2C%20Threat%20Intel%20tools%2C%20etc"  class="external-link" target="_blank" rel="noopener">[9]</a>. Vakalar tamamlandığında kapsamlı bir <em>sonuç raporu</em> hazırlanır. TheHive, vaka raporlarını Markdown veya PDF formatında dışa aktarabilme imkânı verir<a href="https://strangebee.com/thehive/#:~:text=reporting"  class="external-link" target="_blank" rel="noopener">[7]</a>. Bu kapsamlı vaka yönetimi sayesinde SOC analistleri olayların ilerlemesini uçtan uca takip edip, durum raporlarını belgeler halinde paylaşabilir.</p>
+<h3 id="6-gelişmiş-özellikler-otomasyon-playbook-etiketleme-alarm-zenginleştirme">
+  6. Gelişmiş Özellikler (Otomasyon, Playbook, Etiketleme, Alarm Zenginleştirme)
+  <a class="heading-link" href="#6-geli%c5%9fmi%c5%9f-%c3%b6zellikler-otomasyon-playbook-etiketleme-alarm-zenginle%c5%9ftirme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>TheHive’in <strong>otomasyon yetenekleri</strong> Cortex analizi ve yanıtlayıcılar üzerinden gerçekleştirilir. 200’ün üzerinde entegre analizör ve yanıtlayıcıya erişim sağlayan platform, yüzlerce IOC’yi aynı anda analiz edip sonuçlara göre “playbook benzeri” otomatik eylemler başlatabilir<a href="https://strangebee.com/thehive/#:~:text=Automated%20analysis%20%26%20response"  class="external-link" target="_blank" rel="noopener">[11]</a>. Örneğin bir tehdit analizi sonucunda yüksek riskli bir domain tespit edilirse, bu sonuç bir “yanıtlayıcı” ile FireWall’da engelleme veya ilgili takıma otomatik e-posta gönderilmesi şeklinde aksiyon alabilir<a href="https://docs.strangebee.com/cortex/#:~:text=TheHive%20can%20also%20leverage%20Cortex,of%20urgently%20and%20much%20more"  class="external-link" target="_blank" rel="noopener">[8]</a><a href="https://strangebee.com/thehive/#:~:text=Automated%20analysis%20%26%20response"  class="external-link" target="_blank" rel="noopener">[11]</a>. Alarmları işleyen özel JavaScript tetikleyicileri ile kural setleri oluşturmak da mümkündür. Örneğin, gelen phishing uyarısında otomatik olarak analizör çalıştırıp bağlantıları karantina altına alma veya IP’yi bloklama fonksiyonları tanımlanabilir.</p>
+<p><strong>Etiketleme (Tagging) ve IOC işaretleme</strong> bu aşamada aktif kullanılır. Analistler vaka ve gözlemlenebilirlere özgün etiketler ekleyerek bilgiyi sınıflandırabilir. TheHive içindeki her observable’a TLP seviyesi atamak ve IOC olarak işaretlemek vaka zenginleştirme sürecinin parçasıdır<a href="https://strangebee.com/thehive/#:~:text=,Protocol%20level%20for%20each%20observable"  class="external-link" target="_blank" rel="noopener">[19]</a>. Bu sayede farklı vakalarda tekrar eden tehdit göstergeciklerini hızlıca görüp ilişkilendirebilirsiniz.</p>
+<p><strong>Alarm Zenginleştirme:</strong> TheHive, dış kaynaklardan gelen verileri otomatik entegre ederek alarmları zenginleştirir. Örneğin MITRE ATT&amp;CK veritabanındaki ilgili teknikler otomatik alınır<a href="https://strangebee.com/thehive/#:~:text=,framework%20TTPs%20from%20MITRE%20ATT%26CK"  class="external-link" target="_blank" rel="noopener">[13]</a>; bağlı MISP sunucularından paylaşılan IOC’ler içe aktarılabilir<a href="https://strangebee.com/thehive/#:~:text=,framework%20TTPs%20from%20MITRE%20ATT%26CK"  class="external-link" target="_blank" rel="noopener">[13]</a>. Ayrıca önceden tanımlı tetikleyiciler, gelen bir alarm için otomatik bilgi toplama (CTI sorguları, URL analizleri vb.) çalıştırarak olay anlamlandırmayı hızlandırır<a href="https://strangebee.com/use-cases-thehive/#:~:text=TheHive%E2%80%99s%20automated%20triage%20optimizes%20alert,time%20threat%20reports"  class="external-link" target="_blank" rel="noopener">[6]</a>. Sonuç olarak TheHive, verinin alımından vaka kapanışına kadar geçen süreci neredeyse baştan uca otomatikleştirme imkânı sunar.</p>
+<h3 id="7-güvenlik-ve-erişim-kontrol-mekanizmaları">
+  7. Güvenlik ve Erişim Kontrol Mekanizmaları
+  <a class="heading-link" href="#7-g%c3%bcvenlik-ve-eri%c5%9fim-kontrol-mekanizmalar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>TheHive’in mimarisi, çoklu organizasyon ve rol tabanlı erişim kontrolüne (RBAC) izin verir. Birden fazla <strong>organizasyon</strong> ve takım tanımlanabilir; her bir organizasyon kendine ait vaka havuzuna veya ortak vakalara erişime sahip olabilir<a href="https://strangebee.com/thehive/#:~:text=Multi"  class="external-link" target="_blank" rel="noopener">[20]</a>. Kullanıcı hesapları yerel, LDAP/AD senkronizasyonlu veya API anahtarıyla yönetilebilir. Örneğin TheHive, LDAP veya Active Directory ile entegre çalışarak kullanıcı gruplarını otomatik senkronize edebilir<a href="https://strangebee.com/thehive/#:~:text=Advanced%20user%20management"  class="external-link" target="_blank" rel="noopener">[21]</a><a href="https://blog.thehive-project.org/tag/authentication/#:~:text="  class="external-link" target="_blank" rel="noopener">[22]</a>. Yetkilendirme düzeyi ayrıntılı olarak yapılandırılır; her role özel izinler (örn. vaka oluşturma, silme, rapor okuma) atılabilir. Ayrıca kullanıcıların yaptığı tüm işlemler sistemde loglanır ve denetlenebilir.</p>
+<p>Güvenli erişim için platform <strong>kullanıcı kimlik doğrulama</strong> katmanları sunar. Standart kullanıcı/şifre dışında API anahtarı, LDAP/AD girişi veya X.509 sertifika ile SSO desteklenir<a href="https://blog.thehive-project.org/tag/authentication/#:~:text="  class="external-link" target="_blank" rel="noopener">[22]</a>. TheHive 4.x sürümlerinden itibaren isteğe bağlı iki faktörlü kimlik doğrulama (TOTP/OTP) özelliği de kullanılabilir. İletişim, TLS şifrelemesiyle korunur. Bu kapsamlı kontrol mekanizmaları sayesinde yalnızca yetkili analistler vaka ve alarm verilerine erişebilir; organizasyonlar arası veri izolasyonu sağlanabilir.</p>
+<h3 id="8-kullanıcı-arayüzü-ve-kullanım-kolaylığı">
+  8. Kullanıcı Arayüzü ve Kullanım Kolaylığı
+  <a class="heading-link" href="#8-kullan%c4%b1c%c4%b1-aray%c3%bcz%c3%bc-ve-kullan%c4%b1m-kolayl%c4%b1%c4%9f%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>TheHive, web tabanlı zengin bir grafik kullanıcı arayüzü (GUI) sunar. Menüleri ve panelleri sezgiseldir; sık kullanılan işlemler için kısa yollar ve sürükle-bırak özellikleri mevcuttur. Örneğin vaka oluşturma, görev atama veya IOC işaretleme işlemleri arayüz üzerinden kolayca yapılabilir. Arama, filtreleme ve dinamik gösterge tabloları (dashboard) sayesinde acil durumlara hızlıca hakim olunabilir. Kullanıcı yorumlarına göre arayüzü *“kullanıcı dostu ve sezgisel”*dir<a href="https://strangebee.com/thehive/#:~:text=Cybersecurity%20analyst%2C%20CERT%20Gemalto"  class="external-link" target="_blank" rel="noopener">[23]</a><a href="https://strangebee.com/#:~:text=TheHive%20is%20a%20powerful%20and,manage%2C%20and%20analyze%20security%20incidents"  class="external-link" target="_blank" rel="noopener">[24]</a>. Eğitim gereksinimi düşüktür; çok az eğitimle analistler platformu aktif şekilde kullanmaya başlayabilir.</p>
+<p>Uluslararası destekli altyapısıyla TheHive’in arayüzü birden fazla dilde hizmet verir. Ayrıca grafikleri (istatistik paneli), vaka zaman çizelgelerini (timeline) ve içeriğe göre otomatik genişleyen formlarıyla analist deneyimini artırır. Sonuç olarak, TheHive’in modern arayüzü analistlerin öğrenme eğrisini kısaltır ve günlük kullanımda kolaylık sağlar<a href="https://strangebee.com/thehive/#:~:text=Cybersecurity%20analyst%2C%20CERT%20Gemalto"  class="external-link" target="_blank" rel="noopener">[23]</a><a href="https://strangebee.com/#:~:text=TheHive%20is%20a%20powerful%20and,manage%2C%20and%20analyze%20security%20incidents"  class="external-link" target="_blank" rel="noopener">[24]</a>.</p>
+<h3 id="9-alternatif-araçlarla-karşılaştırması-splunk-soar-ibm-resilient-palo-alto-xsoarvb">
+  9. Alternatif Araçlarla Karşılaştırması (Splunk SOAR, IBM Resilient, Palo Alto XSOAR vb.)
+  <a class="heading-link" href="#9-alternatif-ara%c3%a7larla-kar%c5%9f%c4%b1la%c5%9ft%c4%b1rmas%c4%b1-splunk-soar-ibm-resilient-palo-alto-xsoarvb">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>TheHive açık kaynak ve ücretsiz bir platform olarak öne çıkarken, piyasada benzer amaçlı ticari SOAR çözümleri de vardır. Splunk SOAR (Phantom), IBM Resilient veya Palo Alto XSOAR gibi araçlar genellikle <strong>kapsamlı entegrasyon paketleri</strong>, kurumsal düzeyde destek ve hazır olay işleme playbook’ları sunar. Örneğin Splunk SOAR, derin SIEM entegrasyonu ve geniş bulut adaptör ağı ile güçlüdür fakat yüksek lisans maliyetleri vardır. XSOAR ise piyasadaki en zengin otomasyon yeteneklerine ve kapsamlı scriptlere sahiptir, ancak lisanslar maliyetlidir. Buna karşılık TheHive, SOC odaklı ve MISP/Cortex entegrasyonuna yoğunlaşmış bir çözüm olarak maliyet avantajı sunar. Bir kullanıcıya göre “TheHive’in en iyi yanı Cortex ve MISP entegrasyonlarıdır; SOC ekipleri için vaka yönetimi ve olay müdahalesinde çok uygundur”<a href="https://strangebee.com/#:~:text=The%20best%20part%20of%20TheHive,incident%20response%20and%20case%20management"  class="external-link" target="_blank" rel="noopener">[5]</a>. Öte yandan TheHive’in dezavantajları da vardır: beşinci sürümle (TheHive5) gelen ticarileşme nedeniyle topluluk desteği sınırlı kalmış, öğrenme eğrisi nispeten dik, kullanıcı arayüzü bazı ticari muadillerine göre daha basit bulunmuştur<a href="https://aimultiple.com/open-source-soar#:~:text=,Malware%20Information%20Sharing%20Platform"  class="external-link" target="_blank" rel="noopener">[25]</a><a href="https://aimultiple.com/open-source-soar#:~:text=,friendly"  class="external-link" target="_blank" rel="noopener">[26]</a>. Özetle, TheHive ölçeklenebilir ve açık kaynak avantajıyla cazip bir seçenekken; büyük şirketler genellikle kurumsal destek, hazır playbook’lar ve kapsamlı entegrasyonlar sunan ticari alternatifleri tercih etmektedir<a href="https://aimultiple.com/open-source-soar#:~:text=,Malware%20Information%20Sharing%20Platform"  class="external-link" target="_blank" rel="noopener">[25]</a><a href="https://aimultiple.com/open-source-soar#:~:text=,friendly"  class="external-link" target="_blank" rel="noopener">[26]</a>.</p>
+<h3 id="10-topluluk-desteği-dokümantasyon-ve-geliştirme-durumu">
+  10. Topluluk Desteği, Dokümantasyon ve Geliştirme Durumu
+  <a class="heading-link" href="#10-topluluk-deste%c4%9fi-dok%c3%bcmantasyon-ve-geli%c5%9ftirme-durumu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>TheHive projesi geniş bir topluluk tarafından desteklenmektedir. Resmi <strong>dökümantasyon</strong> ve kılavuzlar, TheHive Project’in GitHub sayfası, <a href="https://blog.thehive-project.org/"  class="external-link" target="_blank" rel="noopener">blog.thehive-project.org</a> üzerindeki güncel gönderiler ve StrangeBee’in docs siteleri (docs.strangebee.com) üzerinden erişilebilir. Geliştirici ekibi ve kullanıcı topluluğu çevrimiçi forumlar (Discord sohbet kanalları, Google grupları vb.) aracılığıyla etkileşimde bulunur. Sürekli güncellemeler Twitter, Mastodon, Discord ve resmi blog’da düzenli olarak paylaşılıyor<a href="https://docs.strangebee.com/cortex/#:~:text=Updates%20and%20community%20discussions"  class="external-link" target="_blank" rel="noopener">[27]</a>.</p>
+<p>Lisans açısından, TheHive 3 serisi 31 Aralık 2021’de, TheHive 4 serisi ise 31 Aralık 2022’de resmi destek (EOS) almıştır<a href="https://strangebee.com/thehive/#:~:text=Can%20I%20still%20use%20TheHive,3%20and%204%20for%20free"  class="external-link" target="_blank" rel="noopener">[28]</a>. Buna karşın TheHive 5’in <strong>Community Edition</strong> sürümü ücretsizdir ve kullanım süresi sınırı yoktur<a href="https://strangebee.com/thehive/#:~:text=Can%20I%20still%20use%20TheHive,3%20and%204%20for%20free"  class="external-link" target="_blank" rel="noopener">[28]</a>. Yani, açık kaynak topluluğu TheHive 4 ile gelen tüm özelliklere erişebilir ve TheHive 5’in ücretsiz versiyonuna güncellemeler alarak devam edebilir. Cortex gibi alt sistemler AGPL lisansı altında açık kaynak kalmaya devam etmektedir<a href="https://docs.strangebee.com/cortex/#:~:text=License"  class="external-link" target="_blank" rel="noopener">[29]</a><a href="https://strangebee.com/thehive/#:~:text=Can%20I%20still%20use%20TheHive,3%20and%204%20for%20free"  class="external-link" target="_blank" rel="noopener">[28]</a>.</p>
+<p>Özetle, TheHive ve yan bileşenleri (Cortex, MISP) aktif geliştirilen projelerdir. Kullanıcılar GitHub üzerinden hataları bildirebilir ve yeni özellik taleplerinde bulunabilir. Geliştirici ekip, topluluktan gelen geri bildirimleri değerlendirmekte ve platformu güncellemeye devam etmektedir. Belgeler düzenli güncellenmekte, topluluk da deneyimlerini paylaşıp sorularına cevap bulmaktadır. Bu canlı ekosistem sayesinde TheHive, SOC odaklı açık kaynak bir çözüm olarak güncelliğini korumaktadır.</p>
+<hr>
+<h3 id="kaynaklar">
+  <strong>Kaynaklar</strong>
+  <a class="heading-link" href="#kaynaklar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>TheHive’in resmi blog ve belgeleri ile güvenlik topluluğu incelemeleri kaynak alınmıştır<a href="https://linuxsecurity.expert/tools/thehive/#:~:text=TheHive%20is%20scalable%20and%20a,to%20start%20analyzing%20from%20there"  class="external-link" target="_blank" rel="noopener">[30]</a><a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=TheHive%2C%20as%20a%20SIRP%2C%20allows,preview%20new%20alerts%20to%20decide"  class="external-link" target="_blank" rel="noopener">[3]</a><a href="https://strangebee.com/thehive/#:~:text=,Protocol%20level%20for%20each%20observable"  class="external-link" target="_blank" rel="noopener">[19]</a><a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=A%20case%20can%20be%20generated,text%20editor"  class="external-link" target="_blank" rel="noopener">[1]</a><a href="https://docs.strangebee.com/thehive/installation/step-by-step-installation-guide/#:~:text=Apache%20Cassandra%20is%20a%20highly,x"  class="external-link" target="_blank" rel="noopener">[16]</a><a href="https://docs.strangebee.com/thehive/installation/step-by-step-installation-guide/#:~:text=Java%20Virtual%20Machine"  class="external-link" target="_blank" rel="noopener">[15]</a><a href="https://docs.strangebee.com/cortex/#:~:text=TheHive%20can%20also%20leverage%20Cortex,of%20urgently%20and%20much%20more"  class="external-link" target="_blank" rel="noopener">[8]</a><a href="https://strangebee.com/thehive/#:~:text=,framework%20TTPs%20from%20MITRE%20ATT%26CK"  class="external-link" target="_blank" rel="noopener">[18]</a><a href="https://strangebee.com/thehive/#:~:text=Cybersecurity%20analyst%2C%20CERT%20Gemalto"  class="external-link" target="_blank" rel="noopener">[23]</a><a href="https://aimultiple.com/open-source-soar#:~:text=,Malware%20Information%20Sharing%20Platform"  class="external-link" target="_blank" rel="noopener">[25]</a><a href="https://docs.strangebee.com/cortex/#:~:text=Updates%20and%20community%20discussions"  class="external-link" target="_blank" rel="noopener">[27]</a><a href="https://strangebee.com/thehive/#:~:text=Can%20I%20still%20use%20TheHive,3%20and%204%20for%20free"  class="external-link" target="_blank" rel="noopener">[28]</a>. Bu kaynaklarda TheHive’in özellikleri, kurulum adımları, entegrasyonları ve kullanıcı geri bildirimleri detaylı olarak ele alınmıştır.</p>
+<h4 id="------thehive-cortex-and-misp-how-they-all-fit-togetherthehiveproject">
+  <a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=A%20case%20can%20be%20generated,text%20editor"  class="external-link" target="_blank" rel="noopener">[1]</a> <a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=You%20don%E2%80%99t%20need%20to%20add,apply%20and%20there%20you%20go"  class="external-link" target="_blank" rel="noopener">[2]</a> <a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=TheHive%2C%20as%20a%20SIRP%2C%20allows,preview%20new%20alerts%20to%20decide"  class="external-link" target="_blank" rel="noopener">[3]</a> <a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text="  class="external-link" target="_blank" rel="noopener">[10]</a> <a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=Observables%20can%20be%20tagged%2C%20flagged,you%20can%20use%20to%20add"  class="external-link" target="_blank" rel="noopener">[12]</a> <a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=,preview%20new%20alerts%20to%20decide"  class="external-link" target="_blank" rel="noopener">[14]</a> TheHive, Cortex and MISP: How They All Fit Together — TheHive Project
+  <a class="heading-link" href="#------thehive-cortex-and-misp-how-they-all-fit-togetherthehiveproject">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><a href="https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/"  class="external-link" target="_blank" rel="noopener">https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/</a></p>
+<h4 id="---strangebee">
+  <a href="https://strangebee.com/#:~:text=CERT%20Ark%C3%A9a%20has%20been%20using,precious%20time%20in%20resolving%20incidents"  class="external-link" target="_blank" rel="noopener">[4]</a> <a href="https://strangebee.com/#:~:text=The%20best%20part%20of%20TheHive,incident%20response%20and%20case%20management"  class="external-link" target="_blank" rel="noopener">[5]</a> <a href="https://strangebee.com/#:~:text=TheHive%20is%20a%20powerful%20and,manage%2C%20and%20analyze%20security%20incidents"  class="external-link" target="_blank" rel="noopener">[24]</a> StrangeBee
+  <a class="heading-link" href="#---strangebee">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><a href="https://strangebee.com/"  class="external-link" target="_blank" rel="noopener">https://strangebee.com/</a></p>
+<h4 id="-usecases">
+  <a href="https://strangebee.com/use-cases-thehive/#:~:text=TheHive%E2%80%99s%20automated%20triage%20optimizes%20alert,time%20threat%20reports"  class="external-link" target="_blank" rel="noopener">[6]</a> Use cases
+  <a class="heading-link" href="#-usecases">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><a href="https://strangebee.com/use-cases-thehive/"  class="external-link" target="_blank" rel="noopener">https://strangebee.com/use-cases-thehive/</a></p>
+<h4 id="---------thehive">
+  <a href="https://strangebee.com/thehive/#:~:text=reporting"  class="external-link" target="_blank" rel="noopener">[7]</a> <a href="https://strangebee.com/thehive/#:~:text=TheHive%20helps%20us%20create%20and,SIEMs%2C%20Threat%20Intel%20tools%2C%20etc"  class="external-link" target="_blank" rel="noopener">[9]</a> <a href="https://strangebee.com/thehive/#:~:text=Automated%20analysis%20%26%20response"  class="external-link" target="_blank" rel="noopener">[11]</a> <a href="https://strangebee.com/thehive/#:~:text=,framework%20TTPs%20from%20MITRE%20ATT%26CK"  class="external-link" target="_blank" rel="noopener">[13]</a> <a href="https://strangebee.com/thehive/#:~:text=,framework%20TTPs%20from%20MITRE%20ATT%26CK"  class="external-link" target="_blank" rel="noopener">[18]</a> <a href="https://strangebee.com/thehive/#:~:text=,Protocol%20level%20for%20each%20observable"  class="external-link" target="_blank" rel="noopener">[19]</a> <a href="https://strangebee.com/thehive/#:~:text=Multi"  class="external-link" target="_blank" rel="noopener">[20]</a> <a href="https://strangebee.com/thehive/#:~:text=Advanced%20user%20management"  class="external-link" target="_blank" rel="noopener">[21]</a> <a href="https://strangebee.com/thehive/#:~:text=Cybersecurity%20analyst%2C%20CERT%20Gemalto"  class="external-link" target="_blank" rel="noopener">[23]</a> <a href="https://strangebee.com/thehive/#:~:text=Can%20I%20still%20use%20TheHive,3%20and%204%20for%20free"  class="external-link" target="_blank" rel="noopener">[28]</a> TheHive
+  <a class="heading-link" href="#---------thehive">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><a href="https://strangebee.com/thehive/"  class="external-link" target="_blank" rel="noopener">https://strangebee.com/thehive/</a></p>
+<h4 id="---homethehive-5-documentation">
+  <a href="https://docs.strangebee.com/cortex/#:~:text=TheHive%20can%20also%20leverage%20Cortex,of%20urgently%20and%20much%20more"  class="external-link" target="_blank" rel="noopener">[8]</a> <a href="https://docs.strangebee.com/cortex/#:~:text=Updates%20and%20community%20discussions"  class="external-link" target="_blank" rel="noopener">[27]</a> <a href="https://docs.strangebee.com/cortex/#:~:text=License"  class="external-link" target="_blank" rel="noopener">[29]</a> Home — TheHive 5 Documentation
+  <a class="heading-link" href="#---homethehive-5-documentation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><a href="https://docs.strangebee.com/cortex/"  class="external-link" target="_blank" rel="noopener">https://docs.strangebee.com/cortex/</a></p>
+<h4 id="---step-by-step-installation-guidethehive-5-documentation">
+  <a href="https://docs.strangebee.com/thehive/installation/step-by-step-installation-guide/#:~:text=Java%20Virtual%20Machine"  class="external-link" target="_blank" rel="noopener">[15]</a> <a href="https://docs.strangebee.com/thehive/installation/step-by-step-installation-guide/#:~:text=Apache%20Cassandra%20is%20a%20highly,x"  class="external-link" target="_blank" rel="noopener">[16]</a> <a href="https://docs.strangebee.com/thehive/installation/step-by-step-installation-guide/#:~:text=5,for%20storing%20audit%20logs"  class="external-link" target="_blank" rel="noopener">[17]</a> Step-by-Step Installation Guide — TheHive 5 Documentation
+  <a class="heading-link" href="#---step-by-step-installation-guidethehive-5-documentation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><a href="https://docs.strangebee.com/thehive/installation/step-by-step-installation-guide/"  class="external-link" target="_blank" rel="noopener">https://docs.strangebee.com/thehive/installation/step-by-step-installation-guide/</a></p>
+<h4 id="-authenticationthehiveproject">
+  <a href="https://blog.thehive-project.org/tag/authentication/#:~:text="  class="external-link" target="_blank" rel="noopener">[22]</a> Authentication — TheHive Project
+  <a class="heading-link" href="#-authenticationthehiveproject">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><a href="https://blog.thehive-project.org/tag/authentication/"  class="external-link" target="_blank" rel="noopener">https://blog.thehive-project.org/tag/authentication/</a></p>
+<h4 id="--top-5-open-source-soar-tools-in2025">
+  <a href="https://aimultiple.com/open-source-soar#:~:text=,Malware%20Information%20Sharing%20Platform"  class="external-link" target="_blank" rel="noopener">[25]</a> <a href="https://aimultiple.com/open-source-soar#:~:text=,friendly"  class="external-link" target="_blank" rel="noopener">[26]</a> Top 5 Open Source SOAR Tools in 2025
+  <a class="heading-link" href="#--top-5-open-source-soar-tools-in2025">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><a href="https://aimultiple.com/open-source-soar"  class="external-link" target="_blank" rel="noopener">https://aimultiple.com/open-source-soar</a></p>
+<h4 id="-thehive-review-security-incident-response-platformlinux-securityexpert">
+  <a href="https://linuxsecurity.expert/tools/thehive/#:~:text=TheHive%20is%20scalable%20and%20a,to%20start%20analyzing%20from%20there"  class="external-link" target="_blank" rel="noopener">[30]</a> TheHive review (security incident response platform) — Linux Security Expert
+  <a class="heading-link" href="#-thehive-review-security-incident-response-platformlinux-securityexpert">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><a href="https://linuxsecurity.expert/tools/thehive/"  class="external-link" target="_blank" rel="noopener">https://linuxsecurity.expert/tools/thehive/</a></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

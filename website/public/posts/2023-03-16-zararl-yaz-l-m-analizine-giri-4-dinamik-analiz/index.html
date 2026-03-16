@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Introduction to Malware Analysis: #4 Dynamic Analysis · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Introduction to Malware Analysis: #4 Dynamic Analysis
+  
+    
+    Link to heading
+  
+
+
+I talked about static analysis methods in my previous article. In this article, I will talk about dynamic analysis methods in Malware Analysis. What types of dynamic analysis techniques are there? What tools are used? How is analysis done? it&rsquo;s all in this article!
+
+
+  Dynamic Analysis Methods
+  
+    
+    Link to heading
+  
+
+It involves executing a malware sample with the help of various tools and not only recording the behavior but also observing the various artifacts produced by the executing malware.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Introduction to Malware Analysis: #4 Dynamic Analysis">
+  <meta name="twitter:description" content="Introduction to Malware Analysis: #4 Dynamic AnalysisLink to headingI talked about static analysis methods in my previous article. In this article, I will talk about dynamic analysis methods in Malware Analysis. What types of dynamic analysis techniques are there? What tools are used? How is analysis done? it’s all in this article!
+Dynamic Analysis MethodsLink to headingIt involves executing a malware sample with the help of various tools and not only recording the behavior but also observing the various artifacts produced by the executing malware.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2023-03-16-zararl-yaz-l-m-analizine-giri-4-dinamik-analiz/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Introduction to Malware Analysis: #4 Dynamic Analysis">
+  <meta property="og:description" content="Introduction to Malware Analysis: #4 Dynamic AnalysisLink to headingI talked about static analysis methods in my previous article. In this article, I will talk about dynamic analysis methods in Malware Analysis. What types of dynamic analysis techniques are there? What tools are used? How is analysis done? it’s all in this article!
+Dynamic Analysis MethodsLink to headingIt involves executing a malware sample with the help of various tools and not only recording the behavior but also observing the various artifacts produced by the executing malware.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-03-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-03-16T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2023-03-16-zararl-yaz-l-m-analizine-giri-4-dinamik-analiz/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About Me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2023-03-16-zararl-yaz-l-m-analizine-giri-4-dinamik-analiz/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2023-03-16-zararl-yaz-l-m-analizine-giri-4-dinamik-analiz/">
+              Introduction to Malware Analysis: #4 Dynamic Analysis
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-03-16T00:00:00Z">
+                March 16, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              10-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="introduction-to-malware-analysis-4-dynamicanalysis">
+  Introduction to Malware Analysis: #4 Dynamic Analysis
+  <a class="heading-link" href="#introduction-to-malware-analysis-4-dynamicanalysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_XhHw4q_6KEejBGJHX3iENw.png" alt=""></p>
+<p>I talked about static analysis methods in my previous article. In this article, I will talk about dynamic analysis methods in Malware Analysis. What types of dynamic analysis techniques are there? What tools are used? How is analysis done? it&rsquo;s all in this article!</p>
+<hr>
+<h3 id="dynamic-analysis-methods">
+  Dynamic Analysis Methods
+  <a class="heading-link" href="#dynamic-analysis-methods">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>It involves executing a malware sample with the help of various tools and not only recording the behavior but also observing the various artifacts produced by the executing malware.</p>
+<p>Although dynamic analysis and static analysis may seem like two different stages in the analysis process, they are not. As you review the various dynamic analysis steps and tools, you may need to go back and apply the various static analysis steps you learned and then return to dynamic analysis again. This cycle may continue several more times.</p>
+<p>Before starting dynamic analysis, you should ensure that your analysis environment is isolated and backed up. For this, as we mentioned in the sandbox installation article, you can create a clone of your Win7 machine and perform operations on this clone. Also make sure the network adapter is disabled or in host-only mode. To protect your base system, there should be no network connection within the virtual machine.</p>
+<p>In the following stages, we will discuss analysis techniques step by step.</p>
+<hr>
+<h3 id="first-startup">
+  First Startup
+  <a class="heading-link" href="#first-startup">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The best first step in the analysis process is to randomly run the example and notice its behavior at a very high level.</p>
+<p>Many examples, such as ransomware, have obvious behavior. Running the sample and observing the effects of the software on the system and the files on the disk may be enough to conclude that the sample is malware and understand the type and purpose of the malware.</p>
+<p>Casual observation of the behavior of executing malware helps us set our expectations and prepare ourselves for the next set of tools required to continue its in-depth analysis.</p>
+<p>We may need to repeat this process and randomly re-run the same instance multiple times, as a single execution will not help us make enough observations about its behavior. It is recommended to reset the VM every time we randomly re-run the instance. For this, you can take a <a href="https://www.techrepublic.com/article/how-to-use-snapshots-in-virtualbox/"  class="external-link" target="_blank" rel="noopener">snapshot</a> before running it and restore it after running the malware.</p>
+<p><img src="/images/1_TeWf88TlRm-4hgARIytSFA.png" alt=""></p>
+<p>In carrying out this process, we can also get help from a few simple tools, such as Process Hacker and a file browser, which help us passively observe the behavior of the sample.</p>
+<p><img src="/images/1_3Gszc0IZVUjKcJiNdTTGFQ.png" alt=""></p>
+<p>For example, here we have a malware called sample.exe. Let&rsquo;s observe what happens when we run it.</p>
+<p><img src="/images/1_A_SOhSImS-Ag6WFwPd4H0Q.png" alt=""></p>
+<p>The sample.exe element disappeared and new processes started. Our computer is now infected.</p>
+<p><img src="/images/1_bbN3yVKANOp7YerFaB1qBw.png" alt=""></p>
+<p>After our process is completed, we need to restore the snapshot to reset our machine. When we restart, the machine will start as it was when we took the snapshot.</p>
+<hr>
+<h3 id="api-log-behavior">
+  API Log Behavior
+  <a class="heading-link" href="#api-log-behavior">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The malware carries out its activities through Win API calls. You can obtain the APIs used by an instance using an API logger tool such as APIMiner or Cuckoo Sandbox. Based on APIs, you can conclude whether the sample is malware and find out its category.</p>
+<p><img src="/images/1_pfOmNJu2eNiLE6VdAnRwcg.png" alt=""></p>
+<p><a href="https://github.com/poona/APIMiner"  class="external-link" target="_blank" rel="noopener">APIminer</a> tool creates a log file for us. Log files are arranged in chronological order. The first file you see will be the first file created. You can see the created log file below.</p>
+<p><img src="/images/1_tB_oxh5iHu7jN3Ni5dgR1Q.png" alt=""></p>
+<p>So, what inferences will we draw from this information?</p>
+<p>CreateProcessInternalW([command_line]”svchost.exe”,<br>
+ [process_identifier]4080,<br>
+ [thread_identifier]3248,<br>
+ [creation_flags]4<br>
+ [process_handle]0x00002A7C,<br>
+ [thread_handle]0x00002A78)<br>
+NtReadVirtualMemory([process_handle]0x00002A7C)NtMapViewOfSection([process_handle]0x00002A7C)<br>
+NtReadVirtualMemory([process_handle]0x00002A7C)<br>
+NtUnmapViewOfSection([process_handle]0x00002A7C)<br>
+NtResumeThread([thread_handle]0x00002A78,<br>
+ [process_identifier]4080)</p>
+<p>Let&rsquo;s take this part and go item by item.</p>
+<ul>
+<li>Using the CreateProcessInternalW API, the example creates a new process for the system program svchost.exe.<br>
+The process located at C:\Windows\System32\svchost.exe</li>
+<li>The created process is in SUSPENDED state, defined using [creation_flags]4 using 4 argument values. How do we know that 4 means SUSPENDED? For the CreateProcess API, see the API description on MSDN and check the CREATE_SUSPENDED flag.</li>
+<li>The ID and thread of this newly created process are 0x00002A7C and 0x00002A78.</li>
+<li>The instance using the NtReadVirtualMemory API then reads memory from the remote process identified using process identifier 0x00002A7C</li>
+<li>Using the NtMapViewOfSection API, the example then creates a section and maps a view of it to the remote process identified using identifier 0x00002A7C.</li>
+<li>Resumes the SUSPENDED thread/process using the ResumeThread API defined using thread identifier 0x00002A78 and process identifier 4080.</li>
+</ul>
+<p>What does this whole set of APIs look like? This indicates that the sample is using Process Hollowing, a technique frequently exploited by malware. This leads us to conclude that this is indeed malware.</p>
+<hr>
+<h3 id="determination-of-malware-family">
+  Determination of Malware Family
+  <a class="heading-link" href="#determination-of-malware-family">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>We concluded that it was malware from the API logs, but can we understand the family of the malware? Each malware belonging to the same family has features or structures specific to that family. Its properties can be investigated through API logs. For the example, there are three API log files created. Take the first log file and call the CreateMutant API, which creates a mutex. <br>
+It is a synchronization method commonly used by malware. Our malware creates a mutex called 2GVWNQJz1, as you can see via the API call.</p>
+<p><img src="/images/1_gd1heUrxhjyJuqn7_SnqYg.png" alt=""></p>
+<p>Mutex created by our sample reveals that it belongs to the kuluoz family and is a botnet virus</p>
+<hr>
+<h3 id="dynamic-stringanalysis">
+  Dynamic String Analysis
+  <a class="heading-link" href="#dynamic-stringanalysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The first step in string analysis is to understand whether it is packed or not. If they are not packaged, strings can be detected with static analysis methods. If it is packaged, then dynamic analysis is needed.</p>
+<p>PEiD is a great tool that can provide the entropy of a static file so you can tell whether it is packed or not, for example.</p>
+<p><img src="/images/1_Po9quWJijYlHKhvJpMIlkQ.png" alt=""></p>
+<p>Strings are hidden in packaged malware. This makes static analysis of strings using BinText useless. When we run packaged malware, they unpack themselves in memory. Once you unpack it, all hidden strings will now become visible. We will try to detect these strings.</p>
+<p>At this point, process hacker comes to our aid again. We can click on the process started by process hacker and view its memory data.</p>
+<p><img src="/images/1_3m0V-UQ4Yb1nse2pzeteTA.png" alt=""></p>
+<p>Here, we can see many strings.</p>
+<p>What can we extract from these strings? There are numerous strings that refer to Username and Password, along with various protocols such as SMTP and POP, and various tools such as Filezilla and Internet Explorer. This indicates, for example, the infoStealers class of malware that tries to steal credentials from various tools that users use.</p>
+<p>Look for strange names within strings that look different but still mean something (you need to be very patient for this). Among all these strings, there is also the string YUIPWDFILE0YUIPKDFILE0YUICRYPTED0YUI1.0, which looks very strange but also has a structure consisting of words such as CRYPTED and FILE0.</p>
+<p><img src="/images/1_el0yaQ8iSrmox-8IUb3CbQ.png" alt=""></p>
+<p>When we search for this string on Google, it points to many analysis reports for other malware samples, such as Pony Loader or Fareit, which belong to the same family as our sample.</p>
+<hr>
+<h3 id="debugging">
+  Debugging
+  <a class="heading-link" href="#debugging">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Converting the example into assembly code and executing it may be useful to see the calls it makes. OllyDbg will help us at this point.</p>
+<p>First of all, on OllyDbg we need to make a few small adjustments. We go to the Options menu.</p>
+<p><img src="/images/1_eri6ggOwF_WG8_bhqPcVqQ.png" alt=""></p>
+<p>Here, we go to the start section on the left and select the Entry point of main module option.</p>
+<p><img src="/images/1_mIJOmn4P3sGowZPeg3L87A.png" alt=""></p>
+<p>Then we go to the SFX section and uncheck the boxes. We are ready now. We open our malware file with OllyDbg. It may take a while to open.</p>
+<p><img src="/images/1_Or7YLdKi5dvafIWnuo-wXw.png" alt=""></p>
+<p>Here you see the main screen of OllyDbg. The image may be a bit intimidating. Actually, this part depends on your assembly knowledge.</p>
+<p><img src="/images/1_EqbuAGEZvZeUYzrb9FERwQ.png" alt=""></p>
+<p>Quick access buttons on OllyDbg are as shown in the figure. With OllyDbg, you can run the software line by line and observe its actions.</p>
+<hr>
+<h3 id="behavioral-eventsanalysis">
+  Behavioral Events Analysis
+  <a class="heading-link" href="#behavioral-eventsanalysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>We will touch on ProcMon, another very important analysis tool that can capture various events when we analyze and run our example. Let&rsquo;s examine our analysis step by step.</p>
+<ol>
+<li>Run Process Hacker to keep an eye on the process(es) that are started when you run your instance.</li>
+<li>Start ProcMon and press Ctrl+E to stop capturing events. By default, ProcMon captures all events in the system, and sometimes you have too much activity.</li>
+<li>Press Ctrl+X to clear the current events it displays.</li>
+<li>Press Ctrl+E so you can start capturing events.</li>
+<li>Run Sample.exe, making sure it runs through Process Hacker or at least creates other child processes.</li>
+<li>Run the example for a while and then press Ctrl+E in ProcMon. However, you don&rsquo;t want to run it for too long; otherwise, you&rsquo;ll be overwhelmed with too many events to analyze.</li>
+</ol>
+<p>Let&rsquo;s review the events and see if we can notice any malicious events/indicators from the events directly or indirectly related to our example process.</p>
+<p><img src="/images/1_ML1czN-nNauQcOxJ4Y4PAw.png" alt=""></p>
+<p>All events indicate harmful activity.</p>
+<ol>
+<li>It tries to create a file called SCOHOST.EXE, which is very close to the system program svchost.exe.</li>
+<li>sample.exe is reading its own content.</li>
+<li>It writes the content it reads to SVOHOST.EXE. So it copies itself.</li>
+</ol>
+<p>Copying and pasting its contents into this new file is a commonly used malware technique, where the malware copies themselves to a new file in another folder on the system and runs as a new process from this new file located in this new folder.</p>
+<h4 id="autoruns">
+  Autoruns
+  <a class="heading-link" href="#autoruns">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Since the malware sample created a RUN persistence entry, let&rsquo;s verify with the AutoRuns tool whether this persistence RUN entry still exists.</p>
+<p><img src="/images/1_O8xKtlyx0K9aReVvbccSPw.png" alt=""></p>
+<p>You can see the record created with the Autoruns tool.</p>
+<hr>
+<h3 id="code-injection-detection">
+  Code Injection Detection
+  <a class="heading-link" href="#code-injection-detection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Code injection is caught using various techniques. One method detects the use of certain Win32 APIs. You can easily detect code injection by considering these APIs and using a tool like APIMiner.</p>
+<h4 id="gmer">
+  GMER
+  <a class="heading-link" href="#gmer">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Let&rsquo;s say you understand that the malware sample is performing code injection. Not every code injection technique indicates that the malware is planning API hooking or trying to use rootkit functionality. However, at this point, it is likely that one of the malware&rsquo;s goals is API hooking or rootkit. At this stage, using the GMER tool is a good step.</p>
+<p><img src="/images/1_ailBIordEk9B2cmjVNPNVQ.png" alt=""></p>
+<p>GMER Scan</p>
+<hr>
+<h3 id="memory-forensics">
+  Memory Forensics
+  <a class="heading-link" href="#memory-forensics">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>When executed, malware can create specific processes, files, log entries, install rootkits, etc. These malware structures can sometimes be self-destructed so that an analyst cannot detect them. For example, a malicious process may be terminated after code is injected into a legitimate process, or a temporary file created by the malware is deleted after being used. Using forensic techniques, you can retrieve such information and data even though it has been destroyed by malware, thus detecting malicious activities.</p>
+<p>Memory Forensics has 2 basic steps:</p>
+<ul>
+<li>Memory acquisition</li>
+<li>Memory analysis</li>
+</ul>
+<h4 id="memory-acquisition">
+  Memory Acquisition
+  <a class="heading-link" href="#memory-acquisition">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Computer forensics begins with data collection. Since we want to look at memory, we need to use memory acquisition tools. Some of the tools that can retrieve an image (RAM dump) from memory include:</p>
+<ul>
+<li>FTK Imager</li>
+<li>RAM Capture</li>
+<li>Dump It</li>
+<li>Memoryze</li>
+</ul>
+<p>We can use FTK Imager Lite to get the memory image. This tool is extremely lightweight and easy to use.</p>
+<p><img src="/images/1_xpfdO7cMxtGKfdMhM179ug.png" alt=""></p>
+<p>You can create a memory dump by clicking the Capture memory button. The memory dump file created has a special file format that can be understood by memory forensics tools.</p>
+<h4 id="memory-analysis">
+  Memory Analysis
+  <a class="heading-link" href="#memory-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>To analyze our memory dumps, we can use a well-known open-source memory forensics tool called Volatility.</p>
+<p><img src="/images/1_NId-X0OTydEM4KekMvEpeQ.png" alt=""></p>
+<p>volatility</p>
+<p>Volality is a command line tool, and if the output of the tool is very large, viewing the output from the command prompt is inconvenient. You can redirect the output of the command to a text file instead.</p>
+<p><img src="/images/1_1PBp2-WEY1sk0r6l7oehsw.png" alt=""></p>
+<p>The output from the command to the help.txt file can now be viewed using a text editor such as Notepad or Notepad++.</p>
+<p><img src="/images/1_1VOuaZCymL2zzn8nWbVmsA.png" alt=""></p>
+<p>The screenshot displays the list of commands provided by the tool. Volatility is a very comprehensive tool. I will not explain all its features in this article.</p>
+<p><img src="/images/1_52I5nvpzGb-GDJfZ6LamjQ.png" alt=""></p>
+<p>image information</p>
+<p>There are many commands and techniques to analyze the memory image. You can learn these by researching.</p>
+<hr>
+<p>In this article, I touched upon dynamic analysis techniques. How can we analyze malware by executing it? I talked about which tools we can use. If you like the article, you can comment.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

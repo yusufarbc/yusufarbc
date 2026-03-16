@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Threat Hunting with Email Security Walkthrough — LetsDefend · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Threat Hunting with Email Security Walkthrough — LetsDefend
+  
+    
+    Link to heading
+  
+
+
+LetsDefend — Blue Team Training Platform
+
+  Introduction
+  
+    
+    Link to heading
+  
+
+In today&rsquo;s digital world, email has emerged as one of the cornerstones of both personal and business communications. However, this widespread use makes email accounts an attractive target for cyber attackers. Cybercriminals can cause significant damage by targeting users and organizations using methods such as phishing, spreading malware, and Business Email Compromise (BEC). This is where email-based threat hunting enters the picture.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Threat Hunting with Email Security Walkthrough — LetsDefend">
+  <meta name="twitter:description" content="Threat Hunting with Email Security Walkthrough — LetsDefendLink to headingLetsDefend — Blue Team Training Platform
+IntroductionLink to headingIn today’s digital world, email has emerged as one of the cornerstones of both personal and business communications. However, this widespread use makes email accounts an attractive target for cyber attackers. Cybercriminals can cause significant damage by targeting users and organizations using methods such as phishing, spreading malware, and Business Email Compromise (BEC). This is where email-based threat hunting enters the picture.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2025/10/threat-hunting-with-email-security-walkthrough-letsdefend/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Threat Hunting with Email Security Walkthrough — LetsDefend">
+  <meta property="og:description" content="Threat Hunting with Email Security Walkthrough — LetsDefendLink to headingLetsDefend — Blue Team Training Platform
+IntroductionLink to headingIn today’s digital world, email has emerged as one of the cornerstones of both personal and business communications. However, this widespread use makes email accounts an attractive target for cyber attackers. Cybercriminals can cause significant damage by targeting users and organizations using methods such as phishing, spreading malware, and Business Email Compromise (BEC). This is where email-based threat hunting enters the picture.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-30T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-30T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2025/10/threat-hunting-with-deception-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2025/10/threat-hunting-with-edr-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2025/10/threat-hunting-with-dns-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2025/10/threat-hunting-with-ips/ids-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2025/10/threat-hunting-with-waf-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2025/09/threat-hunting-with-cti-walkthrough-letsdefend/">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2025/10/threat-hunting-with-email-security-walkthrough-letsdefend/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2025/10/threat-hunting-with-email-security-walkthrough-letsdefend/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2025/10/threat-hunting-with-email-security-walkthrough-letsdefend/">
+              Threat Hunting with Email Security Walkthrough — LetsDefend
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-10-30T00:00:00Z">
+                October 30, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              14-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="threat-hunting-with-email-security-walkthroughletsdefend">
+  Threat Hunting with Email Security Walkthrough — LetsDefend
+  <a class="heading-link" href="#threat-hunting-with-email-security-walkthroughletsdefend">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/0_V1YCt7A3HhVJeU1A.png" alt=""></p>
+<p><a href="https://letsdefend.io/"  class="external-link" target="_blank" rel="noopener">LetsDefend — Blue Team Training Platform</a></p>
+<h3 id="introduction">
+  Introduction
+  <a class="heading-link" href="#introduction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In today&rsquo;s digital world, email has emerged as one of the cornerstones of both personal and business communications. However, this widespread use makes email accounts an attractive target for cyber attackers. Cybercriminals can cause significant damage by targeting users and organizations using methods such as phishing, spreading malware, and Business Email Compromise (BEC). This is where email-based threat hunting enters the picture.</p>
+<p>Email-based threat hunting is the process of in-depth analysis of email traffic to identify, analyze, and prevent potential threats and attacks. Detecting suspicious activity and malicious content requires advanced analysis techniques, threat intelligence, and automation tools. The goal is to catch and neutralize threats as quickly as possible before they start to spread.</p>
+<p><img src="/images/0_EnY1qtDQU3ZuBq7k.png" alt=""></p>
+<h3 id="common-e-mail-threats">
+  Common E-Mail Threats
+  <a class="heading-link" href="#common-e-mail-threats">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Spam:</strong> It is classified as unsolicited email sent in bulk. In some cases, spam emails may contain links that download malicious files.</li>
+<li><strong>Phishing:</strong> It is a type of attack in which cybercriminals use deceptive emails, advertisements, links, or messages to steal personal information or gain access to online accounts. According to Verizon, phishing accounts for 36% of breaches.</li>
+<li><strong>Malware:</strong> It is an attack method in which cybercriminals use malicious code in email messages to infect one or more devices. By 2020, email malware attacks will increase by 600%.</li>
+<li><strong>Spoofing:</strong> It is a technique used by cybercriminals in spam and phishing attacks. It tricks users into believing the message is from someone they know or trust, such as a familiar person or organization.</li>
+<li><strong>Botnet Messages:</strong> It is a method of infecting a computer network with malware. The network is controlled by a single attacker known as the “botnet leader. Botnet messages are used to launch attacks, steal data, send spam, and gain access to devices.</li>
+<li><strong>Business Email Compromise (BEC):</strong> In this method, attackers gain access to a business email account and impersonate its owner. These attackers often target companies that conduct wire transfers and have overseas suppliers.</li>
+</ul>
+<p><img src="/images/0_hxh8nRQD_XyksTwL.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.mailmunch.com/blog/email-security-best-practices"  class="external-link" target="_blank" rel="noopener">https://www.mailmunch.com/blog/email-security-best-practices</a> )</p>
+<p>This lesson of the course provides an introduction to the topic. The next lesson will cover the “ <strong>Role of Email Security Systems in Threat Hunting</strong> .”</p>
+<h3 id="questions">
+  Questions
+  <a class="heading-link" href="#questions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>No Answer Needed</p>
+<hr>
+<h3 id="role-of-email-security-systems-in-threathunting">
+  Role of Email Security Systems in Threat Hunting
+  <a class="heading-link" href="#role-of-email-security-systems-in-threathunting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Email is one of the most popular and effective attack vectors for cyber attackers. Email attacks such as phishing, malware distribution, ransomware and business email compromise (BEC) target both individuals and organizations. As a result, email security systems play a critical role in the threat hunting process.</p>
+<h3 id="core-functions-of-email-securitysystems">
+  Core Functions of Email Security Systems
+  <a class="heading-link" href="#core-functions-of-email-securitysystems">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Email security systems are primarily designed to filter, analyze, and detect malicious content in email traffic. Their core functions include the following:</p>
+<ul>
+<li><strong>Spam Filtering:</strong> Email security systems prevent unnecessary and potentially harmful emails from reaching users&rsquo; inboxes.</li>
+<li><strong>Phishing Protection:</strong> They detect and block fake emails created to steal information from legitimate users.</li>
+<li><strong>Malware Detection:</strong> Email security systems scan and detect malware in attachments, links, or email content.</li>
+<li><strong>URL and Link Analysis:</strong> They check whether links in emails are malicious.</li>
+<li><strong>Content Scanning:</strong> Email security systems scan email content for specific keywords and suspicious patterns to identify risky situations.</li>
+</ul>
+<h3 id="the-role-of-email-security-systems-in-threathunting">
+  The Role of Email Security Systems in Threat Hunting
+  <a class="heading-link" href="#the-role-of-email-security-systems-in-threathunting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Threat hunting is a proactive cybersecurity strategy aimed at detecting attacks before they occur. Email security systems play a critical role in this process. Here are some of the key roles these systems play in threat hunting:</p>
+<ul>
+<li><strong>Advanced Threat Detection:</strong> Email security systems go beyond traditional signature-based threat detection methods by using behavioral analysis, machine learning, and threat intelligence to detect advanced threats. These functions enable the systems to identify new and previously unseen attack methods.</li>
+<li><strong>Providing Data for Incident Response:</strong> When an attack occurs or suspicious activity is detected, email security systems provide data that threat hunters analyze to determine the source, method, and purpose of the attack. This data is highly valuable in incident response processes.</li>
+<li><strong>Content and Link Analysis:</strong> Email security systems generate detailed analysis reports that threat hunters use to examine the content and links in suspicious emails. These reports are particularly important for detecting and analyzing phishing emails used in targeted attacks.</li>
+<li><strong>Automated Hunting Processes:</strong> Email security systems support automated threat hunting processes, enabling effective threat hunting even in large-scale networks. They ensure continuous monitoring of email traffic and immediate detection of abnormal activities.</li>
+</ul>
+<p><img src="/images/0_jp6OHhzpkRJrZAkD.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.mailmunch.com/blog/email-security-best-practices"  class="external-link" target="_blank" rel="noopener">https://www.mailmunch.com/blog/email-security-best-practices</a> )</p>
+<h3 id="techniques-and-technologies-included-in-email-securitysoftware">
+  Techniques and Technologies Included in Email Security Software
+  <a class="heading-link" href="#techniques-and-technologies-included-in-email-securitysoftware">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Some of the key techniques and technologies used in email security systems include:</p>
+<ul>
+<li><strong>Machine Learning and Artificial Intelligence:</strong> Email security systems use machine learning and AI to detect abnormal behavior and suspicious activities. Thanks to their continuous learning capabilities, they can adapt even as attack methods evolve.</li>
+<li><strong>Sandboxing:</strong> Email security systems execute files and links from incoming emails in isolated virtual environments to analyze their behavior, ensuring that malicious content is detected before it can harm real systems.</li>
+<li><strong>Threat Intelligence Integration:</strong> Email security systems leverage global threat intelligence to quickly detect known threats. Threat intelligence integration, combined with continuously updated threat databases, will provide more effective protection.</li>
+</ul>
+<p><img src="/images/0_k2M_qgmzF64cPQmD.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.anubisnetworks.com/email-sandboxing-integration"  class="external-link" target="_blank" rel="noopener">https://www.anubisnetworks.com/email-sandboxing-integration</a> )</p>
+<h3 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Email security systems play a proactive role in the threat hunting process, making them vital for preventing and detecting cyberattacks. Equipped with advanced technologies, these systems are an indispensable part of corporate cybersecurity strategies.</p>
+<p>This lesson has discussed the importance of email security systems in the threat hunting process. The next lesson will cover the topic “ <strong>Using Email Security Systems</strong> .”</p>
+<h3 id="questions-1">
+  Questions
+  <a class="heading-link" href="#questions-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>No Answer Needed</p>
+<hr>
+<h3 id="using-email-securitysystems">
+  Using Email Security Systems
+  <a class="heading-link" href="#using-email-securitysystems">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Email security systems help cybersecurity analysts detect and analyze suspicious activity. Detecting phishing emails and emails containing malware is one of their most important functions. Email security systems are equipped with advanced technologies such as machine learning algorithms, behavioral analysis, and threat intelligence. As a result, they are able to detect not only known threats, but also previously unseen or targeted attacks.</p>
+<p>Using email security systems in the threat hunting process is critical to protecting corporate networks and data. These systems monitor not only incoming email traffic, but also internal email traffic, helping to detect insider threats. The effective use of email security systems in threat hunting is a critical step in preventing cyber-attacks and minimizing potential threats.</p>
+<h3 id="collection-of-email-data-and-loganalysis">
+  Collection of Email Data and Log Analysis
+  <a class="heading-link" href="#collection-of-email-data-and-loganalysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The collection of email data and the analysis of these logs hold a significant place in threat hunting processes. Email logs contain critical information that organizations can use to monitor email traffic, detect anomalies, and take measures against cyberattacks.</p>
+<p><strong>Collection of Email Data:</strong> Email security systems can monitor all email traffic within an organization and securely store this data. This data may include sender and recipient email addresses, subject lines, IP addresses, email sizes, timestamps, and attachment details. Additionally, links used in emails and their target addresses can also be collected. Proper and complete collection of this data is crucial for detecting traces of cyberattacks during the threat hunting process.</p>
+<p><strong>Log Analysis:</strong> Email logs provide cybersecurity analysts with detailed information, enabling them to detect deviations from normal behavior and abnormal activities. Log analysis involves examining all email activities within a specific timeframe to identify potential threats. Abnormal activity includes unusual user email patterns, email from unknown IP addresses, or phishing attempts. Log analysis tools can automatically detect such anomalies and alert analysts, allowing potential threats to be identified and mitigated at an early stage.</p>
+<p>Email data collection and log analysis is one of the fundamental elements of threat hunting. In order to detect threats in a timely manner and develop an effective defense strategy against cyber attacks, this process is critical.</p>
+<p><img src="/images/0_Yapx_un0sVdyuHfS.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://documentation.wazuh.com/current/cloud-security/office365/monitoring-office365-activity.html"  class="external-link" target="_blank" rel="noopener">https://documentation.wazuh.com/current/cloud-security/office365/monitoring-office365-activity.html</a> )</p>
+<h3 id="detection-and-analysis-of-malicious-emailcontent">
+  Detection and Analysis of Malicious Email Content
+  <a class="heading-link" href="#detection-and-analysis-of-malicious-emailcontent">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Detecting and analyzing malicious email content is an important defense mechanism in the cybersecurity world. Cyber attackers use a variety of techniques to spread malware, conduct phishing, or deceive users through email. Therefore, the detection and effective analysis of malicious content is essential to ensure the security of an organization.</p>
+<ul>
+<li><strong>Detection Methods:</strong> There are several methods used to detect malicious email content. Signature-based detection methods are effective for identifying known threats. However, for more advanced attacks, techniques such as behavioral analysis, machine learning, and sandboxing are used. These methods analyze suspicious email content and detect abnormal behavior. For example, sandboxing executes email attachments in an isolated environment to test for malware.</li>
+<li><strong>Content Analysis:</strong> Email content analysis involves a detailed examination of both text and attachments. Phishing emails often use specific patterns to deceive users, and natural language processing (NLP) techniques are used to detect these patterns. In addition, files in email attachments are scanned for known malware. Malicious email content often includes elements that pressure users to take certain actions (e.g., create a sense of urgency). Detecting such elements helps identify potential threats.</li>
+</ul>
+<p><img src="/images/0_DT2LjsW9O_eWD-VB.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.proofpoint.com/us/blog/security-awareness-training/new-clear-solution-automation-email-reporting-remediation"  class="external-link" target="_blank" rel="noopener">https://www.proofpoint.com/us/blog/security-awareness-training/new-clear-solution-automation-email-reporting-remediation</a> )</p>
+<p>The detection and analysis of malicious email content are critical for the rapid and effective neutralization of cyber threats, playing a vital role in both identifying current threats and protecting against future attacks.</p>
+<h3 id="real-time-and-retrospective-email-analysis">
+  Real-Time and Retrospective Email Analysis
+  <a class="heading-link" href="#real-time-and-retrospective-email-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Both real-time and retrospective email analysis are important for email security. These methods are used to detect cyber threats and take preventative measures. Real-time analysis enables the immediate detection of active threats, while retrospective analysis enables the investigation of past incidents.</p>
+<ul>
+<li><strong>Real-time Email Analysis:</strong> This method refers to the process by which email security systems monitor email traffic in real time and detect suspicious activity. Real-time analysis can immediately identify phishing attempts, malware distribution, or unusual email activity. This type of analysis can stop attacks before they fully materialize. For example, if an email system detects a user deviating from normal behavior, it can alert the user or IT in real time.</li>
+<li><strong>Retrospective Email Analysis:</strong> This method involves analyzing past email traffic. Especially after a security breach, retrospective analysis is used to understand how the breach occurred and to prevent similar incidents in the future. It involves a detailed examination of email logs and is also used to understand the methods used by cybercriminals and how attacks spread. Based on the findings, organizations can review their security policies and develop new strategies.</li>
+</ul>
+<p><img src="/images/0_2wuURSlxtdaPcfeN.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://emailanalytics.com/"  class="external-link" target="_blank" rel="noopener">https://emailanalytics.com/</a> )</p>
+<p>These two approaches to analyzing and responding to cybersecurity threats complement each other. Real-time email analysis provides quick responses to immediate threats, while retrospective analysis provides a broader perspective that contributes to long-term security measures.</p>
+<h3 id="conclusion-1">
+  Conclusion
+  <a class="heading-link" href="#conclusion-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Email security systems play both proactive and reactive roles in the threat hunting process, creating a strong line of defense against cyber attacks. Critical steps such as email data collection, log analysis, malicious content detection and analysis, and real-time and retrospective email analysis ensure that potential threats are detected and neutralized early. These processes are critical to ensuring organizational security and preparing for future attacks. Effective use of email security systems enables security teams to respond quickly and knowledgeably to attacks.</p>
+<p>This lesson has discussed the use of email security systems in the threat hunting process. The next lesson will cover the “ <strong>Abnormal Email Sending Pattern Hypothesis</strong> “.</p>
+<h3 id="questions-2">
+  Questions
+  <a class="heading-link" href="#questions-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>No Answer Needed</p>
+<hr>
+<h3 id="abnormal-email-sending-pattern-hypothesis">
+  Abnormal Email Sending Pattern Hypothesis
+  <a class="heading-link" href="#abnormal-email-sending-pattern-hypothesis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="hypothesis">
+  Hypothesis
+  <a class="heading-link" href="#hypothesis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>An employee&rsquo;s email account may be used to send a high volume of spam or malicious content to multiple external email addresses simultaneously in an unusual manner.</p>
+<p><img src="/images/0_kmTdkqA1mLC8gnr-.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.howtogeek.com/412316/how-email-bombing-uses-spam-to-hide-an-attack/"  class="external-link" target="_blank" rel="noopener">https://www.howtogeek.com/412316/how-email-bombing-uses-spam-to-hide-an-attack/</a> )</p>
+<h3 id="data-sources">
+  Data Sources
+  <a class="heading-link" href="#data-sources">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Email Security System Logs:</strong> Inbound and outbound email traffic, email attachments, email content scans, and spam filtering results.</li>
+<li><strong>SIEM Logs:</strong> A centralized platform integrating email security systems and other security logs.</li>
+<li><strong>SMTP Server Logs:</strong> Outbound email traffic, failed email delivery attempts, and emails marked as spam.</li>
+<li><strong>User Activity Logs:</strong> Unusual sending activities from employee email accounts.</li>
+<li><strong>DNS Logs:</strong> Domain resolution processes used during email sending and associations with suspicious domains.</li>
+</ul>
+<h3 id="analysis-steps">
+  Analysis Steps
+  <a class="heading-link" href="#analysis-steps">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Analyze inbound and outbound email traffic in detail.</li>
+<li>Determine how many emails are typically sent per day.</li>
+<li>Analyze typical recipient profiles and email content.</li>
+<li>Analyze email security system results for spam and malicious content detection.</li>
+<li>Identify suspicious email attachments, unusual content, and sends where known malware has been detected.</li>
+<li>Analyze SMTP server logs.</li>
+<li>Analyze email delivery failures and emails marked as spam.</li>
+<li>Analyze user activity logs.</li>
+<li>Identify unusual activity in email accounts, especially intensive email sending.</li>
+<li>Examine and analyze DNS logs.</li>
+<li>Identify emails sent to suspicious domains.</li>
+<li>Deviations from normal sending patterns are analyzed to detect abnormal email sends.</li>
+<li>Identify activities such as sending to many different external email addresses at the same time, sending at an unusual frequency.</li>
+<li>Conduct a correlation analysis of all the security logs with SIEM.</li>
+<li>Analyze suspicious activity in detail by correlating email security system logs, user activity, and SMTP server logs.</li>
+<li>Evaluate detected anomalies for potential threats.</li>
+<li>If an anomaly is detected, it is determined whether it is a spam attack, a phishing campaign, or an account takeover attempt.</li>
+<li>Gather more evidence to confirm the anomaly.</li>
+<li>Perform additional checks to confirm if the suspicious activity is an attack.</li>
+<li>Inform the appropriate security teams about the findings for further action.</li>
+</ul>
+<h3 id="expected-results">
+  Expected Results
+  <a class="heading-link" href="#expected-results">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Email security systems detect high-volume email sent from a specific account to multiple external email addresses at the same time.</li>
+<li>Sent emails may contain malicious attachments, phishing links, or unusual text.</li>
+<li>Unusual email sending frequency or high volume of failed delivery attempts observed in SMTP server logs.</li>
+<li>Unusual logon attempts or activity from different IP addresses associated with the email account are detected in user activity logs.</li>
+<li>Email redirects to unknown or malicious domains are observed in DNS logs.</li>
+<li>SIEM logs correlate suspicious email activity with other security events, such as account takeover attempts or malware propagation.</li>
+</ul>
+<h3 id="summary">
+  Summary
+  <a class="heading-link" href="#summary">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Email security is one of the most critical defense points for organizations. Threat hunters can analyze data sources such as email security systems and SIEM logs to detect unusual email sending patterns and potential malicious activities.</p>
+<h3 id="questions-3">
+  Questions
+  <a class="heading-link" href="#questions-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>No Answer Needed</p>
+<hr>
+<h3 id="practical-lab">
+  Practical Lab
+  <a class="heading-link" href="#practical-lab">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="hypothesis-1">
+  Hypothesis
+  <a class="heading-link" href="#hypothesis-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Note</strong>: The questions in this section are prepared for Threat Hunting based on the following hypothesis:</p>
+<p><strong>Hypothesis</strong>: The organization&rsquo;s network may be targeted by the attackers, and its systems may be damaged by malicious software contained in emails sent to employees from domains with the “.top” extension.</p>
+<h3 id="threat-hunting-lab-environment">
+  Threat Hunting Lab Environment
+  <a class="heading-link" href="#threat-hunting-lab-environment">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Organization Name</strong>: Quantum Synergy Solutions</li>
+<li><strong>Organization Domain</strong>: quantumsynergy.io</li>
+<li>Email Security (<a href="https://app.letsdefend.io/email-security"  class="external-link" target="_blank" rel="noopener">LetsDefend Platform</a>)</li>
+<li>EDR Events (Sysmon)</li>
+<li>SIEM (Wazuh)</li>
+<li>Firewall Traffic Events</li>
+<li>CTI Events (<a href="https://app.letsdefend.io/threat-intelligence-feed"  class="external-link" target="_blank" rel="noopener">Threat Intel LetsDefend Platform</a>)</li>
+</ul>
+<h3 id="lab-notes">
+  Lab Notes
+  <a class="heading-link" href="#lab-notes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Analyze the logs between “Aug 8, 2024 00:00 — Aug 13, 2024 00:00” to answer the questions below.</li>
+<li>Subsequent questions require correct answers from previous ones. Answer all questions strictly in the order they appear.</li>
+</ul>
+<p><strong>Note:</strong> Analyze the logs between “Aug 8, 2024 00:00 — Aug 13, 2024 00:00” to answer the questions below.</p>
+<p><strong>Note</strong>: Subsequent questions require correct answers from previous ones. Answer all questions strictly in the order they appear.</p>
+<blockquote>
+<p>How many total emails were received by the organization from domains with the “.top” extension?</p>
+</blockquote>
+<p>Hint: Search for the organization&rsquo;s domain in the Email Security platform.</p>
+<p><img src="/images/1_qV0CknjOHxiP59Igt92dag.png" alt=""></p>
+<p><strong>Answer:</strong> 5</p>
+<blockquote>
+<p>Out of the emails received from “.top” domains, how many had their Final Action as “allowed”?</p>
+</blockquote>
+<p>Search for the organization&rsquo;s domain in the Email Security platform. Find the emails for which the “Final Action” value is “Allowed.”</p>
+<p><strong>Answer:</strong> 2</p>
+<blockquote>
+<p>What is the sender email address for emails sent to the organization from domains with the “.top” extension and a “Final Action” value of “Allowed”?</p>
+</blockquote>
+<p>In the Email Security platform, filter by the organization&rsquo;s domain and check the “Sender” field of emails with a “Final Action” of “Allowed.”</p>
+<p><strong>Answer:</strong> <a href="mailto:YouWon@chronocampaign.top" >YouWon@chronocampaign.top</a></p>
+<blockquote>
+<p>What is the URL contained in emails sent to the organization from domains with the “.top” extension and with a “Final Action” value of “Allowed”?</p>
+</blockquote>
+<p>Filter by the organization&rsquo;s domain in the Email Security platform. Check the contents of emails with a “Final Action” of “Allowed”.</p>
+<p><img src="/images/1_1At4pliPGDB2TcEUv-bXpQ.png" alt=""></p>
+<p><strong>Answer:</strong> <a href="http://chronocampaign.top/claim-your-gift-card"  class="external-link" target="_blank" rel="noopener">http://chronocampaign.top/claim-your-gift-card</a></p>
+<blockquote>
+<p>What is the IP address of the system that queried the domain in the URL contained in the Allowed emails from domains with the .top extension?</p>
+</blockquote>
+<p>In SIEM, use the filter “data.win.eventdata.queryName: [Domain_Name]” and check the “agent.ip” field in the result.</p>
+<p><img src="/images/1_6tgFZ_ohAkw-TUf995DN4w.png" alt=""><img src="/images/1_mgepSPhyEbCn2fUEQ-tKpw.png" alt=""><img src="/images/1_IPfEO_93MHgn1DbF61laOg.png" alt=""></p>
+<p><strong>Answer:</strong> 192.168.150.5</p>
+<blockquote>
+<p>What is the firewall action for the system that accessed the URL found in the Allowed emails from domains with the .top extension?</p>
+</blockquote>
+<p>What is the firewall action for the system that accessed the URL found in the Allowed emails from domains with the .top extension?</p>
+<p><img src="/images/1_YusX_zBn1U4QYnNrcL4TlA.png" alt=""><img src="/images/1_hgZ6HtCz8Tke9nN-s9sTvA.png" alt=""></p>
+<p>112.156.83.45 is C2 IP address</p>
+<p><strong>Answer:</strong> allow</p>
+<blockquote>
+<p>Which APT group is associated with the URL found in the Allowed emails from domains with the .top extension?</p>
+</blockquote>
+<p>Search the domain or C2 IP in the Threat Intel platform.</p>
+<p><img src="/images/1_70ifhGyPn9ae3y7Ea8eM2g.png" alt=""></p>
+<p><strong>Answer:</strong> APT-SR-34</p>
+<blockquote>
+<p>On the system that accessed the URL in the Allowed emails from domains with the .top extension, what is the name of the process (running at the time of access) whose “Company Name” is “Unknown”?</p>
+</blockquote>
+<p>In the SIEM&rsquo;s EDR events, filter by the system&rsquo;s &ldquo;agent.ip&rdquo; value. Then apply the filter “data.win.eventdata.company: Unknown” and check the value of “data.win.eventdata.originalFileName”.</p>
+<p><img src="/images/1_lakPCbw0YecNuPmyqk1zyA.png" alt=""></p>
+<p><strong>Answer:</strong> outlook.exe</p>
+<blockquote>
+<p>When searched in the CTI platform, which APT group is associated with the MD5 hash of the process running on the system that accessed the URL in emails sent to the organization from domains with the “.top” extension and a “Final Action” value of “Allowed”?</p>
+</blockquote>
+<p>same as previous question.</p>
+<p><strong>Answer:</strong> APT-SR-34</p>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  İşletim Sistemlerinin Serüveni · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  İşletim Sistemlerinin Serüveni
+  
+    
+    Başlık Linki
+  
+
+
+Bu yazımızda, günümüzde bilgisayar sistemleri için olmazsa olmaz konuma gelmiş olan işletim sistemlerini inceleyeceğiz. Nasıl geliştiğine, bu günlere nasıl geldiğine deyineceğiz. Günümüzde popüler olan işletim sistemelerinin nasıl ortaya çıktığına şahit olacağız.
+İşletim sisteminin ne olduğuyla başlamak gerekirse; işletim sistemi bir bilgisayarın tüm işlemlerini kontrol eden bir yazılımdır. Bu yazılım, bir kullanıcının dosya kaydedip açmasını sağlayan araçları, bir programı yürütme isteğini iletebileceği arayüzü ve istenilen programların yürütülebileceği ortamı sağlar. İşletim sistemi deyince akla Microsoft firmasının geliştirdiği Windows işletim sistemi gelir. Bunun dışında Unix ve Linux işletim sistemleri de vardır. Ama bunlardan önce işletim sistemlerinin tarihine bir bakalım.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="İşletim Sistemlerinin Serüveni">
+  <meta name="twitter:description" content="İşletim Sistemlerinin SerüveniBaşlık LinkiBu yazımızda, günümüzde bilgisayar sistemleri için olmazsa olmaz konuma gelmiş olan işletim sistemlerini inceleyeceğiz. Nasıl geliştiğine, bu günlere nasıl geldiğine deyineceğiz. Günümüzde popüler olan işletim sistemelerinin nasıl ortaya çıktığına şahit olacağız.
+İşletim sisteminin ne olduğuyla başlamak gerekirse; işletim sistemi bir bilgisayarın tüm işlemlerini kontrol eden bir yazılımdır. Bu yazılım, bir kullanıcının dosya kaydedip açmasını sağlayan araçları, bir programı yürütme isteğini iletebileceği arayüzü ve istenilen programların yürütülebileceği ortamı sağlar. İşletim sistemi deyince akla Microsoft firmasının geliştirdiği Windows işletim sistemi gelir. Bunun dışında Unix ve Linux işletim sistemleri de vardır. Ama bunlardan önce işletim sistemlerinin tarihine bir bakalım.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2021-06-01-letim-sistemlerinin-ser-veni/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="İşletim Sistemlerinin Serüveni">
+  <meta property="og:description" content="İşletim Sistemlerinin SerüveniBaşlık LinkiBu yazımızda, günümüzde bilgisayar sistemleri için olmazsa olmaz konuma gelmiş olan işletim sistemlerini inceleyeceğiz. Nasıl geliştiğine, bu günlere nasıl geldiğine deyineceğiz. Günümüzde popüler olan işletim sistemelerinin nasıl ortaya çıktığına şahit olacağız.
+İşletim sisteminin ne olduğuyla başlamak gerekirse; işletim sistemi bir bilgisayarın tüm işlemlerini kontrol eden bir yazılımdır. Bu yazılım, bir kullanıcının dosya kaydedip açmasını sağlayan araçları, bir programı yürütme isteğini iletebileceği arayüzü ve istenilen programların yürütülebileceği ortamı sağlar. İşletim sistemi deyince akla Microsoft firmasının geliştirdiği Windows işletim sistemi gelir. Bunun dışında Unix ve Linux işletim sistemleri de vardır. Ama bunlardan önce işletim sistemlerinin tarihine bir bakalım.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-06-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-06-01T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2021-06-01-letim-sistemlerinin-ser-veni/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2021-06-01-letim-sistemlerinin-ser-veni/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2021-06-01-letim-sistemlerinin-ser-veni/">
+              İşletim Sistemlerinin Serüveni
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2021-06-01T00:00:00Z">
+                Haziran 1, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              7 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="işletim-sistemlerinin-serüveni">
+  İşletim Sistemlerinin Serüveni
+  <a class="heading-link" href="#i%c5%9fletim-sistemlerinin-ser%c3%bcveni">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_xr3hyWH8B1uBJitVrIH3xQ.jpeg" alt=""></p>
+<p>Bu yazımızda, günümüzde bilgisayar sistemleri için olmazsa olmaz konuma gelmiş olan işletim sistemlerini inceleyeceğiz. Nasıl geliştiğine, bu günlere nasıl geldiğine deyineceğiz. Günümüzde popüler olan işletim sistemelerinin nasıl ortaya çıktığına şahit olacağız.</p>
+<p>İşletim sisteminin ne olduğuyla başlamak gerekirse; işletim sistemi bir bilgisayarın tüm işlemlerini kontrol eden bir yazılımdır. Bu yazılım, bir kullanıcının dosya kaydedip açmasını sağlayan araçları, bir programı yürütme isteğini iletebileceği arayüzü ve istenilen programların yürütülebileceği ortamı sağlar. İşletim sistemi deyince akla Microsoft firmasının geliştirdiği Windows işletim sistemi gelir. Bunun dışında Unix ve Linux işletim sistemleri de vardır. Ama bunlardan önce işletim sistemlerinin tarihine bir bakalım.</p>
+<h3 id="ilk-bilgisayarlar">
+  İlk bilgisayarlar
+  <a class="heading-link" href="#ilk-bilgisayarlar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/0_mQmzkEmOfRVLwzCZ.jpeg" alt=""></p>
+<p>İlk bilgisayarlar bir oda büyüklüğündeydi. Bir işletim sistemine de sahip değillerdi. Programlar delikli kartlar üzerine kodlanırdı ve bilgisayara sırayla verilip çalıştırılırdı. Görev adı verilen bu süreç ciddi bir hazırlık gerektiriyordu. Bilgisayarda bir program yürütmek için önceden rezervasyon yapılır ve bu süre içerisinde bilgisayarın kullanım hakkı o kullanıcının olurdu.</p>
+<p>Böyle bir ortamda işletim sistemleri program kurulumunu basitleştiren ve görevler arasındaki geçişleri düzenleyen sistemler olarak ortaya çıktılar. Bir görev yürütmek isteyen kullanıcı, programı, işlenecek veriyi ve talimatları operatöre verir, görev kuyruğa alınır ve operatör talimatlar doğrultusunda programı yürütürdü. Ardından kullanıcı sonuçları almaya gelirdi. Bu toplu işlem kavramının ilk örneğidir. Bu sistem bilgisayarların verimliliğini ve çalışma hızını arttırmasına karşın kullanıcının bilgisayarla etkileşime geçmesini de engelliyordu. Yürütülmesi sırasında kullanıcının programla etkileşime geçmesi zorunlu olan uygulamalar için kabul edilemezdi.</p>
+<p>Bu ihtiyaçları karşılamak için etkileşimli işleme modeli geliştirilmiş, kullanıcıların yürütülen programla bir terminal üzerinden diyalog kurabilmesi sağlanmıştı. Bu terminal ekranları günümüz işletim sistemlerinde de varlığını sürdürmektedirler. Ancak, bu model de beraberinde yeni sorunlar getirmişti. Şöyle ki, terminal ile aynı anda sadece bir kullanıcı program yürütebiliyordu. Bilgisayarların çok pahalı sistemler olduğu o dönemlerde, tek bir bilgisayar birden çok kullanıcıya hizmet vermek zorundaydı.</p>
+<p>Bu problemin çözümü aynı anda birden çok kullanıcıya hizmet verebilen bir işletim sistemi geliştirmekti. Bu durum, zaman paylaşımlı sistemlerin ortaya çıkmasına yol açtı. Bu teknikte zaman belli aralıklara bölünür ve her bir görevin yürütülmesi tek bir zaman aralığıyla sınırlandırılırdı. Her aralığın sonunda mevcut görev durdurulur, geçici olarak saklanır, bir diğer görev yürütülürdü. Birden çok görevin hızlı bir şekilde işleme alınıp çıkartılması, bu görevlerin aynı anda yürütüldüğü izlenimini yaratırdı. Ayrıca,bu sistem sayesinde bir kullanıcının aynı anda birden çok program yürütebilmesi de sağlanmıştı.</p>
+<p>Kısacası, işletim sistemleri zaman içinde, aynı anda tek bir görevi yürütebilen basit programlardan, zaman paylaşımını yöneten, depolama alanındaki program ve veri dosyalarından sorumlu ve kullanıcıların isteklerine cevap verebilen karmaşık sistemler haline gelmişlerdir.</p>
+<h3 id="unixin-doğuşu">
+  Unix’in doğuşu
+  <a class="heading-link" href="#unixin-do%c4%9fu%c5%9fu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/0_j5b0VF0AN66jHyIQ.gif" alt=""></p>
+<p>1960&rsquo;lı yıllarda AT&amp;T’nin Bell laboratuarları, MIT ve General Electric’in birlikte yürüttükleri bir projede zaman paylaşımlı bir işletim sistemi üzerinde çalışmışlardır. Bu proje sonucunda ortaya “Multics” adında bir işletim sistemi çkmıştır. Bell laboratuarı projeden çekilince, burada çalışan <strong>Dennis Ritchie</strong> ve <strong>Ken Thompson</strong> “Multics” projesindeki tecrübelerinden de yararlanarak yeni bir projede yeni bir işletim sistemi ortaya çıkardılar. Başlangıçta assembly dilinde yazılarak geliştirilen bu işletim sistemine “Unix” adı verildi.</p>
+<p>Dennis Ritchie 1973 yılında kendi geliştirdiği C programlama dili ile Unix’i tekrar yazdı, daha önce assembly dili ile yazılmış olan işletim sistemini çalıştığı donanımın mimarisine bağımlı iken, C dili ile birlikte farklı platformlarda da çalışabilme yeteneği kazandı. Bu aşamadan sonra Unix işletim sistemi duyulmaya ve başta üniversitelerin bilgisayar bölümlerinde okuyanlar ve çalışanların desteği ile hızla büyük ilerleme kaydetti ve en önemli işletim sistemi konumuna geldi.</p>
+<p>Unix işletim sistemi, komut satırlı ve Windows gibi bazı grafik ögelerini içerisinde barındıran tam bir işletim sistemiydi. Kullanıcılar komut satırlarıyla işlemlerini gerçekleştirirlerdi. Zaman paylaşımlı bir işletim sistemi olması sayesinde birden çok kullanıcı bilgisayarı kullanabilir veya bir kullanıcı birden fazla programı aynı anda yürütebilirdi.</p>
+<p>1980&rsquo;lerin başında AT&amp;T UNIX işletim sisteminden para kazanma yoluna gitti ve işletim sistemini özel lisanslar ile pazarlamaya başladı. UNIX’in ortaya çıktığı günden itibaren işletim sisteminin gelişmesine yardımda bulunan birçok kişi bu karara karşı çıktı. Bunun üzerine amacı UNIX benzeri ve parasız dağıtılabilen bir işletim sistemi ortaya çıkarmak olan <strong>GNU</strong> projesi <strong>Richard Stallman</strong> tarafından başlatıldı ve bu proje için “Free Software Foundation (FSF — Özgür Yazılım Vakfı)” kuruldu.</p>
+<h3 id="linuxun-doğuşu">
+  Linux’un doğuşu
+  <a class="heading-link" href="#linuxun-do%c4%9fu%c5%9fu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/0_kTMsIQ1DbZOPM85o.jpg" alt=""></p>
+<p><strong>GNU</strong> projesi kapsamında Unix türevi olan <strong>Minix</strong> işletim sistemini ortaya çıktı. Bu işletim sistemi Prof. Andrew S. Tanenbaum tarafından, üniversitelerde bilgisayar bölümlerinde öğrencilere işletim sistemlerinin çalışma prensipleri ve işlevlerini öğretebilmek için mikro çekirdek mimarili olarak geliştirilmişti.</p>
+<p>1991 yılında bilgisayar bilimi öğrencisi <strong>Linus Torwalds</strong> Unix ve Minix işletim sistemleri üzerinde bilgi alışverişlerinin yapıldığı bir haber grubuna bir mesaj gönderdi. Linus mesajında, ücretsiz bir işletim sistemi üzerinde çalıştığını ve geliştirme için öneri istediğini belirtti. Linus, yeni işletim sistemine Linus’un Minix’i olarak tanımladığı <strong>Linux</strong> adını verdi. Geliştiricilerden Linux’ın geliştirilmesi için yardım teklifleri gelmeye başladı. Linux’ın bir diğer önemli yanı, GNU projesi çerçevesinde geliştirilen Unix benzeri işletim sisteminin büyük bir bölümü bitmişti, eksik kalan işletim sisteminin çekirdeği idi ve Linux bu eksiği kapatıyordu. 1991 Eylül’ünde Linux’un ilk sürümü paylaşıma sunuldu ve böylece Linux doğmuş oldu.</p>
+<h3 id="windowsun-doğuşu">
+  Windows’un doğuşu
+  <a class="heading-link" href="#windowsun-do%c4%9fu%c5%9fu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/0_NSHG5-qdcNnonu_n.jpg" alt=""></p>
+<p>Kişisel bilgisayarlar 70&rsquo;li yılların ortasında henüz gelişimlerinin ilk aşamasında bulunuyorlardı. MITS şirketinin Altair adını verdikleri en önemli numunesi henüz tek biςim, kullanılabilir bir yazılıma sahip olmayıp ancak tamamlanmamış bir işletim sistemine sahipti. Bill Gates ve Allen’ın, Altair iςin 1974&rsquo;te geliştirdikleri yazılım dili BASIC sayesinde bilgisayar kullanıcıları programlarını kendileri yazabiliyorlardı. MITS şirketi genç araştırmacılardan pazarlama ruhsatını satın alarak kendilerine sistemi daha da geliştirmeleri iςin sipariş verdi. Bunun üzerine, Gates Allen ile birlikte New Mexico’da Microsoft adlı şirketi kurdu.</p>
+<p>Microsoft, IBM PC uyumlu bilgisayarlar için MS -DOS isminde bir işletim sistemi geliştirdi. 1980&rsquo;de IBM ile bir ortaklık kurdu ve bu anlaşmayla IBM, Microsoft’a her satış için bir lisans ücreti ödedi. Ardından, MS-DOS için “Arayüz Yöneticisi” adı altında yeni bir grafik kullanıcı arayüzü (GUI) geliştirdi. Ancak, 1985&rsquo;teki resmi tanıtımdan önce, pazarlama uzmanları Bill Gates’i Windows’un daha uygun bir isim olduğuna ikna ettiler. Böylece, Windows kişisel bilgisayarların kullanımını kolaylaştıran bir arayüz programı olarak doğmuş oldu. MS-DOS işletim sisteminin üstüne kurulan bir arayüz yazılımı olan windows, sonraki yıllarda yeni sürümlerinin çıkmasıyla tam bir işletim sistemi olmuştur.</p>
+<h3 id="günümüz-işletim-sistemleri">
+  Günümüz İşletim Sistemleri
+  <a class="heading-link" href="#g%c3%bcn%c3%bcm%c3%bcz-i%c5%9fletim-sistemleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/0_L1PHGnrU90lDyD_b.png" alt=""></p>
+<p>Bilgisayar dünyasında, Windows, Unix ve Linux işletim sistemleri genel kabul görmüş ve zamanla gelişerek farklı sürümlerle günümüze kadar gelmişlerdir. Günümüzdeki işletim sistemleri, Windows, Unix veya Lnux işletim sistemlerinden birini temel almışlardır. Bu 3 işletim sisteminden türemişlerdir. Bu yönüyle işletim sistemlerini 3 sınıfa ayırabiliriz.</p>
+<p>1- Unix Tabanlı işletim sistemleri<br>
+ 2 -Windows tabanlı işletim sistemleri<br>
+ 3- Linux tabanlı işletim sistemleri</p>
+<h3 id="unix-tabanlı-sistemler">
+  Unix tabanlı sistemler
+  <a class="heading-link" href="#unix-tabanl%c4%b1-sistemler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Unix’in gün yüzüne çıkmasının ardından popüler bir hale gelmesinin en önemli nedenlerinden biri de farklı girişimlere izin vermesidir. Unix telif hakkı bulunan ticari bir üründür. The Open Group adlı kuruluş Unix ilişkili tüm ticari lisanslama programlarını yönetir. Sadece lisansı bulunan bazı büyük firmalar UNIX ticari markasını ve ismini kullanabilir. Bu sayede Unix tabanlı işletim sistemlerinin varlığından söz edebiliyoruz. Bazı Unix dağıtımları ise şöyledir;</p>
+<p>MacOS, Oracle Solaris, IBM AIX, HP-UX, IRIX ve BSD.</p>
+<h3 id="windows-tabanlı-sistemler">
+  Windows tabanlı sistemler
+  <a class="heading-link" href="#windows-tabanl%c4%b1-sistemler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Windows, programları çalıştırmak, komut vermek gibi işlemler yapmak için kullanışlı grafik arayüzler ve görsel iletiler kullanır. Hızlı işlem gerçekleştirebilme kolaylığı sağlar. Windows işletim sistemlerinin en büyük özelliği kolay öğrenilebilmesidir. Bu kolaylık sayesinde en çok kullanılan işletim sistemi olmuştur. Windows´un şu ana kadar birçok sürümleri çıkarılmıştır. Bunlar sırasıyla;</p>
+<p>Windows 1.0, Windows 2.0, Windows 3.0, Windows 95, Windows 98, Windows ME, Windows XP, Windows Vista, Windows 7, Windows 8, Windows 8.1 ve Windows 10&rsquo;dur.</p>
+<h3 id="linux-tabanlı-sistemler">
+  Linux tabanlı sistemler
+  <a class="heading-link" href="#linux-tabanl%c4%b1-sistemler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Linux ortaya çıkışından sonra dünyaca ilgi görmüş ve GNU tarafından da sahiplenilmişti. Bu yüzden GNU/LİNUX kavramı ortaya çıkmıştır. Linux’u günümüzde GNU desteklemektedir. Aslında Linux sadece çekirdekten(kernel) ibarettir ve bir arayüzü yoktur. Açık kaynak kodlu, özgür bir yazılım olduğu için ücretsizdir ve istenildiği gibi özelleştirilip farklı Linux dağıtımları oluşturulabilir. Dolayısıyla sayısız Linux tabanlı işletim sistemi vardır.</p>
+<p>Linux tabanlı bir sisteminin var olması için kernelden sonra iskelet sistemi diyebileceğimiz bir yapı gerekir. Bazı sistemler burada kendi sistemlerini geliştirir. Ancak, her bir Linux dağıtımı için ayrı arayüz(GUI) , paket yöneticisi ve uygulamalar geliştirmek çok maliyetlidir. Bu nedenle, bazıları da var olan sistemi alıp, onun üzerinde eklemeler yaparak işletim sistemini oluşturur. Arayüzde; GNOME, XFCE, MATE, CİNAMON gibi hazır arayüzler kullanılır. Paket yöneticilerine örnek olarak da APT, DNF ve PACMAN verilebilir. Farklı paket yöneticileri ve arayüz(GUI) kullanan sayısız Linux dağıtımı türemiştir. Bunlardan bazıları;</p>
+<p>Ubuntu, Kali Linux, Pardus, Linux Mint, Zorin, Deepin, SteamOS, MX Linux, PureOS, Raspbian, Parrot, elementaryOS, Pop!_OS, Linux Lite, Fedora, Redhat, Opensuse, CentOS ve Arch Linux’tur.</p>
+<hr>
+<p><em>Originally published at</em> <a href="https://pwnlab.me/tr-isletim-sistemlerinin-seruveni/"  class="external-link" target="_blank" rel="noopener"><em>https://pwnlab.me</em></a> <em>on June 1, 2021.</em></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

@@ -1,4 +1,5 @@
 ---
+series: ["Incident Response"]
 title: "TheHive Olay Müdahale Platformu"
 date: 2025-08-29
 draft: false

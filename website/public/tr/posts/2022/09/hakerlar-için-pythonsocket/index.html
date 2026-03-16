@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Hakerlar için Python:socket · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+  te: 2022-09-21
+draft: false
+  
+    
+    Başlık Linki
+  
+
+
+
+  Hakerlar için Python:socket
+  
+    
+    Başlık Linki
+  
+
+
+
+  Giriş
+  
+    
+    Başlık Linki
+  
+
+Merhaba bu yazımızda, uzak sunucuların ip ve port adreslerine bağlantı kurmak için kullanabileceğimiz socket modülünü tanıyacağız.
+
+  Socket nedir?
+  
+    
+    Başlık Linki
+  
+
+Socket python ile birlikte kurulu halde gelen bir modüldür. Bu modül sayesinde, istenilen ip ve port adresine bağlantı kurabiliriz. Şimdi gelin bu modülü nasıl kullanacağımıza ve bu modül ile neler yapabileceğimize bir bakalım.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Hakerlar için Python:socket">
+  <meta name="twitter:description" content="te: 2022-09-21 draft: falseBaşlık LinkiHakerlar için Python:socketBaşlık LinkiGirişBaşlık LinkiMerhaba bu yazımızda, uzak sunucuların ip ve port adreslerine bağlantı kurmak için kullanabileceğimiz socket modülünü tanıyacağız.
+Socket nedir?Başlık LinkiSocket python ile birlikte kurulu halde gelen bir modüldür. Bu modül sayesinde, istenilen ip ve port adresine bağlantı kurabiliriz. Şimdi gelin bu modülü nasıl kullanacağımıza ve bu modül ile neler yapabileceğimize bir bakalım.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2022/09/hakerlar-i%C3%A7in-pythonsocket/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Hakerlar için Python:socket">
+  <meta property="og:description" content="te: 2022-09-21 draft: falseBaşlık LinkiHakerlar için Python:socketBaşlık LinkiGirişBaşlık LinkiMerhaba bu yazımızda, uzak sunucuların ip ve port adreslerine bağlantı kurmak için kullanabileceğimiz socket modülünü tanıyacağız.
+Socket nedir?Başlık LinkiSocket python ile birlikte kurulu halde gelen bir modüldür. Bu modül sayesinde, istenilen ip ve port adresine bağlantı kurabiliriz. Şimdi gelin bu modülü nasıl kullanacağımıza ve bu modül ile neler yapabileceğimize bir bakalım.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-09-21T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-09-21T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2022/09/hakerlar-i%C3%A7in-pythonsocket/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2022/09/pythonsocket-for-hackers/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2022/09/hakerlar-i%C3%A7in-pythonsocket/">
+              Hakerlar için Python:socket
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-09-21T00:00:00Z">
+                Eylül 21, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <h2 id="draft-false">
+  te: 2022-09-21
+draft: false
+  <a class="heading-link" href="#draft-false">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h2>
+<hr>
+<h3 id="hakerlar-için-pythonsocket">
+  <strong>Hakerlar için Python:socket</strong>
+  <a class="heading-link" href="#hakerlar-i%c3%a7in-pythonsocket">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_Z3ieIgd5w_LPy0R2bLu6pg.png" alt=""></p>
+<h3 id="giriş">
+  Giriş
+  <a class="heading-link" href="#giri%c5%9f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Merhaba bu yazımızda, uzak sunucuların ip ve port adreslerine bağlantı kurmak için kullanabileceğimiz socket modülünü tanıyacağız.</p>
+<h3 id="socket-nedir">
+  Socket nedir?
+  <a class="heading-link" href="#socket-nedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><a href="https://docs.python.org/3/library/socket.html#module-socket"  class="external-link" target="_blank" rel="noopener">Socket</a> python ile birlikte kurulu halde gelen bir modüldür. Bu modül sayesinde, istenilen ip ve port adresine bağlantı kurabiliriz. Şimdi gelin bu modülü nasıl kullanacağımıza ve bu modül ile neler yapabileceğimize bir bakalım.</p>
+<h3 id="socket-modülü-nasıl-kullanılır">
+  Socket modülü nasıl kullanılır?
+  <a class="heading-link" href="#socket-mod%c3%bcl%c3%bc-nas%c4%b1l-kullan%c4%b1l%c4%b1r">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Öncelikle socket modülünü import edip bir socket objesi oluşturmamız gerekiyor, bunun için;</p>
+<pre tabindex="0"><code>import socket
+</code></pre><pre tabindex="0"><code>new_socket = socket.socket()
+</code></pre><p>sonra bu objenin metotlarını kullanarak işlemlerimizi yapacağız, bu metotlar:</p>
+<ul>
+<li><code>socket.listen():Belirtilen port numarasında açılan sokette dinleme yapar.</code></li>
+<li><code>socket.accept</code><strong>():</strong> Belirtilen port numarasında açılan sokete gelen istekleri alır.</li>
+<li><code>socket.bind</code><strong>(<em>address</em>): S</strong>oketi belirtilen ip addresine bağlar.</li>
+<li><code>socket.close</code><strong>():</strong> Soketi kapatır.</li>
+<li><code>socket.connect</code><strong>(<em>address</em>):</strong> Belirtilen addresteki uzak bir sokete bağlanır.</li>
+<li><code>socket.recv</code><strong>(buf<em>size</em>):</strong> Sokete gelen veriyi alır.</li>
+<li><code>socket.sendall</code><strong>(<em>bytes</em>) : S</strong>okete veri gönderir.</li>
+</ul>
+<h3 id="soketi-dinleme">
+  Soketi dinleme
+  <a class="heading-link" href="#soketi-dinleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Soket açarak belirli bir portu dinleyebiliriz.</p>
+<pre tabindex="0"><code>import socket
+</code></pre><pre tabindex="0"><code>HOST = &#39;127.0.0.1&#39;                   
+PORT = 2222                
+with socket.socket() as s:  
+    s.bind((HOST, PORT))  
+    s.listen()  
+    conn, addr = s.accept()  
+    with conn:  
+        print(&#39;Connected by &#39;, addr)  
+        while True:  
+            data = conn.recv(1024)  
+            if not data: break  
+            conn.sendall(data)
+</code></pre><p>Bu kod 127.0.0.1:2222 adresinde açılan soketi dinleyecek, bir bağlantı yakaladığında gelen veriyi aynı şekilde geri gönderecektir. Ardından program sonlanır.</p>
+<h3 id="sokete-bağlanma">
+  Sokete bağlanma
+  <a class="heading-link" href="#sokete-ba%c4%9flanma">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Soket açarak belirli bir ip adresi ve porta bağlantı kurabiliriz.</p>
+<pre tabindex="0"><code>import socket
+</code></pre><pre tabindex="0"><code>HOST = &#39;127.0.0.1&#39;      
+PORT = 2222             
+with socket.socket() as s:  
+    s.connect((HOST, PORT))  
+    s.sendall(b&#39;Merhaba&#39;)  
+    data = s.recv(1024)  
+print(&#39;Received &#39;, data)
+</code></pre><p>Bu kod 127.0.0.1:2222 adresinde çalışan soketle bağlantı kuracak bir bir data gönderecektir. Burada gönderilen data ‘merhaba’ mesajıdır. Ardından karşıdan gelen datayı alır ve program sonlanır.</p>
+<p><img src="/images/1_0epPGqrnUjKfpY9yg8YoKg.png" alt=""></p>
+<p>Soket dinlediğimiz kodu <em>server.py i</em>simli bir dosyaya kaydedelim. Sokete bağlandığımız kodu ise <em>client.py</em> isimli bir dosyaya kaydedelim. Önce server.py dosyasını sonra client.py dosyasını çalıştırdığımızda bağlantı kurulmuş olacaktır.</p>
+<h3 id="port-taraması">
+  Port Taraması
+  <a class="heading-link" href="#port-taramas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Socket modülü ile ip ve port adreslerine bağlantı kurabiliyorduk. Bu sayede bir host üzerinde açık portları ve banner bilgilerini bulabiliriz. Banner bilgileri bu portta hangi servisin çalıştığı hakkında bize bilgi verecektir.</p>
+<pre tabindex="0"><code>import socket
+</code></pre><pre tabindex="0"><code>ip = &#34;10.10.10.10&#34;  
+ports = []  
+banners = []
+</code></pre><pre tabindex="0"><code>for port in range(1,1000):  
+    try:  
+        s = socket.socket()  
+        s.connect((str(ip), int(port)))  
+        banner = s.recv(1024)  
+        banners.append(str(banner))  
+        ports.append(str(port))  
+        s.close()  
+        print(port)  
+    except:  
+        pass  
+          
+print(ports)  
+print(banners)
+</code></pre><p>Typhoon makinesi üzerinde bu kodu çalıştırırsak bize açık portları ve banner bilgilerini gertirir.</p>
+<p><img src="/images/1_p297l0qe6OnuUmY7ep52sA.png" alt=""></p>
+<h3 id="ssl">
+  SSL
+  <a class="heading-link" href="#ssl">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Https protokolü ile çalışan güvenli sitelere erişmeye çalıştığımızda bir SSL sertifikasına ihiyaç duyarız. Bunun için ssl modülünden yardım alabiliriz.</p>
+<p>Varsayılan olarak http protokolü 80, https protokolü 443 portlarında çalışır.</p>
+<pre tabindex="0"><code>import socket  
+import ssl
+</code></pre><pre tabindex="0"><code>hostname = &#39;www.python.org&#39;  
+context = ssl.create_default_context()
+</code></pre><pre tabindex="0"><code>with socket.create_connection((hostname, 443)) as sock:  
+    with context.wrap_socket(sock, server_hostname=hostname) as ssock:  
+        print(ssock.version())
+</code></pre><h3 id="son">
+  Son
+  <a class="heading-link" href="#son">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu modül ile siber güvenlik alanında yapabileceğimiz başka ne tür işlem</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

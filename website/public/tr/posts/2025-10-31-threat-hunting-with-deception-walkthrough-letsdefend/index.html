@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Threat Hunting with Deception Walkthrough — LetsDefend · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Threat Hunting with Deception Walkthrough — LetsDefend
+  
+    
+    Başlık Linki
+  
+
+
+LetsDefend — Blue Team Training Platform
+
+  Introduction
+  
+    
+    Başlık Linki
+  
+
+In the world of cybersecurity, threat hunting requires developing proactive approaches to detect attackers and stop their activities. While traditional security measures offer passive methods to stop attackers, deception-based threat hunting takes this strategy a step further. Deception-based threat hunting is a method that misleads attackers, preventing them from reaching their real targets while exposing their tactics in the process.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Threat Hunting with Deception Walkthrough — LetsDefend">
+  <meta name="twitter:description" content="Threat Hunting with Deception Walkthrough — LetsDefendBaşlık LinkiLetsDefend — Blue Team Training Platform
+IntroductionBaşlık LinkiIn the world of cybersecurity, threat hunting requires developing proactive approaches to detect attackers and stop their activities. While traditional security measures offer passive methods to stop attackers, deception-based threat hunting takes this strategy a step further. Deception-based threat hunting is a method that misleads attackers, preventing them from reaching their real targets while exposing their tactics in the process.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2025-10-31-threat-hunting-with-deception-walkthrough-letsdefend/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Threat Hunting with Deception Walkthrough — LetsDefend">
+  <meta property="og:description" content="Threat Hunting with Deception Walkthrough — LetsDefendBaşlık LinkiLetsDefend — Blue Team Training Platform
+IntroductionBaşlık LinkiIn the world of cybersecurity, threat hunting requires developing proactive approaches to detect attackers and stop their activities. While traditional security measures offer passive methods to stop attackers, deception-based threat hunting takes this strategy a step further. Deception-based threat hunting is a method that misleads attackers, preventing them from reaching their real targets while exposing their tactics in the process.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-31T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-31T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2025-10-31-threat-hunting-with-deception-walkthrough-letsdefend/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2025-10-31-threat-hunting-with-deception-walkthrough-letsdefend/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2025-10-31-threat-hunting-with-deception-walkthrough-letsdefend/">
+              Threat Hunting with Deception Walkthrough — LetsDefend
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-10-31T00:00:00Z">
+                Ekim 31, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              13 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="threat-hunting-with-deception-walkthroughletsdefend">
+  Threat Hunting with Deception Walkthrough — LetsDefend
+  <a class="heading-link" href="#threat-hunting-with-deception-walkthroughletsdefend">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/0_V1YCt7A3HhVJeU1A.png" alt=""></p>
+<p><a href="https://letsdefend.io/"  class="external-link" target="_blank" rel="noopener">LetsDefend — Blue Team Training Platform</a></p>
+<h3 id="introduction">
+  Introduction
+  <a class="heading-link" href="#introduction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>In the world of cybersecurity, threat hunting requires developing proactive approaches to detect attackers and stop their activities. While traditional security measures offer passive methods to stop attackers, deception-based threat hunting takes this strategy a step further. Deception-based threat hunting is a method that misleads attackers, preventing them from reaching their real targets while exposing their tactics in the process.</p>
+<p>This technique involves intentionally placing misleading information and decoy targets (such as honeypots and honeynets) within an organization’s network to distract attackers and detect them. Attackers, believing these decoys to be real systems, target them, allowing security teams to better understand the attackers’ methods and intentions. This approach enables the detection of attacks at earlier stages and significantly strengthens an organization’s security posture.</p>
+<p>Deception-based threat hunting not only detects attackers but also monitors their movements, contributing to the development of defense strategies against future attacks.</p>
+<p><img src="/images/0_4SwuHlqMCpR60r3u.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.wwt.com/article/deception-technology"  class="external-link" target="_blank" rel="noopener">https://www.wwt.com/article/deception-technology</a> )</p>
+<p>This lesson has provided an introduction to the course. The next lesson will cover “ <strong>Threat Hunting with Deception Technologies</strong> “.</p>
+<h3 id="questions">
+  Questions
+  <a class="heading-link" href="#questions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Answer Needed</p>
+<hr>
+<h3 id="threat-hunting-with-deception-technologies">
+  Threat Hunting with Deception Technologies
+  <a class="heading-link" href="#threat-hunting-with-deception-technologies">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Threat hunting is an active process designed to detect and stop cyberattacks. Deception technologies help by revealing attacker behavior and helping security teams understand their methods. Deception-based threat hunting not only detects attacks, but also provides a broader security perspective by monitoring how attackers move.</p>
+<p>These technologies integrate various deception elements (such as honeypots, honeynets, fake files, and fake databases) into an organization’s network. Attackers mistake these decoys for real targets and engage with them, allowing security teams to analyze attackers’ techniques, tools, and intentions. As a result, organizations can strengthen their defenses against current attacks and develop more effective security strategies for future threats.</p>
+<h3 id="the-role-of-deception-technologies-in-threathunting">
+  The Role of Deception Technologies in Threat Hunting
+  <a class="heading-link" href="#the-role-of-deception-technologies-in-threathunting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>The role of deception technologies in threat hunting is to mislead attackers, expose their methods, and help security teams understand the stage of the attack. By strategically placing decoys within networks and systems, these technologies deceive attackers and make it harder for them to reach their actual targets.</p>
+<p><img src="/images/0_odeYx4pWwkrGi8tW.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.youtube.com/watch?app=desktop&amp;v=N9TkDjzeVDc"  class="external-link" target="_blank" rel="noopener">https://www.youtube.com/watch?app=desktop&v=N9TkDjzeVDc</a> )</p>
+<p>Deception technologies play several critical roles in the threat hunting process:</p>
+<ul>
+<li><strong>Redirecting Attackers:</strong> Attackers are tricked into targeting decoys, believing them to be real resources. This diverts their attention from actual targets and prevents them from causing harm.</li>
+<li><strong>Detecting Attacks:</strong> When attackers interact with or manipulate decoys, deception systems immediately alert security teams. These alerts enable the early detection of attacks.</li>
+<li><strong>Analyzing Attacker Behavior:</strong> Deception technologies record every step of the attackers’ interaction with decoys. This data is analyzed to understand the methods, tools, and intentions of the attackers.</li>
+<li><strong>Developing Defense Strategies:</strong> The insights gained from deception technologies allow security teams to develop more effective defense strategies. By identifying attackers’ weak points, teams can enhance the security of their networks.</li>
+</ul>
+<h3 id="deception-based-threat-detection">
+  Deception-Based Threat Detection
+  <a class="heading-link" href="#deception-based-threat-detection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Deception-based detection is a cybersecurity approach that is triggered when attackers interact with deceptive elements. This method uses fake resources and targets to mislead attackers and reveal their presence.</p>
+<p>Deception-based detection is carried out through the following steps:</p>
+<ul>
+<li><strong>Deploying Decoys:</strong> Fake elements are strategically placed within networks and systems. These decoys are designed to attract and trap attackers.</li>
+<li><strong>Detecting Attackers:</strong> When an attacker attempts to access or manipulate a decoy, the deception system detects the activity and alerts security teams. This ensures early detection of the attack.</li>
+<li><strong>Recording Activity:</strong> Every step of the attacker’s interaction with the decoys is recorded. This data is used to analyze how the attack unfolded and which techniques were employed.</li>
+<li><strong>Rapid Response:</strong> Deception-based detection enables quick identification of attacks, allowing security teams to respond immediately. Early detection minimizes the impact of the attack and prevents the attacker from progressing.</li>
+</ul>
+<p>Deception-based detection is a powerful component of cybersecurity defense. By engaging with decoys, attackers reveal their presence, allowing for a more complete assessment of the attack and helping to strengthen security strategies.</p>
+<p><img src="/images/0_DDJsAx3m8Nvq7bkT.png" alt=""></p>
+<h3 id="summary">
+  Summary
+  <a class="heading-link" href="#summary">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Deception technologies in cybersecurity provide an effective way to reveal the movements and intentions of attackers by misleading them. These technologies redirect attackers to fake targets, enabling early detection and allowing security teams to respond quickly to threats. Deception-based detection creates a proactive line of defense against cyber threats, supported by anomaly detection and behavioral analysis. These approaches maximize network security by strengthening an organization’s security strategy while making it more difficult for attackers to reach their intended targets.</p>
+<p>This lesson has discussed the importance of deception technologies in the threat hunting process. The next lesson will cover “ <strong>Using Deception in the Threat Hunting Process.</strong> ”</p>
+<h3 id="questions-1">
+  Questions
+  <a class="heading-link" href="#questions-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Answer Needed</p>
+<hr>
+<h3 id="using-deception-in-threat-huntingprocess">
+  Using Deception in Threat Hunting Process
+  <a class="heading-link" href="#using-deception-in-threat-huntingprocess">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Threat hunting is a proactive security strategy aimed at detecting cyberattacks before they occur. In this strategy, deception systems play a critical role. Deception systems are designed to mislead cyber attackers, prevent them from reaching their real targets, and provide valuable insights to security teams by using fake targets and traps. These systems serve as a vital component in the threat hunting process, helping to track and identify attackers.</p>
+<p>Deception systems use decoys, such as honeypots, fake databases, and fake files, that are strategically placed within networks, systems, or applications. When attackers mistake these decoys for real targets and engage with them, security teams can gather essential information about the attackers’ techniques, tools, and objectives. This way, organizations can strengthen their defenses by detecting and analyzing attacker behavior in the early stages of an attack.</p>
+<p>In other words, deception systems accelerate the threat hunting process, revealing the methods used by attackers and supporting the development of more effective defense measures against future threats.</p>
+<p><img src="/images/0_ksZ7i8tqfKMwS-Wk.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.countercraftsec.com/blog/benefits-and-use-cases-of-deception-for-threat-hunting/"  class="external-link" target="_blank" rel="noopener">https://www.countercraftsec.com/blog/benefits-and-use-cases-of-deception-for-threat-hunting/</a> )</p>
+<h3 id="collection-and-analysis-of-deception-systemlogs">
+  Collection and Analysis of Deception System Logs
+  <a class="heading-link" href="#collection-and-analysis-of-deception-systemlogs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Deception systems record every interaction attackers have with decoys and store this information in logs. These log data are critical for understanding the intentions, techniques, and methods of attackers. The collection and analysis of deception log data form a crucial part of the threat hunting process.</p>
+<ul>
+<li><strong>Data Collection:</strong> Deception systems log all attempts to attack decoys. This data includes when, how, and which tools attackers used to carry out their attacks. The collected logs can contain critical information such as timestamps, attacker IP addresses, commands used, and other interactions with the system.</li>
+<li><strong>Centralized Log Management:</strong> Transferring logs of deception systems to a centralized log management system or a SIEM (Security Information and Event Management) platform ensures efficient management and analysis of this data. A centralized log management system can store large volumes of data, analyze it, and identify connections between attacker behaviors.</li>
+<li><strong>Identifying Normal and Abnormal Patterns:</strong> Analyzing the log data helps understand typical attacker behavior patterns. Identifying anomalies that deviate from normal patterns is critical to determining the stage of an attack and whether attackers can be stopped before they reach their real targets.</li>
+<li><strong>Behavioral Analysis:</strong> Log data is used to analyze how attackers interact with decoys. Behavioral analysis reveals the steps attackers follow, the tools they use, and their attack methods. As a result, security teams can develop more effective defense strategies.</li>
+</ul>
+<h3 id="detection-and-analysis-of-activities">
+  Detection and Analysis of Activities
+  <a class="heading-link" href="#detection-and-analysis-of-activities">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Detection and analysis of activity begins the moment attackers interact with decoys in deception-based threat hunting. This process involves identifying attacks, understanding the intentions and techniques of attackers, and optimizing security measures based on this information.</p>
+<ul>
+<li><strong>Anomaly Detection:</strong> Deception systems detect anomalies by identifying differences between normal network activity and attempts to attack decoys. These anomalies are often the first signs of attack attempts and are therefore critical. For example, a user suddenly deviating from normal behavior and attempting to access a fake database may indicate that an attacker is active in the system.</li>
+<li><strong>Signature- and Behaviour-based Identification</strong> : Suspicious activity in deception systems is identified using both signature-based and behaviour-based detection methods. Signature-based detection focuses on identifying known attack patterns, while behavior-based detection identifies abnormal attacker behaviors. When used together, these methods can detect a broader spectrum of attacks.</li>
+<li><strong>Real-time Monitoring:</strong> Deception systems monitor attack attempts on decoys in real time and immediately detect attacker activity, allowing necessary action to be taken before the attack can cause damage. Real-time monitoring is a critical defensive mechanism, especially for fast-moving or high-impact attacks.</li>
+<li><strong>Tracking and Analyzing Attackers:</strong> Data captured during an attacker’s interaction with decoys is analyzed to understand the steps they took and how they attempted to execute the attack. The analysis provides deep insight into the tools, commands, and strategies used by the attacker.</li>
+<li><strong>Mitigating the Impact of Attacks:</strong> Detecting and analyzing attacker activity on decoys not only identifies attacks. It also minimizes their impact. Armed with this data, security teams can respond quickly and stop the attacker before they can cause damage to the system.</li>
+</ul>
+<h3 id="summary-1">
+  Summary
+  <a class="heading-link" href="#summary-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Deception systems provide an effective way to mislead attackers and expose their techniques in the threat hunting process. Collecting and analyzing log data in deception systems plays a critical role in understanding attacker behavior. Detecting and analyzing activity on decoys ensures that attacks are detected early and stopped effectively. These processes help organizations strengthen their security strategies, better understand the intent of attackers, and prepare for future threats. The effective use of deception systems is a powerful tool in cybersecurity defense and plays a critical role in improving network security.</p>
+<p>This lesson has discussed the use of deception systems in the threat hunting process. The next lesson will cover the “ <strong>Unauthorized Access Attempts Hypothesis</strong> “.</p>
+<h3 id="questions-2">
+  Questions
+  <a class="heading-link" href="#questions-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Answer Needed</p>
+<hr>
+<h3 id="unauthorized-access-attempts-hypothesis">
+  Unauthorized Access Attempts Hypothesis
+  <a class="heading-link" href="#unauthorized-access-attempts-hypothesis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="hypothesis">
+  Hypothesis
+  <a class="heading-link" href="#hypothesis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Unusual access attempts to a fake database or file server from a specific internal IP address might indicate that an attacker has gained unauthorized access to the network and is attempting to obtain valuable data.</p>
+<p><img src="/images/0_U0kGx4evnPoACruo.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.linkedin.com/pulse/deception-technology-aditya-mukherjee-phd-information-security-/"  class="external-link" target="_blank" rel="noopener">https://www.linkedin.com/pulse/deception-technology-aditya-mukherjee-phd-information-security-/</a> )</p>
+<h3 id="data-sources">
+  Data Sources
+  <a class="heading-link" href="#data-sources">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Deception System Logs:</strong> Logs containing all access attempts to fake databases or file servers, along with details of these attempts.</li>
+<li><strong>SIEM Logs:</strong> Logs collected from the deception system and analyzed on a centralized platform.</li>
+<li><strong>Network Flow Analysis:</strong> Examination of network traffic data to monitor suspicious connection flows.</li>
+<li><strong>User Activity Logs:</strong> Logs tracking user activities accessing systems and recording abnormal behaviors.</li>
+<li><strong>Threat Intelligence Databases:</strong> Databases containing up-to-date information on known attack methods and malicious actors.</li>
+</ul>
+<h3 id="analysis-steps">
+  Analysis Steps
+  <a class="heading-link" href="#analysis-steps">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Transfer deception system logs to the SIEM platform.</li>
+<li>Record all access attempts to the fake database or file server.</li>
+<li>Analyze normal network traffic and user activities.</li>
+<li>Determine the level of traffic directed to decoys and which users attempted to access these fake targets.</li>
+<li>Detect unusual access attempts to decoys.</li>
+<li>Investigate activities deviating from normal behavior, especially internal IP addresses making numerous access attempts to decoys.</li>
+<li>Compare network flow analysis and user activity logs with other security logs.</li>
+<li>Determine whether the attacker has accessed other systems and the current stage of the attack.</li>
+<li>Conduct a detailed analysis of activities logged in deception systems.</li>
+<li>Analyze the commands used by the attacker, the data they attempted to access, and their interactions with the system.</li>
+<li>Evaluate the validity and severity of suspicious activities.</li>
+<li>Determine the attacker’s intentions and potential targets.</li>
+<li>Gather additional data to confirm the incident and determine the stage of the attack.</li>
+<li>Use additional logs and threat intelligence data to clarify the scope of the attack.</li>
+</ul>
+<h3 id="expected-results">
+  Expected Results
+  <a class="heading-link" href="#expected-results">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Anomalous access attempts from a specific internal IP address will be detected in deception systems.</li>
+<li>The attempts to access fake databases or file servers may indicate that an attacker is attempting to gain unauthorized access.</li>
+<li>Correlation analysis with SIEM and other security logs is used to assess whether this activity represents a potential attack.</li>
+<li>The techniques used by the attacker and the data targeted are identified, which can allow the attack to be stopped at an early stage.</li>
+</ul>
+<h3 id="summary-2">
+  Summary
+  <a class="heading-link" href="#summary-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>These analysis steps provide strategies for detecting unusual access attempts to decoys from a specific internal IP address. Deception systems serve as a critical data source for monitoring and identifying such anomalous activity. Detected anomalies may indicate that an attacker is attempting to gain unauthorized access to the network, allowing for rapid response. This process plays a critical role in ensuring network security and proactively managing threats.</p>
+<h3 id="questions-3">
+  Questions
+  <a class="heading-link" href="#questions-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Answer Needed</p>
+<hr>
+<h3 id="practical-lab">
+  Practical Lab
+  <a class="heading-link" href="#practical-lab">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="hypothesis-1">
+  Hypothesis
+  <a class="heading-link" href="#hypothesis-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Note</strong>: The questions in this section are prepared for Threat Hunting based on the following hypothesis:</p>
+<p><strong>Hypothesis</strong>: Attackers may target critical systems in an organization’s network in an attempt to gain control of them.</p>
+<h3 id="threat-hunting-lab-environment">
+  Threat Hunting Lab Environment
+  <a class="heading-link" href="#threat-hunting-lab-environment">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Deception Events(FortiDeceptor)</li>
+<li>SIEM (Wazuh)</li>
+<li>Vulnerability Scanner Tools (192.168.1.50)</li>
+<li>Windows Security Events</li>
+<li>Linux Security Events</li>
+</ul>
+<h3 id="lab-notes">
+  Lab Notes
+  <a class="heading-link" href="#lab-notes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Analyze the logs between “Aug 8, 2024 00:00 — Aug 13, 2024 00:00” to answer the questions below.</li>
+<li>Subsequent questions require correct answers from previous ones. Answer all questions strictly in the order they appear.</li>
+</ul>
+<h3 id="questions-4">
+  Questions
+  <a class="heading-link" href="#questions-4">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Note:</strong> Analyze the logs between “Aug 8, 2024 00:00 — Aug 13, 2024 00:00” to answer the questions below.</p>
+<p><strong>Note</strong>: Subsequent questions require correct answers from previous ones. Answer all questions strictly in the order they appear.</p>
+<blockquote>
+<p>What is the source IP address of the system that caused the most alerts related to the SSH service to be created in deception systems?</p>
+</blockquote>
+<p>In SIEM, use the filters “rule.groups: fortideceptor” and “data.event_type: ssh-logon-failure”, and check the “data.src_ip” field.</p>
+<p><img src="/images/1__yV0rLPLtrB2U6kkZtcOgA.png" alt=""></p>
+<p><strong>Answer</strong>: 192.168.1.50</p>
+<blockquote>
+<p>What is the source IP address of the system that caused the most alerts related to the SSH service to be created in deception systems, apart from “Vulnerability Scanner Tools”?</p>
+</blockquote>
+<p>In SIEM, apply the following filters: “rule.groups: fortideceptor” and “data.event_type: ssh-logon-failure.” Then, exclude the “Vulnerability Scanner Tools” IP address and check the “data.src_ip” field.</p>
+<p><img src="/images/1_NPyVTgbcMuydzEzFelg-Vw.png" alt=""></p>
+<p><strong>Answer</strong>: 192.168.1.76</p>
+<blockquote>
+<p>How many different targets (destination port 22) did the system that caused the most SSH-related alerts, excluding “Vulnerability Scanner Tools”, attempt to access?</p>
+</blockquote>
+<p>In SIEM, use the filters “rule.groups: fortigate,” “data.dstport: 22,” and “data.srcip: [IP_Address].”</p>
+<p><img src="/images/1_xHiYiQFQKwmepPD1tV2oSA.png" alt=""></p>
+<p><strong>Answer</strong>: 5</p>
+<blockquote>
+<p>Apart from the Vulnerability Scanner Tools, the system that caused the most alerts to be created in the SSH service of the deception systems was identified in previous stages of the threat hunting process. Which target system (agent.name) did the aforementioned system attempt to access, resulting in the most “SSH logon failure” events?</p>
+</blockquote>
+<p>In SIEM, use the filters “data.srcip: [IP_Address]” and “rule.groups: sshd,” then analyze the ssh logon failure events. Find the “agent.name” value.</p>
+<p><img src="/images/1_gfyv_zB8RA7qRQyjbQhRbQ.png" alt=""></p>
+<p><strong>Answer</strong>: linuxtestvm.cc</p>
+<blockquote>
+<p>Apart from the Vulnerability Scanner Tools, the system that caused the most alerts to be created in the SSH service of the deception systems was identified in previous stages of the threat hunting process. What is the IP address of the target system to which this system successfully established an SSH connection?</p>
+</blockquote>
+<p>In SIEM, use the filters “data.srcip: [IP_Address]” and “rule.groups: sshd,” then review the “ssh logon success” events. Check the “agent.ip” value.</p>
+<p><img src="/images/1_McdnnB0ygN3zkJsgJgYqKA.png" alt=""></p>
+<p><strong>Answer</strong>: 192.168.5.14</p>
+<blockquote>
+<p>Apart from the Vulnerability Scanner Tools, the system that caused the most alerts to be created in the SSH service of the deception systems was identified in previous stages of the threat hunting process. What protocol other than the SSH service has been used to access the target system successfully?</p>
+</blockquote>
+<p>Search the IP address with full text search in SIEM and check the values in the “data.service” field.</p>
+<p><img src="/images/1_tAeS4yEA5WMER68mkSE4oQ.png" alt=""></p>
+<p><strong>Answer</strong>: RDP</p>
+<blockquote>
+<p>What is the IP address that caused the most alerts to be created in deception systems’ RDP service?</p>
+</blockquote>
+<p>In SIEM, use the filter “rule.groups: windows” and search for the IP address.</p>
+<p><img src="/images/1_wHTuqJRDfuebq0FzoTOqKg.png" alt=""></p>
+<p><strong>Answer</strong>: 192.168.1.76</p>
+<blockquote>
+<p>During previous stages of the threat hunting process, the system that caused the most alerts in the RDP services of the deception systems was identified. What is the IP address of the target system that this system successfully accessed using RDP?</p>
+</blockquote>
+<p>In SIEM, use the filter “rule.groups: windows” and search for the IP address.</p>
+<p><img src="/images/1__k9jpHQ6SYdJyuQaJfUV1A.png" alt=""></p>
+<p><strong>Answer</strong>: 172.16.8.159</p>
+<blockquote>
+<p>During previous stages of the threat hunting process, the system that caused the most alerts in the RDP services of the deception systems was identified. What user account (username) was used to access the target system from this system?</p>
+</blockquote>
+<p>In SIEM, use the filter “rule.groups: windows” and search for the IP address.</p>
+<p><img src="/images/1_5QpfgrHRBMxAIKffD3rmOQ.png" alt=""></p>
+<p><strong>Answer</strong>: Administrator</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

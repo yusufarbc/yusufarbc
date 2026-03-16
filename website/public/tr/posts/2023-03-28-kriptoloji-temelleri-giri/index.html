@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Kriptoloji Temelleri: Giriş · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Kriptoloji Temelleri:#1 Giriş
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba, kriptoloji temelleri serisinin bu ilk yazısında, kriptolojinin ne olduğundan, geleneksel şifreleme tekniklerinden ve güçlü bir şifrenin nasıl oluşturulabileceğinden bahsedeceğim.
+
+
+  Kriptolojiye Genel Bakış
+  
+    
+    Başlık Linki
+  
+
+Şifreleme bilimi olarak adlandırılan bu bilim türünde, gizli tutulmak istenen şeyler bir sistem dahilinde değişik teknik ve yöntemler ile şifrelenir. Aynı zamanda kriptoloji bilimi, şifrelenen iletilerin istenmeyen kişiler tarafından deşifre edilmemesi için de çalışmalar yapmaktadır.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Kriptoloji Temelleri: Giriş">
+  <meta name="twitter:description" content="Kriptoloji Temelleri:#1 GirişBaşlık LinkiMerhaba, kriptoloji temelleri serisinin bu ilk yazısında, kriptolojinin ne olduğundan, geleneksel şifreleme tekniklerinden ve güçlü bir şifrenin nasıl oluşturulabileceğinden bahsedeceğim.
+Kriptolojiye Genel BakışBaşlık LinkiŞifreleme bilimi olarak adlandırılan bu bilim türünde, gizli tutulmak istenen şeyler bir sistem dahilinde değişik teknik ve yöntemler ile şifrelenir. Aynı zamanda kriptoloji bilimi, şifrelenen iletilerin istenmeyen kişiler tarafından deşifre edilmemesi için de çalışmalar yapmaktadır.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2023-03-28-kriptoloji-temelleri-giri/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Kriptoloji Temelleri: Giriş">
+  <meta property="og:description" content="Kriptoloji Temelleri:#1 GirişBaşlık LinkiMerhaba, kriptoloji temelleri serisinin bu ilk yazısında, kriptolojinin ne olduğundan, geleneksel şifreleme tekniklerinden ve güçlü bir şifrenin nasıl oluşturulabileceğinden bahsedeceğim.
+Kriptolojiye Genel BakışBaşlık LinkiŞifreleme bilimi olarak adlandırılan bu bilim türünde, gizli tutulmak istenen şeyler bir sistem dahilinde değişik teknik ve yöntemler ile şifrelenir. Aynı zamanda kriptoloji bilimi, şifrelenen iletilerin istenmeyen kişiler tarafından deşifre edilmemesi için de çalışmalar yapmaktadır.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-03-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-03-28T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2023-03-28-kriptoloji-temelleri-giri/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2023-03-28-kriptoloji-temelleri-giri/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2023-03-28-kriptoloji-temelleri-giri/">
+              Kriptoloji Temelleri: Giriş
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-03-28T00:00:00Z">
+                Mart 28, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              8 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="kriptoloji-temelleri1-giriş">
+  Kriptoloji Temelleri:#1 Giriş
+  <a class="heading-link" href="#kriptoloji-temelleri1-giri%c5%9f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_uorh6uYHB7AdEDpEbCO_Tw.png" alt=""></p>
+<p>Merhaba, kriptoloji temelleri serisinin bu ilk yazısında, kriptolojinin ne olduğundan, geleneksel şifreleme tekniklerinden ve güçlü bir şifrenin nasıl oluşturulabileceğinden bahsedeceğim.</p>
+<hr>
+<h3 id="kriptolojiye-genelbakış">
+  Kriptolojiye Genel Bakış
+  <a class="heading-link" href="#kriptolojiye-genelbak%c4%b1%c5%9f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Şifreleme bilimi olarak adlandırılan bu bilim türünde, gizli tutulmak istenen şeyler bir sistem dahilinde değişik teknik ve yöntemler ile şifrelenir. Aynı zamanda kriptoloji bilimi, şifrelenen iletilerin istenmeyen kişiler tarafından deşifre edilmemesi için de çalışmalar yapmaktadır.</p>
+<p><img src="/images/1_hjisKMmnXD1yQQXQ3IOFjA.png" alt=""></p>
+<p>Kriptoloji şifre bilimidir. Kriptografi bilgi güvenliği ile uğraşır, Kriptoanaliz güvenli bilginin kırılması başka bir deyişle kriptografinin tam karşıtıdır. Kriptoanalistler genelde şifre çözmeye dayalı çalışırlar. Kriptoloji bir <a href="https://tr.wikipedia.org/wiki/Matematik" title="Matematik"  class="external-link" target="_blank" rel="noopener">matematik</a> bilimidir ve genelde sayılar teorisi üstüne kuruludur.</p>
+<p><strong>Kriptografi</strong>, bir mesajın anlamını gizlemek amacıyla gizli yazma bilimidir.</p>
+<p><strong>Kriptanaliz</strong>, kripto sistemleri kırma, deşifre etme bilimidir.</p>
+<hr>
+<h3 id="tarihsel-gelişim">
+  Tarihsel Gelişim
+  <a class="heading-link" href="#tarihsel-geli%c5%9fim">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>İlk kriptolog, 4000 yıl önce yaşamış Mısırlı bir kâtiptir. O, efendisinin hayatını anlatırken hiyeroglifleri şifrelenmiş bir şekilde oluşturmuştu ve bazı hiyeroglifler daha önce hiç kullanılmamıştı.</p>
+<p>Kriptografi, bu şekilde başlamasına karşın, hayatının ilk 3000 yılında neredeyse hiç gelişemedi. Dünyanın farklı farklı yerlerinde bağlantısız bir şekilde en temel biçimde kullanılmıştı ancak medeniyetlerin yıkılışıyla sonraki adımlara geçilememişti.</p>
+<p>Dönemin en önde uygarlığı olan Çin’de ise yazının şifresiz yazılmasının bile çok zor olması nedeniyle kriptografi hiç gelişemedi.</p>
+<p>Daha sonraları (MÖ 5. — 6. yüzyıl) askeri istihbaratta gizlilik gerekmesi nedeniyle, kriptografi askeri alana girdi. Askeri alandaki ilk kriptograflar Spartalılardır.</p>
+<ol start="9">
+<li>yüzyıl’da <a href="https://tr.wikipedia.org/wiki/Kind%C3%AE" title="Kindî"  class="external-link" target="_blank" rel="noopener">Kindî</a>, kriptoloji biliminde uygulanan tek alfabeli yerine koyma şifreleme yöntemini geliştirerek frekans analizini bulan ilk kişi olmuştur. Kindî, kriptoloji biliminde Jul Sezar (MÖ 50) tarafından bulunan ve uygulanan tek alfabeli yerine koyma şifreleme yöntemini geliştirerek frekans analizini bulan ilk kişidir.</li>
+</ol>
+<hr>
+<h3 id="geleneksel-şifreleme-teknikleri">
+  Geleneksel Şifreleme Teknikleri
+  <a class="heading-link" href="#geleneksel-%c5%9fifreleme-teknikleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Tarihsel olarak temel seviyede birçok şifreleme algoritmas geliştirilmiş ve kullanılmıştır. Günümüzde gelişen bilgisayar teknolojisi ile bu şifreleri kırmak oldukçça kolay hale gelmiştir. Şimdi bu şifreleme tekniklerine ve nasıl zayıflıkları olduklarına detaylı değinelim.</p>
+<h4 id="ikame-şifresi">
+  İkame Şifresi
+  <a class="heading-link" href="#ikame-%c5%9fifresi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir metni şifrelemek için en basit yöntemlerden biri olan, ikame şifresi(yer değiştirme şifresi) tarihsel süreçte birçok kez kullanılmıştır ve temel kriptografinin iyi bir örneğidir.<br>
+Fikir çok basit, alfabenin her harfini bir başkasıyla değiştiriyoruz. Örneğin;<br>
+A → k<br>
+B → d<br>
+C → w<br>
+Bu örnekte, <em>ABBA</em> ifadesi <em>kddk</em> olarak şifrelenecektir.</p>
+<p>Hangi harfin hangi harfe karşılık geleceğini belirlediğimiz ikame tablosunu tamamen rastgele seçtiğimizi varsayalım. İkame tablosu bu şifreleme sisteminin anahtarı olmuş olur. Her zaman olduğu gibi simetrik kriptografide anahtar gizli tutulmalıdır, yani A ve B arasında güvenli bir şekilde dağıtılmalıdır. Simetrik-Asimetrik kriptografi hakkında detaylı bilgi edinmek için bir önceki <a href="https://pwnlab.me/tr-kriptografiye-giris/"  class="external-link" target="_blank" rel="noopener">yazımıza</a> bakabilirsiniz.<br>
+ Tahmin edilebileceği gibi bu şifreyi kırmak oldukça kolaydır. Bu noktada klasik kriptanaliz tekniklerinden yararlanabiliriz.</p>
+<h4 id="ilk-saldırı-kaba-kuvvet-veya-kapsamlı-anahtararama">
+  İlk Saldırı: Kaba Kuvvet veya Kapsamlı Anahtar Arama
+  <a class="heading-link" href="#ilk-sald%c4%b1r%c4%b1-kaba-kuvvet-veya-kapsaml%c4%b1-anahtararama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Kaba kuvvet saldırıları basit bir konsepte dayanır: Saldırgan, şifreli metine ve kısa bir düz metin parçasına (örneğin şifrelenmiş metnin başlığına) sahiptir. Bu durumda, tüm olası anahtarları deneyerek şifreli metni çözer. Ortaya çıkan düz metin, kısa düz metin parçasıyla eşleşirse doğru anahtarı bulmuş olur. Pratikte, kaba kuvvet saldırısı daha karmaşık olabilir çünkü yanlış anahtarlar yanlış, pozitif sonuçlar verebilir.</p>
+<p>Prensipte simetrik şifrelere karşı kaba kuvvet saldırısının her zaman mümkün olduğuna dikkat etmek önemlidir. Pratikte uygulanabilir olup olmadığı, belirli bir şifre için var olan olası anahtarların sayısına bağlıdır. Tüm anahtarları test etmek çok fazla zaman alıyorsa, yani birkaç on yıl alıyorsa, şifre bir kaba kuvvet saldırısına karşı güvenlidir.</p>
+<p>İkame şifresinin anahtar uzayını belirleyelim: İlk A harfinin yerine geçecek olan harfi seçerken alfabenin 26 harfinden rastgele bir harf seçiyoruz (yukarıdaki örnekte k seçtik). Bir sonraki alfabe harfi B’nin karşılığı, kalan 25 harften rasgele seçilmiştir, vb. Bu nedenle, ikame şifresinin anahtar uzayı = 26 · 25 · ….. · 3 · 2 · 1 = 26! olur.</p>
+<p>Yüz binlerce yüksek güçlü bilgisayarla bile böyle bir arama birkaç on yıl alacaktır. Bu nedenle, ikame şifresinin güvenli olduğunu düşünebiliriz. Ancak, bu yanlış çünkü daha güçlü bir saldırı daha var.</p>
+<h4 id="ikinci-saldırı-harf-frekansanalizi">
+  İkinci Saldırı: Harf Frekans Analizi
+  <a class="heading-link" href="#ikinci-sald%c4%b1r%c4%b1-harf-frekansanalizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Frekasn Analizi 9.yy.’da Al-Kindi tarafından önerilmiştir. Dildeki tekrarlara dayanmaktadır.</p>
+<p>Herhangi bir dil için, o dildeki harflerin kullanım sıklıkları hesaplanır. İngilizce dilinde harflerin kullanım sıklığını içeren tablo aşağıda verilmiştir.</p>
+<p><img src="/images/0_9LADpthWZ361CIFT.png" alt=""></p>
+<p>Tablodan da görüleceği gibi, ingilizce dilinde en sık kullanılan harf ‘E’ harfidir, ikinci en sık kullanılan harf ise ‘T’ harfidir. Eğer şifreli metin uzunsa en çok gözüken harf büyük olasılıkla düz metindeki E’ye denk gelir ve ikinci en çok gözüken harfte büyük olasılıkla T’ye denk gelir, bu şekilde devam eder.</p>
+<p>İkame şifresi, böyle bir analitik saldırı ile kolayca kırılabilir. Şifrenin en büyük zayıflığı, düz metnin her karakterinin her seferinde aynı karakterle değiştirilmesidir.</p>
+<h4 id="sezar-şifresi">
+  Sezar Şifresi
+  <a class="heading-link" href="#sezar-%c5%9fifresi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Sezar şifresi diğer adıyla kaydırma şifresi, aslında ikame şifresinin özel bir halidir. Kaydırma şifresinin kendisi son derece basittir: Düz metnin her harfini alfabede sabit sayıda konumla kaydırırız. Örneğin, 3 konum kaydırırsak, A yerine d, B yerine e vb. gelirdi. Tek sorun alfabenin sonuna doğru ortaya çıkıyor: X, Y, Z ile ne yapmalıyız? Bu durumda başa dönüyoruz. Bu durumda, X-&gt;a, Y-&gt;b ve Z-&gt;c ile yer değiştirilir.<br>
+ Tarihte Julius Sezar bu şifreyi üç konumlu bir kaydırma ile kullanmıştı. Sezar şifresi ismi buradan gelmektedir.<br>
+ Şifrenin matematiksel ifadesi için alfabenin harfleri aşağıdaki tabloda gösterildiği gibi sayısal olarak kodlanmıştır.</p>
+<p><img src="/images/0_0ATssVLmJQigP6cg.png" alt=""></p>
+<p>Anahtar k = 17 olsun ve düz metin:</p>
+<p>ATTACK = x1,x2,…,x6 = 0,19,19,0,2,10 olsun.s</p>
+<p>Şifreli metin şu şekilde hesaplanır:</p>
+<p>y1,y2,…,y6 = 17,10,10,17,19,1 = rkkrtb</p>
+<p>İkame şifresinde olduğu gibi, kaydırma şifresi de hiç güvenli değildir. Aynı şekilde bu şifreyi kırmak için de iki yolumuz var:<br>
+ 1. Anahtar uzayı 26 anahtardan oluştuğu için, belirli bir şifreli metnin şifresini tüm olası 26 anahtarla çözmeye çalışarak, kaba kuvvet yöntemiyle, kırabiliriz. Ortaya çıkan düz metin okunabilir ise, anahtarı bulmuş oluruz.<br>
+ 2. İkame şifresindeki gibi frekans analizi kullanılabilir.</p>
+<h4 id="vigenere-şifresi">
+  Vigenere Şifresi
+  <a class="heading-link" href="#vigenere-%c5%9fifresi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Çok alfabeli şifrelemenin basit bir formu olan Vigenere şifreleme, tek alfabeli kaydırma ve yerine koyma şifreleme yöntemlerine dayanan sezar şifreleme algoritmasının geliştirilmiş halidir. Sezar şifrelemede kaydırma ve yerine koyma işemleri için sadece bir alfabe kullanılırken, Vigenere şifrelemede birden fazla alfabe kullanılır. Böylece şifrelenecek mesajdaki aynı harflerin şifrelenmesi sonucunda farklı harfler ortaya çıkar.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*QLwvLTeM5X8wzRbJ" alt=""></p>
+<p>Şifreleme yönteminde öncelikle şifreleme işlemi sırasında kullanılacak anahtar seçilir. Şifrelenecek mesajın ilk harfi, anahtar değerinin ilk harfinin alfabedeki sırası oranında kaydırılır ve şifreli harf elde edilir. Anahtar değerindeki her harfin sırasına göre, şifrelenecek mesajdaki her harf farklı bir alfabe ile şifrelenir ve şifreleme işlemi tamamlanır.</p>
+<h4 id="playfair-şifresi">
+  Playfair Şifresi
+  <a class="heading-link" href="#playfair-%c5%9fifresi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Charles Wheatstone tarafından 1854&rsquo;de önerilmiştir , Lord Playfair kullanımını teşvik etmiştir. Birden fazla harf değişimi kullanılarak daha güçlü bir şifreleme yapılması hedeflenmiştir.</p>
+<p>Şifrelemede anahtarın ve alfabenin geri kalanının yer aldığı 5×5&rsquo;lik bir tablo kullanılır. Anahtarı ve 4 basit kuralı bilmek sistemi kullanmak için yeterlidir.</p>
+<p><strong>Kurallar:</strong></p>
+<p>1- Eğer iki harf de aynıysa ya da en son tek bir harf kaldıysa, ilk harften sonra bir “X” harfi eklenir.</p>
+<p>2- Eğer iki harf aynı satırdaysa, her harf sağındaki harfle değiştirilir. (bir harf eğer satır sonundaysa, satır başındakiyle değiştirilir)</p>
+<p>3-Eğer iki harf aynı sütundaysa, her harf altındaki harfle değiştirilir(bir harf eğer sütunun sonundaysa, sütun başındakiyle değistirilir)</p>
+<p>4-Eğer harfle aynı sütun veya satırda değilse, harfler bir dikdörtgenin iki köşesi olarak düşünülür ve harfler karşılarındaki köşede yer alan harf ile değiştirilir. Bir örnekle açıklayalım.</p>
+<p><strong>mesajımız: kriptoloji</strong><br>
+<strong>şifremiz: keyword</strong></p>
+<p>Bu durumda tablo şekildeki gibi olacaktır. Önce anahtar yazılır. Aynı harfler bir kez kullanılır. 5×5&rsquo;lik tablonun geri kalanı, kalan harflerle doldurulur. 25 harfe inmek için I ve J harfi aynı kutuya konur.</p>
+<p><img src="/images/0_Vo-d0ErN-moY0kLR.jpg" alt=""></p>
+<blockquote>
+<p><em>düz metin: kr ip to lo ji için</em></p>
+</blockquote>
+<blockquote>
+<p><em>şifreli metin: rf hq kz sc jx olur</em></p>
+</blockquote>
+<p>Plafair gibi ikili harf değişim sistemleri iki harfli frekans analizine dayanıklı değildirler. Bilgisayarlar ile kısa uzunluktaki harf değişimlerini kırmak mümkündür.</p>
+<p>Şifreyi kırmak için dilde ikili harf gruplarının ne sıklıkla görüldüğü hesaplanır ve bunun üzerinden mesajın şifresi çözülmeye çalışılır. Bu işlem başta göz korkutabilir ancak bir bilgisayar için hiç de zor değildir. Güçlü bir bilgisayar sistemi, 8-harf’e kadar frekans analizini yapabilecek yeterliktedir</p>
+<h4 id="affine-şifresi">
+  Affine Şifresi
+  <a class="heading-link" href="#affine-%c5%9fifresi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Affine şifreeme mono alfabetik yerine koymalı şifreleme yöntemlerinin bir çeşididir. Yöntemde önce kullanılacak alfabenin her harfine karşılık bir sayı değeri atanır bu değerer bir tabloda tutulur. Bu tablonun karşılıklı iletişim gerçekleştirek isteyen her iki tarafta da bulunması gerekir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*Z-cr2RD4JROMRDIQ" alt=""></p>
+<p>Şifreenmek istenen açık mesajın her karakteri için, karaktere karşılık gellen sayı değeri basit bir matematiksel fonksiyona girdi olarak gönderilir. Fonksiyondan çıkış olarak üretilen bu sayı değeri, tabloda hangi karakteri temsil ediyorsa o karakter, şifreli mesajın yapısını oluşturur.</p>
+<h4 id="vernam-şifresi">
+  Vernam Şifresi
+  <a class="heading-link" href="#vernam-%c5%9fifresi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Adına kırılmaz şifreleme de diyebileceğimiz bu yöntem çok güvenilir olmasına rağmen pratikte uygulanması oldukçca zordur. Bu yöntemde, tek sefer kullanılacak rastgele karakterlerden/bitlerden oluşan uzun bir dizi üretilir. Düz metin, one-time pad’le XOR işlemine sokularak şifreli metin elde edilir. Şifreli metin ile one-time pad’in XOR işlemine sokulması düz metni geri getirir.</p>
+<p><img src="/images/0_6s6SoNCSSj-Sqs27.png" alt=""></p>
+<p>one-time pad olarak da bilinen isminden anlaşılacağı gibi tek kullanımlık ve tamamen rastgele üretilmiş olmalıdır. .Aynı anahtarın tekrar kullanımı şifrelemede zayıflığa yol açar ve kırılabilmesine olanak tanır.</p>
+<p>Bu şifreleme tekniği kusursuz gizlilik sağlar çünkü şifreli metin düz metin hakkında hiçbir bilgi içermemektedir. Frekans analizi bu teknikte kullanılamaz. Bitler yerine harfler ya da karakterler üzerinde çalışan halini de kullanmak mümkündür.</p>
+<p>Bunun yanında, anahtarın çok uzun(mesaj ile aynı uzunlukta) ve dağıtımının zor olması bu şifreyi pratikte kullanmayı zor bir hale getirmektedir.</p>
+<hr>
+<h3 id="güçlü-şifre">
+  Güçlü Şifre
+  <a class="heading-link" href="#g%c3%bc%c3%a7l%c3%bc-%c5%9fifre">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Güçlü bir şifrenin karakteristik özellikleri, hem uzun hem de çeşitli olmasıdır. “1234” gibi basit bir şifre kombinasyonu kolayca tahmin edilebilir. Tahmin edilemese bile bir programı yardımıyla saldırı yapan internet korsanı, birkaç saatlik tarama sonucunda (bazen daha kısa) şifrenizi kolayca ele geçirebilir. Şifremizin içerisindeki çeşitlilik, şifremizin uzunluğu ve farklı karakterlerin şifremize dahil olması, şifremizi brute force gibi yöntemlerle kırmayı güç hatta bazen imkansız hale getirir.</p>
+<p>Güçlü bir şifreyi kendiniz de oluştuabileceğiniz gibi bir araçtan da yardım alabilirsiniz: <a href="https://passwordsgenerator.net/"  class="external-link" target="_blank" rel="noopener">https://passwordsgenerator.net/</a></p>
+<h4 id="güçlü-bir-şifreiçin">
+  Güçlü bir şifre için:
+  <a class="heading-link" href="#g%c3%bc%c3%a7l%c3%bc-bir-%c5%9fifrei%c3%a7in">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ol>
+<li>Maksimum uzunluğu hedefleyin</li>
+<li>Şifrenizi sadece rakam veya harflerden oluşturmayın</li>
+<li>Şifrenizde ekstra karakterlere yer verin</li>
+</ol>
+<h4 id="güçlü-şifre-örnekleri">
+  Güçlü şifre örnekleri
+  <a class="heading-link" href="#g%c3%bc%c3%a7l%c3%bc-%c5%9fifre-%c3%b6rnekleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>Tu\9a;gMD</li>
+<li>hb!(Bz8XE</li>
+<li>5}JBqseLL</li>
+<li>`zhx!8BBF</li>
+<li>u$7sSsX3#</li>
+</ul>
+<p>Tabi bu tür şifreleri akılda tutmak zor olabilir. Bunun için parola yöneticisi yazılımlarını kullanabilirsiniz.</p>
+<hr>
+<p>Bu yazımda kriptoloji konusunu anlattım. Bir sonraki yazımda kriptografi ve kriptanaliz konusundan bahsedeceğim. Serinin listesini profilimde bulabilirsiniz.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

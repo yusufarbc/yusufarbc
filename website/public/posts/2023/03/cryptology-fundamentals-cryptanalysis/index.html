@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Cryptology Fundamentals: Cryptanalysis · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Cryptology Fundamentals:#3 Cryptanalysis
+  
+    
+    Link to heading
+  
+
+
+Hello, in this article of the cryptology basics series, I will talk about what cryptanalysis is, password cracking techniques and social engineering methods.
+
+
+  Cryptanalysis Overview
+  
+    
+    Link to heading
+  
+
+Cryptanalysis is the science of breaking and deciphering crypto systems. It is the branch of cryptology that investigates the decryption of encrypted texts. Cryptanalysis is used to find unknown keys.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Cryptology Fundamentals: Cryptanalysis">
+  <meta name="twitter:description" content="Cryptology Fundamentals:#3 CryptanalysisLink to headingHello, in this article of the cryptology basics series, I will talk about what cryptanalysis is, password cracking techniques and social engineering methods.
+Cryptanalysis OverviewLink to headingCryptanalysis is the science of breaking and deciphering crypto systems. It is the branch of cryptology that investigates the decryption of encrypted texts. Cryptanalysis is used to find unknown keys.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2023/03/cryptology-fundamentals-cryptanalysis/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Cryptology Fundamentals: Cryptanalysis">
+  <meta property="og:description" content="Cryptology Fundamentals:#3 CryptanalysisLink to headingHello, in this article of the cryptology basics series, I will talk about what cryptanalysis is, password cracking techniques and social engineering methods.
+Cryptanalysis OverviewLink to headingCryptanalysis is the science of breaking and deciphering crypto systems. It is the branch of cryptology that investigates the decryption of encrypted texts. Cryptanalysis is used to find unknown keys.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-03-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-03-28T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2023/03/cryptology-fundamentals-cryptanalysis/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2023/03/kriptoloji-temelleri-kriptanaliz/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2023/03/cryptology-fundamentals-cryptanalysis/">
+              Cryptology Fundamentals: Cryptanalysis
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-03-28T00:00:00Z">
+                March 28, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              7-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="cryptology-fundamentals3-cryptanalysis">
+  Cryptology Fundamentals:#3 Cryptanalysis
+  <a class="heading-link" href="#cryptology-fundamentals3-cryptanalysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_aZ11lfSR2DfxXotqqA4KhA.png" alt=""></p>
+<p>Hello, in this article of the cryptology basics series, I will talk about what cryptanalysis is, password cracking techniques and social engineering methods.</p>
+<hr>
+<h3 id="cryptanalysis-overview">
+  Cryptanalysis Overview
+  <a class="heading-link" href="#cryptanalysis-overview">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Cryptanalysis is the science of breaking and deciphering crypto systems. It is the branch of cryptology that investigates the decryption of encrypted texts. Cryptanalysis is used to find unknown keys.</p>
+<p><img src="/images/0_WYSM0JXe3tpf70lG.png" alt=""></p>
+<p>Cryptanalysis; We can divide Application Attacks into three areas: classical cryptanalysis and social engineering. Now let&rsquo;s look at these areas and the methods used.</p>
+<hr>
+<h3 id="application-attacks">
+  Application Attacks
+  <a class="heading-link" href="#application-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Cryptanalysis methods that attempt to obtain the secret key through reverse engineering or password attacks are types of attacks.</p>
+<h4 id="brute-force-attacks">
+  Brute-Force Attacks
+  <a class="heading-link" href="#brute-force-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This type of password attack uses trial and error methods to guess the target user&rsquo;s password information. The attacker tries as many permutations as possible to correctly guess the user&rsquo;s password. Although it is a relatively old method that requires a lot of patience and time, a brute force attack is still one of the most used methods because it is automatic and straightforward.</p>
+<p><img src="/images/1_TC-mr-YoZ9Rb2ZQ3syKvEw.png" alt=""></p>
+<p>There are several types of brute force attacks:<br>
+<strong>1. Simple brute force attacks:</strong> Uses data about a user to guess the most likely password. This technique is used for simple passwords, such as those containing a combination of pet name-year and birth.<br>
+<strong>2. Credential stuffing:</strong> Involves the use of previously compromised login combinations maliciously obtained from vulnerable websites. These types of attacks take advantage of target users&rsquo; tendency to reuse username-password combinations across multiple services.<br>
+3. <strong>Reverse brute force attacks:</strong> It starts with a known password and then looks for usernames that match that password. Since threat actors often have access to multiple databases of leaked credentials, it is easy to identify common passwords within a given group of users.</p>
+<h4 id="dictionary-attacks">
+  Dictionary Attacks
+  <a class="heading-link" href="#dictionary-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This attack method uses a predefined list of words that are likely to be used as passwords by a particular target network.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*F652-yGJsAll1wHg" alt=""></p>
+<p>The predefined list is created from a website user&rsquo;s behavioral patterns and passwords obtained from previous data breaches. Lists common password combinations by case;</p>
+<ul>
+<li>By changing</li>
+<li>By adding numeric suffixes and prefixes</li>
+<li>Using common expressions</li>
+</ul>
+<p>is created. These lists are passed to tools that attempt to authenticate against a list of known usernames.</p>
+<p>Here are the tools that can be used to create a password list.</p>
+<h4 id="password-spraying-attacks">
+  Password Spraying Attacks
+  <a class="heading-link" href="#password-spraying-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In this attack, the hacker attempts to authenticate using the same password across several accounts before switching to another password. Since most website users set simple passwords, password spraying is the most effective technique.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*T2U4_r03cwMIK7d0" alt=""></p>
+<p>Attackers often use the password spraying attack on websites where administrators set a standard default password for new users and unregistered accounts.</p>
+<h4 id="keylogging">
+  Keylogging
+  <a class="heading-link" href="#keylogging">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>When conducting a Keylogging attack, the attacker installs keyboard monitoring software on the user&rsquo;s computer to record the keys the user secretly types. A keylogger records all the information users type into login forms and then sends them to the malicious attacker.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*9je3oKzwvjFzUeGg" alt=""></p>
+<h4 id="computer-forensics">
+  Computer Forensics
+  <a class="heading-link" href="#computer-forensics">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>From the memory, disk or processor of a system to which we have physical access; It involves obtaining the secret key using various forensic methods such as string analysis and signal measurement. In cases where I do not have physical access, such as a remote server, we do not need to worry about this attack.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*b4jQGvhwF6m7lBcN" alt=""></p>
+<h4 id="application-attacks-tools">
+  Application Attacks Tools
+  <a class="heading-link" href="#application-attacks-tools">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li><em><strong>CrackStation</strong></em></li>
+<li><em><strong>John the Ripper</strong></em></li>
+<li><em><strong>Hashcat</strong></em></li>
+<li><em><strong>Medusa</strong></em></li>
+<li><em><strong>Hydra</strong></em></li>
+<li><em><strong>Brutus</strong></em></li>
+<li><em><strong>RainbowCrack</strong></em></li>
+<li><em><strong>L0phtCrack</strong></em></li>
+<li><em><strong>OphCrack</strong></em></li>
+</ol>
+<hr>
+<h3 id="classical-cryptanalysis">
+  Classical Cryptanalysis
+  <a class="heading-link" href="#classical-cryptanalysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Classical cryptanalysis is the science of recovering the plaintext from its ciphertext or, alternatively, finding the key from its ciphertext. It uses mathematical analysis that takes advantage of the internal structure of the encryption method.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*ct3PFF4EH3YUqAlK" alt=""></p>
+<p>Encryption Decryption</p>
+<p>An encryption process consists of 3 elements. These are: clear text, encrypted text and key. If we have any two of these elements, we can easily find the third. However, the main function of cryptanalysis is the ability to find others when only the ciphertext is available. It uses various mathematical methods for this.</p>
+<p>These methods are:</p>
+<ul>
+<li><strong>Known Plaintext Analysis (KPA)</strong>: In this type of attack, some plaintext-ciphertext pairs are already known. The attacker maps them to find the encryption key. This attack is easier to use because a lot of information is already available.</li>
+<li><strong>Chosen Plaintext Analysis (CPA)</strong>: In this type of attack, the attacker selects random plaintexts and retrieves the corresponding ciphertexts and tries to find the encryption key. Like KPA, it is very simple to implement, but its success rate is quite low.</li>
+<li><strong>Ciphertext Analysis Only (COA)</strong>: In this type of attack, only some ciphertexts are known and the attacker tries to find the corresponding encryption key and plaintext. It is the most difficult to implement, but the most likely attack since only ciphertext is required.</li>
+<li><strong>Adaptive Selected Plaintext Analysis (ACPA)</strong>: This attack is similar to CPA. Here the attacker, after having the ciphertexts for some texts, requests the ciphertexts of additional plaintexts.</li>
+<li><strong>Birthday attack:</strong> This attack exploits the possibility of two or more people in a group of people sharing the same birthday. In cryptography, this attack is used to find collisions in a hash function.</li>
+<li><strong>Differential cryptanalysis</strong>: This type of attack involves comparing pairs of plaintexts and their corresponding ciphertexts to find patterns in the encryption algorithm. It can be effective against block ciphers with certain properties.</li>
+<li><strong>Integral cryptanalysis:</strong> It is a method used on block cipher methods based on Replacement-Scrambling functions.</li>
+</ul>
+<hr>
+<h3 id="social-engineering">
+  Social Engineering
+  <a class="heading-link" href="#social-engineering">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>No matter how strong the crypto system we have established, risks arising from human factors should not be ignored. Bribery, blackmail, deception or classic espionage can be used to obtain a secret key. For example, holding a gun to a person&rsquo;s head and forcing them to tell the password can be quite successful. Another less violent attack is social engineering techniques such as calling the people we want to attack and saying, &ldquo;We&rsquo;re calling from your company&rsquo;s IT department. We need your password for important software updates.&rdquo; It is surprising that there are no small number of people who are naive enough to actually give their passwords in such cases.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*T75D0kY4zcu3_J5U" alt=""></p>
+<p>The attacker is always looking for the weakest link in your crypto system. For this, we need to choose strong algorithms and ensure that social engineering and application attacks are impractical. Both application attacks and social engineering attacks can be quite powerful in practice.</p>
+<h4 id="phishing-attacks">
+  Phishing Attacks
+  <a class="heading-link" href="#phishing-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It involves a social engineering technique in which the attacker disguises himself as a trusted site by sending a malicious link to the victim. Once the victim assumes they are authenticating with a legitimate web server, they click on that link, providing the attacker with their account information. In this way, the attacker obtains the account information of the target user, and the victim is phished.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*C1Redj9meJnjH1ur" alt=""></p>
+<p>Aside from identity theft, phishing attacks enable an attacker to obtain a user&rsquo;s permissions, allowing them to compromise deeper components of the system before the attack is detected. In phishing attacks, attackers often use multiple methods to trick the user into clicking the malicious link:</p>
+<ol>
+<li><strong>DNS cache poisoning:</strong> Attackers exploit the application&rsquo;s DNS server to redirect user requests to a malicious site with a similar-sounding domain name.It exploits the security vulnerabilities in its mind.</li>
+<li><strong>URL hijacking/typo:</strong> The attacker creates a real-looking URL with subtle differences from the website they want to impersonate. The attack relies on users making typos, so they land on the malicious page.</li>
+<li><strong>Tabbing:</strong> The attacker rewrites unattended browser tabs with malicious sites disguised as legitimate web pages.</li>
+<li><strong>UI fix/iFrame overlay:</strong> Using transparent layers, the attacker places a link to the malicious page over a legitimate, clickable button.</li>
+<li><strong>Clone phishing :</strong> In this attack, the attacker sends a copy of a legitimate email to malicious sites where the links in the original email are replaced with URLs.</li>
+</ol>
+<hr>
+<p>In this article, I talked about cryptanalysis. In my next article, I will talk about cryptography. You can find the list of the series on my profile.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

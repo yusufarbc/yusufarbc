@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Network Security and Management VII: Active Directory · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Network Security and Management VII: Active Directory
+  
+    
+    Link to heading
+  
+
+
+It examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of &ldquo;identity is the new security perimeter&rdquo;, this study presents a comprehensive strategy that aims to transform AD from a security weakness into a defense fortress. The report covers common attack vectors such as Kerberoasting, Pass-the-Hash and Golden Ticket, advanced defense mechanisms such as Tiered Model, Credential Guard and Group Managed Service Accounts (gMSA), security of hybrid identity infrastructures, and continuous monitoring and disaster recovery operations in technical detail. This guide concludes by providing an actionable roadmap for security leaders and technical practitioners to improve the security and resilience of AD infrastructures.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Network Security and Management VII: Active Directory">
+  <meta name="twitter:description" content="Network Security and Management VII: Active DirectoryLink to headingIt examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of “identity is the new security perimeter”, this study presents a comprehensive strategy that aims to transform AD from a security weakness into a defense fortress. The report covers common attack vectors such as Kerberoasting, Pass-the-Hash and Golden Ticket, advanced defense mechanisms such as Tiered Model, Credential Guard and Group Managed Service Accounts (gMSA), security of hybrid identity infrastructures, and continuous monitoring and disaster recovery operations in technical detail. This guide concludes by providing an actionable roadmap for security leaders and technical practitioners to improve the security and resilience of AD infrastructures.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2025/08/network-security-and-management-vii-active-directory/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Network Security and Management VII: Active Directory">
+  <meta property="og:description" content="Network Security and Management VII: Active DirectoryLink to headingIt examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of “identity is the new security perimeter”, this study presents a comprehensive strategy that aims to transform AD from a security weakness into a defense fortress. The report covers common attack vectors such as Kerberoasting, Pass-the-Hash and Golden Ticket, advanced defense mechanisms such as Tiered Model, Credential Guard and Group Managed Service Accounts (gMSA), security of hybrid identity infrastructures, and continuous monitoring and disaster recovery operations in technical detail. This guide concludes by providing an actionable roadmap for security leaders and technical practitioners to improve the security and resilience of AD infrastructures.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-07T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2025/08/network-security-and-management-vii-active-directory/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2025/08/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi-vii-active-directory/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2025/08/network-security-and-management-vii-active-directory/">
+              Network Security and Management VII: Active Directory
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-08-07T00:00:00Z">
+                August 7, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              32-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="network-security-and-management-vii-active-directory">
+  Network Security and Management VII: Active Directory
+  <a class="heading-link" href="#network-security-and-management-vii-active-directory">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_xHCEWIgWsOG-PR1mgpcXvQ.png" alt=""></p>
+<p>It examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of &ldquo;identity is the new security perimeter&rdquo;, this study presents a comprehensive strategy that aims to transform AD from a security weakness into a defense fortress. The report covers common attack vectors such as Kerberoasting, Pass-the-Hash and Golden Ticket, advanced defense mechanisms such as Tiered Model, Credential Guard and Group Managed Service Accounts (gMSA), security of hybrid identity infrastructures, and continuous monitoring and disaster recovery operations in technical detail. This guide concludes by providing an actionable roadmap for security leaders and technical practitioners to improve the security and resilience of AD infrastructures.</p>
+<hr>
+<h3 id="active-directory-architecture-and-security-fundamentals">
+  Active Directory Architecture and Security Fundamentals
+  <a class="heading-link" href="#active-directory-architecture-and-security-fundamentals">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="introduction-identity-new-security-perimeter">
+  Introduction: Identity, New Security Perimeter
+  <a class="heading-link" href="#introduction-identity-new-security-perimeter">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Traditional network security approaches focused on protecting the network perimeter. However, with the spread of cloud computing, mobility and hybrid working models, this environment has become uncertain. In today&rsquo;s cyber security paradigm, identity is considered the primary security boundary. In this new order, Active Directory, the central authority that manages all user, computer, application and resource identities of an organization, literally holds the “keys to the kingdom.” AD is the primary mechanism that determines who is who (authentication) and who can access what (authorization). Therefore, the security of Active Directory is no longer the security of just one infrastructure component, but the cornerstone of all enterprise security, and a breach of it can lead to catastrophic consequences.</p>
+<h3 id="anatomy-of-active-directory-logical-and-physical-components">
+  Anatomy of Active Directory: Logical and Physical Components
+  <a class="heading-link" href="#anatomy-of-active-directory-logical-and-physical-components">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The power and complexity of Active Directory comes from its hierarchical and logical structure. When configured correctly, this structure not only provides ease of management, but also offers a natural security layering.</p>
+<h4 id="domains-trees-and-forests-security-and-management-boundaries">
+  Domains, Trees and Forests: Security and Management Boundaries
+  <a class="heading-link" href="#domains-trees-and-forests-security-and-management-boundaries">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The logical structure of AD consists of three main layers: domains, trees, and forests.</p>
+<ul>
+<li><strong>Domain:</strong> It is a group of interrelated users, computers and other objects. A domain is a basic <strong>administrative boundary</strong>. Objects in a given domain are stored in a single database and managed together. This structure allows AD to work efficiently on a global scale by allowing data to be replicated only where it is needed.</li>
+<li><strong>Tree:</strong> A combination of one or more domains that share a common contiguous namespace.</li>
+<li><strong>Forest:</strong> It is the highest level AD structure consisting of one or more trees. A forest is the most basic <strong>safety boundary</strong>. Objects in different forests cannot interact with each other unless a trust relationship is explicitly established between administrators.</li>
+</ul>
+<p>This architectural separation inherently limits an attacker&rsquo;s range of action. Capturing a domain does not automatically mean capturing the entire forest. The security boundary between forests is one of the most powerful passive defense mechanisms that can be used proactively to prevent the spread of a breach.</p>
+<h4 id="organizational-units-ous-delegation-and-policy-implementation">
+  Organizational Units (OUs): Delegation and Policy Implementation
+  <a class="heading-link" href="#organizational-units-ous-delegation-and-policy-implementation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Organizational Units (OUs) are containers used to separate objects (users, groups, computers) within a domain into logical hierarchies. OUs have two primary security functions:</p>
+<ol>
+<li><strong>Delegation of Authority:</strong> OUs enable the delegation of administrative tasks to less privileged accounts. For example, a help desk team might be authorized to reset passwords only for users in the “Marketing” OU. This makes it easier to apply the principle of “least privilege.”</li>
+<li><strong>Group Policy Enforcement:</strong> Group Policy Objects (GPOs) connect to specific OUs to ensure that specific security settings are applied for users and computers within that OU. This makes it possible to create different security policies for different departments or server types.</li>
+</ol>
+<h4 id="domain-controllers-dcs-global-catalog-gc-and-schema">
+  Domain Controllers (DCs), Global Catalog (GC) and Schema
+  <a class="heading-link" href="#domain-controllers-dcs-global-catalog-gc-and-schema">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Domain Controllers (DCs):</strong> These are servers that run the AD DS service and host a copy of the AD database (NTDS.dit file). They respond to authentication requests on the network and replicate changes made in the directory to other DCs.</li>
+<li><strong>Global Catalog (GC):</strong> A special type of DC that contains a full copy of all objects in its domain and a partial copy of all objects in all other domains in the forest. This allows users and applications to search across the forest without knowing which domain the object is in.</li>
+<li><strong>Schema:</strong> It is a set of rules that contain formal definitions of every object class that can be created in AD (for example, user, computer) and every attribute that these objects can have (for example, phone number, password).</li>
+</ul>
+<h3 id="basic-authentication-and-authorization-protocols">
+  Basic Authentication and Authorization Protocols
+  <a class="heading-link" href="#basic-authentication-and-authorization-protocols">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The security of AD relies on the protocols that underpin it. Understanding how these protocols work and their vulnerabilities is critical to developing defensive strategies.</p>
+<ul>
+<li><strong>Kerberos:</strong> The default authentication protocol in Windows domains. It provides a secure mechanism for mutual authentication based on concepts such as <strong>Ticket Granting Service (TGS)</strong> and <strong>Ticket Granting Ticket (TGT)</strong>. Although considered secure, advanced attacks such as Kerberoasting and Golden Ticket can exploit the features of this protocol.</li>
+<li><strong>NTLM (NT LAN Manager):</strong> It is a fallback protocol used when Kerberos cannot be used (for example, when the domain controller cannot be reached or in communication with legacy systems). It relies on the challenge-response mechanism but is inherently weak against attacks such as Pass-the-Hash. Its use in modern environments should be restricted as much as possible.</li>
+<li><strong>LDAP (Lightweight Directory Access Protocol):</strong> It is a standard protocol used to query and modify objects in the AD directory. When not configured securely (for example, when LDAP signing is not enforced), it can allow attackers to obtain sensitive information by eavesdropping or modifying network traffic.</li>
+</ul>
+<h3 id="group-policy-objects-gpos-the-power-of-centralized-security-management">
+  Group Policy Objects (GPOs): The Power of Centralized Security Management
+  <a class="heading-link" href="#group-policy-objects-gpos-the-power-of-centralized-security-management">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Group Policy Objects (GPOs) are one of AD&rsquo;s most powerful security management tools. Through GPOs, administrators can centrally configure and enforce security settings for thousands of computers and users. These settings include critical controls such as password policies, account lockout policies, auditing settings, software restrictions, and Windows Firewall rules. The ability to connect GPOs to OUs allows creating different security baselines for assets at different risk levels. This forms the basis of AD tightening.</p>
+<p>An attacker typically infiltrates a network by taking over a low-authority user account. This account resides within a specific OU and is subject to restrictions set by GPOs. The attacker&rsquo;s ultimate goal is to reach a Tier 0 level account, such as a Domain Admin, usually through lateral movement. If the AD architecture and GPOs are designed correctly according to the &ldquo;Principle of Least Privilege&rdquo;, the systems that this first compromised account can access and the actions it can perform will be extremely limited. This forces the attacker to look for additional vulnerabilities to move to an upper administrative boundary (for example, to servers in a different OU or directly to a Domain Controller). Therefore, a well-structured AD architecture acts as a passive defense mechanism that slows down the attack, leaves more traces, and gives security teams more opportunities for detection. On the contrary, a poorly structured AD is like a straight highway for the attacker to his goal.</p>
+<hr>
+<h3 id="active-directory-attack-surface-threat-vectors-and-techniques">
+  Active Directory Attack Surface: Threat Vectors and Techniques
+  <a class="heading-link" href="#active-directory-attack-surface-threat-vectors-and-techniques">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Active Directory is an extremely attractive target for attackers due to its centralized nature. Once an attacker has infiltrated the network, they attempt to escalate their privileges and achieve their goals, often using AD as a road map.</p>
+<h3 id="reconnaissance-and-enumeration">
+  Reconnaissance and Enumeration
+  <a class="heading-link" href="#reconnaissance-and-enumeration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>An attacker&rsquo;s first step is to understand their environment. AD is a rich source of information for this discovery phase.</p>
+<h4 id="ldap-discovery-and-powerview">
+  LDAP Discovery and PowerView
+  <a class="heading-link" href="#ldap-discovery-and-powerview">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Attackers query AD using standard LDAP queries or PowerShell-based tools such as PowerView. With these queries, they can learn who the privileged users are, what groups (for example, Domain Admins) exist, what operating systems the computers are using, and what systems the users are logged into. This information is used to plan the next steps of the attack.</p>
+<h4 id="mapping-attack-paths-with-bloodhound">
+  Mapping Attack Paths with BloodHound
+  <a class="heading-link" href="#mapping-attack-paths-with-bloodhound">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>BloodHound is a tool that has revolutionized modern AD attacks. It is used by both attackers (red team) and defenders (blue team). BloodHound collects complex permissions and relationships in AD (e.g. who is local administrator on which computer, which group has rights to which object) and passes this data to a graph database (Neo4j).</p>
+<ul>
+<li><strong>Data Collection:</strong> Data collectors such as SharpHound collect data such as session information, local administrator group memberships, and ACL (Access Control List) information from systems on the network.</li>
+<li><strong>Visualization:</strong> BloodHound uses this data to present potential privilege escalation and lateral movement paths as a visual map. Using predefined queries such as “Shortest path to Domain Admins group,” attackers can find the easiest path to domain dominance in seconds, starting from a low-authority account.</li>
+</ul>
+<h3 id="credential-theft-and-abuse">
+  Credential Theft and Abuse
+  <a class="heading-link" href="#credential-theft-and-abuse">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>After the reconnaissance phase, attackers focus on stealing credentials to move laterally and increase their privileges.</p>
+<h4 id="password-spraying-and-brute-force">
+  Password Spraying and Brute Force
+  <a class="heading-link" href="#password-spraying-and-brute-force">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>These methods are the most basic credential attacks. In brute force attacks, thousands of passwords are tried against a single account, while in password spray attacks, a small number of common passwords such as “Password123” or “Winter2024” are tried against a large number of user accounts. Password spray is a more discreet method as it is less likely to trigger account lockout policies.</p>
+<h4 id="llmnrnbt-ns-poisoning-and-responder-tool">
+  LLMNR/NBT-NS Poisoning and Responder Tool
+  <a class="heading-link" href="#llmnrnbt-ns-poisoning-and-responder-tool">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Link-Local Multicast Name Resolution (LLMNR) and NetBIOS Name Service (NBT-NS) are legacy name resolution protocols that take effect when the DNS server becomes unresponsive on a network. Using tools like Responder, attackers listen for name resolution requests to these protocols and send spoofed responses, masquerading as the requested resource (for example, a file server). When the victim&rsquo;s computer tries to connect to this fake server, it sends the hash of the NTLMv2 password for authentication, and the attacker captures this hash. These hashes can then be cracked offline or used in Pass-the-Hash attacks.</p>
+<h4 id="technical-deep-dive-pass-the-hash-pth-attack">
+  Technical Deep Dive: Pass-the-Hash (PtH) Attack
+  <a class="heading-link" href="#technical-deep-dive-pass-the-hash-pth-attack">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Pass-the-Hash (PtH) is a powerful lateral movement technique that allows an attacker to authenticate using only the NTLM hash of a user&rsquo;s password, without needing to know their plaintext password.</p>
+<ul>
+<li><strong>Mechanism:</strong> This attack is due to the nature of the NTLM authentication protocol. In NTLM, the password is never sent over the network in clear text; its hash is used instead. When a server requests authentication from a user, it verifies the user&rsquo;s hash. Therefore, having the hash is functionally equivalent to having the password.</li>
+<li><strong>Execution:</strong> Once attackers gain administrative rights on a machine, they steal password hashes from the Local Security Authority Subsystem Service (LSASS) memory or the Security Accounts Manager (SAM) database using tools such as Mimikatz. Mimikatz commands such as <code>sekurlsa::pth</code> inject this stolen hash into the current session, allowing the attacker to access other systems with that user ID.</li>
+<li><strong>Effect:</strong> PtH allows attackers to spread quickly within the network because a hash remains valid until the password is changed.</li>
+</ul>
+<h3 id="kerberos-based-advanced-attacks">
+  Kerberos-Based Advanced Attacks
+  <a class="heading-link" href="#kerberos-based-advanced-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Although Kerberos is more secure than NTLM, it has its own vulnerabilities and attackers have developed advanced techniques to exploit these vulnerabilities.</p>
+<h4 id="technical-deep-dive-kerberoasting">
+  Technical Deep Dive: Kerberoasting
+  <a class="heading-link" href="#technical-deep-dive-kerberoasting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Kerberoasting is a highly stealthy and effective attack that specifically targets service accounts.</p>
+<ul>
+<li><strong>Mechanism:</strong> The attack targets user or computer accounts with a Service Principal Name (SPN) record in Active Directory. SPNs associate a service (for example, a SQL server service) with an account. As per the Kerberos protocol, any authenticated domain user can request a Kerberos service ticket (TGS/ST) for any SPN.</li>
+<li><strong>Execution:</strong> The attacker requests a service ticket for the target service using a tool such as Rubeus. The Key Distribution Center (KDC) encrypts this ticket with the NTLM password hash of the service account and sends it to the attacker. The attacker takes this ticket and removes it from the network, performing a brute force attack in an offline environment with tools such as Hashcat or John the Ripper. This method is very difficult to detect because it does not leave “noisy” traces on the network, such as failed login attempts.</li>
+<li><strong>Risk:</strong> Service accounts often have high privileges to access critical systems such as databases or applications, and their passwords are rarely changed or weak. This makes a successful Kerberoasting attack a powerful stepping stone to take over a domain.</li>
+</ul>
+<h4 id="technical-deep-dive-golden-and-silver-ticket-attacks">
+  Technical Deep Dive: Golden and Silver Ticket Attacks
+  <a class="heading-link" href="#technical-deep-dive-golden-and-silver-ticket-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>These attacks target the core trust mechanisms of the Kerberos protocol and provide absolute control over a domain.</p>
+<ul>
+<li><strong>Golden Ticket:</strong> This is one of the most devastating attacks against AD. The attacker&rsquo;s goal is to obtain the password hash of the <code>krbtgt</code> account, which is the secret key used to encrypt and sign all Kerberos tickets in the domain. Once the attacker has obtained the <code>krbtgt</code> hash (e.g., via a DCSync attack), the attacker can use tools like Mimikatz to create a fake Ticket Granting Ticket (TGT) in the name of <em>any user</em> in the domain, with any group membership he desires (e.g., Domain Admins), and with a nearly indefinite (default 10 years) validity period. This fake “golden ticket” gives the attacker complete and permanent domination over the domain.</li>
+<li><strong>Silver Ticket:</strong> This attack targets the password hash of a specific service (for example, a file server&rsquo;s CIFS service) instead of <code>krbtgt</code>. Once the attacker has this hash, they can create fake service tickets (TGS) that only grant access to that specific service. It has a more limited effect than the Golden Ticket, but is more difficult to detect because all communication occurs only between the victim service and the client, without reference to the KDC.</li>
+</ul>
+<h3 id="domain-dominance-techniques">
+  Domain Dominance Techniques
+  <a class="heading-link" href="#domain-dominance-techniques">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>These techniques aim to give attackers full control by capturing all credentials in a domain.</p>
+<h4 id="ntdsdit-database-extraction">
+  NTDS.dit Database Extraction
+  <a class="heading-link" href="#ntdsdit-database-extraction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><code>NTDS.dit</code> is the Active Directory database file that contains all domain objects and most importantly the password hashes of all users. This file is located on domain controllers. If an attacker gains administrative rights on a DC, they can copy this file (usually through techniques such as Volume Shadow Copy). Once he gets hold of the file, he can extract and crack all the password hashes in it using offline tools.</p>
+<h4 id="dcsync-attack">
+  DCSync Attack
+  <a class="heading-link" href="#dcsync-attack">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>DCSync is a Mimikatz technique that allows an attacker to pose as a fake domain controller and request password data from a legitimate DC over the replication protocol. To carry out this attack, the attacker needs to capture an account (for example, a Domain Admin or backup operator) with special permissions such as <strong>&ldquo;Replicating Directory Changes&rdquo;</strong> and <strong>&ldquo;Replicating Directory Changes All&rdquo;</strong>. DCSync is highly stealthy because it does not perform any file operations on the DC and spoofs legitimate replication traffic. It is generally used to prepare the ground for a Golden Ticket attack by stealing the hash of the <code>krbtgt</code> account. Mimikatz&rsquo;s <code>lsadump::dcsync</code> command was designed specifically for this attack.</p>
+<p>AD attacks often proceed as a chain reaction of a series of linked actions rather than a single event. Exploiting one vulnerability opens the door to the next. For example, having LLMNR/NBT-NS protocols active on a weak network segment allows an attacker to capture the NTLM hash of a low authority user via the Responder tool. Even if the attacker cannot crack this hash, he can move laterally to other machines with the same credentials using the Pass-the-Hash technique. On one of these newly accessed machines, discovery with a tool like BloodHound can reveal the presence of a SQL service account with a weak password. At this point, the attacker requests the ticket for this service account with the Kerberoasting attack and cracks its password offline. Once you gain access to servers where this service account is a local administrator, Mimikatz may steal the cached credentials of a Domain Admin who has previously logged in to the site, or discover that this service account mistakenly has the &lsquo;Replicating Directory Changes&rsquo; permission. With this permission, it performs a DCSync attack, stealing the hash of the <code>krbtgt</code> account, and as the last step, creates a Golden Ticket, providing permanent and absolute control over the entire domain. This chain clearly shows that AD security should focus on breaking the links of the entire attack chain, rather than protecting a single point.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Attack Technique (MITRE ATT&amp;CK ID)</th>
+          <th style="text-align: left">Working Principle (Summary)</th>
+          <th style="text-align: left">Primary Defense Strategies</th>
+          <th style="text-align: left">Related Tools (Attack/Defense)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>Kerberoasting</strong> (T1558.003)</td>
+          <td style="text-align: left">Cracking the service ticket hash with SPN offline.</td>
+          <td style="text-align: left">Group Managed Service Accounts (gMSA), 25+ character complex service account passwords, enforce AES encryption.</td>
+          <td style="text-align: left">Rubeus, Hashcat, John the Ripper</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Pass-the-Hash</strong> (T1550.002)</td>
+          <td style="text-align: left">Using the NTLM hash to authenticate without the password.</td>
+          <td style="text-align: left">Credential Guard, LAPS, Restricted Admin Mode, Tiered Model.</td>
+          <td style="text-align: left">Mimikatz, Impacket</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>DCSync</strong> (T1003.006)</td>
+          <td style="text-align: left">Spoofing a DC to request password data via replication.</td>
+          <td style="text-align: left">Monitoring for specific ACL permissions, auditing directory replication events.</td>
+          <td style="text-align: left">Mimikatz</td>
+      </tr>
+  </tbody>
+</table>
+<p><img src="/images/1_YontK_x4FdZcm4LQIPCUtw.png" alt=""></p>
+<hr>
+<h3 id="depth-of-defense-multi-layered-security-strategies">
+  Depth of Defense: Multi-Layered Security Strategies
+  <a class="heading-link" href="#depth-of-defense-multi-layered-security-strategies">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Protecting Active Directory is possible not with a single technology or product, but with a multi-layered defense strategy that complements each other. The basic philosophy of this strategy is to make an attacker&rsquo;s job harder, restrict his range of action, and ultimately render his credential theft-based attacks ineffective.</p>
+<h3 id="application-of-the-principle-of-least-privilege-polp">
+  Application of the Principle of Least Privilege (PoLP)
+  <a class="heading-link" href="#application-of-the-principle-of-least-privilege-polp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The Principle of Least Privilege (PoLP) is one of the cornerstones of cybersecurity. According to this principle, a user, application, or service should be granted the absolute minimum permissions and access rights necessary to perform its task. Once an account is compromised, this policy greatly limits the potential damage an attacker can do. For example, if an administrator who logs in with a standard user account to read their emails falls victim to a phishing attack, the virus can only access that user&rsquo;s data. However, if the same administrator had logged in with a Domain Admin account, the virus could have spread throughout the domain.</p>
+<p>One of the biggest challenges in practice is “privilege creep”. This is a situation where additional permissions given to users for temporary projects are not withdrawn after the project is completed and accumulate over time. To reduce this risk, it is critical that permits are regularly reviewed and audited.</p>
+<h3 id="tiered-administrative-model">
+  Tiered Administrative Model
+  <a class="heading-link" href="#tiered-administrative-model">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The Administrative Layer Model is the most structured version of PoLP applied to Active Directory. This model separates AD entities and administrator accounts into layers of control to prevent credential theft and the lateral movement of attackers within the network.</p>
+<h4 id="defining-layers">
+  Defining Layers:
+  <a class="heading-link" href="#defining-layers">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The model consists of three basic layers:</p>
+<ul>
+<li><strong>Tier 0 (Control Plane):</strong> These are the most critical assets that provide full control of the forest and identity infrastructure. These include Domain Controllers (DC), Active Directory Federation Services (ADFS) servers, Azure AD Connect servers, Public Key Infrastructure (PKI) servers, and the accounts that manage these entities (Domain Admins, Enterprise Admins, Schema Admins). Hijacking this layer means hijacking the entire environment.</li>
+<li><strong>Tier 1 (Management Plane):</strong> Hosts enterprise servers and applications. File servers, database servers, application servers and server administrator accounts that manage these systems are in this layer.</li>
+<li><strong>Tier 2 (User Plane):</strong> Includes end user devices (workstations, laptops) and support accounts, such as help desk, that manage these devices.</li>
+</ul>
+<h4 id="basic-rule-and-application">
+  Basic Rule and Application:
+  <a class="heading-link" href="#basic-rule-and-application">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The most basic and strict rule of the model is this: <strong>A credential from a higher tier (for example, a Tier 0 administrator account) should never log into a system at a lower tier (for example, a Tier 2 workstation)</strong>. This rule prevents high-value credentials from being cached and stolen in the memory of systems at less secure lower layers. This technical control is implemented through GPOs using user rights assignments such as “Deny log on locally”, “Deny access to this computer from the network” and “Deny log on through Remote Desktop Services”. For example, in a GPO targeting Tier 1 servers, Tier 0 administrator groups (Domain Admins, etc.) are assigned these rights and are prevented from logging in.</p>
+<p><strong>Privileged Access Workstations (PAWs) for management of each tier</strong> is highly recommended. A Tier 0 manager should only use a specially hardened, isolated Tier 0 PAW without internet access to manage Tier 0 assets.</p>
+<h3 id="hardening-critical-assets">
+  Hardening Critical Assets
+  <a class="heading-link" href="#hardening-critical-assets">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In addition to the layer model, specific entities also need to be tightened internally.</p>
+<h4 id="securing-domain-controllers">
+  Securing Domain Controllers
+  <a class="heading-link" href="#securing-domain-controllers">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>DCs are the heart of AD and must be protected most tightly. Key hardening steps include restricting physical access to DCs, removing unnecessary software and services, using application whitelisting (such as AppLocker), promptly applying the latest security patches, and only allowing administration from Tier 0 PAWs.</p>
+<h4 id="microsoft-laps-local-administrator-password-solution">
+  Microsoft LAPS (Local Administrator Password Solution)
+  <a class="heading-link" href="#microsoft-laps-local-administrator-password-solution">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>LAPS is a free Microsoft tool designed to manage the password of the local administrator account on all Windows computers joined to the domain. It generates a unique, random and complex password for each computer, stores this password securely in an attribute of the corresponding computer object in AD, and changes the password regularly. This prevents attackers from stealing the local administrator password on one machine and using it to move laterally to other machines (a common scenario of Pass-the-Hash attacks).</p>
+<h4 id="technical-deep-dive-group-managed-service-accounts-gmsa">
+  Technical Deep Dive: Group Managed Service Accounts (gMSA)
+  <a class="heading-link" href="#technical-deep-dive-group-managed-service-accounts-gmsa">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Traditional service accounts are a prime target for Kerberoasting attacks because their passwords are often weak, never changed, and shared across multiple servers.</p>
+<ul>
+<li><strong>Solution:</strong> gMSAs are special AD objects designed to solve this problem. When a gMSA is created, password management is completely handed over to the Windows operating system. The system generates extremely complex and random passwords longer than 25 characters and automatically changes these passwords every 30 days by default.</li>
+<li><strong>Security Benefit:</strong> Most importantly, no human can access or know these passwords. The password is managed by AD and can only be retrieved by authorized hosts. These features make gMSAs almost completely immune to Kerberoasting attacks because they use very strong passwords that are practically impossible to crack offline.</li>
+</ul>
+<h3 id="advanced-credential-protection">
+  Advanced Credential Protection
+  <a class="heading-link" href="#advanced-credential-protection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="windows-defender-credential-guard">
+  Windows Defender Credential Guard
+  <a class="heading-link" href="#windows-defender-credential-guard">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Credential Guard is a hardware-based protection mechanism against credential theft available in Windows 10/11 Enterprise and Windows Server 2016 and later.</p>
+<ul>
+<li><strong>Mechanism:</strong> Using <strong>Virtualization Based Security (VBS)</strong> technology, Credential Guard moves the LSASS process that stores credential secrets (NTLM hashes, Kerberos TGTs) into a hypervisor-protected virtual space (<code>LSAIso.exe</code>) isolated from the normal operating system.</li>
+<li><strong>Protection:</strong> Thanks to this deep isolation, even if an attacker gains full administrator (Administrator or SYSTEM) rights on the system, he cannot access this protected memory and steal credentials.</li>
+<li><strong>Effect:</strong> Credential Guard effectively prevents tools like Mimikatz from dumping credentials from LSASS memory. This directly and almost completely eliminates basic lateral movement techniques such as Pass-the-Hash and Pass-the-Ticket. For Credential Guard to work, hardware features such as Secure Boot and TPM must be enabled and can be configured through GPO or Intune.</li>
+</ul>
+<h3 id="strong-password-policies-and-multi-factor-authentication-mfa">
+  Strong Password Policies and Multi-Factor Authentication (MFA)
+  <a class="heading-link" href="#strong-password-policies-and-multi-factor-authentication-mfa">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="modern-password-policies-compliant-with-nist-guidelines">
+  Modern Password Policies Compliant with NIST Guidelines
+  <a class="heading-link" href="#modern-password-policies-compliant-with-nist-guidelines">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The National Institute of Standards and Technology (NIST) has published modern best practices for password policies. These approaches differ significantly from traditional methods:</p>
+<ul>
+<li><strong>Length &gt; Complexity:</strong> It is recommended to focus on password length rather than traditional complexity rules (e.g. at least one uppercase letter, one number, one special character). Passwords of at least 15–20 characters should be encouraged.</li>
+<li><strong>Not Enforcing Password Change:</strong> Forcing users to change their passwords periodically (for example, every 90 days) is no longer recommended because it causes them to create weaker and more predictable passwords. Password change should only be enforced when a leak is suspected.</li>
+<li><strong>Blocking Known Bad Passwords:</strong> Newly generated passwords must be checked against a “blacklist” of leaked databases, dictionary words, and simple sequences, and rejected in case of a match.</li>
+</ul>
+<h4 id="mfa-solutions-for-on-premise-ad">
+  MFA Solutions for On-Premise AD
+  <a class="heading-link" href="#mfa-solutions-for-on-premise-ad">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Multi-Factor Authentication (MFA) is a critical layer that significantly increases security by ensuring that a stolen password is useless on its own. While there is no directly built-in MFA solution for on-premises AD, third-party solutions are available that provide this functionality. These solutions generally work in the following ways:</p>
+<ul>
+<li><strong>Windows Login Integration:</strong> Users are prompted for a second factor (for example, mobile app confirmation or OTP code) after entering a password when logging into Windows.</li>
+<li><strong>RADIUS or SAML Proxy:</strong> They implement MFA by passing authentication requests for VPN or other network devices through a proxy server. When choosing these solutions (e.g., UserLock, Rublon, Silverfort), features such as the ability to work offline or without a network connection, granular policy enforcement (e.g., only requesting MFA for certain connection types), and seamless integration with existing AD infrastructure should be considered.</li>
+</ul>
+<p>Although these defense mechanisms are valuable on their own, their real power comes when they come together. This creates a unified defensive philosophy that makes the attacker&rsquo;s job almost impossible. Once an attacker compromises an account in Tier 2, the Tiered Model prevents them from gaining access to Tier 0 assets. When trying to move laterally within the same layer, PtH attacks are rendered ineffective because each machine has a different local administrator password, thanks to LAPS. Even if it somehow gains administrative rights on a machine, Credential Guard fundamentally defeats PtH and PtT attacks by preventing it from stealing credentials from LSASS. When it tries to target service accounts, the Kerberoasting attack fails, thanks to gMSAs&rsquo; almost impossible-to-crack passwords. This layered defense renders AD a fortress by disabling the attacker&rsquo;s most basic weapons: credential theft and reuse.</p>
+<p><img src="/images/1_m6kPdehFatPSmDwBEF0fDw.png" alt=""></p>
+<hr>
+<h3 id="security-of-hybrid-identity-infrastructures">
+  Security of Hybrid Identity Infrastructures
+  <a class="heading-link" href="#security-of-hybrid-identity-infrastructures">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>As organizations integrate their on-premise infrastructure with cloud services (for example, Microsoft 365), identity management becomes hybrid. This hybrid structure offers new capabilities while also creating new and complex attack surfaces. Trust itself can become an attack vector.</p>
+<h3 id="microsoft-azure-ad-connect-configuration-and-security-best-practices">
+  Microsoft Azure AD Connect: Configuration and Security Best Practices
+  <a class="heading-link" href="#microsoft-azure-ad-connect-configuration-and-security-best-practices">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Azure AD Connect is a critical bridge that synchronizes identity objects (users, groups, password hashes) between on-premises Active Directory and Azure Active Directory (Microsoft Entra ID) in the cloud. The security of this bridge is vital to the security of the entire hybrid identity infrastructure.</p>
+<ul>
+<li><strong>Protecting Azure AD Connect Server as a Tier 0 Asset:</strong> The Azure AD Connect server has highly privileged access to both on-premises AD and Azure AD. Compromising this server could allow the attacker to gain full control of both environments. Therefore, the Azure AD Connect server should strictly be considered a <strong>Tier 0</strong> asset, protected like a domain controller, with physical and logical access minimized, and managed through a PAW only by specially appointed administrators.</li>
+<li><strong>Authentication Methods and Security Assessment:</strong> Azure AD Connect offers three main authentication methods: Password Hash Synchronization (PHS), Pass-Through Authentication (PTA), and Federation (ADFS). In terms of security, PHS is generally considered one of the safest options. Because PTA directs authentication requests to an in-house agent, it may be vulnerable to man-in-the-middle attacks and password theft via tools such as AADInternals if the server on which this agent is running is compromised.</li>
+<li><strong>Limiting Scope of Sync:</strong> One of the most critical security practices is to prevent on-premises administrator accounts (Domain Admins, Enterprise Admins, etc.) from syncing to Azure AD. Azure AD Connect filters these accounts by default, and this setting should never be changed. Syncing these accounts to the cloud opens the door for an on-premises breach to jump directly to the cloud.</li>
+</ul>
+<h3 id="attack-vectors-from-on-premises-to-cloud">
+  Attack Vectors from On-Premises to Cloud
+  <a class="heading-link" href="#attack-vectors-from-on-premises-to-cloud">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In the hybrid model, the security of the on-premises infrastructure and the cloud security are closely intertwined. A privilege obtained on-premises can be leveraged for a vertical move to the cloud.</p>
+<h4 id="federation-security-and-golden-saml-attack">
+  Federation Security and Golden SAML Attack
+  <a class="heading-link" href="#federation-security-and-golden-saml-attack">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>When federation solutions such as Active Directory Federation Services (ADFS) are used, a trust relationship is established between on-premises AD and the cloud service (for example, Microsoft 365). This trust is based on SAML (Security Assertion Markup Language) tokens that the ADFS server creates and signs with a private key (token-signing certificate).</p>
+<ul>
+<li><strong>Golden SAML Attack:</strong> This attack is the equivalent of the “Golden Ticket” attack in the federation and cloud world. If an attacker compromises the ADFS server (a Tier 0 entity) and steals the private key that signs SAML tokens, they can now generate a valid, signed SAML token on behalf of any user (for example, a Global Administrator) over the internet, without needing on-premises AD. This fake token is considered valid by Azure AD and gives the attacker full access to cloud resources. This shows that ADFS servers should be protected as tightly as domain controllers.</li>
+</ul>
+<h4 id="vertical-movement-risks-with-tools-like-aadinternals">
+  Vertical Movement Risks with Tools Like AADInternals
+  <a class="heading-link" href="#vertical-movement-risks-with-tools-like-aadinternals">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>PowerShell modules like AADInternals are specifically designed to exploit vulnerabilities in hybrid identity environments. After gaining administrative rights on the on-premises network, an attacker can use such tools to:</p>
+<ul>
+<li>By manipulating the PTA agent, it can make the authentication appear successful and steal the password even if the wrong password is entered.</li>
+<li>Can move vertically from on-premises AD to Azure AD.</li>
+<li>Can create backdoors in the cloud and even bypass MFA protections in some cases.</li>
+</ul>
+<h3 id="security-strategies-for-hybrid-environments">
+  Security Strategies for Hybrid Environments
+  <a class="heading-link" href="#security-strategies-for-hybrid-environments">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Protecting hybrid identity infrastructures requires minimizing trust relationships and separating control planes.</p>
+<ul>
+<li><strong>Preferring Cloud-Based Authentication:</strong> Whenever possible, federation structures such as ADFS should be avoided and simpler and more direct cloud-based authentication methods such as Password Hash Synchronization (PHS) should be used to reduce complexity and attack surface.</li>
+<li><strong>Isolation of Privileged Accounts:</strong> Cloud administrator accounts (Global Admins, etc.) must definitely be “cloud-only” accounts. These accounts should not reside in on-premises AD and should not be synced from there. This prevents an on-premises breach from directly affecting cloud administrator accounts.</li>
+<li><strong>Phishing-Resistant MFA:</strong> Phishing-resistant MFA methods such as Windows Hello for Business, FIDO2 security keys, or Microsoft Authenticator should be enforced for all administrator accounts (both on-premises and cloud) and, if possible, for all users.</li>
+<li><strong>Just-In-Time (JIT):</strong> Using solutions such as Azure AD Privileged Identity Management (PIM), administrators should be granted access to cloud roles only for the time they need (for example, for 2 hours) and through an approval process, rather than permanently. This significantly reduces the risk of privileged access.</li>
+</ul>
+<p>In hybrid identity infrastructures, the trust relationship between on-premises AD and Azure AD can act as a bridge for attackers. When an organization federates with ADFS to improve user experience, they are essentially instructing Azure AD to “trust signed SAML tokens from the ADFS server.” If an attacker gains administrative access to the ADFS server by exploiting a vulnerability in the on-premises network, they can steal the token signing private key that underpins this trust. From this point on, the attacker can create a valid, signed SAML token on behalf of any user (for example, a Global Admin) over the internet, with no further need for the on-premises network. Azure AD will accept this token as a legitimate proof of identity, giving the attacker full control of the cloud environment. This scenario clearly demonstrates that in the hybrid model, the weakest link breaks the entire chain and the security of hybrid components such as ADFS becomes the security of the entire cloud identity infrastructure.</p>
+<hr>
+<h3 id="continuous-monitoring-audit-and-recovery">
+  Continuous Monitoring, Audit and Recovery
+  <a class="heading-link" href="#continuous-monitoring-audit-and-recovery">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Security is a continuous process, not a one-time project. Even the best containment measures are incomplete without constant monitoring, control and an effective recovery plan. Detecting the actions of attackers and being able to recover quickly in the event of a disaster is the foundation of resilience.</p>
+<h3 id="active-directory-audit-policies-and-siem-integration">
+  Active Directory Audit Policies and SIEM Integration
+  <a class="heading-link" href="#active-directory-audit-policies-and-siem-integration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Recording and analyzing events that occur in Active Directory is the first step in detecting suspicious activity and responding to incidents.</p>
+<h4 id="critical-events-to-monitor">
+  Critical Events to Monitor
+  <a class="heading-link" href="#critical-events-to-monitor">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>For an effective audit, “Advanced Audit Policy Configuration” should be enabled through GPOs and focus on high-risk event categories such as:</p>
+<ul>
+<li><strong>User and Group Management:</strong> Events such as new user creation (Event ID 4720), user deletion (4726), account lockouts (4740), and especially the addition (4728) or removal (4729) of members to privileged groups such as Domain Admins and Enterprise Admins should be closely monitored.</li>
+<li><strong>Group Policy Changes:</strong> Creating, deleting, or changing the settings of GPOs (Event ID 5136, 5137) are potentially dangerous changes that can affect the entire domain and should be audited.</li>
+<li><strong>Login Events:</strong> Failed login attempts (Event ID 4625) may be an indicator of brute force or password spray attacks. Successful network login events (Event ID 4624, Logon Type 3) are critical for monitoring lateral movement activities.</li>
+<li><strong>Directory Service Changes:</strong> Access to certain objects (Event ID 4662) can be used to detect stealth attacks such as DCSync when filtered correctly.</li>
+</ul>
+<h4 id="windows-event-forwarding-wef-and-siem-integration">
+  Windows Event Forwarding (WEF) and SIEM Integration
+  <a class="heading-link" href="#windows-event-forwarding-wef-and-siem-integration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It is not practical to examine the event logs on each domain controller individually.</p>
+<ul>
+<li><strong>Windows Event Forwarding (WEF):</strong> This built-in feature of Windows is used to route event logs from multiple source computers (for example, all DCs) to a central Collector server. This creates an efficient aggregation layer before sending logs to the SIEM.</li>
+<li><strong>SIEM (Security Information and Event Management) Integration:</strong> These centrally collected logs should be transferred to a SIEM solution. SIEM allows combining events from different sources to create correlation rules, detect anomalies, and generate automatic alerts when predefined dangerous scenarios occur (for example, failed logins from 10 different accounts within 5 minutes).</li>
+</ul>
+<h3 id="advanced-threat-detection-microsoft-defender-for-identity">
+  Advanced Threat Detection: Microsoft Defender for Identity
+  <a class="heading-link" href="#advanced-threat-detection-microsoft-defender-for-identity">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Microsoft Defender for Identity is an Identity Threat Detection and Response (ITDR) solution based on behavioral analysis that goes beyond traditional auditing.</p>
+<ul>
+<li><strong>Architecture:</strong> Defender for Identity captures network traffic and Windows events through sensors installed on domain controllers, ADFS, and AD CS servers. This data is sent to the Microsoft cloud service for analysis.</li>
+<li><strong>Detection Capabilities:</strong> Creates a “normal behavior” profile for each user and device using User and Entity Behavior Analysis (UEBA) and machine learning algorithms. Deviations from this profile (for example, a user accessing a server in the middle of the night that they normally never access) are flagged as suspicious. It can behaviorally detect many advanced attacks such as Pass-the-Hash, Pass-the-Ticket, Golden Ticket, Kerberoasting, DCSync, etc., without relying on signatures.</li>
+<li><strong>Security Posture Assessment:</strong> It not only performs reactive detection, but also provides assessments such as Lateral Movement Paths, showing how an attacker can reach the Domain Admin, starting from a low-authority account. This allows vulnerabilities to be closed before attackers do.</li>
+</ul>
+<h3 id="active-directory-backup-and-disaster-recovery">
+  Active Directory Backup and Disaster Recovery
+  <a class="heading-link" href="#active-directory-backup-and-disaster-recovery">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>If an attack is successful, a reliable backup and recovery plan is vital to ensure business continuity. However, AD recovery is much more complex than a simple restore from backup.</p>
+<h4 id="best-backup-practices">
+  Best Backup Practices
+  <a class="heading-link" href="#best-backup-practices">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Scope and Frequency:</strong> At least two DCs from each domain (especially those hosting FSMO roles) should be backed up. Backups must be made regularly (usually daily) and the age of the backups must not exceed the AD&rsquo;s &ldquo;Tombstone Lifetime&rdquo; (default 180 days), otherwise the restored objects may be considered deleted by other DCs.</li>
+<li><strong>Storage and Testing:</strong> Backups must be stored in secure, offline or immutable storage areas to avoid being affected by ransomware. The most critical step is to test the recovery plan regularly (for example, at least once a year) in a completely isolated laboratory environment.</li>
+</ul>
+<h4 id="forest-recovery-andkrbtgt-password-reset">
+  Forest Recovery andKRBTGT Password Reset
+  <a class="heading-link" href="#forest-recovery-andkrbtgt-password-reset">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In cases where the entire forest is compromised, such as in a ransomware attack, it is almost impossible to know which backup is “clean.” Attackers&rsquo; dwell time on the network can often be months, meaning that all backups from the last few months are also potentially &ldquo;infected&rdquo;. Therefore, simply reverting to the latest backup could mean restoring the attacker to the system as well.</p>
+<p>The modern approach is to authoritatively restore a single DC from the oldest known and most trusted backup, clear the metadata of all other DCs, and set them up from scratch, allowing them to replicate with this restored DC.</p>
+<p>The most critical step in this process is <strong>resetting the KRBTGT account password</strong>:</p>
+<ul>
+<li><strong>Why It&rsquo;s Important:</strong> The <code>krbtgt</code> account signs all Kerberos TGTs. Resetting the password for this account will invalidate any Golden Tickets that attackers may have created.</li>
+<li><strong>Why Twice:</strong> Active Directory considers both the current <code>krbtgt</code> password and the previous password as valid to avoid timing problems during replication. This is a mechanism managed by the <code>msDS-KeyVersionNumber</code> attribute. To completely invalidate the old (stolen) password in the attacker&rsquo;s possession, the password must be reset twice. This effectively clears the password history.</li>
+</ul>
+<p><strong>Step by Step Guide:</strong></p>
+<ol>
+<li>Special scripts such as <code>Reset-KrbTgt-Password-For-RWDCs-And-RODCs.ps1</code> provided by Microsoft should be used.</li>
+<li>The first reset is performed.</li>
+<li>Unless there is an emergency, it is strongly recommended to wait <strong>at least 10 hours</strong> for existing Kerberos tickets to expire naturally and for replication to propagate to all DCs. This minimizes service interruptions. In an emergency recovery scenario, this waiting period can be bypassed, but this may cause temporary authentication issues.</li>
+<li>By performing the second reset, the password history is completely cleared and the forest is made secure again.</li>
+</ol>
+<!-- Table or summary omitted -->
+<hr>
+<h3 id="conclusion-and-strategic-recommendations">
+  Conclusion and Strategic Recommendations
+  <a class="heading-link" href="#conclusion-and-strategic-recommendations">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="future-approaches-to-active-directory-security">
+  Future Approaches to Active Directory Security
+  <a class="heading-link" href="#future-approaches-to-active-directory-security">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Active Directory has been the cornerstone of enterprise networks for decades and will continue to be so. However, the threat landscape is constantly evolving, and AD security strategies must keep pace. Future-oriented approaches require an evolution from static defenses to dynamic and intelligent systems.</p>
+<ul>
+<li><strong>Zero Trust Architecture:</strong> This approach is based on the principle of “never trust, always verify”. Every access request must be authenticated, authorized and encrypted, regardless of whether it comes from inside or outside the network. In the context of AD, this means strict implementation of principles such as strict network segmentation, micro-segmentation, MFA for every administrative action, and the Administrative Layer Model that ensures credentials are never exposed to an untrusted system.</li>
+<li><strong>Identity Threat Detection and Response (ITDR):</strong> Traditional endpoint (EDR) and network (NDR) security are not enough. Identity-focused attacks must be detected at the identity level. ITDR solutions such as Microsoft Defender for Identity detect anomalous identity activity using behavioral analysis and machine learning, offering the potential to stop attacks before they start.</li>
+<li><strong>Automation and Orchestration:</strong> The speed and scale of security operations have increased to the point that they cannot be managed with manual processes. Enforcing security policies (GPOs, LAPS), performing audits, and even automating some incident response steps (for example, automatically disabling a suspicious account) reduces human error and shortens response time.</li>
+</ul>
+<h3 id="actionable-tightening-checklist">
+  Actionable Tightening Checklist
+  <a class="heading-link" href="#actionable-tightening-checklist">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Summarizing the complex topics discussed throughout this report, here is a prioritized checklist that organizations can start implementing immediately to improve their AD security posture:</p>
+<p><strong>Basic Hygiene and Isolation:</strong></p>
+<ul>
+<li><strong>Identify and Isolate Tier 0 Entities:</strong> Identify your Domain Controllers, ADFS/Azure AD Connect servers, and PKI infrastructure. Restrict access to these systems only to Tier 0 administrator accounts from dedicated, hardened Privileged Access Workstations (PAWs).</li>
+<li><strong>Deploy Microsoft LAPS:</strong> Local administrator passwords on all domain-joined workstations and servers, immediately implement LAPS to centralize and randomize data. This closes off one of the most common avenues of lateral movement.</li>
+<li><strong>Disable LLMNR/NBT-NS:</strong> Prevent hash capture attacks with tools like Responder by disabling these outdated and insecure protocols across your entire network via GPO.</li>
+</ul>
+<p><strong>Credential Protection:</strong></p>
+<ul>
+<li><strong>Enable Credential Guard:</strong> Enable Credential Guard with GPO on all Windows 10/11 Enterprise and Windows Server 2016+ systems with appropriate hardware. This is one of the most effective defenses against Pass-the-Hash and Pass-the-Ticket attacks.</li>
+<li><strong>Secure Service Accounts:</strong> Convert traditional service accounts to Group Managed Service Accounts (gMSA) wherever possible. For situations where gMSA is not available, assign service accounts highly complex passwords of at least 25 characters, randomly generated, and stored in a password vault.</li>
+<li><strong>Enforce MFA for Privileged Accounts:</strong> Enforce Multi-Factor Authentication (MFA) for all administrator accounts and all accounts with access to sensitive data.</li>
+</ul>
+<p><strong>Continuous Monitoring and Recovery:</strong></p>
+<ul>
+<li><strong>Reset KRBTGT Password Regularly:</strong> Establish a procedure and schedule for resetting the password of the <code>krbtgt</code> account at least twice a year in two stages, with at least 10 hours in between. This reduces the risk of Golden Tickets.</li>
+<li><strong>Monitor and Alert for Critical Events:</strong> Configure real-time alerts in your SIEM or ITDR solution for the critical event IDs identified in this report (specifically privileged group changes, GPO changes, and DCSync attempts).</li>
+<li><strong>Test AD Recovery Plan:</strong> Thoroughly test your Active Directory forest recovery plan at least once a year in an isolated laboratory environment. This testing should cover not only technical steps but also communication plans and decision-making processes.</li>
+</ul>
+<p>Active Directory can be one of an organization&rsquo;s most powerful security assets when configured and protected correctly. But when neglected, it becomes its greatest weakness. The strategies presented in this report provide a comprehensive and actionable framework for strengthening this critical infrastructure against modern threats.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

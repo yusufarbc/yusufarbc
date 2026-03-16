@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Introduction to Image Processing with OpenCV · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Introduction to Image Processing with OpenCV
+  
+    
+    Link to heading
+  
+
+
+Hello, in this article, we will talk about what OpenCV is, computer vision and how to do these operations with Python.
+
+  OpenCV Overview
+  
+    
+    Link to heading
+  
+
+
+  What is Computer Vision?
+  
+    
+    Link to heading
+  
+
+Computer vision is a process by which we make sense of how images and videos are stored in the computer environment and how we can retrieve data from them. The purpose of computer vision is to know the content of the image. For this, it uses artificial intelligence and machine learning technologies.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Introduction to Image Processing with OpenCV">
+  <meta name="twitter:description" content="Introduction to Image Processing with OpenCVLink to headingHello, in this article, we will talk about what OpenCV is, computer vision and how to do these operations with Python.
+OpenCV OverviewLink to headingWhat is Computer Vision?Link to headingComputer vision is a process by which we make sense of how images and videos are stored in the computer environment and how we can retrieve data from them. The purpose of computer vision is to know the content of the image. For this, it uses artificial intelligence and machine learning technologies.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2022/02/introduction-to-image-processing-with-opencv/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Introduction to Image Processing with OpenCV">
+  <meta property="og:description" content="Introduction to Image Processing with OpenCVLink to headingHello, in this article, we will talk about what OpenCV is, computer vision and how to do these operations with Python.
+OpenCV OverviewLink to headingWhat is Computer Vision?Link to headingComputer vision is a process by which we make sense of how images and videos are stored in the computer environment and how we can retrieve data from them. The purpose of computer vision is to know the content of the image. For this, it uses artificial intelligence and machine learning technologies.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-02-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-02-04T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2022/02/introduction-to-image-processing-with-opencv/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2022/02/opencv-ile-g%C3%B6r%C3%BCnt%C3%BC-i%C5%9Flemeye-giri%C5%9F/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2022/02/introduction-to-image-processing-with-opencv/">
+              Introduction to Image Processing with OpenCV
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-02-04T00:00:00Z">
+                February 4, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              12-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="introduction-to-image-processing-with-opencv">
+  Introduction to Image Processing with OpenCV
+  <a class="heading-link" href="#introduction-to-image-processing-with-opencv">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/0_tAmPWiGxMp-BWqSx.png" alt=""></p>
+<p>Hello, in this article, we will talk about what OpenCV is, computer vision and how to do these operations with Python.</p>
+<h3 id="opencv-overview">
+  OpenCV Overview
+  <a class="heading-link" href="#opencv-overview">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="what-iscomputer-vision">
+  What is Computer Vision?
+  <a class="heading-link" href="#what-iscomputer-vision">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Computer vision is a process by which we make sense of how images and videos are stored in the computer environment and how we can retrieve data from them. The purpose of computer vision is to know the content of the image. For this, it uses artificial intelligence and machine learning technologies.</p>
+<h3 id="what-is-opencv">
+  What is OpenCV?
+  <a class="heading-link" href="#what-is-opencv">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>OpenCV (Open Source Computer Vision Library) is an open source computer vision library. It is a very functional platform for computer vision applications. It is often used in image processing, face recognition, video capture and object recognition.<br>
+ OpenCV; It has C++, Python, MATLAB and Java interfaces. It supports Windows, Linux, MacOS, iOS and Android. Written in optimized C/C++. It is designed for real-time computer vision applications. It contains more than 2500 optimized algorithms. There is also a detailed <a href="https://docs.opencv.org/3.4/index.html"  class="external-link" target="_blank" rel="noopener">documentation page</a>.</p>
+<h3 id="opencv-components">
+  OpenCV Components
+  <a class="heading-link" href="#opencv-components">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>OpenCV consists of five basic components:</p>
+<ol>
+<li><strong>CV (Computer Vision) Component:</strong> It is the library that contains basic image processing functions.</li>
+<li><strong>MLL (Machine Learning Library) Component:</strong> It is a library containing the necessary functions for Machine Learning.</li>
+<li><strong>HighgGUI Component:</strong> It contains functions where objects defined in the library are created and images and videos are saved and deleted.</li>
+<li><strong>CXCore Component:</strong> It is a library that contains general data structures, enables drawing on the image and provides XML support.</li>
+<li><strong>CvAux Component:</strong> It is a library containing algorithms such as mouth-tracking, face-recognition and shape matching.</li>
+</ol>
+<h3 id="what-is-numpy">
+  What is NumPy?
+  <a class="heading-link" href="#what-is-numpy">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Numpy is a Python library for working with arrays. It also has the necessary functions for working in the field of linear algebra and matrices. NumPy is an abbreviation for Numerical Python. We use the NumPy module a lot along with the OpenCV module. Because the image is also a matrix, and keeping the image as NumPy arrays allows us to use many functions offered by NumPy. For more detailed information about Numpy, you can check out this <a href="https://pwnlab.me/tr-veri-analizi-numpy/"  class="external-link" target="_blank" rel="noopener">article</a>.</p>
+<p>Image processing is a method of performing some operations on an image to obtain an improved image or to extract some useful information from it. If we talk about the basic definition of image processing, “Image processing is the analysis and processing of a digitized image, especially to improve its quality.”<br>
+ Image processing basically takes place in three steps:</p>
+<ul>
+<li>Import image</li>
+<li>Analyzing the image</li>
+<li>Export analysis result</li>
+</ul>
+<h3 id="opencv-withpython">
+  OpenCV with Python
+  <a class="heading-link" href="#opencv-withpython">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="opencv-installation">
+  OpenCV Installation
+  <a class="heading-link" href="#opencv-installation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>To use the OpenCV library with Python, we first need to install it using the pip package installation system. We can access the module page in PyPI <a href="https://pypi.org/project/opencv-python/"  class="external-link" target="_blank" rel="noopener">here</a>. To perform the installation, we write the following code in the terminal.</p>
+<pre tabindex="0"><code>pip install opencv-python
+</code></pre><p>To use OpenCV in our Python application, we first need to import it. We can also import the numpy module, which we use frequently with OpenCV, as &rsquo;np'.</p>
+<pre tabindex="0"><code>import cv2 import numpy as np
+</code></pre><h3 id="image-reading">
+  Image Reading
+  <a class="heading-link" href="#image-reading">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Pictures are kept in the computer memory as image matrices. Each cell of these matrices is a pixel. We can keep images in memory in different color spaces depending on the type of data these pixels contain. As examples of these color spaces; We can provide RBG, HSV and Gray color spaces.<br>
+ In the Opencv-python library, image reading is done with the <em>imread()</em> function. This function takes as parameters the path of the image it will read and the format it will use. By default it reads in RGB color space.</p>
+<pre tabindex="0"><code>cv2.imread(path, flag)
+</code></pre><p>Additionally, the <em>imshow()</em> function is used to show the image we read. As parameters, it takes the name of the window to be opened and the variable in which we hold the image.</p>
+<pre tabindex="0"><code>cv2.imshow(window_name, image)
+</code></pre><p>After calling this function, the window will open and the program will end. We use the following functions to prevent the program from terminating. B.In this way, unless the window is closed, the program does not terminate and the window remains open.</p>
+<pre tabindex="0"><code>cv2.waitKey(0) cv2.destroyAllWindows()
+</code></pre><p>Now, let&rsquo;s take a more detailed look at how to use these functions with Python and the color spaces we mentioned above.</p>
+<h4 id="bgr-colorspace">
+  BGR Color Space
+  <a class="heading-link" href="#bgr-colorspace">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In OpenCV, the RGB color space is realized as BGR (Blue-Green-Red), that is, the order of the colors blue, red and green. Other colors are obtained by mixing these colors. Each color is a number in the range 0–255, and each pixel of the image is a 3-element array consisting of numbers in the range 0–255 for these 3 colors. So BGR is a 3-channel color space.<br>
+ In OpenCV, the <em>imread()</em> function reads in the BGR color space by default.</p>
+<pre tabindex="0"><code>image = cv2.imread(&#34;picture.png&#34;) cv2.imshow(&#34;BGR&#34;,image)
+</code></pre><h4 id="hsv-colorspace">
+  HSV Color Space
+  <a class="heading-link" href="#hsv-colorspace">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>HSV (Hue, Saturation, Value) defines colors as color essence, saturation and brightness respectively. While saturation determines the vividness of the color, brightness refers to the brightness of the color. In HSV space, color and saturation values ​​for black color can take any number between 0 and 255, while brightness value is zero. In white color, the brightness value is 255.</p>
+<p>As in BGR, each pixel of the image is a 3-element array consisting of numbers from 0 to 255, and in HSV it is a 3-channel color space.<br>
+ In OpenCV, the image can be converted from BGR color space to HSV color space. For this we use the <em>cvtColor()</em> function.</p>
+<pre tabindex="0"><code>image = cv2.imread(&#34;picture.png&#34;) image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV) cv2.imshow(&#34;HSV&#34;,image)
+</code></pre><h4 id="gray-colorspace">
+  Gray Color Space
+  <a class="heading-link" href="#gray-colorspace">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Gray color space is a color space that describes colors as grayscale. Each color pixel is a number between 0 and 255 and represents shades of gray starting from black and ending with white. 0 defines black and 255 defines white. It is a single-channel color space because a single number is used for each pixel.<br>
+ When we give the parameter 0 to the <em>imread()</em> function in OpenCV, it reads in the Gray color space.</p>
+<pre tabindex="0"><code>image = cv2.imread(&#34;picture.png&#34;,0) cv2.imshow(&#34;Gray&#34;,image)
+</code></pre><h3 id="image-editing">
+  Image Editing
+  <a class="heading-link" href="#image-editing">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>We can edit the image with OpenCV. We can crop an image and add text or shapes to the image.</p>
+<h4 id="image-cropping">
+  Image Cropping
+  <a class="heading-link" href="#image-cropping">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Since images are a matrix, we can take a part of this matrix when we want to crop the image. Let&rsquo;s crop the image matrix between 200 and 500 pixels widthwise and 400 and 800 pixels lengthwise.</p>
+<pre tabindex="0"><code>frame = picture[200:500,400:800]
+</code></pre><h4 id="adding-lines">
+  Adding Lines
+  <a class="heading-link" href="#adding-lines">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>We use the line() function to add a line on the image. This function takes as parameters the variable where the image is stored, the pixel where the line will start, the pixel where the line will end, the color of the line and the thickness of the line. Let&rsquo;s add a blue line with a thickness of 4 units going from the (0,0)th pixel to the (100,100)th pixel in the image matrix. We will give the color in BGR (blue, green, red) type, so if we set the blue value to 255 and the other values ​​to 0, we will get the blue color.</p>
+<pre tabindex="0"><code>cv2.line(picture,(0,0),(100,100),(255,0,0),thickness=4)
+</code></pre><h4 id="adding-a-circle">
+  Adding a Circle
+  <a class="heading-link" href="#adding-a-circle">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>We use the circle() function to add a circle on the image. This function takes as parameters the variable in which the image is kept, the center pixel of the circle, the radius of the circle, the color of the circle and the thickness of the line. Let&rsquo;s create a red circle on the image with a center of (100,100) pixels and a radius of 70 pixels.</p>
+<pre tabindex="0"><code>cv2.circle(picture,(500,200),70,(0,0,255),thickness=8)
+</code></pre><h4 id="adding-a-rectangle">
+  Adding a Rectangle
+  <a class="heading-link" href="#adding-a-rectangle">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>We use the rectangle() function to add a rectangle on the image. This function takes as parameters the variable in which the image is kept, the pixel where one end corner of the rectangle will be located, the pixel where the other end corner of the rectangle will be located, the color and thickness of the line. Let&rsquo;s create a green rectangle with one end at (200,100) pixels and the other end at (700,400) pixels.</p>
+<pre tabindex="0"><code>cv2.rectangle(original_image,(200,100),(700,400),(0,255,0),thickness=3)
+</code></pre><h4 id="adding-text">
+  Adding Text
+  <a class="heading-link" href="#adding-text">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The putText() function is used to add text on the image. This function uses the retention variable of the image as parameters, the text to be written on the image, the text; Gets its position, font, size, color and thickness on the image. Let&rsquo;s print a green &ldquo;Hello World&rdquo; on the image at (50,200) in HERSHEY_COMPLEX font, size 2.</p>
+<pre tabindex="0"><code>cv2.putText(picture,&#34;Hello World&#34;,(100,200),cv2.FONT_HERSHEY_COMPLEX,2,(0,255,0),thickness=2)
+</code></pre><h3 id="image-filters">
+  Image Filters
+  <a class="heading-link" href="#image-filters">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Image filtering changes the shadows or color of the pixelIt is the process of changing an image. It is also used to increase brightness and contrast. There are many different types of filters. We will use the image below when trying these filters.</p>
+<p>In the mean filter, the pixel value is replaced with the average of neighboring pixel values. src: specifies the image to be processed, ksize: specifies the size of the pixel matrix to be averaged (such as height-width, 3 by 3, 5 by 5).</p>
+<pre tabindex="0"><code>cv2.blur(src, ksize)
+</code></pre><h4 id="gaussian-blur">
+  Gaussian Blur
+  <a class="heading-link" href="#gaussian-blur">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Applies a flattening operation on the image. sigmaX- Gaussian kernel standard deviation. By default it is 0.</p>
+<pre tabindex="0"><code>cv2.GaussianBlur(src, ksize, sigmaX)
+</code></pre><h4 id="median-blur">
+  Median Blur
+  <a class="heading-link" href="#median-blur">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Instead of replacing the pixel value with the average of neighboring pixel values, the median filter sorts the neighboring pixels and replaces them with the value in the middle of the row. That is, it takes the median of all pixels in the image and replaces it with the median value of the filter to be used. Effectively reduces noise.</p>
+<pre tabindex="0"><code>cv2.medianBlur(src, ksize)
+</code></pre><h4 id="erosiondilation">
+  Erosion — Dilation
+  <a class="heading-link" href="#erosiondilation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Erosion wears away the boundaries of the foreground object. Dilation is the exact opposite of this.</p>
+<p>While dilation tries to close the area, i.e. increases the white area, erosion is useful in removing small white noise and the foreground object.</p>
+<p>Dilation tries to make it holistic, erosion makes it more specific.</p>
+<pre tabindex="0"><code>cv2.erode(image, kernel) cv2.dilate(image, kernel)
+</code></pre><p>Opening makes the object on the image more visible by opening the gaps and increasing the color difference.</p>
+<p>Closing closes the object on the image, increases the white area and removes noise on the image.</p>
+<p>There are also more advanced functions used in filtering. Some of these are: <strong>bilateralFilter(), boxfilter()</strong> and <strong>Filter2D()</strong>. You can find more detailed information about these filters <a href="https://www.javatpoint.com/opencv-image-filters"  class="external-link" target="_blank" rel="noopener">here</a>.</p>
+<p>The basic concept of treshold is to make visual data simpler for analysis. When we convert the image to gray scale, each pixel contains values ​​between 0 and 255. Threshold converts each pixel to white or black depending on the threshold value. So simply, it is the process of converting a grayscale image into a black and white image. However, there are also more advanced applications. Let&rsquo;s say we want the threshold value to be 125 (out of 255), then pixels below 125 will be converted to 0, that is, black, and pixels above 125 will be converted to 255, that is, white. There are several different ways to implement Thresholding. Let&rsquo;s look at these together.</p>
+<h4 id="simple-tresholding">
+  Simple Tresholding
+  <a class="heading-link" href="#simple-tresholding">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In Simple Tresholding, the same threshold value is applied to each pixel, as we mentioned above. If the pixel value is smaller than the threshold, it is set to 0, otherwise it is set to the maximum value. The treshold() function is used to apply the threshold. The first parameter is a grayscale image. The second parameter is the threshold value used to classify pixel values. The third parameter is the maximum value assigned to pixel values ​​that exceed the threshold. The fourth parameter provides different types of thresholds given by OpenCV. All basic threshold types:</p>
+<p>These Threshold types are given as parameters to the threshold() function.</p>
+<pre tabindex="0"><code>ret, thresh1 = cv2.threshold(image, 160, 255, cv2.THRESH_BINARY) cv2.imshow(&#34;simple thresholding&#34;,thresh1) ret, thresh2 = cv2.threshold(image, 160, 255, cv2.THRESH_BINARY_INV) cv2.imshow(&#34;simple thresholding&#34;,thresh2)
+</code></pre><h4 id="adaptive-tresholding">
+  Adaptive Tresholding
+  <a class="heading-link" href="#adaptive-tresholding">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In Adaptive Thresholding, instead of using the same threshold value for all pixel values, separate threshold values are determined for each pixel according to the region around the pixel. In this way, we can use different threshold values ​​in different parts of the same image. This gives better results for images with various lighting. There are two different methods we can use for this:</p>
+<ul>
+<li>cv2.ADAPTIVE_THRESH_MEAN_C: Threshold value is the average of the region around the pixel.</li>
+<li>cv2.ADAPTIVE_THRESH_GAUSSIAN_C: Threshold value is the weighted sum of the region around the pixel.</li>
+</ul>
+<pre tabindex="0"><code>thresh1 = cv2.adaptiveThreshold(image, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY,11,2) cv2.imshow(&#34;ADAPTIVE_THRESH_MEAN_C&#34;,thresh1) thresh2 = cv2.adaptiveThreshold(image, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY,11,2) cv2.imshow(&#34;ADAPTIVE_THRESH_GAUSSIAN_C&#34;,thresh2)
+</code></pre><h4 id="herbaceous-thersholding">
+  Herbaceous Thersholding
+  <a class="heading-link" href="#herbaceous-thersholding">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In the Otsu method, an optimum constant threshold value is determined from the image histogram. The histogram consists of only two peaks and a good threshold would be the average of these two values. do thiscv2.thresh_otsu is added as an additional flag to the Threshold() function. The threshold value can be chosen arbitrarily. The algorithm then finds the optimal threshold value.</p>
+<pre tabindex="0"><code>ret,thresh = cv2.threshold(image, 0, 255,cv2.THRESH_BINARY+cv2.THRESH_OTSU) cv2.imshow(&#34;Otsu Thersholding&#34;,thresh)
+</code></pre><h3 id="video-capture">
+  Video Capture
+  <a class="heading-link" href="#video-capture">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In OpenCV, video capture is done with the videoCapture() function. With this function, you can operate a camera connected to your computer and process the image you receive in real-time. The 0 parameter you give to the function indicates your computer&rsquo;s webcam. If you have connected an external camera, you must give the value 1. The code below will run your computer&rsquo;s webcam and show you the received image. To end the program, simply press the ESC key.</p>
+<pre tabindex="0"><code>importcv2 cam = cv2.VideoCapture(0) while True: reject,view=cam.read() cv2.imshow(&#34;video capture&#34;,image) if cv2.waitKey(30)==27: #Exit the loop if ESC is pressed break cam.release() cv2.destroyAllWindows()
+</code></pre><h3 id="canny-edge-detection">
+  Canny Edge Detection
+  <a class="heading-link" href="#canny-edge-detection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Canny Edge Detection is a popular edge detection algorithm. In OpenCV, we implement this algorithm with the canny() function. The first parameter of the function is the source image. The second and third parameters are the minimum and maximum threshold values, respectively.</p>
+<pre tabindex="0"><code>cv2.Canny(image, treshold1, treshold2)
+</code></pre><h4 id="a-fun-app">
+  A fun app
+  <a class="heading-link" href="#a-fun-app">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>To obtain better results with the Canny() function, treshold values must be determined well and the image must be softened. We can also determine Treshold values ​​based on the median of the image matrix. In this way, thresold values ​​are calculated automatically. Let&rsquo;s make an application where we apply the canny algorithm in real time with a webcam.</p>
+<pre tabindex="0"><code>import cv2 as cv  
+import numpy as np  
+  
+cam = cv.VideoCapture(0)  
+  
+def autoCanny(blur, sigma=0.33):   
+  median = np.median(blur)
+</code></pre><hr>
+<p><em>Originally published at</em> <a href="https://pwnlab.me/tr-opencv-ile-goruntu-isleme-giris/"  class="external-link" target="_blank" rel="noopener"><em>https://pwnlab.me</em></a> <em>on February 4, 2022.</em></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

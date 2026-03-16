@@ -1,4 +1,5 @@
 ---
+series: ["SentinelOne"]
 title: "SentinelOne Singularity Platform: Advanced Cyber ​​Security Solutions and Architectural Analysis"
 date: 2025-10-23
 draft: false

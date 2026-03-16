@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Is RDP Secure? · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Is RDP Secure?
+  
+    
+    Link to heading
+  
+
+
+In this article, we will discuss whether the RDP (Remote Desktop Protocol) protocol is secure or not. RDP (Remote Desktop Protocol) has become a protocol frequently used by APT (Advanced Persistent Threat) groups for lateral movement, that is, horizontal movement within the network. In this respect, it creates the impression that it is not a secure protocol. So what is the reason for this?">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Is RDP Secure?">
+  <meta name="twitter:description" content="Is RDP Secure?Link to headingIn this article, we will discuss whether the RDP (Remote Desktop Protocol) protocol is secure or not. RDP (Remote Desktop Protocol) has become a protocol frequently used by APT (Advanced Persistent Threat) groups for lateral movement, that is, horizontal movement within the network. In this respect, it creates the impression that it is not a secure protocol. So what is the reason for this?">
+
+<meta property="og:url" content="http://localhost:1313/posts/2024/11/is-rdp-secure/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Is RDP Secure?">
+  <meta property="og:description" content="Is RDP Secure?Link to headingIn this article, we will discuss whether the RDP (Remote Desktop Protocol) protocol is secure or not. RDP (Remote Desktop Protocol) has become a protocol frequently used by APT (Advanced Persistent Threat) groups for lateral movement, that is, horizontal movement within the network. In this respect, it creates the impression that it is not a secure protocol. So what is the reason for this?">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-11-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-11-24T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2024/11/is-rdp-secure/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2024/11/rdp-g%C3%BCvenli-midir/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2024/11/is-rdp-secure/">
+              Is RDP Secure?
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-11-24T00:00:00Z">
+                November 24, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              7-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="is-rdpsecure">
+  Is RDP Secure?
+  <a class="heading-link" href="#is-rdpsecure">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_UP8fyAdYI17KDIqhtDK4Sg.png" alt=""></p>
+<p>In this article, we will discuss whether the RDP (Remote Desktop Protocol) protocol is secure or not. <strong>RDP (Remote Desktop Protocol)</strong> has become a protocol frequently used by <strong>APT (Advanced Persistent Threat)</strong> groups for <strong>lateral movement</strong>, that is, horizontal movement within the network. In this respect, it creates the impression that it is not a secure protocol. So what is the reason for this?</p>
+<hr>
+<h3 id="what-is-rdp-remote-desktop-protocol">
+  <strong>What is RDP (Remote Desktop Protocol)?</strong>
+  <a class="heading-link" href="#what-is-rdp-remote-desktop-protocol">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<blockquote>
+<p>Let&rsquo;s first understand what exactly RDP is.</p>
+</blockquote>
+<p>RDP is a protocol developed by Microsoft and widely used for remote desktop connections. RDP allows users to use a remote desktop environment as if it were local by connecting to another computer or server over the network.</p>
+<p><img src="/images/1__XjdN0sbwr04IpjBK0mVcA.jpeg" alt=""></p>
+<p>RDP Protocol</p>
+<h4 id="key-features-of-rdp">
+  Key Features of RDP:
+  <a class="heading-link" href="#key-features-of-rdp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li><strong>Remote Access</strong>: RDP allows users to directly manage a remote system&rsquo;s desktop or server.</li>
+<li><strong>Encryption and Security</strong>: RDP ensures the security of data transmission by using TLS (Transport Layer Security) to encrypt connections. However, older versions may have security vulnerabilities.</li>
+<li><strong>Access Control</strong>: RDP allows system administrators to control remote access, but can be vulnerable to malicious attacks if not configured correctly.</li>
+<li><strong>User Authentication</strong>: RDP uses traditional username and password authentication for login, but <strong>multi-factor authentication (MFA)</strong> can also be integrated to add security.</li>
+</ol>
+<blockquote>
+<p>RDP seems to be a secure protocol in the presence of mechanisms such as MFA, SSL/TLS, access control. In this respect, RDP is a truly secure protocol. The question is whether these mechanisms are actually used or not. The problem is whether the correct configurations are made or not!</p>
+</blockquote>
+<h4 id="security-risks-of-rdp">
+  Security Risks of RDP:
+  <a class="heading-link" href="#security-risks-of-rdp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Weak Passwords and Brute Force Attacks</strong>: When RDP uses weak passwords and is vulnerable to brute force attacks, unauthorized access to remote systems can be gained.</li>
+<li><strong>Open Ports and Open Access to Attacks</strong>: When RDP&rsquo;s port number 3389** is made directly accessible over the internet, these connections can be targeted by attackers by performing port scanning.</li>
+<li><strong>Vulnerabilities</strong>: RDP has had vulnerabilities in the past (for example, the <strong>BlueKeep</strong> vulnerability). Such vulnerabilities can be used to infiltrate systems.</li>
+</ul>
+<blockquote>
+<p><strong>RDP (Remote Desktop Protocol)</strong> has become a protocol frequently used by <strong>APT (Advanced Persistent Threat)</strong> groups for <strong>lateral movement</strong>, that is, horizontal movement within the network.</p>
+</blockquote>
+<hr>
+<h3 id="role-of-rdp-in-apt-attacks">
+  Role of RDP in APT Attacks
+  <a class="heading-link" href="#role-of-rdp-in-apt-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>APT groups often carefully monitor a specific target for long periods of time. After initial access is achieved, attackers often move through the network using vulnerabilities and credentials in existing systems to make lateral movement. RDP plays a critical role in such attacks because RDP allows attackers to remotely connect to different devices on a network. APT groups move to other systems on the network using the credentials of the first target they capture. This allows them to move quickly through the network.</p>
+<p><img src="/images/1_XsWJxISsqgpXS_I2ecBx9g.png" alt=""></p>
+<p>Lateral Movement with RDP</p>
+<p>APT groups can use RDP to engage in lateral movement in several ways:</p>
+<ul>
+<li><strong>Pass-the-Hash (PTH):</strong> By using the hashes of the captured usernames and passwords, you can connect to other systems without knowing the password.</li>
+<li><strong>Credential Dumping</strong>: Obtaining usernames and passwords from the network to open RDP sessions, using tools such as <strong>Mimikatz</strong>.</li>
+<li><strong>Brute-force attacks</strong>: If weak passwords or default passwords are used, attackers can perform brute-force attacks by targeting the RDP port.</li>
+</ul>
+<blockquote>
+<p>In fact, the fact that these attacks can be performed does not directly make the RDP protocol unsafe.</p>
+</blockquote>
+<blockquote>
+<p><strong>Looking at the first attack</strong>: RDP uses the kerberos protocol in the Active Directory environment for authentication processes. Pass-the-Hash attack is a type of attack that occurs as a result of TGT tickets being manipulated and used due to the stateless structure of the Kerberos protocol. The main culprit here is the kerberos protocol.</p>
+</blockquote>
+<blockquote>
+<p><strong>second attack</strong>, reading the memory area of ​​the lsass.exe process with the mimikatz tool and using the credentials in itIt involves stealing data and then using it for authentication. The RDP protocol is not at fault here either.</p>
+</blockquote>
+<blockquote>
+<p>In the third attack**, incoming RDP login requests in the brute-force attack are again verified by the kerberos protocol. Again, my dear, RDP is not guilty of anything :(</p>
+</blockquote>
+<blockquote>
+<p>In fact, the main function of RDP is to provide remote access and it does this securely with SSL/TLS encryption. It would be unfair to blame attacks resulting from Kerberos authentication processes on the RDP protocol.</p>
+</blockquote>
+<h4 id="apt-attacks-and-using-rdp-examples-and-methods">
+  APT Attacks and Using RDP: Examples and Methods
+  <a class="heading-link" href="#apt-attacks-and-using-rdp-examples-and-methods">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li><strong>APT33</strong>: This group, thought to be backed by Iran, infiltrated target systems using RDP and used methods such as <strong>credential theft</strong> to move through the network.</li>
+<li><strong>APT29 (Cozy Bear)</strong>: Cozy Bear, another APT group affiliated with Russia, gained access to internal networks and critical systems using RDP. One of the methods the group used was to use hijacked RDP sessions to spread through the network and steal data.</li>
+</ul>
+<h4 id="reasons-why-rdp-is-preferred-by-apts">
+  Reasons Why RDP is Preferred by APTs
+  <a class="heading-link" href="#reasons-why-rdp-is-preferred-by-apts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li><strong>Easy Access and Propagation</strong>: RDP allows attackers to easily switch to different devices after infiltrating the target. This is a critical advantage, especially in large networks.</li>
+<li><strong>Effective and Fast Data Stealing</strong>: RDP allows attackers to quickly access important data or system resources. This is especially useful for long-lasting, low-profile infiltration attacks.</li>
+<li><strong>Prevalence of RDP and Configuration Errors</strong>: In most networks, RDP is widely used to make remote connections. However, security measures are often lacking. This allows attackers to easily enter the system through <strong>brute force</strong> attacks or credential theft.</li>
+</ol>
+<blockquote>
+<p>Despite the fact that RDP is innocent, the opportunities it offers continue to make hackers salivate! So what can we do? Let&rsquo;s discuss these now.</p>
+</blockquote>
+<hr>
+<h3 id="security-precautions-against-lateral-movement-with-rdp">
+  Security Precautions Against Lateral Movement with RDP
+  <a class="heading-link" href="#security-precautions-against-lateral-movement-with-rdp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li><strong>Restricting RDP Access</strong>: <strong>RDP port (3389)</strong> should only be opened to internal networks and, if possible, accessed via <strong>VPN</strong> or other secure connection means.</li>
+<li><strong>Network Level Authentication (NLA)</strong>: RDP connections must be protected with NLA. This prevents connecting before authentication and makes it harder for malicious actors to hijack the system.</li>
+<li><strong>Multi-Factor Authentication (MFA)</strong>: Implementing MFA for RDP sessions can prevent password-only login and adds an additional layer of security.</li>
+<li><strong>Password Security</strong>: Passwords must be strong and complex. Simple passwords can make RDP easier to abuse.</li>
+<li><strong>Intrusion Detection and Monitoring</strong>: RDP sessions should be monitored and suspicious activities should be detected. Suspicious login attempts or unknown IP addresses moving through the network should be carefully monitored.</li>
+<li><strong>Updates and Patching</strong>: Systems should be updated regularly and vulnerabilities should be patched. Old versions and vulnerabilities can easily give attackers access.</li>
+</ol>
+<blockquote>
+<p>So is the only problem with RDP? Aren&rsquo;t other remote access tools dangerous? Let&rsquo;s discuss this now.</p>
+</blockquote>
+<hr>
+<h3 id="apt-attacks-and-popular-use-of-remote-access-tools">
+  APT Attacks and Popular Use of Remote Access Tools
+  <a class="heading-link" href="#apt-attacks-and-popular-use-of-remote-access-tools">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ol>
+<li><strong>RDP (Remote Desktop Protocol)</strong>: <br>
+<strong>RDP</strong> is a tool very often used by attackers to spread across the network.</li>
+<li><strong>TeamViewer</strong>:<br>
+<strong>TeamViewer</strong> is a widely used remote access tool and is often used by system administrators. However, <strong>APT groups</strong> can abuse this tool to connect to target computers. Having TeamViewer installed and running can often go unnoticed by network administrators, allowing attackers to secretly move around the network. Initiating the installation of TeamViewer on target machines via <strong>social engineering</strong> attacks gives attackers covert access to the network.</li>
+<li><strong>AnyDesk</strong>:<br>
+<strong>AnyDesk</strong> is another common remote access tool used to gain access to target systems, similar to TeamViewer. It is generally preferred because it offers <strong>fast connections</strong> and <strong>high performance</strong>. APT groups can use this software to steal data from target devices on the network or infiltrate more systems. Because AnyDesk, like TeamViewer, is often used legitimately by users for business purposes, malicious use may go undetected.</li>
+</ol>
+<blockquote>
+<p>As you can see, RDP was not the culprit. All remote access tools carry similar risks. In fact, RDP&rsquo;s APT attackThe popularity of its use on the internet stems from the popularity of using RDP. Since many institutions already use RDP, hackers also use this tool. The same goes for other widely used remote access tools! <br>
+A while ago, many institutions were hacked due to a vulnerability in the Anydesk application. This shows how careful we need to be about the risks of remote access tools.</p>
+</blockquote>
+<hr>
+<h3 id="privileged-access-management-pam">
+  Privileged Access Management (PAM)
+  <a class="heading-link" href="#privileged-access-management-pam">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>PAM, <strong>Privileged Access Management</strong> (Privileged Access Management**), is a security solution used to control and audit the access of users with high privileges on systems and networks in organizations. PAM solutions apply specifically to system administrators, network administrators, and other privileged accounts.</p>
+<p><img src="/images/1_4a2mtAcF5OWpT77b-eeS0g.jpeg" alt=""></p>
+<p>PAM</p>
+<blockquote>
+<p>I&rsquo;m talking about a system that can be used to make remote access more secure.</p>
+</blockquote>
+<h4 id="relationship-of-pam-to-rdp">
+  Relationship of PAM to RDP:
+  <a class="heading-link" href="#relationship-of-pam-to-rdp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>PAM plays a critical role, especially in managing high-privilege access. Remote desktop connections made via RDP are a potential entry point that can be exploited and is vulnerable to attacks. PAM provides strong security measures for auditing, managing passwords, and access monitoring of high-privilege transactions over RDP connections.</p>
+<hr>
+<p>In this article, I discussed whether the RDP protocol is secure or not. You can express your opinions and support me in the comments.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

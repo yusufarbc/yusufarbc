@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Docker Basics · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Docker Basics
+  
+    
+    Link to heading
+  
+
+
+
+  What is Docker?
+  
+    
+    Link to heading
+  
+
+Docker is an open source container platform used to develop, deploy and manage applications in virtualized environments. It is a technology that distributes the resources of the operating system to the applications it manages. Docker is lighter and faster than virtual machines.
+
+docker vs virtual machines
+Docker containers provide lightweight virtualized runtime environments for running applications. Package applications in isolated environments; makes it easier to develop, deploy and maintain applications. Containers are independent and isolated from the host and other applications running on the host.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Docker Basics">
+  <meta name="twitter:description" content="Docker BasicsLink to headingWhat is Docker?Link to headingDocker is an open source container platform used to develop, deploy and manage applications in virtualized environments. It is a technology that distributes the resources of the operating system to the applications it manages. Docker is lighter and faster than virtual machines.
+docker vs virtual machines
+Docker containers provide lightweight virtualized runtime environments for running applications. Package applications in isolated environments; makes it easier to develop, deploy and maintain applications. Containers are independent and isolated from the host and other applications running on the host.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2023-01-02-docker-temelleri/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Docker Basics">
+  <meta property="og:description" content="Docker BasicsLink to headingWhat is Docker?Link to headingDocker is an open source container platform used to develop, deploy and manage applications in virtualized environments. It is a technology that distributes the resources of the operating system to the applications it manages. Docker is lighter and faster than virtual machines.
+docker vs virtual machines
+Docker containers provide lightweight virtualized runtime environments for running applications. Package applications in isolated environments; makes it easier to develop, deploy and maintain applications. Containers are independent and isolated from the host and other applications running on the host.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-01-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-01-02T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2023-01-02-docker-temelleri/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About Me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2023-01-02-docker-temelleri/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2023-01-02-docker-temelleri/">
+              Docker Basics
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-01-02T00:00:00Z">
+                January 2, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              6-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="docker-basics">
+  Docker Basics
+  <a class="heading-link" href="#docker-basics">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_2Vt-GnSjtWGchPVgF1fX6g.png" alt=""></p>
+<h3 id="what-is-docker">
+  What is Docker?
+  <a class="heading-link" href="#what-is-docker">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Docker is an open source container platform used to develop, deploy and manage applications in virtualized environments. It is a technology that distributes the resources of the operating system to the applications it manages. Docker is lighter and faster than virtual machines.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*Q1duQRvSkdgwr289" alt=""></p>
+<p>docker vs virtual machines</p>
+<p>Docker containers provide lightweight virtualized runtime environments for running applications. Package applications in isolated environments; makes it easier to develop, deploy and maintain applications. Containers are independent and isolated from the host and other applications running on the host.</p>
+<h4 id="what-isdocker-hub">
+  What is Docker Hub?
+  <a class="heading-link" href="#what-isdocker-hub">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It is Docker&rsquo;s repository service. You can become a member of this platform and store the docker containers you have prepared here. You can also download ready-made Docker containers from this platform and install them quickly. You can access Docker hub <a href="https://hub.docker.com/"  class="external-link" target="_blank" rel="noopener"><em>here</em></a>.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*t1XOZZHUt_GtjX9F" alt=""></p>
+<hr>
+<h3 id="docker-installation">
+  Docker Installation
+  <a class="heading-link" href="#docker-installation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Docker supports windows, mac and linux platforms.</p>
+<h4 id="docker-daemoninstallation">
+  Docker Daemon Installation
+  <a class="heading-link" href="#docker-daemoninstallation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>You can easily install the Docker service by following the steps on the <a href="https://docs.docker.com/get-docker/"  class="external-link" target="_blank" rel="noopener">website</a>.</p>
+<p>For Linux installation: <a href="https://docs.docker.com/desktop/install/linux-install/"  class="external-link" target="_blank" rel="noopener">https://docs.docker.com/desktop/install/linux-install/</a></p>
+<p>For Windows installation: <a href="https://docs.docker.com/desktop/install/windows-install/"  class="external-link" target="_blank" rel="noopener">https://docs.docker.com/desktop/install/windows-install/</a></p>
+<p>For macOS installation: <a href="https://docs.docker.com/desktop/install/mac-install/"  class="external-link" target="_blank" rel="noopener">https://docs.docker.com/desktop/install/mac-install/</a></p>
+<h4 id="docker-imageinstallation">
+  Docker Image Installation
+  <a class="heading-link" href="#docker-imageinstallation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>As we mentioned above, docker has a repository service. We can directly install ready images via Docker hub. These ready-made images contain various web applications, system tools and service software.</p>
+<p>You can use Docker CLI commands to install these images or you can install via the derstop application.</p>
+<p>As an example, we can give <a href="https://github.com/vulhub/vulhub"  class="external-link" target="_blank" rel="noopener">vulnhub</a>. Testing environments are needed to practice in the field of Cyber ​​Security. This is where docker containers become very useful. vulnhubda is a docker compose that makes it easy to install these containers.</p>
+<p>An easier way to install vulnerable web applications is the <a href="https://github.com/yusufarbc/DockerVuln"  class="external-link" target="_blank" rel="noopener">dockervuln</a> tool. This tool provides automatic installation and operation of indexed images with a graphical interface. I recommend it :)</p>
+<hr>
+<h3 id="docker-architecture">
+  Docker Architecture
+  <a class="heading-link" href="#docker-architecture">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Docker architecture consists of many subroutines. The task of Docker CLI and API is to enable the user to communicate with the docker daemon.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*oBvVrZxl7WnZ3EAf" alt=""></p>
+<p>docker architecture</p>
+<h4 id="docker-image">
+  Docker Image
+  <a class="heading-link" href="#docker-image">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It is the image used to create Docker containers. There are base images provided by Docker. New images can be created using these base images.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*GTA-gR97eLVfV8dy" alt=""></p>
+<h4 id="docker-containers">
+  Docker Containers
+  <a class="heading-link" href="#docker-containers">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Docker containers are structures that run the applications installed in them independently and isolated from the main system.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*aXW2UYqzuJdk-7yx" alt=""></p>
+<h4 id="docker-volume">
+  Docker Volume
+  <a class="heading-link" href="#docker-volume">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>If we want to keep the data in the container even if it is deleted, we use docker volume. Volume is a mechanism produced by the docker container that stores data on the host.</p>
+<p><img src="/images/0_wWoNuW_cAt4LTNiH.jpg" alt=""></p>
+<p>The data in the Docker volume can be used in more than one container. Even if the Docker image is updated, the data in the volume does not change. Data in the Docker volume can be moved and backed up. Docker volumes does not increase the container size.</p>
+<h4 id="dockernetwork">
+  DockerNetwork
+  <a class="heading-link" href="#dockernetwork">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It allows containers on the same network to communicate with each other. It segments multiple network traffic. It allows containers to be included in more than one network.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*8VlhQr5TKVSiZYPW" alt=""></p>
+<hr>
+<h3 id="docker-cli-command-line-interface">
+  Docker CLI (Command Line Interface)
+  <a class="heading-link" href="#docker-cli-command-line-interface">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In this section, we will talk about the basic commands of docker.</p>
+<p>You can also use the “<a href="https://www.docker.com/play-with-docker/"  class="external-link" target="_blank" rel="noopener">play with docker</a>” application to learn and practice Docker commands.</p>
+<h4 id="docker-info">
+  docker info
+  <a class="heading-link" href="#docker-info">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It is the command that provides all the information specific to Docker in the current operating system. Details about Dockerbrings the .</p>
+<h4 id="docker-ps">
+  docker ps
+  <a class="heading-link" href="#docker-ps">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Shows containers running in the Docker environment.</p>
+<h4 id="docker-ps--a">
+  docker ps -a
+  <a class="heading-link" href="#docker-ps--a">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It shows all containers installed in the Docker environment.</p>
+<h4 id="docker-run">
+  docker run <container>
+  <a class="heading-link" href="#docker-run">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Installs and runs the image file of the specified container.</p>
+<h4 id="docker-container-run--it--bash">
+  docker container run -it <container> bash
+  <a class="heading-link" href="#docker-container-run--it--bash">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It creates a new container and enters its shell.</p>
+<h4 id="docker-container-start-container_name">
+  docker container start &lt;container_name&gt;
+  <a class="heading-link" href="#docker-container-start-container_name">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It is used to initialize the current container.</p>
+<h4 id="docker-container-exec-container_id">
+  docker container exec &lt;container_id&gt; <command>
+  <a class="heading-link" href="#docker-container-exec-container_id">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Runs the specified command on the relevant container and returns the result.</p>
+<h4 id="docker-container-exec--it-container_id-bash">
+  docker container exec -it &lt;container_id&gt; bash
+  <a class="heading-link" href="#docker-container-exec--it-container_id-bash">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It connects to the shell of a running container.</p>
+<h4 id="docker-container-run--d">
+  docker container run -d <container>
+  <a class="heading-link" href="#docker-container-run--d">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It creates and runs the container in deattach mode, that is, in the background.</p>
+<h4 id="docker-container-stop-container_name">
+  docker container stop &lt;container_name&gt;
+  <a class="heading-link" href="#docker-container-stop-container_name">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It is used to stop a running container.</p>
+<h4 id="docker-container-kill-container_id">
+  docker container kill &lt;container_id&gt;
+  <a class="heading-link" href="#docker-container-kill-container_id">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It directly closes the running container.</p>
+<h4 id="docker-container-inspect-container_id">
+  docker container inspect &lt;container_id&gt;
+  <a class="heading-link" href="#docker-container-inspect-container_id">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Returns all the details of the container.</p>
+<h4 id="docker-container-rm-container_id">
+  docker container rm &lt;container_id&gt;
+  <a class="heading-link" href="#docker-container-rm-container_id">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It is used to delete the container. The employee cannot delete the container!</p>
+<h4 id="docker-images">
+  docker images
+  <a class="heading-link" href="#docker-images">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Lists installed images.</p>
+<h4 id="docker-pull-docker_image">
+  docker pull &lt;docker_image&gt;
+  <a class="heading-link" href="#docker-pull-docker_image">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It is used to download the Docker image.</p>
+<h4 id="docker-push-docker_repo">
+  docker push &lt;docker_repo&gt;
+  <a class="heading-link" href="#docker-push-docker_repo">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It is used to upload the image to the Docker repo.</p>
+<hr>
+<h3 id="docker-file">
+  Docker File
+  <a class="heading-link" href="#docker-file">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Docker file is a file we use to create docker images. The commands in the Dockerfile are run sequentially by the docker engine. At the end of Docker build, we have a Docker image of our application. Docker containers can then be created using this image.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*9ZQ34zEz4UwTDF2j" alt=""></p>
+<p>A base image is selected when writing the Dockerfile. The specified commands are run on this base image and a new image is created.</p>
+<h4 id="dockerfile-commands">
+  Dockerfile Commands
+  <a class="heading-link" href="#dockerfile-commands">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li><strong>FROM:</strong> The command where you specify your base image.</li>
+<li><strong>RUN:</strong> is used to run commands during the build phase within the relevant application.</li>
+<li><strong>CMD:</strong> is used for commands to be run when the container stands up.</li>
+<li><strong>LABEL:</strong> is used for naming</li>
+<li><strong>MAINTAINER:</strong> contains information about the creator of the file.</li>
+<li><strong>EXPOSE:</strong> is used to open a port to the container.</li>
+<li><strong>ENV:</strong> is used to define variables in the environment.</li>
+<li><strong>ADD:</strong> Used to copy files from local or internet.</li>
+<li><strong>COPY:</strong> copies the specified files directly to the specified location in the container.</li>
+<li><strong>ENTRYPOINT:</strong> defines a default parameter when the container runs.</li>
+<li><strong>VOLUME:</strong> defines a volume where the data in the container will be kept.</li>
+<li><strong>USER:</strong> identifies the authorized user in the user.</li>
+<li><strong>WORKDIR:</strong> determines the working directory of the container.</li>
+<li><strong>MKDIR:</strong> creates directory in the container.</li>
+</ul>
+<h4 id="dockerfile-example">
+  Dockerfile example
+  <a class="heading-link" href="#dockerfile-example">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<pre tabindex="0"><code># syntax=docker/dockerfile:1  
+FROM golang:1.16-alpine AS build  
+  
+# Install tools required for project  
+# Run `docker build --no-cache .` to update dependencies  
+RUN apk add --no-cache git  
+RUN go get github.com/golang/dep/cmd/dep  
+  
+# List project dependencies with Gopkg.toml and Gopkg.lock  
+# These layers are only re-built when Gopkg files are updated  
+COPY Gopkg.lock Gopkg.toml /go/src/project/  
+WORKDIR /go/src/project/  
+# Install library dependencies  
+RUN dep ensure -vendor-only  
+  
+# Copy the entire project and build it  
+# This layer is rebuilt when a file changes in the project directory  
+COPY . /go/src/project/  
+RUN go build -o /bin/project  
+  
+# These results in a single layer image  
+FROM scratch  
+COPY --from=build /bin/project /bin/project  
+ENTRYPOINT [&#34;/bin/project&#34;]  
+CMD [&#34;--help&#34;]
+</code></pre>
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

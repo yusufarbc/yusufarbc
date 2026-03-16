@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  ICMPv4/ICMPv6 Wireshark Analysis · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  ICMPv4/ICMPv6 Wireshark Analysis
+  
+    
+    Link to heading
+  
+
+
+Hello, in this article I will try to explain the ICMPv4 and ICMPv6 protocols and their analysis with Wireshark.
+
+
+  What is ICMP?
+  
+    
+    Link to heading
+  
+
+ICMP is used as a messaging system for errors, alerts, and general notifications on an IP network. There are many types of ICMP messages, including:
+
+Echo Message: Used by ping and traceroute to test end-to-end connectivity. Too many of these could indicate a reconnaissance operation or possibly a Denial of Service attack.
+Redirect Message: Used by routers to notify the source that there is a better path to a destination. If this packet is not sent by a router, it should be considered suspicious.
+Destination Unreachable messages: Used to tell the source host that its packets could not be delivered for some reason — the reason is specified in the Destination Unreachable message. A large number of these response packets may indicate a failed UDP port scan is in progress or a service is not functioning properly.
+
+By examining ICMP traffic on your network over several hours or days, you can determine how efficiently the network is designed and detect numerous configuration errors, functional issues, or security breaches. ICMPv4 is defined in RFC 792.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="ICMPv4/ICMPv6 Wireshark Analysis">
+  <meta name="twitter:description" content="ICMPv4/ICMPv6 Wireshark AnalysisLink to headingHello, in this article I will try to explain the ICMPv4 and ICMPv6 protocols and their analysis with Wireshark.
+What is ICMP?Link to headingICMP is used as a messaging system for errors, alerts, and general notifications on an IP network. There are many types of ICMP messages, including:
+Echo Message: Used by ping and traceroute to test end-to-end connectivity. Too many of these could indicate a reconnaissance operation or possibly a Denial of Service attack. Redirect Message: Used by routers to notify the source that there is a better path to a destination. If this packet is not sent by a router, it should be considered suspicious. Destination Unreachable messages: Used to tell the source host that its packets could not be delivered for some reason — the reason is specified in the Destination Unreachable message. A large number of these response packets may indicate a failed UDP port scan is in progress or a service is not functioning properly. By examining ICMP traffic on your network over several hours or days, you can determine how efficiently the network is designed and detect numerous configuration errors, functional issues, or security breaches. ICMPv4 is defined in RFC 792.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2023/12/icmpv4/icmpv6-wireshark-analysis/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="ICMPv4/ICMPv6 Wireshark Analysis">
+  <meta property="og:description" content="ICMPv4/ICMPv6 Wireshark AnalysisLink to headingHello, in this article I will try to explain the ICMPv4 and ICMPv6 protocols and their analysis with Wireshark.
+What is ICMP?Link to headingICMP is used as a messaging system for errors, alerts, and general notifications on an IP network. There are many types of ICMP messages, including:
+Echo Message: Used by ping and traceroute to test end-to-end connectivity. Too many of these could indicate a reconnaissance operation or possibly a Denial of Service attack. Redirect Message: Used by routers to notify the source that there is a better path to a destination. If this packet is not sent by a router, it should be considered suspicious. Destination Unreachable messages: Used to tell the source host that its packets could not be delivered for some reason — the reason is specified in the Destination Unreachable message. A large number of these response packets may indicate a failed UDP port scan is in progress or a service is not functioning properly. By examining ICMP traffic on your network over several hours or days, you can determine how efficiently the network is designed and detect numerous configuration errors, functional issues, or security breaches. ICMPv4 is defined in RFC 792.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-12-06T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-12-06T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2023/12/icmpv4/icmpv6-wireshark-analysis/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2023/12/icmpv4/icmpv6-wireshark-analizi/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2023/12/icmpv4/icmpv6-wireshark-analysis/">
+              ICMPv4/ICMPv6 Wireshark Analysis
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-12-06T00:00:00Z">
+                December 6, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              15-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="icmpv4icmpv6-wireshark-analysis">
+  ICMPv4/ICMPv6 Wireshark Analysis
+  <a class="heading-link" href="#icmpv4icmpv6-wireshark-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_qw1Nso3IaiA7Jptb-0T1qQ.png" alt=""></p>
+<p>Hello, in this article I will try to explain the ICMPv4 and ICMPv6 protocols and their analysis with Wireshark.</p>
+<hr>
+<h3 id="what-is-icmp">
+  What is ICMP?
+  <a class="heading-link" href="#what-is-icmp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>ICMP is used as a messaging system for errors, alerts, and general notifications on an IP network. There are many types of ICMP messages, including:</p>
+<ul>
+<li><strong>Echo Message:</strong> Used by ping and traceroute to test end-to-end connectivity. Too many of these could indicate a reconnaissance operation or possibly a Denial of Service attack.</li>
+<li><strong>Redirect Message:</strong> Used by routers to notify the source that there is a better path to a destination. If this packet is not sent by a router, it should be considered suspicious.</li>
+<li><strong>Destination Unreachable messages:</strong> Used to tell the source host that its packets could not be delivered for some reason — the reason is specified in the Destination Unreachable message. A large number of these response packets may indicate a failed UDP port scan is in progress or a service is not functioning properly.</li>
+</ul>
+<p>By examining ICMP traffic on your network over several hours or days, you can determine how efficiently the network is designed and detect numerous configuration errors, functional issues, or security breaches. ICMPv4 is defined in RFC 792.</p>
+<p><img src="/images/1_LHTLnK4dnNwCs20ZDNBf8g.png" alt=""></p>
+<p>ICMP provides messaging services on IP networks</p>
+<p>RFC 4443 defines the purpose and functionality of ICMPv6. ICMPv6 packet structure is the same as ICMPv4 packet structure.</p>
+<hr>
+<h3 id="icmp-trafficanalysis">
+  ICMP Traffic Analysis
+  <a class="heading-link" href="#icmp-trafficanalysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>ICMP traffic is difficult to define because it is specific to each network. While some network personnel use ping for connection tests, some companies restrict ICMP Echo Requests/Responses. We can define the ICMP traffic from these ping tests and the ICMP traffic from traceroute tests as “normal ICMP traffic”. ICMP based pings use ICMP Type 8 for echo Requests and ICMP Type 0 for echo replies.</p>
+<p><img src="/images/1_4qv9iLVW9NDKL4GxWnpXKw.png" alt=""></p>
+<p>ICMP Echo Request</p>
+<p><img src="/images/1_gdUehz7murFdf2ZsU48Cmw.png" alt=""></p>
+<p>ICMP Echo Reply</p>
+<p>The figures show ICMPv4 echo request and echo reply packets.</p>
+<p><img src="/images/1_2A2yFLq4vs7G70TfEM0oHw.png" alt=""></p>
+<p>ICMPv6</p>
+<p>The figure shows an ICMPv6 echo request packet. The packets in this trace are 6to4 packets.</p>
+<p>There are three flavors of Traceroute – ICMP based, TCP based and UDP based. ICMP based traceroute uses ICMP echo Requests and changes the Time to Live (TTL) value in the IP header. When packets reach routers along the path, the incoming TTL value is examined. If the incoming TTL value is 1, the router responds with an ICMP Time Exceeded/Time to Live Exceeded in Transit (Type 11, Code 0) (unless this response is disabled on the router). This allows you to find the IP address of the router.</p>
+<p>There are three flavors of Traceroute – ICMP based, TCP based and UDP based. ICMP based traceroute uses ICMP echo Requests and changes the Time to Live (TTL) value in the IP header. When packets reach routers along the path, the incoming TTL value is examined. If the incoming TTL value is 1, the router responds with an ICMP Time Exceeded/Time to Live Exceeded in Transit (Type 11, Code 0) (unless this response is disabled on the router). This allows you to find the IP address of the router.</p>
+<p><img src="/images/1_bJcu5LI83HlJKEJlBK6QUQ.png" alt=""></p>
+<p>ICMP Ping Request — no response</p>
+<p><img src="/images/1_EPaLsDeBtWdcmSiyOLbZbw.png" alt=""></p>
+<p>ICMP Time-to-live-exceed</p>
+<p>The figures show typical striping that Wireshark displays when default coloring is enabled during a traceroute operation.</p>
+<h4 id="icmpv4-problems">
+  ICMPv4 Problems
+  <a class="heading-link" href="#icmpv4-problems">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>A common ICMP problem is a no-response echo test, indicating no connection to a destination. To determine the point at which ICMP traffic drops, you need to move the Wireshark system along the path until it reaches the point where packet loss occurs.</p>
+<p>However, ICMP itself can help detect many other network issues and security issues. For example, if a DNS query returns Destination Unreachable/Port Unreachable (Type 3/Code 3), either the client is sending DNS queries to the wrong destination or name service is not running on the server.It&rsquo;s tiring.</p>
+<p>Another example would be excessive redirects.</p>
+<p><img src="/images/1_09eyyZQ32tAra5CruF7ajQ.png" alt=""></p>
+<p>ICMP Redirect</p>
+<p>The figure shows an ICMP Redirect packet pointing to another gateway at address 10.2.99.98. This packet is sent when the receiving router determines a better router for the sender. The receiving router creates an ICMP Forwarding (Type 5/Code 1) packet containing the recommended router to use. When received, a host must update its routing table. Redirects should only be sent by routers.</p>
+<p>Some ICMP packets, such as ICMP Redirect and ICMP Destination Unreachable packets, contain part of the original packet that triggered the ICMP response. In the figure, the ICMP header is followed by the original IP header of the packet that triggered the ICMP response.</p>
+<p>ICMP Destination Unreachable responses to TCP handshake connection requests are unusual because TCP connection requests must elicit either a TCP SYN/ACK or a TCP Reset. The ICMP response to these TCP handshake connection requests is a possible indication that a host&rsquo;s firewall is blocking a port.</p>
+<hr>
+<h3 id="icmpv4-packetstructure">
+  ICMPv4 Packet Structure
+  <a class="heading-link" href="#icmpv4-packetstructure">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>ICMP packets do not contain a UDP or TCP header - port filtering settings cannot affect ICMP traffic (because it does not use a port). ICMP packets contain only three required fields after the IP header: type, code, and checksum. Some ICMP packets contain additional fields to provide information or details about the message. For example, an ICMP Routing packet must contain the address of the gateway that a host is directed to use. Upon receipt of this packet, a host must add a dynamic route entry to its routing tables and begin using the new routing information immediately.</p>
+<p>####Type</p>
+<p>The following list defines the types of ICMP messages that can be sent on the network. This list is based on IANA documentation last updated on April 23, 2012. To obtain the most current version of this list, visit <a href="http://www.iana.org/assignments/icmp-parameters"  class="external-link" target="_blank" rel="noopener">www.iana.org/assignments/icmp-parameters</a>.</p>
+<ul>
+<li>Type 0: Echo Reply [RFC 792]</li>
+<li>Type 1: Unassigned</li>
+<li>Type 2: Unassigned</li>
+<li>Type 3: Destination Unreachable [RFC 792]</li>
+<li>Type 4: Source Quench [RFC 792]</li>
+<li>Type 5: Redirect [RFC 792]</li>
+<li>Type 6: Alternate Host Address</li>
+<li>Type 7: Unassigned</li>
+<li>Type 8: Echo [RFC 792]</li>
+<li>Type 9:Router Advertisement [RFC 1256]</li>
+<li>Type 10:Router Solicitation [RFC 1256]</li>
+<li>Type 11: Time Exceeded [RFC 792]</li>
+<li>Type 12: Parameter Problem [RFC 792]</li>
+<li>Type 13: Timestamp [RFC 792]</li>
+<li>Type 14: Timestamp Reply [RFC 792]</li>
+<li>Type 15: Information Request [RFC 792]</li>
+<li>Type 16: Information Reply [RFC 792]</li>
+<li>Type 17: Address Mask Request [RFC 950]</li>
+<li>Type 18: Address Mask Reply [RFC 950]</li>
+<li>Type 19: Reserved (for Security)</li>
+<li>TypeS 20–29: Reserved (for Robustness Experiment)</li>
+<li>Type 30: Traceroute [RFC 1393]</li>
+<li>Type 31: Datagram Conversion Error [RFC 1475]</li>
+<li>Type 32: Mobile Host Redirect</li>
+<li>Type 33: IPv6 Where-Are-You</li>
+<li>Type 34: IPv6 I-Am-Here</li>
+<li>Type 35: Mobile Registration Request</li>
+<li>Type 36: Mobile Registration Reply</li>
+<li>Type 37: Domain Name Request</li>
+<li>Type 38: Domain Name Reply</li>
+<li>Type 39: SKIP</li>
+<li>Type 40: Photuris
+*Types 41–252: Unassigned</li>
+<li>Type 253: RFC3692-style Experiment 1</li>
+<li>Type 254: RFC3692-style Experiment 2</li>
+</ul>
+<p>####Code</p>
+<p>Many ICMP packet types have several possible Code field values. The following list contains descriptions of the more common code fields.</p>
+<h4 id="type-3-destination-unreachable-codes">
+  Type 3 Destination Unreachable codes
+  <a class="heading-link" href="#type-3-destination-unreachable-codes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>Code 0: Network Unreachable — The ICMP sender knows the network but believes it is not currently open — perhaps it is too far away or only reachable via an unknown route.</li>
+<li>Code 1: Host Unreachable — The ICMP sender knows the host but does not receive an ARP response, indicating that the host is currently down.</li>
+<li>Code 2: Protocol Unreachable — The protocol identified in the IP header cannot be processed for some reason — this response is seen in an IP scan.</li>
+<li>Code 3: Port Unreachable — The ICMP sender does not support the port number you are trying to reach — a large number of these packets indicates a configuration issue or possibly a UDP port scan; If these packets are sent in response to a TCP handshake attempt, it indicates that the destination port is probably firewalled.</li>
+<li>Code 4: Fragmentation Required and No Fragmentation Set — The router&rsquo;s packet is on a link that supports a smaller MTU size.It needed to fragment to transmit over , but the application set the Do Not Fragment bit.</li>
+<li>Code 5: Source Route Failed — The ICMP sender cannot use the strict or loose source routing route specified in the original packet.
+*Code 6: Destination Network Unknown-The ICMP sender does not have a route entry for the destination network, indicating that the destination network was never an available network.
+*Code 7: Destination Host Unknown-There is no host entry indicating that the ICMP sender may not have been on the connected network at all.</li>
+<li>Code 8: Source Host Isolated - The ICMP sender (router) is configured not to forward packets from the source. Most routers do not generate this response code — they generate codes 0 (network unreachable) and 1 (host unreachable) as appropriate.</li>
+<li>Code 9: Communication with Target Network is Administratively Prohibited — The ICMP sender (router) is configured to block access to the intended target network.</li>
+<li>Code 10: Communication with Target Host Administratively Prohibited — The ICMP sender (router) is configured to block access to the requested target host.</li>
+<li>Code 11: Unreachable for Target Network Service Type - the Type of Service (TOS) indicator used by the original sender is not available through this router for that network - note that more current networks may not use TOS or Priority - they may use DiffServ instead.</li>
+<li>Code 12: Destination Host Unreachable for Service Type — the TOS indicator used by the original sender is not available for that host through this router — note that more recent networks may not use TOS or Priority — they may use DiffServ instead.</li>
+<li>Code 13: Communication Administratively Prohibited — The ICMP sender is not currently available for communication; This may be sent by a fine-grained firewall.</li>
+<li>Code 14: Host Priority Violation — the Priority value defined in the sender&rsquo;s original IP header is not allowed (for example, using Flash Override priority) — note that more recent networks may not use TOS or Priority — they may use DiffServ instead.</li>
+<li>Code 15: Priority Interrupt In Effect — The network administrator has set the minimum priority level for service by a router, but a lower priority packet has been received.</li>
+</ul>
+<h4 id="type-5-redirectcodes">
+  Type 5 Redirect Codes
+  <a class="heading-link" href="#type-5-redirectcodes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>Code 0: Redirect Datagram for Network (or Subnet) — The ICMP sender (router) is not the best way to reach the desired network. The response includes the IP address of the best router to the destination. Dynamically adds a network entry to the original sender&rsquo;s route tables</li>
+<li>Code 1: Redirect Datagram for Host — The ICMP sender (router) is not the best way to reach the desired host. The response includes the IP address of the best router to the destination. Dynamically adds a host entry to the original sender&rsquo;s route tables</li>
+<li>Code 2: Redirect Datagram for Service Type and Network — The ICMP sender (router) does not provide a route to the destination network using the requested TOS. Dynamically adds a network entry to the original sender&rsquo;s route tables — note that more recent networks may not use TOS or Priority — they may use DiffServ instead</li>
+<li>Code 3: Redirect Datagram for Service Type and Host — The ICMP sender (router) does not provide a route to the destination host using the requested TOS. Dynamically adds a host entry to the original sender&rsquo;s route tables — note that more recent networks may not use TOS or Priority — they may use DiffServ instead</li>
+</ul>
+<h4 id="type-11-time-exceededcodes">
+  Type 11 Time Exceeded Codes
+  <a class="heading-link" href="#type-11-time-exceededcodes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>Code 0: Time to Live Exceeded in Transport — The ICMP sender (router) indicates that the sender&rsquo;s packet arrived with a TTL of 1. Routers cannot reduce the TTL value to 0 and send a packet</li>
+<li>Code 1: Fragment Reassembly Time Exceeded — ICMP sender (target host) did not receive all fragments before the TTL value of the first received fragment expired (retention time in seconds).</li>
+</ul>
+<h4 id="checksum">
+  Checksum
+  <a class="heading-link" href="#checksum">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The checksum field covers only the ICMP header.</p>
+<hr>
+<h3 id="icmpv6-packetstructure">
+  ICMPv6 Packet Structure
+  <a class="heading-link" href="#icmpv6-packetstructure">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>ICMP packets do not contain a UDP or TCP header - port filtering settings cannot affect ICMP traffic (because it does not use a port). ICMP packets contain only three required fields after the IP header: type, code, and checksum.</p>
+<p>####Type</p>
+<p>The following list includes what can be sent on the network.Defines ICMPv6 message types. This list is based on IANA documentation last updated on March 28, 2012. To obtain the most current version of this list, visit <a href="http://www.iana.org/assignments/icmpv6-parameters"  class="external-link" target="_blank" rel="noopener">www.iana.org/assignments/icmpv6-parameters</a>.</p>
+<ul>
+<li>Type 0 Reserved</li>
+<li>Type 1 Destination Unreachable [RFC4443]</li>
+<li>Type 2 Packet Too Big [RFC4443]</li>
+<li>Type 3 Time Exceeded [RFC4443]</li>
+<li>Type 4 Parameter Problem [RFC4443]</li>
+<li>Type 100 Private Experimentation [RFC4443]</li>
+<li>Type 101 Private Experimentation [RFC4443]</li>
+<li>Type 102–126 Reserved</li>
+<li>Type 127 Reserved for Expansion of ICMPv6 error messages [RFC4443]</li>
+<li>Type 128 Echo Request [RFC4443]</li>
+<li>Type 129 Echo Reply [RFC4443]</li>
+<li>Type 130 Multicast Listener Query [RFC2710] — sent by an IPv6 router to locate general or specific multicast listeners on the local network</li>
+<li>Type 131 Multicast Listener Report [RFC2710] — sent by IPv6 hosts to indicate they are listening for a particular multicast address on an interface</li>
+<li>Type 132 Multicast Listener Done [RFC2710] — can be sent by an IPv6 node to indicate that it has stopped listening to a multicast address on an interface</li>
+<li>Type 133 Router Solicitation [RFC4861] — can be sent when an interface becomes enabled, to request routers to generate Router Advertisements immediately rather than at their next scheduled time</li>
+<li>Type 134 Router Advertisement [RFC4861] — used by IPv6 routers to advertise their presence together with various link and Internet parameters either periodically, or in response to a Router Solicitation<br>
+message</li>
+<li>Type 135 Neighbor Solicitation [RFC4861] — sent by a node to determine the link-layer address of a neighbor or to verify that a neighbor is still reachable via a cached link-layer address. Neighbor solicitations are also used for Duplicate Address Detection as seen in Figure 207.</li>
+<li>Type 136 Neighbor Advertisement [RFC4861] — a response to a Neighbor Solicitation message. A node may also send unsolicited Neighbor Advertisements to announce a link-layer address change.</li>
+<li>Type 137 Redirect Message [RFC4861]</li>
+<li>Type 138 Router Renumbering [Crawford]</li>
+<li>Type 139 ICMP Node Information Query [RFC4620]</li>
+<li>Type 140 ICMP Node Information Response [RFC4620]</li>
+<li>Type 141 Inverse Neighbor Discovery Solicitation Message [RFC3122]</li>
+<li>Type 142 Inverse Neighbor Discovery Advertisement Message [RFC3122]</li>
+<li>Type 143 Version 2 Multicast Listener Report [RFC3810]</li>
+<li>Type 144 Home Agent Address Discovery Request Message [RFC6275]</li>
+<li>Type 145 Home Agent Address Discovery Reply Message [RFC6275]</li>
+<li>Type 146 Mobile Prefix Solicitation [RFC6275]</li>
+<li>Type 147 Mobile Prefix Advertisement [RFC6275]</li>
+<li>Type 148 Certification Path Solicitation Message [RFC3971]</li>
+<li>Type 149 Certification Path Advertisement Message [RFC3971]</li>
+<li>Type 150 ICMP messages utilized by experimental mobility protocols such as Seamoby [RFC4065]</li>
+<li>Type 151 Multicast Router Advertisement [RFC4286]</li>
+<li>Type 152 Multicast Router Solicitation [RFC4286]</li>
+<li>Type 153 Multicast Router Termination [RFC4286]</li>
+<li>Type 154 FMIPv6 Messages [RFC5568]</li>
+<li>Type 155 RPL Control Message [RFC-ietf-roll-rpl-19.txt]
+*Types 156–199 Unassigned</li>
+<li>Type 200 Private experimentation [RFC4443]</li>
+<li>Type 201 Private experimentation [RFC4443]</li>
+<li>Type 255 Reserved for expansion of ICMPv6 informational messages [RFC4443]</li>
+</ul>
+<p>####Code</p>
+<p>The following list provides descriptions of the more common ICMPv6 Types that support code domains or have an interesting use.</p>
+<h4 id="type-1-destination-unreachable-codes">
+  Type 1 Destination Unreachable Codes
+  <a class="heading-link" href="#type-1-destination-unreachable-codes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>Code 0: No route to destination - you&rsquo;ve made it up to a router, but there&rsquo;s no available routing entry to forward your packet (although the RFC says this could also be sent due to a firewall filter, we&rsquo;d probably prefer to see the firewall silently discard packets rather than being so thorough)</li>
+<li>Code 1: Communication with the target is administratively prohibited — something you would rather not see if you want to silently discard unauthorized packets destined for a protected network</li>
+<li>Code 2: Out of scope of source address — this is generated when a packet has a link-local source address and a destination in global scope</li>
+<li>Code 3: Address unavailable — this is a general error message for all issues that do not fit into any other code number</li>
+<li>Code 4: Port unreachable — same as regular ICMP</li>
+<li>Code 5: Source address input/output policy failed — again — probably something you don&rsquo;t want to send over the network</li>
+<li>Code 6: Deny path to destination — your trafficA general indicator that you cannot reach</li>
+<li>Code 7: Error in Source Redirect Header [RFC-ietf-roll-rpl-19.txt]</li>
+</ul>
+<h4 id="type-2-packet-too-big-code">
+  Type 2 Packet Too Big Code
+  <a class="heading-link" href="#type-2-packet-too-big-code">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>Code 0: This is the only code value currently defined. This packet contains an MTU value and is used for Path MTU discovery.</li>
+</ul>
+<h4 id="type-3-time-exceeded-codes">
+  Type 3 Time Exceeded Codes
+  <a class="heading-link" href="#type-3-time-exceeded-codes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>Code 0: Hop limit exceeded during transfer - this matches the standard ICMP message.</li>
+<li>Code 1: Fragment reassembly time exceeded - this matches the standard ICMP message.</li>
+</ul>
+<h4 id="type-4-parameter-problem-codes">
+  Type 4 Parameter Problem Codes
+  <a class="heading-link" href="#type-4-parameter-problem-codes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>Code 0: Incorrect header field encountered — something in the IPv6 header didn&rsquo;t make sense</li>
+<li>Code 1: Unrecognized Next Header type encountered — The Next Header field contained something unusual — for a list of assigned IPv6 Next Header/IPv4 Protocol field values, see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xml"  class="external-link" target="_blank" rel="noopener">www.iana.org/assignments/protocol-numbers/protocol-numbers.xml</a> see
+*Code 2: Unrecognized IPv6 option encountered - this packet may be sent in response to an IPv6 packet with one or more Extension Headers containing an invalid option.</li>
+</ul>
+<h4 id="type-128-echo-request-code">
+  Type 128 Echo Request Code
+  <a class="heading-link" href="#type-128-echo-request-code">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>Code 0: This is the only code value currently defined. This packet has an Identifier field that is used to match this Echo Request to an Echo Response.</li>
+</ul>
+<h4 id="type-129-echo-reply-code">
+  Type 129 Echo Reply Code
+  <a class="heading-link" href="#type-129-echo-reply-code">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>Code 0: This is the only code value currently defined. This package contains an Identifier field taken from the corresponding Echo Request package</li>
+</ul>
+<h4 id="type-138-router-renumbering-codes">
+  Type 138 Router Renumbering Codes
+  <a class="heading-link" href="#type-138-router-renumbering-codes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>Code 0: Router Renumbering Command
+*Code 1: Router Renumbering Result</li>
+<li>Code 255: Sequence Number Reset</li>
+</ul>
+<h4 id="type-139-icmp-node-information-query-codes">
+  Type 139 ICMP Node Information Query Codes
+  <a class="heading-link" href="#type-139-icmp-node-information-query-codes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>Code 0: The data field contains an IPv6 address, which is the Subject of this Query — as you can imagine, this type of packet can be used for discovery. For more details, read RFC 4620, “IPv6 Node Information Queries.”</li>
+<li>Code 1: The data field contains a name that is the Subject of this Query or is empty as in the case of aNOOP.</li>
+<li>Code 2: The data field contains an IPv4 address, which is the Subject of this Query.</li>
+</ul>
+<h4 id="type-140-icmp-node-information-response-codes">
+  Type 140 ICMP Node Information Response Codes
+  <a class="heading-link" href="#type-140-icmp-node-information-response-codes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li>Code 0: A successful response. The Response Data field may or may not be empty.</li>
+<li>Code 1: Responder refuses to respond. The Response Data field will be empty.</li>
+<li>Code 2: The Q type of the query is unknown to the Responder. The Response Data field will be empty.</li>
+</ul>
+<p>For more information about ICMPv6 type and code numbers, see <a href="http://www.iana.org/assignments/icmpv6-parameters"  class="external-link" target="_blank" rel="noopener">www.iana.org/assignments/icmpv6-parameters</a>.</p>
+<hr>
+<h3 id="references">
+  References
+  <a class="heading-link" href="#references">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Wireshark Network Analysis, Second Edition, Laura Chappell, <a href="https://www.chappell-university.com/studyguide"  class="external-link" target="_blank" rel="noopener">https://www.chappell-university.com/studyguide</a></li>
+<li>Trace Files: <a href="https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip"  class="external-link" target="_blank" rel="noopener">https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip</a></li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

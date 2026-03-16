@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Python:socket for hackers · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Python:socket for hackers
+  
+    
+    Link to heading
+  
+
+
+
+  Introduction
+  
+    
+    Link to heading
+  
+
+Hello, in this article, we will get to know the socket module that we can use to connect to the IP and port addresses of remote servers.
+
+  What is a socket?
+  
+    
+    Link to heading
+  
+
+Socket is a module that comes installed with Python. Thanks to this module, we can connect to the desired IP and port address. Now let&rsquo;s take a look at how to use this module and what we can do with it.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Python:socket for hackers">
+  <meta name="twitter:description" content="Python:socket for hackersLink to headingIntroductionLink to headingHello, in this article, we will get to know the socket module that we can use to connect to the IP and port addresses of remote servers.
+What is a socket?Link to headingSocket is a module that comes installed with Python. Thanks to this module, we can connect to the desired IP and port address. Now let’s take a look at how to use this module and what we can do with it.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2022-09-21-hakerlar-i-in-python-socket/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Python:socket for hackers">
+  <meta property="og:description" content="Python:socket for hackersLink to headingIntroductionLink to headingHello, in this article, we will get to know the socket module that we can use to connect to the IP and port addresses of remote servers.
+What is a socket?Link to headingSocket is a module that comes installed with Python. Thanks to this module, we can connect to the desired IP and port address. Now let’s take a look at how to use this module and what we can do with it.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-09-21T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-09-21T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2022-09-21-hakerlar-i-in-python-socket/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About Me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2022-09-21-hakerlar-i-in-python-socket/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2022-09-21-hakerlar-i-in-python-socket/">
+              Python:socket for hackers
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-09-21T00:00:00Z">
+                September 21, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="pythonsocket-for-hackers">
+  <strong>Python:socket for hackers</strong>
+  <a class="heading-link" href="#pythonsocket-for-hackers">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_Z3ieIgd5w_LPy0R2bLu6pg.png" alt=""></p>
+<h3 id="introduction">
+  Introduction
+  <a class="heading-link" href="#introduction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Hello, in this article, we will get to know the socket module that we can use to connect to the IP and port addresses of remote servers.</p>
+<h3 id="what-is-a-socket">
+  What is a socket?
+  <a class="heading-link" href="#what-is-a-socket">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><a href="https://docs.python.org/3/library/socket.html#module-socket"  class="external-link" target="_blank" rel="noopener">Socket</a> is a module that comes installed with Python. Thanks to this module, we can connect to the desired IP and port address. Now let&rsquo;s take a look at how to use this module and what we can do with it.</p>
+<h3 id="how-to-use-the-socket-module">
+  How to use the socket module?
+  <a class="heading-link" href="#how-to-use-the-socket-module">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>First of all, we need to import the socket module and create a socket object, for this;</p>
+<pre tabindex="0"><code>import socket
+</code></pre><pre tabindex="0"><code>new_socket = socket.socket()
+</code></pre><p>Then we will perform our operations using the methods of this object, these methods are:</p>
+<ul>
+<li><code>socket.listen(): Listens on the socket opened on the specified port number.</code></li>
+<li><code>socket.accept</code><strong>():</strong> Receives requests coming to the socket opened on the specified port number.</li>
+<li><code>socket.bind</code>**(<em>address</em>): Binds the socket to the specified IP address.</li>
+<li><code>socket.close</code><strong>():</strong> Closes the socket.</li>
+<li><code>socket.connect</code><strong>(<em>address</em>):</strong> Connects to a remote socket at the specified address.</li>
+<li><code>socket.recv</code><strong>(buf<em>size</em>):</strong> Retrieves data coming to the socket.</li>
+<li><code>socket.sendall</code>**(<em>bytes</em>) : Sends data to the socket.</li>
+</ul>
+<h3 id="listen-to-socket">
+  Listen to socket
+  <a class="heading-link" href="#listen-to-socket">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>We can listen to a specific port by opening a socket.</p>
+<pre tabindex="0"><code>import socket
+</code></pre><pre tabindex="0"><code>HOST = &#39;127.0.0.1&#39;                   
+PORT = 2222                
+with socket.socket() as s:  
+    s.bind((HOST, PORT))  
+    s.listen()  
+    conn, addr = s.accept()  
+    with conn:  
+        print(&#39;Connected by &#39;, addr)  
+        while True:  
+            data = conn.recv(1024)  
+            if not data: break  
+            conn.sendall(data)
+</code></pre><p>This code will listen to the socket opened at 127.0.0.1:2222, and when it detects a connection, it will send back the incoming data in the same way. Then the program ends.</p>
+<h3 id="connecting-to-socket">
+  Connecting to socket
+  <a class="heading-link" href="#connecting-to-socket">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>By opening a socket, we can establish a connection to a specific IP address and port.</p>
+<pre tabindex="0"><code>import socket
+</code></pre><pre tabindex="0"><code>HOST = &#39;127.0.0.1&#39;      
+PORT = 2222             
+with socket.socket() as s:  
+    s.connect((HOST, PORT))  
+    s.sendall(b&#39;Hello&#39;)  
+    data = s.recv(1024)  
+print(&#39;Received &#39;, data)
+</code></pre><p>This code will send data one by one to establish a connection with the socket operating at 127.0.0.1:2222. The data sent here is the &lsquo;hello&rsquo; message. Then, it receives the incoming data and the program ends.</p>
+<p><img src="/images/1_0epPGqrnUjKfpY9yg8YoKg.png" alt=""></p>
+<p>Let&rsquo;s save the code we use to listen to the socket in a file named <em>server.py</em>. Let&rsquo;s save the code we use to connect to the socket in a file named <em>client.py</em>. When we first run the server.py file and then the client.py file, the connection will be established.</p>
+<h3 id="port-scan">
+  Port Scan
+  <a class="heading-link" href="#port-scan">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>We could connect to IP and port addresses with the socket module. In this way, we can find open ports and banner information on a host. Banner information will give us information about which service is running on this port.</p>
+<pre tabindex="0"><code>import socket
+</code></pre><pre tabindex="0"><code>ip = &#34;10.10.10.10&#34;  
+ports = []  
+banners = []
+</code></pre><pre tabindex="0"><code>for port in range(1,1000):  
+    try:  
+        s = socket.socket()  
+        s.connect((str(ip), int(port)))  
+        banner = s.recv(1024)  
+        banners.append(str(banner))  
+        ports.append(str(port))  
+        s.close()  
+        print(port)  
+    except:  
+        pass  
+          
+print(ports)  
+print(banners)
+</code></pre><p>If we run this code on the Typhoon machine, it will get us open ports and banner information.</p>
+<p><img src="/images/1_p297l0qe6OnuUmY7ep52sA.png" alt=""></p>
+<h3 id="ssl">
+  SSL
+  <a class="heading-link" href="#ssl">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>When we try to access secure sites that work with the HTTPS protocol, we need an SSL certificate. We can get help from the SSL module for this.</p>
+<p>By default, http protocol works on port 80 and https protocol works on port 443.</p>
+<pre tabindex="0"><code>import socket  
+import ssl
+</code></pre><pre tabindex="0"><code>hostname = &#39;www.python.org&#39;  
+context = ssl.create_default_context()
+</code></pre><pre tabindex="0"><code>with socket.create_connection((hostname, 443)) as sock:  
+    with context.wrap_socket(sock, server_hostname=hostname) as ssock:  
+        print(ssock.version())
+</code></pre><h3 id="end">
+  End
+  <a class="heading-link" href="#end">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>What other things can we do in the field of cyber security with this module? I welcome comments&hellip;</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

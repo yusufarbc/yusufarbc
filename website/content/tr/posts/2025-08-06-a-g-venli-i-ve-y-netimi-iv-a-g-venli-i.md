@@ -1,4 +1,5 @@
 ---
+series: ["Ağ Güvenliği ve Yönetimi"]
 title: "Ağ Güvenliği ve Yönetimi IV: Ağ Güvenliği"
 date: 2025-08-06
 draft: false

@@ -1,4 +1,5 @@
 ---
+series: ["SentinelOne"]
 title: "SentinelOne Singularity Platform: AI-POWERED XDR"
 date: 2025-11-18
 draft: false

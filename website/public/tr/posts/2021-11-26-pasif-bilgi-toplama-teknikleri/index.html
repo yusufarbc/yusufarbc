@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Pasif Bilgi Toplama Teknikleri · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Pasif Bilgi Toplama Teknikleri
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba, Mehmet Bulut hocamla birlikte hazırladığımız bu yazımızda, sizlere Pasif Bilgi Toplama Tekniklerinden bahsedeceğiz.
+
+  Pasif Bilgi Toplama Nedir?
+  
+    
+    Başlık Linki
+  
+
+Pasif Bilgi Toplama, hedef ile doğrudan temasa geçilmeden yapılan bilgi toplama çeşididir. Örneğin; karşıda oturan biriyle ilgili olarak yanınızdaki kişiye soru sormanız pasif bilgi toplamadır.
+Sızma testlerinde, öncelikle sistemle ilgili bilgi toplanıp, sınıflandırılır. Bu bilgilerin çoğu internet üzerinden elde edilebilir. Bunun haricinde farklı bilgi toplama yöntemlerinden de faydalanılabilir.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Pasif Bilgi Toplama Teknikleri">
+  <meta name="twitter:description" content="Pasif Bilgi Toplama TeknikleriBaşlık LinkiMerhaba, Mehmet Bulut hocamla birlikte hazırladığımız bu yazımızda, sizlere Pasif Bilgi Toplama Tekniklerinden bahsedeceğiz.
+Pasif Bilgi Toplama Nedir?Başlık LinkiPasif Bilgi Toplama, hedef ile doğrudan temasa geçilmeden yapılan bilgi toplama çeşididir. Örneğin; karşıda oturan biriyle ilgili olarak yanınızdaki kişiye soru sormanız pasif bilgi toplamadır.
+Sızma testlerinde, öncelikle sistemle ilgili bilgi toplanıp, sınıflandırılır. Bu bilgilerin çoğu internet üzerinden elde edilebilir. Bunun haricinde farklı bilgi toplama yöntemlerinden de faydalanılabilir.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2021-11-26-pasif-bilgi-toplama-teknikleri/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Pasif Bilgi Toplama Teknikleri">
+  <meta property="og:description" content="Pasif Bilgi Toplama TeknikleriBaşlık LinkiMerhaba, Mehmet Bulut hocamla birlikte hazırladığımız bu yazımızda, sizlere Pasif Bilgi Toplama Tekniklerinden bahsedeceğiz.
+Pasif Bilgi Toplama Nedir?Başlık LinkiPasif Bilgi Toplama, hedef ile doğrudan temasa geçilmeden yapılan bilgi toplama çeşididir. Örneğin; karşıda oturan biriyle ilgili olarak yanınızdaki kişiye soru sormanız pasif bilgi toplamadır.
+Sızma testlerinde, öncelikle sistemle ilgili bilgi toplanıp, sınıflandırılır. Bu bilgilerin çoğu internet üzerinden elde edilebilir. Bunun haricinde farklı bilgi toplama yöntemlerinden de faydalanılabilir.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-11-26T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-11-26T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2021-11-26-pasif-bilgi-toplama-teknikleri/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2021-11-26-pasif-bilgi-toplama-teknikleri/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2021-11-26-pasif-bilgi-toplama-teknikleri/">
+              Pasif Bilgi Toplama Teknikleri
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2021-11-26T00:00:00Z">
+                Kasım 26, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              5 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="pasif-bilgi-toplama-teknikleri">
+  Pasif Bilgi Toplama Teknikleri
+  <a class="heading-link" href="#pasif-bilgi-toplama-teknikleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/0_2NsHt2LZX3ORPYxb.jpg" alt=""></p>
+<p>Merhaba, Mehmet Bulut hocamla birlikte hazırladığımız bu yazımızda, sizlere Pasif Bilgi Toplama Tekniklerinden bahsedeceğiz.</p>
+<h3 id="pasif-bilgi-toplamanedir">
+  Pasif Bilgi Toplama Nedir?
+  <a class="heading-link" href="#pasif-bilgi-toplamanedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Pasif Bilgi Toplama, hedef ile doğrudan temasa geçilmeden yapılan bilgi toplama çeşididir. Örneğin; karşıda oturan biriyle ilgili olarak yanınızdaki kişiye soru sormanız pasif bilgi toplamadır.</p>
+<p>Sızma testlerinde, öncelikle sistemle ilgili bilgi toplanıp, sınıflandırılır. Bu bilgilerin çoğu internet üzerinden elde edilebilir. Bunun haricinde farklı bilgi toplama yöntemlerinden de faydalanılabilir.</p>
+<hr>
+<h3 id="ip-ve-alan-adları-üzerinden-bilgi-toplama-teknikleri">
+  IP ve Alan Adları Üzerinden Bilgi Toplama Teknikleri
+  <a class="heading-link" href="#ip-ve-alan-adlar%c4%b1-%c3%bczerinden-bilgi-toplama-teknikleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Whois sorgusuyla, bir domainin veya IP adresinin tanımlandığı sahibiyle ilgili bilgilere erişebiliriz. Bunlar; hedef ile ilgili IP aralıkları, sorumlu yönetici ve bu yöneticilerin e-posta adresleri gibi bilgilerdir.</p>
+<p>Dünya üzerinde IP adresi ve alan adı dağıtımı tek bir merkez üzerinden yönetilmekedir. <a href="https://www.icann.org/"  class="external-link" target="_blank" rel="noopener">ICANN</a>(Internet Corporation for Asigned Named and Numbers) adı verilen bu ana merkez dışında beş farklı RIR; yani bölgesel internet kayıtlayıcısı bulunmaktadır.</p>
+<p>Whois sorguları bu RIR’ler üzerinden yapılamktadır. Eğer, sorgulanılan IP adresi sorguladığımız RIR’ın kontrolünde değilse size ilgili RIR’ın bilgisini verecektir.</p>
+<p>Bir IP adresine ait bilgileri linux terminal ekranından da öğrenebilirsiniz.</p>
+<p>Sorgulanan IP adresi ya da alan adının barındırıldığı işletim sistemi, kernel versiyonu, web servisi olarak çalışan yazılım hatta uptime bilgisine kadar gösterebilen bir web sayfasıdır. Netcraft hedef sisteme sorgular yapıp, dönen cevaplara göre de tahminlerde bulunur.</p>
+<p>ilgili siteye <a href="http://www.netcraft.com"  class="external-link" target="_blank" rel="noopener">www.netcraft.com</a> adresinden ulaşabiliriz.</p>
+<p>Shodan dünya üzerindeki çeşitli servisler, uygulamaları bulmayı sağlayan arama motorudur. Her ne kadar ismi arama motoru olsa da yaptığı iş gereği diğer arama motorlarından ayrılır. Diğer arama motorları “nginx kullanan sunucuları bulmak istiyoruz? sorusuna cevap veremezken, shodan bu rorunun yanıtını verebiliyor.</p>
+<p>Shodanın birçok özelliği bulunmaktadır. Bunlardan en etkilisi “banner grabing” tekniğiyle elde ettiği verileri kayıt altına alıp, çeşitli filtrelerle birlikte sizlere sonuç döndürebilesidir.</p>
+<p>Shodan üzerinde ülkelere, şehirlere, servis sağlayıcılarına, servislere, versiyonlara, platformlara yönelik aramalar gerçekleştirebiliriz.</p>
+<p>ilgili siteye <a href="https://www.shodan.io"  class="external-link" target="_blank" rel="noopener">www.shodan.io</a> adresinden ulaşabiliriz.</p>
+<h3 id="dnsdumpster">
+  DNSdumpster
+  <a class="heading-link" href="#dnsdumpster">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>DNSdumpster, bir domainle ilgili ana sunucuları keşfedebilen ücretsiz bir pasif bilgi toplama aracıdır. Saldırganların bakış açısından görünür sunucuları bulmak, güvenlik değerlendirme sürecinin önemli bir parçasıdır.</p>
+<p>ilgili siteye <a href="http://dnsdumpster.com"  class="external-link" target="_blank" rel="noopener">www.dnsdumpster.com</a> adresinden ulaşabiliriz.</p>
+<h3 id="centralops">
+  Centralops
+  <a class="heading-link" href="#centralops">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>centralops adresi üzerinde bir domaine ait IP, detaylı whois bilgisi, DNS kayıtları ve TcpQuery bilgileri elde edilmektedir. Nslookup bölümünde ise çok gelişmiş DNS sorguları yapılabilmektedir. Pasif bilgi toplamada olmazsa olmaz siteler arasındadır.</p>
+<p>İlgili siteye <a href="http://www.centralops.net"  class="external-link" target="_blank" rel="noopener">www.centralops.net</a> adresinden ulaşabiliriz.</p>
+<h3 id="ip-location">
+  IP Location
+  <a class="heading-link" href="#ip-location">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Hedef ip adresini 5 farklı RIR’de sorgulama gerçekleştirerek coğrafi konum tespiti sağlar. Bu sorgulamanın sonuçları servis sağlayıcılar arasında değişebilir.</p>
+<p>İlgili siteye <a href="https://www.iplocation.net/"  class="external-link" target="_blank" rel="noopener">www.iplocation.net</a> adresinden ulaşabiliriz.</p>
+<h3 id="arşiv-siteleri">
+  Arşiv Siteleri
+  <a class="heading-link" href="#ar%c5%9fiv-siteleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>1996 yılından bu yana tüm interneti kayıt altına alan bir sistemdir. Sayfaların yıllara, aylara, günlere göre o anlık görüntüsünü getirir. Bir web sitesinin önceki sürümlerini bulmak için faydalıdır.</p>
+<p>ilgili siteye <a href="http://www.archive.org"  class="external-link" target="_blank" rel="noopener">www.archive.org</a> adresinden ulaşabiliriz.</p>
+<p>Maltego açık kaynaklar üzerinden bulduğu verileri görselleştirerek analiz yapmamıza olanak sağlayan bir araçtır. Aşağıda örnekte verildiği gibi bir web sitesinin ismini yazıp sorgulamak için çalıştırdığımız zaman, bu ada kayıtlı dns, mail sunucusu, nameserver adresleri gibi bir çok veriyi gösteriyor. Bu işlemlere ek olarak</p>
+<ul>
+<li>Alt alanlar ve genel IP adresleri</li>
+<li>Kullanıcı adları ve şifreler</li>
+<li>Dizin listesi</li>
+<li>Herkese açık hassas belgeler ve dosyalar</li>
+<li>Sızan kimlik bilgileri gibi bilgilere ulaşabilirsiniz.</li>
+</ul>
+<hr>
+<h3 id="kullanıcı-adı-üzerinden-bilgi-toplama-teknikleri">
+  Kullanıcı Adı Üzerinden Bilgi Toplama Teknikleri
+  <a class="heading-link" href="#kullan%c4%b1c%c4%b1-ad%c4%b1-%c3%bczerinden-bilgi-toplama-teknikleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="name-checkup">
+  Name Checkup
+  <a class="heading-link" href="#name-checkup">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Name Checkup, verilen kullanıcı adının başka hangi platformlarda kullanıldığını bulmamıza yarayan basit bir araçtır.</p>
+<p>ilgili siteye <a href="https://namecheckup.com/"  class="external-link" target="_blank" rel="noopener">www.namecheckup.com</a> adresinden ulaşabiliriz.</p>
+<h3 id="username-search">
+  Username Search
+  <a class="heading-link" href="#username-search">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Kullanıcı adlarının, hangi platformlarda kullanıldığını bulabileceğimiz bir başka araç ise Instant Username Search’dür. Name CheckUp’a göre daha fazla platform üzerinde arama yapabilir.</p>
+<p>ilgili siteye <a href="https://instantusername.com/#/"  class="external-link" target="_blank" rel="noopener">www.instantusername.com</a> adresinden ulaşabiliriz.</p>
+<hr>
+<h3 id="resimler-üzerinden-bilgi-toplama-teknikleri">
+  Resimler Üzerinden Bilgi Toplama Teknikleri
+  <a class="heading-link" href="#resimler-%c3%bczerinden-bilgi-toplama-teknikleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="image-search">
+  Image Search
+  <a class="heading-link" href="#image-search">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bir görüntü dosyasının upload edilerek, benzer resimleri ve görüntü ile alakalı sonuçları getiren bir arama motoru teknolojisidir. Reverse image yapılarak :</p>
+<ul>
+<li>Bir görüntünün kaynağını</li>
+<li>Daha önce yüklenip yüklenmediğini</li>
+<li>Telif hakkı kapsamında olup olmadığı</li>
+<li>Bilmediğimiz ürün veya nesnelerin özellikleri</li>
+<li>Dezenformasyona neden olan görsellerin asıl kaynağının tespit edilmesi</li>
+</ul>
+<p>durumlarında kullanabiliriz. En sık kullanılan Image Arama Motoru <a href="https://www.google.com/imghp"  class="external-link" target="_blank" rel="noopener">Google</a> ve <a href="https://tineye.com/"  class="external-link" target="_blank" rel="noopener">TinyEye</a> dir.</p>
+<p>Exif fotograf hakkındaki verilerin bulunduğu yerdir. Bu bölümde fotoğrafın çekildiği yer, tarih, saat gibi bir çok bilgi mevcuttur. Bu bilgileri toplamak için en yaygın kullanılan <a href="https://exiftool.org/"  class="external-link" target="_blank" rel="noopener">ExifTool</a> ve <a href="http://exif.regex.info/exif.cgi"  class="external-link" target="_blank" rel="noopener">Jeffrey’s Image Metadata Viewer</a> araçlarıdır.</p>
+<hr>
+<h3 id="genel-bilgi-toplama-teknikleri">
+  Genel Bilgi Toplama Teknikleri
+  <a class="heading-link" href="#genel-bilgi-toplama-teknikleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="google-hacking">
+  Google Hacking
+  <a class="heading-link" href="#google-hacking">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Google Hacking, google üzerinde yaptığımız sorguları spesifik hale getirebileceğimiz parametrelerle yapılan bilgi toplama tekniğidir. Bu parametrelerle yazdığımız sorgulara dork adını vermekteyiz. Örneğin;</p>
+<pre tabindex="0"><code>inurl:&#34;pwnlab&#34; intitle:&#34;pasif bilgi toplama&#34;
+</code></pre><p><a href="https://pwnlab.me/tr-google-dorks-ve-google-hacking/"  class="external-link" target="_blank" rel="noopener">Google Dorks ve Google Hacking</a> isimli yazımızda bu dorklardan ve kullanım tekniklerinden ayrıntılı bir şekilde bahsettik. Google hacking hakkında daha detaylı bilgi edinmek için bu yazımıza bakabilirsiniz.</p>
+<h3 id="theharvester">
+  theHarvester
+  <a class="heading-link" href="#theharvester">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>theHarvester, Linux üzerinde çalışan bir tooldur. Bu tool ile Linkedin, Google, Twitter, Yahoo gibi bir çok web sitesini tarayarak açık kaynaklardan bilgi toplayabiliriz.</p>
+<p>Aşağıdaki komut ile toolumuzu indiriyoruz.</p>
+<p>sudo apt install theharvester</p>
+<p>Kurulumunu yaptıktan sonra aşağıdaki komut ile pwnlab.me sitesi ile alakalı googleda tespit ettiği bilgileri karşımıza getirecektir.</p>
+<p>theHarvester -d pwnlab.me -b google</p>
+<p>Ayrıca google yerine linkedin, bing, all vs gibi komutlarla site bazlı bilgiler tespit edebilirsiniz.</p>
+<p>Kullanımı ile alakalı ayrıntılı bilgiye ulaşmak için <a href="https://github.com/laramies/theHarvester"  class="external-link" target="_blank" rel="noopener">https://github.com/laramies/theHarvester</a> adresine gidebilirsiniz.</p>
+<h3 id="osint-framework">
+  OSINT Framework
+  <a class="heading-link" href="#osint-framework">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Osint Framework yüzlerce pasif bilgi toplama araçlarına ulaşabileceğiniz bir web sitesidir. İçerisindeki kategorilerden hedefinize uygun olan bölüme tıklayınca daha ayrıntılı sorgulama yapmanıza olanak sağlar. Ayrıca çıkan seçeneklerin sağında (T) yazısı mevcutsa bunu sadece terminal üzerinden gerçekleştirebileceğinizi görebilirsiniz.</p>
+<p>ilgili siteye <a href="http://osintframework.com"  class="external-link" target="_blank" rel="noopener">www.osintframework.com</a> adresinden ulaşabiliriz.</p>
+<hr>
+<p><em>Originally published at</em> <a href="https://pwnlab.me/tr-pasif-bilgi-toplama-teknikleri/"  class="external-link" target="_blank" rel="noopener"><em>https://pwnlab.me</em></a> <em>on November 26, 2021.</em></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

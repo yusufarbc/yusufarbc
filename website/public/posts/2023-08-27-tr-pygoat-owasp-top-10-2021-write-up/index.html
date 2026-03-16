@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  TR-Pygoat OWASP TOP 10 2021 WRITE-UP · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  TR-Pygoat OWASP TOP 10 2021 WRITE-UP
+  
+    
+    Link to heading
+  
+
+
+Hello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reasons why these vulnerabilities arise.
+
+  What is Pygoat?
+  
+    
+    Link to heading
+  
+
+Pygoat is a vulnerable web application developed by OWASP(Open Worldwide Application Security Project**)**. The goal is to provide a platform to teach both developers and testers how to test and code applications securely. PyGoat is written in Python and uses the Django Framework.
+PyGoat also has an area where you can view the source code to determine where the error was made that caused the vulnerability and allows you to make changes to make it secure.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="TR-Pygoat OWASP TOP 10 2021 WRITE-UP">
+  <meta name="twitter:description" content="TR-Pygoat OWASP TOP 10 2021 WRITE-UPLink to headingHello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reasons why these vulnerabilities arise.
+What is Pygoat?Link to headingPygoat is a vulnerable web application developed by OWASP(Open Worldwide Application Security Project**)**. The goal is to provide a platform to teach both developers and testers how to test and code applications securely. PyGoat is written in Python and uses the Django Framework.
+PyGoat also has an area where you can view the source code to determine where the error was made that caused the vulnerability and allows you to make changes to make it secure.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2023-08-27-tr-pygoat-owasp-top-10-2021-write-up/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="TR-Pygoat OWASP TOP 10 2021 WRITE-UP">
+  <meta property="og:description" content="TR-Pygoat OWASP TOP 10 2021 WRITE-UPLink to headingHello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reasons why these vulnerabilities arise.
+What is Pygoat?Link to headingPygoat is a vulnerable web application developed by OWASP(Open Worldwide Application Security Project**)**. The goal is to provide a platform to teach both developers and testers how to test and code applications securely. PyGoat is written in Python and uses the Django Framework.
+PyGoat also has an area where you can view the source code to determine where the error was made that caused the vulnerability and allows you to make changes to make it secure.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-08-27T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-08-27T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2023-08-27-tr-pygoat-owasp-top-10-2021-write-up/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About Me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2023-08-27-tr-pygoat-owasp-top-10-2021-write-up/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2023-08-27-tr-pygoat-owasp-top-10-2021-write-up/">
+              TR-Pygoat OWASP TOP 10 2021 WRITE-UP
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-08-27T00:00:00Z">
+                August 27, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              17-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="tr-pygoat-owasp-top-10-2021-write-up">
+  TR-Pygoat OWASP TOP 10 2021 WRITE-UP
+  <a class="heading-link" href="#tr-pygoat-owasp-top-10-2021-write-up">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_mIRdg0fVq0WdqzoayvZykA.png" alt=""></p>
+<p>Hello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reasons why these vulnerabilities arise.</p>
+<h3 id="what-is-pygoat">
+  <strong>What is Pygoat?</strong>
+  <a class="heading-link" href="#what-is-pygoat">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><a href="https://owasp.org/www-project-pygoat/"  class="external-link" target="_blank" rel="noopener">Pygoat</a> is a vulnerable web application developed by OWASP(Open Worldwide Application Security Project**)**. The goal is to provide a platform to teach both developers and testers how to test and code applications securely. PyGoat is written in Python and uses the Django Framework.<br>
+PyGoat also has an area where you can view the source code to determine where the error was made that caused the vulnerability and allows you to make changes to make it secure.</p>
+<p><img src="/images/1_1XctNRMmZBVl7M-IYHpuGA.png" alt=""></p>
+<p>OWASP TOP 10 2021</p>
+<p>In this article, we will solve the 2021 vulnerabilities in the left menu in Pygoatta.</p>
+<h3 id="pygoat-installation">
+  Pygoat Installation
+  <a class="heading-link" href="#pygoat-installation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>There are several different ways to install the application:</p>
+<ol>
+<li>Running with Source Code: You can download the source code from the github repo, install Django and run it with Python. This can help you work more clearly because you have the source code at hand. Github repo: <a href="https://github.com/adeyosemanputra/pygoat"  class="external-link" target="_blank" rel="noopener">https://github.com/adeyosemanputra/pygoat</a></li>
+<li>Running with Docker: Pygoat has a ready-made docker container in which the application is installed. To install this, you can install Docker on your computer and run the container. Docker Container: <a href="https://hub.docker.com/r/pygoat/pygoat"  class="external-link" target="_blank" rel="noopener">https://hub.docker.com/r/pygoat/pygoat</a></li>
+<li>Running with DockerVuln: DockerVuln is a program with an interface that contains vulnerable web applications. By installing this program on any Linux distribution, you can run its web applications with two clicks. DockerVuln: <a href="https://github.com/yusufarbc/DockerVuln"  class="external-link" target="_blank" rel="noopener">https://github.com/yusufarbc/DockerVuln</a></li>
+</ol>
+<hr>
+<h3 id="a1-broken-access-control">
+  A1: Broken Access Control
+  <a class="heading-link" href="#a1-broken-access-control">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Access control, sometimes called authorization, is when a web application grants access to content and functionality to some users but not to others. These checks occur after authentication and govern what &lsquo;authorised&rsquo; users can do. A web application&rsquo;s access control model is closely linked to the content and functionality the site provides. In addition, users can belong to a number of groups or roles with different capabilities or privileges.</p>
+<p>Access control enforces the policy so that users cannot act outside their intended permissions. Errors here often lead to unauthorized disclosure of information, alteration or destruction of all data, or performance of a business action beyond the user&rsquo;s authority.</p>
+<h4 id="lab-1">
+  LAB 1
+  <a class="heading-link" href="#lab-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>When we enter the lab and log in with the &lsquo;jack:jacktheripper&rsquo; credentials, we see that this account does not have a secret key. We were informed that the Secret Key is in the admin account.</p>
+<p><img src="/images/1_GsZNTPkjGJW-0WQxjN1qcA.png" alt=""></p>
+<p>When we capture and examine the request with burp suite, we see that I have a parameter named admin and it is given a value of 0. Access control is provided by this parameter, but we can manipulate this request.</p>
+<p><img src="/images/1_IivQnGS-EFYtyfRXhWnwhQ.png" alt=""></p>
+<p>When we set this parameter to 1 and send the request, we log in with admin authority and obtain the password.</p>
+<p><img src="/images/1__NrmHQfYRTk810LH9v3Y9g.png" alt=""></p>
+<h4 id="lab-2">
+  LAB 2
+  <a class="heading-link" href="#lab-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>When we enter the lab and log in with the &lsquo;jack:jacktheripper&rsquo; credentials, we see that the jack user is not an admin and does not have a secret key.</p>
+<p><img src="/images/1_XShmDM3Ad_TSrybSm54s7g.png" alt=""></p>
+<p>When we look at the source code of the page, it is written that the admin cannot use a bowser such as Google Chrome or Mozilla, but can only use the pygoat_admin browser. Interesting.</p>
+<p><img src="/images/1_7vSIhg1mgru3MNPtFyd6NA.png" alt=""></p>
+<p>When we catch the Bur suite request and look at it, we see that we are passing our browser information in the user-agent parameter.</p>
+<p><img src="/images/1_Rrh4mc0pJBjaud60_9MaqQ.png" alt=""></p>
+<p>I change the value here to <strong>pygoat_admin</strong>. And yes, we obtained the secret key.</p>
+<p><img src="/images/1_m7zvfQB4SXxVgwtPEJ1xxw.png" alt="">&mdash;</p>
+<h3 id="a2-cryptographic-failures">
+  A2: Cryptographic Failures
+  <a class="heading-link" href="#a2-cryptographic-failures">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Cryptographic errors can cause sensitive information leaks (Sensitive Data Exposure). Information leakage is when a website unintentionally discloses sensitive information to its users. Depending on the context, websites can leak all kinds of information to a potential attacker, including:</p>
+<ul>
+<li>Data about other users, such as usernames or financial information</li>
+<li>Sensitive commercial or business data</li>
+<li>Technical details about the website and its infrastructure</li>
+</ul>
+<h4 id="lab">
+  LAB
+  <a class="heading-link" href="#lab">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>There is a DEBUG attribute that includes showing errors to developers who are developing in the Django Framework. One of the features of having DEBUG=True is that it dumps a lot of metadata from your environment, including all settings.py configurations, when an exception occurs. This is necessary for the developer to resolve the bug. However, having this attribute enabled in a published application provides the attacker with too much information about the web application.</p>
+<p><img src="/images/1_fhpBBGKlmmV1iXT13OaZrg.png" alt=""></p>
+<p>In LAB, he wanted us to find the 500error page.</p>
+<p>When we wanted to go to a page that was not like the one in the figure, it gave us the website directories.</p>
+<p><img src="/images/1_l6WtGnxTx2_q3CFa-4R4tw.png" alt=""></p>
+<p>DEBUG=TRUE</p>
+<p><img src="/images/1_gQbuy4Ff0h56u41Kz8tfhQ.png" alt=""></p>
+<p>500error</p>
+<p>When we go to the page we find, it provides us with a lot of metadata about the web application.</p>
+<hr>
+<h3 id="a3-injection">
+  A3: Injection
+  <a class="heading-link" href="#a3-injection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Some of the most common injections are SQL, NoSQL, OS command, Object Relational Mapping (ORM), LDAP, and Expression Language (EL) or Object Graph Navigation Library (OGNL) injection.</p>
+<p>Source code review is the best method to detect whether applications are vulnerable to injections. Automated testing of all parameters, headers, URLs, cookies, JSON, SOAP and XML data input is highly recommended. Organizations can use static (SAST), dynamic (DAST), and interactive (IAST) application security testing tools to identify injection vulnerabilities that occur before application deployment.</p>
+<p>An application is vulnerable to injection attack if:</p>
+<ol>
+<li>User-provided data is not verified, filtered or sanitized by the application.</li>
+<li>Dynamic queries or non-parameterized calls without context-sensitive escaping are used directly in the interpreter.</li>
+<li>Unverified data is used within object-relational mapping (ORM) search parameters to extract additional, sensitive records.</li>
+<li>Unverified data is used directly or combined. SQL or command contains structure and malicious data (usually a piece of code) in dynamic queries, commands, or stored procedures.</li>
+</ol>
+<h4 id="sql-injection-lab">
+  SQL Injection LAB
+  <a class="heading-link" href="#sql-injection-lab">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>SQL injection is a famous Injection attack that consists of insertion or “injection” of a SQL query through input data from the client to the application. A successful SQL injection can read sensitive data from the database, modify database data (Insert/Update/Delete), perform administrative operations on the database (such as shutting down the DBMS), recover the contents of a specific file located on the DBMS file system, and in some cases issue commands to the operating system. SQL injection attacks are a type of injection attack in which SQL commands are injected into the data plane input with the aim of affecting the execution of predefined SQL commands.</p>
+<p><img src="/images/1_J_T1XcqsCJsdhjlVM3W8CQ.png" alt=""></p>
+<p>Login Form</p>
+<p>When we try to log in to the LAB environment with user/password credentials, we see the following SQL query.</p>
+<p><img src="/images/1_qm6EomyLqxhWtSqbs71eeg.png" alt=""></p>
+<p>SQL Script</p>
+<p>To log in to the admin account, we need to give the value &ldquo;admin&rdquo; to the username field. But we don&rsquo;t know the password. However, we can manipulate this SQL script.</p>
+<p>The password value in quotes in the password=&lsquo;password&rsquo; section is the value we entered into the form. We can first close the quotes in the form and then run the SQL command I wrote.</p>
+<blockquote>
+<p>username: admin<br>
+password: ‘ OR ‘1’ =’1</p>
+</blockquote>
+<p>The expression 1=1 in the SQL statement will ensure that the result returns TRUE and the SQL statement runs, thus allowing us to log in to the page.</p>
+<p><img src="/images/1_P5dPNgsWkHGPMNaBrM93Ag.png" alt=""></p>
+<p>Log in as admin</p>
+<h4 id="command-injection-lab">
+  Command Injection LAB
+  <a class="heading-link" href="#command-injection-lab">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Command injection is an infiltration of the target&rsquo;s host operating system via a vulnerable application.It is an attack that involves the execution of arbitrary commands. Command injection attacks are possible when an application passes unsecured user-supplied data (forms, cookies, HTTP headers, etc.) into a system shell. In this attack, attacker-supplied operating system commands are typically executed with the privileges of the vulnerable application. Command injection attacks are possible largely due to inadequate input validation.</p>
+<p>There is a Name Server Lookup application in the LAB environment. It gives the domain name it receives from the user as a parameter to a command that performs name lookup on the operating system it runs on and returns the output to us.</p>
+<p><img src="/images/1_VnYmabNdtLZtM6BUoOcZtA.png" alt=""></p>
+<p>For Linux systems, <em><strong>dig</strong></em> uses the <em><strong>nslookup</strong></em> tool for Windows systems. It allows us to finish the command statement and run a different command on both Linux and Windows systems; There is an expression.</p>
+<p>For Linux systems, after typing a domain in the input field; We can finish the command with and run the command we want. For example, we can try to read the passwd file containing users on Linux systems with the cat command.</p>
+<blockquote>
+<p>google.com; cat /etc/passwd</p>
+</blockquote>
+<p><img src="/images/1_F4asRoROjUr_7L0q4Q5xSw.png" alt=""></p>
+<p>When we run this command, the passwd file will be printed on the web page after the dig results.</p>
+<p><img src="/images/1_J8PdroB-PCC9Nr1JKUyrPQ.png" alt=""></p>
+<p>For Windows systems, after typing domain in the input field; We can finish the command with and run the command we want. For example, we can print the files in the directory on Windows systems with the dir command.</p>
+<blockquote>
+<p>google.com; is</p>
+</blockquote>
+<p><img src="/images/1_3db0eRrvAffAM059j0rRDg.png" alt=""></p>
+<p>After running this command, the files in the directory will be printed to the web page after nslookup results.</p>
+<p><img src="/images/1_8V6HolR2RmDh9ctp7OKeeA.png" alt=""></p>
+<hr>
+<h3 id="a4-insecuredesign">
+  A4: Insecure Design
+  <a class="heading-link" href="#a4-insecuredesign">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Insecure design is a broad category that represents different vulnerabilities. There is a difference between insecure design and insecure implementation. There&rsquo;s a reason we distinguish between design flaws and implementation flaws; They have different root causes and ways to fix them. A secure design may still have implementation flaws that lead to vulnerabilities that can be exploited. An insecure design cannot be fixed with a perfect implementation because, by definition, the required security controls were never built to defend against specific attacks. One factor contributing to insecure design is the lack of business risk profile inherent in the software or system being developed, and thus the inability to determine what level of security design is required.</p>
+<h4 id="lab-3">
+  LAB
+  <a class="heading-link" href="#lab-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>When we look at the example in the lab environment, we are faced with an application that gives us 5 free tickets but does not allow us to watch the movie until all the tickets are sold.</p>
+<p><img src="/images/1_9IoF-emuRmtPxiJs5cnZsg.png" alt=""></p>
+<p>This app only provides us 5 tickets for free. When I caught and looked at the burp request, I did not see any vulnerability.</p>
+<p>The statement in the lab environment said that we could buy all the tickets. But how? He said logout and think as a hint. I wonder if we can log out, create a new account and get free tickets from there?</p>
+<p><img src="/images/1_mnAdcOtUSgaXb-rZwJwdbQ.png" alt=""></p>
+<p>Yes it worked, we created another account and got 5 more free tickets. If we create 9 more accounts this way, we can buy all the tickets and watch our movie :) <br>
+As you can see, there is no known vulnerability in the application, but an error in the design, that is, in creating the business rules, brought us to this point.</p>
+<hr>
+<h3 id="a5-security-misconfiguration">
+  A5: Security Misconfiguration
+  <a class="heading-link" href="#a5-security-misconfiguration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Misconfigurations can occur at any level of an application stack, including network services, platform, web server, application server, database, frameworks, custom code, and pre-installed virtual machines, containers, or storage. Automated tools can detect misconfigurations, use of default accounts or configurations, unnecessary services, outdated options, etc. Useful for detection.</p>
+<p>Thanks to such flaws, attackers gain unauthorized access to some system data or functions. Sometimes such flaws cause the system to be completely compromised.</p>
+<h4 id="lab-4">
+  LAB
+  <a class="heading-link" href="#lab-4">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This is a misconfiguration in the laboratorybut there is It reveals the secret key and only the admin can view this key. What we need to ask here is how does it verify that you are an admin? Is there a cookie or header?</p>
+<p><img src="/images/1_Vhai1BxfJiRuY6pVLqN5xQ.png" alt=""></p>
+<p>When we press the Labda secret key button, it says that only admin.localhost:8000 can access this secret key. How could it be? Let&rsquo;s capture the request with Burp.</p>
+<p><img src="/images/1_OY_YZmeVurlhV4MKW4UOdA.png" alt=""></p>
+<p>In this burp request, we see that it sends a GET request to the secret. However, the X-Host header specified in the error message is not here. He did not inform us that its value was none anyway. What we need to do here is to add a header called X-Host and give its value as admin.localhost:8000.<br>
+This application verifies the admin account by looking at the X-Host value in the request, but it ignores that we can manipulate this request on the client side.</p>
+<p><img src="/images/1_9DIQ37iE1AYtGP1rZfv2fA.png" alt=""></p>
+<p>When we capture the request in Burp&rsquo;s Proxy menu, there is a menu on the right where we can see and edit the headers. From here we add the X-Host header and give the required value. Then we can send the request. And we obtained the secret key.</p>
+<p><img src="/images/1_RIaCAdysvIY_On1WNfJcZw.png" alt=""></p>
+<hr>
+<h3 id="a6-vulnerable-and-outdated-components">
+  A6: Vulnerable and Outdated Components
+  <a class="heading-link" href="#a6-vulnerable-and-outdated-components">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>When a developer uses a piece of code or library that already has a known vulnerability, this can compromise the entire application. This occurs when components such as libraries and frameworks used within the application often run with full permissions. A vulnerable component can cause serious data loss or server takeover.</p>
+<h4 id="lab-5">
+  LAB
+  <a class="heading-link" href="#lab-5">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In this lab environment, there is an application that converts yaml files to json files. A yaml file needs to be selected and loaded to get the json data. There is also a get version feature that tells the user the version of the library the application is using.</p>
+<p><img src="/images/1_EppokYoSMghu5tW6l4_ezQ.png" alt=""></p>
+<p>When we press the Get Version button, we see that pyyaml v5.1 is used in this application. Let&rsquo;s search for this version on the internet.</p>
+<p><img src="/images/1_mWcoGEUEuFd_E0ne0P1PxA.png" alt=""></p>
+<p>Vulnerability Research</p>
+<p>As a result of research, I found that the module used has a <strong>critical</strong> vulnerability called <em><strong>Arbitary Code Executio</strong></em>n. Then you can do research on how to exploit this vulnerability.</p>
+<p>In order to exploit this vulnerability, we need to prepare a yaml file-payload. I saved the following script in a yaml file.</p>
+<pre tabindex="0"><code>!!python/object/apply:subprocess.check_output  
+-ls
+</code></pre><p>Then I selected the file I created and clicked the upload button.</p>
+<p><img src="/images/1_Xts7McZlvSLGwS9-OBnsaQ.png" alt=""></p>
+<p>When the payload we prepared runs, the command we gave, <em><strong>ls</strong></em>, will run and print the files in the directory on the server. And we can see the directories and files in the resulting output.</p>
+<p><img src="/images/1_N8TX7K3Ls7X5y90S1M-3Rg.png" alt=""></p>
+<hr>
+<h3 id="a7-identification-and-authentication-failures">
+  A7: Identification and Authentication Failures
+  <a class="heading-link" href="#a7-identification-and-authentication-failures">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Authentication and Identification Failures is a term used for various vulnerabilities that attackers use to impersonate legitimate users online.</p>
+<p>Attackers use a variety of strategies to exploit these vulnerabilities, from authentication attacks to highly targeted schemes aimed at gaining access to a specific person&rsquo;s credentials.</p>
+<h4 id="lab-6">
+  LAB
+  <a class="heading-link" href="#lab-6">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The lab consists of a login page that asks users for their username and password. There is also a feature to login via otp(one-time-pad) if you don&rsquo;t know the password! When users click on the OTP login feature, the user is redirected to a page that asks for the email id to send the OTP. You can see that when the user provides an email ID, the 3-digit opt ​​is sent back to the page itself. This is not the common scenario, usually the code is sent to the user&rsquo;s registered email.<br>
+Once the user gets the 3 digit code he can now enter the code in the input box that says Enter your OTP After entering the valid OTP the user will get a page that says Login Successful as user : email. If the OTP is incorrect, the user will receive a message saying Invalid OTP.</p>
+<p><img src="/images/1_qFdtiAX04zdzBl7_E85_vA.png" alt=""></p>
+<p>The admin e-mail address is given as <code>admin@pygoat.com</code>. When we came to the OTP login section in the application interface, I received an OTP code by typing this e-mail. OTP code is 3 digits and has no restrictions captcha etc. no. We can find the OTP by brute force on the application.</p>
+<p>We can try capturing the burp request, throwing it to the intruder, and doing a brute force attack from there.</p>
+<p><img src="/images/1_TmoJ6_qjHN6N7SlDtUe5Cw.png" alt=""></p>
+<p>We select the otp header value in the Intruder, click on the add button and mark this value as payload. Then we move on to the payload tab, which is the second tab on the top right.</p>
+<p><img src="/images/1_1nO5T5g9KjrCm8pf4YuZ6Q.png" alt=""></p>
+<p>In the Payload tab, we define a payload in which we will try all values between 111–999. Then we can launch the attack. In the community version of Burp, brute force attack speeds are slowed down. It may take a while for this to happen.</p>
+<p><img src="/images/1_p4ge2cHqlrhq1SSXwMgSAg.png" alt=""></p>
+<p>As a result, we will find the OTP in the request with a different length value.</p>
+<hr>
+<h3 id="a8-software-and-data-integrity-failures">
+  A8: Software and Data Integrity Failures
+  <a class="heading-link" href="#a8-software-and-data-integrity-failures">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Serialization and Deserilazsyo exploits rarely work without causing an error. Some tools can discover deserialization defects, but human assistance is often needed to verify the problem. Prevalence data on serialization defects is expected to increase as tools are developed to help identify and address them. These flaws can lead to remote code execution vulnerabilities, one of the most serious attacks possible.</p>
+<p>Serialization is the process of converting complex data structures, such as objects and their fields, into a “flatter” format that can be sent and received as a sequential stream of bytes. Deserialization is the process of restoring this byte stream into a fully functional copy of the original object, exactly as it was in the state in which it was serialized.</p>
+<p>Applications and APIs will be vulnerable to deserialized malicious or tampered objects provided by an attacker. This can result in two basic types of attacks:</p>
+<ol>
+<li>Object and data structure-related attacks: Attacks in which the attacker modifies application logic or achieves arbitrary remote code execution if the application contains classes that can change behavior during or after deserialization.</li>
+<li>Typical data manipulation attacks, such as access control-related attacks where existing data structures are used but the content is changed.</li>
+</ol>
+<p><strong>Serialization can be used in applications for:</strong></p>
+<ul>
+<li>Remote and inter-process communication (RPC/IPC)</li>
+<li>Wire protocols, web services, message brokers</li>
+<li>Caching/Persistence</li>
+<li>Databases, cache servers, file systems</li>
+<li>HTTP cookies, HTML form parameters, API authentication tokens</li>
+</ul>
+<h4 id="insecure-deserialization-lab">
+  Insecure Deserialization LAB
+  <a class="heading-link" href="#insecure-deserialization-lab">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In the lab environment, we are faced with a page that only the admin can access. How to verify that you are an admin? We need to investigate this.</p>
+<p><img src="/images/1_f3FKpcsOgW_L9m5pNit8RQ.png" alt=""></p>
+<p>Let&rsquo;s capture the request to the page with burp. In this request, we see that the cookie information is base64 encoded.</p>
+<p><img src="/images/1_iRZrBcOzuR164doOB8G6dQ.png" alt=""></p>
+<p>We can decode the base64 encoded token value with Burp Suite&rsquo;s decoder tool.</p>
+<p><img src="/images/1_2gXLtT_iTD0Y68VkYWaSKw.png" alt=""></p>
+<hr>
+<h3 id="a9-security-logging-and-monitoring-failures">
+  A9: Security Logging and Monitoring Failures
+  <a class="heading-link" href="#a9-security-logging-and-monitoring-failures">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Improper logging and monitoring are the basis of nearly every major cyber attack. Attackers rely on a lack of monitoring and timely response to achieve their goals without being detected.<br>
+Most successful attacks start with vulnerability research. Allowing such probes to persist can increase the likelihood of a successful exploit to almost 100%.</p>
+<h4 id="lab-7">
+  LAB
+  <a class="heading-link" href="#lab-7">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This lab helps you get an idea of how sometimes improper logging can lead to information disclosure. The user who accesses the lab is given a login page saying that the logs have been leaked. The user must find the leak and attempt to obtain the leaked credentials in the logs.</p>
+<p><img src="/images/1_D52QViZ-2QoHV1MkEeSY6A.png" alt=""></p>
+<p>When I enter an ordinary username and password on the page, I normally get an error saying incorrect username or password. When I scanned with dirb, I discovered a directory called /debug.</p>
+<p><img src="/images/1_Rf867AJeBGAnDM_sCOvPOQ.png" alt=""></p>
+<p>The logs kept by the system can be viewed in the /debug directory. When we search the a10 page on these logs, we see an interesting log.</p>
+<p><img src="/images/1_H9BTdl1b8IkpVoqIqWhliQ.png" alt=""></p>
+<p>Since the login page works with a GET request, the credentials used to log in are written in the url and recorded in the logs. We can log in with these credentials.</p>
+<hr>
+<h3 id="a10-server-side-request-forgery">
+  A10: Server-Side Request Forgery
+  <a class="heading-link" href="#a10-server-side-request-forgery">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>SSRF flaws occur when a web application fetches a remote resource without validating the user-supplied URL. It allows an attacker to force an application to send a crafted request to an unexpected destination, even if it is protected by a firewall, VPN, or other type of network access control list (ACL). As modern web applications (microservice architecture) provide useful features to end users, getting URLs is becoming a common scenario. As a result, the incidence of SSRF is increasing. Additionally, the severity of SSRF increases due to the complexity of cloud services and architectures.</p>
+<h4 id="lab-8">
+  LAB
+  <a class="heading-link" href="#lab-8">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>These lab environment pages show some blogs, but can you understand how the blogs are presented?</p>
+<p><img src="/images/1_GdaChpvQ0G435rzb3g8a2g.png" alt=""></p>
+<p>The code running in the background in the lab environment is given and we are asked to find the env file. When we burp the request and inspect it,</p>
+<p><img src="/images/1_vMxFjxvIZabnGY3Fn47S1w.png" alt=""></p>
+<p>We see that the text file in this directory, given a directory with the blog parameter, is read and printed on the page. By manipulating this value, we can read the file we want in the directory. We were asked to read the a.env file. By trial and error, we can read the a.env file by searching for it.</p>
+<hr>
+<h3 id="resources">
+  Resources
+  <a class="heading-link" href="#resources">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>OWASP TOP 10 2021: <a href="https://owasp.org/Top10/"  class="external-link" target="_blank" rel="noopener">https://owasp.org/Top10/</a></p>
+<p>Web Security Academy: <a href="https://portswigger.net/web-security/"  class="external-link" target="_blank" rel="noopener">https://portswigger.net/web-security/</a></p>
+<p>Mastering Modern Web Penetration Testing</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

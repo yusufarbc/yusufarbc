@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Threat Hunting with Firewalls Walkthrough — LetsDefend · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Threat Hunting with Firewalls Walkthrough — LetsDefend
+  
+    
+    Başlık Linki
+  
+
+
+LetsDefend — Blue Team Training Platform
+
+  Introduction
+  
+    
+    Başlık Linki
+  
+
+Firewall logs are a critical source of data for monitoring network traffic and analyzing security incidents. During threat hunting, firewall logs are used to detect potential threats, identify anomalies, and respond to security incidents quickly and effectively. This course covers the role and importance of firewall logs in the threat hunting process.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Threat Hunting with Firewalls Walkthrough — LetsDefend">
+  <meta name="twitter:description" content="Threat Hunting with Firewalls Walkthrough — LetsDefendBaşlık LinkiLetsDefend — Blue Team Training Platform
+IntroductionBaşlık LinkiFirewall logs are a critical source of data for monitoring network traffic and analyzing security incidents. During threat hunting, firewall logs are used to detect potential threats, identify anomalies, and respond to security incidents quickly and effectively. This course covers the role and importance of firewall logs in the threat hunting process.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2025/09/threat-hunting-with-firewalls-walkthrough-letsdefend/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Threat Hunting with Firewalls Walkthrough — LetsDefend">
+  <meta property="og:description" content="Threat Hunting with Firewalls Walkthrough — LetsDefendBaşlık LinkiLetsDefend — Blue Team Training Platform
+IntroductionBaşlık LinkiFirewall logs are a critical source of data for monitoring network traffic and analyzing security incidents. During threat hunting, firewall logs are used to detect potential threats, identify anomalies, and respond to security incidents quickly and effectively. This course covers the role and importance of firewall logs in the threat hunting process.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-20T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-deception-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-email-security-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-edr-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-dns-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-ips/ids-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-waf-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/09/threat-hunting-with-cti-walkthrough-letsdefend/">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2025/09/threat-hunting-with-firewalls-walkthrough-letsdefend/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2025/09/threat-hunting-with-firewalls-walkthrough-letsdefend/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2025/09/threat-hunting-with-firewalls-walkthrough-letsdefend/">
+              Threat Hunting with Firewalls Walkthrough — LetsDefend
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-09-20T00:00:00Z">
+                Eylül 20, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              15 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="threat-hunting-with-firewalls-walkthroughletsdefend">
+  Threat Hunting with Firewalls Walkthrough — LetsDefend
+  <a class="heading-link" href="#threat-hunting-with-firewalls-walkthroughletsdefend">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_yrGs0FOBn2uXV2jFhtrBVw.png" alt=""></p>
+<p><a href="https://letsdefend.io/"  class="external-link" target="_blank" rel="noopener">LetsDefend — Blue Team Training Platform</a></p>
+<h3 id="introduction">
+  Introduction
+  <a class="heading-link" href="#introduction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Firewall logs are a critical source of data for monitoring network traffic and analyzing security incidents. During threat hunting, firewall logs are used to detect potential threats, identify anomalies, and respond to security incidents quickly and effectively. This course covers the role and importance of firewall logs in the threat hunting process.</p>
+<p><img src="/images/0_-UAM8p1GX3rgrE6B.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.linkedin.com/pulse/crucial-logs-threat-hunting-alex-lasher-50eje/"  class="external-link" target="_blank" rel="noopener">https://www.linkedin.com/pulse/crucial-logs-threat-hunting-alex-lasher-50eje/</a> )</p>
+<p>This lesson has provided an introduction to the topic, and the next lesson will cover “ <strong>Information from Firewall Logs for Threat Hunting</strong> “.</p>
+<h3 id="questions">
+  Questions
+  <a class="heading-link" href="#questions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Anser Needed</p>
+<hr>
+<h3 id="information-from-firewall-logs-for-threathunting">
+  Information from Firewall Logs for Threat Hunting
+  <a class="heading-link" href="#information-from-firewall-logs-for-threathunting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Firewall logs are essential for monitoring network traffic and detecting security threats. These logs help identify normal network behavior patterns, detect anomalies, and uncover potential threats. In the threat hunting process, firewall logs provide critical information such as source and destination IP addresses, port and protocol usage, access times, traffic types and volumes, access policies, and anomalous behavior. With this information in hand, security teams can develop proactive defense strategies and respond quickly to incidents.</p>
+<p><img src="/images/0_Rlgew9D8vewyju5h.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://hackforlab.com/threat-hunting-with-firewall-traffic/"  class="external-link" target="_blank" rel="noopener">https://hackforlab.com/threat-hunting-with-firewall-traffic/</a> )</p>
+<h3 id="source-and-destination-ip-addresses">
+  Source and Destination IP Addresses
+  <a class="heading-link" href="#source-and-destination-ip-addresses">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="monitoring-andanalysis">
+  Monitoring and Analysis
+  <a class="heading-link" href="#monitoring-andanalysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Monitoring:</strong> Firewall logs contain the source and destination IP addresses of all connections on the network. This information can be used to keep track of which IP addresses are frequently communicating with other IP addresses.</li>
+<li><strong>Analysis:</strong> Attackers and their targets can be identified by analyzing source and destination IP addresses. To identify potential threats, suspicious IP addresses are compared to known indicators of compromise (IOCs).</li>
+</ul>
+<h4 id="examples">
+  Examples
+  <a class="heading-link" href="#examples">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>A sudden increase in connections from an internal IP address to multiple external IP addresses may be an indication of data exfiltration.</li>
+<li>Repeated connection attempts from a suspicious external IP address to a specific internal IP address may be an indication of a brute force attack.</li>
+</ul>
+<h3 id="port-and-protocols">
+  Port and Protocols
+  <a class="heading-link" href="#port-and-protocols">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="usage-patterns-andsecurity">
+  Usage Patterns and Security
+  <a class="heading-link" href="#usage-patterns-andsecurity">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Usage Patterns:</strong> Monitoring which ports and protocols are used helps establish normal network behavior patterns. Abnormal port usage can indicate potential threats.</li>
+<li><strong>Security:</strong> Monitoring traffic to and from unexpected ports is crucial for identifying vulnerabilities and malicious activities.</li>
+</ul>
+<h4 id="examples-1">
+  Examples
+  <a class="heading-link" href="#examples-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>A sudden spike in traffic on a rarely used port may indicate an attack.</li>
+<li>The use of insecure protocols (e.g., Telnet) can increase the risk of security incidents.</li>
+</ul>
+<h3 id="access-times">
+  Access Times
+  <a class="heading-link" href="#access-times">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="time-and-chronology">
+  Time and Chronology
+  <a class="heading-link" href="#time-and-chronology">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Analysis of Time:</strong> Firewall logs show when network traffic occurs. This information is used to detect abnormal activity during certain time periods.</li>
+<li><strong>Chronology:</strong> Determining when events occur helps build timelines of attacks and understand their stages.</li>
+</ul>
+<h4 id="examples-2">
+  Examples
+  <a class="heading-link" href="#examples-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>Large data transfers occurring late at night may be suspicious, as they fall outside normal business hours.</li>
+<li>Repeated failed login attempts within a specific timeframe may be an indication of a brute force attack.</li>
+</ul>
+<h3 id="traffic-types-andvolumes">
+  Traffic Types and Volumes
+  <a class="heading-link" href="#traffic-types-andvolumes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="data-flow-and-bandwidth-usage">
+  Data Flow and Bandwidth Usage
+  <a class="heading-link" href="#data-flow-and-bandwidth-usage">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Data Flow:</strong> Firewall logs show the volume and type of data flow in the network. Abnormal data flows can help identify potential threats.</li>
+<li><strong>Bandwidth Usage:</strong> Monitoring bandwidth usage during specific timeframes helps detect deviations from normal traffic patterns.</li>
+</ul>
+<h4 id="examples-3">
+  Examples
+  <a class="heading-link" href="#examples-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>Unusually high bandwidth usage may indicate a DDoS attack.</li>
+<li>Continuous large data transfers from a specific IP address may be an indication of data exfiltration activity.</li>
+</ul>
+<h3 id="access-policies-andrules">
+  Access Policies and Rules
+  <a class="heading-link" href="#access-policies-andrules">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="rules-and-permissions">
+  Rules and Permissions
+  <a class="heading-link" href="#rules-and-permissions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Rule Enforcement:</strong> The firewall logs show which access policies and rules are being enforced. This helps evaluate and improve the effectiveness of firewall rules.</li>
+<li><strong>Allow and Deny:</strong> To identify potential vulnerabilities and attack attempts, analysis of allowed and denied connections is essential.</li>
+</ul>
+<h4 id="examples-4">
+  Examples
+  <a class="heading-link" href="#examples-4">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>Repeated denied connection attempts from a specific IP address may indicate malicious activity.</li>
+<li>Frequent violations of firewall rules may suggest the need to review security policies.</li>
+</ul>
+<h3 id="abnormal-behaviors-and-violations">
+  Abnormal Behaviors and Violations
+  <a class="heading-link" href="#abnormal-behaviors-and-violations">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="anomaly-detection-and-incidents">
+  Anomaly Detection and Incidents
+  <a class="heading-link" href="#anomaly-detection-and-incidents">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Anomaly Detection:</strong> Firewall logs are used to detect deviations from normal behavior patterns and identify anomalies, which can indicate potential threats.</li>
+<li><strong>Security Incidents:</strong> Analyzing detected security incidents helps determine root causes and impacts.</li>
+</ul>
+<h4 id="examples-5">
+  Examples
+  <a class="heading-link" href="#examples-5">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>An abnormal number of connection attempts from the internal network to external networks may indicate an insider threat or data exfiltration attempt.</li>
+<li>Connection attempts to systems that are normally inaccessible may suggest a violation of security policies.</li>
+</ul>
+<h3 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Firewall logs provide critical information for threat hunting. Details such as source and destination IP addresses, port and protocol usage, access times, traffic types and volumes, policies, permissions, and anomalous behavior are used to ensure network security and identify potential threats. With this information, security teams can analyze network traffic, identify anomalies and threats, and respond to incidents quickly and effectively.</p>
+<p>This lesson discussed the importance of firewall logs in threat hunting and the information that can be gleaned from them. The next lesson will cover “ <strong>Threat Hunting Steps with Firewall Logs</strong> “.</p>
+<h3 id="questions-1">
+  Questions
+  <a class="heading-link" href="#questions-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Anser Needed</p>
+<hr>
+<h3 id="threat-hunting-steps-with-firewalllogs">
+  Threat Hunting Steps with Firewall Logs
+  <a class="heading-link" href="#threat-hunting-steps-with-firewalllogs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>This section explains threat hunting methodology using firewall logs, focusing on distinguishing between normal and abnormal network traffic patterns. Normal traffic represents regular, expected data flows including routine user activities, standard application communications, and typical port/protocol usage, while abnormal traffic encompasses unexpected behaviors like unusual data transfer volumes, connections at irregular times, or communications with suspicious IP addresses. The threat hunting process involves three key phases: first, establishing baseline normal behavior by monitoring traffic patterns, user activities, and device behaviors over time to create reference points; second, detecting suspicious activities by comparing logs against threat intelligence databases for malicious IPs/domains and monitoring for unexpected port usage or connections; and third, analyzing anomalies including unusual data transfers, traffic spikes that may indicate DDoS attacks or data exfiltration, failed login attempts suggesting brute force attacks, and repeated unauthorized access attempts. This systematic approach to firewall log analysis enables security teams to effectively identify potential threats, detect security incidents early, and respond quickly to protect network infrastructure, with the methodology serving as a foundation for more advanced threat hunting techniques like outbound connection hypothesis analysis.</p>
+<h3 id="understanding-normal-trafficbehavior">
+  Understanding Normal Traffic Behavior
+  <a class="heading-link" href="#understanding-normal-trafficbehavior">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="differences-between-normal-and-abnormaltraffic">
+  Differences Between Normal and Abnormal Traffic
+  <a class="heading-link" href="#differences-between-normal-and-abnormaltraffic">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Normal Traffic:</strong> It refers to the regular and expected data flow within a network. It includes activities performed by specific users at specific times, as well as the ports and protocols regularly used by certain services and applications. For example, a frequently used application within the company consistently exchanging data over a specific IP address and port is considered normal.</li>
+<li><strong>Abnormal Traffic:</strong> It refers to traffic that is abnormal, unexpected, or unusual. Examples include sudden increases in data transfers, connections made at unexpected times, or traffic coming from unexpected IP addresses. Abnormal traffic may indicate a potential security incident or attack.</li>
+</ul>
+<h3 id="identifying-normal-trafficbehavior">
+  Identifying Normal Traffic Behavior
+  <a class="heading-link" href="#identifying-normal-trafficbehavior">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Identify Traffic Patterns:</strong> To understand the normal operation of a network, traffic is monitored over a period of time. During that period, it is observed which IP addresses communicate over which ports and protocols at certain hours to determine normal traffic patterns.</li>
+<li><strong>Monitor User and Device Behavior:</strong> To understand normal behavior, the daily activities of users and devices on the network are monitored. This includes tracking which systems specific users access and what they perform at specific times.</li>
+<li><strong>Create Reference Points:</strong> Data collected to understand normal traffic behavior is used as benchmarks to compare when detecting anomalies.</li>
+</ul>
+<p><img src="/images/0_SlhfPpG5hIkE39O8.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.digitalocean.com/community/tutorials/how-to-build-a-siem-with-suricata-and-elastic-stack-on-debian-11"  class="external-link" target="_blank" rel="noopener">https://www.digitalocean.com/community/tutorials/how-to-build-a-siem-with-suricata-and-elastic-stack-on-debian-11</a> )</p>
+<h3 id="detecting-suspicious-traffic">
+  Detecting Suspicious Traffic
+  <a class="heading-link" href="#detecting-suspicious-traffic">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="suspicious-ip-addresses-anddomains">
+  Suspicious IP Addresses and Domains
+  <a class="heading-link" href="#suspicious-ip-addresses-anddomains">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Review Malicious IP Addresses and Domains:</strong> Compare firewall logs against malicious IP addresses and domains obtained from known threat intelligence sources. Traffic coming from or going to these addresses is considered suspicious.</li>
+<li><strong>Monitor and Identify:</strong> Continuously monitor firewall logs and identify connections that match known malicious IP addresses and domains. These findings provide advance warning of potential attacks.</li>
+</ul>
+<h4 id="abnormal-port-usage-and-connections">
+  Abnormal Port Usage and Connections
+  <a class="heading-link" href="#abnormal-port-usage-and-connections">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Unexpected Port Usage:</strong> Monitor traffic to and from ports which are not normally or infrequently used. This is especially important for high-risk ports (e.g., 3389 — RDP).</li>
+<li><strong>Suspicious Connections:</strong> Unexpected connections from inside or outside the network, especially abnormal attempts to connect using certain protocols, are considered suspicious. For example, a system normally used only to access the internal network suddenly tries to connect to the outside world.</li>
+</ul>
+<p><img src="/images/0_5pCVuxc2939BO77M.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.researchgate.net/figure/Example-of-the-main-Elastiflow-Kibana-page-at-AGLT2_fig2_335862467"  class="external-link" target="_blank" rel="noopener">https://www.researchgate.net/figure/Example-of-the-main-Elastiflow-Kibana-page-at-AGLT2_fig2_335862467</a> )</p>
+<h3 id="analyzing-anomalies-and-abnormalbehavior">
+  Analyzing Anomalies and Abnormal Behavior
+  <a class="heading-link" href="#analyzing-anomalies-and-abnormalbehavior">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="traffic-anomalies">
+  Traffic Anomalies
+  <a class="heading-link" href="#traffic-anomalies">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Anomalies In Data Transfers:</strong> Data transfers significantly larger than normal or at unexpected times are detected. For example, large transfers made after hours may be considered anomalous.</li>
+<li><strong>Traffic Spikes:</strong> A sudden increase in traffic over a short period of time can indicate a DDoS attack or data exfiltration attempt. Such anomalies are detected by analyzing traffic patterns in firewall logs.</li>
+</ul>
+<h4 id="access-attempts-and-failedlogins">
+  Access Attempts and Failed Logins
+  <a class="heading-link" href="#access-attempts-and-failedlogins">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Failed Login Attempts:</strong> Continuous failed login attempts from a specific IP address or user may indicate a brute force attack.</li>
+<li><strong>Unauthorized Access Attempts:</strong> Users or systems attempting to access resources they shouldn’t be accessing are considered potential security incidents.</li>
+<li><strong>Repeated Failures:</strong> Repeated failed logon or connection attempts within a short period of time may indicate malicious activity. For example, a system that repeatedly attempts to access a resource using incorrect credentials.</li>
+</ul>
+<p>Using firewall logs, these steps and explanations will make the threat hunting process more effective. Firewall logs are a critical source of data for ensuring network security and detecting potential threats. They enable security teams to identify anomalies and potential threats and respond quickly.</p>
+<p>This lesson discussed the steps to follow when analyzing firewall logs in the threat hunting process. The next lesson will cover the <strong>“Outbound Connection Hypothesis</strong> “.</p>
+<h3 id="questions-2">
+  Questions
+  <a class="heading-link" href="#questions-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Anser Needed</p>
+<hr>
+<h3 id="outbound-connection-hypothesis">
+  Outbound Connection Hypothesis
+  <a class="heading-link" href="#outbound-connection-hypothesis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>The Outbound Connection Hypothesis in cybersecurity focuses on detecting anomalous network behavior characterized by a sudden surge of connection attempts from a specific internal IP address to external destinations using unusual ports, which may indicate malicious activity such as reverse shell connections. The detection methodology involves collecting and analyzing firewall logs, SIEM data, network flow information, and IDS/IPS logs through a centralized system to establish baseline network patterns and identify deviations. The analysis process includes transferring logs to SIEM solutions, recording traffic patterns over time, identifying normal port and protocol usage, and detecting abnormal connection attempts that target external IP addresses through rarely-used ports. Expected outcomes include the detection of unusual connection volumes from internal sources, identification of connections using non-standard ports, discovery of targeted external IP addresses, and correlation analysis that determines whether these activities represent potential security threats, ultimately enabling early threat detection and rapid incident response to protect network infrastructure.</p>
+<h3 id="hypothesis">
+  Hypothesis
+  <a class="heading-link" href="#hypothesis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>There may be a sudden high number of attempted connections from a specific local IP address to external IP addresses using unusual ports.</p>
+<p><img src="/images/0_LYKtdcQfBZA1dvYH.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.techslang.com/definition/what-is-a-reverse-shell/"  class="external-link" target="_blank" rel="noopener">https://www.techslang.com/definition/what-is-a-reverse-shell/</a> )</p>
+<h3 id="data-sources">
+  Data Sources
+  <a class="heading-link" href="#data-sources">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Firewall Logs:</strong> Incoming and outgoing network traffic, connection attempts to specific ports, and records of successful and failed connection attempts.</li>
+<li><strong>SIEM Logs:</strong> Firewall logs integrated and collected on a centralized platform.</li>
+<li><strong>Network Flow Analysis:</strong> Examination of network traffic data and monitoring of connections.</li>
+<li><strong>IDS/IPS Logs:</strong> Logs from systems that detect and record suspicious or malicious activities.</li>
+</ul>
+<h3 id="analysis-steps">
+  Analysis Steps
+  <a class="heading-link" href="#analysis-steps">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Transfer firewall logs to a centralized log management system or SIEM solution.</li>
+<li>Record all inbound and outbound traffic over a specific period.</li>
+<li>Analyze the logs to determine normal network traffic patterns.</li>
+<li>Identify the ports and protocols that are normally used.</li>
+<li>Identify activities that deviate from normal traffic patterns.</li>
+<li>Examine a high number of unusual connection attempts from a specific internal IP address.</li>
+<li>Detect connection attempts over ports that are not normally or rarely used.</li>
+<li>Identify the external IP addresses targeted by these connections.</li>
+<li>Compare firewall logs with other network and security logs.</li>
+<li>Perform correlation analysis of abnormal activities and detect specific patterns.</li>
+<li>Evaluate the accuracy and severity of detected activities.</li>
+<li>Collect additional data to validate the incident and determine the stage of the connections.</li>
+</ul>
+<h3 id="expected-outcomes">
+  Expected Outcomes
+  <a class="heading-link" href="#expected-outcomes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Abnormal numbers of connection attempts from a specific internal IP address are detected in firewall logs.</li>
+<li>Connections to external IP addresses over ports that are not normally or rarely used are identified.</li>
+<li>A high number of unusual connection attempts targeting a specific external IP address are detected.</li>
+<li>Correlation analysis with SIEM and other security logs determines whether these activities indicate a potential attack.</li>
+</ul>
+<h3 id="summary">
+  Summary
+  <a class="heading-link" href="#summary">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>These analysis steps provide strategies for detecting a sudden high number of attempted connections from a given internal IP address to external IP addresses using unusual ports. Firewall logs are a critical source of data for monitoring and detecting such anomalous activity. Anomaly detection enables early identification of potential attacks and rapid response. This goes a long way in helping to secure the network and proactively manage the threats posed.</p>
+<h3 id="questions-3">
+  Questions
+  <a class="heading-link" href="#questions-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Anser Needed</p>
+<hr>
+<h3 id="practical-lab">
+  Practical Lab
+  <a class="heading-link" href="#practical-lab">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>This is a Threat Hunting lab exercise based on the hypothesis that sophisticated attacks from Cambodia may target the organization due to diplomatic tensions between the two countries. The lab environment includes SIEM (Wazuh), firewall traffic and anomaly detection events, CTI events, and EDR (Sysmon) events. Students must analyze logs from August 1–7, 2024, and answer questions sequentially since each requires correct answers from previous ones. To access the Wazuh lab, users need to click connect, wait 3–4 minutes for deployment, navigate to the provided IP address, log in with credentials “letsdefend:letsdefend123,” and open the Discover page.</p>
+<h3 id="hypothesis-1">
+  Hypothesis
+  <a class="heading-link" href="#hypothesis-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Note</strong>: The questions in this section are prepared for Threat Hunting based on the following hypothesis.</p>
+<p><strong>Hypothesis</strong>: Sophisticated attacks targeting the organization from Cambodia are a possibility due to the diplomatic tension between the two countries.</p>
+<h3 id="threat-hunting-lab-environment">
+  Threat Hunting Lab Environment
+  <a class="heading-link" href="#threat-hunting-lab-environment">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>SIEM (Wazuh)</li>
+<li>Firewall Traffic Events</li>
+<li>Firewall Anomaly Detection Module Events</li>
+<li>CTI Events (<a href="https://app.letsdefend.io/threat-intelligence-feed"  class="external-link" target="_blank" rel="noopener">Threat Intel LetsDefend Platform</a>)</li>
+<li>EDR Events (Sysmon)</li>
+</ul>
+<h3 id="lab-notes">
+  Lab Notes
+  <a class="heading-link" href="#lab-notes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Analyze the logs between “Aug 1, 2024 00:00 — Aug 7, 2024 00:00” to answer the questions below.</li>
+<li>Subsequent questions require correct answers from previous ones. Answer all questions strictly in the order they appear.</li>
+</ul>
+<h3 id="questions-4">
+  Questions
+  <a class="heading-link" href="#questions-4">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Note:</strong> Analyze the logs between “Aug 1, 2024 00:00 — Aug 7, 2024 00:00” to answer the questions below.</p>
+<p><strong>Note</strong>: Subsequent questions require correct answers from previous ones. Answer all questions strictly in the order they appear.</p>
+<blockquote>
+<p><strong>How many firewall logs are there for network traffic from “Cambodia” that has the “Allow” action?</strong></p>
+</blockquote>
+<p>Firstly, I need to set the timeline. I have set the time given in the relevant section of the question as absolute.</p>
+<p><img src="/images/1_JeZ5WJUewEFmffcLWkK_FA.png" alt=""></p>
+<p>setting the timeline</p>
+<p>Secondly, I need to select the log type. I need to filter the firewall log by rule groups. Use the ‘+’ button to automatically filter.</p>
+<p><img src="/images/1_qgfMLjm5o-ZJn1TVFYW0uQ.png" alt=""></p>
+<p>selecting log type</p>
+<p>Next, I need to select the source country. I can use the data.srccountry filter to do this.</p>
+<p><img src="/images/1_zsRbrOSDTOp8gg3vBS5SnQ.png" alt=""></p>
+<p>filtering counrty</p>
+<p>Samely, filter with action type as allowed.</p>
+<p><img src="/images/1_BNUO5HvJt8JF7E7VDdGyYw.png" alt=""></p>
+<p>filtering action allowed</p>
+<p>I can see the event count when I mouse over the graph. we found that our answer was 10.</p>
+<p><img src="/images/1_ck5lJ0WxTiqJTTPtO1UR-w.png" alt=""></p>
+<p>Filtered data</p>
+<p><strong>Answer: 10</strong></p>
+<p><img src="/images/1_pNC5pxU5kuOeo1APziRDuQ.png" alt=""></p>
+<blockquote>
+<p><strong>Among the firewall logs for network traffic from “Cambodia” that has the “Allow” action, how many unique destination systems are targeted?</strong></p>
+</blockquote>
+<p>When I look at the destination IP information over the fields, it is clearly seen that there is traffic to 3 different IPs. From here we found that the answer is 3.</p>
+<p><img src="/images/1_otOEUf3airAO2T2PZJBEIw.png" alt=""></p>
+<p>Destination IP field</p>
+<p><strong>Answer: 3</strong></p>
+<p><img src="/images/1_c0jh1aL2nq4Nn7uTK7IIQQ.png" alt=""></p>
+<blockquote>
+<p><strong>Among the firewall logs for network traffic from “Cambodia” that has the “Allow” action, how many unique source IP addresses are there?</strong></p>
+</blockquote>
+<p>When I look at the source IP information over the fields, it is clearly seen that there is traffic to 3 different IPs. From here we found that the answer is 3.</p>
+<p><img src="/images/1_lRfin8WNlyPa6sAxPln0cA.png" alt=""></p>
+<p>Source IP field</p>
+<p><strong>Answer: 3</strong></p>
+<p><img src="/images/1_T9eLVsC1c4yQtUAGmrNo7g.png" alt=""></p>
+<blockquote>
+<p>Investigate the source IPs (from firewall logs showing network traffic from ‘Cambodia’ with ‘Allow’ actions) in the <a href="https://app.letsdefend.io/threat-intelligence-feed"  class="external-link" target="_blank" rel="noopener">LetsDefend Threat Intel</a> platform. Which threat actor group’s IoCs do these IP addresses belong to?</p>
+</blockquote>
+<p>When we search the relevant IP in the threat intel platform, we find the relevant APT group.</p>
+<p><img src="/images/1_fSz0vD2rOMVcdXtlVpvbAw.png" alt=""></p>
+<p><strong>Answer:</strong> APT-CN-54</p>
+<p><img src="/images/1_oW8MgSPLtK-yHu_nR3oX8A.png" alt=""></p>
+<blockquote>
+<p><strong>Investigate the source IPs (from firewall logs showing network traffic from ‘Cambodia’ with ‘Allow’ actions) in the</strong> <a href="https://app.letsdefend.io/threat-intelligence-feed"  class="external-link" target="_blank" rel="noopener"><strong>LetsDefend Threat Intel</strong></a> <strong>platform. What is the IP address of the detected attacker group that is not from Cambodia?</strong></p>
+</blockquote>
+<p>We know 3 IPs belonging to the traffic coming from Cambodia, let’s investigate which other IP address belongs to the APT group other than these 3 IPs. if we write and search the name of the APT group in the tag section, we will find the other IP.</p>
+<p><img src="/images/1_SOf9-Yyt75vJFtds5uan2A.png" alt=""></p>
+<p>Threat Intel</p>
+<p><strong>Answer:</strong> 22.51.177.88</p>
+<p><img src="/images/1_sJWIu3fyq9DVH37kZJAq1Q.png" alt=""></p>
+<blockquote>
+<p><strong>In previous stages of the threat hunting process, an IP address from a country other than Cambodia was detected and associated with an identified threat actor group. What is the number of different target systems in the firewall logs for network traffic that originates from this IP address and is marked with the action “Allow”?</strong></p>
+</blockquote>
+<p>When we filter the IP related to the data.srcip fielder, we see only 1 event that receives action allow.</p>
+<p><img src="/images/1_OsrBYICtmRAQcxNGd29dvQ.png" alt=""></p>
+<p><strong>Answer: 1</strong></p>
+<p><img src="/images/1_8B2BkiAGTDofl3l5pJ0FQg.png" alt=""></p>
+<blockquote>
+<p><em><strong>In previous stages of the threat hunting process, an IP address from a country other than Cambodia was detected and linked to the identified group of threat actors. How many different fire-wall events were reported as “anomalies” among the firewall logs for network traffic originating from this IP address?</strong></em></p>
+</blockquote>
+<p>When we remove the action allow filter, we observe that 1 packet is dropped due to port_scan anomaly.</p>
+<p><img src="/images/1_wSKHO-k8ykW4E2FxUqSBJw.png" alt=""></p>
+<p><strong>Answer: 1</strong></p>
+<p><img src="/images/1_PV7FXRMbkbcXndQApB9rnQ.png" alt=""></p>
+<blockquote>
+<p><strong>In previous stages of the threat hunting process, an IP address from a country other than Cambodia was detected and linked to the identified group of threat actors. What type of anomaly of the event/events was reported among the firewall logs for network traffic originating from this IP address?</strong></p>
+</blockquote>
+<p>we also found this answer in the previous question. we observed that the anomaly type was tcp_port_scan.</p>
+<p><strong>Answer:</strong> tcp_port_scan</p>
+<p><img src="/images/1_Qqbf_mCD1V2vOkvIZ27f7g.png" alt=""></p>
+<blockquote>
+<p><strong>In previous stages of the threat hunting process, an IP address from a country other than Cambodia was detected and linked to the identified group of threat actors. What was the firewall’s action for the anomaly events reported in the firewall logs for network traffic originating from this IP address?</strong></p>
+</blockquote>
+<p>we also found this answer in the previous question. we observed that the action type was dropped.</p>
+<p><strong>Answer:</strong> dropped</p>
+<p><img src="/images/1_m0LW5CQy2utFcR719sq8fA.png" alt=""></p>
+<blockquote>
+<p><strong>What is the domain listed in the IoCs of the threat actor group identified during previous threat hunting stages (earlier questions)?</strong></p>
+</blockquote>
+<p>We can find the relevant domain from the threat Intel platform.</p>
+<p><img src="/images/1_vudqWPuIqKP9SHhLRJbtHw.png" alt=""></p>
+<p><strong>Answer:</strong> office365.online.secureconnecction.top</p>
+<p><img src="/images/1_RVXgZXCb2peByyoI6KA79g.png" alt=""></p>
+<blockquote>
+<p><strong>Among the IoCs belonging to the threat actor group identified in previous threat hunting stages (earlier questions), what is the IP address of the system that made DNS queries to the associated domain?</strong></p>
+</blockquote>
+<p>We can now search using the domain that we found. We find one event in the Endpoint Event Logs. We can detect the IP address using the ‘Agent IP’ field.</p>
+<p><img src="/images/1_q1xs6YbbE7hWOYp4ucL1mw.png" alt=""></p>
+<p><strong>Answer:</strong> 172.16.8.5</p>
+<p><img src="/images/1_86-ucOzlW7bAezx4MrjfEQ.png" alt=""></p>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

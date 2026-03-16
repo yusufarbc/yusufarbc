@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Windows System Management · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Windows System Management
+  
+    
+    Link to heading
+  
+
+
+Windows System Administration is a set of processes and tools that involve managing Windows operating systems. These processes cover a wide range from user and account management to optimizing resources, from implementing security policies to controlling network configurations. System administrators; It improves operational efficiency by monitoring system performance, troubleshooting, and automating using tools such as Microsoft Management Console (MMC), PowerShell, and Group Policy Management (GPO). It also performs the necessary configurations to ensure that users and system resources work in harmony at the central or local level. Windows system administration plays a critical role in meeting the needs of individual users and corporate networks.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Windows System Management">
+  <meta name="twitter:description" content="Windows System ManagementLink to headingWindows System Administration is a set of processes and tools that involve managing Windows operating systems. These processes cover a wide range from user and account management to optimizing resources, from implementing security policies to controlling network configurations. System administrators; It improves operational efficiency by monitoring system performance, troubleshooting, and automating using tools such as Microsoft Management Console (MMC), PowerShell, and Group Policy Management (GPO). It also performs the necessary configurations to ensure that users and system resources work in harmony at the central or local level. Windows system administration plays a critical role in meeting the needs of individual users and corporate networks.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2025/03/windows-system-management/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Windows System Management">
+  <meta property="og:description" content="Windows System ManagementLink to headingWindows System Administration is a set of processes and tools that involve managing Windows operating systems. These processes cover a wide range from user and account management to optimizing resources, from implementing security policies to controlling network configurations. System administrators; It improves operational efficiency by monitoring system performance, troubleshooting, and automating using tools such as Microsoft Management Console (MMC), PowerShell, and Group Policy Management (GPO). It also performs the necessary configurations to ensure that users and system resources work in harmony at the central or local level. Windows system administration plays a critical role in meeting the needs of individual users and corporate networks.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-03-09T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2025/03/windows-system-management/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2025/03/windows-sistem-y%C3%B6netimi/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2025/03/windows-system-management/">
+              Windows System Management
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-03-09T00:00:00Z">
+                March 9, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              16-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="windows-systemmanagement">
+  Windows System Management
+  <a class="heading-link" href="#windows-systemmanagement">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_QTSThAAz9yc368eD-MMw5g.png" alt=""></p>
+<p>Windows System Administration is a set of processes and tools that involve managing Windows operating systems. These processes cover a wide range from user and account management to optimizing resources, from implementing security policies to controlling network configurations. System administrators; It improves operational efficiency by monitoring system performance, troubleshooting, and automating using tools such as Microsoft Management Console (MMC), PowerShell, and Group Policy Management (GPO). It also performs the necessary configurations to ensure that users and system resources work in harmony at the central or local level. Windows system administration plays a critical role in meeting the needs of individual users and corporate networks.</p>
+<hr>
+<h3 id="command-promptcmd">
+  Command Prompt — CMD
+  <a class="heading-link" href="#command-promptcmd">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Command Prompt (CMD)</strong> is the command line interface of the Windows operating system and can be used to perform many tasks, including basic system administration operations.</p>
+<p>For automation or repetitive tasks, CMD commands can be collected in a <strong>BAT file</strong> (or <strong>Batch file</strong>). These files have the extension <code>.bat</code> and can be run by double-clicking or via CMD.</p>
+<p>Some frequently used cmd commands are listed:</p>
+<h4 id="1--viewing-system-information">
+  1- <strong>Viewing System Information</strong>
+  <a class="heading-link" href="#1--viewing-system-information">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>systeminfo</p>
+</blockquote>
+<p>It lists detailed system information such as operating system, hardware and network information.</p>
+<h4 id="2--displaying-operating-system-version">
+  2- <strong>Displaying Operating System Version</strong>
+  <a class="heading-link" href="#2--displaying-operating-system-version">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>give</p>
+</blockquote>
+<p>Shows version information of the operating system</p>
+<h4 id="3--viewing-the-computer-name">
+  3- <strong>Viewing the Computer Name</strong>
+  <a class="heading-link" href="#3--viewing-the-computer-name">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>hostname</p>
+</blockquote>
+<p>Shows the name of the computer.</p>
+<h4 id="4--viewing-system-time">
+  4- <strong>Viewing System Time</strong>
+  <a class="heading-link" href="#4--viewing-system-time">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>time</p>
+</blockquote>
+<p>Shows the system time and allows you to change it.</p>
+<h4 id="5--viewing-the-system-time">
+  5- Viewing the system time
+  <a class="heading-link" href="#5--viewing-the-system-time">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>date</p>
+</blockquote>
+<p>It shows the system date and allows you to change it.</p>
+<h4 id="6--deleting-files">
+  <strong>6- Deleting Files</strong>
+  <a class="heading-link" href="#6--deleting-files">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>del &lt;file_name&gt;</p>
+</blockquote>
+<p>Deletes the specified file.</p>
+<h4 id="7--deleting-directory">
+  <strong>7- Deleting Directory</strong>
+  <a class="heading-link" href="#7--deleting-directory">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>rmdir &lt;directory_name&gt;</p>
+</blockquote>
+<p>Deletes the specified directory.</p>
+<h4 id="8--viewing-the-ip-address">
+  8- <strong>Viewing the IP Address</strong>
+  <a class="heading-link" href="#8--viewing-the-ip-address">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>ipconfig</p>
+</blockquote>
+<p>Shows network adapters information such as IP address, subnet mask, and default gateway.</p>
+<h4 id="9--testing-network-connectionsping">
+  <strong>9- Testing Network Connections (Ping)</strong>
+  <a class="heading-link" href="#9--testing-network-connectionsping">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>ping &lt;target_address&gt;</p>
+</blockquote>
+<p>Tests the connection by pinging the specified target</p>
+<h4 id="10--viewing-the-network-routing-table">
+  10- <strong>Viewing the Network Routing Table</strong>
+  <a class="heading-link" href="#10--viewing-the-network-routing-table">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>route print</p>
+</blockquote>
+<p>Shows the network routing table.</p>
+<h4 id="11--listing-network-shares">
+  11- <strong>Listing Network Shares</strong>
+  <a class="heading-link" href="#11--listing-network-shares">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>net share</p>
+</blockquote>
+<p>Lists shared resources on the computer.</p>
+<h4 id="12--cleaning-dns-cache">
+  12- <strong>Cleaning DNS Cache</strong>
+  <a class="heading-link" href="#12--cleaning-dns-cache">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>ipconfig /flushdns</p>
+</blockquote>
+<p>Clears the DNS cache.</p>
+<h4 id="13--listing-tasks">
+  13- <strong>Listing Tasks</strong>
+  <a class="heading-link" href="#13--listing-tasks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>tasklist</p>
+</blockquote>
+<p>Lists running processes.</p>
+<h4 id="14--ending-the-mission">
+  14- <strong>Ending the Mission</strong>
+  <a class="heading-link" href="#14--ending-the-mission">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>taskkill /pid &lt;process_id&gt; /f</p>
+</blockquote>
+<p>Terminates the specified process.</p>
+<h4 id="15--listing-services">
+  <strong>15- Listing Services</strong>
+  <a class="heading-link" href="#15--listing-services">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>sc start &lt;service_name&gt;<br>
+sc stop &lt;service_name&gt;</p>
+</blockquote>
+<p>Starts or stops the specified service.</p>
+<h4 id="16--service-startstop">
+  16- <strong>Service Start/Stop</strong>
+  <a class="heading-link" href="#16--service-startstop">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>shutdown /s /t 0<br>
+shutdown /r /t 0</p>
+</blockquote>
+<p>Starts or stops the specified service.</p>
+<h4 id="17--system-shutdownrestart">
+  17- <strong>System Shutdown/Restart</strong>
+  <a class="heading-link" href="#17--system-shutdownrestart">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>shutdown /s /t 0<br>
+shutdown /r /t 0</p>
+</blockquote>
+<p>Shuts down or restarts the system.</p>
+<h4 id="18--managing-power-options">
+  18- <strong>Managing Power Options</strong>
+  <a class="heading-link" href="#18--managing-power-options">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>powercfg /list</p>
+</blockquote>
+<p>Lists power plans.</p>
+<h4 id="19--listing-disk-volumes">
+  19- <strong>Listing Disk Volumes</strong>
+  <a class="heading-link" href="#19--listing-disk-volumes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>diskpart<br>
+list volume</p>
+</blockquote>
+<p>Lists disk volumes.</p>
+<h4 id="20--disk-cleanup">
+  20- <strong>Disk Cleanup</strong>
+  <a class="heading-link" href="#20--disk-cleanup">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>cleanmgr</p>
+</blockquote>
+<p>Launches the disk cleanup tool.</p>
+<h4 id="21--diskcheck">
+  21- <strong>Disk Check</strong>
+  <a class="heading-link" href="#21--diskcheck">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>chkdsk &lt;drive_letter&gt;</p>
+</blockquote>
+<p>Checks the disk and fixes errors.<br>
+<strong>Example</strong>: <code>chkdsk C: /f</code></p>
+<h4 id="22--listing-user-accounts">
+  22- <strong>Listing User Accounts</strong>:
+  <a class="heading-link" href="#22--listing-user-accounts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>netuser</p>
+</blockquote>
+<p>Lists user accounts in the system</p>
+<h4 id="23--addingdeleting-user">
+  <strong>23- Adding/Deleting User</strong>
+  <a class="heading-link" href="#23--addingdeleting-user">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>net user &lt;user_name&gt; <password> /add<br>
+net user &lt;user_name&gt; /delete</p>
+</blockquote>
+<p>Deletes the specified user account.<br>
+<strong>Example</strong>: net user Ahmet /delete</p>
+<h4 id="24--viewing-group-memberships">
+  24- <strong>Viewing Group Memberships</strong>
+  <a class="heading-link" href="#24--viewing-group-memberships">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>net localgroup</p>
+</blockquote>
+<p>Lists local groups and their members.</p>
+<h4 id="25--cleaning-command-history">
+  25- <strong>Cleaning Command History</strong>
+  <a class="heading-link" href="#25--cleaning-command-history">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>cls</p>
+</blockquote>
+<p>Clears the command window.</p>
+<h4 id="26--printing-the-content-to-the-screen">
+  26- Printing the Content to the Screen
+  <a class="heading-link" href="#26--printing-the-content-to-the-screen">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>echo</p>
+</blockquote>
+<p>Prints a variable or string to the screen.</p>
+<h4 id="27--printing-the-file-to-the-screen">
+  27- Printing the File to the Screen
+  <a class="heading-link" href="#27--printing-the-file-to-the-screen">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>type</p>
+</blockquote>
+<p>Prints the contents of a text file to the screen.</p>
+<h4 id="28--changing-directory">
+  28- Changing Directory
+  <a class="heading-link" href="#28--changing-directory">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>cd</p>
+</blockquote>
+<p>cd (Change Directory) is used to switch to the specified directory. This command allows navigation between directories.</p>
+<h4 id="29--viewing-the-directory">
+  29- Viewing the Directory
+  <a class="heading-link" href="#29--viewing-the-directory">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>is</p>
+</blockquote>
+<p>To view the names, sizes, creation dates, and other properties of files and directoriesis used</p>
+<h4 id="30--filedirectory-copying">
+  30- File/Directory Copying
+  <a class="heading-link" href="#30--filedirectory-copying">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<blockquote>
+<p>copy</p>
+</blockquote>
+<p>It is a basic command used to copy a file or files from one place to another.</p>
+<hr>
+<h3 id="microsoft-management-consolemmc">
+  Microsoft Management Console — MMC
+  <a class="heading-link" href="#microsoft-management-consolemmc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>It contains many tools that allow us to make many configurations in the Windows operating system and monitor the system. <strong>MSC</strong> is an extension of <strong>Microsoft Management Console (MMC)</strong> files used in Windows operating systems. These files provide a framework for running different management tools and components together. Files with the MSC extension provide direct access to specific administration-focused tools to simplify day-to-day administrative tasks for system administrators. Now let&rsquo;s look at these vehicles one by one.</p>
+<p>You can run MSC files on your computer by pressing the “Win ​​+ R” hotkey and typing its name in the run menu that opens.</p>
+<h4 id="1--computer-management">
+  1- Computer Management
+  <a class="heading-link" href="#1--computer-management">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><img src="/images/1_MpU8TSbaM6qR2u2-ihXfqg.png" alt=""></p>
+<blockquote>
+<p><code>compmgmt.msc</code></p>
+</blockquote>
+<p><img src="/images/1_qYkUr1fgV87iFe6utqzSdA.png" alt=""></p>
+<p><strong>Computer Management</strong></p>
+<p>It is an interface used to open the <strong>Computer Management</strong> console in the Windows operating system. This tool is like a control panel that allows users to manage system resources and services together. Computer Management includes three main sections: <strong>System Tools</strong> (Event Viewer, Device Manager, Shared Folders), <strong>Storage</strong> (disk configuration with tools such as Disk Management), and <strong>Services and Applications</strong></p>
+<h4 id="2--device-manager">
+  2- Device Manager
+  <a class="heading-link" href="#2--device-manager">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><img src="/images/1_-9-W8H4OOTMvEsRMj-Hqdw.png" alt=""></p>
+<blockquote>
+<p><code>devmgmt.msc</code></p>
+</blockquote>
+<p><img src="/images/1_7w5iLQ5wGIt1r8PDdJxh9A.png" alt=""></p>
+<p>Device Manager</p>
+<p>It is a script used to open the <strong>Device Manager</strong> tool in the Windows operating system. Device Manager allows you to view and manage the hardware devices on your computer. This tool is used to update, disable, uninstall or troubleshoot drivers. Hardware categories; Includes processors, network adapters, video cards, disk drives, and more. Additionally, if there are errors with a hardware device, it notifies the user via yellow triangle warning icons. Device Manager is a critical tool for system administrators and users to diagnose and manage hardware-related problems.</p>
+<h4 id="3--diskmanagement">
+  3- Disk Management
+  <a class="heading-link" href="#3--diskmanagement">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><img src="/images/1_R4PceSSdAKcNpyGNmeTdkw.png" alt=""></p>
+<blockquote>
+<p><code>diskmgmt.msc</code></p>
+</blockquote>
+<p><img src="/images/1_eBTghtHiVBRBsAQj8f8e_w.png" alt=""></p>
+<p>DiskManagement</p>
+<p>It is a script used to open the <strong>Disk Management</strong> tool in the Windows operating system. Disk Management is used to configure and manage hard disks and other storage units on your computer. This tool; It allows you to perform operations such as creating, deleting, formatting, merging and shrinking disk partitions. You can also manage the offline or online status of disks and assign drive letters. <code>diskmgmt.msc</code> plays an especially important role in tasks such as optimizing storage layout and configuring new disks.</p>
+<h4 id="4--services">
+  4- Services
+  <a class="heading-link" href="#4--services">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><img src="/images/1_0KIsamFvchIgkx-NituRgg.png" alt=""></p>
+<blockquote>
+<p><code>services.msc</code></p>
+</blockquote>
+<p><img src="/images/1_6uv3dpx_XipXh_qbq01PFg.png" alt=""></p>
+<p>It is a script used to open the <strong>Services</strong> management console in the Windows operating system. This tool allows you to view and manage the list of all running or stopped services in the system. Users can start, stop, restart services, or configure their startup type (automatic, manual, disabled). For example, services such as Windows Update or Network Connections can be managed in this console. <code>services.msc</code> plays a critical role in optimizing system performance and troubleshooting.</p>
+<h4 id="5--event-viewer">
+  5- Event Viewer
+  <a class="heading-link" href="#5--event-viewer">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><img src="/images/1_ULhrQ5wKEn3HO73IVquJtw.png" alt=""></p>
+<blockquote>
+<p><code>eventvwr.msc</code></p>
+</blockquote>
+<p><img src="/images/1_N8gONxQA7kwwBszjUEvAWg.png" alt=""></p>
+<p>Event Viewer</p>
+<p>It is a script used to open the <strong>Event Viewer</strong> tool in the Windows operating system. Event Viewer is an administrative tool used to examine events and errors occurring in the system. Log records in system, security, application and other categories (event dayregularly stores it in this vehicle. By reviewing these logs, users can diagnose application errors, security breaches or hardware problems. This tool is especially critical for detecting and fixing system problems.</p>
+<h4 id="6--local-security-policy">
+  6- Local Security Policy
+  <a class="heading-link" href="#6--local-security-policy">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><img src="/images/1_eQz3psGx6dDTuQOk0rRyCA.png" alt=""></p>
+<blockquote>
+<p>secpol.msc</p>
+</blockquote>
+<p><img src="/images/1_l3kApq4SYaZ7M-8L5KQVKg.png" alt=""></p>
+<p>Local Security Policy</p>
+<p>It is a script used to open the <strong>Local Security Policy</strong> tool in the Windows operating system. This tool is used to centrally manage and configure the security settings of the system. Local security policies; Provides control over account policies (such as password requirements), local policies (such as logging and auditing rules), and user permissions. For example, tasks such as enforcing password complexity or imposing access restrictions on a specific user can be performed through <code>secpol.msc</code>. This tool plays a critical role, especially for optimizing the security of the system and streamlining access controls.</p>
+<h4 id="7--local-group-policy-editor">
+  7- Local Group Policy Editor
+  <a class="heading-link" href="#7--local-group-policy-editor">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><img src="/images/1_dQsN3KsDl549381FOo6nDA.png" alt=""></p>
+<blockquote>
+<p><code>gpedit.msc</code></p>
+</blockquote>
+<p><img src="/images/1_XETMBSBOzK7D4tqp1o8mrQ.png" alt=""></p>
+<p>Local Group Policy Editor</p>
+<p>It is a script used to open the <strong>Local Group Policy Editor</strong> in the Windows operating system. This tool is used to configure local group policies that control the behavior of users and computers on the system. Group Policy Editor; It includes a wide range of settings, such as setting software restrictions, managing logon policies, configuring network settings, and enforcing security requirements. It is especially available in Windows Pro and above and is a critical tool for system administrators to centrally edit local policies.</p>
+<h4 id="8--local-users-and-groups">
+  8- Local Users and Groups
+  <a class="heading-link" href="#8--local-users-and-groups">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><img src="/images/1_Ph4cBMvCzWWC8F4wSrBKMA.png" alt=""></p>
+<blockquote>
+<p><code>lusrmgr.msc</code></p>
+</blockquote>
+<p><img src="/images/1_PpzC4VflE9EQfpHgFzywDA.png" alt=""></p>
+<p>Local Users and Groups</p>
+<p>It is a script used to open the <strong>Local Users and Groups</strong> management tool in the Windows operating system. This tool is used to manage local user accounts and groups on a computer. Users can create new user accounts, edit existing accounts, assign membership to groups, and configure user permissions through <code>lusrmgr.msc</code>. It also supports actions such as changing password settings, checking the activity status of accounts, or setting access restrictions for specific users. This tool has an important role to manage local security and user access, especially by system administrators.</p>
+<h4 id="9--task-scheduler">
+  9- Task Scheduler
+  <a class="heading-link" href="#9--task-scheduler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><img src="/images/1_aw0BmV1O3rpNqEEpvbv07Q.png" alt=""></p>
+<blockquote>
+<p><code>taskschd.msc</code></p>
+</blockquote>
+<p><img src="/images/1_771nW9DentMsT-0R_XxE2w.png" alt=""></p>
+<p>Task Scheduler</p>
+<p>It is a script used to open the <strong>Task Scheduler</strong> tool in the Windows operating system. Task Scheduler lets you run tasks automatically at specific times or when events occur. With this tool, users can review the default tasks in the system, create new tasks, and configure the scheduling settings of these tasks. For example, actions such as running a backup, performing system maintenance, or launching an application can be performed at a specific time. <code>taskschd.msc</code> provides automation, allowing users to easily plan routine operations.</p>
+<h4 id="10--shared-folders">
+  10- Shared Folders
+  <a class="heading-link" href="#10--shared-folders">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><img src="/images/1_1_05HPAMwCvgzwqHjRKYKw.png" alt=""></p>
+<blockquote>
+<p><code>fsmgmt.msc</code></p>
+</blockquote>
+<p><img src="/images/1_weE9YAJ7nRYtMRsPpYRszw.png" alt=""></p>
+<p>Shared Folders</p>
+<p>It is a script used to open the <strong>Shared Folders</strong> management console in the Windows operating system. This tool is used to view and manage shared folders on a computer and user sessions connected to these folders. Through this console, users can review existing shares, add new shares, configure access permissions, and control active sessions. You can also terminate access for specific users by managing open files.It also supports operations such as mining. <code>fsmgmt.msc</code> plays an important role in controlling user activities and sharing settings, especially on systems that share network resources.</p>
+<h4 id="11--advanced-security-with-windows-defender-firewall">
+  11- Advanced Security with Windows Defender Firewall
+  <a class="heading-link" href="#11--advanced-security-with-windows-defender-firewall">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><img src="/images/1_XejYGc58spUFIjCG_1iN2A.png" alt=""></p>
+<blockquote>
+<p><code>wf.msc</code></p>
+</blockquote>
+<p><img src="/images/1_ChA1HxpNqJ7ucgVk_cA-mw.png" alt=""></p>
+<p><strong>Windows Defender Firewall</strong></p>
+<p>It is a script used to open the <strong>Advanced Security with Windows Defender Firewall</strong> tool in the Windows operating system. This tool allows you to manage firewall settings in detail. Through this console, users can create rules for incoming and outgoing connections, edit existing rules, or disable them. Additionally, special security rules can be configured for specific applications or ports. <code>wf.msc</code> plays a critical role in increasing the security of the computer and blocking unwanted connections by controlling network traffic.</p>
+<h4 id="12--printing-management">
+  12- Printing Management
+  <a class="heading-link" href="#12--printing-management">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><img src="/images/1_MTSqO1OEapX1hDEQ_s7QuA.png" alt=""></p>
+<blockquote>
+<p>printmanagement.msc</p>
+</blockquote>
+<p><img src="/images/1_HmtdMCPwr-n95OLQwRQFNg.png" alt=""></p>
+<p>Print Management</p>
+<p>It is a script used to open the <strong>Print Management</strong> console in the Windows operating system. This tool allows you to centrally manage printers and print queues. Through this console, users can add and remove connected printers, manage shared printers, and get information about print jobs. Additionally, tasks such as driver updates, printer troubleshooting, and configuring printer access permissions can also be performed through this tool. <code>printmanagement.msc</code> plays an important role especially for system administrators who manage network printers.</p>
+<h4 id="13--certificate-management">
+  13- Certificate Management
+  <a class="heading-link" href="#13--certificate-management">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><img src="/images/1_cijWlhOxGxjRqXHwSebeOQ.png" alt=""></p>
+<blockquote>
+<p><code>certlm.msc</code></p>
+</blockquote>
+<p><img src="/images/1_4kxWFhlcjgX6STpedTFqDA.png" alt=""></p>
+<p>Certificates — Local Computers</p>
+<p>It is a script used to open the <strong>Local Computer Certificates Management</strong> tool in the Windows operating system. This tool is used to review, manage and edit certificates installed on a computer. Certificates are used for security tasks such as secure connections, authentication, and encryption. From this console, users can view certificate stores, add new certificates, delete existing certificates, or review certificate properties. <code>certlm.msc</code> plays a critical role in computer-level certificate management, especially for system administrators.</p>
+<h4 id="14--performance-monitor">
+  14- Performance Monitor
+  <a class="heading-link" href="#14--performance-monitor">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><img src="/images/1_drGVabk1_JuCxoBQLN9ldw.png" alt=""></p>
+<blockquote>
+<p><code>perfmon.msc</code></p>
+</blockquote>
+<p><img src="/images/1_PkQsxpMaGI2TSQDpb9R8wQ.png" alt=""></p>
+<p>Performance Monitor</p>
+<p>It is a script used to open the <strong>Performance Monitor</strong> tool in the Windows operating system. This tool is used to monitor the performance of the computer in real time and collect historical data about performance. Users can analyze system resources in detail, such as CPU, memory, disk and network usage. Additionally, it is possible to monitor the performance of specific processes or applications by adding custom performance counters. <code>perfmon.msc</code> plays a critical role in diagnosing system performance issues and identifying optimization opportunities.</p>
+<h4 id="15--remote-desktop-services-manager">
+  15- Remote Desktop Services Manager
+  <a class="heading-link" href="#15--remote-desktop-services-manager">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><img src="/images/1_kO1BtfC5frTaF-qbfuBCaQ.png" alt=""></p>
+<blockquote>
+<p><code>tsadmin.msc</code></p>
+</blockquote>
+<p><img src="/images/1_BPLbsJAB4eySqgSpwwG3uw.jpeg" alt=""></p>
+<p>Also known as Remote Desktop Services Manager, it is an administrative tool used in Windows Server operating systems. This tool is designed specifically for managing Terminal Server user sessions. Through this console, administrators can monitor connected users&rsquo; sessions, end sessions, send messages, and control user sessions remotely. It is also used to view performance data about sessions and troubleshoot problems. However, in Windows Server 2012 and later this tool is not available by default; Instead, alternative management tools such as Server Manager or Group Policy are used.</p>
+<h4 id="16--authorizedirme-manager">
+  16- Authorizedirme Manager
+  <a class="heading-link" href="#16--authorizedirme-manager">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><img src="/images/1_5ycPzQAAhzh_4Ut2SLA1Ow.png" alt=""></p>
+<blockquote>
+<p><code>azman.msc</code></p>
+</blockquote>
+<p><img src="/images/1_tPmIFI6iET881lNc83L8EQ.png" alt=""></p>
+<p>Authorization Manager</p>
+<p>It is an administrative tool known as Microsoft Authorization Manager. This tool provides a role-based access control and security framework for .NET-based applications. Using this console, administrators can manage users&rsquo; and groups&rsquo; access permissions to specific resources and create and enforce policies. It also allows applications to use these access controls at runtime. However, this tool is not available by default in newer Windows versions and has generally been replaced by more modern security management tools.</p>
+<h4 id="17--component-services">
+  17- Component Services
+  <a class="heading-link" href="#17--component-services">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><img src="/images/1_q5vZ5cZncnQHSTB3ADbqzg.png" alt=""></p>
+<blockquote>
+<p><code>comexp.msc</code></p>
+</blockquote>
+<p><img src="/images/1_pIdbGHCOEizkpzvXjro0aA.png" alt=""></p>
+<p>Component Services</p>
+<p>It is a Microsoft Management Console (MMC) component used in Windows operating systems and is known as “Component Services”. This tool is designed specifically for managing COM+ applications and services. Using this console, administrators can edit COM+ application configurations, review event logs, and optimize the performance of components in the system. It also offers the possibility to configure settings that facilitate communication and resource sharing between applications. This tool plays a critical role, especially in ensuring that enterprise applications run reliably and efficiently.</p>
+<hr>
+<h3 id="active-directory-administrative-toolsadat">
+  Active Directory Administrative Tools — ADAT
+  <a class="heading-link" href="#active-directory-administrative-toolsadat">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Windows Active Directory Administrative Tools (ADAT) are tools used to manage and configure an Active Directory (AD) environment. These tools allow system administrators to manage user accounts, computers, groups, policies, and other AD objects. Active Directory plays a central role for user and resource management, especially in enterprise networks. Here are the most commonly used Active Directory management tools:</p>
+<p><img src="/images/1_KUc3xyohoMX461oMMITE7g.png" alt=""></p>
+<p>ADAT</p>
+<h4 id="1-active-directory-users-and-computers-aduc">
+  1. Active Directory Users and Computers (ADUC)
+  <a class="heading-link" href="#1-active-directory-users-and-computers-aduc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It is used within Microsoft&rsquo;s Active Directory service to manage user accounts, computers, groups, and organizational units (OU). Administrators can create new users, edit accounts, enforce password policies, and move objects between different organizational units</p>
+<p><img src="/images/1_K_zUm1r0QVCnLQgnDwczLA.png" alt=""></p>
+<p>Active Directory Users and Computers</p>
+<h4 id="2-active-directory-domains-and-trusts">
+  2. Active Directory Domains and Trusts
+  <a class="heading-link" href="#2-active-directory-domains-and-trusts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It is used within Microsoft&rsquo;s Active Directory service to manage trust relationships between domains. Administrators can create, edit, or remove domain trusts. Additionally, operations such as increasing the domain functional level are also performed through this tool.</p>
+<p><img src="/images/1_QDVkcGG3felLhq9GADjBeA.png" alt=""></p>
+<p>Active Directory Domains and Trusts</p>
+<h4 id="3-active-directory-sites-and-services">
+  3. Active Directory Sites and Services
+  <a class="heading-link" href="#3-active-directory-sites-and-services">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It is used to manage the physical topology of AD. Administrators can optimize network traffic and adjust replication settings by configuring sites, subnets, and site links.</p>
+<p><img src="/images/1_eFJ89GnmWgGiAWAFvMmwsQ.png" alt=""></p>
+<p>Active Directory Sites and Services</p>
+<h4 id="4-active-directory-administrative-centeradac">
+  4. Active Directory Administrative Center (ADAC)
+  <a class="heading-link" href="#4-active-directory-administrative-centeradac">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It offers a more modern interface for managing AD objects. This tool, which is used especially in Windows Server 2008 R2 and later, offers more advanced management options by integrating with PowerShell cmdlets.</p>
+<p><img src="/images/1_gVvHgx857TBhTzD6NmW7jQ.png" alt=""></p>
+<p>Active Directory Administrative Center</p>
+<h4 id="5--group-policy-management-consolegpmc">
+  <strong>5- Group Policy Management Console (GPMC)</strong>
+  <a class="heading-link" href="#5--group-policy-management-consolegpmc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It is used to manage Group Policies. Administrators can create and edit policies and apply them to specific groups of users or computers. GPMC makes it easy to manage policy settings centrally.</p>
+<p><img src="/images/1_xbLyZ5DCZebIw1hn2NsiVw.png" alt=""></p>
+<p>Group Policy Management Console</p>
+<h4 id="6--active-directory-module-for-windows-powershell">
+  6- <strong>Active Directory Module for Windows PowerShell</strong>
+  <a class="heading-link" href="#6--active-directory-module-for-windows-powershell">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>It is used to perform AD management operations via the command line. poVarious operations can be performed on user accounts, groups, policies and other AD objects with werShell cmdlets. This is especially useful for automation and batch processing.</p>
+<p><img src="/images/1_26CfeO0LwUnxTiVbXoBOxg.png" alt=""></p>
+<p>Active Directory Module for Windows PowerShell</p>
+<hr>
+<h3 id="windows-management-instrumentationwmi">
+  **Windows Management Instrumentation —**WMI
+  <a class="heading-link" href="#windows-management-instrumentationwmi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Windows Management Instrumentation (WMI)</strong> is an infrastructure developed by Microsoft for system management and data access in Windows-based operating systems.</p>
+<p>WMI allows system administrators to:</p>
+<ul>
+<li>Querying system information (e.g. processor, memory, disk usage).</li>
+<li>Start, stop or restart services.</li>
+<li>Monitoring and managing events (for example, executing a command when a specific event occurs).</li>
+<li>Managing remote computers.</li>
+</ul>
+<p>WMI works through <strong>WMI Providers</strong>. These providers collect information about hardware, software, and operating system components and provide this information to WMI. WMI makes this information queryable with a query language called <strong>WMI Query Language (WQL)</strong>.</p>
+<p><img src="/images/1_8Uxx0e4xpvHQA5JVh43iIQ.png" alt=""></p>
+<h4 id="methods-of-working-with-wmi">
+  Methods of Working with WMI
+  <a class="heading-link" href="#methods-of-working-with-wmi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>WMI offers several methods for system administration. These methods include tools such as <strong>PowerShell</strong>, <strong>VBScript</strong>, <strong>WMIC (WMI Command-Line)</strong>, and .<strong>NET</strong>.</p>
+<h4 id="1--powershell">
+  1- <strong>PowerShell</strong>
+  <a class="heading-link" href="#1--powershell">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><strong>PowerShell</strong> is an administrative tool used on the Windows operating system that combines a command line interface and scripting language. and is ideal for running WMI queries.</p>
+<p>Example: Querying processor information:</p>
+<pre tabindex="0"><code>Get-WmiObject -Class Win32_Processor
+</code></pre><h4 id="2--vbscript">
+  2- <strong>VBScript</strong>
+  <a class="heading-link" href="#2--vbscript">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><strong>VBScript (Visual Basic Scripting Edition)</strong> is a lightweight scripting language developed by Microsoft. It is designed specifically for Windows operating systems and is used in processes such as task automation and application development. Therefore, it can be used to run WMI queries.</p>
+<p>Example: Querying disk information:</p>
+<pre tabindex="0"><code>strComputer = &#34;.&#34;  
+Set objWMIService = GetObject(&#34;winmgmts:\\&#34; &amp; strComputer &amp; &#34;\root\cimv2&#34;)  
+Set colDisks = objWMIService.ExecQuery(&#34;SELECT * FROM Win32_DiskDrive&#34;)  
+For Each objDisk in colDisks  
+    WScript.Echo &#34;DeviceID: &#34; &amp; objDisk.DeviceID  
+Next
+</code></pre><h4 id="3--net">
+  3- <strong>.NET</strong>
+  <a class="heading-link" href="#3--net">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><strong>.NET</strong> is a software platform developed by Microsoft. It provides both application development and runtime environment. NET applications can run WMI queries with the <code>System.Management</code> namespace.</p>
+<p>Example: Querying processor information:</p>
+<pre tabindex="0"><code>using System.Management;  
+  
+ManagementObjectSearcher searcher = new ManagementObjectSearcher(&#34;SELECT * FROM Win32_Processor&#34;);
+</code></pre><h4 id="4--wmic">
+  4- <strong>WMIC</strong>
+  <a class="heading-link" href="#4--wmic">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p><strong>WMIC (Windows Management Instrumentation Command-line)</strong> is a command line tool used in the Windows operating system. It provides access to WMI (Windows Management Instrumentation) via the command line and simplifies system management.</p>
+<p>Example: Querying processor information:</p>
+<pre tabindex="0"><code>wmic cpu get name
+</code></pre><hr>
+<h3 id="azure-active-directory">
+  Azure Active Directory
+  <a class="heading-link" href="#azure-active-directory">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Azure Active Directory (Azure AD)</strong> is one of the cornerstones of Microsoft&rsquo;s digital transformation strategy and meets the needs of modern organizations with next-generation identity and access management solutions. Here are the key components of the transformation:</p>
+<ul>
+<li><strong>Cloud and Hybrid Integration</strong>: Azure AD integrates with on-premises Active Directory, enabling hybrid identity management, thus providing secure access to both cloud and local resources.</li>
+<li><strong>Zero Trust Security Model</strong>: With new generation security strategies, it verifies every access request and applies the principle of minimum privilege.</li>
+<li><strong>Conditional Access</strong>: Creates security policies based on factors such as device status, location, and sign-in risk.</li>
+<li><strong>Identity Protection</strong>: Detects and prevents risky logins with artificial intelligence-powered analysis.</li>
+<li><strong>Mobile and Remote Work Supports</strong>: Thanks to integration with Microsoft Intune, management of mobile devices and remote workers becomes easier.</li>
+</ul>
+<p>It is Microsoft&rsquo;s cloud-based identity and access management solution. It provides secure management of both users and applications and provides a critical infrastructure for modern business environments.</p>
+<p><img src="/images/1_pqT3BvT-gibeMBhl0SiIFg.jpeg" alt=""></p>
+<p>Many management and business tools are available in the Azure AD ecosystem. This makes Azure AD a powerful and integrated solution in terms of both security and management.</p>
+<p>To this ecosystem; &lt;https://portaYou can access and review it with your microsoft account at l.azure.com&gt;.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

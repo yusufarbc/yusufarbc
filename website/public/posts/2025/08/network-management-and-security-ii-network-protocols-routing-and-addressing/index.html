@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Network Management and Security II: Network Protocols, Routing and Addressing · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Network Management and Security II: Network Protocols, Routing and Addressing
+  
+    
+    Link to heading
+  
+
+
+In today&rsquo;s hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an invisible backbone that requires billions of components to work in harmony, from data centers on different continents to smart devices in our homes. So, how can these devices, produced by different manufacturers and using different technologies, communicate with each other so smoothly, quickly and securely? The answer to this question lies in the standardized protocols, hierarchical addressing systems and intelligent routing algorithms that form the basis of network engineering.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Network Management and Security II: Network Protocols, Routing and Addressing">
+  <meta name="twitter:description" content="Network Management and Security II: Network Protocols, Routing and AddressingLink to headingIn today’s hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an invisible backbone that requires billions of components to work in harmony, from data centers on different continents to smart devices in our homes. So, how can these devices, produced by different manufacturers and using different technologies, communicate with each other so smoothly, quickly and securely? The answer to this question lies in the standardized protocols, hierarchical addressing systems and intelligent routing algorithms that form the basis of network engineering.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2025/08/network-management-and-security-ii-network-protocols-routing-and-addressing/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Network Management and Security II: Network Protocols, Routing and Addressing">
+  <meta property="og:description" content="Network Management and Security II: Network Protocols, Routing and AddressingLink to headingIn today’s hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an invisible backbone that requires billions of components to work in harmony, from data centers on different continents to smart devices in our homes. So, how can these devices, produced by different manufacturers and using different technologies, communicate with each other so smoothly, quickly and securely? The answer to this question lies in the standardized protocols, hierarchical addressing systems and intelligent routing algorithms that form the basis of network engineering.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-09T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2025/08/network-management-and-security-ii-network-protocols-routing-and-addressing/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-ii-a%C4%9F-protokolleri-y%C3%B6nlendirme-ve-adresleme/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2025/08/network-management-and-security-ii-network-protocols-routing-and-addressing/">
+              Network Management and Security II: Network Protocols, Routing and Addressing
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-08-09T00:00:00Z">
+                August 9, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              26-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="network-management-and-security-ii-network-protocols-routing-and-addressing">
+  Network Management and Security II: Network Protocols, Routing and Addressing
+  <a class="heading-link" href="#network-management-and-security-ii-network-protocols-routing-and-addressing">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/0_1gN6tP9Nv5sf9IGl.png" alt=""></p>
+<p>In today&rsquo;s hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an invisible backbone that requires billions of components to work in harmony, from data centers on different continents to smart devices in our homes. So, how can these devices, produced by different manufacturers and using different technologies, communicate with each other so smoothly, quickly and securely? The answer to this question lies in the standardized protocols, hierarchical addressing systems and intelligent routing algorithms that form the basis of network engineering.</p>
+<p>This technical article has been prepared to delve into the fundamental principles behind the functioning of modern networks. From the OSI model, which provides a theoretical framework, to the TCP/IP protocol stack, which is the backbone of the internet; All critical issues will be discussed, from IPv4 and IPv6 addressing that provides identity to every device on the network, to dynamic routing protocols that enable data packets to find the most efficient paths, and BGP, which draws the global road map of the internet. Additionally, a detailed look at switching technologies, VLAN management and loop prevention mechanisms that ensure efficiency and security in local networks will be presented. This article aims to be a basic reference source for students, IT professionals and engineers interested in network technologies.</p>
+<hr>
+<h3 id="chapter-1-basic-models-of-networking-and-data-flow">
+  Chapter 1: Basic Models of Networking and Data Flow
+  <a class="heading-link" href="#chapter-1-basic-models-of-networking-and-data-flow">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Modern computer networks are built on standardized protocols and conceptual models that enable devices and software from different manufacturers to interoperate seamlessly. This chapter examines in depth the OSI and TCP/IP reference models that form the basis of network communication, the journey of data between network layers, and how errors encountered in this process are managed.</p>
+<h3 id="11-reference-models-osi-and-tcpip-comparison">
+  1.1 Reference Models: OSI and TCP/IP Comparison
+  <a class="heading-link" href="#11-reference-models-osi-and-tcpip-comparison">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>To break down the complexity of network communications into manageable parts, two basic reference models have been developed: the OSI model, which is theoretically comprehensive, and the TCP/IP model, which has become the standard in practical application.</p>
+<h4 id="the-seven-layers-of-the-osi-model-a-theoretical-masterpiece">
+  The Seven Layers of the OSI Model: A Theoretical Masterpiece
+  <a class="heading-link" href="#the-seven-layers-of-the-osi-model-a-theoretical-masterpiece">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The Open Systems Interconnection (OSI) model developed by the International Organization for Standardization (ISO) is a conceptual framework that divides network functions into seven logical layers. Each layer performs a specific task and provides services to the layer above it while receiving service from the layer below it. These layers are, from bottom to top:</p>
+<ol>
+<li><strong>Physical Layer:</strong> It transmits data in bits (0&rsquo;s and 1&rsquo;s) over a physical medium such as cables, fiber optics or radio waves. Defines electrical and physical properties such as connectors and voltage levels.</li>
+<li><strong>Data Link Layer:</strong> It manages the reliable transfer of data between devices in the same network segment by correcting errors in the physical layer. It creates frames using MAC addresses.</li>
+<li><strong>Network Layer:</strong> It is responsible for routing and addressing packets between different networks. IP addresses operate at this layer.</li>
+<li><strong>Transport Layer:</strong> Provides end-to-end connection, data integrity and flow control. It divides data into segments and transmits it through protocols such as TCP (connection-oriented) or UDP (connectionless).</li>
+<li><strong>Session Layer:</strong> Establishes, manages and terminates communication sessions between devices.</li>
+<li><strong>Presentation Layer:</strong> It converts the data into a format that applications can understand. Tasks such as data compression and encryption are performed in this layer.</li>
+<li><strong>Application Layer:</strong> Provides direct network services to end user applications (web browsers, email clients, etc.).</li>
+</ol>
+<p>The greatest strength of the OSI model is its protocol-agnostic structure and clear separation of the functions of each layer. This modularity greatly simplifies the process of network troubleshooting because each layer can be examined independently.</p>
+<h4 id="tcpip-protocol-stack-a-pragmatic-reality">
+  TCP/IP Protocol Stack: A Pragmatic Reality
+  <a class="heading-link" href="#tcpip-protocol-stack-a-pragmatic-reality">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Unlike the OSI model, the TCP/IP model is not used as a theoretical framework but rather as a practical model developed around working protocols that build it. It is generally considered a four-layer structure:</p>
+<ol>
+<li><strong>Network Access Layer:</strong> It combines the Physical and Data Link layers of OSI. It is responsible for the physical and logical connections between devices.</li>
+<li><strong>Internet Layer:</strong> Corresponds to the Network layer of OSI. IP (Internet Protocol) is the basis of this layer and ensures that packets are routed by finding the best path between different networks.</li>
+<li><strong>Transport Layer:</strong> It performs the same functions as the Transport layer of OSI. It provides reliable or fast data transmission with TCP and UDP protocols.</li>
+<li><strong>Application Layer:</strong> It combines OSI&rsquo;s Session, Presentation and Application layers into a single layer. It includes end user protocols such as HTTP, FTP, SMTP.</li>
+</ol>
+<p>The success of TCP/IP stems from its simplicity and pragmatic approach. Even before the model was formalized, the internet was already being built on these protocols. This can be seen as a victory of engineering pragmatism over committee-based theoretical idealism. While OSI was a “top-down” approach that tried to create a perfect framework <em>before</em> building the network, TCP/IP was a “bottom-up” solution that solved an immediate problem, worked, and was “good enough.” As is often the case in the history of technology, a solution that worked and was adopted early prevailed over a theoretically superior but complex and late-arriving alternative.</p>
+<p><img src="/images/0_0uu7t1OYMiHTQNyo.png" alt=""></p>
+<p>OSI Model vs TCP/IP Model</p>
+<h3 id="12-data-encapsulation-and-de-encapsulation">
+  1.2 Data Encapsulation and De-encapsulation
+  <a class="heading-link" href="#12-data-encapsulation-and-de-encapsulation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Sending data across a network involves a layered packaging process, with each layer adding its own control information. This process is called <strong>encapsulation</strong>. The sequential extraction of this information at the receiving end is called <strong>decapsulation</strong>.</p>
+<p>The encapsulation process is much more than a mechanical packaging process; It is the basic abstraction mechanism that provides <em>protocol independence and modularity</em> in layered network architecture. Each layer provides a “service” to the layer above, completely hiding the complexity of the layer below. For example, a web developer does not have to be aware of TCP&rsquo;s segmentation or IP&rsquo;s routing when using the HTTP protocol. This abstraction is one of the internet&rsquo;s greatest strengths; Replacing Ethernet with Wi-Fi at the physical layer requires no changes to the upper layers.</p>
+<p>The data flow follows these steps:</p>
+<ol>
+<li><strong>Application Layer:</strong> User-generated data (e.g. the text of an email) is passed to the Transport layer. The data unit at this stage is usually called <strong>Data</strong>.</li>
+<li><strong>Transport Layer:</strong> It divides the incoming data into smaller pieces (segmentation) and adds a <strong>TCP</strong> or <strong>UDP header</strong> to the beginning of each piece. This header contains information such as source and destination port numbers. This new unit of data is called <strong>Segment</strong>.</li>
+<li><strong>Internet Layer:</strong> Adds an <strong>IP header</strong> to each segment. This header contains the source and destination IP addresses so that the packet can be routed between networks. The data unit at this stage is called <strong>Packet</strong> or <strong>Datagram</strong>.</li>
+<li><strong>Network Access Layer:</strong> Adds a <strong>frame header</strong> (containing source and destination MAC addresses) to the beginning of the packet and a <strong>frame tail</strong> (containing the CRC value for error checking) to the end. This data unit is known as <strong>Frame</strong>.</li>
+<li><strong>Physical Transmission:</strong> Finally, the frame is converted into <strong>Bits</strong> to be transmitted to the physical medium (e.g. copper wire).</li>
+</ol>
+<p>In the receiving device, this process is reversed (decapsulation). Each layer reads, processes, removes the header added by its peer layer on the sending side, and transmits the rest of the data to the next layer. This principle of “peer layer interaction” ensures that layers can be developed and updated independently of each other.</p>
+<h3 id="13-network-communication-error-management">
+  1.3 Network Communication Error Management
+  <a class="heading-link" href="#13-network-communication-error-management">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>During data transmission, signals may be corrupted and bit errors may occur. Network protocols use various mechanisms to manage these errors. There are two basic approaches: error detection and error correction.</p>
+<h4 id="error-detection">
+  Error Detection
+  <a class="heading-link" href="#error-detection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The purpose of this approach is to determine if an error has occurred. If errors are detected, the erroneous data packet is usually discarded and requested to be resent by trusted protocols (such as TCP). The most common methods are:</p>
+<ul>
+<li><strong>Checksum:</strong> Sender based on the content of the data. It calculates a mathematical value (checksum) and adds it to the package. The receiver makes the same calculation and compares his result with the value in the package. If the values ​​do not match, the package is corrupted. It is used in TCP and UDP headers.</li>
+<li><strong>Cyclic Redundancy Check (CRC):</strong> It is a more complex and reliable method than Checksum. It is used at the Data Link layer, specifically in the queue of Ethernet frames (FCS — Frame Check Sequence). It is very effective at detecting errors of a few bits.</li>
+</ul>
+<h4 id="error-correction">
+  Error Correction
+  <a class="heading-link" href="#error-correction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This approach not only detects errors but also attempts to correct them using additional data. This is usually done by encoding the data in a redundant manner. However, these methods bring much more overhead than error detection.</p>
+<p>Error detection and subsequent retransmission is more efficient for networks such as the Internet, where retransmission is relatively cheap and fast. Error correction is preferred in situations where retransmission is too costly or impossible (for example, satellite communications or one-way broadcasts).</p>
+<hr>
+<h3 id="chapter-2-ip-addressing-and-subnet-management">
+  Chapter 2: IP Addressing and Subnet Management
+  <a class="heading-link" href="#chapter-2-ip-addressing-and-subnet-management">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>IP addressing is the fundamental mechanism that allows devices to be uniquely identified and communicate globally on a network. This chapter covers the structure of IPv4, techniques to alleviate the problem of address scarcity, IPv6 as the protocol of the future, and DHCP, which enables dynamic assignment of addresses.</p>
+<h3 id="21-ipv4-addressing-architecture">
+  2.1 IPv4 Addressing Architecture
+  <a class="heading-link" href="#21-ipv4-addressing-architecture">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>IPv4 uses a 32-bit addressing scheme, which theoretically provides approximately 4.3 billion unique addresses. These addresses are usually shown in dot-separated decimal format (for example, 192.168.1.1).</p>
+<ul>
+<li><strong>Class Addressing (A Historical Overview):</strong> Originally, IPv4 addresses were divided into classes such as A, B, and C. These classes rigidly determined how much of the address represented the network part and how much represented the host part. For example, Class A networks allowed very few networks but millions of hosts, while Class C networks allowed millions of networks but only 254 hosts each. This rigid structure led to inefficient use of addresses and great waste, as blocks were allocated that were much larger or much smaller than an organization needed.</li>
+<li><strong>Private and Public IP Address Ranges (RFC 1918):</strong> To slow the rapid depletion of IPv4 addresses, the Internet Assigned Numbers Authority (IANA) has reserved private IP address ranges for use in local area networks (LANs). These ranges are:<br>
+<code>10.0.0.0</code> - <code>10.255.255.255</code> (<code>10.0.0.0/8</code>)<br>
+<code>172.16.0.0</code> - <code>172.31.255.255</code> (<code>172.16.0.0/12</code>)<br>
+<code>192.168.0.0</code> - <code>192.168.255.255</code> (<code>192.168.0.0/16</code>)<br>
+These private addresses are non-routable on the public internet and can be used by any organization without permission.</li>
+<li><strong>Network Address Translation (NAT):</strong> <strong>NAT (Network Address Translation)</strong> is used so that devices using private IP addresses can access the internet. NAT usually runs on a router or firewall and maps multiple private IP addresses on the local network to a single public IP address. In this way, hundreds of devices can access the internet via a single public IP address. NAT has been a critical technology that has significantly alleviated the problem of IPv4 address scarcity.</li>
+</ul>
+<h3 id="22-classless-inter-domain-routing-cidr-and-subnet-masks">
+  2.2 Classless Inter-Domain Routing (CIDR) and Subnet Masks
+  <a class="heading-link" href="#22-classless-inter-domain-routing-cidr-and-subnet-masks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The inefficiency and rigidity of class addressing brought the Internet to the brink of crisis in the early 1990s. The solution came with <strong>CIDR (Classless Inter-Domain Routing)</strong>. CIDR was not just an IP addressing technique, it was a revolutionary intervention that saved the IPv4-based internet from collapse. This technology simultaneously solved two vital interconnected problems: the <em>address scarcity</em> caused by inefficient address allocation and the <em>routing infrastructure crisis</em> caused by the uncontrolled growth of global routing tables.</p>
+<ul>
+<li><strong>CIDR Notation and VLSM:</strong> CIDR makes the boundary that separates the network and host parts flexible. This is expressed by a forward slash (<code>/</code>) added to the end of the IP address followed by a number (for example, <code>192.168.1.0/24</code>). This number (prefix length) indicates how many bits of the address belong to the network part. This flexibility allows the use of <strong>Variable Length Subnet Mask (VLSM)</strong>. With VLSM, a network block can be efficiently divided into subnets of different sizes, thus minimizing address waste. For example, an organization that needs 500 hosts can be allocated a <code>/23</code> block of 512 addresses with CIDR, instead of being allocated a class B block of 65,534 addresses in the class system.</li>
+<li><strong>Subnetting and Supernetting:</strong> In addition to optimizing address allocation, CIDR has also simplified routing tables. <strong>Supernetting</strong> (or route merging) is the process of combining multiple consecutive small network blocks into a single large route announcement. For example, an internet service provider might advertise 16 different <code>/24</code> (formerly class C) networks to the rest of the internet as a single <code>/20</code> route instead of 16 separate routes. This has prevented a routing infrastructure crisis by keeping the size of the routing tables of routers in the backbone of the Internet at manageable levels.</li>
+</ul>
+<h3 id="23-ipv6-addressing-the-internet-protocol-of-the-future">
+  2.3 IPv6 Addressing: The Internet Protocol of the Future
+  <a class="heading-link" href="#23-ipv6-addressing-the-internet-protocol-of-the-future">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>With the depletion of IPv4 address space, <strong>IPv6</strong> was developed to accommodate the long-term growth of the Internet.</p>
+<h4 id="ipv6-architecture-and-advantages">
+  IPv6 Architecture and Advantages
+  <a class="heading-link" href="#ipv6-architecture-and-advantages">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>IPv6 uses a <strong>128-bit</strong> address space instead of 32-bit. This translates to <code>2^128</code> or approximately 340 undecillion (3.4 x <code>10^38</code>) addresses, providing an &ldquo;almost infinite&rdquo; capacity. IPv6 addresses consist of eight 16-bit hexadecimal groups separated by colons (for example, <code>2001:0db8:85a3:0000:0000:8a2e:0370:7334</code>). The main advantages of IPv6 are:</p>
+<ul>
+<li><strong>Massive Address Space:</strong> Eliminates the need for NAT and ensures that each device is assigned a unique public address.</li>
+<li><strong>Simplified Header:</strong> The IPv6 header has less space than IPv4 and is processed more efficiently by routers.</li>
+<li><strong>Automatic Configuration (SLAAC):</strong> Allows devices to create an IP address on their own without the need for a DHCP server.</li>
+<li><strong>Built-in Security:</strong> IPsec protocol support is part of the IPv6 standard and provides end-to-end security.</li>
+</ul>
+<h4 id="transition-mechanisms">
+  Transition Mechanisms
+  <a class="heading-link" href="#transition-mechanisms">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Since the transition from IPv4 to IPv6 will not happen overnight, mechanisms that enable the two protocols to work together are required. The most common approach is the Dual Stack architecture. In this method, network devices and operating systems run both IPv4 and IPv6 protocol stacks simultaneously. When an application tries to connect to a destination, it queries the DNS for both IPv4 (A record) and IPv6 (AAAA record) addresses, generally preferring IPv6. While this approach provides a gradual transition, it imposes additional burdens on network administrators, such as managing two separate networks and enforcing security policies.</p>
+<h3 id="24-dynamic-host-configuration-protocol-dhcp">
+  2.4 Dynamic Host Configuration Protocol (DHCP)
+  <a class="heading-link" href="#24-dynamic-host-configuration-protocol-dhcp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Manually assigning IP addresses to devices on the network is both laborious and error-prone, especially in large networks. <strong>DHCP (Dynamic Host Configuration Protocol)</strong> is a client-server protocol that automates this process.</p>
+<h4 id="dora-process">
+  DORA Process
+  <a class="heading-link" href="#dora-process">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>When a client connects to the network, it goes through a four-step process to obtain an IP address and other network configuration information (subnet mask, gateway, DNS server). This process is called <strong>DORA</strong>:</p>
+<ol>
+<li><strong>Discover:</strong> The client sends a <code>DHCPDISCOVER</code> broadcast message to locate a DHCP server on the network.</li>
+<li><strong>Offer:</strong> DHCP servers on the network respond to the client with a <code>DHCPOFFER</code> unicast message containing an IP address and lease period.</li>
+<li><strong>Request:</strong> The client selects one of the incoming offers and sends a <code>DHCPREQUEST</code> broadcast message to indicate that it wants this address.</li>
+<li><strong>Acknowledge:</strong> The selected server completes the process with a <code>DHCPACK</code> unicast message confirming the IP address assignment and other configuration parameters.</li>
+</ol>
+<h4 id="dhcp-security-and-snooping">
+  DHCP Security and Snooping
+  <a class="heading-link" href="#dhcp-security-and-snooping">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>DHCP is not an inherently secure protocol. By installing a rogue (<strong>Rogue</strong>) DHCP server on the network, an attacker can provide false gateway or DNS information to clients and thus perform a “man-in-the-middle” attack by passing traffic through them. The most effective measure against this threat is <strong>DHCP Snooping</strong>. This feature is enabled on network switches and monitors DHCP messages. The switch divides its ports into <strong>trusted</strong> and <strong>untrusted</strong>. Trusted ports are ports connected to legitimate DHCP servers. Server messages such as <code>DHCPOFFER</code> and <code>DHCPACK</code> from untrusted ports are blocked, allowing only authorized servers to distribute IP addresses.</p>
+<hr>
+<h3 id="chapter-3-routing-protocols-and-the-internet-backbone">
+  Chapter 3: Routing Protocols and the Internet Backbone
+  <a class="heading-link" href="#chapter-3-routing-protocols-and-the-internet-backbone">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Routing is the process of determining the path that data packets will follow between networks to reach the destination device from the source device. This process is managed either by static routes defined manually by the network administrator, or by protocols where routers communicate with each other and dynamically learn the best routes. This chapter examines these two basic approaches, Interior Gateway Protocols (IGP) used in enterprise networks and Border Gateway Protocol (BGP), which forms the global backbone of the Internet.</p>
+<h3 id="31-routing-fundamentals-static-and-dynamic-approaches">
+  3.1 Routing Fundamentals: Static and Dynamic Approaches
+  <a class="heading-link" href="#31-routing-fundamentals-static-and-dynamic-approaches">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/0_8Q5DoM_nd0PtJKLk.png" alt=""></p>
+<p>Static and Dynamic Approaches</p>
+<p><strong>Static Routing:</strong> In this method, the network administrator manually enters routes into each router&rsquo;s routing table. These routes remain fixed until changed by the administrator. It is a simple, secure and resource-efficient solution for small networks whose topology does not change. Because no protocol traffic occurs between routers and which routes will be used is fully controlled. However, as the network grows or a connection breaks, it becomes impossible to manage as all routes must be manually updated and the network has low tolerance to faults.</p>
+<ul>
+<li><strong>Dynamic Routing:</strong> In this approach, routers share topology information with each other using special routing protocols and automatically calculate the best routes. When there is a change in the network (for example, a new router is added or a link is lost), the protocols detect this change and quickly update the routing tables, redirecting traffic to alternative paths. This provides scalability and high availability across large networks. Its disadvantages are that it consumes more CPU and memory on routers and is more complex to configure.</li>
+</ul>
+<h3 id="32-interior-gateway-protocols-igp">
+  3.2 Interior Gateway Protocols (IGP)
+  <a class="heading-link" href="#32-interior-gateway-protocols-igp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>IGPs are used to manage routing within a single autonomous system (AS), that is, a single administrative area (usually a company or service provider network). They are divided into two main categories: Distance-Vector and Link-State.</p>
+<ul>
+<li><strong>RIP (Routing Information Protocol):</strong> It is one of the oldest Distance-Vector protocols. It simply uses hop count** as its metric, i.e. it counts the number of routers that must be passed to reach the destination. This simplicity causes it to ignore important factors such as bandwidth or latency. Its use has been almost completely abandoned in modern networks due to its 15-hop maximum limit and slow convergence time.</li>
+<li><strong>OSPF (Open Shortest Path First):</strong> It is the most widely used Link-State protocol. In OSPF, each router creates a topological map of the entire network (Link-State Database (LSDB)) and calculates the best paths to destinations by running <strong>Dijkstra&rsquo;s shortest path priority (SPF)</strong> algorithm on this map. It uses <strong>cost</strong> as the metric, which is generally inversely proportional to the bandwidth of the connection. It is highly scalable in large networks thanks to its <strong>area</strong> structure that allows for a hierarchical design.</li>
+<li><strong>EIGRP (Enhanced Interior Gateway Routing Protocol):</strong> Developed by Cisco, this protocol is considered a “hybrid” or “enhanced distance-vector” protocol that combines the best features of both Distance-Vector and Link-State protocols. Thanks to <strong>DUAL (Diffusing Update Algorithm)</strong>, it provides very fast convergence by instantly activating pre-calculated backup paths when the primary path crashes. It uses a <strong>composite metric</strong> that includes multiple parameters such as bandwidth, latency, load, and reliability as metrics, allowing it to make smarter path choices.</li>
+</ul>
+<p><img src="/images/0_KO7-ySH9na-aDkyD.png" alt=""></p>
+<p>Gateway Protocols</p>
+<h3 id="33-border-gateway-protocol--bgp">
+  3.3 Border Gateway Protocol — BGP
+  <a class="heading-link" href="#33-border-gateway-protocol--bgp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>BGP is the protocol that forms the basis of the internet. Unlike an IGP, it is an <strong>Outside Gateway Protocol (EGP)</strong> that is used to exchange routing information not within a single network but among the tens of thousands of independent <strong>Autonomous Systems (AS)</strong> that make up the Internet. Each AS is identified by a unique <strong>ASN (Autonomous System Number)</strong>.</p>
+<p>BGP is essentially a <strong>policy enforcement</strong> protocol rather than a technical protocol. While IGPs focus on finding the <em>fastest</em> or <em>most efficient</em> path within a network, BGP focuses on finding the <em>preferred</em> path between ASs, and this is generally determined based on business, economic and policy agreements rather than technical metrics. For example, a service provider may choose to send its traffic over a slower but cheaper network it has an agreement with, rather than going through a competing company&rsquo;s network, even if it is faster.</p>
+<p><strong>Path Vector Protocol and Path Attributes:</strong> BGP is a &ldquo;Path Vector&rdquo; protocol that carries the full list of ASes (the &lsquo;AS-PATH&rsquo; attribute) passed to reach a destination. This is the basic anti-loop mechanism of BGP; If a router sees its own ASN in a route update, it rejects that route. BGP&rsquo;s route selection is based on a set of <strong>route attributes</strong>. These attributes define the characteristics of the route and are used to enforce policy. The main qualities are:</p>
+<ul>
+<li><strong>AS_PATH:</strong> List of ASs passed. The shortest one is preferred. A path can be made less attractive by deliberately lengthening it (<code>AS-Path Prepending</code>).</li>
+<li><strong>NEXT_HOP:</strong> The IP address of the next router to reach the route.</li>
+<li><strong>LOCAL_PREF:</strong> Determines which exit point an AS prefers for its outgoing traffic. A higher value is preferred.</li>
+<li><strong>MED (Multi-Exit Discriminator):</strong> It is used to affect incoming traffic from a neighboring AS. A lower value is preferred.</li>
+<li><strong>COMMUNITY:</strong> Used to group routes by labeling them and apply collective policies to these groups.</li>
+</ul>
+<p><strong>Route Reflector (RR):</strong> There is a “split-horizon” rule between BGP routers (iBGP) within an AS that prevents the route learned from one neighbor from being forwarded to other neighbors. This rule requires each router to fully mesh with every other router, creating an unmanageable situation in large networks. <strong>Route Reflector</strong> solves this problem. Certain routers are configured as “client” and all clients establish neighborhood with RR only. RR eliminates the need for full-meshing by “mirroring” the route it learns from one client to all other clients.</p>
+<h3 id="34-bgp-security">
+  3.4 BGP Security
+  <a class="heading-link" href="#34-bgp-security">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Security was not a priority in the original design of BGP. This has led to serious security threats such as <strong>BGP Route Hijacking</strong>. Route hijacking is when an AS illegally absorbs internet traffic by adopting an IP prefix that does not belong to it. This could lead to data theft, service outages, or widespread fraud.</p>
+<p>The most effective modern solution against this threat is the <strong>RPKI (Resource Public Key Infrastructure)</strong> system. RPKI is an infrastructure that cryptographically verifies which ASN an IP prefix can be legally advertised by. Regional Internet Registries (RIRs) allow IP address owners to create <strong>Route Resource Authorizations (ROA)</strong>. An ROA is a digitally signed object that binds together a specific IP prefix, the ASN authorized to announce that prefix, and the maximum prefix length. On networks that support RPKI, BGP routers check an incoming route announcement against this ROA database (<strong>Route Source Verification (ROV)</strong>). If the announcement is invalid (for example, made by the wrong ASN), the route is rejected and hijacking is prevented. The proliferation of RPKI has significantly reduced the impact of hijacking attacks targeting major platforms such as YouTube and Twitter.</p>
+<hr>
+<h3 id="chapter-4-switching-technologies-and-local-area-network-lan-management">
+  Chapter 4: Switching Technologies and Local Area Network (LAN) Management
+  <a class="heading-link" href="#chapter-4-switching-technologies-and-local-area-network-lan-management">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Local Area Networks (LAN) are the basic building blocks of modern networks. In this section, Layer 2 switching technologies that enable LANs to operate efficiently and securely, VLANs that logically divide networks into sections, and Spanning Tree Protocol that prevents loops in redundant connections are discussed.</p>
+<h3 id="41-layer-2-switching-and-address-resolution">
+  4.1 Layer 2 Switching and Address Resolution
+  <a class="heading-link" href="#41-layer-2-switching-and-address-resolution">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Layer 2 switches operate at the Data Link layer of the OSI model and provide efficient communication in LANs by transmitting frames according to MAC addresses.</p>
+<p><strong>MAC Address Table (CAM Table):</strong> The intelligence of a key lies in its <strong>MAC address table</strong>. This table records which MAC address of the switch is connected to which port. The switch dynamically creates this table:</p>
+<ul>
+<li><strong>Learning:</strong> When the switch receives a frame from one of its ports, it examines the <strong>source MAC address</strong> of the frame. If this MAC address is not in the table, it adds the MAC address and the port number it came from as a new entry in the table. If the address already exists in the table, it resets the aging timer of that entry. This time delay is usually 300 seconds (5 minutes), and if no new frame arrives from that address within this period, the entry is deleted from the table.</li>
+</ul>
+<p><strong>Frame Forwarding Logic:</strong> To forward a frame, the switch looks up the <strong>destination MAC address</strong> in its table and makes three possible decisions:</p>
+<ol>
+<li><strong>Forwarding:</strong> If the destination MAC address is found in the table, the switch sends the frame only to the port where that MAC address is registered. This avoids unnecessary traffic.</li>
+<li><strong>Flooding:</strong> If the target MAC address is not found in the table (if it is an unknown unicast), the switch copies the frame to <strong>all other ports</strong> except the port from which it came. This process is called “flooding”. When the target device responds, the switch learns its MAC address and will not flood it next time.</li>
+<li><strong>Broadcasting:</strong> If a broadcast frame with the target MAC address <code>FF:FF:FF:FF:FF:FF</code> arrives, the switch sends this frame to all ports except the port it came from.</li>
+</ol>
+<p><strong>Address Resolution Protocol (ARP):</strong> Devices often want to communicate with each other via IP addresses, but MAC addresses are required for actual data transmission on the local network. <strong>ARP (Address Resolution Protocol)</strong> bridges these Layer 3 (IP) and Layer 2 (MAC) addresses. When a device (A) knows the IP address but not the MAC address of another device (B) on the same network, it initiates the following process:</p>
+<ol>
+<li>Device A asks, “What is the MAC address of the device that has this IP address?” It sends an <strong>ARP Request</strong> message to the network as a broadcast.</li>
+<li>All devices on the network receive this request, but only device B whose IP address matches responds.</li>
+<li>Device B unicasts an <strong>ARP Reply</strong> message containing its MAC address directly to device A.</li>
+<li>Device A saves this information in its <strong>ARP cache</strong> and uses it for future communications.</li>
+</ol>
+<h3 id="42-virtual-local-area-networks-vlan-management">
+  4.2 Virtual Local Area Networks (VLAN) Management
+  <a class="heading-link" href="#42-virtual-local-area-networks-vlan-management">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>VLAN (Virtual LAN)</strong> is the technology of dividing a single physical switch into virtual partitions so that they act logically as multiple independent switches. Devices on different VLANs cannot communicate with each other without a router in between. The main benefits of VLANs are:</p>
+<ul>
+<li><strong>Security:</strong> Isolates different departments (for example, Accounting and Engineering) or user groups (for example, guests and employees) from each other.</li>
+<li><strong>Performance:</strong> Each VLAN creates its own broadcast domain. This limits broadcast traffic and reduces congestion across the network.</li>
+<li><strong>Flexibility:</strong> Devices can be grouped into logical networks regardless of their physical location.</li>
+<li><strong>Trunking and 802.1Q Standard:</strong> <strong>trunk</strong> ports are used to carry the traffic of more than one VLAN between switches over a single physical connection. The protocol that standardizes this process is <strong>IEEE 802.1Q</strong>. 802.1Q adds a 4-byte tag to the Ethernet header as a frame passes through the trunk port. This tag contains a VLAN ID that indicates which VLAN the frame belongs to. The other switch reads this tag and directs the frame to the correct VLAN. <strong>Native VLAN</strong> is the VLAN to which traffic transmitted untagged through a trunk port belongs.</li>
+</ul>
+<p><strong>VLAN Hopping Attacks and Precautions:</strong> Attackers can use various techniques to bypass the isolation provided by VLANs. The two most common types of attacks are:</p>
+<ol>
+<li><strong>Switch Spoofing:</strong> The attacker configures his device to act as a switch and attempts to trick the switch&rsquo;s port into automatically switching to trunk mode. This is usually done by taking advantage of <strong>DTP (Dynamic Trunking Protocol)</strong>, which is enabled by default. When the port switches to trunk mode, an attacker can listen to traffic from all VLANs.</li>
+<li><strong>Double Tagging:</strong> In this attack, the attacker adds two 802.1Q tags to his frame. The outer tag carries the ID of the Native VLAN where the attacker is located, and the inner tag carries the ID of the target VLAN. The first switch sees the frame as untagged because it is in the Native VLAN, removes the outer tag and forwards it to the trunk line. The second switch now only sees the inner tag and mistakenly forwards the frame to the target VLAN.</li>
+</ol>
+<p>The basic precautions to be taken against these attacks are: disabling DTP on user ports (<code>switchport nonegotiate</code>), manually setting all access ports to access mode, assigning Native VLAN to an unused ID and closing all unused ports.</p>
+<h3 id="43-loop-prevention-mechanisms">
+  4.3 Loop Prevention Mechanisms
+  <a class="heading-link" href="#43-loop-prevention-mechanisms">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Connect redundantly between switches to ensure high availability in networks. Establishing references is a common practice. However, at Layer 2, loops can cause broadcast storms and instability of the MAC address table, rendering the network completely inoperable. <strong>Spanning Tree Protocol (STP)</strong> and its advanced versions are designed to prevent these loops. The evolution of these protocols reflects the effort to improve the fundamental balance between redundancy and efficiency in network design.</p>
+<p><strong>Spanning Tree Protocol (STP - IEEE 802.1D):</strong> The original STP creates a loop-free logical topology between all switches in the network. It does this by selecting a Root Bridge and leaving each switch&rsquo;s single lowest-cost path to the Root Bridge active, <strong>blocking</strong> all other redundant paths. This effectively prevents loops but has two major drawbacks:</p>
+<ol>
+<li><strong>Slow Convergence:</strong> When there is a change in the network topology (for example, an active link is broken), it may take 30 to 50 seconds for a blocked port to return to a transmitting state. This is unacceptable downtime for modern applications.</li>
+<li><strong>Inefficiency:</strong> Since all VLANs share a single Spanning Tree instance, a redundant link remains completely idle. A high bandwidth link is not used at all as long as the primary link is working.</li>
+</ol>
+<p><strong>Rapid Spanning Tree Protocol (RSTP - IEEE 802.1w):</strong> RSTP was developed to solve the slow convergence problem of STP. It reduces convergence time to seconds by simplifying port states (a single <strong>Discarding</strong> state instead of Blocking, Listening, Disabled) and adding new port roles (such as <strong>Alternate Port</strong>, which takes over immediately when the primary root port goes down). RSTP is backwards compatible with STP but does not solve the problem of bandwidth inefficiency as it still creates a single tree for all VLANs.</p>
+<p><strong>Multiple Spanning Tree Protocol (MSTP - IEEE 802.1s):</strong> MSTP both maintains the speed of RSTP and solves the inefficiency problem of STP/RSTP. MSTP groups VLANs into logical <strong>instances</strong> and runs a separate Spanning Tree for each instance. This allows VLAN-based load balancing. For example, while a link may be active (forwarding) for VLAN 10-20 group, the same link may be blocked (discarding) for VLAN 30-40 group. In this way, all redundant connections are actively used for some traffic, bandwidth waste is prevented and network resources are used in the most efficient way.</p>
+<p><img src="/images/0_iZqupuFz_XXG4e9n.png" alt=""></p>
+<p>Loop Prevention</p>
+<p>This evolutionary path summarizes the fundamental goal of network engineering: to ensure basic security (loop prevention), then add speed (fast convergence), and finally introduce intelligence and efficiency (load balancing).</p>
+<hr>
+<h3 id="result">
+  Result
+  <a class="heading-link" href="#result">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>This white paper comprehensively covers the protocols, addressing schemes, and management mechanisms that form the basis of modern computer networks. The analysis clearly reveals the evolution of network technologies from simple and rigid models to today&rsquo;s complex, flexible and policy-oriented systems.</p>
+<ul>
+<li><strong>Models and Data Flow:</strong> A comparison of the OSI and TCP/IP models has demonstrated the difference between theoretical idealism and engineering pragmatism. TCP/IP&rsquo;s pragmatic approach to working protocols has made it the de facto standard of the internet. The data encapsulation process stands out as not only a packaging technique, but also a basic abstraction mechanism that ensures modularity and protocol independence of networks.</li>
+<li><strong>Addressing and Routing:</strong> The introduction of CIDR was a revolutionary step that saved the IPv4-based internet from the crisis of both address scarcity and routing table explosion. This is a powerful example of how technology is not only advancing, but also adapting to become self-sustainable. Examination of BGP has shown that routing on the internet backbone is not a purely technical optimization, but a “policy enforcement” mechanism that reflects business and policy relationships. The rise of RPKI in BGP security signals a growing trend towards cryptographic authentication to protect the underlying infrastructure of the internet.</li>
+<li><strong>LAN Management:</strong> The evolution of switching and loop prevention technologies demonstrates the constant balance between durability and efficiency. The move from the coarse blocking logic of STP to the intelligent load balancing capabilities of MSTP allows for more efficient use of network resources. It represents a constant search for maturity. Similarly, VLAN technology and countermeasures against attacks such as VLAN hopping highlight how network segmentation is critical to security and performance, but that this security requires constant attention and correct configuration.</li>
+</ul>
+<p>Ultimately, these technologies are deeply interconnected. A Layer 2 switch learning its MAC address depends on ARP resolving an IP address; For a router to forward a packet requires it to know both the destination IP address and the best path to that destination; and the operation of this entire system on a global scale relies on BGP&rsquo;s complex policy-based decisions. This complex and layered structure creates a flexible, scalable and constantly evolving infrastructure that forms the basis of the modern digital world.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  IPv4/IPv6 Wireshark Analizi · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  IPv4/IPv6 Wireshark Analizi
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+
+
+  IP Nedir?
+  
+    
+    Başlık Linki
+  
+
+IP (v4/v6 — topluca “IP” olarak anılır), ağa bağlı sistemler için teslim hizmetlerinin yanı sıra düşük MTU (Maximum Transmission Unit) ağları için parçalama ve yeniden birleştirme sağlar. IP ayrıca belirli trafiğin diğer trafiğe göre önceliklendirilmesini sağlamak için hizmet kalitesi belirleme özelliği de sunar.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="IPv4/IPv6 Wireshark Analizi">
+  <meta name="twitter:description" content="IPv4/IPv6 Wireshark AnaliziBaşlık LinkiMerhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+IP Nedir?Başlık LinkiIP (v4/v6 — topluca “IP” olarak anılır), ağa bağlı sistemler için teslim hizmetlerinin yanı sıra düşük MTU (Maximum Transmission Unit) ağları için parçalama ve yeniden birleştirme sağlar. IP ayrıca belirli trafiğin diğer trafiğe göre önceliklendirilmesini sağlamak için hizmet kalitesi belirleme özelliği de sunar.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2023/11/ipv4/ipv6-wireshark-analizi/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="IPv4/IPv6 Wireshark Analizi">
+  <meta property="og:description" content="IPv4/IPv6 Wireshark AnaliziBaşlık LinkiMerhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+IP Nedir?Başlık LinkiIP (v4/v6 — topluca “IP” olarak anılır), ağa bağlı sistemler için teslim hizmetlerinin yanı sıra düşük MTU (Maximum Transmission Unit) ağları için parçalama ve yeniden birleştirme sağlar. IP ayrıca belirli trafiğin diğer trafiğe göre önceliklendirilmesini sağlamak için hizmet kalitesi belirleme özelliği de sunar.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-11-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-11-24T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2023/11/ipv4/ipv6-wireshark-analizi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2023/11/ipv4/ipv6-wireshark-analysis/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2023/11/ipv4/ipv6-wireshark-analizi/">
+              IPv4/IPv6 Wireshark Analizi
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-11-24T00:00:00Z">
+                Kasım 24, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              16 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="ipv4ipv6-wireshark-analizi">
+  IPv4/IPv6 Wireshark Analizi
+  <a class="heading-link" href="#ipv4ipv6-wireshark-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_qSAbdDrUrlN_SQ9p_AXpFQ.png" alt=""></p>
+<p>Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
+<hr>
+<h3 id="ip-nedir">
+  IP Nedir?
+  <a class="heading-link" href="#ip-nedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>IP (v4/v6 — topluca “IP” olarak anılır), ağa bağlı sistemler için teslim hizmetlerinin yanı sıra düşük MTU (Maximum Transmission Unit) ağları için parçalama ve yeniden birleştirme sağlar. IP ayrıca belirli trafiğin diğer trafiğe göre önceliklendirilmesini sağlamak için hizmet kalitesi belirleme özelliği de sunar.</p>
+<p>IP bağlantısız ve güvenilmezdir, IP ana bilgisayarları arasında datagramların en iyi şekilde teslim edilmesini sağlar. IP’nin kendisi, bir paketin hedef konuma ulaşıp ulaşmadığını belirlemenin hiçbir yolunu sunmaz. Garantili teslimata ihtiyaç duyan bir uygulama IP üzerinden TCP (TCP over IP) kullanmalıdır.</p>
+<p><img src="/images/1_T7ew3u6ttBWwa5NsNgjR3g.png" alt=""></p>
+<p>IP, UDP ve TCP tabanlı uygulamalar ve ICMP için teslim hizmetleri sağlar</p>
+<p>IPv4 başlığı tipik olarak 20 bayt uzunluğundadır, ancak IP başlık uzunluğunu (4 baytlık artışlarla) uzatabilen bir alan içerir.</p>
+<hr>
+<h3 id="ipv4-analizi">
+  IPv4 Analizi
+  <a class="heading-link" href="#ipv4-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>IPv4 RFC 791&rsquo;de ele alınmıştır. Normal IPv4 iletişimi, en verimli paket boyutunu kullanarak paketleri bir konumdan diğerine götürür.</p>
+<p>IPv4 paketleri yönlendiriciler tarafından iletilirken, yönlendirme kararları vermek için hedef IP adresi incelenir, MTU boyutu bir sonraki bağlantının MTU boyutuna göre kontrol edilir (parçalanmanın gerekli olup olmadığını ve izin verilip verilmediğini belirlemek için), MAC başlığı çıkarılır ve bir sonraki ağ için yeni bir tane uygulanır ve IP başlığındaki yaşam süresi (TL) değeri azaltılır. IP başlığı ayrıca yönlendirme önceliklendirmesi için de kontrol edilir.</p>
+<p>Bir IPv4 iletişiminde her şey yolunda giderse, trafik IP adreslerine ve IP adreslerinden akmalıdır. Bir NAT/PAT cihazı trafiği kesip adresi değiştirmediği sürece başlıktaki IPv4 adresi değişmemelidir.</p>
+<p>Bir paket yoldaki bir sonraki bağlantıya iletilemeyecek kadar büyükse, yönlendirici IP başlığının parçalanma ayarını inceler. Don’t Fragment biti ayarlanmışsa, paket iletilemez. Yönlendirici, paketi oluşturan kişiye MTU sınırlamasını tanımlayan bir ICMP Tip 3, Kod 4 mesajı (Hedefe Ulaşılamıyor/Parçalanma Gerekli, ancak Parçalama Biti Ayarlandı) göndermelidir. Gönderen, paketi daha küçük bir paket boyutunda yeniden iletmelidir. Parçalanmaya izin veriliyorsa, yönlendirici tek büyük paketi iki (veya daha fazla) küçük pakete bölmeli, parça ofsetini tanımlamalı ve paketlerin parça olduğunu belirtmeli ve iletmelidir.</p>
+<p><img src="/images/1_Gmy9Pgg9xp9UlBITMfwglg.png" alt=""></p>
+<p>IP, bir bağlantının MTU’su datagram boyutunu desteklemediğinde paketleri parçalayabilir</p>
+<p>Şekilde, İstemci A’dan Sunucu A’ya giden 1500 baytlık bir MTU paketi yol boyunca gidemez. Sınırlama Yönlendirici B ve Yönlendirici C arasındaki bağlantıdadır. Yönlendirici B paketi parçalara ayırmalı (izin veriliyorsa) ve parçaları iletmeli veya ICMP Tip 3, Kod 4 mesajını İstemci A’ya geri göndermelidir.</p>
+<p>Parçalanma, veri akışının verimliliğini azalttığı için bir ağda arzu edilen bir durum değildir. Bununla birlikte, kaçınılmaz olabilir. Olası MTU sorunlarını wirehsarkda belirlemek için;<br>
+İstatistikler | Paket Uzunluklarını inceleyin veya ICMP Tip 3/Kod 4 paketleri için bir filtre uygulayın (icmp.type==3 &amp;&amp; icmp.code==4).</p>
+<p>IPv4 sorunları genellikle parçalanma, olağandışı IP adresleri ve aşırı yayınlarla ilgilidir. Birkaç örnek aşağıda verilmiştir.</p>
+<ul>
+<li>ICMP Tip 3, Kod 4 paketleri engellendiğinde parçalanma sorunları ortaya çıkabilir, bu da bir ana bilgisayarın paketlerinin neden hedefe ulaşmadığını öğrenmesini engeller. ICMP Tip 3, Kod 4 paketi kara delik tespiti için kullanılır.</li>
+</ul>
+<p><img src="/images/1_fLWJpNDw-l0U1eNT73tlaQ.png" alt=""></p>
+<p>Kaynak IP adresinin 127.0.0.1 olması şüphelidir</p>
+<ul>
+<li>Olağandışı IP adresleri, yinelenen adresler veya Şekilde gösterilen adres gibi ağda izin verilmeyen adresler olabilir. IP kaynak adresi loopback adresi (127.0.0.0/8), çok noktaya yayın adresi veya yayın adresi olamaz.</li>
+<li>Bir ağ boyunca akan aşırı yayınlar(broadcast), Wireshark’ı bir switche bağlayarak kolayca tespit edilebilir.</li>
+</ul>
+<p>Şekilde ağda asla bulunmaması gereken bir paket gösterilmektedir — kaynak 127.0.0.1 loopback adresidir.</p>
+<hr>
+<h3 id="ipv6-analizi">
+  IPv6 Analizi
+  <a class="heading-link" href="#ipv6-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>IPv6 sadece katman 3 yönlendirilmiş bir protokoldür.</p>
+<p><img src="/images/1_WltOTqu_1iZzyc0O4u5zgg.png" alt=""></p>
+<p>IPv6 Başlığı</p>
+<p>Şekilde bir IPv6 başlığı gösterilmektedir. Ethernet başlık Tipi alanının 0x86dd olduğuna dikkat edin, bu da bir IPv6 başlığının sırada olduğunu gösterir.</p>
+<p>RFC 2460, İnternet Protokolü, Sürüm 6 (IPv6) Spesifikasyonu, IPv6 başlık spesifikasyonunu tanımlar. IPv6 adresleme RFC 4291, IP Sürüm 6 Adresleme Mimarisi’nde ele alınmıştır. IPv6 ana bilgisayarlarının diğer yerel hedefleri nasıl bulduğuna ilişkin ayrıntılar için RFC 4861, IP sürüm 6 (IPv6) için Komşu Bulma bölümüne bakın.</p>
+<p>IPv6 ile ilgili bu kısa bölüm, yalnızca çift yığınlı ana bilgisayarlarda göreceğiniz en yaygın IPv6 trafiğine bir göz atmanız için tasarlanmıştır.</p>
+<p>IPv6 iletişiminde üç farklı adres türü vardır:</p>
+<ul>
+<li>Unicast — tek interface adresi</li>
+<li>Multicast —arayüzler grubu</li>
+<li>Anycast — bir grup arayüzün en yakını</li>
+</ul>
+<p>IPv6&rsquo;da yayın(broadcast) adresi yoktur-çoklu yayınlar ağ yayınlarının yerine kullanılır.</p>
+<p>IPv6 adresleri on altı bayt uzunluğundadır (128 bit) ve x&#x274c;x&#x274c;x&#x274c;x şeklinde yazılır; burada x bir ila dört onaltılık basamağı temsil eder. Gösterimi kısaltmak için tek bir alanda baştaki sıfırları atabilirsiniz.</p>
+<p><img src="/images/1_aLNQlmlSWWQnFYKi0MA9rw.png" alt=""></p>
+<p>Multicast yayınlar ff02 ile başlar</p>
+<p>RFC 4291, IPv6 adresleri için aşağıdaki örneği sağlar:</p>
+<ul>
+<li>Address 2001:0DB8:0:0:8:800:200C:417A (bir unicast adres)<br>
+Shortened Version 2001:DB8::8:800:200C:417A</li>
+<li>Address FF01:0:0:0:0:0:0:101 (bir multicast adres)<br>
+Shortened Version FF01::101</li>
+<li>Address 0:0:0:0:0:0:0:1 (bir loopback adres)<br>
+Shortened Version ::1</li>
+<li>Address 0:0:0:0:0:0:0:0 (unspecified adres)<br>
+Shortened Version ::</li>
+</ul>
+<p>:: bir adreste yalnızca bir kez kullanılabilir ve 16 bitlik sıfırlardan oluşan bir veya daha fazla grubu temsil eder. :: bir adresteki baştaki veya sondaki sıfırları temsil etmek için de kullanılabilir. Wireshark, yukarıdaki şekilde gösterildiği gibi IPv6 adreslerinin kısaltılmış sürümünü kullanır.</p>
+<p>IPv6 ağ öneklerini temsil ederken Sınıfsız Alanlar Arası Yönlendirme (CIDR) gösterimi kullanılır. Örneğin, 2001:DB8:0:CD30::/64, 2001:DB8:0000:CD30:: ağını temsil eder.</p>
+<p>Unicast adresler 2xxx ile başlar. Multicast adresler FFxx ile başlar. Link-Local Unicast adresleri FE80 ile başlar.</p>
+<p>Link-Local adresler tek bir bağlantı üzerinde adresleme için kullanılır ve yönlendirilmez. IPv6, otomatik adres yapılandırması ve komşu keşfi için Link-Local adresleri kullanır.</p>
+<p>Yukarıdaki şekilde görülen ilk paket bir ICMPv6 İsteği’dir — bu protokol ARP’ın yerini alır. Kaynak adres :: olduğunda, paketin amacı Yinelenen Adres Algılama (DAD)dır.</p>
+<p><img src="/images/1_b6BPriW0o2QQNIce_G74JA.png" alt=""></p>
+<p>Yönetilen Adres Yapılandırması ve Diğer Yapılandırma bitleri DHCPv6 istemcisinin bir IPv6 adresini ve diğer parametreleri nasıl alacağını tanımlar</p>
+<p>IPv6 hostu, başlangıç işlemi sırasında IPv6 hostuna gönderilen Yönlendirici Reklam paketi tarafından tanımlanan çeşitli yöntemlerden birini kullanarak bir adres alabilir. Şekilde iki bite dikkat çektik:</p>
+<ul>
+<li>Yönetilen Adres Yapılandırması (M) biti</li>
+<li>Diğer Yapılandırma (O) biti.</li>
+</ul>
+<p>DHCPv6 istemci adresi ve diğerparametreler bu iki bitin ayarına göre yapılandırılacaktır. Bir IPv6 istemcisi, ICMPv6 Yönlendirici paketindeki M ve O bitlerine başvurarak üç farklı şekilde bir adres alabilir:</p>
+<ul>
+<li>Stateless Address AutoConfiguration (SLAAC)</li>
+<li>stateful DHCPv6</li>
+<li>stateless DHCPv6</li>
+</ul>
+<h4 id="6to4-tunnelingipv4-içinde-tünellenmiş-ipv6">
+  6to4 Tunneling(IPv4 İçinde Tünellenmiş IPv6)
+  <a class="heading-link" href="#6to4-tunnelingipv4-i%c3%a7inde-t%c3%bcnellenmi%c5%9f-ipv6">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>IPv6&rsquo;ya geçişin bir parçası olarak, mevcut TCP/IP ana bilgisayarları çift yığınları ve IPv4 içinde IPv6 tünelleme yeteneğini destekler. Bu paketler bir IPv4 ağı üzerinden hedef IPv6 ana bilgisayarına yönlendirilebilir. Üç farklı kapsülleme yöntemi vardır-6to4, Teredo ve ISATAP.</p>
+<p><img src="/images/1_wfLk0ygZStuJ43NRGFg65Q.png" alt=""></p>
+<p>Protokol değeri 41, bir IPv6 başlığının daha sonra geldiğini gösterir</p>
+<p>RFC 3056, IPv6 Etki Alanlarının IPv4 Bulutları Üzerinden Bağlanması, 6to4 tünellemeyi tanımlar. Wireshark bir IPv6 başlığının bir IPv4 başlığını takip ettiğini tespit ettiğinde, pakete iki not ekler:</p>
+<ul>
+<li>Source 6to4 Gateway IPv4 (ipv6.src_6to4_gw_ipv4)</li>
+<li>Source 6to4 SLA ID (ipv6.src_6to4_sla_id)</li>
+</ul>
+<p>Kaynak adresin ilk 2 baytı 0x2002 olacaktır. 6to4 Ağ Geçidi adresi, kapsülleyen ana bilgisayarın IPv4 adresidir (IPv6 başlığını yerleştiren istemci veya IPv6 başlığını yerleştiren bir yönlendirici). Şekil 209&rsquo;da, kaynak IPv6 adresi 24.6.173.220&rsquo;ye (ana bilgisayarın IPv4 adresi) dönüşen 0x1806addc’yi içerir. Kaynak 6to4 SLA Kimliği (Site Level Aggregation Identifier) bir alt ağ tanımlamak için kullanılır.</p>
+<h4 id="teredo">
+  Teredo
+  <a class="heading-link" href="#teredo">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Teredo, bir IPv6 başlığını bir UDP paketi içinde kapsülleyen başka bir tünelleme yöntemidir. Bu teknoloji, Protokol 41&rsquo;i işlemeyen Ağ Adresi Çevirisi (NAT) cihazlarını geçmeye yardımcı olmak için geliştirilmiştir. Teredo, RFC 4380, Ağ Adresi Çevirileri (NAT’lar) aracılığıyla UDP üzerinden IPv6 Tünelleme’de ele alınmıştır.</p>
+<p><img src="/images/1_W8wVMRwalacSMFyhQtSyfQ.png" alt=""></p>
+<p>Teredo, IPv6&rsquo;yı bir UDP paketi içinde tüneller</p>
+<p>Şekilde, bir Teredo istemcisinden Teredo sunucusuna giden bir paketi göstermektedir. Wireshark, Teredo port udp-3544&rsquo;ü kullanır ve UDP tünelleme disektörü üzerinden Teredo IPv6yı sağlar.</p>
+<p>Burada üç Wireshark notasyonu görebiliriz:</p>
+<ul>
+<li>Source Teredo Server IPv4 (ipv6.src_ts_ipv4)</li>
+<li>Source Teredo Port (ipv6.src_tc_port)</li>
+<li>Source Teredo Client IPv4 (ipv6.src_tc_ipv4)</li>
+</ul>
+<h4 id="site-içi-otomatik-tünel-adresleme-protokolü-isatap">
+  Site İçi Otomatik Tünel Adresleme Protokolü (ISATAP)
+  <a class="heading-link" href="#site-i%c3%a7i-otomatik-t%c3%bcnel-adresleme-protokol%c3%bc-isatap">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Hem 6to4 hem de ISATAP IPv6&rsquo;yı IPv4 içinde kapsüller, ancak paket bir IPv4 ağı üzerinden farklı şekilde gönderilir. Wireshark ISATAP’ın kullanımda olduğunu tespit edebilir (tıpkı Teredo’nun kullanımda olduğunu tespit ettiği gibi).</p>
+<p>6to4 tünellemenin aksine, ISATAP 64 bit arayüz tanımlayıcısı oluşturmak için yerel olarak atanmış bir IPv4 adresi (genel veya özel) kullanır. Örneğin, ISATAP’ta 24.6.173.220 IPv4 adresi ::0:5EFE:1806:addc olur. Bir 6to4 tünel yapılandırmasında, aynı IPv4 adresi Şekil 210&rsquo;da görüldüğü gibi 2002:1806:addc::/48 olur.</p>
+<p>ISATAP, ISATAP yönlendiricilerinin IPv6 trafiği için bir site içi tünel yapılandırmasını gerektirir ve bilgilendirici RFC 5214&rsquo;te ele alınmıştır.</p>
+<hr>
+<h3 id="ipv4-paketyapısı">
+  IPv4 Paket Yapısı
+  <a class="heading-link" href="#ipv4-paketyap%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu kısımda başlık alanları ve işlevleri ayrıntılı olarak açıklanmaktadır. Her alanla ilgili daha fazla ayrıntı için RFC 791&rsquo;e bakabilirsiniz.</p>
+<p><img src="/images/1_GJHqitNsY8XKz2li3lXVDQ.png" alt=""></p>
+<p>IPv4 Başlığı</p>
+<p>Şekilde, kabul edilebilir IPv4 adreslemesine sahip standart bir IPv4 başlığını göstermektedir.</p>
+<h4 id="version-field">
+  Version Field
+  <a class="heading-link" href="#version-field">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>IP başlığındaki ilk alan sürüm alanıdır. Şekilde, tamamen genişletilmiş bir IPv4 başlığını göstermektedir. Bu bölümde IPv4 ile başlayacağız ve daha sonra IPv6&rsquo;yı inceleyeceğiz.</p>
+<h4 id="header-lengthfield">
+  Header Length Field
+  <a class="heading-link" href="#header-lengthfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan aynı zamanda İnternet Başlık Uzunluğu alanı veya IHL(Internet Header Length) olarak da adlandırılır. Bu alan sadece IP başlığının uzunluğunu belirtir. Bu alan gereklidir çünkü IP farklı başlık uzunluklarını destekler. Bu alan değeri 4 baytın katları olarak sağlanır. Örneğin, bu alanın gerçek ondalık kodu 5 olacaktır. Wireshark, 20 baytlık gerçek IP başlık uzunluğu değerini bulmak için bu değeri 4 baytla çarpar. Şekilde IPv4 başlığı 20 bayt uzunluğundadır. Bu IP başlığında farklı bir başlık uzunluğu kullanılmamıştır.</p>
+<h4 id="differentiated-services-field-and-explicit-congestion-notification">
+  Differentiated Services Field and Explicit Congestion Notification
+  <a class="heading-link" href="#differentiated-services-field-and-explicit-congestion-notification">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Altı bitlik Farklılaştırılmış Hizmetler Alanı (DiffServ) trafiği önceliklendirmek ve belirli bir Hizmet Kalitesi (QoS) düzeyi sağlamak için kullanılır.</p>
+<p>Alan, paketin nasıl işleneceğini (atlama başına davranış) belirlemek için kullanılan bir Farklılaştırılmış Hizmetler Kod Noktası (DSCP) değeri içerir.</p>
+<h4 id="assured-forwarding-and-expedited-forwarding-per-hopbehavior">
+  Assured Forwarding and Expedited Forwarding Per-Hop Behavior
+  <a class="heading-link" href="#assured-forwarding-and-expedited-forwarding-per-hopbehavior">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>RFC 2597, Assured Forwarding PHB Group, Assured Forwarding’i bir DiffServ sağlayıcısının bir DiffServ müşterisinden aldığı IP paketleri için farklı düzeylerde yönlendirme güvenceleri sunması için bir araç olarak tanımlar.</p>
+<p>RFC 2598, bir Hızlandırılmış Yönlendirme PHB’si, Hızlandırılmış Yönlendirmenin “DS (DiffServ) alanları aracılığıyla düşük kayıplı, düşük gecikmeli, düşük titreşimli, garantili bant genişliği, uçtan uca hizmet oluşturmak için kullanılabileceğini tanımlar. Böyle bir hizmet uç noktalara noktadan noktaya bağlantı veya ‘sanal kiralık hat’ gibi görünür. Bu hizmet aynı zamanda Premium hizmet olarak da tanımlanmaktadır.”</p>
+<p>İki bitlik Açık Tıkanıklık Bildirimi (ECN) alanı, yol boyunca ağ tıkanıklığını tanımlamak için gönderen ve/veya yol boyunca yönlendiriciler tarafından kullanılır.</p>
+<h4 id="total-lengthfield">
+  Total Length Field
+  <a class="heading-link" href="#total-lengthfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan IP başlığının ve geçerli verilerin uzunluğunu tanımlar (buna herhangi bir veri bağlantısı dolgusu dahil değildir).<br>
+Şekilde gösterilen örnekte, toplam uzunluk alanı değeri 1500 bayttır. Bunun ilk 20 baytı IP başlığıdır — bu, kalan paket uzunluğunun (herhangi bir veri bağlantısı dolgusu dahil değil) 1480 bayt olduğunu gösterir.</p>
+<h4 id="identification-field">
+  Identification Field
+  <a class="heading-link" href="#identification-field">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Her bir IP paketine gönderilirken benzersiz bir ID değeri verilir. Paketin daha küçük bir paket boyutunu destekleyen bir ağa sığması için parçalanması gerekiyorsa, bu parçaların aynı orijinal paketin parçası olduğunu belirtmek için her parçaya aynı kimlik numarası yerleştirilecektir.</p>
+<h4 id="flags-field">
+  Flags Field
+  <a class="heading-link" href="#flags-field">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bayraklar alanı aslında üç bit uzunluğundadır ve aşağıdaki bit değeri atamalarına sahiptir:</p>
+<ul>
+<li>Bit 0: Rezerve edilmiş-0 olarak ayarlanmıştır.</li>
+<li>Bit 1: Parçalama Biti (0=parçalayabilir; 1=parçalama yapmaz)</li>
+<li>Bit 2: Daha Fazla Parça Biti (0=son parça; 1=daha fazlası gelecek)</li>
+</ul>
+<p>Bir uygulama(application katmanı protokolleri) parçalanmaya izin vermeyecek şekilde yazılabilir. Eğer öyleyse, uygulama Don’t Fragment bitini ayarlayacaktır 1. Parçalanmaya izin veriliyorsa ve bir paketin daha küçük bir paketi destekleyen bir ağı geçmek için parçalanması gerekiyorsa MTU, Parçalama biti 0 olarak ayarlanacaktır. Paket birden fazla parçaya bölündüğünde -üç Örneğin, birinci ve ikinci parçalarda More Fragments to Come biti 1 olarak ayarlanacaktır. Son parçanın More Fragments (Daha Fazla Parça) biti 0 olarak ayarlanır ve bu da onun setteki son parça olduğunu gösterir. Tümü fragmanlar aynı IP ID değerini kullanacaktır. Parçalanma yeniden birleştirme işlemi uç noktada gerçekleşir.</p>
+<h4 id="fragment-offsetfield">
+  Fragment Offset Field
+  <a class="heading-link" href="#fragment-offsetfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Paket bir parçaysa, bu alan, parçalar tekrar tek bir pakette birleştirilirken (hedef ana bilgisayarda) bu paketin verilerinin nereye yerleştirileceğini gösterir. Bu alan, 8 baytlık değerler halinde ofseti sağlar. Örneğin, ilk parçanın ofseti 0 olabilir ve 1400 bayt veri içerebilir (herhangi bir başlık dahil değildir). İkinci parçanın ofset değeri 175 olacaktır (175 x 8 = 1400). Bu alan yalnızca paket bir parça ise kullanılır, aksi takdirde 0 olarak ayarlanır.</p>
+<p><img src="/images/1_6Y7PXca_YiF7g2nbehV6oA.png" alt=""></p>
+<p>Wireshark’ın IP parçalarını görüntülemesi</p>
+<h4 id="time-to-livefield">
+  Time to Live Field
+  <a class="heading-link" href="#time-to-livefield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan, paketin kalan ömrünü (saniye ve yönlendiriciler üzerinden atlama sayısı olarak) gösterir.</p>
+<p>Tipik başlangıç TTL değerleri 32, 60, 64 ve 128&rsquo;dir. Varsayılan TTL değerleri satıcının TCP/IP yığınına dahil edilmiştir. Uygulamalar (traceroute gibi) bu varsayılan değerleri istenildiği gibi geçersiz kılabilir. Bir paket yönlendirici tarafından her iletildiğinde, yönlendirici TTL alanını 1 azaltmalıdır. Yönlendiricinin paketi kuyruğunda uzun bir süre (bir saniyeden uzun) tutması gerekiyorsa, bu TTL değerini paketin kuyrukta tutulduğu saniye sayısı kadar azaltmalı ve atlama için TTL’yi azaltmalıdır.</p>
+<p>Yönlendirilecek bir paket bir yönlendiriciye TTL=1 ile ulaşırsa, yönlendirici TTL’yi 0&rsquo;a düşüremeyeceği ve paketi iletemeyeceği için paketi atmalıdır. Yönlendirici, göndericiye bir ICMP Tip 11, Kod 0 yanıtı (Time Exceeded, Time to Live Exceeded in Transit) oluşturarak paketin Time to Live değeri nedeniyle iletilmediğini belirtebilir.</p>
+<p>Eğer TTL=1 olan bir paket bir ana bilgisayara ulaşırsa, ana bilgisayar ne yapmalıdır? Elbette paketi işler. Ana bilgisayarların paketleri aldıktan veya yönlendirdikten sonra TTL değerini düşürmesi gerekmez.</p>
+<p>Düşük TTL değerleri bazen olağandışı olarak kabul edildiğinden, Wireshark’ın bu paketleri bir izleme dosyasında tanımlamaya yardımcı olan <em>TTL low</em> ya da <em>unexpected</em> adlı bir renklendirme kuralı vardır. Renklendirme kuralı sözdizimi (!ip.dst==224.0.0.0/4 &amp;&amp; ip.ttl &lt; 5 &amp;&amp; !pim) || (ip.dst==224.0.0.0/24 &amp;&amp; ip.ttl != 1) şeklindedir.</p>
+<p>Bir paket parçalandığında, tüm parçalara aynı TTL değeri verilir. Bir ağ üzerinden farklı yollar izlerlerse, hedefe farklı TTL değerleriyle ulaşabilirler. Ancak ilk parça hedefe ulaştığında, hedef ana bilgisayar bu paketin TTL değerinden saniye cinsinden geri saymaya başlar. Bu zamanlayıcı sona ermeden önce tüm parçaların ulaşması gerekir, aksi takdirde parça kümesi ‘tamamlanmamış’ ve kullanılamaz olarak kabul edilir. Hedef, yeniden birleştirme işlemi sırasında paketin ömrünün dolduğunu belirtmek için kaynağa bir ICMP Tip 11, Kod 1 yanıtı (Zaman Aşıldı, Parça Yeniden Birleştirme Süresi Aşıldı) gönderir. Bu, istemciden orijinal parçalanmamış paketi yeniden iletmesini ister.</p>
+<h4 id="protocol-field">
+  Protocol Field
+  <a class="heading-link" href="#protocol-field">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Tüm başlıklar, bir sonraki adımın ne olduğunu tanımlayan bir alana sahiptir. Örneğin, bir TCP/IP paketinde, Ethernet II başlığının bir sonraki adımın IP olduğunu belirten bir Tip alanı vardır. IP başlığında bir sonraki adımın ne olduğunu belirten bir Protokol alanı vardır. Protokol alanında daha sık görülen değerler aşağıda listelenmiştir:</p>
+<ul>
+<li>Protocol 1: ICMP</li>
+<li>Protocol 2: IGMP</li>
+<li>Protocol 6: TCP</li>
+<li>Protocol 8: EGP</li>
+<li>Protocol 9: Cisco’nun IGRP’si gibi herhangi bir özel iç ağ geçidi</li>
+<li>Protocol 17: UDP</li>
+<li>Protocol 45: IDRP</li>
+<li>Protocol 88: Cisco EIGRP</li>
+<li>Protocol 89: OSPF</li>
+</ul>
+<p>Protokol alanı değerlerinin en güncel listesini edinmek için <a href="http://www.iana.org/assignments/protocol-numbers"  class="external-link" target="_blank" rel="noopener">www.iana.org/assignments/protocol-numbers</a> adresini ziyaret edin.</p>
+<h4 id="header-checksumfield">
+  Header Checksum Field
+  <a class="heading-link" href="#header-checksumfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>IP başlığı Sağlama Toplamı alanı yalnızca IP başlığının içeriğine ilişkin hata tespiti sağlar; bu alan paketin IP başlığı dışındaki içeriğini kapsamaz. Bu sağlama toplamı, sağlama toplamı alanının kendisini hesaplamaya dahil etmez.</p>
+<h4 id="ipv4-source-addressfield">
+  IPv4 Source Address Field
+  <a class="heading-link" href="#ipv4-source-addressfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu, paketi gönderen cihazın IP adresidir. DHCP önyükleme işlemi gibi bazı durumlarda, istemci IP adresini bilmeyebilir, bu nedenle bu alanda 0.0.0.0 kullanabilir. Bu alan bir çok noktaya yayın veya yayın adresi ya da geri döngü adresi içeremez.</p>
+<h4 id="ipv4-destination-addressfield">
+  IPv4 Destination Address Field
+  <a class="heading-link" href="#ipv4-destination-addressfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan tek noktaya yayın, çok noktaya yayın, yayın adresi içerebilir. Bu adres paketin son hedefini tanımlar.</p>
+<h4 id="options-field">
+  Options Field
+  <a class="heading-link" href="#options-field">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>IP başlığı bir dizi seçenekle genişletilebilir (bu seçenekler sıklıkla kullanılmasa da). Başlık seçeneklerle genişletilirse, bu seçenekler 4 baytlık bir sınırda bitmelidir, çünkü İnternet Başlık Uzunluğu (IHL) alanı başlık uzunluğunu 4 baytlık sınırlarla tanımlar.</p>
+<p>Aşağıdaki liste yalnızca kısmi bir seçenek kümesini göstermektedir. Listenin tamamı için <a href="http://www.iana.org"  class="external-link" target="_blank" rel="noopener">www.iana.org</a> adresine bakın.</p>
+<ul>
+<li>Option 0: Seçenek Listesi Sonu (IP seçeneklerinin ne zaman sona ereceğini tanımlar))</li>
+<li>Option 3: Loose Source Route (bazı yol bilgileri sağlar)</li>
+<li>Option 4: Time Stamp (Yol boyunca zaman damgası)</li>
+<li>Option 7: Record Route (bir yol boyunca geçen yönlendiricileri işaretler)</li>
+<li>Option 9: Strict Source Route (özel yol bilgisi sağlayın)</li>
+</ul>
+<h4 id="ipv4-broadcastmulticast-traffic">
+  IPv4 Broadcast/Multicast Traffic
+  <a class="heading-link" href="#ipv4-broadcastmulticast-traffic">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Ağ üzerinde iki temel yayın/çoklu yayın türü vardır: aramalar ve duyurular. Bir DHCP istemcisinin açıldığında ve bir DHCP sunucusu bulması gerektiğinde gönderdiği keşif yayını bir arama örneği olabilir. Bir başka arama yayını örneği de ARP MAC-IP adres çözümleme yayınıdır.</p>
+<ul>
+<li>General Broadcast: 255.255.255.255</li>
+<li>Subnet Broadcast: 10.2.255.255</li>
+<li>Multicast: 224.x.x.x — 239.x.x.x</li>
+</ul>
+<p>Duyuruya örnek olarak OSPF reklam çok noktaya yayını verilebilir. Bu paketler, bilinen bağlantı durumu yönlendirme girdileri hakkında istenmeyen duyurulardır.</p>
+<p>Günümüzün yüksek kapasiteli ağ bağlantılarında değerli bant genişliğini kaplayan yayınlar ve çoklu yayınlar konusundaki endişeler aşırı vurgulanmış olabilir. Diğer bir endişe ise bu paketlerin ileten veya alan cihazlarda ihtiyaç duyduğu işlem gücüdür. Bir anahtar veya yönlendirici aşırı yüklenmişse ve paketleri düşürüyor veya uzun süre kuyrukta tutuyor gibi görünüyorsa, ağdaki yayın/çoklu yayın oranını incelemeyi düşünün.</p>
+<hr>
+<h3 id="ipv6-paketyapısı">
+  IPv6 Paket Yapısı
+  <a class="heading-link" href="#ipv6-paketyap%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Her bir alanın amacını tanımlamak için bir IPv6 başlığının içine bakalım. Bazı alanlar IPv4 alanlarına çok benzer.</p>
+<h4 id="version-field-1">
+  Version Field
+  <a class="heading-link" href="#version-field-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu dört bitlik alan 0110 (ondalık 6) olarak ayarlanır.</p>
+<h4 id="traffic-class-fields-diffserv-ect-andecn-ce">
+  Traffic Class Fields (DiffServ, ECT and ECN-CE)
+  <a class="heading-link" href="#traffic-class-fields-diffserv-ect-andecn-ce">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Şekilde yakından bakın. Bazı alanların nasıl örtüştüğüne dikkat edin; 8 bitlik Trafik Sınıfı alanı Farklılaştırılmış Hizmetler (DiffServ) alanı, ECN-Yetkin Aktarım alanı ve ECN-CE alanından oluşur.</p>
+<p>6 bitlik DiffServ alanı, IPv4 başlığındaki DiffServ alanlarıyla aynı işlevselliği sağlar. Bu alan, trafiğe öncelik vermek ve belirli bir düzeyde Hizmet Kalitesi (QoS) sağlamak için kullanılır. Alan, paketin nasıl işleneceğini (perhop davranışı) belirlemek için kullanılan bir Farklılaştırılmış Hizmetler Kod Noktası (DSCP) değeri içerir.</p>
+<p>ECN Özellikli Aktarım (ECT) biti, ECN’nin desteklendiğini belirtmek için bir gönderen tarafından ayarlanır.</p>
+<p>ECN-CE (Tıkanıklık Yaşandı) biti, yaklaşan tıkanıklığı tespit eden bir yönlendirici tarafından ayarlanır. Yönlendiricinin ECN-CE bitini kullanabilmesi için ECT bitinin ayarlanmış olması gerekir.</p>
+<h4 id="flow-labelfield">
+  Flow Label Field
+  <a class="heading-link" href="#flow-labelfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir “akış”, bir kaynaktan hedefe giden ve bir küme olarak etiketlenen paketlerin bir dizisidir. Bir IPv6 akışı, 20 bitlik Akış Etiketi alanı ile kaynak ve hedef IPv6 adres alanları tarafından tanımlanır. Akış Etiketi alan değerinin sıfır olması, paketin herhangi bir akışın parçası olmadığını gösterir. Akış Etiketi alan değeri yol boyunca değiştirilmez. Akış Etiketi alanının kullanımı hakkında daha fazla bilgi için bkz. RFC 3697, IPv6 Akış Etiketi Belirtimi.</p>
+<h4 id="payload-lengthfield">
+  Payload Length Field
+  <a class="heading-link" href="#payload-lengthfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan, IPv6 yükünün uzunluğunu (IPv6 başlığını izleyen ancak paket dolgusunu içermeyen baytlar) tanımlar. IPv6 uzantı başlıkları yükün bir parçası olarak kabul edilir.</p>
+<h4 id="next-headerfield">
+  Next Header Field
+  <a class="heading-link" href="#next-headerfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan, pakette bir sonraki adımın ne olduğunu gösterir (tıpkı IPv4 Protokolü alanı gibi). Geçerli protokol numaralarının tam listesi için <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xml"  class="external-link" target="_blank" rel="noopener">www.iana.org/assignments/protocol-numbers/protocol-numbers.xml</a> adresine bakın. Bir IPv6 paketi, IPv6 başlığını takip eden birden fazla Uzantı Başlığına sahip olabilir.</p>
+<p>Aşağıdaki tabloda IPv6 Uzantı Başlıkları ve bunların Sonraki Başlık alanı değerleri listelenmektedir. Bunlar önerilen kullanım sırasına göre listelenmiştir.</p>
+<ul>
+<li><strong>Next Header Field Value 0</strong>: Hop-by-Hop Seçenekleri</li>
+<li><strong>Next Header Field Value 60</strong>: Destination Options (Yönlendirme Seçenekleri ile)</li>
+<li><strong>Next Header Field Value 43</strong>: Routing Header</li>
+<li><strong>Next Header Field Value 44</strong>: Fragment Header</li>
+<li><strong>Next Header Field Value 51</strong>: Authentication Header</li>
+<li><strong>Next Header Field Value 50</strong>: Encapsulation Security Payload Header</li>
+<li><strong>Next Header Field Value 60:</strong> Destination Options</li>
+<li><strong>Next Header Field Value 135:</strong> Mobility Header</li>
+<li><strong>Next Header Field Value 59:</strong> No next header</li>
+</ul>
+<h4 id="hop-limitfield">
+  Hop Limit Field
+  <a class="heading-link" href="#hop-limitfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan, paketi ileten her cihaz tarafından 1 azaltılır. Değer 1&rsquo;e ulaştığında paket yönlendirilmez.</p>
+<h4 id="source-ipv6-addressfield">
+  Source IPv6 Address Field
+  <a class="heading-link" href="#source-ipv6-addressfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>128 bit IPv6 kaynak adresi. IPv6 adresleme hakkında ayrıntılar için bkz: RFC 4291, IP Sürüm 6 Adresleme Mimarisi</p>
+<h4 id="destination-ipv6-addressfield">
+  Destination IPv6 Address Field
+  <a class="heading-link" href="#destination-ipv6-addressfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>128 bit IPv6 hedef adresi.</p>
+<hr>
+<h3 id="ipv4-trafiğini-filtreleme">
+  IPv4 Trafiğini Filtreleme
+  <a class="heading-link" href="#ipv4-trafi%c4%9fini-filtreleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>IPv4 trafiği için capture ve display filter basitçe <em>ip</em>’dir.</p>
+<ul>
+<li>ip.src==192.168.1.1 — Kaynak IP adresi alanında 192.168.1.1 içeren IPv4 paketleri</li>
+<li>ip.dst==192.168.1.103 — Hedef IP adresi alanında 192.168.1.103 içeren IPv4 paketleri</li>
+<li>ip.addr==192.168.1.103 — Kaynak veya hedef IP adresi alanlarında 192.168.1.103 içeren IPv4 paketleri</li>
+<li>!ip.addr==192.168.1.103 — Kaynak veya hedef IP adresi alanlarında 192.168.1.103 içermeyen paketler</li>
+<li>ip.hdr_len &gt; 20 — Seçenekli IPv4 başlığı (başlık uzunluğu 20 bayttan uzun)</li>
+<li>(ip.flags.mf==1) || !(ip.frag_offset==0) &amp;&amp; ip — Parçalanmış paket — IP parça ofseti alanında daha fazla parça biti ve sıfır olmayan değer arar. ARP dahil tüm IP dışı protokollerle başa çıkmak için “&amp;&amp; ip” eklendi. ip-fragments.pcapng üzerinde test edin.</li>
+<li>ip.ttl &lt; 10 — IP Yaşam Süresi(TTL) değerleri 10&rsquo;dan az</li>
+</ul>
+<hr>
+<h3 id="ipv6-trafiğini-filtreleme">
+  IPv6 Trafiğini Filtreleme
+  <a class="heading-link" href="#ipv6-trafi%c4%9fini-filtreleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>IPv6 için yakalama filtresi basitçe ip6&rsquo;dır. Tek bir hosttan gelen trafiği yakalamak için host[IPv6 adresi] kullanın — örneğin, ana bilgisayar fe80::708d:fe83:4114:a512.</p>
+<p>Belirli bir IPv6 alt ağından gelen trafik için bir yakalama filtresi uygulamak için aşağıdaki sözdizimini kullanın:<br>
+ip6 net [network]::/[net bits],</p>
+<p>Örneğin, <em>ip6 net fe00::/8</em>, 0xfe ile başlayan adreslere giden veya gelen tüm IPv6 paketlerini yakalar. Tüm IPv6 trafiği için display filter ipv6&rsquo;dır. Aşağıdaki tabloda çok sayıda diğer IPv6 görüntüleme filtresi gösterilmektedir.</p>
+<ul>
+<li>ipv6.nxt==0x06 — Bir TCP başlığından önce gelen IPv6 paketleri</li>
+<li>ipv6.src_6to4_gw_ipv4==24.6.173.220–24.6.173.220 tarafından kapsüllenmiş 6to4 paketleri</li>
+<li>ipv6.hlim &lt; 10 — Atlama Sınırı alan değeri 10&rsquo;dan düşük olan IPv6 paketi</li>
+<li>ipv6.src==2002:1806:addc::1806:addc — Belirli bir adresten gelen IPv6 paketleri</li>
+<li>ipv6.src &gt;= fe80:: &amp;&amp; ipv6.src &lt;= fec0 — Çeşitli ağlardan gelen IPv6 paketleri</li>
+</ul>
+<hr>
+<h3 id="kaynakça">
+  Kaynakça
+  <a class="heading-link" href="#kaynak%c3%a7a">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Wireshark Network Analysis, Second Edition, Laura Chappel, <a href="https://www.chappell-university.com/studyguide"  class="external-link" target="_blank" rel="noopener">https://www.chappell-university.com/studyguide</a></li>
+<li>Trace Files: <a href="https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip"  class="external-link" target="_blank" rel="noopener">https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip</a></li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Temel C Programlama Eğitimi #1 · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Temel C Programlama Eğitimi #1
+  
+    
+    Başlık Linki
+  
+
+Bu yazımda ilk haftasını tamamladığımız Temel C Programlama Eğitiminin notlarını ve alıştırma sorularını paylaşacağım. C dilinin gelişimini ve sözdizimini anlattığım bir önceki yazıma buradan erişebilirsiniz.
+
+
+  Tanımlamalar
+  
+    
+    Başlık Linki
+  
+
+ilk dersimizde C diline giriş yaptık, temel tanımlamalara değindik.
+
+  Değişken &amp; Sabit Tanımlama
+  
+    
+    Başlık Linki
+  
+
+Değişenler ve Sabitler verileri tutmak için kullandığımız bileşenlerdir. Bu bileşenleri tanımlarken dikkat etmemiz gereken nokta değiken veya sabitin kabul ettiği veri türüdür. Standart C dilinde 5 çeşit veri türü vardır:">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Temel C Programlama Eğitimi #1">
+  <meta name="twitter:description" content="Temel C Programlama Eğitimi #1Başlık LinkiBu yazımda ilk haftasını tamamladığımız Temel C Programlama Eğitiminin notlarını ve alıştırma sorularını paylaşacağım. C dilinin gelişimini ve sözdizimini anlattığım bir önceki yazıma buradan erişebilirsiniz.
+TanımlamalarBaşlık Linkiilk dersimizde C diline giriş yaptık, temel tanımlamalara değindik.
+Değişken &amp; Sabit TanımlamaBaşlık LinkiDeğişenler ve Sabitler verileri tutmak için kullandığımız bileşenlerdir. Bu bileşenleri tanımlarken dikkat etmemiz gereken nokta değiken veya sabitin kabul ettiği veri türüdür. Standart C dilinde 5 çeşit veri türü vardır:">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2022-12-15-temel-c-programlama-e-itimi-1/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Temel C Programlama Eğitimi #1">
+  <meta property="og:description" content="Temel C Programlama Eğitimi #1Başlık LinkiBu yazımda ilk haftasını tamamladığımız Temel C Programlama Eğitiminin notlarını ve alıştırma sorularını paylaşacağım. C dilinin gelişimini ve sözdizimini anlattığım bir önceki yazıma buradan erişebilirsiniz.
+TanımlamalarBaşlık Linkiilk dersimizde C diline giriş yaptık, temel tanımlamalara değindik.
+Değişken &amp; Sabit TanımlamaBaşlık LinkiDeğişenler ve Sabitler verileri tutmak için kullandığımız bileşenlerdir. Bu bileşenleri tanımlarken dikkat etmemiz gereken nokta değiken veya sabitin kabul ettiği veri türüdür. Standart C dilinde 5 çeşit veri türü vardır:">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-12-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-12-15T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2022-12-15-temel-c-programlama-e-itimi-1/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2022-12-15-temel-c-programlama-e-itimi-1/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2022-12-15-temel-c-programlama-e-itimi-1/">
+              Temel C Programlama Eğitimi #1
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-12-15T00:00:00Z">
+                Aralık 15, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              6 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="temel-c-programlama-eğitimi1">
+  Temel C Programlama Eğitimi #1
+  <a class="heading-link" href="#temel-c-programlama-e%c4%9fitimi1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu yazımda ilk haftasını tamamladığımız Temel C Programlama Eğitiminin notlarını ve alıştırma sorularını paylaşacağım. C dilinin gelişimini ve sözdizimini anlattığım bir önceki yazıma <a href="https://medium.com/@yusufarbc/c-programlama-dilinin-geli%c5%9fimi-24ec503f108a"  class="external-link" target="_blank" rel="noopener">buradan</a> erişebilirsiniz.</p>
+<hr>
+<h3 id="tanımlamalar">
+  Tanımlamalar
+  <a class="heading-link" href="#tan%c4%b1mlamalar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>ilk dersimizde C diline giriş yaptık, temel tanımlamalara değindik.</p>
+<h4 id="değişken--sabit-tanımlama">
+  Değişken &amp; Sabit Tanımlama
+  <a class="heading-link" href="#de%c4%9fi%c5%9fken--sabit-tan%c4%b1mlama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Değişenler ve Sabitler verileri tutmak için kullandığımız bileşenlerdir. Bu bileşenleri tanımlarken dikkat etmemiz gereken nokta değiken veya sabitin kabul ettiği veri türüdür. Standart C dilinde 5 çeşit veri türü vardır:</p>
+<ul>
+<li>int — tam sayı değerleri için kullanılır.</li>
+<li>float — ondalıklı sayı değerleri için kullanılır.</li>
+<li>double — büyük ondalıklı sayı değerleri için kullanılır.</li>
+<li>char — karakter değerleri için kullanılır.</li>
+<li>void — türü olmayan demektir.</li>
+</ul>
+<p>Bu veri türlerini kullanarak değişkenler tanımlayabiliriz:</p>
+<pre tabindex="0"><code>int a = 5;            // integer türünde a isminde &#39;5&#39; değerinde bir değişken  
+float b = 7.5;        //float türünde b isminde &#39;7.5&#39; değerinde bir değişken  
+char c = &#39;a&#39;;         //char türüne c isminde &#39;a&#39; değerinde bir değişken  
+double d = 8965.3645; //double türünde d isminde &#39;8965.3645&#39; değerinde bir değişken
+</code></pre><p>bu veri türleri ile sabit tanımlamak istiyorsak tek yapmamız gereken değişken tanımlamasının başına ‘const’ anahtar kelimesini getirmek.</p>
+<pre tabindex="0"><code>const int a = 5;            // integer türünde a isminde &#39;5&#39; değerinde bir sabit  
+const float b = 7.5;        //float türünde b isminde &#39;7.5&#39; değerinde bir sabit  
+const char c = &#39;a&#39;;         //char türüne c isminde &#39;a&#39; değerinde bir sabit  
+const double d = 8965.3645; //double türünde d isminde &#39;8965.3645&#39; değerinde bir sabit
+</code></pre><p>Sabitler, değişkenlerden farklı olarak programın çalışma zamanı boyunca aynı değerde kalırlar. Tuttukları değer program akışında değiştirilmeye çalışılırsa hata veririler.</p>
+<h4 id="dizi-tanımlama">
+  Dizi Tanımlama
+  <a class="heading-link" href="#dizi-tan%c4%b1mlama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Dizilerin tanımlaması da değişkenlere oldukça benzerdir. Aslında diziler aynı türde birden fazla değişken tutan yapılardır. Örneğin int türünde bir dizi; içinde integer değişebilen değerler tutar.</p>
+<p>Dizileri tanımlarken en önemli nokta dizi boyutunun belitirtilmesidir. Program çalıştırıldığında bu dizi boyutuna göre bellekten yer talep eder ve programın çalışma zamanı boyunca bu boyut değişmez.</p>
+<p>Dizileri iki şekilde tanımlayabiliriz. Bunlardan biri boyutunu belirterek diğeri alacağı değerleri belirterek:</p>
+<pre tabindex="0"><code>int dizi1[10];            //10 elemanlı integer türünde bir dizi.  
+  
+int dizi2[] = {1,2,3,4}   //4 elemanlı integer türünde bir dizi.
+</code></pre><p>Dizilerin elemanlarına erişmek için köşeli parantezler içine erişeceğimiz elemanın indisini yazarız. Bir elemanın indisi, o elemanın dizide kaçıncı sırada olduğunu belirten sayıdır. Bir dizinin ilk elemanı 0.indistedir, her bir eleman eklendiğinde bir sonraki indis değerini alır.</p>
+<pre tabindex="0"><code>sayi1 = dizi2[0];  //dizi2&#39;nin ilk elemanını sayi1&#39;e atar  
+sayi2 = dizi2[1];  //dizi2&#39;nin ikinci elemanını sayi2&#39;e atar  
+sayi3 = dizi3[2];  //dizi2&#39;nin üçüncü elemanını sayi3&#39;e atar  
+sayi4 = dizi4[3];  //dizi2&#39;nin dördüncü elemanını sayi4&#39;e atar
+</code></pre><p>Bir önceki örnekte tanımladığımız dizi2 isimli dizinin elemanlarını yukarıdaki gibi erişebiliriz.</p>
+<p>char değişken türüyle sadece tek bir karakter alabiliyorduk. Bir kelime almak için karakter dizilerine ihtiyacımız var.</p>
+<pre tabindex="0"><code>char str1[20]; //20 karakterlik bir karakter dizisi(string) tanımı  
+  
+  
+char str2[] = &#34;string ifadesi&#34;; //değeri belli karakter dizisi(string)
+</code></pre><h4 id="printf--scanf-fonksiyonları">
+  printf() &amp; scanf() fonksiyonları
+  <a class="heading-link" href="#printf--scanf-fonksiyonlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>C diliyle konsol uygulamaları yaparken kullanıcıyla etkileşim kurmak için kullandığımız iki fonksiyondur. printf() kullanıcıya bir mesaj döndürmek için scanf() ise kullanıcından bir değer almak için kullanılır.</p>
+<pre tabindex="0"><code>printf(&#34;Hello World\n&#34;);
+</code></pre><p>printf ile çift tırnaklar içinde istediğimiz mesajı kullanıcıya döndürebiliriz. Sondaki ‘\n’ ifadesi konsolda alt satıra geçmek için kullanılır.</p>
+<p>Eğer bir değişkenden geleni konsol ekranını bastırmak veya konsoldan bir değer almak istiyorsak belirleyicilere (specifiers) ihtiyacımız var. Bunlardan bazıları:</p>
+<ul>
+<li>%d : integer değerler için kullanılır.</li>
+<li>%f : float değerler için kullanılır.</li>
+<li>%lf : double değerler için kullanılır.</li>
+<li>%c : char değerleri için kullanılır.</li>
+<li>%s : string değerleri için kullanılır.</li>
+<li>%x : hexadecimal değerleri için kullanılır.</li>
+</ul>
+<p>Bu belirleyicileri kullanarak kullanıcıdan girdi alıp çıktı verebiliriz:</p>
+<pre tabindex="0"><code>int sayi;  
+printf(&#34;Bir sayi giriniz: &#34;);  
+scanf(&#34;%d&#34;, &amp;sayi);  
+printf(&#34;Girilen sayi %d&#39;dir&#34;, sayi);
+</code></pre><p>Burada dikkat etmemiz gerekenler;<br>
+scanf() fonksiyonunda değerin atanacağı değişkeni belirtirken ‘&amp;’ işareti koymak ve belirleyicilerin her iki fonksiyon içinde ilk parametrede ve çift tırnak içinde kullanmak.</p>
+<pre tabindex="0"><code>char[20] isim;  //20 karakterlik isim adında bir karakter dizisi tanımı  
+printf(&#34;isminizi giriniz: &#34;);
+</code></pre><p>Yukarıdaki örnekte kullanıcıdan bir karakter dizisi(string) alıp bu değeri mesaj içinde kullanıcıya döndüren bir program yazılmıştır.</p>
+<hr>
+<h3 id="koşul-yapıları">
+  Koşul Yapıları
+  <a class="heading-link" href="#ko%c5%9ful-yap%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>ikinci derisimizde koşul yapılarına değindik ve nu yapılarla ilgili örnekler yaptık. C diline üç tip koşul ifadesi vardır. Bu koşul ifadelerinde karşılaştırma operatörleri ve mantıksal operatörler kullanılır.</p>
+<p>Karşılaştırma operatörleri:</p>
+<ul>
+<li>== — eşitse</li>
+<li>!= — eşit değilse</li>
+<li>
+<blockquote>
+<p> — büyükse</p>
+</blockquote>
+</li>
+<li>&lt; — küçükse</li>
+<li>&lt; = — büyük eşitse</li>
+<li>
+<blockquote>
+<p>= — küçük eşitse</p>
+</blockquote>
+</li>
+</ul>
+<p>Mantıksal operatörler:</p>
+<ul>
+<li>&amp;&amp; — ve</li>
+<li>|| — veya</li>
+<li>! — değil</li>
+</ul>
+<h4 id="if-else-yapısı">
+  if-else yapısı
+  <a class="heading-link" href="#if-else-yap%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>if else yapısı, koşul ifadelerini tanımlamak için kullanabileceğimiz yapılardan biridir. Her zaman <em>if</em> deyimiyle başlar, koşulun sağlanmadığı durumda varsa <em>else</em> durumuna düşer. Birden fazla koşul tanımlamak için <em>else if</em> ifadesi kullanılabilir.</p>
+<pre tabindex="0"><code>if(a==b){  
+  printf(&#34;a ve b esit&#34;);  
+}else if(a&gt;b){  
+  printf(&#34;a, b den buyuk&#34;);  
+}else{  
+  printf(&#34;a, b den kucuk&#34;);  
+}  
+printf(&#34;kosulun disi);
+</code></pre><p>Eğer if koşulu sağlanırsa koşul içindeki deyimler yürütülür ve program akışı koşul ifadesinin dışından devam eder. Eğer <em>if</em> koşulu sağlanmaz ise sıradaki <em>else if</em>’de bulunan koşula bakar(eğer varsa), hiçbir koşul sağlanmaz ise <em>else</em>’e düşer(eğer varsa).</p>
+<h4 id="switch-case-yapısı">
+  switch-case yapısı
+  <a class="heading-link" href="#switch-case-yap%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>switch-case yapısı çoklu durumlarla baş edebilmek için geliştirilmiş bir yapıdır.</p>
+<pre tabindex="0"><code>int sayi;  
+printf(&#34;Bir sayi giriniz: &#34;);   
+scanf(&#34;%d&#34;, &amp;sayi);  
+  
+switch(kosul){  
+  case 1:  
+    printf(&#34;1 sayisi girildi&#34;);  
+    break;  
+  case 2:  
+    //break koymadığımız için case3 ile çalıştırmaya devam eder.  
+  case 3:  
+    printf(&#34;2 veya 3 sayisi girildi&#34;);  
+    break;  
+  case 4:  
+    printf(&#34;4 sayisi girildi&#34;);  
+    //break ifadesi koymadığımız için default da çalışır  
+  default:  
+    printf(&#34;tanimlanmamis sayi&#34;);  
+}
+</code></pre><p>Verilen koşul değişkeninin değerine göre uygun olan <em>case</em> içindeki deyimleri çalıştırır. Bu koşul değişkeni sadece <em>int</em> ve <em>char</em> türünde olabilir. deyimlerin çalıştırılması <em>break</em> ifadesi görene kadar devam eder. Yani, <em>break</em> olmadığı sürece program diğer <em>case</em>lerde bulunan deyimleri çalıştırmaya devam eder.</p>
+<h4 id="ternary-operator">
+  ternary operator
+  <a class="heading-link" href="#ternary-operator">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>ternaty operator, tek satırda hızlı ve kısa kosul ifadeleri tanımlamak icin kullanılır</p>
+<pre tabindex="0"><code>(a==b)?printf(&#34;a ve b eesittir&#34;):printf(&#34;a ve b esit değildir&#34;);
+</code></pre><p>parantezler içine koşul yazılır ardından bir soru işareti konur. soru işaretinden sonra gelen bölüm koşul doğruysa çalıştırılacak bölümdür. Bu bölümden sonra iki nokta konur. Sonraki bölüm ise koşul yanlışsa çalışır.</p>
+<hr>
+<h3 id="alıştırma-soruları">
+  Alıştırma Soruları
+  <a class="heading-link" href="#al%c4%b1%c5%9ft%c4%b1rma-sorular%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="soru-1">
+  soru-1
+  <a class="heading-link" href="#soru-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Verilen iki sayının toplamını konsol ekranında gösteren bir C programı yazınız.</p>
+<h4 id="soru-2">
+  soru-2
+  <a class="heading-link" href="#soru-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Kullanıcıdan alınan iki sayı ile dört işlemi yerine getiren ve konsol ekranında sonuçları gösteren bir C programı yazınız.</p>
+<h4 id="soru-3">
+  soru-3
+  <a class="heading-link" href="#soru-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>İki kenar uzunluğu verilen bir dikdörtgenin alanını hesaplayıp ekrana yazan bir C programı yazınız.</p>
+<h4 id="soru-4">
+  soru-4
+  <a class="heading-link" href="#soru-4">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Kullanıcıdan alınan 3 sayıdan en büyüğünü bulan C programını yazınız.</p>
+<h4 id="soru-5">
+  soru-5
+  <a class="heading-link" href="#soru-5">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Klavyeden girilen bir işlem kodu ve iki sayıya göre dört işlem arasında belirtilen işlemi yapan ve sonucu ekrana bastıran bir C programı yazınız.</p>
+<h4 id="soru-6">
+  soru-6
+  <a class="heading-link" href="#soru-6">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir derse ait üç farklı not değerinin ortalamasını hesaplayın, sonuc 50&rsquo;den küçükse kaldınız büyükse geçtiniz yazan bir C programı yazınız.</p>
+<h4 id="soru-7">
+  soru-7
+  <a class="heading-link" href="#soru-7">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Kullanıcıdan 3 sayı alınız. switch yapısı kullanarak 1 girdiğinizde birinci sayının karesini 2 girdiğinizde ikinci sayının karesini, 3 girdiğinizde 3.sayının karesini hesaplayan bir C programı yazınız.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

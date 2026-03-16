@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  What&#39;s New in Wazuh 5.0? Revolution in Cyber ​​Threat Intelligence and a New Era in Endpoint Security · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  What&rsquo;s New in Wazuh 5.0? Revolution in Cyber Threat Intelligence and a New Era in Endpoint Security
+  
+    
+    Link to heading
+  
+
+
+wazuh
+Wazuh combines its Host-Based Intrusion Detection System (HIDS) legacy with modern cybersecurity needs, bringing Security Information and Event Management (SIEM) and Extended Detection and Response (XDR) capabilities into a single platform. Wazuh 5.0 takes this combination to the next level, offering groundbreaking innovations in stability, scalability and threat intelligence, especially in large-scale and high-volume environments. The platform is completely open source and its components are subject to open source licenses such as GNU GPL v2 and Apache 2.0 (ALv2).">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="What&#39;s New in Wazuh 5.0? Revolution in Cyber ​​Threat Intelligence and a New Era in Endpoint Security">
+  <meta name="twitter:description" content="What’s New in Wazuh 5.0? Revolution in Cyber Threat Intelligence and a New Era in Endpoint SecurityLink to headingwazuh
+Wazuh combines its Host-Based Intrusion Detection System (HIDS) legacy with modern cybersecurity needs, bringing Security Information and Event Management (SIEM) and Extended Detection and Response (XDR) capabilities into a single platform. Wazuh 5.0 takes this combination to the next level, offering groundbreaking innovations in stability, scalability and threat intelligence, especially in large-scale and high-volume environments. The platform is completely open source and its components are subject to open source licenses such as GNU GPL v2 and Apache 2.0 (ALv2).">
+
+<meta property="og:url" content="http://localhost:1313/posts/2025/10/whats-new-in-wazuh-5.0-revolution-in-cyber-threat-intelligence-and-a-new-era-in-endpoint-security/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="What&#39;s New in Wazuh 5.0? Revolution in Cyber ​​Threat Intelligence and a New Era in Endpoint Security">
+  <meta property="og:description" content="What’s New in Wazuh 5.0? Revolution in Cyber Threat Intelligence and a New Era in Endpoint SecurityLink to headingwazuh
+Wazuh combines its Host-Based Intrusion Detection System (HIDS) legacy with modern cybersecurity needs, bringing Security Information and Event Management (SIEM) and Extended Detection and Response (XDR) capabilities into a single platform. Wazuh 5.0 takes this combination to the next level, offering groundbreaking innovations in stability, scalability and threat intelligence, especially in large-scale and high-volume environments. The platform is completely open source and its components are subject to open source licenses such as GNU GPL v2 and Apache 2.0 (ALv2).">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-02T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2025/10/wazuh-5.0-is-here-a-technical-deep-dive-into-the-new-engine-ebpf-and-enterprise-scaling/">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2025/10/whats-new-in-wazuh-5.0-revolution-in-cyber-threat-intelligence-and-a-new-era-in-endpoint-security/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2025/10/wazuh-5.0da-neler-yeni-siber-tehdit-istihbarat%C4%B1nda-devrim-ve-u%C3%A7-nokta-g%C3%BCvenli%C4%9Finde-yeni-bir-%C3%A7a%C4%9F/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2025/10/whats-new-in-wazuh-5.0-revolution-in-cyber-threat-intelligence-and-a-new-era-in-endpoint-security/">
+              What&#39;s New in Wazuh 5.0? Revolution in Cyber ​​Threat Intelligence and a New Era in Endpoint Security
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-10-02T00:00:00Z">
+                October 2, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              8-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="whats-new-in-wazuh-50-revolution-in-cyber-threat-intelligence-and-a-newera-in-endpoint-security">
+  What&rsquo;s New in Wazuh 5.0? Revolution in Cyber Threat Intelligence and a New Era in Endpoint Security
+  <a class="heading-link" href="#whats-new-in-wazuh-50-revolution-in-cyber-threat-intelligence-and-a-newera-in-endpoint-security">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*EOeMobbpF6asHcmm" alt=""></p>
+<p><a href="https://wazuh.com/"  class="external-link" target="_blank" rel="noopener">wazuh</a></p>
+<p>Wazuh combines its Host-Based Intrusion Detection System (HIDS) legacy with modern cybersecurity needs, bringing Security Information and Event Management (SIEM) and Extended Detection and Response (XDR) capabilities into a single platform. Wazuh 5.0 takes this combination to the next level, offering groundbreaking innovations in stability, scalability and threat intelligence, especially in large-scale and high-volume environments. The platform is completely open source and its components are subject to open source licenses such as <strong>GNU GPL v2</strong> and <strong>Apache 2.0 (ALv2)</strong>.</p>
+<hr>
+<h3 id="1-core-components-stability-and-distributed-architecture-cluster">
+  1. Core Components, Stability and Distributed Architecture (CLUSTER)
+  <a class="heading-link" href="#1-core-components-stability-and-distributed-architecture-cluster">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="managing-thousands-of-agents-highly-available-ha-distributedarchitecture">
+  Managing Thousands of Agents: Highly Available (HA) Distributed Architecture
+  <a class="heading-link" href="#managing-thousands-of-agents-highly-available-ha-distributedarchitecture">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Today&rsquo;s dynamic digital environments require instantaneous management of events from thousands of Agents. Since a single Manager architecture cannot handle this load, the main recommended approach for production environments with 500–1000+ Agents is a distributed architecture based on <strong>horizontal scaling</strong>.</p>
+<h4 id="main-components-of-the-proposed-distributed-structure">
+  <strong>Main Components of the Proposed Distributed Structure:</strong>
+  <a class="heading-link" href="#main-components-of-the-proposed-distributed-structure">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ol>
+<li><strong>Wazuh Manager Cluster (Cluster):</strong> Multiple Manager nodes are used to balance the workload. Agent keys, custom decoders/rules, and Agent liveness states are constantly synchronized between Manager nodes to ensure horizontal scalability.</li>
+<li><strong>Load Balancer:</strong> Agents are positioned behind the Load Balancer to report to all Manager nodes without the need to change their configuration.</li>
+<li><strong>Indexer Cluster (OpenSearch):</strong> Used to meet long-term storage, large volume log management and compliance requirements.</li>
+</ol>
+<p><strong>Manager Performance Optimizations:</strong> In recent versions, optimizations have been made to core components to increase the scalability and performance of the Manager. This includes improved <code>wazuh-db</code> protocol to support large HTTP requests and improved <code>Authd</code> connection management to manage concurrent Agent registration requests more efficiently. These improvements strengthen stability in managing high Agent numbers.</p>
+<p>Installing components (Manager, Indexer, Dashboard) on different servers (Multi-node) ensures isolation of each workload, preventing performance bottlenecks under high event volumes and increasing platform stability.</p>
+<h4 id="indexer-clustering-opensearch-and-securecommunication">
+  Indexer Clustering (OpenSearch) and Secure Communication
+  <a class="heading-link" href="#indexer-clustering-opensearch-and-securecommunication">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In the Wazuh Indexer (OpenSearch) cluster, stability is increased by assigning roles to nodes:</p>
+<ul>
+<li><strong>Data Nodes:</strong> The data node is responsible for storing and searching data. They perform all data-related operations (indexing, searching, aggregation) on local shards and are the worker nodes of the cluster. It is recommended to customize node types (master-eligible, data, ingest) depending on the use case.</li>
+</ul>
+<p><strong>Secure Communication (TLS/Certificates):</strong> Wazuh uses certificates to ensure trust and confidentiality between its central components (Indexer, Filebeat and Dashboard). <strong>Root CA certificate</strong> authenticates all nodes and the node&rsquo;s IP address or DNS name must be included in the certificate when communicating.</p>
+<h4 id="wazuh-agent-changes-and-end-of-legacy-os-support">
+  Wazuh Agent Changes and End of Legacy OS Support
+  <a class="heading-link" href="#wazuh-agent-changes-and-end-of-legacy-os-support">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Wazuh Agent is a universal agent designed to monitor and collect logs from various endpoints such as Windows, UNIX, macOS, Solaris, AIX or HP-UX. The agent works efficiently to optimize resource usage, with an average consumption of <strong>35 MB RAM</strong>.</p>
+<p><strong>Critical Changes (End of Legacy OS Support):</strong> With Wazuh 5.0.0, Agent support has <strong>ended</strong> for some legacy operating systems such as Red Hat 5, CentOS 5, Oracle Linux 5, SUSE Linux Enterprise Server 11, Windows XP, Windows Vista, Windows Server 2003, Solaris, AIX and HP-UX.</p>
+<hr>
+<h3 id="2-new-features-and-improved-modules">
+  2. New Features and Improved Modules
+  <a class="heading-link" href="#2-new-features-and-improved-modules">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="game-changing-innovations-cti-and-advanced-vulnerabilitydetection">
+  Game Changing Innovations: CTI and Advanced Vulnerability Detection
+  <a class="heading-link" href="#game-changing-innovations-cti-and-advanced-vulnerabilitydetection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Wazuh 5.0&rsquo;s biggest contribution is to modernize existing HIDS capabilities, <strong>combining SIEM and XDR capabilities</strong> to the overall security posture of the platform.</p>
+<p><strong>Highlight Innovation: Expanded CTI Scope:</strong> Wazuh Cyber Threat Intelligence (CTI), which initially focused on vulnerability intelligence, significantly expands its scope with 5.0:</p>
+<ul>
+<li><strong>Indicators of Attack (IOCs):</strong> IP addresses, file hashes, and critical IOCs such as URLs will be added.</li>
+<li><strong>Direct Rule Provision:</strong> Threat detection rules will be provided to the platform directly and up to date from the Wazuh CTI platform.</li>
+</ul>
+<h4 id="improved-vulnerability-detector">
+  Improved Vulnerability Detector
+  <a class="heading-link" href="#improved-vulnerability-detector">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The Vulnerability Detection module works by using system inventory data collected from the Agent and associates them with current vulnerability information received from the CTI platform.</p>
+<p><strong>Accuracy and Data Sources:</strong> The CTI platform collects data from trusted security databases and OS vendors such as NVD, Microsoft Security Updates (MSU), and CISA. Particularly on Windows systems, the module is capable of detecting patched packages and can update the status of vulnerabilities in the inventory using information provided by Microsoft to verify whether these patches have resolved the relevant CVEs.</p>
+<h4 id="ebpf-based-fim-file-integrity-monitoring-advantages">
+  eBPF Based FIM (File Integrity Monitoring) Advantages
+  <a class="heading-link" href="#ebpf-based-fim-file-integrity-monitoring-advantages">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The File Integrity Monitoring (FIM) module has gained support for <strong>eBPF (Extended Berkeley Packet Filter)</strong> in Linux endpoints, and this feature is at the core of the platform in 5.0.</p>
+<p><strong>Technical Advantages of eBPF:</strong></p>
+<ul>
+<li><strong>Efficiency:</strong> eBPF runs directly within the kernel to detect file and directory changes in real time. This speeds up event collection rather than relying on external dependencies like the Linux Audit system.</li>
+<li><strong>Context Capture (Who-Data):</strong> eBPF provides more advanced context capture by identifying the user and process (who-data) responsible for changes.</li>
+<li><strong>Fallback:</strong> When eBPF is unavailable, Wazuh automatically falls back to traditional systems such as the Linux Audit system or inotify.</li>
+</ul>
+<hr>
+<h3 id="3-rule-writing-analysis-and-alerting-mechanisms">
+  3. Rule Writing, Analysis and Alerting Mechanisms
+  <a class="heading-link" href="#3-rule-writing-analysis-and-alerting-mechanisms">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="ruleset-optimization">
+  Ruleset Optimization
+  <a class="heading-link" href="#ruleset-optimization">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>When writing custom rules, it is critical to use ID numbers between <strong>100000 and 120000</strong> to avoid conflicts with system rules.</p>
+<h4 id="rule-enrichment-with-mitre-attck-framework">
+  Rule Enrichment with MITRE ATT&amp;CK Framework
+  <a class="heading-link" href="#rule-enrichment-with-mitre-attck-framework">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Wazuh integrates with the MITRE ATT&amp;CK framework and automatically matches the alerts it generates with standardized cyber attack tactics and techniques (TTPs). By using the <code>&lt;mitre&gt;</code> tag in rule writing, the rule can be enriched by adding MITRE Technical IDs specific to the alert triggered by the rule.</p>
+<h4 id="example-mitre-attck-rule-matching-xml">
+  <strong>Example MITRE ATT&amp;CK Rule Matching (.xml):</strong>
+  <a class="heading-link" href="#example-mitre-attck-rule-matching-xml">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<pre tabindex="0"><code>&lt;group name=&#34;syslog,sshd,&#34;&gt;  
+  &lt;rule id=&#34;100011&#34; level=&#34;10&#34; frequency=&#34;5&#34; timeframe=&#34;60&#34;&gt;  
+    &lt;if_matched_sid&gt;5710&lt;/if_matched_sid&gt;  
+    &lt;same_source_ip /&gt;  
+    &lt;description&gt;Multiple SSH failed attempts from same source IP (Brute Force Detected).&lt;/description&gt;  
+    &lt;mitre&gt;  
+      &lt;tactic&gt;Initial Access&lt;/tactic&gt;  
+      &lt;technique&gt;T1110&lt;/technique&gt;  
+      &lt;id&gt;T1110&lt;/id&gt;  
+    &lt;/mitre&gt;  
+  &lt;/rule&gt;  
+&lt;/group&gt;
+</code></pre><h4 id="sample-rule-and-alerting-scenarios">
+  Sample Rule and Alerting Scenarios
+  <a class="heading-link" href="#sample-rule-and-alerting-scenarios">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<h4 id="error-thresholddetection">
+  Error Threshold Detection:
+  <a class="heading-link" href="#error-thresholddetection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Manager&rsquo;s correlation capability provides critical threshold detection with a rule mechanism that counts repeated events within a certain period of time. For example, a rule that detects 5 repeated failed SSH attempts within 60 seconds could generate a high-level alert to administrators.</p>
+<h4 id="critical-fim-detection-high-levelalert">
+  Critical FIM Detection (High Level Alert):
+  <a class="heading-link" href="#critical-fim-detection-high-levelalert">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>With custom rule writing it is possible to associate FIM events with a specific directory (for example /etc/security/) and a specific user (root user). A special rule (level 10+) ensures the protection of critical system files by performing specific filtering that only detects file changes made by root in this directory.</p>
+<hr>
+<h3 id="4-active-response-actions-and-action-examples">
+  4. Active Response (Actions) and Action Examples
+  <a class="heading-link" href="#4-active-response-actions-and-action-examples">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The Active Response module uses processed log data for threat detection and response. The module enables security teams to immediately respond to high-severity incidents. Wazuh offers out-of-the-box scripts to automate these processes.</p>
+<p>These automatic response actions cover a wide range of topics, including:</p>
+<ul>
+<li><strong>IP Blocking:</strong> Blocking malicious network access. (<code>firewall-drop</code> script).</li>
+<li><strong>Host Isolation:</strong> Isolating compromised endpoints from the network to prevent the spread of the threat.</li>
+<li><strong>Malicious File Deletion/Hash Blocking:</strong> Deleting or quarantining malicious files detected on monitored endpoints.</li>
+<li><strong>Account Deactivation:</strong> Disabling user accounts after suspicious login attempts. (<code>disable-account</code> script).</li>
+</ul>
+<p><strong>Load on Manager:</strong> Active Response sends scripts to Agents. Since it runs on &rsquo;s (usually <code>location: local</code>), the action load is distributed to Agents. This minimizes the load on the Manager.</p>
+<h4 id="sample-action-scenario-firewall-blocking">
+  Sample Action Scenario (Firewall Blocking)
+  <a class="heading-link" href="#sample-action-scenario-firewall-blocking">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>When a high-level alert (for example, Rule ID 5712) is triggered, the following definition can be added to the Manager configuration (ossec.conf) to temporarily block the IP address mapped to the rule:</p>
+<pre tabindex="0"><code>&lt;active-response&gt;  
+  &lt;command&gt;firewall-drop&lt;/command&gt;   
+  &lt;location&gt;local&lt;/location&gt;   
+  &lt;rules_id&gt;5712&lt;/rules_id&gt;   
+  &lt;timeout&gt;1800&lt;/timeout&gt;   
+&lt;/active-response&gt;
+</code></pre><p>This configuration temporarily blocks the IP address triggered on the Agent reporting the event on the local firewall for 1800 seconds using the <code>firewall-drop</code> command.</p>
+<hr>
+<h3 id="5-relationship-between-compliance-ossec-and-opensearch">
+  5. Relationship between Compliance, OSSEC and OpenSearch
+  <a class="heading-link" href="#5-relationship-between-compliance-ossec-and-opensearch">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h4 id="legal-compliance-and-sca-developments">
+  Legal Compliance and SCA Developments
+  <a class="heading-link" href="#legal-compliance-and-sca-developments">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Wazuh supports regulatory compliance by providing automation, log analysis and incident response. Wazuh&rsquo;s default ruleset offers support for the following critical regulatory compliance standards: <strong>PCI DSS, HIPAA, NIST 800–53, TSC, GDPR</strong>.</p>
+<p><strong>The Role of the SCA Module and New Policies:</strong> The <strong>Security Configuration Assessment (SCA)</strong> module periodically checks the compliance of configurations with security policies. Wazuh allows the creation of new SCA policies for <strong>Distribution Independent Linux</strong>, meaning the expansion of hardening policies independent of the Linux distribution.</p>
+<p><strong>Wazuh Dashboard Compliance Dashboards:</strong> Wazuh Dashboard offers <strong>out-of-the-box dashboards</strong> for regulatory compliance standards such as PCI DSS, GDPR, HIPAA, and NIST 800–53. It is also known that Dashboard has undergone a comprehensive redesign process to improve the user experience (UX) from start to finish and fully support the new features brought by 5.0.</p>
+<h4 id="ossecxdr-combination-and-indexer-stabilization">
+  OSSEC/XDR Combination and Indexer Stabilization
+  <a class="heading-link" href="#ossecxdr-combination-and-indexer-stabilization">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Wazuh 5.0 modernizes the core capabilities of OSSEC (FIM, Log Analysis) in terms of HIDS and combines them with XDR and SIEM features.</p>
+<p>The Indexer component plays a critical role in storing and archiving processed log data. Indexer&rsquo;s long-term storage capacity helps meet long-term log retention and compliance audit reporting requirements mandated by standards such as <strong>PCI DSS (Requirement 10)</strong>. Wazuh has moved away from old integration applications after v4.6 and focused on the strategy of integrating with OpenSearch and other third-party platforms (Splunk, Elastic) directly through Indexer or Server.</p>
+<hr>
+<h3 id="result">
+  Result
+  <a class="heading-link" href="#result">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Wazuh 5.0 is not just a version upgrade, but a strategic advancement that demonstrates the maturity of the cybersecurity platform. While it offers deeper visibility against threats with its Extended Cyber ​​Threat Intelligence (CTI), it brings stability and high availability (HA) to today&rsquo;s high-volume environments with thousands of Agents with its horizontally scalable architecture. Additionally, technical optimizations such as eBPF-based FIM increase performance, and Active Response automation accelerates incident response processes. Using the innovations that come with 5.0, organizations can strengthen their security posture and manage their legal compliance obligations more effectively.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+      <h3 id="see-also-in-wazuh">
+        See also in Wazuh
+        <a class="heading-link" href="#see-also-in-wazuh">
+          <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+          <span class="sr-only">Link to heading</span>
+        </a>
+      </h3>
+      <nav>
+        <ul>
+        
+        
+          
+            <li>
+              <a href="/posts/2025/10/wazuh-5.0-is-here-a-technical-deep-dive-into-the-new-engine-ebpf-and-enterprise-scaling/">Wazuh 5.0 is Here: A Technical Deep Dive into the New Engine, eBPF, and Enterprise Scaling</a>
+            </li>
+          
+        
+          
+        
+        </ul>
+      </nav>
+    
+  
+</section>
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

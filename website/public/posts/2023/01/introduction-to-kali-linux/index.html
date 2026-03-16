@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Introduction to Kali Linux · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Introduction to Kali Linux
+  
+    
+    Link to heading
+  
+
+
+
+  Introduction
+  
+    
+    Link to heading
+  
+
+Hello, in this article I will talk about Kali Linux distribution. I will explain what it does and what capabilities it has. After talking about its installation, I will talk about the tools that come pre-installed.
+
+  What is Kali Linux ?
+  
+    
+    Link to heading
+  
+
+Kali Linux is a Debian-based Linux distribution developed for use in the field of cyber security. It contains many cyber security software that comes pre-installed. In this respect, it can be said that it has a very useful and user-friendly structure.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Introduction to Kali Linux">
+  <meta name="twitter:description" content="Introduction to Kali LinuxLink to headingIntroductionLink to headingHello, in this article I will talk about Kali Linux distribution. I will explain what it does and what capabilities it has. After talking about its installation, I will talk about the tools that come pre-installed.
+What is Kali Linux ?Link to headingKali Linux is a Debian-based Linux distribution developed for use in the field of cyber security. It contains many cyber security software that comes pre-installed. In this respect, it can be said that it has a very useful and user-friendly structure.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2023/01/introduction-to-kali-linux/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Introduction to Kali Linux">
+  <meta property="og:description" content="Introduction to Kali LinuxLink to headingIntroductionLink to headingHello, in this article I will talk about Kali Linux distribution. I will explain what it does and what capabilities it has. After talking about its installation, I will talk about the tools that come pre-installed.
+What is Kali Linux ?Link to headingKali Linux is a Debian-based Linux distribution developed for use in the field of cyber security. It contains many cyber security software that comes pre-installed. In this respect, it can be said that it has a very useful and user-friendly structure.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-01-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-01-15T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2023/01/introduction-to-kali-linux/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2023/01/kali-linuxa-giri%C5%9F/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2023/01/introduction-to-kali-linux/">
+              Introduction to Kali Linux
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-01-15T00:00:00Z">
+                January 15, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              12-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="introduction-to-kali-linux">
+  Introduction to Kali Linux
+  <a class="heading-link" href="#introduction-to-kali-linux">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_zHe4hqRCHYvBY6Sul53MaQ.png" alt=""></p>
+<h3 id="introduction">
+  Introduction
+  <a class="heading-link" href="#introduction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Hello, in this article I will talk about Kali Linux distribution. I will explain what it does and what capabilities it has. After talking about its installation, I will talk about the tools that come pre-installed.</p>
+<h3 id="what-is-kali-linux">
+  What is Kali Linux ?
+  <a class="heading-link" href="#what-is-kali-linux">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><a href="https://www.kali.org/"  class="external-link" target="_blank" rel="noopener">Kali Linux</a> is a Debian-based Linux distribution developed for use in the field of cyber security. It contains many cyber security software that comes pre-installed. In this respect, it can be said that it has a very useful and user-friendly structure.</p>
+<p>You can perform penetration tests for many systems with Kali. You can also work in the field of computer forensics.</p>
+<h3 id="installation">
+  Installation
+  <a class="heading-link" href="#installation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Kali offers two different desktop environment options: GNOME and XFCE. It also supports 32-bit and 64-bit systems.</p>
+<p>There are several different ways to install Kali Linux:<br>
+1-You can install it on your computer as the main operating system.<br>
+2-You can install it on your computer as a secondary operating system (dual-boot).<br>
+3-You can install it on your computer as a virtual machine.</p>
+<p>Kalinin <a href="https://www.kali.org/docs/"  class="external-link" target="_blank" rel="noopener">documentation page</a> contains detailed information about installation and subsequent operations.</p>
+<p>The easiest of the methods I listed above is to install it on a computer as a virtual machine. For this, we need a virtualization program such as <a href="https://www.vmware.com/"  class="external-link" target="_blank" rel="noopener">VMware</a> or <a href="https://www.virtualbox.org/"  class="external-link" target="_blank" rel="noopener">virtualbox</a>. We can download the installation files for these programs from Kalinin <a href="https://www.kali.org/get-kali/#kali-virtual-machines"  class="external-link" target="_blank" rel="noopener">download page</a>.</p>
+<p><img src="/images/1_oGbHJaE4HvWhKg2MLcBg7g.png" alt=""></p>
+<p>On this page, 32-bit and 64-bit options are also available at the top. After downloading the file suitable for our virtualization program, all that remains is to open this file in our virtualization program. Then you will see Kalinin started.</p>
+<p>On the login screen that will appear when Kali starts:<br>
+username: kali<br>
+password: kali<br>
+You can access the machine by entering the default username and password.</p>
+<h3 id="what-is-penetration-testing">
+  What is Penetration Testing?
+  <a class="heading-link" href="#what-is-penetration-testing">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The purpose of Penetration Testing (pentest) is to find, exploit and report the vulnerability that exists in any system. We can generally divide penetration testing into two:</p>
+<p>Network penetration testing is a way of infiltrating the system by exploiting vulnerabilities resulting from incorrect configuration of the system.</p>
+<p>Application penetration testing is the activities of accessing and exploiting the system through vulnerabilities in the application software.</p>
+<p>Penetration testing is divided into three types:</p>
+<ul>
+<li>Black box: It is a penetration test performed without providing any information about the target system.</li>
+<li>White box: It is a penetration test performed by providing a lot of information about the target system.</li>
+<li>Gray box: It is a penetration test performed without providing detailed information about the target system.</li>
+</ul>
+<p>In the field of penetration testing, Kali Linux is a widely used distribution. Now, let&rsquo;s take a look at the tools used for this job.</p>
+<h3 id="kali-linuxtools">
+  Kali Linux Tools
+  <a class="heading-link" href="#kali-linuxtools">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>While in the Kali Linux desktop environment, if you click on the logo, you will see the general menu open. Here, you can make various customizations from the settings section. When you look further down, you will come across various sections.</p>
+<p><img src="/images/1_oRREtWWP_05h_uj2e0gZvQ.png" alt=""></p>
+<p>Kali Linux Menu</p>
+<p>In this section, the cyber security tools that come pre-installed with Kali Linux are classified according to their functions. Kali provides information gathering, vulnerability scanning, password attacks, wireless network attacks, computer forensics, etc. It contains ready-made tools in many areas such as. You can find detailed information about these tools and how they are used on the <a href="https://www.kali.org/tools/"  class="external-link" target="_blank" rel="noopener">Kali Linux Tools</a> page.</p>
+<p>In this article, we will briefly talk about these tools and what they do.</p>
+<h4 id="01-information-gathering">
+  01-Information Gathering
+  <a class="heading-link" href="#01-information-gathering">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Tools used in active and passive information collection activities for a specific target are included in this section. These are:</p>
+<ul>
+<li><a href="https://www.kali.org/tools/dmitry/"  class="external-link" target="_blank" rel="noopener"><strong>dmitry</strong></a>: dmitry is a Linux command line application written in C. dmitry can find possible subdomains, email addresses, uptime information.</li>
+<li><a href="https://www.kali.org/tools/ike-scan/"  class="external-link" target="_blank" rel="noopener"><strong>ike-scan</strong></a>: ike-scan discovers IKE hosts and can also fingerprint them using the retransmission-retrieval model.</li>
+<li><a href="https://www.kali.org/tools/netdiscover/"  class="external-link" target="_blank" rel="noopener"><strong>netdiscover</strong></a>: Netdiscover is an active/passive address discovery tool. It was developed specifically for wireless networks without a DHCP server. Hub/SwitchedIt can also be used in networks.</li>
+<li><a href="https://www.kali.org/tools/nmap/"  class="external-link" target="_blank" rel="noopener"><strong>nmap</strong></a>: nmap(network mapper) is a utility for network discovery or security auditing. It supports ping scanning (identifying which hosts are open), many port scanning techniques, version detection (identifying service protocols and application versions listening on ports), and TCP/IP fingerprinting (remote host operating system or device identification).</li>
+<li><a href="https://www.kali.org/tools/recon-ng/"  class="external-link" target="_blank" rel="noopener"><strong>recon-ng</strong></a><strong>:</strong> Recon-ng is a full-featured Web Discovery framework written in Python. Equipped with standalone modules, database interaction, interactive help and command completion features, Recon-ng provides a powerful environment in which web-based exploration can be carried out quickly and comprehensively.</li>
+<li><a href="https://www.kali.org/tools/spiderfoot/"  class="external-link" target="_blank" rel="noopener"><strong>spiderfoot</strong></a><strong>:</strong> This package includes an open source intelligence (OSINT) automation tool. Its purpose is to automate the process of gathering intelligence about a specific target, which could be an IP address, domain name, hostname, network subnet, ASN, email address, or person&rsquo;s name.</li>
+</ul>
+<h4 id="02-vulnerability-analysis">
+  02-Vulnerability Analysis
+  <a class="heading-link" href="#02-vulnerability-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Tools used to scan for vulnerabilities against a specific target are included in this section. These are:</p>
+<ul>
+<li><a href="https://www.kali.org/tools/legion/"  class="external-link" target="_blank" rel="noopener"><strong>legion</strong></a><strong>:</strong> This package contains an open source, easy-to-use, extensible and semi-automatic network penetration testing tool that helps in the discovery and exploitation of information systems.</li>
+<li><a href="https://www.kali.org/tools/nikto/"  class="external-link" target="_blank" rel="noopener"><strong>nikto</strong></a><strong>:</strong> Nikto is a web server and CGI browser written in Perl that uses rfp&rsquo;s LibWhisker to perform quick security or information checks.</li>
+<li><a href="https://www.kali.org/tools/unix-privesc-check/"  class="external-link" target="_blank" rel="noopener"><strong>unix-privesc-check</strong></a><strong>:</strong> Unix-privesc-checker is a script that runs on Unix systems (tested on Solaris 9, HPUX 11, Various Linuxes, FreeBSD 6.2). It tries to find misconfigurations that could allow local unprivileged users to escalate privileges to other users or access local applications (e.g. databases).</li>
+</ul>
+<h4 id="03-web-application-analysis">
+  03-Web Application Analysis
+  <a class="heading-link" href="#03-web-application-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Tools used to find and exploit vulnerabilities in Web Applications are included in this section. These are:</p>
+<ul>
+<li><a href="https://www.kali.org/tools/burpsuite/"  class="external-link" target="_blank" rel="noopener"><strong>burpsuite</strong></a><strong>:</strong> Burp Suite is an integrated platform for performing security testing of web applications. Its various tools work seamlessly together to support the entire testing process, from initial mapping and analysis of an application&rsquo;s attack surface to finding and exploiting vulnerabilities.</li>
+<li><a href="https://www.kali.org/tools/commix/"  class="external-link" target="_blank" rel="noopener"><strong>commix</strong></a><strong>:</strong> This package has a simple environment and can be used by web developers, penetration testers, and even security researchers to test web applications to find bugs or vulnerabilities related to command injection attacks. Using this tool, it is very easy to find and exploit command injection vulnerability in a specific vulnerable parameter or string. Commix is ​​written in the Python programming language.</li>
+<li><a href="https://www.kali.org/tools/skipfish/"  class="external-link" target="_blank" rel="noopener"><strong>skipfish</strong></a><strong>:</strong> Skipfish is an active web application security discovery tool. It prepares an interactive site map for the targeted site by performing recursive crawling and dictionary-based polling. The final report generated by the tool is intended to provide a basis for professional web application security assessments.</li>
+<li><a href="https://www.kali.org/tools/wpscan/"  class="external-link" target="_blank" rel="noopener"><strong>wpscan</strong></a><strong>:</strong> WPScan scans WordPress applications to find security issues.</li>
+</ul>
+<h4 id="04-database-assesment">
+  04-Database Assesment
+  <a class="heading-link" href="#04-database-assesment">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Tools used to find and exploit vulnerabilities in databases and to view databases are included in this section. These are:</p>
+<ul>
+<li><a href="https://www.kali.org/tools/sqlitebrowser/"  class="external-link" target="_blank" rel="noopener"><strong>sqlitebrowser</strong></a><strong>:</strong> SQLite Database Browser is a visual tool for creating, designing and editing SQLite-compatible database files. Its interface is based on QT and is designed for users and developers who want to create databases, organize and search data using a familiar spreadsheet-like interface without the need to learn complex SQL commands.</li>
+<li><a href="https://www.kali.org/tools/sqlmap/"  class="external-link" target="_blank" rel="noopener"><strong>sqlmap</strong></a><strong>:</strong> The purpose of sqlmap is to detect and exploit SQL injection vulnerabilities in web applications.</li>
+</ul>
+<h4 id="05-password-attacks">
+  05-Password Attacks
+  <a class="heading-link" href="#05-password-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>chifTools used for re attacks are included in this section. These tools:</p>
+<ul>
+<li><a href="https://www.kali.org/tools/cewl/"  class="external-link" target="_blank" rel="noopener"><strong>cewl</strong></a><strong>:</strong> CeWL (Custom Word List generator) is a ruby application that creates a list of words that can be used for password crackers like John the Ripper. Optionally, CeWL can follow external links.</li>
+<li><a href="https://www.kali.org/tools/crunch/"  class="external-link" target="_blank" rel="noopener"><strong>crunch</strong></a><strong>:</strong> crunch is a word list generator where you can specify a standard character set or any character set to use when creating word lists. Word lists are created through combinations and permutations of a series of characters. You can specify the amount of characters and the list size.</li>
+<li><a href="https://www.kali.org/tools/hashcat/"  class="external-link" target="_blank" rel="noopener"><strong>hashcat</strong></a><strong>:</strong> hashcat supports five unique attack modes for over 300 highly optimized hashing algorithms. hashcat currently supports CPUs, GPUs, and other hardware accelerators in Linux and has facilities to help with distributed password cracking.</li>
+<li><a href="https://www.kali.org/tools/john/"  class="external-link" target="_blank" rel="noopener"><strong>john</strong></a><strong>:</strong> John the Ripper is a tool designed to help system administrators find weak (easy to guess or brute force crack) passwords and even automatically warn users about them by email if desired.</li>
+<li><a href="https://www.kali.org/tools/medusa/"  class="external-link" target="_blank" rel="noopener"><strong>medusa</strong></a><strong>:</strong> medusa is intended to be a fast, massively parallel, modular, brute force attack implementation. The goal is to support as many services that allow remote authentication as possible.</li>
+<li><a href="https://www.kali.org/tools/ncrack/"  class="external-link" target="_blank" rel="noopener"><strong>ncrack</strong></a><strong>:</strong> ncrack is a high-speed network authentication tool. It was created to help companies secure their networks by proactively testing all their hosts and network devices for weak passwords.</li>
+<li><a href="https://www.kali.org/tools/ophcrack/"  class="external-link" target="_blank" rel="noopener"><strong>ophcrack</strong></a><strong>:</strong> ophcrack is a Windows password cracker based on a time-memory swap using rainbow tables. Recovers 99.9% of alphanumeric passwords in seconds.</li>
+</ul>
+<h4 id="06-wireless-attacks">
+  06-Wireless Attacks
+  <a class="heading-link" href="#06-wireless-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Tools used for wireless network attacks are included in this section. These are:</p>
+<ul>
+<li><a href="https://www.kali.org/tools/aircrack-ng/"  class="external-link" target="_blank" rel="noopener"><strong>aircrack-ng</strong></a><strong>:</strong> aircrack-ng is an 802.11a/b/g WEP/WPA cracking program that can recover a 40-bit, 104-bit, 256-bit or 512-bit WEP key after collecting a sufficient number of encrypted packets. It can also attack WPA1/2 networks with some advanced methods or just brute force.</li>
+<li><a href="https://www.kali.org/tools/fern-wifi-cracker/"  class="external-link" target="_blank" rel="noopener"><strong>fern wifi cracker</strong></a><strong>:</strong> This package contains a Wireless security auditing and attack software program written using the Python Programming Language and the Python Qt GUI library, the program can crack and recover WEP/WPA/WPS keys and also perform other wireless or ethernet-based network-based attacks.</li>
+<li><a href="https://www.kali.org/tools/kismet/"  class="external-link" target="_blank" rel="noopener"><strong>kismet</strong></a><strong>:</strong> Kismet is a wireless network and device detector, sniffer, security tool and WIDS (wireless intrusion detection) framework.</li>
+<li><a href="https://www.kali.org/tools/pixiewps/"  class="external-link" target="_blank" rel="noopener"><strong>pixiewps</strong></a><strong>:</strong> Pixiewps is a tool written in C used to force the WPS key offline by exploiting the pixie dust attack of some APs.</li>
+<li><a href="https://www.kali.org/tools/reaver/"  class="external-link" target="_blank" rel="noopener"><strong>reaver</strong></a><strong>:</strong> Reaver performs a brute force attack on an access point&rsquo;s WiFi Protected Setup pincode. Once the WPS pin is found, the WPA PSK can be recovered and the wireless settings of the AP can be reconfigured alternately.</li>
+<li><a href="https://www.kali.org/tools/wifite/"  class="external-link" target="_blank" rel="noopener"><strong>wifite</strong></a><strong>:</strong> Wifite is a tool created to monitor WEP or WPA encrypted wireless networks. It uses aircrack-ng, pyrit, reaver, tshark tools to perform the audit.</li>
+</ul>
+<h4 id="07-reverse-engineering">
+  07-Reverse Engineering
+  <a class="heading-link" href="#07-reverse-engineering">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Tools and command environments used for reverse engineering are included in this section. These are:</p>
+<ul>
+<li><a href="https://www.kali.org/tools/radare2/"  class="external-link" target="_blank" rel="noopener"><strong>radare2</strong></a>: The project aims to create a complete, portable, multi-architecture, toolchain for reverse engineering.</li>
+</ul>
+<h4 id="08-exploitation-tools">
+  08-Exploitation Tools
+  <a class="heading-link" href="#08-exploitation-tools">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Tools used to exploit a target system, that is, to gain access to the target system, are included in this section. These are:</p>
+<ul>
+<li><a href="https://www.kali.org/tools/crackmapexec/"  class="external-link" target="_blank" rel="noopener"><strong>crackmapexec</strong></a><strong>:</strong> This package is useful for pentesting Windows/Active Directory environments.</li>
+<li><a href="https://www.kali.org/tools/metasploit-framework/"  class="external-link" target="_blank" rel="noopener"><strong>metasploit framework</strong></a><strong>:</strong> Metasploit framework,It is an open source platform that supports vulnerability research, exploit development, and creation of custom security tools.</li>
+<li><a href="https://www.kali.org/tools/exploitdb/#searchsploit"  class="external-link" target="_blank" rel="noopener"><strong>searchsploit</strong></a>: Exploit searches for ready exploit in <a href="https://www.exploit-db.com/"  class="external-link" target="_blank" rel="noopener">Database</a>.</li>
+</ul>
+<h4 id="09-sniffingspoofing">
+  09-Sniffing&amp;Spoofing
+  <a class="heading-link" href="#09-sniffingspoofing">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Tools used for sniffing and spoofing are included in this section. These are:</p>
+<ul>
+<li><a href="https://www.kali.org/tools/ettercap/"  class="external-link" target="_blank" rel="noopener"><strong>ettercap</strong></a><strong>:</strong> Ettercap supports active and passive inspection of many protocols and includes many features for network and host analysis.</li>
+<li><a href="https://www.kali.org/tools/minicom/"  class="external-link" target="_blank" rel="noopener"><strong>minicom</strong></a><strong>:</strong> Minicom is a copy of the MS-DOS “Telix” communications program. Operates ANSI and VT102 terminals.</li>
+<li><a href="https://www.kali.org/tools/mitmproxy/"  class="external-link" target="_blank" rel="noopener"><strong>mitmproxy</strong></a><strong>:</strong> mitmproxy is an interactive Man-in-the-Middle proxy for HTTP and HTTPS. It provides a console interface that allows instant control and regulation of network traffic flows.</li>
+<li><a href="https://www.kali.org/tools/netsniff-ng/"  class="external-link" target="_blank" rel="noopener"><strong>netsniff-ng</strong></a><strong>:</strong> netsniff-ng is a high-performance Linux network sniffer for network packet inspection. It can be used for protocol analysis, reverse engineering or network debugging.</li>
+<li><a href="https://www.kali.org/tools/responder/"  class="external-link" target="_blank" rel="noopener"><strong>responder</strong></a><strong>:</strong> This package includes Responder/MultiRelay, a LLMNR, NBT-NS and MDNS poisoner. Responds to specific NBT-NS (NetBIOS Name Service) queries based on name suffixes.</li>
+<li><a href="https://www.kali.org/tools/wireshark/"  class="external-link" target="_blank" rel="noopener"><strong>wireshark</strong></a><strong>:</strong> Wireshark is a network “sniffer” tool that captures and analyzes network packets. Wireshark can decode too many protocols to list here.</li>
+</ul>
+<h4 id="10-post-exploitation">
+  10-Post Exploitation
+  <a class="heading-link" href="#10-post-exploitation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Tools developed for post-exploit operations, Enumeration (gathering detailed information about the system), Privelege Escalatio (authorization escalation) and Pivoting (jumping to another system) are included in this section. These are:</p>
+<ul>
+<li><a href="https://www.kali.org/tools/evil-winrm/"  class="external-link" target="_blank" rel="noopener"><strong>evil-winrm</strong></a><strong>:</strong> This package contains the ultimate WinRM shell for hacking/penetration testing.</li>
+<li><a href="https://www.kali.org/tools/exe2hexbat/"  class="external-link" target="_blank" rel="noopener"><strong>exe2hex</strong></a><strong>:</strong> A Python script to convert a Windows PE executable into a batch file and vice versa.</li>
+<li><a href="https://www.kali.org/tools/mimikatz/"  class="external-link" target="_blank" rel="noopener"><strong>mimikatz</strong></a><strong>:</strong> Mimikatz is a tool that uses administrative rights in Windows to display the passwords of currently logged in users in plain text.</li>
+<li><a href="https://www.kali.org/tools/powershell-empire/"  class="external-link" target="_blank" rel="noopener"><strong>powershell empire</strong></a><strong>:</strong> This package includes a framework with a pure PowerShell2.0 Windows agent and a pure Python Linux/OS X agent. It is a combination of previous PowerShell Empire and Python EmPyre projects.</li>
+<li><a href="https://www.kali.org/tools/powersploit/"  class="external-link" target="_blank" rel="noopener"><strong>powersploit</strong></a><strong>:</strong> PowerSploit is a set of Microsoft PowerShell scripts that can be used in post-exploitation scenarios during authorized penetration testing.</li>
+<li><a href="https://www.kali.org/tools/proxychains-ng/"  class="external-link" target="_blank" rel="noopener"><strong>proxychains4</strong></a><strong>:</strong> Proxychains is a UNIX program that dynamically links network-related libc functions to linked programs via a preloaded DLL (dlsym(), LD_PRELOAD) and redirects connections via SOCKS4a/5 or HTTP proxies. Supports TCP only (no UDP/ICMP etc.).</li>
+<li><a href="https://www.kali.org/tools/weevely/"  class="external-link" target="_blank" rel="noopener"><strong>weevely</strong></a><strong>:</strong> Weevely is a hidden PHP web shell that simulates telnet-like connection. It is an important tool for post-exploitation of web applications and can be used as a hidden backdoor or a web shell to manage legitimate web accounts, even freely hosted ones.</li>
+</ul>
+<h4 id="11-forensics">
+  11-Forensics
+  <a class="heading-link" href="#11-forensics">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Tools developed for computer forensics are included in this section. These are:</p>
+<ul>
+<li><a href="https://www.kali.org/tools/autopsy/"  class="external-link" target="_blank" rel="noopener"><strong>autopsy</strong></a><strong>:</strong> autopsy Forensic Browser is a graphical interface to the command-line digital forensic analysis tools in The Sleuth Kit. Together, The Sleuth Kit and Autopsy provide many of the same features as commercial digital forensics tools for analysis of Windows and UNIX file systems (NTFS, FAT, FFS, EXT2FS, and EXT3FS).</li>
+<li><a href="https://www.kali.org/tools/binwalk/"  class="external-link" target="_blank" rel="noopener"><strong>binwalk</strong></a><strong>:</strong> binwalk is a tool used to search for files and executable code embedded in a given binary image. It is specifically designed to identify files and code embedded within firmware images. Binwalk uses the libmagic library, so it is compatible with magic signatures created for the Unix file utility.</li>
+<li><a href="https://www.kali.org/tools/bulk-extractor/"  class="external-link" target="_blank" rel="noopener"><strong>bulk_extractor</strong></a><strong>:</strong> bulk_extractor is a C++ program that scans a disk image, a file, or a file directory and extracts useful information without parsing the file system or file system structures. The results are stored in feature files that can be easily examined, parsed, or processed by automated tools.</li>
+<li><a href="https://www.kali.org/tools/hashdeep/"  class="external-link" target="_blank" rel="noopener"><strong>hashdeep</strong></a><strong>:</strong> hashdeep is a set of tools for recursively computing the MD5, SHA1, SHA256, tiger and whirlpool hashsums of an arbitrary number of files.</li>
+</ul>
+<h3 id="end">
+  End
+  <a class="heading-link" href="#end">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In this article, I tried to talk about what Kali Linux is and what capabilities it has. Briefly, I talked about the vehicles that come already installed. There is a lot of information on how to use these tools, both on Kali&rsquo;s own page and on the internet. You can also get information about the use of that tool by typing “vehicle_name -h” in the Kali terminal. Don&rsquo;t forget to like and comment on my article!</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Derinlemesine savunma (Defense in Depth) Stratejisi · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Derinlemesine savunma (Defense in Depth) Stratejisi
+  
+    
+    Başlık Linki
+  
+
+
+Çoğu güvenlik uzmanı, mükemmel ağ güvenliğinin imkansız olduğu ve herhangi bir savunmanın her zaman aşılabileceği görüşünde birleşiyor. Derinlemesine savunma stratejisi, saldırganı birden fazla savunma katmanıyla engellemeyi benimsiyor. Her bir katmanın aşılabileceğini kabul ediyor. Değerli varlıklar, daha fazla savunma katmanıyla korunuyor. Birden fazla katmanın kombinasyonu, saldırının başarı maliyetini artırıyor ve bu maliyet korunan varlıkların değeriyle orantılı oluyor. Ayrıca, birden fazla katmanın kombinasyonu, beklenmedik saldırılara karşı optimize edilmiş tek bir savunmadan daha etkili oluyor. Saldırgan için maliyet, ek zaman, çaba veya ekipman olarak ortaya çıkabilir. Örneğin, bir saldırganın gecikmesi, bir kuruluşun devam eden saldırıyı tespit etme ve yanıt verme şansını artırabilir. Eğer artan maliyetler, başarılı bir saldırıdan elde edilebilecek kazançtan daha ağır basıyorsa, bazı girişimler caydırabilir.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Derinlemesine savunma (Defense in Depth) Stratejisi">
+  <meta name="twitter:description" content="Derinlemesine savunma (Defense in Depth) StratejisiBaşlık LinkiÇoğu güvenlik uzmanı, mükemmel ağ güvenliğinin imkansız olduğu ve herhangi bir savunmanın her zaman aşılabileceği görüşünde birleşiyor. Derinlemesine savunma stratejisi, saldırganı birden fazla savunma katmanıyla engellemeyi benimsiyor. Her bir katmanın aşılabileceğini kabul ediyor. Değerli varlıklar, daha fazla savunma katmanıyla korunuyor. Birden fazla katmanın kombinasyonu, saldırının başarı maliyetini artırıyor ve bu maliyet korunan varlıkların değeriyle orantılı oluyor. Ayrıca, birden fazla katmanın kombinasyonu, beklenmedik saldırılara karşı optimize edilmiş tek bir savunmadan daha etkili oluyor. Saldırgan için maliyet, ek zaman, çaba veya ekipman olarak ortaya çıkabilir. Örneğin, bir saldırganın gecikmesi, bir kuruluşun devam eden saldırıyı tespit etme ve yanıt verme şansını artırabilir. Eğer artan maliyetler, başarılı bir saldırıdan elde edilebilecek kazançtan daha ağır basıyorsa, bazı girişimler caydırabilir.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2024/10/derinlemesine-savunma-defense-in-depth-stratejisi/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Derinlemesine savunma (Defense in Depth) Stratejisi">
+  <meta property="og:description" content="Derinlemesine savunma (Defense in Depth) StratejisiBaşlık LinkiÇoğu güvenlik uzmanı, mükemmel ağ güvenliğinin imkansız olduğu ve herhangi bir savunmanın her zaman aşılabileceği görüşünde birleşiyor. Derinlemesine savunma stratejisi, saldırganı birden fazla savunma katmanıyla engellemeyi benimsiyor. Her bir katmanın aşılabileceğini kabul ediyor. Değerli varlıklar, daha fazla savunma katmanıyla korunuyor. Birden fazla katmanın kombinasyonu, saldırının başarı maliyetini artırıyor ve bu maliyet korunan varlıkların değeriyle orantılı oluyor. Ayrıca, birden fazla katmanın kombinasyonu, beklenmedik saldırılara karşı optimize edilmiş tek bir savunmadan daha etkili oluyor. Saldırgan için maliyet, ek zaman, çaba veya ekipman olarak ortaya çıkabilir. Örneğin, bir saldırganın gecikmesi, bir kuruluşun devam eden saldırıyı tespit etme ve yanıt verme şansını artırabilir. Eğer artan maliyetler, başarılı bir saldırıdan elde edilebilecek kazançtan daha ağır basıyorsa, bazı girişimler caydırabilir.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-10-30T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-30T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2024/10/derinlemesine-savunma-defense-in-depth-stratejisi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2024/10/defense-in-depth-strategy/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2024/10/derinlemesine-savunma-defense-in-depth-stratejisi/">
+              Derinlemesine savunma (Defense in Depth) Stratejisi
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-10-30T00:00:00Z">
+                Ekim 30, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              17 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="derinlemesine-savunma-defense-in-depth-stratejisi">
+  Derinlemesine savunma (Defense in Depth) Stratejisi
+  <a class="heading-link" href="#derinlemesine-savunma-defense-in-depth-stratejisi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_T4RL-NrRsRdZSjXM4Ja3Lg.png" alt=""></p>
+<p>Çoğu güvenlik uzmanı, mükemmel ağ güvenliğinin imkansız olduğu ve herhangi bir savunmanın her zaman aşılabileceği görüşünde birleşiyor. Derinlemesine savunma stratejisi, saldırganı birden fazla savunma katmanıyla engellemeyi benimsiyor. Her bir katmanın aşılabileceğini kabul ediyor. Değerli varlıklar, daha fazla savunma katmanıyla korunuyor. Birden fazla katmanın kombinasyonu, saldırının başarı maliyetini artırıyor ve bu maliyet korunan varlıkların değeriyle orantılı oluyor. Ayrıca, birden fazla katmanın kombinasyonu, beklenmedik saldırılara karşı optimize edilmiş tek bir savunmadan daha etkili oluyor. Saldırgan için maliyet, ek zaman, çaba veya ekipman olarak ortaya çıkabilir. Örneğin, bir saldırganın gecikmesi, bir kuruluşun devam eden saldırıyı tespit etme ve yanıt verme şansını artırabilir. Eğer artan maliyetler, başarılı bir saldırıdan elde edilebilecek kazançtan daha ağır basıyorsa, bazı girişimler caydırabilir.</p>
+<p><img src="/images/1_m1IdlCgTOzsBqAq42efKQA.png" alt=""></p>
+<p>Defense In Depth</p>
+<p>Derinlemesine savunmanın bazen insan, teknoloji ve operasyonları içerdiği söylenir. Eğitimli güvenlik çalışanları tesislerin güvenliğinden ve bilgi güvencesinden sorumlu olmalıdır. Ancak, bir kuruluştaki her bilgisayar kullanıcısı güvenlik politikaları ve uygulamaları konusunda bilinçlendirilmelidir. Evdeki her İnternet kullanıcısı güvenli uygulamalar (e-posta eklerini açmaktan veya şüpheli bağlantılara tıklamaktan kaçınmak gibi) ve uygun korumanın (antivirüs yazılımı, güvenlik duvarları) faydaları hakkında bilgi sahibi olmalıdır.</p>
+<p>Koruma katmanları için çeşitli teknolojik önlemler kullanılabilir. Bunlar arasında güvenlik duvarları, IDS’ler, erişim kontrol listeleri (ACL’ler), antivirüs yazılımı, erişim kontrolü, spam filtreleri vb. yer almalıdır.</p>
+<p><img src="/images/1_tymURTTvBKKQGCOSzpLpWQ.png" alt=""></p>
+<p>Defense in Depth</p>
+<h3 id="önleyici-tedbirlerproaktifyaklaşım">
+  Önleyici Tedbirler — Proaktif Yaklaşım
+  <a class="heading-link" href="#%c3%b6nleyici-tedbirlerproaktifyakla%c5%9f%c4%b1m">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Çoğu bilgisayar kullanıcısı İnternet kullanımının güvenlik riskleri oluşturduğunun farkındadır. Saldırılara maruz kalmayı en aza indirmek için önlemler almak mantıklı olacaktır. Neyse ki, bilgisayar kullanıcılarının sistemlerini güçlendirerek riskleri azaltmaları için çeşitli seçenekler mevcuttur.</p>
+<h4 id="1--erişim-kontrolü-accesscontrol">
+  1- Erişim Kontrolü (Access Control)
+  <a class="heading-link" href="#1--eri%c5%9fim-kontrol%c3%bc-accesscontrol">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bilgisayar güvenliğinde erişim kontrolü, kullanıcıların yetkili oldukları seviyeye kadar işlevleri yerine getirmelerine izin veren ve kullanıcıların yetkisiz işlevleri yerine getirmelerini kısıtlayan mekanizmaları ifade eder. Erişim kontrolü(<strong>Access Control</strong>) şunları içerir:</p>
+<ul>
+<li>Kullanıcıların kimlik doğrulaması (<strong>Authentication</strong>)</li>
+<li>Ayrıcalıklarının yetkilendirilmesi (<strong>Authorization</strong>)</li>
+<li>Kullanıcı eylemlerini izlemek ve kaydetmek için denetim (<strong>Auditing</strong>)</li>
+</ul>
+<p>Tüm bilgisayar kullanıcıları bir tür erişim kontrolüne aşina olacaktır.</p>
+<p>Kimlik doğrulama(<strong>Authentication</strong>), bir kullanıcının kimliğini doğrulama işlemidir. Kimlik doğrulama tipik olarak bu faktörlerden bir veya daha fazlasına dayanır:</p>
+<ul>
+<li>Şifre veya PIN gibi kullanıcının bildiği bir şey (<strong>Something the user knows</strong>)</li>
+<li>Kullanıcının sahip olduğu akıllı kart veya token gibi bir şey (<strong>Something the user has</strong>)</li>
+<li>Parmak izi, retina deseni veya diğer biyometrik tanımlayıcılar gibi kullanıcı hakkında kişisel bir şey (<strong>Something the user is</strong>)</li>
+</ul>
+<p>Birden fazla kanıt sunulsa bile tek bir faktörün kullanılması zayıf kimlik doğrulama olarak kabul edilir. İki faktörlü (veya çok faktörlü) kimlik doğrulama olarak adlandırılan şifre ve parmak izi gibi iki faktörün kombinasyonu güçlü kimlik doğrulama olarak kabul edilir.</p>
+<p>Yetkilendirme (<strong>Authorization</strong>), kimliği doğrulanmış bir kullanıcının neler yapabileceğini belirleme sürecidir. Çoğu işletim sisteminde okuma, yazma veya yürütme erişimiyle ilgili belirlenmiş bir dizi izin vardır. Örneğin, sıradan bir kullanıcının belirli bir dosyayı okuma izni olabilir ancak dosyaya yazma izni olmayabilir, oysa bir root veya süper kullanıcı her şeyi yapmak için tam ayrıcalıklara sahip olacaktır.</p>
+<p>Denetim (<strong>Auditing</strong>) kullanıcıların hesap verebilir olmasını sağlamak için gereklidir. Bilgisayar sistemleri sistemdeki eylemleri denetim izlerine ve günlüklerine kaydeder. Güvenlik amacıyla, olayları yeniden yaratmak ve analiz etmek için çok değerli adli araçlardır. Örneğin, çok sayıda başarısız oturum açma girişiminde bulunan bir kullanıcı davetsiz misafir olarak görülebilir.</p>
+<h4 id="2--zafiyet-testi-ve-yamatesting-and-patching">
+  2- Zafiyet Testi ve Yama(Testing and Patching)
+  <a class="heading-link" href="#2--zafiyet-testi-ve-yamatesting-and-patching">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Daha önce de belirtildiği gibi, güvenlik açıkları, bir bilgisayarı tehlikeye atmak için kullanılabilecek yazılımdaki zayıflıklardır. Savunmasız yazılımlar her türlü işletim sistemini ve uygulama programını içerir. Sürekli olarak farklı şekillerde yeni güvenlik açıkları keşfedilmektedir. Güvenlik araştırmacıları tarafından keşfedilen yeni güvenlik açıkları genellikle satıcıya gizli olarak bildirilir ve satıcıya güvenlik açığını incelemesi ve bir yol geliştirmesi için zaman verilir. 2007&rsquo;de açıklanan tüm güvenlik açıklarının %50&rsquo;si satıcı yamalarıyla düzeltilebilmiştir. Hazır olduğunda, satıcı, umarız bir yama ile birlikte güvenlik açığını yayınlayacaktır.</p>
+<p>Güvenlik açıklarının yayınlanmasının saldırganlara yardımcı olacağı iddia edilmiştir. Bu doğru olsa da, yayınlama aynı zamanda tüm toplumda farkındalık yaratır. Sistem yöneticileri sistemlerini değerlendirebilecek ve uygun önlemleri alabileceklerdir. Sistem yöneticilerinin ağlarındaki bilgisayarların yapılandırmasını bilmeleri beklenebilir, ancak büyük kuruluşlarda kullanıcılar tarafından yapılan olası yapılandırma değişikliklerini takip etmek zor olacaktır. Zafiyet testi, bir ağdaki bilgisayarların yapılandırması hakkında bilgi edinmek için basit bir yol sunar.</p>
+<p>Zafiyet testi, bilinen güvenlik açıkları için sistemleri araştırmaya yönelik bir alıştırmadır. Belirli bir güvenlik açığını test etmek üzere bir dizi paket oluşturmak için bilinen güvenlik açıklarından oluşan bir veritabanı, bir paket oluşturucu ve test rutinleri gerektirir. Bir güvenlik açığı bulunursa ve bir yazılım yaması mevcutsa, o an bilgisayar yamalanmalıdır.</p>
+<h4 id="3--portlarıkapatma">
+  3- Portları Kapatma
+  <a class="heading-link" href="#3--portlar%c4%b1kapatma">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Aktarım(Transport) katmanı protokolleri, yani İletim Kontrol Protokolü (TCP) ve Kullanıcı Datagram Protokolü (UDP), port numaraları aracılığıyla birbirleriyle iletişim kuran uygulamaları tanımlar. 1&rsquo;den 1023&rsquo;e kadar olan port numaraları iyi bilinir ve Internet Assigned Numbers Authority (IANA) tarafından root ayrıcalıklarıyla çalışan standartlaştırılmış hizmetlere atanır. Örneğin, Web sunucuları istemci istekleri için 80 numaralı TCP bağlantı noktasını dinler. 1024 ila 49151 arasındaki bağlantı noktası numaraları, sıradan kullanıcı ayrıcalıklarına sahip çeşitli uygulamalar tarafından kullanılır. 49151&rsquo;in üzerindeki port numaraları uygulamalar tarafından dinamik olarak kullanılır.</p>
+<p>Saldırganlar açık portları kullanabileceğinden, gereksiz portları kapatmak iyi bir uygulamadır,</p>
+<p>özellikle de daha yüksek aralıkta olanlar. Örneğin, Sub7 Truva atının varsayılan olarak 27374 numaralı portu kullandığı bilinmektedir ve Netbus 12345 numaralı portu kullanmaktadır. Ancak portların kapatılması tek başına bir bilgisayarın güvenliğini garanti etmez. Bazı bilgisayarların HyperText Transfer Protocol (HTTP) için TCP port 80&rsquo;i açık tutması gerekir, ancak saldırılar bu port üzerinden gerçekleştirilebilir.</p>
+<h4 id="4--güvenlik-duvarları">
+  4- Güvenlik Duvarları
+  <a class="heading-link" href="#4--g%c3%bcvenlik-duvarlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Çoğu insan ağ güvenliğini düşündüğünde, güvenlik duvarları akla gelen ilk şeylerden biridir. Güvenlik duvarları, dahili bir ağı harici tehditlerden koruyan bir çevre güvenliği aracıdır. Bir güvenlik duvarı gelen ve giden trafiğe seçici olarak izin verir veya engeller. Güvenlik duvarları, özel bir ağın girişinde bulunan bağımsız ağ cihazları veya bilgisayarlarda çalışan kişisel güvenlik duvarı programları olabilir. Bir kuruluşun güvenlik duvarı iç topluluğu korur; kişisel bir güvenlik duvarı bireyin ihtiyaçlarına göre özelleştirilebilir.</p>
+<p><img src="/images/1_9_PlK7S2sJYQmOwWCz8sAw.png" alt=""></p>
+<p>Çeşitli ağ bölgelerini izole eden bir güvenlik duvarı.</p>
+<p>Güvenlik duvarları, şekilde gösterildiği gibi çeşitli ağ bölgeleri, yani genel İnternet, özel intranetler ve silahsızlandırılmış bölge (DMZ — demilitarized zone) arasında ayrım ve izolasyon sağlayabilir. Yarı korumalı DMZ tipik olarak bir kuruluş tarafından sağlanan hizmetleri içerir. Genel sunucular genel İnternet’ten biraz korunmaya ihtiyaç duyar, bu nedenle genellikle bir güvenlik duvarının arkasında yer alırlar. Bu güvenlik duvarı tamamen kısıtlayıcı olamaz çünkü genel sunucuların dışarıdan erişilebilir olması gerekir.</p>
+<p>Çeşitli güvenlik duvarı türleri vardır: paket filtreleyen güvenlik duvarları, durum bilgisi içeren güvenlik duvarları ve proxy güvenlik duvarları. Her durumda, bir güvenlik duvarının etkinliği kurallarının yapılandırılmasına bağlıdır. Düzgün yazılmış kurallar ağ protokolleri hakkında ayrıntılı bilgi gerektirir. Ne yazık ki, bazı güvenlik duvarları ihmal veya eğitim eksikliği nedeniyle yanlış yapılandırılmaktadır.</p>
+<p>Paket filtreleyen güvenlik duvarları (<strong>Packet-filtering firewalls</strong>) paketleri her iki yönde de analiz eder ve bir dizi kurala göre geçişe izin verir veya reddeder. Kurallar genellikle bağlantı noktası numaralarını, protokolleri, IP adreslerini ve paket başlıklarının diğer niteliklerini inceler. Birden fazla paketi bir akış veya akımla ilişkilendirme girişimi yoktur. Güvenlik duvarı durum bilgisizdir, bir paketten diğerine dair hiçbir hafıza tutmaz.</p>
+<p>Durum bilgisine sahip güvenlik duvarları (<strong>Stateful firewalls</strong>), aynı akışa veya bağlantıya ait paketleri tanıyarak ve bağlantı durumunu takip ederek paket filtreleyen güvenlik duvarlarının sınırlamasının üstesinden gelir. Ağ katmanında çalışırlar ve oturumların meşruiyetini tanırlar.</p>
+<p>Proxy güvenlik duvarları (<strong>Proxy firewalls</strong>) uygulama katmanına kadar işlem yaptıkları için uygulama düzeyinde güvenlik duvarları olarak da adlandırılırlar. Belirli uygulamaları tanırlar ve istenmeyen bir protokolün standart olmayan bir bağlantı noktası kullanıp kullanmadığını veya bir uygulama katmanı protokolünün kötüye kullanılıp kullanılmadığını tespit edebilirler. Dahili ağdan genel internete proxy bağlantıları için birincil ağ geçitleri olarak hizmet vererek dahili bir ağı korurlar. Analizin doğası gereği ağ performansı üzerinde bir miktar etkiye sahip olabilirler.</p>
+<p>Güvenlik duvarları genel bir savunma stratejisinin temel unsurlarıdır ancak sadece çevreyi korumaları gibi bir dezavantajları vardır. Eğer bir saldırganın çevreyi aşmak için bir yolu varsa işe yaramazlar. Ayrıca özel bir ağdan kaynaklanan içeriden gelen tehditlere karşı da işe yaramazlar.</p>
+<h4 id="5--antivirus-and-antispyware-tools">
+  5- Antivirus and Antispyware Tools
+  <a class="heading-link" href="#5--antivirus-and-antispyware-tools">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Zararlı yazılımların çoğalması antivirüs yazılımına ihtiyaç duyulmasına neden olmaktadır. Antivirüs yazılımı kötü amaçlı yazılımın varlığını tespit etmek, doğasını tanımlamak, zararlı yazılımı kaldırmak (bilgisayarı dezenfekte etmek) ve bir bilgisayarı gelecekteki enfeksiyonlardan korumak için geliştirilmiştir. Algılama ideal olarak yanlış pozitifleri (yanlış alarmlar) ve yanlış negatifleri (gözden kaçan zararlı yazılımlar) aynı anda en aza indirmelidir. Antivirüs yazılımı bir dizi zorlukla karşı karşıyadır:</p>
+<ul>
+<li>Zararlı yazılım taktikleri karmaşıktır ve sürekli gelişmektedir.</li>
+<li>Virüs bulaşmış bilgisayarlardaki işletim sistemine bile güvenilemez.</li>
+<li>Zararlı yazılımlar dosyaları etkilemeden tamamen bellekte bulunabilir.</li>
+<li>Zararlı yazılımlar antivirüs işlemlerine saldırabilir.</li>
+<li>Antivirüs yazılımının işlem yükü, kullanıcıların rahatsız olup antivirüs yazılımını kapatmasına neden olacak şekilde bilgisayar performansını düşüremez.</li>
+</ul>
+<p>Antivirüs yazılımı tarafından gerçekleştirilen en basit görevlerden biri dosya taramasıdır. Bu işlem, dosyalardaki baytları, bilinen bir zararlı yazılımın göstergesi olan bayt desenleri olan bilinen imzalarla karşılaştırır. İmza tabanlı(<strong>signature-based</strong>) tespitin genel yaklaşımını temsil eder. Yeni zararlı yazılım yakalandığında, bir imzada tanımlanabilecek benzersiz özellikler açısından analiz edilir. Yeni imza antivirüs programlarına güncelleme olarak dağıtılır. Antivirüs, dosya taraması sırasında imzayı arar ve bir eşleşme bulunursa, imza zararlı yazılımı özel olarak tanımlar. Ancak bu yöntemin önemli dezavantajları vardır: Yeni imzaların geliştirilmesi ve test edilmesi zaman alır; kullanıcıların imza dosyalarını güncel tutmaları gerekir; ve bilinen bir imzası olmayan yeni zararlı yazılımlar tespit edilemeyebilir.</p>
+<p>Davranış tabanlı(<strong>behavior-based</strong>) tespit tamamlayıcı bir yaklaşımdır. Davranış tabanlı tespit, zararlı yazılımın ne olduğunu ele almak yerine, zararlı yazılımın ne yapmaya çalıştığına bakar. Başka bir deyişle, riskli bir eyleme kalkışan her şey şüphe altında kalacaktır. Bu yaklaşım imza tabanlı tespitin sınırlamalarının üstesinden gelir ve yeni zararlı yazılımları imza olmadan, sadece davranışlarından yola çıkarak bulabilir. Ancak bu yaklaşım pratikte zor olabilir. İlk olarak, şüpheli davranışın ne olduğunu ya da tersine normal davranışın ne olduğunu tanımlamamız gerekir. Bu tanım genellikle güvenlik uzmanları tarafından geliştirilen sezgisel kurallara dayanır, çünkü normal davranışı kesin olarak tanımlamak zordur. İkinci olarak, şüpheli davranışı ayırt etmek mümkün olabilir, ancak kötü niyetli davranışı belirlemek çok daha zordur, çünkü kötü niyetin çıkarılması gerekir. Davranış tabanlı tespit şüpheli davranışları işaretlediğinde, tehdit riskini daha iyi anlamak için genellikle daha fazla takip araştırması gerekir.</p>
+<p>Zararlı yazılımların görünümlerini değiştirme veya gizleme yeteneği, dosya taramasını yenebilir. Ancak, biçimi ne olursa olsun, zararlı yazılım nihayetinde görevini yerine getirmelidir. Bu nedenle, zararlı yazılıma çalışma şansı verilirse davranışından tespit etme fırsatı her zaman ortaya çıkacaktır. Antivirüs yazılımı, bilgisayar için tehdit oluşturabilecek eylemleri aramak için sabit disk erişimi gibi sistem olaylarını izleyecektir. Olaylar, işletim sistemi işlevlerine yapılan çağrıları yakalayarak izlenir.</p>
+<p>Sistem olaylarını izlemek dosya taramanın ötesinde bir adım olsa da, zararlı programlar bilgisayar yürütme ortamında çalışır ve bilgisayar için risk oluşturabilir. Emülasyon fikri, şüpheli kodu izole bir ortamda çalıştırmak, bilgisayar kaynaklarının görünümünü koda sunmak ve zararlı yazılımın belirtisi olan eylemleri aramaktır.</p>
+<p>Sanallaştırma, emülasyonu bir adım öteye taşır ve şüpheli kodu gerçek bir işletim sistemi içinde yürütür. Bir dizi sanal işletim sistemi ana bilgisayar işletim sisteminin üzerinde çalışabilir. Zararlı yazılımlar sanal bir işletim sistemini bozabilir, ancak güvenlik nedenleriyle sanal bir işletim sisteminin bilgisayar işletim sistemine sınırlı erişimi vardır. Bir “<strong>sandbox</strong>”, belirli bir eylem talep edilmediği ve izin verilmediği sürece sanal ortamı bilgisayar ortamına müdahaleden izole eder. Buna karşılık, emülasyon şüpheli koda bir işletim sistemi sunmaz; kodun adım adım çalışmasına izin verilir, ancak kontrollü ve kısıtlı bir şekilde, sadece ne yapmaya çalışacağını keşfetmek için.</p>
+<p>Casus yazılım önleme yazılımı, antivirüs yazılımının özel bir sınıfı olarak görülebilir. Geleneksel virüslerden biraz farklı olarak, casus yazılımlar sabit disk ve sistem dosyalarında çok sayıda değişiklik yapma konusunda özellikle zararlı olabilir. Virüs bulaşmış sistemler, muhtemelen belirli çerezler (Web siteleri tarafından hafızada tutmak amacıyla tarayıcıya yerleştirilen metin parçaları) de dahil olmak üzere çok sayıda yüklü casus yazılım programına sahip olma eğilimindedir.</p>
+<h4 id="6--spam-filtreleme">
+  6- Spam Filtreleme
+  <a class="heading-link" href="#6--spam-filtreleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Her İnternet kullanıcısı spam e-postaya aşinadır. Spam’in tam bir tanımı üzerinde fikir birliği yoktur, ancak çoğu kişi spam’ın istenmeyen, toplu olarak gönderilen ve ticari nitelikte olduğu konusunda hemfikirdir. Ayrıca e-postaların büyük çoğunluğunun spam olduğu konusunda da fikir birliği vardır. Spam bir sorun olmaya devam etmektedir çünkü alıcıların küçük bir kısmı bu mesajlara yanıt vermektedir. Bu oran küçük olsa da, elde edilen gelir spam’i karlı hale getirmek için yeterlidir çünkü spam’i toplu olarak göndermenin maliyeti düşüktür. Özellikle büyük bir botnet hızlı bir şekilde muazzam miktarda spam üretebilir.</p>
+<p>Yahoo! ve Hotmail gibi popüler Webmail hizmetlerinin kullanıcıları spam için cazip hedeflerdir çünkü adreslerinin tahmin edilmesi kolay olabilir. Buna ek olarak, spam gönderenler e-posta adreslerini çeşitli kaynaklardan toplarlar: Web siteleri, haber grupları, çevrimiçi dizinler, veri çalan virüsler vb. Spam gönderenler ayrıca müşteri bilgilerini satmak isteyen şirketlerden adres listeleri de satın alabilirler.</p>
+<p>Spam, kullanıcılar için bir rahatsızlık ve ağ kaynaklarının israfından daha fazlasıdır. Spam, zararlı yazılımları dağıtmak ve zararlı Web sitelerine yönlendirmek için popüler bir araçtır. Kimlik avı saldırılarının ilk adımıdır.</p>
+<p>Spam filtreleri kurumsal düzeyde ve kişisel düzeyde çalışır. Kurumsal düzeyde, e-posta ağ geçitleri gelen iletileri zararlı yazılımlara karşı tarayarak ve şüpheli veya sahte gönderenlerden gelen iletileri engelleyerek tüm bir kuruluşu koruyabilir. Kurumsal düzeydeki bir endişe, spam sanılan meşru mesajlar olan yanlış pozitiflerin oranıdır. Meşru postaları engellenen kullanıcılar üzülebilir. Neyse ki spam filtreleri genellikle özelleştirilebilir ve yanlış pozitiflerin oranı çok düşük hale getirilebilir. Kişisel düzeyde ek spam filtreleme, bireysel tercihleri hesaba katmak için filtrelemeyi daha da özelleştirebilir.</p>
+<h4 id="7--honeypots">
+  7- Honeypots
+  <a class="heading-link" href="#7--honeypots">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir bal küpünün(honeypots) temel fikri, görünüşte savunmasız bir bilgisayara saldırıları çekerek saldırgan teknikleri hakkında bilgi edinmektir. Esasen bir savunma hattından ziyade bir adli tıp aracıdır. Bir bal küpü, başka yerlerde kullanılan saldırı yöntemleri veya gerçekleşmeden önce yakın saldırılar hakkında değerli bilgiler edinmek için kullanılabilir. Bal küpleri araştırma ve üretim ortamlarında rutin olarak kullanılmaktadır.</p>
+<p>Bir bal küpünün normal bir bilgisayardan daha özel gereksinimleri vardır. İlk olarak, bir bal küpü meşru hizmetler veya trafik için kullanılmamalıdır. Sonuç olarak, bal küpü tarafından görülen her faaliyet gayrimeşru olacaktır. Örneğin, bal küpleri IDS’lere kıyasla genellikle az veri kaydetse de, IDS verilerinin büyük kısmı güvenlik açısından genellikle ilgi çekici değilken, verilerinde çok az “gürültü” vardır.</p>
+<p>İkinci olarak, bir bal küpü tüm faaliyetleri izlemek ve kaydetmek için kapsamlı ve güvenilir yeteneklere sahip olmalıdır. Bir bal küpünün adli değeri, saldırılar hakkında yakalayabileceği ayrıntılı bilgilere bağlıdır.</p>
+<p>Üçüncü olarak, bir bal küpü gerçek ağdan izole edilmelidir. Bal küplerinin saldırıları cezbetmesi amaçlandığından, bal küpünün ele geçirilmesi ve ağdaki daha fazla bilgisayara saldırmak için bir fırlatma rampası olarak kullanılması gibi gerçek bir risk vardır.</p>
+<p>Honeypot’lar genellikle etkileşim düzeylerine göre düşükten yükseğe doğru sınıflandırılır. Honeyd gibi düşük etkileşimli balküpleri basit hizmetler sunar. Bir saldırgan balküpünü tehlikeye atmayı deneyebilir ancak elde edeceği fazla bir şey olmaz. Etkileşimlerin sınırlı olması, saldırganın bilgisayarın bir bal küpü olduğunu keşfetmesi riskini doğurur. Aralığın diğer ucunda, yüksek etkileşimli bal küpleri daha çok gerçek sistemler gibi davranır. Bir saldırganla etkileşime girmek ve etkinlikleri kaydetmek için daha fazla yeteneğe sahiptirler, ancak ele geçirildiklerinde daha fazla kazanç sağlarlar.</p>
+<h4 id="8--ağ-erişim-kontrolü-nacnetwork-accesscontrol">
+  8- Ağ Erişim Kontrolü (NAC — Network Access Control)
+  <a class="heading-link" href="#8--a%c4%9f-eri%c5%9fim-kontrol%c3%bc-nacnetwork-accesscontrol">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Savunmasız bir bilgisayar yalnızca kendisini değil tüm topluluğu riske atabilir. Öncelikle, savunmasız bir bilgisayar saldırıları üzerine çekebilir. Ele geçirilirse, ana bilgisayar diğer ana bilgisayarlara saldırı düzenlemek için kullanılabilir. Ele geçirilen bilgisayar saldırgana bilgi verebilir ya da bilgisayarlar arasında saldırgana yardımcı olabilecek güven ilişkileri olabilir. Her durumda, ağınızda zayıf korumalı bir bilgisayar olması istenmez.</p>
+<p><img src="/images/1_dJpeXIwbTsTpQForJQxrlw.png" alt=""></p>
+<p>Network Access Control</p>
+<p>Ağ erişim kontrolünün (NAC) genel fikri, bilgisayar güçlü bir güvenlik duruşu kanıtı sağlayamadığı sürece bir ana bilgisayarın bir ağa erişimini kısıtlamaktır. NAC süreci Şekilde gösterildiği gibi bilgisayarı, ağı (genellikle yönlendiriciler veya anahtarlar ve sunucular) ve bir güvenlik politikasını içerir.</p>
+<p>Bazı uygulamalarda, bir yazılım aracısı bilgisayarda çalışır, bilgisayarın güvenlik duruşu hakkında bilgi toplar ve bunu ağa kabul talebinin bir parçası olarak ağa bildirir. Ağ, bir kabul kararı vermek üzere ana bilgisayarın güvenlik duruşunu güvenlik politikasıyla karşılaştırmak için bir politika sunucusuna başvurur.</p>
+<p>Kabul kararı, retten kısmi kabule veya tam kabule kadar herhangi bir şey olabilir. Reddetme güncel olmayan antivirüs yazılımı, yama gerektiren bir işletim sistemi veya güvenlik duvarı yanlış yapılandırması nedeniyle gerçekleşebilir. Reddedilme, karantinaya (izole bir ağa yönlendirme) veya zorunlu düzeltmeye yol açabilir</p>
+<h3 id="izleme-ve-tespitreaktifyaklaşım">
+  İzleme ve Tespit — Reaktif Yaklaşım
+  <a class="heading-link" href="#izleme-ve-tespitreaktifyakla%c5%9f%c4%b1m">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Önleyici tedbirler, reaktif yaklaşım, gereklidir ve saldırı riskini azaltmaya yardımcı olur, ancak tüm saldırıları önlemek pratikte imkansızdır. Hırsız alarmına benzer şekilde, kötü niyetli faaliyetleri tespit etmek ve teşhis etmek için izinsiz giriş tespiti de gereklidir. İzinsiz giriş tespiti esasen izleme, analiz ve yanıtın bir kombinasyonudur. Tipik olarak bir IDS, insan arayüzü ve görüntüleme için bir konsolu destekler. İzleme ve analiz genellikle pasif teknikler olarak görülür çünkü devam eden faaliyetlere müdahale etmezler. Tipik IDS yanıtı, daha fazla araştırmayı sürdürmeyi veya sürdürmemeyi seçebilecek sistem yöneticilerine bir uyarıdır. Başka bir deyişle, geleneksel IDS’ler, güvenlik olaylarının takip için insan uzmanlığına ve yargısına ihtiyaç duyduğu varsayımı altında, uyarıların ötesinde fazla yanıt sunmazlar.</p>
+<p>IDS yaklaşımları en az iki şekilde kategorize edilebilir. Bir yol, algılamanın nerede yapıldığına bağlı olarak ana bilgisayar tabanlı ve ağ tabanlı IDS’leri ayırt etmektir. Bilgisayar tabanlı(Host-Based) bir IDS tek bir bilgisayarı izlerken, ağ tabanlı(Network-Based) bir IDS ağ paketleri üzerinde çalışır. IDS’leri görmenin bir başka yolu da analiz yaklaşımlarıdır. Geleneksel olarak, iki analiz yaklaşımı kötüye kullanım (imza tabanlı) tespiti ve anomali (davranış tabanlı) tespitidir.</p>
+<p><img src="/images/1_Sy2rKhp9DU3_9_5GeiFI0w.png" alt=""></p>
+<p>Yanlış kullanım tespiti ve anomali tespiti</p>
+<p>Şekilde gösterildiği gibi, bu iki görüş birbirini tamamlayıcı niteliktedir ve genellikle birlikte kullanılır.</p>
+<p>Uygulamada, izinsiz giriş tespiti birkaç zorlukla karşı karşıyadır: imza tabanlı tespit yalnızca bilinen bir imzayla eşleşen olayları tanıyabilir; davranış tabanlı tespit normal davranışın anlaşılmasına dayanır, ancak “normal” büyük ölçüde değişebilir. Saldırganlar zeki ve kaçamaktır; saldırganlar IDS’yi parçalanmış, şifrelenmiş, tünellenmiş veya önemsiz paketlerle karıştırmaya çalışabilir; bir IDS bir olaya gerçek zamanlı olarak veya bir saldırıyı durduracak kadar hızlı tepki vermeyebilir; ve olaylar herhangi bir zamanda herhangi bir yerde meydana gelebilir, bu da çoklu dağıtılmış sensörlerin korelasyonu ile sürekli ve kapsamlı izleme gerektirir.</p>
+<h4 id="1--bilgisayar-tabanlı-izleme-host-based-monitoring">
+  1- Bilgisayar Tabanlı İzleme (Host-Based Monitoring)
+  <a class="heading-link" href="#1--bilgisayar-tabanl%c4%b1-izleme-host-based-monitoring">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bilgisayar tabanlı IDS bir bilgisayarda çalışır ve şüpheli davranış belirtileri için sistem etkinliklerini izler. Örnekler, sistem Kayıt Defteri’ndeki değişiklikler, tekrarlanan başarısız oturum açma girişimleri veya bir arka kapının yüklenmesi olabilir. Ana bilgisayar tabanlı IDS’ler genellikle sistem nesnelerini, süreçleri ve bellek bölgelerini izler. Her sistem nesnesi için, IDS genellikle değişiklikleri tanımak için izinler, boyut, değişiklik tarihleri ve karma içerikler gibi öznitelikleri takip eder.</p>
+<p>Bilgisayar tabanlı bir IDS için bir endişe, bir saldırgan tarafından olası kurcalamadır. Bir saldırgan bir sistemin kontrolünü ele geçirirse, IDS’ye güvenilemez. Bu nedenle, IDS’nin kurcalanmaya karşı özel koruması bir bilgisayarda tasarlanmalıdır.</p>
+<p>Bilgisayar tabanlı bir IDS tek başına tam bir çözüm değildir. Bilgisayarı izlemek mantıklı olsa da, üç önemli dezavantajı vardır: görünürlük tek bir bilgisayarla sınırlıdır; IDS süreci kaynakları tüketir, muhtemelen bilgisayardaki performansı etkiler; ve saldırılar bilgisayara ulaşana kadar görülmeyecektir. Bilgisayar tabanlı ve ağ tabanlı IDS genellikle güçlü yönleri birleştirmek için birlikte kullanılır.</p>
+<h4 id="2--ağ-tabanlı-izleme-network-basedtraffic-monitoring">
+  2- Ağ Tabanlı İzleme (Network-Based/Traffic Monitoring)
+  <a class="heading-link" href="#2--a%c4%9f-tabanl%c4%b1-izleme-network-basedtraffic-monitoring">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Ağ tabanlı IDS’ler genellikle ağ paketlerini keşif, istismar, DoS saldırıları ve kötü amaçlı yazılım belirtileri için izler. Ana bilgisayar tabanlı IDS’leri tamamlayan güçlü yönleri vardır: ağ tabanlı IDS’ler bir ana bilgisayar popülasyonunun trafiğini görebilir; birden fazla ana bilgisayar tarafından paylaşılan kalıpları tanıyabilir; ve saldırıları ana bilgisayarlara ulaşmadan önce görme potansiyeline sahiptirler.</p>
+<p><img src="/images/1_Hpz_IDGuT1fn2cEHAG4EWg.png" alt=""></p>
+<p>Çeşitli ağ bölgelerini izleyen IDS’ler.</p>
+<p>IDS’ler Şekilde gösterildiği gibi farklı görünümler için çeşitli konumlara yerleştirilir. Güvenlik duvarının dışındaki bir IDS, İnternet’teki kötü niyetli faaliyetler hakkında bilgi edinmek için kullanışlıdır. DMZ’deki bir IDS, dış güvenlik duvarından geçerek genel sunuculara ulaşabilen İnternet kaynaklı saldırıları görecektir. Son olarak, özel ağdaki bir IDS, çevre güvenliğini başarıyla aşabilen saldırıları tespit etmek için gereklidir.</p>
+<h4 id="3-saldırı-önleme-sistemleri-ips">
+  3-Saldırı Önleme Sistemleri (IPS)
+  <a class="heading-link" href="#3-sald%c4%b1r%c4%b1-%c3%b6nleme-sistemleri-ips">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>IDS’ler pasif tekniklerdir. Genellikle sistem yöneticisine daha fazla araştırma yapması ve uygun eylemi gerçekleştirmesi için bildirimde bulunurlar. Sistem yöneticisi meşgulse veya olayın araştırılması zaman alıyorsa yanıt yavaş olabilir.</p>
+<p>Saldırı önleme sistemi (IPS) olarak adlandırılan bir varyasyon, bir IDS’nin geleneksel izleme ve analiz işlevlerini, bir saldırıyı engellemek için güvenlik duvarlarını otomatik olarak yeniden yapılandırmak gibi daha aktif otomatik yanıtlarla birleştirmeye çalışır. Bir IPS, insanların başarabileceğinden daha hızlı bir yanıt vermeyi amaçlar, ancak doğruluğu geleneksel IDS ile aynı tekniklere bağlıdır. Yanıt meşru trafiğe zarar vermemelidir, bu nedenle doğruluk kritik öneme sahiptir.</p>
+<h4 id="4--reaktifönlemler">
+  4- Reaktif Önlemler
+  <a class="heading-link" href="#4--reaktif%c3%b6nlemler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir saldırı tespit edilip analiz edildiğinde, sistem yöneticilerinin saldırıya uygun bir yanıt vermesi gerekir. Güvenlikteki ilkelerden biri, yanıtın tehditle orantılı olması gerektiğidir. Açıkçası, yanıt koşullara bağlı olacaktır, ancak çeşitli seçenekler mevcuttur. Genel olarak, kötü niyetli trafiği engellemek, yavaşlatmak, değiştirmek ya da yönlendirmek mümkündür. Her olası yanıtı tanımlamak mümkün değildir. Burada yalnızca iki yanıtı açıklayacağız: karantina ve geri izleme.</p>
+<ul>
+<li><strong>Karantina</strong>: Bilgisayar güvenliğinde dinamik karantina, bulaşıcı hastalıklar için karantinaya benzer. Özellikle zararlı yazılım bağlamında, virüslü bir bilgisayarın diğer bilgisayarlara bulaşmasını önlemek uygun bir yanıttır.</li>
+<li><strong>Geri İzleme</strong>: Bir saldırının kritik yönlerinden biri, failin kimliği veya konumudur. Ne yazık ki, IP ağlarında bir saldırganın bulunması neredeyse imkansızdır çünkü: 
+<ul>
+<li>IP paketlerindeki kaynak adresi kolayca taklit edilebilir (sahte)</li>
+<li>Yönlendiriciler tasarımları gereği iletilen paketlerin kaydını tutmazlar.</li>
+<li>Saldırganlar saldırılarını gerçekleştirmek için bir dizi aracı bilgisayar (zombiler olarak adlandırılır) kullanabilir.</li>
+</ul>
+</li>
+</ul>
+<p>Aracılar genellikle bir açık veya kötü amaçlı yazılım tarafından ele geçirilen ve saldırganın kontrolüne verilen masum bilgisayarlardır. Pratikte, bir saldırıyı en yakın aracıya kadar takip etmek mümkün olabilir, ancak bir saldırıyı gerçek saldırgana kadar takip etmeyi beklemek çok fazla olabilir.</p>
+<h3 id="defense-indepth">
+  Defense in Depth
+  <a class="heading-link" href="#defense-indepth">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>katmanları şöyle özetleyebiliriz:</p>
+<ul>
+<li><strong>Network Protection</strong>: Firewalls, IPS/IDS, NDR. NAC</li>
+<li><strong>Application Protection</strong>: WAF, Application Logs, Updates</li>
+<li><strong>Endpoint Protection</strong>: Antivirus/Antimalware, Antiphishing/Mail Security, EPP, EDR, syslog/eventlog, Patching</li>
+<li><strong>Data Protection</strong>: DLP, ACL</li>
+</ul>
+<p>Hepsini toplayan bir de SIEM.</p>
+<h3 id="sonuç">
+  Sonuç
+  <a class="heading-link" href="#sonu%c3%a7">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Ağ izinsiz girişlerine karşı korunmak için, istismarlardan(exploit) zararlı yazılımlara ve sosyal mühendisliğe kadar çeşitli saldırıları anlamalıyız. Doğrudan saldırılar yaygındır, ancak kurbanları kötü niyetli bir Web sitesine çekmek için yemlere dayanan bir oltalama saldırıları sınıfı ortaya çıkmıştır. Oltalama saldırılarını ortaya çıkarmak ve bir şekilde bunlara karşı savunma yapmak çok daha zordur. Hemen hemen herkes mağdur olabilir.</p>
+<p>Bilgisayarları güçlendirmek ve maruz kaldıkları riskleri azaltmak için çok şey yapılabilir, ancak bazı saldırılar kaçınılmazdır. Derinlemesine savunma, savunma katmanlarını birleştiren en pratik savunma stratejisidir. Her savunma katmanı kusurlu olsa da, davetsiz misafirler için maliyetin üstesinden gelmek daha zor hale gelir.</p>
+<h3 id="kaynakça">
+  Kaynakça
+  <a class="heading-link" href="#kaynak%c3%a7a">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>John R. Vacca — Network and System Security-Syngress (2010)</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

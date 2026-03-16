@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Asenkron Programlama · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Asenkron Programlama
+  
+    
+    Başlık Linki
+  
+
+
+Bu yazımda, birçoğumuzun anlamakta zorlandığı asenkron programlama konusunu anlatmaya çalışacağım. Python dilinde async-await yapılarıyla bilinen bu programlama türü nedir? Ne işe yarar? Nasıl kullanılır? Hep beraber bakalım.
+
+  Asenkron programlama nedir?
+  
+    
+    Başlık Linki
+  
+
+Asenkron programlama, bir uygulamada ana akışta meydana gelebilecek gecikmelerde akışın bloklanmamasını ve devam etmesini sağlayan programlama türüdür. Bu yüzden bloklanmayan kod diyoruz.
+Senkron(sıralı) programlamada bir işlem sonuçlanmadan diğer bir işleme başlanamaz. Asenkron programlamada ise bir işlem sonuçlanmadan diğer bir işlem başlayabilir. Bu bizi özellikle yüksek bekleme sürelerinin olduğu API işlemlerinde, programımızın bloke olmasından kurtarır.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Asenkron Programlama">
+  <meta name="twitter:description" content="Asenkron ProgramlamaBaşlık LinkiBu yazımda, birçoğumuzun anlamakta zorlandığı asenkron programlama konusunu anlatmaya çalışacağım. Python dilinde async-await yapılarıyla bilinen bu programlama türü nedir? Ne işe yarar? Nasıl kullanılır? Hep beraber bakalım.
+Asenkron programlama nedir?Başlık LinkiAsenkron programlama, bir uygulamada ana akışta meydana gelebilecek gecikmelerde akışın bloklanmamasını ve devam etmesini sağlayan programlama türüdür. Bu yüzden bloklanmayan kod diyoruz.
+Senkron(sıralı) programlamada bir işlem sonuçlanmadan diğer bir işleme başlanamaz. Asenkron programlamada ise bir işlem sonuçlanmadan diğer bir işlem başlayabilir. Bu bizi özellikle yüksek bekleme sürelerinin olduğu API işlemlerinde, programımızın bloke olmasından kurtarır.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2021-07-01-asenkron-programlama/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Asenkron Programlama">
+  <meta property="og:description" content="Asenkron ProgramlamaBaşlık LinkiBu yazımda, birçoğumuzun anlamakta zorlandığı asenkron programlama konusunu anlatmaya çalışacağım. Python dilinde async-await yapılarıyla bilinen bu programlama türü nedir? Ne işe yarar? Nasıl kullanılır? Hep beraber bakalım.
+Asenkron programlama nedir?Başlık LinkiAsenkron programlama, bir uygulamada ana akışta meydana gelebilecek gecikmelerde akışın bloklanmamasını ve devam etmesini sağlayan programlama türüdür. Bu yüzden bloklanmayan kod diyoruz.
+Senkron(sıralı) programlamada bir işlem sonuçlanmadan diğer bir işleme başlanamaz. Asenkron programlamada ise bir işlem sonuçlanmadan diğer bir işlem başlayabilir. Bu bizi özellikle yüksek bekleme sürelerinin olduğu API işlemlerinde, programımızın bloke olmasından kurtarır.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-07-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-07-01T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2021-07-01-asenkron-programlama/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2021-07-01-asenkron-programlama/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2021-07-01-asenkron-programlama/">
+              Asenkron Programlama
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2021-07-01T00:00:00Z">
+                Temmuz 1, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="asenkron-programlama">
+  Asenkron Programlama
+  <a class="heading-link" href="#asenkron-programlama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/0_DH7q_354Ghtgzp3H.jpg" alt=""></p>
+<p>Bu yazımda, birçoğumuzun anlamakta zorlandığı asenkron programlama konusunu anlatmaya çalışacağım. Python dilinde async-await yapılarıyla bilinen bu programlama türü nedir? Ne işe yarar? Nasıl kullanılır? Hep beraber bakalım.</p>
+<h3 id="asenkron-programlama-nedir">
+  Asenkron programlama nedir?
+  <a class="heading-link" href="#asenkron-programlama-nedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Asenkron programlama, bir uygulamada ana akışta meydana gelebilecek gecikmelerde akışın bloklanmamasını ve devam etmesini sağlayan programlama türüdür. Bu yüzden bloklanmayan kod diyoruz.<br>
+Senkron(sıralı) programlamada bir işlem sonuçlanmadan diğer bir işleme başlanamaz. Asenkron programlamada ise bir işlem sonuçlanmadan diğer bir işlem başlayabilir. Bu bizi özellikle yüksek bekleme sürelerinin olduğu API işlemlerinde, programımızın bloke olmasından kurtarır.</p>
+<h3 id="senkron-ve-asenkron-arasındaki-fark">
+  Senkron ve Asenkron arasındaki fark
+  <a class="heading-link" href="#senkron-ve-asenkron-aras%c4%b1ndaki-fark">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Senkron(synchronous ) yani eşzamanlı programlama, işlemleri sırayla yaptırdığımız programlama türüdür. Bir işlem bitmeden diğerine geçilmez veya sırada olan işlem atlanmaz.</p>
+<p>Asenkron(asynchronous ) yani eşzamansız programlama ise birden çok işlemin aynı anda yürütülmesi prensibiyle çalışır. İşlemler herhangi bir sıraya alınmadan, diğer işlemlerden bağımsız şekilde yürütülür.</p>
+<p><img src="/images/0_1mtD1Dvr0zhe2FMH.png" alt=""></p>
+<p>API, veritabanı gibi sistemlere aynı anda birden çok işlemin erişmesi sorunlar yaratabilir. Örneğin, veritabanında iki işlem aynı veriyi aynı anda güncellemeye çalışabilir. Bunun sonucunda, hatalar ortaya çıkabilir. Bu yüzden API ve veritabanı erişimlerinde işlemler kuyruğa alınır yani <strong>senkronize</strong> edilir.</p>
+<p>Senkron yazılmış bir masaüstü uygulamasında veya bir mobile uygulamada, bir butona basıldığında uzun işlemler yapılacaksa, işlem bitene kadar program bloke olur. Bu yüzden butona basılınca yapılacak işlemler <strong>asenkronize</strong> edilir, farklı akışlarda( thread) yürütülür. Bunun sayesinde, program arka planda işlemleri yaparken bloke olmaz, diğer butonlar da çalışabilir.</p>
+<p>Program yürütülürken senkron ve asenkron işlemlerin işlemciye iletilmesi, bellekte tutulması gibi işlemleri işletim sistemi yönetir. İşletim sisteminin bu işlemleri nasıl yürüttüğü detayına girmeyeceğim. Asenkron programlama sayesinde işlemci http protokolüyle bir I/O işlemi yaptığında bloklanmaz, halletmesi gereken işleri yapmaya devam eder.</p>
+<h3 id="api-ile-kullanımı">
+  API ile kullanımı
+  <a class="heading-link" href="#api-ile-kullan%c4%b1m%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Asenkron programlama API erişimlerinde çok sık kullanılır. Bu yazımda örnek olarak discord’un API’sine erişeceğim ve bu API ile işlemler yapacağım.</p>
+<p><img src="/images/0_nQM6utN7rsQyrkQG.png" alt=""></p>
+<p>Yukarıda ki python kodunda gördüğünüz gibi fonksiyonların başında “ <strong>async</strong> “ anahtar kelimesi var. Bu kelime fonksiyonu senkronize eder ki discord API’si de bunu zorunlu tutar. Bu kelimeyi yazmadığınız taktirde kodunuz çalışmaz. Peki bu senkronizasyon işlemi nedir?</p>
+<p>Senkronizasyon işlemi, asenkron işlemleri kuyruğa alır, yani işlemleri sıralar. Senkronize edilmiş bir fonksiyon çağırıldığında kuyruk yapısı oluşturulur. Fonksiyon çağırıları bu kuyruğa alınır ve sırayla yürütülür. API erişimlerinde işlemlerin kuyruğa alınması çok önemlidir, aynı anda birden çok işlemin API’ye erişmesi sorunlar doğurabilir.</p>
+<p>Peki, bizim yazdığımız program API’den cevap gelinceye kadar boş mu bekleyecek? Böyle olduğu taktirde, programımız bloke olur ve API’den cevap gelinceye kadar hiçbirşey yapamazdı. Bu noktada “ <strong>await</strong> “ anahtar kelimesi devreye giriyor. API’den gelen cevabı bekleyecek olan işlemlerin başına “await” anahtar kelimesini yazarız ki API’den cevap gelinceye kadar geçecek sürede programımız bloke olmasın, başka işlemleri yapmaya devam etsin.</p>
+<p><img src="/images/0_8LjK86AP9OU2d4QV.png" alt=""></p>
+<p>Eğer “await” anahtar kelimesi yazılmayıp, bu işlem senkron olarak yapılsaydı, programımız discord sunucusuna talebi gönderir, cevap alıncaya kadar bekler ve cevap alınca sıradaki yeni talebi gönderirdi. Asenkron yaptığımızda ise bir yandan sırayla talepler gönderilirken diğer yandan sırayla cevaplar alınıyor. Bu yönüyle, senkron işlemi tek yönlü bir yola, asenkron işlemi çift yönlü bir yola benzetebiliriz. Senkron işlemde yol tek şeritli ve tek yön olduğu için paket giderken karşıdan başka bir paket gelemiyor, asenkron işlemde ise çift yönlü yolda paketler birbirinden bağımsız olarak gidip gelebiliyor.</p>
+<p>Konunun anlaşılabilmesi için basit bir şekilde anlatmaya çalıştım, diyagramlarla ve kod örneğiyle destekledim. Umarım faydalı olmuştur. Okuduğunuz için teşekkür ederim.</p>
+<hr>
+<p><em>Originally published at</em> <a href="https://pwnlab.me/aseknron-programlama/"  class="external-link" target="_blank" rel="noopener"><em>https://pwnlab.me</em></a> <em>on July 1, 2021.</em></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

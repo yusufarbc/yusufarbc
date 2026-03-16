@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Google Dorks ve Google Hacking · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Google Dorks ve Google Hacking
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba, bu yazımda sizlere pasif bilgi toplamada çok işimize yarayan google dorksları tanıtacağım. Nasıl kullanıldığından bahsedeceğim. Ardından, bu dorklarla nasıl zafiyetler bulabileceğimizi ve neler elde edebileceğimizi anlatmaya çalışacağım.
+
+Google dork, google arama motoru ile yapacağımız aramalarda bizlere kolaylık sağlayan bazı parametreleri barındıran bir sistemdir. Bu parametreler, arayacak olduğumuz kelimelere yönelik filtreleme işlemi yapmamıza olanak sağlar. Bu sayede google’ın indexlediği milyarlarca site içerisinde aradığımız bilgiye kolaylıkla ulaşabiliriz. Bu sistem pasif bilgi toplama işlemlerinin vazgeçilmezidir.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Google Dorks ve Google Hacking">
+  <meta name="twitter:description" content="Google Dorks ve Google HackingBaşlık LinkiMerhaba, bu yazımda sizlere pasif bilgi toplamada çok işimize yarayan google dorksları tanıtacağım. Nasıl kullanıldığından bahsedeceğim. Ardından, bu dorklarla nasıl zafiyetler bulabileceğimizi ve neler elde edebileceğimizi anlatmaya çalışacağım.
+Google dork, google arama motoru ile yapacağımız aramalarda bizlere kolaylık sağlayan bazı parametreleri barındıran bir sistemdir. Bu parametreler, arayacak olduğumuz kelimelere yönelik filtreleme işlemi yapmamıza olanak sağlar. Bu sayede google’ın indexlediği milyarlarca site içerisinde aradığımız bilgiye kolaylıkla ulaşabiliriz. Bu sistem pasif bilgi toplama işlemlerinin vazgeçilmezidir.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2021-10-19-google-dorks-ve-google-hacking/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Google Dorks ve Google Hacking">
+  <meta property="og:description" content="Google Dorks ve Google HackingBaşlık LinkiMerhaba, bu yazımda sizlere pasif bilgi toplamada çok işimize yarayan google dorksları tanıtacağım. Nasıl kullanıldığından bahsedeceğim. Ardından, bu dorklarla nasıl zafiyetler bulabileceğimizi ve neler elde edebileceğimizi anlatmaya çalışacağım.
+Google dork, google arama motoru ile yapacağımız aramalarda bizlere kolaylık sağlayan bazı parametreleri barındıran bir sistemdir. Bu parametreler, arayacak olduğumuz kelimelere yönelik filtreleme işlemi yapmamıza olanak sağlar. Bu sayede google’ın indexlediği milyarlarca site içerisinde aradığımız bilgiye kolaylıkla ulaşabiliriz. Bu sistem pasif bilgi toplama işlemlerinin vazgeçilmezidir.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-10-19T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-10-19T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2021-10-19-google-dorks-ve-google-hacking/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2021-10-19-google-dorks-ve-google-hacking/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2021-10-19-google-dorks-ve-google-hacking/">
+              Google Dorks ve Google Hacking
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2021-10-19T00:00:00Z">
+                Ekim 19, 2021
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              5 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="google-dorks-ve-googlehacking">
+  Google Dorks ve Google Hacking
+  <a class="heading-link" href="#google-dorks-ve-googlehacking">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*wiiHrCXFveGl4-e-" alt=""></p>
+<p>Merhaba, bu yazımda sizlere pasif bilgi toplamada çok işimize yarayan google dorksları tanıtacağım. Nasıl kullanıldığından bahsedeceğim. Ardından, bu dorklarla nasıl zafiyetler bulabileceğimizi ve neler elde edebileceğimizi anlatmaya çalışacağım.</p>
+<p><img src="/images/0_k0S1ZefFPj_ccZmA.jpg" alt=""></p>
+<p>Google dork, google arama motoru ile yapacağımız aramalarda bizlere kolaylık sağlayan bazı parametreleri barındıran bir sistemdir. Bu parametreler, arayacak olduğumuz kelimelere yönelik filtreleme işlemi yapmamıza olanak sağlar. Bu sayede google’ın indexlediği milyarlarca site içerisinde aradığımız bilgiye kolaylıkla ulaşabiliriz. Bu sistem pasif bilgi toplama işlemlerinin vazgeçilmezidir.</p>
+<hr>
+<h3 id="google-arama-parametreleri">
+  Google Arama Parametreleri
+  <a class="heading-link" href="#google-arama-parametreleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Google üzerinde arama yaparken, belli parametreler kullanarak aramamızı detaylandırabiliriz. Bu parametrelere ve ne işe yaradığına hep beraber bakalım…</p>
+<p>Sayfa metninde arama yapmak için kullanılır.</p>
+<p>Örnek:</p>
+<pre tabindex="0"><code>intext:Provided by ProjectSend
+</code></pre><p>Sayfa başlığında arama yapmak için kullanılır.</p>
+<p>Örnek:</p>
+<pre tabindex="0"><code>intitle:&#34;index of backup.php&#34;
+</code></pre><p>URL içinde arama yapmak için kullanılır.</p>
+<p>Örnek:</p>
+<pre tabindex="0"><code>inurl:&#34;admin-login.php&#34;
+</code></pre><h3 id="inposttitleallinposttitle">
+  inposttitle/allinposttitle:
+  <a class="heading-link" href="#inposttitleallinposttitle">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Blog araştırmalarında, blog başlığında arama yapmak için kullanılır.</p>
+<p>Örnek:</p>
+<pre tabindex="0"><code>inposttitle:&#34;Google Dork&#34;
+</code></pre><p>Anahtar kelimeler üzerinde arama yapmak için kullanılır. Belirtilen anahtar kelimeye sahip siteleri popülerliğine gore sıralar.</p>
+<p>Örnek:</p>
+<pre tabindex="0"><code>inanchor:&#34;cyber security&#34;
+</code></pre><p>İstenilen dosya uzantısına sahip sonuçları bulmak için kullanılır.</p>
+<p>Örnek:</p>
+<pre tabindex="0"><code>filetype:log &#34;AUTHTOKEN&#34;
+</code></pre><p>Belirtilen sitenin önbelleğinde bulunan web sayfasının sürümünü gösterir.</p>
+<p>Örnek:</p>
+<pre tabindex="0"><code>cache:www.google.com
+</code></pre><p>Belirtilen sitede arama yapmak için kullanılr.</p>
+<p>Örnek:</p>
+<pre tabindex="0"><code>site:&#34;pwnlab.me&#34; &#34;Google Dorks&#34;
+</code></pre><p>Bilinen bir siteye benzer içeriğe sahip web sitelerini bulmak için kullanılır.</p>
+<p>Örnek:</p>
+<pre tabindex="0"><code>related:&#34;pwnlab.me&#34;
+</code></pre><p>Belli bir tarihten önceki veya sonraki sonuçları listelemek için kullanılır. before önce, after sonra anlamındadır.</p>
+<p>Örnek:</p>
+<pre tabindex="0"><code>allintext:password filetype:log after:2018 before:2021
+</code></pre><h3 id="google-arama-operatörleri">
+  Google Arama Operatörleri
+  <a class="heading-link" href="#google-arama-operat%c3%b6rleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Operatörler, dorkların yazımında parametreler ile kullanılan yardımcı karakterlerdir.</p>
+<p>Aradığınız kelime grubunun etrafında tırnak işaretleri kullanmak, standart arama ile elde edeceğiniz geniş sonuçlar yerine tam eşleme sonuçlarını bulmanıza yardımcı olacaktır.</p>
+<p>örnek</p>
+<pre tabindex="0"><code>&#34;open source intelligence&#34;
+</code></pre><p>Eksi operatörü, belirli kelimeleri içeren sonuçların gösterilmesinden kaçınmak için kullanılır.</p>
+<p>örnek</p>
+<pre tabindex="0"><code>site:facebook.* -site:facebook.com
+</code></pre><p>Artı operatörü, sözcükleri birleştirmek için kullanılır. Birden fazla belirli anahtar kullanan sayfaları algılamak için yararlıdır</p>
+<p>örnek</p>
+<pre tabindex="0"><code>site:facebook.com +site:facebook.*
+</code></pre><p>Yıldız operatörü, herhangi bir kelimeyle doldurulabilecek bir alanı temsil etmek için kullanılır. Yani arama sonucunda yıldız operatörünün olduğu yere farklı kelimeler gelebilir.</p>
+<p>örnek</p>
+<pre tabindex="0"><code>site:*.com
+</code></pre><p>Bu örnekte, ‘.com’ uzantısı ile biten bütün siteler listelenecektir.</p>
+<p>Belirtilen kelimenin eş anlamlılarını da aramak için kullanılır.</p>
+<p>örnek</p>
+<pre tabindex="0"><code>~set
+</code></pre><p>Örneğin, “~set” kelimesini sorgulamak, “set” kelimesinin eş anlamlısı olan “configure”, “collection” ve “change” gibi kelimeleri içeren sonuçları listeleyecektir.</p>
+<p>| ve OR operatörü türkçede “veya” mantıksal operatörüne karşılık gelir. İki koşuldan biri veya her ikisinin sağlandığı sonuçları listeler.</p>
+<p>örnek</p>
+<pre tabindex="0"><code>site:facebook.com | site:twitter.com
+</code></pre><p>&amp; operatörü ve AND operatörü türkçede “ve” mantıksal operatörüne karşılık gelir. İki koşuldan yalnızca her ikisininde sağladığı sonuçları listeler.</p>
+<p>örnek</p>
+<pre tabindex="0"><code>site:facebook.com &amp; site:twitter.com
+</code></pre><hr>
+<h3 id="google-hackingnedir">
+  Google Hacking Nedir?
+  <a class="heading-link" href="#google-hackingnedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/0_7xiNCg0pcIr744aB.png" alt=""></p>
+<p>Google hacking, internette web sayfalarının zafiyetli bir indexinin bulunmasında veya tüm sitelerde açık verileri arayıp bilgi toplanmasında kullanılan yöntemdir. Örneğin, bir google sorgusuyla, bir sitenin login page’ini bulabilr ve burada zafiyet taraması yapabiliriz. Yani, dorklarla yaptığımız sorguların, hacking işlemleri için kullanımına ‘Google Hacking’ diyebiliriz.</p>
+<h3 id="google-hacking-teknikleri">
+  Google Hacking Teknikleri
+  <a class="heading-link" href="#google-hacking-teknikleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Google Hacking tekniklerini kullanarak internette birçok farklı bilgiye ulaşabiliriz. Ne tür bilgilere, nasıl ulaşabiliriz hep beraber bakalım…</p>
+<h3 id="log-dosyaları">
+  Log dosyaları
+  <a class="heading-link" href="#log-dosyalar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Log dosyaları, herhangi bir web sitesinde hassas bilgilerin nasıl bulunabileceğinin mükemmel bir örneğidir.</p>
+<p>Google’ın indexlediği log dosyalarına erişmek için ,allintext ve filetype parametrelerinden yararlanabiliriz.</p>
+<pre tabindex="0"><code>allintext:username filetype:log
+</code></pre><p>Bu sorgu, internette google’ın indexlediği tüm log dosyalarının içinde “username” içeren sonuçları listeleyecektir.</p>
+<h3 id="güvenlik-açığı-bulunan-web-sunucuları">
+  Güvenlik açığı bulunan web sunucuları
+  <a class="heading-link" href="#g%c3%bcvenlik-a%c3%a7%c4%b1%c4%9f%c4%b1-bulunan-web-sunucular%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Google dorkları kullanarak belli güvenlik açıkları bulunan web sitelerini bulabiliriz. Bir web sitesinin URL’sinde “/proc/self/cwd/” ifadesinin geçmesi o sitede bir zafiyet olduğuna delildir.</p>
+<pre tabindex="0"><code>inurl:/proc/self/cwd
+</code></pre><p>Bu dork ile zafiyetli siteleri bulabiliriz, Aşağıdaki ekran görüntüsünde görebileceğiniz gibi, savunmasız sunucu sonuçları, açık dizinleriyle birlikte listelenecektir.</p>
+<h3 id="açık-ftp-sunucuları">
+  Açık FTP sunucuları
+  <a class="heading-link" href="#a%c3%a7%c4%b1k-ftp-sunucular%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Google, yalnızca HTTP tabanlı sunucuları indekslemekle kalmaz, aynı zamanda açık FTP sunucularını da indeksler.</p>
+<p>Aşağıdaki dork ile, genel FTP sunucularını bulabiliriz.</p>
+<pre tabindex="0"><code>intitle:&#34;index of&#34; inurl:ftp
+</code></pre><h3 id="env-dosyaları">
+  ENV dosyaları
+  <a class="heading-link" href="#env-dosyalar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>.env dosyaları, web geliştirme ortamlarında genel yapılandırmaları bildirmek için kullanılmaktadır. Önerilen uygulamalardan biri, bu .env dosyalarını herkesin erişemeyeceği bir yere taşımaktır. Ancak, bunu umursamayan ve .env dosyalarını web sitesi dizinine ekleyen birçok geliştirici var.</p>
+<pre tabindex="0"><code>intitle.index of .env
+</code></pre><p>Kullanıcı adlarının, şifrelerin ve IP’lerin doğrudan arama sonuçlarında gösterildiğini fark edeceksiniz.</p>
+<h3 id="ssh-özel-anahtarları">
+  SSH özel anahtarları
+  <a class="heading-link" href="#ssh-%c3%b6zel-anahtarlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SSH özel anahtarları, SSH protokolünde gelen-giden bilgilerin şifresini çözmek için kullanılır. Genel bir güvenlik kuralı olarak, özel anahtarlar(private keys), uzak SSH sunucusuna erişmek için kullanılan sistemde kalmalı ve kimseyle paylaşılmamalıdır.</p>
+<p>Aşağıdaki dork ile, Google amca tarafından indexlenen SSH private keyleri bulabileceksiniz.</p>
+<pre tabindex="0"><code>intitle:index.of id_rsa -id_rsa.pub
+</code></pre><h3 id="e-posta-listeleri">
+  E-posta listeleri
+  <a class="heading-link" href="#e-posta-listeleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Google Dorks’u kullanarak e-posta listelerini bulmak oldukça kolaydır. Aşağıdaki örnekte, çok sayıda e-posta adresi içerebilecek excel dosyalarını listeleyebiliriz.</p>
+<pre tabindex="0"><code>filetype:xls inurl:&#34;email.xls&#34;
+</code></pre><h3 id="canlı-kameralar">
+  Canlı kameralar
+  <a class="heading-link" href="#canl%c4%b1-kameralar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Google amcanın indexlediği ve IP ile kısıtlanmayan canlı kamera web sayfalarına erişim oldukça kolaydır. Aşağıdaki dorklarla, canlı kameralara erişim sağlayabiliriz.</p>
+<p>IP tabanlı kameralar için:</p>
+<pre tabindex="0"><code>inurl:top.htm inurl:currenttime
+</code></pre><p>WebcamXP tabanlı aktarımları bulmak için:</p>
+<pre tabindex="0"><code>intitle:&#34;webcamXP 5&#34;
+</code></pre><p>Genel canlı kameralar için:</p>
+<pre tabindex="0"><code>inurl:&#34;lvappl.htm&#34;
+</code></pre><h3 id="sql-dökümleri">
+  SQL dökümleri
+  <a class="heading-link" href="#sql-d%c3%b6k%c3%bcmleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Web sunucularında, yedekleri depolayan site yöneticileri tarafından kullanılan yanlış yedekleme mekanizmaları sonucu, SQL dökümleri sitelerde görünür. Sıkıştırılmış bir SQL dosyası bulmak için şunu kullanırız:</p>
+<pre tabindex="0"><code>&#34;index of&#34; &#34;database.sql.zip&#34;
+</code></pre><h3 id="wordpress-admin">
+  WordPress Admin
+  <a class="heading-link" href="#wordpress-admin">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bir dork ile WordPress Yönetici giriş sayfalarını bulmak çok zor değil:</p>
+<pre tabindex="0"><code>intitle:&#34;Index of&#34; wp-admin
+</code></pre><p>Apache sunucuları yanlış yapılandırılmış olabilir. Bu durum, onları botnet’ler için harika hedefler haline getirir.<br>
+ Aşağıdaki dork ile Apache2 web sayfalarını bulabiliriz:</p>
+<pre tabindex="0"><code>intitle:&#34;Apache2 Ubuntu Default Page: It works&#34;
+</code></pre><h3 id="phpmyadmin">
+  phpMyAdmin
+  <a class="heading-link" href="#phpmyadmin">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>LAMP(Linux, Apache, MySQL, PHP) sunucularında sıklıkla keşfedilen bir diğer riskli araç ise phpMyAdmin yazılımıdır.</p>
+<p>Bu yazılıma sahip siteleri bulmak için kullanılacak dork:</p>
+<pre tabindex="0"><code>&#34;Index of&#34; inurl:phpmyadmin
+</code></pre><p><img src="/images/0_igJI4VAzSEKlUXSX.png" alt=""></p>
+<h3 id="jirakibana">
+  JIRA/Kibana
+  <a class="heading-link" href="#jirakibana">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Google dorks, önemli kurumsal verileri (JIRA veya Kibana aracılığıyla) barındıran web uygulamalarını bulmak için de kullanılabilir.</p>
+<pre tabindex="0"><code>inurl:Dashboard.jspa intext:&#34;Atlassian Jira Project Management Software&#34; inurl:app/kibana intext:Loading Kibana
+</code></pre><p><a href="https://www.exploit-db.com/google-hacking-database"  class="external-link" target="_blank" rel="noopener">Google Hacking Database</a>, hacking faaliyetleri için kullanabileceğimiz dorkların bulunduğu bir veritabanıdır. Exploit DB’nin sunduğu bu platform da, birçok uzmanın kullanmış olduğu dorkları listeleyebilir, işimize yarayacağını düşündüğümüz dorkları kulanabiliriz.</p>
+<hr>
+<p><em>kaynak:</em> Google Hacking for Penetration Testers*,*Johnny Long, Bill Gardner, Justin Brown, 2015 <em>Originally published at</em> <a href="https://pwnlab.me/tr-google-dorks-ve-google-hacking/"  class="external-link" target="_blank" rel="noopener"><em>https://pwnlab.me</em></a> <em>on October 19, 2021.</em></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

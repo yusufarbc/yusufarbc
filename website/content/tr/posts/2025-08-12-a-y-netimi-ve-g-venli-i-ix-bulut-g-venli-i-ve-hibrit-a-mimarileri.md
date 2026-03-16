@@ -1,4 +1,5 @@
 ---
+series: ["Ağ Güvenliği ve Yönetimi"]
 title: "Ağ Yönetimi ve Güvenliği IX: Bulut Güvenliği ve Hibrit Ağ Mimarileri"
 date: 2025-08-12
 draft: false

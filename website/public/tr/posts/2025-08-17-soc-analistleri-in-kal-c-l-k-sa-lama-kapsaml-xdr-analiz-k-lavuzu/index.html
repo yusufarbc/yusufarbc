@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  SOC Analistleri İçin Kalıcılık Sağlama Kapsamlı XDR Analiz Kılavuzu · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  SOC Analistleri İçin Kalıcılık Sağlama Kapsamlı XDR Analiz Kılavuzu
+  
+    
+    Başlık Linki
+  
+
+
+Siber güvenlik operasyonlarında, kalıcılık (persistence) bir saldırganın sistemde kalıcı bir ayak izi bırakmasını sağlayan en kritik aşamalardan biridir. Bu, saldırının ilk erişim vektöründen (örneğin, bir oltalama e-postası veya bir açık istismarı) sonraki uzun vadeli hedeflerine ulaşmasını mümkün kılar. Geleneksel antivirüs (AV) çözümlerinin veya sistemin yeniden başlatılmasının ötesinde, saldırganların sisteme sürekli erişimini garanti altına alır. Kalıcılık, tehdit aktörlerine bir dizi avantaj sağlar: Komuta ve Kontrol (C2) sunucularıyla iletişim kurmak için bir arka kapı oluşturma, geleneksel güvenlik kontrollerini atlatma ve ağ içinde ayrıcalık yükseltme ve yatay hareketliliği kolaylaştırma imkanı. Bu aşama, bir siber saldırının kısa süreli bir olaydan uzun soluklu bir sızma operasyonuna dönüşmesinde belirleyici rol oynar.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="SOC Analistleri İçin Kalıcılık Sağlama Kapsamlı XDR Analiz Kılavuzu">
+  <meta name="twitter:description" content="SOC Analistleri İçin Kalıcılık Sağlama Kapsamlı XDR Analiz KılavuzuBaşlık LinkiSiber güvenlik operasyonlarında, kalıcılık (persistence) bir saldırganın sistemde kalıcı bir ayak izi bırakmasını sağlayan en kritik aşamalardan biridir. Bu, saldırının ilk erişim vektöründen (örneğin, bir oltalama e-postası veya bir açık istismarı) sonraki uzun vadeli hedeflerine ulaşmasını mümkün kılar. Geleneksel antivirüs (AV) çözümlerinin veya sistemin yeniden başlatılmasının ötesinde, saldırganların sisteme sürekli erişimini garanti altına alır. Kalıcılık, tehdit aktörlerine bir dizi avantaj sağlar: Komuta ve Kontrol (C2) sunucularıyla iletişim kurmak için bir arka kapı oluşturma, geleneksel güvenlik kontrollerini atlatma ve ağ içinde ayrıcalık yükseltme ve yatay hareketliliği kolaylaştırma imkanı. Bu aşama, bir siber saldırının kısa süreli bir olaydan uzun soluklu bir sızma operasyonuna dönüşmesinde belirleyici rol oynar.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2025-08-17-soc-analistleri-in-kal-c-l-k-sa-lama-kapsaml-xdr-analiz-k-lavuzu/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="SOC Analistleri İçin Kalıcılık Sağlama Kapsamlı XDR Analiz Kılavuzu">
+  <meta property="og:description" content="SOC Analistleri İçin Kalıcılık Sağlama Kapsamlı XDR Analiz KılavuzuBaşlık LinkiSiber güvenlik operasyonlarında, kalıcılık (persistence) bir saldırganın sistemde kalıcı bir ayak izi bırakmasını sağlayan en kritik aşamalardan biridir. Bu, saldırının ilk erişim vektöründen (örneğin, bir oltalama e-postası veya bir açık istismarı) sonraki uzun vadeli hedeflerine ulaşmasını mümkün kılar. Geleneksel antivirüs (AV) çözümlerinin veya sistemin yeniden başlatılmasının ötesinde, saldırganların sisteme sürekli erişimini garanti altına alır. Kalıcılık, tehdit aktörlerine bir dizi avantaj sağlar: Komuta ve Kontrol (C2) sunucularıyla iletişim kurmak için bir arka kapı oluşturma, geleneksel güvenlik kontrollerini atlatma ve ağ içinde ayrıcalık yükseltme ve yatay hareketliliği kolaylaştırma imkanı. Bu aşama, bir siber saldırının kısa süreli bir olaydan uzun soluklu bir sızma operasyonuna dönüşmesinde belirleyici rol oynar.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-17T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-17T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2025-08-17-soc-analistleri-in-kal-c-l-k-sa-lama-kapsaml-xdr-analiz-k-lavuzu/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2025-08-17-soc-analistleri-in-kal-c-l-k-sa-lama-kapsaml-xdr-analiz-k-lavuzu/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2025-08-17-soc-analistleri-in-kal-c-l-k-sa-lama-kapsaml-xdr-analiz-k-lavuzu/">
+              SOC Analistleri İçin Kalıcılık Sağlama Kapsamlı XDR Analiz Kılavuzu
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-08-17T00:00:00Z">
+                Ağustos 17, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              11 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="soc-analistleri-için-kalıcılık-sağlama-kapsamlı-xdr-analizkılavuzu">
+  SOC Analistleri İçin Kalıcılık Sağlama Kapsamlı XDR Analiz Kılavuzu
+  <a class="heading-link" href="#soc-analistleri-i%c3%a7in-kal%c4%b1c%c4%b1l%c4%b1k-sa%c4%9flama-kapsaml%c4%b1-xdr-analizk%c4%b1lavuzu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_t3uzw3mQTB-z3Mm777G-RQ.png" alt=""></p>
+<p>Siber güvenlik operasyonlarında, kalıcılık (persistence) bir saldırganın sistemde kalıcı bir ayak izi bırakmasını sağlayan en kritik aşamalardan biridir. Bu, saldırının ilk erişim vektöründen (örneğin, bir oltalama e-postası veya bir açık istismarı) sonraki uzun vadeli hedeflerine ulaşmasını mümkün kılar. Geleneksel antivirüs (AV) çözümlerinin veya sistemin yeniden başlatılmasının ötesinde, saldırganların sisteme sürekli erişimini garanti altına alır. Kalıcılık, tehdit aktörlerine bir dizi avantaj sağlar: Komuta ve Kontrol (C2) sunucularıyla iletişim kurmak için bir arka kapı oluşturma, geleneksel güvenlik kontrollerini atlatma ve ağ içinde ayrıcalık yükseltme ve yatay hareketliliği kolaylaştırma imkanı. Bu aşama, bir siber saldırının kısa süreli bir olaydan uzun soluklu bir sızma operasyonuna dönüşmesinde belirleyici rol oynar.</p>
+<p>Bu rapor, MITRE ATT&amp;CK bilgi tabanındaki belirli taktik ve tekniklere odaklanarak, bir SOC analistinin karşılaşabileceği Windows registry tabanlı kalıcılık mekanizmalarını derinlemesine incelemektedir. Özellikle <code>T1547: Boot or Logon Autostart Execution</code> ve <code>T1112: Modify Registry</code> gibi yaygın teknikler ele alınacak ve bu tekniklerin nasıl tespit edileceği detaylandırılacaktır.</p>
+<hr>
+<h3 id="bölüm-1-windows-registry-üzerinden-kalıcılık-mekanizmaları">
+  Bölüm 1: Windows Registry Üzerinden Kalıcılık Mekanizmaları
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-1-windows-registry-%c3%bczerinden-kal%c4%b1c%c4%b1l%c4%b1k-mekanizmalar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="11-otomatik-başlatma-autostart-registry-anahtarları-temel-mekanizmalar">
+  1.1. Otomatik Başlatma (Autostart) Registry Anahtarları: Temel Mekanizmalar
+  <a class="heading-link" href="#11-otomatik-ba%c5%9flatma-autostart-registry-anahtarlar%c4%b1-temel-mekanizmalar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Windows, kullanıcı oturumu veya sistem başlatma sırasında belirli programları otomatik olarak çalıştırmak için registry anahtarlarını kullanır. Saldırganlar, bu meşru işlevi kendi zararlı yazılımlarını sistemde kalıcı kılmak için istismar ederler. Bu anahtarlara yapılan eklemeler, zararlı yazılımın sistem her başladığında veya bir kullanıcı oturum açtığında yeniden çalıştırılmasını sağlar.</p>
+<ul>
+<li><code>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run</code>: Bu anahtar, yalnızca mevcut kullanıcı oturum açtığında otomatik olarak çalışan programları içerir.<code>RunOnce</code> anahtarı ise programın yalnızca bir kez çalıştırılmasını sağlar ve yeniden başlatmadan sonra otomatik olarak silinir.</li>
+<li><code>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run</code>: Bu anahtar, bir kullanıcıdan bağımsız olarak, sistemdeki tüm kullanıcılar için otomatik çalışan programları barındırır. Bu anahtara değişiklik yapmak genellikle <code>SYSTEM</code> veya <code>Administrator</code> ayrıcalıkları gerektirir, bu da saldırganın sisteme daha derin bir erişim sağladığının bir göstergesi olabilir.</li>
+</ul>
+<p>MITRE ATT&amp;CK verilerine göre, <code>Registry Run Keys / Startup Folder</code> (T1547.001) tekniği, bilinen 54 tehdit grubunun en sık kullandığı kalıcılık yöntemidir. Bu tekniğin bu kadar yaygın kullanılmasının ana nedenlerinden biri, Windows&rsquo;un meşru bir özelliği olması ve bu nedenle geleneksel güvenlik çözümleri tarafından kolayca gözden kaçırılabilmesidir. Bu durum, bir SOC analisti için tehdit avcılığına başlarken ilk kontrol edilmesi gereken yerin bu anahtarlar olduğunu açıkça ortaya koymaktadır. Zira saldırganların bu anahtarları kullanması, yüksek başarı oranı ve düşük algılama riski arayışlarının bir sonucudur. Bu nedenle, kalıcılık odaklı tespit kurallarının önceliklendirilmesi, bu alandaki anormalliklere odaklanmalıdır.</p>
+<h3 id="12-diğer-kritik-kalıcılık-anahtarları-veyolları">
+  1.2. Diğer Kritik Kalıcılık Anahtarları ve Yolları
+  <a class="heading-link" href="#12-di%c4%9fer-kritik-kal%c4%b1c%c4%b1l%c4%b1k-anahtarlar%c4%b1-veyollar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Kalıcılık sadece temel <code>Run</code> anahtarlarıyla sınırlı değildir. Saldırganlar, tespit edilme riskini azaltmak için daha az bilinen veya sisteme özgü anahtarları da hedef alabilir.</p>
+<ul>
+<li><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Userinit</code>: Bu anahtar, kullanıcı oturum açma işlemi başlamadan önce çalıştırılan programı referans alır. Saldırganlar, sisteme giriş sırasında meşru <code>userinit.exe</code> dosyasından önce veya onun yerine kendi arka kapılarını çalıştırmak için bu anahtarı manipüle edebilirler.</li>
+<li><code>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders</code>: Bu anahtarlar, kullanıcıya özgü Windows kabuk klasörlerinin (örneğin, &ldquo;Başlangıç&rdquo; klasörü) konumunu belirler. Saldırganlar, bu anahtarları değiştirerek zararlı bir yürütülebilir dosyanın veya betiğin &ldquo;Başlangıç&rdquo; klasöründe çalışmasını sağlayabilir.</li>
+<li><code>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</code>: Grup İlkesi (Group Policy) ayarları aracılığıyla otomatik başlatma programları belirlemek için bu anahtar kullanılır. Saldırganlar, bu anahtarları istismar ederek kalıcılık elde edebilirler.</li>
+<li><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Svchost</code>: Daha ileri düzey tehdit aktörleri, daha az bilinen sistem anahtarlarını da hedef alabilir. Örneğin, APT41, Cobalt Strike kalıcılığı için bu anahtarı modifiye etmiştir. Bu, saldırganların standart Run anahtarlarının ötesinde yaratıcı yollar aradığını gösterir.</li>
+</ul>
+<h3 id="13-gerçek-dünya-örnekleri-saldırgan-grupları-ve-zararlı-yazılımların-kullanımı">
+  1.3. Gerçek Dünya Örnekleri: Saldırgan Grupları ve Zararlı Yazılımların Kullanımı
+  <a class="heading-link" href="#13-ger%c3%a7ek-d%c3%bcnya-%c3%b6rnekleri-sald%c4%b1rgan-gruplar%c4%b1-ve-zararl%c4%b1-yaz%c4%b1l%c4%b1mlar%c4%b1n-kullan%c4%b1m%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>MITRE ATT&amp;CK verileri, farklı tehdit gruplarının ve zararlı yazılımların bu teknikleri nasıl kullandığına dair somut örnekler sunmaktadır.</p>
+<ul>
+<li><strong>Emotet Trojan:</strong> Emotet, kalıcılık sağlamak için <code>%AppData%</code> yoluna bıraktığı zararlı DLL dosyasına işaret eden bir <code>Run</code> anahtarı ekler. Bu sayede her kullanıcı oturumu açıldığında otomatik olarak çalışır.</li>
+<li><strong>APT28 (Fancy Bear):</strong> Bu gelişmiş kalıcılık tekniği, <code>Userinit</code> anahtarını manipüle ederek meşru işlemler başlamadan önce bir arka kapı yüklemesini sağlar. Bu durum, daha temel saldırıların ötesinde, sistem açılış zincirinin kritik bir noktasını hedefleyen sofistike bir yaklaşımı gösterir.</li>
+<li><strong>APT41:</strong> APT41&rsquo;in <code>Svchost</code> anahtarını kullanması, saldırganların Windows&rsquo;un iç işleyişine derinlemesine hakim olduğunu ve standart güvenlik denetimlerinin ötesine geçebildiğini kanıtlamaktadır.</li>
+</ul>
+<p>Aşağıdaki tablo, bir SOC analisti için hızlı bir başvuru kılavuzu niteliğindedir ve en sık karşılaşılan registry kalıcılık anahtarlarını, bunların etkilerini ve ilgili tehdit örneklerini özetlemektedir.</p>
+<p><img src="/images/1_EOdZ-x8gqkMWMCJo5HLhqg.png" alt=""></p>
+<hr>
+<h3 id="bölüm-2-olay-kayıtları-event-logs-üzerinden-tespit-veanaliz">
+  Bölüm 2: Olay Kayıtları (Event Logs) Üzerinden Tespit ve Analiz
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-2-olay-kay%c4%b1tlar%c4%b1-event-logs-%c3%bczerinden-tespit-veanaliz">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="21-windows-güvenlik-olay-günlükleri-windows-security-eventlogs">
+  2.1. Windows Güvenlik Olay Günlükleri (Windows Security Event Logs)
+  <a class="heading-link" href="#21-windows-g%c3%bcvenlik-olay-g%c3%bcnl%c3%bckleri-windows-security-eventlogs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Sistemdeki registry değişikliklerini izlemek için en temel kaynaklardan biri Windows’un yerel olay günlükleridir. Olay Kimliği (Event ID) 4657, bir registry değerinin değiştirildiğini, oluşturulduğunu veya silindiğini kaydeder. Bu olayın analizi, bir saldırının ayak izlerini ortaya çıkarmada kilit rol oynar. Ancak bu olay kimliğinin kaydedilebilmesi için ilgili registry anahtarları üzerinde denetim (auditing) politikasının önceden etkinleştirilmesi gerektiği unutulmamalıdır.</p>
+<p>Olay Kimliği 4657, bir analistin incelemesi gereken dört ana veri alanını içerir :</p>
+<ul>
+<li><code>Subject</code> <strong>(Konu):</strong> Bu alan, değişikliği yapan kullanıcı hesabına ait bilgileri (<code>Security ID</code>, <code>Account Name</code>, <code>Logon ID</code>) sağlar. Sistemin normalde bu tür bir değişikliği yapmaması gereken bir kullanıcı hesabının (<code>Guest</code> veya normal bir kullanıcı) bu eylemi gerçekleştirmesi şüpheli bir durumdur.</li>
+<li><code>Object</code> <strong>(Nesne):</strong> Değişikliğin yapıldığı tam konumu (<code>Object Name</code> - anahtar yolu) ve değerin adını (<code>Object Value Name</code>) gösterir. Bu alanlarda <code>Run</code>, <code>RunOnce</code> gibi bilinen kalıcılık anahtarlarının aranması kritiktir.</li>
+<li><code>Process Information</code> <strong>(Süreç Bilgisi):</strong> Değişikliği gerçekleştiren yürütülebilir dosyanın adı ve ID&rsquo;si (<code>Process Name</code>, <code>Process ID</code>) bu alanda yer alır. <code>powershell.exe</code>, <code>cmd.exe</code>, <code>reg.exe</code> gibi sistem yöneticisi araçlarının bu anahtarlarda değişiklik yapması dikkatle incelenmelidir, çünkü bunlar kötü niyetli betikler tarafından sıkça kullanılır.</li>
+<li><code>Change Information</code> <strong>(Değişiklik Bilgisi):</strong> <code>New Value</code> ve <code>Old Value</code> alanları, değişikliğin içeriğini, yani çalıştırılacak dosya yolunu veya komut satırı argümanlarını gösterir. Bu alanda <code>C:\Users\Public\</code>, <code>C:\ProgramData\</code> gibi alışılmadık veya genel olarak yazılabilir dizinlere işaret eden dosya yollarının bulunması, kuvvetli bir tehdit göstergesidir.</li>
+</ul>
+<h3 id="22-sysmon-olay-günlükleri-sysmon-eventlogs">
+  2.2. Sysmon Olay Günlükleri (Sysmon Event Logs)
+  <a class="heading-link" href="#22-sysmon-olay-g%c3%bcnl%c3%bckleri-sysmon-eventlogs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Sysmon (System Monitor), Windows Event Log’larına kıyasla çok daha zengin ve detaylı telemetri verisi sunan bir araçtır. Sysmon, özellikle registry değişikliklerini izlemek için iki önemli olay kimliği sağlar. Bu olaylar, Windows’un yerel loglarının ötesinde, olayın kök nedenini anlamaya yardımcı olan ek bağlamsal bilgiler içerir.</p>
+<ul>
+<li><code>Event ID 12</code> <strong>(RegistryEvent - Object create and delete):</strong> Bu olay, registry anahtarlarının ve değerlerinin oluşturulmasını veya silinmesini izler. Bir saldırganın, kalıcılık sağlamak için yeni bir <code>Run</code> anahtarı oluşturması bu olayla tespit edilebilir.</li>
+<li><code>Event ID 13</code> <strong>(RegistryEvent - Value Set):</strong> Bu olay, mevcut registry değerlerinin içeriğindeki değişiklikleri kaydeder. Bir saldırganın, daha önce var olan bir <code>Run</code> anahtarının değerini değiştirmesi bu olayla tespit edilebilir.</li>
+</ul>
+<p>Bu Sysmon olayları, bir analist için <code>ParentImage</code> ve <code>ParentCommandLine</code> gibi kritik alanlar içerir. Bu alanlar, değişikliği yapan ana sürecin ne olduğunu ve nasıl başlatıldığını gösterir. Bu, saldırının kaynağına doğru iz sürmek ve saldırı zincirini yeniden oluşturmak için hayati önem taşır. Örneğin, bir PowerShell betiğinin bir registry değişikliğine neden olduğu tespit edildiğinde, <code>ParentImage</code> alanı bu betiğin hangi ana süreç (<code>explorer.exe</code> gibi) tarafından başlatıldığını gösterebilir.</p>
+<p><img src="/images/1_VR-A4gThQLNfdXDYlpGuwQ.png" alt=""></p>
+<hr>
+<h3 id="bölüm-3-edrxdr-çözümleriyle-derinlemesine-analiz-ve-tehditavcılığı">
+  Bölüm 3: EDR/XDR Çözümleriyle Derinlemesine Analiz ve Tehdit Avcılığı
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-3-edrxdr-%c3%a7%c3%b6z%c3%bcmleriyle-derinlemesine-analiz-ve-tehditavc%c4%b1l%c4%b1%c4%9f%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="31-edrnin-registry-kalıcılığı-tespitindeki-rolü">
+  3.1. EDR’nin Registry Kalıcılığı Tespitindeki Rolü
+  <a class="heading-link" href="#31-edrnin-registry-kal%c4%b1c%c4%b1l%c4%b1%c4%9f%c4%b1-tespitindeki-rol%c3%bc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>EDR (Endpoint Detection and Response) çözümleri, uç noktalardaki (sunucular, masaüstü bilgisayarlar) faaliyetleri sürekli olarak izleyerek ve kaydederek registry, dosya sistemi, süreç ve ağ bağlantıları gibi kaynaklardan zengin telemetri verileri toplar. EDR platformları, bu veriler üzerinde davranışsal analiz, makine öğrenimi ve kural tabanlı tespit motorları çalıştırarak potansiyel tehditleri belirler. Örneğin, alışılmadık bir konumdan çalışan bir yürütülebilir dosyanın kritik bir registry anahtarını değiştirmeye çalışması, bir EDR çözümü için yüksek öncelikli bir alarm tetikleyebilir.</p>
+<h3 id="32-xdr-ile-kapsamlı-analiz-ve-korelasyon">
+  3.2. XDR ile Kapsamlı Analiz ve Korelasyon
+  <a class="heading-link" href="#32-xdr-ile-kapsaml%c4%b1-analiz-ve-korelasyon">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>XDR (Extended Detection and Response), EDR’nin yeteneklerini daha geniş bir veri yelpazesiyle (ağ trafiği, e-posta, bulut, kimlik bilgileri) birleştirerek çok daha kapsamlı bir görünürlük sağlar. Bir saldırı, asla tek bir eylemden ibaret değildir; bir dizi bağlantılı olayın birleşiminden oluşur. Bu, bir saldırı zincirinin (kill chain) parçası olan olayları ayrı ayrı ele almak yerine, bunları bir bütün olarak değerlendirmenin gerekliliğini ortaya koyar.</p>
+<p>Bir XDR platformu, bir registry değişikliğini diğer olaylarla ilişkilendirerek saldırının tam hikayesini ortaya çıkarabilir. Olayları tek başına değerlendirmek yerine, bir EDR/XDR çözümünün tüm bu verileri korelasyon kuralları aracılığıyla birleştirmesi, saldırının bütününü anlamak için temel bir adımdır. Bu bağlantısal analizin akışı şu şekilde işler:</p>
+<ol>
+<li><strong>İlk Erişim Vektörü:</strong> Bir saldırı, genellikle bir oltalama e-postası veya zararlı bir web sitesinden dosya indirme ile başlar. XDR, e-posta veya ağ telemetrisi üzerinden bu ilk adımı tespit edebilir.</li>
+<li><strong>Dosya Oluşturma:</strong> Zararlı dosya (<code>.exe</code> veya betik) geçici bir dizine (<code>C:\Users\Public\</code> gibi) bırakılır. EDR, Sysmon Event ID 11 gibi loglarla bu dosya oluşturma olayını kaydeder.</li>
+<li><strong>Kalıcılık Sağlama:</strong> Bu zararlı süreç, kalıcılık sağlamak için bir <code>Run</code> anahtarını değiştirir veya yeni bir anahtar ekler. EDR, Sysmon Event ID 12/13 veya Windows Event ID 4657 ile bu registry değişikliğini tespit eder.</li>
+<li><strong>Komuta ve Kontrol (C2) İletişimi:</strong> Kalıcılık sağlandıktan sonra, zararlı süreç bir C2 sunucusuyla iletişim kurar. EDR/XDR, bu anormal ağ trafiğini (örneğin, bilinmeyen bir IP adresine veya alışılmadık bir porta bağlantı) Sysmon Event ID 3 veya diğer ağ telemetri loglarıyla belirler.</li>
+</ol>
+<p>Bu korelasyon zinciri, tek bir registry değişikliği alarmını, bir siber saldırının tüm adımlarını içeren yüksek güvenilirlikte bir olaya dönüştürür.</p>
+<h3 id="33-registry-değişikliklerini-diğer-ioclerle-korelasyonu">
+  3.3. Registry Değişikliklerini Diğer IOC’lerle Korelasyonu
+  <a class="heading-link" href="#33-registry-de%c4%9fi%c5%9fikliklerini-di%c4%9fer-ioclerle-korelasyonu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bir registry değişikliğinin gerçek bir tehdit mi yoksa meşru bir işlem mi olduğunu ayırt etmek için diğer göstergelerle korelasyon hayati önem taşır.</p>
+<ul>
+<li><strong>Ağ Bağlantılarıyla Korelasyon:</strong> Şüpheli bir registry değişikliği yapan sürecin, anormal ağ trafiği oluşturup oluşturmadığı kontrol edilmelidir. Bilinmeyen IP adreslerine veya alışılmadık portlara giden trafik, C2 kanallarının veya veri sızdırma girişimlerinin bir işareti olabilir.</li>
+<li><strong>Dosya ve Süreç Olaylarıyla Korelasyon:</strong> <code>Registry modification</code> alarmı tetiklendiğinde, eş zamanlı <code>Process creation</code> (Sysmon Event ID 1) ve <code>File creation</code> (Sysmon Event ID 11) olayları incelenmelidir. Bu, zararlı dosyanın sisteme ilk nasıl girdiğini (örneğin, bir PowerShell betiği tarafından bırakılmış olabilir) ve hangi ana sürecin bu değişikliği yaptığını anlamaya yardımcı olur.</li>
+</ul>
+<p>Birçok meşru yazılım (örneğin, güncellemeler, antivirüsler) da <code>Run</code> anahtarlarını değiştirebilir, bu da yanlış pozitiflere neden olur. Ancak, bir EDR/XDR platformunda, bir sürecin <code>Run</code> anahtarını değiştirmesi tek başına şüpheli olmayabilir. Bu olay, aynı sürecin <code>C:\Users\Public\</code> gibi şüpheli bir dizine yeni bir dosya bırakması ve ardından bilinen kötü amaçlı bir IP adresine ağ bağlantısı kurması ile birleştiğinde, bu olaylar bir saldırının göstergesi olarak yüksek güvenilirlikte bir alarm oluşturur. Bu çoklu olay korelasyonu, yanlış pozitifleri azaltmanın ve gerçek tehditleri ortaya çıkarmanın anahtarıdır.</p>
+<hr>
+<h3 id="bölüm-4-sınırlamalar-dikkat-edilmesi-gerekenler-ve-ileri-düzey-teknikler">
+  Bölüm 4: Sınırlamalar, Dikkat Edilmesi Gerekenler ve İleri Düzey Teknikler
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-4-s%c4%b1n%c4%b1rlamalar-dikkat-edilmesi-gerekenler-ve-ileri-d%c3%bczey-teknikler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="41-yanlış-pozitifleri-yönetme-legitim-süreçleri-ayırtetme">
+  4.1. Yanlış Pozitifleri Yönetme: Legitim Süreçleri Ayırt Etme
+  <a class="heading-link" href="#41-yanl%c4%b1%c5%9f-pozitifleri-y%c3%b6netme-legitim-s%c3%bcre%c3%a7leri-ay%c4%b1rtetme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bir SOC analistinin karşılaşabileceği en büyük zorluklardan biri, meşru registry değişikliklerini kötü niyetli olanlardan ayırt etmektir. Birçok meşru yazılım (örneğin, güncellemeler, antivirüsler, yönetici betikleri) otomatik başlangıç anahtarlarını kullanır. Bu durumu yönetmek için analistler, meşru süreçlerin davranışsal özelliklerini anlamalı ve tespit kurallarında istisnalar tanımlamalıdır. Meşru yazılımlar genellikle <code>C:\Program Files\</code> gibi standart sistem dizinlerinden çalışır ve belirli dosya adlarına sahiptir. Bu yollara istisnalar eklemek, gürültüyü önemli ölçüde azaltabilir.</p>
+<p>Proaktif bir yaklaşımla, <code>Get-PSAutorun</code> gibi araçlar kullanılarak sistemdeki otomatik başlangıç girdilerinin bir temel hattı (baseline) oluşturulabilir. Bu temel hat, periyodik olarak alınan yeni taramalarla karşılaştırılarak, sisteme yeni eklenen veya değiştirilen girdiler hızla tespit edilebilir.</p>
+<h3 id="42-saldırganların-gizlenme-taktikleri">
+  4.2. Saldırganların Gizlenme Taktikleri
+  <a class="heading-link" href="#42-sald%c4%b1rganlar%c4%b1n-gizlenme-taktikleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Saldırganlar, tespit edilmekten kaçınmak için çeşitli gizlenme taktikleri kullanır. Bir SOC analistinin bu teknikleri bilmesi, manuel kontrollerde gözden kaçabilecek tehditleri belirlemesi açısından önemlidir.</p>
+<ul>
+<li><code>Null</code> <strong>Karakterlerle Gizlenmiş Anahtarlar:</strong> Saldırganlar, registry anahtarı adlarının başına bir <code>null</code> karakter (<code>\x00</code>) ekleyerek bazı standart Windows araçları (<code>Reg.exe</code>, <code>Regedit</code>) tarafından bu anahtarların görüntülenmesini engelleyebilir. Bu durum, analistin yalnızca Windows&rsquo;un yerel araçlarına güvenmek yerine, Sysmon veya gelişmiş EDR çözümleri gibi derinlemesine telemetri sağlayan araçlara güvenmesi gerektiğini gösterir.</li>
+<li><strong>Sahte Dosya Yolları ve Süreç Adları:</strong> Zararlı yazılımlar, kendilerini meşru sistem dosyaları gibi gösterebilirler. Örneğin, bir zararlı dosya <code>C:\Windows\System32\</code> gibi bir sistem dizinine yerleştirilebilir veya <code>WindowsUpdate</code> gibi meşru bir süreç adı kullanılabilir.</li>
+</ul>
+<h3 id="43-registry-ötesi-kalıcılık-tekniklerine-kısa-birbakış">
+  4.3. Registry Ötesi Kalıcılık Tekniklerine Kısa Bir Bakış
+  <a class="heading-link" href="#43-registry-%c3%b6tesi-kal%c4%b1c%c4%b1l%c4%b1k-tekniklerine-k%c4%b1sa-birbak%c4%b1%c5%9f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bir SOC analistinin bakış açısı, yalnızca registry’ye odaklanmakla sınırlı kalmamalıdır. Bir kalıcılık avcılığı görevinde, bir tehdit aktörünün birden fazla yöntem kullanabileceği göz önünde bulundurulmalıdır.</p>
+<ul>
+<li><strong>Zamanlanmış Görevler (Scheduled Tasks):</strong> Saldırganlar, <code>schtasks.exe</code> komutu veya Task Scheduler GUI&rsquo;si aracılığıyla, periyodik olarak veya bir oturum açma gibi belirli olaylara bağlı olarak çalışan zararlı görevler oluşturabilirler. Bu görevler, bir kez kurşulup uzun süre tespit edilmeden kalabilir.</li>
+<li><strong>WMI Olay Abonelikleri (WMI Event Subscriptions):</strong> WMI (Windows Management Instrumentation), bir olayın (örneğin, sistemin açılması veya bir kullanıcının oturum açması) ardından kod çalıştırmak için kullanılabilen güçlü bir sistem yönetim aracıdır. Saldırganlar, WMI olay filtreleri, tüketicileri (consumers) ve bağlayıcıları (bindings) oluşturarak sistemde kalıcı bir konum elde edebilirler.</li>
+<li><strong>Windows Hizmetleri:</strong> Saldırganlar, <code>sc create</code> komutuyla yeni bir hizmet oluşturabilir veya mevcut bir hizmeti ele geçirerek zararlı kodlarını <code>SYSTEM</code> ayrıcalıklarıyla çalıştırabilirler.</li>
+</ul>
+<hr>
+<h3 id="sonuç-veöneriler">
+  Sonuç ve Öneriler
+  <a class="heading-link" href="#sonu%c3%a7-ve%c3%b6neriler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bir SOC analisti için, Windows registry kalıcılık mekanizmalarını anlamak ve tespit etmek, bir saldırı zincirini kırmanın ve bir sızmanın uzun vadeli etkilerini sınırlamanın temelidir. Bu raporun bulguları, kalıcılık avcılığının sadece teknik bilgiye değil, aynı zamanda olgusal korelasyon ve tehdit aktörlerinin davranışsal kalıplarını anlamaya dayandığını göstermektedir.</p>
+<p><strong>SOC Analistleri İçin Anahtar Çıkarımlar:</strong></p>
+<ul>
+<li>En yaygın <code>Run</code> anahtarlarına odaklanın, ancak daha az bilinen anahtarları (örneğin, <code>Winlogon</code> ve <code>Svchost</code>) da göz ardı etmeyin. Saldırganlar, meşru sistem işlevlerini gizlenmek için kullanabilirler.</li>
+<li>Yalnızca Windows Event Log’larına güvenmeyin; Sysmon gibi zengin telemetri sağlayan araçları kullanın. Sysmon, değişikliği yapan ana süreci ve komut satırı argümanlarını belirleme konusunda benzersiz bir yetenek sunar.</li>
+<li>Yalnızca bir log kaydına odaklanmayın. EDR/XDR’ın korelasyon yeteneklerini kullanarak, bir registry değişikliğini bir saldırı zincirinin parçası olarak görün (registry değişikliği -&gt; süreç oluşturma -&gt; ağ bağlantısı).</li>
+<li>Saldırganların gizlenme taktiklerine karşı uyanık olun. <code>Null</code> karakterlerle gizlenmiş anahtarlar ve sahte süreç adları gibi teknikler, standart araçlarla gözden kaçabilir.</li>
+<li>Tehdit avcılığını sadece registry ile sınırlı tutmayın. Zamanlanmış Görevler, WMI Olay Abonelikleri ve Windows Hizmetleri gibi diğer kalıcılık mekanizmalarını da kontrol edin.</li>
+</ul>
+<p><strong>Proaktif Savunma İçin Adımlar:</strong></p>
+<ul>
+<li>Kritik registry anahtarları için denetim (auditing) politikalarını etkinleştirin ve bu logları merkezi bir SIEM çözümüne iletin.</li>
+<li>Sistem genelinde otomatik başlatma noktalarının bir temel hattını oluşturarak anormal değişiklikleri daha hızlı tespit edin.</li>
+<li>En Az Ayrıcalık (Least Privilege) ilkesini uygulayarak, ayrıcalıklı olmayan kullanıcıların kritik registry anahtarlarında değişiklik yapmasını kısıtlayın.</li>
+<li>EDR/XDR çözümlerini doğru şekilde konfigüre edin ve bu platformların proaktif tehdit avcılığı yeteneklerinden tam olarak yararlanın. Bu adımlar, bir kuruluşun siber savunmasını güçlendirecek ve tehdit aktörlerinin sistemlerde kalıcı bir ayak izi bırakmasını zorlaştıracaktır.</li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

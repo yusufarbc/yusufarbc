@@ -1,4 +1,5 @@
 ---
+series: ["Threat Hunting"]
 title: "Threat Hunting with WAF Walkthrough — LetsDefend"
 date: 2025-10-03
 draft: false

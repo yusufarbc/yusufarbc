@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  RDP Güvenli midir? · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  RDP Güvenli midir?
+  
+    
+    Başlık Linki
+  
+
+
+Bu yazımda RDP(Remote Desktop Protocol) protokolünün güvenli olup olmadığını tartışacağız. RDP (Remote Desktop Protocol), APT (Advanced Persistent Threat) grupları tarafından lateral movement yani ağ içinde yatay hareket için sıklıkla kullanılan bir protokol haline gelmiştir. Bu yönüyle güvenli bir protokol olmadığı izlenimini yaratmaktadır. Peki bunun sebebi nedir?
+
+
+  RDP (Remote Desktop Protocol) Nedir?
+  
+    
+    Başlık Linki
+  
+
+
+Önce RDP’nin tam olarak ne olduğunu anlayalım.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="RDP Güvenli midir?">
+  <meta name="twitter:description" content="RDP Güvenli midir?Başlık LinkiBu yazımda RDP(Remote Desktop Protocol) protokolünün güvenli olup olmadığını tartışacağız. RDP (Remote Desktop Protocol), APT (Advanced Persistent Threat) grupları tarafından lateral movement yani ağ içinde yatay hareket için sıklıkla kullanılan bir protokol haline gelmiştir. Bu yönüyle güvenli bir protokol olmadığı izlenimini yaratmaktadır. Peki bunun sebebi nedir?
+RDP (Remote Desktop Protocol) Nedir?Başlık LinkiÖnce RDP’nin tam olarak ne olduğunu anlayalım.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2024/11/rdp-g%C3%BCvenli-midir/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="RDP Güvenli midir?">
+  <meta property="og:description" content="RDP Güvenli midir?Başlık LinkiBu yazımda RDP(Remote Desktop Protocol) protokolünün güvenli olup olmadığını tartışacağız. RDP (Remote Desktop Protocol), APT (Advanced Persistent Threat) grupları tarafından lateral movement yani ağ içinde yatay hareket için sıklıkla kullanılan bir protokol haline gelmiştir. Bu yönüyle güvenli bir protokol olmadığı izlenimini yaratmaktadır. Peki bunun sebebi nedir?
+RDP (Remote Desktop Protocol) Nedir?Başlık LinkiÖnce RDP’nin tam olarak ne olduğunu anlayalım.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-11-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-11-24T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2024/11/rdp-g%C3%BCvenli-midir/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2024/11/is-rdp-secure/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2024/11/rdp-g%C3%BCvenli-midir/">
+              RDP Güvenli midir?
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-11-24T00:00:00Z">
+                Kasım 24, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              6 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="rdp-güvenlimidir">
+  RDP Güvenli midir?
+  <a class="heading-link" href="#rdp-g%c3%bcvenlimidir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_UP8fyAdYI17KDIqhtDK4Sg.png" alt=""></p>
+<p>Bu yazımda RDP(Remote Desktop Protocol) protokolünün güvenli olup olmadığını tartışacağız. <strong>RDP (Remote Desktop Protocol)</strong>, <strong>APT (Advanced Persistent Threat)</strong> grupları tarafından <strong>lateral movement</strong> yani ağ içinde yatay hareket için sıklıkla kullanılan bir protokol haline gelmiştir. Bu yönüyle güvenli bir protokol olmadığı izlenimini yaratmaktadır. Peki bunun sebebi nedir?</p>
+<hr>
+<h3 id="rdp-remote-desktop-protocol-nedir">
+  <strong>RDP (Remote Desktop Protocol) Nedir?</strong>
+  <a class="heading-link" href="#rdp-remote-desktop-protocol-nedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<blockquote>
+<p>Önce RDP’nin tam olarak ne olduğunu anlayalım.</p>
+</blockquote>
+<p>RDPMicrosoft tarafından geliştirilmiş ve uzak masaüstü bağlantıları için yaygın olarak kullanılan bir protokoldür. RDP, kullanıcıların başka bir bilgisayara veya sunucuya ağ üzerinden bağlanarak, uzak bir masaüstü ortamını yerelmiş gibi kullanmalarını sağlar.</p>
+<p><img src="/images/1__XjdN0sbwr04IpjBK0mVcA.jpeg" alt=""></p>
+<p>RDP Protokolü</p>
+<h4 id="rdpnin-temel-özellikleri">
+  RDP’nin Temel Özellikleri:
+  <a class="heading-link" href="#rdpnin-temel-%c3%b6zellikleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ol>
+<li><strong>Uzaktan Erişim</strong>: RDP, kullanıcıların uzak bir sistemin masaüstünü veya sunucusunu doğrudan yönetmelerini sağlar.</li>
+<li><strong>Şifreleme ve Güvenlik</strong>: RDP, bağlantıları şifrelemek için TLS (Transport Layer Security) kullanarak veri iletiminin güvenliğini sağlar. Ancak, eski sürümlerde güvenlik açıkları olabilir.</li>
+<li><strong>Erişim Denetimi</strong>: RDP, sistem yöneticilerinin uzak erişimi denetlemesine olanak tanır, fakat doğru yapılandırılmadığında kötü niyetli saldırılara açık olabilir.</li>
+<li><strong>Kullanıcı Kimlik Doğrulama</strong>: RDP, oturum açmak için geleneksel kullanıcı adı ve şifre doğrulaması kullanır, ancak güvenlik eklemek amacıyla <strong>çok faktörlü kimlik doğrulama (MFA)</strong> da entegre edilebilir.</li>
+</ol>
+<blockquote>
+<p>MFA, SSL/TLS, erişim denetimi gibi mekanizmaların varlığında RDP güvenli bir protokol gibi görünüyor. Bu yönüyle RDP gerçekten güvenli bir protokoldür. Sorun bu mekanizmaların gerçekten kullanılıp kullanılmaması. Sorun doğru konfigürasyonların yapılıp yapılmaması!</p>
+</blockquote>
+<h4 id="rdpnin-güvenlik-riskleri">
+  RDP’nin Güvenlik Riskleri:
+  <a class="heading-link" href="#rdpnin-g%c3%bcvenlik-riskleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Zayıf Şifreler ve Kaba Kuvvet Saldırıları</strong>: RDP, zayıf şifreler kullanıldığında ve kaba kuvvet saldırılarına karşı savunmasız olduğunda, uzak sistemlere yetkisiz erişim sağlanabilir.</li>
+<li><strong>Açık Portlar ve Saldırılara Açık Erişim</strong>: RDP’nin <strong>3389 numaralı portu</strong> internet üzerinden doğrudan erişilebilir hale getirildiğinde, saldırganlar tarafından port taraması yapılarak bu bağlantılar hedef alınabilir.</li>
+<li><strong>Güvenlik Açıkları</strong>: RDP, geçmişte güvenlik açıklarına sahipti (örneğin, <strong>BlueKeep</strong> açığı). Bu tür güvenlik açıkları, sistemlere sızmak için kullanılabilir.</li>
+</ul>
+<blockquote>
+<p><strong>RDP (Remote Desktop Protocol)</strong>, <strong>APT (Advanced Persistent Threat)</strong> grupları tarafından <strong>lateral movement</strong> yani ağ içinde yatay hareket için sıklıkla kullanılan bir protokol haline gelmiştir.</p>
+</blockquote>
+<hr>
+<h3 id="rdpnin-apt-saldırıları-içindekirolü">
+  RDP’nin APT Saldırıları İçindeki Rolü
+  <a class="heading-link" href="#rdpnin-apt-sald%c4%b1r%c4%b1lar%c4%b1-i%c3%a7indekirol%c3%bc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>APT grupları genellikle belirli bir hedefi uzun süreli ve dikkatlice izler. İlk erişim(initial access) sağlandıktan sonra, saldırganlar genellikle <strong>lateral movement</strong> yapmak amacıyla mevcut sistemlerdeki açıkları ve kimlik bilgilerini kullanarak ağda ilerler. RDP, bu tür saldırılarda kritik bir rol oynar çünkü RDP, saldırganlara bir ağdaki farklı cihazlara uzaktan bağlanma imkânı tanır. APT grupları, ele geçirdikleri ilk hedefteki kimlik bilgilerini kullanarak ağdaki başka sistemlere geçiş yapar. Bu, ağda hızla hareket etmelerini sağlar.</p>
+<p><img src="/images/1_XsWJxISsqgpXS_I2ecBx9g.png" alt=""></p>
+<p>RDP ile Yanal Hareket</p>
+<p>APT grupları, <strong>lateral movement</strong> yapmak için RDP’yi çeşitli yollarla kullanabilirler:</p>
+<ul>
+<li><strong>Pass-the-Hash (PTH):</strong> Ele geçirilen kullanıcı adı ve şifrelerin hash’lerini kullanarak, şifreyi bilmeden başka sistemlere bağlanılabilir.</li>
+<li><strong>Credential Dumping</strong>: <strong>Mimikatz</strong> gibi araçlarla, RDP oturumları açmak için ağdaki kullanıcı adı ve şifreleri elde etmek.</li>
+<li><strong>Brute-force saldırıları</strong>: Zayıf şifreler veya varsayılan şifreler kullanılıyorsa, saldırganlar RDP portunu hedef alarak kaba kuvvet saldırıları yapabilirler.</li>
+</ul>
+<blockquote>
+<p>Aslında bu saldırıların yapılabiliyor olması doğrudan RDP protokolünü güvensiz yapmaz.</p>
+</blockquote>
+<blockquote>
+<p><strong>İlk saldırıya bakacak olursak</strong>: RDP kimlik doğrulama süreçleri için Active Directory ortamında kerberos protokolünü kullanır. Pass-the-Hash saldırısı ise kerberos protokolünün stateless yapısı nedeniyle TGT ticketlarının manipüle edilerek kullanılabilmesinin sonucu ortaya çıkan bir saldırı türüdür. Burada esas suçlu kerberos protokolüdür.</p>
+</blockquote>
+<blockquote>
+<p><strong>ikinci saldırı</strong>, mimikatz aracı ile lsass.exe prosesinin bellek alanının okunması ve içindeki credentialların çalınması ardından kimlik doğrulamada kullanılmasını içerir. Burada da RDP protokkolünün bir suçu yoktur.</p>
+</blockquote>
+<blockquote>
+<p><strong>üçüncü saldırıda</strong> ise brute-force saldırısında gelen RDP login istekleri yine kerberos protokolü tarafından doğrulanır. Yine canım RDPnin bir suçu günahı yok:(</p>
+</blockquote>
+<blockquote>
+<p>Aslında, RDP’nin temel işlevi uzaktan erişim sağlamak bunu da SSL/TLS şifreli olarak güvenli bir şekilde yapıyor. Kerberos kimlik doğrulama süreçlerinden kaynaklanan saldırıları RDP protokolüne yüklemek haksızlık olur.</p>
+</blockquote>
+<h4 id="apt-saldırıları-ve-rdpnin-kullanımı-örnekler-ve-yöntemler">
+  APT Saldırıları ve RDP’nin Kullanımı: Örnekler ve Yöntemler
+  <a class="heading-link" href="#apt-sald%c4%b1r%c4%b1lar%c4%b1-ve-rdpnin-kullan%c4%b1m%c4%b1-%c3%b6rnekler-ve-y%c3%b6ntemler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>APT33</strong>: İran destekli olduğu düşünülen bu grup, RDP’yi kullanarak hedef sistemlere sızdı ve ağda ilerlemek için <strong>kimlik bilgisi hırsızlığı</strong> gibi yöntemler uyguladı.</li>
+<li><strong>APT29 (Cozy Bear)</strong>: Rusya ile bağlantılı bir diğer APT grubu olan Cozy Bear, RDP’yi kullanarak iç ağlara ve kritik sistemlere erişim sağladı. Grubun kullandığı yöntemlerden biri, ağda yayılmak ve veri çalmak için ele geçirilen RDP oturumlarını kullanmaktı.</li>
+</ul>
+<h4 id="rdpnin-aptler-tarafından-tercih-edilmesinin-nedenleri">
+  RDP’nin APT’ler Tarafından Tercih Edilmesinin Nedenleri
+  <a class="heading-link" href="#rdpnin-aptler-taraf%c4%b1ndan-tercih-edilmesinin-nedenleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ol>
+<li><strong>Kolay Erişim ve Yayılma</strong>: RDP, hedefe sızdıktan sonra saldırganların kolayca farklı cihazlara geçiş yapmalarını sağlar. Bu, özellikle geniş ağlarda kritik bir avantajdır.</li>
+<li><strong>Etkili ve Hızlı Veri Çalma</strong>: RDP, saldırganların önemli verilere veya sistem kaynaklarına hızlıca erişmesini sağlar. Bu, özellikle uzun süreli, düşük profilli sızma saldırılarında kullanışlıdır.</li>
+<li><strong>RDP’nin Yaygınlığı ve Konfigürasyon Hataları</strong>: Çoğu ağda RDP, uzak bağlantıların yapılması için yaygın olarak kullanılır. Ancak, çoğu zaman güvenlik önlemleri eksiktir. Bu da saldırganların <strong>brute force</strong> saldırıları veya kimlik bilgisi hırsızlığı yoluyla kolayca sisteme girmelerini sağlar.</li>
+</ol>
+<blockquote>
+<p>RDPnin suçsuz olması gerçeğine karşın sunduğu imkanlar hackerların ağzını sulandırmaya devam ediyor! Peki ne yapabiliriz. Şimdi bunları tartışalım.</p>
+</blockquote>
+<hr>
+<h3 id="rdp-ile-lateral-movementa-karşı-alınacak-güvenlik-önlemleri">
+  RDP ile Lateral Movement’a Karşı Alınacak Güvenlik Önlemleri
+  <a class="heading-link" href="#rdp-ile-lateral-movementa-kar%c5%9f%c4%b1-al%c4%b1nacak-g%c3%bcvenlik-%c3%b6nlemleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ol>
+<li><strong>RDP Erişimini Kısıtlamak</strong>: <strong>RDP portu (3389)</strong> yalnızca iç ağlara açılmalı ve mümkünse <strong>VPN</strong> veya başka güvenli bağlantı yolları üzerinden erişilmelidir.</li>
+<li><strong>Ağ Seviyesi Kimlik Doğrulaması (NLA)</strong>: RDP bağlantıları, NLA ile korunmalıdır. Bu, kimlik doğrulaması yapmadan önce bağlanmayı engeller ve kötü niyetli kişilerin sistemi ele geçirmesini zorlaştırır.</li>
+<li><strong>Çok Faktörlü Kimlik Doğrulama (MFA)</strong>: RDP oturumları için MFA uygulamak, yalnızca şifre ile giriş yapılmasını engelleyebilir ve ek bir güvenlik katmanı ekler.</li>
+<li><strong>Şifre Güvenliği</strong>: Şifrelerin güçlü ve karmaşık olması gerekmektedir. Basit şifreler RDP’yi kötüye kullanmayı kolaylaştırabilir.</li>
+<li><strong>Saldırı Tespiti ve İzleme</strong>: RDP oturumları izlenmeli ve şüpheli aktiviteler tespit edilmelidir. Şüpheli oturum açma denemeleri veya ağda hareket eden bilinmeyen IP adresleri dikkatle izlenmelidir.</li>
+<li><strong>Güncellemeler ve Yamalamanın Yapılması</strong>: Sistemler düzenli olarak güncellenmeli ve güvenlik açıkları yamalanmalıdır. Eski sürümler ve açıklar, saldırganlara kolayca erişim sağlayabilir.</li>
+</ol>
+<blockquote>
+<p>Peki tek sorun RDP’de mi? diğer uzaktan erişim araçları tehlikeli değiller mi? Şimdi bunu tartışalım.</p>
+</blockquote>
+<hr>
+<h3 id="apt-saldırıları-ve-uzaktan-erişim-araçlarının-popüler-kullanımı">
+  APT Saldırıları ve Uzaktan Erişim Araçlarının Popüler Kullanımı
+  <a class="heading-link" href="#apt-sald%c4%b1r%c4%b1lar%c4%b1-ve-uzaktan-eri%c5%9fim-ara%c3%a7lar%c4%b1n%c4%b1n-pop%c3%bcler-kullan%c4%b1m%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ol>
+<li><strong>RDP (Remote Desktop Protocol)</strong>: <br>
+<strong>RDP</strong>, saldırganlar tarafından ağda yayılmak için çok sık kullanılan bir araçtır.</li>
+<li><strong>TeamViewer</strong>:<br>
+<strong>TeamViewer</strong>, yaygın olarak kullanılan bir uzaktan erişim aracıdır ve genellikle sistem yöneticileri tarafından kullanılır. Ancak, <strong>APT grupları</strong> bu aracı kötüye kullanarak hedef bilgisayarlara bağlanabilirler. TeamViewer’in kurulmuş ve çalışıyor olması, çoğu zaman ağ yöneticileri tarafından fark edilmeyebilir, bu da saldırganların gizlice ağda hareket etmelerini sağlar. <strong>Sosyal mühendislik</strong> saldırılarıyla TeamViewer’ın kurulumunu hedef makinelerde başlatmak, saldırganlara ağda gizli erişim sağlar.</li>
+<li><strong>AnyDesk</strong>:<br>
+<strong>AnyDesk</strong>, TeamViewer’a benzer şekilde, hedef sistemlere erişim sağlamak için kullanılan bir başka yaygın uzaktan erişim aracıdır. Genellikle <strong>hızlı bağlantılar</strong> ve <strong>yüksek performans</strong> sunduğu için tercih edilir. APT grupları, bu yazılımı kullanarak, ağda hedef cihazlardan veri çalmak ya da daha fazla sisteme sızmak için kullanabilir. AnyDesk, tıpkı TeamViewer gibi, genellikle kullanıcılar tarafından iş amaçlı yasal olarak kullanıldığından, kötü amaçlı kullanım tespit edilemeyebilir.</li>
+</ol>
+<blockquote>
+<p>Gördüğünüz gibi suçlu RDP değilmiş. Uzaktan erşim araçlarının tümü benzer riskleri taşır. Aslında, RDP’nin APT saldırılarındaki kullanımının popülerliği, RDP kullanımının popülerliğinden kaynaklanıyor. Birçok kurum halihazırda RDP kullandığı için hackerlarda bu aracı kullanıyor. Aynı durum diğer çok kullanılan uzaktan erişim araçları içinde geçerli! <br>
+Bir süre önce Anydesk uygulaması üzerinde çıkan bir açık yüzünden hacklenen birçok kurum oldu. Bu durum uzaktan erişim araçlarının riskleri konusunda ne kadar dikkatli olmamız gerektiğini gösteriyor.</p>
+</blockquote>
+<hr>
+<h3 id="privileged-access-management-pam">
+  Privileged Access Management (PAM)
+  <a class="heading-link" href="#privileged-access-management-pam">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>PAM, <strong>Privileged Access Management</strong> (Ayrıcalıklı Erişim Yönetimi), organizasyonlarda sistemler ve ağlar üzerinde yüksek ayrıcalıklara sahip kullanıcıların erişimini kontrol etmek ve denetlemek için kullanılan bir güvenlik çözümüdür. PAM çözümleri, özellikle sistem yöneticileri, ağ yöneticileri ve diğer ayrıcalıklı hesaplar için geçerlidir.</p>
+<p><img src="/images/1_4a2mtAcF5OWpT77b-eeS0g.jpeg" alt=""></p>
+<p>PAM</p>
+<blockquote>
+<p>Uzaktan erişimi daha güvenli hale getirmek için kullanılabilecek bir sistemden bahsediyorum.</p>
+</blockquote>
+<h4 id="pamın-rdp-ile-ilişkisi">
+  PAM’ın RDP ile İlişkisi:
+  <a class="heading-link" href="#pam%c4%b1n-rdp-ile-ili%c5%9fkisi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>PAM, özellikle yüksek ayrıcalıklı erişimlerin yönetilmesinde kritik bir rol oynar. RDP ile yapılan uzak masaüstü bağlantıları, kötüye kullanılabilecek ve saldırılara açık potansiyel bir giriş noktasıdır. PAM, RDP bağlantıları üzerinden yapılan yüksek ayrıcalıklı işlemlerin denetlenmesi, şifrelerinin yönetilmesi ve erişim izleme için güçlü güvenlik önlemleri sunar.</p>
+<hr>
+<p>Bu yazımda RDP protokolünün güvenli olup olmadığını tartıştım. Sizde yorumlarda fikirlerinizi belirtebilir ve bana destek olabilirsiniz.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  TCP Wireshark Analizi · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  TCP Wireshark Analizi
+  
+    
+    Başlık Linki
+  
+
+Merhaba bu yazımda TCP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+
+
+  TCP Nedir?
+  
+    
+    Başlık Linki
+  
+
+TCP, iki cihaz arasında üçlü el sıkışma ile başlayan bir bağlantı üzerinden bağlantılı taşıma sağlar. Veriler sıralanır ve kayıp paketleri otomatik kurtarma sağlamak için onaylanır. UDP bir mektup veya kartpostal için standart posta dağıtım sistemine benzetilebilirken, TCP mektubunuzun veya kartpostalınızın teslimatını takip eden ve size alındığına dair bildirim gönderen bir ekspres taşıyıcıya benzetilebilir.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="TCP Wireshark Analizi">
+  <meta name="twitter:description" content="TCP Wireshark AnaliziBaşlık LinkiMerhaba bu yazımda TCP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+TCP Nedir?Başlık LinkiTCP, iki cihaz arasında üçlü el sıkışma ile başlayan bir bağlantı üzerinden bağlantılı taşıma sağlar. Veriler sıralanır ve kayıp paketleri otomatik kurtarma sağlamak için onaylanır. UDP bir mektup veya kartpostal için standart posta dağıtım sistemine benzetilebilirken, TCP mektubunuzun veya kartpostalınızın teslimatını takip eden ve size alındığına dair bildirim gönderen bir ekspres taşıyıcıya benzetilebilir.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2024-07-18-tcp-wireshark-analizi/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="TCP Wireshark Analizi">
+  <meta property="og:description" content="TCP Wireshark AnaliziBaşlık LinkiMerhaba bu yazımda TCP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+TCP Nedir?Başlık LinkiTCP, iki cihaz arasında üçlü el sıkışma ile başlayan bir bağlantı üzerinden bağlantılı taşıma sağlar. Veriler sıralanır ve kayıp paketleri otomatik kurtarma sağlamak için onaylanır. UDP bir mektup veya kartpostal için standart posta dağıtım sistemine benzetilebilirken, TCP mektubunuzun veya kartpostalınızın teslimatını takip eden ve size alındığına dair bildirim gönderen bir ekspres taşıyıcıya benzetilebilir.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-07-18T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-07-18T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2024-07-18-tcp-wireshark-analizi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2024-07-18-tcp-wireshark-analizi/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2024-07-18-tcp-wireshark-analizi/">
+              TCP Wireshark Analizi
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-07-18T00:00:00Z">
+                Temmuz 18, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              11 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="tcp-wireshark-analizi">
+  TCP Wireshark Analizi
+  <a class="heading-link" href="#tcp-wireshark-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Merhaba bu yazımda TCP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
+<hr>
+<h3 id="tcp-nedir">
+  TCP Nedir?
+  <a class="heading-link" href="#tcp-nedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>TCP, iki cihaz arasında üçlü el sıkışma ile başlayan bir bağlantı üzerinden bağlantılı taşıma sağlar. Veriler sıralanır ve kayıp paketleri otomatik kurtarma sağlamak için onaylanır. UDP bir mektup veya kartpostal için standart posta dağıtım sistemine benzetilebilirken, TCP mektubunuzun veya kartpostalınızın teslimatını takip eden ve size alındığına dair bildirim gönderen bir ekspres taşıyıcıya benzetilebilir.</p>
+<p>TCP, araya giren bir onay beklemeden çok sayıda veri paketini sırayla gönderme işlemi olan pencerelemeyi destekler. Pencerenin boyutu, ağın kaldırabileceği trafik miktarına (ağ tıkanıklık oranı), alıcının kullanılabilir tampon alanına ve göndericinin iletim tampon kapasitesine bağlıdır. Çoğu dosya aktarım protokolü, verilerin güvenilir bir şekilde teslim edilmesini sağlamak için TCP kullanır.</p>
+<p><img src="/images/1_eV6FVT7z6k3hb3M6-DRqtw.png" alt=""></p>
+<p>TCP, HTTP, HTTPS, e-posta, FTP ve daha fazlası gibi uygulamalar için aktarım sunar</p>
+<p>TCP RFC 793&rsquo;te ele alınmıştır, ancak orijinal TCP protokolünde TCP davranışını incelerken akılda tutulması gereken birçok geliştirme yapılmıştır.</p>
+<hr>
+<h3 id="tcp-trafikanalizi">
+  TCP Trafik Analizi
+  <a class="heading-link" href="#tcp-trafikanalizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Normal TCP iletişimi, bağlantı kurma, sıra izleme, veri kaybı kurtarma ve bağlantı kesme işlemlerini içerir.</p>
+<h4 id="tcp-bağlantıları">
+  TCP Bağlantıları
+  <a class="heading-link" href="#tcp-ba%c4%9flant%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>TCP bağlantıları üç yönlü bir el sıkışma yoluyla kurulur. Temel el sıkışma süreci üç paket gerektirir — SYN, SYN/ACK ve ACK.</p>
+<p>SYN paketleri, her iki tarafın da birbirlerinin başlangıç sıra numaralarını (İlk Sıra Numarası veya ISN) bilmelerini sağlamak için sıra numaralarını senkronize eder. Aralarında değiş tokuş edilen veri sırasını bu şekilde takip edilir.</p>
+<p><img src="/images/1_MVWnM3ExdWfUNeZCyXpERQ.png" alt=""></p>
+<p>Üç yönlü TCP el sıkışması bir FTP bağlantısı kurar</p>
+<p>Şekilde, 24.6.173.220 hostu 74.125.224.81 adresine bir TCP bağlantısı kurar. Paket 1, Info sütununda [SYN] tanımını içerir, paket 2 [SYN, ACK] ve paket 3 [ACK] listeler. Bu tanınabilir model, bir bağlantı kurmak için kullanılan TCP üç yönlü el sıkışmasıdır.</p>
+<p>TCP bağlantıları çeşitli şekillerde sonlandırılabilir. Açık bir sonlandırma TCP Sıfırlamalarını kullanır. Örtük bir sonlandırma TCP FIN paketlerini kullanır.</p>
+<p>FIN kullanıldığında, bir host bir FIN paketi gönderir ve FIN’i onaylanana ve eş kendi FIN’ini geri gönderene kadar FIN-WAIT durumuna girer. RFC 793&rsquo;e göre, FIN bir bağlantıyı dolaylı olarak sonlandırmak için kullanıldığında aslında mümkün olan birkaç durum vardır.</p>
+<p><img src="/images/1_oKbEZpebc55HRhufKktDkw.png" alt=""></p>
+<p>Bir Windows veya Linux ana bilgisayarındaki TCP bağlantılarının mevcut durumunu öğrenmek için netstat -a yazın. Aşağıda bir Windows ana bilgisayarındaki bağlantı durumuna ilişkin bir örnek verilmiştir.</p>
+<p>TCP 24.6.173.220:1035 poll:https ESTABLISHED<br>
+TCP 24.6.173.220:1071 egw1:https ESTABLISHED<br>
+TCP 24.6.173.220:9497 163–166:http CLOSE_WAIT<br>
+TCP 24.6.173.220:9699 nuq04s07-in-f11:http CLOSE_WAIT<br>
+TCP 24.6.173.220:9702 ec2–204–236–130–101:http CLOSE_WAIT<br>
+TCP 24.6.173.220:9703 ec2–204–236–131–42:http CLOSE_WAIT<br>
+TCP 24.6.173.220:9706 a184–84–222–33:http CLOSE_WAIT<br>
+TCP 24.6.173.220:9798 163–166:http CLOSE_WAIT<br>
+TCP 24.6.173.220:14717 nuq04s07-in-f5:http CLOSE_WAIT<br>
+TCP 24.6.173.220:15582 163–166:http CLOSE_WAIT<br>
+TCP 24.6.173.220:22167 66–151–158–187:https TIME_WAIT<br>
+TCP 24.6.173.220:22168 216–115–209–254:https TIME_WAIT<br>
+TCP 24.6.173.220:22169 probe-cgnt-sjc:https TIME_WAIT<br>
+TCP 24.6.173.220:22170 probe-cgnt-sjc:https TIME_WAIT<br>
+TCP 24.6.173.220:22171 216–115–209–254:https TIME_WAIT</p>
+<p>FIN “Kapa Çeneni” Demek Değildir<br>
+RFC 793, FIN bitinin amacını göndericiden daha fazla veri gelmeyeceğini belirtmek olarak tanımlar. Bu, FIN paketinin alıcısının ek veri göndermesini engellemez, buna izin verilir.</p>
+<p><img src="/images/1_smMgrW01y8cfs7-ZvQ813Q.png" alt=""></p>
+<p>TCP Sıfırlama, bir TCP bağlantısını açıkça kapatmak için kullanılır</p>
+<p>Bir TCP bağlantısını açıkça sonlandırmak için kullanılan bir Sıfırlama da görebilirsiniz. Sıfırlamadan önce FIN’ler gelebilir veya Sıfırlama kendi başına olabilir. Şekilde, 24.6.173.220 tarafından kurulan bir HTTP bağlantısını göstermektedir. FIN paketinde sunucu, gönderecek başka verisi olmadığını belirten FIN biti ayarlı bir paket gönderir. İstemci yanıtı onaylar ve FIN biti ayarlanmış bir paket gönderir. Son olarak sunucu, son pakette bağlantıyı açıkça sonlandırmak için bir TCP Sıfırlama gönderir.</p>
+<h4 id="tcp-paket-izleme-vekurtarma">
+  TCP Paket İzleme ve Kurtarma
+  <a class="heading-link" href="#tcp-paket-izleme-vekurtarma">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Sıralama/onay süreci paketlerin sırasını izler ve eksik bölümleri tespit edip kurtarır.</p>
+<p>El sıkışma işlemi sırasında bağlantının her iki tarafı da kendi başlangıç sıra numarasını (İlk Sıra Numarası) seçer. Her iki taraf da bu sıra numarasını her pakette bulunan veri miktarı kadar artırır. Sıralama/onay sürecini analiz ederken şu basit denklem kullanılır:</p>
+<p><img src="/images/1_cXVzyyVpFHkcZXppMisl5Q.png" alt=""></p>
+<p>Sıralı bir iletişimin basit terimler/sayılarla nasıl gerçekleşebileceğine dair kısa bir örnek:</p>
+<p>Onay Numarası alanı yalnızca veri alındığında artar. Varsayılan olarak Wireshark, daha kolay okunabilirlik için sıra numarası değerlerini 0&rsquo;dan başlatan Göreceli Sıra Numaralandırmayı kullanır. Wireshark, 402691989 gibi bir sıra numarası görüntülemek yerine sıfır sıra numarasıyla başlar çünkü daha küçük sayılarla çalışmak daha kolaydır. Gerçek sıra numaralarını görmek istiyorsanız TCP tercihlerinde TCP Göreli Sıra Numaralarını ve Pencere Ölçeklendirmeyi devre dışı bırakın.(unutmayın, Onay Numarası alanı diğer taraftan beklenen bir sonraki sıra numarasının değerini içerir).</p>
+<p>Anlaşma sağlandıktan sonra sıra numaraları yalnızca gönderilen gerçek veri baytlarının sayısı kadar artar. Bu örnekte, istemci veri gönderen ilk eştir (bir web sunucusundaki ana sayfayı alma isteği).</p>
+<p><img src="/images/1_iWouL0pOxZ6CGzHveXRqaA.png" alt=""></p>
+<p>TCP Sırası ve Onay numaraları, değiştirilen verileri izler</p>
+<p><img src="/images/1_bga1HCi_98qMzffpg5tHag.png" alt=""></p>
+<p>İlk Bağlantı</p>
+<p>Şekilde gösterilen TCP iletişimleri http-espn2011.pcapng adlı dosyada görülebilir. Bu dosyada kullanıcı <a href="http://www.espn.com%27a"  class="external-link" target="_blank" rel="noopener">www.espn.com&rsquo;a</a> bağlanır ve içeriğin kalıcı olarak go.espn.com’a taşındığı konusunda bilgilendirilir. İstemci daha sonra go.espn.com’a bağlanır.</p>
+<p><img src="/images/1_xsmRACMlX0dHKNm2d4v3TQ.png" alt=""></p>
+<p>İkinci Bağlantı</p>
+<p>Bu ikinci bağlantının başlangıcı ve Sıra/Onay Numarası alan değerleri Şekilde gösterilmektedir.</p>
+<p>TCP, paket kaybını belirleme (eksik sıra numaralarına dayalı olarak) ve eksik veri bölümlerini talep ederek (alıcı tarafı) veya zaman aşımına uğrayarak ve onaylanmayan bölümleri yeniden göndererek (gönderen taraf) kurtarma yeteneğine sahiptir.</p>
+<p>Alıcı, beklenen sıra numarasının pakette olmadığını fark ettiğinde paketin kaybolduğunu varsayar. Bu noktada alıcı, Onay Numarası alanını eşten beklenen bir sonraki sıra numarasına ACK olarak ayarlar.</p>
+<p><img src="/images/1_ag_paaFMEEadzkxMp25WHQ.png" alt=""></p>
+<p>Yüksek gecikmeli yollar üçten fazla aynı ACK’nin nedeni olabilir</p>
+<p>Üçten fazla AC’in alınması yeniden iletimi tetikleyecektir. Örneğin alıcı Şekildeki gibi dizi atlandığında Onay Numarası alanına 112750 ile ACK gönderir. Sıra numarası 112750 değil, ek veriler alındığında, ek ACK’ler (Onay Numarası alanında 112750 ile birlikte) gönderilecektir. Wireshark bunları Yinelenen ACK’ler olarak işaretler.</p>
+<p>TCP göndericileri, bir TCP eşi tarafından onaylanmayan bir paketin ne zaman yeniden iletilmesi gerektiğini belirlemek için bir TCP Yeniden İletim Zaman Aşımı (RTO) değerini korur. Bir veri paketi gönderilirse ve RTO zamanlayıcısının süresi dolmadan onaylanmazsa, TCP göndericisi orijinal paketin sıra numarasını kullanarak paketi yeniden iletebilir.</p>
+<p><img src="/images/1_-mKnrW-dlf9Xjy9Bv4i1cQ.png" alt=""></p>
+<p>Yeniden iletim zaman aşımı değerine ulaşıldığında HTTP sunucusu bir paketi yeniden iletir</p>
+<p>Şekilde, bir ACK’i bekledikten sonra veri paketini yeniden gönderen ve RTO’nun süresi dolmadan önce onu almayan bir sunucuyu göstermektedir. Yaklaşık 600 ms sonra başka bir yeniden iletim gönderilir. TCP’nin geri çekilme algoritmasını kullanarak, paket onaylanana veya gönderen TCP hostu beş yeniden iletimden sonra vazgeçene kadar her yeniden iletim girişiminde araya giren süre iki katına çıkar.</p>
+<p>TCP, yoğun trafiğin olduğu bilinen bir bağlantı üzerinden veya overload olmuş bir hosta gönderilmemesini sağlamak için bir akış kontrolü yöntemi sunar.</p>
+<p>TCP iletişimlerinin aktarım hızı, network congestion’a bağlıdır. congestion, bir seferde bekleyen (onaylanmayan) bayt sayısını tanımlar. Bu aslında gönderici tarafından uygulanan bir akış kontrol mekanizmasıdır. congestion bir ayar değildir; iki temel faktöre göre dinamik olarak belirlenir:</p>
+<ul>
+<li>Alıcının TCP arabellek alanı bildirildi</li>
+<li>Gönderenin iletim arabelleği kapasitesi</li>
+<li>Ağda izin verilen trafik miktarı (ağ tıkanıklığı/paket kaybına göre)</li>
+</ul>
+<p>congestion her zaman bu üç değerden düşük olacaktır. Örneğin, bir Ethernet ağında, bir alıcının 65.535 baytlık bir frame tanıttığını, ancak bağlantının, eşin 65.535 alma arabelleğinden hiç faydalanmadan önce düzenli olarak paket kaybı yaşadığını varsayalım.</p>
+<p>Gerçek congestion 65.535 bayt değildir ancak ağın neyi destekleyeceğine bağlı olarak daha düşük bir değerdir. Paket kaybından sonra congestion belirleme süreci RFC 2001&rsquo;de ayrıntılı bir şekilde tanımlanmıştır.</p>
+<hr>
+<h3 id="tcp-sorunları-analizi">
+  TCP Sorunları Analizi
+  <a class="heading-link" href="#tcp-sorunlar%c4%b1-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>El sıkışma sürecindeki sorunlardan paket kaybına, TCP bağlantı kopmalarına, donmuş pencerelere kadar TCP katmanında oluşabilecek çok sayıda sorun vardır.</p>
+<p><img src="/images/1_07AoMOodVO2M9hTual5LLg.png" alt=""></p>
+<p>TCP bağlantısı RST/ACK ile reddedildi</p>
+<p>TCP el sıkışma sorunlarıyla başlıyoruz. Şekilde bir TCP bağlantı reddi gösterilmektedir. Şekil 235&rsquo;te, el sıkışmanın (SYN) ilk paketi bir Sıfırlama (RST/ACK) yanıtı alır. Bağlantı kurulamıyor. El sıkışma işlemi başarıyla tamamlanmazsa hostlar arasında veri alışverişi yapılamaz.</p>
+<p>Aşırı sayıda başarısız TCP bağlantı denemesi bir TCP taramasına işaret edebilir.</p>
+<p><img src="/images/1_x5VezCndlQUpY7QlfAaMbQ.png" alt=""></p>
+<p>Paket kaybı nedeniyle başarısız bir TCP bağlantısı</p>
+<p>Şekilde, el sıkışma işlemiyle ilgili başka bir sorunu göstermektedir. Şekili incelediğimizde aşağıdakileri görebiliriz:</p>
+<ul>
+<li>El sıkışma normal görünüyor; 3–5 paketlerinde SYN, SYN/ACK, ACK. El sıkışmanın (SYN) ilk paketinde istemcinin sıra numarası olan 67.161.32.69&rsquo;un, Wireshark tarafından tanımlanan göreceli bir sıra numarası olan 0 olarak gösterildiğine dikkat edin. Bu istemciden gönderilen bir sonraki paket (paket numarası 5), istemci SYN paketinde herhangi bir veri göndermemiş olmasına rağmen istemcinin sıra numarasının artık 1 olduğunu gösterir. TCP spesifikasyonu (RFC 793, İletim Kontrol Protokolü), SYN paketlerinden sonraki ilk veri paketinin Başlangıç Sıra Numarasını (ISN) 1 artırması gerektiğini tanımlar.</li>
+<li>Handshake işleminin ardından istemci, sunucuya 14 byte veri içeren bir paket gönderir ve paket 6 üzerinde Push (PSH) ve ACK bitlerini ayarlar.</li>
+<li>Paket 7 bir şeylerin ters gittiğinin ilk göstergesidir. İstemcinin RTO değerinin süresi, paket 6&rsquo;ya ACK gelmesini beklerken doldu. Paket 7, paket 6&rsquo;nın yeniden iletimidir.</li>
+<li>Paket 8 de bir yeniden iletimdir. Sunucu, TCP el sıkışmasından gelen SYN/ACK paketini yeniden göndermiştir. Sunucu el sıkışma sürecinin üçüncü paketini almamış gibi görünüyor. Sunucu, istemciden el sıkışma ACK paketini talep etmek için Acknowledgment Number alan değerini 1 olarak ayarlar.</li>
+<li>Sunucu sürekli olarak el sıkışmanın üçüncü paketini ister. Ancak istemci, Sıra Numarası 1 olan iki paket göndermiştir. İstemci, el sıkışmanın son paketi yerine ilk veri paketini yeniden iletir.</li>
+</ul>
+<p>Bu sorun kendi kendine çözülemez. Sunucu, el sıkışma işleminin düzgün bir şekilde çözüldüğünü görene kadar 14 baytlık veriyi kabul etmeyecektir. Yeni bir bağlantı denemesi oluşturmak için 4321 numaralı portunda RWhois (Yönlendirme Whois) hizmetine TCP bağlantısı başlatan uygulamanın yeniden başlatılması gerekir.</p>
+<hr>
+<h3 id="tcp-paketyapısı">
+  TCP Paket Yapısı
+  <a class="heading-link" href="#tcp-paketyap%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>TCP üstbilgisi genellikle 20 bayt uzunluğundadır ancak TCP üstbilgisi, başlık uzunluğunu artırabilen bir Seçenekler alanını destekler.</p>
+<h4 id="source-portfield">
+  Source Port Field
+  <a class="heading-link" href="#source-portfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>TCP kaynak portu, göndericide açık olan dinleme port numarasıdır.</p>
+<h4 id="destination-portfield">
+  Destination Port Field
+  <a class="heading-link" href="#destination-portfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>TCP hedef bağlantı noktası, alıcıda açık olan hedef port numarasıdır.</p>
+<h4 id="stream-index-wireshark-field">
+  Stream Index [Wireshark Field]
+  <a class="heading-link" href="#stream-index-wireshark-field">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Akış İndeksi, TCP başlığındaki gerçek bir alan değildir. Akış İndeksi değeri Wireshark tarafından tanımlanır ve bir TCP konuşmasını hızlı bir şekilde filtrelemek için kullanılabilir.</p>
+<h4 id="sequence-numberfield">
+  Sequence Number Field
+  <a class="heading-link" href="#sequence-numberfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan, TCP segmentini benzersiz şekilde tanımlayan bir sayı içerir (TCP başlığını takip eden verilere TCP ‘segment’ adı verilir). Bu sıra numarası, TCP segmenti için bir tanımlayıcı sağlar ve alıcıların, bir iletişim akışının parçalarının ne zaman eksik olduğunu belirlemesine olanak tanır. Sıra numarası, her pakette bulunan veri baytlarının sayısına göre artar.</p>
+<h4 id="next-expected-sequence-number-wireshark-field">
+  Next Expected Sequence Number [Wireshark Field]
+  <a class="heading-link" href="#next-expected-sequence-number-wireshark-field">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan yalnızca veri içeren paketlerde görünür — bu alan SYN paketlerinde veya basit ACK paketlerinde görülmez. Wireshark mevcut paket Sıra Numarasını inceler ve bu numarayı sağlamak için veri baytlarının sayısını ekler.</p>
+<h4 id="acknowledgment-numberfield">
+  Acknowledgment Number Field
+  <a class="heading-link" href="#acknowledgment-numberfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Onay Numarası alanı iletişimin diğer tarafından beklenen bir sonraki sıra numarasını gösterir. Bir ana bilgisayar tarafından hiçbir zaman artırılmayan bir Onay Numarası alanı, yalnızca o ana bilgisayar tarafından hiçbir veri alınmadığını gösterir.</p>
+<h4 id="data-offsetfield">
+  Data Offset Field
+  <a class="heading-link" href="#data-offsetfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu, TCP başlığının uzunluğunu tanımlar. 4 baytlık artışlarla tanımlanır, dolayısıyla bu alandaki 5 değeri, TCP başlığının 20 bayt uzunluğunda olduğunu gösterir. TCP başlık uzunluğu kullanılan TCP başlık seçeneklerine göre değişebileceği için bu alana ihtiyacımız var. TCP seçenek alanı, TCP bağlantı kurulumu sırasında Maksimum Segment Boyutunu (MSS) oluşturmak için sıklıkla kullanılır.</p>
+<h4 id="flags-field">
+  Flags Field
+  <a class="heading-link" href="#flags-field">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Aşağıdaki liste TCP başlığında kullanılan bayrakları açıklamaktadır:</p>
+<ul>
+<li>Reserved: Bu üç bit sıfıra ayarlanmıştır.</li>
+<li>Nonce: Nonce alanı, IP başlığındaki ECN alanlarıyla birlikte çalışır. Bu işlevsellik, RFC 3540, Nonces ile Sağlam Explicit Congestion Notification (ECN) Sinyali’nde açıklanmaktadır.</li>
+<li><strong>Congestion Window Reduced (CWR)</strong>: gecikme, veri göndericisi tarafından, veri alıcısına Congestion azaldığını bildirmek için ayarlanır.</li>
+<li><strong>URG (Urgent):</strong> Acil İşaretçi alanının incelenmesi gerektiğini belirtir; Acil İşaretçi alanı, TCP Sağlama Toplamı(checksum) alanından sonra bulunur ve kullanılmadığında 0x0000 olarak ayarlanır. Acil İşaretçi alanı yalnızca bu bit ayarlandığında işlenir.</li>
+<li>ACK (Acknowledgment): Onay paketi</li>
+<li>PSH (Push): Arabelleğe almayı atlayın ve verileri doğrudan ağa aktarın Gelen verileri arabelleğe almayın — doğrudan uygulamaya aktarın</li>
+<li>RST (Reset): Bağlantıyı açıkça kapatın</li>
+<li>SYN (Synchronize): Sıra numaralarını senkronize edin — el sıkışma sürecinde kullanılır</li>
+<li>FIN (Finish): İşlem tamamlandı, bağlantı sonlandırma</li>
+</ul>
+<h4 id="window-field">
+  Window Field
+  <a class="heading-link" href="#window-field">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan, bayt cinsinden TCP alıcı arabelleğinin boyutunu gösterir. 0 pencere boyutu, alıcının kullanılabilir arabellek alanı olmadığını gösterir. Bu iki bytelık alanda gösterilebilecek maksimum değer 65.535&rsquo;tir. Pencere ölçeklendirme (TCP el sıkışma işlemi sırasında oluşturulur), ana bilgisayarların daha büyük pencere boyutları kullanmasını sağlar. Pencere Boyutu alanı değeri 65.535&rsquo;ten küçük olan tüm paketler için görüntüleme filtresi tcp.window_size &lt; 65535&rsquo;tir.</p>
+<h4 id="checksum-field">
+  Checksum Field
+  <a class="heading-link" href="#checksum-field">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>TCP sağlama toplamı, TCP başlığının ve verisinin içeriği üzerinde gerçekleştirilir (veri bağlantısı dolgusu dahil değildir) yanı sıra IP başlığından türetilen bir sözde başlık. Daha fazla bilgi için RFC 793&rsquo;e bakın.</p>
+<h4 id="urgent-pointerfield">
+  Urgent Pointer Field
+  <a class="heading-link" href="#urgent-pointerfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan yalnızca URG biti ayarlanmışsa geçerlidir. URG biti ayarlanmışsa, alıcı pakette ilk olarak nereye bakacağını/okuyacağını görmek için bu alanı incelemelidir. Bu yaygın bir işlev değildir. Acil İşaretçi alanı içeren tüm paketler için görüntüleme filtresi tcp.urgent_pointer’dır. Acil biti 1 olarak ayarlanmadığı sürece Wireshark bu alanı görüntülemeyecektir.</p>
+<hr>
+<h3 id="tcp-trafiğini-filtreleme">
+  TCP Trafiğini Filtreleme
+  <a class="heading-link" href="#tcp-trafi%c4%9fini-filtreleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>TCP Trafiğinde capture ve display filter sözdizimi basitçe <em>tcp</em>’dir.</p>
+<ul>
+<li>tcp.srcport==21 — FTP yanıtı (FTP’nin 21 numaralı bağlantı noktasında çalıştığını varsayarak)</li>
+<li>tcp.dstport==80 — Port 80&rsquo;e yönlendirilen trafik (HTTP çoğunlukla port 80 üzerinde çalışır)</li>
+<li>tcp.hdr_len &gt; 20 — Bir veya daha fazla seçenek içeren TCP üstbilgileri</li>
+<li>(tcp.window_size &lt; 1460) &amp;&amp; (tcp.flags.fin==0) &amp;&amp; (tcp.flags.reset==0) — RST biti ayarlanmamış bir pakette bir MSS’den daha küçük TCP pencere boyutu — bu veri aktarım sürecini yavaşlatır; kurtarmak için pencere güncellemeleri gerekir — örneğin, http-download-good.pcapng izleme dosyasında bu tür paketleri arayın.</li>
+<li>!(tcp.flags.cwr==0) || !(tcp.flags.ecn==0) —Congestion Azaltıldı bayrağı veya ECN-Echo bayrağı ayarlanmış paketler.</li>
+<li>tcp.options.mss_val &lt; 1460 — TCP MSS ayarı 1.460 bayttan az (bu, el sıkışma sürecinde görülecektir)</li>
+<li>tcp.options.wscale_val — TCP pencere ölçeği seçeneği TCP başlığında mevcuttur.</li>
+<li>tcp.analysis.flags — Paketler TCP sorunları veya bildirimleri ile işaretlendi (TCP tercihlerinde TCP Sıra Numaralarını Analiz Et devre dışı bırakılmışsa çalışmaz)</li>
+<li>tcp.analysis.lost_segment — Bu paketten önce kayıp bir segment tespit edildi- mevcut birçok bireysel TCP analiz bayraklarından biri. Diğer TCP analiz bayraklarını görüntülemek için otomatik tamamlama özelliğini (tcp.analysis.)-dönemi dahil edin- veya İfadeleri kullanın</li>
+</ul>
+<hr>
+<h3 id="kaynakça">
+  Kaynakça
+  <a class="heading-link" href="#kaynak%c3%a7a">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Wireshark Network Analysis, Second Edition, Laura Chappel, <a href="https://www.chappell-university.com/studyguide"  class="external-link" target="_blank" rel="noopener">https://www.chappell-university.com/studyguide</a></li>
+<li>Trace Files: <a href="https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip"  class="external-link" target="_blank" rel="noopener">https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip</a></li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  DNS Wireshark Analysis · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  DNS Wireshark Analysis
+  
+    
+    Link to heading
+  
+
+
+Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.
+
+
+  How Does DNS Work?
+  
+    
+    Link to heading
+  
+
+DNS is used to convert symbolic hostnames, such as www.wiresharktraining.com, into IP addresses. DNS can also be used to transfer name information between DNS servers, determine the hostname associated with an IP address (reverse or pointer query), and look up other name elements such as an MX (mail exchange) record.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="DNS Wireshark Analysis">
+  <meta name="twitter:description" content="DNS Wireshark AnalysisLink to headingHello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.
+How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, such as www.wiresharktraining.com, into IP addresses. DNS can also be used to transfer name information between DNS servers, determine the hostname associated with an IP address (reverse or pointer query), and look up other name elements such as an MX (mail exchange) record.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2023/11/dns-wireshark-analysis/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="DNS Wireshark Analysis">
+  <meta property="og:description" content="DNS Wireshark AnalysisLink to headingHello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.
+How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, such as www.wiresharktraining.com, into IP addresses. DNS can also be used to transfer name information between DNS servers, determine the hostname associated with an IP address (reverse or pointer query), and look up other name elements such as an MX (mail exchange) record.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-11-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-11-15T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2023/11/dns-wireshark-analysis/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2023/11/dns-wireshark-analizi/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2023/11/dns-wireshark-analysis/">
+              DNS Wireshark Analysis
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-11-15T00:00:00Z">
+                November 15, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              9-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="dns-wireshark-analysis">
+  DNS Wireshark Analysis
+  <a class="heading-link" href="#dns-wireshark-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1__OuE2zljUjPrg0g7TfljyQ.png" alt=""></p>
+<p>Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.</p>
+<hr>
+<h3 id="how-does-dnswork">
+  How Does DNS Work?
+  <a class="heading-link" href="#how-does-dnswork">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>DNS is used to convert symbolic hostnames, such as <a href="http://www.wiresharktraining.com"  class="external-link" target="_blank" rel="noopener">www.wiresharktraining.com</a>, into IP addresses. DNS can also be used to transfer name information between DNS servers, determine the hostname associated with an IP address (reverse or pointer query), and look up other name elements such as an MX (mail exchange) record.</p>
+<p>DNS is one of the most important applications on the network. A DNS problem will prevent computers from finding each other when using hostname information.</p>
+<p><img src="/images/1_-XBRoGHxww1KuVqyLDEznA.png" alt=""></p>
+<p>DNS package</p>
+<p>DNS can operate over UDP or TCP. You&rsquo;ll commonly see DNS queries and responses that use UDP. Zone transfers operate over TCP. The default port number for DNS is 53.</p>
+<p><a href="https://www.rfc-editor.org/rfc/rfc1035"  class="external-link" target="_blank" rel="noopener">RFC 1035</a>, Domain Names — Implementation and Specification limits DNS over UDP packet payload to 512 bytes. This is usually enough for a DNS query. However, when a response requires more than 512 bytes of space, an interrupt flag bit is sent in the response. This triggers the resolver to resend the DNS query using TCP, which allows for a larger packet size.</p>
+<p><a href="https://www.rfc-editor.org/rfc/rfc2671"  class="external-link" target="_blank" rel="noopener">RFC 2671</a>, Extension Mechanisms for DNS (EDNS0), allows more than 512 bytes over UDP.</p>
+<hr>
+<h3 id="dns-queryresponse-analysis">
+  DNS Query/Response Analysis
+  <a class="heading-link" href="#dns-queryresponse-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Domain resolution, DNS query and response operations are very simple. A client sends a DNS query to a DNS server, requesting an IP address, usually in exchange for a domain. The DNS server either responds directly with the information it has or asks other DNS servers on behalf of clients.</p>
+<p><img src="/images/1_2Ye8QGf5KQIGJriwo33-jQ.png" alt=""></p>
+<p>A record DNS Query</p>
+<p>The figure shows a standard DNS request to the A record (CNAME) for <a href="https://www.winpcap.org"  class="external-link" target="_blank" rel="noopener">www.winpcap.org</a>. This DNS query is automatically generated when the user enters the domain in the browser URL and presses the Enter key.</p>
+<p>The name requested by a client may not be the real name of the target. In this case, a canonical name(CNAME) or real name is returned for <a href="https://www.winpcap.org"  class="external-link" target="_blank" rel="noopener">www.winpcap.org</a>. The CNAME is <a href="http://www.winpcap.org"  class="external-link" target="_blank" rel="noopener">winpcap.org</a> and the address of this host is 128.121.79.138.</p>
+<hr>
+<h3 id="dns-errorsanalysis">
+  DNS Errors Analysis
+  <a class="heading-link" href="#dns-errorsanalysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The most common DNS problem is an error that occurs because a name does not exist in the ad namse server database. This may be due to entering an incorrect name or entering a new name that has not yet been propagated to Internet name servers.</p>
+<p><img src="/images/1_QGZ4PNFbyz1aVA6W3cqXLQ.png" alt=""></p>
+<p>Unfound Domain Query</p>
+<p>In the figure, a user is trying to access the address 2.26.64.24.in-addr.arpa. The Name Server responds by stating that there is no such domain. If the user cannot resolve the domain, he cannot reach the destination address.</p>
+<p>Server error responses indicate that the name server was unable to resolve information for the client due to an error. This could be because the name server sent a query to another name server (via a recursive query) and timed out waiting for a response, or it could be that the response was not understood or related to a query due to some kind of internal error.</p>
+<p><img src="/images/1_ubKDRzHewQqeMyGqbDFqMw.png" alt=""></p>
+<p>IP Resolution Cannot Be Performed as a Result of DNS Errors</p>
+<p>The figure shows the server error response received when trying to reach <a href="http://www.nmap.org"  class="external-link" target="_blank" rel="noopener">www.nmap.org</a>. We know this is a valid address, but DNS cannot resolve it. We cannot reach the site due to a DNS problem. Pay attention to the time column; We can see that the client sends a DNS query, then waits 1 second for the response before resending the query. The client waited another 1 second before the third query, but doubled that wait time to approximately 2 seconds before the fourth DNS query.</p>
+<p>To find the cause of DNS problems, you may need to move Wireshark upstream of the DNS server and monitor the lookup process at that location.</p>
+<p><img src="/images/1_CaxBBdj7NrXCZ3tIF-Gxxg.png" alt=""></p>
+<p>The ICMP response indicates that port 53 is open on the target.</p>
+<p>In the figure, our client sends DNS queries and these queries are answered with ICMP Destination Unreachable/Port Unreachable responses.The response shows that port 53 is not open on this host.</p>
+<p>In this case, where the error occurs depends on whether the client&rsquo;s DNS server has the correct IP address or whether the DNS server service is running on the requested IP. In this case, the client tries again — there is only one DNS server configured (usually there will be 2), so it tries the lookup again. The client&rsquo;s request is rejected again because the server indicates that this port is not listening.</p>
+<hr>
+<h3 id="dns-packagestructure">
+  DNS Package Structure
+  <a class="heading-link" href="#dns-packagestructure">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Unlike other applications that use a single transport protocol (UDP or TCP), DNS uses both UDP and TCP. DNS generally uses UDP-53 for name resolution requests and responses, and TCP-53 for zone transfers and larger name resolutions and responses.</p>
+<p><img src="/images/1_WDRDLWOoT1bKcj8KM2dyVA.png" alt=""></p>
+<p>DNS name reqests to <a href="http://www.winpcap.com"  class="external-link" target="_blank" rel="noopener">www.winpcap.com</a></p>
+<p>All DNS packages use a single basic structure consisting of four main parts as shown in the Figure.</p>
+<h4 id="transaction-id">
+  Transaction ID
+  <a class="heading-link" href="#transaction-id">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The Transaction ID field associates DNS queries with responses. You can filter on this field and value (for example, dns.id==0x05b5) to view all associated DNS queries/responses.</p>
+<p>####Flags</p>
+<p>The flags byte consists of multiple fields that define query properties.</p>
+<h4 id="queryresponse">
+  Query/Response
+  <a class="heading-link" href="#queryresponse">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The Query/Response bit indicates whether the packet is a query (0) or a response (1). You can create a Wireshark filter to view DNS queries (dns.flags.response==0) or responses (dns.flags.response==1).</p>
+<h4 id="opcode">
+  Opcode
+  <a class="heading-link" href="#opcode">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The Opcode field specifies the query type. Most commonly, this field contains 0000 for standard queries, and the field is left as 0000 in responses.</p>
+<h4 id="authoritative-answer">
+  Authoritative Answer
+  <a class="heading-link" href="#authoritative-answer">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The Authorized Response field used in responses indicates that the response comes from an authoritative server for the domain.</p>
+<h4 id="truncation">
+  Truncation
+  <a class="heading-link" href="#truncation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>A truncation area indicates that the DNS response was truncated due to length. If a client sees a truncated DNS response, it must retry the query over TCP. It&rsquo;s not very common to see TCP based queries/responses.</p>
+<h4 id="recursion-desired">
+  Recursion Desired
+  <a class="heading-link" href="#recursion-desired">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Recursion can be defined in DNS queries to specify whether the server can use recursive query operations. Recursion allows a DNS server to request a response from another server on behalf of the client. If the local nameserver has the answer, it will respond directly. If it doesn&rsquo;t have the answer, it will begin the search on behalf of the client.</p>
+<h4 id="recursion-available">
+  Recursion Available
+  <a class="heading-link" href="#recursion-available">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This setting, described in the answers, specifies whether recursion is available on the DNS server.</p>
+<h4 id="reserved">
+  Reserved
+  <a class="heading-link" href="#reserved">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This field is set to 0.</p>
+<h4 id="rcode-response-code">
+  Rcode (Response Code)
+  <a class="heading-link" href="#rcode-response-code">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The rcode field indicates whether there is an error condition in the response. The table below lists possible Rcode values.</p>
+<ul>
+<li>Code 0: No error condition.</li>
+<li>Code 1: Format error - query could not be interpreted.</li>
+<li>Code 2: Server error - the server was unable to process the query due to a problem with the nameserver.</li>
+<li>Code 3: Name error - domain does not exist.</li>
+<li>Code 4: Not implemented.</li>
+<li>Code 5: Denied - the nameserver refuses to perform the function due to policy.</li>
+</ul>
+<h4 id="question-count">
+  Question Count
+  <a class="heading-link" href="#question-count">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This field shows the number of questions in the Question section. You&rsquo;ll typically see only one question per query package.</p>
+<h4 id="answer-resource-record-rrcount">
+  Answer Resource Record (RR) Count
+  <a class="heading-link" href="#answer-resource-record-rrcount">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This field shows the number of responses in the Response RRs section. If a response contains CNAME information, you will likely see two numbers in the Response RR Number field — one for the CNAME and one for the IP address of the CNAME record.</p>
+<h4 id="authority-rrscount">
+  Authority RRs Count
+  <a class="heading-link" href="#authority-rrscount">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This field shows the number of responses in the Authority RRs section. These responses come from servers that are closer to the target name in the naming hierarchy.</p>
+<h4 id="additional-rrscount">
+  Additional RRs Count
+  <a class="heading-link" href="#additional-rrscount">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This field shows the number of responses in the Additional RRs section. In this section you can find A records for servers in the Authority RR section.</p>
+<h4 id="queries">
+  Queries
+  <a class="heading-link" href="#queries">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This variable-length field identifies the name being parsed and the type of information requested.</p>
+<h4 id="name">
+  Name
+  <a class="heading-link" href="#name">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This field contains the name being resolved. The format is variable length, using a numeric delimiter to specify the number of alphanumeric bytes in the name. Below are some examples:</p>
+<p>*3www9wireshark3org0
+*3www4iana3org0</p>
+<p>####Type</p>
+<p>This field shows the query type. For a complete list of registered type numbers, see <a href="http://www.iana.org/assignments/dns-parameters"  class="external-link" target="_blank" rel="noopener">www.iana.org/assignments/dns-parameters</a>.</p>
+<ul>
+<li>Type A: Host address</li>
+<li>Type NS: Authoritative name server</li>
+<li>Type CNAME: Canonical name for an alias</li>
+<li>Type SOA: Start of Zone Authority</li>
+<li>Type PTR: Pointer record</li>
+<li>Type HINFO: Host information</li>
+<li>Type MX: Mail exchange</li>
+<li>Type AAAA: IPv6 address</li>
+</ul>
+<h4 id="class">
+  Class
+  <a class="heading-link" href="#class">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This field is set to 1 to specify an Internet class address for TCP/IP communications.</p>
+<h4 id="answer-rrs">
+  Answer RRs
+  <a class="heading-link" href="#answer-rrs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This area uses the same format as this section in the Questions area.</p>
+<h4 id="authority-rrs">
+  Authority RRs
+  <a class="heading-link" href="#authority-rrs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This area uses the same format as this section in the Questions area.</p>
+<h4 id="additional-rrs">
+  Additional RRs
+  <a class="heading-link" href="#additional-rrs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This area uses the same format as this section in the Questions area.</p>
+<h4 id="resource-record-time-to-live-ttlvalue">
+  Resource Record Time to Live (TTL) Value
+  <a class="heading-link" href="#resource-record-time-to-live-ttlvalue">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>This field is located in the Response section of DNS responses and indicates how long the recipient can cache DNS information. Each response in DNS will contain a TTL value for that DNS information.<br>
+DNS servers responding with RR information continuously count down the remaining TTL value; Making the same DNS query ten seconds apart will show a ten second difference in the TTL value presented.</p>
+<hr>
+<h4 id="dnsmdns-traffic-filters">
+  DNS/mDNS Traffic Filters
+  <a class="heading-link" href="#dnsmdns-traffic-filters">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The capture filter for DNS traffic is based on the port number because the tcpdump filter format cannot detect the dns protocol. This may change as Libpcap and WinPcap are updated.</p>
+<p>The capture filter for standard DNS traffic over UDP or TCP is port 53, while mDNS uses port 5353.</p>
+<p>The view filter syntax is simply dns. This filter displays both DNS and mDNS traffic. Additional DNS display filters are listed below.</p>
+<ul>
+<li>dns.flags.response==0: DNS query</li>
+<li>dns.flags.response==1: DNs response</li>
+<li>dns.flags.rcode != 0 : DNS responses containing errors</li>
+<li>dns.count.answers &gt; 5: DNS responses containing more than 5 responses</li>
+<li>dns.qry.name==”www.abc.com&quot; : DNS query for <a href="http://www.abc.com"  class="external-link" target="_blank" rel="noopener">www.abc.com</a></li>
+<li>dns contains “abc”: DNS query or responses “containing abc”</li>
+<li>dns.qry.type==0x0001: DNS queries for a hostname.</li>
+<li>dns.qry.type==0x000c: DNS queries for a domain pointer query(inverse query).</li>
+<li>dns.resp.type==0x0005: DNS responses containing CNAME value (canonical name)</li>
+<li>dns.resp.type==0x0006: DNS responses containing SOA (Start of Authority)</li>
+<li>dns.flags.recdesired==1: DNS Queries with recursion desired</li>
+<li>dns.flags.recavail==1: DNS responses starting with recursion available</li>
+</ul>
+<p>More Display filter options can be found in Wireshark&rsquo;s Reference at <a href="http://www.wireshark.org/docs/dfref/d/dns.html"  class="external-link" target="_blank" rel="noopener">www.wireshark.org/docs/dfref/d/dns.html</a>.</p>
+<hr>
+<h3 id="references">
+  References
+  <a class="heading-link" href="#references">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Wireshark Network Analysis, Second Edition, Laura Chappell, <a href="https://www.chappell-university.com/studyguide"  class="external-link" target="_blank" rel="noopener">https://www.chappell-university.com/studyguide</a></li>
+<li>Trace Files: <a href="https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip"  class="external-link" target="_blank" rel="noopener">https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip</a></li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

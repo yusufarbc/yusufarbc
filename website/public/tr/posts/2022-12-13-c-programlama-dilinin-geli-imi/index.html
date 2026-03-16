@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  C Programlama Dilinin Gelişimi · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  C Programlama Dilinin Gelişimi
+  
+    
+    Başlık Linki
+  
+
+
+
+  Programlama Dili Nedir?
+  
+    
+    Başlık Linki
+  
+
+Programlama bir bilgisayara yürütmesi için bir dizi talimat vermektir. Bilgisayar verilen talimatları sıra ile yürütür. Bir bilgisayarı programlamak için ilk bilgisayarlardan itibaren çeşitli yöntemler kullanılmıştır.
+Programlama dilleri, bilgisayarların izleyeceği talimatları yazmak için kullandığımız araçlardır. Bilgisayarlar ikili olarak düşünür yani 1&rsquo;ler ve 0&rsquo;lardan oluşan diziler ile işlemlerini gerçekleştirir. Programlama dilleri, 1&rsquo;leri ve 0&rsquo;ları insanların anlayabileceği ve yazabileceği bir şeye çevirmemizi sağlar. Bir programlama dili, insanların düşüncelerimizi bilgisayarların anlayabileceği talimatlara çevirmesini sağlayan bir köprü görevi gören bir dizi sembolden oluşur. Bu sembollerden oluşan cümleler derleyici aracılığıyla makine koduna(ikili koda) çevrilir.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="C Programlama Dilinin Gelişimi">
+  <meta name="twitter:description" content="C Programlama Dilinin GelişimiBaşlık LinkiProgramlama Dili Nedir?Başlık LinkiProgramlama bir bilgisayara yürütmesi için bir dizi talimat vermektir. Bilgisayar verilen talimatları sıra ile yürütür. Bir bilgisayarı programlamak için ilk bilgisayarlardan itibaren çeşitli yöntemler kullanılmıştır.
+Programlama dilleri, bilgisayarların izleyeceği talimatları yazmak için kullandığımız araçlardır. Bilgisayarlar ikili olarak düşünür yani 1’ler ve 0’lardan oluşan diziler ile işlemlerini gerçekleştirir. Programlama dilleri, 1’leri ve 0’ları insanların anlayabileceği ve yazabileceği bir şeye çevirmemizi sağlar. Bir programlama dili, insanların düşüncelerimizi bilgisayarların anlayabileceği talimatlara çevirmesini sağlayan bir köprü görevi gören bir dizi sembolden oluşur. Bu sembollerden oluşan cümleler derleyici aracılığıyla makine koduna(ikili koda) çevrilir.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2022-12-13-c-programlama-dilinin-geli-imi/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="C Programlama Dilinin Gelişimi">
+  <meta property="og:description" content="C Programlama Dilinin GelişimiBaşlık LinkiProgramlama Dili Nedir?Başlık LinkiProgramlama bir bilgisayara yürütmesi için bir dizi talimat vermektir. Bilgisayar verilen talimatları sıra ile yürütür. Bir bilgisayarı programlamak için ilk bilgisayarlardan itibaren çeşitli yöntemler kullanılmıştır.
+Programlama dilleri, bilgisayarların izleyeceği talimatları yazmak için kullandığımız araçlardır. Bilgisayarlar ikili olarak düşünür yani 1’ler ve 0’lardan oluşan diziler ile işlemlerini gerçekleştirir. Programlama dilleri, 1’leri ve 0’ları insanların anlayabileceği ve yazabileceği bir şeye çevirmemizi sağlar. Bir programlama dili, insanların düşüncelerimizi bilgisayarların anlayabileceği talimatlara çevirmesini sağlayan bir köprü görevi gören bir dizi sembolden oluşur. Bu sembollerden oluşan cümleler derleyici aracılığıyla makine koduna(ikili koda) çevrilir.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-12-13T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-12-13T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2022-12-13-c-programlama-dilinin-geli-imi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2022-12-13-c-programlama-dilinin-geli-imi/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2022-12-13-c-programlama-dilinin-geli-imi/">
+              C Programlama Dilinin Gelişimi
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-12-13T00:00:00Z">
+                Aralık 13, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="c-programlama-diliningelişimi">
+  C Programlama Dilinin Gelişimi
+  <a class="heading-link" href="#c-programlama-diliningeli%c5%9fimi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_LNiEJoSd69b4K-ABg14OYw.png" alt=""></p>
+<h3 id="programlama-dilinedir">
+  <strong>Programlama Dili Nedir?</strong>
+  <a class="heading-link" href="#programlama-dilinedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Programlama bir bilgisayara yürütmesi için bir dizi talimat vermektir. Bilgisayar verilen talimatları sıra ile yürütür. Bir bilgisayarı programlamak için ilk bilgisayarlardan itibaren çeşitli yöntemler kullanılmıştır.</p>
+<p>Programlama dilleri, bilgisayarların izleyeceği talimatları yazmak için kullandığımız araçlardır. Bilgisayarlar ikili olarak düşünür yani 1&rsquo;ler ve 0&rsquo;lardan oluşan diziler ile işlemlerini gerçekleştirir. Programlama dilleri, 1&rsquo;leri ve 0&rsquo;ları insanların anlayabileceği ve yazabileceği bir şeye çevirmemizi sağlar. Bir programlama dili, insanların düşüncelerimizi bilgisayarların anlayabileceği talimatlara çevirmesini sağlayan bir köprü görevi gören bir dizi sembolden oluşur. Bu sembollerden oluşan cümleler derleyici aracılığıyla makine koduna(ikili koda) çevrilir.</p>
+<p><img src="/images/1_JTvQeZhMZ--8BDeKaABmKw.jpeg" alt=""></p>
+<p>Derleyicinin Görevi</p>
+<h3 id="programlama-dillerinin-sınıflandırılması">
+  Programlama Dillerinin Sınıflandırılması
+  <a class="heading-link" href="#programlama-dillerinin-s%c4%b1n%c4%b1fland%c4%b1r%c4%b1lmas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Gelişen teknoloji ile günümüzde pek çok farklı uygulama türü ortaya çıkmıştır ve programlama dilleri bu uygulama türlerine göre özelleşmiştir. Programlama dillerinin bir listesine <a href="https://tr.wikipedia.org/wiki/List_of_programming_languages"  class="external-link" target="_blank" rel="noopener">buradan</a> ulaşabilirsiniz.</p>
+<p>Örnek olarak;</p>
+<ul>
+<li>web uygulaması geliştirmek için PHP, JavaScript.</li>
+<li>mobil uygulama geliştirmek için kotlin, swift.</li>
+<li>yapay zeka uygulamaları geliştirmek için Python, R.</li>
+<li>sistem programı geliştirmek için C, C++.</li>
+</ul>
+<p>verilebilir. Peki her işe yarayan tek bir programlama dili var mıdır? Bilgisayar programları bu kadar çeşitli iken her işte iyi olan bir dil geliştirmek oldukça zor olsa gerek.</p>
+<p>Programlama dillerini, insan diline ve makine diline yakınlıklarına göre sınıflandırabiliriz. Bu görselde programlama dili, üste çıkıldıkça konuşma diline, aşağı indikçe makine diline yaklaşır.</p>
+<p><img src="/images/1_ezQx18YckMStFClue9R1qg.jpeg" alt=""></p>
+<p>Programlama Dillerinin Sınıflandırılması</p>
+<hr>
+<h3 id="c-programlama-dili">
+  C Programlama Dili
+  <a class="heading-link" href="#c-programlama-dili">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>C çoğunlukla orta seviye dili olarak bilinse de; bu onun diğer dillerden daha az güçlü, daha az kullanışlı olduğu anlamına gelmez. Böyle adlandırılmasının sebebi hem assembly dili gibi düşük seviyeli dillerin hem de C#, Pascal gibi yüksek seviyeli dillerin sahip olduğu fonksiyonlara sahip olmasındandır.</p>
+<p>C bugün üst düzey profesyonel programcıların kullandığı bir sistem dilidir. C’nin en belirgin özelliği işaretçilere(pointer), kelimelere(word), bit ve baytlara doğrudan doğruya erişime izin vermesidir. Bu durum C’nin sistem programlarının yazımında -gömülü sistemlerde- kullanılabilmesine olanak tanır.</p>
+<p>C’nin diğer üstün yanı da anahtar sözcük sayısının az olmasıdır. Bir dilde anahtar sözcükler çok önemlidir. Örneğin; Basic’te 159 adet anahtar sözcük varken bu sayı C’de sadece 27&rsquo;dir.</p>
+<p>Sonuç olarak C programcıya neye ihtiyaç duyuyorsa onu yapabilme imkanı veren profesyonel programcıların kullandığı bir dildir. Programcı C’yi kullanarak inanılmaz programlar yapabilir. Bu inanılmaz programlardan biri de işletim sistemidir.</p>
+<h3 id="c-dilinintarihi">
+  C dilinin Tarihi
+  <a class="heading-link" href="#c-dilinintarihi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>İşletim sistemi yazılımları geliştirmek amacıyla önce BCPL dili, ardından da B dili kullanıldı. BCPL 1967 yılında geliştirildi ancak bu dilin yetersizlikleri 1970 yılında B dilinin geliştirilmesine neden oldu. Gerek BCPL dilinde gerekse de B dilinde veri türü kavramı yoktur. Unix işletim sistemi önceleri B dili ile yazıldı. Ancak B dili işletim sistemi yazılımını gerçekleştirmek için yeterli olmadı. Bunun üzerine 1972 yılında, UNIX işletim sisteminde kullanılan DEC PDP-11 bilgisayarları üzerinde <a href="https://en.wikipedia.org/wiki/Dennis_Ritchie"  class="external-link" target="_blank" rel="noopener">Dennis Ritchie</a> tarafından C programlama dili geliştirildi. C dilinde birçok veri türü vardır. UNIX işletim sisteminin geliştirilmesinde C dili başarılı bir şekilde kullanılmıştır.</p>
+<p>Daha sonraki yıllarda C dili işletim sistemi dışında da kullanılır hale geldi. Özellikle mühendislik çalışmalarında ve bilimsel uygulamalarda kullanıldı. C çevrebirimleri, kaynak kodu seviyesinde ve makine diline uyarlamasında çok iyi olmasına karşın, bu dönemde standartların olmayışı olumsuz bir durumdu. Pek çok C türü türemişti ve hepsinin sözdiziminde farklılıklar vardı. Bu durumu düzeltmek için ANSI(American National Standarts Institue) 1983 yılında bir kurul oluşturarak C için bir stansart hazırladı. Bu kurul C derleyicisinde bulunması gereken fonksiyonalrı başka bir söyleyişle standart kütüphane fonksiyonlarını belirlemiştir.</p>
+<hr>
+<h3 id="programlamaya-giriş">
+  Programlamaya Giriş
+  <a class="heading-link" href="#programlamaya-giri%c5%9f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>C Programlamaya giriş yaparken her programlama dilinde olduğu “hello world” programından başlıyoruz. Bu programdan dilin sözdizimi(syntax) hakkında bir fikir edinebiliriz.</p>
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;  
+#include &lt;stdlib.h&gt;  
+  
+int main()  
+{  
+    printf(&#34;Hello world!\n&#34;);  
+    return 0;  
+}
+</code></pre><p>C program yapısına baktığımızda;</p>
+<ul>
+<li>ilk bölümde kütüphane ekleme olduğunu görüyoruz. Bir C programnının en başında programda kullanılacak fonksiyonlara ait kütüphanelerin eklenmesi gerekir. Örneğin; ekranda bir mesaj gösterilecekse bunun için gerekli olan fonksiyon printf() fonksiyonu olup bu fonksiyonun da içinde yer aldığı &lt;stdio.h&gt; kütüphanesi #include&lt;stdio.h&gt; şeklinde en başa eklenmelidir.</li>
+<li>ikinci bölümde main() fonksiyonunu görmekteyiz. Bu komut programın başladığı yeri gösterir. main() fonksiyonu iki kısımdan oluşur. fonksiyon tanımı ve fonksiyon gövdesi.
+<ul>
+<li>int main(): fonksiyon tanımı<br>
+-{} süslü parantezler arası: fonksiyon gövdesi<br>
+Fonksiyon tanımında fonksiyonun ismi ve giriş-çıkış türleri belitrilir. Fonksiyon gövdesinde ise istenilen işlemleri yapmak ve bunların sonuçlarını görmek için gerekli deyimler bulunur.</li>
+</ul>
+</li>
+<li>return() deyimi, fonksiyonun işinin bittiğini gösterir. Program bu fonksiyondan çıkarak kendini çağıran satıra geri döner.</li>
+</ul>
+<hr>
+<p>Bu yazımızda C dilinin gelişimine bir göz attık. Nasıl doğduğuna, neler getirdiğine ve nasıl kullanıldığına değindik. Bundan sonraki aşamada programlama tarafında devam etmek için <a href="https://www.tutorialspoint.com/cprogramming/index.htm"  class="external-link" target="_blank" rel="noopener">bu siteye</a> göz atabilirsiniz.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

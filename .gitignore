@@ -116,7 +116,7 @@ Thumbs.db
 # website/public/
 website/resources/
 website/.hugo_build.lock
-public/
+# public/
 
 # Migration source and temporary files
 medium/

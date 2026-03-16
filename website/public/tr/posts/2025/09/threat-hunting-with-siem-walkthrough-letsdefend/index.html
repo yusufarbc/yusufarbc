@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Threat Hunting with SIEM Walkthrough — LetsDefend · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Threat Hunting with SIEM Walkthrough — LetsDefend
+  
+    
+    Başlık Linki
+  
+
+
+LetsDefend — Blue Team Training Platform
+
+  Introduction
+  
+    
+    Başlık Linki
+  
+
+In today’s digital world, the number and complexity of cyber threats are increasing rapidly. Developing an effective defense strategy against these threats is becoming more challenging every day. In this context, SIEM Systems and Threat Hunting activities play a critical role in enhancing an organization’s cybersecurity maturity.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Threat Hunting with SIEM Walkthrough — LetsDefend">
+  <meta name="twitter:description" content="Threat Hunting with SIEM Walkthrough — LetsDefendBaşlık LinkiLetsDefend — Blue Team Training Platform
+IntroductionBaşlık LinkiIn today’s digital world, the number and complexity of cyber threats are increasing rapidly. Developing an effective defense strategy against these threats is becoming more challenging every day. In this context, SIEM Systems and Threat Hunting activities play a critical role in enhancing an organization’s cybersecurity maturity.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2025/09/threat-hunting-with-siem-walkthrough-letsdefend/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Threat Hunting with SIEM Walkthrough — LetsDefend">
+  <meta property="og:description" content="Threat Hunting with SIEM Walkthrough — LetsDefendBaşlık LinkiLetsDefend — Blue Team Training Platform
+IntroductionBaşlık LinkiIn today’s digital world, the number and complexity of cyber threats are increasing rapidly. Developing an effective defense strategy against these threats is becoming more challenging every day. In this context, SIEM Systems and Threat Hunting activities play a critical role in enhancing an organization’s cybersecurity maturity.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-09-21T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-21T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-deception-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-email-security-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-edr-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-dns-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-ips/ids-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-waf-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/09/threat-hunting-with-cti-walkthrough-letsdefend/">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2025/09/threat-hunting-with-siem-walkthrough-letsdefend/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2025/09/threat-hunting-with-siem-walkthrough-letsdefend/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2025/09/threat-hunting-with-siem-walkthrough-letsdefend/">
+              Threat Hunting with SIEM Walkthrough — LetsDefend
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-09-21T00:00:00Z">
+                Eylül 21, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              23 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="threat-hunting-with-siem-walkthroughletsdefend">
+  Threat Hunting with SIEM Walkthrough — LetsDefend
+  <a class="heading-link" href="#threat-hunting-with-siem-walkthroughletsdefend">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/0_MV50j2d8HexWcGdC.png" alt=""></p>
+<p><a href="https://letsdefend.io/"  class="external-link" target="_blank" rel="noopener">LetsDefend — Blue Team Training Platform</a></p>
+<h3 id="introduction">
+  Introduction
+  <a class="heading-link" href="#introduction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>In today’s digital world, the number and complexity of cyber threats are increasing rapidly. Developing an effective defense strategy against these threats is becoming more challenging every day. In this context, SIEM Systems and Threat Hunting activities play a critical role in enhancing an organization’s cybersecurity maturity.</p>
+<p>SIEM (Security Information and Event Management) systems are security technologies that collect log data from various sources, analyze this data, and generate meaningful insights using correlation rules. SIEM systems are equipped with capabilities such as real-time monitoring, event detection, alerting, and reporting. These features enable security teams to detect anomalies and suspicious activities occurring within the network.</p>
+<p>On the other hand, Threat Hunting is a proactive research process aimed at detecting and eliminating cyber threats. Threat Hunting goes beyond simply responding to alerts generated by SIEM; it also aims to uncover unknown or hidden threats. This process involves security analysts developing specific hypotheses and searching for potential threats within the network.</p>
+<p>The relationship between SIEM and Threat Hunting stems from the complementary nature of these two approaches. SIEM provides a broad spectrum of data, offering critical information that threat hunters need. Threat hunters, in turn, perform in-depth analyses on the data provided by SIEM to identify and validate potential threats. This synergy strengthens an organization’s security posture, making it better prepared against cyberattacks.</p>
+<p>This lesson has introduced the course content. The next lesson will cover the “<strong>Role of SIEM in Threat Hunting</strong>” will be discussed.</p>
+<h3 id="questions">
+  Questions
+  <a class="heading-link" href="#questions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Anser Needed</p>
+<hr>
+<h3 id="role-of-siem-in-threathunting">
+  Role of SIEM in Threat Hunting
+  <a class="heading-link" href="#role-of-siem-in-threathunting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SIEM (Security Information and Event Management) systems play a critical role in detecting and preventing cybersecurity threats. In threat hunting processes, SIEM’s comprehensive data collection, analysis, and correlation capabilities enable the rapid and effective detection of potential threats.</p>
+<h3 id="data-collection-and-aggregation">
+  Data Collection and Aggregation
+  <a class="heading-link" href="#data-collection-and-aggregation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SIEM systems collect, aggregate, and store data from multiple sources, including network devices, servers, applications, endpoints, and security devices. By analyzing this data, SIEM helps identify anomalies and potential threats.</p>
+<ul>
+<li><strong>Log Collection from Various Sources:</strong> Logs are collected from firewalls, IDS/IPS, antivirus systems, DLP (Data Loss Prevention) tools, and other security devices.</li>
+<li><strong>Data Enrichment:</strong> Collected data is enriched with contextual information, such as IP address geolocation and threat intelligence.</li>
+<li><strong>Centralized Storage:</strong> All logs are stored in a centralized location, enabling quick access when needed.</li>
+</ul>
+<p><img src="/images/0_Mu7xAmpFVC6THHcG.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.elastic.co/campaigns/elastic-guide-to-threat-hunting"  class="external-link" target="_blank" rel="noopener">https://www.elastic.co/campaigns/elastic-guide-to-threat-hunting</a> )</p>
+<h3 id="real-time-analysis-and-correlation">
+  Real-Time Analysis and Correlation
+  <a class="heading-link" href="#real-time-analysis-and-correlation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SIEM analyzes collected data in real time and generates meaningful insights using correlation rules. Thus it allows for the establishment of relationships between data from different sources, enabling faster detection of potential threats.</p>
+<ul>
+<li><strong>Anomaly Detection:</strong> It identifies abnormal behavior in user and system activities.</li>
+<li><strong>Correlation Rules:</strong> It establishes relationships between different logs to create meaningful events.</li>
+<li><strong>Instant Alerts:</strong> It generates immediate alerts and notifications for detected anomalies.</li>
+</ul>
+<h3 id="incident-detection-andresponse">
+  Incident Detection and Response
+  <a class="heading-link" href="#incident-detection-andresponse">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SIEM notifies the security team of detected incidents and provides the necessary information for rapid response. This ensures that threats are quickly contained, minimizing damage.</p>
+<ul>
+<li><strong>Incident Management:</strong> It enables quick and effective management of detected incidents.</li>
+<li><strong>Alert Prioritization:</strong> It prioritizes incoming alerts based on their severity.</li>
+<li><strong>Response and Remediation:</strong> It facilitates rapid response and corrective actions against detected threats.</li>
+</ul>
+<h3 id="reporting-and-visualization">
+  Reporting and Visualization
+  <a class="heading-link" href="#reporting-and-visualization">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SIEM systems present the data and findings from threat hunting processes in the form of meaningful reports and visualizations, helping security teams and management better understand the threat landscape.</p>
+<ul>
+<li><strong>Detailed Reporting:</strong> It provides detailed reports of threat hunting findings, facilitating information sharing with upper management and stakeholders.</li>
+<li><strong>Dynamic Dashboards:</strong> It offers live and interactive dashboards for real-time threat visualization and improved monitoring processes.</li>
+<li><strong>Compliance Reports:</strong> It generates regulatory compliance reports to ensure organizations meet legal requirements.</li>
+</ul>
+<h3 id="automation-and-orchestration">
+  Automation and Orchestration
+  <a class="heading-link" href="#automation-and-orchestration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SIEM systems improve security operations by automating threat hunting processes and integrating with other security tools, reducing the need for manual intervention and enabling faster responses to threats.</p>
+<ul>
+<li><strong>Automated Threat Detection:</strong> It automates repetitive tasks and threat detection processes.</li>
+<li><strong>SOAR Integration:</strong> SIEM integrates with SOAR (Security Orchestration, Automation, and Response) tools to accelerate incident response processes.</li>
+<li><strong>Increased Efficiency:</strong> Automation and orchestration enhance the efficiency of security teams, enabling more effective defense against threats.</li>
+</ul>
+<h3 id="summary">
+  Summary
+  <a class="heading-link" href="#summary">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SIEM systems are essential for detecting and preventing cybersecurity threats. They excel in threat hunting by collecting, analyzing, and correlating data from multiple sources, enabling rapid identification of anomalies and potential threats. Key features include real-time analysis, incident prioritization, and automated responses, which enhance security team efficiency. SIEM also provides detailed reporting and dynamic dashboards for better threat visualization and compliance. By automating processes and integrating with tools like SOAR, SIEM reduces manual effort and accelerates threat response, making organizations more resilient against cyber threats.</p>
+<p>This lesson has explained the importance of SIEM in threat hunting processes. The next lesson will focus on <strong>“Creating and Testing Hypotheses”</strong> .</p>
+<h3 id="questions-1">
+  Questions
+  <a class="heading-link" href="#questions-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Anser Needed</p>
+<hr>
+<h3 id="creating-and-testing-hypotheses">
+  Creating and Testing Hypotheses
+  <a class="heading-link" href="#creating-and-testing-hypotheses">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Creating hypotheses is a critical step in the threat hunting process. Cybersecurity analysts determine how potential threats might emerge based on existing data and threat intelligence, and they develop hypotheses accordingly. These hypotheses guide the detection of specific attacker behaviors or abnormal activities.</p>
+<p><img src="/images/0_id6b7Z8ltJlqKSlt.png" alt=""></p>
+<h3 id="creating-hypotheses">
+  Creating Hypotheses
+  <a class="heading-link" href="#creating-hypotheses">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="data-analysis-and-preliminary-review">
+  Data Analysis and Preliminary Review
+  <a class="heading-link" href="#data-analysis-and-preliminary-review">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>The first step in the threat hunting process is the rapid and effective examination of collected data. During this phase, logs collected by the SIEM system, network traffic, and endpoint data must be reviewed. This initial review is the cornerstone for identifying potential threats and anomalies.</p>
+<p>During the data review, you need to look for the following abnormal behaviors and unusual activities:</p>
+<ul>
+<li><strong>Unusual Access Attempts:</strong> Attempts by users to access systems or data they do not normally access.</li>
+<li><strong>Suspicious Login Attempts:</strong> Multiple failed login attempts by a user or logins at unusual times.</li>
+<li><strong>Unexpected Data Transfers:</strong> Unusual data flows on the network, especially large file transfers or high bandwidth usage.</li>
+<li><strong>Unusual System Resource Usage:</strong> Sudden and unexpected spikes in resource usage, such as CPU, memory, or disk usage.</li>
+</ul>
+<p>Historical event records and threat intelligence data provide important clues for detecting new threats. Security analysts review past security incidents to assess the likelihood of similar threats reoccurring. Additionally, current threat intelligence sources (e.g., ISACs, commercial threat feeds) can be utilized to gain insight into the current threat landscape.</p>
+<h4 id="threat-models-andttps">
+  Threat Models and TTPs
+  <a class="heading-link" href="#threat-models-andttps">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>In the threat hunting process, understanding the techniques and methods commonly used by attackers is critical as it helps security analysts detect potential threats more effectively. Common techniques include phishing, malware distribution, brute force attacks, and data exfiltration.</p>
+<p>The MITRE ATT&amp;CK Framework systematically classifies the techniques and procedures used by attackers, guiding security analysts in the following areas:</p>
+<ul>
+<li><strong>Tactics:</strong> Basically what attackers are trying to achieve (e.g., gaining initial access, privilege escalation).</li>
+<li><strong>Techniques:</strong> The methods attackers use to achieve the tactics (e.g., phishing, PowerShell usage).</li>
+<li><strong>Procedures:</strong> Details on how specific attacker groups implement the techniques.</li>
+</ul>
+<p>By using this framework, analysts identify potential attack vectors and make the threat hunting process more effective.</p>
+<h4 id="defining-hypotheses">
+  Defining Hypotheses
+  <a class="heading-link" href="#defining-hypotheses">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>During the hypothesis creation process, security analysts define specific threat scenarios and attack vectors. These scenarios help understand the potential threats an organization faces. Such as:</p>
+<ul>
+<li><strong>Insider Threats:</strong> For example, an employee attempting to steal sensitive data.</li>
+<li><strong>APT (Advanced Persistent Threats):</strong> Long-term, targeted attacks aimed at a specific organization.</li>
+<li><strong>Data Exfiltration:</strong> The leakage of critical data.</li>
+</ul>
+<p>Hypotheses should explain how a specific event or behavior can be detected. Well-defined hypotheses include the following components:</p>
+<ul>
+<li><strong>Definition:</strong> Clearly states what the hypothesis aims to detect and the type of threat it addresses.</li>
+<li><strong>Expected Indicators:</strong> Specific indicators to look for to test the hypothesis (e.g., frequent copying of a specific file type, abnormal data flows at certain times).</li>
+<li><strong>Testing Methods:</strong> These describe how the hypothesis will be tested and which data sources will be used.</li>
+<li><strong>Expected Outcomes:</strong> The results expected if the hypothesis is confirmed or disproven.</li>
+</ul>
+<h3 id="testing-hypotheses">
+  Testing Hypotheses
+  <a class="heading-link" href="#testing-hypotheses">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="data-collection">
+  Data Collection
+  <a class="heading-link" href="#data-collection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>The first step in hypothesis testing is gathering the necessary data to evaluate the hypothesis. During this process, various data sources are utilized:</p>
+<ul>
+<li><strong>Identifying Sources:</strong> Identify all data sources relevant to the hypothesis.</li>
+<li><strong>Collection Methods:</strong> Decide on data collection methods (e.g., syslog, agent-based collection, API integrations) and implement them accordingly.</li>
+<li><strong>Data Storage:</strong> Store the collected data in a data pool for analysis.</li>
+</ul>
+<h4 id="data-analysis">
+  Data Analysis
+  <a class="heading-link" href="#data-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>After data collection, the collected data is analyzed in detail. During this phase, the abnormal behaviors and activities specified in the hypothesis should be examined.</p>
+<ul>
+<li><strong>Preprocessing:</strong> The collected data is preprocessed to remove unnecessary information and prepare it for analysis.</li>
+<li><strong>Data Visualization:</strong> Visualizing data through graphs and tables makes it easier to identify anomalies and patterns.</li>
+<li><strong>Data Filtering:</strong> Filtering for specific data types and events relevant to the hypothesis.</li>
+</ul>
+<h4 id="analysis-process">
+  Analysis Process
+  <a class="heading-link" href="#analysis-process">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Anomaly Detection:</strong> Identifying anomalies in user and system behavior.</li>
+<li><strong>Trend Analysis:</strong> Examining data patterns and trends to detect unusual activities.</li>
+<li><strong>Behavioral Analysis:</strong> Investigating deviations from normal user activities to identify abnormal behavior.</li>
+</ul>
+<h4 id="correlation-and-anomaly-detection">
+  Correlation and Anomaly Detection
+  <a class="heading-link" href="#correlation-and-anomaly-detection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>During the data analysis process, correlating different data sources yields more meaningful and comprehensive results.</p>
+<ul>
+<li><strong>Correlation Rules:</strong> These are rules created to establish relationships between different logs and data sources. For example, a user downloading a large amount of data during a specific time frame and then accessing sensitive data during the same period.</li>
+<li><strong>Event Correlation:</strong> It is basically associating similar events and activities to see the bigger picture.</li>
+</ul>
+<h4 id="anomaly-and-suspicious-activity-detection">
+  Anomaly and Suspicious Activity Detection
+  <a class="heading-link" href="#anomaly-and-suspicious-activity-detection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Anomaly Detection Methods:</strong> You can utilize machine learning algorithms, statistical analysis, and rule-based approaches to detect anomalies.</li>
+<li><strong>Identifying Suspicious Activities:</strong> Evaluate whether abnormal behaviors and activities are suspicious.</li>
+</ul>
+<h4 id="validation-and-conclusion">
+  Validation and Conclusion
+  <a class="heading-link" href="#validation-and-conclusion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>If this hypothesis is confirmed, it means that a potential threat has been identified. Necessary actions should then be taken. If the hypothesis is not confirmed, the process must be repeated and new hypotheses formulated.</p>
+<ul>
+<li><strong>Validation:</strong> If the hypothesis is confirmed, detail the threat and the scope of the incident.</li>
+<li><strong>Intervention</strong> : For confirmed threats, take immediate action. For example, a suspicious user’s account can be suspended, the system cleaned if malware is detected, or affected devices isolated from the network.</li>
+<li><strong>False Positive Management:</strong> Sort out false positives and re-evaluate the hypothesis.</li>
+<li><strong>New Hypotheses:</strong> After false positives, new hypotheses are created and the testing process continues.</li>
+</ul>
+<h4 id="continuous-improvement">
+  Continuous Improvement
+  <a class="heading-link" href="#continuous-improvement">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Feedback Loop:</strong> It includes incorporating insights and feedback from the hypothesis testing process into future threat hunting activities.</li>
+<li><strong>Documentation and Reporting:</strong> It is the detailed documentation of hypothesis test results and response processes, shared with relevant stakeholders.</li>
+</ul>
+<h3 id="summary-1">
+  Summary
+  <a class="heading-link" href="#summary-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>This lesson explains how to conduct the hypothesis creation and testing process and what to pay attention to during these steps. These processes help develop an effective and proactive security strategy in threat hunting activities.</p>
+<p>The next lesson will cover <strong>“Insider Threat Hypothesis”</strong> .</p>
+<h3 id="questions-2">
+  Questions
+  <a class="heading-link" href="#questions-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Anser Needed</p>
+<hr>
+<h3 id="insider-threat-hypothesis">
+  Insider Threat Hypothesis
+  <a class="heading-link" href="#insider-threat-hypothesis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="hypothesis">
+  Hypothesis
+  <a class="heading-link" href="#hypothesis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>“This hypothesis is based on the assumption that an employee might attempt to illegally exfiltrate sensitive information before leaving the company. The employee could intend to use this data for personal gain or to benefit another organization.“</p>
+<p>After creating the hypothesis, the threat hunting process requires the following steps.</p>
+<h3 id="collecting-data">
+  Collecting Data
+  <a class="heading-link" href="#collecting-data">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SIEM systems have the ability to collect data from multiple sources. To test the validity of the hypothesis, collect all relevant data in this step.</p>
+<h3 id="user-activitylogs">
+  User Activity Logs
+  <a class="heading-link" href="#user-activitylogs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Collect Login/Logout Logs:</strong> Gather information about when the user logged in and out of the system.</p>
+<p>In the SIEM, filter activities of the relevant user accounts and analyze login/logout times.</p>
+<p><strong>Collect File Access Records:</strong> Gather information about which files the user accessed and when.</p>
+<p>In the SIEM, examine file server logs and review file access activities of specific users.</p>
+<h3 id="network-trafficdata">
+  Network Traffic Data
+  <a class="heading-link" href="#network-trafficdata">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Collect FTP Traffic Logs:</strong> Gather FTP logs to check if the user performed large file transfers.</p>
+<p>In the SIEM, examine network traffic logs and analyze large data transfers over the FTP protocol.</p>
+<p><strong>Collect Email Traffic Logs:</strong> Check whether the user sent large file attachments via email.</p>
+<p>In the SIEM, analyze email server logs and filter emails containing large file attachments.</p>
+<h3 id="endpoint-data">
+  Endpoint Data
+  <a class="heading-link" href="#endpoint-data">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Collect USB Device Usage Logs:</strong> Check whether the user used USB devices to exfiltrate data.</p>
+<p>In the SIEM, examine endpoint security software logs and review the times when USB devices were connected and disconnected.</p>
+<p><strong>Collect File Copy Activity Logs:</strong> Monitor the user’s file copy activities.</p>
+<p>In the SIEM, analyze endpoint device logs and check for large file copy operations by specific users.</p>
+<h3 id="data-analysis-1">
+  Data Analysis
+  <a class="heading-link" href="#data-analysis-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Analyze the collected data in detail. Examine the abnormal behaviors and activities specified in the hypothesis.</p>
+<h3 id="analyze-user-activities">
+  Analyze User Activities
+  <a class="heading-link" href="#analyze-user-activities">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Review the user’s recent activities thoroughly.</p>
+<p>In the SIEM, filter user activities by time range and examine them in detail.</p>
+<p>Analyze the user’s file access and copy activities.</p>
+<p>In the SIEM, examine file server and endpoint device logs, and compare file access and copy activities.</p>
+<h3 id="correlation-and-anomaly-detection-1">
+  Correlation and Anomaly Detection
+  <a class="heading-link" href="#correlation-and-anomaly-detection-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Correlate multiple data sources to detect anomalies and suspicious activity.</p>
+<h3 id="unusual-file-copying-at-oddhours">
+  Unusual File Copying at Odd Hours
+  <a class="heading-link" href="#unusual-file-copying-at-oddhours">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Determine if the user copied large amounts of data at unusual times.</p>
+<p>In the SIEM, filter and examine large file copy operations during specific time frames.</p>
+<h3 id="unusual-data-transfers">
+  Unusual Data Transfers
+  <a class="heading-link" href="#unusual-data-transfers">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Search for unusual data transfers (e.g., large file uploads) in network traffic.</p>
+<p>In the SIEM, analyze network traffic logs and detect large file transfers and unusual connections.</p>
+<h3 id="validation-and-conclusion-1">
+  Validation and Conclusion
+  <a class="heading-link" href="#validation-and-conclusion-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Validate the hypothesis. If confirmed, take necessary actions. If disproven, create new hypotheses and repeat the testing process.</p>
+<h3 id="validate-the-hypothesis">
+  Validate The Hypothesis
+  <a class="heading-link" href="#validate-the-hypothesis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Confirm if the user copied a large amount of sensitive data before leaving the company and attempted to exfiltrate it.</p>
+<p>In the SIEM, review the collected and analyzed data to confirm anomalies and activities that validate the hypothesis.</p>
+<h3 id="respond-accordingly">
+  Respond Accordingly
+  <a class="heading-link" href="#respond-accordingly">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Immediately suspend the user’s account if the hypothesis is validated.</p>
+<p>In the SIEM, revoke the user account’s access and implement necessary security measures.</p>
+<p>Initiate an internal investigation to examine the incident in detail.</p>
+<p>In the SIEM, thoroughly review and report all relevant logs and event records.</p>
+<h3 id="disproven-hypothesis--new-hypothesis-creation">
+  Disproven Hypothesis &amp; New Hypothesis Creation
+  <a class="heading-link" href="#disproven-hypothesis--new-hypothesis-creation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>If the hypothesis is disproven, create new hypotheses and repeat the testing process.</p>
+<p>In the SIEM, develop additional hypotheses for new anomalies and suspicious activities, and initiate new threat hunting processes based on these hypotheses.</p>
+<h3 id="summary-2">
+  Summary
+  <a class="heading-link" href="#summary-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>These steps detail how to test and validate the insider threat detection hypothesis using SIEM. Following this process will help your organization to be better prepared and more proactive against insider threats.</p>
+<p>The next lesson will cover <strong>“Suspicious Admin Account Activity Hypothesis”</strong>.</p>
+<h3 id="questions-3">
+  Questions
+  <a class="heading-link" href="#questions-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Anser Needed</p>
+<hr>
+<h3 id="suspicious-admin-account-activity-hypothesis">
+  Suspicious Admin Account Activity Hypothesis
+  <a class="heading-link" href="#suspicious-admin-account-activity-hypothesis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="the-hypothesis">
+  The Hypothesis
+  <a class="heading-link" href="#the-hypothesis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>“An attacker may have compromised an admin account to gain access to critical systems.”</p>
+<p><img src="/images/0_lUJJmMsCH5EQIDN4.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://blog.admindroid.com/enable-report-suspicious-activity-in-azure-ad/"  class="external-link" target="_blank" rel="noopener">https://blog.admindroid.com/enable-report-suspicious-activity-in-azure-ad/</a> )</p>
+<h3 id="data-resources">
+  Data Resources
+  <a class="heading-link" href="#data-resources">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>SIEM Logs:</strong> All relevant logs collected through the central log management system.</li>
+<li><strong>Operating System Logs:</strong> System events and user activities.</li>
+<li><strong>Account Management Logs:</strong> User and group changes, password changes.</li>
+<li><strong>Active Directory (AD) Logs:</strong> User and group changes in Active Directory.</li>
+<li><strong>Firewall Logs:</strong> Inbound and outbound network traffic.</li>
+<li><strong>Endpoint Detection and Response (EDR) Logs:</strong> Records of abnormal activities on endpoints.</li>
+<li><strong>Threat Intelligence Databases:</strong> Known malicious IP addresses and domains.</li>
+</ul>
+<h3 id="analysis-steps">
+  Analysis Steps
+  <a class="heading-link" href="#analysis-steps">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="admin-loginattempts">
+  Admin Login Attempts
+  <a class="heading-link" href="#admin-loginattempts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Failed Logins:</strong> Detect failed login attempts for admin accounts.</li>
+<li><strong>Successful Logins:</strong> Check for successful logins following failed attempts.</li>
+</ul>
+<h4 id="account-management-activity">
+  Account Management Activity
+  <a class="heading-link" href="#account-management-activity">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Permission Changes:</strong> Monitor changes in user and group permissions.</li>
+<li><strong>Password Changes:</strong> Check for password changes on admin accounts.</li>
+<li><strong>Account Creation/Deletion:</strong> Monitor unexpected user or group creation/deletion activities.</li>
+</ul>
+<h4 id="network-traffic-and-connection">
+  Network Traffic and Connection
+  <a class="heading-link" href="#network-traffic-and-connection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Abnormal Traffic:</strong> Monitor abnormal connections initiated by admin accounts.</li>
+<li><strong>New Targets:</strong> Check for connections to IP addresses previously not accessed by admin accounts.</li>
+<li><strong>Port Usage:</strong> Monitor connections made through unexpected ports.</li>
+</ul>
+<h4 id="analysis-of-edrlogs">
+  Analysis of EDR Logs
+  <a class="heading-link" href="#analysis-of-edrlogs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Abnormal Processes:</strong> Monitor unusual processes running on endpoints.</li>
+<li><strong>Admin Privileges:</strong> Monitor abnormal activities by processes with admin privileges.</li>
+<li><strong>Malware:</strong> Check for malware detected by antivirus and antimalware software.</li>
+</ul>
+<h4 id="analysis-of-active-directory-logs">
+  Analysis of Active Directory Logs
+  <a class="heading-link" href="#analysis-of-active-directory-logs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Critical Changes:</strong> Monitor critical changes in AD (e.g., group policy changes, account lockouts).</li>
+<li><strong>Login Attempts:</strong> Check login attempts on admin accounts in AD.</li>
+</ul>
+<h4 id="threat-intelligence-integration">
+  Threat Intelligence Integration
+  <a class="heading-link" href="#threat-intelligence-integration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Known Malicious IPs:</strong> Compare IP addresses connected by admin accounts with threat intelligence databases.</li>
+<li><strong>Domain Reputation:</strong> Check the reputation of domains accessed by admin accounts.</li>
+</ul>
+<h4 id="expected-results">
+  Expected Results
+  <a class="heading-link" href="#expected-results">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>Failed login attempts on admin accounts followed by successful logins.</li>
+<li>Unexpected changes in user and group permissions.</li>
+<li>Abnormal network connections initiated by admin accounts.</li>
+<li>Abnormal processes or file activities on endpoints.</li>
+<li>Critical changes and unexpected login attempts in AD.</li>
+<li>Access to known malicious IP addresses or domains.</li>
+</ul>
+<h3 id="summary-3">
+  Summary
+  <a class="heading-link" href="#summary-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SIEM systems support threat hunting processes within specific hypotheses and provide powerful tools for detecting suspicious admin account activity. The steps outlined in this lesson demonstrate how SIEM can be used to detect unauthorized access attempts to administrator accounts. The process helps organizations proactively manage their cybersecurity posture and become more resilient to potential threats.</p>
+<h3 id="questions-4">
+  Questions
+  <a class="heading-link" href="#questions-4">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Anser Needed</p>
+<hr>
+<h3 id="practical-lab-1">
+  Practical Lab-1
+  <a class="heading-link" href="#practical-lab-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="hypothesis-1">
+  Hypothesis-1
+  <a class="heading-link" href="#hypothesis-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Note:</strong> The questions in this section are aimed at conducting Threat Hunting based on the following hypothesis.</p>
+<p><strong>Hypothesis:</strong> There may be attempts to access unauthorized servers and ports from a Linux server located in the DMZ environment.</p>
+<h3 id="threat-hunting-lab-environment">
+  Threat Hunting Lab Environment
+  <a class="heading-link" href="#threat-hunting-lab-environment">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>DMZ Server IP Block</strong>: 172.16.8.0/24</li>
+<li><strong>Other Networks</strong>: 10.10.10.0/24</li>
+<li>SIEM (Wazuh)</li>
+<li>Firewall Traffic Events</li>
+<li>Firewall System Events</li>
+<li>Linux Security Events</li>
+<li>Linux Audit Events</li>
+<li>Linux Yum Events</li>
+</ul>
+<h3 id="questions-5">
+  Questions
+  <a class="heading-link" href="#questions-5">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<blockquote>
+<p><strong>According to firewall logs, what is the “log_id” value of the firewall rule added between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>When we do the necessary filtering for firewall logs in the system, we find the logid value.</p>
+<p><img src="/images/1_gic-ndoay-0M_G-dlcvSYw.png" alt=""></p>
+<p><strong>Answer:</strong> 13579</p>
+<p><img src="/images/1_kx41JqzXoJTxeQuyvR_ROQ.png" alt=""></p>
+<blockquote>
+<p><strong>According to firewall logs, which user allowed access to the IP address “172.16.8.190” on port 22 between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>If we look carefully at the log we found in the previous question, we observe that there are 22 SSH access requests. the user value asked to us is also in the log.</p>
+<p><img src="/images/1_Ikvc0ow8S12lW7P3g16-Vw.png" alt=""></p>
+<p><strong>Answer:</strong> fwadmin</p>
+<p><img src="/images/1_Kts9_EcqCAEUgwIEw4fA7Q.png" alt=""></p>
+<blockquote>
+<p><strong>According to DMZ server logs, how many “sshd: authentication failed.” events occurred between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>We understand that 172.16.8 IPs are DMZ assests. Let’s search for ssh fail events to these hosts. For this we need to search for sshd group and authentication_failed event. When we write the necessary filters, we find the answer as 24 hits.</p>
+<p><img src="/images/1_4xh57yWlMzfXhJqY3NVt_A.png" alt=""></p>
+<p><strong>Answer:</strong> 24</p>
+<p><img src="/images/1_uCQ_Jh-GRgg5GZ2yQAZI9A.png" alt=""></p>
+<blockquote>
+<p><strong>According to DMZ server logs, what is the IP address that successfully logged in (sshd: authentication success) after a failed attempt (sshd: authentication failed) between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>in the previous question we saw that 172.16.8.190 host received a large number of ssh auth failures. now let’s look at the auth succces logs. in the auth succes logs we see that 172.16.8.190 host was connected to 172.16.8.190 host by receiving success after a large number of ssh failures. we determine the source IP information as 12.13.14.15.</p>
+<p><img src="/images/1_JDRNNg4vAGzUJSRheFW18g.png" alt=""></p>
+<p><strong>Answer:</strong> 12.13.14.15</p>
+<p><img src="/images/1_MmKXW-ITd4XY91aUFBgWhg.png" alt=""></p>
+<blockquote>
+<p><strong>What application was installed on the webserver with IP address “172.16.8.190” in the DMZ environment after unauthorized access between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>When we search for the relevant agent ip in the yum group, we get a result and when we look at the full log content in this result, we observe that nmap is installed on the host.</p>
+<p><img src="/images/1_i4kRvCiG1YgZGg-I74j4gQ.png" alt=""></p>
+<p><strong>Answer:</strong> nmap-6.40–19.el7.x86_64</p>
+<p><img src="/images/1_eAe-igWD4N4j-JLxfhHW_w.png" alt=""></p>
+<blockquote>
+<p><strong>What IP block was scanned using the application installed after unauthorized access to the webserver with IP address “172.16.8.190” in the DMZ environment between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>When we filter by agent.name and search for nmap activities, we find the subnet information scanned in the audit logs.</p>
+<p><img src="/images/1_Ofx0mBiHu7ZECUns4ERtrQ.png" alt=""></p>
+<p><strong>Answer:</strong> 10.10.10.0/24</p>
+<p><img src="/images/1_VE5LZ4nnxc3s_Pvwz5LCHQ.png" alt=""></p>
+<blockquote>
+<p><strong>What is the number of the port that was scanned using the application that was installed after the unauthorized access to the web server with the IP address “172.16.8.190” in the DMZ environment between August 1, 2024 00:00 — August 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>Again in the same log content, we see that the port information scanned is 22 ssh port.</p>
+<p><img src="/images/1_9ybv94n_n1-pwVeGPqrdiQ.png" alt=""></p>
+<p><strong>Answer:</strong> 22</p>
+<p><img src="/images/1_gKvAxV8XHw2AHAGKtUHBFg.png" alt=""></p>
+<blockquote>
+<p><strong>According to firewall logs, how many unique destination IP addresses received “accept/allow” traffic from the IP address “172.16.8.190” to the “10.10.10.0/24” network between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>When we filter the allow fields from 22 ssh requests from 172.16.8.190 source ip in the firewall group, we see that there are 4 hits.</p>
+<p><img src="/images/1_z793CO0Aj9gHGXyAZzWRtA.png" alt=""></p>
+<p><strong>Answer:</strong> 4</p>
+<p><img src="/images/1_7vczN-m10e6vCx5CKs6XWA.png" alt=""></p>
+<blockquote>
+<p><strong>According to firewall logs, how many “SSH authentication_failed” events occurred from the IP address “172.16.8.190” to the “10.10.10.0/24” network between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>We can find this answer from sshd logs, not firewall logs. there seems to be a mistake in the question. when we look at auth fail events from ssh logs, we can see that it received 8 fail.</p>
+<p><img src="/images/1_tRkYMuRdpQbEjKdLsm_SAw.png" alt=""></p>
+<p><strong>Answer:</strong> 8</p>
+<p><img src="/images/1_L1Gobb0NR84TXPAKLkxRxw.png" alt=""></p>
+<blockquote>
+<p><strong>What is the IP address of the system in the “10.10.10.0/24” network that successfully logged in via SSH (authentication_success) from the IP address “172.16.8.190” between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>If we search for success events instead of fail using the same filter, we get 1 hit. in this event, agent ip information is our answer.</p>
+<p><img src="/images/1_k46XKIhfXzcww5UIwcfs3g.png" alt=""></p>
+<p><strong>Answer:</strong> 10.10.10.24</p>
+<p><img src="/images/1_kH-37eWANC5YG25iZGALhw.png" alt=""></p>
+<hr>
+<h3 id="practical-lab-2">
+  Practical Lab-2
+  <a class="heading-link" href="#practical-lab-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="hypothesis-2">
+  Hypothesis-2
+  <a class="heading-link" href="#hypothesis-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Note:</strong> The questions in this section are aimed at conducting Threat Hunting based on the following hypothesis.</p>
+<p><strong>Hypothesis:</strong> User accounts with VPN access may have been compromised, and unauthorized access attempts may be occurring.</p>
+<h3 id="threat-hunting-lab-environment-1">
+  Threat Hunting Lab Environment
+  <a class="heading-link" href="#threat-hunting-lab-environment-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>SIEM (Wazuh)</li>
+<li>Firewall Traffic Events</li>
+<li>VPN Events</li>
+</ul>
+<h3 id="questions-6">
+  Questions
+  <a class="heading-link" href="#questions-6">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<blockquote>
+<p><strong>What is the username with the most SSL VPN login failures between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>If we filter vpn subtype and auth fail events in firewall logs, we will reach the answer.</p>
+<p><img src="/images/1_0iuUMF-O_zPPvvTUqFarpA.png" alt=""></p>
+<p><strong>Answer:</strong> adm_eric</p>
+<p><img src="/images/1_MbO7wHQAWqCda3Wo8ZN1FQ.png" alt=""></p>
+<blockquote>
+<p><strong>Apart from Germany, which country had successful logins for the VPN account with the most SSL VPN login failures between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>For the adm_eric account, we need to find out from which country outside of Germany the successful login was made. for this we need to filter the account and aut success.</p>
+<p><img src="/images/1_u94Hu0GERjlEjBC37CAEIg.png" alt=""></p>
+<p><strong>Answer:</strong> Mexico</p>
+<p><img src="/images/1_szFgQqiUtWSWnyr89B7vtQ.png" alt=""></p>
+<blockquote>
+<p><strong>What “tunnel_ip” was assigned after a successful login (excluding Germany) for the VPN account with the most SSL VPN login failures between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>In the previous question, when we examine the success log originating from mexico, we reach the tunnelip value when we examine the full log content in the relevant log.</p>
+<p><img src="/images/1_KJePJ1yb2PeRV4YUgCONhw.png" alt=""></p>
+<p><strong>Answer:</strong> 10.34.1.13</p>
+<p><img src="/images/1_jFLuhbZli4d5AlLaK8pazA.png" alt=""></p>
+<blockquote>
+<p><strong>According to traffic logs, what is the most frequently accessed destination port from the “tunnel_ip” assigned after a successful login (excluding Germany) for the VPN account with the most SSL VPN login failures between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>For this, we need to filter the traffic originating from the address 10.34.1.13 that we find in the firewall logs. Then, when we look at the dstport field, we can find out which port the outgoing traffic is most targeted.</p>
+<p><img src="/images/1_gm5EHuxGTLVKaYq4ugKa3g.png" alt=""></p>
+<p><strong>Answer:</strong> 22</p>
+<p><img src="/images/1_GgvFqp5XqwRX-TO8QBMLfw.png" alt=""></p>
+<blockquote>
+<p><strong>How many unique destinations had SSH service access allowed via the “tunnel_ip” assigned after a successful login (excluding Germany) for the VPN account with the most SSL VPN login failures between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>For this, we need to filter the ‘action allow’ fields from the 10.34.1.13 IP addresses and the 22-port targeted traffic. The number of hits will then provide the answer.</p>
+<p><img src="/images/1_0y4OPg_0OZ0nIKeZH7-O6w.png" alt=""></p>
+<p><strong>Answer:</strong> 3</p>
+<p><img src="/images/1_DNm0sfXfxNmv1b9ckHZpnQ.png" alt=""></p>
+<blockquote>
+<p><strong>What IP address received an ssh auth success from the “tunnel_ip” assigned after a successful login (excluding Germany) for the VPN account with the most SSL VPN login failures between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>To do this, we need to look at the SSHD logs. Filtering the successful SSH logins by source IP address will reveal which host has logged in successfully via the agent.ip field.</p>
+<p><img src="/images/1_GsIzZ-MKcm-SXhV05RrzhA.png" alt=""></p>
+<p><strong>Answer:</strong> 10.10.10.11</p>
+<p><img src="/images/1_fTCDRmf2vNNY8D3mPtb6Xw.png" alt=""></p>
+<blockquote>
+<p><strong>What command was executed for the “T1057-Process Discovery” activity after successful SSH access from the “tunnel_ip” assigned after a successful login (excluding Germany) for the VPN account with the most SSL VPN login failures between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>For this, we should look at the audit logs. When we filter with agent.name, we can find the commands running on the host.</p>
+<p><img src="/images/1_8ge_N2yB10CjjjOfKAl99Q.png" alt=""></p>
+<p><strong>Answer:</strong> ps</p>
+<p><img src="/images/1_SQaYw4UT5oth9mrSyb8z-Q.png" alt=""></p>
+<blockquote>
+<p><strong>Which process was searched for during the “T1057-Process Discovery” activity after successful SSH access from the “tunnel_ip” assigned after a successful login (excluding Germany) for the VPN account with the most SSL VPN login failures between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>When we look at the full log in detail, we see that the “ps -aux | grep proftp” “command is executed.</p>
+<p><img src="/images/1_a7L0ckeu5IvmSA67j5TT3g.png" alt=""></p>
+<p><strong>Answer:</strong> proftp</p>
+<p><img src="/images/1_JrcF4Hc77iZaPrIANHWRvQ.png" alt=""></p>
+<hr>
+<h3 id="practical-lab-3">
+  Practical Lab-3
+  <a class="heading-link" href="#practical-lab-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="hypothesis-3">
+  Hypothesis-3
+  <a class="heading-link" href="#hypothesis-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Note:</strong> The questions in this section are aimed at conducting Threat Hunting based on the following hypothesis.</p>
+<p><strong>Hypothesis:</strong> Misconfigured FTP services on a server in the DMZ environment may have left anonymous user accounts open, potentially allowing unauthorized file uploads and downloads.</p>
+<h3 id="threat-hunting-lab-environment-2">
+  Threat Hunting Lab Environment
+  <a class="heading-link" href="#threat-hunting-lab-environment-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>DMZ Server IP Block</strong> : 172.16.8.0/24</li>
+<li>SIEM (Wazuh)</li>
+<li>FTP Events</li>
+<li>Linux System Events</li>
+<li>Linux Security Events</li>
+<li>Linux Audit Events</li>
+</ul>
+<h3 id="questions-7">
+  Questions
+  <a class="heading-link" href="#questions-7">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<blockquote>
+<p><strong>What is the IP address that successfully logged in as anonymous via FTP between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>we can find with this filter.</p>
+<p><img src="/images/1_mxlLJQ5_KBeC1FKXDvs3tg.png" alt=""></p>
+<p><strong>Answer:</strong> 111.1.2.3</p>
+<p><img src="/images/1_PVx5AEpyYTXq2s31eefx-A.png" alt=""></p>
+<blockquote>
+<p><strong>What is the “country name” of the IP address that successfully logged in as anonymous via FTP between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>If we search the GeoLocation.country_name information in the log we find, we find the answer. Or you can sarch in the full log.</p>
+<p><img src="/images/1_0SVCvuWZTTxOk1jHEbO-aQ.png" alt=""></p>
+<p><strong>Answer:</strong> China</p>
+<p><img src="/images/1_NFB4U4m2aQh5LT8SwgJfAA.png" alt=""></p>
+<blockquote>
+<p><strong>What is the IP address of the system that allowed anonymous FTP logins between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>If we search the agent.ip information in the log we find, we find the answer.</p>
+<p><img src="/images/1_vb0pwafIW15pl1iJOV9edw.png" alt=""></p>
+<p><strong>Answer:</strong> 172.16.8.21</p>
+<p><img src="/images/1_29aRwlhh7jd8A7xlprDNTw.png" alt=""></p>
+<blockquote>
+<p><strong>What is the name of the FTP service running on the system that allowed anonymous logins between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>we can see the answer from the full log content.</p>
+<p><strong>Answer:</strong> proftpd</p>
+<p><img src="/images/1_LkcDV8wSduIagbs8eige4g.png" alt=""></p>
+<blockquote>
+<p><strong>When was the FTP service restarted on the system that allowed anonymous logins between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>Searching for the text ‘stopping’ in the FTP logs will help us to find the log about when the service was stopped.</p>
+<p><img src="/images/1_V7ZeyrSaXZdtQJhlat4hfw.png" alt=""></p>
+<p><strong>Answer:</strong> Aug 02 14:00:15</p>
+<p><img src="/images/1_Q7pgyw3m1R02RtHtDQFANg.png" alt=""></p>
+<blockquote>
+<p><strong>What is the full path of the file related to the FTP service that was modified before the FTP service was restarted on the system that allowed anonymous logins between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>Examining the relevant host’s audit logs allows us to observe the activity. The answer can be found in the full log content and the fielded state.</p>
+<p><img src="/images/1_2Xm0SzPg5P0_CT4W6NQPoQ.png" alt=""></p>
+<p>type=SYSCALL msg=audit(1722777448.253:733): arch=c000003e syscall=59 success=yes exit=0 a0=56432e7a6700 a1=56432e754480 a2=56432e6ec6f0 a3=8 items=2 ppid=8289 pid=38868 auid=0 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=pts0 ses=9 comm=”vim” exe=”/usr/bin/vim” key=”susp_activity”ARCH=x86_64 SYSCALL=execve AUID=”root” UID=”root” GID=”root” EUID=”root” SUID=”root” FSUID=”root” EGID=”root” SGID=”root” FSGID=”root” type=EXECVE msg=audit(1722777448.253:733): argc=7 a0=”vim” a1=”/etc/proftpd/proftpd.conf” type=PATH msg=audit(1722777448.253:733): item=0 name=”/usr/bin/vim” inode=134362700 dev=fd:00 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0OUID=”root” OGID=”root” type=PATH msg=audit(1722777448.253:733): item=1 name=”/lib64/ld-linux-x86–64.so.2&quot; inode=201327911 dev=fd:00 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap_fp=0 cap_fi=0 cap_fe=0 cap_fver=0 cap_frootid=0OUID=”root” OGID=”root” type=PROCTITLE msg=audit(1722777448.253:733): proctitle=6E6D6170002D7353002D506E002D6E002D700032320031302E31302E31302E302F3234</p>
+<p><strong>Answer:</strong> /etc/proftpd/proftpd.conf</p>
+<p><img src="/images/1_VpptpMS6F773-ZDFkTVidQ.png" alt=""></p>
+<blockquote>
+<p><strong>Which user modified the file related to the FTP service before it was restarted on the system that allowed anonymous logins between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>If we look at the full log content, we can determine that it is the root user.</p>
+<p><strong>Answer:</strong> root</p>
+<p><img src="/images/1_koOb08H3gKtgMxpSTzGc_Q.png" alt=""></p>
+<blockquote>
+<p><strong>From which IP address did the user who modified the FTP service file log in via SSH before the FTP service was restarted on the system that allowed anonymous logins between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</strong></p>
+</blockquote>
+<p>If we look at the sshd logs, we can detect the ssh connecting IP.</p>
+<p><img src="/images/1_dz0fEg3Nx24YDQ1jKMOS2Q.png" alt=""></p>
+<p><strong>Answer:</strong> 10.34.1.13</p>
+<p><img src="/images/1_D_l3FtCKk5d6rwQ99nWhSQ.png" alt=""></p>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

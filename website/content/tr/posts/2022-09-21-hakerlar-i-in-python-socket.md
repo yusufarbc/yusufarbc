@@ -1,4 +1,5 @@
 ---
+series: ["Hakerlar için Python"]
 title: "Hakerlar için Python:socket"
 date: 2022-09-21
 draft: false

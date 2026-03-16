@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Cryptology Fundamentals: Application · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Cryptology Fundamentals:#5 Applications
+  
+    
+    Link to heading
+  
+
+
+Hello, in this last article of the cryptology basics series, I will talk about how cryptographic protocols are implemented. I will use the Java programming language during the implementation phase.
+
+
+  MD5 Application
+  
+    
+    Link to heading
+  
+
+MD5 is a widely used hash function that can produce a fixed-size output (128 bits) for any input data. In Java, you can calculate the MD5 digest of a string or file using the MessageDigest class, which is part of the Java Security API.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Cryptology Fundamentals: Application">
+  <meta name="twitter:description" content="Cryptology Fundamentals:#5 ApplicationsLink to headingHello, in this last article of the cryptology basics series, I will talk about how cryptographic protocols are implemented. I will use the Java programming language during the implementation phase.
+MD5 ApplicationLink to headingMD5 is a widely used hash function that can produce a fixed-size output (128 bits) for any input data. In Java, you can calculate the MD5 digest of a string or file using the MessageDigest class, which is part of the Java Security API.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2023-04-12-kriptoloji-temelleri-uygulama/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Cryptology Fundamentals: Application">
+  <meta property="og:description" content="Cryptology Fundamentals:#5 ApplicationsLink to headingHello, in this last article of the cryptology basics series, I will talk about how cryptographic protocols are implemented. I will use the Java programming language during the implementation phase.
+MD5 ApplicationLink to headingMD5 is a widely used hash function that can produce a fixed-size output (128 bits) for any input data. In Java, you can calculate the MD5 digest of a string or file using the MessageDigest class, which is part of the Java Security API.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-04-12T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-04-12T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2023-04-12-kriptoloji-temelleri-uygulama/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About Me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2023-04-12-kriptoloji-temelleri-uygulama/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2023-04-12-kriptoloji-temelleri-uygulama/">
+              Cryptology Fundamentals: Application
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-04-12T00:00:00Z">
+                April 12, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              12-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="cryptology-fundamentals5-applications">
+  Cryptology Fundamentals:#5 Applications
+  <a class="heading-link" href="#cryptology-fundamentals5-applications">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_Sk1u0b-kaNN7j57oE13CBA.png" alt=""></p>
+<p>Hello, in this last article of the cryptology basics series, I will talk about how cryptographic protocols are implemented. I will use the Java programming language during the implementation phase.</p>
+<hr>
+<h3 id="md5-application">
+  MD5 Application
+  <a class="heading-link" href="#md5-application">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>MD5 is a widely used hash function that can produce a fixed-size output (128 bits) for any input data. In Java, you can calculate the MD5 digest of a string or file using the MessageDigest class, which is part of the Java Security API.</p>
+<p>Here is an example of how to calculate the MD5 hash of a string in Java:</p>
+<pre tabindex="0"><code>import java.security.MessageDigest;  
+import java.security.NoSuchAlgorithmException;  
+  
+public class MD5Example {  
+    public static void main(String[] args) {  
+        String input = &#34;Hello, world!&#34;;  
+        String md5Hash = calculateMD5(input);  
+        System.out.println(&#34;MD5 hash of &#39;&#34; + input + &#34;&#39; is: &#34; + md5Hash);  
+    }  
+  
+    public static String calculateMD5(String input) {  
+        try {  
+            MessageDigest md = MessageDigest.getInstance(&#34;MD5&#34;);  
+            byte[] hash = md.digest(input.getBytes());  
+            StringBuilder sb = new StringBuilder();  
+            for (byte b : hash) {  
+                sb.append(String.format(&#34;%02x&#34;, b));  
+            }  
+            return sb.toString();  
+        } catch (NoSuchAlgorithmException e) {  
+            throw new RuntimeException(&#34;MD5 algorithm not available&#34;, e);  
+        }  
+    }  
+}
+</code></pre><p>In this example, we first import the MessageDigest class and define a <em>calculateMD5</em> method that takes a string input and returns the MD5 value as a string.</p>
+<p>Inside the calculateMD5 method, we first create a new instance of the MessageDigest class by using the <em>getInstance</em> method and giving the “MD5” algorithm as a parameter. Next, we call the hash method on the MessageDigest object and pass the input string as a byte array to calculate the MD5 digest.</p>
+<p>Finally, we convert the byte array to a string using a StringBuilder object and the String.format method to format each byte as a two-digit hexadecimal number. We then return the resulting string as an MD5 digest.</p>
+<hr>
+<h3 id="sha-1-implementation">
+  SHA-1 Implementation
+  <a class="heading-link" href="#sha-1-implementation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>SHA-1 (Secure HashAlgorithm 1) is a widely used hash function that can create a fixed-size output (160 bits) for any input data. In Java, you can calculate the SHA-1 digest of a string or file using the MessageDigest class, which is part of the Java Security API.</p>
+<p>Here is an example of how to calculate the SHA-1 hash of a string in Java:</p>
+<pre tabindex="0"><code>import java.security.MessageDigest;  
+import java.security.NoSuchAlgorithmException;  
+  
+public class SHA1Example {  
+    public static void main(String[] args) {  
+        String input = &#34;Hello, world!&#34;;  
+        String sha1Hash = calculateSHA1(input);  
+        System.out.println(&#34;SHA-1 hash of &#39;&#34; + input + &#34;&#39; is: &#34; + sha1Hash);  
+    }  
+  
+    public static String calculateSHA1(String input) {  
+        try {  
+            MessageDigest md = MessageDigest.getInstance(&#34;SHA-1&#34;);  
+            byte[] hash = md.digest(input.getBytes());  
+            StringBuilder sb = new StringBuilder();  
+            for (byte b : hash) {  
+                sb.append(String.format(&#34;%02x&#34;, b));  
+            }  
+            return sb.toString();  
+        } catch (NoSuchAlgorithmException e) {  
+            throw new RuntimeException(&#34;SHA-1 algorithm not available&#34;, e);  
+        }  
+    }  
+}
+</code></pre><p>In this example, we first import the MessageDigest class and define a <em>calculateSHA1</em> method that takes a string input and returns the SHA-1 digest as a string.</p>
+<p>Inside the <em>calculateSHA1</em> method, we first create a new instance of the MessageDigest class by using the <em>getInstance</em> method and giving the “SHA-1” algorithm as a parameter. Next, we call the hash method on the MessageDigest object and pass the input string as a byte array to calculate the SHA-1 hash value.</p>
+<p>Finally, we convert the byte array to a string by using a StringBuilder object and the String.format method to format each byte as a two-digit hexadecimal number. We then return the resulting string as a SHA-1 digest.</p>
+<hr>
+<h3 id="des-application">
+  DES Application
+  <a class="heading-link" href="#des-application">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>DES (Data Encryption Standard) is a symmetric key encryption system that can be used to encrypt and decrypt data.me algorithm. In Java, you can use the Cipher class from the Java Cryptography Architecture (JCA) to implement DES encryption and decryption.</p>
+<p>Here is an example of how to encrypt and decrypt a string using DES in Java:</p>
+<pre tabindex="0"><code>import javax.crypto.Cipher;  
+import javax.crypto.spec.SecretKeySpec;  
+import java.nio.charset.StandardCharsets;  
+import java.util.Base64;  
+  
+public class DESExample {  
+    public static void main(String[] args) throws Exception {  
+        String originalString = &#34;Hello, world!&#34;;  
+        String secretKey = &#34;mysecretkey&#34;;  
+          
+        // Encrypt the original string  
+        String encryptedString = encrypt(originalString, secretKey);  
+        System.out.println(&#34;Encrypted string: &#34; + encryptedString);  
+  
+        // Decrypt the encrypted string  
+        String decryptedString = decrypt(encryptedString, secretKey);  
+        System.out.println(&#34;Decrypted string: &#34; + decryptedString);  
+    }  
+  
+    public static String encrypt(String plainText, String secretKey) throws Exception {  
+        Cipher cipher = Cipher.getInstance(&#34;DES/ECB/PKCS5Padding&#34;);  
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), &#34;DES&#34;);  
+        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);  
+        byte[] encryptedBytes = cipher.doFinal(plainText.getBytes(StandardCharsets.UTF_8));  
+        return Base64.getEncoder().encodeToString(encryptedBytes);  
+    }  
+  
+    public static String decrypt(String encryptedText, String secretKey) throws Exception {  
+        Cipher cipher = Cipher.getInstance(&#34;DES/ECB/PKCS5Padding&#34;);  
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), &#34;DES&#34;);  
+        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);  
+        byte[] decodedBytes = Base64.getDecoder().decode(encryptedText);  
+        byte[] decryptedBytes = cipher.doFinal(decodedBytes);  
+        return new String(decryptedBytes, StandardCharsets.UTF_8);  
+    }  
+}
+</code></pre><p>In this example, we first import the required classes and define the <em>encrypt</em> and <em>decrypt</em> methods, which take a plaintext string and a secret key string as input and return the corresponding encrypted or decrypted string.</p>
+<p>Inside each method, we first create a Cipher object using the “DES/ECB/PKCS5Padding” conversion string, which specifies the DES encryption algorithm with Electronic Code Book (ECB) mode and PKCS5 padding.</p>
+<p>We then create a SecretKeySpec object using the secret key string and the “DES” algorithm and initialize the cipher object with the secret key using the init method with the appropriate mode (Cipher.ENCRYPT_MODE or Cipher.DECRYPT_MODE).</p>
+<p>For encryption, we convert the plaintext string into a byte array and call the doFinal method on the cipher object to encrypt the data. Then, we convert the resulting byte array to a base64-encoded string using the Base64 class and return the encrypted string.</p>
+<p>For decryption, we decode the base64-encoded string back into a byte array using the Base64 class, call the doFinal method on the cipher object to decrypt the data, and convert the resulting byte array into a string using the appropriate character set (in this case, StandardCharsets.UTF_8). We then return the decrypted string.</p>
+<hr>
+<h3 id="aes-implementation">
+  AES Implementation
+  <a class="heading-link" href="#aes-implementation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>AES (Advanced Encryption Standard) is a symmetric key encryption algorithm that can be used to encrypt and decrypt data. In Java, you can use the Cipher class from the Java Cryptography Architecture (JCA) to implement AES encryption and decryption.</p>
+<p>Here is an example of how to encrypt and decrypt a string using AES in Java:</p>
+<pre tabindex="0"><code>import javax.crypto.Cipher;  
+import javax.crypto.spec.SecretKeySpec;  
+import java.nio.charset.StandardCharsets;  
+import java.util.Base64;  
+  
+public class AESExample {  
+    public static void main(String[] args) throws Exception {  
+        String originalString = &#34;Hello, world!&#34;;  
+        String secretKey = &#34;mysecretkey&#34;;  
+          
+        // Encrypt the original string  
+        String encryptedString = encrypt(originalString, secretKey);  
+        System.out.println(&#34;Encrypted string: &#34; + encryptedString);  
+  
+        // Decrypt the encrypted string  
+        String decryptedString = decrypt(encryptedString, secretKey);  
+        System.out.println(&#34;Decrypted string: &#34; + decryptedString);  
+    }  
+  
+    public static String encrypt(String plainText, String secretKey) throws Exception {  
+        Cipher cipher = Cipher.getInstance(&#34;AES/ECB/PKCS5Padding&#34;);  
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), &#34;AES&#34;);  
+        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);  
+        byte[] encryptedBytes = cipher.doFinal(plainText.getBytes(StandardCharsets.UTF_8));  
+        return Base64.getEncoder().encodeToString(encryptedBytes);  
+    }  
+  
+    public static String decrypt(String encryptedText, String secretKey) throws Exception {  
+        Cipher cipher = Cipher.getInstance(&#34;AES/ECB/PKCS5Padding&#34;);  
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), &#34;AES&#34;);  
+        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);  
+        byte[] decodedBytes = Base64.getDecoder().decode(encryptedText);  
+        byte[] decryptedBytes = cipher.doFinal(decodedBytes);  
+        return new String(decryptedBytes, StandardCharsets.UTF_8);  
+    }  
+}
+</code></pre><p>In this example, we first import the required classes and define the <em>encrypt</em> and <em>decrypt</em> methods, which take a plaintext string and a secret key string as input and return the corresponding encrypted or decrypted string.</p>
+<p>Inside each method, we first create a Cipher object using the “AES/ECB/PKCS5Padding” transform string, which specifies the AES encryption algorithm with Electronic Code Book (ECB) mode and PKCS5 padding.</p>
+<p>We then create a SecretKeySpec object using the secret key string and the “AES” algorithm and initialize the cipher object with the secret key using the init method with the appropriate mode (Cipher.ENCRYPT_MODE or Cipher.DECRYPT_MODE).</p>
+<p>For encryption, we convert the plaintext string into a byte string and call the doFinal method on the cipher object to encrypt the data. Then, we convert the resulting byte array to a base64-encoded string using the Base64 class and return the encrypted string.</p>
+<p>For decryption, we decode the base64-encoded string back into a byte array using the Base64 class, call the doFinal method on the cipher object to decrypt the data, and convert the resulting byte array into a string using the appropriate character set (in this case, StandardCharsets.UTF_8). We then return the decrypted string.</p>
+<hr>
+<h3 id="rsa-implementation">
+  RSA Implementation
+  <a class="heading-link" href="#rsa-implementation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>RSA (Rivest–Shamir–Adleman) is a public key encryption algorithm that can be used to securely encrypt and decrypt data. In Java, you can use the KeyPairGenerator and Cipher classes from the Java Cryptography Architecture (JCA) to implement RSA encryption and decryption.</p>
+<p>Here is an example of how to create an RSA key pair in Java, encrypt a string using the public key, and decrypt the encrypted string:</p>
+<pre tabindex="0"><code>import javax.crypto.Cipher;  
+import java.security.KeyPair;  
+import java.security.KeyPairGenerator;  
+import java.util.Base64;  
+  
+public class RSAExample {  
+    public static void main(String[] args) throws Exception {  
+        String originalString = &#34;Hello, world!&#34;;  
+          
+        // Generate an RSA key pair  
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(&#34;RSA&#34;);  
+        keyPairGenerator.initialize(2048);  
+        KeyPair keyPair = keyPairGenerator.generateKeyPair();  
+          
+        // Get the public and private keys from the key pair  
+        byte[] publicKeyBytes = keyPair.getPublic().getEncoded();  
+        byte[] privateKeyBytes = keyPair.getPrivate().getEncoded();  
+  
+        // Encrypt the original string using the public key  
+        byte[] encryptedBytes = encrypt(originalString.getBytes(), publicKeyBytes);  
+        String encryptedString = Base64.getEncoder().encodeToString(encryptedBytes);  
+        System.out.println(&#34;Encrypted string: &#34; + encryptedString);  
+  
+        // Decrypt the encrypted string using the private key  
+        byte[] decryptedBytes = decrypt(Base64.getDecoder().decode(encryptedString), privateKeyBytes);  
+        String decryptedString = new String(decryptedBytes);  
+        System.out.println(&#34;Decrypted string: &#34; + decryptedString);  
+    }  
+  
+    public static byte[] encrypt(byte[] plainBytes, byte[] publicKeyBytes) throws Exception {  
+        Cipher cipher = Cipher.getInstance(&#34;RSA&#34;);  
+        cipher.init(Cipher.ENCRYPT_MODE, KeyFactory.getInstance(&#34;RSA&#34;).generatePublic(new X509EncodedKeySpec(publicKeyBytes)));  
+        return cipher.doFinal(plainBytes);  
+    }  
+  
+    public static byte[] decrypt(byte[] encryptedBytes, byte[] privateKeyBytes) throws Exception {  
+        Cipher cipher = Cipher.getInstance(&#34;RSA&#34;);  
+        cipher.init(Cipher.DECRYPT_MODE, KeyFactory.getInstance(&#34;RSA&#34;).generatePrivate(new PKCS8EncodedKeySpec(privateKeyBytes)));  
+        return cipher.doFinal(encryptedBytes);  
+    }  
+}
+</code></pre><p>In this example, we first import the required classes and define the <em>encrypt</em> and <em>decrypt</em> methods, which take a byte array of plaintext or encrypted data and a byte array of public or private key as input and return the corresponding encrypted or decrypted byte array. .</p>
+<p>In the main method, we first create an RSA key pair using the KeyPairGenerator class with the “RSA” algorithm and a key size of 2048 bits. We then extract the public and private keys from the key pair as byte arrays using the <em>getEncoded</em> method.</p>
+<p>For encryption, we call the <em>encrypt</em> method with the original string converted to a byte array and the public key byte array as input. We create a Cipher object using the “RSA” algorithm in the Encrypt method and initialize it with the public key using the appropriate mode (Cipher.ENCRYPT_MODE) using the init method. Next, we call the doFinal method on the cipher object to encrypt the data and return the resulting byte array.</p>
+<p>For decryption, we call the <em>decrypt</em> method with the base64-decrypted encrypted string converted to a byte array and the private key byte array as input. Inside the Decrypt method, we create another Cipher object using the “RSA” algorithm and initialize it with the private key using the appropriate mode and init method.</p>
+<hr>
+<h3 id="ecdh-application">
+  ECDH Application
+  <a class="heading-link" href="#ecdh-application">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>ECDH (Elliptic Curve Diffie-Hellman) is a key agreement protocol that allows two parties to establish a shared secret over an unsecured communication channel. In Java, you can use the KeyAgreement and KeyPairGenerator classes from the Java Cryptography Architecture (JCA) to implement ECDH key exchange using elliptic curve cryptography.</p>
+<p>Here&rsquo;s an example of creating an ECDH key pair, performing a key exchange with another party, and deriving a shared key using Java:</p>
+<pre tabindex="0"><code>import javax.crypto.KeyAgreement;  
+import javax.crypto.SecretKey;  
+import javax.crypto.spec.ECGenParameterSpec;  
+import java.security.*;  
+import java.security.spec.ECParameterSpec;  
+import java.security.spec.ECPublicKeySpec;  
+import java.security.spec.InvalidKeySpecException;  
+  
+public class ECDHExample {  
+    public static void main(String[] args) throws Exception {  
+        // Generate an ECDH key pair  
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(&#34;EC&#34;);  
+        ECGenParameterSpec ecGenParameterSpec = new ECGenParameterSpec(&#34;secp256r1&#34;);  
+        keyPairGenerator.initialize(ecGenParameterSpec);  
+        KeyPair keyPair = keyPairGenerator.generateKeyPair();  
+        PrivateKey privateKey = keyPair.getPrivate();  
+        PublicKey publicKey = keyPair.getPublic();  
+  
+        // Simulate the other party by generating its own ECDH key pair  
+        KeyPair otherKeyPair = keyPairGenerator.generateKeyPair();  
+        PrivateKey otherPrivateKey = otherKeyPair.getPrivate();  
+        PublicKey otherPublicKey = otherKeyPair.getPublic();  
+  
+        // Perform key exchange with the other party  
+        KeyAgreement keyAgreement = KeyAgreement.getInstance(&#34;ECDH&#34;);  
+        keyAgreement.init(privateKey);  
+        keyAgreement.doPhase(otherPublicKey, true);  
+  
+        // Derive the shared secret  
+        byte[] sharedSecret = keyAgreement.generateSecret();  
+  
+        // Simulate the other party deriving the shared secret using its private key  
+        KeyFactory keyFactory = KeyFactory.getInstance(&#34;EC&#34;);  
+        ECParameterSpec ecParameterSpec = ((ECPublicKeySpec) otherPublicKey.getKeySpec(ECPublicKeySpec.class)).getParams();  
+        PublicKey simulatedOtherPublicKey = keyFactory.generatePublic(new ECPublicKeySpec(((java.security.spec.ECPoint) otherPublicKey).getW(), ecParameterSpec));  
+        KeyAgreement simulatedKeyAgreement = KeyAgreement.getInstance(&#34;ECDH&#34;);  
+        simulatedKeyAgreement.init(otherPrivateKey);simulatedKeyAgreement.doPhase(publicKey, true);  
+        byte[] simulatedSharedSecret = simulatedKeyAgreement.generateSecret();  
+  
+        // Compare the two shared secrets (should be equal)  
+        System.out.println(&#34;Shared secret: &#34; + bytesToHex(sharedSecret));  
+        System.out.println(&#34;Simulated shared secret: &#34; + bytesToHex(simulatedSharedSecret));  
+        System.out.println(&#34;Shared secrets match: &#34; + bytesToHex(sharedSecret).equals(bytesToHex(simulatedSharedSecret)));  
+    }  
+  
+    public static String bytesToHex(byte[] bytes) {  
+        StringBuilder sb = new StringBuilder();  
+        for (byte b : bytes) {  
+            sb.append(String.format(&#34;%02X&#34;, b));  
+        }  
+        return sb.toString();  
+    }  
+}
+</code></pre><p>In this example, we first import the required classes and define a bytesToHex method to convert a byte array to a hexadecimal string.</p>
+<p>Inside the main method, we first create an ECDH key pair using the KeyPairGenerator class with the “EC” algorithm and the “secp256r1” elliptic curve parameter property. We then extract the private and public keys from the key pair.</p>
+<p>We simulate the counterparty by creating its own ECDH key pair using the same curve parameters.</p>
+<hr>
+<h3 id="ecdsa-application">
+  ECDSA Application
+  <a class="heading-link" href="#ecdsa-application">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>ECDSA (Elliptic Curve Digital Signature Algorithm) is a digital signature algorithm based on elliptic curve cryptography. In Java, you can use the Signature and KeyPairGenerator classes from the Java Cryptography Architecture (JCA) to implement ECDSA.</p>
+<p>Here&rsquo;s an example of how to create an ECDSA key pair using Java, sign a message with the private key, and verify the signature with the public key:</p>
+<pre tabindex="0"><code>import java.security.*;  
+import java.security.spec.ECGenParameterSpec;  
+import java.security.spec.InvalidKeySpecException;  
+import java.security.spec.PKCS8EncodedKeySpec;  
+import java.security.spec.X509EncodedKeySpec;  
+  
+public class ECDSAExample {  
+    public static void main(String[] args) throws Exception {  
+        // Generate an ECDSA key pair  
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(&#34;EC&#34;);  
+        ECGenParameterSpec ecGenParameterSpec = new ECGenParameterSpec(&#34;secp256r1&#34;);  
+        keyPairGenerator.initialize(ecGenParameterSpec);  
+        KeyPair keyPair = keyPairGenerator.generateKeyPair();  
+        PrivateKey privateKey = keyPair.getPrivate();  
+        PublicKey publicKey = keyPair.getPublic();  
+  
+        // Sign a message with the private key  
+        byte[] message = &#34;Hello, world!&#34;.getBytes();  
+        Signature signature = Signature.getInstance(&#34;SHA256withECDSA&#34;);  
+        signature.initSign(privateKey);  
+        signature.update(message);  
+        byte[] signatureBytes = signature.sign();  
+  
+        // Verify the signature with the public key  
+        Signature verifier = Signature.getInstance(&#34;SHA256withECDSA&#34;);  
+        verifier.initVerify(publicKey);  
+        verifier.update(message);  
+        boolean signatureValid = verifier.verify(signatureBytes);  
+  
+        System.out.println(&#34;Signature valid: &#34; + signatureValid);  
+    }  
+}
+</code></pre><p>In this example, we first import the necessary classes.</p>
+<p>Inside the main method, we generate an ECDSA key pair using the KeyPairGenerator class with the “EC” algorithm and the elliptic curve parameter property “secp256r1”. We extract the private and public keys from the key pair.</p>
+<p>We then create a message to sign and use the Signature class to sign the message with the private key. To use SHA-256 as the hash function, we specify the “SHA256withECDSA” algorithm.</p>
+<p>Next, we create a validator object using the Signature class and initialize it with the public key. We update the validator with the same message and verify the signature using the verification method. We compare the result to true to determine whether the signature is valid.</p>
+<p>Note that in a real-world scenario, you will typically transmit the signed message and the public key separately to the verifier to ensure that the signature has not been tampered with during transmission.</p>
+<hr>
+<p>In this article, I made cryptology applications with Java. You can access the article series from my profile. Don&rsquo;t forget to like and follow.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

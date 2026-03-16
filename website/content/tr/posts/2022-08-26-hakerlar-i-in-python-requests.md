@@ -1,4 +1,5 @@
 ---
+series: ["Hakerlar için Python"]
 title: "Hakerlar için Python: requests"
 date: 2022-08-26
 draft: false

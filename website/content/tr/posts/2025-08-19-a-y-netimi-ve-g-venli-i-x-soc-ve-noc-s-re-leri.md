@@ -1,4 +1,5 @@
 ---
+series: ["Ağ Güvenliği ve Yönetimi"]
 title: "Ağ Yönetimi ve Güvenliği X: SOC ve NOC Süreçleri"
 date: 2025-08-19
 draft: false

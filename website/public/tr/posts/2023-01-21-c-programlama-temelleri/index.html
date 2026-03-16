@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  C Programlama Temelleri · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  C Programlama Temelleri
+  
+    
+    Başlık Linki
+  
+
+
+
+  Syntax Nedir?
+  
+    
+    Başlık Linki
+  
+
+Türkçe anlamı söz dizimi olan ingilizce bir sözcüktür. Programlamada kullanılan dilin kurallarının tamamına syntax denir. Bu yazıda, C dilinin sözdizimine(syntaxına) değineceğiz.
+
+
+  Tanımlar
+  
+    
+    Başlık Linki
+  
+
+
+  Değişken &amp; Sabit Tanımlama
+  
+    
+    Başlık Linki
+  
+
+Değişenler ve Sabitler verileri tutmak için kullandığımız bileşenlerdir. Bu bileşenleri tanımlarken dikkat etmemiz gereken nokta değiken veya sabitin kabul ettiği veri türüdür. Standart C dilinde 5 çeşit veri türü vardır:">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="C Programlama Temelleri">
+  <meta name="twitter:description" content="C Programlama TemelleriBaşlık LinkiSyntax Nedir?Başlık LinkiTürkçe anlamı söz dizimi olan ingilizce bir sözcüktür. Programlamada kullanılan dilin kurallarının tamamına syntax denir. Bu yazıda, C dilinin sözdizimine(syntaxına) değineceğiz.
+TanımlarBaşlık LinkiDeğişken &amp; Sabit TanımlamaBaşlık LinkiDeğişenler ve Sabitler verileri tutmak için kullandığımız bileşenlerdir. Bu bileşenleri tanımlarken dikkat etmemiz gereken nokta değiken veya sabitin kabul ettiği veri türüdür. Standart C dilinde 5 çeşit veri türü vardır:">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2023-01-21-c-programlama-temelleri/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="C Programlama Temelleri">
+  <meta property="og:description" content="C Programlama TemelleriBaşlık LinkiSyntax Nedir?Başlık LinkiTürkçe anlamı söz dizimi olan ingilizce bir sözcüktür. Programlamada kullanılan dilin kurallarının tamamına syntax denir. Bu yazıda, C dilinin sözdizimine(syntaxına) değineceğiz.
+TanımlarBaşlık LinkiDeğişken &amp; Sabit TanımlamaBaşlık LinkiDeğişenler ve Sabitler verileri tutmak için kullandığımız bileşenlerdir. Bu bileşenleri tanımlarken dikkat etmemiz gereken nokta değiken veya sabitin kabul ettiği veri türüdür. Standart C dilinde 5 çeşit veri türü vardır:">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-01-21T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-01-21T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2023-01-21-c-programlama-temelleri/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2023-01-21-c-programlama-temelleri/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2023-01-21-c-programlama-temelleri/">
+              C Programlama Temelleri
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-01-21T00:00:00Z">
+                Ocak 21, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              13 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="c-programlama-temelleri">
+  C Programlama Temelleri
+  <a class="heading-link" href="#c-programlama-temelleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_wb7CfskOL2Lhc26j2XpbTQ.png" alt=""></p>
+<h3 id="syntax-nedir">
+  Syntax Nedir?
+  <a class="heading-link" href="#syntax-nedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Türkçe anlamı söz dizimi olan ingilizce bir sözcüktür. Programlamada kullanılan dilin kurallarının tamamına syntax denir. Bu yazıda, C dilinin sözdizimine(syntaxına) değineceğiz.</p>
+<hr>
+<h3 id="tanımlar">
+  Tanımlar
+  <a class="heading-link" href="#tan%c4%b1mlar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="değişken--sabit-tanımlama">
+  Değişken &amp; Sabit Tanımlama
+  <a class="heading-link" href="#de%c4%9fi%c5%9fken--sabit-tan%c4%b1mlama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Değişenler ve Sabitler verileri tutmak için kullandığımız bileşenlerdir. Bu bileşenleri tanımlarken dikkat etmemiz gereken nokta değiken veya sabitin kabul ettiği veri türüdür. Standart C dilinde 5 çeşit veri türü vardır:</p>
+<ul>
+<li>int — tam sayı değerleri için kullanılır.</li>
+<li>float — ondalıklı sayı değerleri için kullanılır.</li>
+<li>double — büyük ondalıklı sayı değerleri için kullanılır.</li>
+<li>char — karakter değerleri için kullanılır.</li>
+<li>void — türü olmayan demektir.</li>
+</ul>
+<p>Bu veri türlerini kullanarak değişkenler tanımlayabiliriz:</p>
+<pre tabindex="0"><code>int a = 5;            // integer türünde a isminde &#39;5&#39; değerinde bir değişken  
+float b = 7.5;        //float türünde b isminde &#39;7.5&#39; değerinde bir değişken  
+char c = &#39;a&#39;;         //char türüne c isminde &#39;a&#39; değerinde bir değişken  
+double d = 8965.3645; //double türünde d isminde &#39;8965.3645&#39; değerinde bir değişken
+</code></pre><p>bu veri türleri ile sabit tanımlamak istiyorsak tek yapmamız gereken değişken tanımlamasının başına ‘const’ anahtar kelimesini getirmek.</p>
+<pre tabindex="0"><code>const int a = 5;            // integer türünde a isminde &#39;5&#39; değerinde bir sabit  
+const float b = 7.5;        //float türünde b isminde &#39;7.5&#39; değerinde bir sabit  
+const char c = &#39;a&#39;;         //char türüne c isminde &#39;a&#39; değerinde bir sabit  
+const double d = 8965.3645; //double türünde d isminde &#39;8965.3645&#39; değerinde bir sabit
+</code></pre><p>Sabitler, değişkenlerden farklı olarak programın çalışma zamanı boyunca aynı değerde kalırlar. Tuttukları değer program akışında değiştirilmeye çalışılırsa hata veririler.</p>
+<h4 id="dizi-tanımlama">
+  Dizi Tanımlama
+  <a class="heading-link" href="#dizi-tan%c4%b1mlama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Dizilerin tanımlaması da değişkenlere oldukça benzerdir. Aslında diziler aynı türde birden fazla değişken tutan yapılardır. Örneğin int türünde bir dizi; içinde integer değişebilen değerler tutar.</p>
+<p>Dizileri tanımlarken en önemli nokta dizi boyutunun belitirtilmesidir. Program çalıştırıldığında bu dizi boyutuna göre bellekten yer talep eder ve programın çalışma zamanı boyunca bu boyut değişmez.</p>
+<p>Dizileri iki şekilde tanımlayabiliriz. Bunlardan biri boyutunu belirterek diğeri alacağı değerleri belirterek:</p>
+<pre tabindex="0"><code>int dizi1[10];            //10 elemanlı integer türünde bir dizi.  
+int dizi2[] = {1,2,3,4}   //4 elemanlı integer türünde bir dizi.
+</code></pre><pre tabindex="0"><code>Dizilerin elemanlarına erişmek için köşeli parantezler içine erişeceğimiz elemanın indisini yazarız. Bir elemanın indisi, o elemanın dizide kaçıncı sırada olduğunu belirten sayıdır. Bir dizinin ilk elemanı 0.indistedir, her bir eleman eklendiğinde bir sonraki indis değerini alır.
+</code></pre><pre tabindex="0"><code>sayi1 = dizi2[0];  //dizi2&#39;nin ilk elemanını sayi1&#39;e atar  
+sayi2 = dizi2[1];  //dizi2&#39;nin ikinci elemanını sayi2&#39;e atar  
+sayi3 = dizi3[2];  //dizi2&#39;nin üçüncü elemanını sayi3&#39;e atar  
+sayi4 = dizi4[3];  //dizi2&#39;nin dördüncü elemanını sayi4&#39;e atar
+</code></pre><p>Bir önceki örnekte tanımladığımız dizi2 isimli dizinin elemanlarını yukarıdaki gibi erişebiliriz.</p>
+<p>char değişken türüyle sadece tek bir karakter alabiliyorduk. Bir kelime almak için karakter dizilerine ihtiyacımız var.</p>
+<pre tabindex="0"><code>char str1[20]; //20 karakterlik bir karakter dizisi(string) tanımı  
+char str2[] = &#34;string ifadesi&#34;; //değeri belli karakter dizisi(string)
+</code></pre><h4 id="printf--scanf-fonksiyonları">
+  printf() &amp; scanf() fonksiyonları
+  <a class="heading-link" href="#printf--scanf-fonksiyonlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>C diliyle konsol uygulamaları yaparken kullanıcıyla etkileşim kurmak için kullandığımız iki fonksiyondur. printf() kullanıcıya bir mesaj döndürmek için scanf() ise kullanıcından bir değer almak için kullanılır.</p>
+<pre tabindex="0"><code>printf(&#34;Hello World\n&#34;);
+</code></pre><p>printf ile çift tırnaklar içinde istediğimiz mesajı kullanıcıya döndürebiliriz. Sondaki ‘\n’ ifadesi konsolda alt satıra geçmek için kullanılır.</p>
+<p>Eğer bir değişkenden geleni konsol ekranını bastırmak veya konsoldan bir değer almak istiyorsak belirleyicilere (specifiers) ihtiyacımız var. Bunlardan bazıları:</p>
+<ul>
+<li>%d : integer değerler için kullanılır.</li>
+<li>%f : float değerler için kullanılır.</li>
+<li>%lf : double değerler için kullanılır.</li>
+<li>%c : char değerleri için kullanılır.</li>
+<li>%s : string değerleri için kullanılır.</li>
+<li>%x : hexadecimal değerleri için kullanılır.</li>
+</ul>
+<p>Bu belirleyicileri kullanarak kullanıcıdan girdi alıp çıktı verebiliriz:</p>
+<pre tabindex="0"><code>int sayi;  
+printf(&#34;Bir sayi giriniz: &#34;);  
+scanf(&#34;%d&#34;, &amp;sayi);  
+printf(&#34;Girilen sayi %d&#39;dir&#34;, sayi);
+</code></pre><p>Burada dikkat etmemiz gerekenler;<br>
+scanf() fonksiyonunda değerin atanacağı değişkeni belirtirken ‘&amp;’ işareti koymak ve belirleyicilerin her iki fonksiyon içinde ilk parametrede ve çift tırnak içinde kullanmak.</p>
+<pre tabindex="0"><code>char[20] isim;  //20 karakterlik isim adında bir karakter dizisi tanımı  
+printf(&#34;isminizi giriniz: &#34;);
+</code></pre><p>Yukarıdaki örnekte kullanıcıdan bir karakter dizisi(string) alıp bu değeri mesaj içinde kullanıcıya döndüren bir program yazılmıştır.</p>
+<hr>
+<h3 id="koşul-yapıları">
+  Koşul Yapıları
+  <a class="heading-link" href="#ko%c5%9ful-yap%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>ikinci derisimizde koşul yapılarına değindik ve nu yapılarla ilgili örnekler yaptık. C diline üç tip koşul ifadesi vardır. Bu koşul ifadelerinde karşılaştırma operatörleri ve mantıksal operatörler kullanılır.</p>
+<p>Karşılaştırma operatörleri:</p>
+<ul>
+<li>== — eşitse</li>
+<li>!= — eşit değilse</li>
+<li>
+<blockquote>
+<p> — büyükse</p>
+</blockquote>
+</li>
+<li>&lt; — küçükse</li>
+<li>&lt; = — büyük eşitse</li>
+<li>
+<blockquote>
+<p>= — küçük eşitse</p>
+</blockquote>
+</li>
+</ul>
+<p>Mantıksal operatörler:</p>
+<ul>
+<li>&amp;&amp; — ve</li>
+<li>|| — veya</li>
+<li>! — değil</li>
+</ul>
+<h4 id="if-else-yapısı">
+  if-else yapısı
+  <a class="heading-link" href="#if-else-yap%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>if else yapısı, koşul ifadelerini tanımlamak için kullanabileceğimiz yapılardan biridir. Her zaman <em>if</em> deyimiyle başlar, koşulun sağlanmadığı durumda varsa <em>else</em> durumuna düşer. Birden fazla koşul tanımlamak için <em>else if</em> ifadesi kullanılabilir.</p>
+<pre tabindex="0"><code>if(a==b){  
+  printf(&#34;a ve b esit&#34;);  
+}else if(a&gt;b){  
+  printf(&#34;a, b den buyuk&#34;);  
+}else{  
+  printf(&#34;a, b den kucuk&#34;);  
+}  
+printf(&#34;kosulun disi);
+</code></pre><p>Eğer if koşulu sağlanırsa koşul içindeki deyimler yürütülür ve program akışı koşul ifadesinin dışından devam eder. Eğer <em>if</em> koşulu sağlanmaz ise sıradaki <em>else if</em>’de bulunan koşula bakar(eğer varsa), hiçbir koşul sağlanmaz ise <em>else</em>’e düşer(eğer varsa).</p>
+<h4 id="switch-case-yapısı">
+  switch-case yapısı
+  <a class="heading-link" href="#switch-case-yap%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>switch-case yapısı çoklu durumlarla baş edebilmek için geliştirilmiş bir yapıdır.</p>
+<pre tabindex="0"><code>int sayi;  
+printf(&#34;Bir sayi giriniz: &#34;);   
+scanf(&#34;%d&#34;, &amp;sayi);  
+  
+switch(sayi){  
+  case 1:  
+    printf(&#34;1 sayisi girildi&#34;);  
+    break;  
+  case 2:  
+    //break koymadığımız için case3 ile çalıştırmaya devam eder.  
+  case 3:  
+    printf(&#34;2 veya 3 sayisi girildi&#34;);  
+    break;  
+  case 4:  
+    printf(&#34;4 sayisi girildi&#34;);  
+    //break ifadesi koymadığımız için default da çalışır  
+  default:  
+    printf(&#34;tanimlanmamis sayi&#34;);  
+}
+</code></pre><p>Verilen koşul değişkeninin değerine göre uygun olan <em>case</em> içindeki deyimleri çalıştırır. Bu koşul değişkeni sadece <em>int</em> ve <em>char</em> türünde olabilir. deyimlerin çalıştırılması <em>break</em> ifadesi görene kadar devam eder. Yani, <em>break</em> olmadığı sürece program diğer <em>case</em>lerde bulunan deyimleri çalıştırmaya devam eder.</p>
+<h4 id="ternary-operator">
+  ternary operator
+  <a class="heading-link" href="#ternary-operator">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>ternaty operator, tek satırda hızlı ve kısa kosul ifadeleri tanımlamak icin kullanılır.</p>
+<pre tabindex="0"><code>(a==b)?printf(&#34;a ve b eesittir&#34;):printf(&#34;a ve b esit değildir&#34;);
+</code></pre><p>parantezler içine koşul yazılır ardından bir soru işareti konur. soru işaretinden sonra gelen bölüm koşul doğruysa çalıştırılacak bölümdür. Bu bölümden sonra iki nokta konur. Sonraki bölüm ise koşul yanlışsa çalışır.</p>
+<hr>
+<h3 id="döngüler">
+  Döngüler
+  <a class="heading-link" href="#d%c3%b6ng%c3%bcler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bir döngü deyimi, bir deyimi veya deyimler grubunu birden çok kez yürütmemize izin verir. Aşağıda, programlama dillerinin çoğunda bir döngü ifadesinin genel biçimi verilmiştir:</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*tZ55-KwCaatkE92j" alt=""></p>
+<p>C dilinde 3 çeşit döngü vardır. Bunlar for, while ve do-while döngüleridir.</p>
+<h4 id="for-döngüsü">
+  for döngüsü
+  <a class="heading-link" href="#for-d%c3%b6ng%c3%bcs%c3%bc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Deyimleri birden çok kez yürütür ve döngü değişkenini yöneten kodu kısaltır.</p>
+<pre tabindex="0"><code>//0&#39;dan 10a kadar olan sayıları yazdıran program  
+for(int i=0;i&lt;=10;++i){  
+    printf(&#34;sayi: %d \n&#34;,i);  
+}
+</code></pre><p>Döngü ifadeleri iç içe kullanılabilir buna iç-içe döngü(nested loop) denir. Bu daha çok matris işlemlerinde kullanılır.</p>
+<pre tabindex="0"><code>//20x20lik bir matrisin indislerini yazdıran program  
+for(int i=1;i&lt;=20;++i}{  
+  for(int j=1;j&lt;=20;++j){  
+    printf(&#34;(%d,%d)\n&#34;,i,j);  
+  }  
+}
+</code></pre><p><img src="https://cdn-images-1.medium.com/max/800/0*oZLlTX132HC6pdpw" alt=""></p>
+<h4 id="while-döngüsü">
+  while döngüsü
+  <a class="heading-link" href="#while-d%c3%b6ng%c3%bcs%c3%bc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Belirli bir koşul doğruyken bir ifadeyi veya ifade grubunu tekrarlar. Döngü gövdesini yürütmeden önce durumu test eder.</p>
+<pre tabindex="0"><code>//10dan 1&#39;e kadar olan sayıları yazdıran program  
+int i = 10;  
+while(i&gt;0){  
+  printf(&#34;sayi: %d \n&#34;,i);  
+  i--;  
+}
+</code></pre><p>while döngüsü içindeki koşul sürekli doğru olursa sonsuz döngü oluşur. Döngüyü durduracak bir koşul olmadığı için döngü program sonlandırılana dek devam eder.</p>
+<pre tabindex="0"><code>//1 değeri doğru(True) değeri temsil eder  
+while(1){  
+  printf(&#34;bu bir sonsuz dongudur&#34;);  
+}
+</code></pre><h4 id="do-whiledöngüsü">
+  do while döngüsü
+  <a class="heading-link" href="#do-whiled%c3%b6ng%c3%bcs%c3%bc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>while döngüsünden farklı olarak döngü koşulunu başta değil sonda kontrol eder.</p>
+<pre tabindex="0"><code>//10dan 1&#39;e kadar olan sayıları yazdıran program  
+int sayi=10;  
+do{  
+  printf(&#34;sayi: %d \n&#34;, sayi);  
+  sayi--;  
+}while(sayi&gt;0);
+</code></pre><p>do-while döngüsü önce deyimleri yürütür sonra koşulu sorgular. Bu bazı durumlarda oldukça kullanışlı olabilir.</p>
+<pre tabindex="0"><code>//kullanıcıdan 0 gelinceye kadar alınan sayıları ekrana bastıran program.  
+int sayi;  
+do{  
+  printf(&#34; Bir sayi giriniz: &#34;);  
+  scanf(&#34;%d&#34;, &amp;sayi);  
+  printf(&#34;\n Girilen sayi: %d&#34;,sayi);  
+}while(sayi!=0);
+</code></pre><p><img src="https://cdn-images-1.medium.com/max/800/0*LIayjiTDiNr-k5rJ" alt=""></p>
+<h4 id="döngü-kontrol-deyimleri">
+  Döngü kontrol deyimleri
+  <a class="heading-link" href="#d%c3%b6ng%c3%bc-kontrol-deyimleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><strong>break deyimi:</strong> Döngü ifadesini sonlandırır ve yürütmeyi döngünün hemen sonrasındaki ifadeye aktarır.</p>
+<pre tabindex="0"><code>//donguden çıkmak için q&#39;ya basmak gereken program  
+char c;  
+while(1){  
+  printf(&#34;bir karakter giriniz: &#34;);  
+  scanf(&#34;%c&#34;, &amp;c);  
+  if(c==&#39;q&#39;){  
+    break;  
+  }  
+  printf(&#34;\n dongu devam ediyor&#34;);  
+}  
+printf(&#34;\n dongu sonlandı&#34;);
+</code></pre><p><strong>continue deyimi:</strong> Döngünün gövdesinin geri kalanını atlar ve döngünün sonraki iterasyonuna geçer.</p>
+<pre tabindex="0"><code>for(;;){    // for ile sonsuz döngü  
+  printf(&#34;bu deyim çalışır&#34;);  
+  continue;  
+  printf(&#34;bu deyim çalışmaz&#34;);  
+}
+</code></pre><p>yukarıdaki örnekte continue deyiminin altınsa kalan printf(), continue altında kalan deyimleri atlayıp döngüyü başa aldığı için hiç çalışmaz.</p>
+<hr>
+<h3 id="fonksiyonlar-veyapılar">
+  Fonksiyonlar ve Yapılar
+  <a class="heading-link" href="#fonksiyonlar-veyap%c4%b1lar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Fonksiyonlar ve yapıların temel işlevi deyimleri gruplamak/paketlemektir. Genel olarak fonskiyonlar çalışan deyimleri, yapılar verileri gruplar diyebiliriz.</p>
+<h4 id="struct-tanımlama">
+  Struct Tanımlama
+  <a class="heading-link" href="#struct-tan%c4%b1mlama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Structlar bir kaydı temsil etmek için kullanılır. Kitaplıktaki kitaplarınızın kaydını tutmak istediğinizi varsayalım. Her kitapla ilgili aşağıdaki özellikleri tutmak isteyebilirsiniz:</p>
+<ul>
+<li>Kitap adı</li>
+<li>Konu</li>
+<li>Yazar</li>
+<li>Sayfa Sayısı</li>
+</ul>
+<p>Bu kitabı bir struct ile tanımlamak istersek:</p>
+<pre tabindex="0"><code>struct Books {  
+   char  title[50];  
+   char  author[50];  
+   char  subject[100];  
+   int   pages;  
+} book;
+</code></pre><p>şeklinde tanımlayabiliriz. Görüldüğü gibi bir çok veri türünü kullanarak daha geniş bir veri türü elde ediyoruz. Bu geniş veri türünü kullanmak için:</p>
+<pre tabindex="0"><code>struct Books kitap1;   
+//struct books türünde kitap1 isminde bir veri tipi tanımı  
+strcpy( kitap1.title, &#34;C programlama&#34;);  
+strcpy( kitap1.author, &#34;yazar adi&#34;);   
+strcpy( kitap1.subject, &#34;C&#34;);  
+kitap1.pages = 680;
+</code></pre><p>Yukaridaki kod parçasında karakter dizisi(string) değerlerini atamak için strcpy() fonksiyonu kullanılır. Diğer değerler ‘=’ operatörü ile atanabilir.</p>
+<h4 id="typedef">
+  <strong>typedef</strong>
+  <a class="heading-link" href="#typedef">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>typedef, C programlamasında mevcut veri türlerine yeni bir ad sağlamak için kullanılan bir anahtar kelimedir. typedef anahtar sözcüğü, zaten var olan adı yeniden tanımlamak için kullanılır. struct deyimiyle kullanımı çok yaygındır. Bu sayede struct anahtar kelimesini her tanımlamada tekrar kullanmamız gerekmez:</p>
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;  
+#include &lt;string.h&gt;  
+    
+typedef struct students   
+{  
+  char name[50];  
+  char branch[50];  
+  int ID_no;  
+} students;  
+    
+int main()  
+{  
+  students st;  //Tanımlamadas struct anahtar kelimesini kullanmadık  
+  strcpy(st.name,   
+         &#34;Ahmet Yılmaz&#34;);  
+  strcpy(st.branch,   
+         &#34;Bilgisayar Bilimleri&#34;);  
+  st.ID_no = 108;  
+      
+  return 0;  
+}
+</code></pre><h4 id="fonksiyon-tanımlama">
+  Fonksiyon Tanımlama
+  <a class="heading-link" href="#fonksiyon-tan%c4%b1mlama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir fonksiyon, birlikte bir görevi gerçekleştiren deyimler grubudur. Her C programının en az bir işlevi vardır, bu da main()’dir. Fonksiyonlar devamında gelen () işaretleriyle simgelenir.</p>
+<p>Bir fonksiyon tanımlama:</p>
+<pre tabindex="0"><code>dönüş_tipi fonksiyon_ismi( parametreler) {  
+   fonksiyon gövdesi  
+  return   
+}
+</code></pre><ul>
+<li><strong>dönüş tipi:</strong> Fonksiyonun return deyimiyle döndürdüğü değerin türünü belirtir.</li>
+<li><strong>fonksiyon ismi:</strong> fonksiyonu cağırırken kullandığımız isim.</li>
+<li><strong>parametreler:</strong> parametre bir yer tutucu gibidir. Fonksiyon çağrıldığında parametrelere değerler verilir ve bu gerçek değer olarak adlandırılır.</li>
+<li><strong>fonksiyon gövdesi:</strong> fonksiyonun içindeki deyimlerin yazıldığı bölüm.</li>
+</ul>
+<pre tabindex="0"><code>//integer türünde değer dönen ve integer türünde num1 ve num2 değerlerini   
+//alan max isminde bir fonksiyon  
+int max(int num1, int num2) {  
+int result;  
+   
+   if (num1 &gt; num2)  
+      result = num1;  
+   else  
+      result = num2;  
+   
+   return result;   
+}
+</code></pre><p><strong>fonksiyon imzası/bildirimi</strong></p>
+<p>Bir fonksiyon bildirimi, derleyiciye bir işlev adı ve işlevin nasıl çağrılacağı hakkında bilgi verir. Fonksiyonun gerçek gövdesi ayrı ayrı tanımlanabilir.</p>
+<pre tabindex="0"><code>int max(int num1, int num2);   //fonksiyon imzası
+</code></pre><p><strong>fonksiyon çağrısı</strong></p>
+<p>Bir fonksiyonu kullanmak için, tanımlanan parametrelere göre o fonksiyonu çağırmanız gerekir.</p>
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;  
+   
+/* fonksiyon imzası*/  
+int max(int num1, int num2);  
+/* main fonksiyonu */  
+int main () {  
+   int a = 100;  
+   int b = 200;  
+   int ret;  
+   
+   /* fonksiyon çağrısı*/  
+   ret = max(a, b);  
+   
+   printf( &#34;Max value is : %d\n&#34;, ret );  
+   
+   return 0;  
+}  
+   
+/* fonksiyon tanımı */  
+int max(int num1, int num2) {  
+   int result;  
+   
+   if (num1 &gt; num2)  
+      result = num1;  
+   else  
+      result = num2;  
+   
+   return result;   
+}
+</code></pre><h4 id="özyinelemeli-fonksiyonlar">
+  Özyinelemeli Fonksiyonlar
+  <a class="heading-link" href="#%c3%b6zyinelemeli-fonksiyonlar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Kendini çağıran fonksiyonlarla oluşturulmuş döngüye benzer yapılardır. Kısaca bir fonksiyonun kendini çağırmasıdır.</p>
+<pre tabindex="0"><code>void recursion() {  
+   recursion(); /* fonksiyon kendini çağırıyor*/  
+}  
+  
+int main() {  
+   recursion();  
+}
+</code></pre><p>Yukarıda görüldüğü gibi recursion isimli fonksiyon kendini çağırıyor. Ancak bu kullanımda program sonsuza dek devam eder, çünkü durduracak bir koşul yok. Bu yüzden, özyinelemeli fonksiyonların kullanımında 2 durum gereklidir:</p>
+<p>Temel durum: fonksiyonun kendini çağırmayı bıraktığı durumudur.</p>
+<p>Rekürsif durum: fonksiyonun kendini çağırdığı durumdur.</p>
+<pre tabindex="0"><code>int factorial(unsigned int i) {  
+if(i &lt;= 1) {  
+      return 1;  //temel durum  
+   }  
+   return i * factorial(i - 1); //rekürsif durum  
+}
+</code></pre><hr>
+<h3 id="referanslama">
+  Referanslama
+  <a class="heading-link" href="#referanslama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h4 id="işaretçiler-pointers">
+  İşaretçiler (pointers)
+  <a class="heading-link" href="#i%c5%9faret%c3%a7iler-pointers">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>İşaretçi(pointer), C programlama dilini bir sistem dili yapan parçasıdır. İşaretçiler ile işletim sisteminin izin veriği ölçüde belleğe erişebilir ve yönetebiliriz. Bazı C programlama görevleri, işaretçiler ile daha kolay gerçekleştirilir ve dinamik bellek ayırma gibi diğer görevler, işaretçiler kullanılmadan gerçekleştirilemez.</p>
+<p>İşaretçi, değeri başka bir değişkenin adresi, yani bellek konumunun doğrudan adresi(fiziksel adresi) olan bir değişkendir. İşaretçileri kullanarak bellek hücrelerine doğrudan erişim sağlayabiliriz. C’deki bir dizi veya vir fonksiyon da aslında bir işaretçidir, dizinin veya fonksiyonun bellekteki başlangıç adresini işaret eder.</p>
+<pre tabindex="0"><code>int    *ip;    /* pointer to an integer */  
+double *dp;    /* pointer to a double */  
+float  *fp;    /* pointer to a float */  
+char   *ch     /* pointer to a character */
+</code></pre><p>Yukarıda farklı türlerde işaretçi tanımlarını görüyorsunuz. İşaretçilerin kullanımında iki operatörün önemi büyüktür:</p>
+<ul>
+<li>referencing * : referansı verilen adreste tutlan değeri getirir.</li>
+<li>de-referencing &amp; : bir değerin bellek konum adresini getirir.</li>
+</ul>
+<p>Bu iki operatörü birbirinin zıttı olarak düşünebilriz. * operatörü değerin bellek adresini getirirken, &amp; operatörü verilen adresteki değeri getirir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*xhwIoaH5XH3vBH9k" alt=""></p>
+<p>referencing de-referencing</p>
+<p>p bellek adresi tutan bir değişken olsun yani pointer. *p, p’de tutulan bellek adresindeki değeri verir, &amp;p ise p’nin kendi bellek adresini verir.</p>
+<p>Bu mantıkla bir pointerı referans eden başka bir pointer yaratabiliriz.</p>
+<p><img src="/images/0_fqOhphnMCqrtdVI2.jpg" alt=""></p>
+<p>pointer to pointer</p>
+<p>var isminde bir değişkenimiz olsun, bu değişenin adresini ptr’ye atalım. Sonrasında, ptr’nin adresini de pptr isminde başka bir pointera atalım.</p>
+<pre tabindex="0"><code>int var = 1234;  
+int *ptr = &amp;var;  
+int **pptr = &amp;ptr;
+</code></pre><p>Yukarıda pointer to pointer durumunu tanımladık. Bu durumu bir zincir şeklinde istediğimiz kadar uzatabiliriz. Aşağıda çalışan bir örnek verilmiştir.</p>
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;  
+   
+int main () {  
+  
+   int  var;  
+   int  *ptr;  
+   int  **pptr;  
+  
+   var = 3000;  
+  
+   /* take the address of var */  
+   ptr = &amp;var;  
+  
+   /* take the address of ptr using address of operator &amp; */  
+   pptr = &amp;ptr;  
+  
+   /* take the value using pptr */  
+   printf(&#34;Value of var = %d\n&#34;, var );  
+   printf(&#34;Value available at *ptr = %d\n&#34;, *ptr );  
+   printf(&#34;Value available at **pptr = %d\n&#34;, **pptr);  
+  
+   return 0;  
+}
+</code></pre><h4 id="pointer-aritmertiği">
+  pointer aritmertiği
+  <a class="heading-link" href="#pointer-aritmerti%c4%9fi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir önceki bölümde pointerların bellek adresi tutan değişkenler olduğundan bahsetmiştik. Yani, tuttuğu değer tek sadece bellek adresi tutuyor. Buna rağmen, int, float, char, double gibi farklı türlerde tanımlandığını görmüştük. Bu 4 tanımlamada aslında aynı tür değeri tutuyor. Peki farkları ne?</p>
+<p>Burada pointer aritmetiği devreye giriyor. c’deki işaretçi, sayısal bir değer olan bir adrestir. Bu nedenle, sayısal bir değerde olduğu gibi bir işaretçide de aritmetik işlemler gerçekleştirebilirsiniz. İşaretçiyi tanımladığınız türe göre bu aritmetik işlemler yapılacaktır. Örneğin:</p>
+<ul>
+<li>char — 1 byte: işaretçiyi bir arttırdığınızda bellekte 1 bayt sonraki konumu gösterecektir.</li>
+<li>int — 4 byte: işaretçiyi bir arttırdığınızda bellekte 4bayt sonraki konumu gösterecektir.</li>
+<li>float — 4byte: işaretçiyi bir arttırdığınızda bellekte 4bayt sonraki konumu gösterecektir.</li>
+<li>double — 8byte: işaretçiyi bir arttırdığınızda bellekte 8 bayt sonraki konumu gösterecektir.</li>
+</ul>
+<p>Bu mantık dizilerde çok işimize yarar. 10 elemanlı bir integer dizisi düşünün; bir integer pointer ile o diziyi rahatlıkla dolaşabilirsiniz. pointerı bir arttırdığınızda sonraki elemana geçmiş olur. Bir aalltığınızda önceki elemana geçer. Ancak, dizinin dışına çıkmamaya dikkat etmelisiniz!</p>
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;  
+  
+const int MAX = 3;  
+  
+int main () {  
+  
+   int  var[] = {10, 100, 200};  
+   int  i, *ptr;  
+  
+   /* let us have array address in pointer */  
+   ptr = var;  
+   
+   for ( i = 0; i &lt; MAX; i++) {  
+  
+      printf(&#34;Address of var[%d] = %x\n&#34;, i, ptr );  
+      printf(&#34;Value of var[%d] = %d\n&#34;, i, *ptr );  
+  
+      /* move to the next location */  
+      ptr++;  
+   }  
+   
+   return 0;  
+}
+</code></pre><p>Yukarıdaki örnekte, pointerlar ile bir dizide gezmeye örnek verilmiştir. ptr++ bellekte 4 bayt sonraki konuma işaret eder.</p>
+<h4 id="dinamik-bellekyönetimi">
+  Dinamik Bellek Yönetimi
+  <a class="heading-link" href="#dinamik-belleky%c3%b6netimi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu bölüm, C’deki dinamik bellek yönetimini açıklar. C programlama dili, bellek tahsisi ve yönetimi için çeşitli işlevler sağlar. Bunlar:</p>
+<ul>
+<li><strong>malloc():</strong> bellekten belirli boyutta bir alan tahsis eder.</li>
+<li><strong>calloc():</strong> bellekten belirli boyutta bir alanı temizleyip tahsis eder.</li>
+<li><strong>realloc():</strong> bellekteki bir alanın boyutunu değiştirip yeniden tahsis eder.</li>
+<li><strong>free():</strong> bellekteki bir alanın tahsisini sonlandırır.</li>
+</ul>
+<p>Programlama yaparken bir dizinin boyutunu bilirseniz onu statik bir dizi olarak tanımlayabilirsiniz. Bu dizinin alanı, program başladığında tahsis edilir ve program sonlanana kadar devam eder. Ancak, program akışı içinde bir dizi tanımlamak veya değiştirmek isterseniz bunu statik olarak yapamazsınız. Dinamik olarak bir dizi tanımlamak için dinamik bellek yönetimini kullanmak zorundasınız.</p>
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;  
+#include &lt;stdlib.h&gt;  
+#include &lt;string.h&gt;  
+  
+int main() {  
+  
+   char name[100];  
+   char *a1;  
+  
+   strcpy(name, &#34;Zara Ali&#34;);  
+  
+   /* allocate memory dynamically */  
+   a1 = malloc( 200 * sizeof(char) );  
+   
+   printf(&#34;Name = %s\n&#34;, name );  
+   printf(&#34;Description: %s\n&#34;, a1);  
+    
+  free(a1);  
+}
+</code></pre><p>Yukarıki programda, 200 charlık bir alan bellekten dinamik olarak tahisis edilmiştir. Program sonunda free() ile bu alan bırakılmıştır.</p>
+<hr>
+<h3 id="dosya-işlemleri">
+  Dosya işlemleri
+  <a class="heading-link" href="#dosya-i%c5%9flemleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>C dilinde bir dosyadan okuma/yazma yapmak için bazı fonksiyonlara ihtiyaç duyarız. Bunlar, fopen() ve fclose() fonksiyonlarıdır. Bu fonksiyonlarla birlikte yapılacak işlemlerde dosya açma modları önemlidir. Dosya hangi modda açıldıysa o moddaki işlemler yapılabilir. <br>
+Dosya açma modları:</p>
+<ul>
+<li>r: Okuma amacıyla mevcut bir metin dosyasını açar.</li>
+<li>w: Yazmak için bir metin dosyası açar. Mevcut değilse, yeni bir dosya oluşturulur. Mevcut ise üstüne yazar.</li>
+<li>a: Ekleme moduda yazmak için bir metin dosyası açar. Mevcut değilse, yeni bir dosya oluşturulur. Mevcut ise dosya içeriğine içerik eklemeye başlayacaktır.</li>
+<li>r+: Hem okuma hem de yazma için bir metin dosyası açar.</li>
+<li>w+: Hem okuma hem de yazma için bir metin dosyası açar. Varsa, önce dosyayı sıfırlar,. Yoksa bir dosya oluşturur.</li>
+<li>a+: Hem okuma hem de yazma için bir metin dosyası açar. Dosya yoksa, dosyayı oluşturur. Okuma baştan başlayacak, ancak yazı sadece eklenebilir.</li>
+</ul>
+<p>Dosya açmak ve kapatmak için bu fonksiyonları ve modları beraber kullanabiliriz.</p>
+<pre tabindex="0"><code>FILE *fp;  
+fp = fopen( filename, mode );
+</code></pre><p>Aşağıda dosya işlemleriyle ilgili çalışan bir örnek verilmiştir.</p>
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;  
+  
+void main() {  
+   FILE *fp;  
+  
+   fp = fopen(&#34;/tmp/test.txt&#34;, &#34;w+&#34;);  
+   fprintf(fp, &#34;This is testing for fprintf...\n&#34;);  
+   fputs(&#34;This is testing for fputs...\n&#34;, fp);  
+   fclose(fp);  
+}
+</code></pre>
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

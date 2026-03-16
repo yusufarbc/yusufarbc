@@ -1,4 +1,5 @@
 ---
+series: ["Ağ Güvenliği ve Yönetimi"]
 title: "Ağ Yönetimi ve Güvenliği VIII: Ağ Yönetimi, İzleme ve Otomasyon"
 date: 2025-08-12
 draft: false

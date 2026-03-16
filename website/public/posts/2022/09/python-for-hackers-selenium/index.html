@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Python for hackers: selenium · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Python for hackers: selenium
+  
+    
+    Link to heading
+  
+
+
+
+  Introduction
+  
+    
+    Link to heading
+  
+
+Hello, in this article, we will get to know the selenium module, which allows us to perform operations on websites like a user.
+
+  What is Selenium?
+  
+    
+    Link to heading
+  
+
+Selenium is a web automation library. With Selenium we can visit and interact with a website.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Python for hackers: selenium">
+  <meta name="twitter:description" content="Python for hackers: seleniumLink to headingIntroductionLink to headingHello, in this article, we will get to know the selenium module, which allows us to perform operations on websites like a user.
+What is Selenium?Link to headingSelenium is a web automation library. With Selenium we can visit and interact with a website.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2022/09/python-for-hackers-selenium/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Python for hackers: selenium">
+  <meta property="og:description" content="Python for hackers: seleniumLink to headingIntroductionLink to headingHello, in this article, we will get to know the selenium module, which allows us to perform operations on websites like a user.
+What is Selenium?Link to headingSelenium is a web automation library. With Selenium we can visit and interact with a website.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-09-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-09-02T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2022/09/python-for-hackers-selenium/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2022/09/hakerlar-i%C3%A7in-python-selenium/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2022/09/python-for-hackers-selenium/">
+              Python for hackers: selenium
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-09-02T00:00:00Z">
+                September 2, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              6-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="python-for-hackersselenium">
+  <strong>Python for hackers: selenium</strong>
+  <a class="heading-link" href="#python-for-hackersselenium">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_0uUmJ2J01vpcie8grd91Yw.png" alt=""></p>
+<h3 id="introduction">
+  Introduction
+  <a class="heading-link" href="#introduction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Hello, in this article, we will get to know the selenium module, which allows us to perform operations on websites like a user.</p>
+<h3 id="what-is-selenium">
+  What is Selenium?
+  <a class="heading-link" href="#what-is-selenium">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><a href="https://selenium-python.readthedocs.io/"  class="external-link" target="_blank" rel="noopener">Selenium</a> is a web automation library. With Selenium we can visit and interact with a website.</p>
+<h3 id="installation">
+  Installation
+  <a class="heading-link" href="#installation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>You can follow several different methods to install and run the <a href="https://pypi.org/project/selenium/"  class="external-link" target="_blank" rel="noopener">Selenium</a> module. You can install everything manually and run it on your computer, you can automatically install the driver that will run your browser, or you can take advantage of docker technology.</p>
+<p>Let&rsquo;s start with the classic manual installation; <br>
+To do this, run the following command in the terminal.</p>
+<pre tabindex="0"><code>pip install selenium
+</code></pre><p>Since Selenium runs on a web browser, we need a driver to manage this browser.</p>
+<p><strong>Chrome</strong>:<br>
+<a href="https://chromedriver.chromium.org/downloads"  class="external-link" target="_blank" rel="noopener">https://chromedriver.chromium.org/downloads</a></p>
+<p><strong>Edge</strong>:<br>
+<a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/"  class="external-link" target="_blank" rel="noopener">https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/</a></p>
+<p><strong>Firefox</strong>:<br>
+<a href="https://github.com/mozilla/geckodriver/releases"  class="external-link" target="_blank" rel="noopener">https://github.com/mozilla/geckodriver/releases</a></p>
+<p><strong>Safari</strong>:<br>
+<a href="https://webkit.org/blog/6900/webdriver-support-in-safari-10/"  class="external-link" target="_blank" rel="noopener">https://webkit.org/blog/6900/webdriver-support-in-safari-10/</a></p>
+<p>You can download the driver for the browser you want to use from here. When downloading the driver, make sure it is compatible with the version of your browser. Then copy the driver to the same directory as your python file.</p>
+<p>Now we can run our first test code.</p>
+<pre tabindex="0"><code>from selenium import webdriver  
+driver = webdriver.Chrome()  
+driver.get(&#34;http://google.com&#34;)
+</code></pre><p>Instead of installing the driver manually, we can also install the webdriver_manager module, which automatically installs the latest version.</p>
+<pre tabindex="0"><code>pip install webdriver-manager
+</code></pre><p>After installing this module, we can run the following test code.</p>
+<pre tabindex="0"><code>from selenium import webdriver  
+from webdriver_manager.chrome import ChromeDriverManager
+</code></pre><pre tabindex="0"><code>driver = webdriver.Chrome(ChromeDriverManager().install())  
+driver.get(&#34;http://google.com&#34;)
+</code></pre><p>To run Selenium with <a href="https://hub.docker.com/r/selenium/standalone-firefox"  class="external-link" target="_blank" rel="noopener">docker</a>, you can follow the instructions on the <a href="https://github.com/SeleniumHQ/docker-selenium"  class="external-link" target="_blank" rel="noopener">github</a> page. Once you install and run Docker, you can access the Sesenium Grid interface at <a href="http://localhost:4444/"  class="external-link" target="_blank" rel="noopener">http://localhost:4444</a>.</p>
+<p><img src="/images/1_ibMLsRZmjC54Fxcif1XP_A.png" alt=""></p>
+<p>We can also view the web browser at <a href="http://localhost:7900/"  class="external-link" target="_blank" rel="noopener">http://localhost:7900/</a>. The default password is <em>secret</em>.<br>
+ We can run the following test code while Docker is running.</p>
+<pre tabindex="0"><code>from selenium import webdriver  
+from selenium.webdriver.common.keys import Keys  
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities  
+					   
+driver = webdriver.Remote(  
+   command_executor=&#34;http://127.0.0.1:4444/wd/hub&#34;,  
+   desired_capabilities={&#34;browserName&#34;: &#34;firefox&#34;})  
+driver.get(&#34;http://google.com&#34;)
+</code></pre><p>Here, in the browserName section, you must write the name of the browser with which you installed Docker. When the code is run, you can see that Google opens on the address <a href="http://localhost:7900/"  class="external-link" target="_blank" rel="noopener">http://localhost:7900/</a>.</p>
+<p><img src="/images/1_WoWx7BtNKQIIwMPjVnMg4w.png" alt=""></p>
+<p>Python code was run and a session was created on the selenium grid. We went to google.com with this session. However, without closing this session, our python code terminated and our session remained open. We cannot run other Python codes without closing the session. To log out, we can add <em>driver.quit()</em> at the end of our python code or restart docker.</p>
+<h3 id="how-to-use-selenium-module">
+  How to Use Selenium Module?
+  <a class="heading-link" href="#how-to-use-selenium-module">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In the installation section, we saw how to open the browser with selenium and go to a page. After going to the page, we can perform various operations on that page. For example, we may want to get a certain text on the page, we may want to press a button on the page, or we may want to scroll the page up or down. All of these are the processes required for us in bot making.</p>
+<p>Whatever we want to do on the web page, we first need to access the HTML element in which we will do that action. There are a few different ways to do this. Some of these are:,</p>
+<ul>
+<li>ID: If an id value is assigned to the element, we can access the element with this value. Id values ​​are unique.</li>
+<li>NAME: If a name value is assigned to the element, we can access the element with this value. Name values ​​are not unique; there may be other elements with the same name value on a page. In this case, he takes the first one he finds.</li>
+<li>CLASS: If a class value is added to the element, thisWe can access it with the class value.</li>
+<li>XPATH: We can access it by giving the xpath of the element we want to access in the page source. We can copy the xpath from the inspector tool.</li>
+</ul>
+<p><img src="/images/1_6iylSyMtw2y6d-OsZcECpA.png" alt=""></p>
+<p>Here we have got the XPath of the search bar in Google. Now let&rsquo;s try to understand the basic logic on a small sample application.</p>
+<pre tabindex="0"><code>#import operations
+</code></pre><pre tabindex="0"><code>from selenium import webdriver                    
+from selenium.webdriver.common.keys import Keys  
+from selenium.webdriver.common.by import By  
+import time
+</code></pre><pre tabindex="0"><code>Call the #driver object (I ran selenium on docker)					
+</code></pre><pre tabindex="0"><code>driver = webdriver.Remote(  
+   command_executor=&#34;http://127.0.0.1:4444/wd/hub&#34;,  
+   desired_capabilities={&#34;browserName&#34;: &#34;firefox&#34;})
+</code></pre><pre tabindex="0"><code>driver.get(&#34;https://github.com&#34;) #go to github webpage
+</code></pre><pre tabindex="0"><code># Access the search bar on github page with XPATH  
+searchInput = driver.find_element(By.XPATH, &#34;/html/body/div[1]/header/div/div[2]/div[2]/div[1]/div/div/form/label/input[1]&#34;)
+</code></pre><pre tabindex="0"><code>time.sleep(1)  
+searchInput.send_keys(&#34;CVE&#34;) # type &#39;CVE&#39; in the search bar.  
+time.sleep(3)  
+searchInput.send_keys(Keys.ENTER) # press ENTER in the search bar.  
+time.sleep(5)
+</code></pre><pre tabindex="0"><code>driver.quit()
+</code></pre><p>When we run the sample application, the github web page opens, type CVE in the search bar and go to the search page. Then after 5 seconds the browser will close.</p>
+<p><img src="/images/1_MWyxd0MQQ9IsRkFYJK7s8w.png" alt=""></p>
+<p>We can pull and index the results here. We call this process web scraping.</p>
+<h3 id="shodan">
+  Shodan
+  <a class="heading-link" href="#shodan">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Now let&rsquo;s make a web bot application running on Shodan. To do this, we go to <a href="https://www.shodan.io/"  class="external-link" target="_blank" rel="noopener">shodan.io</a> and copy the Xpath value of the search bar there. We will use this value to access the search bar in our application.</p>
+<p><img src="/images/1_e5yR7mUfSRno_MxYDkshNg.png" alt=""></p>
+<p>Now we can start writing our code. First of all, we will perform the import operations as mentioned above and create our driver object. Then, we will send the value we will query to the search bar with the xpath value we received and send the &lsquo;<em>ENTER&rsquo;</em> value.</p>
+<pre tabindex="0"><code>from selenium import webdriver  
+from selenium.webdriver.common.keys import Keys  
+from selenium.webdriver.common.by import By  
+import time
+</code></pre><pre tabindex="0"><code>driver = webdriver.Remote(  
+   command_executor=&#34;http://127.0.0.1:4444/wd/hub&#34;,  
+   desired_capabilities={&#34;browserName&#34;: &#34;firefox&#34;})
+</code></pre><pre tabindex="0"><code>driver.get(&#34;https://www.shodan.io/&#34;)
+</code></pre><pre tabindex="0"><code>searchInput = driver.find_element(By.XPATH, &#34;/html/body/div[2]/div/div/div[1]/form/div/div/input&#34;)
+</code></pre><pre tabindex="0"><code>searchInput.send_keys(&#34;phpMyAdmin&#34;, Keys.ENTER)
+</code></pre><pre tabindex="0"><code>time.sleep(10)  
+driver.quit()
+</code></pre><p>When we run our application, it will type &lsquo;phpMyAdmin&rsquo; in the search bar and query it. Now let&rsquo;s try to get the returned values.</p>
+<p><img src="/images/1_nryPmk-rhb0RiU-lv0zniw.png" alt=""></p>
+<p>As we can see, the class names of all returned results are assigned as &lsquo;result&rsquo;. We can achieve the results by taking advantage of this situation.</p>
+<pre tabindex="0"><code>results = driver.find_elements(By.CLASS_NAME, &#39;result&#39;)  
+print(results)
+</code></pre><p><img src="/images/1_YjRwxuXoOD18s9ceUn04MA.png" alt=""></p>
+<p>Here we can see the elements taken.</p>
+<h3 id="twitter-bot">
+  Twitter Bot
+  <a class="heading-link" href="#twitter-bot">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>You&rsquo;ve probably heard of bot accounts on Twitter. In addition to automating social media accounts, these bots are also used to create artificial agendas on Twitter and for various manipulation and propaganda activities. Twitter takes various measures to block bot accounts. For example, it catches users who engage in aggressively fast transactions. Apart from this, it manipulates id and name values ​​to make accessing elements difficult, making xpath dysfunctional. <br>
+ <br>
+ You can easily find examples of bots written in selenium in the old version of Twitter on the web. Unfortunately, these bots do not work in today&rsquo;s version. <br>
+ Apart from this, you can create various applications with Twitter&rsquo;s own API. However, APIs are completely subject to Twitter&rsquo;s control. In short, we can say that Twitter has taken complete control.<br>
+ <br>
+ The same situation applies to Instagram and Facebook. Many web applications have taken precautions against bots.</p>
+<h3 id="end">
+  End
+  <a class="heading-link" href="#end">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>As a result, the selenium module is a nice module that helps us perform automated operations on a real browser and create bots, but some web applications have taken precautions against these bots. I welcome comments on what other applications can be made with Selenium…</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

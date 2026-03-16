@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  [TR] Hidden Tunnels (C&amp;C) Wireshark ile Analizi · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  [TR] Hidden Tunnels (C&amp;C) Wireshark ile Analizi
+  
+    
+    Başlık Linki
+  
+
+Merhaba bu yazımda HTTP tünelleme tekniklerinden bahsedeceğim.
+
+Bilgisayar güvenliği alanında “Hidden Tunnels” terimi genellikle kötü amaçlar için kullanılan veri sızdırma, komuta ve kontrol (C&amp;C) veya ağ tespitini atlama gibi çeşitli amaçlar için kullanılan gizli veya izinsiz ağ bağlantılarını ifade eder. Bu gizli tüneller, saldırganların faaliyetlerini gizlemelerine ve güvenlik önlemlerini aşmalarına yardımcı olur.
+
+
+  HTTP/HTTPS Tünelleme
+  
+    
+    Başlık Linki
+  
+
+HTTP/HTTPS tünellemesi, ağ güvenlik önlemlerini atlatmak için kullanılan bir tekniktir. Bu yöntem, HTTP veya HTTPS paketlerinin içine HTTP olmayan trafiği kapsüllenerek gerçekleştirilir. HTTP/HTTPS tünellemesi, kısıtlayıcı web filtreleme politikalarının olduğu ortamlarda sıkışmış web sitelerine veya hizmetlere erişim sağlamak gibi meşru amaçlar için kullanılabilir, ancak aynı zamanda veri sızdırma veya kompromize edilmiş sistemlerin uzaktan kontrolü gibi kötü amaçlı aktiviteler için de kullanılabilir.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="[TR] Hidden Tunnels (C&C) Wireshark ile Analizi">
+  <meta name="twitter:description" content="[TR] Hidden Tunnels (C&amp;C) Wireshark ile AnaliziBaşlık LinkiMerhaba bu yazımda HTTP tünelleme tekniklerinden bahsedeceğim.
+Bilgisayar güvenliği alanında “Hidden Tunnels” terimi genellikle kötü amaçlar için kullanılan veri sızdırma, komuta ve kontrol (C&amp;C) veya ağ tespitini atlama gibi çeşitli amaçlar için kullanılan gizli veya izinsiz ağ bağlantılarını ifade eder. Bu gizli tüneller, saldırganların faaliyetlerini gizlemelerine ve güvenlik önlemlerini aşmalarına yardımcı olur.
+HTTP/HTTPS TünellemeBaşlık LinkiHTTP/HTTPS tünellemesi, ağ güvenlik önlemlerini atlatmak için kullanılan bir tekniktir. Bu yöntem, HTTP veya HTTPS paketlerinin içine HTTP olmayan trafiği kapsüllenerek gerçekleştirilir. HTTP/HTTPS tünellemesi, kısıtlayıcı web filtreleme politikalarının olduğu ortamlarda sıkışmış web sitelerine veya hizmetlere erişim sağlamak gibi meşru amaçlar için kullanılabilir, ancak aynı zamanda veri sızdırma veya kompromize edilmiş sistemlerin uzaktan kontrolü gibi kötü amaçlı aktiviteler için de kullanılabilir.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2024/07/tr-hidden-tunnels-cc-wireshark-ile-analizi/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="[TR] Hidden Tunnels (C&C) Wireshark ile Analizi">
+  <meta property="og:description" content="[TR] Hidden Tunnels (C&amp;C) Wireshark ile AnaliziBaşlık LinkiMerhaba bu yazımda HTTP tünelleme tekniklerinden bahsedeceğim.
+Bilgisayar güvenliği alanında “Hidden Tunnels” terimi genellikle kötü amaçlar için kullanılan veri sızdırma, komuta ve kontrol (C&amp;C) veya ağ tespitini atlama gibi çeşitli amaçlar için kullanılan gizli veya izinsiz ağ bağlantılarını ifade eder. Bu gizli tüneller, saldırganların faaliyetlerini gizlemelerine ve güvenlik önlemlerini aşmalarına yardımcı olur.
+HTTP/HTTPS TünellemeBaşlık LinkiHTTP/HTTPS tünellemesi, ağ güvenlik önlemlerini atlatmak için kullanılan bir tekniktir. Bu yöntem, HTTP veya HTTPS paketlerinin içine HTTP olmayan trafiği kapsüllenerek gerçekleştirilir. HTTP/HTTPS tünellemesi, kısıtlayıcı web filtreleme politikalarının olduğu ortamlarda sıkışmış web sitelerine veya hizmetlere erişim sağlamak gibi meşru amaçlar için kullanılabilir, ancak aynı zamanda veri sızdırma veya kompromize edilmiş sistemlerin uzaktan kontrolü gibi kötü amaçlı aktiviteler için de kullanılabilir.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-07-19T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-07-19T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2024/07/tr-hidden-tunnels-cc-wireshark-ile-analizi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2024/07/tr-hidden-tunnels-cc-analysis-with-wireshark/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2024/07/tr-hidden-tunnels-cc-wireshark-ile-analizi/">
+              [TR] Hidden Tunnels (C&amp;C) Wireshark ile Analizi
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-07-19T00:00:00Z">
+                Temmuz 19, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              6 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="tr-hidden-tunnels-cc-wireshark-ileanalizi">
+  [TR] Hidden Tunnels (C&amp;C) Wireshark ile Analizi
+  <a class="heading-link" href="#tr-hidden-tunnels-cc-wireshark-ileanalizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Merhaba bu yazımda HTTP tünelleme tekniklerinden bahsedeceğim.</p>
+<p><img src="/images/1_cWRqt_otCGQkQf0iobOVnw.png" alt=""></p>
+<p>Bilgisayar güvenliği alanında “Hidden Tunnels” terimi genellikle kötü amaçlar için kullanılan veri sızdırma, komuta ve kontrol (C&amp;C) veya ağ tespitini atlama gibi çeşitli amaçlar için kullanılan gizli veya izinsiz ağ bağlantılarını ifade eder. Bu gizli tüneller, saldırganların faaliyetlerini gizlemelerine ve güvenlik önlemlerini aşmalarına yardımcı olur.</p>
+<hr>
+<h3 id="httphttps-tünelleme">
+  HTTP/HTTPS Tünelleme
+  <a class="heading-link" href="#httphttps-t%c3%bcnelleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>HTTP/HTTPS tünellemesi, ağ güvenlik önlemlerini atlatmak için kullanılan bir tekniktir. Bu yöntem, HTTP veya HTTPS paketlerinin içine HTTP olmayan trafiği kapsüllenerek gerçekleştirilir. HTTP/HTTPS tünellemesi, kısıtlayıcı web filtreleme politikalarının olduğu ortamlarda sıkışmış web sitelerine veya hizmetlere erişim sağlamak gibi meşru amaçlar için kullanılabilir, ancak aynı zamanda veri sızdırma veya kompromize edilmiş sistemlerin uzaktan kontrolü gibi kötü amaçlı aktiviteler için de kullanılabilir.</p>
+<ol>
+<li><strong>Kapsülleme:</strong> HTTP/HTTPS tünellemesinde, HTTP olmayan trafiği HTTP veya HTTPS paketleri içine kapsüllenir. Bu, başka bir uygulama veya protokolün verilerinin düzenli web trafiği gibi paketlenmesi anlamına gelir.</li>
+<li><strong>Gönderim:</strong> Kapsüllenmiş veri daha sonra HTTP veya HTTPS bağlantısı üzerinden uzak bir sunucuya veya hedefe gönderilir. Hedef sunucu gelen HTTP/HTTPS isteklerini ve yanıtları normal web istekleri gibi işler, bu nedenle ağ güvenlik cihazlarının trafiğin gerçek doğasını tanımlaması zorlaşır.</li>
+<li><strong>Kapsüllemenin Açılması:</strong> Alıcı tarafta, HTTP/HTTPS paketleri açılarak orijinal HTTP olmayan veriler çıkartılır. Bu veri daha sonra gerektiği gibi işlenir veya yürütülür.</li>
+</ol>
+<p>Güvenlik perspektifinden bakıldığında, HTTP/HTTPS tünellemenin kullanımı, geleneksel güvenlik cihazlarının böyle gizli iletişim kanallarını tespit ve engelleme konusunda zorluklar yaşatabileceği anlamına gelir. Bu sorunla mücadele etmek için organizasyonlar genellikle trafiği daha derinlemesine inceleyebilen, anormallikleri ve şüpheli davranış belirtilerini arayan gelişmiş tehdit algılama ve önleme çözümleri kullanır. Ayrıca, güvenlik politikaları ve ağ izleme, HTTP/HTTPS tünelleme ile ilişkilendirilen riskleri tanımlamak ve azaltmak için önemlidir.</p>
+<p>Siber suçlular, HTTP veya HTTPS protokollerini kullanarak web trafiği içinde gizli tüneller oluşturabilirler, böylece veri sızdırabilir veya enfekte sistemleri kontrol edebilirler.</p>
+<p>HTTP/HTTPS tünelleme, bir ağ üzerinden HTTP (Hypertext Transfer Protocol) veya HTTPS (HTTP Secure) trafiğini başka bir sunucuya yönlendirmek veya tünellemek amacıyla kullanılan bir tekniktir. Bu tür bir tünelleme, özellikle ağ güvenliği açısından önemli bir sorun teşkil edebilir.</p>
+<h4 id="httphttps-tünelleme-nasılyapılır">
+  HTTP/HTTPS Tünelleme nasıl yapılır?
+  <a class="heading-link" href="#httphttps-t%c3%bcnelleme-nas%c4%b1lyap%c4%b1l%c4%b1r">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>HTTP/HTTPS tünelleme, normalde web trafiği olarak kabul edilen HTTP veya HTTPS isteklerini veya yanıtlarını başka bir sunucuya iletmek veya yönlendirmek için kullanılır. Bunun için birkaç farklı yöntem kullanabilirler:</p>
+<ol>
+<li><strong>HTTP Proxy Sunucuları</strong>: Kullanıcılar veya zararlı yazılım, bir HTTP proxy sunucusu aracılığıyla internete erişim sağlar. Bu proxy sunucusu, kullanıcıların isteklerini alır, hedef sunucuya iletir ve yanıtları geri kullanıcıya ileterek tünelleme yapar.</li>
+<li><strong>VPN (Virtual Private Network)</strong>: VPN’ler, kullanıcıların internet üzerinde gizlilik ve güvenlik sağlamak için kullandığı bir tür tünelleme teknolojisidir. VPN istemcisi ve sunucusu arasında şifreli bir tünel oluşturarak HTTP veya HTTPS trafiği tünel içinden geçebilir.</li>
+<li><strong>SSH (Secure Shell):</strong> SSH ağdaki iki cihaz arasında güvenli bir iletişim kanalı oluşturmak için kullanılan bir yöntemdir. Bu, bilgisayarlar arasında veri iletimini şifrelemek ve güvenliğini sağlamak için kullanılır. SSH tunnel, özellikle internet üzerinden güvenli bir şekilde veri iletimi gerektiğinde yaygın olarak kullanılır.</li>
+</ol>
+<h4 id="httphttps-tünelleme-analizi">
+  HTTP/HTTPS Tünelleme Analizi
+  <a class="heading-link" href="#httphttps-t%c3%bcnelleme-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>HTTP/HTTPS tünelleme, ağ güvenliği açısından dikkatle izlenmesi gereken bir konudur. Güvenlik duvarları, IDS/IPS (Intrusion Detection System/Intrusion Prevention System) sistemleri ve diğer güvenlik önlemleri, bu tür tünelleme trafiğini izlemek ve tespit etmek için kullanılabilir. Ayrıca, kullanıcı eğitimi ve güvenlik politikaları, HTTP/HTTPS tünelleme ile ilgili riskleri azaltmaya yardımcı olabilir.</p>
+<hr>
+<h3 id="dns-tünelleme">
+  <strong>DNS Tünelleme</strong>
+  <a class="heading-link" href="#dns-t%c3%bcnelleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>DNS tünelleme, veri aktarımı için tasarlanmamış bir protokol olan DNS protokolü üzerinden veri göndermek için kullanılan bir yöntemdir. Bu, DNS paketleri içinde başka veri türlerini taşıma veya başka bir sunucu ile iletişim kurma amacıyla gerçekleştirilir. DNS tünelleme, özellikle ağ güvenliği açısından önemli bir sorun teşkil edebilir. Bunun bir nedeni, DNS paktlerinin firewall gibi güvenlik ürünlerine takılmadan geçebilmesidir.</p>
+<h4 id="dns-tünelleme-nasılyapılır">
+  DNS Tünelleme nasıl yapılır?
+  <a class="heading-link" href="#dns-t%c3%bcnelleme-nas%c4%b1lyap%c4%b1l%c4%b1r">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>DNS tünelleme işlemi, DNS sorgularının ve cevaplarının normal DNS trafiği içinde gizlenmesiyle gerçekleştirilir.</p>
+<ol>
+<li>Saldırgan <em>kötüsite.com</em> gibi bir alan adı kaydeder. Alan adının sunucusu, tünelleme programının yüklü olduğu saldırganın sunucusuna işaret eder.</li>
+<li>Saldırgan, genellikle bir şirketin güvenlik duvarının arkasında bulunan bir bilgisayara zararlı yazılım bulaştırır. DNS isteklerinin güvenlik duvarına girip çıkmasına her zaman izin verildiğinden, virüs bulaşmış bilgisayarın DNS çözümleyicisine bir sorgu göndermesine izin verilir.</li>
+<li>DNS çözümleyici, IP adresi isteklerini kök ve üst düzey etki alanı sunucularına ileten bir sunucudur. Bu sorguyu tünelleme programının yüklü olduğu saldırganın komuta ve kontrol sunucusuna yönlendirir.</li>
+<li>Artık kurban ile saldırgan arasında DNS çözümleyicisi üzerinden bir bağlantı kurulmuştur. Bu tünel veri sızdırmak ya da diğer kötü niyetli amaçlar için kullanılabilir. Saldırgan ve kurban arasında doğrudan bir bağlantı olmadığından, saldırganın bilgisayarının izini sürmek daha zordur.</li>
+</ol>
+<p><img src="/images/1_gpckGRQF8yG7icj509DazA.png" alt=""></p>
+<p>DNS Tünelleme</p>
+<h4 id="dns-tünelleme-analizi">
+  DNS Tünelleme Analizi
+  <a class="heading-link" href="#dns-t%c3%bcnelleme-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>wireshark</p>
+<p>DNS tünelleme, ağ güvenliği açısından ciddi bir tehdit oluşturabilir, bu nedenle güvenlik duvarları, IDS/IPS sistemleri ve DNS denetimleri, bu tür saldırılara karşı korunma amacıyla kullanılmalıdır. Ayrıca, iyi bir güvenlik politikası ve DNS trafiği izleme ve analiz etme yetenekleri bu tür tehditleri tespit etmeye yardımcı olabilir.</p>
+<hr>
+<h3 id="icmp-tünelleme">
+  <strong>ICMP</strong> Tünelleme
+  <a class="heading-link" href="#icmp-t%c3%bcnelleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>ICMP tünelleme veya ICMP gizli kanallar, ICMP (Internet Control Message Protocol — İnternet Kontrol İleti Protokolü) paketleri içinde gizli iletişim kanalları oluşturmak için kullanılan bir yöntemdir. ICMP genellikle ağ sorun giderme ve hata raporlama için kullanılır, ancak saldırganlar bu protokolü veri iletimi için gizlice kullanabilirler. Bu teknik, ağ güvenlik kontrollerini atlatmak için ICMP paketleri içinde ICMP olmayan trafiği kapsüllenmesini içerdiği için “ICMP tünelleme” olarak da bilinir.</p>
+<p>ICMP tünelleme nasıl çalışır:</p>
+<ol>
+<li><strong>Kapsülleme:</strong> ICMP tünelleme, ICMP “ping” istekleri gibi genellikle ağ teşhis amaçları için kullanılan ICMP “echo request” ve “echo reply” paketleri içinde ICMP olmayan veri veya trafik kapsüllenmesini içerir.</li>
+<li><strong>İletim:</strong> Kapsüllenmiş veri daha sonra gönderici ve alıcı arasında ICMP trafiği olarak iletilir. Gönderici ve alıcı genellikle bir saldırganın kontrolü altındaki kompromize edilmiş sistemler veya cihazlardır.</li>
+<li><strong>Kapsüllemenin Açılması:</strong> Alıcı tarafta, ICMP paketleri açılarak orijinal ICMP olmayan veri çıkarılır, bu veri daha sonra işlenir veya gerektiği gibi kullanılır.</li>
+</ol>
+<p>ICMP tünelleme, kötü amaçlı amaçlar için kullanılabileceği gibi, belirli senaryolarda ağ teşhisinde kullanıldığında meşru uygulamalara da sahip olabilir.</p>
+<p>Güvenlik perspektifinden bakıldığında, ICMP tünelleme tespit ve önleme konusunda zorluklar yaşatabilir. Ağ güvenliği çözümleri, anormal veya yetkilendirilmemiş ICMP trafiği desenlerini tanımlamak için gelişmiş anormallik tespiti tekniklerini kullanmalıdır. Ayrıca, organizasyonlar ICMP trafiğinin kullanımını sınırlamak ve gizli kanalın kötüye kullanılma riskini azaltmak için ağ segmentasyonu ve erişim kontrolü uygulamalıdır.</p>
+<p>ICMP (Internet Control Message Protocol) tünelleme, siber saldırganların ağ güvenlik önlemlerini atlayarak veri iletimi ve tarama yapmalarına olanak tanıyan bir tekniktir. ICMP, ağ cihazları arasında hata mesajlarını ve diğer kontrol mesajlarını iletmek için kullanılan bir protokoldür. ICMP tünelleme, bu kontrol mesajları üzerinden veri tünelleme amacıyla kullanılır.</p>
+<h4 id="icmp-tünelleme-nasılyapılır">
+  ICMP tünelleme nasıl yapılır?
+  <a class="heading-link" href="#icmp-t%c3%bcnelleme-nas%c4%b1lyap%c4%b1l%c4%b1r">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>ICMP tünelleme, aşağıdaki temel adımları içerebilir:</p>
+<ol>
+<li><strong>Tünel Başlatma</strong>: İlk olarak, siber saldırganlar genellikle bir hedef sunucuya veya ağa erişim sağlamak için ICMP tünelini başlatır. Bu, genellikle bir kötü amaçlı yazılım veya saldırı aracı kullanılarak yapılır.</li>
+<li><strong>Veri Gönderme</strong>: Saldırganlar, ICMP paketleri içinde verileri gizlerler. Bu veriler, hedef sunucuya veya ağa iletilmesi gereken bilgileri içerebilir.</li>
+<li><strong>ICMP Paketleri Gönderme</strong>: Veriler, ICMP paketleri içinde gizlendikten sonra, bu paketler hedef sunucuya veya ağa gönderilir. Bu paketler normal ICMP trafiği gibi görünebilir.</li>
+<li><strong>Alıcı Taraf</strong>: Hedef sunucu veya ağ üzerindeki bir alıcı taraf, gelen ICMP paketlerini yakalar ve içlerinden gizlenmiş verileri çıkarır.</li>
+</ol>
+<p>Siber saldırılar ve ICMP tünelleme:</p>
+<p>Siber saldırganlar, ICMP tünelleme yöntemini kötü amaçlı amaçlar için kullanabilirler. İşte bazı örnekler:</p>
+<ol>
+<li>
+<p>**Veri Sızdırma**: Saldırganlar, hedef sunucuya veya ağa sızdırmaları gereken verileri ICMP tünelleme kullanarak gizleyebilirler. Bu, hassas bilgilerin çalınmasını kolaylaştırabilir.</p>
+</li>
+<li>
+<p>**Engelleme ve Filtreleme Atlatma**: Bazı ağ güvenlik duvarları veya filtreler, ICMP trafiğini engellemek veya sınırlamak için kullanılabilir. ICMP tünelleme, bu tür engellemeleri atlamak için kullanılabilir.</p>
+</li>
+<li>
+<p>Tarama ve Keşif: Saldırganlar, hedef ağdaki güvenlik açıklarını tespit etmek ve hedefleri taramak için ICMP tünelleme kullanabilirler.</p>
+</li>
+</ol>
+<p>ICMP tünelleme, ağ güvenliği açısından ciddi bir tehdit oluşturabilir çünkü bu tür trafiği izlemek ve engellemek zor olabilir. Bu nedenle, ağ güvenlik duvarları ve IDS/IPS (Intrusion Detection System/Intrusion Prevention System) sistemleri, ICMP tünelleme trafiğini tespit etmek ve engellemek için iyi yapılandırılmalıdır. Ayrıca, düzenli güvenlik denetimleri ve güvenlik politikaları da bu tür tehditlere karşı önlem alınmasına yardımcı olabilir.</p>
+<hr>
+<h3 id="kaynaklar">
+  Kaynaklar
+  <a class="heading-link" href="#kaynaklar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

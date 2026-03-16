@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Kriptoloji Temelleri: Kriptanaliz · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Kriptoloji Temelleri:#3 Kriptanaliz
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba, kriptoloji temelleri serisinin bu yazısında kriptanalizin ne olduğundan, şifre kırma tekniklerinden ve sosyal mühendislik yöntemlerinden bahsedeceğim.
+
+
+  Kriptanalize Genel Bakış
+  
+    
+    Başlık Linki
+  
+
+Kriptanaliz, kripto sistemleri kırma, deşifre etme bilimidir. Şifrelenmiş metinlerin çözümünü araştıran kriptoloji dalıdır. Kriptanaliz, bilinmeyen anahtarları bulmak için kullanılır.
+
+Kriptanalizi; Uygulama Saldırıları, klasik kriptanaliz ve sosyal mühendislik olarak 3 alana ayırabiliriz. Şimdi bu alanlara ve kullanılan yöntemlere bakalım.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Kriptoloji Temelleri: Kriptanaliz">
+  <meta name="twitter:description" content="Kriptoloji Temelleri:#3 KriptanalizBaşlık LinkiMerhaba, kriptoloji temelleri serisinin bu yazısında kriptanalizin ne olduğundan, şifre kırma tekniklerinden ve sosyal mühendislik yöntemlerinden bahsedeceğim.
+Kriptanalize Genel BakışBaşlık LinkiKriptanaliz, kripto sistemleri kırma, deşifre etme bilimidir. Şifrelenmiş metinlerin çözümünü araştıran kriptoloji dalıdır. Kriptanaliz, bilinmeyen anahtarları bulmak için kullanılır.
+Kriptanalizi; Uygulama Saldırıları, klasik kriptanaliz ve sosyal mühendislik olarak 3 alana ayırabiliriz. Şimdi bu alanlara ve kullanılan yöntemlere bakalım.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2023-03-28-kriptoloji-temelleri-kriptanaliz/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Kriptoloji Temelleri: Kriptanaliz">
+  <meta property="og:description" content="Kriptoloji Temelleri:#3 KriptanalizBaşlık LinkiMerhaba, kriptoloji temelleri serisinin bu yazısında kriptanalizin ne olduğundan, şifre kırma tekniklerinden ve sosyal mühendislik yöntemlerinden bahsedeceğim.
+Kriptanalize Genel BakışBaşlık LinkiKriptanaliz, kripto sistemleri kırma, deşifre etme bilimidir. Şifrelenmiş metinlerin çözümünü araştıran kriptoloji dalıdır. Kriptanaliz, bilinmeyen anahtarları bulmak için kullanılır.
+Kriptanalizi; Uygulama Saldırıları, klasik kriptanaliz ve sosyal mühendislik olarak 3 alana ayırabiliriz. Şimdi bu alanlara ve kullanılan yöntemlere bakalım.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-03-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-03-28T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2023-03-28-kriptoloji-temelleri-kriptanaliz/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2023-03-28-kriptoloji-temelleri-kriptanaliz/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2023-03-28-kriptoloji-temelleri-kriptanaliz/">
+              Kriptoloji Temelleri: Kriptanaliz
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-03-28T00:00:00Z">
+                Mart 28, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              6 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="kriptoloji-temelleri3-kriptanaliz">
+  Kriptoloji Temelleri:#3 Kriptanaliz
+  <a class="heading-link" href="#kriptoloji-temelleri3-kriptanaliz">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_aZ11lfSR2DfxXotqqA4KhA.png" alt=""></p>
+<p>Merhaba, kriptoloji temelleri serisinin bu yazısında kriptanalizin ne olduğundan, şifre kırma tekniklerinden ve sosyal mühendislik yöntemlerinden bahsedeceğim.</p>
+<hr>
+<h3 id="kriptanalize-genelbakış">
+  Kriptanalize Genel Bakış
+  <a class="heading-link" href="#kriptanalize-genelbak%c4%b1%c5%9f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Kriptanaliz, kripto sistemleri kırma, deşifre etme bilimidir. Şifrelenmiş metinlerin çözümünü araştıran kriptoloji dalıdır. Kriptanaliz, bilinmeyen anahtarları bulmak için kullanılır.</p>
+<p><img src="/images/0_WYSM0JXe3tpf70lG.png" alt=""></p>
+<p>Kriptanalizi; Uygulama Saldırıları, klasik kriptanaliz ve sosyal mühendislik olarak 3 alana ayırabiliriz. Şimdi bu alanlara ve kullanılan yöntemlere bakalım.</p>
+<hr>
+<h3 id="uygulama-saldırıları">
+  Uygulama Saldırıları
+  <a class="heading-link" href="#uygulama-sald%c4%b1r%c4%b1lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Tersine mühendislik veya parola saldırıları yoluyla gizli anahtarı elde etmeye çalışan kriptanaliz yöntemleri, saldırı türleridir.</p>
+<h4 id="kaba-kuvvet-saldırıları-brute-force-attacks">
+  Kaba Kuvvet Saldırıları (Brute-Force Attacks)
+  <a class="heading-link" href="#kaba-kuvvet-sald%c4%b1r%c4%b1lar%c4%b1-brute-force-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu tür bir parola saldırısı, hedef kullanıcının parola bilgilerini tahmin etmek için deneme yanılma yöntemlerini kullanır. Saldırgan, kullanıcının şifresini doğru bir şekilde tahmin etmek için mümkün olduğu kadar çok permütasyon üzerinde deneme yapar. Çok fazla sabır ve zaman gerektiren nispeten eski bir yöntem olsa da, kaba kuvvet saldırısı, otomatik ve anlaşılır olduğu için hala en çok kullanılan yöntemlerden biridir.</p>
+<p><img src="/images/1_TC-mr-YoZ9Rb2ZQ3syKvEw.png" alt=""></p>
+<p>Birkaç kaba kuvvet saldırısı türü vardır:<br>
+<strong>1. Basit kaba kuvvet saldırıları:</strong> En olası parolayı tahmin etmek için bir kullanıcı hakkındaki verileri kullanır. Bu teknik, evcil hayvan adı-yıl ve doğumun bir kombinasyonunu içerenler gibi basit parolalar için kullanılır.<br>
+<strong>2. Kimlik bilgileri doldurma:</strong> Güvenlik açığı bulunan web sitelerinden kötü amaçlarla elde edilmiş, önceden açığa çıkmış(leak olmuş) oturum açma kombinasyonlarının kullanılmasını içerir. Bu tür saldırılar, hedef kullanıcıların, kullanıcı adı-şifre kombinasyonlarını birden çok serviste yeniden kullanma eğiliminden yararlanır.<br>
+3. <strong>Ters kaba kuvvet saldırıları:</strong> Bilinen bir parola ile başlar ve ardından bu parolayla eşleşen kullanıcı adlarını arar. Tehdit aktörleri genellikle sızdırılmış kimlik bilgilerinin birden çok veritabanına erişebildiğinden, belirli bir kullanıcı grubu içinde ortak parolaları belirlemek kolaydır.</p>
+<h4 id="sözlük-saldırıları-dictionary-attacks">
+  Sözlük Saldırıları (Dictionary Attacks)
+  <a class="heading-link" href="#s%c3%b6zl%c3%bck-sald%c4%b1r%c4%b1lar%c4%b1-dictionary-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu saldırı yöntemi, belirli bir hedef ağ tarafından parola olarak kullanılması muhtemel olan önceden tanımlanmış bir sözcük listesi kullanır.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*F652-yGJsAll1wHg" alt=""></p>
+<p>Önceden tanımlanmış liste, bir web sitesi kullanıcısının önceki veri ihlallerinden elde edilen davranış kalıplarından ve şifrelerinden oluşturulmuştur. Listeler, yaygın şifre kombinasyonlarını duruma göre;</p>
+<ul>
+<li>Değiştirerek</li>
+<li>Sayısal son ekler ve önekler ekleyerek</li>
+<li>Yaygın ifadeler kullanarak</li>
+</ul>
+<p>oluşturulur. Bu listeler, bilinen bir kullanıcı adları listesine göre kimlik doğrulaması yapmaya çalışan araçlara aktarılır.</p>
+<p>Parola listesi oluşturmak için kullanılabilecek araçlar şunlardır.</p>
+<h4 id="şifre-püskürtme-saldırıları-password-sprayingattacks">
+  Şifre Püskürtme Saldırıları (Password Spraying Attacks)
+  <a class="heading-link" href="#%c5%9fifre-p%c3%bcsk%c3%bcrtme-sald%c4%b1r%c4%b1lar%c4%b1-password-sprayingattacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu saldırıda bilgisayar korsanı, başka bir parolaya geçmeden önce çeşitli hesaplarda aynı parolayı kullanarak kimlik doğrulaması yapmaya çalışır. Çoğu web sitesi kullanıcısı basit parolalar belirlediğinden parola püskürtme en etkili tekniktir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*T2U4_r03cwMIK7d0" alt=""></p>
+<p>Saldırganlar çoğunlukla, yöneticilerin yeni kullanıcılar ve kayıtlı olmayan hesaplar için standart bir varsayılan parola belirlediği web sitelerinde parola püskürtme saldırısını kullanır.</p>
+<h4 id="keylogging">
+  Keylogging
+  <a class="heading-link" href="#keylogging">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir Keylogging saldırısını düzenlerken, saldırgan, kullanıcının gizlice tuşladığı anahtarları kaydetmek için kullanıcının bilgisayarına klavye izleme yazılımı yükler. Bir keylogger, kullanıcıların giriş formlarına yazdığı tüm bilgileri kaydeder ve ardından bunları kötü niyetli saldırgana gönderir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*9je3oKzwvjFzUeGg" alt=""></p>
+<h4 id="adli-bilişim">
+  Adli Bilişim
+  <a class="heading-link" href="#adli-bili%c5%9fim">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Fziksel olarak erişimimizin olduğu bir sistemin belleği, diski veya işlemcisinden; string analizi, sinyal ölçümü gibi çeşitli adli bilişim yöntemleri kullanarak gizli anahtarın elde edilmesini kapsar. Uzak sunucu gibi fiziksel erişimimin olmadığı durumlarda bu saldırıdan endişe etmemize gerek yoktur.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*b4jQGvhwF6m7lBcN" alt=""></p>
+<h4 id="uygulama-saldırıları-araçları">
+  Uygulama Saldırıları Araçları
+  <a class="heading-link" href="#uygulama-sald%c4%b1r%c4%b1lar%c4%b1-ara%c3%a7lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ol>
+<li><em><strong>CrackStation</strong></em></li>
+<li><em><strong>John the Ripper</strong></em></li>
+<li><em><strong>Hashcat</strong></em></li>
+<li><em><strong>Medusa</strong></em></li>
+<li><em><strong>Hydra</strong></em></li>
+<li><em><strong>Brutus</strong></em></li>
+<li><em><strong>RainbowCrack</strong></em></li>
+<li><em><strong>L0phtCrack</strong></em></li>
+<li><em><strong>OphCrack</strong></em></li>
+</ol>
+<hr>
+<h3 id="klasik-kriptanaliz">
+  Klasik Kriptanaliz
+  <a class="heading-link" href="#klasik-kriptanaliz">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Klasik kriptanaliz, şifreli metninden düz metini kurtarma veya alternatif olarak şifreli metninden anahtarı bulma bilimidir. Şifreleme yönteminin iç yapısından yararlanan matematiksel analizleri kullanır.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*ct3PFF4EH3YUqAlK" alt=""></p>
+<p>Encryption(şifreleme) Decryption(şifre çözme)</p>
+<p>Bir şifreleme işlemi 3 unsurdan oluşur. Bunlar: açık metin, şifrelenmiş metin ve anahtardır. Eğer bu unsurlardan her hangi ikisine sahipsek üçüncüsünü rahatlıkla bulabiliriz. Ancak, kriptanalizin asıl işlevi sadece şifreli metin mevcut iken diğerlerini bulabilme becerisidir. Bunun için çeşitli matematiksel yöntemlerden yararlanır.</p>
+<p>Bu yöntemler şunlardır:</p>
+<ul>
+<li><strong>Bilinen Düz Metin Analizi (KPA)</strong>: Bu tür bir saldırıda, bazı düz metin-şifreli metin çiftleri zaten bilinmektedir. Saldırgan, şifreleme anahtarını bulmak için bunları eşler. Halihazırda birçok bilgi mevcut olduğundan bu saldırının kullanımı daha kolaydır.</li>
+<li><strong>Seçilmiş Düz Metin Analizi (CPA)</strong>: Bu tür saldırıda, saldırgan rasgele düz metinleri seçer ve karşılık gelen şifreli metinleri alır ve şifreleme anahtarını bulmaya çalışır. KPA gibi uygulaması çok basit ama başarı oranı oldukça düşük.</li>
+<li><strong>Yalnızca Şifreli Metin Analizi (COA)</strong>: Bu tür saldırıda, yalnızca bazı şifreli metinler bilinir ve saldırgan karşılık gelen şifreleme anahtarını ve düz metni bulmaya çalışır. Uygulanması en zor olanıdır, ancak yalnızca şifreli metin gerektiğinden en olası saldırıdır.</li>
+<li><strong>Uyarlanabilir Seçilmiş Düz Metin Analizi (ACPA)</strong>: Bu saldırı benzer bir EBM’dir. Burada saldırgan, bazı metinler için şifreli metinlere sahip olduktan sonra ek düz metinlerin şifreli metinlerini ister.</li>
+<li><strong>Doğum günü saldırısı:</strong> Bu saldırı, bir grup insanda aynı doğum gününü paylaşan iki veya daha fazla kişinin olasılığını kullanır. Kriptografide, bu saldırı bir hash fonksiyonundaki çarpışmaları bulmak için kullanılır.</li>
+<li><strong>Diferansiyel kriptanaliz</strong>: Bu tür saldırı, şifreleme algoritmasındaki kalıpları bulmak için düz metin çiftlerini ve bunlara karşılık gelen şifreli metinleri karşılaştırmayı içerir. Belirli özelliklere sahip blok şifrelere karşı etkili olabilir.</li>
+<li><strong>Integral kriptanaliz:</strong> Temelinde Değiştirme-Karıştırma işemeri buunan blok şifreleme yöntemleri üzerinde kullanılan bir yöntemdir.</li>
+</ul>
+<hr>
+<h3 id="sosyal-mühendislik">
+  Sosyal Mühendislik
+  <a class="heading-link" href="#sosyal-m%c3%bchendislik">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Kurduğumuz kripto sistem ne kadar güçlü olursa olsun insan faktörü kaynaklı riskler göz ardı edilmemelidir. Bir gizli anahtarı elde etmek için rüşvet, şantaj, kandırma veya klasik casusluk kullanılabilir. Örneğin bir kişinin kafasına silah dayayarak şifreyi söylemeye zorlamak oldukça başarılı olabilir. Daha az şiddet içeren bir başka saldırı da, saldırmak istediğimiz kişileri telefonla arayarak “Şirketinizin IT departmanından arıyoruz. Önemli yazılım güncellemeleri için şifrenize ihtiyacımız var” gibi sosyal mühendislik teknikleridir. Bu gibi durumlarda şifrelerini gerçekten verecek kadar saf olan insanların sayısının hiç de az olmaması şaşırtıcıdır.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*T75D0kY4zcu3_J5U" alt=""></p>
+<p>Saldırgan her zaman kripto sisteminizdeki en zayıf halkayı arar. Bunun için, güçlü algoritmalar seçmemiz, sosyal mühendislik ve uygulama saldırılarının pratik olmadığından emin olmamız gerekir. Hem uygulama saldırıları hem de sosyal mühendislik saldırıları pratikte oldukça güçlü olabilir.</p>
+<h4 id="kimlik-avı-saldırıları-phishing-attacks">
+  Kimlik Avı Saldırıları (phishing attacks)
+  <a class="heading-link" href="#kimlik-av%c4%b1-sald%c4%b1r%c4%b1lar%c4%b1-phishing-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Saldırganın kurbana kötü amaçlı bir bağlantı göndererek güvenilir bir site kılığına girdiği bir sosyal mühendislik tekniğini içerir. Kurban, meşru bir web sunucusunda kimlik doğrulaması yaptıklarını varsaydıktan sonra, bu bağlantıya tıklayarak saldırgana hesap bilgilerini sağlar. Bu yolla saldırgan hedef kullanıcının hesap bilgilerini ele geçirmiş olur, kurban ise oltalanmış demektir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*C1Redj9meJnjH1ur" alt=""></p>
+<p>Kimlik hırsızlığının yanı sıra, oltalama saldırıları, saldırganın bir kullanıcının izinlerini elde etmesini sağlayarak, saldırı tespit edilmeden sistemin daha derin bileşenlerini tehlikeye atmasına olanak tanır. Kimlik avı saldırılarında, saldırganlar, kullanıcıyı kötü amaçlı bağlantıyı tıklaması için kandırmak için genellikle birden çok yöntem kullanır:</p>
+<ol>
+<li><strong>DNS önbellek zehirlenmesi:</strong> Saldırganlar, kullanıcı isteklerini benzer görünen bir alan adına sahip kötü amaçlı bir siteye yönlendirmek için uygulamanın DNS sunucusundaki güvenlik açıklarından yararlanır.</li>
+<li><strong>URL’yi ele geçirme/yazım hatası:</strong> Saldırgan, kimliğine bürünmek istediği web sitesinden ince farklar içeren gerçek görünümlü bir URL oluşturur. Saldırı, kullanıcıların yazım hataları yapmasına bağlıdır, bu nedenle kötü amaçlı sayfaya gelirler.</li>
+<li><strong>Sekmeleme:</strong> Saldırgan, katılımsız tarayıcı sekmelerini yasal web sayfaları gibi görünen kötü amaçlı sitelerle yeniden yazar.</li>
+<li><strong>Kullanıcı arabirimi düzeltme/iFrame yerleşimi:</strong> Saydam katmanlar kullanan saldırgan, yasal, tıklanabilir bir düğmenin üzerine kötü amaçlı sayfaya bir bağlantı yerleştirir.</li>
+<li><strong>Klon kimlik avı :</strong> Bu saldırıda, saldırgan, orijinal e-postadaki bağlantıların URL’lerle değiştirildiği meşru bir e-postanın bir kopyasını kötü amaçlı sitelere gönderir.</li>
+</ol>
+<hr>
+<p>Bu yazımda kriptanaliz konusunu anlattım. Bir sonraki yazımda kriptografi konusundan bahsedeceğim. Serinin listesini profilimde bulabilirsiniz.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

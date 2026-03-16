@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Cryptology Fundamentals: Cryptography · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Cryptology Fundamentals:#2 Cryptography
+  
+    
+    Link to heading
+  
+
+
+Hello, in this article of the cryptology basics series, I will talk about what cryptography is, encryption techniques and cryptographic protocols.
+
+
+  Cryptography Overview
+  
+    
+    Link to heading
+  
+
+Cryptography is the science of secret writing for the purpose of hiding the meaning of a message. Cryptography is a set of mathematical methods and is intended to provide conditions such as confidentiality, authenticity, authentication, and prevention of false rejection necessary for the security of important information. These methods aim to protect the information — and therefore the interests of the sender, receiver, carrier of the information, its subjects, and any other parties — from active attacks or passive perceptions that may be encountered during the transmission and storage of information.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Cryptology Fundamentals: Cryptography">
+  <meta name="twitter:description" content="Cryptology Fundamentals:#2 CryptographyLink to headingHello, in this article of the cryptology basics series, I will talk about what cryptography is, encryption techniques and cryptographic protocols.
+Cryptography OverviewLink to headingCryptography is the science of secret writing for the purpose of hiding the meaning of a message. Cryptography is a set of mathematical methods and is intended to provide conditions such as confidentiality, authenticity, authentication, and prevention of false rejection necessary for the security of important information. These methods aim to protect the information — and therefore the interests of the sender, receiver, carrier of the information, its subjects, and any other parties — from active attacks or passive perceptions that may be encountered during the transmission and storage of information.">
+
+<meta property="og:url" content="http://localhost:1313/posts/2023-03-28-kriptoloji-temelleri-kriptografi/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Cryptology Fundamentals: Cryptography">
+  <meta property="og:description" content="Cryptology Fundamentals:#2 CryptographyLink to headingHello, in this article of the cryptology basics series, I will talk about what cryptography is, encryption techniques and cryptographic protocols.
+Cryptography OverviewLink to headingCryptography is the science of secret writing for the purpose of hiding the meaning of a message. Cryptography is a set of mathematical methods and is intended to provide conditions such as confidentiality, authenticity, authentication, and prevention of false rejection necessary for the security of important information. These methods aim to protect the information — and therefore the interests of the sender, receiver, carrier of the information, its subjects, and any other parties — from active attacks or passive perceptions that may be encountered during the transmission and storage of information.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-03-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-03-28T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2023-03-28-kriptoloji-temelleri-kriptografi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About Me</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2023-03-28-kriptoloji-temelleri-kriptografi/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2023-03-28-kriptoloji-temelleri-kriptografi/">
+              Cryptology Fundamentals: Cryptography
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-03-28T00:00:00Z">
+                March 28, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              18-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="cryptology-fundamentals2-cryptography">
+  Cryptology Fundamentals:#2 Cryptography
+  <a class="heading-link" href="#cryptology-fundamentals2-cryptography">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_MPqOVwPSnGY3CguO7sg8Jw.png" alt=""></p>
+<p>Hello, in this article of the cryptology basics series, I will talk about what cryptography is, encryption techniques and cryptographic protocols.</p>
+<hr>
+<h3 id="cryptography-overview">
+  Cryptography Overview
+  <a class="heading-link" href="#cryptography-overview">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Cryptography is the science of secret writing for the purpose of hiding the meaning of a message. Cryptography is a set of mathematical methods and is intended to provide conditions such as confidentiality, authenticity, authentication, and prevention of false rejection necessary for the security of important information. These methods aim to protect the information — and therefore the interests of the sender, receiver, carrier of the information, its subjects, and any other parties — from active attacks or passive perceptions that may be encountered during the transmission and storage of information.</p>
+<p><img src="/images/0_2Vwirutk3ytVmQK7.png" alt=""></p>
+<p>Cryptography; We can divide it into 3 areas: symmetric encryption, asymmetric encryption and cryptographic protocols. Now let&rsquo;s look at these areas and the methods used.</p>
+<p><img src="/images/1_-xJo79RzeZLimVgF7AMPJw.png" alt=""></p>
+<p>Basic Classification Diagram for Cryptographic Algorithms</p>
+<hr>
+<h3 id="symmetric-encryption">
+  Symmetric Encryption
+  <a class="heading-link" href="#symmetric-encryption">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Symmetric Encryption** is an encryption technique where both parties use the same encryption and decryption method. There is only one common secret key to be used in this encryption method.</p>
+<p>All cryptography from ancient times until 1976 was based solely on symmetric methods, and symmetric ciphers are still widely used. It is especially useful for encryption and integrity control of messages.</p>
+<p><img src="/images/0_XxKCSz8Z5gCClHYt.png" alt=""></p>
+<p>Symmetric Encryption</p>
+<p>In the computer system; All data such as text, images, music are expressed as 1–0s, and each 1–0 is called a bit.</p>
+<p>Symmetric encryption is divided into block ciphers and stream ciphers. Although stream cipher and block cipher are symmetric encryption techniques, there are some important differences. While block ciphers encrypt fixed-length blocks of bits, stream ciphers combine plaintext bits into a text encryption stream using the XOR operation.</p>
+<p><img src="/images/0_PVVBIhJHRuKvdXHi.png" alt=""></p>
+<h3 id="stream-encryption">
+  Stream Encryption
+  <a class="heading-link" href="#stream-encryption">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In stream encryption, bits are encrypted individually. Each bit is encrypted by XORing the bit coming from the bit stream generator. If the encrypted text is XORed with the cipher stream, the plain text is found and decrypted. For this reason, in the stream encryption technique, there is no need for different algorithms for encryption and decryption operations, these operations are performed with the same algorithm.</p>
+<p><img src="/images/0_NDdy7s_T_pc-PWlx.png" alt=""></p>
+<p>XOR operation</p>
+<p>The most important point in stream encryption algorithms is the bit stream generator. The bitstream generator creates a bitstream based on the key given to it. The complexity and randomness of this bitstream are of great importance to the reliability of the encryption. At this point, different stream encryption algorithms with different bit stream generators have been developed.</p>
+<h4 id="chacha20">
+  ChaCha20
+  <a class="heading-link" href="#chacha20">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>ChaCha20 algorithm is a stream encryption algorithm. Supports 128 and 256 bits. It has similar features to its predecessor <a href="https://en.wikipedia.org/wiki/Salsa20"  class="external-link" target="_blank" rel="noopener">Salsa20</a>. It has a primitive function consisting of 12 or 20 different rounds. It was standardized by the IETF in RFC 7539 and is among the most used algorithms today because it is much more efficient and faster than AES in software applications.</p>
+<p>Google has a big part in making ChaCha20 so popular. Until a few years ago, Google used AES-GCM as the symmetric encryption algorithm for Chrome and Android. However, due to the use of ARM-based processors in mobile devices and the lack of AES configurations in these processors as in Intel-based processors, encryption was relatively slow. For this reason, Google was working on a more up-to-date, secure and faster encryption algorithm.</p>
+<p><img src="/images/0_p11w2EzrPzNTF_DK.jpg" alt=""></p>
+<p>ChaCha20-Poly1305</p>
+<p>The jumping off point for ChaCha20 was when the android version of Chrome started using <strong>ChaCha20</strong> for encryption and <strong>Poly1305</strong> for authentication. The main reason for this was that ChaCha20 achieved three times the performance of slightly older protocols such as AES.</p>
+<p>ChaCha20, HTTPS connectionsIt is widely used for SSH connections and managing servers. Even the popular WireGuard VPN protocol uses only ChaCha20 for symmetric data encryption. It is very likely that we will soon see ChaCha20 in IPsec connections as well.</p>
+<h3 id="block-cipher">
+  Block Cipher
+  <a class="heading-link" href="#block-cipher">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>In block ciphering, an entire block of plaintext bits is encrypted at a time. This requires a key bit block that is the same length as the text bit block. In practice, keys with a block length of 128 bits (16 bytes) or 64 bits (8 bytes) are used. The longer the key length, the more reliable the encryption process.</p>
+<p>In block ciphering, encryption and decryption algorithms are different algorithms. The decryption algorithm does the exact opposite of what is done in the encryption algorithm.</p>
+<p><img src="/images/0_PgkgI4ShvSM2IppP.png" alt=""></p>
+<p>Block Cipher</p>
+<p>There are two key features that make block cipher algorithms reliable. These are the concepts of confusion and diffusion</p>
+<p>**Confusion is an encryption process in which the relationship between the key and the ciphertext is hidden.</p>
+<p>**Diffusion is an encryption process in which the effect of one plaintext symbol is spread across many ciphertext symbols in order to hide statistical properties of the plaintext.</p>
+<p>Algorithms that perform only propagation or only confusion are not secure. However, strong passwords can be created by using a combination of such processes. Today&rsquo;s block cipher algorithms consist of loops that repeatedly apply these operations to the data.</p>
+<p>There are two standardized algorithms widely used in the block cipher technique. These; advanced encryption standard (AES) and data encryption standard (DES) algorithms.</p>
+<h4 id="des">
+  DES
+  <a class="heading-link" href="#des">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Data Encryption Standard (DES) has been by far the most popular block cipher method for most of the last 30 years. Although DES is not considered secure today because its key length is very short, it is still used in old applications.</p>
+<p>DES is an algorithm that encrypts 64-bit blocks with a 56-bit key. This algorithm completes the encryption process in 16 rounds, all performing the same operation. A different subkey is used in each round, and all subkeys are derived from the main key k.</p>
+<p><img src="/images/0_jNDsQQQOcDvB7E2i.jpg" alt=""></p>
+<p>If we look in more detail at the transactions made in each round, we encounter the Feistel structure of the DES algorithm (also known as the Feistel network). If this feistel structure is carefully designed, very strong passwords can be created. In addition to their cryptographic power, an advantage of Feistel networks is that encryption and decryption are almost the same process.</p>
+<p><img src="/images/0_fc-FSeFntoNvcQsj.jpg" alt=""></p>
+<p>The two fundamental properties of passwords mentioned above, namely hashing and diffusion, are implemented within the f-function. Round is taken as the number of rounds and K1, K2,..KN are taken as subkeys for rounds 1,2,..,n respectively. Then, the Ciphertext blocks are divided into 2 equal parts, L and R, and processed within the function. Then, input R is output as L, input L is output as R, and this process is repeated n times.</p>
+<p>The diagram shows both encryption and decryption. It is worth noting that the subkey order is reversed for decryption; This is the only difference between encryption and decryption.</p>
+<p>Once the f-function is securely designed, the security of the Feistel cipher increases with the number of keys and block length. The more the number of keys, the more the number of rounds and the more confusion and diffusion we get. Likewise, the longer the block length, the longer the password spreads and the harder it is to crack.</p>
+<p>####AES</p>
+<p>Advanced Encryption Standard (AES) is the most widely used symmetric cipher today. Software that incorporates AES includes Internet security standard IPsec, TLS, Wi-Fi encryption standard IEEE 802.11i, secure shell network protocol SSH (Secure Shell), Internet telephony Skype, and numerous security products worldwide.</p>
+<p>Unlike DES, the AES algorithm does not have a Feistel structure. Feistel networks do not encrypt an entire block per iteration, for example in DES 64/2 = 32 bits are encrypted in one round. AES, on the other hand, encrypts all 128 bits in one round. Therefore, the AES algorithm has a relatively small number of rounds.</p>
+<p><img src="/images/0_QSpz_OkltFg8Ljh_.png" alt=""></p>
+<p>AES algorithm</p>
+<p>In the image above, the plaintext is x and the ciphertext is y.rak and number of rounds are shown as nr.</p>
+<p>AES consists of layers. Each layer processes all 128 bits of the block. There are three different types of layers. These;</p>
+<p><strong>Key Addition(<em>AddRoundKey</em>) layer:</strong> In the key generator, the 128-bit subkey derived from the main key is XORed with state(x).</p>
+<p><em><em>SubBytes</em> layer:</em>* Each byte in the state matrix is ​​updated according to a table and with a non-linear transformation.</p>
+<p><strong>Diffusion layer:</strong> Provides diffusion over text bits. It consists of two sublayers, both of which perform linear operations:</p>
+<ol>
+<li>**Row Shift <em>(<em>ShiftRows) layer</em></em>, each row is shifted circularly a certain number of times.</li>
+<li>The <strong>Column Mixing (MixColumn) layer</strong> mixes the four-byte blocks in each column. Last round, the MixColumn transform is not used.</li>
+</ol>
+<p>In the AES encryption algorithm, the reverse process is done to decrypt.</p>
+<hr>
+<h3 id="asymmetric-encryption">
+  Asymmetric Encryption
+  <a class="heading-link" href="#asymmetric-encryption">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Asymmetric Encryption is an encryption technique in which a user has a private key and also a public key. Asymmetric algorithms can be used for digital signatures, key generation, and classical data encryption.</p>
+<p>It was introduced in 1976 as a completely different type of cipher by Whitfield Diffie, Martin Hellman and Ralph Merkle. Also known as public key encryption.</p>
+<p><img src="/images/0_wwVcQD6ILTUMEAq3.png" alt=""></p>
+<p>Asymmetric Encryption</p>
+<p>Asymmetric cryptography, also known as public key cryptography, is a fairly new encryption technique. It was introduced in 1976 by Whitfield Diffie, Martin Hellman and Ralph Merkle. In asymmetric encryption, each user has a private key and a public key. The way these keys are used is as follows:</p>
+<ul>
+<li>Message + public key = Encrypted message</li>
+<li>Encrypted message + secret key = Decrypted message</li>
+<li>Message + secret key = Signed message</li>
+<li>Signed message + public key = Authentication</li>
+</ul>
+<p>In asymmetric encryption, a message encrypted with a user&rsquo;s public key can only be decrypted with that user&rsquo;s private key. This method is used to send a message to that user. If a user has encrypted the message with his private key, we can decrypt this message with that user&rsquo;s public key. This method is also used in authentication, if the message can be decrypted with that user&rsquo;s public key, his identity is confirmed.</p>
+<p>Before moving on to the actual public key encryption algorithms, let&rsquo;s take a look at the mathematical basis of these algorithms.</p>
+<h3 id="public-key-algorithm-families">
+  Public Key Algorithm Families
+  <a class="heading-link" href="#public-key-algorithm-families">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><strong>Integer-Factorization Schemes:</strong> Many public-key schemes rely on the fact that it is difficult to factor large integers. The most well-known representative of this family of algorithms is RSA.</p>
+<p><strong>Discrete Logarithm Schemes:</strong> Based on mathematics known as the discrete logarithm problem in finite fields. Examples of this are Diffie-Hellman key exchange, Elgamal encryption or Digital Signature Algorithm (DSA).</p>
+<p><strong>Elliptic Curve (EC) Schemes:</strong> A generalization of discrete logarithms are elliptic curve public key schemes. The most popular examples include Elliptic Curve Diffie-Hellman key exchange (ECDH) and Elliptic Curve Digital Signature Algorithm (ECDSA).</p>
+<p>The first two families appeared in the mid-1970s. Elliptic curves were introduced in the mid-1980s. There are no known attacks against either scheme if parameters and key lengths are chosen carefully.</p>
+<h4 id="rsa">
+  RSA
+  <a class="heading-link" href="#rsa">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>RSA is an encryption technique developed considering the algorithmic difficulty of factoring very large integers. There are many applications where RSA is used, but in practice it is most commonly used for digital signatures, digital certificates, and encryption of small pieces of data. Additionally, RSA is the most widely used asymmetric encryption scheme today.</p>
+<p>It should be noted that RSA encryption is not intended to replace symmetric ciphers, as it is several times slower than symmetric ciphers such as AES. This is due to the many calculations involved in performing RSA (or any other public key algorithm). Therefore, the main use of the encryption feature is to securely exchange a key with a symmetric cipher (key transfer). In practice, RSA is often used in conjunction with a symmetric cipher such as AES, where the symmetric cipher does the actual bulk data encryption.</p>
+<p>The underlying one-way function of RSA is the integer factorization problem:<br>
+ Multiplying two large prime numbers is computationally easy (you can actually do it with paper and pencil).niz), but it is very difficult to factor the resulting product. Euler&rsquo;s theorem and Euler&rsquo;s phi function play important roles in RSA. Now, let&rsquo;s look at how encryption, decryption, and key generation work with RSA.</p>
+<p><img src="/images/0_pVs1sy3vN5kCBdeb.png" alt=""></p>
+<p>RSA encryption algorithm</p>
+<p>e: encryption exponent, d: decryption exponent, n: length</p>
+<p>Modular computations play an important role in RSA encryption and decryption. In practice x, y, n and d are very long numbers (usually 1024 bits).</p>
+<p>A distinctive feature of all asymmetric schemes is that there is a setup phase in which the public and private key are calculated. Depending on the public key scheme, key generation can be quite complex. Let&rsquo;s take a look at the steps involved in calculating the public and private key for an RSA encryption system:</p>
+<ol>
+<li>N = p.q<br>
+ Two different and large prime numbers are determined, which will form the very large integer that we will denote by N. These numbers are called p and q.</li>
+<li>φ(N) = (p-1)(q-1)<br>
+ The totient value of number N is calculated. Totient is a function in number theory that indicates the number of numbers that are smaller than an integer and prime to that number.</li>
+<li>1 &lt; e &lt; φ(N) and GCF(e, φ(N)) = 1<br>
+ As can be understood from the mathematical expression above, an integer between 1 and the Totient value, which is prime between the Totient value and the Totient value, is selected and named e. Choosing a small number of e to be chosen here provides performance gains when performing operations such as mod and exponentiation, but in some cases it reduces security.</li>
+<li>d.e ≡ 1 (mod φ(N)<br>
+ The number d that provides equivalence and will be used to create the secret key is found. The process to be done here is to find the inverse of the number e in mod φ(N).</li>
+</ol>
+<p>We have obtained all the values necessary to create the public and private key. Provided that the numbers (p,q, φ(N)) used in calculating the number d constituting the private key remain secret, the pair (N,e) is the public key; The (N,d) pair constitutes the secret key.</p>
+<p>As you can see, doing these operations can be very long and tiring. For this purpose, some practical methods are used in advanced systems. When designing the RSA scheme, if the e and d values are too large, it may cause slow encryption. On the other hand, if these values are too small, this brings security problems.</p>
+<hr>
+<h3 id="protocols">
+  Protocols
+  <a class="heading-link" href="#protocols">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Cryptographic Protocols are encryption methods created by applying and standardizing cryptographic algorithms. Symmetric and asymmetric algorithms are the building blocks of secure Internet communications. A protocol defines how to use these algorithms.</p>
+<h3 id="digital-signature">
+  Digital signature
+  <a class="heading-link" href="#digital-signature">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Digital signature is a legal authentication method used for authentication purposes in the electronic environment. It can be roughly defined as a signature made electronically. As with traditional handwritten signatures, only the person creating the digital message must be able to produce a valid signature. To achieve this with cryptographic primi-262 10 Digital Signatures we need to implement public key cryptography. The basic idea is that the person signing the message uses a private key and the receiving party uses the matching public key. The principle of the digital signature scheme is shown in the figure.</p>
+<p><img src="/images/0_Q9yF6vAzC-qdlXni.png" alt=""></p>
+<p>Digital Signature</p>
+<p>The key feature of digital signatures is this: Since a valid signature can only be calculated with the signer&rsquo;s private key, a signed message can be unambiguously traced back to its origin. Only the signer has the authority to create a signature in his or her own name. Therefore, we can prove that the signing party actually created the message.<br>
+ Each of three popular families of public key algorithms, namely integer factorization, discrete logarithms, and elliptic curves, allow us to create digital signatures.</p>
+<h3 id="summary-functions">
+  Summary Functions
+  <a class="heading-link" href="#summary-functions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Hash functions, also known as hash functions, are an important cryptographic protocol. It is extremely useful and appears in almost all information security applications. For a given message, the message digest or hash value can be viewed as a message fingerprint, that is, a unique representation of a message. Unlike other crypto algorithms, hash functions do not have a key.</p>
+<p><img src="/images/0_caf2jzqzDuHFxZ2H.png" alt=""></p>
+<p>Summary Function</p>
+<p>Hash functions are mathematical functions that convert a numerical input value into another compressed numerical value.Zion. The input of the hash function is of arbitrary length, but the output is always fixed length. The values ​​returned by a hash function are called message digests or simply hash values. Regardless of the input, all output strings produced by a given hash function are the same length. The length is defined by the type of hashing technology used. The output strings are created from a sequence of characters defined in the hash function.</p>
+<p>The uses of hash functions in cryptography are very diverse. Hash functions are an important part of digital signature schemes and message authentication codes. It is also widely used for other cryptographic applications, for example, storing password hashes or key derivation.</p>
+<p><strong>Features of hash functions</strong></p>
+<ul>
+<li><strong>One-way:</strong> Once a hash value is created, it should be impossible to convert it back to the original data.</li>
+<li><strong>Conflict-free:</strong> For a hash function to be conflict-free, the hash value of two different data values ​​must not be the same. In other words, each input sequence must produce a unique output sequence.</li>
+<li><strong>Fast:</strong> If a hash function takes too long to calculate hash values, it is of little use. Hash functions must therefore be very fast.</li>
+</ul>
+<h4 id="popular-hash-functions">
+  Popular Hash Functions
+  <a class="heading-link" href="#popular-hash-functions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<h4 id="message-digestmd">
+  Message Digest (MD)
+  <a class="heading-link" href="#message-digestmd">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The MD family consists of hash functions MD2, MD4, MD5 and MD6. Adopted as Internet Standard RFC 1321. It is a 128-bit hash function. The most popular member of the family is MD5.</p>
+<p>MD5 was the most popular and widely used hash function for many years. MD5 digests are widely used in the software world to provide assurance about the integrity of the transferred file. For example, file servers often provide a pre-computed MD5 hash for files, so a user can compare the hash of the downloaded file with the provided value. In 2004, conflicts were found in MD5. An analytics attack using the computer cluster was reported to be successful in just an hour. This collision attack resulted in MD5 being an unreliable algorithm and therefore its use is no longer recommended.</p>
+<h4 id="secure-hash-functionsha">
+  Secure Hash Function (SHA)
+  <a class="heading-link" href="#secure-hash-functionsha">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>The SHA family consists of four SHA algorithms; SHA-0, SHA-1, SHA-2 and SHA-3. Although they are from the same family, they have structurally different algorithms.</p>
+<p>The original version is SHA-0, a 160-bit hash function, and was published by the National Institute of Standards and Technology (NIST) in 1993. It had a few weaknesses and did not become very popular. Later in 1995, SHA-1 was designed to fix the alleged weaknesses of SHA-0.</p>
+<p>SHA-1 is the most widely used of the existing SHA hash functions. It is used in many commonly used applications and protocols, including Secure Sockets Layer (SSL) security. In 2005, a method was found for SHA-1 to expose conflicts within the practical time frame, making the long-term usability of SHA-1 questionable.</p>
+<p>The SHA-2 family has four SHA variants, SHA-224, SHA-256, SHA-384, and SHA-512, depending on the number of bits in the hash values. No successful attack on the SHA-2 hash function has yet been reported. Although SHA-2 is a powerful hash function and is significantly different, its basic design is still similar to that of SHA-1. Therefore, NIST has called for new hash function designs.</p>
+<p>In October 2012, NIST selected the Keccak algorithm as the new SHA-3 standard. Keccak offers many advantages to its users, such as efficient performance and strong resistance to attacks.</p>
+<h4 id="ripemd">
+  RIPEMD
+  <a class="heading-link" href="#ripemd">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>RIPEMD is the abbreviation for RACE Integrity Primitives Assessment Message Digest. This set of hash functions was designed by the open research community and is commonly known as a family of European hash functions. The family has 3 members. These; RIPEMD, RIPEMD-128 and RIPEMD-160. 256 and 320 bit versions of this algorithm are also available.</p>
+<p>The original RIPEMD (128 bit) was based on the design principles used in MD4 and security issues were found. RIPEMD 128-bit version came as a quick fix to overcome vulnerabilities in the original RIPEMD.</p>
+<p>RIPEMD-160 is an improved version and is the most used version in the family. The 256- and 320-bit versions reduce the likelihood of conflicts, but do not have higher security levels compared to RIPEMD-128 and RIPEMD-160, respectively.</p>
+<p>####Whirlpool</p>
+<p>Whirlpool, 512 bIt is a hash function. It is derived from a modified version of the Advanced Encryption Standard (AES). One of the designers was Vincent Rijmen, co-creator of AES. Three versions of Whirlpool have been released. These; They are WHIRLPOOL-0, WHIRLPOOL-T and WHIRLPOOL.</p>
+<h3 id="key-distribution-protocol">
+  Key Distribution Protocol
+  <a class="heading-link" href="#key-distribution-protocol">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Key da protocol is an encryption protocol in which some secret values are shared among several members of a group. The secret value can also be used, for example, as a secret session key for a secure communication channel between members of the group. Roughly speaking, key distribution protocol deals with creating a shared key between two or more parties. For this, key transport or key agreement methods can be used. A key transport protocol is a technique by which one party securely transfers a secret value to others. In a key agreement protocol, two (or more) parties derive the public key, with all parties contributing the key. Ideally, neither party can control what the final public key will be.</p>
+<p><img src="/images/0_TG166uwZDCXkgCtb.png" alt=""></p>
+<h4 id="key-agreement">
+  Key Agreement
+  <a class="heading-link" href="#key-agreement">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In cryptography, a key agreement protocol is a protocol in which two or more parties can agree on a key in a way that both affects the outcome. If done properly, this prevents unintended third parties from imposing a choice on contracting parties. In practice, advanced protocols do not reveal to any eavesdropping party what key has been agreed upon.</p>
+<h4 id="key-transport">
+  Key Transport
+  <a class="heading-link" href="#key-transport">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In many key transport protocols, one party simply generates the key and sends that key to the other party; the other side has no influence on the key.</p>
+<p>Using a key agreement protocol avoids some of the key distribution problems associated with such systems. Protocols where both parties influence the final derived key are the only way to implement perfect forward secrecy.</p>
+<hr>
+<p><img src="/images/1_ILSONeBau6S2Vidq8GyOtA.png" alt=""></p>
+<p>In this article, I talked about cryptography. In my next article, I will talk about cryptanalysis. You can find the list of the series on my profile.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

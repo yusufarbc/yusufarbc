@@ -1,4 +1,5 @@
 ---
+series: ["Wazuh"]
 title: "Wazuh 5.0'da Neler Yeni? Siber Tehdit İstihbaratında Devrim ve Uç Nokta Güvenliğinde Yeni Bir Çağ"
 date: 2025-10-02
 draft: false

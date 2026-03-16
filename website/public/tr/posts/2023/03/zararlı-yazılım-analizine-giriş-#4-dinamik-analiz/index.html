@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Zararlı Yazılım Analizine Giriş: #4 Dinamik Analiz · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  Zararlı Yazılım Analizine Giriş: #4 Dinamik Analiz
+  
+    
+    Başlık Linki
+  
+
+
+Bir önceki yazımda statik analiz yöntemlerinden bahsetmiştim. Bu yazımda ise Zararlı Yazılım Analizinde, dinamik analiz yöntemlerinden bahsedeceğim. Ne tür dinamik analiz teknikleri var? hangi araçlar kullaılıyor? nasıl analiz yapılıyor? hepsi bu yazıda!
+
+
+  Dinamik Analiz Yöntemleri
+  
+    
+    Başlık Linki
+  
+
+Çeşitli araçların yardımıyla bir zararlı yazılım örneğini yürütmeyi ve yalnızca davranışı kaydetmeyi değil, aynı zamanda yürütülen zararlı yazılım tarafından üretilen çeşitli yapıtları da gözlemlemeyi içerir.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Zararlı Yazılım Analizine Giriş: #4 Dinamik Analiz">
+  <meta name="twitter:description" content="Zararlı Yazılım Analizine Giriş: #4 Dinamik AnalizBaşlık LinkiBir önceki yazımda statik analiz yöntemlerinden bahsetmiştim. Bu yazımda ise Zararlı Yazılım Analizinde, dinamik analiz yöntemlerinden bahsedeceğim. Ne tür dinamik analiz teknikleri var? hangi araçlar kullaılıyor? nasıl analiz yapılıyor? hepsi bu yazıda!
+Dinamik Analiz YöntemleriBaşlık LinkiÇeşitli araçların yardımıyla bir zararlı yazılım örneğini yürütmeyi ve yalnızca davranışı kaydetmeyi değil, aynı zamanda yürütülen zararlı yazılım tarafından üretilen çeşitli yapıtları da gözlemlemeyi içerir.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%234-dinamik-analiz/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Zararlı Yazılım Analizine Giriş: #4 Dinamik Analiz">
+  <meta property="og:description" content="Zararlı Yazılım Analizine Giriş: #4 Dinamik AnalizBaşlık LinkiBir önceki yazımda statik analiz yöntemlerinden bahsetmiştim. Bu yazımda ise Zararlı Yazılım Analizinde, dinamik analiz yöntemlerinden bahsedeceğim. Ne tür dinamik analiz teknikleri var? hangi araçlar kullaılıyor? nasıl analiz yapılıyor? hepsi bu yazıda!
+Dinamik Analiz YöntemleriBaşlık LinkiÇeşitli araçların yardımıyla bir zararlı yazılım örneğini yürütmeyi ve yalnızca davranışı kaydetmeyi değil, aynı zamanda yürütülen zararlı yazılım tarafından üretilen çeşitli yapıtları da gözlemlemeyi içerir.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-03-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-03-16T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%234-dinamik-analiz/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2023/03/introduction-to-malware-analysis-%234-dynamic-analysis/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%234-dinamik-analiz/">
+              Zararlı Yazılım Analizine Giriş: #4 Dinamik Analiz
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-03-16T00:00:00Z">
+                Mart 16, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              8 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="zararlı-yazılım-analizine-giriş-4-dinamikanaliz">
+  Zararlı Yazılım Analizine Giriş: #4 Dinamik Analiz
+  <a class="heading-link" href="#zararl%c4%b1-yaz%c4%b1l%c4%b1m-analizine-giri%c5%9f-4-dinamikanaliz">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_XhHw4q_6KEejBGJHX3iENw.png" alt=""></p>
+<p>Bir önceki yazımda statik analiz yöntemlerinden bahsetmiştim. Bu yazımda ise Zararlı Yazılım Analizinde, dinamik analiz yöntemlerinden bahsedeceğim. Ne tür dinamik analiz teknikleri var? hangi araçlar kullaılıyor? nasıl analiz yapılıyor? hepsi bu yazıda!</p>
+<hr>
+<h3 id="dinamik-analiz-yöntemleri">
+  Dinamik Analiz Yöntemleri
+  <a class="heading-link" href="#dinamik-analiz-y%c3%b6ntemleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Çeşitli araçların yardımıyla bir zararlı yazılım örneğini yürütmeyi ve yalnızca davranışı kaydetmeyi değil, aynı zamanda yürütülen zararlı yazılım tarafından üretilen çeşitli yapıtları da gözlemlemeyi içerir.</p>
+<p>Dinamik analiz ve statik analiz, analiz sürecinde iki farklı aşama gibi görünse de öyle değildir. Çeşitli dinamik analiz adımlarını ve araçlarını gözden geçirirken, geri dönüp öğrendiğiniz çeşitli statik analiz adımlarını uygulamanız ve ardından tekrar dinamik analize geri dönmeniz gerekebilir. Bu döngü birkaç kez daha devam edebilir.</p>
+<p>Dinamik analize başlamadan önce analiz ortamnızın izole ve yedeklenmiş olmasından emin olmalısınız. Bunun için sandbox kurulum yazısında değindiğimiz gibi win7 makinenizin bir klonunu oluşturabilirsiniz ve işlemleri bu klon üzerinde gerçekleştirebilirsiniz. Ayrıca, ağ adaptörünün devredışı veya host-only modda olduğundan emin olun. Base sisteminizi korumak için sanal makine içinde herhangi bir ağ bağlantısı olmaması gerekiyor.</p>
+<p>Bundan sonraki aşamalarda adım adım analiz tekniklerine değineceğiz.</p>
+<hr>
+<h3 id="ilk-çalıştırma">
+  İlk Çalıştırma
+  <a class="heading-link" href="#ilk-%c3%a7al%c4%b1%c5%9ft%c4%b1rma">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Analiz sürecindeki en iyi ilk adım, örneği gelişigüzel bir şekilde çalıştırmak ve davranışını çok yüksek bir düzeyde fark etmektir.</p>
+<p>Fidye yazılımı gibi pek çok örneğin açık davranışları vardır. Örneği çalıştırmak ve yazılımın sistem ve diskteki dosyalar üzerindeki etkilerini gözlemlemek, örneğin zararlı yazılım olduğu sonucuna varmak, zararlı yazılımın türünü ve amacını anlamak için yeterli olabilir.</p>
+<p>Yürütülen zararlı yazılımın davranışını gelişigüzel bir şekilde gözlemlemek beklentilerimizi belirlememize ve derinlemesine analizine devam etmek için gereken bir sonraki araç setine kendimizi hazırlamamıza yardımcı olur.</p>
+<p>Tek bir yürütme, davranışı hakkında yeterince gözlem yapmamıza yardımcı olmayacağından, bu işlemi tekrarlamamız ve aynı örneği gelişigüzel bir şekilde birden çok kez yeniden çalıştırmamız gerekebilir. Örneği gelişigüzel bir şekilde her yeniden çalıştırdığımızda, VM’i sıfırlamamız önerilir. Bunun için çalıştırmadan önce <a href="https://www.techrepublic.com/article/how-to-use-snapshots-in-virtualbox/"  class="external-link" target="_blank" rel="noopener">snapshot</a> alabilirsiniz ve zararlı yazılımı çalıştırdıktan sonra restore edebilirsiniz.</p>
+<p><img src="/images/1_TeWf88TlRm-4hgARIytSFA.png" alt=""></p>
+<p>Bu işlemi gerçekleştirirken, örneğin davranışını pasif olarak gözlemlememize yardımcı olan Process Hacker ve dosya tarayıcısı gibi birkaç basit araçtan da yardım alabiliriz.</p>
+<p><img src="/images/1_3Gszc0IZVUjKcJiNdTTGFQ.png" alt=""></p>
+<p>örneğin burada sample.exe adında bir zararlı yazılımız var Bunu çalıştırdığımızda neler olacak gözlemleyelim.</p>
+<p><img src="/images/1_A_SOhSImS-Ag6WFwPd4H0Q.png" alt=""></p>
+<p>sample.exe öğresi ortadan kayboldu ve yeni prosesler başladı. Artık bilgisayarımız enfekte olmuş durumda.</p>
+<p><img src="/images/1_bbN3yVKANOp7YerFaB1qBw.png" alt=""></p>
+<p>işlemimiz tamamlandıktan sonra makinemizi sıfırlamak için snapshotu restore etmemiz gerekli. Tekrar başlattığımızda makine snapshot aldığımız hali ile başlayacak.</p>
+<hr>
+<h3 id="api-log-davranışı">
+  API Log Davranışı
+  <a class="heading-link" href="#api-log-davran%c4%b1%c5%9f%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Zararlı yazılım, Win API çağrılarıyla faaliyetlerini gerçekleştirir. APIMiner veya Cuckoo Sandbox gibi bir API kaydedici aracı kullanarak bir örnek tarafından kullanılan API’leri elde edebilirsiniz. API’lere dayanarak, örneğin zararlı yazılım olup olmadığı sonucuna varabilir ve kategorisini öğrenebilirsiniz.</p>
+<p><img src="/images/1_pfOmNJu2eNiLE6VdAnRwcg.png" alt=""></p>
+<p><a href="https://github.com/poona/APIMiner"  class="external-link" target="_blank" rel="noopener">APIminer</a> aracı bize bir log dosyası yaratır. Log dosyaları, zaman sırasına göre düzenlenir. Gördüğünüz ilk dosya oluşturulan ilk dosya olur. Oluşturulan log dosyasını alttaki şekilde görebilirsiniz.</p>
+<p><img src="/images/1_tB_oxh5iHu7jN3Ni5dgR1Q.png" alt=""></p>
+<p>Peki bu bilgilerden ne gibi çıkarımlar yapacağız.</p>
+<p>CreateProcessInternalW([command_line]”svchost.exe”,<br>
+ [process_identifier]4080,<br>
+ [thread_identifier]3248,<br>
+ [creation_flags]4<br>
+ [process_handle]0x00002A7C,<br>
+ [thread_handle]0x00002A78)<br>
+NtReadVirtualMemory([process_handle]0x00002A7C)<br>
+NtMapViewOfSection([process_handle]0x00002A7C)<br>
+NtReadVirtualMemory([process_handle]0x00002A7C)<br>
+NtUnmapViewOfSection([process_handle]0x00002A7C)<br>
+NtResumeThread([thread_handle]0x00002A78,<br>
+ [process_identifier]4080)</p>
+<p>Bu kısmı ele alalım ve madde madde gidelim.</p>
+<ul>
+<li>CreateProcessInternalW API’sini kullanan örnek, bir sistem olan svchost.exe programı için yeni bir işlem oluşturur.<br>
+C:\Windows\System32\svchost.exe konumunda bulunan işlem</li>
+<li>Oluşturulan işlem, [creation_flags]4 kullanılarak 4 bağımsız değişken değeri kullanılarak tanımlanan ASKIYA ALINMIŞ durumda. 4 değerinin ASKIYA ALINDI anlamına geldiğini nasıl bilebiliriz? CreateProcess API için MSDN’deki API açıklamasına bakın ve CREATE_SUSPENDED bayrağını kontrol edin.</li>
+<li>Bu yeni oluşturulan işlemin tanıtıcısı ve iş parçacığı 0x00002A7C ve 0x00002A78&rsquo;dir.</li>
+<li>NtReadVirtualMemory API’sini kullanan örnek daha sonra, 0x00002A7C işlem tanıtıcısı kullanılarak tanımlanan uzak işlemden belleği okur</li>
+<li>NtMapViewOfSection API’sini kullanan örnek daha sonra bir bölüm oluşturur ve bunun bir görünümünü, 0x00002A7C tanıtıcısı kullanılarak tanımlanan uzak işleme eşler.</li>
+<li>0x00002A78 iş parçacığı tanıtıcısı ve 4080 işlem tanımlayıcısı kullanılarak tanımlanan ResumeThread API’sini kullanarak ASKIYA ALINAN iş parçacığını/işlemini sürdürür.</li>
+</ul>
+<p>Tüm bu API dizisi neye benziyor? Bu, örneğin yalnızca kullanılmasa bile çoğunlukla zararlı yazılım tarafından kullanılan bir özellik olan işlem boşluğunu kullandığı anlamına gelir. Böylece bunun kötü amaçlı bir yazılım olduğu sonucuna varmamızı sağlar.</p>
+<hr>
+<h3 id="zararlı-yazılım-ailesinin-belirlenmesi">
+  Zararlı Yazılım Ailesinin Belirlenmesi
+  <a class="heading-link" href="#zararl%c4%b1-yaz%c4%b1l%c4%b1m-ailesinin-belirlenmesi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>API loglarından zararlı yazılım olduğu sonucuna vardık, ancak zararlı yazılımın ailesini anlayabilir miyiz? Aynı aileye ait her zararlı yazılımın o aileye özgü özellikleri veya yapıları vardır. Özellikleri API logları aracılığıyla araştırılabilir. Örnek için, oluşturulan üç API log dosyası vardır. İlk log dosyasını alın ve bir muteks oluşturan CreateMutant API’sini arayın. <br>
+Zararlı yazılımlar tarafından yaygın olarak kullanılan bir senkronizasyon yöntemidir. Zararlı yazılımımız, API çağrısı aracılığıyla görebileceğiniz gibi, 2GVWNQJz1 adlı bir muteks oluşturur.</p>
+<p><img src="/images/1_gd1heUrxhjyJuqn7_SnqYg.png" alt=""></p>
+<p>Örneğimiz tarafından oluşturulan Mutex, kuluoz ailesine ait olduğunu ve bir botnet virüsü olduğunu ortaya koyuyor</p>
+<hr>
+<h3 id="dinamik-stringanalizi">
+  Dinamik String Analizi
+  <a class="heading-link" href="#dinamik-stringanalizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>String analizinde ilk adım, paketlenmiş olup olmadığını anlamaktır. Paketlenmemiş ise statik analiz yöntemleri ile stringler tespit edilebilir. Eğer paketlenmişse bu durumda dinamik analize ihtiyaç duyulur.</p>
+<p>PEiD, örneğin paketlenip paketlenmediğini anlayabileceğiniz statik dosyanın entropisini sağlayabilen harika bir araçtır.</p>
+<p><img src="/images/1_Po9quWJijYlHKhvJpMIlkQ.png" alt=""></p>
+<p>Paketlenen zararlı yazılımlarda stringler gizlenmiş olur. Bu, BinText kullanarak stringlerin statik analizini işe yaramaz hale getirir. Paketlenmiş zararlı yazılım çalıştırdığımızda, kendilerini bellekte açarlar. Kendi paketini açtıktan sonra, tüm gizlenmiş stringleri artık görünür hale gelir. Bu stringleri tespit etmeye çalışacağız.</p>
+<p>Bu noktada yardımımıza yine process hacker koşuyor. process hacker ile başlatılan sürece tıklayıp bellek verilerini görüntüleyebiliriz.</p>
+<p><img src="/images/1_3m0V-UQ4Yb1nse2pzeteTA.png" alt=""></p>
+<p>Burada, birçok stringi görebiliyoruz.</p>
+<p>Bu stringlerde ne çıkarabiliriz? SMTP ve POP gibi çeşitli protokoller ve Filezilla ve Internet Explorer gibi çeşitli araçlarla birlikte Kullanıcı Adı ve Parolaya atıfta bulunan çok sayıda string bulunuyor. Bu, örneğin kullanıcıların kullandığı çeşitli araçlardan kimlik bilgilerini çalmaya çalışan infoStealers sınıfınfa bir zararlı yazılım olduğunu gösterir.</p>
+<p>Stringler içinde farklı görünen ama yine de bir anlamı olan garip isimler arayın (bunun için çok sabırlı olmanız gerekir). Tüm bu stringler arasında bir de YUIPWDFILE0YUIPKDFILE0YUICRYPTED0YUI1.0 stringi var ki bu string çok tuhaf görünüyor ama aynı zamanda CRYPTED ve FILE0 gibi kelimelerden oluşan bir yapıya sahip.</p>
+<p><img src="/images/1_el0yaQ8iSrmox-8IUb3CbQ.png" alt=""></p>
+<p>Google’da bu stringi aradığımızda, örneğimizle aynı aileye ait olan Pony Loader veya Fareit gibi diğer zararlı yazılım örnekleri için birçok analiz raporuna işaret eder.</p>
+<hr>
+<h3 id="debuging">
+  Debuging
+  <a class="heading-link" href="#debuging">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Örneği assembly kodıuna çevirip yürütmek, yaptığı çağrıları görmemiz açısından faydalı olabilir. OllyDbg bu noktada bize yardımcı olacak.</p>
+<p>Öncelikle OllyDbg üzerinde birkaç küçük ayar yapamız lazım option menüsüne geliyoruz.</p>
+<p><img src="/images/1_eri6ggOwF_WG8_bhqPcVqQ.png" alt=""></p>
+<p>Burada sol taraftan start bölümüne gelip Entry point of main module seçeneğini işaretliyoruz.</p>
+<p><img src="/images/1_mIJOmn4P3sGowZPeg3L87A.png" alt=""></p>
+<p>Ardından SFX bölümüne gelip kutucuklardaki tikleri kaldırıyoruz. Artık hazırız. OllyDbg ile zararlı yazılım dosyamızı açıyoruz. Açılması biraz sürebilir.</p>
+<p><img src="/images/1_Or7YLdKi5dvafIWnuo-wXw.png" alt=""></p>
+<p>Burada OllyDbg’ın ana ekranını görüyorsunuzç Görüntü gözünüzü biraz korkutabilir. Aslında bu kısım assembly bilginize bağlı.</p>
+<p><img src="/images/1_EqbuAGEZvZeUYzrb9FERwQ.png" alt=""></p>
+<p>OllyDbg üzerindeki hızlı erişim butonları şekildeki gibidir. OllyDbg ile yazılımı satır satır çalıştırabilir ve yaptığı işlemleri gözlemleyebilirsiniz.</p>
+<hr>
+<h3 id="davranış-olaylarıanalizi">
+  Davranış Olayları Analizi
+  <a class="heading-link" href="#davran%c4%b1%c5%9f-olaylar%c4%b1analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Örneğimizi analiz edip çalıştırdığımızda çeşitli olayları yakalayabilen çok önemli bir başka analiz aracı olan ProcMon’a değineceğiz. Yaptığımız analizi adım adım inceleyelim.</p>
+<ol>
+<li>Örneğiniz çalıştırdığınızda başlatılan süreç(ler) üzerinde bir gözünüz olması için Process Hacker’ı çalıştırın.</li>
+<li>ProcMon’u başlatın ve olayları yakalamayı durdurmak için Ctrl+E tuşlarına basın. Varsayılan olarak, ProcMon sistemdeki tüm olayları yakalar ve bazen çok fazla etkinliğiniz olur.</li>
+<li>Görüntülediği mevcut olayları temizleyebilmek için Ctrl+X tuşlarına basın.</li>
+<li>Olayları yakalamaya başlayabilmeniz için Ctrl+E tuşlarına basın.</li>
+<li>Process Hacker aracılığıyla çalıştığından veya en azından başka alt süreçler oluşturduğundan emin olarak Sample.exe’yi çalıştırın.</li>
+<li>Örneği bir süre çalıştırın ve ardından ProcMon’da Ctrl+E tuşlarına basın. Ancak çok uzun süre çalıştırmak istemezsiniz; aksi takdirde, analiz edilecek çok fazla olayla boğulursunuz.</li>
+</ol>
+<p>Olayları gözden geçirelim ve örnek sürecimizle doğrudan veya dolaylı olarak ilgili olaylardan herhangi bir kötü niyetli olay/gösterge fark edip edemeyeceğimize bakalım.</p>
+<p><img src="/images/1_ML1czN-nNauQcOxJ4Y4PAw.png" alt=""></p>
+<p>Tüm olaylar zararlı bir aktiviteyi gösteriyor.</p>
+<ol>
+<li>SCOHOST.EXE adında bir dosya oluşturmaya çalışıyor ki bu isim sistem programı olcan svchost.exe’ye çok yakın.</li>
+<li>sample.exe kendi içeriğini okuyor.</li>
+<li>SVOHOST.EXE’ye okudupu içeriği yazıyor. Yani kendini kopyalıyor.</li>
+</ol>
+<p>İçeriğini kopyalayıp bu yeni dosyaya yapıştırmak, yaygın olarak kullanılan bir zararlı yazılım tekniğidir, burada kötü amaçlı yazılım kendilerini sistemdeki başka bir klasördeki yeni bir dosyaya kopyalar ve bu yeni klasörde bulunan bu yeni dosyadan yeni bir işlem olarak çalışır.</p>
+<h4 id="autoruns">
+  Autoruns
+  <a class="heading-link" href="#autoruns">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Zararlı yazılım örneği bir RUN kalıcılık girişi oluşturduğundan, bu kalıcılık RUN girişinin hala var olup olmadığını AutoRuns aracıyla doğrulayalım.</p>
+<p><img src="/images/1_O8xKtlyx0K9aReVvbccSPw.png" alt=""></p>
+<p>Autoruns aracı ile oluşturulan kaydı görebilirsiniz.</p>
+<hr>
+<h3 id="kod-enjeksiyonu-tespiti">
+  Kod Enjeksiyonu Tespiti
+  <a class="heading-link" href="#kod-enjeksiyonu-tespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Kod enjeksiyonu çeşitli teknikler kullanılarak yakalanır. Yöntemlerden biri, belirli Win32 API’lerinin kullanımını algılar. Bu API’leri göz önünde bulundurarak ve APIMiner gibi bir araç kullanarak kod enjeksiyonunu kolayca tespit edebilirsiniz.</p>
+<h4 id="gmer">
+  GMER
+  <a class="heading-link" href="#gmer">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Zararlı yazılım örneğinin kod enjeksiyonu gerçekleştirdiğini anladığınızı varsayalım. Her kod enjeksiyon tekniği, zararlı yazılımın API hooking yapmayı planladığını veya rootkit işlevini kullanmaya çalıştığını göstermez. Ancak bu noktada kötü amaçlı yazılımın amaçlarından birinin API hooking veya rootkit olma olasılığı yüksek. Bu aşamada, GMER aracını kullanmak iyi bir adımdır.</p>
+<p><img src="/images/1_ailBIordEk9B2cmjVNPNVQ.png" alt=""></p>
+<p>GMER Taraması</p>
+<hr>
+<h3 id="memory-forensics-adlibilişim">
+  Memory Forensics (Adli Bilişim)
+  <a class="heading-link" href="#memory-forensics-adlibili%c5%9fim">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Zararlı yazılım yürütüldüğünde, belirli işlemler, dosyalar, log girdileri oluşturabilir, rootkit’ler yükleyebilir vb. Bu zararlı yazılım yapıları bazen kendisitarafından yok edilebilir, böylece bir analist bunları algılayamaz. Örneğin, zararlı bir işlem, meşru bir işleme kod enjekte edildikten sonra sona erebilir veya zararlı yazılım tarafından oluşturulan geçici bir dosya kullanıldıktan sonra silinir. Adli bilişim tekniklerini kullanarak, zararlı yazılım tarafından yok edilmiş olmasına rağmen bu tür bilgileri ve verileri geri alabilirsiniz, böylece zararlı etkinlikleri tespit edebilirsiniz.</p>
+<p>Memory Forensiğin 2 temel adımı vardır:</p>
+<ul>
+<li>Memory acquisition (bellek edinimi)</li>
+<li>Memory analysis (bellek analizi)</li>
+</ul>
+<h4 id="memory-acquisition">
+  Memory Acquisition
+  <a class="heading-link" href="#memory-acquisition">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Adli bilişim veri toplama ile başlar. Hafızaya bakmak istediğimiz için hafıza edinim araçlarını kullanmamız gerekiyor. Bellekten bir imaj (RAM dökümü) alabilen araçlardan bazıları şunlardır:</p>
+<ul>
+<li>FTK Imager</li>
+<li>RAM Capture</li>
+<li>Dump It</li>
+<li>Memoryze</li>
+</ul>
+<p>Bellek imajını almak için FTP Imager Lite’u kullanabiiriz. Bu araç son derece hafif ve kullanımı kolaydır.</p>
+<p><img src="/images/1_xpfdO7cMxtGKfdMhM179ug.png" alt=""></p>
+<p>Capture memory düğmesine tıklayarak bir hafıza dökümü oluşturabilirsiniz. Oluşturulan bellek dökümü dosyası, adli bellek araçları tarafından anlaşılabilecek özel bir dosya biçimine sahiptir.</p>
+<h4 id="memory-analysis">
+  Memory Analysis
+  <a class="heading-link" href="#memory-analysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Dökümlerimizi analiz etmek için, Volatility adlı iyi bilinen bir açık kaynaklı adli bellek aracını kullanabiliriz.</p>
+<p><img src="/images/1_NId-X0OTydEM4KekMvEpeQ.png" alt=""></p>
+<p>volality</p>
+<p>Volality bir komut satırı aracıdır ve aracın çıktısı çok büyükse çıktıyı komut isteminden görüntülemek sakıncalıdır. Bunun yerine komutun çıktısını bir metin dosyasına yönlendirebilirsiniz.</p>
+<p><img src="/images/1_1PBp2-WEY1sk0r6l7oehsw.png" alt=""></p>
+<p>Komuttan help.txt dosyasına yönlendirilen çıktı artık Notepad veya Notepad++ gibi bir metin düzenleyici kullanılarak görüntülenebilir.</p>
+<p><img src="/images/1_1VOuaZCymL2zzn8nWbVmsA.png" alt=""></p>
+<p>Ekran görüntüsü, araç tarafından sağlanan komutların listesini görüntüler. Volality çok kapsamlı bir araçtır. Bütün özelliklerini bu yazıda anlatmayacağım.</p>
+<p><img src="/images/1_52I5nvpzGb-GDJfZ6LamjQ.png" alt=""></p>
+<p>imaj bilgileri</p>
+<p>Bellek imajını analiz etmek için pek çok komut ve teknik vardır. Bunları araştırarak öğrenebilirsiniz.</p>
+<hr>
+<p>Bu yazımda dinamik analiz tekniklerine değindim. Zararlı yazılımı yürüterek nasıl analiz edebiliriz? hangi araçları kullanabiliriz bunlardan bahsettim. Yazıyı beğendiyseniz yorum yapabilirsiniz.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

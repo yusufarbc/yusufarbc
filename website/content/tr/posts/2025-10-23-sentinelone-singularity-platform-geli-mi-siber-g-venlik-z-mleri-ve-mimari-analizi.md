@@ -1,4 +1,5 @@
 ---
+series: ["SentinelOne"]
 title: "SentinelOne Singularity Platform: Gelişmiş Siber Güvenlik Çözümleri ve Mimari Analizi"
 date: 2025-10-23
 draft: false

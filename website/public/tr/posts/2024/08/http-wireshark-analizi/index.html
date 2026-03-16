@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  HTTP Wireshark Analizi · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  HTTP Wireshark Analizi
+  
+    
+    Başlık Linki
+  
+
+Merhaba bu yazımda HTTP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+
+
+  HTTP Nedir?
+  
+    
+    Başlık Linki
+  
+
+Hypertext Transfer Protocol (HTTP) “dağıtılmış hipermedya bilgi dağıtım uygulaması” olarak adlandırılır. HTTP, bir kişi internette gezinirken kullanılan uygulamadır. HTTP bir istek/cevap modeli kullanır.
+
+HTTP ve HTTPS TCP aktarımını kullanır
+HTTP v1.0, kullanımdaki mevcut sürüm olan HTTP v1.1 kadar sık kullanılmamaktadır. HTTP v1.1 RFC 2616, Hypertext Transfer Protocol — HTTP/1.1&rsquo;de ele alınmıştır.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="HTTP Wireshark Analizi">
+  <meta name="twitter:description" content="HTTP Wireshark AnaliziBaşlık LinkiMerhaba bu yazımda HTTP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+HTTP Nedir?Başlık LinkiHypertext Transfer Protocol (HTTP) “dağıtılmış hipermedya bilgi dağıtım uygulaması” olarak adlandırılır. HTTP, bir kişi internette gezinirken kullanılan uygulamadır. HTTP bir istek/cevap modeli kullanır.
+HTTP ve HTTPS TCP aktarımını kullanır
+HTTP v1.0, kullanımdaki mevcut sürüm olan HTTP v1.1 kadar sık kullanılmamaktadır. HTTP v1.1 RFC 2616, Hypertext Transfer Protocol — HTTP/1.1’de ele alınmıştır.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2024/08/http-wireshark-analizi/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="HTTP Wireshark Analizi">
+  <meta property="og:description" content="HTTP Wireshark AnaliziBaşlık LinkiMerhaba bu yazımda HTTP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+HTTP Nedir?Başlık LinkiHypertext Transfer Protocol (HTTP) “dağıtılmış hipermedya bilgi dağıtım uygulaması” olarak adlandırılır. HTTP, bir kişi internette gezinirken kullanılan uygulamadır. HTTP bir istek/cevap modeli kullanır.
+HTTP ve HTTPS TCP aktarımını kullanır
+HTTP v1.0, kullanımdaki mevcut sürüm olan HTTP v1.1 kadar sık kullanılmamaktadır. HTTP v1.1 RFC 2616, Hypertext Transfer Protocol — HTTP/1.1’de ele alınmıştır.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-08-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-08-04T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2024/08/http-wireshark-analizi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2024/08/http-wireshark-analysis/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2024/08/http-wireshark-analizi/">
+              HTTP Wireshark Analizi
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2024-08-04T00:00:00Z">
+                Ağustos 4, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              13 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="http-wireshark-analizi">
+  HTTP Wireshark Analizi
+  <a class="heading-link" href="#http-wireshark-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Merhaba bu yazımda HTTP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
+<hr>
+<h3 id="http-nedir">
+  HTTP Nedir?
+  <a class="heading-link" href="#http-nedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Hypertext Transfer Protocol (HTTP) “dağıtılmış hipermedya bilgi dağıtım uygulaması” olarak adlandırılır. HTTP, bir kişi internette gezinirken kullanılan uygulamadır. HTTP bir istek/cevap modeli kullanır.</p>
+<p><img src="/images/1_lpMM04aqUuEX3GMKaDsawQ.png" alt=""></p>
+<p>HTTP ve HTTPS TCP aktarımını kullanır</p>
+<p>HTTP v1.0, kullanımdaki mevcut sürüm olan HTTP v1.1 kadar sık kullanılmamaktadır. HTTP v1.1 RFC 2616, Hypertext Transfer Protocol — HTTP/1.1&rsquo;de ele alınmıştır.</p>
+<hr>
+<h3 id="http-trafikanalizi">
+  HTTP Trafik Analizi
+  <a class="heading-link" href="#http-trafikanalizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Normal HTTP iletişimleri istek/cevap iletişim tarzını kullanır. İstemciler HTTP sunucularından istekte bulunur ve sunucular Durum Kodları ile yanıt verir.</p>
+<p><img src="/images/1_OrN2W6uGR9b__wtBdJotrw.png" alt=""></p>
+<p>HTTP bir istek/yanıt kalıbı kullanır</p>
+<p>TCP bağlantısı başarıyla kurulduktan sonra, istemci “/” için bir HTTP GET isteği yapar. Sunucu 200 OK durum koduyla yanıt verir ve istemciye <a href="http://www.facebook.com"  class="external-link" target="_blank" rel="noopener">www.facebook.com</a> ana sayfasının içeriğini göndermeye başlar.</p>
+<p>http-facebook.pcapng’de görülen tüm HTTP Durum Kodları iyidir-hepsi 200 OK. HTTP Durum Kodu Registrysi <a href="http://www.iana.org/assignments/http-status-codes"  class="external-link" target="_blank" rel="noopener">www.iana.org/assignments/http-status-codes</a> adresinde tutulmaktadır. Aşağıda mevcut Durum Kodları listelenmiştir.</p>
+<h4 id="1xx-informational">
+  1xx Informational
+  <a class="heading-link" href="#1xx-informational">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>100 Continue [RFC2616]</li>
+<li>101 Switching Protocols [RFC2616]</li>
+<li>102 Processing [RFC2518]</li>
+</ul>
+<h4 id="2xx-success">
+  2xx Success
+  <a class="heading-link" href="#2xx-success">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>200 OK [RFC2616]</li>
+<li>201 Created [RFC2616]</li>
+<li>202 Accepted [RFC2616]</li>
+<li>203 Non-Authoritative Information [RFC2616]</li>
+<li>204 No Content [RFC2616]</li>
+<li>205 Reset Content [RFC2616]</li>
+<li>206 Partial Content [RFC2616]</li>
+<li>207 Multi-Status [RFC4918]</li>
+<li>208 Already Reported [RFC5842]</li>
+<li>226 IM Used [RFC3229]</li>
+</ul>
+<h4 id="3xx-redirection">
+  3xx Redirection
+  <a class="heading-link" href="#3xx-redirection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>300 Multiple Choices [RFC2616]</li>
+<li>301 Moved Permanently [RFC2616]</li>
+<li>302 Found [RFC2616]</li>
+<li>303 See Other [RFC2616]</li>
+<li>304 Not Modified [RFC2616]</li>
+<li>305 Use Proxy [RFC2616]</li>
+<li>306 Reserved [RFC2616]</li>
+<li>307 Temporary Redirect [RFC2616]</li>
+<li>308 Permanent Redirect [RFC-reschke-http-status-308–07]</li>
+</ul>
+<h4 id="4xx-clienterror">
+  4xx Client Error
+  <a class="heading-link" href="#4xx-clienterror">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>400 Bad Request [RFC2616]</li>
+<li>401 Unauthorized [RFC2616]</li>
+<li>402 Payment Required [RFC2616]</li>
+<li>403 Forbidden [RFC2616]</li>
+<li>404 Not Found [RFC2616]</li>
+<li>405 Method Not Allowed [RFC2616]</li>
+<li>406 Not Acceptable [RFC2616]</li>
+<li>407 Proxy Authentication Required [RFC2616]</li>
+<li>408 Request Timeout [RFC2616]</li>
+<li>409 Conflict [RFC2616]</li>
+<li>410 Gone [RFC2616]-</li>
+<li>411 Length Required [RFC2616]</li>
+<li>412 Precondition Failed [RFC2616]</li>
+<li>413 Request Entity Too Large [RFC2616]</li>
+<li>414 Request-URI Too Long [RFC2616]</li>
+<li>415 Unsupported Media Type [RFC2616]</li>
+<li>416 Requested Range Cannot be Satisfied [RFC2616]</li>
+<li>417 Expectation Failed [RFC2616]</li>
+<li>422 Unprocessable Entity [RFC4918]</li>
+<li>423 Locked [RFC4918]</li>
+<li>424 Failed Dependency [RFC4918]</li>
+<li>425 Reserved for WebDAV — see IANA list [RFC2817]</li>
+<li>426 Upgrade Required [RFC2817]</li>
+<li>428 Precondition Required [RFC6585]</li>
+<li>429 Too Many Requests [RFC6585]</li>
+<li>431 Request Header Fields Too Large [RFC6585]</li>
+</ul>
+<h4 id="5xx-servererror">
+  5xx Server Error
+  <a class="heading-link" href="#5xx-servererror">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li>500 Internal Server Error [RFC2616]</li>
+<li>501 Not Implemented [RFC2616]</li>
+<li>502 Bad Gateway [RFC2616]</li>
+<li>503 Service Unavailable [RFC2616]</li>
+<li>504 Gateway Timeout [RFC2616]</li>
+<li>505 HTTP Version Not Supported [RFC2616]</li>
+<li>506 Variant Also Negotiates (Experimental) [RFC2295]</li>
+<li>507 Insufficient Storage [RFC4918]</li>
+<li>508 Loop Detected [RFC5842]</li>
+<li>510 Not Extended [RFC2774]</li>
+<li>511 Network Authentication Required [RFC6585]</li>
+</ul>
+<p>Bir HTTP istemcisi yakın zamanda bir sayfayı ziyaret etmişse ve bu sayfa yerel olarak önbelleğe alınmışsa, istemci IfModified-Since parametresini gönderebilir ve önceki sayfanın indirildiği tarih ve saati sağlayabilir. Sunucu 304 Not Modified ile yanıt verirse, sunucu zaten önbelleğe alınmış olan sayfayı yeniden göndermeyecektir. Bu, HTTP performansını analiz ederken HTTP’nin anlaşılması gereken önemli bir parçasıdır.</p>
+<h4 id="http-istatistikleri">
+  HTTP İstatistikleri
+  <a class="heading-link" href="#http-istatistikleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Wireshark yük dağıtımı, paket sayaçları ve HTTP istekleri için HTTP istatistiklerini izler. İstatistik | HTTP öğesini seçin ve ilgilendiğiniz istatistik türünü seçin.</p>
+<p>İstatistiklere bir display filter uygulamak için bir seçenek sunulur. Örneğin, çok sayıda hosta yönelik web tarama oturumlarını içeren bir trace dosyanız varsa, yalnızca <a href="http://www.wireshark.org"  class="external-link" target="_blank" rel="noopener">www.wireshark.org</a> adresine yönelik web tarama oturumlarına ilişkin istatistikleri incelemek için “<em>http.host==</em><a href="http://www.wireshark.org"  class="external-link" target="_blank" rel="noopener"><em>www.wireshark.org</em></a><em>”</em> filtresini uygulayabilirsiniz.</p>
+<p><img src="/images/1_9wkbOuaZAyEIRxnP9eAtzQ.png" alt=""></p>
+<p>İstatistikler</p>
+<p>HTTP Load Distribution, HTTP isteklerini ve yanıtlarını sunucuya göre listeler. HTTP hostuna göre HTTP İstekleri bölümünün genişletilmesi, iletişim kurulan hostları ve her birine gönderilen istek paketlerinin sayısını listeler.</p>
+<p>HTTP Yük Dağılımı istatistiği, web sitesi yönlendirmelerini ve bağımlılıklarını belirlemek için mükemmel bir kaynaktır.</p>
+<p><img src="/images/1_nol9M0Y4tZhIQSfzlR0wgA.png" alt=""></p>
+<p>HTTP yük dağılımı</p>
+<p>Şekilde <a href="http://www.espn.com"  class="external-link" target="_blank" rel="noopener">www.espn.com</a> adresine göz attığımızda HTTP yönlendirmelerini ve bağımlılıklarını görüntülemekteyiz.</p>
+<p><img src="/images/1_KYKO1fj8c3rUSDlHeYenFw.png" alt=""></p>
+<p>HTTP Paket Sayıcı</p>
+<p>HTTP Paket Sayacı çok değerlidir çünkü Durum Kodunu listeler<br>
+yanıtları. 4xx İstemci Hatası veya 5xx Sunucu Hatası yanıtlarını tespit etmek basittir. Şekilde <a href="http://www.espn.com"  class="external-link" target="_blank" rel="noopener">www.espn.com</a> adresine yapılan başka bir tarama oturumu için HTTP Paket Sayacı gösterilmektedir (httpespn2007.<br>
+pcapng). Bazı HTTP 301 ve 302 yönlendirmelerini ve bir 404 Bulunamadı yanıtını görebiliriz.</p>
+<p><img src="/images/1_2YKXJLq89yAY7hD0U-wqzQ.png" alt=""></p>
+<p>HTTP İstekleri</p>
+<p>HTTP İstekleri, her bir HTTP sunucusundan talep edilen her bir öğeyi listeler. Şekilde, HTTP İsteklerini inceliyoruz Web browser oturumumuz sırasında <a href="http://www.espn.com"  class="external-link" target="_blank" rel="noopener">www.espn.com</a> adresine gönderilen istekler.</p>
+<hr>
+<h3 id="https-trafikanalizi">
+  HTTPS Trafik Analizi
+  <a class="heading-link" href="#https-trafikanalizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Web analiziniz muhtemelen HTTPS iletişimlerinin analizini de içerecektir. Güvenli bir HTTP görüşmesinin başlangıcında, standart bir TCP el sıkışmasının ardından güvenli bir el sıkışma işlemi gerçekleştirilir.</p>
+<p>RFC 2818, güvenli iletişim için Taşıma Katmanı Güvenliği (TLS) üzerinden HTTP kullanımını tanımlar. RFC 2246, SSL sürüm 3.0&rsquo;ı temel alan Taşıma Katmanı Güvenliği sürüm 1.0&rsquo;ı detaylandırmaktadır. TLS 1.0 ve SSL 3.0 arasında çok az fark olmasına rağmen, ikisi birlikte çalışabilir değildir</p>
+<p>HTTPS iletişimi, güvenli iletişim için kullanılacak portta TCP el sıkışması ile başlar. Örneğimizde, 443 numaralı standart HTTPS bağlantı noktasını kullanıyoruz. SSL/TLS trafiği için başka bir port kullanıyorsanız, bu portları SSL/TLS portları için HTTP tercihleri ayarına ekleyin. Port 443 varsayılan olarak tanımlanmıştır.</p>
+<p><img src="/images/1_XjCeq6WCg-sCh-bmywOeXg.png" alt=""></p>
+<p>FTP Nedir?TLS el sıkışmasını görüntülemek için ssl.record.content_type==22 görüntüleme filtresini kullanın</p>
+<p>HTTPS iletişimlerinde, TCP el sıkışmasından sonra bir TLS el sıkışması gerçekleşir. TLS el sıkışması, içerik türü değeri 22 olan bir dizi paketten oluşur. TLS el sıkışma paketlerini Şekilde gösterildiği gibi görüntülemek için <em>ssl.record.content_type==22</em> filtresini kullanın.</p>
+<p>TLS el sıkışması, eşlerin veri alışverişi için güvenlik parametreleri üzerinde anlaşmalarını ve kimliklerini doğrulamalarını sağlar. Ayrıca, el sıkışma işlemi sırasındaki hatalar TLS el sıkışma paketlerinde iletilir.</p>
+<p>Bu el sıkışma süreci aşağıdaki trafik türlerini içerir:</p>
+<ul>
+<li><strong>Session identifier</strong>: yeni veya devam eden bir oturumu tanımlar</li>
+<li><strong>Peer certificate</strong>: X509 sertifikası</li>
+<li><strong>Compression method</strong>: şifrelemeden önce veri için sıkıştırma yöntemi</li>
+<li><strong>Cipher spec</strong>: veri şifreleme algoritmasını tanımlar</li>
+<li><strong>Master secret</strong>: İstemci ve sunucu arasında paylaşılan 48 baytlık gizli bilgi</li>
+</ul>
+<p><img src="/images/1_nfOsRO6Q1iAWlV1OKsGsUw.png" alt=""></p>
+<p>İstemci desteklenen 34 şifre paketini listeler; sunucu hangisinin kullanılacağını seçecektir</p>
+<p>TLS el sıkışmasının ilk paketi olan Şekildeki Paket 4, el sıkışma protokolü alanında belirtildiği gibi bir İstemci Merhaba’dır. İstemci ayrıca TLS sürüm 1.0 kullandığını belirtir.</p>
+<p>Random bölümünde, bu paket UNIX formatında sağlanan istemcideki Evrensel Koordineli Saati (UTC) içerir. Oturum Kimliği alanı, bunun yeni bir oturum olduğunu gösteren 0 değerine ayarlanmıştır. Oturum Kimliği alanı sıfır olmayan bir değer içeriyorsa, bu yeniden başlatılan bir oturumdur.</p>
+<p>Bu paket ayrıca 28 rastgele bayt içerir. Bu rastgele bayt kümesi daha sonra el sıkışma sırasında tekrar gönderilecek, ancak daha sonra sunucunun açık anahtarı ile şifrelenecektir</p>
+<p>İstemci, tarayıcı tarafından desteklenen şifre takımlarının listesini sağlar. Bu durumda, istemci 34 şifre paketini destekler ve hepsini Şekilde gösterildiği gibi client hello paketinde listeler. Nihayetinde, hangi şifre paketinin kullanılacağına sunucu karar verecektir, ancak listelenen en üst şifre istemcinin tercihidir.</p>
+<p>Uzantılar TLS’ye işlevsellik katar. Uzantıların varlığı, İstemci Merhaba paketinin sonundaki Sıkıştırma Yöntemleri alanını takip eden baytlar olduğu için tespit edilir.</p>
+<p>Bir uzantı, bu durumda <a href="http://www.bankofamerica.com"  class="external-link" target="_blank" rel="noopener">www.bankofamerica.com</a> olan sunucu adını sağlar. Sunucu adı uzantısı, istemcinin tek bir IP adresinde çok sayıda sunucuyu destekleyen bir makinede barındırılabilecek bir sanal sunucuya güvenli bir bağlantı oluşturmasını sağlar.</p>
+<p><img src="/images/1_n8YUEDlR5Fog8x16NgsNSg.png" alt=""></p>
+<p>Paket 10</p>
+<ol start="10">
+<li>pakette Sunucu üç fonksiyondan oluşan bir paketle yanıt verir: <br>
+Server Hello, Certificate ve Server Hello Done.</li>
+</ol>
+<p>Random bölümünde, sunucu 28 rastgele bayt ve istemcinin daha sonra yeniden bağlanmasına izin vermek için 32 baytlık bir Oturum Kimliği değeri sağlar. Bu rastgele bayt kümesi daha sonra el sıkışma sırasında tekrar gönderilecek, ancak daha sonra istemcinin açık anahtarıyla şifrelenecektir. Bu rastgele baytlar anahtar üretimi için kullanılır.</p>
+<p>Sunulan 34 şifre paketi arasından sunucu TLS_RSA_with_RC4_128_MD5&rsquo;i (0x0004) seçmiştir, bu da şu anlama gelir:</p>
+<ul>
+<li>Sertifika imzalarını doğrulamak ve anahtarları değiştirmek için RSA açık anahtar algoritması kullanılacaktır.</li>
+<li>Değiş tokuş edilen verileri şifrelemek için RC4 şifreleme algoritması kullanılacaktır.</li>
+<li>128-bit MD5 hash fonksiyonu, değiş tokuş edilen mesajların içeriğini doğrulamak için kullanılacaktır.</li>
+</ul>
+<p>El sıkışma sürecinin bu ikinci paketi sunucudan gelen sertifikayı da içerir. Aynı paketin içinde, sunucunun Merhaba işlemini tamamladığını belirtmek için Server Hello Done ifadesi yer alır.</p>
+<p><img src="/images/1_L6vYPqYmakuATBNGQPSBnQ.png" alt=""></p>
+<p>Paket 12</p>
+<p>Şekilde gösterilen Paket 12, istemciden gelen bir sonraki pakettir. Bu paket, istemcinin hem istemci hem de sunucu rastgele değerlerinden bir premaster sırrı hesapladığını gösterir. Change Cipher Spe ataması, istemciden gelecek tüm mesajların tanımlanan anahtarlar ve algoritmalar kullanılarak şifreleneceğini gösterir.</p>
+<p><img src="/images/1_5-SH0IZAQCnHR0hROkZ1Uw.png" alt=""></p>
+<p>Paket 14</p>
+<ol start="14">
+<li>pakette, el sıkışma sürecinin şifrelenmemiş kısmı, sunucunun göndereceği tüm mesajların da şifreleneceğini belirtmesiyle sona erer.</li>
+</ol>
+<h4 id="https-trafiğni-decryptetme">
+  HTTPS Trafiğni Decrypt Etme
+  <a class="heading-link" href="#https-trafi%c4%9fni-decryptetme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Wireshark’ın HTTPS trafiğinin şifresini çözebilmesi için RSA anahtarına sahip olmamız ve Wireshark’ı bunu kullanacak şekilde yapılandırmamız gerekir.</p>
+<p>Bu verilerin şifresini çözmek için sunucu sertifikasının özel anahtarına(private-key) ihtiyacımız var. Özel anahtarı almak için sunucuya erişmeniz gerekir; özel anahtarı iletişimin istemci tarafından alamazsınız. Örneğimizde Bank of America’nın web sitesine bir göz atma oturumu kullanıldığından ve anahtarı elde etme imkanımız olmadığından, anahtarla birlikte sağlanan başka bir HTTPS trace dosyasına odaklanacağız.</p>
+<p>Kasım 2009&rsquo;da PhoneFactor’dan Steve Dispensa ve Marsh Ray, TLS yeniden müzakere sürecini çevreleyen güvenlik sorunlarına ilişkin 8 sayfalık bir genel bakış yazdı. Güvenlik sorunları son Microsoft IIS ve Apache HTTPD sürümlerine karşı gösterilmiştir. Özünde, tanımlanan yeniden müzakere saldırı yöntemi “güvenli” bağlantıya kötü amaçlı kod enjekte etmek için kullanılır.</p>
+<p>Aşağıdaki örnekte, PhoneFactor belgesine ek olarak sağlanan client_init_renego.pcap dosyası ile çalışıyoruz. Ayrıca, PhoneFactor ws01.mogul.test.key adında bir RSA anahtarı sağlamıştır.</p>
+<p><img src="/images/1_UGaIEdpGL4TRQ8etJgQN0g.png" alt=""></p>
+<p>Trafiğin şifresini çözmek için RSA anahtar dosyasının yolunu girin</p>
+<p>HTTPS trafiğinin şifresini çözmek için RSA anahtarını yerel Wireshark ana bilgisayarındaki bir \keys dizinine kopyaladık. Wireshark’ın anahtarı tanıması için SSL tercihlerini şifresini çözmek istediğimiz konuşmayı tanıyacak ve \keys dizinini işaret edecek şekilde yapılandırmalıyız. Wireshark’ın RSA anahtarları listesi ayarı, sunucunun IP adresini, şifrelenmiş iletişim için kullanılan bağlantı noktasını, şifrelenen uygulamanın adını ve anahtar adının yanı sıra anahtara giden yolu içerir.</p>
+<p>Şekilde bu dosyanın şifresini çözmek için kullanılan ayarlar gösterilmektedir. Protokol sütununun TCP, SSL veya TLSv1&rsquo;i gösterdiğine dikkat edin. Henüz şifresi çözülmüş trafiği göremiyoruz.</p>
+<p><img src="/images/1_MP7YsmkIUYyh5XdMFlEUTw.png" alt=""></p>
+<p>Anahtar yapılandırıldıktan ve uygulandıktan sonra, HTTP iletişimini net bir şekilde görebiliriz</p>
+<p>Şekil, anahtarın uygulanmasının sonuçlarını gösterir. Protokol sütununda hala TCP ve TLSv1&rsquo;i görüyoruz ancak şifresi çözülen trafik için HTTP’nin de listelendiğini görüyoruz. Buna ek olarak, artık Paket Listesi bölmesinde listelenen bir HTTP paketine sağ tıklayabilir ve iletişimi net bir şekilde görmek için <em>Follow SSL Stream</em>’i seçebiliriz</p>
+<p>TLS trafiğinin şifresini çözdüğünüzde (tıpkı WLAN trafiğinin şifresini çözdüğünüzde olduğu gibi), Şekilde gösterildiği gibi Paket Baytları bölmesinin hemen altında bir sekme görünür. Şifresi çözülmüş trafiği Paket Baytları bölmesinde görüntülemek için <em>Decrypted SSL data</em> sekmesine tıklayın. Bu sekme yalnızca (a) trafiğin şifresini çözdüğünüzde ve (b) Paket Baytları bölmesini görünür hale getirdiğinizde görünecektir.</p>
+<hr>
+<h3 id="http-hatalarıanalizi">
+  HTTP Hataları Analizi
+  <a class="heading-link" href="#http-hatalar%c4%b1analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>HTTP iletişim sorunları, site adı çözümlemesindeki sorunlar, TCP bağlantı sürecindeki sorunlar, var olmayan sayfalar veya öğeler için HTTP istekleri, paket kaybı ve HTTP sunucusu veya istemcisindeki tıkanıklık nedeniyle ortaya çıkabilir.</p>
+<p>Herkes bir zamanlar yanlış web sitesi adresi yazmıştır. Site adı çözümlenemiyorsa, siteye erişemezsiniz. Bu bir DNS Adı Hatası oluşturur. Web tarama sorunlarını analiz ederken DNS trafiğine dikkat etmek önemlidir.</p>
+<p>Ayrıca, HTTP arka plan programı(backend) web sunucusunda çalışmadığında HTTP bağlantı sorunları ortaya çıkabilir. HTTP arka plan programı sunucuda çalışmadığında, sunucu istemcinin SYN’sine bir TCP RST/ACK ile yanıt verir. Bağlantı kurulamaz.</p>
+<p><img src="/images/1_eAvT4-k9dlHwViEHYgBIxA.png" alt=""></p>
+<p>Ayrıca, HTTP Birden fazla başarısız HTTP bağlantı denemesi Wiresharkdaemon’da bir şerit deseni oluşturduğunda web sunucusunda HTTP bağlantı sorunları oluşabilir.</p>
+<p>Şekilde gösterildiği gibi bir port tarama işlemi sırasında SYN — RST/ACK kalıbı görüldüğünden bu durum dikkatle izlenmelidir.</p>
+<p>HTTP istemcisi HTTP sunucusuna başarıyla bağlanır, ancak daha sonra var olmayan bir sayfa isterse, web sunucusu tarafından HTTP 404 Not Found hataları oluşturulur.</p>
+<p>Bazı yeniden yönlendirme hizmetleri standart 404 Not Found mesajını önerilen bağlantılarla değiştirir veya HTTP istemcisini tamamen başka bir siteye yönlendirir. HTTP istemci ve sunucu hataları için http.response.code &gt;= 400 kullanarak bir renklendirme kuralı oluşturun.</p>
+<p><img src="/images/1_Gy6gBNz0W8u_QdGzPmZ-OQ.png" alt=""></p>
+<p>frys.com sunucusu bir iç sunucu hatası ile yanıt veriyor</p>
+<p>Şekilde, <a href="http://www.frys.com"  class="external-link" target="_blank" rel="noopener">www.frys.com</a> web sitesinde satılık dizüstü bilgisayarların bir listesini açarken yaşanan bir sorunu göstermektedir. Sitenin IP adresini çözebildik ve sayfa mevcut. TCP akışını takip ederek sunucunun sayfa başlığıyla yanıt verdiğini görebiliriz. Ancak dizüstü bilgisayar öğeleri sayfada görüntülenmiyor; sayfa boş.</p>
+<p>trace dosyasına baktığımızda <a href="http://www.frys.com"  class="external-link" target="_blank" rel="noopener">www.frys.com</a> web sunucusunun bir dahili sunucu hatası bildirdiğini görebiliriz. Bu, müşterinin sisteminde veya ağında bir sorun değildir. Bu sorun büyük olasılıkla Fry’ın web hizmetleri altyapısındaki bir veritabanı sorunundan kaynaklanmaktadır.</p>
+<p>http-fault-post.pcapng dosyasını açın ve Time sütununu Seconds Since Previous Displayed Packet olarak ayarlayın. Paket 29&rsquo;dan önce büyük bir gecikme olduğuna dikkat edin. Burada dikkatli olun. 29. pakette FIN biti ayarlanmıştır. Bu, istemcinin sunucuya bilgi göndermeyi bitirdiğini gösterir. Bu paketler (ve Reset biti ayarlı paketler) kullanıcı gerekli verileri almayı bitirdikten çok sonra tetiklenebilir. Kullanıcı bu gecikmeyi fark etmez, bu nedenle FIN (veya Reset) biti ile işaretlenmiş paketlerden önceki gecikmeleri gidermek için zamanınızı harcamayın.</p>
+<p><img src="/images/1_5T1I_7MbqgFJ_G0DjnkpMA.png" alt=""></p>
+<p>İstemcinin POST’u başarısızdır ve bir web sunucusu sorununa işaret eder</p>
+<p>Şekilde çevrimiçi bir form doldurmaya çalışıyoruz (http-fault-post.pcapng). Ancak Gönder düğmesine tıklandığında, istemci sistemi kilitleniyor gibi görünüyor. Bu durumda HTTP trafiğine bakabilir ve sunucudan gelen 403 Yasak durum kodunu gözlemleyebiliriz. TCP akışını takip ettiğimizde, durum hakkında daha fazla bilgi içeren açık metin ve HTML etiketleri görürüz (HTML etiketlerini kaldırdık):</p>
+<p>“Sayfa görüntülenemiyor — programların yürütülmesine izin vermeyen bir dizinden bir CGI, ISAPI veya başka bir yürütülebilir program yürütmeye çalıştınız.”</p>
+<p>Yine, sorun bir istemci sorunu gibi görünmüyor ve TCP aktarım hatalarını bir sorun olarak görmüyoruz. Sorun sunucuda.<br>
+Web’de gezinme sorunlarını giderirken, HTTP trafiğine odaklanmadan önce TCP hatalarını arayın.</p>
+<hr>
+<h3 id="http-paketyapısı">
+  <strong>HTTP Paket Yapısı</strong>
+  <a class="heading-link" href="#http-paketyap%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>HTTP paketleri değişken uzunluktadır. Bu bölümde HTTP paket yapısındaki bazı önemli alanları listeliyoruz. HTTP istekleri, HTTP isteğinin amacını tanımlayan bir Yöntemden oluşur. HTTP yanıtları, Durum Kodu olarak adlandırılan sayısal bir yanıt kodu içerir.</p>
+<p><img src="/images/1_AU90ZRoS-ZXyas8DmkoIaQ.png" alt=""></p>
+<p>Facebook ana sayfası için bir HTTP GET istek paketi</p>
+<p>Şekilde, ana Facebook sayfası için bir GET isteğini göstermektedir. GET isteği, hedef ana bilgisayarın adını, bu GET isteğini gönderen tarayıcı hakkında ayrıntıları ve tarayıcının hangi veri türlerini ve biçimini kabul edeceği hakkında bilgileri içerir.</p>
+<h4 id="http-metotları">
+  <strong>HTTP Metotları</strong>
+  <a class="heading-link" href="#http-metotlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>HTTP metotları olarak da adlandırılan Yöntemler, HTTP paketinin amacını tanımlar.</p>
+<ul>
+<li>GET: URI (Tekdüzen Kaynak Göstergesi) alanı tarafından tanımlanan bilgileri alır</li>
+<li>HEAD: İstenen URI ile ilgili meta verileri alır</li>
+<li>POST: HTTP sunucusuna veri gönderir</li>
+<li>OPTIONS: Bir kaynakla ilişkili seçenekleri belirler</li>
+<li>PUT: HTTP sunucusuna veri gönderir</li>
+<li>DELETE: URI tarafından tanımlanan kaynağı siler</li>
+<li>TRACE: İstemcinin sunucunun istemciden ne aldığını görebilmesi için bir uzak geri döngü çağırır; bu nadiren görülür çünkü birçok şirket Siteler Arası İzleme güvenlik açığına karşı koruma sağlamak için bunu devre dışı bırakır</li>
+<li>CONNECT: Bir proxy cihazına bağlanır.</li>
+</ul>
+<h4 id="host">
+  Host
+  <a class="heading-link" href="#host">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Host alanı tüm HTTP/1.1 istek mesajlarında gereklidir. Host alanı, talep edilen kaynağın hedef internet ana bilgisayarını ve port numarasını tanımlar. Önceki örneğimizde, ana bilgisayar <a href="http://www.facebook.com%27dur"  class="external-link" target="_blank" rel="noopener">www.facebook.com&rsquo;dur</a>. Herhangi bir bağlantı noktası numarası belirtilmezse, hizmet için varsayılan bağlantı noktası (örneğin, HTTP için 80 numaralı bağlantı noktası) kullanılır.</p>
+<h4 id="request-modifiers">
+  Request Modifiers
+  <a class="heading-link" href="#request-modifiers">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>HTTP istekleri ve yanıtları, istekle ilgili ayrıntıları sağlamak için istek değiştiricileri kullanır. Aşağıda daha yaygın olarak kullanılan istek değiştiricileri listelenmiştir:</p>
+<ul>
+<li><strong>Accept</strong>: Kabul edilebilir içerik türleri</li>
+<li><strong>Accept-Charset</strong>: Kabul edilebilir karakter setleri</li>
+<li><strong>Accept-Encoding</strong>: Kabul edilebilir kodlamalar</li>
+<li><strong>Accept-Language</strong>: Kabul edilebilir diller</li>
+<li><strong>Accept-Ranges</strong>: Sunucu aralık isteklerini kabul edebilir</li>
+<li><strong>Authorization</strong>: HTTP kimlik doğrulaması için kimlik doğrulama bilgileri</li>
+<li><strong>Cache-Control</strong>: Önbelleğe alma yönergeleri</li>
+<li><strong>Connection</strong>: Kullanıcı aracısı tarafından tercih edilen bağlantı türü</li>
+<li><strong>Cookie</strong>: HTTP cookie</li>
+<li><strong>Content-Length</strong>: Length of the request body (bytes)</li>
+<li><strong>Content-Type</strong>: Gövdenin Mime türü (POST ve PUT istekleri ile kullanılır)</li>
+<li><strong>Date</strong>: Mesajın gönderildiği tarih ve saat</li>
+<li><strong>Expect</strong>: İstemci tarafından beklenen sunucu davranışını tanımlar</li>
+<li><strong>If-Match</strong>: İstemci tarafından sağlanan bilgiler eşleşirse eylem gerçekleştirin</li>
+<li><strong>IfModified-Since</strong>: Önbelleğe alınan verilerin tarih/saatini sağlayın; güncelse 304 Değiştirilmedi</li>
+<li><strong>If-Range</strong>: Eksik bilgi aralığı için talep</li>
+<li><strong>If-Unmodified-Since</strong>: Yalnızca belirli tarih/saatten beri değiştirilmemişse gönderin</li>
+<li><strong>Max-Forwards</strong>: Proxy’ler veya ağ geçitleri üzerinden iletim sayısını sınırlayın</li>
+<li><strong>Proxy-Authorization</strong>: Proxy bağlantısı için yetkilendirme kimlik bilgileri</li>
+<li><strong>Range</strong>: Bir varlığın yalnızca bir kısmını talep edin</li>
+<li><strong>Referer</strong>: Mevcut web sitesine bağlantı veren önceki web sitesinin adresi</li>
+<li><strong>TE</strong>: Aktarım kodlamaları kabul edildi</li>
+<li><strong>UserAgent</strong>: Kullanıcı aracısı — tipik olarak tarayıcı ve işletim sistemi</li>
+<li><strong>Via</strong>: Geçilen vekiller</li>
+</ul>
+<hr>
+<h3 id="httphttps-trafiğinin-filtrelenmesi">
+  HTTP/HTTPS Trafiğinin Filtrelenmesi
+  <a class="heading-link" href="#httphttps-trafi%c4%9finin-filtrelenmesi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>HTTP veya HTTPS trafiği için filtreleme sözdizimi <em>tcp port http</em> veya <em>tcp port https</em>’dir.</p>
+<ul>
+<li>http.request.method==”GET” or http.request.method==”POST” — HTTP GET veya POST istekleri</li>
+<li>http.response.code &gt; 399 — HTTP 4xx veya 5xx (istemci veya sunucu hataları)</li>
+<li>http contains “IfModified-Since” — Bir istemcinin bir sayfayı zaten önbelleğe alıp almadığını belirleme.</li>
+<li>http.host==”www.wireshark.org&quot; — Hedef host <a href="http://www.wireshark.org"  class="external-link" target="_blank" rel="noopener">www.wireshark.org</a></li>
+<li>http.user_agent contains “Firefox” — HTTP istemcisi Firefox tarayıcısını kullanıyor.</li>
+<li>http.referer contains “wireshark.org” — HTTP istemcisi wireshark.org’daki bir bağlantıdan geçerli konuma ulaştı</li>
+<li>tcp.port==443 — SSL-Secure Socket Layer (güvenli oturum)</li>
+<li>ssl.record.content_type==22 — TLSv1 el sıkışması</li>
+<li>ssl.handshake.type==1 — El sıkışmada TLSv1 Client Hello</li>
+<li>ssl.handshake.type==16 — TLSv1 Client Key exchange</li>
+<li>ssl.record.content_type==20 — TLSv1 Change Cipher Spec</li>
+<li>http.content_type contains “ocsp” — Çevrimiçi Sertifika Durum Protokolü (OCSP) kullanılır</li>
+</ul>
+<hr>
+<h3 id="http-objelerini-dışaaktarma">
+  HTTP Objelerini Dışa Aktarma
+  <a class="heading-link" href="#http-objelerini-d%c4%b1%c5%9faaktarma">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>HTTP kullanırken indirilen nesneleri kaydetmek için Dosya | Nesneleri Export| HTTP öğesini seçin. HTTP nesnelerini dışa aktardığınızda, orijinal nesne adı korunur.</p>
+<p><img src="/images/1_MQa1Gu3-dpFdafp7wg2lQA.png" alt=""></p>
+<p>Bir siteden indirilen nesneleri dışa aktarabiliriz</p>
+<p>Bu menü üzerinden objeleri bilgisayarmıza kaydetebiliriz.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

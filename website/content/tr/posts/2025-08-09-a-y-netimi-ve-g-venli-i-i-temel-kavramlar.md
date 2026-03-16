@@ -1,4 +1,5 @@
 ---
+series: ["Ağ Güvenliği ve Yönetimi"]
 title: "Ağ Yönetimi ve Güvenliği I: Temel Kavramlar"
 date: 2025-08-09
 draft: false

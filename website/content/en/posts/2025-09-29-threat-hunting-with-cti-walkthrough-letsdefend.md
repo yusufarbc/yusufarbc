@@ -1,4 +1,5 @@
 ---
+series: ["Threat Hunting"]
 title: "Threat Hunting with CTI Walkthrough — LetsDefend"
 date: 2025-09-29
 draft: false

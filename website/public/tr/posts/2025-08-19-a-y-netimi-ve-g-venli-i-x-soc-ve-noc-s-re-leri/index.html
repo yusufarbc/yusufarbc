@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Ağ Yönetimi ve Güvenliği X: SOC ve NOC Süreçleri · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Ağ Yönetimi ve Güvenliği X: SOC ve NOC Süreçleri
+  
+    
+    Başlık Linki
+  
+
+
+SOC (Security Operations Center — Güvenlik Operasyon Merkezi) ve NOC (Network Operations Center — Ağ Operasyon Merkezi) birbirini tamamlayan ancak farklı odaklara sahip iki merkezi yapıdır. NOC, bir kuruluşun ağ altyapısını, sistem performansını ve hizmet sürekliliğini 7/24 izler ve kesinti süresini minimuma indirmeyi hedefler Temel işlevleri arasında ağ/sunucu izleme, arıza kaydı oluşturma, bakım ve güncelleme yönetimi yer alır. SOC ise bilgi teknolojisi altyapısını dış/ iç tehditlere, kötü amaçlı yazılımlara ve güvenlik ihlallerine karşı koruyan merkezdir. SOC ekipleri, güvenlik olaylarını önceden tespit etmek, analiz etmek ve olası bir saldırıya anında müdahale etmek için 7/24 çalışır.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Ağ Yönetimi ve Güvenliği X: SOC ve NOC Süreçleri">
+  <meta name="twitter:description" content="Ağ Yönetimi ve Güvenliği X: SOC ve NOC SüreçleriBaşlık LinkiSOC (Security Operations Center — Güvenlik Operasyon Merkezi) ve NOC (Network Operations Center — Ağ Operasyon Merkezi) birbirini tamamlayan ancak farklı odaklara sahip iki merkezi yapıdır. NOC, bir kuruluşun ağ altyapısını, sistem performansını ve hizmet sürekliliğini 7/24 izler ve kesinti süresini minimuma indirmeyi hedefler Temel işlevleri arasında ağ/sunucu izleme, arıza kaydı oluşturma, bakım ve güncelleme yönetimi yer alır. SOC ise bilgi teknolojisi altyapısını dış/ iç tehditlere, kötü amaçlı yazılımlara ve güvenlik ihlallerine karşı koruyan merkezdir. SOC ekipleri, güvenlik olaylarını önceden tespit etmek, analiz etmek ve olası bir saldırıya anında müdahale etmek için 7/24 çalışır.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2025-08-19-a-y-netimi-ve-g-venli-i-x-soc-ve-noc-s-re-leri/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Ağ Yönetimi ve Güvenliği X: SOC ve NOC Süreçleri">
+  <meta property="og:description" content="Ağ Yönetimi ve Güvenliği X: SOC ve NOC SüreçleriBaşlık LinkiSOC (Security Operations Center — Güvenlik Operasyon Merkezi) ve NOC (Network Operations Center — Ağ Operasyon Merkezi) birbirini tamamlayan ancak farklı odaklara sahip iki merkezi yapıdır. NOC, bir kuruluşun ağ altyapısını, sistem performansını ve hizmet sürekliliğini 7/24 izler ve kesinti süresini minimuma indirmeyi hedefler Temel işlevleri arasında ağ/sunucu izleme, arıza kaydı oluşturma, bakım ve güncelleme yönetimi yer alır. SOC ise bilgi teknolojisi altyapısını dış/ iç tehditlere, kötü amaçlı yazılımlara ve güvenlik ihlallerine karşı koruyan merkezdir. SOC ekipleri, güvenlik olaylarını önceden tespit etmek, analiz etmek ve olası bir saldırıya anında müdahale etmek için 7/24 çalışır.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-19T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-19T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2025-08-19-a-y-netimi-ve-g-venli-i-x-soc-ve-noc-s-re-leri/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2025-08-19-a-y-netimi-ve-g-venli-i-x-soc-ve-noc-s-re-leri/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2025-08-19-a-y-netimi-ve-g-venli-i-x-soc-ve-noc-s-re-leri/">
+              Ağ Yönetimi ve Güvenliği X: SOC ve NOC Süreçleri
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-08-19T00:00:00Z">
+                Ağustos 19, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              16 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="ağ-yönetimi-ve-güvenliği-x-soc-ve-noc-süreçleri">
+  Ağ Yönetimi ve Güvenliği X: SOC ve NOC Süreçleri
+  <a class="heading-link" href="#a%c4%9f-y%c3%b6netimi-ve-g%c3%bcvenli%c4%9fi-x-soc-ve-noc-s%c3%bcre%c3%a7leri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_S7cMHBrZlktBq6LvzR_AYQ.png" alt=""></p>
+<p>SOC (Security Operations Center — Güvenlik Operasyon Merkezi) ve NOC (Network Operations Center — Ağ Operasyon Merkezi) birbirini tamamlayan ancak farklı odaklara sahip iki merkezi yapıdır. NOC, bir kuruluşun ağ altyapısını, sistem performansını ve hizmet sürekliliğini 7/24 izler ve kesinti süresini minimuma indirmeyi hedefler Temel işlevleri arasında ağ/sunucu izleme, arıza kaydı oluşturma, bakım ve güncelleme yönetimi yer alır. SOC ise bilgi teknolojisi altyapısını dış/ iç tehditlere, kötü amaçlı yazılımlara ve güvenlik ihlallerine karşı koruyan merkezdir. SOC ekipleri, güvenlik olaylarını önceden tespit etmek, analiz etmek ve olası bir saldırıya anında müdahale etmek için 7/24 çalışır.</p>
+<hr>
+<h3 id="soc-ve-noc-tanımı-ve-temelfarklar">
+  SOC ve NOC Tanımı ve Temel Farklar
+  <a class="heading-link" href="#soc-ve-noc-tan%c4%b1m%c4%b1-ve-temelfarklar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_wT8UMU4_ZcVdPNLwUlYoYg.png" alt=""></p>
+<p>SOC vs NOC</p>
+<p>Özetle, NOC ağın “canlı” kalmasını sağlarken SOC bu hizmetin güvenli kalmasını garanti eder. NOC performans/kullanılabilirlik odaklıdır; SOC ise güvenlik odaklıdır. İki merkez ayrı yapılsa da modern uygulamalarda entegrasyon ve koordinasyon önem kazanmıştır.</p>
+<h3 id="organizasyonel-yapı-ve-teknikişleyiş">
+  Organizasyonel Yapı ve Teknik İşleyiş
+  <a class="heading-link" href="#organizasyonel-yap%c4%b1-ve-tekniki%c5%9fleyi%c5%9f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Hem SOC hem NOC genellikle <strong>7/24 vardiya düzeni</strong> ile çalışır ve çok katmanlı bir uzmanlık yapısında organize edilir. NOC ekipleri ağ ve sistem yönetimi uzmanlarından oluşur; birinci seviye (L1) NOC mühendisleri temel ağ/sistem izleme ve basit müdahaleleri yapar, ikinci seviye (L2) karmaşık problemleri analiz edip çözer, üçüncü seviye (L3) ise altyapı tasarımı, optimizasyon ve stratejik yeniliklerle ilgilenir. Benzer şekilde SOC ekipleri de L1/L2/L3 analist kademelerine ayrılır: L1 analistler gelen güvenlik alarmlarını izler ve basit tehditleri triage eder, L2 analistler derinlemesine tehdit analizi ve olay müdahalesi yapar, L3 analistler ise gelişmiş saldırıları (örneğin APT’ler) avlar ve SOC süreçlerini geliştirir. SOC seviyesine, çoğu organizasyonda bir “SOC Yöneticisi” veya “Müdürü” eklenir; bu kişi ekibi yönetir, raporlama ve uyum süreçlerini denetler. NOC tarafında da NOC Müdürü veya Network Yöneticisi benzeri roller organizasyonu yönetir.</p>
+<p>Teknik açıdan, <strong>NOC</strong> ağ cihazları (switch/router), sunucular, veri yolları ve performans metriklerini izler. Ağ izleme platformları (ör. SolarWinds, Nagios, Zabbix vb.) ve SNMP tabanlı araçlarla sürekli veri toplar ve arıza/baseline sapmalarını tespit eder Ayrıca NOC personeli müşteri yardım masası (ticketing/help desk) sistemleriyle entegre çalışarak sorunlara bilet açar veya günceller. <strong>SOC</strong> ise tüm kurum içi/ dışı log kaynaklarını (sunucu, uç nokta, güvenlik duvarı, uygulama logları vs.) SIEM gibi platformlarda toplar ve sürekli analiz eder. SOC altyapısında IDS/IPS sistemleri, EDR ajanları, DLP ve tehdit istihbarat servisleri gibi güvenlik araçları bulunur. NOC ve SOC iç ekiplerinin yanı sıra her iki hizmet de dış kaynak (MSP/MSSP) olarak sağlanabilir; ihtiyaç duyulursa <strong>entegre bir ekip</strong> veya <strong>aynı ekibe</strong> bağlı olarak da yönetilebilir. Her durumda NOC ve SOC ekipleri üretilen log ve alarm verilerini toplamak, analiz etmek ve doğru bir şekilde aksiyon almakla yükümlüdür.</p>
+<h3 id="iş-akışları-izleme-analiz-müdahale-süreçleri">
+  İş Akışları: İzleme, Analiz, Müdahale Süreçleri
+  <a class="heading-link" href="#i%c5%9f-ak%c4%b1%c5%9flar%c4%b1-izleme-analiz-m%c3%bcdahale-s%c3%bcre%c3%a7leri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Sürekli İzleme:</strong> NOC, ağ trafiği, cihaz durumu ve performans metriklerini (throughput, bağlantı gecikmesi, CPU yükü vb.) 7/24 izler. SOC ise ağ ve sistem loglarını (güvenlik duvarı, sunucu, uç nokta logları) SIEM/IDS/IPS araçlarıyla takip eder. Her iki merkezde de otomasyon ve alarm kurallarıyla olaylar (örn. olağandışı trafik, başarısız oturum denemeleri) tespit edilir.</li>
+<li><strong>Olay Tespiti ve Kayıt:</strong> İzleme sonucunda oluşan alarmlar NOC’ta genellikle sistem arızası, bağlantı kesintisi veya kapasite aşımları olarak görülür; SOC’ta ise kötü amaçlı yazılım, yetkisiz erişim veya veri sızıntısı gibi güvenlik ihlalleri tetikleyicidir. Tespit edilen her olay için anında bilet açılır ve ilgili seviyeye yönlendirilir (L1 NOC/SOC analisti veya daha üst birime). SLA yönetimi NOC’un temel önceliğidir; yaşanan her kesinti için arızanın en kısa sürede giderilmesi amaçlanır.</li>
+<li><strong>Olay Analizi:</strong> Olay kaydeden ilk seviye (NOC L1 veya SOC L1) koşulları inceledikten sonra gerekirse L2 seviyesine aktarır. NOC L2 mühendisleri kök neden analizine odaklanır, yapılandırma hataları ve performans sorunlarını giderir. SOC L2 analistleri ise detaylı log ve tehdit analizi yaparak saldırının kaynağını belirler, saldırganın kullandığı teknikleri inceler. Örneğin bir brute-force tespitinde IDS/SIEM koordinasyonu, bir fidye yazılımı olayında ise etkilenen makinelerin ağdan izole edilmesi L2/L3 müdahaleye örnektir.</li>
+<li><strong>Müdahale ve Kurtarma:</strong> NOC, sorunun cinsine göre donanım değişimi, konfigürasyon düzeltmesi veya yamayla müdahale eder ve hizmeti tekrar erişilebilir hale getirir. SOC ise saldırıyı durdurmak için etkilenen sistemleri izole eder, zararlı yazılımı temizler ve gerekli güncellemeleri (patch) uygular. Her iki merkez de müdahale sonuçlarını detaylı şekilde raporlar. NOC’ta ağ performans raporları hazırlanırken, SOC’ta olay sonrası adli analizler yapılır ve yönetim/uyum birimlerine kapsamlı raporlar sunulur.</li>
+<li><strong>Geri Bildirim ve İyileştirme:</strong> Müdahaleden sonra SOC ekibi saldırı yöntemlerini değerlendirerek güvenlik politikalarını günceller, personel farkındalığı eğitimi düzenler. NOC tarafında ise ağ altyapısı yeniden yapılandırılır, yedekleme prosedürleri gözden geçirilir. Bu kapalı döngü sayesinde sonraki olaylar daha hızlı tespit edilip çözülür.</li>
+</ul>
+<p>SOC ve NOC süreçleri birbiriyle iç içe çalışır; örneğin bir DDoS saldırısı hem ağ performansını bozup NOC ekiplerini hem de güvenlik kaygısını yükseltip SOC ekiplerini meşgul. Bu nedenle her iki merkez arasında veri paylaşımı ve koordinasyon hayati önem taşır.</p>
+<h3 id="kullanılan-araçlar-ve-teknolojiler">
+  Kullanılan Araçlar ve Teknolojiler
+  <a class="heading-link" href="#kullan%c4%b1lan-ara%c3%a7lar-ve-teknolojiler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>NOC ve SOC ekipleri, izleme ve müdahaleyi sağlayan çok çeşitli yazılım ve donanım araçlarından faydalanır:</p>
+<ul>
+<li><strong>SIEM (Güvenlik Bilgisi ve Olay Yönetimi):</strong> Tüm logları toplayıp korelasyon yapar. Splunk, IBM QRadar, ArcSight gibi SIEM çözümleri SOC’da anormallikleri tespit etmek için kullanılır. Örneğin Splunk, SOC analistlerinin sıkça tercih ettiği bir platformdur.</li>
+<li><strong>IDS/IPS (İzinsiz Giriş Tespit/Önleme Sistemleri):</strong> Ağ trafiğindeki şüpheli aktiviteleri algılar. Snort ve Suricata yaygın tercih edilen IDS/IPS yazılımlarındandır. SOC analistleri bu araçlarla gerçek zamanlı tehditleri yakalar.</li>
+<li><strong>Firewall ve Ağ Güvenliği:</strong> Palo Alto, Fortinet, Cisco ASA gibi güvenlik duvarları ağ trafiğini kontrol eder ve SOC tarafından yönetilir. Bu araçlar, SOC analistlerinin erişim politikalarını uygulamasını sağlar.</li>
+<li><strong>Ağ İzleme ve Performans Araçları:</strong> SolarWinds, Nagios, Zabbix gibi araçlar NOC tarafından kullanılır; SNMP tabanlı izleme sayesinde ağ cihazlarının durumu 7/24 takip edilir. NetFlow analiz araçları, trafik trendlerini görüntüler.</li>
+<li><strong>Ticketing / Olay Yönetimi Sistemleri:</strong> JIRA, ServiceNow gibi bilet takip sistemleri NOC ve SOC süreçlerinde kritik rol oynar. Oluşan her alarm/bilet burada kaydedilir ve müdahale süreci takip edilir. Bu sayede hem operasyonel şeffaflık sağlanır hem müdahale geçmişi belgelenir.</li>
+<li><strong>Endpoint ve Kurumsal Güvenlik Araçları:</strong> SOC, kurumdaki sunucu ve iş istasyonlarına EDR (Endpoint Detection and Response — uç nokta algılama) ajanları kurar. CrowdStrike, CarbonBlack vb. EDR çözümleri, oturum açma alışkanlıklarını izleyerek olası tehditleri önler. Ayrıca DLP, şifreleme ve veri kaybını önleme sistemleri veri güvenliğini destekler.</li>
+<li><strong>Otomasyon ve SOAR:</strong> Büyük ölçekli yapılarda SOAR (Security Orchestration, Automation and Response) çözümleri kullanılarak alarmların otomatik sınıflandırılması ve tekrarlayan görevlerin otomatikleştirilmesi sağlanır. Yapay zeka destekli araçlar ise anomali tespitini hızlandırır.</li>
+</ul>
+<p>Her iki merkez de ortak dashboard ve paneller kullanarak canlı veri paylaşımı yapabilir. Modern çözümler, SOC ve NOC’un aynı platformda veri paylaşabildiği hibrit yapılar sunar, böylece olaylar hem ağ hem güvenlik perspektifinden eş zamanlı analiz edilir.</p>
+<h3 id="görev-tanımları-veroller">
+  Görev Tanımları ve Roller
+  <a class="heading-link" href="#g%c3%b6rev-tan%c4%b1mlar%c4%b1-veroller">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SOC ve NOC organizasyonlarındaki roller seviyelere göre ayrılır:</p>
+<ul>
+<li><strong>NOC Mühendisi (L1):</strong> Sistem ve ağ ekipmanlarının canlı durumunu izler, alarmları değerlendirir, temel sorun giderme yapar ve çözülmeyen olayları üst (L2) birime eskale eder. Ayrıca SLA’ya uygun müdahale için ilk kayıtları oluşturur.</li>
+<li><strong>NOC Mühendisi (L2):</strong> L1’den gelen karmaşık olayları ele alır. Detaylı kök neden analizi yapar, ağ konfigürasyon hatalarını düzeltir, performans darboğazlarını giderir ve kalıcı çözümler uygular.</li>
+<li><strong>NOC Mühendisi (L3):</strong> En kritik altyapı problemlerini çözer. Yazılım/donanım arızalarını giderir, mimari düzeyde optimizasyon yapar ve yeni teknoloji entegrasyonlarını gerçekleştirir. Ayrıca ağ güvenliğine yönelik proaktif önlemler geliştirir.</li>
+<li><strong>NOC Yöneticisi:</strong> NOC ekiplerini koordine eder, operasyonları planlar ve performans raporlarını hazırlar. Kaynak yönetimi ve süreç iyileştirme NOC yöneticisinin sorumluluğundadır.</li>
+<li><strong>SOC Analisti (L1):</strong> Güvenlik alarmlarını değerlendirir, önceliklendirir ve basit saldırıları analiz eder. Şüpheli aktiviteleri triage ederek hemen müdahale edilmesi gerekenleri belirler. Olayları kayıt altına alır ve standart prosedürlere göre çözümler uygular.</li>
+<li><strong>SOC Analisti (L2):</strong> Daha karmaşık tehditleri inceler ve müdahale eder. Olayın kaynağını belirlemek için derin analiz yapar, tehdit istihbaratını kullanır ve gerekli durumlarda engelleme, sistem temizleme gibi adımları atar.</li>
+<li><strong>SOC Analisti (L3) / Tehdit Avcısı:</strong> İleri düzey saldırıları (ör. APT’ler) araştırır ve tehdit avcılığı (threat hunting) yapar. SOC süreçlerini, alarm kurallarını ve oyun planlarını geliştirerek gelecekteki saldırılara karşı proaktif önlemler belirler.</li>
+<li><strong>SOC Müdürü:</strong> Tüm SOC operasyonunu yönetir, ekip içi eğitim ve işe alım süreçlerini yürütür, güvenlik politikalarının uygulanmasını denetler. Ayrıca üst yönetime raporlama yapar ve uyumluluk gereksinimlerini takip eder.</li>
+</ul>
+<p>Her iki merkezde de görevler giderek örtüşmekte; örneğin bazı büyük kuruluşlarda NOC ve SOC ekipleri tek bir <strong>birleşik operasyon merkezi</strong> çatısı altında (örneğin “Fusion Center”) çalışabilmektedir.</p>
+<h3 id="kariyer-gelişimi-ve-sertifikasyonlar">
+  Kariyer Gelişimi ve Sertifikasyonlar
+  <a class="heading-link" href="#kariyer-geli%c5%9fimi-ve-sertifikasyonlar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>NOC Kariyeri:</strong> NOC’da genellikle ağ mühendisliği yoluyla ilerlenir. Yeni başlayanlar L1/NOC Teknisyeni olarak başlayıp L2/L3 seviyelerine geçebilir. İleri seviyede “Network Yönetimi” veya “NOC Müdürü” rollerine yükselebilirler. Ağ konfigürasyonları ve sorun çözme odaklı kariyerde <strong>Cisco CCNA/CCNP</strong>, <strong>CompTIA Network+</strong> vb. sertifikalar sıkça tercih edilir. Örneğin CompTIA Network+ sertifikası, özellikle “Network Operations Center (NOC)” ortamında çalışma için temel bilgi sağlar CCNP seviyesinde ise Network Manager gibi orta seviye pozisyonlar hedeflenir.</p>
+<p><strong>SOC Kariyeri:</strong> SOC analisti olarak başlayan kişi, deneyimle birlikte kıdemli analist veya olay müdahale uzmanlığına geçer. Sonrasında SOC Müdürü, Güvenlik Operasyonları Yöneticisi veya CISO gibi üst düzey güvenlik rollerine gelebilir. Bu alanda önemli sertifikalar <strong>CompTIA Security+</strong>, (EC-Council) <strong>Certified SOC Analyst (CSA)</strong> ve <strong>ISC2 CISSP</strong> gibi güvenlik temelli sertifikalardır. Ayrıca SOC analistleri için sıkça Splunk Certified User/Administrator gibi SIEM araçlarına özel sertifikalar önerilir. Bilişim Academy’ye göre, SOC analistleri bu sertifikalar sayesinde tehditleri izleme ve doğru müdahale yapma becerilerini geliştirir. Deneyimli analistler, teknik sertifikaların yanı sıra <strong>CISM, CISA</strong> gibi yönetim/denetim sertifikalarına da yönelir. Kariyer gelişimi açısından, ileri düzey SOC analistleri güvenlik yöneticiliği pozisyonlarına yükselebilirler.</p>
+<h3 id="soc-ve-noc-iş-birliği-ve-entegrasyonu">
+  SOC ve NOC İş Birliği ve Entegrasyonu
+  <a class="heading-link" href="#soc-ve-noc-i%c5%9f-birli%c4%9fi-ve-entegrasyonu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Günümüzde güvenlik olaylarının altyapı kesintisine yol açabileceği görülmüş; örneğin bir DDoS saldırısı hem ağ performansını bozup NOC’u hem de güvenliği tehdit edip SOC’u ilgilendirir. Bu nedenle NOC ve SOC ekiplerinin <strong>ayrı kamplar</strong> değil, birbiriyle sürekli veri paylaşıp koordineli çalışan yapılar olması gerekir. Modern çözümler ortak dashboard’lar ve analiz platformları kullanarak her iki ekibin de verileri görüntülemesine ve olayları birlikte değerlendirmesine izin verir. Pratikte bazı kurumlar NOC ile SOC’u tek çatı altında bir “birleşik operasyon merkezi” şeklinde kurar veya entegre ekipler oluşturur. Buna göre, NOC ve SOC birbirinin tamamlayıcısı olarak hareket eder. Doğru entegrasyon, olaylara hem ağ hem de güvenlik açılarından bakılmasını sağlayarak müdahaleyi hem daha hızlı hem de daha etkili hale getirir. Özetle, SOC’un güvenliği, NOC’un sürekliliği sağladığı dijital iş ortamında, her iki merkezin yakın işbirliği dijital varlıkların kesintisiz ve güvenli yönetiminde anahtar rol oynar.</p>
+<hr>
+<h3 id="soc-ve-nocaraçları">
+  SOC ve NOC Araçları
+  <a class="heading-link" href="#soc-ve-nocara%c3%a7lar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>BT ve siber güvenlik ekiplerine yönelik bu teknik rapor, SOC (Security Operations Center) ve NOC (Network Operations Center) süreçlerinde yaygın olarak kullanılan açık kaynak ve ticari araçları fonksiyonel kategoriler altında derinlemesine ele alır. Her araç için mimari, kurulum, temel konfigürasyon, entegrasyon, ölçekleme, operasyonel en iyi uygulamalar ve yaygın hatalar başlıkları sunulmuştur.</p>
+<ul>
+<li><strong>NOC odağı:</strong> Erişilebilirlik, kapasite, performans, SLA. (Zabbix, Prometheus, LibreNMS, PRTG, Cacti)</li>
+<li><strong>SOC odağı:</strong> Tehdit tespiti, olay müdahalesi, log korelasyonu, tehdit avcılığı. (Elastic Stack, Wazuh, Suricata, Zeek, Snort, Security Onion, Graylog, QRadar/Splunk, TheHive/Cortex)</li>
+<li><strong>Kesişim alanı:</strong> Olay yönetimi, uyarı kanalları, otomasyon (SOAR), ortak veri gölü (Elastic/S3), CMDB/ITSM entegrasyonları (ServiceNow, Jira), ağ tap/SPAN altyapısı, zaman senkronizasyonu (NTP) ve kimlik yönetimi (SSO/LDAP).</li>
+</ul>
+<p><strong>Önerilen üst seviye mimari:</strong></p>
+<ul>
+<li><strong>Toplama katmanı:</strong> Beats/Filebeat | Logstash | Syslog-ng | Wazuh Agent | Suricata eve.json | Zeek TSV/JSON.</li>
+<li><strong>Depolama/Arama:</strong> Elasticsearch/OpenSearch veya Splunk/QRadar (kurumsal).</li>
+<li><strong>Görselleştirme:</strong> Kibana/Grafana/Graylog UI.</li>
+<li><strong>İşleme/Korelasyon:</strong> Wazuh kuralları, ElastAlert/Kibana Alerting, Sigma kuralları.</li>
+<li><strong>Otomasyon (SOAR):</strong> TheHive+Cortex, Shuffle/StackStorm.</li>
+<li><strong>Olay yönetimi:</strong> TheHive, Jira/ServiceNow.</li>
+</ul>
+<hr>
+<h3 id="1-ağ--sistem-izleme-monitoring--nocodaklı">
+  1) Ağ &amp; Sistem İzleme (Monitoring / NOC Odaklı)
+  <a class="heading-link" href="#1-a%c4%9f--sistem-izleme-monitoring--nocodakl%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="11-zabbix">
+  1.1 Zabbix
+  <a class="heading-link" href="#11-zabbix">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Özet:</strong> Kurumsal ölçekte SNMP/Agent tabanlı izleme; trigger, discovery, haritalar, otomasyon.</p>
+<p><strong>Mimari &amp; Bileşenler</strong></p>
+<ul>
+<li>Zabbix Server, Frontend (PHP), DB (MySQL/PostgreSQL), Proxy (edge toplama), Agent/Agent2.</li>
+<li>Pasif/aktif kontrol, düşük gecikmeli trapper, SNMPv1/v2c/v3, IPMI, JMX, HTTP agent.</li>
+</ul>
+<p><strong>Kurulum (Ubuntu örneği)</strong></p>
+<pre tabindex="0"><code>wget https://repo.zabbix.com/zabbix/6.0/ubuntu/pool/main/z/zabbix-release_6.0-1+ubuntu22.04_all.deb  
+sudo dpkg -i zabbix-release_6.0-1+ubuntu22.04_all.deb &amp;&amp; sudo apt update  
+sudo apt install -y zabbix-server-pgsql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent2 postgresql  
+sudo -u postgres psql -c &#34;CREATE USER zbx WITH PASSWORD &#39;StrongP@ss&#39;;&#34;  
+sudo -u postgres psql -c &#34;CREATE DATABASE zabbix OWNER zbx;&#34;  
+zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz | psql -U zbx -d zabbix -h 127.0.0.1
+</code></pre><p><strong>Temel Konfigürasyon</strong></p>
+<ul>
+<li><code>/etc/zabbix/zabbix_server.conf</code>: <code>DBPassword</code>, <code>StartPollers</code>, <code>AlertScriptsPath</code>.</li>
+<li>Agent2 (Go): eBPF eklentileri, Prometheus exporter scraping.</li>
+</ul>
+<p><strong>Entegrasyonlar</strong></p>
+<ul>
+<li>Webhook ile ServiceNow/Jira/Teams/Slack.</li>
+<li>Zabbix → SIEM: syslog veya HTTP webhook ile Wazuh/Elastic’e olay gönderimi.</li>
+<li>Low-level discovery ile dinamik host/port keşfi; Template repo (Cisco/Juniper/Linux/Windows).</li>
+</ul>
+<p><strong>Ölçekleme &amp; HA</strong></p>
+<ul>
+<li>Proxy hiyerarşisi, DB için patroni/pgpool-II, frontend çoklama, HA failover (Pacemaker/Keepalived).</li>
+</ul>
+<p><strong>Tuning</strong></p>
+<ul>
+<li>Trapper ve poller sayıları; Housekeeper periyodu; history/trends retansiyon; TimescaleDB entegrasyonu.</li>
+</ul>
+<p><strong>Yaygın Hatalar</strong></p>
+<ul>
+<li>Housekeeper tahsisi yetersiz → DB şişmesi. SNMPv3 auth/priv parametre yanlışlığı. Trigger eşikleri gerçekçi değil.</li>
+</ul>
+<h3 id="12-nagioscore">
+  1.2 Nagios (Core)
+  <a class="heading-link" href="#12-nagioscore">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Özet:</strong> Host/servis health-check; plugin ekosistemi; Icinga çatalları mevcut.</p>
+<p><strong>Kurulum &amp; Konfig</strong></p>
+<ul>
+<li><code>nagios.cfg</code>, <code>objects/hosts.cfg</code>, <code>services.cfg</code> ile statik tanım; NRPE/NRDP/NSClient++ ajanları.</li>
+<li>Event handler script’leri ile otomasyon.</li>
+</ul>
+<p><strong>Entegrasyon</strong></p>
+<ul>
+<li>Grafana/NagiosJSON; SIEM’e syslog. Icinga2 ile modernleştirme.</li>
+</ul>
+<p><strong>Artılar/Eksiler</strong></p>
+<ul>
+<li>Basit ve kararlı; — Büyük ortamda yönetim yükü yüksek, konfig dosyası karmaşıklığı.</li>
+</ul>
+<h3 id="13-prometheus-grafana">
+  1.3 Prometheus + Grafana
+  <a class="heading-link" href="#13-prometheus-grafana">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Özet:</strong> Time-series (pull) metrik toplayıcı; PromQL; service discovery; Grafana ile dashboard/alerting.</p>
+<p><strong>Mimari</strong></p>
+<ul>
+<li>Prometheus server + exporters (node_exporter, blackbox_exporter, snmp_exporter) + Alertmanager.</li>
+<li>Federation, remote_write (Thanos/Cortex/Mimir) ile uzun süreli saklama.</li>
+</ul>
+<p><strong>Kurulum (container)</strong></p>
+<pre tabindex="0"><code># docker-compose.yml (özet)  
+services:  
+  prometheus:  
+    image: prom/prometheus  
+    volumes:  
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml  
+  alertmanager:  
+    image: prom/alertmanager  
+  grafana:  
+    image: grafana/grafana
+</code></pre><p><strong>Konfig (SNMP Exporter)</strong></p>
+<ul>
+<li><code>snmp.yml</code> community/OID haritaları; LibreNMS verisi ile korelasyon.</li>
+</ul>
+<p><strong>Entegrasyon</strong></p>
+<ul>
+<li>Alertmanager → Slack/Email/Webhook → TheHive/StackStorm.</li>
+<li>Grafana Alerting; Grafana Loki/Tempo/Tempo-OTEL ile birleşik gözlemlenebilirlik.</li>
+</ul>
+<h3 id="14-librenms">
+  1.4 LibreNMS
+  <a class="heading-link" href="#14-librenms">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Özet:</strong> SNMP keşif, otomatik haritalar, RANCID/Oxidized entegrasyonu, syslog/alerting.</p>
+<p><strong>Kurulum</strong></p>
+<ul>
+<li>PHP+Nginx+MariaDB; Oxidized ile config backup; Syslog ve SNMP trap receiver.</li>
+</ul>
+<p><strong>Artılar/Eksiler</strong></p>
+<ul>
+<li>Ağ ekipmanları için hazır şablonlar; — Büyük ölçekte DB/Redis tuning gerekebilir.</li>
+</ul>
+<h3 id="15-prtg-ticari-kısa-not--16cacti">
+  1.5 PRTG (ticari kısa not) &amp; 1.6 Cacti
+  <a class="heading-link" href="#15-prtg-ticari-k%c4%b1sa-not--16cacti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>PRTG:</strong> Sensör tabanlı lisanslama, auto-discovery, haritalar, kolay kurulabilir.</li>
+<li><strong>Cacti:</strong> RRDTool tabanlı grafikleme; SNMP ile trafik/port tarihçesi; düşük kaynak.</li>
+</ul>
+<hr>
+<h3 id="2-log-yönetimi--siem-soc-çekirdeği">
+  2) Log Yönetimi &amp; SIEM (SOC Çekirdeği)
+  <a class="heading-link" href="#2-log-y%c3%b6netimi--siem-soc-%c3%a7ekirde%c4%9fi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="21-elastic-stack-elasticsearch--logstash--kibana-beats">
+  2.1 Elastic Stack (Elasticsearch + Logstash + Kibana + Beats)
+  <a class="heading-link" href="#21-elastic-stack-elasticsearch--logstash--kibana-beats">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Özet:</strong> Merkezi log, arama, analitik, görselleştirme; X-Pack güvenlik; Elastic Security (SIEM) modülü.</p>
+<p><strong>Mimari</strong></p>
+<ul>
+<li>Data/master/ingest node ayrımı; ILM (index lifecycle), hot-warm-cold; CCR/Snapshot-S3.</li>
+<li>Beats ailesi: Filebeat (modüller: system, nginx, suricata), Winlogbeat, Auditbeat, Packetbeat, Metricbeat.</li>
+</ul>
+<p><strong>Kurulum — Özet</strong></p>
+<pre tabindex="0"><code># Elasticsearch &amp; Kibana (Debian/Ubuntu kısaltılmış)  
+sudo apt install elasticsearch kibana  
+# Güvenlik: built-in users, TLS; kibana.yml: elasticsearch.hosts, server.publicBaseUrl
+</code></pre><p><strong>Logstash Pipeline Örneği</strong></p>
+<pre tabindex="0"><code>input { beats { port =&gt; 5044 } }  
+filter { geoip { source =&gt; &#34;[source][ip]&#34; } }  
+output { elasticsearch { hosts =&gt; [&#34;http://es1:9200&#34;] index =&gt; &#34;logs-%{[@metadata][beat]}-%{+YYYY.MM.dd}&#34; } }
+</code></pre><p><strong>Alarming</strong></p>
+<ul>
+<li>Kibana Alerting/Rules; ElastAlert (topluluk); SIEM dedected rules + Sigma → ES Queries.</li>
+</ul>
+<p><strong>Entegrasyon</strong></p>
+<ul>
+<li>Wazuh Manager/Indexer/Dashboard (Elastic’e dayalı).</li>
+<li>Suricata <code>eve.json</code> ve Zeek logları için Filebeat modülleri.</li>
+<li>TheHive/Shuffle webhook; SOAR playbook tetikleme.</li>
+</ul>
+<p><strong>Ölçekleme &amp; Tuning</strong></p>
+<ul>
+<li>Heap = min(node RAM/2, 31GB); shard ve refresh interval ayarları; ILM ile rollover; Hot-Warm mimarisi.</li>
+<li>Ingest pipeline (grok/dissect), ECS şeması; dedup ve sampling.</li>
+</ul>
+<p><strong>Yaygın Hatalar</strong></p>
+<ul>
+<li>Aşırı shard sayısı; tek node’a çok rol; JVM GC baskısı; indekste mapping patlaması.</li>
+</ul>
+<h3 id="22-wazuh-siem-xdr">
+  2.2 Wazuh (SIEM + XDR)
+  <a class="heading-link" href="#22-wazuh-siem-xdr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Özet:</strong> OSSEC tabanlı HIDS/XDR; FIM, rootkit, zafiyet, uyumluluk; Active Response; Elastic üzerine.</p>
+<p><strong>Mimari</strong></p>
+<ul>
+<li>Wazuh Manager, Indexer (ES), Dashboard (Kibana app), Agents.</li>
+<li>Agent–manager TLS, UDP fallback; agentless syslog toplayıcı.</li>
+</ul>
+<p><strong>Kurulum — Özet</strong></p>
+<pre tabindex="0"><code>curl -s https://packages.wazuh.com/4.x/install.sh | bash  
+# veya bileşen bazlı kurulum; agent için: WAZUH_MANAGER=&#34;10.0.0.10&#34; ./wazuh-agent.sh
+</code></pre><p><strong>Agent Konfig (Linux)</strong></p>
+<pre tabindex="0"><code>&lt;ossec_config&gt;  
+  &lt;client&gt;&lt;server&gt;&lt;address&gt;10.0.0.10&lt;/address&gt;&lt;/server&gt;&lt;/client&gt;  
+  &lt;syscheck&gt;&lt;directories check_all=&#34;yes&#34;&gt;/etc,/var/www&lt;/directories&gt;&lt;/syscheck&gt;  
+  &lt;active-response&gt;&lt;command&gt;host-deny&lt;/command&gt;&lt;location&gt;local&lt;/location&gt;&lt;/active-response&gt;  
+&lt;/ossec_config&gt;
+</code></pre><p><strong>Entegrasyon</strong></p>
+<ul>
+<li>Suricata/Zeek/Snort log ingest; VT/YARA ile malware tespiti; AWS/Azure/GCP modülleri.</li>
+<li>TheHive, ServiceNow; Sigma kuralları → Wazuh.</li>
+</ul>
+<p><strong>Tuning</strong></p>
+<ul>
+<li>Kuralların özelleştirilmesi (local_rules.xml), SCA policy, FIM исключe; agent grup yönetimi.</li>
+</ul>
+<p><strong>Yaygın Hatalar</strong></p>
+<ul>
+<li>Aşırı gürültü (noise) → kural bastırma eksik; agent saat/sertifika sorunları.</li>
+</ul>
+<h3 id="23-graylog">
+  2.3 Graylog
+  <a class="heading-link" href="#23-graylog">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Özet:</strong> Elasticsearch/OpenSearch destekli merkezi log; pipeline processors; stream/alert.</p>
+<p><strong>Kurulum</strong></p>
+<ul>
+<li>Graylog Server + MongoDB + ES/OS cluster; GELF/Beats input.</li>
+</ul>
+<p><strong>Artılar/Eksiler</strong></p>
+<ul>
+<li>Basit kurulum/UI; — ES bağımlılığı, yüksek hacimde ölçekleme gerekleri.</li>
+</ul>
+<h3 id="24-ticari-qradar-splunk-açık-kaynak-ossim-securityonion">
+  2.4 Ticari: QRadar, Splunk; Açık Kaynak: OSSIM, Security Onion
+  <a class="heading-link" href="#24-ticari-qradar-splunk-a%c3%a7%c4%b1k-kaynak-ossim-securityonion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>QRadar:</strong> DSM (device support), offense motoru, AQL, flows (QFlow), Ariel DB.</li>
+<li><strong>Splunk:</strong> Indexer/SH/CM/DS rolleri, SPL dili, ES (Enterprise Security) app, SOAR.</li>
+<li><strong>OSSIM:</strong> AlienVault tabanlı açık kaynak, temel korelasyon ve HIDS entegrasyonları.</li>
+<li><strong>Security Onion:</strong> Entegre platform; Zeek+Suricata+Elastic+SO Console; hızlı kurulum profilleri.</li>
+</ul>
+<hr>
+<h3 id="3-ağ-tabanlı-tehdit-tespiti-idsips-ndr">
+  3) Ağ Tabanlı Tehdit Tespiti (IDS/IPS &amp; NDR)
+  <a class="heading-link" href="#3-a%c4%9f-tabanl%c4%b1-tehdit-tespiti-idsips-ndr">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="31-snort-2x3x">
+  3.1 Snort (2.x/3.x)
+  <a class="heading-link" href="#31-snort-2x3x">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Mimari</strong></p>
+<ul>
+<li>Packet Decoder → Preprocessors → Detection Engine → Output.</li>
+<li>Snort3: Lua konfig, çok iş parçacığı, DAQ geliştirmeleri.</li>
+</ul>
+<p><strong>Kurulum/Çalıştırma</strong></p>
+<pre tabindex="0"><code>sudo apt install snort  
+snort -c /etc/snort/snort.conf -i eth0 -A fast
+</code></pre><p><strong>Temel Ayarlar</strong></p>
+<ul>
+<li><code>ipvar HOME_NET 10.0.0.0/8</code>; <code>rule-path</code>; Talos/ET kural setleri; preprocessors (frag3, stream5).</li>
+</ul>
+<p><strong>IPS Modu</strong></p>
+<ul>
+<li>Inline: NFQUEUE/AF_PACKET; iptables ile yönlendirme.</li>
+</ul>
+<p><strong>Entegrasyon</strong></p>
+<ul>
+<li>Unified2/JSON → Filebeat/Logstash; Wazuh rule mapping; Security Onion rolleri.</li>
+</ul>
+<p><strong>Tuning</strong></p>
+<ul>
+<li>Kural seçimi (policy), fast_pattern, flowbits optimizasyonu; CPU pinning.</li>
+</ul>
+<h3 id="32-suricata">
+  3.2 Suricata
+  <a class="heading-link" href="#32-suricata">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Mimari</strong></p>
+<ul>
+<li>Multi-thread; AF_PACKET/PF_RING/DPDK; detection engine + app-layer parsers.</li>
+<li>Çıktı: <code>eve.json</code>, <code>fast.log</code>, <code>stats.log</code>, pcap-log (alert/flow based).</li>
+</ul>
+<p><strong>Kurulum</strong></p>
+<pre tabindex="0"><code>sudo add-apt-repository ppa:oisf/suricata-stable -y  
+sudo apt install suricata
+</code></pre><p><strong>Konfig (özet)</strong></p>
+<pre tabindex="0"><code>vars:  
+  address-groups:  
+    HOME_NET: [10.0.0.0/8]  
+outputs:  
+  - eve-log:  
+      enabled: yes  
+      filetype: regular  
+      filename: /var/log/suricata/eve.json  
+af-packet:  
+  - interface: eth0  
+    cluster-type: cluster_flow
+</code></pre><p><strong>Entegrasyon</strong></p>
+<ul>
+<li>Filebeat suricata module; Wazuh integration; ET/Open/Pro kural setleri; Hyperscan.</li>
+</ul>
+<p><strong>Tuning</strong></p>
+<ul>
+<li><code>max-pending-packets</code>, <code>detect-thread-ratio</code>; NIC RSS, IRQ pinning; hyperscan enable.</li>
+</ul>
+<h3 id="33-zeekbro">
+  3.3 Zeek (Bro)
+  <a class="heading-link" href="#33-zeekbro">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Mimari</strong></p>
+<ul>
+<li>Protocol analyzers; ZeekControl; cluster: manager/proxy/workers.</li>
+<li>Loglar: <code>conn.log</code>, <code>dns.log</code>, <code>http.log</code>, <code>ssl.log</code>, <code>notice.log</code>, <code>weird.log</code>.</li>
+</ul>
+<p><strong>Kurulum</strong></p>
+<pre tabindex="0"><code>sudo apt install zeek  
+zeekctl deploy
+</code></pre><p><strong>Scripting</strong></p>
+<ul>
+<li><code>notice</code> framework; intel feeds; file extraction; DCE/RPC, SMB, TLS detayları.</li>
+</ul>
+<p><strong>Entegrasyon</strong></p>
+<ul>
+<li>Filebeat zeek module; Elastic ECS mapping; Wazuh JSON ingest; Security Onion native.</li>
+</ul>
+<p><strong>Tuning</strong></p>
+<ul>
+<li>Load balancing (PF_RING/AF_Packet + cluster); disk IO (log rotation/compress).</li>
+</ul>
+<h3 id="34-arkimemoloch">
+  3.4 Arkime (Moloch)
+  <a class="heading-link" href="#34-arkimemoloch">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Özet:</strong> Büyük ölçekli PCAP yakalama, indeksleme (Elastic/OpenSearch), web UI ile hızlı arama.</p>
+<p><strong>Kurulum/Notlar</strong></p>
+<ul>
+<li>Capture node + Viewer + ES cluster; PCAP ring buffer; SPI index alanları.</li>
+<li>SO/ELK ile korelasyon; disk throughput kritik (NVMe önerilir).</li>
+</ul>
+<h3 id="35-wiresharktcpdump">
+  3.5 Wireshark/tcpdump
+  <a class="heading-link" href="#35-wiresharktcpdump">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Derinlemesine paket analizi, pcap filtreleri; IR sırasında altın değerinde.</li>
+</ul>
+<hr>
+<h3 id="4-uç-nokta-güvenliği-edrxdrhids">
+  4) Uç Nokta Güvenliği (EDR/XDR/HIDS)
+  <a class="heading-link" href="#4-u%c3%a7-nokta-g%c3%bcvenli%c4%9fi-edrxdrhids">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="41-fail2ban">
+  4.1 Fail2Ban
+  <a class="heading-link" href="#41-fail2ban">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Özet:</strong> Log tabanlı brute-force engelleme (iptables/nftables), jails + filters.</p>
+<p><strong>Kurulum/Temel Konfig</strong></p>
+<pre tabindex="0"><code>sudo apt install fail2ban  
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local  
+# sshd jail örneği  
+[sshd]  
+enabled = true  
+port = 22  
+maxretry = 5  
+bantime = 1h  
+logpath = /var/log/auth.log
+</code></pre><p><strong>Entegrasyon</strong></p>
+<ul>
+<li>Syslog/Filebeat → Elastic/Wazuh; TheHive webhook (ban event → case).</li>
+</ul>
+<p><strong>Tuning</strong></p>
+<ul>
+<li>CIDR ignoreip, incremental bantime, recidive jail; ipset ile hızlı drop.</li>
+</ul>
+<h3 id="42-ossec-wazuhiçinde">
+  4.2 OSSEC (Wazuh içinde)
+  <a class="heading-link" href="#42-ossec-wazuhi%c3%a7inde">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Syscheck (FIM), rootcheck, active response; tek başına veya Wazuh ile genişletilmiş.</li>
+</ul>
+<h3 id="43-crowdstrike-falcon-ticari-kısanot">
+  4.3 CrowdStrike Falcon (ticari kısa not)
+  <a class="heading-link" href="#43-crowdstrike-falcon-ticari-k%c4%b1sanot">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Bulut tabanlı EDR/XDR; sensör ajan; gerçek zamanlı telemetri; RTR; Threat Intel.</li>
+</ul>
+<h3 id="44-thor-project-nextron">
+  4.4 Thor Project (Nextron)
+  <a class="heading-link" href="#44-thor-project-nextron">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>YARA/Sigma/IOC taraması; IR ve tehdit avcılığı; triage paketleri; Linux/Windows desteği.</li>
+</ul>
+<hr>
+<h3 id="5-tehdit-istihbaratı-cti-ioc">
+  5) Tehdit İstihbaratı (CTI / IOC)
+  <a class="heading-link" href="#5-tehdit-istihbarat%c4%b1-cti-ioc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="51-misp">
+  5.1 MISP
+  <a class="heading-link" href="#51-misp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Özet:</strong> IOC paylaşım platformu (hash, domain, IP, yara, sigma); taksonomi &amp; galaxy; sync/feeds.</p>
+<p><strong>Entegrasyon</strong></p>
+<ul>
+<li>Zeek intel framework; Suricata <code>threshold</code>/<code>reputation</code> listeleri; Wazuh enrich; TheHive tasking.</li>
+</ul>
+<h3 id="52-opencti-yeti">
+  5.2 OpenCTI / Yeti
+  <a class="heading-link" href="#52-opencti-yeti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Varlık modeli (intrusion-set, malware, TTP); connector’lar (MITRE, VirusTotal, MISP sync).</li>
+</ul>
+<h3 id="53-ticariintel">
+  5.3 Ticari Intel
+  <a class="heading-link" href="#53-ticariintel">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>CrowdStrike, Anomali, Recorded Future — API ile SIEM/SOAR zenginleştirme.</li>
+</ul>
+<hr>
+<h3 id="6-olay-yönetimi--irsoar">
+  6) Olay Yönetimi &amp; IR (SOAR)
+  <a class="heading-link" href="#6-olay-y%c3%b6netimi--irsoar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="61-thehiveproject">
+  6.1 TheHive Project
+  <a class="heading-link" href="#61-thehiveproject">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Case management, observable yönetimi, TLP/Sensitivity, görev iş akışları.</p>
+<p><strong>Kurulum</strong></p>
+<ul>
+<li>TheHive + Cassandra/Elastic; Cortex ile entegre; webhooks.</li>
+</ul>
+<h3 id="62-cortex">
+  6.2 Cortex
+  <a class="heading-link" href="#62-cortex">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Analyzer/Responder ekosistemi (VT, HybridAnalysis, MISP, Mail, Slack, Wazuh ban vb.).</p>
+<h3 id="63-shuffle--stackstorm">
+  6.3 Shuffle / StackStorm
+  <a class="heading-link" href="#63-shuffle--stackstorm">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No-code/low-code playbook’lar; webhook/SIEM tetik; IR otomasyonu (containment, ticket açma).</p>
+<hr>
+<h3 id="7-malware-analizi--dijital-forensics">
+  7) Malware Analizi &amp; Dijital Forensics
+  <a class="heading-link" href="#7-malware-analizi--dijital-forensics">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="71-cuckoosandbox">
+  7.1 Cuckoo Sandbox
+  <a class="heading-link" href="#71-cuckoosandbox">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>İzole VM’lerde dinamik analiz; network capture; Suricata/Zeek ile korelasyon; raporlar (JSON/HTML).</p>
+<h3 id="72-volatility">
+  7.2 Volatility
+  <a class="heading-link" href="#72-volatility">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bellek dökümü analizi; eklentiler: malfind, psxview, netscan; Windows/Linux profilleri.</p>
+<h3 id="73-autopsysleuth-kit">
+  7.3 Autopsy/Sleuth Kit
+  <a class="heading-link" href="#73-autopsysleuth-kit">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Dosya sistemi zaman çizelgesi, artefakt analizi; disk imajları; hash set karşılaştırma.</p>
+<h3 id="74-yara">
+  7.4 YARA
+  <a class="heading-link" href="#74-yara">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>İmza tabanlı dosya taraması; rules repo; Wazuh/Cortex entegrasyonu (on-demand scan).</p>
+<hr>
+<h3 id="hızlı-başlangıç-senaryoları">
+  Hızlı Başlangıç Senaryoları
+  <a class="heading-link" href="#h%c4%b1zl%c4%b1-ba%c5%9flang%c4%b1%c3%a7-senaryolar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>KOBİ SOC:</strong> Security Onion (standalone) + Wazuh Agents + Filebeat modülleri + TheHive (tek sunucu) + Zabbix (ayrı VM).</li>
+<li><strong>Kurumsal SOC/NOC:</strong> Ayrık ES hot/warm cluster, çoklu Suricata/Zeek sensörü, Wazuh manager HA, Prometheus+Grafana, Zabbix proxy’leri, SOAR (Shuffle) ve ITSM entegrasyonu.</li>
+</ul>
+<h3 id="sonuç">
+  Sonuç
+  <a class="heading-link" href="#sonu%c3%a7">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu rapor, SOC ve NOC ekiplerinin günlük operasyonlarında ihtiyaç duyduğu çekirdek araçları fonksiyonel kategoriler altında toplamış ve her birinin hızlı kurulum, konfigürasyon, entegrasyon ve ölçekleme perspektiflerini sunmuştur. Kurumsal olgunluk düzeyi yükseldikçe, araçların birbirleriyle entegrasyonu (SIEM + NDR + HIDS + SOAR + ITSM) başarı için belirleyicidir. En iyi sonuçlar; doğru mimari, gürültü azaltımı, otomasyon ve sürdürülebilir veri yaşam döngüsü politikalarıyla elde edilir.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

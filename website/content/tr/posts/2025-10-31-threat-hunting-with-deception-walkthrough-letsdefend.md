@@ -1,4 +1,5 @@
 ---
+series: ["Threat Hunting Walkthroughs"]
 title: "Threat Hunting with Deception Walkthrough — LetsDefend"
 date: 2025-10-31
 draft: false

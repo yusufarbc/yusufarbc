@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Threat Hunting with DNS Walkthrough — LetsDefend · Yusuf Arbac
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Arbac">
+<meta name="description" content="
+
+  Threat Hunting with DNS Walkthrough — LetsDefend
+  
+    
+    Başlık Linki
+  
+
+
+LetsDefend — Blue Team Training Platform
+
+  Introduction
+  
+    
+    Başlık Linki
+  
+
+Domain Name System (DNS) is one of the fundamental building blocks of the internet. DNS translates domain names (e.g., www.example.com) into IP addresses when users want to access a specific website on the internet. This translation allows users to easily access websites and contributes to the smooth functioning of internet traffic. However, this critical role of DNS can be abused by cybercriminals.">
+<meta name="keywords" content="siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/avatar.png">
+  <meta name="twitter:title" content="Threat Hunting with DNS Walkthrough — LetsDefend">
+  <meta name="twitter:description" content="Threat Hunting with DNS Walkthrough — LetsDefendBaşlık LinkiLetsDefend — Blue Team Training Platform
+IntroductionBaşlık LinkiDomain Name System (DNS) is one of the fundamental building blocks of the internet. DNS translates domain names (e.g., www.example.com) into IP addresses when users want to access a specific website on the internet. This translation allows users to easily access websites and contributes to the smooth functioning of internet traffic. However, this critical role of DNS can be abused by cybercriminals.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2025-10-23-threat-hunting-with-dns-walkthrough-letsdefend/">
+  <meta property="og:site_name" content="Yusuf Arbac">
+  <meta property="og:title" content="Threat Hunting with DNS Walkthrough — LetsDefend">
+  <meta property="og:description" content="Threat Hunting with DNS Walkthrough — LetsDefendBaşlık LinkiLetsDefend — Blue Team Training Platform
+IntroductionBaşlık LinkiDomain Name System (DNS) is one of the fundamental building blocks of the internet. DNS translates domain names (e.g., www.example.com) into IP addresses when users want to access a specific website on the internet. This translation allows users to easily access websites and contributes to the smooth functioning of internet traffic. However, this critical role of DNS can be abused by cybercriminals.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-23T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.png">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2025-10-23-threat-hunting-with-dns-walkthrough-letsdefend/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Arbac
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2025-10-23-threat-hunting-with-dns-walkthrough-letsdefend/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2025-10-23-threat-hunting-with-dns-walkthrough-letsdefend/">
+              Threat Hunting with DNS Walkthrough — LetsDefend
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2025-10-23T00:00:00Z">
+                Ekim 23, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              18 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="threat-hunting-with-dns-walkthroughletsdefend">
+  Threat Hunting with DNS Walkthrough — LetsDefend
+  <a class="heading-link" href="#threat-hunting-with-dns-walkthroughletsdefend">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/0_MrtorSDpnFDZbdxk.png" alt=""></p>
+<p><a href="https://letsdefend.io/"  class="external-link" target="_blank" rel="noopener">LetsDefend — Blue Team Training Platform</a></p>
+<h3 id="introduction">
+  Introduction
+  <a class="heading-link" href="#introduction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Domain Name System (DNS) is one of the fundamental building blocks of the internet. DNS translates domain names (e.g., <a href="http://www.example.com%29"  class="external-link" target="_blank" rel="noopener">www.example.com)</a> into IP addresses when users want to access a specific website on the internet. This translation allows users to easily access websites and contributes to the smooth functioning of internet traffic. However, this critical role of DNS can be abused by cybercriminals.</p>
+<p>Cyber attackers can target DNS infrastructure to carry out various attacks. DNS-based attacks can be used to infiltrate organizational networks, steal data, and disrupt services. As a result, DNS-based threat hunting has become an essential part of cybersecurity strategies.</p>
+<h3 id="dns-tunneling">
+  DNS Tunneling
+  <a class="heading-link" href="#dns-tunneling">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>DNS tunneling is a method where attackers abuse the DNS protocol to exfiltrate data or send malicious content. In this type of attack, data or commands are hidden within DNS requests. Attackers can use this technique to exfiltrate data from a network or establish remote communication with a device.</p>
+<p>DNS tunneling attacks typically work as follows:</p>
+<ul>
+<li>Attackers embed encrypted or encoded data into a DNS query.</li>
+<li>When these queries reach the target server, the encrypted data is decrypted, and malicious content is spread or data is exfiltrated.</li>
+</ul>
+<p>This method often bypasses firewalls, allowing attackers to secretly transmit data.</p>
+<p>Detecting this type of attack is challenging because DNS traffic is generally considered trustworthy and is not closely monitored in most networks.</p>
+<p><img src="/images/0_3YJ3tUfJ7251zTLD.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://bluecatnetworks.com/blog/four-major-dns-attack-types-and-how-to-mitigate-them/"  class="external-link" target="_blank" rel="noopener">https://bluecatnetworks.com/blog/four-major-dns-attack-types-and-how-to-mitigate-them/</a> )</p>
+<h3 id="dns-cache-poisoning">
+  DNS Cache Poisoning
+  <a class="heading-link" href="#dns-cache-poisoning">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>DNS cache poisoning is a type of attack where attackers flood DNS servers with false information to redirect users to fake websites. It causes users to receive an incorrect IP address from the DNS server, redirecting them to a site controlled by the attackers.</p>
+<p><img src="/images/0_L1eAUJSW2NeDaZvE.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.cloudflare.com/learning/dns/dns-cache-poisoning/"  class="external-link" target="_blank" rel="noopener">https://www.cloudflare.com/learning/dns/dns-cache-poisoning/</a> )</p>
+<p>For example, when a user tries to access a bank’s website, a DNS cache poisoning attack may cause them to receive an incorrect IP address and be redirected to a fake banking site.</p>
+<p>If the user enters their credentials on this fake site, the information is captured by the attackers.</p>
+<p>This type of attack is often used to steal personal information or spread malware.</p>
+<h3 id="dns-amplification-attacks">
+  DNS Amplification Attacks
+  <a class="heading-link" href="#dns-amplification-attacks">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>DNS amplification is a technique used in distributed denial-of-service (DDoS) attacks. In this type of attack, attackers use DNS servers as reflectors to overwhelm the target server or network. DNS amplification attacks generate a massive amount of traffic, rendering the targeted system unusable.</p>
+<p><img src="/images/0_YvqKAYqmpqLK-K4v.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.cloudflare.com/learning/ddos/dns-amplification-ddos-attack/"  class="external-link" target="_blank" rel="noopener">https://www.cloudflare.com/learning/ddos/dns-amplification-ddos-attack/</a> )</p>
+<p>Attackers send a small DNS query, but this query generates a large response.</p>
+<p>These large responses are directed to the target server, causing it to become overloaded and leading to a denial of service (DoS).</p>
+<p>Such attacks often target weak or misconfigured DNS servers.</p>
+<h3 id="typosquatting">
+  Typosquatting
+  <a class="heading-link" href="#typosquatting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Typosquatting is an attack in which users are redirected to fake or malicious websites due to typographical errors. In this type of attack, attackers register domain names based on common misspellings.</p>
+<p>For example, users might accidentally type “gooogle.com” instead of “google.com.”</p>
+<p>Attackers register these misspelled domain names and redirect users to sites filled with phishing attacks or malware downloads.</p>
+<p>Typosquatting is often used to steal financial information or personal data, and users may not easily realize they have landed on a fake site.</p>
+<h3 id="dns-hijacking">
+  DNS Hijacking
+  <a class="heading-link" href="#dns-hijacking">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>DNS hijacking is an attack where attackers redirect DNS queries to send users to fake websites or malicious content. This type of attack is typically carried out by gaining access to DNS servers or users’ routers.</p>
+<p>Attackers alter DNS settings and redirect users to an IP address of their choice.</p>
+<p>Users unknowingly enter a fake site and may share personal information.</p>
+<p>Such attacks are particularly common on public Wi-Fi networks, where users may be redirected to rogue DNS servers.</p>
+<p><img src="/images/0__BHKZ-d0fx6pAfsY.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.cloudns.net/blog/dns-hijacking-what-it-is-and-how-to-protect-yourself/"  class="external-link" target="_blank" rel="noopener">https://www.cloudns.net/blog/dns-hijacking-what-it-is-and-how-to-protect-yourself/</a> )</p>
+<h3 id="dns-rebinding">
+  DNS Rebinding
+  <a class="heading-link" href="#dns-rebinding">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>DNS rebinding is a technique where attackers use the victim’s browser to attack systems on the victim’s local network. This attack is often carried out through malicious ads or code downloaded from insecure websites.</p>
+<p>Attackers manipulate DNS responses to redirect the victim’s browser to an IP address on the victim’s local network.</p>
+<p>The browser trusts this response, allowing the attacker to access devices on the local network.</p>
+<p>This type of attack is often used to gather information about internal networks or spread malware.</p>
+<p>This lesson has discussed DNS-based attacks. The next lesson will cover the topic “ <strong>Role of DNS Security Systems</strong> .”</p>
+<h3 id="questions">
+  Questions
+  <a class="heading-link" href="#questions">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Anser Needed</p>
+<hr>
+<h3 id="role-of-dns-securitysystems">
+  Role of DNS Security Systems
+  <a class="heading-link" href="#role-of-dns-securitysystems">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Domain Name System (DNS), as one of the foundational components of the internet, performs many critical functions, from enabling website access to facilitating network communication. However, due to its important role, DNS has also become an attractive target for cyber attackers. DNS security systems have been developed to detect and prevent cyberattacks targeting the DNS protocol. Threat hunting proactively detects and stops potential attacks before they occur using the data provided by these systems. In this lesson, we will focus on how DNS security systems are used in the threat hunting process and the benefits they provide.</p>
+<p><img src="/images/0_6CNsYsPjQY7wLFts.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.varonis.com/blog/dns-security"  class="external-link" target="_blank" rel="noopener">https://www.varonis.com/blog/dns-security</a> )</p>
+<h3 id="the-role-of-dns-securitysystems">
+  The Role of DNS Security Systems
+  <a class="heading-link" href="#the-role-of-dns-securitysystems">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>DNS security systems are used to monitor and analyze DNS traffic to detect and prevent cyber threats. These systems track DNS requests on the network, identify suspicious activities, and generate alerts. Some of the core functions provided by DNS security systems include:</p>
+<ul>
+<li><strong>Anomaly Detection:</strong> It is the process of identifying patterns of normal DNS traffic and detecting activities that deviate from these patterns.</li>
+<li><strong>Blocking Malicious Domains:</strong> It involves preventing requests to known malicious domains and stopping users from being redirected to harmful sites.</li>
+<li><strong>Detecting DNS Tunneling and Other Threats:</strong> It is the process of identifying DNS-based attacks such as DNS tunneling and cache poisoning, and taking measures to mitigate them.</li>
+<li><strong>Real-Time Monitoring and Analysis:</strong> It is the continuous monitoring of DNS traffic in real time to quickly detect suspicious activities.</li>
+</ul>
+<h3 id="threat-hunting-with-dns-securitysystems">
+  Threat Hunting with DNS Security Systems
+  <a class="heading-link" href="#threat-hunting-with-dns-securitysystems">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>DNS security systems provide cybersecurity teams with critical data during the threat hunting process. Threat hunting is a proactive process designed to detect and stop cyber attacks before they occur.</p>
+<p><img src="/images/0_KJRV96BtV4PfdcNt.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://detect.fyi/threat-hunting-suspicious-tlds-a742c2adbf58"  class="external-link" target="_blank" rel="noopener">https://detect.fyi/threat-hunting-suspicious-tlds-a742c2adbf58</a> )</p>
+<p><img src="/images/0_ttE2ZaJyqy_emnQe.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://detect.fyi/threat-hunting-suspicious-tlds-a742c2adbf58"  class="external-link" target="_blank" rel="noopener">https://detect.fyi/threat-hunting-suspicious-tlds-a742c2adbf58</a> )</p>
+<p>The role of DNS security systems in this process is significant:</p>
+<ul>
+<li><strong>Proactive Monitoring:</strong> DNS security systems continuously monitor DNS traffic and identify abnormal activities. These systems record DNS requests over a period of time, and the data is analyzed by threat hunters.</li>
+<li><strong>Data Enrichment:</strong> DNS logs are integrated with platforms like SIEM (Security Information and Event Management) to provide a broader security perspective. This integration allows threat hunters to correlate DNS data with other security events.</li>
+<li><strong>Suspicious Activity Detection:</strong> Threat hunters use the data provided by DNS security systems to detect requests to suspicious domains, DNS tunneling attempts, and other abnormal activities. These activities may indicate attempts to infiltrate the network with malware or exfiltrate data.</li>
+<li><strong>Incident Response:</strong> Detailed analysis of detected threats enables a rapid response. DNS security systems provide critical information to determine the source and methods of attacks during the incident response process.</li>
+</ul>
+<h3 id="techniques-used-in-threat-hunting-with-dns-securitysystems">
+  Techniques Used in Threat Hunting with DNS Security Systems
+  <a class="heading-link" href="#techniques-used-in-threat-hunting-with-dns-securitysystems">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>The primary techniques used in threat hunting with DNS security systems include:</p>
+<ul>
+<li><strong>Machine Learning:</strong> DNS security systems use machine learning algorithms to learn patterns of normal DNS traffic and detect activities that deviate from these patterns. Machine learning is highly effective in identifying unknown threats.</li>
+<li><strong>Behavioral Analysis:</strong> DNS requests are analyzed to determine if they deviate from normal behavior. Abnormal behavior often appears in the early stages of an attack, and detecting it helps prevent attacks.</li>
+<li><strong>Threat Intelligence:</strong> DNS security systems integrate with threat intelligence sources to quickly identify known malicious domains and block requests to them. Threat intelligence provides up-to-date information about current threats.</li>
+<li><strong>DNS Log Analysis:</strong> Detailed analysis of DNS logs plays a critical role in threat hunting. Logs are used to monitor suspicious activities on the network and identify potential attacks. DNS log analysis is often performed in integration with SIEM platforms.</li>
+</ul>
+<h3 id="benefits-of-threat-hunting-with-dns-securitysystems">
+  Benefits of Threat Hunting with DNS Security Systems
+  <a class="heading-link" href="#benefits-of-threat-hunting-with-dns-securitysystems">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Threat hunting with DNS security systems provides several benefits to organizations:</p>
+<ul>
+<li><strong>Early Threat Detection:</strong> DNS security systems help threat hunters to detect threats at an early stage, allowing attacks to be stopped before they occur.</li>
+<li><strong>Preventing Data Loss:</strong> DNS-based attacks often aim to exfiltrate data. DNS security systems prevent data loss by detecting and blocking such attacks.</li>
+<li><strong>Strengthening Network Security:</strong> DNS security systems monitor all DNS activities on the network, helping to identify vulnerabilities and strengthen network security.</li>
+<li><strong>Reducing the Attack Surface:</strong> DNS security systems block requests to known malicious domains, reducing potential entry points for attackers.</li>
+</ul>
+<h3 id="summary">
+  Summary
+  <a class="heading-link" href="#summary">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>DNS security systems play a critical role in the threat hunting process, helping to prevent and detect cyberattacks. These systems create a proactive defense line by continuously monitoring and analyzing DNS traffic. The use of advanced techniques such as machine learning, behavioral analysis, and threat intelligence ensures that even unknown threats are detected early. The effective use of DNS security systems strengthens organizations’ cybersecurity strategies and plays a vital role in securing their networks.</p>
+<p>This lesson has discussed the importance of DNS security systems in the threat hunting process. The next lesson will cover the topic “ <strong>Using DNS Security Systems</strong> ”.</p>
+<h3 id="questions-1">
+  Questions
+  <a class="heading-link" href="#questions-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Anser Needed</p>
+<hr>
+<h3 id="using-dns-securitysystems">
+  Using DNS Security Systems
+  <a class="heading-link" href="#using-dns-securitysystems">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Domain Name System (DNS) security systems have become a critical part of cybersecurity strategies. Cybercriminals can use DNS to carry out various attacks such as data exfiltration, malware distribution and network disruption. Therefore, the effective use of DNS security systems plays a vital role in threat hunting processes. This lesson covers the collection and analysis of DNS log data, detection and analysis of malicious DNS activity, and real-time and retrospective DNS traffic analysis.</p>
+<h3 id="collection-and-analysis-of-dns-logdata">
+  Collection and Analysis of DNS Log Data
+  <a class="heading-link" href="#collection-and-analysis-of-dns-logdata">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>DNS log data consists of the records of DNS requests and responses on the network and plays a significant role in threat hunting processes. DNS logs are used to monitor suspicious activities on a network and detect threats at an early stage. Key considerations in the collection and analysis of DNS log data include:</p>
+<ul>
+<li><strong>Data Collection:</strong> DNS logs include all DNS queries and their responses on the network. This data is collected from DNS servers, firewalls, and other network devices. The collected data typically includes timestamps, source and destination IP addresses, queried domain names, and response codes.</li>
+<li><strong>Centralized Log Management:</strong> Transferring DNS logs to a centralized log management system or SIEM (Security Information and Event Management) platform makes it easier to manage and analyze the data. These systems can efficiently store and analyze large volumes of data.</li>
+<li><strong>Identifying Normal Traffic Patterns:</strong> Understanding normal DNS traffic patterns is the first step in detecting abnormal activities. Analysts can examine DNS logs collected over a specific period to identify typical DNS queries and responses on the network.</li>
+<li><strong>Anomaly Detection:</strong> Detecting deviations from normal traffic patterns plays a critical role in identifying potential threats. For example, a sudden surge in DNS requests to a specific IP address that normally receives few requests may indicate an anomaly.</li>
+</ul>
+<h3 id="detection-and-analysis-of-malicious-dns-activities">
+  Detection and Analysis of Malicious DNS Activities
+  <a class="heading-link" href="#detection-and-analysis-of-malicious-dns-activities">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Malicious DNS activities include various attacks that threaten network security. The detection and analysis of these activities is at the heart of the threat hunting process. Techniques used in this process include:</p>
+<ul>
+<li><strong>Signature-based Detection:</strong> Signature-based detection methods are used to identify known threats. These methods involve comparing DNS logs to known malicious domains or IP addresses. If a DNS query matches these signatures, it is flagged as a threat.</li>
+<li><strong>Behavioral Analysis:</strong> Behavioral analysis techniques are used to detect unknown or zero-day threats. It analyzes whether DNS queries deviate from normal behavior. For example, if a user device suddenly starts communicating with many different domains, this may indicate the presence of malware.</li>
+<li><strong>Machine Learning:</strong> Machine learning algorithms can analyze DNS logs to distinguish between normal and abnormal behavior. The algorithms continuously learn and become more effective at detecting new threats on the network.</li>
+</ul>
+<p><img src="/images/0_c5g2_96WlVIt_-c7.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://medium.com/data-reply-it-datatech/dga-detection-with-data-analytics-121d4289fdf7"  class="external-link" target="_blank" rel="noopener">https://medium.com/data-reply-it-datatech/dga-detection-with-data-analytics-121d4289fdf7</a> )</p>
+<ul>
+<li><strong>Threat Intelligence Integration:</strong> DNS security systems can integrate with threat intelligence to block requests to known malicious domains. This integration provides threat hunters with access to the latest threat data.</li>
+<li><strong>Correlation of Anomalies:</strong> Detecting malicious DNS activities cannot rely on a single data source. By correlating DNS logs with other security logs and events, threat hunters conduct more reliable threat analysis. For example, if a DNS query originates from a user device and there is a security alert on that device, it may indicate a more serious threat.</li>
+</ul>
+<h3 id="real-time-and-retrospective-dns-trafficanalysis">
+  Real-Time and Retrospective DNS Traffic Analysis
+  <a class="heading-link" href="#real-time-and-retrospective-dns-trafficanalysis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Both real-time and retrospective analysis of DNS traffic play an important role in the threat hunting process. Both approaches offer different benefits, and when used together, they provide more effective results.</p>
+<ul>
+<li><strong>Real-time DNS Analysis:</strong> Real-time analysis involves the real-time monitoring of DNS traffic and the rapid detection of suspicious activity. DNS security systems monitor all incoming and outgoing DNS queries and generate alerts when anomalies are detected. For example, if a device suddenly starts making a large number of DNS queries, it could be a sign of an attack, which can be immediately identified through real-time analysis.</li>
+<li><strong>Retrospective DNS Analysis:</strong> Retrospective analysis is the study of past events. This method is used to understand how an attack occurred in hindsight and to prevent similar attacks in the future. Retrospective analysis typically works on large data sets and provides more in-depth analysis. For example, in the aftermath of a security breach, a retrospective log analysis can be performed to understand which DNS queries were used by the attacker.</li>
+<li><strong>Incident Response and Investigation</strong> : Both real-time and retrospective DNS analysis play a critical role in the incident response process. When an attack is detected, both types of analysis can be used to understand the scope and impact of the incident. Real-time analysis allows for quick intervention, whereas retrospective analysis reveals all the details of the incident.</li>
+<li><strong>Monitoring and Reporting:</strong> The results of real-time and retrospective analysis should be supported by continuous monitoring and reporting processes. These reports provide an overview of the security status of the network and identify measures to prevent future threats.</li>
+</ul>
+<p><img src="/images/0_YUkXocl1qAwWgz4i.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://blog.pentesteracademy.com/elk-log-analysis-dns-logs-875f669c87fd"  class="external-link" target="_blank" rel="noopener">https://blog.pentesteracademy.com/elk-log-analysis-dns-logs-875f669c87fd</a> )</p>
+<h3 id="summary-1">
+  Summary
+  <a class="heading-link" href="#summary-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>The effective use of DNS security systems in the threat hunting process plays a critical role in the early detection and neutralization of cyber attacks. The collection and analysis of DNS logs, the detection and analysis of malicious DNS activity, and the real-time and historical analysis of DNS traffic are fundamental processes that strengthen network security. To build a proactive line of defense against cyber threats, the comprehensive monitoring and analysis capabilities provided by DNS security systems are essential. Organizations can strengthen their security strategies and prepare for potential attacks by effectively executing these processes.</p>
+<p>This lesson discussed the use of DNS security systems in the threat hunting process. The next lesson will cover “ <strong>DNS Queries and Data Exfiltration Hypothesis</strong> “.</p>
+<h3 id="questions-2">
+  Questions
+  <a class="heading-link" href="#questions-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Anser Needed</p>
+<hr>
+<h3 id="dns-queries-and-data-exfiltration-hypothesis">
+  DNS Queries and Data Exfiltration Hypothesis
+  <a class="heading-link" href="#dns-queries-and-data-exfiltration-hypothesis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="hypothesis">
+  Hypothesis
+  <a class="heading-link" href="#hypothesis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>A device may be exfiltrating data by making malicious DNS requests (after communicating with a command-and-control server).</p>
+<p><img src="/images/0_V929J_K82XTd_WdZ.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.infoblox.com/glossary/data-exfiltration/"  class="external-link" target="_blank" rel="noopener">https://www.infoblox.com/glossary/data-exfiltration/</a> )</p>
+<h3 id="data-resources">
+  Data Resources
+  <a class="heading-link" href="#data-resources">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>DNS Logs:</strong> Records of DNS requests made.</li>
+<li><strong>Firewall Logs:</strong> Records of data traffic between internal and external networks.</li>
+<li><strong>DLP (Data Loss Prevention) Logs:</strong> Records related to data leakage.</li>
+<li><strong>DNS Security Logs:</strong> Logs related to DNS security (DNS categorization) solutions.</li>
+</ul>
+<p>Threat hunting effectiveness can be optimized by accessing the logs from these data sources through a centralized log management or SIEM solution.</p>
+<h3 id="analysis-steps">
+  Analysis Steps
+  <a class="heading-link" href="#analysis-steps">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>Domain Requests:</strong> Identify requests to known malicious or suspicious domains in DNS logs.</li>
+<li><strong>Domain Reputation Check:</strong> Check the reputation of domains queried in DNS requests and compare them with a list of malicious domains.</li>
+<li><strong>Request Frequency:</strong> Check if a specific device is making an abnormally high number of DNS requests in a short period.</li>
+<li><strong>Time Analysis:</strong> Monitor DNS requests made at unusual times (e.g., outside business hours or late at night).</li>
+<li><strong>Large-Sized DNS Requests:</strong> Identify DNS requests that are larger in size and contain more data than normal DNS requests.</li>
+<li><strong>Target IP Address Analysis:</strong> Monitor data transfers to external IP addresses following DNS requests.</li>
+<li><strong>Firewall Rules:</strong> Check traffic allowed or blocked by the firewall and identify abnormal activities.</li>
+<li><strong>Unexpected Ports:</strong> Check connections made through ports that are not normally used or are unexpected.</li>
+<li><strong>Suspicious Data Transfers:</strong> Check DLP logs to see if sensitive data is being transferred to external IP addresses.</li>
+<li><strong>Abnormal User Behavior:</strong> Monitor deviations from normal user behavior patterns (e.g., large file transfers, frequent file access).</li>
+</ul>
+<h3 id="expected-results">
+  Expected Results
+  <a class="heading-link" href="#expected-results">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Intense DNS requests to malicious or unknown domains.</li>
+<li>Large amounts of data transfers from the same device to the same target.</li>
+<li>DLP alerts indicating data leakage.</li>
+</ul>
+<h3 id="summary-2">
+  Summary
+  <a class="heading-link" href="#summary-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Threat hunting can be performed using sources such as DNS, firewall, DLP, and DNS security logs. Analysis includes examining suspicious domain requests, domain reputation, request frequency, timing, large DNS requests, and unexpected port usage. Anomalous user behavior and firewall logs are also evaluated to detect data leakage. Findings such as heavy requests to malicious domains or large data transfers can confirm the leak.</p>
+<p>This lesson hypothesized data exfiltration through malicious DNS requests. The next lesson will cover the “ <strong>Suspicious DNS Queries Hypothesis</strong> “.</p>
+<h3 id="questions-3">
+  Questions
+  <a class="heading-link" href="#questions-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Anser Needed</p>
+<hr>
+<h3 id="suspicious-dns-queries-hypothesis">
+  Suspicious DNS Queries Hypothesis
+  <a class="heading-link" href="#suspicious-dns-queries-hypothesis">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="hypothesis-1">
+  Hypothesis
+  <a class="heading-link" href="#hypothesis-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>A sudden increase in requests from suspicious or unknown domains from a specific internal IP address may be an indication that a device has been compromised by malware or that malicious activity, such as DNS tunneling, is in progress.</p>
+<p><img src="/images/0_PMpCsxejUFxwF9Da.png" alt=""></p>
+<p>( <strong>Image Source</strong> : <a href="https://www.socinvestigation.com/how-dns-tunneling-works-detection-response/"  class="external-link" target="_blank" rel="noopener">https://www.socinvestigation.com/how-dns-tunneling-works-detection-response/</a> )</p>
+<h3 id="data-sources">
+  Data Sources
+  <a class="heading-link" href="#data-sources">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li><strong>DNS Logs:</strong> Records of all DNS requests and responses on the network.</li>
+<li><strong>SIEM Logs:</strong> Centralized collection and analysis of DNS logs integrated into a SIEM platform.</li>
+<li><strong>Firewall Logs:</strong> Logs that monitor internal and external network traffic and record anomalous DNS-related activity.</li>
+<li><strong>Threat Intelligence Databases:</strong> Up-to-date information on known malicious domains and IP addresses.</li>
+<li><strong>DNS Server Configuration Logs:</strong> Logs that keep records of DNS server configuration changes.</li>
+</ul>
+<h3 id="analysis-steps-1">
+  Analysis Steps
+  <a class="heading-link" href="#analysis-steps-1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Transfer DNS logs to a centralized log management system or SIEM solution.</li>
+<li>Record all DNS queries and responses collected over a specific period.</li>
+<li>Analyze DNS logs to identify patterns of normal DNS traffic.</li>
+<li>Determine which domains are frequently queried and which IP addresses they are directed to.</li>
+<li>Detect DNS queries to suspicious or unknown domains.</li>
+<li>Investigate queries that deviate from normal traffic or are directed to known malicious domains.</li>
+<li>Correlate DNS logs with other security logs (e.g., firewall logs).</li>
+<li>Investigate the connection between suspicious traffic from the same IP address and other network activities.</li>
+<li>Perform a detailed analysis of abnormal DNS traffic.</li>
+<li>Examine logs in detail to detect threats such as DNS tunneling, data exfiltration, or malware communication.</li>
+<li>Assess the accuracy and severity of detected suspicious activities.</li>
+<li>Evaluate the source of suspicious DNS queries and the trustworthiness of the targeted domains.</li>
+<li>Collect additional data to confirm the incident and determine the stage of the attack.</li>
+<li>Use additional logs and threat intelligence to gather more evidence and determine the scope of the potential attack.</li>
+</ul>
+<h3 id="expected-outcomes">
+  Expected Outcomes
+  <a class="heading-link" href="#expected-outcomes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>You will:</p>
+<ul>
+<li>Detect an abnormal number of DNS queries from a specific internal IP address in DNS logs.</li>
+<li>Identify queries to suspicious or unknown domains with evidence that these domains are malicious.</li>
+<li>Correlate with SIEM and other security logs to determine if this activity is indicative of a potential attack.</li>
+<li>Detect and prevent threats such as DNS tunneling or malware communication.</li>
+</ul>
+<h3 id="summary-3">
+  Summary
+  <a class="heading-link" href="#summary-3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>These steps provide strategies for detecting a sudden increase in suspicious or unknown domain requests from a particular internal IP address. DNS logs are a critical data source for monitoring and identifying such anomalous activity. Detected anomalies enable early identification of potential attacks and facilitate rapid response. This process is critical to network security and proactive threat management.</p>
+<h3 id="questions-4">
+  Questions
+  <a class="heading-link" href="#questions-4">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>No Anser Needed</p>
+<hr>
+<h3 id="practical-lab">
+  Practical Lab
+  <a class="heading-link" href="#practical-lab">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<h3 id="hypothesis-2">
+  Hypothesis
+  <a class="heading-link" href="#hypothesis-2">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Note</strong>: The questions in this section are prepared for Threat Hunting based on the following hypothesis:</p>
+<p><strong>Hypothesis:</strong> Attackers may be abusing the DNS protocol to enable systems within the organization to communicate with command and control (C2) servers.</p>
+<h3 id="threat-hunting-lab-environment">
+  Threat Hunting Lab Environment
+  <a class="heading-link" href="#threat-hunting-lab-environment">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>SIEM (Wazuh)</li>
+<li>IDS (Suricata)</li>
+<li>Firewall Traffic Events</li>
+</ul>
+<h3 id="lab-notes">
+  Lab Notes
+  <a class="heading-link" href="#lab-notes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<ul>
+<li>Analyze the logs between “Aug 8, 2024 00:00 — Aug 13, 2024 00:00” to answer the questions below.</li>
+<li>Subsequent questions require correct answers from previous ones. Answer all questions strictly in the order they appear.</li>
+</ul>
+<p><strong>Note:</strong> Analyze the logs between “Aug 8, 2024 00:00 — Aug 13, 2024 00:00” to answer the questions below.</p>
+<p><strong>Note</strong>: Subsequent questions require correct answers from previous ones. Answer all questions strictly in the order they appear.</p>
+<blockquote>
+<p>What is the name (data.alert.signature) of the triggered IDS alert related to DNS?</p>
+</blockquote>
+<p>In SIEM, use the filter “rule.groups: ids” and analyze the results. You can also search for the term *DOMAIN*.</p>
+<p><img src="/images/1_WbxtJqV3TZLKNpOVMpUjCQ.png" alt=""></p>
+<p><strong>Answer:</strong> ETPRO TROJAN Possible Virut DGA NXDOMAIN Responses (com)</p>
+<blockquote>
+<p>Which source IP address triggered the DNS-related IDS alert among the IDS events?</p>
+</blockquote>
+<p>In SIEM, use the filter “rule.groups: ids” and analyze the results. You can also search for the term *DOMAIN*.</p>
+<p><strong>Answer:</strong> 172.16.11.11</p>
+<blockquote>
+<p>What is the domain queried in the DNS request within the DNS-related IDS alert?</p>
+</blockquote>
+<p>In SIEM, apply the filter “rule.groups: ids” and analyze the results. Check the “data.payload_printable” field.</p>
+<p><strong>Answer:</strong> nptnsx.com</p>
+<blockquote>
+<p>What IP address is included in the DNS response from the DNS server for the queried domain in the IDS alert?</p>
+</blockquote>
+<p>In SIEM, apply the filter “rule.groups: ids” and analyze the results. Check the “data.payload_printable” field.</p>
+<p>Answer: 113.88.23.11</p>
+<blockquote>
+<p>What is the firewall action for the access attempt to the IP address provided in the DNS response?</p>
+</blockquote>
+<p>In SIEM, apply the filters “rule.groups: firewall” and “data.dstip: [IP_Address]”. Check the “data.action” field.</p>
+<p><img src="/images/1_NkQtyQH5Dz0Mx50Y3GUKfA.png" alt=""></p>
+<p>Answer: accept</p>
+<blockquote>
+<p>What port number was requested in the IP address included in the DNS server’s response?</p>
+</blockquote>
+<p>In SIEM, apply the filters “rule.groups: firewall” and “data.dstip: [IP_Address]”. Check the “data.dstport” field.</p>
+<p>Answer: 443</p>
+<blockquote>
+<p>What is the name of the other IDS alert related to the IP address contained in the response provided by the DNS server? (data.alert.signature)</p>
+</blockquote>
+<p>In SIEM, apply the filter “rule.groups: ids” and analyze the results. Look for the identified IP address within the IDS alerts.</p>
+<p><img src="/images/1_4ymR0dCKyKsFJe3PxID59w.png" alt=""></p>
+<p>Answer: ET EXPLOIT Apache log4j RCE Attempt — lower/upper UDP Bypass M2 (Outbound) (CVE-2021–44228)</p>
+<blockquote>
+<p>What is the source IP address that triggered the other IDS alert related to the IP address provided in the DNS response?</p>
+</blockquote>
+<p>In SIEM, apply the filter “rule.groups: ids” and analyze the results. Check the “data.src_ip” field.</p>
+<p>Answer: 10.200.200.10</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Arbac 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

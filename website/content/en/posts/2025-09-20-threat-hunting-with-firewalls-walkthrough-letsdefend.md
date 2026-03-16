@@ -1,4 +1,5 @@
 ---
+series: ["Threat Hunting"]
 title: "Threat Hunting with Firewalls Walkthrough — LetsDefend"
 date: 2025-09-20
 draft: false

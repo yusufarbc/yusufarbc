@@ -1,4 +1,5 @@
 ---
+series: ["Ağ Güvenliği ve Yönetimi"]
 title: "Ağ Yönetimi ve Güvenliği V: Kimlik ve Erişim Yönetimi (IAM)"
 date: 2025-08-10
 draft: false

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  X86 TABANLI ASSEMBLY DİLİ · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="
+
+  X86 Tabanlı Assembly Dili
+  
+    
+    Başlık Linki
+  
+
+
+
+  Assembly diline Genel Bakış
+  
+    
+    Başlık Linki
+  
+
+Bir bilgisayar sistemi temel olarak donanım ve yazılım gini unsurlardan meydana gelmektedir. Donanım, bilgisayarın elektronik ve mekamik sistemlerini birbirine bağdaştıran oluşumdur. Bir kişisel bilgisayar ele alınırsa, monitör, klavye, sistem birimi ve diğer fiziksel kablo ve cihazların tümü donanım parçalarını oluştururlar. Bütün bu elemanların var olması yazılım olmadan bir işe yaramaz. Yazılım, sistemin açılmasından kapanmasına kadar olan bütün işlemlerini düzenler. Yazılımlar, sistem yazılımları ve uygulama yazılımları olmak üzere ikiye ayrılır. Uygulama yazılımları,istatiksel analizlerin yapılmasında, oyun programlarının yürütülmesinde vb. işlemlerde kullanılır. Sistem yazılımları sistemin işlevlerinin yerine getirilmesinde kullanılır. Uygulama yazılımları sistem yazılımları vasıtasıyla yönlendirilir. Sistem yazılımlarına en güzel örnek işletim sistemleridir (windows, linux, unix) .">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="X86 TABANLI ASSEMBLY DİLİ">
+  <meta name="twitter:description" content="X86 Tabanlı Assembly DiliBaşlık LinkiAssembly diline Genel BakışBaşlık LinkiBir bilgisayar sistemi temel olarak donanım ve yazılım gini unsurlardan meydana gelmektedir. Donanım, bilgisayarın elektronik ve mekamik sistemlerini birbirine bağdaştıran oluşumdur. Bir kişisel bilgisayar ele alınırsa, monitör, klavye, sistem birimi ve diğer fiziksel kablo ve cihazların tümü donanım parçalarını oluştururlar. Bütün bu elemanların var olması yazılım olmadan bir işe yaramaz. Yazılım, sistemin açılmasından kapanmasına kadar olan bütün işlemlerini düzenler. Yazılımlar, sistem yazılımları ve uygulama yazılımları olmak üzere ikiye ayrılır. Uygulama yazılımları,istatiksel analizlerin yapılmasında, oyun programlarının yürütülmesinde vb. işlemlerde kullanılır. Sistem yazılımları sistemin işlevlerinin yerine getirilmesinde kullanılır. Uygulama yazılımları sistem yazılımları vasıtasıyla yönlendirilir. Sistem yazılımlarına en güzel örnek işletim sistemleridir (windows, linux, unix) .">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2022/12/x86-tabanli-assembly-dili/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="X86 TABANLI ASSEMBLY DİLİ">
+  <meta property="og:description" content="X86 Tabanlı Assembly DiliBaşlık LinkiAssembly diline Genel BakışBaşlık LinkiBir bilgisayar sistemi temel olarak donanım ve yazılım gini unsurlardan meydana gelmektedir. Donanım, bilgisayarın elektronik ve mekamik sistemlerini birbirine bağdaştıran oluşumdur. Bir kişisel bilgisayar ele alınırsa, monitör, klavye, sistem birimi ve diğer fiziksel kablo ve cihazların tümü donanım parçalarını oluştururlar. Bütün bu elemanların var olması yazılım olmadan bir işe yaramaz. Yazılım, sistemin açılmasından kapanmasına kadar olan bütün işlemlerini düzenler. Yazılımlar, sistem yazılımları ve uygulama yazılımları olmak üzere ikiye ayrılır. Uygulama yazılımları,istatiksel analizlerin yapılmasında, oyun programlarının yürütülmesinde vb. işlemlerde kullanılır. Sistem yazılımları sistemin işlevlerinin yerine getirilmesinde kullanılır. Uygulama yazılımları sistem yazılımları vasıtasıyla yönlendirilir. Sistem yazılımlarına en güzel örnek işletim sistemleridir (windows, linux, unix) .">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-12-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2022-12-25T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2022/12/x86-tabanli-assembly-dili/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/posts/2022/12/x86-based-assembly-language/">English</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/tr/posts/2022/12/x86-tabanli-assembly-dili/">
+              X86 TABANLI ASSEMBLY DİLİ
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-12-25T00:00:00Z">
+                Aralık 25, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              10 dakikalık okuma
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <hr>
+<h3 id="x86-tabanlı-assemblydili">
+  X86 Tabanlı Assembly Dili
+  <a class="heading-link" href="#x86-tabanl%c4%b1-assemblydili">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="/images/1_BAtuHRcfthhw1Adspm0Jsg.png" alt=""></p>
+<h3 id="assembly-diline-genelbakış">
+  Assembly diline Genel Bakış
+  <a class="heading-link" href="#assembly-diline-genelbak%c4%b1%c5%9f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bir bilgisayar sistemi temel olarak donanım ve yazılım gini unsurlardan meydana gelmektedir. Donanım, bilgisayarın elektronik ve mekamik sistemlerini birbirine bağdaştıran oluşumdur. Bir kişisel bilgisayar ele alınırsa, monitör, klavye, sistem birimi ve diğer fiziksel kablo ve cihazların tümü donanım parçalarını oluştururlar. Bütün bu elemanların var olması yazılım olmadan bir işe yaramaz. Yazılım, sistemin açılmasından kapanmasına kadar olan bütün işlemlerini düzenler. Yazılımlar, sistem yazılımları ve uygulama yazılımları olmak üzere ikiye ayrılır. Uygulama yazılımları,istatiksel analizlerin yapılmasında, oyun programlarının yürütülmesinde vb. işlemlerde kullanılır. Sistem yazılımları sistemin işlevlerinin yerine getirilmesinde kullanılır. Uygulama yazılımları sistem yazılımları vasıtasıyla yönlendirilir. Sistem yazılımlarına en güzel örnek işletim sistemleridir (windows, linux, unix) .</p>
+<h4 id="makine-dili">
+  <strong>Makine Dili</strong>
+  <a class="heading-link" href="#makine-dili">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>İnsan oğlunun makine ile iletişimde bulunabilmesi için onun dilinden anlaması gerekmektedir. Bunun için sistemin çalışmasında temel unsur olan mantıksal 0 ve 1 değerlerinin belli oranlarda dizi haline getrilmesi ve belli bir düzene göre yorumlanması ile sistemin dili oluşturulur.</p>
+<p><img src="/images/0_ORZKX7SQuqXG8bU2.jpg" alt=""></p>
+<p>Mikroişlemcili sistemlerde mantıksal 0 ve 1&rsquo;lerden oluşan ve belli bir görevi yerine getirek üzere yazılmış dile makine dili denir. Makine dilini meydana getiren bu sayıların yan yana gelmesi programcı için anlaşılmayan bir dizi oluşturur.</p>
+<p>Makine dilinde yazılan programlar programcılar veya kullanıcılar tarafından çok zor yorumlanır ve hatırlaması zordur. Doğrudan makine dilince bir program yazmanın birkaç mahzuru vardır. Küçük programlar dışında hatasız program yazmak çok zordur. Yazılanlar 0 ya da 1&rsquo;lerden oluştuğu için herşey birbirine benzer ve hatalardan arındırma kolay olmaz.</p>
+<h4 id="assembly-dili">
+  Assembly Dili
+  <a class="heading-link" href="#assembly-dili">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Makine dilinde ortaya çıkan zorlukların üstesinden gelmek için düşük seviyeli dil grubuna giren assembly dili kullanılır. Komut kodlarının ikili veya hex gösteriminin yerine assembly dili mnemonik denilen komut kısaltmaları kullanır.</p>
+<p>Mnemonik kullanımı:</p>
+<pre tabindex="0"><code>MOV AX,05  
+ADD AX,10  
+SUB AX,05  
+NOT AX  
+MOV BX,AX  
+INT 21H
+</code></pre><p>Her firma ürettiği mikroişlemciyle ilgili mnemonikleri de piyasaya sunmaktadır. Yukarıdaki küçük program parçasında her bir satır tam bir komutu ele alır. Her bir komut, bir iki veya 3 baytlık ikili koda karşılık gelir.</p>
+<p><img src="/images/0_JB_H9rRUMsl76-cW.png" alt=""></p>
+<p>assembler</p>
+<p>Assembly dilinde yazılan her program bellekte saklanırken ya da işlenirken makine koduna çevrilmeye ihtiyaç duyar. Bu çevirme işlemi elle veya bir assembler yardımıyla yapılır.</p>
+<h4 id="isa-instruction-set-architecture">
+  ISA (Instruction Set Architecture)
+  <a class="heading-link" href="#isa-instruction-set-architecture">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Komutlardan bahsederken <a href="https://en.wikipedia.org/wiki/Instruction_set_architecture"  class="external-link" target="_blank" rel="noopener">ISA</a>’dan bahsetmemek olmaz. Komut Seti Mimarisi (ISA), CPU’nun yazılım tarafından nasıl kontrol edildiğini tanımlayan soyut bir bilgisayar modelinin parçasıdır. ISA, donanım ve yazılım arasında bir arabirim görevi görerek, hem işlemcinin neler yapabileceğini hem de nasıl yaptığını belirtir.</p>
+<p>ISA, bir kullanıcının donanımla etkileşime geçebilmesi için tek yolu sağlar. Bir programcının el kitabı olarak görülebilir, çünkü makinenin birleştirme dili programcısı, derleyici yazarı ve uygulama programcısı tarafından görülebilen kısmıdır.</p>
+<h4 id="program-formatı">
+  Program Formatı
+  <a class="heading-link" href="#program-format%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Komutlar ve Talimatlardan meydana gelen assembly dilinde yazılmış kaynak kodlarnın her bir satrında, dört ayrı alan tanımlanabilir.</p>
+<ul>
+<li>Etiket alanı</li>
+<li>Komut alanı</li>
+<li>Operand alanı</li>
+<li>Açıklama alanı</li>
+</ul>
+<p>Etiket, komut ve operand alanları birbirinden bir veya daha fazla boşluk ya da tab ile ayrılırlar. Açıklama alanı ise mutlaka noktalı virgül ile ayrılmalıdır.</p>
+<pre tabindex="0"><code>Start:  
+  MOV EDX, 2025H;  ;2025H sayısını EDX kaydedicine yükle  
+  ADD EAX, EDX;    ;Bu değeri EAX kaydedicisine ekle  
+End:
+</code></pre><p>Yukarıdaki küçük kod parçasında görülen <em>Start</em> ve <em>End</em> etiket, <em>MOV</em> ve <em>ADD</em> komut, <em>EDX, 2025H</em> ve <em>EAX, EDX</em> operand, noktalı virgülden sonrası ise açıklama alanıdır.</p>
+<hr>
+<h3 id="x86-komutkümesi">
+  X86 Komut Kümesi
+  <a class="heading-link" href="#x86-komutk%c3%bcmesi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>X86 tabanlı işlemcilerin kullandığı komut kümesi, program yazımı sırasında kullanılan bir dizi mnemoiklerden meydana gelmiştir. Komut kümesindeki bazı komutlar birbiriyle aynı işlevi yerine getirebilir. Programcının komut kümesindeki tüm komutları bilmesi gerekmez. 500 adet komut içerisinden yaklaşık 100 tanesini bilmesi assembly diline program yazmak için yeterli olaracaktır.</p>
+<p>Komutları kullanılış amançlarına göre gruplara ayırabiliriz:</p>
+<ul>
+<li>Veri aktarım komutları</li>
+<li>Artimetik ve Mantık komutları</li>
+<li>Program Kontrol Komutları</li>
+</ul>
+<p>Bu komutlardan yaygın olarak kullanılanlara bakalım.</p>
+<h4 id="veri-aktarım-komutları">
+  Veri Aktarım Komutları
+  <a class="heading-link" href="#veri-aktar%c4%b1m-komutlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>MOV</strong>operand2&rsquo;yi operand1&rsquo;e kopyalar. CS ve IP kaydedicilerinin değerini değiştiremez. Bir segment kaydının değerini veya immediate bir değeri başka bir segment kaydına direk olarak kopyalamaz. Durum bayraklarını etkilemez. <strong>Operandlar:<br>
+-</strong> REG, memory
+<ul>
+<li>memory, REG</li>
+<li>REG, REG</li>
+<li>memory, immediate</li>
+<li>REG, immediate</li>
+</ul>
+</li>
+<li><strong>PUSH/POP</strong>PUSH ve POP komutları verileri stack segmentte saklamamıza sağlar. PUSH verileri yığına iter, POP verileri yığından çeker. Tek operand alır. Durum bayraklarını etkilemez.<br>
+<strong>Openrandlar:</strong>- REG
+<ul>
+<li>memory</li>
+<li>immediate</li>
+</ul>
+</li>
+<li><strong>IN/OUT</strong>IN komutu portlar üzerinden AL veya AX’e veri aktarımını sağlar, gerekirse DX’de kullanılabilir.İkinci operand bir port numarasıdır. <br>
+Out komutu bunun tersidir. <strong>Operandlar:<br>
+-</strong> AL, im.byte — im.byte, AL
+<ul>
+<li>AL, DX — DX, AL</li>
+<li>AX, im.byte — im.byte, AX</li>
+<li>AX, DX — DX, AX</li>
+</ul>
+</li>
+</ul>
+<h4 id="aritmetik-ve-mantık-komutları">
+  <strong>Aritmetik ve Mantık Komutları</strong>
+  <a class="heading-link" href="#aritmetik-ve-mant%c4%b1k-komutlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>ADD/ADC</strong>operand2&rsquo;yi operand1&rsquo;e ekler ve sonucu operand1&rsquo;e atar. ADC’nin farkı carry bitini de toplamaya dahil etmesidir. Tüm durum bayraklarını etkiler.<br>
+<strong>Operandlar:<br>
+-</strong> REG, memory
+<ul>
+<li>memory, REG</li>
+<li>REG, REG</li>
+<li>memory, immediate</li>
+<li>REG, immediate</li>
+</ul>
+</li>
+<li><strong>SUB/SBB</strong>operand2&rsquo;yi operand1&rsquo;den çıkarır ve sonucu operand1&rsquo;e atar. SBB’nin farkı carry bitini de çıkarmaya dahil etmesidir. Tüm durum bayraklarını etkiler.<br>
+<strong>Operandlar:<br>
+-</strong> REG, memory
+<ul>
+<li>memory, REG</li>
+<li>REG, REG</li>
+<li>memory, immediate</li>
+<li>REG, immediate</li>
+</ul>
+</li>
+<li><strong>MUL/IMUL</strong>MUL ve İMUL komutu 8-bitlik sayılar için aldığı operandı AL ile çarpıp sonucu AX’e atar. 16-bitlik sayılar için ise aldığı operandı AX ile çarpıp sonucu DX:AX kaydedicilerine atar. İMUL’un MUL komutundan farkı işaretli sayılar için olmasıdır.Sadece carry ve overflow bayraklarını etkiler. <strong>Operandlar:<br>
+-</strong> REG
+<ul>
+<li>memory</li>
+</ul>
+</li>
+<li><strong>DIV/IDIV</strong>DIV ve IDIV komutu 8-bitlik operand için AX kaydedicisini operanda bölü sonucu AL’ye atar. 16- bitlik operand için ise DX:AX kaydedicilerini operanda bölüm sonucu AX’e atar. IDIV’in DIV komutundan farkı işaretli sayılar için olmasıdır.<strong>Operandlar:<br>
+-</strong> REG
+<ul>
+<li>memory</li>
+</ul>
+</li>
+<li><strong>INC/DEC</strong>INC komutu operandın değerini bir arttırmak için DEC komutu ise 1 azaltmak için kullanılır. Carry bayrağı hariç tüm bayrakları etkiler. <strong>Operandlar:<br>
+-</strong> REG
+<ul>
+<li>memory</li>
+</ul>
+</li>
+<li><strong>NEG</strong>Operandın 2&rsquo;ye tümleyenini geri operanda atar.<br>
+<strong>Operandlar:<br>
+-</strong> REG
+<ul>
+<li>memory</li>
+</ul>
+</li>
+<li><strong>AND/OR/XOR/NOT</strong>Mantıksal işlemleri yerine getirmek için kullanılan komutlardır. NOT komutu hariç iki operand alırlar. Zero, sign ve parity bayraklarını etkilerler. <strong>Operandlar:<br>
+-</strong> REG, memory
+<ul>
+<li>memory, REG</li>
+<li>REG, REG</li>
+<li>memory, immediate</li>
+<li>REG, immediate</li>
+</ul>
+</li>
+<li><strong>SHR/SHL</strong>SHR komutu operand1&rsquo;i, operand2&rsquo;de belirtilen sayı kadar sağa kaydırır. Kaydırılan kısımdan içeri lojik-0 alır çıkan değer carry’e kopyalanır. SHL ise aynı işlemi sola kaydırarak yapar. Carry ve Overflow bayraklarını etkiler. OF=0, eğer ilk işlenen orijinal işareti koruyorsa.<br>
+<strong>Operandlar:</strong>
+<ul>
+<li>memory, immediate</li>
+<li>REG, immediate</li>
+<li>memory, CL</li>
+<li>REG, CL</li>
+</ul>
+</li>
+<li><strong>ROR/ROL</strong>ROR komutu operand1&rsquo;i, operand2 de belirtilen sayı kadar sağa döndürür. Çıkan değer tekrar baştan geri alınır ayrıca Carry’e kopyalanır. ROL komutu ise bu işlemin sola döndürülen halidir. Carry ve Overflow bayraklarını etkiler. OF=0, eğer ilk işlenen orijinal işareti koruyorsa. <strong>Operandlar:</strong>
+<ul>
+<li>memory, immediate</li>
+<li>REG, immediate</li>
+<li>memory, CL</li>
+<li>REG, CL</li>
+</ul>
+</li>
+<li><strong>RCR/RCL</strong>RCR komutu operand1&rsquo;i, operand2 de belirtilen sayı kadar carry bayrağı üzerinden sağa döndürür. Çıkan değer carry’e kopyalanır, carry’nin değeri ise baştan geri alınır. RCL komutu ise bu işlemin sola döndürülen halidir. Carry ve Overflow bayraklarını etkiler. OF=0, eğer ilk işlenen orijinal işareti koruyorsa. <strong>Operandlar:</strong>
+<ul>
+<li>memory, immediate</li>
+<li>REG, immediate</li>
+<li>memory, CL</li>
+<li>REG, CL</li>
+</ul>
+</li>
+<li><strong>CMP</strong>Karşılaştrma işlemi için kullanılan komuttur. İki operand alır, operand2&rsquo;yi operand1&rsquo;den çıkarır ancak atama yapmaz. Bu çıkarma işlemine göre bayrakları düzenler.<br>
+<strong>Operandlar:<br>
+-</strong> REG, memory
+<ul>
+<li>memory, REG</li>
+<li>REG, REG</li>
+<li>memory, immediate</li>
+<li>REG, immediate</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/1_cTFBzk0u0qRVO5sdUCTZtw.png" alt=""></p>
+<p>CMP işleminin sonunda bayrakların durumları</p>
+<h4 id="program-kontrol-komutları">
+  Program Kontrol Komutları
+  <a class="heading-link" href="#program-kontrol-komutlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>JMP</strong><br>
+Program akışında dallanmalar yapmamızı sağlayan komutlardır. JMP komutu koşulsuz dallanma için kullanılır. Operand olarak program akışının dallanma yapılacak bölümünü bir label ile alır. Koşulu bağlı dallanma yapmamıza yarayan pek çok komut vardır.</li>
+</ul>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*rqiV9TW4c9eHSlii" alt=""></p>
+<p>JUMP INSTRUCTIONS</p>
+<ul>
+<li><strong>LOOP</strong><br>
+LOOP komutu, döngü kurmamızı kolaylaştırır. Her tekrarda CX kaydedcisini bir azaltır ve CX sıfır ise döngüyü sonlandırır.Operand olarak program akışının dallanma yapılacak bölümünü bir label ile alır.</li>
+</ul>
+<hr>
+<h3 id="assembly-talimatları">
+  Assembly Talimatları
+  <a class="heading-link" href="#assembly-talimatlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Assembly dilinde program geliştirmek için bazı temel kuralların bilinmesi gerekmektedir. Bu kurallar içerisinde, genel kodlama formatı, açıklama alanları, çevrilecek program listesinin denetimini sağlayan talimatlar, segment ve prosedürlerin tanımlanması aşamaları vardır.</p>
+<p>Daha önce belirtildiği gibi komut alanında iki tip ifade kullanılmaktadır. Bunlar, komut(instruction) ve talimatlardır(directive). Her ikiside emir kelimesini ifade eder, fakat komutlar işlemci, talimatlar assembler içindir. Talimatlar, segmentlerin ve altyordam gibi prosedürlerin kurulumunda, sembollerin tanımı, geçici saklama yapmak için bellek ayırmaları ve benzer işleri yapmak için kullanılır. Talimatları; data, listeleme ve çalışma modu olmak üzere 3 grupda ele alabiliriz.</p>
+<h4 id="listeme-talimatları">
+  Listeme Talimatları
+  <a class="heading-link" href="#listeme-talimatlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Assemble edilmiş bir programda, sayfa formatı, program başlığı ve alt başlıklar gibi tanımlar ve yazım formatını berlirler.</p>
+<pre tabindex="0"><code>Page 60,120 ;sayfa 60 satır ve 120 sütündan oluşacak  
+Title prog1 ;prog1 başlık
+</code></pre><p>Satır ve sütun sayısı assembly dilinde yazılı programın yazdırılmasında bir sayfanın enini ve boyunu belirler. Title talimatıyla, programın genel olarak ne yaptığı her listenin ikinci satırına yazdırılır.</p>
+<h4 id="data-talimatları">
+  Data Talimatları
+  <a class="heading-link" href="#data-talimatlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Veri talimatları kendi arasında beş gruba ayrılır. Bunlar segment veya prosedür tanımlamaları, sembol tanımlamaları, veri tanımlamaları, harici referanslar ve assembly kontrol tanımlamalarıdır.</p>
+<p><strong>SEGMENT Talimatı</strong>Segment talimatı, bir segmentin başlangıcını tanımlamada kullanılır. Her segment mutlaka bir anlamlı etiket ile ifade edilmelidir.bir segmentin açılması bir adla başlarken aynı adla ve ENDS ile kapanmalıdır.</p>
+<pre tabindex="0"><code>ISIM SEGMENT  
+...    ...  
+...    ...  
+...    ...  
+...    ...  
+ISIM ENDS
+</code></pre><p>Bir programda tipine göre (exe veya com) bir veya birden fazla segment tanımlanabilir. X86 mikroişlemci mimarisinden hatırlayacağımız üzere; kod segment komutların yerleştirildiği, data segmenti verilerin depolandığı alanı ve yığın segmenti verilerin geçici bir süre için atıldığı bellek alanını ifade ederler. Yığının dışında, data segmentleri ve kod segmentleri birden fazla tanımlanabilirler.</p>
+<p><strong>PROC Talimatı</strong>Özel bir amaçla yazılmış kodları içerisine alan program parçalarına prosedür denir. Kod segmentinin içerisine, birisi ana olmak üzere pek çok prosedür konulabilir. Ana prosedür, programın kurulum (giriş-initial) ve icra (gelişme-executing) ve sonuç aşamasını barındırır. İcra bölümünde genelde prosedür çağrıları yapılır. Basit bir prosedür mekanizması segment içerisinde şu şekilde ifade edilir:</p>
+<pre tabindex="0"><code>PROCADI PROC FAR/NEAR  
+   &lt;ifadeler&gt;  
+PROCADI ENDP
+</code></pre><p>Görüldüğü gibi, etiket adlandırması dışında prosedür tanımlaması aynı segment tanımlamasına benzemektedir. Ana prosedür içerisinden ya da ana prosedür içerisinden çağrılan başka bir prosedür içerisinden başka bir prosedür çağrılabilir. Fakat dikkat edilecek nokta her prosedürün kendine has adının ve dönüş komutunun olmasıdır. Alt prosedürler genelde ana prosedür içerisinden CALL komutuyla adı verilerek çağrılırlar.</p>
+<p><strong>ASSUME Talimatı</strong>Asuume talimatı, assembleri kullanılan segment hakkında bilgilendirir ve hangi segmentlerin hangi segment kaydedicilerini kullanacağını tanımlar. Formatı aşağıdaki gibidir:</p>
+<pre tabindex="0"><code>ASSUME Segment kaydedicisi:segment adı
+</code></pre><p>Segment kaydedicileri; CS, DS, SS, ve ES, segment adları ise programcı tarafından segmentlere verilen adlardır. JMP, CALL ve benzeri kod referansları o anki kod segmentine görecelidir. Assembler hangi segmentin veri, hangi segmentin kod segmenti olduğunu bilmek zorundadır. Çünkü assembler, programcı tarafından yazılan assembl dilindeki programı makine koduna çevirirken, segmentlerin belleğe yerleşecekleri yerleri tanımlarken, program çalışması sırasında segmentlerin etiket adresine göre hareket etmek durumundadır.</p>
+<p><strong>Çalışma Modları</strong> 8086 ve 8088 işlemcilerinin ortaya çıkmasıyla birlikte işletim sistemi olarak da DOS gündeme gelmiştir. DOS’un o zamanki işlemcide çalıştırabileceği komutlar ve bellek kullanımı halihazırdaki sistem için yeterli gelmekteydi.</p>
+<p>X86 mikromimarisini kullanan işlemcilerin geriye uyumlu olması zorunludur. Fakat işlemcilerin gelişimi ve performansının artması geriye uyumluluğu zorlar duruma gelmiştir. Bu uyumluluğu sağlamak için işlemci çeşitli çalışma modlarına ayrılmıştır.</p>
+<ul>
+<li>Real Mode: DOS işletim sisteminin üzerinde çalıştığı sistemler Real Mode altında çalışmaktadır.</li>
+<li>Protected Mode: Verilerin korunması öncelikli olan Korumalı Mod programları Protected Mode altında çalışmaktadır.</li>
+<li>Virtual Mode: Sanal bellek uzayını kullanarak birden fazla real mode programını aynı anda çalıştırabilen ve aynı zamanda protected mode programlarını da çalıştırabilen bir sanallaştırma teknolojisidir.</li>
+</ul>
+<hr>
+<h3 id="8086-işlemcisini-kullanan-bir-assemblyprogramı">
+  8086 İşlemcisini Kullanan Bir Assembly Programı
+  <a class="heading-link" href="#8086-i%c5%9flemcisini-kullanan-bir-assemblyprogram%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<pre tabindex="0"><code>;EMU8086&#39;nın sanal portlarından klavyeden alinan artis  
+;miktarını bir sayacta biriktirerek sanal portlardan display  
+;portunda belirli bir gecikme ile yansitan program  
+  
+PORTA EQU 110 ; Klayveden giris yapmaya yarayan sanal giris portu  
+PORTB EQU 199 ; Sanal cikis portu, diplay  
+  
+org 100h  
+  MOV SI,1 ;displayde gosterilecek sayac degeri  
+  MOV CX,1 ; artis miktari  
+  
+tekrar:  
+  MOV DX,PORTA  
+  IN AL,DX ;Giris portundan klavyeden girilen degeri oku  
+  cbw ;ax registerindeki byte worde çcevir  
+  MOV CX,AX ;klavyeden girilen artis miktarini yedekle  
+  ADD SI,CX ;sayactaki degeri guncelle  
+  MOV DX,PORTB  
+  MOV AX,SI  
+  OUT PORTB,AX ;sayacytaki degeri diplaye tasi  
+  CALL DELAY ;displaydeki degerin gorunebilmesi icin gecikme  
+  JMP tekrar  
+  RET  
+  
+  
+;Prosedür tanımalaması  
+DELAY PROC  
+  PUSH CX ; ana programda kullanilan registerlari yigina yedekle  
+  MOV CX,020H  
+J1:  
+  NOP  
+  NOP  
+  LOOP J1  
+  POP CX ;yeeklenen reg yigindan geri cek  
+  RET  
+DELAY ENDP
+</code></pre><hr>
+<p>Bu yazımda X86 tabanlı mikroişlemcilerde Assembly Programlama konusunu çok detaya inmeden ele almaya çalıştım. Bu yazımdan once yayınladığım X86 mikroişlemci mimarisini anlatan yazıma <a href="https://medium.com/@yusufarbc/x86-tabanl%c4%b1-mikroi%c5%9flemci-mimarisi-9b3248a5dfbe"  class="external-link" target="_blank" rel="noopener">buradan</a> ulaşabilirsiniz. Assembly programlamada en kritik nokta kullandığımız donanımın/işlemcinin mimarisini tanımak ve bu mimarinin bize sunduğu komut setine ve talimatlara göre programımızı yazmaktır. Bu yönü, assembly dilini donanıma bağlı olmadığımız yüksek seviyeli dillerden ayırır. Düşük seviyeli dil tanımına girer. Umarım faydalı olmuştur. Yorum yapmayı unutmayın!</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>
