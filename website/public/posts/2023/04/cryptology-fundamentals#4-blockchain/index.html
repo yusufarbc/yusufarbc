@@ -163,41 +163,34 @@
     <div class="content">
       
   <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="http://localhost:1313/posts/2023/04/cryptology-fundamentals%234-blockchain/">
-              Cryptology Fundamentals:#4 Blockchain
-            </a>
-          </h1>
-        </div>
+    <article class="post-full glass-card">
+      <header class="post-header">
         <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
-              <time datetime="2023-04-12T00:00:00Z">
-                April 12, 2023
-              </time>
+          <time datetime="2023-04-12T00:00:00Z">
+            April 12, 2023
+          </time>
+          
+            <span class="post-series">in 
+              
+                <a href="/series/cryptology-fundamentals">Cryptology Fundamentals</a>
+              
             </span>
-            <span class="reading-time">
-              <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              6-minute read
-            </span>
-          </div>
           
-          
-          
+          <span class="reading-time">
+            <i class="fa-solid fa-clock" aria-hidden="true"></i>
+            6 min read
+          </span>
         </div>
+        <h1 class="post-title-full">Cryptology Fundamentals:#4 Blockchain</h1>
+        
+        
+        <div class="post-featured-image">
+          <img src="https://cdn-images-1.medium.com/max/800/1*Ci1P1v2xXKNrCvqur5DbQQ.png" alt="Cryptology Fundamentals:#4 Blockchain">
+        </div>
+        
       </header>
 
-      
-
-
       <div class="post-content">
-        
-          <img src="https://cdn-images-1.medium.com/max/800/1*Ci1P1v2xXKNrCvqur5DbQQ.png" alt="Featured image"/>
-        
         <p>Hello, in this article of the cryptology basics series, I will talk about what blockchain is, how it works and where it is used.</p>
 <h3 id="what-isblockchain">
   What is Blockchain?
@@ -355,8 +348,7 @@ public blockchains, private blockchains and consortium blockchains.</p>
 
       </div>
 
-
-      <footer>
+      <footer class="post-footer-links">
         
 
 <section class="see-also">
@@ -368,18 +360,57 @@ public blockchains, private blockchains and consortium blockchains.</p>
 </section>
 
 
-        
-        
-        
-        
-        
-        
-        
       </footer>
     </article>
-
-    
   </section>
+
+  <style>
+    .post-full {
+      padding: 2.5rem;
+      margin: 2rem auto;
+      max-width: 900px;
+    }
+    .post-header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .post-title-full {
+      font-size: 2.5rem;
+      margin: 1rem 0;
+      background: linear-gradient(to right, var(--primary-accent), var(--secondary-accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .post-featured-image {
+      margin: 2rem -2.5rem;
+      max-height: 500px;
+      overflow: hidden;
+    }
+    .post-featured-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .post-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: inherit;
+    }
+    .post-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 768px) {
+      .post-full {
+        padding: 1.5rem;
+      }
+      .post-title-full {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
 
     </div>
 

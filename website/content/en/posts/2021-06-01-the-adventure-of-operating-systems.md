@@ -3,6 +3,7 @@ date: '2021-06-01'
 description: In this article, we will examine the operating systems that have become indispensable for computer systems today. We will talk about how it developed and how it came to these days. We will witness how the operating systems popular today emerged.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*xr3hyWH8B1uBJitVrIH3xQ.jpeg
+layout: single
 title: The Adventure of Operating Systems
 type: posts
 ---

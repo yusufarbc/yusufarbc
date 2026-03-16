@@ -3,6 +3,7 @@ date: '2025-08-04'
 description: 'This chapter takes an in-depth look at two vital elements that form the basis of computer networks: protocols and addressing. Protocols are sets of rules and standards that define how networked devices communicate with each other, exchange data, and ...'
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*6rU6oXi2MLCrzFevgSY-_g.png
+layout: single
 series:
 - Network Security and Management
 title: 'Network Security and Management II: NETWORK PROTOCOLS AND ADDRESSING'

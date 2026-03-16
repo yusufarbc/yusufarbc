@@ -3,6 +3,7 @@ date: '2025-08-09'
 description: In today's hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an invisible backbone that requires billions of componen...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*1gN6tP9Nv5sf9IGl.png
+layout: single
 series:
 - Network Security and Management
 title: 'Network Management and Security II: Network Protocols, Routing and Addressing'

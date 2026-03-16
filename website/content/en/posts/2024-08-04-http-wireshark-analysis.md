@@ -3,6 +3,7 @@ date: '2024-08-04'
 description: Hello, in this article I will try to explain the HTTP protocol and its analysis with Wireshark.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*lpMM04aqUuEX3GMKaDsawQ.png
+layout: single
 series:
 - Network Analysis with Wireshark
 title: HTTP Wireshark Analysis

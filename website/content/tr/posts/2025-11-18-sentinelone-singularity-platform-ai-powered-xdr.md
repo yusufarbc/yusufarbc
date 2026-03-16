@@ -3,6 +3,7 @@ date: '2025-11-18'
 description: Modern siber güvenlik tehditleri, hız ve karmaşıklık açısından geleneksel savunma mekanizmalarını aşan bir seviyeye ulaşmıştır. Bu yeni tehdit ortamında, SentinelOne Singularity Platformu, reaktif ve silolanmış güvenlik yaklaşımlarını temelden değişt...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*jLWXgQU1UC2GOt06
+layout: single
 series:
 - SentinelOne EDR
 title: 'SentinelOne Singularity Platform: AI-POWERED XDR'

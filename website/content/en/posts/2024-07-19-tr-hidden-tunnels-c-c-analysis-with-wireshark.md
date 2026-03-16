@@ -3,6 +3,7 @@ date: '2024-07-19'
 description: Hello, in this article I will talk about HTTP tunneling techniques.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*cWRqt_otCGQkQf0iobOVnw.png
+layout: single
 series:
 - Network Analysis with Wireshark
 title: '[TR] Hidden Tunnels (C&C) Analysis with Wireshark'

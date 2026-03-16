@@ -3,6 +3,7 @@ date: '2024-10-27'
 description: Once you establish an active Web presence, you put a target on your company's back. Like the unfortunate insect caught in a spider's web, the size of your company determines the extent of disruption you create on the Web and how quickly you get notic...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*Qlpv80LBf1a8sr3QfH3Bww.png
+layout: single
 title: How to Prevent Cyber ​​Attacks?
 type: posts
 ---

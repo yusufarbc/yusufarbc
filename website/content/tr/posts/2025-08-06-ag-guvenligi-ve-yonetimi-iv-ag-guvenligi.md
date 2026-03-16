@@ -3,6 +3,7 @@ date: '2025-08-06'
 description: Tüm siber güvenlik disiplininin üzerine inşa edildiği temel felsefi ve stratejik çerçeveler incelenmektedir. Güvenliğin ne anlama geldiği, nasıl bir stratejiyle uygulanması gerektiği ve hangi tür tehditlere karşı savunma yapıldığı gibi temel sorulara...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*BZVwBIefZNbdIE6Sn8hDrQ.png
+layout: single
 series:
 - Ağ Güvenliği ve Yönetimi
 title: 'Ağ Güvenliği ve Yönetimi IV: Ağ Güvenliği'

@@ -3,6 +3,7 @@ date: '2025-10-23'
 description: SentinelOne Singularity Platform, günümüzün hızla değişen siber güvenlik tehdit ortamlarına karşı, yapay zekâ (AI) destekli ve otonom çalışan bir çözüm sunmaktadır. Platform, uç nokta koruması (EPP), uç nokta tespiti ve yanıtı (EDR), genişletilmiş te...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*paXLme-hMtfJIUSk.jpg
+layout: single
 series:
 - SentinelOne EDR
 title: 'SentinelOne Singularity Platform: Gelişmiş Siber Güvenlik Çözümleri ve Mimari Analizi'

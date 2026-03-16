@@ -3,6 +3,7 @@ date: '2023-11-15'
 description: Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*_OuE2zljUjPrg0g7TfljyQ.png
+layout: single
 series:
 - Network Analysis with Wireshark
 title: DNS Wireshark Analysis

@@ -3,6 +3,7 @@ date: '2025-08-09'
 description: Cybersecurity is a dynamic discipline that has been evolving since the dawn of the digital age. In the past, the security paradigm was largely based on a static fortress defense that focused on protecting the network perimeter. In this model, the dig...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*-M8PH7FuSJ3sOgJgiKLzCg.png
+layout: single
 series:
 - Network Security and Management
 title: 'Network Management and Security I: Basic Concepts'

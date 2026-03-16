@@ -3,6 +3,7 @@ date: '2024-10-27'
 description: Aktif bir Web varlığı oluşturduğunuz anda, şirketinizin sırtına bir hedef koymuş olursunuz. Örümceğin ağına düşen talihsiz böcek gibi, şirketinizin büyüklüğü de Web’de yarattığınız rahatsızlığın boyutunu ve kötü adamlar tarafından ne kadar çabuk fark...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*Qlpv80LBf1a8sr3QfH3Bww.png
+layout: single
 title: Siber Saldırılar Nasıl Önlenir?
 type: posts
 ---

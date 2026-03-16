@@ -3,6 +3,7 @@ date: '2025-08-29'
 description: TheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olarak tasarlanmıştır. Olay yönetimi, takım temelli işbirliği ve tehdit zekâsı entegrasyonuna odaklanır. TheHive’in temel işlevleri arasında alarmların toplanması, olay vakalarına...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*f8PP6v-xaqnfWogAG6RITw.png
+layout: single
 title: TheHive Olay Müdahale Platformu
 type: posts
 ---

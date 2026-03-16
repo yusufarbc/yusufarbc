@@ -3,6 +3,7 @@ date: '2021-07-01'
 description: In this article, I will try to explain asynchronous programming, which many of us have difficulty understanding. What is this type of programming known as async-await structures in the Python language? What does it do? How to use? Let's see together.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*DH7q_354Ghtgzp3H.jpg
+layout: single
 title: Asynchronous Programming
 type: posts
 ---

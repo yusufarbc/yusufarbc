@@ -3,6 +3,7 @@ date: '2022-02-04'
 description: Hello, in this article, we will talk about what OpenCV is, computer vision and how to do these operations with Python.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*tAmPWiGxMp-BWqSx.png
+layout: single
 title: Introduction to Image Processing with OpenCV
 type: posts
 ---

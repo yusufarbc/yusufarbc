@@ -3,6 +3,7 @@ date: '2022-12-25'
 description: Bir bilgisayar sistemi temel olarak donanım ve yazılım gini unsurlardan meydana gelmektedir. Donanım, bilgisayarın elektronik ve mekamik sistemlerini birbirine bağdaştıran oluşumdur. Bir kişisel bilgisayar ele alınırsa, monitör, klavye, sistem birimi...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*BAtuHRcfthhw1Adspm0Jsg.png
+layout: single
 title: X86 TABANLI ASSEMBLY DİLİ
 type: posts
 ---

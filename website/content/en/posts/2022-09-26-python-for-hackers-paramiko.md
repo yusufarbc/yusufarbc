@@ -3,6 +3,7 @@ date: '2022-09-26'
 description: Hello, in this article, we will get to know the paramiko module that allows us to establish SSH connections with Python.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*cHmfmYLtoze7wtcUFY5BVA.png
+layout: single
 series:
 - Python for Hackers
 title: 'Python for hackers: paramiko'

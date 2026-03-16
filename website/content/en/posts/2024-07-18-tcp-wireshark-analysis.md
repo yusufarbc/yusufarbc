@@ -3,6 +3,7 @@ date: '2024-07-18'
 description: Hello, in this article I will try to explain the TCP protocol and its analysis with Wireshark.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*eV6FVT7z6k3hb3M6-DRqtw.png
+layout: single
 series:
 - Network Analysis with Wireshark
 title: TCP Wireshark Analysis

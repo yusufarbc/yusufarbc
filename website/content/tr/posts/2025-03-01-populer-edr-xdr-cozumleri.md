@@ -3,6 +3,7 @@ date: '2025-03-01'
 description: Bu yazımda, dünya genelinde popüler olarak kullanılan uç nokta güvenliği çözümlerine göz atacağız. Bu çözümleri özellikler, artıarı ve eksileri ile ele alacağız.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*BXOc1yXaiBaFvxECQ6ekEg.png
+layout: single
 title: Popüler EDR/XDR Çözümleri
 type: posts
 ---

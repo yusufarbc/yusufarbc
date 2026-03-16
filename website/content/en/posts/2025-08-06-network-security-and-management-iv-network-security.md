@@ -3,6 +3,7 @@ date: '2025-08-06'
 description: The fundamental philosophical and strategic frameworks on which the entire cybersecurity discipline is built are examined. Answers are sought to basic questions such as what security means, what strategy it should be implemented with, and what types ...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*BZVwBIefZNbdIE6Sn8hDrQ.png
+layout: single
 series:
 - Network Security and Management
 title: 'Network Security and Management IV: Network Security'

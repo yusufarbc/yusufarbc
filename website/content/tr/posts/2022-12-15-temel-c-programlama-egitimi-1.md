@@ -2,6 +2,7 @@
 date: '2022-12-15'
 description: Bu yazımda ilk haftasını tamamladığımız Temel C Programlama Eğitiminin notlarını ve alıştırma sorularını paylaşacağım. C dilinin gelişimini ve sözdizimini anlattığım bir önceki yazıma buradan erişebilirsiniz.
 draft: false
+layout: single
 title: 'Temel C Programlama Eğitimi #1'
 type: posts
 ---

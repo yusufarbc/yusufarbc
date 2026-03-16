@@ -3,6 +3,7 @@ date: '2025-04-05'
 description: In this article, I will touch upon national and international organizations working in the field of information technologies and security. I will talk about the standards in this field and their purposes.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*DcA4L1w1dvZUmdz5
+layout: single
 title: Information Technologies and Security Standards and Organizations
 type: posts
 ---

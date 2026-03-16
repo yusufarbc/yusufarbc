@@ -3,6 +3,7 @@ date: '2025-08-04'
 description: 'Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların birbirleriyle nasıl iletişim kuracağını, veri alışverişinde bulunacağını ve hataları nasıl y...'
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*6rU6oXi2MLCrzFEvgSY-_g.png
+layout: single
 series:
 - Ağ Güvenliği ve Yönetimi
 title: 'Ağ Güvenliği ve Yönetimi II: AĞ PROTOKOLLERİ VE ADRESLEME'

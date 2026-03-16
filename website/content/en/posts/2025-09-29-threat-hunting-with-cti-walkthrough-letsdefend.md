@@ -1,8 +1,9 @@
 ---
 date: '2025-09-29'
-description: LetsDefend — Blue Team Training Platform
+description: Cyber Threat Intelligence (CTI) refers to the information collected, evaluated, and analyzed about cyber threats. It includes how, where, and by whom cyber attacks are carried out, the targets of the attacks, and the techniques used. CTI helps securi...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*FpGB8CsMakxWki-r.png
+layout: single
 series:
 - Threat Hunting Walkthroughs
 title: Threat Hunting with CTI Walkthrough — LetsDefend

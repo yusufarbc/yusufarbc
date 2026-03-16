@@ -47,6 +47,21 @@
                 href="http://localhost:1313/series/"
                 />
   </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-11-18T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="http://localhost:1313/tr/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/posts/"
+                />
+  </url><url>
     <loc>http://localhost:1313/series/sentinelone-edr/</loc>
     <lastmod>2025-11-18T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>

@@ -3,6 +3,7 @@ date: '2023-11-15'
 description: Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*_OuE2zljUjPrg0g7TfljyQ.png
+layout: single
 series:
 - Wireshark ile Ağ Analizi
 title: DNS Wireshark Analizi

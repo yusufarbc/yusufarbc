@@ -3,6 +3,7 @@ date: '2023-11-07'
 description: Merhaba bu yazımda TCP/IP modelini ve Wireshark ile temel bir ağ analizinin nasıl yapılabileceğini anlatmaya çalıştım.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*vQHzVUN_qVpKQQbS9Cr4Ug.png
+layout: single
 series:
 - Wireshark ile Ağ Analizi
 title: TCP/IP Model Wireshark Analizi

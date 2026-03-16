@@ -3,6 +3,7 @@ date: '2024-10-26'
 description: İster ticari ister kâr amacı gütmeyen bir işletme olsun, her işletmenin güvenli bir organizasyon oluşturmanın uzun vadeli başarı için önemli olduğunu anlaması mantıklı görünmektedir. Bir işletme güçlü bir güvenlik duruşu uyguladığında ve sürdürdüğünd...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*sWahjiY8Mezr6QWu9JJDAg.png
+layout: single
 title: Siber Dünyada Güvenli Bir Kuruluş İnşa Etmek
 type: posts
 ---

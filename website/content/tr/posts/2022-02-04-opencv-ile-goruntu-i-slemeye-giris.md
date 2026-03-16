@@ -3,6 +3,7 @@ date: '2022-02-04'
 description: Merhaba, bu yazımızda, OpenCVnin ne olduğundan, bilgisayarlı görüden ve Python ile bu işlemlerin nasıl yapılacağından bahsedeceğiz.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*tAmPWiGxMp-BWqSx.png
+layout: single
 title: OpenCV ile Görüntü İşlemeye Giriş
 type: posts
 ---

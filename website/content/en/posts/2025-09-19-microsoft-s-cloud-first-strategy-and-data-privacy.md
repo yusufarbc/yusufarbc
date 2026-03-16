@@ -3,6 +3,7 @@ date: '2025-09-19'
 description: In recent years, Microsoft has clearly adopted a “cloud-first” approach, positioning its products — such as Windows Server, identity management, and others — to integrate closely with the Azure cloud. For example, Microsoft's documentation emphasizes...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*LCRv_twVkz7IDqkcOjG9RA.png
+layout: single
 title: Microsoft's Cloud-First Strategy and Data Privacy
 type: posts
 ---

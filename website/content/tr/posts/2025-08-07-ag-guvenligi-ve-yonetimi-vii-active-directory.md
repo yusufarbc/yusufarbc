@@ -3,6 +3,7 @@ date: '2025-08-07'
 description: Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolünü ve neden birincil saldırı hedefi olduğunu detaylı bir şekilde incelemektedir. “Kimlik, yeni güvenlik çevresidir” paradigmasından yola çıkarak, bu çalışma, AD’yi bir güvenl...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*xHCEWIgWsOG-PR1mgpcXvQ.png
+layout: single
 series:
 - Ağ Güvenliği ve Yönetimi
 title: 'Ağ Güvenliği ve Yönetimi VII: Active Directory'

@@ -3,6 +3,7 @@ date: '2023-12-06'
 description: Hello, in this article I will try to explain the ICMPv4 and ICMPv6 protocols and their analysis with Wireshark.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*qw1Nso3IaiA7Jptb-0T1qQ.png
+layout: single
 series:
 - Network Analysis with Wireshark
 title: ICMPv4/ICMPv6 Wireshark Analysis

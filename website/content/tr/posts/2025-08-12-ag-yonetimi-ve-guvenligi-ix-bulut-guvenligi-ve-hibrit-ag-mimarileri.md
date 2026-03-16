@@ -3,6 +3,7 @@ date: '2025-08-12'
 description: Dijital dönüşüm, kurumsal BT ortamını geri dönülmez bir şekilde değiştirmiştir. Statik, şirket içi veri merkezlerinden dinamik, ölçeklenebilir ve yenilikçi bulut ortamlarına geçiş artık bir trend değil, temel bir iş zorunluluğudur. Çeviklik ve maliye...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*mmBfnODexSndicvHEIF90w.png
+layout: single
 series:
 - Ağ Güvenliği ve Yönetimi
 title: 'Ağ Yönetimi ve Güvenliği IX: Bulut Güvenliği ve Hibrit Ağ Mimarileri'

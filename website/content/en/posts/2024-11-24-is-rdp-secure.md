@@ -3,6 +3,7 @@ date: '2024-11-24'
 description: In this article, we will discuss whether the RDP (Remote Desktop Protocol) protocol is secure or not. RDP (Remote Desktop Protocol) has become a protocol frequently used by APT (Advanced Persistent Threat) groups for lateral movement, that is, horizo...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*UP8fyAdYI17KDIqhtDK4Sg.png
+layout: single
 title: Is RDP Secure?
 type: posts
 ---

@@ -3,6 +3,7 @@ date: '2022-08-26'
 description: Hello, in this article, we will get to know Python's requests module, where we can write tools in the field of web application security.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*a87phGSd-sbfiJLWPfGMxA.png
+layout: single
 series:
 - Python for Hackers
 title: 'Python for hackers: requests'

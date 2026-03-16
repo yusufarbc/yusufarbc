@@ -3,6 +3,7 @@ date: '2025-08-29'
 description: TheHive is designed as an open source Security Incident Response Platform (SIRP). Focuses on incident management, team-based collaboration and threat intelligence integration. TheHive's core functions include collecting alarms, converting them into e...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*f8PP6v-xaqnfWogAG6RITw.png
+layout: single
 series:
 - Incident Response
 title: TheHive Incident Response Platform

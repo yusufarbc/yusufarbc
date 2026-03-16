@@ -3,6 +3,7 @@ date: '2025-08-04'
 description: Computer networks, which form the basis of the modern information society, are complex and dynamic systems that enable instantaneous sharing of data on a global scale. These systems have ceased to be passive infrastructures that only provide connecti...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*QsixbjAc424hJKBe9MKq-g.png
+layout: single
 series:
 - Network Security and Management
 title: 'Network Security and Management I: BASICS OF NETWORK TECHNOLOGIES'

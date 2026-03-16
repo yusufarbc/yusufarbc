@@ -3,6 +3,7 @@ date: '2022-01-14'
 description: Bu yazımızda, sizlere Aktif Bilgi Toplama Tekniklerinden bahsedeceğiz.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*oiybh8KKS4kV2xtr.jpg
+layout: single
 title: '[TR] Aktif Bilgi Toplama Teknikleri'
 type: posts
 ---

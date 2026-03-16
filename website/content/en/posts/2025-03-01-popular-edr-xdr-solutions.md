@@ -3,6 +3,7 @@ date: '2025-03-01'
 description: In this article, we will take a look at endpoint security solutions that are popularly used around the world. We will discuss these solutions with their features, pros and cons.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*BXOc1yXaiBaFvxECQ6ekEg.png
+layout: single
 title: Popular EDR/XDR Solutions
 type: posts
 ---

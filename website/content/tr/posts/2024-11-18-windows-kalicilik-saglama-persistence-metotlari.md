@@ -3,6 +3,7 @@ date: '2024-11-18'
 description: Windows’ta kalıcılık sağlama (persistence) yöntemleri, bir sistemin yeniden başlatılması veya kullanıcı oturumunun kapatılması durumunda bile zararlı yazılımların veya yetkisiz erişimlerin devam etmesini sağlamak için kullanılır.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*embmEuQRxJRHe7TWE4Y6hw.png
+layout: single
 series:
 - Ağ Güvenliği ve Yönetimi
 title: Windows Kalıcılık Sağlama(Persistence) Metotları

@@ -3,6 +3,7 @@ date: '2024-12-02'
 description: Hello, in this article, I will talk about the distributions and lab environments used in the field of cyber security.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*IVkwxKLbpKSPwYtqpYG93w.jpeg
+layout: single
 title: Operating System Distributions and Lab Environments for Cyber ​​Security
 type: posts
 ---

@@ -3,6 +3,7 @@ date: '2024-11-24'
 description: Bu yazımda RDP(Remote Desktop Protocol) protokolünün güvenli olup olmadığını tartışacağız. RDP (Remote Desktop Protocol), APT (Advanced Persistent Threat) grupları tarafından lateral movement yani ağ içinde yatay hareket için sıklıkla kullanılan bir ...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*UP8fyAdYI17KDIqhtDK4Sg.png
+layout: single
 title: RDP Güvenli midir?
 type: posts
 ---

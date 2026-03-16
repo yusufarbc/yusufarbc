@@ -3,6 +3,7 @@ date: '2023-03-28'
 description: Hello, in this article of the cryptology basics series, I will talk about what cryptanalysis is, password cracking techniques and social engineering methods.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*aZ11lfSR2DfxXotqqA4KhA.png
+layout: single
 series:
 - Cryptology Fundamentals
 title: 'Cryptology Fundamentals: Cryptanalysis'

@@ -3,6 +3,7 @@ date: '2023-12-07'
 description: Hello, in this article I will try to explain the UDP protocol and its analysis with Wireshark.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*cReiU6D1Aj-Zf-J3628uNA.png
+layout: single
 series:
 - Network Analysis with Wireshark
 title: UDP Wireshark Analysis

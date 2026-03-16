@@ -3,6 +3,7 @@ date: '2023-11-24'
 description: Hello, in this article, I will try to explain the IPv4 and IPv6 protocols and their analysis with Wireshark.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*qSAbdDrUrlN_SQ9p_AXpFQ.png
+layout: single
 series:
 - Network Analysis with Wireshark
 title: IPv4/IPv6 Wireshark Analysis

@@ -1,8 +1,9 @@
 ---
 date: '2025-10-03'
-description: LetsDefend — Blue Team Training Platform
+description: A Web Application Firewall (WAF) is a security layer used to protect web applications. Unlike traditional firewalls, WAFs specifically target threats aimed at web applications. These threats include SQL injections, XSS (Cross-Site Scripting) attacks,...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*aaFgUhGoEHzP09NU.png
+layout: single
 series:
 - Threat Hunting Walkthroughs
 title: Threat Hunting with WAF Walkthrough — LetsDefend

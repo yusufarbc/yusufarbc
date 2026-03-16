@@ -165,41 +165,34 @@
     <div class="content">
       
   <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="http://localhost:1313/posts/2025/08/network-management-and-security-ix-cloud-security-and-hybrid-network-architectures/">
-              Network Management and Security IX: Cloud Security and Hybrid Network Architectures
-            </a>
-          </h1>
-        </div>
+    <article class="post-full glass-card">
+      <header class="post-header">
         <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
-              <time datetime="2025-08-12T00:00:00Z">
-                August 12, 2025
-              </time>
+          <time datetime="2025-08-12T00:00:00Z">
+            August 12, 2025
+          </time>
+          
+            <span class="post-series">in 
+              
+                <a href="/series/network-security-and-management">Network Security and Management</a>
+              
             </span>
-            <span class="reading-time">
-              <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              32-minute read
-            </span>
-          </div>
           
-          
-          
+          <span class="reading-time">
+            <i class="fa-solid fa-clock" aria-hidden="true"></i>
+            32 min read
+          </span>
         </div>
+        <h1 class="post-title-full">Network Management and Security IX: Cloud Security and Hybrid Network Architectures</h1>
+        
+        
+        <div class="post-featured-image">
+          <img src="https://cdn-images-1.medium.com/max/800/1*mmBfnODexSndicvHEIF90w.png" alt="Network Management and Security IX: Cloud Security and Hybrid Network Architectures">
+        </div>
+        
       </header>
 
-      
-
-
       <div class="post-content">
-        
-          <img src="https://cdn-images-1.medium.com/max/800/1*mmBfnODexSndicvHEIF90w.png" alt="Featured image"/>
-        
         <p>Digital transformation has irreversibly changed the enterprise IT landscape. Moving from static, on-premises data centers to dynamic, scalable and innovative cloud environments is no longer a trend, but a fundamental business imperative. Driven by the promise of agility and cost efficiency, this evolution has resulted in complex ecosystems spanning multiple service models (IaaS, PaaS, SaaS) and deployment strategies such as hybrid and multi-cloud.</p>
 <p>However, this new field full of unlimited opportunities also brings with it a new generation of security challenges. The traditional “castle and moat” security perimeter has dissolved, replaced by a dispersed and often fragmented attack surface. Consistently managing security policies across different cloud providers, ensuring secure connectivity between on-premises data centers and the cloud, and preventing common but critical misconfigurations have become top concerns for modern businesses.</p>
 <h3 id="part-i-the-cornerstones-of-cloud-computing-and-the-security-paradigm">
@@ -524,8 +517,7 @@
 
       </div>
 
-
-      <footer>
+      <footer class="post-footer-links">
         
 
 <section class="see-also">
@@ -537,18 +529,57 @@
 </section>
 
 
-        
-        
-        
-        
-        
-        
-        
       </footer>
     </article>
-
-    
   </section>
+
+  <style>
+    .post-full {
+      padding: 2.5rem;
+      margin: 2rem auto;
+      max-width: 900px;
+    }
+    .post-header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .post-title-full {
+      font-size: 2.5rem;
+      margin: 1rem 0;
+      background: linear-gradient(to right, var(--primary-accent), var(--secondary-accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .post-featured-image {
+      margin: 2rem -2.5rem;
+      max-height: 500px;
+      overflow: hidden;
+    }
+    .post-featured-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .post-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: inherit;
+    }
+    .post-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 768px) {
+      .post-full {
+        padding: 1.5rem;
+      }
+      .post-title-full {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
 
     </div>
 

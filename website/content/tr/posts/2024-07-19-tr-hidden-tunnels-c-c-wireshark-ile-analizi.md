@@ -3,6 +3,7 @@ date: '2024-07-19'
 description: Merhaba bu yazımda HTTP tünelleme tekniklerinden bahsedeceğim.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*cWRqt_otCGQkQf0iobOVnw.png
+layout: single
 series:
 - Wireshark ile Ağ Analizi
 title: '[TR] Hidden Tunnels (C&C) Wireshark ile Analizi'

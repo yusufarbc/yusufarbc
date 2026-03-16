@@ -3,6 +3,7 @@ date: '2023-03-16'
 description: Bir önceki yazımda statik analiz yöntemlerinden bahsetmiştim. Bu yazımda ise Zararlı Yazılım Analizinde, dinamik analiz yöntemlerinden bahsedeceğim. Ne tür dinamik analiz teknikleri var? hangi araçlar kullaılıyor? nasıl analiz yapılıyor? hepsi bu yaz...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*XhHw4q_6KEejBGJHX3iENw.png
+layout: single
 series:
 - Zararlı Yazılım Analizine Giriş
 title: 'Zararlı Yazılım Analizine Giriş: #4 Dinamik Analiz'

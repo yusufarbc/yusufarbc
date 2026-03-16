@@ -3,6 +3,7 @@ date: '2025-08-12'
 description: Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web, Alan Adı Sistemi (DNS) ve dosya transferi — kapsamlı bir şekilde analiz etmek üzere yapılandırılmıştır. Her bölüm, ilgili protokol ailesinin tarihsel gelişimini, tasarımından kayn...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*4B83QjV-QTWjVqB0z6ktug.png
+layout: single
 series:
 - Ağ Güvenliği ve Yönetimi
 title: 'Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve Analizi'

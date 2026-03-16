@@ -3,6 +3,7 @@ date: '2024-11-16'
 description: Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash, Kibana) ile kural yazımı ve uyarı (alerting) işle...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*YtvtZTc7PJHVByo3n9E_lg.png
+layout: single
 title: ELK Stack Kural Yazımı ve Alerting
 type: posts
 ---

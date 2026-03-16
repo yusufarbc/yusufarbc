@@ -3,6 +3,7 @@ date: '2024-11-18'
 description: Persistence methods in Windows are used to ensure that malicious software or unauthorized access continues even if a system is restarted or the user is logged off.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*embmEuQRxJRHe7TWE4Y6hw.png
+layout: single
 title: Windows Persistence Methods
 type: posts
 ---

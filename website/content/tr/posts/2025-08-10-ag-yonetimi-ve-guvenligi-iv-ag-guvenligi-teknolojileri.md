@@ -3,6 +3,7 @@ date: '2025-08-10'
 description: Dijital altyapıların karmaşıklığı ve siber tehditlerin sofistike doğası, ağ güvenliği yaklaşımlarında köklü bir dönüşümü zorunlu kılmıştır. Geleneksel “kale ve hendek” (castle and moat) olarak bilinen çevre güvenliği modeli, ağın sınırlarını güçlü bi...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*Fhet-NIJbKlNzPESUc1Ttw.png
+layout: single
 series:
 - Ağ Güvenliği ve Yönetimi
 title: 'Ağ Yönetimi ve Güvenliği IV: Ağ Güvenliği Teknolojileri'

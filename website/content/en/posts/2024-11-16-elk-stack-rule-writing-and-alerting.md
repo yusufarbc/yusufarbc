@@ -3,6 +3,7 @@ date: '2024-11-16'
 description: Hello, in this article, I will talk about rule writing, that is, warnings indicating security violations, and alerting operations of ELK Stack, which we installed in my last article. ELK Stack (Elasticsearch, Logstash, Kibana) facilitates rule writin...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*YtvtZTc7PJHVByo3n9E_lg.png
+layout: single
 title: ELK Stack Rule Writing and Alerting
 type: posts
 ---

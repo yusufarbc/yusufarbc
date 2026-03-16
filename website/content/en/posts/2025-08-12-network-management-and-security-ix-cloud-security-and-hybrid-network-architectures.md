@@ -3,6 +3,7 @@ date: '2025-08-12'
 description: Digital transformation has irreversibly changed the enterprise IT landscape. Moving from static, on-premises data centers to dynamic, scalable and innovative cloud environments is no longer a trend, but a fundamental business imperative. Driven by th...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*mmBfnODexSndicvHEIF90w.png
+layout: single
 series:
 - Network Security and Management
 title: 'Network Management and Security IX: Cloud Security and Hybrid Network Architectures'

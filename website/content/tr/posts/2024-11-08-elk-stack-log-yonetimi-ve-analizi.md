@@ -3,6 +3,7 @@ date: '2024-11-08'
 description: Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in log yönetimini, yani log toplama, parse etme ve zenginleştirme işlemlerine değineceğim. Logstash ile loglar Nasıl Toplanır, İşlenir ve Gönderilir?
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*O7bMqTbQv_OX5x75qkY6Ug.png
+layout: single
 title: ELK Stack Log Yönetimi ve Analizi
 type: posts
 ---

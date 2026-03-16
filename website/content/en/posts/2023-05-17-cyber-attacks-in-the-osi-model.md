@@ -3,6 +3,7 @@ date: '2023-05-17'
 description: Hello, in this article, I tried to explain Cyber Attacks on the OSI model. You can find many types of cyber attacks in this article.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*rOqngZk6L49NHbPm8MIG8w.png
+layout: single
 title: Cyber ​​Attacks in the OSI Model
 type: posts
 ---

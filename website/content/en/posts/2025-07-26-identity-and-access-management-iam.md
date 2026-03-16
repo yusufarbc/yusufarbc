@@ -3,6 +3,7 @@ date: '2025-07-26'
 description: Access to data and systems, the cornerstone of the modern digital economy, represents both the greatest opportunity and the most serious security risk for organizations. At the center of this dilemma is Identity and Access Management (IAM), one of th...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*v6bkvamS0ChDDdA-D-8BtQ.png
+layout: single
 title: Identity and Access Management (IAM)
 type: posts
 ---

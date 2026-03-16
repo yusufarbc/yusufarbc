@@ -3,6 +3,7 @@ date: '2025-08-10'
 description: Network equipment and the physical layer, which form the invisible but indispensable basis of modern digital infrastructures, are the lifeblood of data flow and digital communication. Although cyber security discussions generally focus on software-ba...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*0XinYbzhfLKDESwpfYfKIQ.png
+layout: single
 series:
 - Network Security and Management
 title: 'Network Management and Security III: Network Hardware and Physical Infrastructure Security'

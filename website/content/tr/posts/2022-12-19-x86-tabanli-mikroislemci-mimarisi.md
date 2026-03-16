@@ -3,6 +3,7 @@ date: '2022-12-19'
 description: X86 adı, orjinal Intel işlemci çekirdek lisansına dayanan işlemcilere verilen isimdir. Dünyada masaüstü ve dizüstü bilgisayarların %90'ından fazlasında X86 tabanlı mikroişlemciler(Intel ve AMD vb.) kullanılmaktadır. Çağdaş işlemcilerin tamamının teme...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*LCI0x-uWvBBHYDnFGti6BA.png
+layout: single
 title: X86 Tabanlı Mikroişlemci Mimarisi
 type: posts
 ---

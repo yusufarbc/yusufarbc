@@ -3,6 +3,7 @@ date: '2023-03-14'
 description: Bir önceki yazımda analiz ortamının hazırlanmasından bahsetmiştim. Bu yazımda ise kurduğumuz ortam ile bir zararlı yazılımın statik analizini yapmaya çalışacağız. Statik analiz yöntemlerine ve ilgili araçlar bu yazıda!
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*uStJb6CCMfH5-GAZXQbcOA.png
+layout: single
 series:
 - Zararlı Yazılım Analizine Giriş
 title: 'Zararlı Yazılım Analizine Giriş: #3 Statik Analiz'

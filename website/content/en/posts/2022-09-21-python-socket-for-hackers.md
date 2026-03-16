@@ -3,6 +3,7 @@ date: '2022-09-21'
 description: Hello, in this article, we will get to know the socket module that we can use to connect to the IP and port addresses of remote servers.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*Z3ieIgd5w_LPy0R2bLu6pg.png
+layout: single
 series:
 - Python for Hackers
 title: Python:socket for hackers

@@ -3,6 +3,7 @@ date: '2023-04-12'
 description: Hello, in this last article of the cryptology basics series, I will talk about how cryptographic protocols are implemented. I will use the Java programming language during the implementation phase.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*Sk1u0b-kaNN7j57oE13CBA.png
+layout: single
 series:
 - Cryptology Fundamentals
 title: 'Cryptology Fundamentals: Application'

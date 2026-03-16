@@ -3,6 +3,7 @@ date: '2025-08-04'
 description: This chapter takes an in-depth look at the critical technologies that underpin modern digital infrastructures, focusing on the most advanced and dynamic areas of network management and security. Going beyond traditional network paradigms, we will cov...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*aBV-V0NvCXaSMoVRhcmT9w.png
+layout: single
 series:
 - Network Security and Management
 title: 'Network Security and Management V: MODERN DIGITAL INFRASTRUCTURE'

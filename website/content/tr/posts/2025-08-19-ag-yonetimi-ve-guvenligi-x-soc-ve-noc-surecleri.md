@@ -3,6 +3,7 @@ date: '2025-08-19'
 description: SOC (Security Operations Center — Güvenlik Operasyon Merkezi) ve NOC (Network Operations Center — Ağ Operasyon Merkezi) birbirini tamamlayan ancak farklı odaklara sahip iki merkezi yapıdır. NOC, bir kuruluşun ağ altyapısını, sistem performansını ve h...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*S7cMHBrZlktBq6LvzR_AYQ.png
+layout: single
 series:
 - Ağ Güvenliği ve Yönetimi
 title: 'Ağ Yönetimi ve Güvenliği X: SOC ve NOC Süreçleri'

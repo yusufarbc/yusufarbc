@@ -3,6 +3,7 @@ date: '2023-01-20'
 description: 'Mikroişlemci, bir bilgisayarın merkezi işlem birimi gibi çalışır. Bilgisayarın hayati fonksiyonlarını yürütür. Bir mikroişlemcinin fonksiyonel konfigürasyonunu ise:'
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*eBP9qyGpkYsx-Zgy3Jvsqg.png
+layout: single
 title: Temel Mikroişlemci Mimarisi
 type: posts
 ---

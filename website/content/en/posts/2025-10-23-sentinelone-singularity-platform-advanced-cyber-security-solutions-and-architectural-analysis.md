@@ -3,6 +3,7 @@ date: '2025-10-23'
 description: SentinelOne Singularity Platform offers an artificial intelligence (AI) supported and autonomous solution against today's rapidly changing cyber security threat environments. The platform provides integrated protection by combining various security f...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*paXLme-hMtfJIUSk.jpg
+layout: single
 series:
 - SentinelOne EDR
 title: 'SentinelOne Singularity Platform: Advanced Cyber ​​Security Solutions and Architectural Analysis'

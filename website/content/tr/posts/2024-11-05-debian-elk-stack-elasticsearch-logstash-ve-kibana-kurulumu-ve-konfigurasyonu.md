@@ -3,6 +3,7 @@ date: '2024-11-05'
 description: Merhaba bu yazımda Debian tabanlı linux dağıtımları üzerine ELK Stack kurulumu ve konfigürasyonunu anlatacağım.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*0wM3nsUfgol-TsAFYBZJzQ.png
+layout: single
 title: Debian ELK Stack(Elasticsearch, Logstash ve Kibana) Kurulumu ve Konfigürasyonu
 type: posts
 ---

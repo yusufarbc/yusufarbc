@@ -3,6 +3,7 @@ date: '2025-10-02'
 description: Wazuh combines its Host-Based Intrusion Detection System (HIDS) legacy with modern cybersecurity needs, bringing Security Information and Event Management (SIEM) and Extended Detection and Response (XDR) capabilities into a single platform. Wazuh 5.0...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*EOeMobbpF6asHcmm
+layout: single
 series:
 - Wazuh SIEM
 title: What's New in Wazuh 5.0? Revolution in Cyber ​​Threat Intelligence and a New Era in Endpoint Security

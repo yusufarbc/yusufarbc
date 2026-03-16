@@ -3,6 +3,7 @@ date: '2023-01-21'
 description: It is an English word with Turkish meaning and syntax. All the rules of the language used in programming are called syntax. In this article, we will talk about the syntax of the C language.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*wb7CfskOL2Lhc26j2XpbTQ.png
+layout: single
 title: C Programming Fundamentals
 type: posts
 ---

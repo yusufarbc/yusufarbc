@@ -3,6 +3,7 @@ date: '2022-12-22'
 description: In this article, I will share the notes and practice questions of the Basic C Programming Training, of which we completed the second week. You can access the first week of the training here.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*srHR3o1A16Y8ddWa
+layout: single
 title: 'Basic C Programming Tutorial #2'
 type: posts
 ---

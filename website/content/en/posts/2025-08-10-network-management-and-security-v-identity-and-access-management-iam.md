@@ -3,6 +3,7 @@ date: '2025-08-10'
 description: Identity and Access Management (IAM) is the set of business processes, policies and technologies that an organization uses to manage digital identities and their access rights to critical systems, applications and data. Its main purpose is to ensure ...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*6OkxmUjEoOjEZW17jo7E8w.png
+layout: single
 series:
 - Network Security and Management
 title: 'Network Management and Security V: Identity and Access Management (IAM)'

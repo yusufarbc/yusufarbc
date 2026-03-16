@@ -3,6 +3,7 @@ date: '2024-07-18'
 description: Merhaba bu yazımda TCP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*eV6FVT7z6k3hb3M6-DRqtw.png
+layout: single
 series:
 - Wireshark ile Ağ Analizi
 title: TCP Wireshark Analizi

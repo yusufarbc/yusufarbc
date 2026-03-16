@@ -3,6 +3,7 @@ date: '2023-01-02'
 description: Docker, sanallaştırılmış ortamlarda uygulamalar geliştirmek, dağıtmak ve yönetmek için kullanılan açık kaynak kodlu bir kapsayıcı platformudur. İşletim sisteminin kaynaklarını yönettiği uygulamalara dağıtan bir teknolojidir. Docker, sanal makinelerde...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*2Vt-GnSjtWGchPVgF1fX6g.png
+layout: single
 title: Docker Temelleri
 type: posts
 ---

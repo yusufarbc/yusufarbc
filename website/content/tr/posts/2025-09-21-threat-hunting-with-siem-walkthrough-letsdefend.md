@@ -1,8 +1,9 @@
 ---
 date: '2025-09-21'
-description: LetsDefend — Blue Team Training Platform
+description: In today’s digital world, the number and complexity of cyber threats are increasing rapidly. Developing an effective defense strategy against these threats is becoming more challenging every day. In this context, SIEM Systems and Threat Hunting activ...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*MV50j2d8HexWcGdC.png
+layout: single
 series:
 - Threat Hunting Walkthroughs
 title: Threat Hunting with SIEM Walkthrough — LetsDefend

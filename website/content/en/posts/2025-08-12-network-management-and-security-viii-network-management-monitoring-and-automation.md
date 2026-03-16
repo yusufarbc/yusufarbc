@@ -3,6 +3,7 @@ date: '2025-08-12'
 description: Network management has undergone a radical transformation in the last two decades. In the past, network management relied heavily on individual troubleshooting efforts that were manual, reactive, and command-line interface (CLI)-based. Network engine...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*Iv6EqXHTlTeVgd7LlSNDOQ.png
+layout: single
 series:
 - Network Security and Management
 title: 'Network Management and Security VIII: Network Management, Monitoring and Automation'

@@ -1,8 +1,9 @@
 ---
 date: '2025-10-23'
-description: LetsDefend — Blue Team Training Platform
+description: Domain Name System (DNS) is one of the fundamental building blocks of the internet. DNS translates domain names (e.g., www.example.com) into IP addresses when users want to access a specific website on the internet. This translation allows users to e...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*MrtorSDpnFDZbdxk.png
+layout: single
 series:
 - Threat Hunting Walkthroughs
 title: Threat Hunting with DNS Walkthrough — LetsDefend

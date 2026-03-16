@@ -3,6 +3,7 @@ date: '2023-01-15'
 description: Merhaba, bu yazımda Kali Linux dağıtımından bahsedeceğim. Ne işe yaradığını ve ne gibi yetenekleri olduğunu anlatacağım. Kurulumundan bahsettikten sonra da, içinde hazır kurulu gelen araçlara değineceğim.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*zHe4hqRCHYvBY6Sul53MaQ.png
+layout: single
 title: Kali Linux’a Giriş
 type: posts
 ---

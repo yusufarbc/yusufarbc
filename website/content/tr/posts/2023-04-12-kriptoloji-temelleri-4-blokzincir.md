@@ -3,6 +3,7 @@ date: '2023-04-12'
 description: Merhaba, kriptoloji temelleri serisinin bu yazısında blokzincirin ne olduğundan nasıl çalıştığından ve nerelerde kullanıldığından bahsedeceğim.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*Ci1P1v2xXKNrCvqur5DbQQ.png
+layout: single
 series:
 - Kriptoloji Temelleri
 title: Kriptoloji Temelleri:#4 Blokzincir

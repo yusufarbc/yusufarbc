@@ -3,6 +3,7 @@ date: '2024-10-30'
 description: Most security experts agree that perfect network security is impossible and that any defenses can always be bypassed. The defense-in-depth strategy embraces blocking the attacker with multiple layers of defense. He acknowledges that each layer can be...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*T4RL-NrRsRdZSjXM4Ja3Lg.png
+layout: single
 title: Defense in Depth Strategy
 type: posts
 ---

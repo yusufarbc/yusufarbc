@@ -3,6 +3,7 @@ date: '2025-10-02'
 description: Wazuh, Host-Based Intrusion Detection System (HIDS) mirasını modern siber güvenlik ihtiyaçlarıyla birleştirerek, Güvenlik Bilgi ve Olay Yönetimi (SIEM) ve Genişletilmiş Tespit ve Yanıt (XDR) yeteneklerini tek bir platformda topladı. Wazuh 5.0, bu bir...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*EOeMobbpF6asHcmm
+layout: single
 series:
 - Ağ Güvenliği ve Yönetimi
 title: Wazuh 5.0'da Neler Yeni? Siber Tehdit İstihbaratında Devrim ve Uç Nokta Güvenliğinde Yeni Bir Çağ

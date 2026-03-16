@@ -3,6 +3,7 @@ date: '2021-11-26'
 description: Hello, in this article that we prepared with my teacher Mehmet Bulut, we will talk about Passive Information Gathering Techniques.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*2NsHt2LZX3ORPYxb.jpg
+layout: single
 title: Passive Information Gathering Techniques
 type: posts
 ---

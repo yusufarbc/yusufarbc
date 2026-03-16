@@ -165,41 +165,34 @@
     <div class="content">
       
   <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="http://localhost:1313/posts/2025/08/network-management-and-security-x-soc-and-noc-processes/">
-              Network Management and Security X: SOC and NOC Processes
-            </a>
-          </h1>
-        </div>
+    <article class="post-full glass-card">
+      <header class="post-header">
         <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
-              <time datetime="2025-08-19T00:00:00Z">
-                August 19, 2025
-              </time>
+          <time datetime="2025-08-19T00:00:00Z">
+            August 19, 2025
+          </time>
+          
+            <span class="post-series">in 
+              
+                <a href="/series/network-security-and-management">Network Security and Management</a>
+              
             </span>
-            <span class="reading-time">
-              <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              17-minute read
-            </span>
-          </div>
           
-          
-          
+          <span class="reading-time">
+            <i class="fa-solid fa-clock" aria-hidden="true"></i>
+            17 min read
+          </span>
         </div>
+        <h1 class="post-title-full">Network Management and Security X: SOC and NOC Processes</h1>
+        
+        
+        <div class="post-featured-image">
+          <img src="https://cdn-images-1.medium.com/max/800/1*S7cMHBrZlktBq6LvzR_AYQ.png" alt="Network Management and Security X: SOC and NOC Processes">
+        </div>
+        
       </header>
 
-      
-
-
       <div class="post-content">
-        
-          <img src="https://cdn-images-1.medium.com/max/800/1*S7cMHBrZlktBq6LvzR_AYQ.png" alt="Featured image"/>
-        
         <p>SOC (Security Operations Center) and NOC (Network Operations Center) are two central structures that complement each other but have different focuses. NOC monitors an organization&rsquo;s network infrastructure, system performance and service continuity 24/7 and aims to minimize downtime. Its core functions include network/server monitoring, fault logging, maintenance and update management. SOC is the center that protects the information technology infrastructure against external/internal threats, malware and security breaches. SOC teams work 24/7 to detect and analyze security incidents in advance and respond immediately to a possible attack.</p>
 <h3 id="soc-and-noc-definition-and-key-differences">
   SOC and NOC Definition and Key Differences
@@ -877,8 +870,7 @@ logpath = /var/log/auth.log
 
       </div>
 
-
-      <footer>
+      <footer class="post-footer-links">
         
 
 <section class="see-also">
@@ -890,18 +882,57 @@ logpath = /var/log/auth.log
 </section>
 
 
-        
-        
-        
-        
-        
-        
-        
       </footer>
     </article>
-
-    
   </section>
+
+  <style>
+    .post-full {
+      padding: 2.5rem;
+      margin: 2rem auto;
+      max-width: 900px;
+    }
+    .post-header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .post-title-full {
+      font-size: 2.5rem;
+      margin: 1rem 0;
+      background: linear-gradient(to right, var(--primary-accent), var(--secondary-accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .post-featured-image {
+      margin: 2rem -2.5rem;
+      max-height: 500px;
+      overflow: hidden;
+    }
+    .post-featured-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .post-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: inherit;
+    }
+    .post-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 768px) {
+      .post-full {
+        padding: 1.5rem;
+      }
+      .post-title-full {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
 
     </div>
 

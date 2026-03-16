@@ -3,6 +3,7 @@ date: '2023-08-27'
 description: Merhaba bu yazımda Pygoat lab ortamı üzerinde bulunan OWASP TOP 10 2021'e uygun hazırlanmış örneklerin çözümlerini gerçekleştireceğim. Hem OWASP TOP 10 zafiyetleri hem de bu zafiyetlerin neden kaynakalndığını anlatmaya çalışacağım.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*mIRdg0fVq0WdqzoayvZykA.png
+layout: single
 title: TR-Pygoat OWASP TOP 10 2021 WRITE-UP
 type: posts
 ---

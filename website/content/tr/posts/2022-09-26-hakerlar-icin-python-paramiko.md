@@ -3,6 +3,7 @@ date: '2022-09-26'
 description: Merhaba, bu yazımda Python ile SSH bağlantıları kurmamızı sağlayan paramiko modülünü tanıyacağız.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*cHmfmYLtoze7wtcUFY5BVA.png
+layout: single
 series:
 - Hakerlar için Python
 title: 'Hakerlar için Python: paramiko'

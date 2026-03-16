@@ -3,6 +3,7 @@ date: '2023-03-28'
 description: Hello, in this first article of the cryptology basics series, I will talk about what cryptology is, traditional encryption techniques and how to create a strong password.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*uorh6uYHB7AdEDpEbCO_Tw.png
+layout: single
 series:
 - Cryptology Fundamentals
 title: 'Cryptology Fundamentals: Introduction'

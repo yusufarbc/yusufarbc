@@ -3,6 +3,7 @@ date: '2025-07-26'
 description: Modern dijital ekonominin temel taşı olan veri ve sistemlere erişim, kurumlar için hem en büyük fırsatı hem de en ciddi güvenlik riskini temsil etmektedir. Bu ikilemin merkezinde, siber güvenliğin en kritik disiplinlerinden biri olan Kimlik ve Erişim...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*v6bkvamS0ChDDdA-D-8BtQ.png
+layout: single
 title: Kimlik ve Erişim Yönetimi (IAM)
 type: posts
 ---

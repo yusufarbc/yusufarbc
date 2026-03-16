@@ -3,6 +3,7 @@ date: '2022-12-19'
 description: The name x86 is the name given to processors based on the original Intel processor core license. X86-based microprocessors (Intel and AMD etc.) are used in more than 90% of desktop and laptop computers in the world. The basic structure of all modern ...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*LCI0x-uWvBBHYDnFGti6BA.png
+layout: single
 title: X86 Based Microprocessor Architecture
 type: posts
 ---

@@ -3,6 +3,7 @@ date: '2025-07-26'
 description: This introductory section will establish the basic concepts necessary to understand the detailed actor profiles that follow. It will define what an APT means in the modern context and address the confusing landscape of threat actor naming conventions...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*-TdWFhjfQyoq9f--c4bfLw.png
+layout: single
 title: 'Global Cyber ​​Threat Actors: APT (Advanced Persistent Threats)'
 type: posts
 ---

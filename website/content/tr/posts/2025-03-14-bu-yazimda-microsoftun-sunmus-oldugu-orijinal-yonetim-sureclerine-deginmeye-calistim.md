@@ -2,6 +2,7 @@
 date: '2025-03-14'
 description: Bu yazımda, Microsoftun sunmuş olduğu orijinal yönetim süreçlerine değinmeye çalıştım.
 draft: false
+layout: single
 title: Bu yazımda, Microsoftun sunmuş olduğu orijinal yönetim süreçlerine değinmeye çalıştım.
 type: posts
 ---

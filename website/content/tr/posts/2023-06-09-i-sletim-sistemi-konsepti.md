@@ -3,6 +3,7 @@ date: '2023-06-09'
 description: Merhaba bu yazımda işletim sistemlerinin yapısından, konseptinden ve özelliklerinden bahsedeceğim. İşletim sisteminin tasarımsal zorlukları, güvenlik gereksinimleri ve dahası bu yazıda!
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*IvUopr4Tqf2K6eew539ATw.png
+layout: single
 title: İşletim Sistemi Konsepti
 type: posts
 ---

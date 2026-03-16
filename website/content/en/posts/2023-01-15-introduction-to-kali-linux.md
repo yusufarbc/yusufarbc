@@ -3,6 +3,7 @@ date: '2023-01-15'
 description: Hello, in this article I will talk about Kali Linux distribution. I will explain what it does and what capabilities it has. After talking about its installation, I will talk about the tools that come pre-installed.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*zHe4hqRCHYvBY6Sul53MaQ.png
+layout: single
 title: Introduction to Kali Linux
 type: posts
 ---

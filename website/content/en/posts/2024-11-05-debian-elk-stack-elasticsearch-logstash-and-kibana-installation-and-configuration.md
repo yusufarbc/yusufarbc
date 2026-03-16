@@ -3,6 +3,7 @@ date: '2024-11-05'
 description: Hello, in this article, I will explain the installation and configuration of ELK Stack on Debian-based Linux distributions.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*0wM3nsUfgol-TsAFYBZJzQ.png
+layout: single
 title: Debian ELK Stack (Elasticsearch, Logstash and Kibana) Installation and Configuration
 type: posts
 ---

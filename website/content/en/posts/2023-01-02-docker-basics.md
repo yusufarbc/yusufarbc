@@ -3,6 +3,7 @@ date: '2023-01-02'
 description: Docker is an open source container platform used to develop, deploy and manage applications in virtualized environments. It is a technology that distributes the resources of the operating system to the applications it manages. Docker is lighter and f...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*2Vt-GnSjtWGchPVgF1fX6g.png
+layout: single
 title: Docker Basics
 type: posts
 ---

@@ -3,6 +3,7 @@ date: '2025-09-19'
 description: Microsoft, son yıllarda “cloud-first” yaklaşımını net bir biçimde benimsemiş; Windows Server, kimlik yönetimi ve diğer ürünlerini Azure bulutuyla entegre edecek şekilde konumlandırmaktadır. Örneğin Microsoft dokümantasyonunda Windows Server 2022’nin ...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*tdun2Bby5gQIKpvNeEUi2Q.png
+layout: single
 title: Microsoft’un Bulut Odaklı Stratejisi
 type: posts
 ---

@@ -3,6 +3,7 @@ date: '2025-06-01'
 description: In this article, I will explain the types of web attacks and how we can detect these attacks through Apache web server access logs.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*gtYIO-nyJZoIwSFEi_9xQA.png
+layout: single
 title: Intrusion Detection on Apache Web Server
 type: posts
 ---

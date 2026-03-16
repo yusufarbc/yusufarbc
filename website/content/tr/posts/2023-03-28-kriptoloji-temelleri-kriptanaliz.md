@@ -3,6 +3,7 @@ date: '2023-03-28'
 description: Merhaba, kriptoloji temelleri serisinin bu yazısında kriptanalizin ne olduğundan, şifre kırma tekniklerinden ve sosyal mühendislik yöntemlerinden bahsedeceğim.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*aZ11lfSR2DfxXotqqA4KhA.png
+layout: single
 series:
 - Kriptoloji Temelleri
 title: 'Kriptoloji Temelleri: Kriptanaliz'

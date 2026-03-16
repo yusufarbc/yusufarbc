@@ -3,6 +3,7 @@ date: '2025-04-05'
 description: Bu yazımda bilgi teknolojileri ve güvenliği alanında çalışan ulusal ve uluslararaası organizasyonlara değineceğim. Bu alandaki standartlardan ve amaçlarından bahsedeceğim.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*DcA4L1w1dvZUmdz5
+layout: single
 title: Bilgi Teknolojileri ve Güvenliği Standartları ve Organizasyonları
 type: posts
 ---

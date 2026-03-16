@@ -3,6 +3,7 @@ date: '2025-08-19'
 description: SOC (Security Operations Center) and NOC (Network Operations Center) are two central structures that complement each other but have different focuses. NOC monitors an organization's network infrastructure, system performance and service continuity 24...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*S7cMHBrZlktBq6LvzR_AYQ.png
+layout: single
 series:
 - Network Security and Management
 title: 'Network Management and Security X: SOC and NOC Processes'

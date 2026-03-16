@@ -3,6 +3,7 @@ date: '2021-10-19'
 description: Hello, in this article, I will introduce you to Google Dorks, which are very useful in collecting passive information. I will talk about how to use it. Then, I will try to explain how we can find vulnerabilities with these dors and what we can achiev...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*wiiHrCXFveGl4-e-
+layout: single
 title: Google Dorks and Google Hacking
 type: posts
 ---

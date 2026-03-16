@@ -3,6 +3,7 @@ date: '2021-07-01'
 description: Bu yazımda, birçoğumuzun anlamakta zorlandığı asenkron programlama konusunu anlatmaya çalışacağım. Python dilinde async-await yapılarıyla bilinen bu programlama türü nedir? Ne işe yarar? Nasıl kullanılır? Hep beraber bakalım.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*DH7q_354Ghtgzp3H.jpg
+layout: single
 title: Asenkron Programlama
 type: posts
 ---

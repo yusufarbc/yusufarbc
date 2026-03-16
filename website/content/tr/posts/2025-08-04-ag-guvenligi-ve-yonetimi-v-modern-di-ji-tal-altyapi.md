@@ -3,6 +3,7 @@ date: '2025-08-04'
 description: Bu bölüm, ağ yönetimi ve güvenliğinin en ileri ve dinamik alanlarına odaklanarak, modern dijital altyapıların temelini oluşturan kritik teknolojileri derinlemesine incelemektedir. Geleneksel ağ paradigmalarının ötesine geçerek, internetin temel isim ...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*aBV-V0NvCXaSMoVRhcmT9w.png
+layout: single
 series:
 - Ağ Güvenliği ve Yönetimi
 title: 'Ağ Güvenliği ve Yönetimi V: MODERN DİJİTAL ALTYAPI'

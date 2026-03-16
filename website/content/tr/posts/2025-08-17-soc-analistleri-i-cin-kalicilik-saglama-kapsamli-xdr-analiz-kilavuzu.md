@@ -3,6 +3,7 @@ date: '2025-08-17'
 description: Siber güvenlik operasyonlarında, kalıcılık (persistence) bir saldırganın sistemde kalıcı bir ayak izi bırakmasını sağlayan en kritik aşamalardan biridir. Bu, saldırının ilk erişim vektöründen (örneğin, bir oltalama e-postası veya bir açık istismarı) ...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*t3uzw3mQTB-z3Mm777G-RQ.png
+layout: single
 series:
 - Ağ Güvenliği ve Yönetimi
 title: SOC Analistleri İçin Kalıcılık Sağlama Kapsamlı XDR Analiz Kılavuzu

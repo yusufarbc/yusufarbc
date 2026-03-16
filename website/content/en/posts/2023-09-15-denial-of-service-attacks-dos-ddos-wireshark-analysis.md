@@ -3,6 +3,7 @@ date: '2023-09-15'
 description: Hello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*tKGgOxt2Mq5piyQ3_CJDdg.png
+layout: single
 series:
 - Network Analysis with Wireshark
 title: Denial of Service Attacks (DoS-DDoS) Wireshark Analysis

@@ -3,6 +3,7 @@ date: '2025-08-10'
 description: Modern dijital altyapıların görünmez ancak vazgeçilmez temelini oluşturan ağ donanımları ve fiziksel katman, veri akışının ve dijital iletişimin can damarlarıdır. Genellikle siber güvenlik tartışmaları yazılım tabanlı tehditlere ve mantıksal katmanla...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*0XinYbzhfLKDESwpfYfKIQ.png
+layout: single
 series:
 - Ağ Güvenliği ve Yönetimi
 title: 'Ağ Yönetimi ve Güvenliği III: Ağ Donanımları ve Fiziksel Altyapı Güvenliği'

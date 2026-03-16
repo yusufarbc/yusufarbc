@@ -2,6 +2,7 @@
 date: '2025-03-14'
 description: In this article, I tried to touch upon the original management processes offered by Microsoft.
 draft: false
+layout: single
 title: In this article, I tried to touch upon the original management processes offered by Microsoft.
 type: posts
 ---

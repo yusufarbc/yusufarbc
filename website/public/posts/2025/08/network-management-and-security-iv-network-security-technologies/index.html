@@ -165,41 +165,34 @@
     <div class="content">
       
   <section class="container post">
-    <article>
-      <header>
-        <div class="post-title">
-          <h1 class="title">
-            <a class="title-link" href="http://localhost:1313/posts/2025/08/network-management-and-security-iv-network-security-technologies/">
-              Network Management and Security IV: Network Security Technologies
-            </a>
-          </h1>
-        </div>
+    <article class="post-full glass-card">
+      <header class="post-header">
         <div class="post-meta">
-          <div class="date">
-            <span class="posted-on">
-              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
-              <time datetime="2025-08-10T00:00:00Z">
-                August 10, 2025
-              </time>
+          <time datetime="2025-08-10T00:00:00Z">
+            August 10, 2025
+          </time>
+          
+            <span class="post-series">in 
+              
+                <a href="/series/network-security-and-management">Network Security and Management</a>
+              
             </span>
-            <span class="reading-time">
-              <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              15-minute read
-            </span>
-          </div>
           
-          
-          
+          <span class="reading-time">
+            <i class="fa-solid fa-clock" aria-hidden="true"></i>
+            15 min read
+          </span>
         </div>
+        <h1 class="post-title-full">Network Management and Security IV: Network Security Technologies</h1>
+        
+        
+        <div class="post-featured-image">
+          <img src="https://cdn-images-1.medium.com/max/800/1*Fhet-NIJbKlNzPESUc1Ttw.png" alt="Network Management and Security IV: Network Security Technologies">
+        </div>
+        
       </header>
 
-      
-
-
       <div class="post-content">
-        
-          <img src="https://cdn-images-1.medium.com/max/800/1*Fhet-NIJbKlNzPESUc1Ttw.png" alt="Featured image"/>
-        
         <p>The complexity of digital infrastructures and the sophisticated nature of cyber threats have necessitated a radical transformation in network security approaches. The traditional “castle and moat” perimeter security model strongly guarded the boundaries of the network, assigning implicit trust to every entity within. However, with the rise of modern IT paradigms such as cloud computing, mobility, remote working and the Internet of Things (IoT), this clearly defined network perimeter has become increasingly blurred. In these distributed and dynamic environments, the inability of the traditional model to prevent threats has led to the adoption of more integrated and identity-centered architectures such as defense-in-depth and Zero Trust.</p>
 <p>This evolution represents a fundamental shift from reactive defense mechanisms to proactive control strategies. Initially, it was considered sufficient to place a firewall around the network, assuming that the threats were largely external. However, when attackers began to target the application layer (OSI Layer 7) to bypass this defense, tools that could go deeper and analyze the content, such as Web Application Firewalls (WAF) and Intrusion Prevention Systems (IPS), were needed. With the increasing ability of threat actors to steal credentials and exploit insider threats, it has become clear that even a user or device inside the network cannot be trusted by default. This awareness has formed the basic philosophy of the Zero Trust architecture, which stipulates that every access request must be dynamically verified and authorized, regardless of who and where it comes from. Therefore, the evolution of network security technologies is not only a technical advance, but also a concrete reflection of a philosophical shift towards the concept of “trust”. This report aims to comprehensively examine today&rsquo;s network security technologies within the framework of these modern paradigms, at the level of architecture, protocol and strategy.</p>
 <h3 id="chapter-1-the-cornerstone-of-network-border-security-firewall-technologies">
@@ -821,8 +814,7 @@
 
       </div>
 
-
-      <footer>
+      <footer class="post-footer-links">
         
 
 <section class="see-also">
@@ -834,18 +826,57 @@
 </section>
 
 
-        
-        
-        
-        
-        
-        
-        
       </footer>
     </article>
-
-    
   </section>
+
+  <style>
+    .post-full {
+      padding: 2.5rem;
+      margin: 2rem auto;
+      max-width: 900px;
+    }
+    .post-header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .post-title-full {
+      font-size: 2.5rem;
+      margin: 1rem 0;
+      background: linear-gradient(to right, var(--primary-accent), var(--secondary-accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .post-featured-image {
+      margin: 2rem -2.5rem;
+      max-height: 500px;
+      overflow: hidden;
+    }
+    .post-featured-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .post-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: inherit;
+    }
+    .post-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 768px) {
+      .post-full {
+        padding: 1.5rem;
+      }
+      .post-title-full {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
 
     </div>
 

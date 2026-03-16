@@ -3,6 +3,7 @@ date: '2021-10-19'
 description: Merhaba, bu yazımda sizlere pasif bilgi toplamada çok işimize yarayan google dorksları tanıtacağım. Nasıl kullanıldığından bahsedeceğim. Ardından, bu dorklarla nasıl zafiyetler bulabileceğimizi ve neler elde edebileceğimizi anlatmaya çalışacağım.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*wiiHrCXFveGl4-e-
+layout: single
 title: Google Dorks ve Google Hacking
 type: posts
 ---

@@ -3,6 +3,7 @@ date: '2025-03-09'
 description: Windows Sistem Yönetimi, Windows işletim sistemlerini yönetmeyi içeren bir dizi süreç ve araçtır. Bu süreçler, kullanıcı ve hesap yönetiminden kaynakların optimize edilmesine, güvenlik politikalarının uygulanmasından ağ yapılandırmalarının kontrol ed...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*QTSThAAz9yc368eD-MMw5g.png
+layout: single
 title: Windows Sistem Yönetimi
 type: posts
 ---

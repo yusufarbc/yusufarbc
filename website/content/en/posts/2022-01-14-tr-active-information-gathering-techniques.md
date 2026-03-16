@@ -3,6 +3,7 @@ date: '2022-01-14'
 description: In this article, we will talk about Active Information Gathering Techniques.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*oiybh8KKS4kV2xtr.jpg
+layout: single
 title: '[TR] Active Information Gathering Techniques'
 type: posts
 ---

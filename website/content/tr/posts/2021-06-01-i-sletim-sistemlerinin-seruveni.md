@@ -3,6 +3,7 @@ date: '2021-06-01'
 description: Bu yazımızda, günümüzde bilgisayar sistemleri için olmazsa olmaz konuma gelmiş olan işletim sistemlerini inceleyeceğiz. Nasıl geliştiğine, bu günlere nasıl geldiğine deyineceğiz. Günümüzde popüler olan işletim sistemelerinin nasıl ortaya çıktığına şa...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*xr3hyWH8B1uBJitVrIH3xQ.jpeg
+layout: single
 title: İşletim Sistemlerinin Serüveni
 type: posts
 ---

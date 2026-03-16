@@ -3,6 +3,7 @@ date: '2025-08-17'
 description: In cyber security operations, persistence is one of the most critical stages that allows an attacker to leave a permanent footprint on the system. This makes it possible for the attack to reach its long-term goals beyond the initial access vector (fo...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*t3uzw3mQTB-z3Mm777G-RQ.png
+layout: single
 title: Ensuring Persistence for SOC Analysts Comprehensive XDR Analysis Guide
 type: posts
 ---

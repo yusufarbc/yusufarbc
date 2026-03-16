@@ -3,6 +3,7 @@ date: '2024-12-10'
 description: Bu yazımda, genel olarak tespit edilmesinin ve önlenmesinin zor olduğu kabul edilen sıfıncı-gün ataklarına karşı nasıl bir siber savunma stratejisinin geliştirilebileceğine değineceğim. Birçok kurumun muzdarip olduğu sıfıncı gün ataklarına karşı elbe...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*iZ-lydJs7z0gBXIAY58wQQ.png
+layout: single
 title: Sıfırncı-Gün Ataklarına Karşı Siber Savunma Stratejileri
 type: posts
 ---

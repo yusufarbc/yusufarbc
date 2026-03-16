@@ -3,6 +3,7 @@ date: '2025-08-12'
 description: This article is structured to comprehensively analyze the four pillars of modern digital communication — email, web, Domain Name System (DNS), and file transfer. Each chapter will examine in depth the historical development of the relevant protocol f...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*4B83QjV-QTWjVqB0z6ktug.png
+layout: single
 series:
 - Network Security and Management
 title: 'Network Management and Security VI: Network Protocols Security and Analysis'

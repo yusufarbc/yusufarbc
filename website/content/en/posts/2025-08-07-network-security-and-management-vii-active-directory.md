@@ -3,6 +3,7 @@ date: '2025-08-07'
 description: It examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of "identity is the new security perimeter", this study presents a comprehensive strate...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*xHCEWIgWsOG-PR1mgpcXvQ.png
+layout: single
 series:
 - Network Security and Management
 title: 'Network Security and Management VII: Active Directory'

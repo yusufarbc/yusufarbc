@@ -3,6 +3,7 @@ date: '2022-08-26'
 description: Merhaba, bu yazımızda web uygulama güvenliği alanında araçlar yazabileceğimiz python’un requests modülünü tanıyacağız.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*a87phGSd-sbfiJLWPfGMxA.png
+layout: single
 series:
 - Hakerlar için Python
 title: 'Hakerlar için Python: requests'

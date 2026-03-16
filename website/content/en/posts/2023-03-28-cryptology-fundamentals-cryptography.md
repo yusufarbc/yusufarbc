@@ -3,6 +3,7 @@ date: '2023-03-28'
 description: Hello, in this article of the cryptology basics series, I will talk about what cryptography is, encryption techniques and cryptographic protocols.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*MPqOVwPSnGY3CguO7sg8Jw.png
+layout: single
 series:
 - Cryptology Fundamentals
 title: 'Cryptology Fundamentals: Cryptography'

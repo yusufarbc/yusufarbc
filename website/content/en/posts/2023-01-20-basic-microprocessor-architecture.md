@@ -3,6 +3,7 @@ date: '2023-01-20'
 description: 'The microprocessor works like the central processing unit of a computer. It carries out the vital functions of the computer. The functional configuration of a microprocessor is:'
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*eBP9qyGpkYsx-Zgy3Jvsqg.png
+layout: single
 title: Basic Microprocessor Architecture
 type: posts
 ---

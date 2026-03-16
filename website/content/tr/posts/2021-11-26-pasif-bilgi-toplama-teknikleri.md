@@ -3,6 +3,7 @@ date: '2021-11-26'
 description: Merhaba, Mehmet Bulut hocamla birlikte hazırladığımız bu yazımızda, sizlere Pasif Bilgi Toplama Tekniklerinden bahsedeceğiz.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*2NsHt2LZX3ORPYxb.jpg
+layout: single
 title: Pasif Bilgi Toplama Teknikleri
 type: posts
 ---

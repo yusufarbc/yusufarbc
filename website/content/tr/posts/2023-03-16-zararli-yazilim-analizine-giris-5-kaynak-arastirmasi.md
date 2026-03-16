@@ -3,6 +3,7 @@ date: '2023-03-16'
 description: Bu yazımda zararlı yazılım analizi konusunda bulduğum kaynakları listeledim. Repolar, kitaplar, siteler ve videolar bu yazıda.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*dJBvI3SpcGPLEmaFbLhm9A.png
+layout: single
 series:
 - Zararlı Yazılım Analizine Giriş
 title: 'Zararlı Yazılım Analizine Giriş: #5 Kaynak Araştırması'

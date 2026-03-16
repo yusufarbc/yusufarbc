@@ -3,6 +3,7 @@ date: '2025-10-02'
 description: Wazuh 5.0 marks a foundational overhaul of the platform, shifting its core architecture to embrace next-generation capabilities required for true XDR and large-scale SIEM environments. For security teams and architects managing hundreds or thousands ...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*5VajKV0S7rEIU9VN
+layout: single
 series:
 - Wazuh SIEM
 title: 'Wazuh 5.0 is Here: A Technical Deep Dive into the New Engine, eBPF, and Enterprise Scaling'

@@ -3,6 +3,7 @@ date: '2022-09-21'
 description: Merhaba bu yazımızda, uzak sunucuların ip ve port adreslerine bağlantı kurmak için kullanabileceğimiz socket modülünü tanıyacağız.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*Z3ieIgd5w_LPy0R2bLu6pg.png
+layout: single
 series:
 - Hakerlar için Python
 title: Hakerlar için Python:socket
