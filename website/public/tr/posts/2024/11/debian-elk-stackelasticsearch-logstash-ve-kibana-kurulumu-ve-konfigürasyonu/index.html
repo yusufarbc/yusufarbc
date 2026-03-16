@@ -13,7 +13,27 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Merhaba bu yazımda Debian tabanlı linux dağıtımları üzerine ELK Stack kurulumu ve konfigürasyonunu anlatacağım.">
+<meta name="description" content="
+Merhaba bu yazımda Debian tabanlı linux dağıtımları üzerine ELK Stack kurulumu ve konfigürasyonunu anlatacağım.
+
+  ELK Stack Nedir?
+  
+    
+    Başlık Linki
+  
+
+ELK Stack, log yönetimi ve analiz alanında sıkça kullanılan açık kaynaklı bir platformdur. Adını oluşturan üç ana bileşenden oluşur: Elasticsearch, Logstash ve Kibana.
+
+ELK Stack
+
+Elasticsearch: Büyük miktarda yapılandırılmış ve yapılandırılmamış veriyi depolamak, indekslemek ve hızlı bir şekilde arama yapmak için kullanılan bir arama ve analiz motorudur. Log verilerinin yanı sıra çeşitli kaynaklardan gelen verileri de indeksleyebilir.
+Logstash: Veri toplama, işleme ve dönüştürme süreçlerini yöneten bir araçtır. Farklı kaynaklardan (sistem logları, uygulama logları, ağ trafiği vb.) gelen verileri toplar, filtreler, zenginleştirir ve Elasticsearch’e gönderir.
+Kibana: Elasticsearch’te depolanan verileri görselleştirmek için kullanılan bir araçtır. İnteraktif dashboardlar, grafikler ve haritalar oluşturarak verilerden anlamlı sonuçlar çıkarmayı sağlar.
+
+Elastic Stack ürünlerinin kurulum sırası: 
+ 1- Elasticsearch 
+ 2- Kibana 
+ 3- Logstash">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +41,18 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Debian ELK Stack(Elasticsearch, Logstash ve Kibana) Kurulumu ve Konfigürasyonu">
-  <meta name="twitter:description" content="Merhaba bu yazımda Debian tabanlı linux dağıtımları üzerine ELK Stack kurulumu ve konfigürasyonunu anlatacağım.">
+  <meta name="twitter:description" content="Merhaba bu yazımda Debian tabanlı linux dağıtımları üzerine ELK Stack kurulumu ve konfigürasyonunu anlatacağım.
+ELK Stack Nedir?Başlık LinkiELK Stack, log yönetimi ve analiz alanında sıkça kullanılan açık kaynaklı bir platformdur. Adını oluşturan üç ana bileşenden oluşur: Elasticsearch, Logstash ve Kibana.
+ELK Stack
+Elasticsearch: Büyük miktarda yapılandırılmış ve yapılandırılmamış veriyi depolamak, indekslemek ve hızlı bir şekilde arama yapmak için kullanılan bir arama ve analiz motorudur. Log verilerinin yanı sıra çeşitli kaynaklardan gelen verileri de indeksleyebilir. Logstash: Veri toplama, işleme ve dönüştürme süreçlerini yöneten bir araçtır. Farklı kaynaklardan (sistem logları, uygulama logları, ağ trafiği vb.) gelen verileri toplar, filtreler, zenginleştirir ve Elasticsearch’e gönderir. Kibana: Elasticsearch’te depolanan verileri görselleştirmek için kullanılan bir araçtır. İnteraktif dashboardlar, grafikler ve haritalar oluşturarak verilerden anlamlı sonuçlar çıkarmayı sağlar. Elastic Stack ürünlerinin kurulum sırası: 1- Elasticsearch 2- Kibana 3- Logstash">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2024/11/debian-elk-stackelasticsearch-logstash-ve-kibana-kurulumu-ve-konfig%C3%BCrasyonu/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Debian ELK Stack(Elasticsearch, Logstash ve Kibana) Kurulumu ve Konfigürasyonu">
-  <meta property="og:description" content="Merhaba bu yazımda Debian tabanlı linux dağıtımları üzerine ELK Stack kurulumu ve konfigürasyonunu anlatacağım.">
+  <meta property="og:description" content="Merhaba bu yazımda Debian tabanlı linux dağıtımları üzerine ELK Stack kurulumu ve konfigürasyonunu anlatacağım.
+ELK Stack Nedir?Başlık LinkiELK Stack, log yönetimi ve analiz alanında sıkça kullanılan açık kaynaklı bir platformdur. Adını oluşturan üç ana bileşenden oluşur: Elasticsearch, Logstash ve Kibana.
+ELK Stack
+Elasticsearch: Büyük miktarda yapılandırılmış ve yapılandırılmamış veriyi depolamak, indekslemek ve hızlı bir şekilde arama yapmak için kullanılan bir arama ve analiz motorudur. Log verilerinin yanı sıra çeşitli kaynaklardan gelen verileri de indeksleyebilir. Logstash: Veri toplama, işleme ve dönüştürme süreçlerini yöneten bir araçtır. Farklı kaynaklardan (sistem logları, uygulama logları, ağ trafiği vb.) gelen verileri toplar, filtreler, zenginleştirir ve Elasticsearch’e gönderir. Kibana: Elasticsearch’te depolanan verileri görselleştirmek için kullanılan bir araçtır. İnteraktif dashboardlar, grafikler ve haritalar oluşturarak verilerden anlamlı sonuçlar çıkarmayı sağlar. Elastic Stack ürünlerinin kurulum sırası: 1- Elasticsearch 2- Kibana 3- Logstash">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -211,9 +237,9 @@
 <li><strong>Logstash:</strong> Veri toplama, işleme ve dönüştürme süreçlerini yöneten bir araçtır. Farklı kaynaklardan (sistem logları, uygulama logları, ağ trafiği vb.) gelen verileri toplar, filtreler, zenginleştirir ve Elasticsearch’e gönderir.</li>
 <li><strong>Kibana:</strong> Elasticsearch’te depolanan verileri görselleştirmek için kullanılan bir araçtır. İnteraktif dashboardlar, grafikler ve haritalar oluşturarak verilerden anlamlı sonuçlar çıkarmayı sağlar.</li>
 </ul>
-<p>Elastic Stack ürünlerinin kurulum sırası:<br>
- 1- <strong>Elasticsearch</strong><br>
- 2- <strong>Kibana</strong><br>
+<p>Elastic Stack ürünlerinin kurulum sırası: 
+ 1- <strong>Elasticsearch</strong> 
+ 2- <strong>Kibana</strong> 
  3- <strong>Logstash</strong></p>
 <p>İlk olarak kurulumu yapacağımız ortamı hazırlamamız gerekiyor. Bunun için elimizde bir işletim sistemi olması gerekiyor.</p>
 <h3 id="debian-nedir">
@@ -276,8 +302,8 @@
 <p><img src="https://cdn-images-1.medium.com/max/800/1*9iK82eWFRbtdDSDV_HxY1A.png" alt=""></p>
 <p>Kurulum sonrası adımlar</p>
 <p>Buradan da hareketle kurulum sonrası adımlara devam edelim. İlk olarak servisimizi başlatalım.</p>
-<pre tabindex="0"><code>sudo systemctl daemon-reload  
-sudo systemctl enable elasticsearch.service  
+<pre tabindex="0"><code>sudo systemctl daemon-reload  
+sudo systemctl enable elasticsearch.service  
 sudo systemctl start elasticsearch.service
 </code></pre><p>Journalctl komutunu kullanarak servisin durumu hakkında bilgi edinebiliriz.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*iiD9Azwdmg2h8zAxXbyjsg.png" alt=""></p>
@@ -344,8 +370,8 @@ sudo systemctl start elasticsearch.service
 <p>elasticsearch’un kullandığı sertifika self-signed olduğu için herhangi bir otorite tarafından doğrulanmamıştır. Bu durum kibana ile bağlantısında ssl doğrulama hatası almamıza yol açar. Bu hatadan kaçınmak için ssl.verification alanını “none” yapıyoruz. Veya doğrulanmış bir ssl sertifikası yükleyebilirsiniz.</p>
 <p>Temelde gerekli yapılandırmalarımız bu kadar. Diğer alanları ayarlamak için kibananın dokümanlarını inceleyebilirsiniz. Ben geri kalanı için varsayılan yapılandırmalarla devam ediyorum.</p>
 <p>Şimdi servisimizi başlatalım.</p>
-<pre tabindex="0"><code>sudo systemctl daemon-reload  
-sudo systemctl enable kibana.service  
+<pre tabindex="0"><code>sudo systemctl daemon-reload  
+sudo systemctl enable kibana.service  
 sudo systemctl start kibana.service
 </code></pre><p>Journalctl komutunu kullanarak servisin durumu hakkında bilgi edinebiliriz.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*1_rsonaVsKsxze1R0baGYg.png" alt=""></p>
@@ -391,8 +417,8 @@ sudo systemctl start kibana.service
 <p>Artık logstash servisini başlatabiliriz.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*4dOXa3frSYz4B_PZ4kpjYA.png" alt=""></p>
 <p>logstash servisi başlatma</p>
-<pre tabindex="0"><code>sudo systemctl daemon-reload  
-sudo systemctl enable logstash.service  
+<pre tabindex="0"><code>sudo systemctl daemon-reload  
+sudo systemctl enable logstash.service  
 sudo systemctl start logstash.service
 </code></pre><p>Son olarak logstashin varsayılan portu olan 5044 portunu sistemimizde açıyoruz.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*Dx8ZAvD-yDQbhtg8LI0-RQ.png" alt=""></p>

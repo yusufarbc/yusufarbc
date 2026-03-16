@@ -3,8 +3,7 @@
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>
-  Wazuh 5.0 is Here: A Technical Deep Dive into the New Engine, eBPF, and Enterprise
-Scaling · Yusuf Talha ARABACI
+  Wazuh 5.0 is Here: A Technical Deep Dive into the New Engine, eBPF, and Enterprise Scaling · Yusuf Talha ARABACI
 </title>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,22 +13,27 @@ Scaling · Yusuf Talha ARABACI
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="wazuh">
+<meta name="description" content="
+wazuh
+Wazuh 5.0 marks a foundational overhaul of the platform, shifting its core architecture to embrace next-generation capabilities required for true XDR and large-scale SIEM environments. For security teams and architects managing hundreds or thousands of endpoints, this release delivers not just new features, but the underlying performance and resilience needed to maintain real-time threat detection under immense load.
+This analysis breaks down the strategic architectural changes, the new performance drivers, and the practical configurations required to maximize the value of Wazuh 5.0 in a production setting.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
-  <meta name="twitter:title" content="Wazuh 5.0 is Here: A Technical Deep Dive into the New Engine, eBPF, and Enterprise
-Scaling">
-  <meta name="twitter:description" content="wazuh">
+  <meta name="twitter:title" content="Wazuh 5.0 is Here: A Technical Deep Dive into the New Engine, eBPF, and Enterprise Scaling">
+  <meta name="twitter:description" content="wazuh
+Wazuh 5.0 marks a foundational overhaul of the platform, shifting its core architecture to embrace next-generation capabilities required for true XDR and large-scale SIEM environments. For security teams and architects managing hundreds or thousands of endpoints, this release delivers not just new features, but the underlying performance and resilience needed to maintain real-time threat detection under immense load.
+This analysis breaks down the strategic architectural changes, the new performance drivers, and the practical configurations required to maximize the value of Wazuh 5.0 in a production setting.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2025/10/wazuh-5.0-is-here-a-technical-deep-dive-into-the-new-engine-ebpf-and-enterprise-scaling/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
-  <meta property="og:title" content="Wazuh 5.0 is Here: A Technical Deep Dive into the New Engine, eBPF, and Enterprise
-Scaling">
-  <meta property="og:description" content="wazuh">
+  <meta property="og:title" content="Wazuh 5.0 is Here: A Technical Deep Dive into the New Engine, eBPF, and Enterprise Scaling">
+  <meta property="og:description" content="wazuh
+Wazuh 5.0 marks a foundational overhaul of the platform, shifting its core architecture to embrace next-generation capabilities required for true XDR and large-scale SIEM environments. For security teams and architects managing hundreds or thousands of endpoints, this release delivers not just new features, but the underlying performance and resilience needed to maintain real-time threat detection under immense load.
+This analysis breaks down the strategic architectural changes, the new performance drivers, and the practical configurations required to maximize the value of Wazuh 5.0 in a production setting.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -165,8 +169,7 @@ Scaling">
         <div class="post-title">
           <h1 class="title">
             <a class="title-link" href="http://localhost:1313/tr/posts/2025/10/wazuh-5.0-is-here-a-technical-deep-dive-into-the-new-engine-ebpf-and-enterprise-scaling/">
-              Wazuh 5.0 is Here: A Technical Deep Dive into the New Engine, eBPF, and Enterprise
-Scaling
+              Wazuh 5.0 is Here: A Technical Deep Dive into the New Engine, eBPF, and Enterprise Scaling
             </a>
           </h1>
         </div>
@@ -355,13 +358,13 @@ Scaling
   </a>
 </h4>
 <p>This correlation rule detects an anomaly in login attempts by tracking failed activity over time and applies an automated response action.</p>
-<pre tabindex="0"><code>&lt;group name=&#34;syscheck, authentication, sshd,&#34;&gt;  
-&lt;rule id=&#34;100001&#34; level=&#34;12&#34; frequency=&#34;5&#34; timeframe=&#34;60&#34;&gt;  
-    &lt;if_matched_sid&gt;5710&lt;/if_matched_sid&gt;  
-    &lt;same_source_ip /&gt;  
-    &lt;description&gt;SSHD Brute Force Attack Detected (5 failed attempts in 60s)&lt;/description&gt;  
-    &lt;field name=&#34;action&#34;&gt;ActiveResponse:firewall-drop:600&lt;/field&gt;  
-  &lt;/rule&gt;  
+<pre tabindex="0"><code>&lt;group name=&#34;syscheck, authentication, sshd,&#34;&gt;  
+&lt;rule id=&#34;100001&#34; level=&#34;12&#34; frequency=&#34;5&#34; timeframe=&#34;60&#34;&gt;  
+    &lt;if_matched_sid&gt;5710&lt;/if_matched_sid&gt;  
+    &lt;same_source_ip /&gt;  
+    &lt;description&gt;SSHD Brute Force Attack Detected (5 failed attempts in 60s)&lt;/description&gt;  
+    &lt;field name=&#34;action&#34;&gt;ActiveResponse:firewall-drop:600&lt;/field&gt;  
+  &lt;/rule&gt;  
 &lt;/group&gt;
 </code></pre><p>The combination of <code>&lt;frequency=&quot;5&quot;&gt;</code>, <code>&lt;timeframe=&quot;60&quot;&gt;</code> (seconds), and <code>&lt;same_source_ip /&gt;</code> ensures a high-severity alert (Level 12) only triggers when five failed attempts occur from the exact same source within one minute.</p>
 <h4 id="2-critical-fim-detection-root-modification-in-critical-directory">
@@ -372,15 +375,15 @@ Scaling
   </a>
 </h4>
 <p>This rule leverages the “who-data” provided by the FIM module to pinpoint a specific actor (the root user) performing a specific action (file modification) in a highly sensitive location (<code>/etc/security/</code>).</p>
-<pre tabindex="0"><code>&lt;group name=&#34;syscheck, fim, critical_config,&#34;&gt;  
-&lt;rule id=&#34;100002&#34; level=&#34;14&#34;&gt;  
-    &lt;if_sid&gt;550&lt;/if_sid&gt;  
-    &lt;field name=&#34;file&#34;&gt;/etc/security/&lt;/field&gt;  
-    &lt;regex&gt;modified&lt;/regex&gt;  
-    &lt;field name=&#34;user&#34;&gt;root&lt;/field&gt;  
-    &lt;description&gt;CRITICAL FIM: Root user modified file in highly sensitive /etc/security directory.&lt;/description&gt;  
-    &lt;field name=&#34;extra_data&#34; type=&#34;pcre2&#34;&gt;(?i)process:\s*(\S+)&lt;/field&gt;  
-  &lt;/rule&gt;  
+<pre tabindex="0"><code>&lt;group name=&#34;syscheck, fim, critical_config,&#34;&gt;  
+&lt;rule id=&#34;100002&#34; level=&#34;14&#34;&gt;  
+    &lt;if_sid&gt;550&lt;/if_sid&gt;  
+    &lt;field name=&#34;file&#34;&gt;/etc/security/&lt;/field&gt;  
+    &lt;regex&gt;modified&lt;/regex&gt;  
+    &lt;field name=&#34;user&#34;&gt;root&lt;/field&gt;  
+    &lt;description&gt;CRITICAL FIM: Root user modified file in highly sensitive /etc/security directory.&lt;/description&gt;  
+    &lt;field name=&#34;extra_data&#34; type=&#34;pcre2&#34;&gt;(?i)process:\s*(\S+)&lt;/field&gt;  
+  &lt;/rule&gt;  
 &lt;/group&gt;
 </code></pre><p>By filtering on <code>&lt;field name=&quot;user&quot;&gt;root&lt;/field&gt;</code>, the rule ensures maximum fidelity (Level 14) by using contextual FIM data, making it an ideal candidate for immediate Active Response triggering.</p>
 <h3 id="active-response-expansion-and-load-management">
@@ -402,23 +405,23 @@ Scaling
 <p>The following configuration blocks the source IP address that triggered Rule 100001 (SSH Brute Force) for 600 seconds (10 minutes).</p>
 <p><strong>1. Define the Command (on Wazuh Manager in</strong> <code>/var/ossec/etc/ossec.conf</code><strong>):</strong></p>
 <p>XML</p>
-<pre tabindex="0"><code>&lt;ossec_config&gt;  
-  &lt;command&gt;  
-    &lt;name&gt;firewall-drop&lt;/name&gt;  
-    &lt;executable&gt;firewall-drop&lt;/executable&gt;  
-    &lt;timeout_allowed&gt;yes&lt;/timeout_allowed&gt;  
-  &lt;/command&gt;  
+<pre tabindex="0"><code>&lt;ossec_config&gt;  
+  &lt;command&gt;  
+    &lt;name&gt;firewall-drop&lt;/name&gt;  
+    &lt;executable&gt;firewall-drop&lt;/executable&gt;  
+    &lt;timeout_allowed&gt;yes&lt;/timeout_allowed&gt;  
+  &lt;/command&gt;  
 &lt;/ossec_config&gt;
 </code></pre><p>The <code>timeout_allowed=&quot;yes&quot;</code> flag enables stateful behavior, allowing the action to be automatically reversed.</p>
 <p><strong>2. Define the Active Response Trigger (on Wazuh Manager in</strong> <code>/var/ossec/etc/ossec.conf</code><strong>):</strong></p>
-<pre tabindex="0"><code>&lt;ossec_config&gt;  
-  &lt;active-response&gt;  
-    &lt;disabled&gt;no&lt;/disabled&gt;  
-    &lt;command&gt;firewall-drop&lt;/command&gt;  
-    &lt;location&gt;local&lt;/location&gt;  
-    &lt;rules_id&gt;100001&lt;/rules_id&gt;  
-    &lt;timeout&gt;600&lt;/timeout&gt;  
-  &lt;/active-response&gt;  
+<pre tabindex="0"><code>&lt;ossec_config&gt;  
+  &lt;active-response&gt;  
+    &lt;disabled&gt;no&lt;/disabled&gt;  
+    &lt;command&gt;firewall-drop&lt;/command&gt;  
+    &lt;location&gt;local&lt;/location&gt;  
+    &lt;rules_id&gt;100001&lt;/rules_id&gt;  
+    &lt;timeout&gt;600&lt;/timeout&gt;  
+  &lt;/active-response&gt;  
 &lt;/ossec_config&gt;
 </code></pre><p>The <code>&lt;location&gt;local&lt;/location&gt;</code> setting ensures the <code>firewall-drop</code> script is executed on the <em>agent</em> that generated the alert, blocking the malicious IP address locally on the victim system. The <code>&lt;timeout&gt;600&lt;/timeout&gt;</code> setting dictates that the firewall rule will be automatically reversed after 10 minutes.</p>
 <hr>

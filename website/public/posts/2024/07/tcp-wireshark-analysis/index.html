@@ -13,7 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Hello, in this article I will try to explain the TCP protocol and its analysis with Wireshark.">
+<meta name="description" content="Hello, in this article I will try to explain the TCP protocol and its analysis with Wireshark. --- ### What is TCP? TCP provides connected transport over a connection that begins with a three...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +21,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="TCP Wireshark Analysis">
-  <meta name="twitter:description" content="Hello, in this article I will try to explain the TCP protocol and its analysis with Wireshark.">
+  <meta name="twitter:description" content="Hello, in this article I will try to explain the TCP protocol and its analysis with Wireshark. --- ### What is TCP? TCP provides connected transport over a connection that begins with a three...">
 
 <meta property="og:url" content="http://localhost:1313/posts/2024/07/tcp-wireshark-analysis/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="TCP Wireshark Analysis">
-  <meta property="og:description" content="Hello, in this article I will try to explain the TCP protocol and its analysis with Wireshark.">
+  <meta property="og:description" content="Hello, in this article I will try to explain the TCP protocol and its analysis with Wireshark. --- ### What is TCP? TCP provides connected transport over a connection that begins with a three...">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -239,22 +239,22 @@
 <p>When FIN is used, a host sends a FIN packet and enters the FIN-WAIT state until its FIN is acknowledged and the peer sends back its FIN. According to RFC 793, there are actually a few situations that are possible when FIN is used to implicitly terminate a connection.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*oKbEZpebc55HRhufKktDkw.png" alt=""></p>
 <p>Type netstat -a to find out the current status of TCP connections on a Windows or Linux host. Below is an example of the connection status on a Windows host.</p>
-<p>TCP 24.6.173.220:1035 poll:https ESTABLISHED<br>
-TCP 24.6.173.220:1071 egw1:https ESTABLISHED<br>
-TCP 24.6.173.220:9497 163–166:http CLOSE_WAIT<br>
-TCP 24.6.173.220:9699 nuq04s07-in-f11:http CLOSE_WAIT<br>
-TCP 24.6.173.220:9702 ec2–204–236–130–101:http CLOSE_WAIT<br>
-TCP 24.6.173.220:9703 ec2–204–236–131–42:http CLOSE_WAIT<br>
-TCP 24.6.173.220:9706 a184–84–222–33:http CLOSE_WAIT<br>
-TCP 24.6.173.220:9798 163–166:http CLOSE_WAIT<br>
-TCP 24.6.173.220:14717 nuq04s07-in-f5:http CLOSE_WAIT<br>
-TCP 24.6.173.220:15582 163–166:http CLOSE_WAIT<br>
-TCP 24.6.173.220:22167 66–151–158–187:https TIME_WAIT<br>
-TCP 24.6.173.220:22168 216–115–209–254:https TIME_WAIT<br>
-TCP 24.6.173.220:22169 probe-cgnt-sjc:https TIME_WAIT<br>
-TCP 24.6.173.220:22170 probe-cgnt-sjc:https TIME_WAIT<br>
+<p>TCP 24.6.173.220:1035 poll:https ESTABLISHED 
+TCP 24.6.173.220:1071 egw1:https ESTABLISHED 
+TCP 24.6.173.220:9497 163–166:http CLOSE_WAIT 
+TCP 24.6.173.220:9699 nuq04s07-in-f11:http CLOSE_WAIT 
+TCP 24.6.173.220:9702 ec2–204–236–130–101:http CLOSE_WAIT 
+TCP 24.6.173.220:9703 ec2–204–236–131–42:http CLOSE_WAIT 
+TCP 24.6.173.220:9706 a184–84–222–33:http CLOSE_WAIT 
+TCP 24.6.173.220:9798 163–166:http CLOSE_WAIT 
+TCP 24.6.173.220:14717 nuq04s07-in-f5:http CLOSE_WAIT 
+TCP 24.6.173.220:15582 163–166:http CLOSE_WAIT 
+TCP 24.6.173.220:22167 66–151–158–187:https TIME_WAIT 
+TCP 24.6.173.220:22168 216–115–209–254:https TIME_WAIT 
+TCP 24.6.173.220:22169 probe-cgnt-sjc:https TIME_WAIT 
+TCP 24.6.173.220:22170 probe-cgnt-sjc:https TIME_WAIT 
 TCP 24.6.173.220:22171 216–115–209–254:https TIME_WAIT</p>
-<p>FIN Doesn&rsquo;t Mean &ldquo;Shut Up&rdquo;<br>
+<p>FIN Doesn&rsquo;t Mean &ldquo;Shut Up&rdquo; 
 RFC 793 defines the purpose of the FIN bit as indicating that no more data will arrive from the sender. This does not prevent the recipient of the FIN packet from sending additional data, which is allowed.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*smMgrW01y8cfs7-ZvQ813Q.png" alt=""></p>
 <p>TCP Reset is used to explicitly close a TCP connection</p>

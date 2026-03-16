@@ -13,7 +13,25 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Bir önceki yazımda analiz ortamının hazırlanmasından bahsetmiştim. Bu yazımda ise kurduğumuz ortam ile bir zararlı yazılımın statik analizini yapmaya çalışacağız. Statik analiz yöntemlerine ve ilgili ...">
+<meta name="description" content="
+  Zararlı Yazılım Analizine Giriş: #3 Statik Analiz
+  
+    
+    Başlık Linki
+  
+
+
+Bir önceki yazımda analiz ortamının hazırlanmasından bahsetmiştim. Bu yazımda ise kurduğumuz ortam ile bir zararlı yazılımın statik analizini yapmaya çalışacağız. Statik analiz yöntemlerine ve ilgili araçlar bu yazıda!
+
+
+  Statik Analiz Yöntemleri
+  
+    
+    Başlık Linki
+  
+
+Statik analiz, dinamik analiz olarak bilinen, yürütme ve davranışını analiz etmenin aksine, bir zararlı yazılımın yürütülmeden analizidir.
+Statik analiz, analiz sürecinde iyi bir ilk adımdır. Bunu kullanarak, bir örneğin zararlı mı yoksa temiz mi olduğunu onu çalıştırmanıza bile gerek kalmadan anlayabilirsiniz. Hatta herhangi bir dinamik analiz yapmanıza gerek kalmadan zararlı yazılımın türünü, ailesini ve amacını bulmaya kadar gidebilirsiniz.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +39,16 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Zararlı Yazılım Analizine Giriş: #3 Statik Analiz">
-  <meta name="twitter:description" content="Bir önceki yazımda analiz ortamının hazırlanmasından bahsetmiştim. Bu yazımda ise kurduğumuz ortam ile bir zararlı yazılımın statik analizini yapmaya çalışacağız. Statik analiz yöntemlerine ve ilgili ...">
+  <meta name="twitter:description" content="Zararlı Yazılım Analizine Giriş: #3 Statik AnalizBaşlık LinkiBir önceki yazımda analiz ortamının hazırlanmasından bahsetmiştim. Bu yazımda ise kurduğumuz ortam ile bir zararlı yazılımın statik analizini yapmaya çalışacağız. Statik analiz yöntemlerine ve ilgili araçlar bu yazıda!
+Statik Analiz YöntemleriBaşlık LinkiStatik analiz, dinamik analiz olarak bilinen, yürütme ve davranışını analiz etmenin aksine, bir zararlı yazılımın yürütülmeden analizidir.
+Statik analiz, analiz sürecinde iyi bir ilk adımdır. Bunu kullanarak, bir örneğin zararlı mı yoksa temiz mi olduğunu onu çalıştırmanıza bile gerek kalmadan anlayabilirsiniz. Hatta herhangi bir dinamik analiz yapmanıza gerek kalmadan zararlı yazılımın türünü, ailesini ve amacını bulmaya kadar gidebilirsiniz.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%233-statik-analiz/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Zararlı Yazılım Analizine Giriş: #3 Statik Analiz">
-  <meta property="og:description" content="Bir önceki yazımda analiz ortamının hazırlanmasından bahsetmiştim. Bu yazımda ise kurduğumuz ortam ile bir zararlı yazılımın statik analizini yapmaya çalışacağız. Statik analiz yöntemlerine ve ilgili ...">
+  <meta property="og:description" content="Zararlı Yazılım Analizine Giriş: #3 Statik AnalizBaşlık LinkiBir önceki yazımda analiz ortamının hazırlanmasından bahsetmiştim. Bu yazımda ise kurduğumuz ortam ile bir zararlı yazılımın statik analizini yapmaya çalışacağız. Statik analiz yöntemlerine ve ilgili araçlar bu yazıda!
+Statik Analiz YöntemleriBaşlık LinkiStatik analiz, dinamik analiz olarak bilinen, yürütme ve davranışını analiz etmenin aksine, bir zararlı yazılımın yürütülmeden analizidir.
+Statik analiz, analiz sürecinde iyi bir ilk adımdır. Bunu kullanarak, bir örneğin zararlı mı yoksa temiz mi olduğunu onu çalıştırmanıza bile gerek kalmadan anlayabilirsiniz. Hatta herhangi bir dinamik analiz yapmanıza gerek kalmadan zararlı yazılımın türünü, ailesini ve amacını bulmaya kadar gidebilirsiniz.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -240,7 +262,7 @@
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p>Zararlı yazılımlar farklı dosya biçimlerinde gelir: PE dosyaları, .NET dosyaları, Java dosyaları, Komut dosyaları, JavaScript yazılımı vb. Farklı işletim sistemleri için de yazılmış olabilirler: Linux, Windows, macOS veya Android. Belirli bir işlemci mimarisi için hedeflenmiş olabilirler: x86, x64, PowerPC, arm vb. Analiz ettiğiniz örnek dosyanın türüne ve hedefine bağlı olarak, örnek dosyayı analiz etmek için farklı araçlara ve hatta işletim sistemi kurulumuna veya işlemci türüne ihtiyacınız olabilir.<br>
+<p>Zararlı yazılımlar farklı dosya biçimlerinde gelir: PE dosyaları, .NET dosyaları, Java dosyaları, Komut dosyaları, JavaScript yazılımı vb. Farklı işletim sistemleri için de yazılmış olabilirler: Linux, Windows, macOS veya Android. Belirli bir işlemci mimarisi için hedeflenmiş olabilirler: x86, x64, PowerPC, arm vb. Analiz ettiğiniz örnek dosyanın türüne ve hedefine bağlı olarak, örnek dosyayı analiz etmek için farklı araçlara ve hatta işletim sistemi kurulumuna veya işlemci türüne ihtiyacınız olabilir. 
 İyi bir ilk adım, dosyanın biçimini bulmaktır, çünkü bu, örneğin hedefinin neye benzediği hakkında çok şey gösterir. Bunun için <strong>trid</strong> aracını kulanabiliriz.</p>
 <p>Uzantı sahteciliği, dosya adlarının bir parçası olarak sahte uzantılar kullanarak çalışır. Bu teknik, .pdf, .xlsx ve .doc gibi uzantılar olarak tanıyan ve bu nedenle güvenli olduklarını düşünen çoğu kullanıcı kurbanının cehaletinden yararlanır. Saldırganlar, bu uzantıları zararlı yazılım dosya adlarına ekleyerek, kurbanları onları .exe olmayan dosyalar olarak yanlış okumaları için kandırmayı başarır ve temelde onları indirip tıklamaları için kandırır.</p>
 <hr>
@@ -284,14 +306,14 @@
   </a>
 </h3>
 <p>YARA, zararlı yazılım araştırmacıları için İsviçre Çakısı olarak tanımlanan bir araçtır. Dosyalara ve genel olarak her türlü arabelleğe karşı kural eşleştirme motorudur. YARA’yı kullanarak, insan tarafından okunabilen stringler ve hatta ikili kalıplar kullanarak kurallar oluşturabilir ve bu kalıpları, dosyalarda ve arabelleklerde eşleştirmek için boolean ifadeler kullanarak birleştirebilirsiniz.</p>
-<pre tabindex="0"><code>rule YARA_example  
-{  
-      meta:  
-          description = &#34;This is just an example&#34;  
-      strings:  
-          $a = &#34;ROSEGOAT&#34;  
-      condition:  
-          $a  
+<pre tabindex="0"><code>rule YARA_example  
+{  
+      meta:  
+          description = &#34;This is just an example&#34;  
+      strings:  
+          $a = &#34;ROSEGOAT&#34;  
+      condition:  
+          $a  
 }
 </code></pre><p>Bu kuralı sample.exe üzerinde çalıştırırsak eşleşme olduğunu görürüz.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*DPMdAbAOT9U8dwFjbrKy6Q.png" alt=""></p>

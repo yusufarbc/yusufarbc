@@ -13,7 +13,18 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
+<meta name="description" content="
+Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+
+
+  DNS Nasıl Çalışır?
+  
+    
+    Başlık Linki
+  
+
+DNS, www.wiresharktraining.com gibi sembolik ana bilgisayar adlarını IP adreslerine dönüştürmek için kullanılır. DNS ayrıca ad bilgilerini DNS sunucuları arasında aktarmak, bir IP adresiyle ilişkili ana bilgisayar adını belirlemek (ters veya işaretçi sorgusu) ve MX (posta alışverişi) kaydı gibi diğer ad öğelerini aramak için de kullanılabilir.
+DNS ağ üzerindeki en önemli uygulamalardan biridir. Bir DNS sorunu, bilgisayarların hostname bilgilerini kullanırken birbirlerini bulmalarını engelleyecektir.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +32,16 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="DNS Wireshark Analizi">
-  <meta name="twitter:description" content="Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
+  <meta name="twitter:description" content="Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+DNS Nasıl Çalışır?Başlık LinkiDNS, www.wiresharktraining.com gibi sembolik ana bilgisayar adlarını IP adreslerine dönüştürmek için kullanılır. DNS ayrıca ad bilgilerini DNS sunucuları arasında aktarmak, bir IP adresiyle ilişkili ana bilgisayar adını belirlemek (ters veya işaretçi sorgusu) ve MX (posta alışverişi) kaydı gibi diğer ad öğelerini aramak için de kullanılabilir.
+DNS ağ üzerindeki en önemli uygulamalardan biridir. Bir DNS sorunu, bilgisayarların hostname bilgilerini kullanırken birbirlerini bulmalarını engelleyecektir.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2023/11/dns-wireshark-analizi/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="DNS Wireshark Analizi">
-  <meta property="og:description" content="Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
+  <meta property="og:description" content="Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+DNS Nasıl Çalışır?Başlık LinkiDNS, www.wiresharktraining.com gibi sembolik ana bilgisayar adlarını IP adreslerine dönüştürmek için kullanılır. DNS ayrıca ad bilgilerini DNS sunucuları arasında aktarmak, bir IP adresiyle ilişkili ana bilgisayar adını belirlemek (ters veya işaretçi sorgusu) ve MX (posta alışverişi) kaydı gibi diğer ad öğelerini aramak için de kullanılabilir.
+DNS ağ üzerindeki en önemli uygulamalardan biridir. Bir DNS sorunu, bilgisayarların hostname bilgilerini kullanırken birbirlerini bulmalarını engelleyecektir.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -461,7 +476,7 @@
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>Bu alan DNS yanıtlarının Yanıt bölümünde yer alır ve alıcının DNS bilgilerini önbellekte ne kadar süre tutabileceğini gösterir. DNS’deki her yanıt, o DNS bilgisi için bir TTL değeri içerecektir.<br>
+<p>Bu alan DNS yanıtlarının Yanıt bölümünde yer alır ve alıcının DNS bilgilerini önbellekte ne kadar süre tutabileceğini gösterir. DNS’deki her yanıt, o DNS bilgisi için bir TTL değeri içerecektir. 
 RR bilgileriyle yanıt veren DNS sunucuları, kalan TTL değerini sürekli olarak geri sayar; aynı DNS sorgusunu on saniye arayla yapmak, sunulan TTL değerinde on saniyelik bir fark gösterecektir.</p>
 <hr>
 <h4 id="dnsmdns-trafiği-filtreleri">

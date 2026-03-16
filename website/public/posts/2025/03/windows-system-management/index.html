@@ -13,7 +13,15 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Windows System Administration is a set of processes and tools that involve managing Windows operating systems. These processes cover a wide range from user and account management to optimizing resourc...">
+<meta name="description" content="
+  Windows System Management
+  
+    
+    Link to heading
+  
+
+
+Windows System Administration is a set of processes and tools that involve managing Windows operating systems. These processes cover a wide range from user and account management to optimizing resources, from implementing security policies to controlling network configurations. System administrators; It improves operational efficiency by monitoring system performance, troubleshooting, and automating using tools such as Microsoft Management Console (MMC), PowerShell, and Group Policy Management (GPO). It also performs the necessary configurations to ensure that users and system resources work in harmony at the central or local level. Windows system administration plays a critical role in meeting the needs of individual users and corporate networks.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +29,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Windows System Management">
-  <meta name="twitter:description" content="Windows System Administration is a set of processes and tools that involve managing Windows operating systems. These processes cover a wide range from user and account management to optimizing resourc...">
+  <meta name="twitter:description" content="Windows System ManagementLink to headingWindows System Administration is a set of processes and tools that involve managing Windows operating systems. These processes cover a wide range from user and account management to optimizing resources, from implementing security policies to controlling network configurations. System administrators; It improves operational efficiency by monitoring system performance, troubleshooting, and automating using tools such as Microsoft Management Console (MMC), PowerShell, and Group Policy Management (GPO). It also performs the necessary configurations to ensure that users and system resources work in harmony at the central or local level. Windows system administration plays a critical role in meeting the needs of individual users and corporate networks.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2025/03/windows-system-management/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Windows System Management">
-  <meta property="og:description" content="Windows System Administration is a set of processes and tools that involve managing Windows operating systems. These processes cover a wide range from user and account management to optimizing resourc...">
+  <meta property="og:description" content="Windows System ManagementLink to headingWindows System Administration is a set of processes and tools that involve managing Windows operating systems. These processes cover a wide range from user and account management to optimizing resources, from implementing security policies to controlling network configurations. System administrators; It improves operational efficiency by monitoring system performance, troubleshooting, and automating using tools such as Microsoft Management Console (MMC), PowerShell, and Group Policy Management (GPO). It also performs the necessary configurations to ensure that users and system resources work in harmony at the central or local level. Windows system administration plays a critical role in meeting the needs of individual users and corporate networks.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -376,7 +384,7 @@
   </a>
 </h4>
 <blockquote>
-<p>sc start &lt;service_name&gt;<br>
+<p>sc start &lt;service_name&gt; 
 sc stop &lt;service_name&gt;</p>
 </blockquote>
 <p>Starts or stops the specified service.</p>
@@ -388,7 +396,7 @@ sc stop &lt;service_name&gt;</p>
   </a>
 </h4>
 <blockquote>
-<p>shutdown /s /t 0<br>
+<p>shutdown /s /t 0 
 shutdown /r /t 0</p>
 </blockquote>
 <p>Starts or stops the specified service.</p>
@@ -400,7 +408,7 @@ shutdown /r /t 0</p>
   </a>
 </h4>
 <blockquote>
-<p>shutdown /s /t 0<br>
+<p>shutdown /s /t 0 
 shutdown /r /t 0</p>
 </blockquote>
 <p>Shuts down or restarts the system.</p>
@@ -423,7 +431,7 @@ shutdown /r /t 0</p>
   </a>
 </h4>
 <blockquote>
-<p>diskpart<br>
+<p>diskpart 
 list volume</p>
 </blockquote>
 <p>Lists disk volumes.</p>
@@ -448,7 +456,7 @@ list volume</p>
 <blockquote>
 <p>chkdsk &lt;drive_letter&gt;</p>
 </blockquote>
-<p>Checks the disk and fixes errors.<br>
+<p>Checks the disk and fixes errors. 
 <strong>Example</strong>: <code>chkdsk C: /f</code></p>
 <h4 id="22--listing-user-accounts">
   22- <strong>Listing User Accounts</strong>:
@@ -469,10 +477,10 @@ list volume</p>
   </a>
 </h4>
 <blockquote>
-<p>net user &lt;user_name&gt; <password> /add<br>
+<p>net user &lt;user_name&gt; <password> /add 
 net user &lt;user_name&gt; /delete</p>
 </blockquote>
-<p>Deletes the specified user account.<br>
+<p>Deletes the specified user account. 
 <strong>Example</strong>: net user Ahmet /delete</p>
 <h4 id="24--viewing-group-memberships">
   24- <strong>Viewing Group Memberships</strong>
@@ -913,11 +921,11 @@ net user &lt;user_name&gt; /delete</p>
 </h4>
 <p><strong>VBScript (Visual Basic Scripting Edition)</strong> is a lightweight scripting language developed by Microsoft. It is designed specifically for Windows operating systems and is used in processes such as task automation and application development. Therefore, it can be used to run WMI queries.</p>
 <p>Example: Querying disk information:</p>
-<pre tabindex="0"><code>strComputer = &#34;.&#34;  
-Set objWMIService = GetObject(&#34;winmgmts:\\&#34; &amp; strComputer &amp; &#34;\root\cimv2&#34;)  
-Set colDisks = objWMIService.ExecQuery(&#34;SELECT * FROM Win32_DiskDrive&#34;)  
-For Each objDisk in colDisks  
-    WScript.Echo &#34;DeviceID: &#34; &amp; objDisk.DeviceID  
+<pre tabindex="0"><code>strComputer = &#34;.&#34;  
+Set objWMIService = GetObject(&#34;winmgmts:\\&#34; &amp; strComputer &amp; &#34;\root\cimv2&#34;)  
+Set colDisks = objWMIService.ExecQuery(&#34;SELECT * FROM Win32_DiskDrive&#34;)  
+For Each objDisk in colDisks  
+    WScript.Echo &#34;DeviceID: &#34; &amp; objDisk.DeviceID  
 Next
 </code></pre><h4 id="3--net">
   3- <strong>.NET</strong>
@@ -928,8 +936,8 @@ Next
 </h4>
 <p><strong>.NET</strong> is a software platform developed by Microsoft. It provides both application development and runtime environment. NET applications can run WMI queries with the <code>System.Management</code> namespace.</p>
 <p>Example: Querying processor information:</p>
-<pre tabindex="0"><code>using System.Management;  
-  
+<pre tabindex="0"><code>using System.Management;  
+  
 ManagementObjectSearcher searcher = new ManagementObjectSearcher(&#34;SELECT * FROM Win32_Processor&#34;);
 </code></pre><h4 id="4--wmic">
   4- <strong>WMIC</strong>

@@ -13,7 +13,23 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Hello, in this article, we will talk about what OpenCV is, computer vision and how to do these operations with Python.">
+<meta name="description" content="
+Hello, in this article, we will talk about what OpenCV is, computer vision and how to do these operations with Python.
+
+  OpenCV Overview
+  
+    
+    Link to heading
+  
+
+
+  What is Computer Vision?
+  
+    
+    Link to heading
+  
+
+Computer vision is a process by which we make sense of how images and videos are stored in the computer environment and how we can retrieve data from them. The purpose of computer vision is to know the content of the image. For this, it uses artificial intelligence and machine learning technologies.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +37,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Introduction to Image Processing with OpenCV">
-  <meta name="twitter:description" content="Hello, in this article, we will talk about what OpenCV is, computer vision and how to do these operations with Python.">
+  <meta name="twitter:description" content="Hello, in this article, we will talk about what OpenCV is, computer vision and how to do these operations with Python.
+OpenCV OverviewLink to headingWhat is Computer Vision?Link to headingComputer vision is a process by which we make sense of how images and videos are stored in the computer environment and how we can retrieve data from them. The purpose of computer vision is to know the content of the image. For this, it uses artificial intelligence and machine learning technologies.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2022/02/introduction-to-image-processing-with-opencv/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Introduction to Image Processing with OpenCV">
-  <meta property="og:description" content="Hello, in this article, we will talk about what OpenCV is, computer vision and how to do these operations with Python.">
+  <meta property="og:description" content="Hello, in this article, we will talk about what OpenCV is, computer vision and how to do these operations with Python.
+OpenCV OverviewLink to headingWhat is Computer Vision?Link to headingComputer vision is a process by which we make sense of how images and videos are stored in the computer environment and how we can retrieve data from them. The purpose of computer vision is to know the content of the image. For this, it uses artificial intelligence and machine learning technologies.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -218,7 +236,7 @@
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>OpenCV (Open Source Computer Vision Library) is an open source computer vision library. It is a very functional platform for computer vision applications. It is often used in image processing, face recognition, video capture and object recognition.<br>
+<p>OpenCV (Open Source Computer Vision Library) is an open source computer vision library. It is a very functional platform for computer vision applications. It is often used in image processing, face recognition, video capture and object recognition. 
  OpenCV; It has C++, Python, MATLAB and Java interfaces. It supports Windows, Linux, MacOS, iOS and Android. Written in optimized C/C++. It is designed for real-time computer vision applications. It contains more than 2500 optimized algorithms. There is also a detailed <a href="https://docs.opencv.org/3.4/index.html"  class="external-link" target="_blank" rel="noopener">documentation page</a>.</p>
 <h3 id="opencv-components">
   OpenCV Components
@@ -243,7 +261,7 @@
   </a>
 </h3>
 <p>Numpy is a Python library for working with arrays. It also has the necessary functions for working in the field of linear algebra and matrices. NumPy is an abbreviation for Numerical Python. We use the NumPy module a lot along with the OpenCV module. Because the image is also a matrix, and keeping the image as NumPy arrays allows us to use many functions offered by NumPy. For more detailed information about Numpy, you can check out this <a href="https://pwnlab.me/tr-veri-analizi-numpy/"  class="external-link" target="_blank" rel="noopener">article</a>.</p>
-<p>Image processing is a method of performing some operations on an image to obtain an improved image or to extract some useful information from it. If we talk about the basic definition of image processing, “Image processing is the analysis and processing of a digitized image, especially to improve its quality.”<br>
+<p>Image processing is a method of performing some operations on an image to obtain an improved image or to extract some useful information from it. If we talk about the basic definition of image processing, “Image processing is the analysis and processing of a digitized image, especially to improve its quality.” 
  Image processing basically takes place in three steps:</p>
 <ul>
 <li>Import image</li>
@@ -275,7 +293,7 @@
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>Pictures are kept in the computer memory as image matrices. Each cell of these matrices is a pixel. We can keep images in memory in different color spaces depending on the type of data these pixels contain. As examples of these color spaces; We can provide RBG, HSV and Gray color spaces.<br>
+<p>Pictures are kept in the computer memory as image matrices. Each cell of these matrices is a pixel. We can keep images in memory in different color spaces depending on the type of data these pixels contain. As examples of these color spaces; We can provide RBG, HSV and Gray color spaces. 
  In the Opencv-python library, image reading is done with the <em>imread()</em> function. This function takes as parameters the path of the image it will read and the format it will use. By default it reads in RGB color space.</p>
 <pre tabindex="0"><code>cv2.imread(path, flag)
 </code></pre><p>Additionally, the <em>imshow()</em> function is used to show the image we read. As parameters, it takes the name of the window to be opened and the variable in which we hold the image.</p>
@@ -290,7 +308,7 @@
     <span class="sr-only">Link to heading</span>
   </a>
 </h4>
-<p>In OpenCV, the RGB color space is realized as BGR (Blue-Green-Red), that is, the order of the colors blue, red and green. Other colors are obtained by mixing these colors. Each color is a number in the range 0–255, and each pixel of the image is a 3-element array consisting of numbers in the range 0–255 for these 3 colors. So BGR is a 3-channel color space.<br>
+<p>In OpenCV, the RGB color space is realized as BGR (Blue-Green-Red), that is, the order of the colors blue, red and green. Other colors are obtained by mixing these colors. Each color is a number in the range 0–255, and each pixel of the image is a 3-element array consisting of numbers in the range 0–255 for these 3 colors. So BGR is a 3-channel color space. 
  In OpenCV, the <em>imread()</em> function reads in the BGR color space by default.</p>
 <pre tabindex="0"><code>image = cv2.imread(&#34;picture.png&#34;) cv2.imshow(&#34;BGR&#34;,image)
 </code></pre><h4 id="hsv-colorspace">
@@ -301,7 +319,7 @@
   </a>
 </h4>
 <p>HSV (Hue, Saturation, Value) defines colors as color essence, saturation and brightness respectively. While saturation determines the vividness of the color, brightness refers to the brightness of the color. In HSV space, color and saturation values ​​for black color can take any number between 0 and 255, while brightness value is zero. In white color, the brightness value is 255.</p>
-<p>As in BGR, each pixel of the image is a 3-element array consisting of numbers from 0 to 255, and in HSV it is a 3-channel color space.<br>
+<p>As in BGR, each pixel of the image is a 3-element array consisting of numbers from 0 to 255, and in HSV it is a 3-channel color space. 
  In OpenCV, the image can be converted from BGR color space to HSV color space. For this we use the <em>cvtColor()</em> function.</p>
 <pre tabindex="0"><code>image = cv2.imread(&#34;picture.png&#34;) image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV) cv2.imshow(&#34;HSV&#34;,image)
 </code></pre><h4 id="gray-colorspace">
@@ -311,7 +329,7 @@
     <span class="sr-only">Link to heading</span>
   </a>
 </h4>
-<p>Gray color space is a color space that describes colors as grayscale. Each color pixel is a number between 0 and 255 and represents shades of gray starting from black and ending with white. 0 defines black and 255 defines white. It is a single-channel color space because a single number is used for each pixel.<br>
+<p>Gray color space is a color space that describes colors as grayscale. Each color pixel is a number between 0 and 255 and represents shades of gray starting from black and ending with white. 0 defines black and 255 defines white. It is a single-channel color space because a single number is used for each pixel. 
  When we give the parameter 0 to the <em>imread()</em> function in OpenCV, it reads in the Gray color space.</p>
 <pre tabindex="0"><code>image = cv2.imread(&#34;picture.png&#34;,0) cv2.imshow(&#34;Gray&#34;,image)
 </code></pre><h3 id="image-editing">
@@ -468,12 +486,12 @@
   </a>
 </h4>
 <p>To obtain better results with the Canny() function, treshold values must be determined well and the image must be softened. We can also determine Treshold values ​​based on the median of the image matrix. In this way, thresold values ​​are calculated automatically. Let&rsquo;s make an application where we apply the canny algorithm in real time with a webcam.</p>
-<pre tabindex="0"><code>import cv2 as cv  
-import numpy as np  
-  
-cam = cv.VideoCapture(0)  
-  
-def autoCanny(blur, sigma=0.33):   
+<pre tabindex="0"><code>import cv2 as cv  
+import numpy as np  
+  
+cam = cv.VideoCapture(0)  
+  
+def autoCanny(blur, sigma=0.33):   
   median = np.median(blur)
 </code></pre><hr>
 <p><em>Originally published at</em> <a href="https://pwnlab.me/tr-opencv-ile-goruntu-isleme-giris/"  class="external-link" target="_blank" rel="noopener"><em>https://pwnlab.me</em></a> <em>on February 4, 2022.</em></p>

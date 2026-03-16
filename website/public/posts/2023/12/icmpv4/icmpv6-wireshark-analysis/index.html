@@ -13,7 +13,23 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Hello, in this article I will try to explain the ICMPv4 and ICMPv6 protocols and their analysis with Wireshark.">
+<meta name="description" content="
+Hello, in this article I will try to explain the ICMPv4 and ICMPv6 protocols and their analysis with Wireshark.
+
+
+  What is ICMP?
+  
+    
+    Link to heading
+  
+
+ICMP is used as a messaging system for errors, alerts, and general notifications on an IP network. There are many types of ICMP messages, including:
+
+Echo Message: Used by ping and traceroute to test end-to-end connectivity. Too many of these could indicate a reconnaissance operation or possibly a Denial of Service attack.
+Redirect Message: Used by routers to notify the source that there is a better path to a destination. If this packet is not sent by a router, it should be considered suspicious.
+Destination Unreachable messages: Used to tell the source host that its packets could not be delivered for some reason — the reason is specified in the Destination Unreachable message. A large number of these response packets may indicate a failed UDP port scan is in progress or a service is not functioning properly.
+
+By examining ICMP traffic on your network over several hours or days, you can determine how efficiently the network is designed and detect numerous configuration errors, functional issues, or security breaches. ICMPv4 is defined in RFC 792.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +37,16 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="ICMPv4/ICMPv6 Wireshark Analysis">
-  <meta name="twitter:description" content="Hello, in this article I will try to explain the ICMPv4 and ICMPv6 protocols and their analysis with Wireshark.">
+  <meta name="twitter:description" content="Hello, in this article I will try to explain the ICMPv4 and ICMPv6 protocols and their analysis with Wireshark.
+What is ICMP?Link to headingICMP is used as a messaging system for errors, alerts, and general notifications on an IP network. There are many types of ICMP messages, including:
+Echo Message: Used by ping and traceroute to test end-to-end connectivity. Too many of these could indicate a reconnaissance operation or possibly a Denial of Service attack. Redirect Message: Used by routers to notify the source that there is a better path to a destination. If this packet is not sent by a router, it should be considered suspicious. Destination Unreachable messages: Used to tell the source host that its packets could not be delivered for some reason — the reason is specified in the Destination Unreachable message. A large number of these response packets may indicate a failed UDP port scan is in progress or a service is not functioning properly. By examining ICMP traffic on your network over several hours or days, you can determine how efficiently the network is designed and detect numerous configuration errors, functional issues, or security breaches. ICMPv4 is defined in RFC 792.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2023/12/icmpv4/icmpv6-wireshark-analysis/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="ICMPv4/ICMPv6 Wireshark Analysis">
-  <meta property="og:description" content="Hello, in this article I will try to explain the ICMPv4 and ICMPv6 protocols and their analysis with Wireshark.">
+  <meta property="og:description" content="Hello, in this article I will try to explain the ICMPv4 and ICMPv6 protocols and their analysis with Wireshark.
+What is ICMP?Link to headingICMP is used as a messaging system for errors, alerts, and general notifications on an IP network. There are many types of ICMP messages, including:
+Echo Message: Used by ping and traceroute to test end-to-end connectivity. Too many of these could indicate a reconnaissance operation or possibly a Denial of Service attack. Redirect Message: Used by routers to notify the source that there is a better path to a destination. If this packet is not sent by a router, it should be considered suspicious. Destination Unreachable messages: Used to tell the source host that its packets could not be delivered for some reason — the reason is specified in the Destination Unreachable message. A large number of these response packets may indicate a failed UDP port scan is in progress or a service is not functioning properly. By examining ICMP traffic on your network over several hours or days, you can determine how efficiently the network is designed and detect numerous configuration errors, functional issues, or security breaches. ICMPv4 is defined in RFC 792.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -393,7 +413,7 @@
 <li>Type 131 Multicast Listener Report [RFC2710] — sent by IPv6 hosts to indicate they are listening for a particular multicast address on an interface</li>
 <li>Type 132 Multicast Listener Done [RFC2710] — can be sent by an IPv6 node to indicate that it has stopped listening to a multicast address on an interface</li>
 <li>Type 133 Router Solicitation [RFC4861] — can be sent when an interface becomes enabled, to request routers to generate Router Advertisements immediately rather than at their next scheduled time</li>
-<li>Type 134 Router Advertisement [RFC4861] — used by IPv6 routers to advertise their presence together with various link and Internet parameters either periodically, or in response to a Router Solicitation<br>
+<li>Type 134 Router Advertisement [RFC4861] — used by IPv6 routers to advertise their presence together with various link and Internet parameters either periodically, or in response to a Router Solicitation 
 message</li>
 <li>Type 135 Neighbor Solicitation [RFC4861] — sent by a node to determine the link-layer address of a neighbor or to verify that a neighbor is still reachable via a cached link-layer address. Neighbor solicitations are also used for Duplicate Address Detection as seen in Figure 207.</li>
 <li>Type 136 Neighbor Advertisement [RFC4861] — a response to a Neighbor Solicitation message. A node may also send unsolicited Neighbor Advertisements to announce a link-layer address change.</li>

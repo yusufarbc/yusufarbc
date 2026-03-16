@@ -13,7 +13,17 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Hello, in this article, I will try to explain the IPv4 and IPv6 protocols and their analysis with Wireshark.">
+<meta name="description" content="
+Hello, in this article, I will try to explain the IPv4 and IPv6 protocols and their analysis with Wireshark.
+
+
+  What is IP?
+  
+    
+    Link to heading
+  
+
+IP (v4/v6 — collectively referred to as “IP”) provides delivery services for networked systems as well as fragmentation and reassembly for low MTU (Maximum Transmission Unit) networks. IP also offers quality of service determination to ensure that certain traffic is prioritized over other traffic.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +31,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="IPv4/IPv6 Wireshark Analysis">
-  <meta name="twitter:description" content="Hello, in this article, I will try to explain the IPv4 and IPv6 protocols and their analysis with Wireshark.">
+  <meta name="twitter:description" content="Hello, in this article, I will try to explain the IPv4 and IPv6 protocols and their analysis with Wireshark.
+What is IP?Link to headingIP (v4/v6 — collectively referred to as “IP”) provides delivery services for networked systems as well as fragmentation and reassembly for low MTU (Maximum Transmission Unit) networks. IP also offers quality of service determination to ensure that certain traffic is prioritized over other traffic.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2023/11/ipv4/ipv6-wireshark-analysis/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="IPv4/IPv6 Wireshark Analysis">
-  <meta property="og:description" content="Hello, in this article, I will try to explain the IPv4 and IPv6 protocols and their analysis with Wireshark.">
+  <meta property="og:description" content="Hello, in this article, I will try to explain the IPv4 and IPv6 protocols and their analysis with Wireshark.
+What is IP?Link to headingIP (v4/v6 — collectively referred to as “IP”) provides delivery services for networked systems as well as fragmentation and reassembly for low MTU (Maximum Transmission Unit) networks. IP also offers quality of service determination to ensure that certain traffic is prioritized over other traffic.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -230,7 +242,7 @@
 <p><img src="https://cdn-images-1.medium.com/max/800/1*Gmy9Pgg9xp9UlBITMfwglg.png" alt=""></p>
 <p>IP can fragment packets when a connection&rsquo;s MTU does not support the datagram size</p>
 <p>In the figure, a 1500 byte MTU packet from Client A to Server A cannot travel along the path. The limitation is in the connection between Router B and Router C. Router B must split the packet into fragments (if allowed) and forward the fragments or send the ICMP Type 3, Code 4 message back to Client A.</p>
-<p>Fragmentation is not desirable in a network because it reduces the efficiency of data flow. However, it may be inevitable. To identify possible MTU problems in wirehsark;<br>
+<p>Fragmentation is not desirable in a network because it reduces the efficiency of data flow. However, it may be inevitable. To identify possible MTU problems in wirehsark; 
 Statistics | Examine Packet Lengths or apply a filter for ICMP Type 3/Code 4 packets (icmp.type==3 &amp;&amp; icmp.code==4).</p>
 <p>IPv4 problems are often related to fragmentation, unusual IP addresses, and excessive broadcasts. A few examples are given below.</p>
 <ul>
@@ -269,13 +281,13 @@ Statistics | Examine Packet Lengths or apply a filter for ICMP Type 3/Code 4 pac
 <p>Multicast broadcasts start with ff02</p>
 <p>RFC 4291 provides the following example for IPv6 addresses:</p>
 <ul>
-<li>Address 2001:0DB8:0:0:8:800:200C:417A (a unicast address)<br>
+<li>Address 2001:0DB8:0:0:8:800:200C:417A (a unicast address) 
 Shortened Version 2001:DB8::8:800:200C:417A</li>
-<li>Address FF01:0:0:0:0:0:0:101 (a multicast address)<br>
+<li>Address FF01:0:0:0:0:0:0:101 (a multicast address) 
 Shortened Version FF01::101</li>
-<li>Address 0:0:0:0:0:0:0:1 (a loopback address)<br>
+<li>Address 0:0:0:0:0:0:0:1 (a loopback address) 
 Shortened Version ::1</li>
-<li>Address 0:0:0:0:0:0:0:0 (unspecified address)<br>
+<li>Address 0:0:0:0:0:0:0:0 (unspecified address) 
 Shortened Version ::</li>
 </ul>
 <p>:: can be used only once in an address and represents one or more groups of 16-bit zeros. :: can also be used to represent leading or trailing zeros in an address. Wireshark uses the shortened version of IPv6 addresses as shown in the figure above.</p>
@@ -393,7 +405,7 @@ Shortened Version ::</li>
     <span class="sr-only">Link to heading</span>
   </a>
 </h4>
-<p>This field defines the length of the IP header and valid data (this does not include any data connection padding).<br>
+<p>This field defines the length of the IP header and valid data (this does not include any data connection padding). 
 In the example shown in the figure, the total length field value is 1500 bytes. The first 20 bytes of this are the IP header — this indicates that the remaining packet length (not including any data link padding) is 1480 bytes.</p>
 <h4 id="identification-field">
   Identification Field
@@ -630,7 +642,7 @@ In the example shown in the figure, the total length field value is 1500 bytes. 
   </a>
 </h3>
 <p>The capture filter for IPv6 is simply ip6. To capture traffic from a single host, use host[IPv6 address] — for example, host fe80::708d:fe83:4114:a512.</p>
-<p>To apply a capture filter for traffic from a specific IPv6 subnet, use the following syntax:<br>
+<p>To apply a capture filter for traffic from a specific IPv6 subnet, use the following syntax: 
 ip6 net [network]::/[net bits],</p>
 <p>For example, <em>ip6 net fe00::/8</em> captures all IPv6 packets to or from addresses starting with 0xfe. The display filter for all IPv6 traffic is ipv6. The following table shows many other IPv6 display filters.</p>
 <ul>

@@ -13,7 +13,24 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Bir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araç...">
+<meta name="description" content="
+  Zararlı Yazılım Analizine Giriş: #2 Sandbox Kurulum
+  
+    
+    Başlık Linki
+  
+
+
+Bir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araçları kullanacağız? Hepsi bu yazıda….
+
+
+  Sandbox
+  
+    
+    Başlık Linki
+  
+
+Zararlı Yazılım Analizinde kullandığımız ortama sandbox ismini veriyoruz. Özellikle dinamik analiz ile inceleme yaparken, zararlı yazılımı izole bir ortamda çalıştırmak zorundayız. Bunun için en kullanışlı yöntem sanal makine(Virutal Machine) kullanmaktır. Tabi bunun için birçok sanallaştırma yazılımı mevcut; VirtualBox, VMWare Workstation ve QEMU/kvm bunlardan birkaçı. Bu yazımızda virutalbox üzerinden ilerleyeceğiz.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +38,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Zararlı Yazılım Analizine Giriş: #2 Sandbox Kurulum">
-  <meta name="twitter:description" content="Bir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araç...">
+  <meta name="twitter:description" content="Zararlı Yazılım Analizine Giriş: #2 Sandbox KurulumBaşlık LinkiBir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araçları kullanacağız? Hepsi bu yazıda….
+SandboxBaşlık LinkiZararlı Yazılım Analizinde kullandığımız ortama sandbox ismini veriyoruz. Özellikle dinamik analiz ile inceleme yaparken, zararlı yazılımı izole bir ortamda çalıştırmak zorundayız. Bunun için en kullanışlı yöntem sanal makine(Virutal Machine) kullanmaktır. Tabi bunun için birçok sanallaştırma yazılımı mevcut; VirtualBox, VMWare Workstation ve QEMU/kvm bunlardan birkaçı. Bu yazımızda virutalbox üzerinden ilerleyeceğiz.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%232-sandbox-kurulum/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Zararlı Yazılım Analizine Giriş: #2 Sandbox Kurulum">
-  <meta property="og:description" content="Bir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araç...">
+  <meta property="og:description" content="Zararlı Yazılım Analizine Giriş: #2 Sandbox KurulumBaşlık LinkiBir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araçları kullanacağız? Hepsi bu yazıda….
+SandboxBaşlık LinkiZararlı Yazılım Analizinde kullandığımız ortama sandbox ismini veriyoruz. Özellikle dinamik analiz ile inceleme yaparken, zararlı yazılımı izole bir ortamda çalıştırmak zorundayız. Bunun için en kullanışlı yöntem sanal makine(Virutal Machine) kullanmaktır. Tabi bunun için birçok sanallaştırma yazılımı mevcut; VirtualBox, VMWare Workstation ve QEMU/kvm bunlardan birkaçı. Bu yazımızda virutalbox üzerinden ilerleyeceğiz.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -327,7 +346,7 @@
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>QuickHash, hızlı ve güvenilir cross platform bir hashing aracıdır. Zararlı Yazılımın hashini almak için bu programı kullanabilirsiniz. <br>
+<p>QuickHash, hızlı ve güvenilir cross platform bir hashing aracıdır. Zararlı Yazılımın hashini almak için bu programı kullanabilirsiniz.  
 Bu linkten indirebilirsiniz: <a href="https://quickhash-gui.org"  class="external-link" target="_blank" rel="noopener">https://quickhash-gui.org</a></p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*aQiJmFJU4ZX2I7q_" alt=""></p>
 <h4 id="peview">
@@ -337,7 +356,7 @@ Bu linkten indirebilirsiniz: <a href="https://quickhash-gui.org"  class="externa
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>PEView popüler bir PE dosya ayrıştırıcısıdır. <br>
+<p>PEView popüler bir PE dosya ayrıştırıcısıdır.  
 Bu linkten indirebilirsiniz: <a href="http://wjradburn.com/software/"  class="external-link" target="_blank" rel="noopener">http://wjradburn.com/software/</a></p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*jWxArTitASdjxEZI" alt=""></p>
 <h4 id="trid">
@@ -347,7 +366,7 @@ Bu linkten indirebilirsiniz: <a href="http://wjradburn.com/software/"  class="ex
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>Dosya türünün belirlenmesi için kullanılan bir araçtır.<br>
+<p>Dosya türünün belirlenmesi için kullanılan bir araçtır. 
 Bu linkten indirebilirsiniz: <a href="http://mark0.net/soft-trid-e.html"  class="external-link" target="_blank" rel="noopener">http://mark0.net/soft-trid-e.html</a></p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*-QEiy9fIOA1uogNw" alt=""></p>
 <h4 id="process-hacker">
@@ -357,7 +376,7 @@ Bu linkten indirebilirsiniz: <a href="http://mark0.net/soft-trid-e.html"  class=
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>Process Hacker, çalışan süreçleri bunların iş parçacıklarını, çalışan hizmetleri, yapılan ağ bağlantılarını, disk kullanımını, işlem başına yüklenmiş DLL’leri vb. görüntüleme dahil olmak üzere sistemin çeşitli durumlarını görselleştirmeye yardımcı olur. Ayrıca, uygun şekilde kullanılırsa kötü amaçlı yazılımın analiz edilmesine ve incelenmesine yardımcı olabilecek, süreçle ilgili çeşitli özellikleri de gösterir.<br>
+<p>Process Hacker, çalışan süreçleri bunların iş parçacıklarını, çalışan hizmetleri, yapılan ağ bağlantılarını, disk kullanımını, işlem başına yüklenmiş DLL’leri vb. görüntüleme dahil olmak üzere sistemin çeşitli durumlarını görselleştirmeye yardımcı olur. Ayrıca, uygun şekilde kullanılırsa kötü amaçlı yazılımın analiz edilmesine ve incelenmesine yardımcı olabilecek, süreçle ilgili çeşitli özellikleri de gösterir. 
 Bu linkten indirebilirsiniz: <a href="https://processhacker.sourceforge.io/"  class="external-link" target="_blank" rel="noopener">https://processhacker.sourceforge.io/</a></p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*c8qlSG0QBvJdItJU" alt=""></p>
 <h4 id="procmon">
@@ -367,7 +386,7 @@ Bu linkten indirebilirsiniz: <a href="https://processhacker.sourceforge.io/"  cl
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>ProcMon, süreç ve iş parçacığı oluşturma, ağ etkinlikleri, dosya oluşturma ve silme gibi dosyayla ilgili etkinlikler, kayıt defteriyle ilgili etkinlikler vb. dahil olmak üzere sistemde çalışan işlemlerin çeşitli etkinliklerini yakalayan ve görüntüleyen, iyi bilinen bir işlem izleme aracıdır.<br>
+<p>ProcMon, süreç ve iş parçacığı oluşturma, ağ etkinlikleri, dosya oluşturma ve silme gibi dosyayla ilgili etkinlikler, kayıt defteriyle ilgili etkinlikler vb. dahil olmak üzere sistemde çalışan işlemlerin çeşitli etkinliklerini yakalayan ve görüntüleyen, iyi bilinen bir işlem izleme aracıdır. 
 Bu linkten indirebilirsiniz:<a href="https://docs.microsoft.com/en-us/sysinternals/downloads/procmon"  class="external-link" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/sysinternals/downloads/procmon</a></p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*C95pxifPHhRN0cKG" alt=""></p>
 <h4 id="autoruns">
@@ -377,7 +396,7 @@ Bu linkten indirebilirsiniz:<a href="https://docs.microsoft.com/en-us/sysinterna
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>Kötü amaçlı yazılım, sistem yeniden başlatıldıktan veya kullanıcı yeniden oturum açtıktan sonra devam etmek ve otomatik olarak çalışmak için kalıcılık mekanizmalarını kullanır. Autoruns, kötü amaçlı yazılım tarafından kullanılan kalıcılık mekanizmalarını yakalar ve sistem açılışında veya oturum açma sırasında çalışacak şekilde yapılandırılmış tüm programların bir listesini sağlar.<br>
+<p>Kötü amaçlı yazılım, sistem yeniden başlatıldıktan veya kullanıcı yeniden oturum açtıktan sonra devam etmek ve otomatik olarak çalışmak için kalıcılık mekanizmalarını kullanır. Autoruns, kötü amaçlı yazılım tarafından kullanılan kalıcılık mekanizmalarını yakalar ve sistem açılışında veya oturum açma sırasında çalışacak şekilde yapılandırılmış tüm programların bir listesini sağlar. 
 Bu linkten indirebilirsiniz: <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns"  class="external-link" target="_blank" rel="noopener"><strong>https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns</strong></a></p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*--P_Mg0HGlnYc4Rt" alt=""></p>
 <h4 id="regshot">
@@ -387,7 +406,7 @@ Bu linkten indirebilirsiniz: <a href="https://docs.microsoft.com/en-us/sysintern
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>Regshot, registry farkını görüntülemek için Windows registry anlık görüntüsünü almanıza ve ikinci bir anlık görüntüyle karşılaştırmanıza olanak tanıyan bir registry farkı/karşılaştırma aracıdır.<br>
+<p>Regshot, registry farkını görüntülemek için Windows registry anlık görüntüsünü almanıza ve ikinci bir anlık görüntüyle karşılaştırmanıza olanak tanıyan bir registry farkı/karşılaştırma aracıdır. 
 Bu linkten indirebilirsiniz: <a href="https://sourceforge.net/projects/regshot/"  class="external-link" target="_blank" rel="noopener">https://sourceforge.net/projects/regshot/</a></p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*Dmm8n56NqImVavtB" alt=""></p>
 <h4 id="fakenet">
@@ -397,7 +416,7 @@ Bu linkten indirebilirsiniz: <a href="https://sourceforge.net/projects/regshot/"
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>FakeNet, zararlı yazılımdan giden ağ bağlantılarını yakalayıp loglayan ve simüle edilmiş yanıtlar döndüren, böylece kötü amaçlı yazılıma harici ağ erişimini devre dışı bırakan, Windows için kullanılabilen dinamik bir zararlı yazılım analiz aracıdır. <br>
+<p>FakeNet, zararlı yazılımdan giden ağ bağlantılarını yakalayıp loglayan ve simüle edilmiş yanıtlar döndüren, böylece kötü amaçlı yazılıma harici ağ erişimini devre dışı bırakan, Windows için kullanılabilen dinamik bir zararlı yazılım analiz aracıdır.  
 Bu linkten indirebilirsiniz: <a href="https://sourceforge.net/projects/fakenet/"  class="external-link" target="_blank" rel="noopener">https://sourceforge.net/projects/fakenet/</a></p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*QSnrA_ZzaxFOhl37" alt=""></p>
 <h4 id="bintext">
@@ -407,7 +426,7 @@ Bu linkten indirebilirsiniz: <a href="https://sourceforge.net/projects/fakenet/"
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>Bintext, dosyalardan ASCII ve Unicode metin dizelerini çıkarabilen bir statik analiz aracıdır.<br>
+<p>Bintext, dosyalardan ASCII ve Unicode metin dizelerini çıkarabilen bir statik analiz aracıdır. 
 Bu linkten indirebilirsiniz: <a href="http://b2b-download.mcafee.com/products/tools/foundstone/bintext303.zip"  class="external-link" target="_blank" rel="noopener">http://b2b-download.mcafee.com/products/tools/foundstone/bintext303.zip</a></p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*PiKjgAUB7xGAnCv0" alt=""></p>
 <h4 id="yara">
@@ -417,7 +436,7 @@ Bu linkten indirebilirsiniz: <a href="http://b2b-download.mcafee.com/products/to
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>YARA, zararlı yazılım araştırmacıları için İsviçre çakısı olarak tanımlanıyor. Zararlı yazılımları tespit etmek ve sınıflandırmak için çok kullanışlıdır.<br>
+<p>YARA, zararlı yazılım araştırmacıları için İsviçre çakısı olarak tanımlanıyor. Zararlı yazılımları tespit etmek ve sınıflandırmak için çok kullanışlıdır. 
 Bu linkten indirebilirsiniz: <a href="https://virustotal.github.io/yara/"  class="external-link" target="_blank" rel="noopener">https://virustotal.github.io/yara/</a></p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*NfEcY779z-bTEzPr" alt=""></p>
 <h4 id="wireshark">
@@ -427,7 +446,7 @@ Bu linkten indirebilirsiniz: <a href="https://virustotal.github.io/yara/"  class
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>Wireshark, canlı ağ trafiğini yakalayıp inceleyebilen veya statik paket yakalama (PCAP) dosyalarını analiz edebilen bir grafik paket analiz aracıdır. Wireshark, çeşitli protokollerin kodunu çözmeyi destekler ve herhangi bir ağ trafiğini hızlı bir şekilde incelememize izin veren dahili paket filtreleme özelliği sağlar. <br>
+<p>Wireshark, canlı ağ trafiğini yakalayıp inceleyebilen veya statik paket yakalama (PCAP) dosyalarını analiz edebilen bir grafik paket analiz aracıdır. Wireshark, çeşitli protokollerin kodunu çözmeyi destekler ve herhangi bir ağ trafiğini hızlı bir şekilde incelememize izin veren dahili paket filtreleme özelliği sağlar.  
 Bu linkten indirebilirsiniz: <a href="http://www.wireshark.org"  class="external-link" target="_blank" rel="noopener">http://www.wireshark.org</a></p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*7-CPmBPDPgux12np" alt=""></p>
 <h4 id="gmer">
@@ -437,7 +456,7 @@ Bu linkten indirebilirsiniz: <a href="http://www.wireshark.org"  class="external
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>GMER, hem kullanıcı alanı API kancalarını hem de çekirdek modeli SSDT kancalarını tespit etmek için kullanabileceğimiz bir araçtır.<br>
+<p>GMER, hem kullanıcı alanı API kancalarını hem de çekirdek modeli SSDT kancalarını tespit etmek için kullanabileceğimiz bir araçtır. 
 Bu linkten indirebilirsiniz: <a href="http://www.gmer.net"  class="external-link" target="_blank" rel="noopener">http://www.gmer.net</a></p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*iwTyjPPJVFCGDBBy" alt=""></p>
 <h4 id="driverview">
@@ -447,7 +466,7 @@ Bu linkten indirebilirsiniz: <a href="http://www.gmer.net"  class="external-link
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>DriverView, sisteminizdeki tüm yüklü sürücüleri görüntülemenize yardımcı olan bir GUI aracıdır ve sisteminizde herhangi bir kötü amaçlı çekirdek modülü/rootkit’in yüklü olup olmadığını kontrol etmek için harika bir araçtır.<br>
+<p>DriverView, sisteminizdeki tüm yüklü sürücüleri görüntülemenize yardımcı olan bir GUI aracıdır ve sisteminizde herhangi bir kötü amaçlı çekirdek modülü/rootkit’in yüklü olup olmadığını kontrol etmek için harika bir araçtır. 
 Bu linkten indirebilirsiniz: <a href="http://www.nirsoft.net/utils/driverview.html"  class="external-link" target="_blank" rel="noopener">http://www.nirsoft.net/utils/driverview.html</a></p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*PNLh21poQc8rvUkr" alt=""></p>
 <h4 id="strings">
@@ -457,7 +476,7 @@ Bu linkten indirebilirsiniz: <a href="http://www.nirsoft.net/utils/driverview.ht
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>Sysinternals Strings, dosyalardan tüm stringleri bulmanıza yardımcı olan bir komut satırı aracıdır.<br>
+<p>Sysinternals Strings, dosyalardan tüm stringleri bulmanıza yardımcı olan bir komut satırı aracıdır. 
 Bu linkten indirebilirsiniz: <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/strings"  class="external-link" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/sysinternals/downloads/strings</a></p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*Q6YCNKcVS-uLZ8JI" alt=""></p>
 <h4 id="bulk-extractor">
@@ -467,7 +486,7 @@ Bu linkten indirebilirsiniz: <a href="https://docs.microsoft.com/en-us/sysintern
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>Bulk Extractor ağ paketi, dosyaları bellek dökümlerinden yakalayan bir komut satırı aracıdır.<br>
+<p>Bulk Extractor ağ paketi, dosyaları bellek dökümlerinden yakalayan bir komut satırı aracıdır. 
 Bu linkten indirebilirisiniz: <a href="http://downloads.digitalcorpora.org/downloads/bulk_extractor/"  class="external-link" target="_blank" rel="noopener">http://downloads.digitalcorpora.org/downloads/bulk_extractor/</a></p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*ZPk6z5Btkygw5C4c" alt=""></p>
 <h4 id="ollydbg">
@@ -477,7 +496,7 @@ Bu linkten indirebilirisiniz: <a href="http://downloads.digitalcorpora.org/downl
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>OllyDbg, zararlı yazılım tersine mühendisliği için sahip olunması gereken bir araçtır. x86 yürütülebilir dosyalarını pencerelerde çalıştırabilen ve hatalarını ayıklayabilen grafiksel bir x86 hata ayıklayıcıdır.<br>
+<p>OllyDbg, zararlı yazılım tersine mühendisliği için sahip olunması gereken bir araçtır. x86 yürütülebilir dosyalarını pencerelerde çalıştırabilen ve hatalarını ayıklayabilen grafiksel bir x86 hata ayıklayıcıdır. 
 Bu linkten indirebilirsiniz: <a href="http://www.ollydbg.de/version2.html"  class="external-link" target="_blank" rel="noopener">http://www.ollydbg.de/version2.html</a></p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*XCSuwkqXtNnKGGQT" alt=""></p>
 <hr>

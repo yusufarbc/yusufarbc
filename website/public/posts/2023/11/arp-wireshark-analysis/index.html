@@ -13,7 +13,17 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Hello, in this article, I will try to explain the Address Resolution Protocol (ARP) protocol and its analysis with Wireshark.">
+<meta name="description" content="
+Hello, in this article, I will try to explain the Address Resolution Protocol (ARP) protocol and its analysis with Wireshark.
+
+
+  How Does ARP Work?
+  
+    
+    Link to heading
+  
+
+ARP is used to associate a hardware address (physical address, MAC address) with an IP address on the local network and to test for duplicate IPv4 addresses. No matter how simple ARP is, it can be the protocol that signals problems with network addressing or configurations. ARP is defined in RFC 826, Ethernet Address Resolution Protocol, and is not used in IPv6 communications.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +31,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="ARP Wireshark Analysis">
-  <meta name="twitter:description" content="Hello, in this article, I will try to explain the Address Resolution Protocol (ARP) protocol and its analysis with Wireshark.">
+  <meta name="twitter:description" content="Hello, in this article, I will try to explain the Address Resolution Protocol (ARP) protocol and its analysis with Wireshark.
+How Does ARP Work?Link to headingARP is used to associate a hardware address (physical address, MAC address) with an IP address on the local network and to test for duplicate IPv4 addresses. No matter how simple ARP is, it can be the protocol that signals problems with network addressing or configurations. ARP is defined in RFC 826, Ethernet Address Resolution Protocol, and is not used in IPv6 communications.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2023/11/arp-wireshark-analysis/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="ARP Wireshark Analysis">
-  <meta property="og:description" content="Hello, in this article, I will try to explain the Address Resolution Protocol (ARP) protocol and its analysis with Wireshark.">
+  <meta property="og:description" content="Hello, in this article, I will try to explain the Address Resolution Protocol (ARP) protocol and its analysis with Wireshark.
+How Does ARP Work?Link to headingARP is used to associate a hardware address (physical address, MAC address) with an IP address on the local network and to test for duplicate IPv4 addresses. No matter how simple ARP is, it can be the protocol that signals problems with network addressing or configurations. ARP is defined in RFC 826, Ethernet Address Resolution Protocol, and is not used in IPv6 communications.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -244,8 +256,8 @@
 <p><img src="https://cdn-images-1.medium.com/max/800/1*mxbRrUNWgTfuMhM4jnlsmA.png" alt=""></p>
 <p>ARP Announcement</p>
 <p>In the figure, a host checks whether another device on the network is using the IP address 24.6.170.101.</p>
-<p>If you are examining ARP traffic but seeing no response to ARP broadcasts <br>
-(a) may not be connected to a location where you can see unicast replies — or <br>
+<p>If you are examining ARP traffic but seeing no response to ARP broadcasts  
+(a) may not be connected to a location where you can see unicast replies — or  
 (b) The ARP broadcast is a missed ARP and no response indicates an IP address conflict.</p>
 <h4 id="misconfigurations">
   Misconfigurations
@@ -381,7 +393,7 @@
 <li>arp.opcode==0x0002 — ARP reply</li>
 <li>arp.src.hw_mac==00:13:46:cc:a3:ea — ARP source physical address 00:13:46:cc:a3:ea (request or response)</li>
 <li>(arp.src.hw_mac==00:21:97:40:74:d2) &amp;&amp; (arp.opcode==0x0001) — ARP request with source physical address 00:21:97:40:74:d2</li>
-<li>(arp.src.hw_mac==00:d0:59:aa:af:80) &amp;&amp; !(arp.src.proto_ipv4==192.168.1.1)<br>
+<li>(arp.src.hw_mac==00:d0:59:aa:af:80) &amp;&amp; !(arp.src.proto_ipv4==192.168.1.1) 
 In the ARP packet, a host at the address 00:d0:59:aa:af:80 sends ARP reply packets (arp poisoning) to external IP addresses from its own IP address (192.168.1.1).</li>
 <li>(arp.opcode==0x0002) &amp;&amp; !(arp.src.proto_ipv4==192.168.0.1/16) — ARP packet (ARP proxy response)-proxy ARP where the resolved IP address is for the remote device.</li>
 </ul>

@@ -13,9 +13,15 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru
-derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların
-birbirleriyle nasıl iletişim kuracağını, v...">
+<meta name="description" content="
+
+  Giriş
+  
+    
+    Başlık Linki
+  
+
+Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların birbirleriyle nasıl iletişim kuracağını, veri alışverişinde bulunacağını ve hataları nasıl yöneteceğini tanımlayan kurallar ve standartlar bütünüdür; bir nevi ağın evrensel “dili”dir.1 Adresleme ise, bu ağ üzerindeki her bir cihaza benzersiz bir “kimlik” atayarak, gönderilen verinin doğru hedefe ulaşmasını sağlayan mekanizmadır.1 Bu bölümde, TCP/IP modelinin çekirdek protokollerinden başlayarak, modern internetin performans ve güvenlik ihtiyaçlarına cevap veren yenilikçi protokollere kadar geniş bir yelpaze ele alınacaktır. Ardından, internetin ilk günlerinden kalma IPv4 adreslemesinin getirdiği zorluklar ve bu zorlukları aşmak için geliştirilen tekniklerden, geleceğin internetini şekillendiren IPv6 mimarisine geçiş incelenecektir. Son olarak, internetin devasa “ağlar ağı” yapısını bir arada tutan ve veri paketlerinin kıtalar arasında en uygun yolları bulmasını sağlayan karmaşık yönlendirme protokolleri ve bu protokollerin ardındaki teknik ve politik mantık analiz edilecektir.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -23,16 +29,12 @@ birbirleriyle nasıl iletişim kuracağını, v...">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Ağ Güvenliği ve Yönetimi II: AĞ PROTOKOLLERİ VE ADRESLEME">
-  <meta name="twitter:description" content="Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru
-derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların
-birbirleriyle nasıl iletişim kuracağını, v...">
+  <meta name="twitter:description" content="GirişBaşlık LinkiBu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların birbirleriyle nasıl iletişim kuracağını, veri alışverişinde bulunacağını ve hataları nasıl yöneteceğini tanımlayan kurallar ve standartlar bütünüdür; bir nevi ağın evrensel “dili”dir.1 Adresleme ise, bu ağ üzerindeki her bir cihaza benzersiz bir “kimlik” atayarak, gönderilen verinin doğru hedefe ulaşmasını sağlayan mekanizmadır.1 Bu bölümde, TCP/IP modelinin çekirdek protokollerinden başlayarak, modern internetin performans ve güvenlik ihtiyaçlarına cevap veren yenilikçi protokollere kadar geniş bir yelpaze ele alınacaktır. Ardından, internetin ilk günlerinden kalma IPv4 adreslemesinin getirdiği zorluklar ve bu zorlukları aşmak için geliştirilen tekniklerden, geleceğin internetini şekillendiren IPv6 mimarisine geçiş incelenecektir. Son olarak, internetin devasa “ağlar ağı” yapısını bir arada tutan ve veri paketlerinin kıtalar arasında en uygun yolları bulmasını sağlayan karmaşık yönlendirme protokolleri ve bu protokollerin ardındaki teknik ve politik mantık analiz edilecektir.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi-ii-a%C4%9F-protokolleri-ve-adresleme/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Ağ Güvenliği ve Yönetimi II: AĞ PROTOKOLLERİ VE ADRESLEME">
-  <meta property="og:description" content="Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru
-derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların
-birbirleriyle nasıl iletişim kuracağını, v...">
+  <meta property="og:description" content="GirişBaşlık LinkiBu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların birbirleriyle nasıl iletişim kuracağını, veri alışverişinde bulunacağını ve hataları nasıl yöneteceğini tanımlayan kurallar ve standartlar bütünüdür; bir nevi ağın evrensel “dili”dir.1 Adresleme ise, bu ağ üzerindeki her bir cihaza benzersiz bir “kimlik” atayarak, gönderilen verinin doğru hedefe ulaşmasını sağlayan mekanizmadır.1 Bu bölümde, TCP/IP modelinin çekirdek protokollerinden başlayarak, modern internetin performans ve güvenlik ihtiyaçlarına cevap veren yenilikçi protokollere kadar geniş bir yelpaze ele alınacaktır. Ardından, internetin ilk günlerinden kalma IPv4 adreslemesinin getirdiği zorluklar ve bu zorlukları aşmak için geliştirilen tekniklerden, geleceğin internetini şekillendiren IPv6 mimarisine geçiş incelenecektir. Son olarak, internetin devasa “ağlar ağı” yapısını bir arada tutan ve veri paketlerinin kıtalar arasında en uygun yolları bulmasını sağlayan karmaşık yönlendirme protokolleri ve bu protokollerin ardındaki teknik ve politik mantık analiz edilecektir.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">

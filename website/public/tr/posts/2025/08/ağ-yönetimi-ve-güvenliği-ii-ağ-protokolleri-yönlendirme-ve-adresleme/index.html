@@ -13,7 +13,8 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Günümüzün hiper-bağlantılı dünyasında, küresel ekonomiden günlük sosyal etkileşimlerimize kadar her şeyin temelinde karmaşık ve devasa bir bilgisayar ağları altyapısı yatmaktadır. Bu altyapı, farklı k...">
+<meta name="description" content="
+Günümüzün hiper-bağlantılı dünyasında, küresel ekonomiden günlük sosyal etkileşimlerimize kadar her şeyin temelinde karmaşık ve devasa bir bilgisayar ağları altyapısı yatmaktadır. Bu altyapı, farklı kıtalardaki veri merkezlerinden evimizdeki akıllı cihazlara kadar milyarlarca bileşenin uyum içinde çalışmasını gerektiren, görünmez bir omurgadır. Peki, farklı üreticiler tarafından üretilmiş, farklı teknolojileri kullanan bu cihazlar birbirleriyle nasıl bu kadar sorunsuz, hızlı ve güvenli bir şekilde iletişim kurabilmektedir? Bu sorunun cevabı, ağ mühendisliğinin temelini oluşturan standartlaştırılmış protokoller, hiyerarşik adresleme sistemleri ve akıllı yönlendirme algoritmalarında saklıdır.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +22,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Ağ Yönetimi ve Güvenliği II: Ağ Protokolleri, Yönlendirme ve Adresleme">
-  <meta name="twitter:description" content="Günümüzün hiper-bağlantılı dünyasında, küresel ekonomiden günlük sosyal etkileşimlerimize kadar her şeyin temelinde karmaşık ve devasa bir bilgisayar ağları altyapısı yatmaktadır. Bu altyapı, farklı k...">
+  <meta name="twitter:description" content="Günümüzün hiper-bağlantılı dünyasında, küresel ekonomiden günlük sosyal etkileşimlerimize kadar her şeyin temelinde karmaşık ve devasa bir bilgisayar ağları altyapısı yatmaktadır. Bu altyapı, farklı kıtalardaki veri merkezlerinden evimizdeki akıllı cihazlara kadar milyarlarca bileşenin uyum içinde çalışmasını gerektiren, görünmez bir omurgadır. Peki, farklı üreticiler tarafından üretilmiş, farklı teknolojileri kullanan bu cihazlar birbirleriyle nasıl bu kadar sorunsuz, hızlı ve güvenli bir şekilde iletişim kurabilmektedir? Bu sorunun cevabı, ağ mühendisliğinin temelini oluşturan standartlaştırılmış protokoller, hiyerarşik adresleme sistemleri ve akıllı yönlendirme algoritmalarında saklıdır.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-ii-a%C4%9F-protokolleri-y%C3%B6nlendirme-ve-adresleme/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Ağ Yönetimi ve Güvenliği II: Ağ Protokolleri, Yönlendirme ve Adresleme">
-  <meta property="og:description" content="Günümüzün hiper-bağlantılı dünyasında, küresel ekonomiden günlük sosyal etkileşimlerimize kadar her şeyin temelinde karmaşık ve devasa bir bilgisayar ağları altyapısı yatmaktadır. Bu altyapı, farklı k...">
+  <meta property="og:description" content="Günümüzün hiper-bağlantılı dünyasında, küresel ekonomiden günlük sosyal etkileşimlerimize kadar her şeyin temelinde karmaşık ve devasa bir bilgisayar ağları altyapısı yatmaktadır. Bu altyapı, farklı kıtalardaki veri merkezlerinden evimizdeki akıllı cihazlara kadar milyarlarca bileşenin uyum içinde çalışmasını gerektiren, görünmez bir omurgadır. Peki, farklı üreticiler tarafından üretilmiş, farklı teknolojileri kullanan bu cihazlar birbirleriyle nasıl bu kadar sorunsuz, hızlı ve güvenli bir şekilde iletişim kurabilmektedir? Bu sorunun cevabı, ağ mühendisliğinin temelini oluşturan standartlaştırılmış protokoller, hiyerarşik adresleme sistemleri ve akıllı yönlendirme algoritmalarında saklıdır.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -322,10 +323,10 @@
 <p>IPv4, 32-bitlik bir adresleme şeması kullanır ve bu da teorik olarak yaklaşık 4.3 milyar benzersiz adres sağlar. Bu adresler genellikle nokta ile ayrılmış ondalık formatta (örneğin, 192.168.1.1) gösterilir.</p>
 <ul>
 <li><strong>Sınıflı Adresleme (Tarihsel Bir Bakış):</strong> Başlangıçta, IPv4 adresleri A, B ve C gibi sınıflara ayrılmıştı. Bu sınıflar, adresin ne kadarının ağ (network) kısmını ve ne kadarının ana bilgisayar (host) kısmını temsil ettiğini sabit bir şekilde belirliyordu. Örneğin, A Sınıfı ağlar çok az sayıda ağa ancak milyonlarca ana bilgisayara izin verirken, C Sınıfı ağlar milyonlarca ağa ancak her birinde sadece 254 ana bilgisayara izin veriyordu. Bu katı yapı, adreslerin verimsiz kullanılmasına ve büyük bir israfa yol açıyordu, çünkü bir kuruluşun ihtiyacından çok daha büyük veya çok daha küçük bloklar tahsis ediliyordu.</li>
-<li><strong>Özel ve Genel IP Adres Aralıkları (RFC 1918):</strong> IPv4 adreslerinin hızla tükenmesini yavaşlatmak için, İnternet Tahsisli Sayılar Kurumu (IANA), yerel alan ağlarında (LAN) kullanılmak üzere özel IP adresi aralıkları ayırmıştır. Bu aralıklar şunlardır :<br>
-<code>10.0.0.0</code> - <code>10.255.255.255</code> (<code>10.0.0.0/8</code>)<br>
-<code>172.16.0.0</code> - <code>172.31.255.255</code> (<code>172.16.0.0/12</code>)<br>
-<code>192.168.0.0</code> - <code>192.168.255.255</code> (<code>192.168.0.0/16</code>)<br>
+<li><strong>Özel ve Genel IP Adres Aralıkları (RFC 1918):</strong> IPv4 adreslerinin hızla tükenmesini yavaşlatmak için, İnternet Tahsisli Sayılar Kurumu (IANA), yerel alan ağlarında (LAN) kullanılmak üzere özel IP adresi aralıkları ayırmıştır. Bu aralıklar şunlardır : 
+<code>10.0.0.0</code> - <code>10.255.255.255</code> (<code>10.0.0.0/8</code>) 
+<code>172.16.0.0</code> - <code>172.31.255.255</code> (<code>172.16.0.0/12</code>) 
+<code>192.168.0.0</code> - <code>192.168.255.255</code> (<code>192.168.0.0/16</code>) 
 Bu özel adresler, genel internet üzerinde yönlendirilemez (non-routable) ve herhangi bir kuruluş tarafından izne gerek olmadan kullanılabilir.</li>
 <li><strong>Ağ Adresi Çevirisi (NAT):</strong> Özel IP adresleri kullanan cihazların internete erişebilmesi için <strong>NAT (Network Address Translation)</strong> kullanılır. NAT, genellikle bir yönlendirici veya güvenlik duvarı üzerinde çalışır ve yerel ağdaki birden fazla özel IP adresini tek bir genel (public) IP adresine eşler. Bu sayede, yüzlerce cihaz tek bir genel IP adresi üzerinden internete çıkabilir. NAT, IPv4 adres kıtlığı sorununu önemli ölçüde hafifleten kritik bir teknoloji olmuştur.</li>
 </ul>

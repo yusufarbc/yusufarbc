@@ -13,7 +13,23 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash,...">
+<meta name="description" content="
+  ELK Stack Kural Yazımı ve Alerting
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash, Kibana) ile kural yazımı ve uyarı (alerting) işlemleri, veri analizi ve yönetimini kolaylaştırır.
+
+  IoC ve IoA Nedir?
+  
+    
+    Başlık Linki
+  
+
+IoC (Indicators of Compromise) ve IoA (Indicators of Attack), siber güvenlik alanında önemli kavramlardır ve saldırıların tespiti ve analizinde kullanılırlar.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +37,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="ELK Stack Kural Yazımı ve Alerting">
-  <meta name="twitter:description" content="Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash,...">
+  <meta name="twitter:description" content="ELK Stack Kural Yazımı ve AlertingBaşlık LinkiMerhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash, Kibana) ile kural yazımı ve uyarı (alerting) işlemleri, veri analizi ve yönetimini kolaylaştırır.
+IoC ve IoA Nedir?Başlık LinkiIoC (Indicators of Compromise) ve IoA (Indicators of Attack), siber güvenlik alanında önemli kavramlardır ve saldırıların tespiti ve analizinde kullanılırlar.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2024/11/elk-stack-kural-yaz%C4%B1m%C4%B1-ve-alerting/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="ELK Stack Kural Yazımı ve Alerting">
-  <meta property="og:description" content="Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash,...">
+  <meta property="og:description" content="ELK Stack Kural Yazımı ve AlertingBaşlık LinkiMerhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash, Kibana) ile kural yazımı ve uyarı (alerting) işlemleri, veri analizi ve yönetimini kolaylaştırır.
+IoC ve IoA Nedir?Başlık LinkiIoC (Indicators of Compromise) ve IoA (Indicators of Attack), siber güvenlik alanında önemli kavramlardır ve saldırıların tespiti ve analizinde kullanılırlar.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -390,9 +408,9 @@
 </h3>
 <p>Kural setinin en önemli unsurlarından biri, her kuralın tespit ettiği MITRE ATT&amp;CK taktiği ve tekniği ile doğru bir şekilde etiketlenmesidir. Bu etiketleme, ham log verisini saldırı bağlamına oturtarak güvenlik ekiplerinin bir olayın arkasındaki amacı daha hızlı anlamasını sağlar.</p>
 <p>Kibana’da bir kural oluştururken, <code>mitre.tactic</code> ve <code>mitre.technique_id</code> gibi özel alanlar aracılığıyla bu etiketleri eklemek mümkündür. Örneğin, bir kuralın JSON çıktısı şu şekilde olabilir:</p>
-<pre tabindex="0"><code>{  
-  &#34;mitre.technique_id&#34;: &#34;T1059&#34;,  
-  &#34;mitre.tactic&#34;: &#34;execution&#34;  
+<pre tabindex="0"><code>{  
+  &#34;mitre.technique_id&#34;: &#34;T1059&#34;,  
+  &#34;mitre.tactic&#34;: &#34;execution&#34;  
 }
 </code></pre><p>Bu etiketler, güvenlik analistleri için bir köprü görevi görerek, bir alarmı gördüklerinde saldırganın ne yapmaya çalıştığını (taktik) ve hangi yöntemi (teknik) kullandığını anında kavrayabilmelerini sağlar. Bu bilgi, olay müdahale sürecini hızlandırır ve savunma stratejisinin bütünsel bir resmini görmeye olanak tanır.</p>
 <h3 id="mitre-attck-taktiklerine-göre-kural-örnekleri-vetespiti">

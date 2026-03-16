@@ -13,7 +13,24 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Merhaba, kriptoloji temelleri serisinin bu son yazısında kriptografik protokollerin nasıl uygulandığından bahsedeceğim. Uygulama aşamasında Java programalama dilini kullanacağım.">
+<meta name="description" content="
+  Kriptoloji Temelleri:#5 Uygulama
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba, kriptoloji temelleri serisinin bu son yazısında kriptografik protokollerin nasıl uygulandığından bahsedeceğim. Uygulama aşamasında Java programalama dilini kullanacağım.
+
+
+  MD5 Uygulaması
+  
+    
+    Başlık Linki
+  
+
+MD5, herhangi bir giriş verisi için sabit boyutlu bir çıktı (128 bit) üretebilen, yaygın olarak kullanılan bir özet fonksiyonudur. Java’da, Java Security API’nin bir parçası olan MessageDigest sınıfını kullanarak bir stringin veya dosyanın MD5 özet değerini hesaplayabilirsiniz.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +38,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Kriptoloji Temelleri: Uygulama">
-  <meta name="twitter:description" content="Merhaba, kriptoloji temelleri serisinin bu son yazısında kriptografik protokollerin nasıl uygulandığından bahsedeceğim. Uygulama aşamasında Java programalama dilini kullanacağım.">
+  <meta name="twitter:description" content="Kriptoloji Temelleri:#5 UygulamaBaşlık LinkiMerhaba, kriptoloji temelleri serisinin bu son yazısında kriptografik protokollerin nasıl uygulandığından bahsedeceğim. Uygulama aşamasında Java programalama dilini kullanacağım.
+MD5 UygulamasıBaşlık LinkiMD5, herhangi bir giriş verisi için sabit boyutlu bir çıktı (128 bit) üretebilen, yaygın olarak kullanılan bir özet fonksiyonudur. Java’da, Java Security API’nin bir parçası olan MessageDigest sınıfını kullanarak bir stringin veya dosyanın MD5 özet değerini hesaplayabilirsiniz.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2023/04/kriptoloji-temelleri-uygulama/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Kriptoloji Temelleri: Uygulama">
-  <meta property="og:description" content="Merhaba, kriptoloji temelleri serisinin bu son yazısında kriptografik protokollerin nasıl uygulandığından bahsedeceğim. Uygulama aşamasında Java programalama dilini kullanacağım.">
+  <meta property="og:description" content="Kriptoloji Temelleri:#5 UygulamaBaşlık LinkiMerhaba, kriptoloji temelleri serisinin bu son yazısında kriptografik protokollerin nasıl uygulandığından bahsedeceğim. Uygulama aşamasında Java programalama dilini kullanacağım.
+MD5 UygulamasıBaşlık LinkiMD5, herhangi bir giriş verisi için sabit boyutlu bir çıktı (128 bit) üretebilen, yaygın olarak kullanılan bir özet fonksiyonudur. Java’da, Java Security API’nin bir parçası olan MessageDigest sınıfını kullanarak bir stringin veya dosyanın MD5 özet değerini hesaplayabilirsiniz.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -217,29 +236,29 @@
 </h3>
 <p>MD5, herhangi bir giriş verisi için sabit boyutlu bir çıktı (128 bit) üretebilen, yaygın olarak kullanılan bir özet fonksiyonudur. Java’da, Java Security API’nin bir parçası olan MessageDigest sınıfını kullanarak bir stringin veya dosyanın MD5 özet değerini hesaplayabilirsiniz.</p>
 <p>Java’da bir sitringin MD5 hashinin nasıl hesaplanacağına dair bir örnek:</p>
-<pre tabindex="0"><code>import java.security.MessageDigest;  
-import java.security.NoSuchAlgorithmException;  
-  
-public class MD5Example {  
-    public static void main(String[] args) {  
-        String input = &#34;Hello, world!&#34;;  
-        String md5Hash = calculateMD5(input);  
-        System.out.println(&#34;MD5 hash of &#39;&#34; + input + &#34;&#39; is: &#34; + md5Hash);  
-    }  
-  
-    public static String calculateMD5(String input) {  
-        try {  
-            MessageDigest md = MessageDigest.getInstance(&#34;MD5&#34;);  
-            byte[] hash = md.digest(input.getBytes());  
-            StringBuilder sb = new StringBuilder();  
-            for (byte b : hash) {  
-                sb.append(String.format(&#34;%02x&#34;, b));  
-            }  
-            return sb.toString();  
-        } catch (NoSuchAlgorithmException e) {  
-            throw new RuntimeException(&#34;MD5 algorithm not available&#34;, e);  
-        }  
-    }  
+<pre tabindex="0"><code>import java.security.MessageDigest;  
+import java.security.NoSuchAlgorithmException;  
+  
+public class MD5Example {  
+    public static void main(String[] args) {  
+        String input = &#34;Hello, world!&#34;;  
+        String md5Hash = calculateMD5(input);  
+        System.out.println(&#34;MD5 hash of &#39;&#34; + input + &#34;&#39; is: &#34; + md5Hash);  
+    }  
+  
+    public static String calculateMD5(String input) {  
+        try {  
+            MessageDigest md = MessageDigest.getInstance(&#34;MD5&#34;);  
+            byte[] hash = md.digest(input.getBytes());  
+            StringBuilder sb = new StringBuilder();  
+            for (byte b : hash) {  
+                sb.append(String.format(&#34;%02x&#34;, b));  
+            }  
+            return sb.toString();  
+        } catch (NoSuchAlgorithmException e) {  
+            throw new RuntimeException(&#34;MD5 algorithm not available&#34;, e);  
+        }  
+    }  
 }
 </code></pre><p>Bu örnekte, önce MessageDigest sınıfını içe aktarıyoruz ve bir string girişi alan ve MD5 değerini bir string olarak döndüren bir <em>calculateMD5</em> metodu tanımlıyoruz.</p>
 <p>calculateMD5 metodunun içinde, önce <em>getInstance</em> metodunu kullanarak ve “MD5” algoritmasını parametre olarak vererek MessageDigest sınıfının yeni bir örneğini oluşturuyoruz. Daha sonra, MessageDigest nesnesinde hash metodunu çağırırız ve MD5 özetini hesaplamak için giriş stringini bir bayt dizisi olarak iletiriz.</p>
@@ -254,29 +273,29 @@ public class MD5Example {
 </h3>
 <p>SHA-1 (Secure HashAlgorithm 1), herhangi bir giriş verisi için sabit boyutlu bir çıktı (160 bit) oluşturabilen, yaygın olarak kullanılan bir özet fonksiyonudur. Java’da, Java Security API’sinin bir parçası olan MessageDigest sınıfını kullanarak bir stringin veya dosyanın SHA-1 özetini hesaplayabilirsiniz.</p>
 <p>Java’da bir stringin SHA-1 özetinin nasıl hesaplanacağına dair bir örnek:</p>
-<pre tabindex="0"><code>import java.security.MessageDigest;  
-import java.security.NoSuchAlgorithmException;  
-  
-public class SHA1Example {  
-    public static void main(String[] args) {  
-        String input = &#34;Hello, world!&#34;;  
-        String sha1Hash = calculateSHA1(input);  
-        System.out.println(&#34;SHA-1 hash of &#39;&#34; + input + &#34;&#39; is: &#34; + sha1Hash);  
-    }  
-  
-    public static String calculateSHA1(String input) {  
-        try {  
-            MessageDigest md = MessageDigest.getInstance(&#34;SHA-1&#34;);  
-            byte[] hash = md.digest(input.getBytes());  
-            StringBuilder sb = new StringBuilder();  
-            for (byte b : hash) {  
-                sb.append(String.format(&#34;%02x&#34;, b));  
-            }  
-            return sb.toString();  
-        } catch (NoSuchAlgorithmException e) {  
-            throw new RuntimeException(&#34;SHA-1 algorithm not available&#34;, e);  
-        }  
-    }  
+<pre tabindex="0"><code>import java.security.MessageDigest;  
+import java.security.NoSuchAlgorithmException;  
+  
+public class SHA1Example {  
+    public static void main(String[] args) {  
+        String input = &#34;Hello, world!&#34;;  
+        String sha1Hash = calculateSHA1(input);  
+        System.out.println(&#34;SHA-1 hash of &#39;&#34; + input + &#34;&#39; is: &#34; + sha1Hash);  
+    }  
+  
+    public static String calculateSHA1(String input) {  
+        try {  
+            MessageDigest md = MessageDigest.getInstance(&#34;SHA-1&#34;);  
+            byte[] hash = md.digest(input.getBytes());  
+            StringBuilder sb = new StringBuilder();  
+            for (byte b : hash) {  
+                sb.append(String.format(&#34;%02x&#34;, b));  
+            }  
+            return sb.toString();  
+        } catch (NoSuchAlgorithmException e) {  
+            throw new RuntimeException(&#34;SHA-1 algorithm not available&#34;, e);  
+        }  
+    }  
 }
 </code></pre><p>Bu örnekte, önce MessageDigest sınıfını içe aktarıyoruz ve bir string girişi alan ve SHA-1 özetini bir string olarak döndüren bir <em>calculateSHA1</em> metodu tanımlıyoruz.</p>
 <p><em>calculateSHA1</em> metodunun içinde, önce <em>getInstance</em> metodunu kullanarak ve “SHA-1” algoritmasını parametre olarak vererek MessageDigest sınıfının yeni bir örneğini oluşturuyoruz. Daha sonra, MessageDigest nesnesinde hash metodunu çağırırız ve SHA-1 özet değerini hesaplamak için giriş stringini bir bayt dizisi olarak iletiriz.</p>
@@ -291,41 +310,41 @@ public class SHA1Example {
 </h3>
 <p>DES (Data Encryption Standard), verileri şifrelemek ve şifresini çözmek için kullanılabilen simetrik anahtarlı bir şifreleme algoritmasıdır. Java’da, DES şifrelemesini ve şifre çözmeyi uygulamak için Java Cryptography Architecture’dan (JCA) Cipher sınıfını kullanabilirsiniz.</p>
 <p>Java’da DES kullanarak bir dizenin nasıl şifreleneceğine ve şifresinin çözüleceğine dair bir örnek:</p>
-<pre tabindex="0"><code>import javax.crypto.Cipher;  
-import javax.crypto.spec.SecretKeySpec;  
-import java.nio.charset.StandardCharsets;  
-import java.util.Base64;  
-  
-public class DESExample {  
-    public static void main(String[] args) throws Exception {  
-        String originalString = &#34;Hello, world!&#34;;  
-        String secretKey = &#34;mysecretkey&#34;;  
-          
-        // Encrypt the original string  
-        String encryptedString = encrypt(originalString, secretKey);  
-        System.out.println(&#34;Encrypted string: &#34; + encryptedString);  
-  
-        // Decrypt the encrypted string  
-        String decryptedString = decrypt(encryptedString, secretKey);  
-        System.out.println(&#34;Decrypted string: &#34; + decryptedString);  
-    }  
-  
-    public static String encrypt(String plainText, String secretKey) throws Exception {  
-        Cipher cipher = Cipher.getInstance(&#34;DES/ECB/PKCS5Padding&#34;);  
-        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), &#34;DES&#34;);  
-        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);  
-        byte[] encryptedBytes = cipher.doFinal(plainText.getBytes(StandardCharsets.UTF_8));  
-        return Base64.getEncoder().encodeToString(encryptedBytes);  
-    }  
-  
-    public static String decrypt(String encryptedText, String secretKey) throws Exception {  
-        Cipher cipher = Cipher.getInstance(&#34;DES/ECB/PKCS5Padding&#34;);  
-        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), &#34;DES&#34;);  
-        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);  
-        byte[] decodedBytes = Base64.getDecoder().decode(encryptedText);  
-        byte[] decryptedBytes = cipher.doFinal(decodedBytes);  
-        return new String(decryptedBytes, StandardCharsets.UTF_8);  
-    }  
+<pre tabindex="0"><code>import javax.crypto.Cipher;  
+import javax.crypto.spec.SecretKeySpec;  
+import java.nio.charset.StandardCharsets;  
+import java.util.Base64;  
+  
+public class DESExample {  
+    public static void main(String[] args) throws Exception {  
+        String originalString = &#34;Hello, world!&#34;;  
+        String secretKey = &#34;mysecretkey&#34;;  
+          
+        // Encrypt the original string  
+        String encryptedString = encrypt(originalString, secretKey);  
+        System.out.println(&#34;Encrypted string: &#34; + encryptedString);  
+  
+        // Decrypt the encrypted string  
+        String decryptedString = decrypt(encryptedString, secretKey);  
+        System.out.println(&#34;Decrypted string: &#34; + decryptedString);  
+    }  
+  
+    public static String encrypt(String plainText, String secretKey) throws Exception {  
+        Cipher cipher = Cipher.getInstance(&#34;DES/ECB/PKCS5Padding&#34;);  
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), &#34;DES&#34;);  
+        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);  
+        byte[] encryptedBytes = cipher.doFinal(plainText.getBytes(StandardCharsets.UTF_8));  
+        return Base64.getEncoder().encodeToString(encryptedBytes);  
+    }  
+  
+    public static String decrypt(String encryptedText, String secretKey) throws Exception {  
+        Cipher cipher = Cipher.getInstance(&#34;DES/ECB/PKCS5Padding&#34;);  
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), &#34;DES&#34;);  
+        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);  
+        byte[] decodedBytes = Base64.getDecoder().decode(encryptedText);  
+        byte[] decryptedBytes = cipher.doFinal(decodedBytes);  
+        return new String(decryptedBytes, StandardCharsets.UTF_8);  
+    }  
 }
 </code></pre><p>Bu örnekte, önce gerekli sınıfları içe aktarıyoruz ve giriş olarak bir düz metin stringi ve bir gizli anahtar stringi alan ve karşılık gelen şifrelenmiş veya şifresi çözülmüş dizeyi döndüren <em>encrypt</em> ve <em>decrypt</em> metodlarını tanımlıyoruz.</p>
 <p>Her yöntemin içinde, önce Elektronik Kod Kitabı (ECB) modu ve PKCS5 dolgusu ile DES şifreleme algoritmasını belirten “DES/ECB/PKCS5Padding” dönüştürme stringini kullanarak bir Cipher nesnesi oluşturuyoruz.</p>
@@ -342,41 +361,41 @@ public class DESExample {
 </h3>
 <p>AES (Gelişmiş Şifreleme Standardı), verileri şifrelemek ve şifresini çözmek için kullanılabilen simetrik anahtarlı bir şifreleme algoritmasıdır. Java’da, AES şifreleme ve şifre çözmeyi uygulamak için Java Cryptography Architecture’daki (JCA) Cipher sınıfını kullanabilirsiniz.</p>
 <p>Java’da AES kullanarak bir dizenin nasıl şifreleneceğine ve şifresinin çözüleceğine bir örnek:</p>
-<pre tabindex="0"><code>import javax.crypto.Cipher;  
-import javax.crypto.spec.SecretKeySpec;  
-import java.nio.charset.StandardCharsets;  
-import java.util.Base64;  
-  
-public class AESExample {  
-    public static void main(String[] args) throws Exception {  
-        String originalString = &#34;Hello, world!&#34;;  
-        String secretKey = &#34;mysecretkey&#34;;  
-          
-        // Encrypt the original string  
-        String encryptedString = encrypt(originalString, secretKey);  
-        System.out.println(&#34;Encrypted string: &#34; + encryptedString);  
-  
-        // Decrypt the encrypted string  
-        String decryptedString = decrypt(encryptedString, secretKey);  
-        System.out.println(&#34;Decrypted string: &#34; + decryptedString);  
-    }  
-  
-    public static String encrypt(String plainText, String secretKey) throws Exception {  
-        Cipher cipher = Cipher.getInstance(&#34;AES/ECB/PKCS5Padding&#34;);  
-        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), &#34;AES&#34;);  
-        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);  
-        byte[] encryptedBytes = cipher.doFinal(plainText.getBytes(StandardCharsets.UTF_8));  
-        return Base64.getEncoder().encodeToString(encryptedBytes);  
-    }  
-  
-    public static String decrypt(String encryptedText, String secretKey) throws Exception {  
-        Cipher cipher = Cipher.getInstance(&#34;AES/ECB/PKCS5Padding&#34;);  
-        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), &#34;AES&#34;);  
-        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);  
-        byte[] decodedBytes = Base64.getDecoder().decode(encryptedText);  
-        byte[] decryptedBytes = cipher.doFinal(decodedBytes);  
-        return new String(decryptedBytes, StandardCharsets.UTF_8);  
-    }  
+<pre tabindex="0"><code>import javax.crypto.Cipher;  
+import javax.crypto.spec.SecretKeySpec;  
+import java.nio.charset.StandardCharsets;  
+import java.util.Base64;  
+  
+public class AESExample {  
+    public static void main(String[] args) throws Exception {  
+        String originalString = &#34;Hello, world!&#34;;  
+        String secretKey = &#34;mysecretkey&#34;;  
+          
+        // Encrypt the original string  
+        String encryptedString = encrypt(originalString, secretKey);  
+        System.out.println(&#34;Encrypted string: &#34; + encryptedString);  
+  
+        // Decrypt the encrypted string  
+        String decryptedString = decrypt(encryptedString, secretKey);  
+        System.out.println(&#34;Decrypted string: &#34; + decryptedString);  
+    }  
+  
+    public static String encrypt(String plainText, String secretKey) throws Exception {  
+        Cipher cipher = Cipher.getInstance(&#34;AES/ECB/PKCS5Padding&#34;);  
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), &#34;AES&#34;);  
+        cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec);  
+        byte[] encryptedBytes = cipher.doFinal(plainText.getBytes(StandardCharsets.UTF_8));  
+        return Base64.getEncoder().encodeToString(encryptedBytes);  
+    }  
+  
+    public static String decrypt(String encryptedText, String secretKey) throws Exception {  
+        Cipher cipher = Cipher.getInstance(&#34;AES/ECB/PKCS5Padding&#34;);  
+        SecretKeySpec secretKeySpec = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), &#34;AES&#34;);  
+        cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);  
+        byte[] decodedBytes = Base64.getDecoder().decode(encryptedText);  
+        byte[] decryptedBytes = cipher.doFinal(decodedBytes);  
+        return new String(decryptedBytes, StandardCharsets.UTF_8);  
+    }  
 }
 </code></pre><p>Bu örnekte, önce gerekli sınıfları içe aktarıyoruz ve giriş olarak bir düz metin stringi ve bir gizli anahtar stringi alan ve karşılık gelen şifrelenmiş veya şifresi çözülmüş stringi döndüren <em>encrypt</em> ve <em>decrypt</em> metodlarını tanımlıyoruz.</p>
 <p>Her metodun içinde, önce Elektronik Kod Kitabı (ECB) modu ve PKCS5 dolgusu ile AES şifreleme algoritmasını belirten “AES/ECB/PKCS5Padding” dönüştürme stringini kullanarak bir Cipher nesnesi oluşturuyoruz.</p>
@@ -393,46 +412,46 @@ public class AESExample {
 </h3>
 <p>RSA (Rivest–Shamir–Adleman), verileri güvenli bir şekilde şifrelemek ve şifresini çözmek için kullanılabilen bir açık anahtarlı şifreleme algoritmasıdır. Java’da, RSA şifrelemesini ve şifre çözmeyi uygulamak için Java Cryptography Architecture’daki (JCA) KeyPairGenerator ve Cipher sınıflarını kullanabilirsiniz.</p>
 <p>Java’da bir RSA anahtar çiftinin nasıl oluşturulacağına, ortak anahtarı kullanarak bir stringin nasıl şifreleneceğine ve şifrelenmiş stringin şifresinin nasıl çözüleceğine ilişkin bir örnek aşağıda verilmiştir:</p>
-<pre tabindex="0"><code>import javax.crypto.Cipher;  
-import java.security.KeyPair;  
-import java.security.KeyPairGenerator;  
-import java.util.Base64;  
-  
-public class RSAExample {  
-    public static void main(String[] args) throws Exception {  
-        String originalString = &#34;Hello, world!&#34;;  
-          
-        // Generate an RSA key pair  
-        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(&#34;RSA&#34;);  
-        keyPairGenerator.initialize(2048);  
-        KeyPair keyPair = keyPairGenerator.generateKeyPair();  
-          
-        // Get the public and private keys from the key pair  
-        byte[] publicKeyBytes = keyPair.getPublic().getEncoded();  
-        byte[] privateKeyBytes = keyPair.getPrivate().getEncoded();  
-  
-        // Encrypt the original string using the public key  
-        byte[] encryptedBytes = encrypt(originalString.getBytes(), publicKeyBytes);  
-        String encryptedString = Base64.getEncoder().encodeToString(encryptedBytes);  
-        System.out.println(&#34;Encrypted string: &#34; + encryptedString);  
-  
-        // Decrypt the encrypted string using the private key  
-        byte[] decryptedBytes = decrypt(Base64.getDecoder().decode(encryptedString), privateKeyBytes);  
-        String decryptedString = new String(decryptedBytes);  
-        System.out.println(&#34;Decrypted string: &#34; + decryptedString);  
-    }  
-  
-    public static byte[] encrypt(byte[] plainBytes, byte[] publicKeyBytes) throws Exception {  
-        Cipher cipher = Cipher.getInstance(&#34;RSA&#34;);  
-        cipher.init(Cipher.ENCRYPT_MODE, KeyFactory.getInstance(&#34;RSA&#34;).generatePublic(new X509EncodedKeySpec(publicKeyBytes)));  
-        return cipher.doFinal(plainBytes);  
-    }  
-  
-    public static byte[] decrypt(byte[] encryptedBytes, byte[] privateKeyBytes) throws Exception {  
-        Cipher cipher = Cipher.getInstance(&#34;RSA&#34;);  
-        cipher.init(Cipher.DECRYPT_MODE, KeyFactory.getInstance(&#34;RSA&#34;).generatePrivate(new PKCS8EncodedKeySpec(privateKeyBytes)));  
-        return cipher.doFinal(encryptedBytes);  
-    }  
+<pre tabindex="0"><code>import javax.crypto.Cipher;  
+import java.security.KeyPair;  
+import java.security.KeyPairGenerator;  
+import java.util.Base64;  
+  
+public class RSAExample {  
+    public static void main(String[] args) throws Exception {  
+        String originalString = &#34;Hello, world!&#34;;  
+          
+        // Generate an RSA key pair  
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(&#34;RSA&#34;);  
+        keyPairGenerator.initialize(2048);  
+        KeyPair keyPair = keyPairGenerator.generateKeyPair();  
+          
+        // Get the public and private keys from the key pair  
+        byte[] publicKeyBytes = keyPair.getPublic().getEncoded();  
+        byte[] privateKeyBytes = keyPair.getPrivate().getEncoded();  
+  
+        // Encrypt the original string using the public key  
+        byte[] encryptedBytes = encrypt(originalString.getBytes(), publicKeyBytes);  
+        String encryptedString = Base64.getEncoder().encodeToString(encryptedBytes);  
+        System.out.println(&#34;Encrypted string: &#34; + encryptedString);  
+  
+        // Decrypt the encrypted string using the private key  
+        byte[] decryptedBytes = decrypt(Base64.getDecoder().decode(encryptedString), privateKeyBytes);  
+        String decryptedString = new String(decryptedBytes);  
+        System.out.println(&#34;Decrypted string: &#34; + decryptedString);  
+    }  
+  
+    public static byte[] encrypt(byte[] plainBytes, byte[] publicKeyBytes) throws Exception {  
+        Cipher cipher = Cipher.getInstance(&#34;RSA&#34;);  
+        cipher.init(Cipher.ENCRYPT_MODE, KeyFactory.getInstance(&#34;RSA&#34;).generatePublic(new X509EncodedKeySpec(publicKeyBytes)));  
+        return cipher.doFinal(plainBytes);  
+    }  
+  
+    public static byte[] decrypt(byte[] encryptedBytes, byte[] privateKeyBytes) throws Exception {  
+        Cipher cipher = Cipher.getInstance(&#34;RSA&#34;);  
+        cipher.init(Cipher.DECRYPT_MODE, KeyFactory.getInstance(&#34;RSA&#34;).generatePrivate(new PKCS8EncodedKeySpec(privateKeyBytes)));  
+        return cipher.doFinal(encryptedBytes);  
+    }  
 }
 </code></pre><p>Bu örnekte, önce gerekli sınıfları içeri aktarıyoruz ve giriş olarak düz metin veya şifreli verilerden oluşan bir bayt dizisini ve genel veya özel anahtardan oluşan bir bayt dizisini alan ve karşılık gelen şifreli veya şifresi çözülmüş bayt dizisini döndüren <em>encrypt</em> ve <em>decrypt</em> metodlarını tanımlıyoruz. .</p>
 <p>Main metot içerisinde öncelikle KeyPairGenerator sınıfını kullanarak “RSA” algoritması ve 2048 bitlik bir anahtar boyutu ile bir RSA anahtar çifti oluşturuyoruz. Daha sonra <em>getEncoded</em> metodunu kullanarak genel ve özel anahtarları anahtar çiftinden bayt dizileri olarak çıkarırız.</p>
@@ -448,59 +467,59 @@ public class RSAExample {
 </h3>
 <p>ECDH (Elliptic Curve Diffie-Hellman), iki tarafın güvenli olmayan bir iletişim kanalı üzerinden paylaşılan bir sır oluşturmasına izin veren bir anahtar anlaşma protokolüdür. Java’da, eliptik eğri şifreleme kullanarak ECDH anahtar değişimini uygulamak için Java Cryptography Architecture’dan (JCA) KeyAgreement ve KeyPairGenerator sınıflarını kullanabilirsiniz.</p>
 <p>Java kullanarak bir ECDH anahtar çifti oluşturmanın, başka bir tarafla anahtar değişimi gerçekleştirmenin ve paylaşılan bir anahtarı türetmenin bir örneğini burada bulabilirsiniz:</p>
-<pre tabindex="0"><code>import javax.crypto.KeyAgreement;  
-import javax.crypto.SecretKey;  
-import javax.crypto.spec.ECGenParameterSpec;  
-import java.security.*;  
-import java.security.spec.ECParameterSpec;  
-import java.security.spec.ECPublicKeySpec;  
-import java.security.spec.InvalidKeySpecException;  
-  
-public class ECDHExample {  
-    public static void main(String[] args) throws Exception {  
-        // Generate an ECDH key pair  
-        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(&#34;EC&#34;);  
-        ECGenParameterSpec ecGenParameterSpec = new ECGenParameterSpec(&#34;secp256r1&#34;);  
-        keyPairGenerator.initialize(ecGenParameterSpec);  
-        KeyPair keyPair = keyPairGenerator.generateKeyPair();  
-        PrivateKey privateKey = keyPair.getPrivate();  
-        PublicKey publicKey = keyPair.getPublic();  
-  
-        // Simulate the other party by generating its own ECDH key pair  
-        KeyPair otherKeyPair = keyPairGenerator.generateKeyPair();  
-        PrivateKey otherPrivateKey = otherKeyPair.getPrivate();  
-        PublicKey otherPublicKey = otherKeyPair.getPublic();  
-  
-        // Perform key exchange with the other party  
-        KeyAgreement keyAgreement = KeyAgreement.getInstance(&#34;ECDH&#34;);  
-        keyAgreement.init(privateKey);  
-        keyAgreement.doPhase(otherPublicKey, true);  
-  
-        // Derive the shared secret  
-        byte[] sharedSecret = keyAgreement.generateSecret();  
-  
-        // Simulate the other party deriving the shared secret using its private key  
-        KeyFactory keyFactory = KeyFactory.getInstance(&#34;EC&#34;);  
-        ECParameterSpec ecParameterSpec = ((ECPublicKeySpec) otherPublicKey.getKeySpec(ECPublicKeySpec.class)).getParams();  
-        PublicKey simulatedOtherPublicKey = keyFactory.generatePublic(new ECPublicKeySpec(((java.security.spec.ECPoint) otherPublicKey).getW(), ecParameterSpec));  
-        KeyAgreement simulatedKeyAgreement = KeyAgreement.getInstance(&#34;ECDH&#34;);  
-        simulatedKeyAgreement.init(otherPrivateKey);  
-        simulatedKeyAgreement.doPhase(publicKey, true);  
-        byte[] simulatedSharedSecret = simulatedKeyAgreement.generateSecret();  
-  
-        // Compare the two shared secrets (should be equal)  
-        System.out.println(&#34;Shared secret: &#34; + bytesToHex(sharedSecret));  
-        System.out.println(&#34;Simulated shared secret: &#34; + bytesToHex(simulatedSharedSecret));  
-        System.out.println(&#34;Shared secrets match: &#34; + bytesToHex(sharedSecret).equals(bytesToHex(simulatedSharedSecret)));  
-    }  
-  
-    public static String bytesToHex(byte[] bytes) {  
-        StringBuilder sb = new StringBuilder();  
-        for (byte b : bytes) {  
-            sb.append(String.format(&#34;%02X&#34;, b));  
-        }  
-        return sb.toString();  
-    }  
+<pre tabindex="0"><code>import javax.crypto.KeyAgreement;  
+import javax.crypto.SecretKey;  
+import javax.crypto.spec.ECGenParameterSpec;  
+import java.security.*;  
+import java.security.spec.ECParameterSpec;  
+import java.security.spec.ECPublicKeySpec;  
+import java.security.spec.InvalidKeySpecException;  
+  
+public class ECDHExample {  
+    public static void main(String[] args) throws Exception {  
+        // Generate an ECDH key pair  
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(&#34;EC&#34;);  
+        ECGenParameterSpec ecGenParameterSpec = new ECGenParameterSpec(&#34;secp256r1&#34;);  
+        keyPairGenerator.initialize(ecGenParameterSpec);  
+        KeyPair keyPair = keyPairGenerator.generateKeyPair();  
+        PrivateKey privateKey = keyPair.getPrivate();  
+        PublicKey publicKey = keyPair.getPublic();  
+  
+        // Simulate the other party by generating its own ECDH key pair  
+        KeyPair otherKeyPair = keyPairGenerator.generateKeyPair();  
+        PrivateKey otherPrivateKey = otherKeyPair.getPrivate();  
+        PublicKey otherPublicKey = otherKeyPair.getPublic();  
+  
+        // Perform key exchange with the other party  
+        KeyAgreement keyAgreement = KeyAgreement.getInstance(&#34;ECDH&#34;);  
+        keyAgreement.init(privateKey);  
+        keyAgreement.doPhase(otherPublicKey, true);  
+  
+        // Derive the shared secret  
+        byte[] sharedSecret = keyAgreement.generateSecret();  
+  
+        // Simulate the other party deriving the shared secret using its private key  
+        KeyFactory keyFactory = KeyFactory.getInstance(&#34;EC&#34;);  
+        ECParameterSpec ecParameterSpec = ((ECPublicKeySpec) otherPublicKey.getKeySpec(ECPublicKeySpec.class)).getParams();  
+        PublicKey simulatedOtherPublicKey = keyFactory.generatePublic(new ECPublicKeySpec(((java.security.spec.ECPoint) otherPublicKey).getW(), ecParameterSpec));  
+        KeyAgreement simulatedKeyAgreement = KeyAgreement.getInstance(&#34;ECDH&#34;);  
+        simulatedKeyAgreement.init(otherPrivateKey);  
+        simulatedKeyAgreement.doPhase(publicKey, true);  
+        byte[] simulatedSharedSecret = simulatedKeyAgreement.generateSecret();  
+  
+        // Compare the two shared secrets (should be equal)  
+        System.out.println(&#34;Shared secret: &#34; + bytesToHex(sharedSecret));  
+        System.out.println(&#34;Simulated shared secret: &#34; + bytesToHex(simulatedSharedSecret));  
+        System.out.println(&#34;Shared secrets match: &#34; + bytesToHex(sharedSecret).equals(bytesToHex(simulatedSharedSecret)));  
+    }  
+  
+    public static String bytesToHex(byte[] bytes) {  
+        StringBuilder sb = new StringBuilder();  
+        for (byte b : bytes) {  
+            sb.append(String.format(&#34;%02X&#34;, b));  
+        }  
+        return sb.toString();  
+    }  
 }
 </code></pre><p>Bu örnekte, önce gerekli sınıfları içeri aktarıyoruz ve bir bayt dizisini onaltılık dizgiye dönüştürmek için bir bytesToHex yöntemi tanımlıyoruz.</p>
 <p>Ana yöntemin içinde, önce “EC” algoritması ve “secp256r1” eliptik eğri parametre özelliği ile KeyPairGenerator sınıfını kullanarak bir ECDH anahtar çifti oluşturuyoruz. Daha sonra özel ve genel anahtarları anahtar çiftinden çıkarıyoruz.</p>
@@ -515,37 +534,37 @@ public class ECDHExample {
 </h3>
 <p>ECDSA (Elliptic Curve Digital Signature Algorithm), eliptik eğri kriptografisine dayalı bir dijital imza algoritmasıdır. Java’da, ECDSA’yı uygulamak için Java Cryptography Architecture’dan (JCA) Signature ve KeyPairGenerator sınıflarını kullanabilirsiniz.</p>
 <p>Java kullanarak bir ECDSA anahtar çiftinin nasıl oluşturulacağına, bir mesajın özel anahtarla nasıl imzalanacağına ve imzanın ortak anahtarla nasıl doğrulanacağına ilişkin bir örneği burada bulabilirsiniz:</p>
-<pre tabindex="0"><code>import java.security.*;  
-import java.security.spec.ECGenParameterSpec;  
-import java.security.spec.InvalidKeySpecException;  
-import java.security.spec.PKCS8EncodedKeySpec;  
-import java.security.spec.X509EncodedKeySpec;  
-  
-public class ECDSAExample {  
-    public static void main(String[] args) throws Exception {  
-        // Generate an ECDSA key pair  
-        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(&#34;EC&#34;);  
-        ECGenParameterSpec ecGenParameterSpec = new ECGenParameterSpec(&#34;secp256r1&#34;);  
-        keyPairGenerator.initialize(ecGenParameterSpec);  
-        KeyPair keyPair = keyPairGenerator.generateKeyPair();  
-        PrivateKey privateKey = keyPair.getPrivate();  
-        PublicKey publicKey = keyPair.getPublic();  
-  
-        // Sign a message with the private key  
-        byte[] message = &#34;Hello, world!&#34;.getBytes();  
-        Signature signature = Signature.getInstance(&#34;SHA256withECDSA&#34;);  
-        signature.initSign(privateKey);  
-        signature.update(message);  
-        byte[] signatureBytes = signature.sign();  
-  
-        // Verify the signature with the public key  
-        Signature verifier = Signature.getInstance(&#34;SHA256withECDSA&#34;);  
-        verifier.initVerify(publicKey);  
-        verifier.update(message);  
-        boolean signatureValid = verifier.verify(signatureBytes);  
-  
-        System.out.println(&#34;Signature valid: &#34; + signatureValid);  
-    }  
+<pre tabindex="0"><code>import java.security.*;  
+import java.security.spec.ECGenParameterSpec;  
+import java.security.spec.InvalidKeySpecException;  
+import java.security.spec.PKCS8EncodedKeySpec;  
+import java.security.spec.X509EncodedKeySpec;  
+  
+public class ECDSAExample {  
+    public static void main(String[] args) throws Exception {  
+        // Generate an ECDSA key pair  
+        KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(&#34;EC&#34;);  
+        ECGenParameterSpec ecGenParameterSpec = new ECGenParameterSpec(&#34;secp256r1&#34;);  
+        keyPairGenerator.initialize(ecGenParameterSpec);  
+        KeyPair keyPair = keyPairGenerator.generateKeyPair();  
+        PrivateKey privateKey = keyPair.getPrivate();  
+        PublicKey publicKey = keyPair.getPublic();  
+  
+        // Sign a message with the private key  
+        byte[] message = &#34;Hello, world!&#34;.getBytes();  
+        Signature signature = Signature.getInstance(&#34;SHA256withECDSA&#34;);  
+        signature.initSign(privateKey);  
+        signature.update(message);  
+        byte[] signatureBytes = signature.sign();  
+  
+        // Verify the signature with the public key  
+        Signature verifier = Signature.getInstance(&#34;SHA256withECDSA&#34;);  
+        verifier.initVerify(publicKey);  
+        verifier.update(message);  
+        boolean signatureValid = verifier.verify(signatureBytes);  
+  
+        System.out.println(&#34;Signature valid: &#34; + signatureValid);  
+    }  
 }
 </code></pre><p>Bu örnekte öncelikle gerekli sınıfları import ediyoruz.</p>
 <p>Ana yöntemin içinde, “EC” algoritması ve “secp256r1” eliptik eğri parametre özelliği ile KeyPairGenerator sınıfını kullanarak bir ECDSA anahtar çifti oluşturuyoruz. Anahtar çiftinden özel ve genel anahtarları çıkarıyoruz.</p>

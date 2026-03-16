@@ -13,7 +13,30 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Merhaba, bu yazımızda, OpenCVnin ne olduğundan, bilgisayarlı görüden ve Python ile bu işlemlerin nasıl yapılacağından bahsedeceğiz.">
+<meta name="description" content="
+  OpenCV ile Görüntü İşlemeye Giriş
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba, bu yazımızda, OpenCVnin ne olduğundan, bilgisayarlı görüden ve Python ile bu işlemlerin nasıl yapılacağından bahsedeceğiz.
+
+  OpenCV’ye Genel Bakış
+  
+    
+    Başlık Linki
+  
+
+
+  Bilgisayarlı Görü Nedir?
+  
+    
+    Başlık Linki
+  
+
+Bilgisayarlı görü (computer vision), görüntülerin ve videoların bilgisayar ortamında nasıl depolandıklarını ve onlardan nasıl veri alabileceğimizi anlamlandırdığımız bir süreçtir. Bilgisayarlı görünün amacı görüntünün içeriğini bilmektir. Bunun için, yapay zeka ve makine öğrenmesi teknolojilerinden yararlanır.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +44,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="OpenCV ile Görüntü İşlemeye Giriş">
-  <meta name="twitter:description" content="Merhaba, bu yazımızda, OpenCVnin ne olduğundan, bilgisayarlı görüden ve Python ile bu işlemlerin nasıl yapılacağından bahsedeceğiz.">
+  <meta name="twitter:description" content="OpenCV ile Görüntü İşlemeye GirişBaşlık LinkiMerhaba, bu yazımızda, OpenCVnin ne olduğundan, bilgisayarlı görüden ve Python ile bu işlemlerin nasıl yapılacağından bahsedeceğiz.
+OpenCV’ye Genel BakışBaşlık LinkiBilgisayarlı Görü Nedir?Başlık LinkiBilgisayarlı görü (computer vision), görüntülerin ve videoların bilgisayar ortamında nasıl depolandıklarını ve onlardan nasıl veri alabileceğimizi anlamlandırdığımız bir süreçtir. Bilgisayarlı görünün amacı görüntünün içeriğini bilmektir. Bunun için, yapay zeka ve makine öğrenmesi teknolojilerinden yararlanır.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2022/02/opencv-ile-g%C3%B6r%C3%BCnt%C3%BC-i%C5%9Flemeye-giri%C5%9F/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="OpenCV ile Görüntü İşlemeye Giriş">
-  <meta property="og:description" content="Merhaba, bu yazımızda, OpenCVnin ne olduğundan, bilgisayarlı görüden ve Python ile bu işlemlerin nasıl yapılacağından bahsedeceğiz.">
+  <meta property="og:description" content="OpenCV ile Görüntü İşlemeye GirişBaşlık LinkiMerhaba, bu yazımızda, OpenCVnin ne olduğundan, bilgisayarlı görüden ve Python ile bu işlemlerin nasıl yapılacağından bahsedeceğiz.
+OpenCV’ye Genel BakışBaşlık LinkiBilgisayarlı Görü Nedir?Başlık LinkiBilgisayarlı görü (computer vision), görüntülerin ve videoların bilgisayar ortamında nasıl depolandıklarını ve onlardan nasıl veri alabileceğimizi anlamlandırdığımız bir süreçtir. Bilgisayarlı görünün amacı görüntünün içeriğini bilmektir. Bunun için, yapay zeka ve makine öğrenmesi teknolojilerinden yararlanır.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -225,7 +250,7 @@
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p>OpenCV (Open Source Computer Vision Library) açık kaynak bir bilgisayarlı görü kütüphanesidir. Bilgisayarlı görü uygulamaları için çok işlevsel bir platformdur. Genellikle görüntü işleme, yüz tanıma, video yakalama ve nesne tanımada kullanılır.<br>
+<p>OpenCV (Open Source Computer Vision Library) açık kaynak bir bilgisayarlı görü kütüphanesidir. Bilgisayarlı görü uygulamaları için çok işlevsel bir platformdur. Genellikle görüntü işleme, yüz tanıma, video yakalama ve nesne tanımada kullanılır. 
  OpenCV; C++, Python, MATLAB ve Java arayüzlerine sahiptir. Windows, Linux, MacOS, iOS ve Android’i destekler. Optimize edilmiş C/C++ ile yazılmıştır. Gerçek zamanlı bilgisayarlı görü uygulamalarına yönelik tasarlanmıştır. 2500&rsquo;den fazla optimize edilmiş algoritmayı bünyesinde barındırır. Ayrıca detaylı bir <a href="https://docs.opencv.org/3.4/index.html"  class="external-link" target="_blank" rel="noopener">dokümantasyon sayfası</a> da vardır.</p>
 <h3 id="opencv-bileşenleri">
   OpenCV Bileşenleri
@@ -250,7 +275,7 @@
   </a>
 </h3>
 <p>Numpy, dizilerle çalışmak için kullanılan bir Python kütüphanesidir. Ayrıca doğrusal cebir ve matrisler alanında çalışmak için de gerekli işlevlere sahiptir. NumPy, Numerical Python (Sayısal Python)’un kısaltmasıdır. OpenCV modülüyle birlikte çokça NumPy modülüne kullanırız. Çünkü, görüntü de bir matristir ve görüntüyü NumPy dizileri şeklinde tutmak bize NumPy’nin sunduğu bir çok fonksiyonu kullanabilme olanağı tanır. Numpy ile alakalı daha detaylı bilgi için bu <a href="https://pwnlab.me/tr-veri-analizi-numpy/"  class="external-link" target="_blank" rel="noopener">yazımıza</a> bakabilirsiniz.</p>
-<p>Görüntü işleme, gelişmiş bir görüntü elde etmek veya ondan bazı yararlı bilgiler çıkarmak için bir görüntü üzerinde bazı işlemleri gerçekleştirme yöntemidir. Görüntü işlemenin temel tanımından bahsedecek olursak, “Görüntü işleme, sayısallaştırılmış bir görüntünün, özellikle kalitesini artırmak için analiz edilmesi ve işlenmesidir”.<br>
+<p>Görüntü işleme, gelişmiş bir görüntü elde etmek veya ondan bazı yararlı bilgiler çıkarmak için bir görüntü üzerinde bazı işlemleri gerçekleştirme yöntemidir. Görüntü işlemenin temel tanımından bahsedecek olursak, “Görüntü işleme, sayısallaştırılmış bir görüntünün, özellikle kalitesini artırmak için analiz edilmesi ve işlenmesidir”. 
  Görüntü işleme temel olarak üç adımda gerçekleşir:</p>
 <ul>
 <li>Görüntüyü içe aktarma</li>
@@ -282,7 +307,7 @@
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p>Resimler, bilgisayar belleğinde görüntü matrisleri şeklinde tutulurlar. Bu matrislerin her hücresi bir pixeldir. Bu pixellerin barındırdığı veri türüne göre resimleri farklı renk uzaylarında bellekte tutabiliriz. Bu renk uzaylarına örnek olarak; RBG, HSV ve Gray renk uzaylarını verebilriiz.<br>
+<p>Resimler, bilgisayar belleğinde görüntü matrisleri şeklinde tutulurlar. Bu matrislerin her hücresi bir pixeldir. Bu pixellerin barındırdığı veri türüne göre resimleri farklı renk uzaylarında bellekte tutabiliriz. Bu renk uzaylarına örnek olarak; RBG, HSV ve Gray renk uzaylarını verebilriiz. 
  Opencv-python kütüphanesinde resim okuma işlemi <em>imread()</em> fonksiyonu ile yapılır. Bu fonksiyon parametre olarak, okuyacağı resmin yolunu ve kullanacağı formatı alır. Varsayılan olarak RGB renk uzayında okuma yapar.</p>
 <pre tabindex="0"><code>cv2.imread(path, flag)
 </code></pre><p>Ayrıca, okuduğumuz resmi göstermek için de <em>imshow()</em> fonksiyonu kullanılır. Parametre olarak ise açılacak pencerenin ismini ve resimi tuttuğumuz değişkeni alır.</p>
@@ -297,7 +322,7 @@
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>OpenCV’de RGB renk uzayı BGR(Blue-Green-Red) olarak yani, mavi, kırmızı, yeşil renklerinin sıralamasıyla gerçekleştirilir. Bu renklerin karışımıyla diğer renkler elde edilir. Her renk 0–255 aralığında bir sayıdır ve resmin her pixeli bu 3 renk için 0–255 aralığında olan sayılardan oluşan 3 elemanlı bir dizidir. Bu yüzden BGR 3-kanallı renk uzayıdır.<br>
+<p>OpenCV’de RGB renk uzayı BGR(Blue-Green-Red) olarak yani, mavi, kırmızı, yeşil renklerinin sıralamasıyla gerçekleştirilir. Bu renklerin karışımıyla diğer renkler elde edilir. Her renk 0–255 aralığında bir sayıdır ve resmin her pixeli bu 3 renk için 0–255 aralığında olan sayılardan oluşan 3 elemanlı bir dizidir. Bu yüzden BGR 3-kanallı renk uzayıdır. 
  OpenCV’de <em>imread()</em> fonksiyonu varsayılan olarak BGR renk uzayında okuma yapar.</p>
 <pre tabindex="0"><code>image = cv2.imread(&#34;picture.png&#34;) cv2.imshow(&#34;BGR&#34;,image)
 </code></pre><h4 id="hsv-renkuzayı">
@@ -308,7 +333,7 @@
   </a>
 </h4>
 <p>HSV (Hue, Saturation, Value) renkleri sırasıyla renk özü, doygunluk ve parlaklık olarak tanımlar. Doygunluk rengin canlılığını belirlerken parlaklık rengin aydınlığını ifade eder. HSV uzayında siyah renk için renk ve doygunluk değerleri 0 ile 255 arasında herhangi bir sayı alabilir iken parlaklık değeri sıfırdır. Beyaz renkte ise ise parlaklık değeri 255&rsquo;dir.</p>
-<p>BGR’da olduğu gibi resmin her pixeli 0–255 arası sayılardan oluşan 3 elemanlı bir dizidir ve HSV’de 3 kanallı bir renk uzayıdır.<br>
+<p>BGR’da olduğu gibi resmin her pixeli 0–255 arası sayılardan oluşan 3 elemanlı bir dizidir ve HSV’de 3 kanallı bir renk uzayıdır. 
  OpenCV’de resim BGR renk uzayından HSV renk uzayına çevirilebilir. Bunun için <em>cvtColor()</em> fonksiyonunu kullanırız.</p>
 <pre tabindex="0"><code>image = cv2.imread(&#34;picture.png&#34;) image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV) cv2.imshow(&#34;HSV&#34;,image)
 </code></pre><h4 id="gray-renkuzayı">
@@ -318,7 +343,7 @@
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>Gray renk uzayı, renkleri gri tonlamalı olarak tanımlayan bir renk uzayıdır. Her renk pixeli 0–255 arası bir sayıdır ve bir siyahtan başlayıp beyaza kadar giden gri tonlamalarını ifade eder. 0 siyahı, 255 ise beyazı tanımlar. Her pixel için tek bir sayı kullanıldığından tek kanallı bir renk uzayıdır.<br>
+<p>Gray renk uzayı, renkleri gri tonlamalı olarak tanımlayan bir renk uzayıdır. Her renk pixeli 0–255 arası bir sayıdır ve bir siyahtan başlayıp beyaza kadar giden gri tonlamalarını ifade eder. 0 siyahı, 255 ise beyazı tanımlar. Her pixel için tek bir sayı kullanıldığından tek kanallı bir renk uzayıdır. 
  OpenCV’de <em>imread()</em> fonksiyonuna 0 parametresini verdiğimizde Gray renk uzaıynda okuma yapar.</p>
 <pre tabindex="0"><code>image = cv2.imread(&#34;picture.png&#34;,0) cv2.imshow(&#34;Gray&#34;,image)
 </code></pre><h3 id="resim-düzenleme">
@@ -475,12 +500,12 @@
   </a>
 </h4>
 <p>Canny() fonksiyonu ile daha iyi sonuçlar elde etmek için treshold değerlerinin iyi belirlenmesi ve resmin yumuşatılması gerekir. Ayrıca, Treshold değerlerinin görüntü matrisinin medyanına görede belirleyebiliriz. Bu sayede, thresold değerleri otomatik hesaplanmış olur. Webcam ile gerçek zamanlı olarak canny algoritmasını uyguladığımız bir uygulama yapalım.</p>
-<pre tabindex="0"><code>import cv2 as cv  
-import numpy as np  
-  
-cam = cv.VideoCapture(0)  
-  
-def autoCanny(blur, sigma=0.33):   
+<pre tabindex="0"><code>import cv2 as cv  
+import numpy as np  
+  
+cam = cv.VideoCapture(0)  
+  
+def autoCanny(blur, sigma=0.33):   
   median = np.median(blur)
 </code></pre><hr>
 <p><em>Originally published at</em> <a href="https://pwnlab.me/tr-opencv-ile-goruntu-islemeye-giris/"  class="external-link" target="_blank" rel="noopener"><em>https://pwnlab.me</em></a> <em>on February 4, 2022.</em></p>

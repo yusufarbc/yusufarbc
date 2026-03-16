@@ -13,7 +13,16 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Hello, in this article, I will talk about rule writing, that is, warnings indicating security violations, and alerting operations of ELK Stack, which we installed in my last article. ELK Stack (Elasti...">
+<meta name="description" content="
+Hello, in this article, I will talk about rule writing, that is, warnings indicating security violations, and alerting operations of ELK Stack, which we installed in my last article. ELK Stack (Elasticsearch, Logstash, Kibana) facilitates rule writing and alerting operations, data analysis and management.
+
+  What are IoC and IoA ?
+  
+    
+    Link to heading
+  
+
+IoC (Indicators of Compromise) and IoA (Indicators of Attack) are important concepts in the field of cyber security and are used in the detection and analysis of attacks.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +30,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="ELK Stack Rule Writing and Alerting">
-  <meta name="twitter:description" content="Hello, in this article, I will talk about rule writing, that is, warnings indicating security violations, and alerting operations of ELK Stack, which we installed in my last article. ELK Stack (Elasti...">
+  <meta name="twitter:description" content="Hello, in this article, I will talk about rule writing, that is, warnings indicating security violations, and alerting operations of ELK Stack, which we installed in my last article. ELK Stack (Elasticsearch, Logstash, Kibana) facilitates rule writing and alerting operations, data analysis and management.
+What are IoC and IoA ?Link to headingIoC (Indicators of Compromise) and IoA (Indicators of Attack) are important concepts in the field of cyber security and are used in the detection and analysis of attacks.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2024/11/elk-stack-rule-writing-and-alerting/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="ELK Stack Rule Writing and Alerting">
-  <meta property="og:description" content="Hello, in this article, I will talk about rule writing, that is, warnings indicating security violations, and alerting operations of ELK Stack, which we installed in my last article. ELK Stack (Elasti...">
+  <meta property="og:description" content="Hello, in this article, I will talk about rule writing, that is, warnings indicating security violations, and alerting operations of ELK Stack, which we installed in my last article. ELK Stack (Elasticsearch, Logstash, Kibana) facilitates rule writing and alerting operations, data analysis and management.
+What are IoC and IoA ?Link to headingIoC (Indicators of Compromise) and IoA (Indicators of Attack) are important concepts in the field of cyber security and are used in the detection and analysis of attacks.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -383,9 +394,9 @@
 </h3>
 <p>One of the most important elements of the rule set is that each rule is accurately labeled with the MITER ATT&amp;CK tactic and technique it identifies. This tagging puts raw log data into the context of the attack, allowing security teams to more quickly understand the intent behind an incident.</p>
 <p>When creating a rule in Kibana, it is possible to add these tags via custom fields such as <code>mitre.tactic</code> and <code>mitre.technique_id</code>. For example, the JSON output of a rule might look like this:</p>
-<pre tabindex="0"><code>{  
-  &#34;mitre.technique_id&#34;: &#34;T1059&#34;,  
-  &#34;mitre.tactic&#34;: &#34;execution&#34;  
+<pre tabindex="0"><code>{  
+  &#34;mitre.technique_id&#34;: &#34;T1059&#34;,  
+  &#34;mitre.tactic&#34;: &#34;execution&#34;  
 }
 </code></pre><p>These tags act as a bridge for security analysts, allowing them to instantly understand what the attacker is trying to do (tactics) and what method (technique) they are using when they see an alarm. This information speeds up the incident response process and allows for a holistic picture of the defense strategy.</p>
 <h3 id="rule-examples-and-identification-according-to-miter-attck-tactics">

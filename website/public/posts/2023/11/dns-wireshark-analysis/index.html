@@ -13,7 +13,17 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.">
+<meta name="description" content="
+Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.
+
+
+  How Does DNS Work?
+  
+    
+    Link to heading
+  
+
+DNS is used to convert symbolic hostnames, such as www.wiresharktraining.com, into IP addresses. DNS can also be used to transfer name information between DNS servers, determine the hostname associated with an IP address (reverse or pointer query), and look up other name elements such as an MX (mail exchange) record.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +31,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="DNS Wireshark Analysis">
-  <meta name="twitter:description" content="Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.">
+  <meta name="twitter:description" content="Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.
+How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, such as www.wiresharktraining.com, into IP addresses. DNS can also be used to transfer name information between DNS servers, determine the hostname associated with an IP address (reverse or pointer query), and look up other name elements such as an MX (mail exchange) record.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2023/11/dns-wireshark-analysis/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="DNS Wireshark Analysis">
-  <meta property="og:description" content="Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.">
+  <meta property="og:description" content="Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.
+How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, such as www.wiresharktraining.com, into IP addresses. DNS can also be used to transfer name information between DNS servers, determine the hostname associated with an IP address (reverse or pointer query), and look up other name elements such as an MX (mail exchange) record.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -447,7 +459,7 @@
     <span class="sr-only">Link to heading</span>
   </a>
 </h4>
-<p>This field is located in the Response section of DNS responses and indicates how long the recipient can cache DNS information. Each response in DNS will contain a TTL value for that DNS information.<br>
+<p>This field is located in the Response section of DNS responses and indicates how long the recipient can cache DNS information. Each response in DNS will contain a TTL value for that DNS information. 
 DNS servers responding with RR information continuously count down the remaining TTL value; Making the same DNS query ten seconds apart will show a ten second difference in the TTL value presented.</p>
 <hr>
 <h4 id="dnsmdns-traffic-filters">

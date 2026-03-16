@@ -13,7 +13,15 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Siber güvenlik operasyonlarında, kalıcılık (persistence) bir saldırganın sistemde kalıcı bir ayak izi bırakmasını sağlayan en kritik aşamalardan biridir. Bu, saldırının ilk erişim vektöründen (örneğin...">
+<meta name="description" content="
+  SOC Analistleri İçin Kalıcılık Sağlama Kapsamlı XDR Analiz Kılavuzu
+  
+    
+    Başlık Linki
+  
+
+
+Siber güvenlik operasyonlarında, kalıcılık (persistence) bir saldırganın sistemde kalıcı bir ayak izi bırakmasını sağlayan en kritik aşamalardan biridir. Bu, saldırının ilk erişim vektöründen (örneğin, bir oltalama e-postası veya bir açık istismarı) sonraki uzun vadeli hedeflerine ulaşmasını mümkün kılar. Geleneksel antivirüs (AV) çözümlerinin veya sistemin yeniden başlatılmasının ötesinde, saldırganların sisteme sürekli erişimini garanti altına alır. Kalıcılık, tehdit aktörlerine bir dizi avantaj sağlar: Komuta ve Kontrol (C2) sunucularıyla iletişim kurmak için bir arka kapı oluşturma, geleneksel güvenlik kontrollerini atlatma ve ağ içinde ayrıcalık yükseltme ve yatay hareketliliği kolaylaştırma imkanı. Bu aşama, bir siber saldırının kısa süreli bir olaydan uzun soluklu bir sızma operasyonuna dönüşmesinde belirleyici rol oynar.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +29,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="SOC Analistleri İçin Kalıcılık Sağlama Kapsamlı XDR Analiz Kılavuzu">
-  <meta name="twitter:description" content="Siber güvenlik operasyonlarında, kalıcılık (persistence) bir saldırganın sistemde kalıcı bir ayak izi bırakmasını sağlayan en kritik aşamalardan biridir. Bu, saldırının ilk erişim vektöründen (örneğin...">
+  <meta name="twitter:description" content="SOC Analistleri İçin Kalıcılık Sağlama Kapsamlı XDR Analiz KılavuzuBaşlık LinkiSiber güvenlik operasyonlarında, kalıcılık (persistence) bir saldırganın sistemde kalıcı bir ayak izi bırakmasını sağlayan en kritik aşamalardan biridir. Bu, saldırının ilk erişim vektöründen (örneğin, bir oltalama e-postası veya bir açık istismarı) sonraki uzun vadeli hedeflerine ulaşmasını mümkün kılar. Geleneksel antivirüs (AV) çözümlerinin veya sistemin yeniden başlatılmasının ötesinde, saldırganların sisteme sürekli erişimini garanti altına alır. Kalıcılık, tehdit aktörlerine bir dizi avantaj sağlar: Komuta ve Kontrol (C2) sunucularıyla iletişim kurmak için bir arka kapı oluşturma, geleneksel güvenlik kontrollerini atlatma ve ağ içinde ayrıcalık yükseltme ve yatay hareketliliği kolaylaştırma imkanı. Bu aşama, bir siber saldırının kısa süreli bir olaydan uzun soluklu bir sızma operasyonuna dönüşmesinde belirleyici rol oynar.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2025/08/soc-analistleri-i%C3%A7in-kal%C4%B1c%C4%B1l%C4%B1k-sa%C4%9Flama-kapsaml%C4%B1-xdr-analiz-k%C4%B1lavuzu/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="SOC Analistleri İçin Kalıcılık Sağlama Kapsamlı XDR Analiz Kılavuzu">
-  <meta property="og:description" content="Siber güvenlik operasyonlarında, kalıcılık (persistence) bir saldırganın sistemde kalıcı bir ayak izi bırakmasını sağlayan en kritik aşamalardan biridir. Bu, saldırının ilk erişim vektöründen (örneğin...">
+  <meta property="og:description" content="SOC Analistleri İçin Kalıcılık Sağlama Kapsamlı XDR Analiz KılavuzuBaşlık LinkiSiber güvenlik operasyonlarında, kalıcılık (persistence) bir saldırganın sistemde kalıcı bir ayak izi bırakmasını sağlayan en kritik aşamalardan biridir. Bu, saldırının ilk erişim vektöründen (örneğin, bir oltalama e-postası veya bir açık istismarı) sonraki uzun vadeli hedeflerine ulaşmasını mümkün kılar. Geleneksel antivirüs (AV) çözümlerinin veya sistemin yeniden başlatılmasının ötesinde, saldırganların sisteme sürekli erişimini garanti altına alır. Kalıcılık, tehdit aktörlerine bir dizi avantaj sağlar: Komuta ve Kontrol (C2) sunucularıyla iletişim kurmak için bir arka kapı oluşturma, geleneksel güvenlik kontrollerini atlatma ve ağ içinde ayrıcalık yükseltme ve yatay hareketliliği kolaylaştırma imkanı. Bu aşama, bir siber saldırının kısa süreli bir olaydan uzun soluklu bir sızma operasyonuna dönüşmesinde belirleyici rol oynar.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">

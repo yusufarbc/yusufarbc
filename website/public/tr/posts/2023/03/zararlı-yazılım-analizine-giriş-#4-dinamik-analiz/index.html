@@ -13,7 +13,24 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Bir önceki yazımda statik analiz yöntemlerinden bahsetmiştim. Bu yazımda ise Zararlı Yazılım Analizinde, dinamik analiz yöntemlerinden bahsedeceğim. Ne tür dinamik analiz teknikleri var? hangi araçlar...">
+<meta name="description" content="
+  Zararlı Yazılım Analizine Giriş: #4 Dinamik Analiz
+  
+    
+    Başlık Linki
+  
+
+
+Bir önceki yazımda statik analiz yöntemlerinden bahsetmiştim. Bu yazımda ise Zararlı Yazılım Analizinde, dinamik analiz yöntemlerinden bahsedeceğim. Ne tür dinamik analiz teknikleri var? hangi araçlar kullaılıyor? nasıl analiz yapılıyor? hepsi bu yazıda!
+
+
+  Dinamik Analiz Yöntemleri
+  
+    
+    Başlık Linki
+  
+
+Çeşitli araçların yardımıyla bir zararlı yazılım örneğini yürütmeyi ve yalnızca davranışı kaydetmeyi değil, aynı zamanda yürütülen zararlı yazılım tarafından üretilen çeşitli yapıtları da gözlemlemeyi içerir.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +38,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Zararlı Yazılım Analizine Giriş: #4 Dinamik Analiz">
-  <meta name="twitter:description" content="Bir önceki yazımda statik analiz yöntemlerinden bahsetmiştim. Bu yazımda ise Zararlı Yazılım Analizinde, dinamik analiz yöntemlerinden bahsedeceğim. Ne tür dinamik analiz teknikleri var? hangi araçlar...">
+  <meta name="twitter:description" content="Zararlı Yazılım Analizine Giriş: #4 Dinamik AnalizBaşlık LinkiBir önceki yazımda statik analiz yöntemlerinden bahsetmiştim. Bu yazımda ise Zararlı Yazılım Analizinde, dinamik analiz yöntemlerinden bahsedeceğim. Ne tür dinamik analiz teknikleri var? hangi araçlar kullaılıyor? nasıl analiz yapılıyor? hepsi bu yazıda!
+Dinamik Analiz YöntemleriBaşlık LinkiÇeşitli araçların yardımıyla bir zararlı yazılım örneğini yürütmeyi ve yalnızca davranışı kaydetmeyi değil, aynı zamanda yürütülen zararlı yazılım tarafından üretilen çeşitli yapıtları da gözlemlemeyi içerir.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%234-dinamik-analiz/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Zararlı Yazılım Analizine Giriş: #4 Dinamik Analiz">
-  <meta property="og:description" content="Bir önceki yazımda statik analiz yöntemlerinden bahsetmiştim. Bu yazımda ise Zararlı Yazılım Analizinde, dinamik analiz yöntemlerinden bahsedeceğim. Ne tür dinamik analiz teknikleri var? hangi araçlar...">
+  <meta property="og:description" content="Zararlı Yazılım Analizine Giriş: #4 Dinamik AnalizBaşlık LinkiBir önceki yazımda statik analiz yöntemlerinden bahsetmiştim. Bu yazımda ise Zararlı Yazılım Analizinde, dinamik analiz yöntemlerinden bahsedeceğim. Ne tür dinamik analiz teknikleri var? hangi araçlar kullaılıyor? nasıl analiz yapılıyor? hepsi bu yazıda!
+Dinamik Analiz YöntemleriBaşlık LinkiÇeşitli araçların yardımıyla bir zararlı yazılım örneğini yürütmeyi ve yalnızca davranışı kaydetmeyi değil, aynı zamanda yürütülen zararlı yazılım tarafından üretilen çeşitli yapıtları da gözlemlemeyi içerir.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -252,21 +271,21 @@
 <p><a href="https://github.com/poona/APIMiner"  class="external-link" target="_blank" rel="noopener">APIminer</a> aracı bize bir log dosyası yaratır. Log dosyaları, zaman sırasına göre düzenlenir. Gördüğünüz ilk dosya oluşturulan ilk dosya olur. Oluşturulan log dosyasını alttaki şekilde görebilirsiniz.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*tB_oxh5iHu7jN3Ni5dgR1Q.png" alt=""></p>
 <p>Peki bu bilgilerden ne gibi çıkarımlar yapacağız.</p>
-<p>CreateProcessInternalW([command_line]”svchost.exe”,<br>
- [process_identifier]4080,<br>
- [thread_identifier]3248,<br>
- [creation_flags]4<br>
- [process_handle]0x00002A7C,<br>
- [thread_handle]0x00002A78)<br>
-NtReadVirtualMemory([process_handle]0x00002A7C)<br>
-NtMapViewOfSection([process_handle]0x00002A7C)<br>
-NtReadVirtualMemory([process_handle]0x00002A7C)<br>
-NtUnmapViewOfSection([process_handle]0x00002A7C)<br>
-NtResumeThread([thread_handle]0x00002A78,<br>
+<p>CreateProcessInternalW([command_line]”svchost.exe”, 
+ [process_identifier]4080, 
+ [thread_identifier]3248, 
+ [creation_flags]4 
+ [process_handle]0x00002A7C, 
+ [thread_handle]0x00002A78) 
+NtReadVirtualMemory([process_handle]0x00002A7C) 
+NtMapViewOfSection([process_handle]0x00002A7C) 
+NtReadVirtualMemory([process_handle]0x00002A7C) 
+NtUnmapViewOfSection([process_handle]0x00002A7C) 
+NtResumeThread([thread_handle]0x00002A78, 
  [process_identifier]4080)</p>
 <p>Bu kısmı ele alalım ve madde madde gidelim.</p>
 <ul>
-<li>CreateProcessInternalW API’sini kullanan örnek, bir sistem olan svchost.exe programı için yeni bir işlem oluşturur.<br>
+<li>CreateProcessInternalW API’sini kullanan örnek, bir sistem olan svchost.exe programı için yeni bir işlem oluşturur. 
 C:\Windows\System32\svchost.exe konumunda bulunan işlem</li>
 <li>Oluşturulan işlem, [creation_flags]4 kullanılarak 4 bağımsız değişken değeri kullanılarak tanımlanan ASKIYA ALINMIŞ durumda. 4 değerinin ASKIYA ALINDI anlamına geldiğini nasıl bilebiliriz? CreateProcess API için MSDN’deki API açıklamasına bakın ve CREATE_SUSPENDED bayrağını kontrol edin.</li>
 <li>Bu yeni oluşturulan işlemin tanıtıcısı ve iş parçacığı 0x00002A7C ve 0x00002A78&rsquo;dir.</li>
@@ -283,7 +302,7 @@ C:\Windows\System32\svchost.exe konumunda bulunan işlem</li>
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p>API loglarından zararlı yazılım olduğu sonucuna vardık, ancak zararlı yazılımın ailesini anlayabilir miyiz? Aynı aileye ait her zararlı yazılımın o aileye özgü özellikleri veya yapıları vardır. Özellikleri API logları aracılığıyla araştırılabilir. Örnek için, oluşturulan üç API log dosyası vardır. İlk log dosyasını alın ve bir muteks oluşturan CreateMutant API’sini arayın. <br>
+<p>API loglarından zararlı yazılım olduğu sonucuna vardık, ancak zararlı yazılımın ailesini anlayabilir miyiz? Aynı aileye ait her zararlı yazılımın o aileye özgü özellikleri veya yapıları vardır. Özellikleri API logları aracılığıyla araştırılabilir. Örnek için, oluşturulan üç API log dosyası vardır. İlk log dosyasını alın ve bir muteks oluşturan CreateMutant API’sini arayın.  
 Zararlı yazılımlar tarafından yaygın olarak kullanılan bir senkronizasyon yöntemidir. Zararlı yazılımımız, API çağrısı aracılığıyla görebileceğiniz gibi, 2GVWNQJz1 adlı bir muteks oluşturur.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*gd1heUrxhjyJuqn7_SnqYg.png" alt=""></p>
 <p>Örneğimiz tarafından oluşturulan Mutex, kuluoz ailesine ait olduğunu ve bir botnet virüsü olduğunu ortaya koyuyor</p>

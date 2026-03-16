@@ -13,7 +13,24 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Merhaba, kriptoloji temelleri seririsinin bu yazısında kiptografinin ne olduğundan, şifreleme tekniklerinden ve kriptografik protokollerden bahsedeceğim.">
+<meta name="description" content="
+  Kriptoloji Temelleri:#2 Kriptografi
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba, kriptoloji temelleri seririsinin bu yazısında kiptografinin ne olduğundan, şifreleme tekniklerinden ve kriptografik protokollerden bahsedeceğim.
+
+
+  Kriptografiye Genel Bakış
+  
+    
+    Başlık Linki
+  
+
+Kriptografi, bir mesajın anlamını gizlemek amacıyla gizli yazma bilimidir. Kriptografi bir matematiksel yöntemler bütünüdür ve önemli bilgilerin güvenliği için gerekli gizlilik, aslıyla aynılık, kimlik denetimi, ve asılsız reddi önleme gibi şartları sağlamak amaçlıdır. Bu yöntemler, bir bilginin iletimi esnasında ve saklanma süresinde karşılaşılabilecek aktif saldırı ya da pasif algılamalardan bilgiyi — dolayısıyla bilginin göndericisi, alıcısı, taşıyıcısı, konu edindiği kişiler ve başka her türlü taraf olabilecek kişilerin çıkarlarını da — koruma amacı güder.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +38,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Kriptoloji Temelleri: Kriptografi">
-  <meta name="twitter:description" content="Merhaba, kriptoloji temelleri seririsinin bu yazısında kiptografinin ne olduğundan, şifreleme tekniklerinden ve kriptografik protokollerden bahsedeceğim.">
+  <meta name="twitter:description" content="Kriptoloji Temelleri:#2 KriptografiBaşlık LinkiMerhaba, kriptoloji temelleri seririsinin bu yazısında kiptografinin ne olduğundan, şifreleme tekniklerinden ve kriptografik protokollerden bahsedeceğim.
+Kriptografiye Genel BakışBaşlık LinkiKriptografi, bir mesajın anlamını gizlemek amacıyla gizli yazma bilimidir. Kriptografi bir matematiksel yöntemler bütünüdür ve önemli bilgilerin güvenliği için gerekli gizlilik, aslıyla aynılık, kimlik denetimi, ve asılsız reddi önleme gibi şartları sağlamak amaçlıdır. Bu yöntemler, bir bilginin iletimi esnasında ve saklanma süresinde karşılaşılabilecek aktif saldırı ya da pasif algılamalardan bilgiyi — dolayısıyla bilginin göndericisi, alıcısı, taşıyıcısı, konu edindiği kişiler ve başka her türlü taraf olabilecek kişilerin çıkarlarını da — koruma amacı güder.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2023/03/kriptoloji-temelleri-kriptografi/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Kriptoloji Temelleri: Kriptografi">
-  <meta property="og:description" content="Merhaba, kriptoloji temelleri seririsinin bu yazısında kiptografinin ne olduğundan, şifreleme tekniklerinden ve kriptografik protokollerden bahsedeceğim.">
+  <meta property="og:description" content="Kriptoloji Temelleri:#2 KriptografiBaşlık LinkiMerhaba, kriptoloji temelleri seririsinin bu yazısında kiptografinin ne olduğundan, şifreleme tekniklerinden ve kriptografik protokollerden bahsedeceğim.
+Kriptografiye Genel BakışBaşlık LinkiKriptografi, bir mesajın anlamını gizlemek amacıyla gizli yazma bilimidir. Kriptografi bir matematiksel yöntemler bütünüdür ve önemli bilgilerin güvenliği için gerekli gizlilik, aslıyla aynılık, kimlik denetimi, ve asılsız reddi önleme gibi şartları sağlamak amaçlıdır. Bu yöntemler, bir bilginin iletimi esnasında ve saklanma süresinde karşılaşılabilecek aktif saldırı ya da pasif algılamalardan bilgiyi — dolayısıyla bilginin göndericisi, alıcısı, taşıyıcısı, konu edindiği kişiler ve başka her türlü taraf olabilecek kişilerin çıkarlarını da — koruma amacı güder.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -352,7 +371,7 @@
 </h4>
 <p>RSA, çok büyük tam sayıları çarpanlara ayırmanın algoritmik zorluğu göz önüne alınarak geliştirilen bir şifreleme tekniğidir. RSA ‘in kullanıldığı birçok uygulama vardır, ancak pratikte en çok dijital imzalar, dijital sertifikalar ve küçük veri parçalarının şifrelenmesi için kullanılır. Ayrıca, RSA günümüzde en yaygın kullanılan asimetrik şifreleme şemasıdır.</p>
 <p>RSA şifrelemesinin, AES gibi simetrik şifrelerden birkaç kat daha yavaş olduğu için simetrik şifrelerin yerini alması amaçlanmadığına dikkat edilmelidir. Bunun nedeni, RSA’nın (veya herhangi bir diğer açık anahtar algoritmasının) gerçekleştirilmesine dahil olan birçok hesaplamadır. Bu nedenle, şifreleme özelliğinin ana kullanımı, bir anahtarı simetrik bir şifreyle (anahtar aktarımı) güvenli bir şekilde değiştirmektir. Uygulamada, RSA genellikle simetrik şifrenin gerçek toplu veri şifrelemesini yaptığı AES gibi simetrik bir şifre ile birlikte kullanılır.</p>
-<p>RSA’nın temeldeki tek yönlü işlevi tamsayı çarpanlara ayırma problemidir:<br>
+<p>RSA’nın temeldeki tek yönlü işlevi tamsayı çarpanlara ayırma problemidir: 
  İki büyük asal sayıyı çarpmak hesaplama açısından kolaydır (aslında bunu kağıt ve kalemle yapabilirsiniz), ancak elde edilen ürünü çarpanlara ayırmak çok zordur. Euler teoremi ve Euler phi işlevi RSA’da önemli roller oynar. Şimdi, RSA ile şifreleme, şifre çözme ve anahtar oluşturmanın nasıl çalıştığına bakalım.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*pVs1sy3vN5kCBdeb.png" alt=""></p>
 <p>RSA şifreleme algoritması</p>
@@ -360,13 +379,13 @@
 <p>RSA şifreleme ve şifre çözme işlemlerinde modüler hesaplamalar önemli bir rol oynar. Pratikte x, y, n ve d çok uzun sayılardır (genellikle 1024 bit).</p>
 <p>Tüm asimetrik şemaların ayırt edici bir özelliği, genel ve özel anahtarın hesaplandığı bir kurulum aşamasının olmasıdır. Açık anahtar şemasına bağlı olarak, anahtar oluşturma oldukça karmaşık olabilir. Bir RSA şifreleme sistemi için genel ve özel anahtarın hesaplanmasıyla ilgili adımları sıra sıra ele alarak görelim:</p>
 <ol>
-<li>N = p.q<br>
+<li>N = p.q 
  N ile ifade edeceğimiz çok büyük tamsayıyı oluşturacak olan iki faklı ve büyük asal sayı belirlenir. Bu sayılar p ve q olarak isimlendirilir.</li>
-<li>φ(N) = (p-1)(q-1)<br>
+<li>φ(N) = (p-1)(q-1) 
  N sayısının totient değeri hesaplanır. Totient, sayılar teorisinde bir tam sayının o sayıdan daha küçük ve o sayı ile aralarında asal olan sayı adedini belirten fonksiyondur.</li>
-<li>1 &lt; e &lt; φ(N) ve EBOB(e, φ(N)) = 1<br>
+<li>1 &lt; e &lt; φ(N) ve EBOB(e, φ(N)) = 1 
  Yukarıdaki matematiksel ifadeden de anlaşıldığı üzere 1 ile Totient değeri arasında olan ve Totient değeri ile aralarında asal olan bir tam sayı seçilir ve e olarak isimlendirilir. Burada seçilecek olan e sayısının küçük seçilmesi mod ve üs alma gibi işlemleri yaparken performanstan kazandırıyor olsa da bazı durumlarda güvenliği azaltmaktadır.</li>
-<li>d.e ≡ 1 (mod φ(N)<br>
+<li>d.e ≡ 1 (mod φ(N) 
  Denkliğini sağlayan ve gizli anahtarı oluşturmada kullanılacak olan d sayısı bulunur. Burada yapılacak olan işlem e sayısının mod φ(N)’de tersinin bulunmasıdır.</li>
 </ol>
 <p>Açık ve gizli anahtar oluşturmak için gerekli olan tüm değerleri elde ettik. Gizli anahtarı oluşturan d sayısının hesaplanmasında kullanılan (p,q, φ(N)) sayılarının gizli kalması şartı ile (N,e) çifti açık anahtarı; (N,d) çifti ise gizli anahtarı oluşturmaktadır.</p>
@@ -390,7 +409,7 @@
 <p>Dijital imza, elektronik ortamda kimlik doğrulama amacıyla kullanılan yasal bir kimlik doğrulama yöntemidir. Kabaca elektronik ortamda atılan imza olarak tanımlanabilir. Geleneksel el yazısı imzalarda olduğu gibi, yalnızca dijital mesajı oluşturan kişi geçerli bir imza üretebilmelidir. Bunu kriptografik primi-262 10 Dijital İmzalar ile başarmak için açık anahtarlı kriptografi uygulamamız gerekiyor. Temel fikir, mesajı imzalayan kişinin özel bir anahtar kullanması ve alıcı tarafın eşleşen açık anahtarı kullanmasıdır. Dijital imza şemasının prensibi şekilde gösterilmektedir.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*Q9yF6vAzC-qdlXni.png" alt=""></p>
 <p>Dijital İmza</p>
-<p>Dijital imzaların temel özelliği şu şekildedir: Geçerli bir imza yalnızca imzalayanın özel anahtarıyla hesaplanabileceğinden, imzalı bir ileti, açık bir şekilde kaynağına kadar izlenebilir. Sadece imzalayan, kendi adına imza oluşturma yetkisine sahiptir. Bu nedenle, imzalayan tarafın mesajı gerçekten oluşturduğunu kanıtlayabiliriz.<br>
+<p>Dijital imzaların temel özelliği şu şekildedir: Geçerli bir imza yalnızca imzalayanın özel anahtarıyla hesaplanabileceğinden, imzalı bir ileti, açık bir şekilde kaynağına kadar izlenebilir. Sadece imzalayan, kendi adına imza oluşturma yetkisine sahiptir. Bu nedenle, imzalayan tarafın mesajı gerçekten oluşturduğunu kanıtlayabiliriz. 
  Üç popüler ortak anahtar algoritma ailesinin her biri, yani tamsayı çarpanlarına ayırma, ayrık logaritmalar ve eliptik eğriler, dijital imzalar oluşturmamıza izin verir.</p>
 <h3 id="özet-fonksiyonları">
   Özet Fonksiyonları

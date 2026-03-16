@@ -13,7 +13,18 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Docker, sanallaştırılmış ortamlarda uygulamalar geliştirmek, dağıtmak ve yönetmek için kullanılan açık kaynak kodlu bir kapsayıcı platformudur. İşletim sisteminin kaynaklarını yönettiği uygulamalara d...">
+<meta name="description" content="
+
+  Docker Nedir?
+  
+    
+    Başlık Linki
+  
+
+Docker, sanallaştırılmış ortamlarda uygulamalar geliştirmek, dağıtmak ve yönetmek için kullanılan açık kaynak kodlu bir kapsayıcı platformudur. İşletim sisteminin kaynaklarını yönettiği uygulamalara dağıtan bir teknolojidir. Docker, sanal makinelerden daha hafif ve daha hızlıdır.
+
+docker vs virtual machines
+Docker kapsayıcıları(containers), çalışan uygulamalar için hafif sanallaştırılmış çalışma ortamları sağlar. Uygulamaları izole ortamlarda paketlemek; uygulamaları geliştirmeyi, dağıtmayı ve bakımını kolaylaştırır. Konteynırlar, ana bilgisayardan ve ana bilgisayar üzerinde çalışan diğer uygulamalardan bağımsız ve izoledir.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +32,16 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Docker Temelleri">
-  <meta name="twitter:description" content="Docker, sanallaştırılmış ortamlarda uygulamalar geliştirmek, dağıtmak ve yönetmek için kullanılan açık kaynak kodlu bir kapsayıcı platformudur. İşletim sisteminin kaynaklarını yönettiği uygulamalara d...">
+  <meta name="twitter:description" content="Docker Nedir?Başlık LinkiDocker, sanallaştırılmış ortamlarda uygulamalar geliştirmek, dağıtmak ve yönetmek için kullanılan açık kaynak kodlu bir kapsayıcı platformudur. İşletim sisteminin kaynaklarını yönettiği uygulamalara dağıtan bir teknolojidir. Docker, sanal makinelerden daha hafif ve daha hızlıdır.
+docker vs virtual machines
+Docker kapsayıcıları(containers), çalışan uygulamalar için hafif sanallaştırılmış çalışma ortamları sağlar. Uygulamaları izole ortamlarda paketlemek; uygulamaları geliştirmeyi, dağıtmayı ve bakımını kolaylaştırır. Konteynırlar, ana bilgisayardan ve ana bilgisayar üzerinde çalışan diğer uygulamalardan bağımsız ve izoledir.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2023/01/docker-temelleri/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Docker Temelleri">
-  <meta property="og:description" content="Docker, sanallaştırılmış ortamlarda uygulamalar geliştirmek, dağıtmak ve yönetmek için kullanılan açık kaynak kodlu bir kapsayıcı platformudur. İşletim sisteminin kaynaklarını yönettiği uygulamalara d...">
+  <meta property="og:description" content="Docker Nedir?Başlık LinkiDocker, sanallaştırılmış ortamlarda uygulamalar geliştirmek, dağıtmak ve yönetmek için kullanılan açık kaynak kodlu bir kapsayıcı platformudur. İşletim sisteminin kaynaklarını yönettiği uygulamalara dağıtan bir teknolojidir. Docker, sanal makinelerden daha hafif ve daha hızlıdır.
+docker vs virtual machines
+Docker kapsayıcıları(containers), çalışan uygulamalar için hafif sanallaştırılmış çalışma ortamları sağlar. Uygulamaları izole ortamlarda paketlemek; uygulamaları geliştirmeyi, dağıtmayı ve bakımını kolaylaştırır. Konteynırlar, ana bilgisayardan ve ana bilgisayar üzerinde çalışan diğer uygulamalardan bağımsız ve izoledir.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -473,30 +488,30 @@
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<pre tabindex="0"><code># syntax=docker/dockerfile:1  
-FROM golang:1.16-alpine AS build  
-  
-# Install tools required for project  
-# Run `docker build --no-cache .` to update dependencies  
-RUN apk add --no-cache git  
-RUN go get github.com/golang/dep/cmd/dep  
-  
-# List project dependencies with Gopkg.toml and Gopkg.lock  
-# These layers are only re-built when Gopkg files are updated  
-COPY Gopkg.lock Gopkg.toml /go/src/project/  
-WORKDIR /go/src/project/  
-# Install library dependencies  
-RUN dep ensure -vendor-only  
-  
-# Copy the entire project and build it  
-# This layer is rebuilt when a file changes in the project directory  
-COPY . /go/src/project/  
-RUN go build -o /bin/project  
-  
-# This results in a single layer image  
-FROM scratch  
-COPY --from=build /bin/project /bin/project  
-ENTRYPOINT [&#34;/bin/project&#34;]  
+<pre tabindex="0"><code># syntax=docker/dockerfile:1  
+FROM golang:1.16-alpine AS build  
+  
+# Install tools required for project  
+# Run `docker build --no-cache .` to update dependencies  
+RUN apk add --no-cache git  
+RUN go get github.com/golang/dep/cmd/dep  
+  
+# List project dependencies with Gopkg.toml and Gopkg.lock  
+# These layers are only re-built when Gopkg files are updated  
+COPY Gopkg.lock Gopkg.toml /go/src/project/  
+WORKDIR /go/src/project/  
+# Install library dependencies  
+RUN dep ensure -vendor-only  
+  
+# Copy the entire project and build it  
+# This layer is rebuilt when a file changes in the project directory  
+COPY . /go/src/project/  
+RUN go build -o /bin/project  
+  
+# This results in a single layer image  
+FROM scratch  
+COPY --from=build /bin/project /bin/project  
+ENTRYPOINT [&#34;/bin/project&#34;]  
 CMD [&#34;--help&#34;]
 </code></pre>
       </div>

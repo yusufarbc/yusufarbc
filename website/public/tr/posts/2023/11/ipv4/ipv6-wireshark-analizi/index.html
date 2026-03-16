@@ -13,7 +13,18 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
+<meta name="description" content="
+Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+
+
+  IP Nedir?
+  
+    
+    Başlık Linki
+  
+
+IP (v4/v6 — topluca “IP” olarak anılır), ağa bağlı sistemler için teslim hizmetlerinin yanı sıra düşük MTU (Maximum Transmission Unit) ağları için parçalama ve yeniden birleştirme sağlar. IP ayrıca belirli trafiğin diğer trafiğe göre önceliklendirilmesini sağlamak için hizmet kalitesi belirleme özelliği de sunar.
+IP bağlantısız ve güvenilmezdir, IP ana bilgisayarları arasında datagramların en iyi şekilde teslim edilmesini sağlar. IP’nin kendisi, bir paketin hedef konuma ulaşıp ulaşmadığını belirlemenin hiçbir yolunu sunmaz. Garantili teslimata ihtiyaç duyan bir uygulama IP üzerinden TCP (TCP over IP) kullanmalıdır.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +32,16 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="IPv4/IPv6 Wireshark Analizi">
-  <meta name="twitter:description" content="Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
+  <meta name="twitter:description" content="Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+IP Nedir?Başlık LinkiIP (v4/v6 — topluca “IP” olarak anılır), ağa bağlı sistemler için teslim hizmetlerinin yanı sıra düşük MTU (Maximum Transmission Unit) ağları için parçalama ve yeniden birleştirme sağlar. IP ayrıca belirli trafiğin diğer trafiğe göre önceliklendirilmesini sağlamak için hizmet kalitesi belirleme özelliği de sunar.
+IP bağlantısız ve güvenilmezdir, IP ana bilgisayarları arasında datagramların en iyi şekilde teslim edilmesini sağlar. IP’nin kendisi, bir paketin hedef konuma ulaşıp ulaşmadığını belirlemenin hiçbir yolunu sunmaz. Garantili teslimata ihtiyaç duyan bir uygulama IP üzerinden TCP (TCP over IP) kullanmalıdır.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2023/11/ipv4/ipv6-wireshark-analizi/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="IPv4/IPv6 Wireshark Analizi">
-  <meta property="og:description" content="Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
+  <meta property="og:description" content="Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+IP Nedir?Başlık LinkiIP (v4/v6 — topluca “IP” olarak anılır), ağa bağlı sistemler için teslim hizmetlerinin yanı sıra düşük MTU (Maximum Transmission Unit) ağları için parçalama ve yeniden birleştirme sağlar. IP ayrıca belirli trafiğin diğer trafiğe göre önceliklendirilmesini sağlamak için hizmet kalitesi belirleme özelliği de sunar.
+IP bağlantısız ve güvenilmezdir, IP ana bilgisayarları arasında datagramların en iyi şekilde teslim edilmesini sağlar. IP’nin kendisi, bir paketin hedef konuma ulaşıp ulaşmadığını belirlemenin hiçbir yolunu sunmaz. Garantili teslimata ihtiyaç duyan bir uygulama IP üzerinden TCP (TCP over IP) kullanmalıdır.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -230,7 +245,7 @@
 <p><img src="https://cdn-images-1.medium.com/max/800/1*Gmy9Pgg9xp9UlBITMfwglg.png" alt=""></p>
 <p>IP, bir bağlantının MTU’su datagram boyutunu desteklemediğinde paketleri parçalayabilir</p>
 <p>Şekilde, İstemci A’dan Sunucu A’ya giden 1500 baytlık bir MTU paketi yol boyunca gidemez. Sınırlama Yönlendirici B ve Yönlendirici C arasındaki bağlantıdadır. Yönlendirici B paketi parçalara ayırmalı (izin veriliyorsa) ve parçaları iletmeli veya ICMP Tip 3, Kod 4 mesajını İstemci A’ya geri göndermelidir.</p>
-<p>Parçalanma, veri akışının verimliliğini azalttığı için bir ağda arzu edilen bir durum değildir. Bununla birlikte, kaçınılmaz olabilir. Olası MTU sorunlarını wirehsarkda belirlemek için;<br>
+<p>Parçalanma, veri akışının verimliliğini azalttığı için bir ağda arzu edilen bir durum değildir. Bununla birlikte, kaçınılmaz olabilir. Olası MTU sorunlarını wirehsarkda belirlemek için; 
 İstatistikler | Paket Uzunluklarını inceleyin veya ICMP Tip 3/Kod 4 paketleri için bir filtre uygulayın (icmp.type==3 &amp;&amp; icmp.code==4).</p>
 <p>IPv4 sorunları genellikle parçalanma, olağandışı IP adresleri ve aşırı yayınlarla ilgilidir. Birkaç örnek aşağıda verilmiştir.</p>
 <ul>
@@ -269,13 +284,13 @@
 <p>Multicast yayınlar ff02 ile başlar</p>
 <p>RFC 4291, IPv6 adresleri için aşağıdaki örneği sağlar:</p>
 <ul>
-<li>Address 2001:0DB8:0:0:8:800:200C:417A (bir unicast adres)<br>
+<li>Address 2001:0DB8:0:0:8:800:200C:417A (bir unicast adres) 
 Shortened Version 2001:DB8::8:800:200C:417A</li>
-<li>Address FF01:0:0:0:0:0:0:101 (bir multicast adres)<br>
+<li>Address FF01:0:0:0:0:0:0:101 (bir multicast adres) 
 Shortened Version FF01::101</li>
-<li>Address 0:0:0:0:0:0:0:1 (bir loopback adres)<br>
+<li>Address 0:0:0:0:0:0:0:1 (bir loopback adres) 
 Shortened Version ::1</li>
-<li>Address 0:0:0:0:0:0:0:0 (unspecified adres)<br>
+<li>Address 0:0:0:0:0:0:0:0 (unspecified adres) 
 Shortened Version ::</li>
 </ul>
 <p>:: bir adreste yalnızca bir kez kullanılabilir ve 16 bitlik sıfırlardan oluşan bir veya daha fazla grubu temsil eder. :: bir adresteki baştaki veya sondaki sıfırları temsil etmek için de kullanılabilir. Wireshark, yukarıdaki şekilde gösterildiği gibi IPv6 adreslerinin kısaltılmış sürümünü kullanır.</p>
@@ -393,7 +408,7 @@ Shortened Version ::</li>
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>Bu alan IP başlığının ve geçerli verilerin uzunluğunu tanımlar (buna herhangi bir veri bağlantısı dolgusu dahil değildir).<br>
+<p>Bu alan IP başlığının ve geçerli verilerin uzunluğunu tanımlar (buna herhangi bir veri bağlantısı dolgusu dahil değildir). 
 Şekilde gösterilen örnekte, toplam uzunluk alanı değeri 1500 bayttır. Bunun ilk 20 baytı IP başlığıdır — bu, kalan paket uzunluğunun (herhangi bir veri bağlantısı dolgusu dahil değil) 1480 bayt olduğunu gösterir.</p>
 <h4 id="identification-field">
   Identification Field
@@ -630,7 +645,7 @@ Shortened Version ::</li>
   </a>
 </h3>
 <p>IPv6 için yakalama filtresi basitçe ip6&rsquo;dır. Tek bir hosttan gelen trafiği yakalamak için host[IPv6 adresi] kullanın — örneğin, ana bilgisayar fe80::708d:fe83:4114:a512.</p>
-<p>Belirli bir IPv6 alt ağından gelen trafik için bir yakalama filtresi uygulamak için aşağıdaki sözdizimini kullanın:<br>
+<p>Belirli bir IPv6 alt ağından gelen trafik için bir yakalama filtresi uygulamak için aşağıdaki sözdizimini kullanın: 
 ip6 net [network]::/[net bits],</p>
 <p>Örneğin, <em>ip6 net fe00::/8</em>, 0xfe ile başlayan adreslere giden veya gelen tüm IPv6 paketlerini yakalar. Tüm IPv6 trafiği için display filter ipv6&rsquo;dır. Aşağıdaki tabloda çok sayıda diğer IPv6 görüntüleme filtresi gösterilmektedir.</p>
 <ul>

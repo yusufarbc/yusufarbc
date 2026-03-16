@@ -13,7 +13,16 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Windows’ta kalıcılık sağlama (persistence) yöntemleri, bir sistemin yeniden başlatılması veya kullanıcı oturumunun kapatılması durumunda bile zararlı yazılımların veya yetkisiz erişimlerin devam etmes...">
+<meta name="description" content="
+Windows’ta kalıcılık sağlama (persistence) yöntemleri, bir sistemin yeniden başlatılması veya kullanıcı oturumunun kapatılması durumunda bile zararlı yazılımların veya yetkisiz erişimlerin devam etmesini sağlamak için kullanılır.
+
+  1- Kullanıcı Manipülasyonu (Users)
+  
+    
+    Başlık Linki
+  
+
+Saldırganlar tarafından kalıcılığı sürdürmek için yaygın olarak kullanılan bir yöntem de kullanıcı yaratmaktır. Aslında bunun yapılmasının tek nedeni kalıcılığı sağlamak değildir. Saldırgan(lar)ın “Administrator” hesabının kontrolünü ele geçirdiklerinde yeni kullanıcılar oluşturduklarını gözlemliyoruz. Çünkü bu önemli bir kullanıcıdır ve faaliyetleri düzenli olarak takip edilebilir. Bu nedenle, çok dikkat çekmeyecek yeni bir kullanıcı yaratıyorlar ve mümkünse bu kullanıcının ayrıcalıklarını artırıyorlar.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +30,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Windows Kalıcılık Sağlama(Persistence) Metotları">
-  <meta name="twitter:description" content="Windows’ta kalıcılık sağlama (persistence) yöntemleri, bir sistemin yeniden başlatılması veya kullanıcı oturumunun kapatılması durumunda bile zararlı yazılımların veya yetkisiz erişimlerin devam etmes...">
+  <meta name="twitter:description" content="Windows’ta kalıcılık sağlama (persistence) yöntemleri, bir sistemin yeniden başlatılması veya kullanıcı oturumunun kapatılması durumunda bile zararlı yazılımların veya yetkisiz erişimlerin devam etmesini sağlamak için kullanılır.
+1- Kullanıcı Manipülasyonu (Users)Başlık LinkiSaldırganlar tarafından kalıcılığı sürdürmek için yaygın olarak kullanılan bir yöntem de kullanıcı yaratmaktır. Aslında bunun yapılmasının tek nedeni kalıcılığı sağlamak değildir. Saldırgan(lar)ın “Administrator” hesabının kontrolünü ele geçirdiklerinde yeni kullanıcılar oluşturduklarını gözlemliyoruz. Çünkü bu önemli bir kullanıcıdır ve faaliyetleri düzenli olarak takip edilebilir. Bu nedenle, çok dikkat çekmeyecek yeni bir kullanıcı yaratıyorlar ve mümkünse bu kullanıcının ayrıcalıklarını artırıyorlar.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2024/11/windows-kal%C4%B1c%C4%B1l%C4%B1k-sa%C4%9Flamapersistence-metotlar%C4%B1/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Windows Kalıcılık Sağlama(Persistence) Metotları">
-  <meta property="og:description" content="Windows’ta kalıcılık sağlama (persistence) yöntemleri, bir sistemin yeniden başlatılması veya kullanıcı oturumunun kapatılması durumunda bile zararlı yazılımların veya yetkisiz erişimlerin devam etmes...">
+  <meta property="og:description" content="Windows’ta kalıcılık sağlama (persistence) yöntemleri, bir sistemin yeniden başlatılması veya kullanıcı oturumunun kapatılması durumunda bile zararlı yazılımların veya yetkisiz erişimlerin devam etmesini sağlamak için kullanılır.
+1- Kullanıcı Manipülasyonu (Users)Başlık LinkiSaldırganlar tarafından kalıcılığı sürdürmek için yaygın olarak kullanılan bir yöntem de kullanıcı yaratmaktır. Aslında bunun yapılmasının tek nedeni kalıcılığı sağlamak değildir. Saldırgan(lar)ın “Administrator” hesabının kontrolünü ele geçirdiklerinde yeni kullanıcılar oluşturduklarını gözlemliyoruz. Çünkü bu önemli bir kullanıcıdır ve faaliyetleri düzenli olarak takip edilebilir. Bu nedenle, çok dikkat çekmeyecek yeni bir kullanıcı yaratıyorlar ve mümkünse bu kullanıcının ayrıcalıklarını artırıyorlar.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -258,24 +269,24 @@
 <p>Registry keyleri regedit aracı ile düzenlenebilir.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*KJ7xCp0G-BiHtQ1-wsCjBw.jpeg" alt=""></p>
 <p>registry editor</p>
-<p><strong>Aşağıdaki çalıştırma anahtarları Windows sistemlerinde varsayılan olarak oluşturulur:</strong><br>
- <br>
- ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run<br>
- ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce <br>
- ● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<br>
+<p><strong>Aşağıdaki çalıştırma anahtarları Windows sistemlerinde varsayılan olarak oluşturulur:</strong> 
+  
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run 
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce  
+ ● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run 
  ● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce</p>
 <p><strong>Başlangıç klasörü öğelerini kalıcılık için ayarlamak üzere aşağıdaki Kayıt Defteri anahtarları kullanılabilir:</strong></p>
-<p>● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserShellFolders<br>
- ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellFolders <br>
- ● HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellFolders <br>
+<p>● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserShellFolders 
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellFolders  
+ ● HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellFolders  
  ● HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\UserShellFolders</p>
 <p><strong>Aşağıdaki Kayıt Defteri anahtarları, önyükleme sırasında hizmetlerin otomatik olarak başlatılmasını kontrol edebilir:</strong></p>
-<p>● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices Once <br>
- ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunServices Once <br>
- ● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices <br>
+<p>● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices Once  
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunServices Once  
+ ● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices  
  ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunServices</p>
 <p><strong>Başlangıç programlarını belirtmek için ilke ayarlarını kullanmak, iki Kayıt Defteri anahtarından birinde karşılık gelen değerleri oluşturur:</strong></p>
-<p>● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run<br>
+<p>● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run 
  ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</p>
 <p>Bu anahtarlar ile boot zamanında veya logon zamanında programlar başlatıabilir. Autoruns aracı ile başlatılan programlaarı görebiliriz.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*y3d5O0LdaV4GmOdbHnHpng.png" alt=""></p>

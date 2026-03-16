@@ -13,7 +13,23 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Programlama bir bilgisayara yürütmesi için bir dizi talimat vermektir. Bilgisayar verilen talimatları sıra ile yürütür. Bir bilgisayarı programlamak için ilk bilgisayarlardan itibaren çeşitli yöntemle...">
+<meta name="description" content="
+  C Programlama Dilinin Gelişimi
+  
+    
+    Başlık Linki
+  
+
+
+
+  Programlama Dili Nedir?
+  
+    
+    Başlık Linki
+  
+
+Programlama bir bilgisayara yürütmesi için bir dizi talimat vermektir. Bilgisayar verilen talimatları sıra ile yürütür. Bir bilgisayarı programlamak için ilk bilgisayarlardan itibaren çeşitli yöntemler kullanılmıştır.
+Programlama dilleri, bilgisayarların izleyeceği talimatları yazmak için kullandığımız araçlardır. Bilgisayarlar ikili olarak düşünür yani 1&rsquo;ler ve 0&rsquo;lardan oluşan diziler ile işlemlerini gerçekleştirir. Programlama dilleri, 1&rsquo;leri ve 0&rsquo;ları insanların anlayabileceği ve yazabileceği bir şeye çevirmemizi sağlar. Bir programlama dili, insanların düşüncelerimizi bilgisayarların anlayabileceği talimatlara çevirmesini sağlayan bir köprü görevi gören bir dizi sembolden oluşur. Bu sembollerden oluşan cümleler derleyici aracılığıyla makine koduna(ikili koda) çevrilir.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +37,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="C Programlama Dilinin Gelişimi">
-  <meta name="twitter:description" content="Programlama bir bilgisayara yürütmesi için bir dizi talimat vermektir. Bilgisayar verilen talimatları sıra ile yürütür. Bir bilgisayarı programlamak için ilk bilgisayarlardan itibaren çeşitli yöntemle...">
+  <meta name="twitter:description" content="C Programlama Dilinin GelişimiBaşlık LinkiProgramlama Dili Nedir?Başlık LinkiProgramlama bir bilgisayara yürütmesi için bir dizi talimat vermektir. Bilgisayar verilen talimatları sıra ile yürütür. Bir bilgisayarı programlamak için ilk bilgisayarlardan itibaren çeşitli yöntemler kullanılmıştır.
+Programlama dilleri, bilgisayarların izleyeceği talimatları yazmak için kullandığımız araçlardır. Bilgisayarlar ikili olarak düşünür yani 1’ler ve 0’lardan oluşan diziler ile işlemlerini gerçekleştirir. Programlama dilleri, 1’leri ve 0’ları insanların anlayabileceği ve yazabileceği bir şeye çevirmemizi sağlar. Bir programlama dili, insanların düşüncelerimizi bilgisayarların anlayabileceği talimatlara çevirmesini sağlayan bir köprü görevi gören bir dizi sembolden oluşur. Bu sembollerden oluşan cümleler derleyici aracılığıyla makine koduna(ikili koda) çevrilir.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2022/12/c-programlama-dilinin-geli%C5%9Fimi/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="C Programlama Dilinin Gelişimi">
-  <meta property="og:description" content="Programlama bir bilgisayara yürütmesi için bir dizi talimat vermektir. Bilgisayar verilen talimatları sıra ile yürütür. Bir bilgisayarı programlamak için ilk bilgisayarlardan itibaren çeşitli yöntemle...">
+  <meta property="og:description" content="C Programlama Dilinin GelişimiBaşlık LinkiProgramlama Dili Nedir?Başlık LinkiProgramlama bir bilgisayara yürütmesi için bir dizi talimat vermektir. Bilgisayar verilen talimatları sıra ile yürütür. Bir bilgisayarı programlamak için ilk bilgisayarlardan itibaren çeşitli yöntemler kullanılmıştır.
+Programlama dilleri, bilgisayarların izleyeceği talimatları yazmak için kullandığımız araçlardır. Bilgisayarlar ikili olarak düşünür yani 1’ler ve 0’lardan oluşan diziler ile işlemlerini gerçekleştirir. Programlama dilleri, 1’leri ve 0’ları insanların anlayabileceği ve yazabileceği bir şeye çevirmemizi sağlar. Bir programlama dili, insanların düşüncelerimizi bilgisayarların anlayabileceği talimatlara çevirmesini sağlayan bir köprü görevi gören bir dizi sembolden oluşur. Bu sembollerden oluşan cümleler derleyici aracılığıyla makine koduna(ikili koda) çevrilir.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -262,21 +280,21 @@
   </a>
 </h3>
 <p>C Programlamaya giriş yaparken her programlama dilinde olduğu “hello world” programından başlıyoruz. Bu programdan dilin sözdizimi(syntax) hakkında bir fikir edinebiliriz.</p>
-<pre tabindex="0"><code>#include &lt;stdio.h&gt;  
-#include &lt;stdlib.h&gt;  
-  
-int main()  
-{  
-    printf(&#34;Hello world!\n&#34;);  
-    return 0;  
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;  
+#include &lt;stdlib.h&gt;  
+  
+int main()  
+{  
+    printf(&#34;Hello world!\n&#34;);  
+    return 0;  
 }
 </code></pre><p>C program yapısına baktığımızda;</p>
 <ul>
 <li>ilk bölümde kütüphane ekleme olduğunu görüyoruz. Bir C programnının en başında programda kullanılacak fonksiyonlara ait kütüphanelerin eklenmesi gerekir. Örneğin; ekranda bir mesaj gösterilecekse bunun için gerekli olan fonksiyon printf() fonksiyonu olup bu fonksiyonun da içinde yer aldığı &lt;stdio.h&gt; kütüphanesi #include&lt;stdio.h&gt; şeklinde en başa eklenmelidir.</li>
 <li>ikinci bölümde main() fonksiyonunu görmekteyiz. Bu komut programın başladığı yeri gösterir. main() fonksiyonu iki kısımdan oluşur. fonksiyon tanımı ve fonksiyon gövdesi.
 <ul>
-<li>int main(): fonksiyon tanımı<br>
--{} süslü parantezler arası: fonksiyon gövdesi<br>
+<li>int main(): fonksiyon tanımı 
+-{} süslü parantezler arası: fonksiyon gövdesi 
 Fonksiyon tanımında fonksiyonun ismi ve giriş-çıkış türleri belitrilir. Fonksiyon gövdesinde ise istenilen işlemleri yapmak ve bunların sonuçlarını görmek için gerekli deyimler bulunur.</li>
 </ul>
 </li>

@@ -13,7 +13,17 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Bu yazımda, birçoğumuzun anlamakta zorlandığı asenkron programlama konusunu anlatmaya çalışacağım. Python dilinde async-await yapılarıyla bilinen bu programlama türü nedir? Ne işe yarar? Nasıl kullanı...">
+<meta name="description" content="
+Bu yazımda, birçoğumuzun anlamakta zorlandığı asenkron programlama konusunu anlatmaya çalışacağım. Python dilinde async-await yapılarıyla bilinen bu programlama türü nedir? Ne işe yarar? Nasıl kullanılır? Hep beraber bakalım.
+
+  Asenkron programlama nedir?
+  
+    
+    Başlık Linki
+  
+
+Asenkron programlama, bir uygulamada ana akışta meydana gelebilecek gecikmelerde akışın bloklanmamasını ve devam etmesini sağlayan programlama türüdür. Bu yüzden bloklanmayan kod diyoruz. 
+Senkron(sıralı) programlamada bir işlem sonuçlanmadan diğer bir işleme başlanamaz. Asenkron programlamada ise bir işlem sonuçlanmadan diğer bir işlem başlayabilir. Bu bizi özellikle yüksek bekleme sürelerinin olduğu API işlemlerinde, programımızın bloke olmasından kurtarır.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +31,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Asenkron Programlama">
-  <meta name="twitter:description" content="Bu yazımda, birçoğumuzun anlamakta zorlandığı asenkron programlama konusunu anlatmaya çalışacağım. Python dilinde async-await yapılarıyla bilinen bu programlama türü nedir? Ne işe yarar? Nasıl kullanı...">
+  <meta name="twitter:description" content="Bu yazımda, birçoğumuzun anlamakta zorlandığı asenkron programlama konusunu anlatmaya çalışacağım. Python dilinde async-await yapılarıyla bilinen bu programlama türü nedir? Ne işe yarar? Nasıl kullanılır? Hep beraber bakalım.
+Asenkron programlama nedir?Başlık LinkiAsenkron programlama, bir uygulamada ana akışta meydana gelebilecek gecikmelerde akışın bloklanmamasını ve devam etmesini sağlayan programlama türüdür. Bu yüzden bloklanmayan kod diyoruz. Senkron(sıralı) programlamada bir işlem sonuçlanmadan diğer bir işleme başlanamaz. Asenkron programlamada ise bir işlem sonuçlanmadan diğer bir işlem başlayabilir. Bu bizi özellikle yüksek bekleme sürelerinin olduğu API işlemlerinde, programımızın bloke olmasından kurtarır.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2021/07/asenkron-programlama/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Asenkron Programlama">
-  <meta property="og:description" content="Bu yazımda, birçoğumuzun anlamakta zorlandığı asenkron programlama konusunu anlatmaya çalışacağım. Python dilinde async-await yapılarıyla bilinen bu programlama türü nedir? Ne işe yarar? Nasıl kullanı...">
+  <meta property="og:description" content="Bu yazımda, birçoğumuzun anlamakta zorlandığı asenkron programlama konusunu anlatmaya çalışacağım. Python dilinde async-await yapılarıyla bilinen bu programlama türü nedir? Ne işe yarar? Nasıl kullanılır? Hep beraber bakalım.
+Asenkron programlama nedir?Başlık LinkiAsenkron programlama, bir uygulamada ana akışta meydana gelebilecek gecikmelerde akışın bloklanmamasını ve devam etmesini sağlayan programlama türüdür. Bu yüzden bloklanmayan kod diyoruz. Senkron(sıralı) programlamada bir işlem sonuçlanmadan diğer bir işleme başlanamaz. Asenkron programlamada ise bir işlem sonuçlanmadan diğer bir işlem başlayabilir. Bu bizi özellikle yüksek bekleme sürelerinin olduğu API işlemlerinde, programımızın bloke olmasından kurtarır.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -203,7 +215,7 @@
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p>Asenkron programlama, bir uygulamada ana akışta meydana gelebilecek gecikmelerde akışın bloklanmamasını ve devam etmesini sağlayan programlama türüdür. Bu yüzden bloklanmayan kod diyoruz.<br>
+<p>Asenkron programlama, bir uygulamada ana akışta meydana gelebilecek gecikmelerde akışın bloklanmamasını ve devam etmesini sağlayan programlama türüdür. Bu yüzden bloklanmayan kod diyoruz. 
 Senkron(sıralı) programlamada bir işlem sonuçlanmadan diğer bir işleme başlanamaz. Asenkron programlamada ise bir işlem sonuçlanmadan diğer bir işlem başlayabilir. Bu bizi özellikle yüksek bekleme sürelerinin olduğu API işlemlerinde, programımızın bloke olmasından kurtarır.</p>
 <h3 id="senkron-ve-asenkron-arasındaki-fark">
   Senkron ve Asenkron arasındaki fark

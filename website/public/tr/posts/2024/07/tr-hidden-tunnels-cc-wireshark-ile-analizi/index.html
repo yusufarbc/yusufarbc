@@ -13,7 +13,25 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Merhaba bu yazımda HTTP tünelleme tekniklerinden bahsedeceğim.">
+<meta name="description" content="
+  [TR] Hidden Tunnels (C&amp;C) Wireshark ile Analizi
+  
+    
+    Başlık Linki
+  
+
+Merhaba bu yazımda HTTP tünelleme tekniklerinden bahsedeceğim.
+
+Bilgisayar güvenliği alanında “Hidden Tunnels” terimi genellikle kötü amaçlar için kullanılan veri sızdırma, komuta ve kontrol (C&amp;C) veya ağ tespitini atlama gibi çeşitli amaçlar için kullanılan gizli veya izinsiz ağ bağlantılarını ifade eder. Bu gizli tüneller, saldırganların faaliyetlerini gizlemelerine ve güvenlik önlemlerini aşmalarına yardımcı olur.
+
+
+  HTTP/HTTPS Tünelleme
+  
+    
+    Başlık Linki
+  
+
+HTTP/HTTPS tünellemesi, ağ güvenlik önlemlerini atlatmak için kullanılan bir tekniktir. Bu yöntem, HTTP veya HTTPS paketlerinin içine HTTP olmayan trafiği kapsüllenerek gerçekleştirilir. HTTP/HTTPS tünellemesi, kısıtlayıcı web filtreleme politikalarının olduğu ortamlarda sıkışmış web sitelerine veya hizmetlere erişim sağlamak gibi meşru amaçlar için kullanılabilir, ancak aynı zamanda veri sızdırma veya kompromize edilmiş sistemlerin uzaktan kontrolü gibi kötü amaçlı aktiviteler için de kullanılabilir.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +39,16 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="[TR] Hidden Tunnels (C&C) Wireshark ile Analizi">
-  <meta name="twitter:description" content="Merhaba bu yazımda HTTP tünelleme tekniklerinden bahsedeceğim.">
+  <meta name="twitter:description" content="[TR] Hidden Tunnels (C&amp;C) Wireshark ile AnaliziBaşlık LinkiMerhaba bu yazımda HTTP tünelleme tekniklerinden bahsedeceğim.
+Bilgisayar güvenliği alanında “Hidden Tunnels” terimi genellikle kötü amaçlar için kullanılan veri sızdırma, komuta ve kontrol (C&amp;C) veya ağ tespitini atlama gibi çeşitli amaçlar için kullanılan gizli veya izinsiz ağ bağlantılarını ifade eder. Bu gizli tüneller, saldırganların faaliyetlerini gizlemelerine ve güvenlik önlemlerini aşmalarına yardımcı olur.
+HTTP/HTTPS TünellemeBaşlık LinkiHTTP/HTTPS tünellemesi, ağ güvenlik önlemlerini atlatmak için kullanılan bir tekniktir. Bu yöntem, HTTP veya HTTPS paketlerinin içine HTTP olmayan trafiği kapsüllenerek gerçekleştirilir. HTTP/HTTPS tünellemesi, kısıtlayıcı web filtreleme politikalarının olduğu ortamlarda sıkışmış web sitelerine veya hizmetlere erişim sağlamak gibi meşru amaçlar için kullanılabilir, ancak aynı zamanda veri sızdırma veya kompromize edilmiş sistemlerin uzaktan kontrolü gibi kötü amaçlı aktiviteler için de kullanılabilir.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2024/07/tr-hidden-tunnels-cc-wireshark-ile-analizi/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="[TR] Hidden Tunnels (C&C) Wireshark ile Analizi">
-  <meta property="og:description" content="Merhaba bu yazımda HTTP tünelleme tekniklerinden bahsedeceğim.">
+  <meta property="og:description" content="[TR] Hidden Tunnels (C&amp;C) Wireshark ile AnaliziBaşlık LinkiMerhaba bu yazımda HTTP tünelleme tekniklerinden bahsedeceğim.
+Bilgisayar güvenliği alanında “Hidden Tunnels” terimi genellikle kötü amaçlar için kullanılan veri sızdırma, komuta ve kontrol (C&amp;C) veya ağ tespitini atlama gibi çeşitli amaçlar için kullanılan gizli veya izinsiz ağ bağlantılarını ifade eder. Bu gizli tüneller, saldırganların faaliyetlerini gizlemelerine ve güvenlik önlemlerini aşmalarına yardımcı olur.
+HTTP/HTTPS TünellemeBaşlık LinkiHTTP/HTTPS tünellemesi, ağ güvenlik önlemlerini atlatmak için kullanılan bir tekniktir. Bu yöntem, HTTP veya HTTPS paketlerinin içine HTTP olmayan trafiği kapsüllenerek gerçekleştirilir. HTTP/HTTPS tünellemesi, kısıtlayıcı web filtreleme politikalarının olduğu ortamlarda sıkışmış web sitelerine veya hizmetlere erişim sağlamak gibi meşru amaçlar için kullanılabilir, ancak aynı zamanda veri sızdırma veya kompromize edilmiş sistemlerin uzaktan kontrolü gibi kötü amaçlı aktiviteler için de kullanılabilir.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">

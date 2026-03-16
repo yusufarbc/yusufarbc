@@ -13,7 +13,27 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Merhaba bu yazımda TCP/IP modelini ve Wireshark ile temel bir ağ analizinin nasıl yapılabileceğini anlatmaya çalıştım.">
+<meta name="description" content="
+Merhaba bu yazımda TCP/IP modelini ve Wireshark ile temel bir ağ analizinin nasıl yapılabileceğini anlatmaya çalıştım.
+
+
+  Ağ Trafik Akışlarını Anlama
+  
+    
+    Başlık Linki
+  
+
+
+  Switching (anahtarlama)
+  
+    
+    Başlık Linki
+  
+
+Anahtarlar paketleri MAC başlığında (Ethernet başlığı gibi) bulunan hedef MAC adresine (hedef donanım adresi, fiziksel adresi olarak da bilinir) göre iletir.
+
+Switchler paketlerdeki MAC veya IP adreslerini değiştirmez
+Bir paket bir anahtara ulaştığında, anahtar doğru sağlama toplamına (checksum) sahip olduğundan emin olmak için paketi kontrol eder. Paketin sağlama toplamı yanlışsa, paket “bad” olarak kabul edilir ve paket atılır. Anahtarlar, kötü sağlama toplamları nedeniyle kaç paketi attıklarını gösteren hata sayaçları tutmalıdır. Sağlama toplamı doğruysa, anahtar paketin hedef MAC adresini inceler ve bu MAC adresini kullanan ana bilgisayara hangi anahtar bağlantı noktasının gittiğini bilip bilmediğini belirlemek için MAC adresi tablosuna başvurur. Anahtarın tablolarında hedef MAC adresi yoksa, paketi tüm anahtar bağlantı noktalarından( portlardan) iletir cevap veren hedefi keşfetmeyi umar. Bu işlem ARP protokolü ile gerçekleştirilir.Anahtarın tablolarında hedef MAC adresi varsa, paketi uygun bağlantı noktasına iletir .">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +41,18 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="TCP/IP Model Wireshark Analizi">
-  <meta name="twitter:description" content="Merhaba bu yazımda TCP/IP modelini ve Wireshark ile temel bir ağ analizinin nasıl yapılabileceğini anlatmaya çalıştım.">
+  <meta name="twitter:description" content="Merhaba bu yazımda TCP/IP modelini ve Wireshark ile temel bir ağ analizinin nasıl yapılabileceğini anlatmaya çalıştım.
+Ağ Trafik Akışlarını AnlamaBaşlık LinkiSwitching (anahtarlama)Başlık LinkiAnahtarlar paketleri MAC başlığında (Ethernet başlığı gibi) bulunan hedef MAC adresine (hedef donanım adresi, fiziksel adresi olarak da bilinir) göre iletir.
+Switchler paketlerdeki MAC veya IP adreslerini değiştirmez
+Bir paket bir anahtara ulaştığında, anahtar doğru sağlama toplamına (checksum) sahip olduğundan emin olmak için paketi kontrol eder. Paketin sağlama toplamı yanlışsa, paket “bad” olarak kabul edilir ve paket atılır. Anahtarlar, kötü sağlama toplamları nedeniyle kaç paketi attıklarını gösteren hata sayaçları tutmalıdır. Sağlama toplamı doğruysa, anahtar paketin hedef MAC adresini inceler ve bu MAC adresini kullanan ana bilgisayara hangi anahtar bağlantı noktasının gittiğini bilip bilmediğini belirlemek için MAC adresi tablosuna başvurur. Anahtarın tablolarında hedef MAC adresi yoksa, paketi tüm anahtar bağlantı noktalarından( portlardan) iletir cevap veren hedefi keşfetmeyi umar. Bu işlem ARP protokolü ile gerçekleştirilir.Anahtarın tablolarında hedef MAC adresi varsa, paketi uygun bağlantı noktasına iletir .">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2023/11/tcp/ip-model-wireshark-analizi/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="TCP/IP Model Wireshark Analizi">
-  <meta property="og:description" content="Merhaba bu yazımda TCP/IP modelini ve Wireshark ile temel bir ağ analizinin nasıl yapılabileceğini anlatmaya çalıştım.">
+  <meta property="og:description" content="Merhaba bu yazımda TCP/IP modelini ve Wireshark ile temel bir ağ analizinin nasıl yapılabileceğini anlatmaya çalıştım.
+Ağ Trafik Akışlarını AnlamaBaşlık LinkiSwitching (anahtarlama)Başlık LinkiAnahtarlar paketleri MAC başlığında (Ethernet başlığı gibi) bulunan hedef MAC adresine (hedef donanım adresi, fiziksel adresi olarak da bilinir) göre iletir.
+Switchler paketlerdeki MAC veya IP adreslerini değiştirmez
+Bir paket bir anahtara ulaştığında, anahtar doğru sağlama toplamına (checksum) sahip olduğundan emin olmak için paketi kontrol eder. Paketin sağlama toplamı yanlışsa, paket “bad” olarak kabul edilir ve paket atılır. Anahtarlar, kötü sağlama toplamları nedeniyle kaç paketi attıklarını gösteren hata sayaçları tutmalıdır. Sağlama toplamı doğruysa, anahtar paketin hedef MAC adresini inceler ve bu MAC adresini kullanan ana bilgisayara hangi anahtar bağlantı noktasının gittiğini bilip bilmediğini belirlemek için MAC adresi tablosuna başvurur. Anahtarın tablolarında hedef MAC adresi yoksa, paketi tüm anahtar bağlantı noktalarından( portlardan) iletir cevap veren hedefi keşfetmeyi umar. Bu işlem ARP protokolü ile gerçekleştirilir.Anahtarın tablolarında hedef MAC adresi varsa, paketi uygun bağlantı noktasına iletir .">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -366,8 +392,8 @@
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>Son olarak, istemci bir sonraki atlama yönlendiricisinin veya varsayılan ağ geçidinin MAC adresini çözmelidir. İstemci önce ARP önbelleğini kontrol eder. Bilgi önbellekte yoksa, istemci bilgiyi almak için bir ARP yayını gönderir.<br>
-Sonraki yönlendiricinin MAC adresi ve ARP önbelleğini günceller.<br>
+<p>Son olarak, istemci bir sonraki atlama yönlendiricisinin veya varsayılan ağ geçidinin MAC adresini çözmelidir. İstemci önce ARP önbelleğini kontrol eder. Bilgi önbellekte yoksa, istemci bilgiyi almak için bir ARP yayını gönderir. 
+Sonraki yönlendiricinin MAC adresi ve ARP önbelleğini günceller. 
 Bu işlem, TX ile belirtildiği gibi ağ üzerinde trafik oluşturabilir. İstenen bir yönlendiricinin MAC adresi önbellekte ise, hiçbir paket gönderilmeyecektir. İstenen yönlendirici için bir ARP sorgusu gönderilmesi gerekiyorsa, bu sorgu izleme dosyasında(trace file) görülecektir.</p>
 <h4 id="paket-analizi">
   Paket Analizi
@@ -417,8 +443,8 @@ Bu işlem, TX ile belirtildiği gibi ağ üzerinde trafik oluşturabilir. İsten
 <p>http-riverbed-<strong>one</strong>.pcapng dosyasında Statistic| HTTP| Requests penceresinde pcap dosyası içerisinde gidilen web adreslerini görüntüleyebiliriz.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*2QwpmwBds_gI3oZfGyMGKA.png" alt=""></p>
 <p>Requests</p>
-<p>http-riverbed-<strong>one</strong>.pcapng dosyasında <br>
-ip.addr == 24.6.173.220 &amp;&amp; ip.addr == 208.70.196.59 <br>
+<p>http-riverbed-<strong>one</strong>.pcapng dosyasında  
+ip.addr == 24.6.173.220 &amp;&amp; ip.addr == 208.70.196.59  
 fltresini yazarak daha önce bulduğumuz dominant trafiği inceleyelim.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*MkagBTP5iI4imfNHp5V5nw.png" alt=""></p>
 <p>Dominant Trafik</p>

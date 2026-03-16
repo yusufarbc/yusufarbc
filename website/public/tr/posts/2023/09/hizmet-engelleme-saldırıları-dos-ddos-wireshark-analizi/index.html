@@ -13,7 +13,19 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.">
+<meta name="description" content="
+Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.
+
+
+  Wireshark
+  
+    
+    Başlık Linki
+  
+
+Wireshark, bir ağ analiz aracı olarak kullanılan açık kaynaklı bir yazılımdır. Wireshark, ağ trafiğini yakalayabilir, inceleyebilir ve analiz edebilir, böylece ağ sorunlarını teşhis etmek, güvenlik tehditlerini tespit etmek veya ağ performansını izlemek için kullanılabilir.
+Detaylı bilgi için: https://www.wireshark.org/
+Wireshark’ı bilgisayarınıza kurmak için aşağıdaki adımları izleyebilirsiniz. Unutmayın ki işletim sisteminize ve kullanım amacınıza bağlı olarak bu adımlar değişebilir. İşte Wireshark’ı kurmanın genel adımları:">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +33,18 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Hizmet Engelleme Saldırıları (DoS-DDoS) Wireshark Analizi">
-  <meta name="twitter:description" content="Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.">
+  <meta name="twitter:description" content="Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.
+WiresharkBaşlık LinkiWireshark, bir ağ analiz aracı olarak kullanılan açık kaynaklı bir yazılımdır. Wireshark, ağ trafiğini yakalayabilir, inceleyebilir ve analiz edebilir, böylece ağ sorunlarını teşhis etmek, güvenlik tehditlerini tespit etmek veya ağ performansını izlemek için kullanılabilir.
+Detaylı bilgi için: https://www.wireshark.org/
+Wireshark’ı bilgisayarınıza kurmak için aşağıdaki adımları izleyebilirsiniz. Unutmayın ki işletim sisteminize ve kullanım amacınıza bağlı olarak bu adımlar değişebilir. İşte Wireshark’ı kurmanın genel adımları:">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2023/09/hizmet-engelleme-sald%C4%B1r%C4%B1lar%C4%B1-dos-ddos-wireshark-analizi/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Hizmet Engelleme Saldırıları (DoS-DDoS) Wireshark Analizi">
-  <meta property="og:description" content="Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.">
+  <meta property="og:description" content="Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.
+WiresharkBaşlık LinkiWireshark, bir ağ analiz aracı olarak kullanılan açık kaynaklı bir yazılımdır. Wireshark, ağ trafiğini yakalayabilir, inceleyebilir ve analiz edebilir, böylece ağ sorunlarını teşhis etmek, güvenlik tehditlerini tespit etmek veya ağ performansını izlemek için kullanılabilir.
+Detaylı bilgi için: https://www.wireshark.org/
+Wireshark’ı bilgisayarınıza kurmak için aşağıdaki adımları izleyebilirsiniz. Unutmayın ki işletim sisteminize ve kullanım amacınıza bağlı olarak bu adımlar değişebilir. İşte Wireshark’ı kurmanın genel adımları:">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -238,7 +256,7 @@
   </a>
 </h4>
 <p>Wireshark, birçok Linux dağıtımının depolarında bulunur, bu yüzden aşağıdaki komutları kullanarak paketi yükleyebilirsiniz. Örneğin, Debian veya Ubuntu tabanlı bir sistemde:</p>
-<pre tabindex="0"><code>sudo apt update  
+<pre tabindex="0"><code>sudo apt update  
 sudo apt install wireshark
 </code></pre><p>Kurulum sırasında sudo ile yönetici izni gerekebilir. Ayrıca, Wireshark’ı kullanabilmek için kullanıcıyı “wireshark” grubuna eklemek veya sudo ile başlatmak gerekebilir.</p>
 <h4 id="mac-işletim-sistemiiçin">
@@ -533,9 +551,9 @@ sudo apt install wireshark
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><a href="https://wiki.wireshark.org/SampleCaptures#sample-captures" title="https://wiki.wireshark.org/SampleCaptures#sample-captures"  class="external-link" target="_blank" rel="noopener"><strong>SampleCaptures</strong><br>
+<p><a href="https://wiki.wireshark.org/SampleCaptures#sample-captures" title="https://wiki.wireshark.org/SampleCaptures#sample-captures"  class="external-link" target="_blank" rel="noopener"><strong>SampleCaptures</strong> 
 *So you&rsquo;re at home tonight, having just installed Wireshark. You want to take the program for a test drive. But your…*wiki.wireshark.org</a></p>
-<p><a href="https://github.com/topics/dns-amplification-attack" title="https://github.com/topics/dns-amplification-attack"  class="external-link" target="_blank" rel="noopener"><strong>Build software better, together</strong><br>
+<p><a href="https://github.com/topics/dns-amplification-attack" title="https://github.com/topics/dns-amplification-attack"  class="external-link" target="_blank" rel="noopener"><strong>Build software better, together</strong> 
 *GitHub is where people build software. More than 100 million people use GitHub to discover, fork, and contribute to…*github.com</a></p>
 
       </div>

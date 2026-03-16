@@ -13,7 +13,16 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Persistence methods in Windows are used to ensure that malicious software or unauthorized access continues even if a system is restarted or the user is logged off.">
+<meta name="description" content="
+Persistence methods in Windows are used to ensure that malicious software or unauthorized access continues even if a system is restarted or the user is logged off.
+
+  1- User Manipulation (Users)
+  
+    
+    Link to heading
+  
+
+A commonly used method by attackers to maintain persistence is to create users. In fact, the only reason for doing this is not to ensure permanence. We observe that the attacker(s) create new users when they take control of the &ldquo;Administrator&rdquo; account. Because this is an important user and his activities can be monitored regularly. So they create a new user who won&rsquo;t attract much attention and, if possible, increase that user&rsquo;s privileges.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +30,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Windows Persistence Methods">
-  <meta name="twitter:description" content="Persistence methods in Windows are used to ensure that malicious software or unauthorized access continues even if a system is restarted or the user is logged off.">
+  <meta name="twitter:description" content="Persistence methods in Windows are used to ensure that malicious software or unauthorized access continues even if a system is restarted or the user is logged off.
+1- User Manipulation (Users)Link to headingA commonly used method by attackers to maintain persistence is to create users. In fact, the only reason for doing this is not to ensure permanence. We observe that the attacker(s) create new users when they take control of the “Administrator” account. Because this is an important user and his activities can be monitored regularly. So they create a new user who won’t attract much attention and, if possible, increase that user’s privileges.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2024/11/windows-persistence-methods/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Windows Persistence Methods">
-  <meta property="og:description" content="Persistence methods in Windows are used to ensure that malicious software or unauthorized access continues even if a system is restarted or the user is logged off.">
+  <meta property="og:description" content="Persistence methods in Windows are used to ensure that malicious software or unauthorized access continues even if a system is restarted or the user is logged off.
+1- User Manipulation (Users)Link to headingA commonly used method by attackers to maintain persistence is to create users. In fact, the only reason for doing this is not to ensure permanence. We observe that the attacker(s) create new users when they take control of the “Administrator” account. Because this is an important user and his activities can be monitored regularly. So they create a new user who won’t attract much attention and, if possible, increase that user’s privileges.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -251,24 +262,24 @@
 <p>Registry keys can be edited with the regedit tool.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*KJ7xCp0G-BiHtQ1-wsCjBw.jpeg" alt=""></p>
 <p>registry editor</p>
-<p><strong>The following run keys are created by default on Windows systems:</strong><br>
- <br>
- ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run<br>
- ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce <br>
- ● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run<br>
+<p><strong>The following run keys are created by default on Windows systems:</strong> 
+  
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run 
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce  
+ ● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run 
  ● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce</p>
 <p><strong>The following Registry keys can be used to set startup folder items for persistence:</strong></p>
-<p>● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserShellFolders<br>
- ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellFolders <br>
- ● HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellFolders <br>
+<p>● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\UserShellFolders 
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellFolders  
+ ● HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ShellFolders  
  ● HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\UserShellFolders</p>
 <p><strong>The following Registry keys can control automatic startup of services at boot:</strong></p>
-<p>● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices Once <br>
- ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunServices Once <br>
- ● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices <br>
+<p>● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices Once  
+ ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunServices Once  
+ ● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunServices  
  ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunServices</p>
 <p><strong>Using policy settings to specify startup programs creates corresponding values in one of two Registry keys:</strong></p>
-<p>● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run<br>
+<p>● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run 
  ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</p>
 <p>With these keys, programs can be started at boot time or logon time. We can see the programs launched with the Autoruns tool.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*y3d5O0LdaV4GmOdbHnHpng.png" alt=""></p>

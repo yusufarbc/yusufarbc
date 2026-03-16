@@ -13,7 +13,26 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Merhaba bu yazımda işletim sistemlerinin yapısından, konseptinden ve özelliklerinden bahsedeceğim. İşletim sisteminin tasarımsal zorlukları, güvenlik gereksinimleri ve dahası bu yazıda!">
+<meta name="description" content="
+  İşletim Sistemi Konsepti
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba bu yazımda işletim sistemlerinin yapısından, konseptinden ve özelliklerinden bahsedeceğim. İşletim sisteminin tasarımsal zorlukları, güvenlik gereksinimleri ve dahası bu yazıda!
+
+
+  İşletim Sistemi (Operating System)
+  
+    
+    Başlık Linki
+  
+
+İşletim sistemi, bir bilgisayarın donanımını yöneten bir programdır. Ayrıca uygulama programları için bir temel sağlar ve bilgisayar kullanıcısı ile bilgisayar donanımı arasında bir aracı görevi görür.
+
+Bu noktada, üzerinde çalışacağı donanıma(hardware) bağımlı bir sistemden söz ediyoruz. Bu nedenle, işletim sistemleri sistem donanımıyla doğrudan ilgilidir. Tek ve Çok işlemcili mimariler, birden fazla kalıcı bellek-disk içeren organizasyonlar işletim sistemi tarafında desteklenmelidir.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +40,16 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="İşletim Sistemi Konsepti">
-  <meta name="twitter:description" content="Merhaba bu yazımda işletim sistemlerinin yapısından, konseptinden ve özelliklerinden bahsedeceğim. İşletim sisteminin tasarımsal zorlukları, güvenlik gereksinimleri ve dahası bu yazıda!">
+  <meta name="twitter:description" content="İşletim Sistemi KonseptiBaşlık LinkiMerhaba bu yazımda işletim sistemlerinin yapısından, konseptinden ve özelliklerinden bahsedeceğim. İşletim sisteminin tasarımsal zorlukları, güvenlik gereksinimleri ve dahası bu yazıda!
+İşletim Sistemi (Operating System)Başlık Linkiİşletim sistemi, bir bilgisayarın donanımını yöneten bir programdır. Ayrıca uygulama programları için bir temel sağlar ve bilgisayar kullanıcısı ile bilgisayar donanımı arasında bir aracı görevi görür.
+Bu noktada, üzerinde çalışacağı donanıma(hardware) bağımlı bir sistemden söz ediyoruz. Bu nedenle, işletim sistemleri sistem donanımıyla doğrudan ilgilidir. Tek ve Çok işlemcili mimariler, birden fazla kalıcı bellek-disk içeren organizasyonlar işletim sistemi tarafında desteklenmelidir.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2023/06/i%C5%9Fletim-sistemi-konsepti/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="İşletim Sistemi Konsepti">
-  <meta property="og:description" content="Merhaba bu yazımda işletim sistemlerinin yapısından, konseptinden ve özelliklerinden bahsedeceğim. İşletim sisteminin tasarımsal zorlukları, güvenlik gereksinimleri ve dahası bu yazıda!">
+  <meta property="og:description" content="İşletim Sistemi KonseptiBaşlık LinkiMerhaba bu yazımda işletim sistemlerinin yapısından, konseptinden ve özelliklerinden bahsedeceğim. İşletim sisteminin tasarımsal zorlukları, güvenlik gereksinimleri ve dahası bu yazıda!
+İşletim Sistemi (Operating System)Başlık Linkiİşletim sistemi, bir bilgisayarın donanımını yöneten bir programdır. Ayrıca uygulama programları için bir temel sağlar ve bilgisayar kullanıcısı ile bilgisayar donanımı arasında bir aracı görevi görür.
+Bu noktada, üzerinde çalışacağı donanıma(hardware) bağımlı bir sistemden söz ediyoruz. Bu nedenle, işletim sistemleri sistem donanımıyla doğrudan ilgilidir. Tek ve Çok işlemcili mimariler, birden fazla kalıcı bellek-disk içeren organizasyonlar işletim sistemi tarafında desteklenmelidir.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -259,7 +282,7 @@
 </h3>
 <p>Bir işletim sistemi ortamında, bir işlem (process), bir programın çalıştırılabilir bir örneğidir. İşlem, işletim sistemi tarafından yönetilen, kaynakları (bellek, işlemci zamanı, dosya ve giriş/çıkış cihazları gibi) kullanan ve yürütülen bir varlıktır.</p>
 <p>İşlem, bir programın çalıştırılabilir hale gelmesiyle oluşur. Bir program, disk üzerinde depolanmış bir dosya şeklinde bulunurken, işlem bellekte çalışırkenki durumunu temsil eder. İşlem, program kodunu, değişkenleri, yürütme durumunu (program sayacı, işaretçiler vb.) ve diğer çalışma bilgilerini içerir.</p>
-<p>Bir programın kendi başına bir işlem olmadığını vurgulamak isteriz.<br>
+<p>Bir programın kendi başına bir işlem olmadığını vurgulamak isteriz. 
 Program, diskte depolanan talimatların listesini içeren bir dosya gibi pasif bir varlıktır. Buna karşılık bir işlem, yürütülecek bir sonraki talimatı belirten bir program sayacına ve bir dizi ilişkili kaynağa sahip aktif bir varlıktır. Bir program, çalıştırılabilir bir dosya belleğe yüklendiğinde bir işlem haline gelir.</p>
 <h4 id="işlem-durumu">
   İşlem Durumu
@@ -272,7 +295,7 @@ Program, diskte depolanan talimatların listesini içeren bir dosya gibi pasif b
 <ul>
 <li><em>New</em>— İşlem oluşturuluyor.</li>
 <li><em>Running</em>— Talimatlar yürütülüyor.</li>
-<li><em>Waiting</em>— Süreç bir olayın gerçekleşmesini bekliyor (örneğin bir G/Ç<br>
+<li><em>Waiting</em>— Süreç bir olayın gerçekleşmesini bekliyor (örneğin bir G/Ç 
 bir sinyalin tamamlanması veya alınması).</li>
 <li><em>Ready</em>— İşlem bir işlemciye atanmayı bekliyor.</li>
 <li>*Terminated —*İşlemin yürütülmesi tamamlandı.</li>
@@ -288,16 +311,16 @@ bir sinyalin tamamlanması veya alınması).</li>
 </h4>
 <p>Her bir süreç işletim sisteminde bir süreç kontrol bloğu (PCB) ile temsil edilir. Aşağıdakiler de dahil olmak üzere belirli bir süreçle ilişkili birçok bilgi parçası içerir:</p>
 <ul>
-<li><strong>Süreç durumu:</strong> Durum yeni, hazır, çalışıyor, bekliyor, durduruldu vb.<br>
+<li><strong>Süreç durumu:</strong> Durum yeni, hazır, çalışıyor, bekliyor, durduruldu vb. 
 olabilir.</li>
-<li><strong>Program sayacı:</strong> Sayaç, bu işlem için yürütülecek bir sonraki komutun<br>
+<li><strong>Program sayacı:</strong> Sayaç, bu işlem için yürütülecek bir sonraki komutun 
 adresini gösterir.</li>
 <li><strong>CPU kayıtları</strong>: Kayıtlar, bilgisayar mimarisine bağlı olarak sayı ve tür olarak değişir. Bunlar arasında akümülatörler, indeks kayıtları, yığın işaretçileri ve genel amaçlı kayıtların yanı sıra herhangi bir durum kodu bilgisi de yer alır. Program sayacı ile birlikte bu durum bilgisi, bir kesme oluştuğunda, işlemin daha sonra doğru bir şekilde devam etmesini sağlamak için kaydedilmelidir.</li>
-<li><strong>CPU zamanlama bilgileri:</strong> Bu bilgiler bir işlem önceliği, zamanlama<br>
+<li><strong>CPU zamanlama bilgileri:</strong> Bu bilgiler bir işlem önceliği, zamanlama 
 kuyruklarına işaretçiler ve diğer zamanlama parametrelerini içerir.</li>
 <li><strong>Bellek yönetimi bilgileri:</strong> Bu bilgiler, işletim sistemi tarafından kullanılan bellek sistemine bağlı olarak, taban ve sınır kayıtlarının değeri ve sayfa tabloları ya da segment tabloları gibi öğeleri içerebilir.</li>
 <li><strong>Muhasebe bilgileri:</strong> Bu bilgiler, kullanılan CPU ve gerçek zaman miktarını, zaman sınırlarını, hesap numaralarını, iş veya işlem numaralarını vb. içerir.</li>
-<li><strong>G/Ç durum bilgisi:</strong> Bu bilgiler, sürece tahsis edilen G/Ç aygıtlarının<br>
+<li><strong>G/Ç durum bilgisi:</strong> Bu bilgiler, sürece tahsis edilen G/Ç aygıtlarının 
 listesini, açık dosyaların listesini vb. içerir.</li>
 </ul>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*RrcLvg5ZJ9nHEVCHm7VEeA.png" alt=""></p>
@@ -309,7 +332,7 @@ listesini, açık dosyaların listesini vb. içerir.</li>
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>İşletim sisteminde eşzamanlı olarak çalışan süreçler bağımsız süreçler ya da işbirliği yapan süreçler olabilir. Bir süreç, sistemde çalışan diğer süreçleri etkilemiyor veya onlardan etkilenmiyorsa <strong>bağımsızdır</strong>. Başka bir süreçle veri paylaşmayan herhangi bir süreç bağımsızdır. Bir süreç sistemde çalışan diğer süreçleri etkileyebiliyor ya da onlardan etkilenebiliyorsa <strong>işbirlikçi</strong> bir süreçtir.<br>
+<p>İşletim sisteminde eşzamanlı olarak çalışan süreçler bağımsız süreçler ya da işbirliği yapan süreçler olabilir. Bir süreç, sistemde çalışan diğer süreçleri etkilemiyor veya onlardan etkilenmiyorsa <strong>bağımsızdır</strong>. Başka bir süreçle veri paylaşmayan herhangi bir süreç bağımsızdır. Bir süreç sistemde çalışan diğer süreçleri etkileyebiliyor ya da onlardan etkilenebiliyorsa <strong>işbirlikçi</strong> bir süreçtir. 
 Süreç işbirliğine olanak tanıyan bir ortam sağlamanın çeşitli nedenleri vardır:</p>
 <ul>
 <li>Bilgi paylaşımı</li>
@@ -317,8 +340,8 @@ Süreç işbirliğine olanak tanıyan bir ortam sağlamanın çeşitli nedenleri
 <li>Modülerlik</li>
 <li>Kolaylık</li>
 </ul>
-<p>İşbirliği yapan işlemler, veri ve bilgi alışverişinde bulunmalarını sağlayacak<br>
-bir süreçler arası iletişim (IPC) mekanizmasına ihtiyaç duyar. İşlemler arası<br>
+<p>İşbirliği yapan işlemler, veri ve bilgi alışverişinde bulunmalarını sağlayacak 
+bir süreçler arası iletişim (IPC) mekanizmasına ihtiyaç duyar. İşlemler arası 
 iletişimin iki temel modeli vardır: <em>paylaşılan bellek</em> ve <em>mesaj iletimi.</em></p>
 <h4 id="iş-parçacıklarıthread">
   İş Parçacıkları(Thread)
@@ -337,7 +360,7 @@ iletişimin iki temel modeli vardır: <em>paylaşılan bellek</em> ve <em>mesaj 
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>İş parçacıkları için destek, <em>kullanıcı iş parçacıkları</em> için kullanıcı düzeyinde veya <em>çekirdek iş parçacıkları</em> için çekirdek tarafından sağlanabilir. <br>
+<p>İş parçacıkları için destek, <em>kullanıcı iş parçacıkları</em> için kullanıcı düzeyinde veya <em>çekirdek iş parçacıkları</em> için çekirdek tarafından sağlanabilir.  
 Kullanıcı iş parçacıkları çekirdeğin üzerinde desteklenir ve çekirdek desteği olmadan yönetilirken, çekirdek iş parçacıkları doğrudan işletim sistemi tarafından desteklenir ve yönetilir. Windows, Linux, Mac OS X ve Solaris dahil olmak üzere neredeyse tüm çağdaş işletim sistemleri çekirdek iş parçacıklarını destekler. Sonuçta, kullanıcı iş parçacıkları ile çekirdek iş parçacıkları arasında bir ilişki olmalıdır. Bu modeller:</p>
 <ul>
 <li>Çoktan Bire Model ( Bir çekirdek ipliğine birden fazla kullanıcı ipliği)</li>
@@ -365,15 +388,15 @@ Kullanıcı iş parçacıkları çekirdeğin üzerinde desteklenir ve çekirdek 
 <p>işlemin kritik bölüm olarak adlandırılan ve işlemin ortak değişkenleri değiştirdiği bir kod bölümü olabilir. Bir işlem kritik bölümde yürütülürken, başka hiçbir işlemin kritik bölümde yürütülmesine izin verilmez. Yani, iki işlemaynı anda kendi kritik bölümde çalışamaz.</p>
 <p>Kritik kesit probleminin çözümü aşağıdaki üç gerekliliği karşılamalıdır:</p>
 <ol>
-<li><strong>Karşılıklı dışlama:</strong> işlem kritik bölümünde çalışıyorsa, başka hiçbir<br>
+<li><strong>Karşılıklı dışlama:</strong> işlem kritik bölümünde çalışıyorsa, başka hiçbir 
 işlem kritik bölümde çalışamaz.</li>
-<li><strong>İlerleme:</strong> Hiçbir işlem kendi kritik bölümünde çalışmıyorsa ve bazı<br>
-işlemler kritik bölüme girmek istiyorsa, yalnızca kalan<br>
-bölümlerinde çalışmayan işlemler bir sonraki kritik bölüme hangisinin<br>
-gireceğine karar vermeye katılabilir ve bu seçim süresiz olarak<br>
+<li><strong>İlerleme:</strong> Hiçbir işlem kendi kritik bölümünde çalışmıyorsa ve bazı 
+işlemler kritik bölüme girmek istiyorsa, yalnızca kalan 
+bölümlerinde çalışmayan işlemler bir sonraki kritik bölüme hangisinin 
+gireceğine karar vermeye katılabilir ve bu seçim süresiz olarak 
 ertelenemez.</li>
-<li><strong>Sınırlandırılmış beklem</strong>e: Bir işlemden sonra diğer işlemlerin kritik<br>
-böüme girmelerine izin verilen sayı üzerinde bir sınır veya limit<br>
+<li><strong>Sınırlandırılmış beklem</strong>e: Bir işlemden sonra diğer işlemlerin kritik 
+böüme girmelerine izin verilen sayı üzerinde bir sınır veya limit 
 vardır.</li>
 </ol>
 <p>Bu gereksinimler için <a href="http://boron.physics.metu.edu.tr/ozdogan/OperatingSystems/week7/node1.html"  class="external-link" target="_blank" rel="noopener"><em>Peterson Çözümü</em></a> geliştirilmiştir.</p>
@@ -386,12 +409,12 @@ vardır.</li>
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>Kritik kesit sorununa yönelik donanım tabanlı çözümler karmaşıktır ve genellikle uygulama programcıları için erişilemezdir. Bunun yerine, işletim sistemi tasarımcıları kritik bölüm sorununu çözmek için yazılım araçları geliştirirler. Bu araçların en basiti muteks kilididir. (Aslında muteks terimi karşılıklı dışlamanın kısaltmasıdır.) Muteks kilidini kritik bölgeleri korumak ve böylece yarış koşullarını önlemek için kullanırız. Yani, bir<br>
-sişlem kritik bir bölüme girmeden önce kilidi edinmelidir; kritik bölümden<br>
+<p>Kritik kesit sorununa yönelik donanım tabanlı çözümler karmaşıktır ve genellikle uygulama programcıları için erişilemezdir. Bunun yerine, işletim sistemi tasarımcıları kritik bölüm sorununu çözmek için yazılım araçları geliştirirler. Bu araçların en basiti muteks kilididir. (Aslında muteks terimi karşılıklı dışlamanın kısaltmasıdır.) Muteks kilidini kritik bölgeleri korumak ve böylece yarış koşullarını önlemek için kullanırız. Yani, bir 
+sişlem kritik bir bölüme girmeden önce kilidi edinmelidir; kritik bölümden 
 çıktığında kilidi serbest bırakır.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*6IRXR8Sw9EndL-QKPRmL6w.png" alt=""></p>
 <p>Muteks kilitleri kullanımı</p>
-<p><em>acquire()</em> fonksiyonu kilidi alır ve <em>release()</em> fonksiyonu kilidi serbest bırakır. <em>acquire()</em> ya da <em>release()</em> çağrıları atomik olarak gerçekleştirilmelidir. <br>
+<p><em>acquire()</em> fonksiyonu kilidi alır ve <em>release()</em> fonksiyonu kilidi serbest bırakır. <em>acquire()</em> ya da <em>release()</em> çağrıları atomik olarak gerçekleştirilmelidir.  
 Bir muteks kilidinin, değeri kilidin kullanılabilir olup olmadığını gösteren bir boolean değişkeni vardır. Kilit kullanılabilir durumdaysa, <em>acquire()</em> çağrısı başarılı olur ve kilit daha sonra kullanılamaz olarak kabul edilir. Kullanılamayan bir kilidi almaya çalışan bir işlem, kilit serbest bırakılana kadar engellenir.</p>
 <h4 id="semaforlar">
   Semaforlar
@@ -400,8 +423,8 @@ Bir muteks kilidinin, değeri kilidin kullanılabilir olup olmadığını göste
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>Muteks kilidine benzer şekilde davranır, ancak süreçlerin faaliyetlerini<br>
-senkronize etmeleri için daha karmaşık yollar da sağlayabilir.<br>
+<p>Muteks kilidine benzer şekilde davranır, ancak süreçlerin faaliyetlerini 
+senkronize etmeleri için daha karmaşık yollar da sağlayabilir. 
 Bir semafor S, başlatma dışında yalnızca iki standart atomik işlemle erişilen bir tamsayı değişkendir.</p>
 <p>İşletim sistemleri genellikle sayma ve ikili semaforlar arasında ayrım yapar. Bir <em>sayma semaforunun</em> değeri sınırsız bir alan üzerinde değişebilir. Bir <em>ikili semaforun</em> değeri yalnızca 0 ile 1 arasında değişebilir. Bu nedenle, ikili semaforlar muteks kilitlerine benzer şekilde davranır.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*MVu1lrfs6ciG-dEC" alt=""></p>
@@ -414,9 +437,9 @@ Bir semafor S, başlatma dışında yalnızca iki standart atomik işlemle eriş
   </a>
 </h4>
 <p>Semaforlar süreç senkronizasyonu için uygun ve etkili bir mekanizma sağlasa da, bunların yanlış kullanımı tespit edilmesi zor zamanlama hatalarına neden olabilir, çünkü bu hatalar yalnızca belirli yürütme dizileri gerçekleştiğinde ortaya çıkar ve bu diziler her zaman gerçekleşmez.</p>
-<p>Monitörler, Soyut bir veri tipi (ADT) ‘nin herhangi bir özel uygulamasından<br>
-bağımsız olarak bu veriler üzerinde çalışacak bir dizi işlevle birlikte verileri<br>
-kapsar. Monitör yapısı, monitör içinde aynı anda yalnızca bir sürecin etkin<br>
+<p>Monitörler, Soyut bir veri tipi (ADT) ‘nin herhangi bir özel uygulamasından 
+bağımsız olarak bu veriler üzerinde çalışacak bir dizi işlevle birlikte verileri 
+kapsar. Monitör yapısı, monitör içinde aynı anda yalnızca bir sürecin etkin 
 olmasını sağlar.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*1yFRNX_7QPDEhWUFWc-61w.png" alt=""></p>
 <p>monitör</p>
@@ -432,25 +455,25 @@ olmasını sağlar.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*CH9-cCR_FTNViJ6l" alt=""></p>
 <p>Bir sistemde aşağıdaki dört koşul aynı anda gerçekleşirse bir kilitlenme durumu ortaya çıkabilir:</p>
 <ol>
-<li><strong>Karşılıklı dışlama:</strong> En az bir kaynak paylaşılamaz modda tutulmalıdır;<br>
-yani, bir seferde yalnızca bir süreç kaynağı kullanabilir. Başka bir süreç<br>
-bu kaynağı talep ederse, talep eden süreç kaynak serbest bırakılana<br>
+<li><strong>Karşılıklı dışlama:</strong> En az bir kaynak paylaşılamaz modda tutulmalıdır; 
+yani, bir seferde yalnızca bir süreç kaynağı kullanabilir. Başka bir süreç 
+bu kaynağı talep ederse, talep eden süreç kaynak serbest bırakılana 
 kadar ertelenmelidir.</li>
-<li><strong>Tut ve bekle:</strong> Bir süreç en az bir kaynağı tutuyor ve diğer süreçler<br>
+<li><strong>Tut ve bekle:</strong> Bir süreç en az bir kaynağı tutuyor ve diğer süreçler 
 tarafından tutulmakta olan ek kaynakları almak için bekliyor olmalıdır.</li>
 <li><strong>Önalma yok:</strong> Kaynaklar öncelenemez; yani, bir kaynak yalnızca onu tutan süreç tarafından, bu süreç görevini tamamladıktan sonra gönüllü olarak serbest bırakılabilir.</li>
-<li><strong>Dairesel bekleme:</strong> Bekleyen süreçlerin {P , P01 , …, Pn } kümesi, P0 ‘ın P1 tarafından tutulan bir kaynağı beklediği, P1 ‘in P2 tarafından tutulan bir kaynağı beklediği, …, Pn−1 ‘nin Pn tarafından tutulan bir kaynağı<br>
+<li><strong>Dairesel bekleme:</strong> Bekleyen süreçlerin {P , P01 , …, Pn } kümesi, P0 ‘ın P1 tarafından tutulan bir kaynağı beklediği, P1 ‘in P2 tarafından tutulan bir kaynağı beklediği, …, Pn−1 ‘nin Pn tarafından tutulan bir kaynağı 
 beklediği ve Pn ‘un beklediği şekilde var olmalıdır.</li>
 </ol>
-<p>Bir kilitlenmenin meydana gelmesi için dört koşulun da sağlanması<br>
+<p>Bir kilitlenmenin meydana gelmesi için dört koşulun da sağlanması 
 gerektiğini vurguluyoruz. Döngüsel bekleme koşulu, bekle ve beklet koşulunu gerektirir, bu nedenle dört koşul tamamen bağımsız değildir.</p>
 <p>Genel olarak, kilitlenme sorunuyla üç yoldan biriyle başa çıkabiliriz:</p>
 <ul>
-<li>Kilitlenmeleri önlemek veya bunlardan kaçınmak için bir protokol<br>
-kullanarak sistemin asla kilitlenme durumuna girmemesini<br>
+<li>Kilitlenmeleri önlemek veya bunlardan kaçınmak için bir protokol 
+kullanarak sistemin asla kilitlenme durumuna girmemesini 
 sağlayabiliriz.</li>
 <li>Sistemin kilitlenme durumuna girmesine izin verebilir, bunu tespit edebilir ve kurtarabiliriz.</li>
-<li>Sorunu tamamen görmezden gelebilir ve sistemde kilitlenmelerin hiç<br>
+<li>Sorunu tamamen görmezden gelebilir ve sistemde kilitlenmelerin hiç 
 meydana gelmediğini varsayabiliriz.</li>
 </ul>
 <hr>
@@ -463,8 +486,8 @@ meydana gelmediğini varsayabiliriz.</li>
 </h3>
 <p>İşletim sisteminin bellek yönetimi, bilgisayarın bellek kaynaklarını etkin bir şekilde tahsis etme ve kontrol etme sürecini ifade eder. İşletim sistemi, bellek yönetimi sayesinde işlem ve programların bellek kullanımını izler, gerektiğinde bellek alanı tahsis eder ve bellekten geri alır.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*p0FxSir6Up3i3hAC" alt=""></p>
-<p>Ana bellek(RAM) ve işlemcinin içine(Cache) yerleştirilmiş kayıtlar, CPU’nun doğrudan erişebildiği tek genel amaçlı depolama alanıdır. Bellek adreslerini argüman olarak alan makine talimatları vardır, ancak disk adreslerini alan hiçbir talimat yoktur. Bu nedenle, yürütülmekte olan tüm talimatlar ve talimatlar tarafından kullanılan tüm veriler, bu doğrudan erişimli depolama aygıtlarından birinde olmalıdır. Eğer veriler bellekte değilse, CPU’nun üzerinde işlem yapabilmesi için önce ana belleğe(RAM) taşınmaları gerekir.<br>
-CPU tarafından üretilen bir adres genellikle mantıksal adres olarak<br>
+<p>Ana bellek(RAM) ve işlemcinin içine(Cache) yerleştirilmiş kayıtlar, CPU’nun doğrudan erişebildiği tek genel amaçlı depolama alanıdır. Bellek adreslerini argüman olarak alan makine talimatları vardır, ancak disk adreslerini alan hiçbir talimat yoktur. Bu nedenle, yürütülmekte olan tüm talimatlar ve talimatlar tarafından kullanılan tüm veriler, bu doğrudan erişimli depolama aygıtlarından birinde olmalıdır. Eğer veriler bellekte değilse, CPU’nun üzerinde işlem yapabilmesi için önce ana belleğe(RAM) taşınmaları gerekir. 
+CPU tarafından üretilen bir adres genellikle mantıksal adres olarak 
 adlandırılırken, bellek birimi tarafından görülen bir adres — yani belleğin bellek adres kaydına yüklenen adres — genellikle fiziksel adres olarak adlandırılır. Sanal adreslerden fiziksel adreslere çalışma zamanı eşlemesi, <em>bellek yönetim birimi (MMU)</em> adı verilen bir donanım aygıtı tarafından yapılır.</p>
 <h4 id="takasswap">
   Takas(swap)
@@ -483,11 +506,11 @@ adlandırılırken, bellek birimi tarafından görülen bir adres — yani b
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>Ana bellek hem işletim sistemini hem de çeşitli kullanıcı işlemlerini<br>
+<p>Ana bellek hem işletim sistemini hem de çeşitli kullanıcı işlemlerini 
 barındırmalıdır. Bu nedenle ana belleği mümkün olan en verimli şekilde tahsis etmemiz gerekir.</p>
 <p>Bellek tahsisi için en basit yöntemlerden biri belleği sabit boyutlu birkaç bölüme ayırmaktır. Her bölüm tam olarak bir işlem içerebilir. Böylece, çoklu programlama derecesi bölümlerin sayısına bağlıdır. Bu çoklu bölüm yönteminde, bir bölüm boş olduğunda, giriş kuyruğundan bir süreç seçilir ve boş bölüme yüklenir. İşlem sona erdiğinde, bölüm başka bir işlem için kullanılabilir hale gelir.</p>
-<p>Değişken bölüm şemasında, işletim sistemi belleğin hangi bölümlerinin<br>
-kullanılabilir ve hangilerinin dolu olduğunu gösteren bir tablo tutar. mevcut bellek blokları bellek boyunca dağılmış çeşitli boyutlarda bir dizi boşluktan oluşur. Bir işlem geldiğinde ve belleğe ihtiyaç duyduğunda, sistem bu işlem için yeterince büyük bir boşluk arar. Eğer boşluk çok<br>
+<p>Değişken bölüm şemasında, işletim sistemi belleğin hangi bölümlerinin 
+kullanılabilir ve hangilerinin dolu olduğunu gösteren bir tablo tutar. mevcut bellek blokları bellek boyunca dağılmış çeşitli boyutlarda bir dizi boşluktan oluşur. Bir işlem geldiğinde ve belleğe ihtiyaç duyduğunda, sistem bu işlem için yeterince büyük bir boşluk arar. Eğer boşluk çok 
 büyükse, iki parçaya bölünür. Bir parça gelen işleme tahsis edilir; diğeri boşluklar kümesine geri gönderilir. Bir işlem sona erdiğinde, bellek bloğunu serbest bırakır ve daha sonra delikler kümesine geri yerleştirilir.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*XAENmzVV04429w9N" alt=""></p>
 <p>Bellek Tahsisi</p>
@@ -515,7 +538,7 @@ büyükse, iki parçaya bölünür. Bir parça gelen işleme tahsis edilir; diğ
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>Segmentasyon, bir sürecin fiziksel adres alanının bitişik olmamasına izin verir. Sayfalama, bu avantajı sunan başka bir bellek yönetim şemasıdır. Bununla birlikte, sayfalama harici parçalanmayı önler ve sıkıştırırken, segmentasyon bunu yapmaz. Ayrıca, farklı boyutlardaki bellek<br>
+<p>Segmentasyon, bir sürecin fiziksel adres alanının bitişik olmamasına izin verir. Sayfalama, bu avantajı sunan başka bir bellek yönetim şemasıdır. Bununla birlikte, sayfalama harici parçalanmayı önler ve sıkıştırırken, segmentasyon bunu yapmaz. Ayrıca, farklı boyutlardaki bellek 
 parçalarını destek deposuna sığdırmak gibi önemli bir sorunu da çözer.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*0Ir0o5wtu7y2mwjfFarrHA.png" alt=""></p>
 <p>Sayfalama Donanımı</p>
@@ -527,7 +550,7 @@ parçalarını destek deposuna sığdırmak gibi önemli bir sorunu da çözer.<
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>Sanal bellek, kullanıcılar tarafından algılanan mantıksal belleğin fiziksel bellekten ayrılmasını içerir. Bu ayırma, yalnızca daha küçük bir fiziksel bellek mevcut olduğunda programcılar için son derece büyük bir sanal belleğin sağlanmasına izin verir. Sanal bellek, programlama görevini çok daha kolay hale getirir, çünkü programcının artık kullanılabilir fiziksel bellek miktarı hakkında endişelenmesine gerek yoktur; bunun yerine<br>
+<p>Sanal bellek, kullanıcılar tarafından algılanan mantıksal belleğin fiziksel bellekten ayrılmasını içerir. Bu ayırma, yalnızca daha küçük bir fiziksel bellek mevcut olduğunda programcılar için son derece büyük bir sanal belleğin sağlanmasına izin verir. Sanal bellek, programlama görevini çok daha kolay hale getirir, çünkü programcının artık kullanılabilir fiziksel bellek miktarı hakkında endişelenmesine gerek yoktur; bunun yerine 
 programlanacak soruna konsantre olabilir.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*QvvtOf3Vf930Fs19eSHqjQ.png" alt=""></p>
 <p>Sanal Bellek</p>

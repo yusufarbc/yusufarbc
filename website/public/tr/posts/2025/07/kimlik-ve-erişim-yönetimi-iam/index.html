@@ -13,7 +13,22 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Modern dijital ekonominin temel taşı olan veri ve sistemlere erişim, kurumlar için hem en büyük fırsatı hem de en ciddi güvenlik riskini temsil etmektedir. Bu ikilemin merkezinde, siber güvenliğin en ...">
+<meta name="description" content="
+  Ağ Güvenliği ve Yönetimi VI: Kimlik ve Erişim Yönetimi (IAM)
+  
+    
+    Başlık Linki
+  
+
+
+
+  Bölüm 1: Kimlik ve Erişim Yönetiminin Temelleri
+  
+    
+    Başlık Linki
+  
+
+Modern dijital ekonominin temel taşı olan veri ve sistemlere erişim, kurumlar için hem en büyük fırsatı hem de en ciddi güvenlik riskini temsil etmektedir. Bu ikilemin merkezinde, siber güvenliğin en kritik disiplinlerinden biri olan Kimlik ve Erişim Yönetimi (Identity and Access Management - IAM) yer almaktadır. Bu bölüm, IAM&rsquo;in tanımını, stratejik önemini, temel ilkelerini ve modern mimarisini derinlemesine inceleyerek, konuya dair sağlam bir teorik zemin oluşturmayı amaçlamaktadır.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +36,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Kimlik ve Erişim Yönetimi (IAM)">
-  <meta name="twitter:description" content="Modern dijital ekonominin temel taşı olan veri ve sistemlere erişim, kurumlar için hem en büyük fırsatı hem de en ciddi güvenlik riskini temsil etmektedir. Bu ikilemin merkezinde, siber güvenliğin en ...">
+  <meta name="twitter:description" content="Ağ Güvenliği ve Yönetimi VI: Kimlik ve Erişim Yönetimi (IAM)Başlık LinkiBölüm 1: Kimlik ve Erişim Yönetiminin TemelleriBaşlık LinkiModern dijital ekonominin temel taşı olan veri ve sistemlere erişim, kurumlar için hem en büyük fırsatı hem de en ciddi güvenlik riskini temsil etmektedir. Bu ikilemin merkezinde, siber güvenliğin en kritik disiplinlerinden biri olan Kimlik ve Erişim Yönetimi (Identity and Access Management - IAM) yer almaktadır. Bu bölüm, IAM’in tanımını, stratejik önemini, temel ilkelerini ve modern mimarisini derinlemesine inceleyerek, konuya dair sağlam bir teorik zemin oluşturmayı amaçlamaktadır.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2025/07/kimlik-ve-eri%C5%9Fim-y%C3%B6netimi-iam/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Kimlik ve Erişim Yönetimi (IAM)">
-  <meta property="og:description" content="Modern dijital ekonominin temel taşı olan veri ve sistemlere erişim, kurumlar için hem en büyük fırsatı hem de en ciddi güvenlik riskini temsil etmektedir. Bu ikilemin merkezinde, siber güvenliğin en ...">
+  <meta property="og:description" content="Ağ Güvenliği ve Yönetimi VI: Kimlik ve Erişim Yönetimi (IAM)Başlık LinkiBölüm 1: Kimlik ve Erişim Yönetiminin TemelleriBaşlık LinkiModern dijital ekonominin temel taşı olan veri ve sistemlere erişim, kurumlar için hem en büyük fırsatı hem de en ciddi güvenlik riskini temsil etmektedir. Bu ikilemin merkezinde, siber güvenliğin en kritik disiplinlerinden biri olan Kimlik ve Erişim Yönetimi (Identity and Access Management - IAM) yer almaktadır. Bu bölüm, IAM’in tanımını, stratejik önemini, temel ilkelerini ve modern mimarisini derinlemesine inceleyerek, konuya dair sağlam bir teorik zemin oluşturmayı amaçlamaktadır.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -551,9 +566,9 @@
 <li><strong>Zorluk: Ölçeklenebilirlik ve Performans:</strong> Kurum büyüdükçe, IAM sisteminin yönetmesi gereken kullanıcı, cihaz ve uygulama sayısı artar. Bu durum, kimlik doğrulama süreçlerinin yavaşlamasına ve kullanıcı deneyiminin düşmesine neden olabilir.</li>
 <li><strong>Çözüm Stratejisi:</strong> Seçilen IAM çözümünün mimarisinin yatay olarak ölçeklenebilir (horizontally scalable) olduğundan emin olunmalıdır. Özellikle bulut tabanlı IDaaS çözümleri, talebe göre otomatik olarak ölçeklenme yetenekleri sayesinde bu soruna doğal bir çözüm sunar.</li>
 <li><strong>Zorluk: Kullanıcı Direnci ve Benimseme:</strong> Güvenliği artırmak için getirilen yeni adımlar, özellikle MFA gibi ek kimlik doğrulama gereksinimleri, kullanıcılar tarafından bir engel olarak algılanabilir ve iş akışlarını yavaşlattığı gerekçesiyle dirençle karşılanabilir.</li>
-<li><strong>Çözüm Stratejisi:</strong> Bu, teknolojik bir sorundan çok bir değişim yönetimi sorunudur. Çözüm, üç ayaklıdır:<br>
-1-<strong>Teknoloji:</strong> Kullanıcı deneyimini en az etkileyen çözümleri tercih etmek (örneğin, her seferinde kod girmek yerine tek dokunuşla onaylanan push bildirimleri veya risk tabanlı uyarlanabilir MFA).<br>
-2-<strong>İletişim:</strong> Yeni güvenlik önlemlerinin neden gerekli olduğunu, hem kurumu hem de kullanıcıların kendilerini nasıl koruduğunu açıkça anlatan sürekli bir iletişim kampanyası yürütmek.<br>
+<li><strong>Çözüm Stratejisi:</strong> Bu, teknolojik bir sorundan çok bir değişim yönetimi sorunudur. Çözüm, üç ayaklıdır: 
+1-<strong>Teknoloji:</strong> Kullanıcı deneyimini en az etkileyen çözümleri tercih etmek (örneğin, her seferinde kod girmek yerine tek dokunuşla onaylanan push bildirimleri veya risk tabanlı uyarlanabilir MFA). 
+2-<strong>İletişim:</strong> Yeni güvenlik önlemlerinin neden gerekli olduğunu, hem kurumu hem de kullanıcıların kendilerini nasıl koruduğunu açıkça anlatan sürekli bir iletişim kampanyası yürütmek. 
 3-<strong>Eğitim:</strong> Kullanıcılara yeni sistemleri nasıl kullanacakları konusunda pratik eğitimler vermek.</li>
 <li><strong>Zorluk: Merkezi Görünüm Eksikliği:</strong> Özellikle büyük ve merkezi olmayan organizasyonlarda, farklı departmanlar veya iş birimleri kendi uygulamaları için kendi erişim kontrol mekanizmalarını kurabilir. Bu durum, kurum genelinde tutarlı bir güvenlik politikası uygulamasını ve kimin neye erişimi olduğuna dair bütünsel bir görünüm elde etmeyi imkansız hale getirir.</li>
 <li><strong>Çözüm Stratejisi:</strong> Üst yönetim desteğiyle, tüm kimlik ve erişim yönetimi süreçlerini merkezi bir IAM platformu altında birleştirmeyi hedefleyen bir yönetişim modeli oluşturulmalıdır. Bu platform, tüm kurum için &ldquo;tek doğruluk kaynağı&rdquo; (single source of truth) olarak hizmet etmelidir.</li>

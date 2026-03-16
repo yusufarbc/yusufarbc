@@ -13,7 +13,23 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in log yönetimini, yani log toplama, parse etme ve zenginleştirme işlemlerine değineceğim. Logstash ile loglar Nasıl Toplanır, İşlenir...">
+<meta name="description" content="
+  ELK Stack Log Yönetimi ve Analizi
+  
+    
+    Başlık Linki
+  
+
+
+Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in log yönetimini, yani log toplama, parse etme ve zenginleştirme işlemlerine değineceğim. Logstash ile loglar Nasıl Toplanır, İşlenir ve Gönderilir?
+
+  Log Yönetimi Nedir?
+  
+    
+    Başlık Linki
+  
+
+Log yönetimi, bir sistemin veya uygulamanın ürettiği tüm günlük kayıtlarını (logları) toplama, depolamak, analiz etmek ve yönetmek sürecidir. Bu loglar, sistemin çalışmasıyla ilgili önemli bilgiler içerir ve sorun giderme, güvenlik analizi, performans takibi gibi birçok alanda kullanılır.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +37,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="ELK Stack Log Yönetimi ve Analizi">
-  <meta name="twitter:description" content="Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in log yönetimini, yani log toplama, parse etme ve zenginleştirme işlemlerine değineceğim. Logstash ile loglar Nasıl Toplanır, İşlenir...">
+  <meta name="twitter:description" content="ELK Stack Log Yönetimi ve AnaliziBaşlık LinkiMerhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in log yönetimini, yani log toplama, parse etme ve zenginleştirme işlemlerine değineceğim. Logstash ile loglar Nasıl Toplanır, İşlenir ve Gönderilir?
+Log Yönetimi Nedir?Başlık LinkiLog yönetimi, bir sistemin veya uygulamanın ürettiği tüm günlük kayıtlarını (logları) toplama, depolamak, analiz etmek ve yönetmek sürecidir. Bu loglar, sistemin çalışmasıyla ilgili önemli bilgiler içerir ve sorun giderme, güvenlik analizi, performans takibi gibi birçok alanda kullanılır.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2024/11/elk-stack-log-y%C3%B6netimi-ve-analizi/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="ELK Stack Log Yönetimi ve Analizi">
-  <meta property="og:description" content="Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in log yönetimini, yani log toplama, parse etme ve zenginleştirme işlemlerine değineceğim. Logstash ile loglar Nasıl Toplanır, İşlenir...">
+  <meta property="og:description" content="ELK Stack Log Yönetimi ve AnaliziBaşlık LinkiMerhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in log yönetimini, yani log toplama, parse etme ve zenginleştirme işlemlerine değineceğim. Logstash ile loglar Nasıl Toplanır, İşlenir ve Gönderilir?
+Log Yönetimi Nedir?Başlık LinkiLog yönetimi, bir sistemin veya uygulamanın ürettiği tüm günlük kayıtlarını (logları) toplama, depolamak, analiz etmek ve yönetmek sürecidir. Bu loglar, sistemin çalışmasıyla ilgili önemli bilgiler içerir ve sorun giderme, güvenlik analizi, performans takibi gibi birçok alanda kullanılır.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -245,16 +263,16 @@
 <p><img src="https://cdn-images-1.medium.com/max/800/1*sf3D7DyNWppst-cVl_z42g.png" alt=""></p>
 <p>Logstash Boru Hattı</p>
 <p>Bu veri işleme işlem hattını oluşturmak için Logstash’ı bir yapılandırma dosyası kullanarak yapılandırabilirsiniz. Tipik bir logstash yapılandırma dosyası:</p>
-<pre tabindex="0"><code>input {  
-      plugin_name{...}  
- }  
-  
-filter {  
-     plugin_name{...}  
-}  
-  
-output {  
-     plugin_name{...}  
+<pre tabindex="0"><code>input {  
+      plugin_name{...}  
+ }  
+  
+filter {  
+     plugin_name{...}  
+}  
+  
+output {  
+     plugin_name{...}  
 }
 </code></pre><p>Şimdi bu bileşenleri inceleyelim:</p>
 <ul>
@@ -308,33 +326,33 @@ output {
 <p>Logstash pipeline’nı kurmak için <code>etc/logstash/conf.d</code> dizininde bir yapılandırma dosyası oluşturun.</p>
 <pre tabindex="0"><code>sudo nano /etc/logstash/conf.d/logstash.conf
 </code></pre><p>Biz beats ile log aktarımı yapacağız. Bunun için konfigürasyon dosyamız:</p>
-<pre tabindex="0"><code># Sample Logstash configuration for creating a simple  
-# Beats -&gt; Logstash -&gt; Elasticsearch pipeline.  
-  
-input {  
-  beats {  
-    port =&gt; 5044  
-  }  
-}  
-  
-filter {  
-  grok {  
-    # Match nginx headers  
-    match =&gt; {  
-      &#34;message&#34; =&gt; &#39;%{IP:client_ip} - - \[%{HTTPDATE:access_time}\] &#34;%{WORD:http_method} %{URIPATH:request_page} HTTP/%{NUMBER:http_version}&#34; %{NUMBER:response_code} %{NUMBER:response_size} &#34;-&#34; &#34;%{GREEDYDATA:user_agent}&#34;&#39;  
-    }  
-  }  
-  }  
-  
-output {  
-  elasticsearch {  
-    hosts =&gt; [&#34;https://&lt;host-ip&gt;:9200&#34;]  
-    index =&gt; &#34;filebeat-test-%{+YYYY.MM.dd}&#34;  
-    ssl =&gt; true  
-    ssl_certificate_verification =&gt; false  
-    user =&gt; &#34;elastic&#34;  
-    password =&gt; &#34;changeme&#34;  
-  }  
+<pre tabindex="0"><code># Sample Logstash configuration for creating a simple  
+# Beats -&gt; Logstash -&gt; Elasticsearch pipeline.  
+  
+input {  
+  beats {  
+    port =&gt; 5044  
+  }  
+}  
+  
+filter {  
+  grok {  
+    # Match nginx headers  
+    match =&gt; {  
+      &#34;message&#34; =&gt; &#39;%{IP:client_ip} - - \[%{HTTPDATE:access_time}\] &#34;%{WORD:http_method} %{URIPATH:request_page} HTTP/%{NUMBER:http_version}&#34; %{NUMBER:response_code} %{NUMBER:response_size} &#34;-&#34; &#34;%{GREEDYDATA:user_agent}&#34;&#39;  
+    }  
+  }  
+  }  
+  
+output {  
+  elasticsearch {  
+    hosts =&gt; [&#34;https://&lt;host-ip&gt;:9200&#34;]  
+    index =&gt; &#34;filebeat-test-%{+YYYY.MM.dd}&#34;  
+    ssl =&gt; true  
+    ssl_certificate_verification =&gt; false  
+    user =&gt; &#34;elastic&#34;  
+    password =&gt; &#34;changeme&#34;  
+  }  
 }                                                                                         beats {                                                                                                           port =&gt; 5044                                                                                                  }                                                                                                             }                                                                                                                                                                                                                               filter {                                                                                                          grok {                                                                                                            # Match nginx headers                                                                                           match =&gt; {                                                                                                        &#34;message&#34; =&gt; &#39;%{IP:client_ip} - - \[%{HTTPDATE:access_time}\] &#34;%{WORD:http_method} %{URIPATH:request_page} HTTP/%{NUMBER:http_version}&#34; %{NUMBER:response_code} %{NUMBER:response_size} &#34;-&#34; &#34;%{GREEDYDATA:user_agent}&#34;&#39;       }                                                                                                             }                                                                                                               }                                                                                                                                                                                                                             output {                                                                                                          elasticsearch {                                                                                                   hosts =&gt; [&#34;https://192.168.1.100:9200&#34;]                                                                         index =&gt; &#34;filebeat-test-%{+YYYY.MM.dd}&#34;                                                                         ssl =&gt; true                                                                                                     ssl_certificate_verification =&gt; false                                                                           user =&gt; &#34;elastic&#34;                                                                                               password =&gt; &#34;123456&#34;                                                                                          }                                                                                                             }
 </code></pre><p>Bu dosyada password alanına kendi “elastic” kullanıcınızın parolasını yazmanız gerekli.</p>
 <p>Logstash üzerinde filter olarak grok eklentisini kullandım. grok çok iyi bir parser eklentisidir. Gelen loglarımızı logstash üzerinde grok eklentisi ile parse ediyor olacağız.</p>
@@ -371,7 +389,7 @@ output {
 </ul>
 <p>Gördüğünüz gibi birçok beat ürünü var. Biz bunlardan sistemimizdeki log dosyalarını göndermek için <strong>filebeat</strong> ürününü kullanalım.</p>
 <p>Client sistemimizde kuruluma başlıyoruz. Ben yine aynı sistemimde devam edeceğim. ELK sistemimi kurduğum sunucum ayrıca clientım olacak.</p>
-<pre tabindex="0"><code>wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.15.3-amd64.deb  
+<pre tabindex="0"><code>wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.15.3-amd64.deb  
 sudo dpkg -i filebeat-8.15.3-amd64.deb
 </code></pre><p><img src="https://cdn-images-1.medium.com/max/800/1*h8EWICxmNAUUwQgfbizXjQ.png" alt=""></p>
 <p>Filebeat kurulumu</p>
@@ -388,8 +406,8 @@ sudo dpkg -i filebeat-8.15.3-amd64.deb
 <p>Paths kısmında beatimizin toplayacağı logları yapılandırbiliriz. Varsayılan olarak /var/log/ dizini altındaki log dosyalarını topluyor. Daha fazlası için bu kısma sunucumuzda çalışan önemli servislerin(WEB, DNS, DHCP vb.) loglarını ekleyebiliriz.</p>
 <p>Yapılandırma ayarlarımız tamamlandığında dosyayı kaydedip çıkabiliriz.</p>
 <p>Şimdi sıra filebeatimizi başlatmada.</p>
-<pre tabindex="0"><code>sudo systemctl daemon-reload  
-sudo systemctl enable filebeat.service  
+<pre tabindex="0"><code>sudo systemctl daemon-reload  
+sudo systemctl enable filebeat.service  
 sudo systemctl start filebeat.service
 </code></pre><p><img src="https://cdn-images-1.medium.com/max/800/1*5fkN3mf3RSkcR8i5pj_eXg.png" alt=""></p>
 <p>Filebeat Servis Durumu</p>

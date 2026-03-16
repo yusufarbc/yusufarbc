@@ -13,7 +13,18 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Docker is an open source container platform used to develop, deploy and manage applications in virtualized environments. It is a technology that distributes the resources of the operating system to th...">
+<meta name="description" content="
+
+  What is Docker?
+  
+    
+    Link to heading
+  
+
+Docker is an open source container platform used to develop, deploy and manage applications in virtualized environments. It is a technology that distributes the resources of the operating system to the applications it manages. Docker is lighter and faster than virtual machines.
+
+docker vs virtual machines
+Docker containers provide lightweight virtualized runtime environments for running applications. Package applications in isolated environments; makes it easier to develop, deploy and maintain applications. Containers are independent and isolated from the host and other applications running on the host.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +32,16 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Docker Basics">
-  <meta name="twitter:description" content="Docker is an open source container platform used to develop, deploy and manage applications in virtualized environments. It is a technology that distributes the resources of the operating system to th...">
+  <meta name="twitter:description" content="What is Docker?Link to headingDocker is an open source container platform used to develop, deploy and manage applications in virtualized environments. It is a technology that distributes the resources of the operating system to the applications it manages. Docker is lighter and faster than virtual machines.
+docker vs virtual machines
+Docker containers provide lightweight virtualized runtime environments for running applications. Package applications in isolated environments; makes it easier to develop, deploy and maintain applications. Containers are independent and isolated from the host and other applications running on the host.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2023/01/docker-basics/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Docker Basics">
-  <meta property="og:description" content="Docker is an open source container platform used to develop, deploy and manage applications in virtualized environments. It is a technology that distributes the resources of the operating system to th...">
+  <meta property="og:description" content="What is Docker?Link to headingDocker is an open source container platform used to develop, deploy and manage applications in virtualized environments. It is a technology that distributes the resources of the operating system to the applications it manages. Docker is lighter and faster than virtual machines.
+docker vs virtual machines
+Docker containers provide lightweight virtualized runtime environments for running applications. Package applications in isolated environments; makes it easier to develop, deploy and maintain applications. Containers are independent and isolated from the host and other applications running on the host.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -473,30 +488,30 @@
     <span class="sr-only">Link to heading</span>
   </a>
 </h4>
-<pre tabindex="0"><code># syntax=docker/dockerfile:1  
-FROM golang:1.16-alpine AS build  
-  
-# Install tools required for project  
-# Run `docker build --no-cache .` to update dependencies  
-RUN apk add --no-cache git  
-RUN go get github.com/golang/dep/cmd/dep  
-  
-# List project dependencies with Gopkg.toml and Gopkg.lock  
-# These layers are only re-built when Gopkg files are updated  
-COPY Gopkg.lock Gopkg.toml /go/src/project/  
-WORKDIR /go/src/project/  
-# Install library dependencies  
-RUN dep ensure -vendor-only  
-  
-# Copy the entire project and build it  
-# This layer is rebuilt when a file changes in the project directory  
-COPY . /go/src/project/  
-RUN go build -o /bin/project  
-  
-# These results in a single layer image  
-FROM scratch  
-COPY --from=build /bin/project /bin/project  
-ENTRYPOINT [&#34;/bin/project&#34;]  
+<pre tabindex="0"><code># syntax=docker/dockerfile:1  
+FROM golang:1.16-alpine AS build  
+  
+# Install tools required for project  
+# Run `docker build --no-cache .` to update dependencies  
+RUN apk add --no-cache git  
+RUN go get github.com/golang/dep/cmd/dep  
+  
+# List project dependencies with Gopkg.toml and Gopkg.lock  
+# These layers are only re-built when Gopkg files are updated  
+COPY Gopkg.lock Gopkg.toml /go/src/project/  
+WORKDIR /go/src/project/  
+# Install library dependencies  
+RUN dep ensure -vendor-only  
+  
+# Copy the entire project and build it  
+# This layer is rebuilt when a file changes in the project directory  
+COPY . /go/src/project/  
+RUN go build -o /bin/project  
+  
+# These results in a single layer image  
+FROM scratch  
+COPY --from=build /bin/project /bin/project  
+ENTRYPOINT [&#34;/bin/project&#34;]  
 CMD [&#34;--help&#34;]
 </code></pre>
       </div>

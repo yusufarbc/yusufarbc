@@ -13,7 +13,18 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Bu yazımda, genel olarak tespit edilmesinin ve önlenmesinin zor olduğu kabul edilen sıfıncı-gün ataklarına karşı nasıl bir siber savunma stratejisinin geliştirilebileceğine değineceğim. Birçok kurumun...">
+<meta name="description" content="
+Bu yazımda, genel olarak tespit edilmesinin ve önlenmesinin zor olduğu kabul edilen sıfıncı-gün ataklarına karşı nasıl bir siber savunma stratejisinin geliştirilebileceğine değineceğim. Birçok kurumun muzdarip olduğu sıfıncı gün ataklarına karşı elbette elimiz boş bekleyemeyiz. Nasıl bir savunma altyapısı kurmamız gerekiyor? hadi biraz tartışalım.
+
+
+  Sıfırıncı-Gün(Zero-Day) Atakları Nedir?
+  
+    
+    Başlık Linki
+  
+
+Öncelikle, sıfırıncı-gün ataklarının ve zafiyetlerinin tam olarak ne olduğu ve neden tespit edilmesinin zor olduğunu anlayalım
+Zafiyet, genellikle bir sistem, ağ, yazılım veya donanımda var olan ve kötü niyetli kişilerin saldırmasına veya istismar etmesine olanak tanıyan bir güvenlik açığını ifade eder. Bu tür zafiyetler, bir sistemin güvenliğini tehlikeye atabilir ve veri hırsızlığı, yetkisiz erişim veya hizmet kesintisi gibi sonuçlara yol açabilir.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +32,16 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Sıfırncı-Gün Ataklarına Karşı Siber Savunma Stratejileri">
-  <meta name="twitter:description" content="Bu yazımda, genel olarak tespit edilmesinin ve önlenmesinin zor olduğu kabul edilen sıfıncı-gün ataklarına karşı nasıl bir siber savunma stratejisinin geliştirilebileceğine değineceğim. Birçok kurumun...">
+  <meta name="twitter:description" content="Bu yazımda, genel olarak tespit edilmesinin ve önlenmesinin zor olduğu kabul edilen sıfıncı-gün ataklarına karşı nasıl bir siber savunma stratejisinin geliştirilebileceğine değineceğim. Birçok kurumun muzdarip olduğu sıfıncı gün ataklarına karşı elbette elimiz boş bekleyemeyiz. Nasıl bir savunma altyapısı kurmamız gerekiyor? hadi biraz tartışalım.
+Sıfırıncı-Gün(Zero-Day) Atakları Nedir?Başlık LinkiÖncelikle, sıfırıncı-gün ataklarının ve zafiyetlerinin tam olarak ne olduğu ve neden tespit edilmesinin zor olduğunu anlayalım
+Zafiyet, genellikle bir sistem, ağ, yazılım veya donanımda var olan ve kötü niyetli kişilerin saldırmasına veya istismar etmesine olanak tanıyan bir güvenlik açığını ifade eder. Bu tür zafiyetler, bir sistemin güvenliğini tehlikeye atabilir ve veri hırsızlığı, yetkisiz erişim veya hizmet kesintisi gibi sonuçlara yol açabilir.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2024/12/s%C4%B1f%C4%B1rnc%C4%B1-g%C3%BCn-ataklar%C4%B1na-kar%C5%9F%C4%B1-siber-savunma-stratejileri/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Sıfırncı-Gün Ataklarına Karşı Siber Savunma Stratejileri">
-  <meta property="og:description" content="Bu yazımda, genel olarak tespit edilmesinin ve önlenmesinin zor olduğu kabul edilen sıfıncı-gün ataklarına karşı nasıl bir siber savunma stratejisinin geliştirilebileceğine değineceğim. Birçok kurumun...">
+  <meta property="og:description" content="Bu yazımda, genel olarak tespit edilmesinin ve önlenmesinin zor olduğu kabul edilen sıfıncı-gün ataklarına karşı nasıl bir siber savunma stratejisinin geliştirilebileceğine değineceğim. Birçok kurumun muzdarip olduğu sıfıncı gün ataklarına karşı elbette elimiz boş bekleyemeyiz. Nasıl bir savunma altyapısı kurmamız gerekiyor? hadi biraz tartışalım.
+Sıfırıncı-Gün(Zero-Day) Atakları Nedir?Başlık LinkiÖncelikle, sıfırıncı-gün ataklarının ve zafiyetlerinin tam olarak ne olduğu ve neden tespit edilmesinin zor olduğunu anlayalım
+Zafiyet, genellikle bir sistem, ağ, yazılım veya donanımda var olan ve kötü niyetli kişilerin saldırmasına veya istismar etmesine olanak tanıyan bir güvenlik açığını ifade eder. Bu tür zafiyetler, bir sistemin güvenliğini tehlikeye atabilir ve veri hırsızlığı, yetkisiz erişim veya hizmet kesintisi gibi sonuçlara yol açabilir.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -257,7 +272,7 @@
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p>Uç nokta güvenliği katmanında sahip olduğumuz bilgisayar sistemlerini izleriz. Bu sistemler temel olarak ikiye ayrılır: Windows tabanlı sistemler, Unix/Linux tabanlı sistemler. Bu iki sistemede yapılacak saldırının amacı aynı olmasına rağmen yöntemleri farklıdır. Peki bu katmanda saldırganın amacı nedir? ve biz ne yapacağız?<br>
+<p>Uç nokta güvenliği katmanında sahip olduğumuz bilgisayar sistemlerini izleriz. Bu sistemler temel olarak ikiye ayrılır: Windows tabanlı sistemler, Unix/Linux tabanlı sistemler. Bu iki sistemede yapılacak saldırının amacı aynı olmasına rağmen yöntemleri farklıdır. Peki bu katmanda saldırganın amacı nedir? ve biz ne yapacağız? 
 Saldırganın ilk erişimi sağladıktan sonra erişim sağladığı sisteme yönelik iki temel amacı vardır:</p>
 <ul>
 <li>Erişim sağladığı sistemde <strong>kalıcılık sağlama</strong>( <a href="https://attack.mitre.org/tactics/TA0003"  class="external-link" target="_blank" rel="noopener">Persistence</a>-Mitre). Yani bağlantının sonlandığı veya sistemin kapandığı durumda bile yeniden sıfıncı-gün zafiyetini istismar etmekle uğraşmadan sisteme erişim sağlayabilmek. Bunu sağlamak için Windows ve Linux/Unix sistemlerde farklı pek çok teknik bulunmaktadır.</li>

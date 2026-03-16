@@ -13,7 +13,8 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="In today&#39;s hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an inv...">
+<meta name="description" content="
+In today&rsquo;s hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an invisible backbone that requires billions of components to work in harmony, from data centers on different continents to smart devices in our homes. So, how can these devices, produced by different manufacturers and using different technologies, communicate with each other so smoothly, quickly and securely? The answer to this question lies in the standardized protocols, hierarchical addressing systems and intelligent routing algorithms that form the basis of network engineering.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +22,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Network Management and Security II: Network Protocols, Routing and Addressing">
-  <meta name="twitter:description" content="In today&#39;s hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an inv...">
+  <meta name="twitter:description" content="In today’s hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an invisible backbone that requires billions of components to work in harmony, from data centers on different continents to smart devices in our homes. So, how can these devices, produced by different manufacturers and using different technologies, communicate with each other so smoothly, quickly and securely? The answer to this question lies in the standardized protocols, hierarchical addressing systems and intelligent routing algorithms that form the basis of network engineering.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2025/08/network-management-and-security-ii-network-protocols-routing-and-addressing/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Network Management and Security II: Network Protocols, Routing and Addressing">
-  <meta property="og:description" content="In today&#39;s hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an inv...">
+  <meta property="og:description" content="In today’s hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an invisible backbone that requires billions of components to work in harmony, from data centers on different continents to smart devices in our homes. So, how can these devices, produced by different manufacturers and using different technologies, communicate with each other so smoothly, quickly and securely? The answer to this question lies in the standardized protocols, hierarchical addressing systems and intelligent routing algorithms that form the basis of network engineering.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -322,10 +323,10 @@
 <p>IPv4 uses a 32-bit addressing scheme, which theoretically provides approximately 4.3 billion unique addresses. These addresses are usually shown in dot-separated decimal format (for example, 192.168.1.1).</p>
 <ul>
 <li><strong>Class Addressing (A Historical Overview):</strong> Originally, IPv4 addresses were divided into classes such as A, B, and C. These classes rigidly determined how much of the address represented the network part and how much represented the host part. For example, Class A networks allowed very few networks but millions of hosts, while Class C networks allowed millions of networks but only 254 hosts each. This rigid structure led to inefficient use of addresses and great waste, as blocks were allocated that were much larger or much smaller than an organization needed.</li>
-<li><strong>Private and Public IP Address Ranges (RFC 1918):</strong> To slow the rapid depletion of IPv4 addresses, the Internet Assigned Numbers Authority (IANA) has reserved private IP address ranges for use in local area networks (LANs). These ranges are:<br>
-<code>10.0.0.0</code> - <code>10.255.255.255</code> (<code>10.0.0.0/8</code>)<br>
-<code>172.16.0.0</code> - <code>172.31.255.255</code> (<code>172.16.0.0/12</code>)<br>
-<code>192.168.0.0</code> - <code>192.168.255.255</code> (<code>192.168.0.0/16</code>)<br>
+<li><strong>Private and Public IP Address Ranges (RFC 1918):</strong> To slow the rapid depletion of IPv4 addresses, the Internet Assigned Numbers Authority (IANA) has reserved private IP address ranges for use in local area networks (LANs). These ranges are: 
+<code>10.0.0.0</code> - <code>10.255.255.255</code> (<code>10.0.0.0/8</code>) 
+<code>172.16.0.0</code> - <code>172.31.255.255</code> (<code>172.16.0.0/12</code>) 
+<code>192.168.0.0</code> - <code>192.168.255.255</code> (<code>192.168.0.0/16</code>) 
 These private addresses are non-routable on the public internet and can be used by any organization without permission.</li>
 <li><strong>Network Address Translation (NAT):</strong> <strong>NAT (Network Address Translation)</strong> is used so that devices using private IP addresses can access the internet. NAT usually runs on a router or firewall and maps multiple private IP addresses on the local network to a single public IP address. In this way, hundreds of devices can access the internet via a single public IP address. NAT has been a critical technology that has significantly alleviated the problem of IPv4 address scarcity.</li>
 </ul>

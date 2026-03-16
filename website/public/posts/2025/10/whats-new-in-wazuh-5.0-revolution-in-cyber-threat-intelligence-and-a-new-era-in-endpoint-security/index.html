@@ -13,7 +13,16 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="wazuh">
+<meta name="description" content="
+  What&rsquo;s New in Wazuh 5.0? Revolution in Cyber Threat Intelligence and a New Era in Endpoint Security
+  
+    
+    Link to heading
+  
+
+
+wazuh
+Wazuh combines its Host-Based Intrusion Detection System (HIDS) legacy with modern cybersecurity needs, bringing Security Information and Event Management (SIEM) and Extended Detection and Response (XDR) capabilities into a single platform. Wazuh 5.0 takes this combination to the next level, offering groundbreaking innovations in stability, scalability and threat intelligence, especially in large-scale and high-volume environments. The platform is completely open source and its components are subject to open source licenses such as GNU GPL v2 and Apache 2.0 (ALv2).">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +30,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="What&#39;s New in Wazuh 5.0? Revolution in Cyber ​​Threat Intelligence and a New Era in Endpoint Security">
-  <meta name="twitter:description" content="wazuh">
+  <meta name="twitter:description" content="What’s New in Wazuh 5.0? Revolution in Cyber Threat Intelligence and a New Era in Endpoint SecurityLink to headingwazuh
+Wazuh combines its Host-Based Intrusion Detection System (HIDS) legacy with modern cybersecurity needs, bringing Security Information and Event Management (SIEM) and Extended Detection and Response (XDR) capabilities into a single platform. Wazuh 5.0 takes this combination to the next level, offering groundbreaking innovations in stability, scalability and threat intelligence, especially in large-scale and high-volume environments. The platform is completely open source and its components are subject to open source licenses such as GNU GPL v2 and Apache 2.0 (ALv2).">
 
 <meta property="og:url" content="http://localhost:1313/posts/2025/10/whats-new-in-wazuh-5.0-revolution-in-cyber-threat-intelligence-and-a-new-era-in-endpoint-security/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="What&#39;s New in Wazuh 5.0? Revolution in Cyber ​​Threat Intelligence and a New Era in Endpoint Security">
-  <meta property="og:description" content="wazuh">
+  <meta property="og:description" content="What’s New in Wazuh 5.0? Revolution in Cyber Threat Intelligence and a New Era in Endpoint SecurityLink to headingwazuh
+Wazuh combines its Host-Based Intrusion Detection System (HIDS) legacy with modern cybersecurity needs, bringing Security Information and Event Management (SIEM) and Extended Detection and Response (XDR) capabilities into a single platform. Wazuh 5.0 takes this combination to the next level, offering groundbreaking innovations in stability, scalability and threat intelligence, especially in large-scale and high-volume environments. The platform is completely open source and its components are subject to open source licenses such as GNU GPL v2 and Apache 2.0 (ALv2).">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -331,17 +342,17 @@
     <span class="sr-only">Link to heading</span>
   </a>
 </h4>
-<pre tabindex="0"><code>&lt;group name=&#34;syslog,sshd,&#34;&gt;  
-  &lt;rule id=&#34;100011&#34; level=&#34;10&#34; frequency=&#34;5&#34; timeframe=&#34;60&#34;&gt;  
-    &lt;if_matched_sid&gt;5710&lt;/if_matched_sid&gt;  
-    &lt;same_source_ip /&gt;  
-    &lt;description&gt;Multiple SSH failed attempts from same source IP (Brute Force Detected).&lt;/description&gt;  
-    &lt;mitre&gt;  
-      &lt;tactic&gt;Initial Access&lt;/tactic&gt;  
-      &lt;technique&gt;T1110&lt;/technique&gt;  
-      &lt;id&gt;T1110&lt;/id&gt;  
-    &lt;/mitre&gt;  
-  &lt;/rule&gt;  
+<pre tabindex="0"><code>&lt;group name=&#34;syslog,sshd,&#34;&gt;  
+  &lt;rule id=&#34;100011&#34; level=&#34;10&#34; frequency=&#34;5&#34; timeframe=&#34;60&#34;&gt;  
+    &lt;if_matched_sid&gt;5710&lt;/if_matched_sid&gt;  
+    &lt;same_source_ip /&gt;  
+    &lt;description&gt;Multiple SSH failed attempts from same source IP (Brute Force Detected).&lt;/description&gt;  
+    &lt;mitre&gt;  
+      &lt;tactic&gt;Initial Access&lt;/tactic&gt;  
+      &lt;technique&gt;T1110&lt;/technique&gt;  
+      &lt;id&gt;T1110&lt;/id&gt;  
+    &lt;/mitre&gt;  
+  &lt;/rule&gt;  
 &lt;/group&gt;
 </code></pre><h4 id="sample-rule-and-alerting-scenarios">
   Sample Rule and Alerting Scenarios
@@ -391,11 +402,11 @@
   </a>
 </h4>
 <p>When a high-level alert (for example, Rule ID 5712) is triggered, the following definition can be added to the Manager configuration (ossec.conf) to temporarily block the IP address mapped to the rule:</p>
-<pre tabindex="0"><code>&lt;active-response&gt;  
-  &lt;command&gt;firewall-drop&lt;/command&gt;   
-  &lt;location&gt;local&lt;/location&gt;   
-  &lt;rules_id&gt;5712&lt;/rules_id&gt;   
-  &lt;timeout&gt;1800&lt;/timeout&gt;   
+<pre tabindex="0"><code>&lt;active-response&gt;  
+  &lt;command&gt;firewall-drop&lt;/command&gt;   
+  &lt;location&gt;local&lt;/location&gt;   
+  &lt;rules_id&gt;5712&lt;/rules_id&gt;   
+  &lt;timeout&gt;1800&lt;/timeout&gt;   
 &lt;/active-response&gt;
 </code></pre><p>This configuration temporarily blocks the IP address triggered on the Agent reporting the event on the local firewall for 1800 seconds using the <code>firewall-drop</code> command.</p>
 <hr>

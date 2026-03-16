@@ -13,7 +13,25 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Bu yazımda RDP(Remote Desktop Protocol) protokolünün güvenli olup olmadığını tartışacağız. RDP (Remote Desktop Protocol), APT (Advanced Persistent Threat) grupları tarafından lateral movement yani ağ ...">
+<meta name="description" content="
+  RDP Güvenli midir?
+  
+    
+    Başlık Linki
+  
+
+
+Bu yazımda RDP(Remote Desktop Protocol) protokolünün güvenli olup olmadığını tartışacağız. RDP (Remote Desktop Protocol), APT (Advanced Persistent Threat) grupları tarafından lateral movement yani ağ içinde yatay hareket için sıklıkla kullanılan bir protokol haline gelmiştir. Bu yönüyle güvenli bir protokol olmadığı izlenimini yaratmaktadır. Peki bunun sebebi nedir?
+
+
+  RDP (Remote Desktop Protocol) Nedir?
+  
+    
+    Başlık Linki
+  
+
+
+Önce RDP’nin tam olarak ne olduğunu anlayalım.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +39,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="RDP Güvenli midir?">
-  <meta name="twitter:description" content="Bu yazımda RDP(Remote Desktop Protocol) protokolünün güvenli olup olmadığını tartışacağız. RDP (Remote Desktop Protocol), APT (Advanced Persistent Threat) grupları tarafından lateral movement yani ağ ...">
+  <meta name="twitter:description" content="RDP Güvenli midir?Başlık LinkiBu yazımda RDP(Remote Desktop Protocol) protokolünün güvenli olup olmadığını tartışacağız. RDP (Remote Desktop Protocol), APT (Advanced Persistent Threat) grupları tarafından lateral movement yani ağ içinde yatay hareket için sıklıkla kullanılan bir protokol haline gelmiştir. Bu yönüyle güvenli bir protokol olmadığı izlenimini yaratmaktadır. Peki bunun sebebi nedir?
+RDP (Remote Desktop Protocol) Nedir?Başlık LinkiÖnce RDP’nin tam olarak ne olduğunu anlayalım.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2024/11/rdp-g%C3%BCvenli-midir/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="RDP Güvenli midir?">
-  <meta property="og:description" content="Bu yazımda RDP(Remote Desktop Protocol) protokolünün güvenli olup olmadığını tartışacağız. RDP (Remote Desktop Protocol), APT (Advanced Persistent Threat) grupları tarafından lateral movement yani ağ ...">
+  <meta property="og:description" content="RDP Güvenli midir?Başlık LinkiBu yazımda RDP(Remote Desktop Protocol) protokolünün güvenli olup olmadığını tartışacağız. RDP (Remote Desktop Protocol), APT (Advanced Persistent Threat) grupları tarafından lateral movement yani ağ içinde yatay hareket için sıklıkla kullanılan bir protokol haline gelmiştir. Bu yönüyle güvenli bir protokol olmadığı izlenimini yaratmaktadır. Peki bunun sebebi nedir?
+RDP (Remote Desktop Protocol) Nedir?Başlık LinkiÖnce RDP’nin tam olarak ne olduğunu anlayalım.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -334,15 +354,15 @@
   </a>
 </h3>
 <ol>
-<li><strong>RDP (Remote Desktop Protocol)</strong>: <br>
+<li><strong>RDP (Remote Desktop Protocol)</strong>:  
 <strong>RDP</strong>, saldırganlar tarafından ağda yayılmak için çok sık kullanılan bir araçtır.</li>
-<li><strong>TeamViewer</strong>:<br>
+<li><strong>TeamViewer</strong>: 
 <strong>TeamViewer</strong>, yaygın olarak kullanılan bir uzaktan erişim aracıdır ve genellikle sistem yöneticileri tarafından kullanılır. Ancak, <strong>APT grupları</strong> bu aracı kötüye kullanarak hedef bilgisayarlara bağlanabilirler. TeamViewer’in kurulmuş ve çalışıyor olması, çoğu zaman ağ yöneticileri tarafından fark edilmeyebilir, bu da saldırganların gizlice ağda hareket etmelerini sağlar. <strong>Sosyal mühendislik</strong> saldırılarıyla TeamViewer’ın kurulumunu hedef makinelerde başlatmak, saldırganlara ağda gizli erişim sağlar.</li>
-<li><strong>AnyDesk</strong>:<br>
+<li><strong>AnyDesk</strong>: 
 <strong>AnyDesk</strong>, TeamViewer’a benzer şekilde, hedef sistemlere erişim sağlamak için kullanılan bir başka yaygın uzaktan erişim aracıdır. Genellikle <strong>hızlı bağlantılar</strong> ve <strong>yüksek performans</strong> sunduğu için tercih edilir. APT grupları, bu yazılımı kullanarak, ağda hedef cihazlardan veri çalmak ya da daha fazla sisteme sızmak için kullanabilir. AnyDesk, tıpkı TeamViewer gibi, genellikle kullanıcılar tarafından iş amaçlı yasal olarak kullanıldığından, kötü amaçlı kullanım tespit edilemeyebilir.</li>
 </ol>
 <blockquote>
-<p>Gördüğünüz gibi suçlu RDP değilmiş. Uzaktan erşim araçlarının tümü benzer riskleri taşır. Aslında, RDP’nin APT saldırılarındaki kullanımının popülerliği, RDP kullanımının popülerliğinden kaynaklanıyor. Birçok kurum halihazırda RDP kullandığı için hackerlarda bu aracı kullanıyor. Aynı durum diğer çok kullanılan uzaktan erişim araçları içinde geçerli! <br>
+<p>Gördüğünüz gibi suçlu RDP değilmiş. Uzaktan erşim araçlarının tümü benzer riskleri taşır. Aslında, RDP’nin APT saldırılarındaki kullanımının popülerliği, RDP kullanımının popülerliğinden kaynaklanıyor. Birçok kurum halihazırda RDP kullandığı için hackerlarda bu aracı kullanıyor. Aynı durum diğer çok kullanılan uzaktan erişim araçları içinde geçerli!  
 Bir süre önce Anydesk uygulaması üzerinde çıkan bir açık yüzünden hacklenen birçok kurum oldu. Bu durum uzaktan erişim araçlarının riskleri konusunda ne kadar dikkatli olmamız gerektiğini gösteriyor.</p>
 </blockquote>
 <hr>

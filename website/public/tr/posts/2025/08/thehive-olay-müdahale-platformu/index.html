@@ -13,7 +13,15 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="TheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olarak tasarlanmıştır. Olay yönetimi, takım temelli işbirliği ve tehdit zekâsı entegrasyonuna odaklanır. TheHive’in temel işlevle...">
+<meta name="description" content="
+
+  1. Temel İşlevleri ve Çalışma Şekli
+  
+    
+    Başlık Linki
+  
+
+TheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olarak tasarlanmıştır. Olay yönetimi, takım temelli işbirliği ve tehdit zekâsı entegrasyonuna odaklanır. TheHive’in temel işlevleri arasında alarmların toplanması, olay vakalarına (case) dönüştürülmesi, vakalara atanan alt görevlerin ve “gözlemlenebilir” (observable) göstergelerin izlenmesi yer alır. Örneğin, gelen bir uyarı TheHive’e aktarıldığında yeni bir vaka oluşturulur ve bu vaka “tanımlama, düzeltme, kontrol” gibi önceden tanımlı görevlerle incelenir. Her görev için analistler log kaydı bırakabilir; bu loglar zengin metin veya Markdown formatında olabilir[1]. Ayrıca TheHive, şablon motoru ile benzer tipteki vakalar için tekrar kullanılabilir önceden tanımlı görev listeleri (case template) oluşturulmasına imkân verir, böylece rutin analiz iş akışları hızla başlatılabilir[2]. TheHive, çok sayıda analisti aynı anda destekleyerek toplu işbirliği yapmaya uygundur[3]. Örneğin alarm besleyicilerle (TheHive4py ile) dış sistemlerden gelen alarmlar otomatik çekilerek ortak bir panoda gösterilir; analistler bu alarmları inceleyip gerekirse vaka başlatabilir[3][1].">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +29,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="TheHive Olay Müdahale Platformu">
-  <meta name="twitter:description" content="TheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olarak tasarlanmıştır. Olay yönetimi, takım temelli işbirliği ve tehdit zekâsı entegrasyonuna odaklanır. TheHive’in temel işlevle...">
+  <meta name="twitter:description" content="1. Temel İşlevleri ve Çalışma ŞekliBaşlık LinkiTheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olarak tasarlanmıştır. Olay yönetimi, takım temelli işbirliği ve tehdit zekâsı entegrasyonuna odaklanır. TheHive’in temel işlevleri arasında alarmların toplanması, olay vakalarına (case) dönüştürülmesi, vakalara atanan alt görevlerin ve “gözlemlenebilir” (observable) göstergelerin izlenmesi yer alır. Örneğin, gelen bir uyarı TheHive’e aktarıldığında yeni bir vaka oluşturulur ve bu vaka “tanımlama, düzeltme, kontrol” gibi önceden tanımlı görevlerle incelenir. Her görev için analistler log kaydı bırakabilir; bu loglar zengin metin veya Markdown formatında olabilir[1]. Ayrıca TheHive, şablon motoru ile benzer tipteki vakalar için tekrar kullanılabilir önceden tanımlı görev listeleri (case template) oluşturulmasına imkân verir, böylece rutin analiz iş akışları hızla başlatılabilir[2]. TheHive, çok sayıda analisti aynı anda destekleyerek toplu işbirliği yapmaya uygundur[3]. Örneğin alarm besleyicilerle (TheHive4py ile) dış sistemlerden gelen alarmlar otomatik çekilerek ortak bir panoda gösterilir; analistler bu alarmları inceleyip gerekirse vaka başlatabilir[3][1].">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2025/08/thehive-olay-m%C3%BCdahale-platformu/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="TheHive Olay Müdahale Platformu">
-  <meta property="og:description" content="TheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olarak tasarlanmıştır. Olay yönetimi, takım temelli işbirliği ve tehdit zekâsı entegrasyonuna odaklanır. TheHive’in temel işlevle...">
+  <meta property="og:description" content="1. Temel İşlevleri ve Çalışma ŞekliBaşlık LinkiTheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olarak tasarlanmıştır. Olay yönetimi, takım temelli işbirliği ve tehdit zekâsı entegrasyonuna odaklanır. TheHive’in temel işlevleri arasında alarmların toplanması, olay vakalarına (case) dönüştürülmesi, vakalara atanan alt görevlerin ve “gözlemlenebilir” (observable) göstergelerin izlenmesi yer alır. Örneğin, gelen bir uyarı TheHive’e aktarıldığında yeni bir vaka oluşturulur ve bu vaka “tanımlama, düzeltme, kontrol” gibi önceden tanımlı görevlerle incelenir. Her görev için analistler log kaydı bırakabilir; bu loglar zengin metin veya Markdown formatında olabilir[1]. Ayrıca TheHive, şablon motoru ile benzer tipteki vakalar için tekrar kullanılabilir önceden tanımlı görev listeleri (case template) oluşturulmasına imkân verir, böylece rutin analiz iş akışları hızla başlatılabilir[2]. TheHive, çok sayıda analisti aynı anda destekleyerek toplu işbirliği yapmaya uygundur[3]. Örneğin alarm besleyicilerle (TheHive4py ile) dış sistemlerden gelen alarmlar otomatik çekilerek ortak bir panoda gösterilir; analistler bu alarmları inceleyip gerekirse vaka başlatabilir[3][1].">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
