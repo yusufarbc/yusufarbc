@@ -13,25 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-
-  DNS Wireshark Analysis
-  
-    
-    Link to heading
-  
-
-
-Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.
-
-
-  How Does DNS Work?
-  
-    
-    Link to heading
-  
-
-DNS is used to convert symbolic hostnames, such as www.wiresharktraining.com, into IP addresses. DNS can also be used to transfer name information between DNS servers, determine the hostname associated with an IP address (reverse or pointer query), and look up other name elements such as an MX (mail exchange) record.">
+<meta name="description" content="Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -39,20 +21,25 @@ DNS is used to convert symbolic hostnames, such as www.wiresharktraining.com, in
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="DNS Wireshark Analysis">
-  <meta name="twitter:description" content="DNS Wireshark AnalysisLink to headingHello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.
-How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, such as www.wiresharktraining.com, into IP addresses. DNS can also be used to transfer name information between DNS servers, determine the hostname associated with an IP address (reverse or pointer query), and look up other name elements such as an MX (mail exchange) record.">
+  <meta name="twitter:description" content="Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2023/11/dns-wireshark-analysis/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="DNS Wireshark Analysis">
-  <meta property="og:description" content="DNS Wireshark AnalysisLink to headingHello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.
-How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, such as www.wiresharktraining.com, into IP addresses. DNS can also be used to transfer name information between DNS servers, determine the hostname associated with an IP address (reverse or pointer query), and look up other name elements such as an MX (mail exchange) record.">
+  <meta property="og:description" content="Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2023-11-15T00:00:00+00:00">
     <meta property="article:modified_time" content="2023-11-15T00:00:00+00:00">
     <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2024/08/http-wireshark-analysis/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2024/07/tr-hidden-tunnels-cc-analysis-with-wireshark/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2024/07/tcp-wireshark-analysis/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2023/12/udp-wireshark-analysis/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2023/12/icmpv4/icmpv6-wireshark-analysis/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2023/11/ipv4/ipv6-wireshark-analysis/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2023/11/arp-wireshark-analysis/">
 
 
 
@@ -92,15 +79,10 @@ How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, s
 
 
 
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
 
 
 
@@ -217,15 +199,9 @@ How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, s
 
       <div class="post-content">
         
-        <hr>
-<h3 id="dns-wireshark-analysis">
-  DNS Wireshark Analysis
-  <a class="heading-link" href="#dns-wireshark-analysis">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*_OuE2zljUjPrg0g7TfljyQ.png" alt=""></p>
+          <img src="https://cdn-images-1.medium.com/max/800/1*_OuE2zljUjPrg0g7TfljyQ.png" alt="Featured image"/>
+        
+        <p><img src="https://cdn-images-1.medium.com/max/800/1*_OuE2zljUjPrg0g7TfljyQ.png" alt=""></p>
 <p>Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.</p>
 <hr>
 <h3 id="how-does-dnswork">
@@ -517,6 +493,14 @@ DNS servers responding with RR information continuously count down the remaining
 
       <footer>
         
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
 
 
         

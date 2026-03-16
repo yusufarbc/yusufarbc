@@ -13,23 +13,9 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-
-  Ağ Güvenliği ve Yönetimi II: AĞ PROTOKOLLERİ VE ADRESLEME
-  
-    
-    Başlık Linki
-  
-
-
-
-  Giriş
-  
-    
-    Başlık Linki
-  
-
-Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların birbirleriyle nasıl iletişim kuracağını, veri alışverişinde bulunacağını ve hataları nasıl yöneteceğini tanımlayan kurallar ve standartlar bütünüdür; bir nevi ağın evrensel “dili”dir.1 Adresleme ise, bu ağ üzerindeki her bir cihaza benzersiz bir “kimlik” atayarak, gönderilen verinin doğru hedefe ulaşmasını sağlayan mekanizmadır.1 Bu bölümde, TCP/IP modelinin çekirdek protokollerinden başlayarak, modern internetin performans ve güvenlik ihtiyaçlarına cevap veren yenilikçi protokollere kadar geniş bir yelpaze ele alınacaktır. Ardından, internetin ilk günlerinden kalma IPv4 adreslemesinin getirdiği zorluklar ve bu zorlukları aşmak için geliştirilen tekniklerden, geleceğin internetini şekillendiren IPv6 mimarisine geçiş incelenecektir. Son olarak, internetin devasa “ağlar ağı” yapısını bir arada tutan ve veri paketlerinin kıtalar arasında en uygun yolları bulmasını sağlayan karmaşık yönlendirme protokolleri ve bu protokollerin ardındaki teknik ve politik mantık analiz edilecektir.">
+<meta name="description" content="Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru
+derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların
+birbirleriyle nasıl iletişim kuracağını, v...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -37,25 +23,29 @@ Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinl
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Ağ Güvenliği ve Yönetimi II: AĞ PROTOKOLLERİ VE ADRESLEME">
-  <meta name="twitter:description" content="Ağ Güvenliği ve Yönetimi II: AĞ PROTOKOLLERİ VE ADRESLEMEBaşlık LinkiGirişBaşlık LinkiBu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların birbirleriyle nasıl iletişim kuracağını, veri alışverişinde bulunacağını ve hataları nasıl yöneteceğini tanımlayan kurallar ve standartlar bütünüdür; bir nevi ağın evrensel “dili”dir.1 Adresleme ise, bu ağ üzerindeki her bir cihaza benzersiz bir “kimlik” atayarak, gönderilen verinin doğru hedefe ulaşmasını sağlayan mekanizmadır.1 Bu bölümde, TCP/IP modelinin çekirdek protokollerinden başlayarak, modern internetin performans ve güvenlik ihtiyaçlarına cevap veren yenilikçi protokollere kadar geniş bir yelpaze ele alınacaktır. Ardından, internetin ilk günlerinden kalma IPv4 adreslemesinin getirdiği zorluklar ve bu zorlukları aşmak için geliştirilen tekniklerden, geleceğin internetini şekillendiren IPv6 mimarisine geçiş incelenecektir. Son olarak, internetin devasa “ağlar ağı” yapısını bir arada tutan ve veri paketlerinin kıtalar arasında en uygun yolları bulmasını sağlayan karmaşık yönlendirme protokolleri ve bu protokollerin ardındaki teknik ve politik mantık analiz edilecektir.">
+  <meta name="twitter:description" content="Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru
+derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların
+birbirleriyle nasıl iletişim kuracağını, v...">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi-ii-a%C4%9F-protokolleri-ve-adresleme/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Ağ Güvenliği ve Yönetimi II: AĞ PROTOKOLLERİ VE ADRESLEME">
-  <meta property="og:description" content="Ağ Güvenliği ve Yönetimi II: AĞ PROTOKOLLERİ VE ADRESLEMEBaşlık LinkiGirişBaşlık LinkiBu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların birbirleriyle nasıl iletişim kuracağını, veri alışverişinde bulunacağını ve hataları nasıl yöneteceğini tanımlayan kurallar ve standartlar bütünüdür; bir nevi ağın evrensel “dili”dir.1 Adresleme ise, bu ağ üzerindeki her bir cihaza benzersiz bir “kimlik” atayarak, gönderilen verinin doğru hedefe ulaşmasını sağlayan mekanizmadır.1 Bu bölümde, TCP/IP modelinin çekirdek protokollerinden başlayarak, modern internetin performans ve güvenlik ihtiyaçlarına cevap veren yenilikçi protokollere kadar geniş bir yelpaze ele alınacaktır. Ardından, internetin ilk günlerinden kalma IPv4 adreslemesinin getirdiği zorluklar ve bu zorlukları aşmak için geliştirilen tekniklerden, geleceğin internetini şekillendiren IPv6 mimarisine geçiş incelenecektir. Son olarak, internetin devasa “ağlar ağı” yapısını bir arada tutan ve veri paketlerinin kıtalar arasında en uygun yolları bulmasını sağlayan karmaşık yönlendirme protokolleri ve bu protokollerin ardındaki teknik ve politik mantık analiz edilecektir.">
+  <meta property="og:description" content="Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru
+derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların
+birbirleriyle nasıl iletişim kuracağını, v...">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-08-04T00:00:00+00:00">
     <meta property="article:modified_time" content="2025-08-04T00:00:00+00:00">
     <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/wazuh-5.0da-neler-yeni-siber-tehdit-istihbarat%C4%B1nda-devrim-ve-u%C3%A7-nokta-g%C3%BCvenli%C4%9Finde-yeni-bir-%C3%A7a%C4%9F/">
       <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-x-soc-ve-noc-s%C3%BCre%C3%A7leri/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/soc-analistleri-i%C3%A7in-kal%C4%B1c%C4%B1l%C4%B1k-sa%C4%9Flama-kapsaml%C4%B1-xdr-analiz-k%C4%B1lavuzu/">
       <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-ix-bulut-g%C3%BCvenli%C4%9Fi-ve-hibrit-a%C4%9F-mimarileri/">
       <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-vi-a%C4%9F-protokolleri-g%C3%BCvenli%C4%9Fi-ve-analizi/">
       <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-viii-a%C4%9F-y%C3%B6netimi-izleme-ve-otomasyon/">
       <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-iii-a%C4%9F-donan%C4%B1mlar%C4%B1-ve-fiziksel-altyap%C4%B1-g%C3%BCvenli%C4%9Fi/">
-      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-iv-a%C4%9F-g%C3%BCvenli%C4%9Fi-teknolojileri/">
-      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-v-kimlik-ve-eri%C5%9Fim-y%C3%B6netimi-iam/">
 
 
 
@@ -95,15 +85,10 @@ Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinl
 
 
 
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
 
 
 
@@ -220,15 +205,9 @@ Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinl
 
       <div class="post-content">
         
-        <hr>
-<h3 id="ağ-güvenliği-ve-yönetimi-ii-ağ-protokolleri-ve-adresleme">
-  Ağ Güvenliği ve Yönetimi II: AĞ PROTOKOLLERİ VE ADRESLEME
-  <a class="heading-link" href="#a%c4%9f-g%c3%bcvenli%c4%9fi-ve-y%c3%b6netimi-ii-a%c4%9f-protokolleri-ve-adresleme">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
-    <span class="sr-only">Başlık Linki</span>
-  </a>
-</h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*6rU6oXi2MLCrzFEvgSY-_g.png" alt=""></p>
+          <img src="https://cdn-images-1.medium.com/max/800/1*6rU6oXi2MLCrzFEvgSY-_g.png" alt="Featured image"/>
+        
+        <p><img src="https://cdn-images-1.medium.com/max/800/1*6rU6oXi2MLCrzFEvgSY-_g.png" alt=""></p>
 <h3 id="giriş">
   Giriş
   <a class="heading-link" href="#giri%c5%9f">

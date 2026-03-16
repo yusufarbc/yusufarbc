@@ -13,24 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-
-  ELK Stack Kural Yazımı ve Alerting
-  
-    
-    Başlık Linki
-  
-
-
-Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash, Kibana) ile kural yazımı ve uyarı (alerting) işlemleri, veri analizi ve yönetimini kolaylaştırır.
-
-  IoC ve IoA Nedir?
-  
-    
-    Başlık Linki
-  
-
-IoC (Indicators of Compromise) ve IoA (Indicators of Attack), siber güvenlik alanında önemli kavramlardır ve saldırıların tespiti ve analizinde kullanılırlar.">
+<meta name="description" content="Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash,...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -38,14 +21,12 @@ IoC (Indicators of Compromise) ve IoA (Indicators of Attack), siber güvenlik al
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="ELK Stack Kural Yazımı ve Alerting">
-  <meta name="twitter:description" content="ELK Stack Kural Yazımı ve AlertingBaşlık LinkiMerhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash, Kibana) ile kural yazımı ve uyarı (alerting) işlemleri, veri analizi ve yönetimini kolaylaştırır.
-IoC ve IoA Nedir?Başlık LinkiIoC (Indicators of Compromise) ve IoA (Indicators of Attack), siber güvenlik alanında önemli kavramlardır ve saldırıların tespiti ve analizinde kullanılırlar.">
+  <meta name="twitter:description" content="Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash,...">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2024/11/elk-stack-kural-yaz%C4%B1m%C4%B1-ve-alerting/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="ELK Stack Kural Yazımı ve Alerting">
-  <meta property="og:description" content="ELK Stack Kural Yazımı ve AlertingBaşlık LinkiMerhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash, Kibana) ile kural yazımı ve uyarı (alerting) işlemleri, veri analizi ve yönetimini kolaylaştırır.
-IoC ve IoA Nedir?Başlık LinkiIoC (Indicators of Compromise) ve IoA (Indicators of Attack), siber güvenlik alanında önemli kavramlardır ve saldırıların tespiti ve analizinde kullanılırlar.">
+  <meta property="og:description" content="Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash,...">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -91,15 +72,10 @@ IoC ve IoA Nedir?Başlık LinkiIoC (Indicators of Compromise) ve IoA (Indicat
 
 
 
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
 
 
 
@@ -216,8 +192,9 @@ IoC ve IoA Nedir?Başlık LinkiIoC (Indicators of Compromise) ve IoA (Indicat
 
       <div class="post-content">
         
-        <hr>
-<h3 id="elk-stack-kural-yazımı-vealerting">
+          <img src="https://cdn-images-1.medium.com/max/800/1*YtvtZTc7PJHVByo3n9E_lg.png" alt="Featured image"/>
+        
+        <h3 id="elk-stack-kural-yazımı-vealerting">
   ELK Stack Kural Yazımı ve Alerting
   <a class="heading-link" href="#elk-stack-kural-yaz%c4%b1m%c4%b1-vealerting">
     <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>

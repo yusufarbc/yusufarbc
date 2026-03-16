@@ -3,4 +3,4 @@ title: "SentinelOne EDR"
 featuredImage: "images/series/sentinelone.png"
 ---
 
-SentinelOne EDR yazı serisi.
+SentinelOne EDR analizi.

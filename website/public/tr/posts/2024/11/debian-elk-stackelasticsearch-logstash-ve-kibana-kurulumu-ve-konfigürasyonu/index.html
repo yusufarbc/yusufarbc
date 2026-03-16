@@ -13,35 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-
-  Debian ELK Stack(Elasticsearch, Logstash ve Kibana) Kurulumu ve Konfigürasyonu
-  
-    
-    Başlık Linki
-  
-
-
-Merhaba bu yazımda Debian tabanlı linux dağıtımları üzerine ELK Stack kurulumu ve konfigürasyonunu anlatacağım.
-
-  ELK Stack Nedir?
-  
-    
-    Başlık Linki
-  
-
-ELK Stack, log yönetimi ve analiz alanında sıkça kullanılan açık kaynaklı bir platformdur. Adını oluşturan üç ana bileşenden oluşur: Elasticsearch, Logstash ve Kibana.
-
-ELK Stack
-
-Elasticsearch: Büyük miktarda yapılandırılmış ve yapılandırılmamış veriyi depolamak, indekslemek ve hızlı bir şekilde arama yapmak için kullanılan bir arama ve analiz motorudur. Log verilerinin yanı sıra çeşitli kaynaklardan gelen verileri de indeksleyebilir.
-Logstash: Veri toplama, işleme ve dönüştürme süreçlerini yöneten bir araçtır. Farklı kaynaklardan (sistem logları, uygulama logları, ağ trafiği vb.) gelen verileri toplar, filtreler, zenginleştirir ve Elasticsearch’e gönderir.
-Kibana: Elasticsearch’te depolanan verileri görselleştirmek için kullanılan bir araçtır. İnteraktif dashboardlar, grafikler ve haritalar oluşturarak verilerden anlamlı sonuçlar çıkarmayı sağlar.
-
-Elastic Stack ürünlerinin kurulum sırası:
- 1- Elasticsearch
- 2- Kibana
- 3- Logstash">
+<meta name="description" content="Merhaba bu yazımda Debian tabanlı linux dağıtımları üzerine ELK Stack kurulumu ve konfigürasyonunu anlatacağım.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -49,24 +21,12 @@ Elastic Stack ürünlerinin kurulum sırası:
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Debian ELK Stack(Elasticsearch, Logstash ve Kibana) Kurulumu ve Konfigürasyonu">
-  <meta name="twitter:description" content="Debian ELK Stack(Elasticsearch, Logstash ve Kibana) Kurulumu ve KonfigürasyonuBaşlık LinkiMerhaba bu yazımda Debian tabanlı linux dağıtımları üzerine ELK Stack kurulumu ve konfigürasyonunu anlatacağım.
-ELK Stack Nedir?Başlık LinkiELK Stack, log yönetimi ve analiz alanında sıkça kullanılan açık kaynaklı bir platformdur. Adını oluşturan üç ana bileşenden oluşur: Elasticsearch, Logstash ve Kibana.
-ELK Stack
-Elasticsearch: Büyük miktarda yapılandırılmış ve yapılandırılmamış veriyi depolamak, indekslemek ve hızlı bir şekilde arama yapmak için kullanılan bir arama ve analiz motorudur. Log verilerinin yanı sıra çeşitli kaynaklardan gelen verileri de indeksleyebilir. Logstash: Veri toplama, işleme ve dönüştürme süreçlerini yöneten bir araçtır. Farklı kaynaklardan (sistem logları, uygulama logları, ağ trafiği vb.) gelen verileri toplar, filtreler, zenginleştirir ve Elasticsearch’e gönderir. Kibana: Elasticsearch’te depolanan verileri görselleştirmek için kullanılan bir araçtır. İnteraktif dashboardlar, grafikler ve haritalar oluşturarak verilerden anlamlı sonuçlar çıkarmayı sağlar. Elastic Stack ürünlerinin kurulum sırası:
-1- Elasticsearch
-2- Kibana
-3- Logstash">
+  <meta name="twitter:description" content="Merhaba bu yazımda Debian tabanlı linux dağıtımları üzerine ELK Stack kurulumu ve konfigürasyonunu anlatacağım.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2024/11/debian-elk-stackelasticsearch-logstash-ve-kibana-kurulumu-ve-konfig%C3%BCrasyonu/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Debian ELK Stack(Elasticsearch, Logstash ve Kibana) Kurulumu ve Konfigürasyonu">
-  <meta property="og:description" content="Debian ELK Stack(Elasticsearch, Logstash ve Kibana) Kurulumu ve KonfigürasyonuBaşlık LinkiMerhaba bu yazımda Debian tabanlı linux dağıtımları üzerine ELK Stack kurulumu ve konfigürasyonunu anlatacağım.
-ELK Stack Nedir?Başlık LinkiELK Stack, log yönetimi ve analiz alanında sıkça kullanılan açık kaynaklı bir platformdur. Adını oluşturan üç ana bileşenden oluşur: Elasticsearch, Logstash ve Kibana.
-ELK Stack
-Elasticsearch: Büyük miktarda yapılandırılmış ve yapılandırılmamış veriyi depolamak, indekslemek ve hızlı bir şekilde arama yapmak için kullanılan bir arama ve analiz motorudur. Log verilerinin yanı sıra çeşitli kaynaklardan gelen verileri de indeksleyebilir. Logstash: Veri toplama, işleme ve dönüştürme süreçlerini yöneten bir araçtır. Farklı kaynaklardan (sistem logları, uygulama logları, ağ trafiği vb.) gelen verileri toplar, filtreler, zenginleştirir ve Elasticsearch’e gönderir. Kibana: Elasticsearch’te depolanan verileri görselleştirmek için kullanılan bir araçtır. İnteraktif dashboardlar, grafikler ve haritalar oluşturarak verilerden anlamlı sonuçlar çıkarmayı sağlar. Elastic Stack ürünlerinin kurulum sırası:
-1- Elasticsearch
-2- Kibana
-3- Logstash">
+  <meta property="og:description" content="Merhaba bu yazımda Debian tabanlı linux dağıtımları üzerine ELK Stack kurulumu ve konfigürasyonunu anlatacağım.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -112,15 +72,10 @@ Elasticsearch: Büyük miktarda yapılandırılmış ve yapılandırılmamış v
 
 
 
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
 
 
 
@@ -237,15 +192,9 @@ Elasticsearch: Büyük miktarda yapılandırılmış ve yapılandırılmamış v
 
       <div class="post-content">
         
-        <hr>
-<h3 id="debian-elk-stackelasticsearch-logstash-ve-kibana-kurulumu-ve-konfigürasyonu">
-  Debian ELK Stack(Elasticsearch, Logstash ve Kibana) Kurulumu ve Konfigürasyonu
-  <a class="heading-link" href="#debian-elk-stackelasticsearch-logstash-ve-kibana-kurulumu-ve-konfig%c3%bcrasyonu">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
-    <span class="sr-only">Başlık Linki</span>
-  </a>
-</h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*0wM3nsUfgol-TsAFYBZJzQ.png" alt=""></p>
+          <img src="https://cdn-images-1.medium.com/max/800/1*0wM3nsUfgol-TsAFYBZJzQ.png" alt="Featured image"/>
+        
+        <p><img src="https://cdn-images-1.medium.com/max/800/1*0wM3nsUfgol-TsAFYBZJzQ.png" alt=""></p>
 <p>Merhaba bu yazımda Debian tabanlı linux dağıtımları üzerine ELK Stack kurulumu ve konfigürasyonunu anlatacağım.</p>
 <h3 id="elk-stacknedir">
   ELK Stack Nedir?

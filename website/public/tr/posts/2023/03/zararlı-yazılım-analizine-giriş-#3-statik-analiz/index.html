@@ -13,26 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-
-  Zararlı Yazılım Analizine Giriş: #3 Statik Analiz
-  
-    
-    Başlık Linki
-  
-
-
-Bir önceki yazımda analiz ortamının hazırlanmasından bahsetmiştim. Bu yazımda ise kurduğumuz ortam ile bir zararlı yazılımın statik analizini yapmaya çalışacağız. Statik analiz yöntemlerine ve ilgili araçlar bu yazıda!
-
-
-  Statik Analiz Yöntemleri
-  
-    
-    Başlık Linki
-  
-
-Statik analiz, dinamik analiz olarak bilinen, yürütme ve davranışını analiz etmenin aksine, bir zararlı yazılımın yürütülmeden analizidir.
-Statik analiz, analiz sürecinde iyi bir ilk adımdır. Bunu kullanarak, bir örneğin zararlı mı yoksa temiz mi olduğunu onu çalıştırmanıza bile gerek kalmadan anlayabilirsiniz. Hatta herhangi bir dinamik analiz yapmanıza gerek kalmadan zararlı yazılımın türünü, ailesini ve amacını bulmaya kadar gidebilirsiniz.">
+<meta name="description" content="Bir önceki yazımda analiz ortamının hazırlanmasından bahsetmiştim. Bu yazımda ise kurduğumuz ortam ile bir zararlı yazılımın statik analizini yapmaya çalışacağız. Statik analiz yöntemlerine ve ilgili ...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -40,22 +21,22 @@ Statik analiz, analiz sürecinde iyi bir ilk adımdır. Bunu kullanarak, bir ör
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Zararlı Yazılım Analizine Giriş: #3 Statik Analiz">
-  <meta name="twitter:description" content="Zararlı Yazılım Analizine Giriş: #3 Statik AnalizBaşlık LinkiBir önceki yazımda analiz ortamının hazırlanmasından bahsetmiştim. Bu yazımda ise kurduğumuz ortam ile bir zararlı yazılımın statik analizini yapmaya çalışacağız. Statik analiz yöntemlerine ve ilgili araçlar bu yazıda!
-Statik Analiz YöntemleriBaşlık LinkiStatik analiz, dinamik analiz olarak bilinen, yürütme ve davranışını analiz etmenin aksine, bir zararlı yazılımın yürütülmeden analizidir.
-Statik analiz, analiz sürecinde iyi bir ilk adımdır. Bunu kullanarak, bir örneğin zararlı mı yoksa temiz mi olduğunu onu çalıştırmanıza bile gerek kalmadan anlayabilirsiniz. Hatta herhangi bir dinamik analiz yapmanıza gerek kalmadan zararlı yazılımın türünü, ailesini ve amacını bulmaya kadar gidebilirsiniz.">
+  <meta name="twitter:description" content="Bir önceki yazımda analiz ortamının hazırlanmasından bahsetmiştim. Bu yazımda ise kurduğumuz ortam ile bir zararlı yazılımın statik analizini yapmaya çalışacağız. Statik analiz yöntemlerine ve ilgili ...">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%233-statik-analiz/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Zararlı Yazılım Analizine Giriş: #3 Statik Analiz">
-  <meta property="og:description" content="Zararlı Yazılım Analizine Giriş: #3 Statik AnalizBaşlık LinkiBir önceki yazımda analiz ortamının hazırlanmasından bahsetmiştim. Bu yazımda ise kurduğumuz ortam ile bir zararlı yazılımın statik analizini yapmaya çalışacağız. Statik analiz yöntemlerine ve ilgili araçlar bu yazıda!
-Statik Analiz YöntemleriBaşlık LinkiStatik analiz, dinamik analiz olarak bilinen, yürütme ve davranışını analiz etmenin aksine, bir zararlı yazılımın yürütülmeden analizidir.
-Statik analiz, analiz sürecinde iyi bir ilk adımdır. Bunu kullanarak, bir örneğin zararlı mı yoksa temiz mi olduğunu onu çalıştırmanıza bile gerek kalmadan anlayabilirsiniz. Hatta herhangi bir dinamik analiz yapmanıza gerek kalmadan zararlı yazılımın türünü, ailesini ve amacını bulmaya kadar gidebilirsiniz.">
+  <meta property="og:description" content="Bir önceki yazımda analiz ortamının hazırlanmasından bahsetmiştim. Bu yazımda ise kurduğumuz ortam ile bir zararlı yazılımın statik analizini yapmaya çalışacağız. Statik analiz yöntemlerine ve ilgili ...">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2023-03-14T00:00:00+00:00">
     <meta property="article:modified_time" content="2023-03-14T00:00:00+00:00">
     <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%234-dinamik-analiz/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%235-kaynak-ara%C5%9Ft%C4%B1rmas%C4%B1/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%232-sandbox-kurulum/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%231-temel-kavramlar/">
 
 
 
@@ -95,15 +76,10 @@ Statik analiz, analiz sürecinde iyi bir ilk adımdır. Bunu kullanarak, bir ör
 
 
 
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
 
 
 
@@ -220,8 +196,9 @@ Statik analiz, analiz sürecinde iyi bir ilk adımdır. Bunu kullanarak, bir ör
 
       <div class="post-content">
         
-        <hr>
-<h3 id="zararlı-yazılım-analizine-giriş-3-statikanaliz">
+          <img src="https://cdn-images-1.medium.com/max/800/1*uStJb6CCMfH5-GAZXQbcOA.png" alt="Featured image"/>
+        
+        <h3 id="zararlı-yazılım-analizine-giriş-3-statikanaliz">
   Zararlı Yazılım Analizine Giriş: #3 Statik Analiz
   <a class="heading-link" href="#zararl%c4%b1-yaz%c4%b1l%c4%b1m-analizine-giri%c5%9f-3-statikanaliz">
     <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
@@ -355,6 +332,14 @@ Statik analiz, analiz sürecinde iyi bir ilk adımdır. Bunu kullanarak, bir ör
 
       <footer>
         
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
 
 
         

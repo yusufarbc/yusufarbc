@@ -13,25 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-
-  Zararlı Yazılım Analizine Giriş: #2 Sandbox Kurulum
-  
-    
-    Başlık Linki
-  
-
-
-Bir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araçları kullanacağız? Hepsi bu yazıda….
-
-
-  Sandbox
-  
-    
-    Başlık Linki
-  
-
-Zararlı Yazılım Analizinde kullandığımız ortama sandbox ismini veriyoruz. Özellikle dinamik analiz ile inceleme yaparken, zararlı yazılımı izole bir ortamda çalıştırmak zorundayız. Bunun için en kullanışlı yöntem sanal makine(Virutal Machine) kullanmaktır. Tabi bunun için birçok sanallaştırma yazılımı mevcut; VirtualBox, VMWare Workstation ve QEMU/kvm bunlardan birkaçı. Bu yazımızda virutalbox üzerinden ilerleyeceğiz.">
+<meta name="description" content="Bir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araç...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -39,20 +21,22 @@ Zararlı Yazılım Analizinde kullandığımız ortama sandbox ismini veriyoruz.
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Zararlı Yazılım Analizine Giriş: #2 Sandbox Kurulum">
-  <meta name="twitter:description" content="Zararlı Yazılım Analizine Giriş: #2 Sandbox KurulumBaşlık LinkiBir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araçları kullanacağız? Hepsi bu yazıda….
-SandboxBaşlık LinkiZararlı Yazılım Analizinde kullandığımız ortama sandbox ismini veriyoruz. Özellikle dinamik analiz ile inceleme yaparken, zararlı yazılımı izole bir ortamda çalıştırmak zorundayız. Bunun için en kullanışlı yöntem sanal makine(Virutal Machine) kullanmaktır. Tabi bunun için birçok sanallaştırma yazılımı mevcut; VirtualBox, VMWare Workstation ve QEMU/kvm bunlardan birkaçı. Bu yazımızda virutalbox üzerinden ilerleyeceğiz.">
+  <meta name="twitter:description" content="Bir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araç...">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%232-sandbox-kurulum/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Zararlı Yazılım Analizine Giriş: #2 Sandbox Kurulum">
-  <meta property="og:description" content="Zararlı Yazılım Analizine Giriş: #2 Sandbox KurulumBaşlık LinkiBir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araçları kullanacağız? Hepsi bu yazıda….
-SandboxBaşlık LinkiZararlı Yazılım Analizinde kullandığımız ortama sandbox ismini veriyoruz. Özellikle dinamik analiz ile inceleme yaparken, zararlı yazılımı izole bir ortamda çalıştırmak zorundayız. Bunun için en kullanışlı yöntem sanal makine(Virutal Machine) kullanmaktır. Tabi bunun için birçok sanallaştırma yazılımı mevcut; VirtualBox, VMWare Workstation ve QEMU/kvm bunlardan birkaçı. Bu yazımızda virutalbox üzerinden ilerleyeceğiz.">
+  <meta property="og:description" content="Bir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araç...">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2023-03-12T00:00:00+00:00">
     <meta property="article:modified_time" content="2023-03-12T00:00:00+00:00">
     <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%234-dinamik-analiz/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%235-kaynak-ara%C5%9Ft%C4%B1rmas%C4%B1/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%233-statik-analiz/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%231-temel-kavramlar/">
 
 
 
@@ -92,15 +76,10 @@ SandboxBaşlık LinkiZararlı Yazılım Analizinde kullandığımız ortama sa
 
 
 
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
 
 
 
@@ -217,8 +196,9 @@ SandboxBaşlık LinkiZararlı Yazılım Analizinde kullandığımız ortama sa
 
       <div class="post-content">
         
-        <hr>
-<h3 id="zararlı-yazılım-analizine-giriş-2-sandboxkurulum">
+          <img src="https://cdn-images-1.medium.com/max/800/1*rXDQnvecujpcn5O9zt_liQ.png" alt="Featured image"/>
+        
+        <h3 id="zararlı-yazılım-analizine-giriş-2-sandboxkurulum">
   Zararlı Yazılım Analizine Giriş: #2 Sandbox Kurulum
   <a class="heading-link" href="#zararl%c4%b1-yaz%c4%b1l%c4%b1m-analizine-giri%c5%9f-2-sandboxkurulum">
     <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
@@ -508,6 +488,14 @@ Bu linkten indirebilirsiniz: <a href="http://www.ollydbg.de/version2.html"  clas
 
       <footer>
         
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
 
 
         

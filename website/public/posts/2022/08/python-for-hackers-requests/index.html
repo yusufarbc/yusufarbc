@@ -13,25 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-
-  Python for Hackers: requests
-  
-    
-    Link to heading
-  
-
-
-
-  Introduction
-  
-    
-    Link to heading
-  
-
-Hello, in this article, we will get to know Python&rsquo;s requests module, where we can write tools in the field of web application security.
-What is ###requests?
-requests is a simple but elegant HTTP module of Python. It allows you to send HTTP requests extremely easily. For requests made with the GET method, you do not need to manually add query strings to your URLs or formally encode your POST data, the requests module takes care of these tasks for you. In this article, we will write various web tools with requests, but let&rsquo;s take a look at the installation first. We assume that you have a basic knowledge of the Python language and continue. If you want, you can also look at the articles about Python on our website.">
+<meta name="description" content="Hello, in this article, we will get to know Python&#39;s requests module, where we can write tools in the field of web application security.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -39,22 +21,21 @@ requests is a simple but elegant HTTP module of Python. It allows you to send HT
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Python for hackers: requests">
-  <meta name="twitter:description" content="Python for Hackers: requestsLink to headingIntroductionLink to headingHello, in this article, we will get to know Python’s requests module, where we can write tools in the field of web application security.
-What is ###requests?
-requests is a simple but elegant HTTP module of Python. It allows you to send HTTP requests extremely easily. For requests made with the GET method, you do not need to manually add query strings to your URLs or formally encode your POST data, the requests module takes care of these tasks for you. In this article, we will write various web tools with requests, but let’s take a look at the installation first. We assume that you have a basic knowledge of the Python language and continue. If you want, you can also look at the articles about Python on our website.">
+  <meta name="twitter:description" content="Hello, in this article, we will get to know Python&#39;s requests module, where we can write tools in the field of web application security.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2022/08/python-for-hackers-requests/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Python for hackers: requests">
-  <meta property="og:description" content="Python for Hackers: requestsLink to headingIntroductionLink to headingHello, in this article, we will get to know Python’s requests module, where we can write tools in the field of web application security.
-What is ###requests?
-requests is a simple but elegant HTTP module of Python. It allows you to send HTTP requests extremely easily. For requests made with the GET method, you do not need to manually add query strings to your URLs or formally encode your POST data, the requests module takes care of these tasks for you. In this article, we will write various web tools with requests, but let’s take a look at the installation first. We assume that you have a basic knowledge of the Python language and continue. If you want, you can also look at the articles about Python on our website.">
+  <meta property="og:description" content="Hello, in this article, we will get to know Python&#39;s requests module, where we can write tools in the field of web application security.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2022-08-26T00:00:00+00:00">
     <meta property="article:modified_time" content="2022-08-26T00:00:00+00:00">
     <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2022/09/python-for-hackers-paramiko/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2022/09/pythonsocket-for-hackers/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2022/09/python-for-hackers-selenium/">
 
 
 
@@ -94,15 +75,10 @@ requests is a simple but elegant HTTP module of Python. It allows you to send HT
 
 
 
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
 
 
 
@@ -219,8 +195,9 @@ requests is a simple but elegant HTTP module of Python. It allows you to send HT
 
       <div class="post-content">
         
-        <hr>
-<h3 id="python-for-hackersrequests">
+          <img src="https://cdn-images-1.medium.com/max/800/1*a87phGSd-sbfiJLWPfGMxA.png" alt="Featured image"/>
+        
+        <h3 id="python-for-hackersrequests">
   Python for Hackers: requests
   <a class="heading-link" href="#python-for-hackersrequests">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
@@ -474,6 +451,14 @@ response = requests.post(url=url, data=data, headers=header) #sending the reques
 
       <footer>
         
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
 
 
         

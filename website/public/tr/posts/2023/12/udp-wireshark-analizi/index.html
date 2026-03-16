@@ -13,25 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-
-  UDP Wireshark Analizi
-  
-    
-    Başlık Linki
-  
-
-
-Merhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
-
-
-  UDP Nedir?
-  
-    
-    Başlık Linki
-  
-
-Yakaladığınız trafikte çokça broadcast/multicast yayın görüyorsanız fazla sayıda UDP tabanlı iletişiminiz var demektir. UDP bağlantı kurmadan aktarım sağlar. Broadcast ve multicast trafiği UDP üzerinden akar. UDP başlığında port alanları, aktarımı kullanan uygulamayı tanımlar. UDP dört alandan oluşan 8 baytlık basit bir başlık(header) kullandığından, UDP’nin kendisi nadiren problem üretir. UDP, RFC 768, Kullanıcı Datagram Protokolü’nde tanımlanmıştır.">
+<meta name="description" content="Merhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -39,20 +21,24 @@ Yakaladığınız trafikte çokça broadcast/multicast yayın görüyorsanız fa
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="UDP Wireshark Analizi">
-  <meta name="twitter:description" content="UDP Wireshark AnaliziBaşlık LinkiMerhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
-UDP Nedir?Başlık LinkiYakaladığınız trafikte çokça broadcast/multicast yayın görüyorsanız fazla sayıda UDP tabanlı iletişiminiz var demektir. UDP bağlantı kurmadan aktarım sağlar. Broadcast ve multicast trafiği UDP üzerinden akar. UDP başlığında port alanları, aktarımı kullanan uygulamayı tanımlar. UDP dört alandan oluşan 8 baytlık basit bir başlık(header) kullandığından, UDP’nin kendisi nadiren problem üretir. UDP, RFC 768, Kullanıcı Datagram Protokolü’nde tanımlanmıştır.">
+  <meta name="twitter:description" content="Merhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2023/12/udp-wireshark-analizi/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="UDP Wireshark Analizi">
-  <meta property="og:description" content="UDP Wireshark AnaliziBaşlık LinkiMerhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
-UDP Nedir?Başlık LinkiYakaladığınız trafikte çokça broadcast/multicast yayın görüyorsanız fazla sayıda UDP tabanlı iletişiminiz var demektir. UDP bağlantı kurmadan aktarım sağlar. Broadcast ve multicast trafiği UDP üzerinden akar. UDP başlığında port alanları, aktarımı kullanan uygulamayı tanımlar. UDP dört alandan oluşan 8 baytlık basit bir başlık(header) kullandığından, UDP’nin kendisi nadiren problem üretir. UDP, RFC 768, Kullanıcı Datagram Protokolü’nde tanımlanmıştır.">
+  <meta property="og:description" content="Merhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2023-12-07T00:00:00+00:00">
     <meta property="article:modified_time" content="2023-12-07T00:00:00+00:00">
     <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2024/08/http-wireshark-analizi/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2024/07/tr-hidden-tunnels-cc-wireshark-ile-analizi/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2024/07/tcp-wireshark-analizi/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2023/12/icmpv4/icmpv6-wireshark-analizi/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2023/11/ipv4/ipv6-wireshark-analizi/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2023/11/arp-wireshark-analizi/">
 
 
 
@@ -92,15 +78,10 @@ UDP Nedir?Başlık LinkiYakaladığınız trafikte çokça broadcast/multicast
 
 
 
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
 
 
 
@@ -217,15 +198,9 @@ UDP Nedir?Başlık LinkiYakaladığınız trafikte çokça broadcast/multicast
 
       <div class="post-content">
         
-        <hr>
-<h3 id="udp-wireshark-analizi">
-  UDP Wireshark Analizi
-  <a class="heading-link" href="#udp-wireshark-analizi">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
-    <span class="sr-only">Başlık Linki</span>
-  </a>
-</h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*cReiU6D1Aj-Zf-J3628uNA.png" alt=""></p>
+          <img src="https://cdn-images-1.medium.com/max/800/1*cReiU6D1Aj-Zf-J3628uNA.png" alt="Featured image"/>
+        
+        <p><img src="https://cdn-images-1.medium.com/max/800/1*cReiU6D1Aj-Zf-J3628uNA.png" alt=""></p>
 <p>Merhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
 <hr>
 <h3 id="udp-nedir">
@@ -342,6 +317,14 @@ UDP Nedir?Başlık LinkiYakaladığınız trafikte çokça broadcast/multicast
 
       <footer>
         
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
 
 
         

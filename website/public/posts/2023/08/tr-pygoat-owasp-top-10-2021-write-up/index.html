@@ -13,25 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-
-  TR-Pygoat OWASP TOP 10 2021 WRITE-UP
-  
-    
-    Link to heading
-  
-
-
-Hello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reasons why these vulnerabilities arise.
-
-  What is Pygoat?
-  
-    
-    Link to heading
-  
-
-Pygoat is a vulnerable web application developed by OWASP(Open Worldwide Application Security Project**)**. The goal is to provide a platform to teach both developers and testers how to test and code applications securely. PyGoat is written in Python and uses the Django Framework.
-PyGoat also has an area where you can view the source code to determine where the error was made that caused the vulnerability and allows you to make changes to make it secure.">
+<meta name="description" content="Hello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reaso...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -39,16 +21,12 @@ PyGoat also has an area where you can view the source code to determine where th
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="TR-Pygoat OWASP TOP 10 2021 WRITE-UP">
-  <meta name="twitter:description" content="TR-Pygoat OWASP TOP 10 2021 WRITE-UPLink to headingHello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reasons why these vulnerabilities arise.
-What is Pygoat?Link to headingPygoat is a vulnerable web application developed by OWASP(Open Worldwide Application Security Project**)**. The goal is to provide a platform to teach both developers and testers how to test and code applications securely. PyGoat is written in Python and uses the Django Framework.
-PyGoat also has an area where you can view the source code to determine where the error was made that caused the vulnerability and allows you to make changes to make it secure.">
+  <meta name="twitter:description" content="Hello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reaso...">
 
 <meta property="og:url" content="http://localhost:1313/posts/2023/08/tr-pygoat-owasp-top-10-2021-write-up/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="TR-Pygoat OWASP TOP 10 2021 WRITE-UP">
-  <meta property="og:description" content="TR-Pygoat OWASP TOP 10 2021 WRITE-UPLink to headingHello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reasons why these vulnerabilities arise.
-What is Pygoat?Link to headingPygoat is a vulnerable web application developed by OWASP(Open Worldwide Application Security Project**)**. The goal is to provide a platform to teach both developers and testers how to test and code applications securely. PyGoat is written in Python and uses the Django Framework.
-PyGoat also has an area where you can view the source code to determine where the error was made that caused the vulnerability and allows you to make changes to make it secure.">
+  <meta property="og:description" content="Hello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reaso...">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -94,15 +72,10 @@ PyGoat also has an area where you can view the source code to determine where th
 
 
 
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
 
 
 
@@ -203,7 +176,7 @@ PyGoat also has an area where you can view the source code to determine where th
             </span>
             <span class="reading-time">
               <i class="fa-solid fa-clock" aria-hidden="true"></i>
-              17-minute read
+              16-minute read
             </span>
           </div>
           
@@ -217,15 +190,9 @@ PyGoat also has an area where you can view the source code to determine where th
 
       <div class="post-content">
         
-        <hr>
-<h3 id="tr-pygoat-owasp-top-10-2021-write-up">
-  TR-Pygoat OWASP TOP 10 2021 WRITE-UP
-  <a class="heading-link" href="#tr-pygoat-owasp-top-10-2021-write-up">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*mIRdg0fVq0WdqzoayvZykA.png" alt=""></p>
+          <img src="https://cdn-images-1.medium.com/max/800/1*mIRdg0fVq0WdqzoayvZykA.png" alt="Featured image"/>
+        
+        <p><img src="https://cdn-images-1.medium.com/max/800/1*mIRdg0fVq0WdqzoayvZykA.png" alt=""></p>
 <p>Hello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reasons why these vulnerabilities arise.</p>
 <h3 id="what-is-pygoat">
   <strong>What is Pygoat?</strong>

@@ -13,25 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-
-  Denial of Service Attacks (DoS-DDoS) Wireshark Analysis
-  
-    
-    Link to heading
-  
-
-
-Hello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.
-
-
-  Wireshark
-  
-    
-    Link to heading
-  
-
-Wireshark is open source software used as a network analysis tool. Wireshark can capture, inspect and analyze network traffic so it can be used to diagnose network problems, detect security threats or monitor network performance.">
+<meta name="description" content="Hello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -39,20 +21,25 @@ Wireshark is open source software used as a network analysis tool. Wireshark can
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Denial of Service Attacks (DoS-DDoS) Wireshark Analysis">
-  <meta name="twitter:description" content="Denial of Service Attacks (DoS-DDoS) Wireshark AnalysisLink to headingHello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.
-WiresharkLink to headingWireshark is open source software used as a network analysis tool. Wireshark can capture, inspect and analyze network traffic so it can be used to diagnose network problems, detect security threats or monitor network performance.">
+  <meta name="twitter:description" content="Hello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2023/09/denial-of-service-attacks-dos-ddos-wireshark-analysis/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Denial of Service Attacks (DoS-DDoS) Wireshark Analysis">
-  <meta property="og:description" content="Denial of Service Attacks (DoS-DDoS) Wireshark AnalysisLink to headingHello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.
-WiresharkLink to headingWireshark is open source software used as a network analysis tool. Wireshark can capture, inspect and analyze network traffic so it can be used to diagnose network problems, detect security threats or monitor network performance.">
+  <meta property="og:description" content="Hello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2023-09-15T00:00:00+00:00">
     <meta property="article:modified_time" content="2023-09-15T00:00:00+00:00">
     <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2024/08/http-wireshark-analysis/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2024/07/tr-hidden-tunnels-cc-analysis-with-wireshark/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2024/07/tcp-wireshark-analysis/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2023/12/udp-wireshark-analysis/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2023/12/icmpv4/icmpv6-wireshark-analysis/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2023/11/ipv4/ipv6-wireshark-analysis/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2023/11/arp-wireshark-analysis/">
 
 
 
@@ -92,15 +79,10 @@ WiresharkLink to headingWireshark is open source software used as a network an
 
 
 
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
 
 
 
@@ -217,15 +199,9 @@ WiresharkLink to headingWireshark is open source software used as a network an
 
       <div class="post-content">
         
-        <hr>
-<h3 id="denial-of-service-attacks-dos-ddos-wireshark-analysis">
-  Denial of Service Attacks (DoS-DDoS) Wireshark Analysis
-  <a class="heading-link" href="#denial-of-service-attacks-dos-ddos-wireshark-analysis">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*tKGgOxt2Mq5piyQ3_CJDdg.png" alt=""></p>
+          <img src="https://cdn-images-1.medium.com/max/800/1*tKGgOxt2Mq5piyQ3_CJDdg.png" alt="Featured image"/>
+        
+        <p><img src="https://cdn-images-1.medium.com/max/800/1*tKGgOxt2Mq5piyQ3_CJDdg.png" alt=""></p>
 <p>Hello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.</p>
 <hr>
 <h3 id="wireshark">
@@ -567,6 +543,14 @@ sudo apt install wireshark
 
       <footer>
         
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
 
 
         

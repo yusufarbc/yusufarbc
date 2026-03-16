@@ -13,23 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-
-  Ağ Güvenliği ve Yönetimi VI: Kimlik ve Erişim Yönetimi (IAM)
-  
-    
-    Başlık Linki
-  
-
-
-
-  Bölüm 1: Kimlik ve Erişim Yönetiminin Temelleri
-  
-    
-    Başlık Linki
-  
-
-Modern dijital ekonominin temel taşı olan veri ve sistemlere erişim, kurumlar için hem en büyük fırsatı hem de en ciddi güvenlik riskini temsil etmektedir. Bu ikilemin merkezinde, siber güvenliğin en kritik disiplinlerinden biri olan Kimlik ve Erişim Yönetimi (Identity and Access Management - IAM) yer almaktadır. Bu bölüm, IAM&rsquo;in tanımını, stratejik önemini, temel ilkelerini ve modern mimarisini derinlemesine inceleyerek, konuya dair sağlam bir teorik zemin oluşturmayı amaçlamaktadır.">
+<meta name="description" content="Modern dijital ekonominin temel taşı olan veri ve sistemlere erişim, kurumlar için hem en büyük fırsatı hem de en ciddi güvenlik riskini temsil etmektedir. Bu ikilemin merkezinde, siber güvenliğin en ...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -37,12 +21,12 @@ Modern dijital ekonominin temel taşı olan veri ve sistemlere erişim, kurumlar
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Kimlik ve Erişim Yönetimi (IAM)">
-  <meta name="twitter:description" content="Ağ Güvenliği ve Yönetimi VI: Kimlik ve Erişim Yönetimi (IAM)Başlık LinkiBölüm 1: Kimlik ve Erişim Yönetiminin TemelleriBaşlık LinkiModern dijital ekonominin temel taşı olan veri ve sistemlere erişim, kurumlar için hem en büyük fırsatı hem de en ciddi güvenlik riskini temsil etmektedir. Bu ikilemin merkezinde, siber güvenliğin en kritik disiplinlerinden biri olan Kimlik ve Erişim Yönetimi (Identity and Access Management - IAM) yer almaktadır. Bu bölüm, IAM’in tanımını, stratejik önemini, temel ilkelerini ve modern mimarisini derinlemesine inceleyerek, konuya dair sağlam bir teorik zemin oluşturmayı amaçlamaktadır.">
+  <meta name="twitter:description" content="Modern dijital ekonominin temel taşı olan veri ve sistemlere erişim, kurumlar için hem en büyük fırsatı hem de en ciddi güvenlik riskini temsil etmektedir. Bu ikilemin merkezinde, siber güvenliğin en ...">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2025/07/kimlik-ve-eri%C5%9Fim-y%C3%B6netimi-iam/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Kimlik ve Erişim Yönetimi (IAM)">
-  <meta property="og:description" content="Ağ Güvenliği ve Yönetimi VI: Kimlik ve Erişim Yönetimi (IAM)Başlık LinkiBölüm 1: Kimlik ve Erişim Yönetiminin TemelleriBaşlık LinkiModern dijital ekonominin temel taşı olan veri ve sistemlere erişim, kurumlar için hem en büyük fırsatı hem de en ciddi güvenlik riskini temsil etmektedir. Bu ikilemin merkezinde, siber güvenliğin en kritik disiplinlerinden biri olan Kimlik ve Erişim Yönetimi (Identity and Access Management - IAM) yer almaktadır. Bu bölüm, IAM’in tanımını, stratejik önemini, temel ilkelerini ve modern mimarisini derinlemesine inceleyerek, konuya dair sağlam bir teorik zemin oluşturmayı amaçlamaktadır.">
+  <meta property="og:description" content="Modern dijital ekonominin temel taşı olan veri ve sistemlere erişim, kurumlar için hem en büyük fırsatı hem de en ciddi güvenlik riskini temsil etmektedir. Bu ikilemin merkezinde, siber güvenliğin en ...">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -88,15 +72,10 @@ Modern dijital ekonominin temel taşı olan veri ve sistemlere erişim, kurumlar
 
 
 
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
 
 
 
@@ -213,8 +192,9 @@ Modern dijital ekonominin temel taşı olan veri ve sistemlere erişim, kurumlar
 
       <div class="post-content">
         
-        <hr>
-<h3 id="ağ-güvenliği-ve-yönetimi-vi-kimlik-ve-erişim-yönetimiiam">
+          <img src="https://cdn-images-1.medium.com/max/800/1*v6bkvamS0ChDDdA-D-8BtQ.png" alt="Featured image"/>
+        
+        <h3 id="ağ-güvenliği-ve-yönetimi-vi-kimlik-ve-erişim-yönetimiiam">
   Ağ Güvenliği ve Yönetimi VI: Kimlik ve Erişim Yönetimi (IAM)
   <a class="heading-link" href="#a%c4%9f-g%c3%bcvenli%c4%9fi-ve-y%c3%b6netimi-vi-kimlik-ve-eri%c5%9fim-y%c3%b6netimiiam">
     <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>

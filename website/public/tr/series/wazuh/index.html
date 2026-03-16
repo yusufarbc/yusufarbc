@@ -69,15 +69,10 @@
 
 
 
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
 
 
 <link rel="alternate" type="application/rss+xml" href="/tr/series/wazuh/index.xml" title="Yusuf Talha ARABACI" />
@@ -146,10 +141,8 @@
                 
               
               <li class="navigation-item">
-                <a href="/">English</a>
+                <a href="/series/wazuh/">English</a>
               </li>
-            
-          
             
           
         
@@ -161,66 +154,64 @@
 
     <div class="content">
       
-  <section class="container list">
-    <header>
-      <h1 class="title">
-        <a class="title-link" href="http://localhost:1313/tr/series/wazuh/">
-          Wazuh SIEM
-        </a>
-      </h1>
-    </header>
-
+<section class="container taxonomy-term">
+  <header>
     
-    
-    
-    <div class="series-list-top">
-      <h3>Yazı Serileri</h3>
-      <div class="series-tags">
-        
-          <a href="/tr/series/a%c4%9f-g%c3%bcvenli%c4%9fi-ve-y%c3%b6netimi/" class="series-tag">#ağ güvenliği ve yönetimi</a>
-        
+      <div class="term-header-image" style="background-image: url('/images/series/wazuh.png');">
+        <div class="term-header-overlay">
+          <h1 class="title">Wazuh SIEM</h1>
+        </div>
       </div>
-    </div>
     
-
-    <hr>
-
+  </header>
+  
+  <div class="term-content">
     <p>Wazuh SIEM yazı serisi.</p>
 
-    <ul></ul>
+  </div>
 
+  <ul class="post-list">
     
+  </ul>
+
+  
 
 
 
 
 
 
-  </section>
+</section>
 
-  <style>
-    .series-list-top {
-      margin-bottom: 2rem;
-    }
-    .series-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .series-tag {
-      padding: 5px 12px;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 20px;
-      font-size: 0.9em;
-      transition: all 0.2s;
-    }
-    .series-tag:hover {
-      border-color: var(--primary-accent);
-      background: var(--primary-accent);
-      color: white !important;
-    }
-  </style>
+<style>
+  .term-header-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .term-header-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px 20px 20px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+  }
+  .term-header-overlay h1 {
+    margin: 0;
+    color: white !important;
+  }
+  .term-content {
+    margin-bottom: 2rem;
+    font-style: italic;
+    opacity: 0.9;
+  }
+</style>
 
     </div>
 

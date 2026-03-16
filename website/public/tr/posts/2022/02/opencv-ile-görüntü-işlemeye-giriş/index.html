@@ -13,31 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-
-  OpenCV ile Görüntü İşlemeye Giriş
-  
-    
-    Başlık Linki
-  
-
-
-Merhaba, bu yazımızda, OpenCVnin ne olduğundan, bilgisayarlı görüden ve Python ile bu işlemlerin nasıl yapılacağından bahsedeceğiz.
-
-  OpenCV’ye Genel Bakış
-  
-    
-    Başlık Linki
-  
-
-
-  Bilgisayarlı Görü Nedir?
-  
-    
-    Başlık Linki
-  
-
-Bilgisayarlı görü (computer vision), görüntülerin ve videoların bilgisayar ortamında nasıl depolandıklarını ve onlardan nasıl veri alabileceğimizi anlamlandırdığımız bir süreçtir. Bilgisayarlı görünün amacı görüntünün içeriğini bilmektir. Bunun için, yapay zeka ve makine öğrenmesi teknolojilerinden yararlanır.">
+<meta name="description" content="Merhaba, bu yazımızda, OpenCVnin ne olduğundan, bilgisayarlı görüden ve Python ile bu işlemlerin nasıl yapılacağından bahsedeceğiz.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -45,14 +21,12 @@ Bilgisayarlı görü (computer vision), görüntülerin ve videoların bilgisaya
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="OpenCV ile Görüntü İşlemeye Giriş">
-  <meta name="twitter:description" content="OpenCV ile Görüntü İşlemeye GirişBaşlık LinkiMerhaba, bu yazımızda, OpenCVnin ne olduğundan, bilgisayarlı görüden ve Python ile bu işlemlerin nasıl yapılacağından bahsedeceğiz.
-OpenCV’ye Genel BakışBaşlık LinkiBilgisayarlı Görü Nedir?Başlık LinkiBilgisayarlı görü (computer vision), görüntülerin ve videoların bilgisayar ortamında nasıl depolandıklarını ve onlardan nasıl veri alabileceğimizi anlamlandırdığımız bir süreçtir. Bilgisayarlı görünün amacı görüntünün içeriğini bilmektir. Bunun için, yapay zeka ve makine öğrenmesi teknolojilerinden yararlanır.">
+  <meta name="twitter:description" content="Merhaba, bu yazımızda, OpenCVnin ne olduğundan, bilgisayarlı görüden ve Python ile bu işlemlerin nasıl yapılacağından bahsedeceğiz.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2022/02/opencv-ile-g%C3%B6r%C3%BCnt%C3%BC-i%C5%9Flemeye-giri%C5%9F/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="OpenCV ile Görüntü İşlemeye Giriş">
-  <meta property="og:description" content="OpenCV ile Görüntü İşlemeye GirişBaşlık LinkiMerhaba, bu yazımızda, OpenCVnin ne olduğundan, bilgisayarlı görüden ve Python ile bu işlemlerin nasıl yapılacağından bahsedeceğiz.
-OpenCV’ye Genel BakışBaşlık LinkiBilgisayarlı Görü Nedir?Başlık LinkiBilgisayarlı görü (computer vision), görüntülerin ve videoların bilgisayar ortamında nasıl depolandıklarını ve onlardan nasıl veri alabileceğimizi anlamlandırdığımız bir süreçtir. Bilgisayarlı görünün amacı görüntünün içeriğini bilmektir. Bunun için, yapay zeka ve makine öğrenmesi teknolojilerinden yararlanır.">
+  <meta property="og:description" content="Merhaba, bu yazımızda, OpenCVnin ne olduğundan, bilgisayarlı görüden ve Python ile bu işlemlerin nasıl yapılacağından bahsedeceğiz.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -98,15 +72,10 @@ OpenCV’ye Genel BakışBaşlık LinkiBilgisayarlı Görü Nedir?Başlık 
 
 
 
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
 
 
 
@@ -223,8 +192,9 @@ OpenCV’ye Genel BakışBaşlık LinkiBilgisayarlı Görü Nedir?Başlık 
 
       <div class="post-content">
         
-        <hr>
-<h3 id="opencv-ile-görüntü-işlemeyegiriş">
+          <img src="https://cdn-images-1.medium.com/max/800/0*tAmPWiGxMp-BWqSx.png" alt="Featured image"/>
+        
+        <h3 id="opencv-ile-görüntü-işlemeyegiriş">
   OpenCV ile Görüntü İşlemeye Giriş
   <a class="heading-link" href="#opencv-ile-g%c3%b6r%c3%bcnt%c3%bc-i%c5%9flemeyegiri%c5%9f">
     <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
@@ -512,7 +482,9 @@ cam = cv.VideoCapture(0)
   
 def autoCanny(blur, sigma=0.33):   
   median = np.median(blur)
-</code></pre>
+</code></pre><hr>
+<p><em>Originally published at</em> <a href="https://pwnlab.me/tr-opencv-ile-goruntu-islemeye-giris/"  class="external-link" target="_blank" rel="noopener"><em>https://pwnlab.me</em></a> <em>on February 4, 2022.</em></p>
+
       </div>
 
 

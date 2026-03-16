@@ -13,16 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-
-  Network Security and Management VII: Active Directory
-  
-    
-    Link to heading
-  
-
-
-It examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of &ldquo;identity is the new security perimeter&rdquo;, this study presents a comprehensive strategy that aims to transform AD from a security weakness into a defense fortress. The report covers common attack vectors such as Kerberoasting, Pass-the-Hash and Golden Ticket, advanced defense mechanisms such as Tiered Model, Credential Guard and Group Managed Service Accounts (gMSA), security of hybrid identity infrastructures, and continuous monitoring and disaster recovery operations in technical detail. This guide concludes by providing an actionable roadmap for security leaders and technical practitioners to improve the security and resilience of AD infrastructures.">
+<meta name="description" content="It examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of &#34;identity is the new security peri...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -30,18 +21,25 @@ It examines in detail the central role of Active Directory (AD) in the modern cy
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Network Security and Management VII: Active Directory">
-  <meta name="twitter:description" content="Network Security and Management VII: Active DirectoryLink to headingIt examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of “identity is the new security perimeter”, this study presents a comprehensive strategy that aims to transform AD from a security weakness into a defense fortress. The report covers common attack vectors such as Kerberoasting, Pass-the-Hash and Golden Ticket, advanced defense mechanisms such as Tiered Model, Credential Guard and Group Managed Service Accounts (gMSA), security of hybrid identity infrastructures, and continuous monitoring and disaster recovery operations in technical detail. This guide concludes by providing an actionable roadmap for security leaders and technical practitioners to improve the security and resilience of AD infrastructures.">
+  <meta name="twitter:description" content="It examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of &#34;identity is the new security peri...">
 
 <meta property="og:url" content="http://localhost:1313/posts/2025/08/network-security-and-management-vii-active-directory/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Network Security and Management VII: Active Directory">
-  <meta property="og:description" content="Network Security and Management VII: Active DirectoryLink to headingIt examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of “identity is the new security perimeter”, this study presents a comprehensive strategy that aims to transform AD from a security weakness into a defense fortress. The report covers common attack vectors such as Kerberoasting, Pass-the-Hash and Golden Ticket, advanced defense mechanisms such as Tiered Model, Credential Guard and Group Managed Service Accounts (gMSA), security of hybrid identity infrastructures, and continuous monitoring and disaster recovery operations in technical detail. This guide concludes by providing an actionable roadmap for security leaders and technical practitioners to improve the security and resilience of AD infrastructures.">
+  <meta property="og:description" content="It examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of &#34;identity is the new security peri...">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-08-07T00:00:00+00:00">
     <meta property="article:modified_time" content="2025-08-07T00:00:00+00:00">
     <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2025/08/network-management-and-security-x-soc-and-noc-processes/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2025/08/network-management-and-security-ix-cloud-security-and-hybrid-network-architectures/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2025/08/network-management-and-security-vi-network-protocols-security-and-analysis/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2025/08/network-management-and-security-viii-network-management-monitoring-and-automation/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2025/08/network-management-and-security-iii-network-hardware-and-physical-infrastructure-security/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2025/08/network-management-and-security-iv-network-security-technologies/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/2025/08/network-management-and-security-v-identity-and-access-management-iam/">
 
 
 
@@ -81,15 +79,10 @@ It examines in detail the central role of Active Directory (AD) in the modern cy
 
 
 
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
 
 
 
@@ -206,15 +199,9 @@ It examines in detail the central role of Active Directory (AD) in the modern cy
 
       <div class="post-content">
         
-        <hr>
-<h3 id="network-security-and-management-vii-active-directory">
-  Network Security and Management VII: Active Directory
-  <a class="heading-link" href="#network-security-and-management-vii-active-directory">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*xHCEWIgWsOG-PR1mgpcXvQ.png" alt=""></p>
+          <img src="https://cdn-images-1.medium.com/max/800/1*xHCEWIgWsOG-PR1mgpcXvQ.png" alt="Featured image"/>
+        
+        <p><img src="https://cdn-images-1.medium.com/max/800/1*xHCEWIgWsOG-PR1mgpcXvQ.png" alt=""></p>
 <p>It examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of &ldquo;identity is the new security perimeter&rdquo;, this study presents a comprehensive strategy that aims to transform AD from a security weakness into a defense fortress. The report covers common attack vectors such as Kerberoasting, Pass-the-Hash and Golden Ticket, advanced defense mechanisms such as Tiered Model, Credential Guard and Group Managed Service Accounts (gMSA), security of hybrid identity infrastructures, and continuous monitoring and disaster recovery operations in technical detail. This guide concludes by providing an actionable roadmap for security leaders and technical practitioners to improve the security and resilience of AD infrastructures.</p>
 <hr>
 <h3 id="active-directory-architecture-and-security-fundamentals">
@@ -821,6 +808,14 @@ It examines in detail the central role of Active Directory (AD) in the modern cy
 
       <footer>
         
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
 
 
         

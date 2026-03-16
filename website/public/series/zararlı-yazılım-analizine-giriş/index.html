@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Zararlı Yazılım Analizine Giriş · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="Security Engineer specializing in Cloud-Native Security, SOC Architecture, and Open Source Defense.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Zararlı Yazılım Analizine Giriş">
+  <meta name="twitter:description" content="Security Engineer specializing in Cloud-Native Security, SOC Architecture, and Open Source Defense.">
+
+<meta property="og:url" content="http://localhost:1313/series/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Zararlı Yazılım Analizine Giriş">
+  <meta property="og:description" content="Security Engineer specializing in Cloud-Native Security, SOC Architecture, and Open Source Defense.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/series/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+
+
+<link rel="alternate" type="application/rss+xml" href="/series/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F/index.xml" title="Yusuf Talha ARABACI" />
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/series/">Series</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/about/">About</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/tr/series/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F/">Türkçe</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+<section class="container taxonomy-term">
+  <header>
+    
+      <h1 class="title">Zararlı Yazılım Analizine Giriş</h1>
+    
+  </header>
+  
+  <div class="term-content">
+    
+  </div>
+
+  <ul class="post-list">
+    
+      <li>
+  <article class="post-item glass-card">
+    <div class="post-content">
+      <div class="post-meta">
+        <span class="post-date">Mar 16, 2023</span>
+        
+          <span class="post-series">in 
+            
+              <a href="/series/zararl%c4%b1-yaz%c4%b1l%c4%b1m-analizine-giri%c5%9f">Zararlı Yazılım Analizine Giriş</a>
+            
+          </span>
+        
+      </div>
+      
+      <h2 class="post-title">
+        <a href="http://localhost:1313/posts/2023/03/introduction-to-malware-analysis-%234-dynamic-analysis/">Introduction to Malware Analysis: #4 Dynamic Analysis</a>
+      </h2>
+      
+      <p class="post-summary">
+        I talked about static analysis methods in my previous article. In this article, I will talk about dynamic analysis methods in Malware Analysis. What types of dynamic analysis techniques are there? Wha...
+      </p>
+      
+      <div class="post-footer">
+        <span class="read-more">
+          <a href="http://localhost:1313/posts/2023/03/introduction-to-malware-analysis-%234-dynamic-analysis/">Read More →</a>
+        </span>
+      </div>
+    </div>
+    
+    
+    <div class="post-image">
+      <a href="http://localhost:1313/posts/2023/03/introduction-to-malware-analysis-%234-dynamic-analysis/">
+        <img src="https://cdn-images-1.medium.com/max/800/1*XhHw4q_6KEejBGJHX3iENw.png" alt="Introduction to Malware Analysis: #4 Dynamic Analysis" loading="lazy">
+      </a>
+    </div>
+    
+  </article>
+</li>
+
+    
+      <li>
+  <article class="post-item glass-card">
+    <div class="post-content">
+      <div class="post-meta">
+        <span class="post-date">Mar 16, 2023</span>
+        
+          <span class="post-series">in 
+            
+              <a href="/series/zararl%c4%b1-yaz%c4%b1l%c4%b1m-analizine-giri%c5%9f">Zararlı Yazılım Analizine Giriş</a>
+            
+          </span>
+        
+      </div>
+      
+      <h2 class="post-title">
+        <a href="http://localhost:1313/posts/2023/03/introduction-to-malware-analysis-%235-source-research/">Introduction to Malware Analysis: #5 Source Research</a>
+      </h2>
+      
+      <p class="post-summary">
+        In this article, I listed the resources I found on malware analysis. Repos, books, sites and videos are in this article.
+      </p>
+      
+      <div class="post-footer">
+        <span class="read-more">
+          <a href="http://localhost:1313/posts/2023/03/introduction-to-malware-analysis-%235-source-research/">Read More →</a>
+        </span>
+      </div>
+    </div>
+    
+    
+    <div class="post-image">
+      <a href="http://localhost:1313/posts/2023/03/introduction-to-malware-analysis-%235-source-research/">
+        <img src="https://cdn-images-1.medium.com/max/800/1*dJBvI3SpcGPLEmaFbLhm9A.png" alt="Introduction to Malware Analysis: #5 Source Research" loading="lazy">
+      </a>
+    </div>
+    
+  </article>
+</li>
+
+    
+      <li>
+  <article class="post-item glass-card">
+    <div class="post-content">
+      <div class="post-meta">
+        <span class="post-date">Mar 14, 2023</span>
+        
+          <span class="post-series">in 
+            
+              <a href="/series/zararl%c4%b1-yaz%c4%b1l%c4%b1m-analizine-giri%c5%9f">Zararlı Yazılım Analizine Giriş</a>
+            
+          </span>
+        
+      </div>
+      
+      <h2 class="post-title">
+        <a href="http://localhost:1313/posts/2023/03/introduction-to-malware-analysis-%233-static-analysis/">Introduction to Malware Analysis: #3 Static Analysis</a>
+      </h2>
+      
+      <p class="post-summary">
+        In my previous article, I talked about preparing the analysis environment. In this article, we will try to do a static analysis of a malware with the environment we have established. Static analysis m...
+      </p>
+      
+      <div class="post-footer">
+        <span class="read-more">
+          <a href="http://localhost:1313/posts/2023/03/introduction-to-malware-analysis-%233-static-analysis/">Read More →</a>
+        </span>
+      </div>
+    </div>
+    
+    
+    <div class="post-image">
+      <a href="http://localhost:1313/posts/2023/03/introduction-to-malware-analysis-%233-static-analysis/">
+        <img src="https://cdn-images-1.medium.com/max/800/1*uStJb6CCMfH5-GAZXQbcOA.png" alt="Introduction to Malware Analysis: #3 Static Analysis" loading="lazy">
+      </a>
+    </div>
+    
+  </article>
+</li>
+
+    
+      <li>
+  <article class="post-item glass-card">
+    <div class="post-content">
+      <div class="post-meta">
+        <span class="post-date">Mar 12, 2023</span>
+        
+          <span class="post-series">in 
+            
+              <a href="/series/zararl%c4%b1-yaz%c4%b1l%c4%b1m-analizine-giri%c5%9f">Zararlı Yazılım Analizine Giriş</a>
+            
+          </span>
+        
+      </div>
+      
+      <h2 class="post-title">
+        <a href="http://localhost:1313/posts/2023/03/introduction-to-malware-analysis-%232-sandbox-installation/">Introduction to Malware Analysis: #2 Sandbox Installation</a>
+      </h2>
+      
+      <p class="post-summary">
+        In my previous article, I talked about basic concepts. In this article, I will explain the environment setup that we will use in malware analysis. What should we pay attention to when preparing the an...
+      </p>
+      
+      <div class="post-footer">
+        <span class="read-more">
+          <a href="http://localhost:1313/posts/2023/03/introduction-to-malware-analysis-%232-sandbox-installation/">Read More →</a>
+        </span>
+      </div>
+    </div>
+    
+    
+    <div class="post-image">
+      <a href="http://localhost:1313/posts/2023/03/introduction-to-malware-analysis-%232-sandbox-installation/">
+        <img src="https://cdn-images-1.medium.com/max/800/1*rXDQnvecujpcn5O9zt_liQ.png" alt="Introduction to Malware Analysis: #2 Sandbox Installation" loading="lazy">
+      </a>
+    </div>
+    
+  </article>
+</li>
+
+    
+      <li>
+  <article class="post-item glass-card">
+    <div class="post-content">
+      <div class="post-meta">
+        <span class="post-date">Mar 7, 2023</span>
+        
+          <span class="post-series">in 
+            
+              <a href="/series/zararl%c4%b1-yaz%c4%b1l%c4%b1m-analizine-giri%c5%9f">Zararlı Yazılım Analizine Giriş</a>
+            
+          </span>
+        
+      </div>
+      
+      <h2 class="post-title">
+        <a href="http://localhost:1313/posts/2023/03/introduction-to-malware-analysis-%231-basic-concepts/">Introduction to Malware Analysis: #1 Basic Concepts</a>
+      </h2>
+      
+      <p class="post-summary">
+        In this article series, I will give information about malware analysis; viruses, worms etc. You may have heard the terms. But what do these things mean? Is a virus a worm? What exactly does malware do...
+      </p>
+      
+      <div class="post-footer">
+        <span class="read-more">
+          <a href="http://localhost:1313/posts/2023/03/introduction-to-malware-analysis-%231-basic-concepts/">Read More →</a>
+        </span>
+      </div>
+    </div>
+    
+    
+    <div class="post-image">
+      <a href="http://localhost:1313/posts/2023/03/introduction-to-malware-analysis-%231-basic-concepts/">
+        <img src="https://cdn-images-1.medium.com/max/800/1*wRwVFbFX3SX1zyV-mTRt_w.png" alt="Introduction to Malware Analysis: #1 Basic Concepts" loading="lazy">
+      </a>
+    </div>
+    
+  </article>
+</li>
+
+    
+  </ul>
+
+  
+
+
+
+
+
+
+</section>
+
+<style>
+  .term-header-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .term-header-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px 20px 20px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+  }
+  .term-header-overlay h1 {
+    margin: 0;
+    color: white !important;
+  }
+  .term-content {
+    margin-bottom: 2rem;
+    font-style: italic;
+    opacity: 0.9;
+  }
+</style>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

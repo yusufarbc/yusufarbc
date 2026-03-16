@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Zararlı Yazılım Analizine Giriş · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="Security Engineer specializing in Cloud-Native Security, SOC Architecture, and Open Source Defense.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Zararlı Yazılım Analizine Giriş">
+  <meta name="twitter:description" content="Security Engineer specializing in Cloud-Native Security, SOC Architecture, and Open Source Defense.">
+
+<meta property="og:url" content="http://localhost:1313/tr/series/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Zararlı Yazılım Analizine Giriş">
+  <meta property="og:description" content="Security Engineer specializing in Cloud-Native Security, SOC Architecture, and Open Source Defense.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="website">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/series/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+
+
+<link rel="alternate" type="application/rss+xml" href="/tr/series/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F/index.xml" title="Yusuf Talha ARABACI" />
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/">English</a>
+              </li>
+            
+          
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+<section class="container taxonomy-term">
+  <header>
+    
+      <h1 class="title">Zararlı Yazılım Analizine Giriş</h1>
+    
+  </header>
+  
+  <div class="term-content">
+    
+  </div>
+
+  <ul class="post-list">
+    
+      <li>
+  <article class="post-item glass-card">
+    <div class="post-content">
+      <div class="post-meta">
+        <span class="post-date">Mar 16, 2023</span>
+        
+          <span class="post-series">in 
+            
+              <a href="/tr/series/zararl%c4%b1-yaz%c4%b1l%c4%b1m-analizine-giri%c5%9f">Zararlı Yazılım Analizine Giriş</a>
+            
+          </span>
+        
+      </div>
+      
+      <h2 class="post-title">
+        <a href="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%234-dinamik-analiz/">Zararlı Yazılım Analizine Giriş: #4 Dinamik Analiz</a>
+      </h2>
+      
+      <p class="post-summary">
+        Bir önceki yazımda statik analiz yöntemlerinden bahsetmiştim. Bu yazımda ise Zararlı Yazılım Analizinde, dinamik analiz yöntemlerinden bahsedeceğim. Ne tür dinamik analiz teknikleri var? hangi araçlar...
+      </p>
+      
+      <div class="post-footer">
+        <span class="read-more">
+          <a href="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%234-dinamik-analiz/">Devamını Oku →</a>
+        </span>
+      </div>
+    </div>
+    
+    
+    <div class="post-image">
+      <a href="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%234-dinamik-analiz/">
+        <img src="https://cdn-images-1.medium.com/max/800/1*XhHw4q_6KEejBGJHX3iENw.png" alt="Zararlı Yazılım Analizine Giriş: #4 Dinamik Analiz" loading="lazy">
+      </a>
+    </div>
+    
+  </article>
+</li>
+
+    
+      <li>
+  <article class="post-item glass-card">
+    <div class="post-content">
+      <div class="post-meta">
+        <span class="post-date">Mar 16, 2023</span>
+        
+          <span class="post-series">in 
+            
+              <a href="/tr/series/zararl%c4%b1-yaz%c4%b1l%c4%b1m-analizine-giri%c5%9f">Zararlı Yazılım Analizine Giriş</a>
+            
+          </span>
+        
+      </div>
+      
+      <h2 class="post-title">
+        <a href="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%235-kaynak-ara%C5%9Ft%C4%B1rmas%C4%B1/">Zararlı Yazılım Analizine Giriş: #5 Kaynak Araştırması</a>
+      </h2>
+      
+      <p class="post-summary">
+        Bu yazımda zararlı yazılım analizi konusunda bulduğum kaynakları listeledim. Repolar, kitaplar, siteler ve videolar bu yazıda.
+      </p>
+      
+      <div class="post-footer">
+        <span class="read-more">
+          <a href="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%235-kaynak-ara%C5%9Ft%C4%B1rmas%C4%B1/">Devamını Oku →</a>
+        </span>
+      </div>
+    </div>
+    
+    
+    <div class="post-image">
+      <a href="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%235-kaynak-ara%C5%9Ft%C4%B1rmas%C4%B1/">
+        <img src="https://cdn-images-1.medium.com/max/800/1*dJBvI3SpcGPLEmaFbLhm9A.png" alt="Zararlı Yazılım Analizine Giriş: #5 Kaynak Araştırması" loading="lazy">
+      </a>
+    </div>
+    
+  </article>
+</li>
+
+    
+      <li>
+  <article class="post-item glass-card">
+    <div class="post-content">
+      <div class="post-meta">
+        <span class="post-date">Mar 14, 2023</span>
+        
+          <span class="post-series">in 
+            
+              <a href="/tr/series/zararl%c4%b1-yaz%c4%b1l%c4%b1m-analizine-giri%c5%9f">Zararlı Yazılım Analizine Giriş</a>
+            
+          </span>
+        
+      </div>
+      
+      <h2 class="post-title">
+        <a href="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%233-statik-analiz/">Zararlı Yazılım Analizine Giriş: #3 Statik Analiz</a>
+      </h2>
+      
+      <p class="post-summary">
+        Bir önceki yazımda analiz ortamının hazırlanmasından bahsetmiştim. Bu yazımda ise kurduğumuz ortam ile bir zararlı yazılımın statik analizini yapmaya çalışacağız. Statik analiz yöntemlerine ve ilgili ...
+      </p>
+      
+      <div class="post-footer">
+        <span class="read-more">
+          <a href="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%233-statik-analiz/">Devamını Oku →</a>
+        </span>
+      </div>
+    </div>
+    
+    
+    <div class="post-image">
+      <a href="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%233-statik-analiz/">
+        <img src="https://cdn-images-1.medium.com/max/800/1*uStJb6CCMfH5-GAZXQbcOA.png" alt="Zararlı Yazılım Analizine Giriş: #3 Statik Analiz" loading="lazy">
+      </a>
+    </div>
+    
+  </article>
+</li>
+
+    
+      <li>
+  <article class="post-item glass-card">
+    <div class="post-content">
+      <div class="post-meta">
+        <span class="post-date">Mar 12, 2023</span>
+        
+          <span class="post-series">in 
+            
+              <a href="/tr/series/zararl%c4%b1-yaz%c4%b1l%c4%b1m-analizine-giri%c5%9f">Zararlı Yazılım Analizine Giriş</a>
+            
+          </span>
+        
+      </div>
+      
+      <h2 class="post-title">
+        <a href="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%232-sandbox-kurulum/">Zararlı Yazılım Analizine Giriş: #2 Sandbox Kurulum</a>
+      </h2>
+      
+      <p class="post-summary">
+        Bir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araç...
+      </p>
+      
+      <div class="post-footer">
+        <span class="read-more">
+          <a href="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%232-sandbox-kurulum/">Devamını Oku →</a>
+        </span>
+      </div>
+    </div>
+    
+    
+    <div class="post-image">
+      <a href="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%232-sandbox-kurulum/">
+        <img src="https://cdn-images-1.medium.com/max/800/1*rXDQnvecujpcn5O9zt_liQ.png" alt="Zararlı Yazılım Analizine Giriş: #2 Sandbox Kurulum" loading="lazy">
+      </a>
+    </div>
+    
+  </article>
+</li>
+
+    
+      <li>
+  <article class="post-item glass-card">
+    <div class="post-content">
+      <div class="post-meta">
+        <span class="post-date">Mar 7, 2023</span>
+        
+          <span class="post-series">in 
+            
+              <a href="/tr/series/zararl%c4%b1-yaz%c4%b1l%c4%b1m-analizine-giri%c5%9f">Zararlı Yazılım Analizine Giriş</a>
+            
+          </span>
+        
+      </div>
+      
+      <h2 class="post-title">
+        <a href="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%231-temel-kavramlar/">Zararlı Yazılım Analizine Giriş: #1 Temel Kavramlar</a>
+      </h2>
+      
+      <p class="post-summary">
+        Bu yazı serimizde zararlı yazılım analizi hakkında bilgiler vereceğim; virüsler, solucanlar vb. terimleri duymuşsunuzdur. Ama bu şeyler ne anlama geliyor? Virüs solucan mıdır? Kötü amaçlı yazılım tam ...
+      </p>
+      
+      <div class="post-footer">
+        <span class="read-more">
+          <a href="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%231-temel-kavramlar/">Devamını Oku →</a>
+        </span>
+      </div>
+    </div>
+    
+    
+    <div class="post-image">
+      <a href="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%231-temel-kavramlar/">
+        <img src="https://cdn-images-1.medium.com/max/800/1*wRwVFbFX3SX1zyV-mTRt_w.png" alt="Zararlı Yazılım Analizine Giriş: #1 Temel Kavramlar" loading="lazy">
+      </a>
+    </div>
+    
+  </article>
+</li>
+
+    
+  </ul>
+
+  
+
+
+
+
+
+
+</section>
+
+<style>
+  .term-header-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .term-header-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px 20px 20px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+  }
+  .term-header-overlay h1 {
+    margin: 0;
+    color: white !important;
+  }
+  .term-content {
+    margin-bottom: 2rem;
+    font-style: italic;
+    opacity: 0.9;
+  }
+</style>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

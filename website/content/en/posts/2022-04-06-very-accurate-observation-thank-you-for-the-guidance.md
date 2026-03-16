@@ -1,7 +1,9 @@
 ---
-title: "Very accurate observation. Thank you for the guidance."
-date: 2022-04-06
-description: "Very accurate observation. Thank you for the guidance."
+date: '2022-04-06'
+description: Very accurate observation. Thank you for the guidance.
+draft: false
+title: Very accurate observation. Thank you for the guidance.
+type: posts
 ---
 
 Very accurate observation. Thank you for the guidance.

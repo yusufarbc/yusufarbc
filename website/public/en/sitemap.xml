@@ -32,6 +32,36 @@
                 href="http://localhost:1313/"
                 />
   </url><url>
+    <loc>http://localhost:1313/series/</loc>
+    <lastmod>2025-11-18T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="http://localhost:1313/tr/series/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/series/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/series/sentinelone-edr/</loc>
+    <lastmod>2025-11-18T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="http://localhost:1313/tr/series/sentinelone-edr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/series/sentinelone-edr/"
+                />
+  </url><url>
     <loc>http://localhost:1313/posts/2025/11/sentinelone-singularity-platform-ai-powered-xdr/</loc>
     <lastmod>2025-11-18T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -45,6 +75,21 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/posts/2025/11/sentinelone-singularity-platform-ai-powered-xdr/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/series/threat-hunting-walkthroughs/</loc>
+    <lastmod>2025-10-31T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="http://localhost:1313/tr/series/threat-hunting-walkthroughs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/series/threat-hunting-walkthroughs/"
                 />
   </url><url>
     <loc>http://localhost:1313/posts/2025/10/threat-hunting-with-deception-walkthrough-letsdefend/</loc>
@@ -157,6 +202,21 @@
                 href="http://localhost:1313/posts/2025/10/wazuh-5.0-is-here-a-technical-deep-dive-into-the-new-engine-ebpf-and-enterprise-scaling/"
                 />
   </url><url>
+    <loc>http://localhost:1313/series/wazuh-siem/</loc>
+    <lastmod>2025-10-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="http://localhost:1313/tr/series/wazuh-siem/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/series/wazuh-siem/"
+                />
+  </url><url>
     <loc>http://localhost:1313/posts/2025/10/whats-new-in-wazuh-5.0-revolution-in-cyber-threat-intelligence-and-a-new-era-in-endpoint-security/</loc>
     <lastmod>2025-10-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -227,6 +287,21 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/series/incident-response/</loc>
+    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="http://localhost:1313/tr/series/incident-response/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/series/incident-response/"
+                />
+  </url><url>
     <loc>http://localhost:1313/posts/2025/08/thehive-incident-response-platform/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -238,6 +313,11 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/posts/2025/08/network-management-and-security-x-soc-and-noc-processes/</loc>
+    <lastmod>2025-08-19T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/series/network-security-and-management/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -407,6 +487,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/series/network-analysis-with-wireshark/</loc>
+    <lastmod>2024-08-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/posts/2024/07/tr-hidden-tunnels-cc-analysis-with-wireshark/</loc>
     <lastmod>2024-07-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -477,6 +562,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/series/cryptology-fundamentals/</loc>
+    <lastmod>2023-04-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/posts/2023/04/cryptology-fundamentals-application/</loc>
     <lastmod>2023-04-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -499,6 +589,11 @@
   </url><url>
     <loc>http://localhost:1313/posts/2023/03/cryptology-fundamentals-introduction/</loc>
     <lastmod>2023-03-28T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/series/introduction-to-malware-analysis/</loc>
+    <lastmod>2023-03-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -569,6 +664,11 @@
   </url><url>
     <loc>http://localhost:1313/posts/2022/12/development-of-c-programming-language/</loc>
     <lastmod>2022-12-13T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/series/python-for-hackers/</loc>
+    <lastmod>2022-09-26T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -646,18 +746,116 @@
                 href="http://localhost:1313/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/series/</loc>
+    <loc>http://localhost:1313/series/kriptoloji-temelleri/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="tr"
-                href="http://localhost:1313/tr/series/"
+                href="http://localhost:1313/tr/series/kriptoloji-temelleri/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/series/"
+                href="http://localhost:1313/series/kriptoloji-temelleri/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/series/zararli-yazilim-analizine-giris/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="http://localhost:1313/tr/series/zararli-yazilim-analizine-giris/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/series/zararli-yazilim-analizine-giris/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/series/wireshark-ile-ag-analizi/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="http://localhost:1313/tr/series/wireshark-ile-ag-analizi/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/series/wireshark-ile-ag-analizi/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/series/ag-guvenligi-ve-yonetimi/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="http://localhost:1313/tr/series/ag-guvenligi-ve-yonetimi/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/series/ag-guvenligi-ve-yonetimi/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/series/osint/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="http://localhost:1313/tr/series/osint/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/series/osint/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/series/hakerlar-icin-python/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="http://localhost:1313/tr/series/hakerlar-icin-python/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/series/hakerlar-icin-python/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/series/sentinelone/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="http://localhost:1313/tr/series/sentinelone/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/series/sentinelone/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/series/sistem-programlama/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="http://localhost:1313/tr/series/sistem-programlama/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/series/sistem-programlama/"
                 />
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
@@ -672,6 +870,20 @@
                 rel="alternate"
                 hreflang="en"
                 href="http://localhost:1313/tags/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/series/wazuh/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="http://localhost:1313/tr/series/wazuh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/series/wazuh/"
                 />
   </url>
 </urlset>

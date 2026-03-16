@@ -13,25 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-
-  Threat Hunting with WAF Walkthrough — LetsDefend
-  
-    
-    Başlık Linki
-  
-
-
-LetsDefend — Blue Team Training Platform
-
-  Introduction
-  
-    
-    Başlık Linki
-  
-
-A Web Application Firewall (WAF) is a security layer used to protect web applications. Unlike traditional firewalls, WAFs specifically target threats aimed at web applications. These threats include SQL injections, XSS (Cross-Site Scripting) attacks, file upload attacks, and other web-based threats.
-WAF-based threat hunting is a proactive security approach aimed at protecting web applications. This process is carried out using logs, alerts, and analyses provided by WAFs. Threat hunters examine WAF data to identify potential threats, analyze the source of these threats, and develop strategies to prevent similar attacks in the future.">
+<meta name="description" content="LetsDefend — Blue Team Training Platform">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -39,22 +21,24 @@ WAF-based threat hunting is a proactive security approach aimed at protecting we
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Threat Hunting with WAF Walkthrough — LetsDefend">
-  <meta name="twitter:description" content="Threat Hunting with WAF Walkthrough — LetsDefendBaşlık LinkiLetsDefend — Blue Team Training Platform
-IntroductionBaşlık LinkiA Web Application Firewall (WAF) is a security layer used to protect web applications. Unlike traditional firewalls, WAFs specifically target threats aimed at web applications. These threats include SQL injections, XSS (Cross-Site Scripting) attacks, file upload attacks, and other web-based threats.
-WAF-based threat hunting is a proactive security approach aimed at protecting web applications. This process is carried out using logs, alerts, and analyses provided by WAFs. Threat hunters examine WAF data to identify potential threats, analyze the source of these threats, and develop strategies to prevent similar attacks in the future.">
+  <meta name="twitter:description" content="LetsDefend — Blue Team Training Platform">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-waf-walkthrough-letsdefend/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Threat Hunting with WAF Walkthrough — LetsDefend">
-  <meta property="og:description" content="Threat Hunting with WAF Walkthrough — LetsDefendBaşlık LinkiLetsDefend — Blue Team Training Platform
-IntroductionBaşlık LinkiA Web Application Firewall (WAF) is a security layer used to protect web applications. Unlike traditional firewalls, WAFs specifically target threats aimed at web applications. These threats include SQL injections, XSS (Cross-Site Scripting) attacks, file upload attacks, and other web-based threats.
-WAF-based threat hunting is a proactive security approach aimed at protecting web applications. This process is carried out using logs, alerts, and analyses provided by WAFs. Threat hunters examine WAF data to identify potential threats, analyze the source of these threats, and develop strategies to prevent similar attacks in the future.">
+  <meta property="og:description" content="LetsDefend — Blue Team Training Platform">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-10-03T00:00:00+00:00">
     <meta property="article:modified_time" content="2025-10-03T00:00:00+00:00">
     <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-deception-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-email-security-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-edr-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-dns-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-ips/ids-walkthrough-letsdefend/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/09/threat-hunting-with-cti-walkthrough-letsdefend/">
 
 
 
@@ -94,15 +78,10 @@ WAF-based threat hunting is a proactive security approach aimed at protecting we
 
 
 
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
 
 
 
@@ -217,15 +196,9 @@ WAF-based threat hunting is a proactive security approach aimed at protecting we
 
       <div class="post-content">
         
-        <hr>
-<h3 id="threat-hunting-with-waf-walkthroughletsdefend">
-  Threat Hunting with WAF Walkthrough — LetsDefend
-  <a class="heading-link" href="#threat-hunting-with-waf-walkthroughletsdefend">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
-    <span class="sr-only">Başlık Linki</span>
-  </a>
-</h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/0*aaFgUhGoEHzP09NU.png" alt=""></p>
+          <img src="https://cdn-images-1.medium.com/max/800/0*aaFgUhGoEHzP09NU.png" alt="Featured image"/>
+        
+        <p><img src="https://cdn-images-1.medium.com/max/800/0*aaFgUhGoEHzP09NU.png" alt=""></p>
 <p><a href="https://letsdefend.io/"  class="external-link" target="_blank" rel="noopener">LetsDefend — Blue Team Training Platform</a></p>
 <h3 id="introduction">
   Introduction
@@ -779,6 +752,14 @@ WAF-based threat hunting is a proactive security approach aimed at protecting we
 
       <footer>
         
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
 
 
         

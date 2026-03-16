@@ -13,17 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-
-  Apache Web Sunucusunda Saldırı Tespiti
-  
-    
-    Başlık Linki
-  
-
-Bu yazımda, web saldırı türlerini açıklayacağım ve apache web sunucu erişim logları üzerinden bu saldırıları nasıl tespit edebileceğimize değineceğim.
-
-Günümüzde web uygulamaları ve siteler, farklı türlerde siber saldırılara maruz kalmaktadır. Bu saldırıların erken tespiti, güvenlik önlemlerinin etkinliği ve sistemin sürekliliği açısından büyük önem taşır. Apache Web Sunucusu, dünya genelinde en yaygın kullanılan web sunucularından biridir ve bu nedenle saldırıların izlenmesi ve tespiti için doğru yöntemlerin uygulanması gerekmektedir.">
+<meta name="description" content="Bu yazımda, web saldırı türlerini açıklayacağım ve apache web sunucu erişim logları üzerinden bu saldırıları nasıl tespit edebileceğimize değineceğim.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -31,14 +21,12 @@ Günümüzde web uygulamaları ve siteler, farklı türlerde siber saldırılara
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Apache Web Sunucusunda Saldırı Tespiti">
-  <meta name="twitter:description" content="Apache Web Sunucusunda Saldırı TespitiBaşlık LinkiBu yazımda, web saldırı türlerini açıklayacağım ve apache web sunucu erişim logları üzerinden bu saldırıları nasıl tespit edebileceğimize değineceğim.
-Günümüzde web uygulamaları ve siteler, farklı türlerde siber saldırılara maruz kalmaktadır. Bu saldırıların erken tespiti, güvenlik önlemlerinin etkinliği ve sistemin sürekliliği açısından büyük önem taşır. Apache Web Sunucusu, dünya genelinde en yaygın kullanılan web sunucularından biridir ve bu nedenle saldırıların izlenmesi ve tespiti için doğru yöntemlerin uygulanması gerekmektedir.">
+  <meta name="twitter:description" content="Bu yazımda, web saldırı türlerini açıklayacağım ve apache web sunucu erişim logları üzerinden bu saldırıları nasıl tespit edebileceğimize değineceğim.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2025/06/apache-web-sunucusunda-sald%C4%B1r%C4%B1-tespiti/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Apache Web Sunucusunda Saldırı Tespiti">
-  <meta property="og:description" content="Apache Web Sunucusunda Saldırı TespitiBaşlık LinkiBu yazımda, web saldırı türlerini açıklayacağım ve apache web sunucu erişim logları üzerinden bu saldırıları nasıl tespit edebileceğimize değineceğim.
-Günümüzde web uygulamaları ve siteler, farklı türlerde siber saldırılara maruz kalmaktadır. Bu saldırıların erken tespiti, güvenlik önlemlerinin etkinliği ve sistemin sürekliliği açısından büyük önem taşır. Apache Web Sunucusu, dünya genelinde en yaygın kullanılan web sunucularından biridir ve bu nedenle saldırıların izlenmesi ve tespiti için doğru yöntemlerin uygulanması gerekmektedir.">
+  <meta property="og:description" content="Bu yazımda, web saldırı türlerini açıklayacağım ve apache web sunucu erişim logları üzerinden bu saldırıları nasıl tespit edebileceğimize değineceğim.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -84,15 +72,10 @@ Günümüzde web uygulamaları ve siteler, farklı türlerde siber saldırılara
 
 
 
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
 
 
 
@@ -209,8 +192,9 @@ Günümüzde web uygulamaları ve siteler, farklı türlerde siber saldırılara
 
       <div class="post-content">
         
-        <hr>
-<h3 id="apache-web-sunucusunda-saldırıtespiti">
+          <img src="https://cdn-images-1.medium.com/max/800/1*gtYIO-nyJZoIwSFEi_9xQA.png" alt="Featured image"/>
+        
+        <h3 id="apache-web-sunucusunda-saldırıtespiti">
   Apache Web Sunucusunda Saldırı Tespiti
   <a class="heading-link" href="#apache-web-sunucusunda-sald%c4%b1r%c4%b1tespiti">
     <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
