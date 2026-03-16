@@ -1,12 +1,9 @@
 ---
-date: '2023-01-21'
-draft: false
-title: C Programlama Temelleri
+title: "C Programlama Temelleri"
+date: 2023-01-21
+description: "Türkçe anlamı söz dizimi olan ingilizce bir sözcüktür. Programlamada kullanılan dilin kurallarının tamamına syntax denir. Bu yazıda, C dilinin sözdizimine(syntaxına) değineceğiz."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*wb7CfskOL2Lhc26j2XpbTQ.png"
 ---
-
----
-
-### C Programlama Temelleri
 
 ![](https://cdn-images-1.medium.com/max/800/1*wb7CfskOL2Lhc26j2XpbTQ.png)
 

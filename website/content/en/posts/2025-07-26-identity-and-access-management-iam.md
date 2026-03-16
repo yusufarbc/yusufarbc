@@ -1,9 +1,8 @@
 ---
-date: '2025-07-26'
-draft: false
-title: Identity and Access Management (IAM)
----
-
+title: "Identity and Access Management (IAM)"
+date: 2025-07-26
+description: "Access to data and systems, the cornerstone of the modern digital economy, represents both the greatest opportunity and the most serious security risk for organizations. At the center of this dilemma ..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*v6bkvamS0ChDDdA-D-8BtQ.png"
 ---
 
 ### Network Security and Management VI: Identity and Access Management (IAM)

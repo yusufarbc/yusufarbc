@@ -1,12 +1,10 @@
 ---
-date: '2024-07-18'
-draft: false
-title: TCP Wireshark Analysis
+title: "TCP Wireshark Analysis"
+date: 2024-07-18
+description: "Hello, in this article I will try to explain the TCP protocol and its analysis with Wireshark."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*eV6FVT7z6k3hb3M6-DRqtw.png"
+series: ["Wireshark ile Ağ Analizi"]
 ---
-
----
-
-### TCP Wireshark Analysis
 
 Hello, in this article I will try to explain the TCP protocol and its analysis with Wireshark.
 

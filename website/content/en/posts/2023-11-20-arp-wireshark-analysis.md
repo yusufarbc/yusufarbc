@@ -1,12 +1,10 @@
 ---
-date: '2023-11-20'
-draft: false
-title: ARP Wireshark Analysis
+title: "ARP Wireshark Analysis"
+date: 2023-11-20
+description: "Hello, in this article, I will try to explain the Address Resolution Protocol (ARP) protocol and its analysis with Wireshark."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*ao4qe1GrmozJwGfFHn-v_Q.png"
+series: ["Wireshark ile Ağ Analizi"]
 ---
-
----
-
-### ARP Wireshark Analysis
 
 ![](https://cdn-images-1.medium.com/max/800/1*ao4qe1GrmozJwGfFHn-v_Q.png)
 

@@ -1,9 +1,9 @@
 ---
-date: '2023-03-12'
-draft: false
-title: 'Zararlı Yazılım Analizine Giriş: #2 Sandbox Kurulum'
----
-
+title: "Zararlı Yazılım Analizine Giriş: #2 Sandbox Kurulum"
+date: 2023-03-12
+description: "Bir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araç..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*rXDQnvecujpcn5O9zt_liQ.png"
+series: ["Zararlı Yazılım Analizine Giriş"]
 ---
 
 ### Zararlı Yazılım Analizine Giriş: #2 Sandbox Kurulum

@@ -1,9 +1,7 @@
 ---
-date: '2022-12-15'
-draft: false
-title: 'Temel C Programlama Eğitimi #1'
----
-
+title: "Temel C Programlama Eğitimi #1"
+date: 2022-12-15
+description: "Bu yazımda ilk haftasını tamamladığımız Temel C Programlama Eğitiminin notlarını ve alıştırma sorularını paylaşacağım. C dilinin gelişimini ve sözdizimini anlattığım bir önceki yazıma buradan erişebil..."
 ---
 
 ### Temel C Programlama Eğitimi #1

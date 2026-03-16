@@ -1,12 +1,10 @@
 ---
-date: '2025-08-06'
-draft: false
-title: 'Network Security and Management IV: Network Security'
+title: "Network Security and Management IV: Network Security"
+date: 2025-08-06
+description: "The fundamental philosophical and strategic frameworks on which the entire cybersecurity discipline is built are examined. Answers are sought to basic questions such as what security means, what strat..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*BZVwBIefZNbdIE6Sn8hDrQ.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Network Security and Management IV: NETWORK SECURITY
 
 ![](https://cdn-images-1.medium.com/max/800/1*BZVwBIefZNbdIE6Sn8hDrQ.png)
 

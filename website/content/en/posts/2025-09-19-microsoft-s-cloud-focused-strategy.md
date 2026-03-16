@@ -1,12 +1,9 @@
 ---
-date: '2025-09-19'
-draft: false
-title: Microsoft's Cloud-Focused Strategy
+title: "Microsoft's Cloud-Focused Strategy"
+date: 2025-09-19
+description: "Microsoft has clearly adopted the "cloud-first" approach in recent years; Windows Server is positioning itself to integrate its identity management and other products with the Azure cloud. For example..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*tdun2Bby5gQIKpvNeEUi2Q.png"
 ---
-
----
-
-### Microsoft's Cloud-Focused Strategy
 
 ![](https://cdn-images-1.medium.com/max/800/1*tdun2Bby5gQIKpvNeEUi2Q.png)
 

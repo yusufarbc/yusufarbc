@@ -1,12 +1,10 @@
 ---
-date: '2025-08-06'
-draft: false
-title: 'Network Security and Management III: NETWORK MANAGEMENT AND AUTOMATION'
+title: "Network Security and Management III: NETWORK MANAGEMENT AND AUTOMATION"
+date: 2025-08-06
+description: "Modern network infrastructures form the backbone of digital transformation, playing a vital role in the continuity, performance and security of organizations' business operations. With the integration..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*-Ly5E9MK-j1Q58Bvn6XnWQ.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Network Security and Management III: NETWORK MANAGEMENT AND AUTOMATION
 
 ![](https://cdn-images-1.medium.com/max/800/1*-Ly5E9MK-j1Q58Bvn6XnWQ.png)
 

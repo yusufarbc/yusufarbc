@@ -1,12 +1,10 @@
 ---
-date: '2023-11-24'
-draft: false
-title: IPv4/IPv6 Wireshark Analizi
+title: "IPv4/IPv6 Wireshark Analizi"
+date: 2023-11-24
+description: "Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*qSAbdDrUrlN_SQ9p_AXpFQ.png"
+series: ["Wireshark ile Ağ Analizi"]
 ---
-
----
-
-### IPv4/IPv6 Wireshark Analizi
 
 ![](https://cdn-images-1.medium.com/max/800/1*qSAbdDrUrlN_SQ9p_AXpFQ.png)
 

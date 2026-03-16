@@ -1,9 +1,8 @@
 ---
-date: '2024-12-02'
-draft: false
-title: Operating System Distributions and Lab Environments for Cyber ​​Security
----
-
+title: "Operating System Distributions and Lab Environments for Cyber ​​Security"
+date: 2024-12-02
+description: "Hello, in this article, I will talk about the distributions and lab environments used in the field of cyber security."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*IVkwxKLbpKSPwYtqpYG93w.jpeg"
 ---
 
 ### Operating System Deployments and Lab Environments for Cyber Security

@@ -1,10 +1,7 @@
 ---
-date: '2025-03-14'
-draft: false
-title: In this article, I tried to touch upon the original management processes offered
-  by Microsoft.
----
-
+title: "In this article, I tried to touch upon the original management processes offered by Microsoft."
+date: 2025-03-14
+description: "In this article, I tried to touch upon the original management processes offered by Microsoft."
 ---
 
 In this article, I tried to touch upon the original management processes offered by Microsoft.

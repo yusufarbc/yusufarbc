@@ -1,9 +1,8 @@
 ---
-date: '2022-12-13'
-draft: false
-title: C Programlama Dilinin Gelişimi
----
-
+title: "C Programlama Dilinin Gelişimi"
+date: 2022-12-13
+description: "Programlama bir bilgisayara yürütmesi için bir dizi talimat vermektir. Bilgisayar verilen talimatları sıra ile yürütür. Bir bilgisayarı programlamak için ilk bilgisayarlardan itibaren çeşitli yöntemle..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*LNiEJoSd69b4K-ABg14OYw.png"
 ---
 
 ### C Programlama Dilinin Gelişimi

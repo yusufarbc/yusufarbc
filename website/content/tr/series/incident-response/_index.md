@@ -1,6 +1,6 @@
 ---
 title: "Incident Response"
-featuredImage: "images/series/incident-response.png"
+featuredImage: "images/series/sentinelone.png"
 ---
 
 Incident Response yazı serisi.

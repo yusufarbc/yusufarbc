@@ -1,11 +1,9 @@
 ---
-date: '2025-08-10'
-draft: false
-series:
-- Ağ Güvenliği ve Yönetimi
-title: 'Ağ Yönetimi ve Güvenliği V: Kimlik ve Erişim Yönetimi (IAM)'
----
-
+title: "Ağ Yönetimi ve Güvenliği V: Kimlik ve Erişim Yönetimi (IAM)"
+date: 2025-08-10
+description: "Kimlik ve Erişim Yönetimi (Identity and Access Management — IAM), bir organizasyonun dijital kimlikleri ve bu kimliklerin kritik sistemlere, uygulamalara ve verilere erişim haklarını yönetmek için kul..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*6OkxmUjEoOjEZW17jo7E8w.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
 
 ### Ağ Yönetimi ve Güvenliği V: Kimlik ve Erişim Yönetimi (IAM)

@@ -1,9 +1,8 @@
 ---
-date: '2025-08-17'
-draft: false
-title: Ensuring Persistence for SOC Analysts Comprehensive XDR Analysis Guide
----
-
+title: "Ensuring Persistence for SOC Analysts Comprehensive XDR Analysis Guide"
+date: 2025-08-17
+description: "In cyber security operations, persistence is one of the most critical stages that allows an attacker to leave a permanent footprint on the system. This makes it possible for the attack to reach its lo..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*t3uzw3mQTB-z3Mm777G-RQ.png"
 ---
 
 ### Ensuring Persistence for SOC Analysts Comprehensive XDR Analysis Guide

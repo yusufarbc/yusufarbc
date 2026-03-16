@@ -1,84 +1,125 @@
-/* Variable Definitions for Theme Awareness */
 :root {
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.05);
-    --primary-accent: #0ea5e9;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  --primary-accent: #00d2ff;
+  --secondary-accent: #3a7bd5;
+  --text-dim: #a0a0a0;
 }
 
-.colorscheme-dark {
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.1);
+body.colorscheme-dark {
+  --glass-bg: rgba(0, 0, 0, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
 
-.colorscheme-light {
-    --glass-bg: rgba(0, 0, 0, 0.02);
-    --glass-border: rgba(0, 0, 0, 0.05);
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  box-shadow: var(--glass-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Glassmorphism Effect for Post Cards and Navigation */
-.post-list .item, .glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--glass-border);
-    border-radius: 12px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 10px 15px;
-    margin-bottom: 15px;
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+  border-color: var(--primary-accent);
 }
 
-.post-list .item:hover, .glass-card:hover {
-    background: var(--glass-bg);
-    border-color: var(--primary-accent);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
+/* Post List Item */
+.list ul {
+  list-style: none;
+  padding: 0;
 }
 
-/* Series highlighting in lists */
-.series {
-    font-size: 0.8em;
-    font-weight: 500;
-    color: var(--primary-accent);
-    margin-left: 8px;
-}
-.series a {
-    color: var(--primary-accent) !important;
-    text-decoration: none;
+.post-item {
+  display: flex;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  align-items: flex-start;
 }
 
-/* Smooth Fade-in Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+.post-content {
+  flex: 1;
 }
 
-body {
-    animation: fadeIn 0.8s ease-out;
+.post-meta {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 0.5rem;
+  display: flex;
+  gap: 1rem;
 }
 
-/* Premium Typography Nuances */
-h1, h2, h3 {
-    letter-spacing: -0.02em;
+.post-series a {
+  color: var(--primary-accent);
+  font-weight: 600;
+  text-decoration: none;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-track {
-    background: #1a1a1a;
-}
-::-webkit-scrollbar-thumb {
-    background: #333;
-    border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #0ea5e9;
+.post-title {
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
 }
 
-/* Micro-interaction for social links */
-.social-links a:hover {
-    color: #0ea5e9 !important;
-    transform: scale(1.1);
-    transition: transform 0.2s ease;
+.post-title a {
+  text-decoration: none;
+  color: inherit;
+  background: linear-gradient(to right, var(--primary-accent), var(--secondary-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: opacity 0.3s;
+}
+
+.post-summary {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.post-image {
+  width: 200px;
+  height: 130px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--glass-border);
+}
+
+.post-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.post-item:hover .post-image img {
+  transform: scale(1.05);
+}
+
+.post-footer {
+  margin-top: auto;
+}
+
+.read-more a {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-accent);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .post-item {
+    flex-direction: column-reverse;
+  }
+  .post-image {
+    width: 100%;
+    height: 200px;
+  }
 }

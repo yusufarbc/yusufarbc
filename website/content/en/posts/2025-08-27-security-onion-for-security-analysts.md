@@ -1,9 +1,8 @@
 ---
-date: '2025-08-27'
-draft: false
-title: Security Onion for Security Analysts
----
-
+title: "Security Onion for Security Analysts"
+date: 2025-08-27
+description: "Security Onion is an open source security platform and was developed by cybersecurity experts. Essentially, it offers functions such as network visibility, computer visibility, intrusion detection, lo..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*vqqoSWZ-zucw12rjrcFPWA.png"
 ---
 
 ### **Security Onion for Security Analysts**

@@ -1,9 +1,8 @@
 ---
-date: '2025-06-01'
-draft: false
-title: Apache Web Sunucusunda Saldırı Tespiti
----
-
+title: "Apache Web Sunucusunda Saldırı Tespiti"
+date: 2025-06-01
+description: "Bu yazımda, web saldırı türlerini açıklayacağım ve apache web sunucu erişim logları üzerinden bu saldırıları nasıl tespit edebileceğimize değineceğim."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*gtYIO-nyJZoIwSFEi_9xQA.png"
 ---
 
 ### Apache Web Sunucusunda Saldırı Tespiti

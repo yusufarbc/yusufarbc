@@ -1,12 +1,10 @@
 ---
-date: '2025-08-10'
-draft: false
-title: 'Network Management and Security V: Identity and Access Management (IAM)'
+title: "Network Management and Security V: Identity and Access Management (IAM)"
+date: 2025-08-10
+description: "Identity and Access Management (IAM) is the set of business processes, policies and technologies that an organization uses to manage digital identities and their access rights to critical systems, app..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*6OkxmUjEoOjEZW17jo7E8w.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Network Management and Security V: Identity and Access Management (IAM)
 
 ![](https://cdn-images-1.medium.com/max/800/1*6OkxmUjEoOjEZW17jo7E8w.png)
 

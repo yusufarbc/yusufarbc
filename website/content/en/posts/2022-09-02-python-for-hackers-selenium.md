@@ -1,9 +1,9 @@
 ---
-date: '2022-09-02'
-draft: false
-title: 'Python for hackers: selenium'
----
-
+title: "Python for hackers: selenium"
+date: 2022-09-02
+description: "Hello, in this article, we will get to know the selenium module, which allows us to perform operations on websites like a user."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*0uUmJ2J01vpcie8grd91Yw.png"
+series: ["Hakerlar için Python"]
 ---
 
 ### **Python for hackers: selenium**

@@ -1,13 +1,10 @@
 ---
-date: '2025-10-02'
-draft: false
-title: 'Wazuh 5.0 is Here: A Technical Deep Dive into the New Engine, eBPF, and Enterprise
-  Scaling'
+title: "Wazuh 5.0 is Here: A Technical Deep Dive into the New Engine, eBPF, and Enterprise Scaling"
+date: 2025-10-02
+description: "wazuh"
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*5VajKV0S7rEIU9VN"
+series: ["Wazuh SIEM"]
 ---
-
----
-
-### Wazuh 5.0 is Here: A Technical Deep Dive into the New Engine, eBPF, and Enterprise Scaling
 
 ![](https://cdn-images-1.medium.com/max/800/0*5VajKV0S7rEIU9VN)
 

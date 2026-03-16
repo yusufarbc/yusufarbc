@@ -1,12 +1,10 @@
 ---
-date: '2025-11-18'
-draft: false
-title: 'SentinelOne Singularity Platform: AI-POWERED XDR'
+title: "SentinelOne Singularity Platform: AI-POWERED XDR"
+date: 2025-11-18
+description: "---"
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*jLWXgQU1UC2GOt06"
+series: ["SentinelOne EDR"]
 ---
-
----
-
-### SentinelOne Singularity Platform: AI-POWERED XDR
 
 ![](https://cdn-images-1.medium.com/max/800/0*jLWXgQU1UC2GOt06)
 

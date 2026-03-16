@@ -1,12 +1,9 @@
 ---
-date: '2023-01-20'
-draft: false
-title: Temel Mikroişlemci Mimarisi
+title: "Temel Mikroişlemci Mimarisi"
+date: 2023-01-20
+description: "Mikroişlemci, bir bilgisayarın merkezi işlem birimi gibi çalışır. Bilgisayarın hayati fonksiyonlarını yürütür. Bir mikroişlemcinin fonksiyonel konfigürasyonunu ise:"
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*eBP9qyGpkYsx-Zgy3Jvsqg.png"
 ---
-
----
-
-### Temel Mikroişlemci Mimarisi
 
 ![](https://cdn-images-1.medium.com/max/800/1*eBP9qyGpkYsx-Zgy3Jvsqg.png)
 

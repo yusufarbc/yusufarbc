@@ -1,12 +1,12 @@
 ---
-date: '2025-08-04'
-draft: false
-title: 'Network Security and Management V: MODERN DIGITAL INFRASTRUCTURE'
+title: "Network Security and Management V: MODERN DIGITAL INFRASTRUCTURE"
+date: 2025-08-04
+description: "S"
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*aBV-V0NvCXaSMoVRhcmT9w.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
 
----
-
-### Network Security and Management V: MODERN DIGITAL INFRASTRUCTURES
+S
 
 ![](https://cdn-images-1.medium.com/max/800/1*aBV-V0NvCXaSMoVRhcmT9w.png)
 

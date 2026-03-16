@@ -1,9 +1,9 @@
 ---
-date: '2023-03-28'
-draft: false
-title: 'Cryptology Fundamentals: Cryptography'
----
-
+title: "Cryptology Fundamentals: Cryptography"
+date: 2023-03-28
+description: "Hello, in this article of the cryptology basics series, I will talk about what cryptography is, encryption techniques and cryptographic protocols."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*MPqOVwPSnGY3CguO7sg8Jw.png"
+series: ["Kriptoloji Temelleri"]
 ---
 
 ### Cryptology Fundamentals:#2 Cryptography

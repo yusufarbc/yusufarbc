@@ -1,9 +1,9 @@
 ---
-date: '2023-03-28'
-draft: false
-title: 'Cryptology Fundamentals: Cryptanalysis'
----
-
+title: "Cryptology Fundamentals: Cryptanalysis"
+date: 2023-03-28
+description: "Hello, in this article of the cryptology basics series, I will talk about what cryptanalysis is, password cracking techniques and social engineering methods."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*aZ11lfSR2DfxXotqqA4KhA.png"
+series: ["Kriptoloji Temelleri"]
 ---
 
 ### Cryptology Fundamentals:#3 Cryptanalysis

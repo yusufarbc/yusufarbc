@@ -1,11 +1,9 @@
 ---
-date: '2025-08-10'
-draft: false
-series:
-- Ağ Güvenliği ve Yönetimi
-title: 'Ağ Yönetimi ve Güvenliği III: Ağ Donanımları ve Fiziksel Altyapı Güvenliği'
----
-
+title: "Ağ Yönetimi ve Güvenliği III: Ağ Donanımları ve Fiziksel Altyapı Güvenliği"
+date: 2025-08-10
+description: "Modern dijital altyapıların görünmez ancak vazgeçilmez temelini oluşturan ağ donanımları ve fiziksel katman, veri akışının ve dijital iletişimin can damarlarıdır. Genellikle siber güvenlik tartışmalar..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*0XinYbzhfLKDESwpfYfKIQ.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
 
 ### Ağ Yönetimi ve Güvenliği III: **Ağ Donanımları ve Fiziksel Altyapı Güvenliği**

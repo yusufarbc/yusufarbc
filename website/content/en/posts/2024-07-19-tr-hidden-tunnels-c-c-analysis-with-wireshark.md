@@ -1,12 +1,10 @@
 ---
-date: '2024-07-19'
-draft: false
-title: '[TR] Hidden Tunnels (C&C) Analysis with Wireshark'
+title: "[TR] Hidden Tunnels (C&C) Analysis with Wireshark"
+date: 2024-07-19
+description: "Hello, in this article I will talk about HTTP tunneling techniques."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*cWRqt_otCGQkQf0iobOVnw.png"
+series: ["Wireshark ile Ağ Analizi"]
 ---
-
----
-
-### [TR] Hidden Tunnels (C&C) Analysis with Wireshark
 
 Hello, in this article I will talk about HTTP tunneling techniques.
 

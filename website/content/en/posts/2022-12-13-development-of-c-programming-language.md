@@ -1,12 +1,9 @@
 ---
-date: '2022-12-13'
-draft: false
-title: Development of C Programming Language
+title: "Development of C Programming Language"
+date: 2022-12-13
+description: "Programming is giving a computer a set of instructions to execute. The computer executes the given instructions sequentially. Various methods have been used to program a computer since the first compu..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*LNiEJoSd69b4K-ABg14OYw.png"
 ---
-
----
-
-### Development of C Programming Language
 
 ![](https://cdn-images-1.medium.com/max/800/1*LNiEJoSd69b4K-ABg14OYw.png)
 

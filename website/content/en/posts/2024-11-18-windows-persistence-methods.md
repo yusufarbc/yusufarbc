@@ -1,12 +1,9 @@
 ---
-date: '2024-11-18'
-draft: false
-title: Windows Persistence Methods
+title: "Windows Persistence Methods"
+date: 2024-11-18
+description: "Persistence methods in Windows are used to ensure that malicious software or unauthorized access continues even if a system is restarted or the user is logged off."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*embmEuQRxJRHe7TWE4Y6hw.png"
 ---
-
----
-
-### Windows Persistence Methods
 
 ![](https://cdn-images-1.medium.com/max/800/1*embmEuQRxJRHe7TWE4Y6hw.png)
 

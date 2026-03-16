@@ -1,9 +1,8 @@
 ---
-date: '2023-05-17'
-draft: false
-title: Cyber ​​Attacks in the OSI Model
----
-
+title: "Cyber ​​Attacks in the OSI Model"
+date: 2023-05-17
+description: "Hello, in this article, I tried to explain Cyber Attacks on the OSI model. You can find many types of cyber attacks in this article."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*rOqngZk6L49NHbPm8MIG8w.png"
 ---
 
 ### Cyber Attacks in the OSI Model

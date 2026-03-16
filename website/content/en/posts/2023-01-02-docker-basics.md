@@ -1,12 +1,9 @@
 ---
-date: '2023-01-02'
-draft: false
-title: Docker Basics
+title: "Docker Basics"
+date: 2023-01-02
+description: "Docker is an open source container platform used to develop, deploy and manage applications in virtualized environments. It is a technology that distributes the resources of the operating system to th..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*2Vt-GnSjtWGchPVgF1fX6g.png"
 ---
-
----
-
-### Docker Basics
 
 ![](https://cdn-images-1.medium.com/max/800/1*2Vt-GnSjtWGchPVgF1fX6g.png)
 

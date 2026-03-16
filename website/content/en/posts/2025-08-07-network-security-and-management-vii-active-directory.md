@@ -1,12 +1,10 @@
 ---
-date: '2025-08-07'
-draft: false
-title: 'Network Security and Management VII: Active Directory'
+title: "Network Security and Management VII: Active Directory"
+date: 2025-08-07
+description: "It examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of "identity is the new security peri..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*xHCEWIgWsOG-PR1mgpcXvQ.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Network Security and Management VII: Active Directory
 
 ![](https://cdn-images-1.medium.com/max/800/1*xHCEWIgWsOG-PR1mgpcXvQ.png)
 

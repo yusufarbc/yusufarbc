@@ -1,12 +1,10 @@
 ---
-date: '2023-12-07'
-draft: false
-title: UDP Wireshark Analizi
+title: "UDP Wireshark Analizi"
+date: 2023-12-07
+description: "Merhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*cReiU6D1Aj-Zf-J3628uNA.png"
+series: ["Wireshark ile Ağ Analizi"]
 ---
-
----
-
-### UDP Wireshark Analizi
 
 ![](https://cdn-images-1.medium.com/max/800/1*cReiU6D1Aj-Zf-J3628uNA.png)
 

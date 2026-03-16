@@ -1,9 +1,8 @@
 ---
-date: '2024-11-16'
-draft: false
-title: ELK Stack Kural Yazımı ve Alerting
----
-
+title: "ELK Stack Kural Yazımı ve Alerting"
+date: 2024-11-16
+description: "Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash,..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*YtvtZTc7PJHVByo3n9E_lg.png"
 ---
 
 ### ELK Stack Kural Yazımı ve Alerting

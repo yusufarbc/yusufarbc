@@ -1,12 +1,10 @@
 ---
-date: '2023-04-12'
-draft: false
-title: Kriptoloji Temelleri:#4 Blokzincir
+title: "Kriptoloji Temelleri:#4 Blokzincir"
+date: 2023-04-12
+description: "Merhaba, kriptoloji temelleri serisinin bu yazısında blokzincirin ne olduğundan nasıl çalıştığından ve nerelerde kullanıldığından bahsedeceğim."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*Ci1P1v2xXKNrCvqur5DbQQ.png"
+series: ["Kriptoloji Temelleri"]
 ---
-
----
-
-### Kriptoloji Temelleri:#4 Blokzincir
 
 ![](https://cdn-images-1.medium.com/max/800/1*Ci1P1v2xXKNrCvqur5DbQQ.png)
 

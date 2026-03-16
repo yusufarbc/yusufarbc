@@ -1,9 +1,8 @@
 ---
-date: '2022-12-25'
-draft: false
-title: X86-BASED ASSEMBLY LANGUAGE
----
-
+title: "X86-BASED ASSEMBLY LANGUAGE"
+date: 2022-12-25
+description: "A computer system basically consists of elements such as hardware and software. Hardware is the structure that connects the electronic and mechanical systems of the computer. If we consider a personal..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*BAtuHRcfthhw1Adspm0Jsg.png"
 ---
 
 ### X86 Based Assembly Language

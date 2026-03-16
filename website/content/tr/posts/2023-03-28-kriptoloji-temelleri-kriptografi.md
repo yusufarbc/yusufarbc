@@ -1,9 +1,9 @@
 ---
-date: '2023-03-28'
-draft: false
-title: 'Kriptoloji Temelleri: Kriptografi'
----
-
+title: "Kriptoloji Temelleri: Kriptografi"
+date: 2023-03-28
+description: "Merhaba, kriptoloji temelleri seririsinin bu yazısında kiptografinin ne olduğundan, şifreleme tekniklerinden ve kriptografik protokollerden bahsedeceğim."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*MPqOVwPSnGY3CguO7sg8Jw.png"
+series: ["Kriptoloji Temelleri"]
 ---
 
 ### Kriptoloji Temelleri:#2 Kriptografi

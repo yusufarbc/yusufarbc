@@ -1,12 +1,9 @@
 ---
-date: '2024-11-08'
-draft: false
-title: ELK Stack Log Management and Analysis
+title: "ELK Stack Log Management and Analysis"
+date: 2024-11-08
+description: "Hello, in this article, I will talk about the log management of ELK Stack, which we installed in my last article, namely log collection, parsing and enrichment processes. How to Collect, Process and S..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*O7bMqTbQv_OX5x75qkY6Ug.png"
 ---
-
----
-
-### ELK Stack Log Management and Analysis
 
 ![](https://cdn-images-1.medium.com/max/800/1*O7bMqTbQv_OX5x75qkY6Ug.png)
 

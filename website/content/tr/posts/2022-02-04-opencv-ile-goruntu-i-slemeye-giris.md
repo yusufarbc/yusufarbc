@@ -1,9 +1,8 @@
 ---
-date: '2022-02-04'
-draft: false
-title: OpenCV ile Görüntü İşlemeye Giriş
----
-
+title: "OpenCV ile Görüntü İşlemeye Giriş"
+date: 2022-02-04
+description: "Merhaba, bu yazımızda, OpenCVnin ne olduğundan, bilgisayarlı görüden ve Python ile bu işlemlerin nasıl yapılacağından bahsedeceğiz."
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*tAmPWiGxMp-BWqSx.png"
 ---
 
 ### OpenCV ile Görüntü İşlemeye Giriş
@@ -260,3 +259,7 @@ cam = cv.VideoCapture(0)
 def autoCanny(blur, sigma=0.33):   
   median = np.median(blur)
 ```
+
+---
+
+*Originally published at* [*https://pwnlab.me*](https://pwnlab.me/tr-opencv-ile-goruntu-islemeye-giris/) *on February 4, 2022.*

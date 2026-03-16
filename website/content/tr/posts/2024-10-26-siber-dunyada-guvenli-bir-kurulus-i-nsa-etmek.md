@@ -1,9 +1,8 @@
 ---
-date: '2024-10-26'
-draft: false
-title: Siber Dünyada Güvenli Bir Kuruluş İnşa Etmek
----
-
+title: "Siber Dünyada Güvenli Bir Kuruluş İnşa Etmek"
+date: 2024-10-26
+description: "İster ticari ister kâr amacı gütmeyen bir işletme olsun, her işletmenin güvenli bir organizasyon oluşturmanın uzun vadeli başarı için önemli olduğunu anlaması mantıklı görünmektedir. Bir işletme güçlü..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*sWahjiY8Mezr6QWu9JJDAg.png"
 ---
 
 ### Siber Dünyada Güvenli Bir Kuruluş İnşa Etmek

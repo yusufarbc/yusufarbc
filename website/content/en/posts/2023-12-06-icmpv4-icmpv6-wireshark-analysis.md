@@ -1,12 +1,10 @@
 ---
-date: '2023-12-06'
-draft: false
-title: ICMPv4/ICMPv6 Wireshark Analysis
+title: "ICMPv4/ICMPv6 Wireshark Analysis"
+date: 2023-12-06
+description: "Hello, in this article I will try to explain the ICMPv4 and ICMPv6 protocols and their analysis with Wireshark."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*qw1Nso3IaiA7Jptb-0T1qQ.png"
+series: ["Wireshark ile Ağ Analizi"]
 ---
-
----
-
-### ICMPv4/ICMPv6 Wireshark Analysis
 
 ![](https://cdn-images-1.medium.com/max/800/1*qw1Nso3IaiA7Jptb-0T1qQ.png)
 

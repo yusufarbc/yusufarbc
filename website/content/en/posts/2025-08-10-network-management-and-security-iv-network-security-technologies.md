@@ -1,12 +1,10 @@
 ---
-date: '2025-08-10'
-draft: false
-title: 'Network Management and Security IV: Network Security Technologies'
+title: "Network Management and Security IV: Network Security Technologies"
+date: 2025-08-10
+description: "The complexity of digital infrastructures and the sophisticated nature of cyber threats have necessitated a radical transformation in network security approaches. The traditional “castle and moat” per..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*Fhet-NIJbKlNzPESUc1Ttw.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Network Management and Security IV: Network Security Technologies
 
 ![](https://cdn-images-1.medium.com/max/800/1*Fhet-NIJbKlNzPESUc1Ttw.png)
 

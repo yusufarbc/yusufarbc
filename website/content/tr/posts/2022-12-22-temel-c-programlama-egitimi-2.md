@@ -1,9 +1,8 @@
 ---
-date: '2022-12-22'
-draft: false
-title: 'Temel C Programlama Eğitimi #2'
----
-
+title: "Temel C Programlama Eğitimi #2"
+date: 2022-12-22
+description: "Bu yazımda ikinci haftasını tamamladığımız Temel C Programlama Eğitiminin notlarını ve alıştırma sorularını paylaşacağım. Eğitimin ilk haftasına buradan ulaşabilirsiniz."
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*srHR3o1A16Y8ddWa"
 ---
 
 ### Temel C Programlama Eğitimi #2

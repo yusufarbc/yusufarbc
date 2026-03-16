@@ -1,9 +1,8 @@
 ---
-date: '2024-11-24'
-draft: false
-title: Is RDP Secure?
----
-
+title: "Is RDP Secure?"
+date: 2024-11-24
+description: "In this article, we will discuss whether the RDP (Remote Desktop Protocol) protocol is secure or not. RDP (Remote Desktop Protocol) has become a protocol frequently used by APT (Advanced Persistent Th..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*UP8fyAdYI17KDIqhtDK4Sg.png"
 ---
 
 ### Is RDP Secure?

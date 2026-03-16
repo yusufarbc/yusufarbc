@@ -1,12 +1,10 @@
 ---
-date: '2023-09-15'
-draft: false
-title: Hizmet Engelleme Saldırıları (DoS-DDoS) Wireshark Analizi
+title: "Hizmet Engelleme Saldırıları (DoS-DDoS) Wireshark Analizi"
+date: 2023-09-15
+description: "Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*tKGgOxt2Mq5piyQ3_CJDdg.png"
+series: ["Wireshark ile Ağ Analizi"]
 ---
-
----
-
-### Hizmet Engelleme Saldırıları (DoS-DDoS) Wireshark Analizi
 
 ![](https://cdn-images-1.medium.com/max/800/1*tKGgOxt2Mq5piyQ3_CJDdg.png)
 

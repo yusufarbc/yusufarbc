@@ -1,12 +1,10 @@
 ---
-date: '2025-08-19'
-draft: false
-title: 'Network Management and Security X: SOC and NOC Processes'
+title: "Network Management and Security X: SOC and NOC Processes"
+date: 2025-08-19
+description: "SOC (Security Operations Center) and NOC (Network Operations Center) are two central structures that complement each other but have different focuses. NOC monitors an organization's network infrastruc..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*S7cMHBrZlktBq6LvzR_AYQ.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Network Management and Security X: SOC and NOC Processes
 
 ![](https://cdn-images-1.medium.com/max/800/1*S7cMHBrZlktBq6LvzR_AYQ.png)
 

@@ -1,14 +1,10 @@
 ---
-date: '2025-08-07'
-draft: false
-series:
-- Ağ Güvenliği ve Yönetimi
-title: 'Ağ Güvenliği ve Yönetimi VII: Active Directory'
+title: "Ağ Güvenliği ve Yönetimi VII: Active Directory"
+date: 2025-08-07
+description: "Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolünü ve neden birincil saldırı hedefi olduğunu detaylı bir şekilde incelemektedir. “Kimlik, yeni güvenlik çevresidir” paradigm..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*xHCEWIgWsOG-PR1mgpcXvQ.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Ağ Güvenliği ve Yönetimi VII: Active Directory
 
 ![](https://cdn-images-1.medium.com/max/800/1*xHCEWIgWsOG-PR1mgpcXvQ.png)
 

@@ -1,12 +1,10 @@
 ---
-date: '2025-10-30'
-draft: false
-title: Threat Hunting with Email Security Walkthrough — LetsDefend
+title: "Threat Hunting with Email Security Walkthrough — LetsDefend"
+date: 2025-10-30
+description: "LetsDefend — Blue Team Training Platform"
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*V1YCt7A3HhVJeU1A.png"
+series: ["Threat Hunting Walkthroughs"]
 ---
-
----
-
-### Threat Hunting with Email Security Walkthrough — LetsDefend
 
 ![](https://cdn-images-1.medium.com/max/800/0*V1YCt7A3HhVJeU1A.png)
 

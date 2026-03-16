@@ -1,12 +1,9 @@
 ---
-date: '2021-07-01'
-draft: false
-title: Asenkron Programlama
+title: "Asenkron Programlama"
+date: 2021-07-01
+description: "Bu yazımda, birçoğumuzun anlamakta zorlandığı asenkron programlama konusunu anlatmaya çalışacağım. Python dilinde async-await yapılarıyla bilinen bu programlama türü nedir? Ne işe yarar? Nasıl kullanı..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*DH7q_354Ghtgzp3H.jpg"
 ---
-
----
-
-### Asenkron Programlama
 
 ![](https://cdn-images-1.medium.com/max/800/0*DH7q_354Ghtgzp3H.jpg)
 
@@ -48,3 +45,7 @@ Peki, bizim yazdığımız program API’den cevap gelinceye kadar boş mu bekle
 Eğer “await” anahtar kelimesi yazılmayıp, bu işlem senkron olarak yapılsaydı, programımız discord sunucusuna talebi gönderir, cevap alıncaya kadar bekler ve cevap alınca sıradaki yeni talebi gönderirdi. Asenkron yaptığımızda ise bir yandan sırayla talepler gönderilirken diğer yandan sırayla cevaplar alınıyor. Bu yönüyle, senkron işlemi tek yönlü bir yola, asenkron işlemi çift yönlü bir yola benzetebiliriz. Senkron işlemde yol tek şeritli ve tek yön olduğu için paket giderken karşıdan başka bir paket gelemiyor, asenkron işlemde ise çift yönlü yolda paketler birbirinden bağımsız olarak gidip gelebiliyor.
 
 Konunun anlaşılabilmesi için basit bir şekilde anlatmaya çalıştım, diyagramlarla ve kod örneğiyle destekledim. Umarım faydalı olmuştur. Okuduğunuz için teşekkür ederim.
+
+---
+
+*Originally published at* [*https://pwnlab.me*](https://pwnlab.me/aseknron-programlama/) *on July 1, 2021.*

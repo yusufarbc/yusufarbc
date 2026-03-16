@@ -1,9 +1,9 @@
 ---
-date: '2025-08-17'
-draft: false
-title: SOC Analistleri İçin Kalıcılık Sağlama Kapsamlı XDR Analiz Kılavuzu
----
-
+title: "SOC Analistleri İçin Kalıcılık Sağlama Kapsamlı XDR Analiz Kılavuzu"
+date: 2025-08-17
+description: "Siber güvenlik operasyonlarında, kalıcılık (persistence) bir saldırganın sistemde kalıcı bir ayak izi bırakmasını sağlayan en kritik aşamalardan biridir. Bu, saldırının ilk erişim vektöründen (örneğin..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*t3uzw3mQTB-z3Mm777G-RQ.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
 
 ### SOC Analistleri İçin Kalıcılık Sağlama Kapsamlı XDR Analiz Kılavuzu

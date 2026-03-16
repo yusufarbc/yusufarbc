@@ -1,9 +1,8 @@
 ---
-date: '2024-11-24'
-draft: false
-title: RDP Güvenli midir?
----
-
+title: "RDP Güvenli midir?"
+date: 2024-11-24
+description: "Bu yazımda RDP(Remote Desktop Protocol) protokolünün güvenli olup olmadığını tartışacağız. RDP (Remote Desktop Protocol), APT (Advanced Persistent Threat) grupları tarafından lateral movement yani ağ ..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*UP8fyAdYI17KDIqhtDK4Sg.png"
 ---
 
 ### RDP Güvenli midir?

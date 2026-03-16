@@ -1,14 +1,10 @@
 ---
-date: '2025-08-04'
-draft: false
-series:
-- Ağ Güvenliği ve Yönetimi
-title: Ağ Güvenliği ve Yönetimi I:AĞ TEKNOLOJİLERİNİN TEMELLERİ
+title: "Ağ Güvenliği ve Yönetimi I:AĞ TEKNOLOJİLERİNİN TEMELLERİ"
+date: 2025-08-04
+description: "Modern bilgi toplumunun temelini oluşturan bilgisayar ağları, verinin küresel ölçekte anlık olarak paylaşılmasını sağlayan karmaşık ve dinamik sistemlerdir.1 Bu sistemler, yalnızca bağlantı sağlayan p..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*QsixbjAc424hJKBe9MKq-g.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Ağ Güvenliği ve Yönetimi I:AĞ TEKNOLOJİLERİNİN TEMELLERİ
 
 ![](https://cdn-images-1.medium.com/max/800/1*QsixbjAc424hJKBe9MKq-g.png)
 

@@ -1,12 +1,9 @@
 ---
-date: '2025-09-19'
-draft: false
-title: Microsoft’un Bulut Odaklı Stratejisi
+title: "Microsoft’un Bulut Odaklı Stratejisi"
+date: 2025-09-19
+description: "Microsoft, son yıllarda “cloud-first” yaklaşımını net bir biçimde benimsemiş; Windows Server, kimlik yönetimi ve diğer ürünlerini Azure bulutuyla entegre edecek şekilde konumlandırmaktadır. Örneğin Mi..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*tdun2Bby5gQIKpvNeEUi2Q.png"
 ---
-
----
-
-### Microsoft’un Bulut Odaklı Stratejisi
 
 ![](https://cdn-images-1.medium.com/max/800/1*tdun2Bby5gQIKpvNeEUi2Q.png)
 

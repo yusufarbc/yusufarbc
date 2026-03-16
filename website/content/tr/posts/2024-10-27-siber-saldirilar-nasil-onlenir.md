@@ -1,9 +1,8 @@
 ---
-date: '2024-10-27'
-draft: false
-title: Siber Saldırılar Nasıl Önlenir?
----
-
+title: "Siber Saldırılar Nasıl Önlenir?"
+date: 2024-10-27
+description: "Aktif bir Web varlığı oluşturduğunuz anda, şirketinizin sırtına bir hedef koymuş olursunuz. Örümceğin ağına düşen talihsiz böcek gibi, şirketinizin büyüklüğü de Web’de yarattığınız rahatsızlığın boyut..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*Qlpv80LBf1a8sr3QfH3Bww.png"
 ---
 
 ### Siber Saldırılar Nasıl Önlenir?

@@ -1,9 +1,8 @@
 ---
-date: '2022-12-25'
-draft: false
-title: X86 TABANLI ASSEMBLY DİLİ
----
-
+title: "X86 TABANLI ASSEMBLY DİLİ"
+date: 2022-12-25
+description: "Bir bilgisayar sistemi temel olarak donanım ve yazılım gini unsurlardan meydana gelmektedir. Donanım, bilgisayarın elektronik ve mekamik sistemlerini birbirine bağdaştıran oluşumdur. Bir kişisel bilgi..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*BAtuHRcfthhw1Adspm0Jsg.png"
 ---
 
 ### X86 Tabanlı Assembly Dili

@@ -1,12 +1,9 @@
 ---
-date: '2024-12-10'
-draft: false
-title: Sıfırncı-Gün Ataklarına Karşı Siber Savunma Stratejileri
+title: "Sıfırncı-Gün Ataklarına Karşı Siber Savunma Stratejileri"
+date: 2024-12-10
+description: "Bu yazımda, genel olarak tespit edilmesinin ve önlenmesinin zor olduğu kabul edilen sıfıncı-gün ataklarına karşı nasıl bir siber savunma stratejisinin geliştirilebileceğine değineceğim. Birçok kurumun..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*iZ-lydJs7z0gBXIAY58wQQ.png"
 ---
-
----
-
-### Sıfırncı-Gün Ataklarına Karşı Siber Savunma Stratejileri
 
 ![](https://cdn-images-1.medium.com/max/800/1*iZ-lydJs7z0gBXIAY58wQQ.png)
 

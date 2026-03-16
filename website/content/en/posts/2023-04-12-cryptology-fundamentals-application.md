@@ -1,9 +1,9 @@
 ---
-date: '2023-04-12'
-draft: false
-title: 'Cryptology Fundamentals: Application'
----
-
+title: "Cryptology Fundamentals: Application"
+date: 2023-04-12
+description: "Hello, in this last article of the cryptology basics series, I will talk about how cryptographic protocols are implemented. I will use the Java programming language during the implementation phase."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*Sk1u0b-kaNN7j57oE13CBA.png"
+series: ["Kriptoloji Temelleri"]
 ---
 
 ### Cryptology Fundamentals:#5 Applications

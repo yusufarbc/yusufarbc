@@ -1,12 +1,9 @@
 ---
-date: '2025-07-26'
-draft: false
-title: 'Küresel Siber Tehdit Aktörleri: APT (Gelişmiş Kalıcı Tehditler)'
+title: "Küresel Siber Tehdit Aktörleri: APT (Gelişmiş Kalıcı Tehditler)"
+date: 2025-07-26
+description: "Bu giriş bölümü, sonraki ayrıntılı aktör profillerini anlamak için gerekli temel kavramları oluşturacaktır. Modern bağlamda bir APT’nin ne anlama geldiğini tanımlayacak ve uygulayıcılar için temel zor..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*-TdWFhjfQyoq9f--c4bfLw.png"
 ---
-
----
-
-### Küresel Siber Tehdit Aktörleri: APT (Gelişmiş Kalıcı Tehditler)
 
 ![](https://cdn-images-1.medium.com/max/800/1*-TdWFhjfQyoq9f--c4bfLw.png)
 

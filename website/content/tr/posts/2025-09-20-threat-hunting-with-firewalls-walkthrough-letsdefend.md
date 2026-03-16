@@ -1,12 +1,10 @@
 ---
-date: '2025-09-20'
-draft: false
-title: Threat Hunting with Firewalls Walkthrough — LetsDefend
+title: "Threat Hunting with Firewalls Walkthrough — LetsDefend"
+date: 2025-09-20
+description: "LetsDefend — Blue Team Training Platform"
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*yrGs0FOBn2uXV2jFhtrBVw.png"
+series: ["Threat Hunting Walkthroughs"]
 ---
-
----
-
-### Threat Hunting with Firewalls Walkthrough — LetsDefend
 
 ![](https://cdn-images-1.medium.com/max/800/1*yrGs0FOBn2uXV2jFhtrBVw.png)
 

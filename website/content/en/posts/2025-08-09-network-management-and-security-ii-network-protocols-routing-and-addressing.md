@@ -1,12 +1,10 @@
 ---
-date: '2025-08-09'
-draft: false
-title: 'Network Management and Security II: Network Protocols, Routing and Addressing'
+title: "Network Management and Security II: Network Protocols, Routing and Addressing"
+date: 2025-08-09
+description: "In today's hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an inv..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*1gN6tP9Nv5sf9IGl.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Network Management and Security II: Network Protocols, Routing and Addressing
 
 ![](https://cdn-images-1.medium.com/max/800/0*1gN6tP9Nv5sf9IGl.png)
 

@@ -1,12 +1,9 @@
 ---
-date: '2021-06-01'
-draft: false
-title: The Adventure of Operating Systems
+title: "The Adventure of Operating Systems"
+date: 2021-06-01
+description: "In this article, we will examine the operating systems that have become indispensable for computer systems today. We will talk about how it developed and how it came to these days. We will witness how..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*xr3hyWH8B1uBJitVrIH3xQ.jpeg"
 ---
-
----
-
-### The Adventure of Operating Systems
 
 ![](https://cdn-images-1.medium.com/max/800/1*xr3hyWH8B1uBJitVrIH3xQ.jpeg)
 
@@ -85,3 +82,7 @@ After its emergence, Linux attracted worldwide attention and was adopted by GNU.
 In order for a Linux-based system to exist, a structure that can be called a skeletal system is required after the kernel. Some systems develop their own systems here. However, developing separate interfaces (GUIs), package managers and applications for each Linux distribution is very costly. For this reason, some people create the operating system by taking the existing system and making additions to it. In the interface; Ready interfaces such as GNOME, XFCE, MATE, CİNAMON are used. Examples of package managers are APT, DNF and PACMAN. Numerous Linux distributions have sprung up using different package managers and GUIs. Some of these are;
 
 Ubuntu, Kali Linux, Pardus, Linux Mint, Zorin, Deepin, SteamOS, MX Linux, PureOS, Raspbian, Parrot, elementaryOS, Pop!\_OS, Linux Lite, Fedora, Redhat, Opensuse, CentOS and Arch Linux.
+
+---
+
+*Originally published at* [*https://pwnlab.me*](https://pwnlab.me/tr-isletim-sistemlerini-seruveni/) *on June 1, 2021.*

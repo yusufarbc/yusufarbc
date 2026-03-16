@@ -1,12 +1,10 @@
 ---
-date: '2023-03-16'
-draft: false
-title: 'Zararlı Yazılım Analizine Giriş: #5 Kaynak Araştırması'
+title: "Zararlı Yazılım Analizine Giriş: #5 Kaynak Araştırması"
+date: 2023-03-16
+description: "Bu yazımda zararlı yazılım analizi konusunda bulduğum kaynakları listeledim. Repolar, kitaplar, siteler ve videolar bu yazıda."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*dJBvI3SpcGPLEmaFbLhm9A.png"
+series: ["Zararlı Yazılım Analizine Giriş"]
 ---
-
----
-
-### Zararlı Yazılım Analizine Giriş: #5 Kaynak Araştırması
 
 ![](https://cdn-images-1.medium.com/max/800/1*dJBvI3SpcGPLEmaFbLhm9A.png)
 

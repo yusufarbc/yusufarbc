@@ -1,9 +1,8 @@
 ---
-date: '2022-01-14'
-draft: false
-title: '[TR] Active Information Gathering Techniques'
----
-
+title: "[TR] Active Information Gathering Techniques"
+date: 2022-01-14
+description: "In this article, we will talk about Active Information Gathering Techniques."
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*oiybh8KKS4kV2xtr.jpg"
 ---
 
 ### Active Information Gathering Techniques
@@ -178,3 +177,7 @@ dmitry www.pwnlab.me
 ```
 
 It makes all queries regarding the specified domain name and presents them to us.
+
+---
+
+*Originally published at* [*https://pwnlab.me*](https://pwnlab.me/activt-bilgi-toplama-teknikleri/) *on January 14, 2022.*

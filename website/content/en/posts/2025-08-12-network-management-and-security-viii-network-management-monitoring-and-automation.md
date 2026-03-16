@@ -1,12 +1,10 @@
 ---
-date: '2025-08-12'
-draft: false
-title: 'Network Management and Security VIII: Network Management, Monitoring and Automation'
+title: "Network Management and Security VIII: Network Management, Monitoring and Automation"
+date: 2025-08-12
+description: "Network management has undergone a radical transformation in the last two decades. In the past, network management relied heavily on individual troubleshooting efforts that were manual, reactive, and ..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*Iv6EqXHTlTeVgd7LlSNDOQ.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Network Management and Security VIII: Network Management, Monitoring and Automation
 
 ![](https://cdn-images-1.medium.com/max/800/1*Iv6EqXHTlTeVgd7LlSNDOQ.png)
 

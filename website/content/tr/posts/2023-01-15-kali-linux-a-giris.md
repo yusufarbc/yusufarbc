@@ -1,9 +1,8 @@
 ---
-date: '2023-01-15'
-draft: false
-title: Kali Linux’a Giriş
----
-
+title: "Kali Linux’a Giriş"
+date: 2023-01-15
+description: "Merhaba, bu yazımda Kali Linux dağıtımından bahsedeceğim. Ne işe yaradığını ve ne gibi yetenekleri olduğunu anlatacağım. Kurulumundan bahsettikten sonra da, içinde hazır kurulu gelen araçlara değinece..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*zHe4hqRCHYvBY6Sul53MaQ.png"
 ---
 
 ### Kali Linux’a Giriş

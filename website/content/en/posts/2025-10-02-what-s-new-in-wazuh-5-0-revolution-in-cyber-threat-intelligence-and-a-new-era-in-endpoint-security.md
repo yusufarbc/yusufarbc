@@ -1,10 +1,9 @@
 ---
-date: '2025-10-02'
-draft: false
-title: What's New in Wazuh 5.0? Revolution in Cyber ​​Threat Intelligence and a New
-  Era in Endpoint Security
----
-
+title: "What's New in Wazuh 5.0? Revolution in Cyber ​​Threat Intelligence and a New Era in Endpoint Security"
+date: 2025-10-02
+description: "wazuh"
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*EOeMobbpF6asHcmm"
+series: ["Wazuh SIEM"]
 ---
 
 ### What's New in Wazuh 5.0? Revolution in Cyber Threat Intelligence and a New Era in Endpoint Security

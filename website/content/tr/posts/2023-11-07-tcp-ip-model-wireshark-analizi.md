@@ -1,12 +1,10 @@
 ---
-date: '2023-11-07'
-draft: false
-title: TCP/IP Model Wireshark Analizi
+title: "TCP/IP Model Wireshark Analizi"
+date: 2023-11-07
+description: "Merhaba bu yazımda TCP/IP modelini ve Wireshark ile temel bir ağ analizinin nasıl yapılabileceğini anlatmaya çalıştım."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*vQHzVUN_qVpKQQbS9Cr4Ug.png"
+series: ["Wireshark ile Ağ Analizi"]
 ---
-
----
-
-### TCP/IP Model Wireshark Analizi
 
 ![](https://cdn-images-1.medium.com/max/800/1*vQHzVUN_qVpKQQbS9Cr4Ug.png)
 

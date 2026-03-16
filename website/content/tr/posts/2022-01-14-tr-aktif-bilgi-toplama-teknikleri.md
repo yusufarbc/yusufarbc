@@ -1,9 +1,8 @@
 ---
-date: '2022-01-14'
-draft: false
-title: '[TR] Aktif Bilgi Toplama Teknikleri'
----
-
+title: "[TR] Aktif Bilgi Toplama Teknikleri"
+date: 2022-01-14
+description: "Bu yazımızda, sizlere Aktif Bilgi Toplama Tekniklerinden bahsedeceğiz."
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*oiybh8KKS4kV2xtr.jpg"
 ---
 
 ### Aktif Bilgi Toplama Teknikleri
@@ -178,3 +177,7 @@ dmitry www.pwnlab.me
 ```
 
 Belirtilen alan adıyla ilgili, bütün sorguları yapar ve bizlere sunar.
+
+---
+
+*Originally published at* [*https://pwnlab.me*](https://pwnlab.me/aktif-bilgi-toplama-teknikleri/) *on January 14, 2022.*

@@ -1,12 +1,10 @@
 ---
-date: '2025-09-29'
-draft: false
-title: Threat Hunting with CTI Walkthrough — LetsDefend
+title: "Threat Hunting with CTI Walkthrough — LetsDefend"
+date: 2025-09-29
+description: "LetsDefend — Blue Team Training Platform"
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*FpGB8CsMakxWki-r.png"
+series: ["Threat Hunting Walkthroughs"]
 ---
-
----
-
-### Threat Hunting with CTI Walkthrough — LetsDefend
 
 ![](https://cdn-images-1.medium.com/max/800/0*FpGB8CsMakxWki-r.png)
 

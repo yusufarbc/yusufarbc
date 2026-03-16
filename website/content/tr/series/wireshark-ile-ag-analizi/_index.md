@@ -1,6 +1,6 @@
 ---
 title: "Wireshark ile Ağ Analizi"
-featuredImage: "images/series/wireshark.png"
+featuredImage: "images/series/wirehsark-ile-ag-analizi.png"
 ---
 
 Wireshark ile Ağ Analizi yazı serisi.

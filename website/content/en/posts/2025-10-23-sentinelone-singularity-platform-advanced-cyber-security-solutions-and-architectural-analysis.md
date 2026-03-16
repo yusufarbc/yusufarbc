@@ -1,10 +1,9 @@
 ---
-date: '2025-10-23'
-draft: false
-title: 'SentinelOne Singularity Platform: Advanced Cyber ​​Security Solutions and
-  Architectural Analysis'
----
-
+title: "SentinelOne Singularity Platform: Advanced Cyber ​​Security Solutions and Architectural Analysis"
+date: 2025-10-23
+description: "SentinelOne Singularity Platform offers an artificial intelligence (AI) supported and autonomous solution against today's rapidly changing cyber security threat environments. The platform provides int..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*paXLme-hMtfJIUSk.jpg"
+series: ["SentinelOne EDR"]
 ---
 
 ### **SentinelOne Singularity Platform: Advanced Cybersecurity Solutions and Architecture Analysis**

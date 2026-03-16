@@ -1,14 +1,12 @@
 ---
-date: '2025-08-04'
-draft: false
-series:
-- Ağ Güvenliği ve Yönetimi
-title: 'Ağ Güvenliği ve Yönetimi V: MODERN DİJİTAL ALTYAPI'
+title: "Ağ Güvenliği ve Yönetimi V: MODERN DİJİTAL ALTYAPI"
+date: 2025-08-04
+description: "LAR"
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*aBV-V0NvCXaSMoVRhcmT9w.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
 
----
-
-### Ağ Güvenliği ve Yönetimi V: MODERN DİJİTAL ALTYAPILAR
+LAR
 
 ![](https://cdn-images-1.medium.com/max/800/1*aBV-V0NvCXaSMoVRhcmT9w.png)
 

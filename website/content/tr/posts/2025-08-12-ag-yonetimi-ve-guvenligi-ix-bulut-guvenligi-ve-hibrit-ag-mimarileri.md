@@ -1,14 +1,10 @@
 ---
-date: '2025-08-12'
-draft: false
-series:
-- Ağ Güvenliği ve Yönetimi
-title: 'Ağ Yönetimi ve Güvenliği IX: Bulut Güvenliği ve Hibrit Ağ Mimarileri'
+title: "Ağ Yönetimi ve Güvenliği IX: Bulut Güvenliği ve Hibrit Ağ Mimarileri"
+date: 2025-08-12
+description: "Dijital dönüşüm, kurumsal BT ortamını geri dönülmez bir şekilde değiştirmiştir. Statik, şirket içi veri merkezlerinden dinamik, ölçeklenebilir ve yenilikçi bulut ortamlarına geçiş artık bir trend deği..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*mmBfnODexSndicvHEIF90w.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Ağ Yönetimi ve Güvenliği IX: Bulut Güvenliği ve Hibrit Ağ Mimarileri
 
 ![](https://cdn-images-1.medium.com/max/800/1*mmBfnODexSndicvHEIF90w.png)
 

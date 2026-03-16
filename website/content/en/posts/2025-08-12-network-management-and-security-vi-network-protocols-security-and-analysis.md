@@ -1,12 +1,10 @@
 ---
-date: '2025-08-12'
-draft: false
-title: 'Network Management and Security VI: Network Protocols Security and Analysis'
+title: "Network Management and Security VI: Network Protocols Security and Analysis"
+date: 2025-08-12
+description: "This article is structured to comprehensively analyze the four pillars of modern digital communication — email, web, Domain Name System (DNS), and file transfer. Each chapter will examine in depth the..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*4B83QjV-QTWjVqB0z6ktug.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Network Management and Security VI: Network Protocols Security and Analysis
 
 ![](https://cdn-images-1.medium.com/max/800/1*4B83QjV-QTWjVqB0z6ktug.png)
 

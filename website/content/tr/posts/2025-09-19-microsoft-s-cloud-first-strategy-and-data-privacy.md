@@ -1,9 +1,8 @@
 ---
-date: '2025-09-19'
-draft: false
-title: Microsoft’s Cloud-First Strategy and Data Privacy
----
-
+title: "Microsoft’s Cloud-First Strategy and Data Privacy"
+date: 2025-09-19
+description: "In recent years, Microsoft has clearly adopted a “cloud-first” approach, positioning its products — such as Windows Server, identity management, and others — to integrate closely with the Azure cloud...."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*LCRv_twVkz7IDqkcOjG9RA.png"
 ---
 
 ### Microsoft’s Cloud-First Strategy and Data Privacy

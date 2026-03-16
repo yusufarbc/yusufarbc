@@ -1,9 +1,8 @@
 ---
-date: '2023-08-27'
-draft: false
-title: TR-Pygoat OWASP TOP 10 2021 WRITE-UP
----
-
+title: "TR-Pygoat OWASP TOP 10 2021 WRITE-UP"
+date: 2023-08-27
+description: "Merhaba bu yazımda Pygoat lab ortamı üzerinde bulunan OWASP TOP 10 2021'e uygun hazırlanmış örneklerin çözümlerini gerçekleştireceğim. Hem OWASP TOP 10 zafiyetleri hem de bu zafiyetlerin neden kaynaka..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*mIRdg0fVq0WdqzoayvZykA.png"
 ---
 
 ### TR-Pygoat OWASP TOP 10 2021 WRITE-UP

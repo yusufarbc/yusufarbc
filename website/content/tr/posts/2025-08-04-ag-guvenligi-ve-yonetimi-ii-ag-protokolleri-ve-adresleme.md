@@ -1,14 +1,10 @@
 ---
-date: '2025-08-04'
-draft: false
-series:
-- Ağ Güvenliği ve Yönetimi
-title: 'Ağ Güvenliği ve Yönetimi II: AĞ PROTOKOLLERİ VE ADRESLEME'
+title: "Ağ Güvenliği ve Yönetimi II: AĞ PROTOKOLLERİ VE ADRESLEME"
+date: 2025-08-04
+description: "Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların birbirleriyle nasıl iletişim kuracağını, v..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*6rU6oXi2MLCrzFEvgSY-_g.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Ağ Güvenliği ve Yönetimi II: AĞ PROTOKOLLERİ VE ADRESLEME
 
 ![](https://cdn-images-1.medium.com/max/800/1*6rU6oXi2MLCrzFEvgSY-_g.png)
 

@@ -1,12 +1,9 @@
 ---
-date: '2023-01-20'
-draft: false
-title: Basic Microprocessor Architecture
+title: "Basic Microprocessor Architecture"
+date: 2023-01-20
+description: "The microprocessor works like the central processing unit of a computer. It carries out the vital functions of the computer. The functional configuration of a microprocessor is:"
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*eBP9qyGpkYsx-Zgy3Jvsqg.png"
 ---
-
----
-
-### Basic Microprocessor Architecture
 
 ![](https://cdn-images-1.medium.com/max/800/1*eBP9qyGpkYsx-Zgy3Jvsqg.png)
 

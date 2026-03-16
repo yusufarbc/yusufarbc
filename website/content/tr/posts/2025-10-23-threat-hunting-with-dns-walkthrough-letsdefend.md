@@ -1,12 +1,10 @@
 ---
-date: '2025-10-23'
-draft: false
-title: Threat Hunting with DNS Walkthrough — LetsDefend
+title: "Threat Hunting with DNS Walkthrough — LetsDefend"
+date: 2025-10-23
+description: "LetsDefend — Blue Team Training Platform"
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*MrtorSDpnFDZbdxk.png"
+series: ["Threat Hunting Walkthroughs"]
 ---
-
----
-
-### Threat Hunting with DNS Walkthrough — LetsDefend
 
 ![](https://cdn-images-1.medium.com/max/800/0*MrtorSDpnFDZbdxk.png)
 

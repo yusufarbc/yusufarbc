@@ -1,12 +1,9 @@
 ---
-date: '2024-10-30'
-draft: false
-title: Derinlemesine savunma (Defense in Depth) Stratejisi
+title: "Derinlemesine savunma (Defense in Depth) Stratejisi"
+date: 2024-10-30
+description: "Çoğu güvenlik uzmanı, mükemmel ağ güvenliğinin imkansız olduğu ve herhangi bir savunmanın her zaman aşılabileceği görüşünde birleşiyor. Derinlemesine savunma stratejisi, saldırganı birden fazla savunm..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*T4RL-NrRsRdZSjXM4Ja3Lg.png"
 ---
-
----
-
-### Derinlemesine savunma (Defense in Depth) Stratejisi
 
 ![](https://cdn-images-1.medium.com/max/800/1*T4RL-NrRsRdZSjXM4Ja3Lg.png)
 

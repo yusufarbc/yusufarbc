@@ -1,14 +1,10 @@
 ---
-date: '2025-08-09'
-draft: false
-series:
-- Ağ Güvenliği ve Yönetimi
-title: 'Ağ Yönetimi ve Güvenliği I: Temel Kavramlar'
+title: "Ağ Yönetimi ve Güvenliği I: Temel Kavramlar"
+date: 2025-08-09
+description: "Siber güvenlik, dijital çağın başlangıcından bu yana evrim geçiren dinamik bir disiplindir. Geçmişte, güvenlik paradigması büyük ölçüde ağ çevresini (perimeter) korumaya odaklanan statik bir kale savu..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*-M8PH7FuSJ3sOgJgiKLzCg.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Ağ Yönetimi ve Güvenliği I: Temel Kavramlar
 
 ![](https://cdn-images-1.medium.com/max/800/1*-M8PH7FuSJ3sOgJgiKLzCg.png)
 

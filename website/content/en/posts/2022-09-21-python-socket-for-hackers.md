@@ -1,9 +1,9 @@
 ---
-date: '2022-09-21'
-draft: false
-title: Python:socket for hackers
----
-
+title: "Python:socket for hackers"
+date: 2022-09-21
+description: "Hello, in this article, we will get to know the socket module that we can use to connect to the IP and port addresses of remote servers."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*Z3ieIgd5w_LPy0R2bLu6pg.png"
+series: ["Hakerlar için Python"]
 ---
 
 ### **Python:socket for hackers**

@@ -1,9 +1,8 @@
 ---
-date: '2023-06-09'
-draft: false
-title: Operating System Concept
----
-
+title: "Operating System Concept"
+date: 2023-06-09
+description: "Hello, in this article I will talk about the structure, concept and features of operating systems. Design challenges of the operating system, security requirements and more are in this article!"
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*IvUopr4Tqf2K6eew539ATw.png"
 ---
 
 ### Operating System Concept

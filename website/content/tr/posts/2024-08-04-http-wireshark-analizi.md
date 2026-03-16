@@ -1,12 +1,10 @@
 ---
-date: '2024-08-04'
-draft: false
-title: HTTP Wireshark Analizi
+title: "HTTP Wireshark Analizi"
+date: 2024-08-04
+description: "Merhaba bu yazımda HTTP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*lpMM04aqUuEX3GMKaDsawQ.png"
+series: ["Wireshark ile Ağ Analizi"]
 ---
-
----
-
-### HTTP Wireshark Analizi
 
 Merhaba bu yazımda HTTP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
 

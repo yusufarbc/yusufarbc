@@ -1,12 +1,9 @@
 ---
-date: '2021-06-01'
-draft: false
-title: İşletim Sistemlerinin Serüveni
+title: "İşletim Sistemlerinin Serüveni"
+date: 2021-06-01
+description: "Bu yazımızda, günümüzde bilgisayar sistemleri için olmazsa olmaz konuma gelmiş olan işletim sistemlerini inceleyeceğiz. Nasıl geliştiğine, bu günlere nasıl geldiğine deyineceğiz. Günümüzde popüler ola..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*xr3hyWH8B1uBJitVrIH3xQ.jpeg"
 ---
-
----
-
-### İşletim Sistemlerinin Serüveni
 
 ![](https://cdn-images-1.medium.com/max/800/1*xr3hyWH8B1uBJitVrIH3xQ.jpeg)
 
@@ -85,3 +82,7 @@ Linux ortaya çıkışından sonra dünyaca ilgi görmüş ve GNU tarafından da
 Linux tabanlı bir sisteminin var olması için kernelden sonra iskelet sistemi diyebileceğimiz bir yapı gerekir. Bazı sistemler burada kendi sistemlerini geliştirir. Ancak, her bir Linux dağıtımı için ayrı arayüz(GUI) , paket yöneticisi ve uygulamalar geliştirmek çok maliyetlidir. Bu nedenle, bazıları da var olan sistemi alıp, onun üzerinde eklemeler yaparak işletim sistemini oluşturur. Arayüzde; GNOME, XFCE, MATE, CİNAMON gibi hazır arayüzler kullanılır. Paket yöneticilerine örnek olarak da APT, DNF ve PACMAN verilebilir. Farklı paket yöneticileri ve arayüz(GUI) kullanan sayısız Linux dağıtımı türemiştir. Bunlardan bazıları;
 
 Ubuntu, Kali Linux, Pardus, Linux Mint, Zorin, Deepin, SteamOS, MX Linux, PureOS, Raspbian, Parrot, elementaryOS, Pop!\_OS, Linux Lite, Fedora, Redhat, Opensuse, CentOS ve Arch Linux’tur.
+
+---
+
+*Originally published at* [*https://pwnlab.me*](https://pwnlab.me/tr-isletim-sistemlerinin-seruveni/) *on June 1, 2021.*

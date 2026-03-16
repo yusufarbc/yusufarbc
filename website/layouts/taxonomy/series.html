@@ -1,0 +1,61 @@
+{{ define "title" }}
+  {{ .Title }} · {{ .Site.Title }}
+{{ end }}
+
+{{ define "content" }}
+<section class="container taxonomy-term">
+  <header>
+    {{ if .Params.featuredImage }}
+      <div class="term-header-image" style="background-image: url('{{ .Params.featuredImage | relURL }}');">
+        <div class="term-header-overlay">
+          <h1 class="title">{{ .Title }}</h1>
+        </div>
+      </div>
+    {{ else }}
+      <h1 class="title">{{ .Title }}</h1>
+    {{ end }}
+  </header>
+  
+  <div class="term-content">
+    {{ .Content }}
+  </div>
+
+  <ul class="post-list">
+    {{ range .Paginator.Pages }}
+      {{ .Render "li" }}
+    {{ end }}
+  </ul>
+
+  {{ partial "pagination.html" . }}
+</section>
+
+<style>
+  .term-header-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .term-header-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px 20px 20px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+  }
+  .term-header-overlay h1 {
+    margin: 0;
+    color: white !important;
+  }
+  .term-content {
+    margin-bottom: 2rem;
+    font-style: italic;
+    opacity: 0.9;
+  }
+</style>
+{{ end }}

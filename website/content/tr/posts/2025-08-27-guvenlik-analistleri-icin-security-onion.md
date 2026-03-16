@@ -1,9 +1,8 @@
 ---
-date: '2025-08-27'
-draft: false
-title: Güvenlik Analistleri için Security Onion
----
-
+title: "Güvenlik Analistleri için Security Onion"
+date: 2025-08-27
+description: "Security Onion, açık kaynaklı bir güvenlik platformudur ve siber güvenlik uzmanları tarafından geliştirilmiştir. Temel olarak, ağ görünürlüğü, bilgisayar görünürlüğü, saldırı tespiti, günlük yönetimi ..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*vqqoSWZ-zucw12rjrcFPWA.png"
 ---
 
 ### **Güvenlik Analistleri için Security Onion**

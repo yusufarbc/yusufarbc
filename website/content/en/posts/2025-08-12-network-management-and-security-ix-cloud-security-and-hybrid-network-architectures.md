@@ -1,12 +1,10 @@
 ---
-date: '2025-08-12'
-draft: false
-title: 'Network Management and Security IX: Cloud Security and Hybrid Network Architectures'
+title: "Network Management and Security IX: Cloud Security and Hybrid Network Architectures"
+date: 2025-08-12
+description: "Digital transformation has irreversibly changed the enterprise IT landscape. Moving from static, on-premises data centers to dynamic, scalable and innovative cloud environments is no longer a trend, b..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*mmBfnODexSndicvHEIF90w.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Network Management and Security IX: Cloud Security and Hybrid Network Architectures
 
 ![](https://cdn-images-1.medium.com/max/800/1*mmBfnODexSndicvHEIF90w.png)
 

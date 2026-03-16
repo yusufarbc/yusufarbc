@@ -1,14 +1,10 @@
 ---
-date: '2025-08-10'
-draft: false
-series:
-- Ağ Güvenliği ve Yönetimi
-title: 'Ağ Yönetimi ve Güvenliği IV: Ağ Güvenliği Teknolojileri'
+title: "Ağ Yönetimi ve Güvenliği IV: Ağ Güvenliği Teknolojileri"
+date: 2025-08-10
+description: "Dijital altyapıların karmaşıklığı ve siber tehditlerin sofistike doğası, ağ güvenliği yaklaşımlarında köklü bir dönüşümü zorunlu kılmıştır. Geleneksel “kale ve hendek” (castle and moat) olarak bilinen..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*Fhet-NIJbKlNzPESUc1Ttw.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Ağ Yönetimi ve Güvenliği IV: Ağ Güvenliği Teknolojileri
 
 ![](https://cdn-images-1.medium.com/max/800/1*Fhet-NIJbKlNzPESUc1Ttw.png)
 

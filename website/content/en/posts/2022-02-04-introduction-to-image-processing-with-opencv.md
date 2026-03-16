@@ -1,12 +1,9 @@
 ---
-date: '2022-02-04'
-draft: false
-title: Introduction to Image Processing with OpenCV
+title: "Introduction to Image Processing with OpenCV"
+date: 2022-02-04
+description: "Hello, in this article, we will talk about what OpenCV is, computer vision and how to do these operations with Python."
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*tAmPWiGxMp-BWqSx.png"
 ---
-
----
-
-### Introduction to Image Processing with OpenCV
 
 ![](https://cdn-images-1.medium.com/max/800/0*tAmPWiGxMp-BWqSx.png)
 
@@ -260,3 +257,7 @@ cam = cv.VideoCapture(0)
 def autoCanny(blur, sigma=0.33):   
   median = np.median(blur)
 ```
+
+---
+
+*Originally published at* [*https://pwnlab.me*](https://pwnlab.me/tr-opencv-ile-goruntu-isleme-giris/) *on February 4, 2022.*

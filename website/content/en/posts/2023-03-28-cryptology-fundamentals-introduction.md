@@ -1,9 +1,9 @@
 ---
-date: '2023-03-28'
-draft: false
-title: 'Cryptology Fundamentals: Introduction'
----
-
+title: "Cryptology Fundamentals: Introduction"
+date: 2023-03-28
+description: "Hello, in this first article of the cryptology basics series, I will talk about what cryptology is, traditional encryption techniques and how to create a strong password."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*uorh6uYHB7AdEDpEbCO_Tw.png"
+series: ["Kriptoloji Temelleri"]
 ---
 
 ### Cryptology Fundamentals:#1 Introduction

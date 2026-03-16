@@ -1,12 +1,10 @@
 ---
-date: '2025-10-03'
-draft: false
-title: Threat Hunting with WAF Walkthrough — LetsDefend
+title: "Threat Hunting with WAF Walkthrough — LetsDefend"
+date: 2025-10-03
+description: "LetsDefend — Blue Team Training Platform"
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*aaFgUhGoEHzP09NU.png"
+series: ["Threat Hunting Walkthroughs"]
 ---
-
----
-
-### Threat Hunting with WAF Walkthrough — LetsDefend
 
 ![](https://cdn-images-1.medium.com/max/800/0*aaFgUhGoEHzP09NU.png)
 

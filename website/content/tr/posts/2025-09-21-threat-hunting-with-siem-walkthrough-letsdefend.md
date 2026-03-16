@@ -1,12 +1,10 @@
 ---
-date: '2025-09-21'
-draft: false
-title: Threat Hunting with SIEM Walkthrough — LetsDefend
+title: "Threat Hunting with SIEM Walkthrough — LetsDefend"
+date: 2025-09-21
+description: "LetsDefend — Blue Team Training Platform"
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*MV50j2d8HexWcGdC.png"
+series: ["Threat Hunting Walkthroughs"]
 ---
-
----
-
-### Threat Hunting with SIEM Walkthrough — LetsDefend
 
 ![](https://cdn-images-1.medium.com/max/800/0*MV50j2d8HexWcGdC.png)
 

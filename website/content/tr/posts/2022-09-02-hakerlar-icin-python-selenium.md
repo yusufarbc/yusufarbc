@@ -1,9 +1,9 @@
 ---
-date: '2022-09-02'
-draft: false
-title: 'Hakerlar için Python: selenium'
----
-
+title: "Hakerlar için Python: selenium"
+date: 2022-09-02
+description: "Merhaba bu yazımızda web siteleri üzerinde bir kullanıcı gibi işlemler yapmamızı sağlayan selenium modülünü tanıyacağız."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*0uUmJ2J01vpcie8grd91Yw.png"
+series: ["Hakerlar için Python"]
 ---
 
 ### **Hakerlar için Python: selenium**

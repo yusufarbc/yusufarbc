@@ -1,9 +1,7 @@
 ---
-date: '2022-12-15'
-draft: false
-title: 'Basic C Programming Tutorial #1'
----
-
+title: "Basic C Programming Tutorial #1"
+date: 2022-12-15
+description: "In this article, I will share the notes and practice questions of the Basic C Programming Training, the first week of which we completed. You can access my previous article here, where I explained the..."
 ---
 
 ### Basic C Programming Tutorial #1

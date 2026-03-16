@@ -1,12 +1,9 @@
 ---
-date: '2024-10-30'
-draft: false
-title: Defense in Depth Strategy
+title: "Defense in Depth Strategy"
+date: 2024-10-30
+description: "Most security experts agree that perfect network security is impossible and that any defenses can always be bypassed. The defense-in-depth strategy embraces blocking the attacker with multiple layers ..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*T4RL-NrRsRdZSjXM4Ja3Lg.png"
 ---
-
----
-
-### Defense in Depth Strategy
 
 ![](https://cdn-images-1.medium.com/max/800/1*T4RL-NrRsRdZSjXM4Ja3Lg.png)
 

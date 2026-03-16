@@ -1,9 +1,8 @@
 ---
-date: '2024-10-26'
-draft: false
-title: Building a Secure Organization in the Cyber ​​World
----
-
+title: "Building a Secure Organization in the Cyber ​​World"
+date: 2024-10-26
+description: "It seems logical that every business, whether commercial or non-profit, understands that creating a secure organization is important for long-term success. When a business implements and maintains a s..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*sWahjiY8Mezr6QWu9JJDAg.png"
 ---
 
 ### Building a Secure Organization in the Cyber World

@@ -1,9 +1,8 @@
 ---
-date: '2025-03-09'
-draft: false
-title: Windows System Management
----
-
+title: "Windows System Management"
+date: 2025-03-09
+description: "Windows System Administration is a set of processes and tools that involve managing Windows operating systems. These processes cover a wide range from user and account management to optimizing resourc..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*QTSThAAz9yc368eD-MMw5g.png"
 ---
 
 ### Windows System Management

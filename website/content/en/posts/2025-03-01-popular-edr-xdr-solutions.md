@@ -1,12 +1,9 @@
 ---
-date: '2025-03-01'
-draft: false
-title: Popular EDR/XDR Solutions
+title: "Popular EDR/XDR Solutions"
+date: 2025-03-01
+description: "In this article, we will take a look at endpoint security solutions that are popularly used around the world. We will discuss these solutions with their features, pros and cons."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*BXOc1yXaiBaFvxECQ6ekEg.png"
 ---
-
----
-
-### Popular EDR/XDR Solutions
 
 In this article, we will take a look at endpoint security solutions that are popularly used around the world. We will discuss these solutions with their features, pros and cons.
 

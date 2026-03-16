@@ -1,12 +1,9 @@
 ---
-date: '2025-04-05'
-draft: false
-title: Information Technologies and Security Standards and Organizations
+title: "Information Technologies and Security Standards and Organizations"
+date: 2025-04-05
+description: "In this article, I will touch upon national and international organizations working in the field of information technologies and security. I will talk about the standards in this field and their purpo..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*DcA4L1w1dvZUmdz5"
 ---
-
----
-
-### Information Technologies and Security Standards and Organizations
 
 ![](https://cdn-images-1.medium.com/max/800/0*DcA4L1w1dvZUmdz5)
 

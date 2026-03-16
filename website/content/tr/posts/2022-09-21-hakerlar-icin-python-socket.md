@@ -1,9 +1,9 @@
 ---
-date: '2022-09-21'
-draft: false
-title: Hakerlar için Python:socket
----
-
+title: "Hakerlar için Python:socket"
+date: 2022-09-21
+description: "Merhaba bu yazımızda, uzak sunucuların ip ve port adreslerine bağlantı kurmak için kullanabileceğimiz socket modülünü tanıyacağız."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*Z3ieIgd5w_LPy0R2bLu6pg.png"
+series: ["Hakerlar için Python"]
 ---
 
 ### **Hakerlar için Python:socket**

@@ -1,14 +1,10 @@
 ---
-date: '2025-08-19'
-draft: false
-series:
-- Ağ Güvenliği ve Yönetimi
-title: 'Ağ Yönetimi ve Güvenliği X: SOC ve NOC Süreçleri'
+title: "Ağ Yönetimi ve Güvenliği X: SOC ve NOC Süreçleri"
+date: 2025-08-19
+description: "SOC (Security Operations Center — Güvenlik Operasyon Merkezi) ve NOC (Network Operations Center — Ağ Operasyon Merkezi) birbirini tamamlayan ancak farklı odaklara sahip iki merkezi yapıdır. NOC, bir k..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*S7cMHBrZlktBq6LvzR_AYQ.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Ağ Yönetimi ve Güvenliği X: SOC ve NOC Süreçleri
 
 ![](https://cdn-images-1.medium.com/max/800/1*S7cMHBrZlktBq6LvzR_AYQ.png)
 

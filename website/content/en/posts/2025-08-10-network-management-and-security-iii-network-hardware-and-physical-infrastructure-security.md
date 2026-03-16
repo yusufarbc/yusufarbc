@@ -1,10 +1,9 @@
 ---
-date: '2025-08-10'
-draft: false
-title: 'Network Management and Security III: Network Hardware and Physical Infrastructure
-  Security'
----
-
+title: "Network Management and Security III: Network Hardware and Physical Infrastructure Security"
+date: 2025-08-10
+description: "Network equipment and the physical layer, which form the invisible but indispensable basis of modern digital infrastructures, are the lifeblood of data flow and digital communication. Although cyber s..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*0XinYbzhfLKDESwpfYfKIQ.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
 
 ### Network Management and Security III: **Network Hardware and Physical Infrastructure Security**

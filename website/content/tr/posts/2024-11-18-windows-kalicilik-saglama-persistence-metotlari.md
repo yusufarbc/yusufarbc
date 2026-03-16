@@ -1,12 +1,10 @@
 ---
-date: '2024-11-18'
-draft: false
-title: Windows Kalıcılık Sağlama(Persistence) Metotları
+title: "Windows Kalıcılık Sağlama(Persistence) Metotları"
+date: 2024-11-18
+description: "Windows’ta kalıcılık sağlama (persistence) yöntemleri, bir sistemin yeniden başlatılması veya kullanıcı oturumunun kapatılması durumunda bile zararlı yazılımların veya yetkisiz erişimlerin devam etmes..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*embmEuQRxJRHe7TWE4Y6hw.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Windows Kalıcılık Sağlama(Persistence) Metotları
 
 ![](https://cdn-images-1.medium.com/max/800/1*embmEuQRxJRHe7TWE4Y6hw.png)
 

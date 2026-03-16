@@ -1,12 +1,9 @@
 ---
-date: '2021-11-26'
-draft: false
-title: Passive Information Gathering Techniques
+title: "Passive Information Gathering Techniques"
+date: 2021-11-26
+description: "Hello, in this article that we prepared with my teacher Mehmet Bulut, we will talk about Passive Information Gathering Techniques."
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*2NsHt2LZX3ORPYxb.jpg"
 ---
-
----
-
-### Passive Information Gathering Techniques
 
 ![](https://cdn-images-1.medium.com/max/800/0*2NsHt2LZX3ORPYxb.jpg)
 
@@ -143,3 +140,7 @@ To get detailed information about its usage, you can go to <https://github.com/l
 Osint Framework is a website where you can access hundreds of passive information collection tools. Clicking on the section within the categories that suits your target allows you to make more detailed inquiries. Additionally, if there is a (T) text to the right of the options, you can see that you can only do this through the terminal.
 
 We can access the relevant site at [www.osintframework.com](http://osintframework.com).
+
+---
+
+*Originally published at* [*https://pwnlab.me*](https://pwnlab.me/tr-pasif-bilgi-toplama-teknikleri/) *on November 26, 2021.*

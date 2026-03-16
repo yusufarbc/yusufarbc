@@ -1,12 +1,10 @@
 ---
-date: '2023-11-15'
-draft: false
-title: DNS Wireshark Analizi
+title: "DNS Wireshark Analizi"
+date: 2023-11-15
+description: "Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*_OuE2zljUjPrg0g7TfljyQ.png"
+series: ["Wireshark ile Ağ Analizi"]
 ---
-
----
-
-### DNS Wireshark Analizi
 
 ![](https://cdn-images-1.medium.com/max/800/1*_OuE2zljUjPrg0g7TfljyQ.png)
 

@@ -1,9 +1,9 @@
 ---
-date: '2022-09-26'
-draft: false
-title: 'Python for hackers: paramiko'
----
-
+title: "Python for hackers: paramiko"
+date: 2022-09-26
+description: "Hello, in this article, we will get to know the paramiko module that allows us to establish SSH connections with Python."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*cHmfmYLtoze7wtcUFY5BVA.png"
+series: ["Hakerlar için Python"]
 ---
 
 ### **Python for hackers: paramiko**

@@ -1,12 +1,9 @@
 ---
-date: '2023-05-17'
-draft: false
-title: OSI Modelinde Siber Saldırılar
+title: "OSI Modelinde Siber Saldırılar"
+date: 2023-05-17
+description: "Merhaba, Bu yazımda OSI modeli üzerinde Siber Saldırıları anatmaya çalıştım. Birçok siber saldırı türünü bu yazımda bulabilirsiniz."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*rOqngZk6L49NHbPm8MIG8w.png"
 ---
-
----
-
-### OSI Modelinde Siber Saldırılar
 
 ![](https://cdn-images-1.medium.com/max/800/1*rOqngZk6L49NHbPm8MIG8w.png)
 

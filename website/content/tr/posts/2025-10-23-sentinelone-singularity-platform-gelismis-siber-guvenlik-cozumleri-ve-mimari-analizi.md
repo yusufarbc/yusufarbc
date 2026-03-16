@@ -1,10 +1,9 @@
 ---
-date: '2025-10-23'
-draft: false
-title: 'SentinelOne Singularity Platform: Gelişmiş Siber Güvenlik Çözümleri ve Mimari
-  Analizi'
----
-
+title: "SentinelOne Singularity Platform: Gelişmiş Siber Güvenlik Çözümleri ve Mimari Analizi"
+date: 2025-10-23
+description: "SentinelOne Singularity Platform, günümüzün hızla değişen siber güvenlik tehdit ortamlarına karşı, yapay zekâ (AI) destekli ve otonom çalışan bir çözüm sunmaktadır. Platform, uç nokta koruması (EPP), ..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*paXLme-hMtfJIUSk.jpg"
+series: ["SentinelOne EDR"]
 ---
 
 ### **SentinelOne Singularity Platform: Gelişmiş Siber Güvenlik Çözümleri ve Mimari Analizi**

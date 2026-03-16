@@ -1,12 +1,9 @@
 ---
-date: '2021-07-01'
-draft: false
-title: Asynchronous Programming
+title: "Asynchronous Programming"
+date: 2021-07-01
+description: "In this article, I will try to explain asynchronous programming, which many of us have difficulty understanding. What is this type of programming known as async-await structures in the Python language..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*DH7q_354Ghtgzp3H.jpg"
 ---
-
----
-
-### Asynchronous Programming
 
 ![](https://cdn-images-1.medium.com/max/800/0*DH7q_354Ghtgzp3H.jpg)
 

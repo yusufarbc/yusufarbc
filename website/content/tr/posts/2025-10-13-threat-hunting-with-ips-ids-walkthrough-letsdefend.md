@@ -1,12 +1,10 @@
 ---
-date: '2025-10-13'
-draft: false
-title: Threat Hunting with IPS/IDS Walkthrough — LetsDefend
+title: "Threat Hunting with IPS/IDS Walkthrough — LetsDefend"
+date: 2025-10-13
+description: "LetsDefend — Blue Team Training Platform"
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*0nXXxq60ZsaSHIFC.png"
+series: ["Threat Hunting Walkthroughs"]
 ---
-
----
-
-### Threat Hunting with IPS/IDS Walkthrough — LetsDefend
 
 ![](https://cdn-images-1.medium.com/max/800/0*0nXXxq60ZsaSHIFC.png)
 

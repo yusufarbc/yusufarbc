@@ -1,12 +1,10 @@
 ---
-date: '2025-08-09'
-draft: false
-title: 'Network Management and Security I: Basic Concepts'
+title: "Network Management and Security I: Basic Concepts"
+date: 2025-08-09
+description: "Cybersecurity is a dynamic discipline that has been evolving since the dawn of the digital age. In the past, the security paradigm was largely based on a static fortress defense that focused on protec..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*-M8PH7FuSJ3sOgJgiKLzCg.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Network Management and Security I: Basic Concepts
 
 ![](https://cdn-images-1.medium.com/max/800/1*-M8PH7FuSJ3sOgJgiKLzCg.png)
 

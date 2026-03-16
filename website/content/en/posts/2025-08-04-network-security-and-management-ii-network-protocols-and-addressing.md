@@ -1,12 +1,10 @@
 ---
-date: '2025-08-04'
-draft: false
-title: 'Network Security and Management II: NETWORK PROTOCOLS AND ADDRESSING'
+title: "Network Security and Management II: NETWORK PROTOCOLS AND ADDRESSING"
+date: 2025-08-04
+description: "This chapter takes an in-depth look at two vital elements that form the basis of computer networks: protocols and addressing. Protocols are sets of rules and standards that define how networked device..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*6rU6oXi2MLCrzFevgSY-_g.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Network Security and Management II: NETWORK PROTOCOLS AND ADDRESSING
 
 ![](https://cdn-images-1.medium.com/max/800/1*6rU6oXi2MLCrzFevgSY-_g.png)
 

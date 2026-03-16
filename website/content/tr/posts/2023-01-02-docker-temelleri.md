@@ -1,12 +1,9 @@
 ---
-date: '2023-01-02'
-draft: false
-title: Docker Temelleri
+title: "Docker Temelleri"
+date: 2023-01-02
+description: "Docker, sanallaştırılmış ortamlarda uygulamalar geliştirmek, dağıtmak ve yönetmek için kullanılan açık kaynak kodlu bir kapsayıcı platformudur. İşletim sisteminin kaynaklarını yönettiği uygulamalara d..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*2Vt-GnSjtWGchPVgF1fX6g.png"
 ---
-
----
-
-### Docker Temelleri
 
 ![](https://cdn-images-1.medium.com/max/800/1*2Vt-GnSjtWGchPVgF1fX6g.png)
 

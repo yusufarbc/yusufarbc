@@ -1,9 +1,9 @@
 ---
-date: '2023-03-14'
-draft: false
-title: 'Zararlı Yazılım Analizine Giriş: #3 Statik Analiz'
----
-
+title: "Zararlı Yazılım Analizine Giriş: #3 Statik Analiz"
+date: 2023-03-14
+description: "Bir önceki yazımda analiz ortamının hazırlanmasından bahsetmiştim. Bu yazımda ise kurduğumuz ortam ile bir zararlı yazılımın statik analizini yapmaya çalışacağız. Statik analiz yöntemlerine ve ilgili ..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*uStJb6CCMfH5-GAZXQbcOA.png"
+series: ["Zararlı Yazılım Analizine Giriş"]
 ---
 
 ### Zararlı Yazılım Analizine Giriş: #3 Statik Analiz

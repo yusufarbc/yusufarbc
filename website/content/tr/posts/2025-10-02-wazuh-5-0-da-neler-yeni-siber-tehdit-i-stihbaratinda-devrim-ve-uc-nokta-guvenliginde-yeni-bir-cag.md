@@ -1,10 +1,9 @@
 ---
-date: '2025-10-02'
-draft: false
-title: Wazuh 5.0'da Neler Yeni? Siber Tehdit İstihbaratında Devrim ve Uç Nokta Güvenliğinde
-  Yeni Bir Çağ
----
-
+title: "Wazuh 5.0'da Neler Yeni? Siber Tehdit İstihbaratında Devrim ve Uç Nokta Güvenliğinde Yeni Bir Çağ"
+date: 2025-10-02
+description: "wazuh"
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*EOeMobbpF6asHcmm"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
 
 ### Wazuh 5.0'da Neler Yeni? Siber Tehdit İstihbaratında Devrim ve Uç Nokta Güvenliğinde Yeni Bir Çağ

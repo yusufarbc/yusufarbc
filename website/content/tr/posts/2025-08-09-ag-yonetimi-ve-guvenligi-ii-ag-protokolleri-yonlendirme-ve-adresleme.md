@@ -1,14 +1,10 @@
 ---
-date: '2025-08-09'
-draft: false
-series:
-- Ağ Güvenliği ve Yönetimi
-title: 'Ağ Yönetimi ve Güvenliği II: Ağ Protokolleri, Yönlendirme ve Adresleme'
+title: "Ağ Yönetimi ve Güvenliği II: Ağ Protokolleri, Yönlendirme ve Adresleme"
+date: 2025-08-09
+description: "Günümüzün hiper-bağlantılı dünyasında, küresel ekonomiden günlük sosyal etkileşimlerimize kadar her şeyin temelinde karmaşık ve devasa bir bilgisayar ağları altyapısı yatmaktadır. Bu altyapı, farklı k..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*1gN6tP9Nv5sf9IGl.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Ağ Yönetimi ve Güvenliği II: Ağ Protokolleri, Yönlendirme ve Adresleme
 
 ![](https://cdn-images-1.medium.com/max/800/0*1gN6tP9Nv5sf9IGl.png)
 

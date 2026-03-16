@@ -1,14 +1,10 @@
 ---
-date: '2025-08-06'
-draft: false
-series:
-- Ağ Güvenliği ve Yönetimi
-title: 'Ağ Güvenliği ve Yönetimi III: AĞ YÖNETİMİ VE OTOMASYON'
+title: "Ağ Güvenliği ve Yönetimi III: AĞ YÖNETİMİ VE OTOMASYON"
+date: 2025-08-06
+description: "Modern ağ altyapıları, dijital dönüşümün bel kemiğini oluşturarak, kurumların iş operasyonlarının sürekliliği, performansı ve güvenliği için hayati bir rol oynamaktadır. Bulut bilişim entegrasyonu, Ne..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*-Ly5E9MK-j1Q58Bvn6XnWQ.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Ağ Güvenliği ve Yönetimi III: AĞ YÖNETİMİ VE OTOMASYON
 
 ![](https://cdn-images-1.medium.com/max/800/1*-Ly5E9MK-j1Q58Bvn6XnWQ.png)
 

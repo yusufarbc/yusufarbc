@@ -1,9 +1,8 @@
 ---
-date: '2025-06-01'
-draft: false
-title: Intrusion Detection on Apache Web Server
----
-
+title: "Intrusion Detection on Apache Web Server"
+date: 2025-06-01
+description: "In this article, I will explain the types of web attacks and how we can detect these attacks through Apache web server access logs."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*gtYIO-nyJZoIwSFEi_9xQA.png"
 ---
 
 ### Attack Detection on Apache Web Server

@@ -1,11 +1,9 @@
 ---
-date: '2025-08-12'
-draft: false
-series:
-- Ağ Güvenliği ve Yönetimi
-title: 'Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve Analizi'
----
-
+title: "Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve Analizi"
+date: 2025-08-12
+description: "Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web, Alan Adı Sistemi (DNS) ve dosya transferi — kapsamlı bir şekilde analiz etmek üzere yapılandırılmıştır. Her bölüm, ilgili protoko..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*4B83QjV-QTWjVqB0z6ktug.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
 
 ### Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve Analizi

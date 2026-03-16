@@ -1,12 +1,10 @@
 ---
-date: '2023-03-07'
-draft: false
-title: 'Zararlı Yazılım Analizine Giriş: #1 Temel Kavramlar'
+title: "Zararlı Yazılım Analizine Giriş: #1 Temel Kavramlar"
+date: 2023-03-07
+description: "Bu yazı serimizde zararlı yazılım analizi hakkında bilgiler vereceğim; virüsler, solucanlar vb. terimleri duymuşsunuzdur. Ama bu şeyler ne anlama geliyor? Virüs solucan mıdır? Kötü amaçlı yazılım tam ..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*wRwVFbFX3SX1zyV-mTRt_w.png"
+series: ["Zararlı Yazılım Analizine Giriş"]
 ---
-
----
-
-### Zararlı Yazılım Analizine Giriş: #1 Temel Kavramlar
 
 ![](https://cdn-images-1.medium.com/max/800/1*wRwVFbFX3SX1zyV-mTRt_w.png)
 

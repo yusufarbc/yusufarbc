@@ -1,9 +1,9 @@
 ---
-date: '2023-03-28'
-draft: false
-title: 'Kriptoloji Temelleri: Kriptanaliz'
----
-
+title: "Kriptoloji Temelleri: Kriptanaliz"
+date: 2023-03-28
+description: "Merhaba, kriptoloji temelleri serisinin bu yazısında kriptanalizin ne olduğundan, şifre kırma tekniklerinden ve sosyal mühendislik yöntemlerinden bahsedeceğim."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*aZ11lfSR2DfxXotqqA4KhA.png"
+series: ["Kriptoloji Temelleri"]
 ---
 
 ### Kriptoloji Temelleri:#3 Kriptanaliz

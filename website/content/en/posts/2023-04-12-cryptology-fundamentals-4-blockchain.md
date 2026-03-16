@@ -1,12 +1,10 @@
 ---
-date: '2023-04-12'
-draft: false
-title: Cryptology Fundamentals:#4 Blockchain
+title: "Cryptology Fundamentals:#4 Blockchain"
+date: 2023-04-12
+description: "Hello, in this article of the cryptology basics series, I will talk about what blockchain is, how it works and where it is used."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*Ci1P1v2xXKNrCvqur5DbQQ.png"
+series: ["Kriptoloji Temelleri"]
 ---
-
----
-
-### Cryptology Fundamentals:#4 Blockchain
 
 ![](https://cdn-images-1.medium.com/max/800/1*Ci1P1v2xXKNrCvqur5DbQQ.png)
 

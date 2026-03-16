@@ -1,12 +1,10 @@
 ---
-date: '2025-08-04'
-draft: false
-title: 'Network Security and Management I: BASICS OF NETWORK TECHNOLOGIES'
+title: "Network Security and Management I: BASICS OF NETWORK TECHNOLOGIES"
+date: 2025-08-04
+description: "Computer networks, which form the basis of the modern information society, are complex and dynamic systems that enable instantaneous sharing of data on a global scale. These systems have ceased to be ..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*QsixbjAc424hJKBe9MKq-g.png"
+series: ["Ağ Güvenliği ve Yönetimi"]
 ---
-
----
-
-### Network Security and Management I: BASICS OF NETWORK TECHNOLOGIES
 
 ![](https://cdn-images-1.medium.com/max/800/1*QsixbjAc424hJKBe9MKq-g.png)
 

@@ -1,9 +1,9 @@
 ---
-date: '2022-08-26'
-draft: false
-title: 'Python for hackers: requests'
----
-
+title: "Python for hackers: requests"
+date: 2022-08-26
+description: "Hello, in this article, we will get to know Python's requests module, where we can write tools in the field of web application security."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*a87phGSd-sbfiJLWPfGMxA.png"
+series: ["Hakerlar için Python"]
 ---
 
 ### Python for Hackers: requests

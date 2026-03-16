@@ -1,12 +1,10 @@
 ---
-date: '2025-10-29'
-draft: false
-title: Threat Hunting with EDR Walkthrough — LetsDefend
+title: "Threat Hunting with EDR Walkthrough — LetsDefend"
+date: 2025-10-29
+description: "LetsDefend — Blue Team Training Platform"
+featuredImage: "https://cdn-images-1.medium.com/max/800/0*TWCVA6eqWDZwyV86.png"
+series: ["Threat Hunting Walkthroughs"]
 ---
-
----
-
-### Threat Hunting with EDR Walkthrough — LetsDefend
 
 ![](https://cdn-images-1.medium.com/max/800/0*TWCVA6eqWDZwyV86.png)
 

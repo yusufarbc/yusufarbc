@@ -1,12 +1,13 @@
 {{ define "title" }}
-  {{ title (i18n (lower .Title)) | default .Title }} · {{ .Site.Title }}
+  {{ .Title }} · {{ .Site.Title }}
 {{ end }}
+
 {{ define "content" }}
   <section class="container list">
     <header>
       <h1 class="title">
         <a class="title-link" href="{{ .Permalink | safeURL }}">
-          {{ title (i18n (lower .Title)) | default .Title }}
+          {{ .Title }}
         </a>
       </h1>
     </header>
@@ -14,20 +15,19 @@
     {{/* Series at the top */}}
     {{ $series := .Site.Taxonomies.series }}
     {{ if gt (len $series) 0 }}
-    <div class="series-list-top">
-      <h3>{{ if eq .Site.Language.Lang "tr" }}Yazı Serileri{{ else }}Article Series{{ end }}</h3>
-      <div class="series-tags">
+    <div class="series-list-section">
+      <h3 class="section-subtitle">{{ if eq .Site.Language.Lang "tr" }}Yazı Serileri{{ else }}Article Series{{ end }}</h3>
+      <div class="series-tag-container">
         {{ range $key, $value := $series }}
-          <a href="{{ "series/" | relLangURL }}{{ $key | urlize | lower }}/" class="series-tag">#{{ $key }}</a>
+          <a href="{{ "series/" | relLangURL }}{{ $key | urlize | lower }}/" class="series-nav-tag">#{{ $key }}</a>
         {{ end }}
       </div>
     </div>
     {{ end }}
 
-    <hr>
+    <hr class="section-divider">
 
-    {{ .Content }}
-    <ul>
+    <ul class="posts-list-grid">
       {{- range .Paginator.Pages -}}
         {{- .Render "li" -}}
       {{- end -}}
@@ -37,26 +37,43 @@
   </section>
 
   <style>
-    .series-list-top {
-      margin-bottom: 2rem;
+    .series-list-section {
+      margin: 2rem 0;
     }
-    .series-tags {
+    .section-subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      opacity: 0.8;
+    }
+    .series-tag-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
     }
-    .series-tag {
-      padding: 5px 12px;
+    .series-nav-tag {
+      padding: 6px 15px;
       background: var(--glass-bg);
       border: 1px solid var(--glass-border);
-      border-radius: 20px;
-      font-size: 0.9em;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: inherit;
       transition: all 0.2s;
     }
-    .series-tag:hover {
-      border-color: var(--primary-accent);
+    .series-nav-tag:hover {
       background: var(--primary-accent);
       color: white !important;
+      border-color: var(--primary-accent);
+    }
+    .section-divider {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--glass-border), transparent);
+      margin: 2rem 0;
+    }
+    .posts-list-grid {
+      list-style: none;
+      padding: 0;
     }
   </style>
 {{ end }}

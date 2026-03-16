@@ -1,12 +1,9 @@
 ---
-date: '2022-12-19'
-draft: false
-title: X86 Tabanlı Mikroişlemci Mimarisi
+title: "X86 Tabanlı Mikroişlemci Mimarisi"
+date: 2022-12-19
+description: "X86 adı, orjinal Intel işlemci çekirdek lisansına dayanan işlemcilere verilen isimdir. Dünyada masaüstü ve dizüstü bilgisayarların %90'ından fazlasında X86 tabanlı mikroişlemciler(Intel ve AMD vb.) ku..."
+featuredImage: "https://cdn-images-1.medium.com/max/800/1*LCI0x-uWvBBHYDnFGti6BA.png"
 ---
-
----
-
-### X86 Tabanlı Mikroişlemci Mimarisi
 
 ![](https://cdn-images-1.medium.com/max/800/1*LCI0x-uWvBBHYDnFGti6BA.png)
 
