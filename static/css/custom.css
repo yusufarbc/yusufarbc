@@ -1,0 +1,53 @@
+/* Glassmorphism Effect for Post Cards and Navigation */
+.post-list .item, .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.post-list .item:hover, .glass-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 165, 233, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Smooth Fade-in Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+body {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Premium Typography Nuances */
+h1, h2, h3 {
+    letter-spacing: -0.02em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #0ea5e9;
+}
+
+/* Micro-interaction for social links */
+.social-links a:hover {
+    color: #0ea5e9 !important;
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}

@@ -1,0 +1,118 @@
+baseURL = "https://yusufarbc.dev/"
+languageCode = "en"
+title = "Yusuf Arbac"
+theme = "hugo-coder"
+
+defaultContentLanguage = "en"
+paginate = 20
+enableEmoji = true
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    contentDir = "content"
+    weight = 1
+    [languages.en.params]
+      author = "Yusuf Talha ARABACI"
+      info = "Security Engineer"
+      description = "Security Engineer specializing in Cloud-Native Security, SOC Architecture, and Open Source Defense."
+      keywords = "cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting"
+    [[languages.en.menu.main]]
+      name = "Posts"
+      weight = 1
+      url = "posts/"
+    [[languages.en.menu.main]]
+      name = "About"
+      weight = 2
+      url = "about/"
+
+  [languages.tr]
+    languageName = "Türkçe"
+    contentDir = "content"
+    weight = 2
+    [languages.tr.params]
+      author = "Yusuf Talha ARABACI"
+      info = "Güvenlik Mühendisi"
+      description = "Bulut Yerli Güvenlik, SOC Mimarisi ve Açık Kaynak Savunma konularında uzmanlaşmış Güvenlik Mühendisi."
+      keywords = "siber güvenlik, infosec, bulut yerli güvenlik, soc mimarisi, açık kaynak savunma, yusuf talha arabaci, zararlı yazılım analizi, sızma testi"
+    [[languages.tr.menu.main]]
+      name = "Yazılar"
+      weight = 1
+      url = "posts/"
+    [[languages.tr.menu.main]]
+      name = "Hakkımda"
+      weight = 2
+      url = "about/"
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[params]
+  author = "Yusuf Talha ARABACI"
+  description = "Security Engineer specializing in Cloud-Native Security, SOC Architecture, and Open Source Defense."
+  keywords = "cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting"
+  info = "Security Engineer"
+  avatarURL = "images/avatar.png"
+  
+  # Technical SEO
+  images = ["images/avatar.jpg"]
+  titleSeparator = "|"
+  customCSS = ["css/custom.css"]
+  
+  # Favicons
+  favicon = "favicon.ico"
+  appleTouchIcon = "images/favicons/apple-touch-icon.png"
+  manifest = "site.webmanifest"
+  
+  # Language toggle
+  enableLanguageInTitle = true
+  
+  # Theme mode toggle
+  colorProtocol = "auto"
+  showMenuItemIcon = true
+  
+  # Footer
+  footerContent = "Yusuf Arbac"
+  
+  # Social links
+  [[params.social]]
+    name = "Github"
+    icon = "fa fa-2x fa-github"
+    weight = 1
+    url = "https://github.com/yusufarbc/"
+  [[params.social]]
+    name = "LinkedIn"
+    icon = "fa fa-2x fa-linkedin"
+    weight = 2
+    url = "https://www.linkedin.com/in/yusufarbc/"
+  [[params.social]]
+    name = "Mastodon"
+    icon = "fa fa-2x fa-mastodon"
+    weight = 3
+    url = "https://infosec.exchange/@yusufarbc"
+  [[params.social]]
+    name = "Telegram"
+    icon = "fa fa-2x fa-telegram"
+    weight = 4
+    url = "https://t.me/yusufarbc"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+  [markup.goldmark.renderer]
+    unsafe = true # Required for some Medium HTML embeds if any
+
+[services]
+  [services.googleAnalytics]
+    ID = "" # User can add this later
+
+[minify]
+  disableXML = false
+  minifyOutput = true

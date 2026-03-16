@@ -1,0 +1,129 @@
+---
+title: "Introduction to Malware Analysis: #3 Static Analysis"
+date: 2023-03-14
+draft: false
+---
+
+---
+
+### Introduction to Malware Analysis: #3 Static Analysis
+
+![](https://cdn-images-1.medium.com/max/800/1*uStJb6CCMfH5-GAZXQbcOA.png)
+
+In my previous article, I talked about preparing the analysis environment. In this article, we will try to do a static analysis of a malware with the environment we have established. Static analysis methods and related tools are in this article!
+
+---
+
+### Static Analysis Methods
+
+Static analysis is the analysis of malware before it is executed, as opposed to analyzing its execution and behavior, known as dynamic analysis.
+
+Static analysis is a good first step in the analysis process. Using this, you can tell whether a sample is harmful or clean without even having to run it. You can even go as far as finding the type, family, and purpose of the malware without having to do any dynamic analysis.
+
+Whether static analysis or dynamic, the first step always involves checking if others have any thoughts or conclusions about your software example. Often, others have already analyzed your sample or a similar sample from the same malware family and written a blog post about their analysis. In other cases, the same sample may have found its way into VirusTotal and other malware analysis platforms. You can research this on the internet.
+
+In the following stages, we will discuss analysis techniques step by step.
+
+---
+
+### Hash value
+
+If the hash value of a malware has been used before, it can provide a lot of information about that malware.
+
+![](https://cdn-images-1.medium.com/max/800/1*mD_yq3uoXjfXpsRBoQBRWA.png)
+
+We can obtain the hash value of our malware sample with the QuickHash tool. In addition, it is available in many other tools. If we search for this value on Google:
+
+![](https://cdn-images-1.medium.com/max/800/1*CUZw8_kVp9UI80lZZDTJqA.png)
+
+We come across a lot of information about this malware sample. You can also search for this hash value on virustotal.
+
+---
+
+### Detecting File Format
+
+Malware comes in different file formats: PE files, .NET files, Java files, Scripts, JavaScript software, etc. They may also be written for different operating systems: Linux, Windows, macOS or Android. They may be targeted for a specific processor architecture: x86, x64, PowerPC, arm, etc. Depending on the type and target of the sample file you are analyzing, you may need different tools and even the operating system installation or processor type to analyze the sample file.  
+A good first step is to find the format of the file, as this reveals a lot about what the target of the sample looks like. We can use the **trid** tool for this.
+
+Extension spoofing works by using fake extensions as part of filenames. This technique exploits the ignorance of most user victims, who recognize such extensions as .pdf, .xlsx, and .doc as extensions and therefore think they are safe. By appending these extensions to malware filenames, attackers manage to trick victims into misreading them as non-.exe files, essentially tricking them into downloading and clicking on them.
+
+---
+
+### Version Information
+
+Most clean software and files on our system have a Details tab at the bottom of the Properties window, which can be accessed by right-clicking on the file and selecting Properties. The Details tab shows various details about the file such as File version, Product name, Product version, and Copyright.
+
+![](https://cdn-images-1.medium.com/max/800/1*anLorCseI2uGz5rMjPGjqg.png)
+
+If you do not see well-defined areas and features that describe the application, you can consider the sample suspicious, warranting further investigation. Likewise, if you see field values ​​that appear unimportant or have little or no meaning, you can consider the sample suspicious. You won't see neat apps that use unnecessary values ​​to describe their features and version information.
+
+---
+
+### Code Signature Information
+
+Just as we sign documents with our signature, cryptographically generated digital keys, also known as code signing certificates, are used to sign files. Unique digital signatures created for files using these code signing certificates trace back to the original author of the file.
+
+![](https://cdn-images-1.medium.com/max/800/1*g5Jca8N37FnNvWsLyHQo3g.png)
+
+---
+
+### String Analysis
+
+Malware samples are nothing more than software programs and the final executable. It contains many strings as part of the software. These strings can often serve as very good indicators to determine the type, functionality, and purpose of the software.
+
+![](https://cdn-images-1.medium.com/max/800/1*xxiRJuUPCO0OXfBg0cty8g.png)
+
+We can find the strings in the file with the BinText tool and get information from there. This GOAT file was created by Andreas Marx. ROSEGOAT from RR! (08/23/1998) File: ROSE001.COM — 20,000 (4E20h) bytes long! We got information like this from here.
+
+---
+
+### Creating a YARA Rule
+
+YARA is a tool that has been described as the Swiss Army Knife for malware researchers. It is a rule matching engine against files and all types of buffers in general. Using YARA, you can create rules using human-readable strings or even binary patterns, and combine these patterns using boolean expressions to match across files and buffers.
+
+```
+rule YARA_example  
+{  
+      meta:  
+          description = "This is just an example"  
+      strings:  
+          $a = "ROSEGOAT"  
+      condition:  
+          $a  
+}
+```
+
+If we run this rule on sample.exe, we see that there is a match.
+
+![](https://cdn-images-1.medium.com/max/800/1*DPMdAbAOT9U8dwFjbrKy6Q.png)
+
+You can access more detailed information via YARA online.
+
+---
+
+### PE File Headers and Sections
+
+The PE file format contains a header followed by a series of sections. The header contains metadata about the file itself. Following the header are the actual sections of the file, each containing useful information. We can view them with the PEview tool.
+
+![](https://cdn-images-1.medium.com/max/800/1*i5paAwoi1b4Mar08cmxetA.png)
+
+Common PE sections:
+
+The * .**text** section contains the instructions that the CPU executes. All other partitions store data and supporting information. It is the only section containing executable codes.
+The * .**rdata** section typically contains import and export information. This partition can also store other read-only data used by the program.
+The * .**data** section contains general data of the program that can be accessed from anywhere in the program.
+The * .**rsrc** section contains resources such as icons, images, menus, and strings that are used by the executable and are not considered part of the executable.
+
+---
+
+### Disassembly
+
+Although there are many programs that can translate machine code into assembly language, we can say that IDA Pro is the best software.
+
+![](https://cdn-images-1.medium.com/max/800/1*8mnPSAupPgJ7C7pZWqVjug.png)
+
+IDA pro is a paid software, but there is also a free version called IDA freeware, with which you can perform analysis.
+
+---
+
+In this article, I tried to touch upon static analysis methods. Basically how is static analysis done? What techniques are used? I told you these. If you know of any other techniques that I haven't mentioned, you can write them in the comments. In my next article, I will talk about dynamic analysis methods.

@@ -111,3 +111,17 @@ dist
 # OS metadata
 .DS_Store
 Thumbs.db
+
+# Hugo build output
+public/
+resources/
+.hugo_build.lock
+
+# Migration source and temporary files
+medium/
+portfolio/
+tmp/
+migrate_hugo.py
+fix_frontmatter.py
+*.py
+
