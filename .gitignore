@@ -113,7 +113,7 @@ dist
 Thumbs.db
 
 # Hugo build output
-website/public/
+# website/public/
 website/resources/
 website/.hugo_build.lock
 public/
