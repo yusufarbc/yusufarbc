@@ -8,7 +8,7 @@ draft: false
 
 ### DNS Wireshark Analizi
 
-![](https://cdn-images-1.medium.com/max/800/1*_OuE2zljUjPrg0g7TfljyQ.png)
+![](/images/1__OuE2zljUjPrg0g7TfljyQ.png)
 
 Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
 
@@ -20,7 +20,7 @@ DNS, [www.wiresharktraining.com](http://www.wiresharktraining.com) gibi sembolik
 
 DNS ağ üzerindeki en önemli uygulamalardan biridir. Bir DNS sorunu, bilgisayarların hostname bilgilerini kullanırken birbirlerini bulmalarını engelleyecektir.
 
-![](https://cdn-images-1.medium.com/max/800/1*-XBRoGHxww1KuVqyLDEznA.png)
+![](/images/1_-XBRoGHxww1KuVqyLDEznA.png)
 
 DNS paketi
 
@@ -36,7 +36,7 @@ DNS UDP veya TCP üzerinden çalışabilir. Yaygın olarak UDP kullanan DNS sorg
 
 Domain çözümlemesi DNS sorgu ve yanıt işlemleri çok basittir. Bir istemci DNS sunucusuna bir DNS sorgusu göndererek genellikle bir domain karşılığında bir IP adresi ister. DNS sunucusu ya doğrudan sahip olduğu bilgilerle yanıt verir ya da istemciler adına diğer DNS sunucularına sorar.
 
-![](https://cdn-images-1.medium.com/max/800/1*2Ye8QGf5KQIGJriwo33-jQ.png)
+![](/images/1_2Ye8QGf5KQIGJriwo33-jQ.png)
 
 A kaydı DNS Sorgusu
 
@@ -50,7 +50,7 @@ Bir istemcinin talep ettiği ad, hedefin gerçek adı olmayabilir. Bu durumda, w
 
 En yaygın DNS sorunu, bir adın ad namse server veritabanında bulunmaması nedeniyle oluşan hatadır. Bunun nedeni yanlış bir ad girilmesi veya henüz İnternet name serverlarına yayılmamış yeni bir name girilmesi olabilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*QGZ4PNFbyz1aVA6W3cqXLQ.png)
+![](/images/1_QGZ4PNFbyz1aVA6W3cqXLQ.png)
 
 Bulunamayan Domain Sorgusu
 
@@ -58,7 +58,7 @@ Bulunamayan Domain Sorgusu
 
 Sunucu hatası yanıtları, name serverın bir hata nedeniyle istemci için bilgileri çözümleyemediğini gösterir. Bu, name serverın başka bir name servera bir sorgu göndermesi (özyinelemeli bir sorgu yoluyla) ve yanıt beklerken zaman aşımına uğraması veya bir tür dahili hata nedeniyle yanıtın anlaşılamaması veya bir sorguyla bağlantılı olmaması olabilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*ubKDRzHewQqeMyGqbDFqMw.png)
+![](/images/1_ubKDRzHewQqeMyGqbDFqMw.png)
 
 DNS Hataları Sonucu IP Çözümlemesi Yapılamıyor
 
@@ -66,7 +66,7 @@ DNS Hataları Sonucu IP Çözümlemesi Yapılamıyor
 
 DNS sorunlarının nedenini bulmak için Wireshark’ı DNS sunucusunun yukarısına taşıyarak bu konumdaki arama işlemini izlemeniz gerekebilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*CaxBBdj7NrXCZ3tIF-Gxxg.png)
+![](/images/1_CaxBBdj7NrXCZ3tIF-Gxxg.png)
 
 ICMP cevabı hedefde 53 portuun açık oladığını belirtir.
 
@@ -80,7 +80,7 @@ Bu durumda hatanın nerde olduğu, istemcinin DNS sunucusunun doğru IP adresine
 
 Tek bir transport protokolü (UDP veya TCP) kullanan diğer uygulamaların aksine, DNS hem UDP hem de TCP kullanır. DNS genellikle name resolution istekleri ve yanıtları için UDP-53'ü, zone transferleri ile daha büyük name resolutionlar ve yanıtları için TCP-53'ü kullanır.
 
-![](https://cdn-images-1.medium.com/max/800/1*WDRDLWOoT1bKcj8KM2dyVA.png)
+![](/images/1_WDRDLWOoT1bKcj8KM2dyVA.png)
 
 [www.winpcap.com](http://www.winpcap.com) adresine yapılan DNS name reqestleri
 

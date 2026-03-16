@@ -8,7 +8,7 @@ draft: false
 
 ### IPv4/IPv6 Wireshark Analizi
 
-![](https://cdn-images-1.medium.com/max/800/1*qSAbdDrUrlN_SQ9p_AXpFQ.png)
+![](/images/1_qSAbdDrUrlN_SQ9p_AXpFQ.png)
 
 Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
 
@@ -20,7 +20,7 @@ IP (v4/v6 — topluca “IP” olarak anılır), ağa bağlı sistemler içi
 
 IP bağlantısız ve güvenilmezdir, IP ana bilgisayarları arasında datagramların en iyi şekilde teslim edilmesini sağlar. IP’nin kendisi, bir paketin hedef konuma ulaşıp ulaşmadığını belirlemenin hiçbir yolunu sunmaz. Garantili teslimata ihtiyaç duyan bir uygulama IP üzerinden TCP (TCP over IP) kullanmalıdır.
 
-![](https://cdn-images-1.medium.com/max/800/1*T7ew3u6ttBWwa5NsNgjR3g.png)
+![](/images/1_T7ew3u6ttBWwa5NsNgjR3g.png)
 
 IP, UDP ve TCP tabanlı uygulamalar ve ICMP için teslim hizmetleri sağlar
 
@@ -38,7 +38,7 @@ Bir IPv4 iletişiminde her şey yolunda giderse, trafik IP adreslerine ve IP adr
 
 Bir paket yoldaki bir sonraki bağlantıya iletilemeyecek kadar büyükse, yönlendirici IP başlığının parçalanma ayarını inceler. Don’t Fragment biti ayarlanmışsa, paket iletilemez. Yönlendirici, paketi oluşturan kişiye MTU sınırlamasını tanımlayan bir ICMP Tip 3, Kod 4 mesajı (Hedefe Ulaşılamıyor/Parçalanma Gerekli, ancak Parçalama Biti Ayarlandı) göndermelidir. Gönderen, paketi daha küçük bir paket boyutunda yeniden iletmelidir. Parçalanmaya izin veriliyorsa, yönlendirici tek büyük paketi iki (veya daha fazla) küçük pakete bölmeli, parça ofsetini tanımlamalı ve paketlerin parça olduğunu belirtmeli ve iletmelidir.
 
-![](https://cdn-images-1.medium.com/max/800/1*Gmy9Pgg9xp9UlBITMfwglg.png)
+![](/images/1_Gmy9Pgg9xp9UlBITMfwglg.png)
 
 IP, bir bağlantının MTU’su datagram boyutunu desteklemediğinde paketleri parçalayabilir
 
@@ -51,7 +51,7 @@ IPv4 sorunları genellikle parçalanma, olağandışı IP adresleri ve aşırı 
 
 * ICMP Tip 3, Kod 4 paketleri engellendiğinde parçalanma sorunları ortaya çıkabilir, bu da bir ana bilgisayarın paketlerinin neden hedefe ulaşmadığını öğrenmesini engeller. ICMP Tip 3, Kod 4 paketi kara delik tespiti için kullanılır.
 
-![](https://cdn-images-1.medium.com/max/800/1*fLWJpNDw-l0U1eNT73tlaQ.png)
+![](/images/1_fLWJpNDw-l0U1eNT73tlaQ.png)
 
 Kaynak IP adresinin 127.0.0.1 olması şüphelidir
 
@@ -66,7 +66,7 @@ Kaynak IP adresinin 127.0.0.1 olması şüphelidir
 
 IPv6 sadece katman 3 yönlendirilmiş bir protokoldür.
 
-![](https://cdn-images-1.medium.com/max/800/1*WltOTqu_1iZzyc0O4u5zgg.png)
+![](/images/1_WltOTqu_1iZzyc0O4u5zgg.png)
 
 IPv6 Başlığı
 
@@ -86,7 +86,7 @@ IPv6'da yayın(broadcast) adresi yoktur-çoklu yayınlar ağ yayınlarının yer
 
 IPv6 adresleri on altı bayt uzunluğundadır (128 bit) ve x:x:x:x:x:x:x şeklinde yazılır; burada x bir ila dört onaltılık basamağı temsil eder. Gösterimi kısaltmak için tek bir alanda baştaki sıfırları atabilirsiniz.
 
-![](https://cdn-images-1.medium.com/max/800/1*aLNQlmlSWWQnFYKi0MA9rw.png)
+![](/images/1_aLNQlmlSWWQnFYKi0MA9rw.png)
 
 Multicast yayınlar ff02 ile başlar
 
@@ -111,7 +111,7 @@ Link-Local adresler tek bir bağlantı üzerinde adresleme için kullanılır ve
 
 Yukarıdaki şekilde görülen ilk paket bir ICMPv6 İsteği’dir — bu protokol ARP’ın yerini alır. Kaynak adres :: olduğunda, paketin amacı Yinelenen Adres Algılama (DAD)dır.
 
-![](https://cdn-images-1.medium.com/max/800/1*b6BPriW0o2QQNIce_G74JA.png)
+![](/images/1_b6BPriW0o2QQNIce_G74JA.png)
 
 Yönetilen Adres Yapılandırması ve Diğer Yapılandırma bitleri DHCPv6 istemcisinin bir IPv6 adresini ve diğer parametreleri nasıl alacağını tanımlar
 
@@ -130,7 +130,7 @@ DHCPv6 istemci adresi ve diğerparametreler bu iki bitin ayarına göre yapılan
 
 IPv6'ya geçişin bir parçası olarak, mevcut TCP/IP ana bilgisayarları çift yığınları ve IPv4 içinde IPv6 tünelleme yeteneğini destekler. Bu paketler bir IPv4 ağı üzerinden hedef IPv6 ana bilgisayarına yönlendirilebilir. Üç farklı kapsülleme yöntemi vardır-6to4, Teredo ve ISATAP.
 
-![](https://cdn-images-1.medium.com/max/800/1*wfLk0ygZStuJ43NRGFg65Q.png)
+![](/images/1_wfLk0ygZStuJ43NRGFg65Q.png)
 
 Protokol değeri 41, bir IPv6 başlığının daha sonra geldiğini gösterir
 
@@ -145,7 +145,7 @@ Kaynak adresin ilk 2 baytı 0x2002 olacaktır. 6to4 Ağ Geçidi adresi, kapsüll
 
 Teredo, bir IPv6 başlığını bir UDP paketi içinde kapsülleyen başka bir tünelleme yöntemidir. Bu teknoloji, Protokol 41'i işlemeyen Ağ Adresi Çevirisi (NAT) cihazlarını geçmeye yardımcı olmak için geliştirilmiştir. Teredo, RFC 4380, Ağ Adresi Çevirileri (NAT’lar) aracılığıyla UDP üzerinden IPv6 Tünelleme’de ele alınmıştır.
 
-![](https://cdn-images-1.medium.com/max/800/1*W8wVMRwalacSMFyhQtSyfQ.png)
+![](/images/1_W8wVMRwalacSMFyhQtSyfQ.png)
 
 Teredo, IPv6'yı bir UDP paketi içinde tüneller
 
@@ -171,7 +171,7 @@ ISATAP, ISATAP yönlendiricilerinin IPv6 trafiği için bir site içi tünel yap
 
 Bu kısımda başlık alanları ve işlevleri ayrıntılı olarak açıklanmaktadır. Her alanla ilgili daha fazla ayrıntı için RFC 791'e bakabilirsiniz.
 
-![](https://cdn-images-1.medium.com/max/800/1*GJHqitNsY8XKz2li3lXVDQ.png)
+![](/images/1_GJHqitNsY8XKz2li3lXVDQ.png)
 
 IPv4 Başlığı
 
@@ -222,7 +222,7 @@ Bir uygulama(application katmanı protokolleri) parçalanmaya izin vermeyecek ş
 
 Paket bir parçaysa, bu alan, parçalar tekrar tek bir pakette birleştirilirken (hedef ana bilgisayarda) bu paketin verilerinin nereye yerleştirileceğini gösterir. Bu alan, 8 baytlık değerler halinde ofseti sağlar. Örneğin, ilk parçanın ofseti 0 olabilir ve 1400 bayt veri içerebilir (herhangi bir başlık dahil değildir). İkinci parçanın ofset değeri 175 olacaktır (175 x 8 = 1400). Bu alan yalnızca paket bir parça ise kullanılır, aksi takdirde 0 olarak ayarlanır.
 
-![](https://cdn-images-1.medium.com/max/800/1*6Y7PXca_YiF7g2nbehV6oA.png)
+![](/images/1_6Y7PXca_YiF7g2nbehV6oA.png)
 
 Wireshark’ın IP parçalarını görüntülemesi
 

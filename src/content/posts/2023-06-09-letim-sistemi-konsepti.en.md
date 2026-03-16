@@ -8,7 +8,7 @@ draft: false
 
 ### Operating System Concept
 
-![](https://cdn-images-1.medium.com/max/800/1*IvUopr4Tqf2K6eew539ATw.png)
+![](/images/1_IvUopr4Tqf2K6eew539ATw.png)
 
 Hello, in this article I will talk about the structure, concept and features of operating systems. Design challenges of the operating system, security requirements and more are in this article!
 
@@ -30,7 +30,7 @@ Yes, we are talking about an extremely complex system. Making all components int
 
 An operating system is software that acts as an interface between computer hardware and software and manages the computer's resources. The operating system regulates access to the computer's resources such as memory, processor, file systems, device drivers and network connections and ensures that users can use these resources effectively.
 
-![](https://cdn-images-1.medium.com/max/800/1*Xpk60lGLgXPw0S25Wf7sxw.jpeg)
+![](/images/1_Xpk60lGLgXPw0S25Wf7sxw.jpeg)
 
 Operating System Structure
 
@@ -105,7 +105,7 @@ Each process is represented by a process control block (PCB) in the operating sy
 * **I/O status information:** This information includes information about the I/O devices allocated to the process.  
   list, list of open files, etc. Contains.
 
-![](https://cdn-images-1.medium.com/max/800/1*RrcLvg5ZJ9nHEVCHm7VEeA.png)
+![](/images/1_RrcLvg5ZJ9nHEVCHm7VEeA.png)
 
 Process control block (PCB)
 
@@ -127,7 +127,7 @@ There are two basic models of communication: *shared memory* and *message passin
 
 A thread is a basic unit of CPU usage; It consists of a thread ID, a program counter, a register set, and a stack. It shares the code section, data section, and other operating system resources such as open files and signals with other threads belonging to the same process. A traditional process has a single thread of control. A process can have multiple threads.
 
-![](https://cdn-images-1.medium.com/max/800/1*Oj15rspOQ1TXXtw4k4d2xQ.png)
+![](/images/1_Oj15rspOQ1TXXtw4k4d2xQ.png)
 
 Threaded Processing
 
@@ -179,7 +179,7 @@ Hardware-based solutions to the critical cross-section problem are complex and o
 The transaction must acquire the lock before entering a critical section; from critical section  
 When it comes out, it releases the lock.
 
-![](https://cdn-images-1.medium.com/max/800/1*6IRXR8Sw9EndL-QKPRmL6w.png)
+![](/images/1_6IRXR8Sw9EndL-QKPRmL6w.png)
 
 Use of mutex locks
 
@@ -207,7 +207,7 @@ data with a set of functions that will operate on that data independently
 covers. The monitor structure allows only one process to be active within the monitor at a time.  
 makes it happen.
 
-![](https://cdn-images-1.medium.com/max/800/1*1yFRNX_7QPDEhWUFWc-61w.png)
+![](/images/1_1yFRNX_7QPDEhWUFWc-61w.png)
 
 monitor
 
@@ -259,7 +259,7 @@ An address seen by the memory unit — that is, the address loaded into the 
 
 For a process to be executed, it must be in memory. However, a process can be temporarily moved from memory to disk and then brought back to memory to continue execution.
 
-![](https://cdn-images-1.medium.com/max/800/1*iB_t0Cpvz9x4aAf2_0bu9A.png)
+![](/images/1_iB_t0Cpvz9x4aAf2_0bu9A.png)
 
 Swap transaction
 
@@ -288,7 +288,7 @@ Strategies developed for this process:
 
 Considering memory in terms of its physical properties is harmful for both the operating system and the programmer. What if hardware could provide a memory mechanism that mapped the programmer's view to actual physical memory? While the system would have more freedom to manage memory, the programmer would have a more natural programming environment. Segmentation provides such a mechanism.
 
-![](https://cdn-images-1.medium.com/max/800/1*-jrsYdgi6mk5r2ySy2Dp9Q.png)
+![](/images/1_-jrsYdgi6mk5r2ySy2Dp9Q.png)
 
 Segmentation Hardware
 
@@ -299,7 +299,7 @@ Each segment has a name and length. Addresses specify both the segment name and 
 Segmentation allows the physical address space of a process to be non-contiguous. Paging is another memory management scheme that offers this advantage. However, paging prevents and compresses external fragmentation, whereas segmentation does not. Additionally, different sizes of memory  
 It also solves the important problem of fitting parts into the support tank.
 
-![](https://cdn-images-1.medium.com/max/800/1*0Ir0o5wtu7y2mwjfFarrHA.png)
+![](/images/1_0Ir0o5wtu7y2mwjfFarrHA.png)
 
 Paging Hardware
 
@@ -310,7 +310,7 @@ The basic method for implementing paging involves dividing physical memory into 
 Virtual memory involves separating logical memory from physical memory as perceived by users. This allocation allows an extremely large amount of virtual memory to be available to programmers when only smaller physical memory is available. Virtual memory makes the programming task much easier because the programmer no longer needs to worry about the amount of physical memory available; instead  
 can concentrate on the problem to be programmed.
 
-![](https://cdn-images-1.medium.com/max/800/1*QvvtOf3Vf930Fs19eSHqjQ.png)
+![](/images/1_QvvtOf3Vf930Fs19eSHqjQ.png)
 
 Virtual Memory
 
@@ -332,7 +332,7 @@ It is a component that allows the operating system to manage large data storage 
 
 A disk is a storage unit where data is permanently stored and accessed. Disks commonly used in computer systems are divided into two main categories: hard disk drives (Hard Disk Drive — HDD) and solid state drives (Solid State Drive — SSD).
 
-![](https://cdn-images-1.medium.com/max/800/1*zfPPKDtSp7k9jBGej2m-dw.png)
+![](/images/1_zfPPKDtSp7k9jBGej2m-dw.png)
 
 HDD Disk
 
@@ -357,25 +357,25 @@ Disk scheduling algorithms manage incoming requests and determine the order in w
 
 * **FCFS (First-Come, First-Served):** This algorithm processes incoming requests sequentially and processes incoming requests first. However, this algorithm does not take into account physical locations on the disk and can increase disk access times in case of an out-of-order sorting.
 
-![](https://cdn-images-1.medium.com/max/800/1*kVk--dRni90LbzTYov3b4w.png)
+![](/images/1_kVk--dRni90LbzTYov3b4w.png)
 
 FCFS
 
 * **SSTF (Shortest Seek Time First):** This algorithm processes the request with the shortest travel distance from where the disk head is currently positioned. That is, requests where the head must travel the shortest distance are processed with priority. This algorithm reduces the total disk access time and provides better performance.
 
-![](https://cdn-images-1.medium.com/max/800/1*_3w6z61oJ6PQpjmsAAPmmg.png)
+![](/images/1__3w6z61oJ6PQpjmsAAPmmg.png)
 
 SSTF
 
 * **SCAN (Elevator):** This algorithm processes requests when moving the disk head in a specific direction (for example, inward or outward). As the head progresses, it processes all the requests and when it reaches the end, it turns away from the direction and comes back. This way, it constantly scans for requests on the disk. The SCAN algorithm processes requests fairly and reduces waiting times for on-disk requests.
 
-![](https://cdn-images-1.medium.com/max/800/1*t7kHcp1t1Z8vX1HjZq4I-w.png)
+![](/images/1_t7kHcp1t1Z8vX1HjZq4I-w.png)
 
 SCAN
 
 * **C-SCAN (Circular SCAN):** This algorithm processes requests similar to the SCAN algorithm, but unlike SCAN, it starts from the last request when returning. That is, it moves across the disk in one direction as it processes requests, and when it reaches the last request it quickly moves to the other end and starts again. C-SCAN provides a fairer request processing order than SCAN.
 
-![](https://cdn-images-1.medium.com/max/800/1*3GQpsL_MjPT6VphPF1Uerw.png)
+![](/images/1_3GQpsL_MjPT6VphPF1Uerw.png)
 
 C-SCAN
 

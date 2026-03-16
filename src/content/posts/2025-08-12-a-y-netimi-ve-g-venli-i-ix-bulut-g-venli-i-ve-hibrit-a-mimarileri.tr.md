@@ -8,7 +8,7 @@ draft: false
 
 ### Ağ Yönetimi ve Güvenliği IX: Bulut Güvenliği ve Hibrit Ağ Mimarileri
 
-![](https://cdn-images-1.medium.com/max/800/1*mmBfnODexSndicvHEIF90w.png)
+![](/images/1_mmBfnODexSndicvHEIF90w.png)
 
 Dijital dönüşüm, kurumsal BT ortamını geri dönülmez bir şekilde değiştirmiştir. Statik, şirket içi veri merkezlerinden dinamik, ölçeklenebilir ve yenilikçi bulut ortamlarına geçiş artık bir trend değil, temel bir iş zorunluluğudur. Çeviklik ve maliyet verimliliği vaadiyle yönlendirilen bu evrim , çoklu hizmet modellerini (IaaS, PaaS, SaaS) ve hibrit ve çoklu bulut gibi dağıtım stratejilerini kapsayan karmaşık ekosistemleri ortaya çıkarmıştır.
 
@@ -149,7 +149,7 @@ Sanal ağlar ve alt ağlar ile oluşturulan mantıksal izolasyon, trafiği kontr
 
 Aşağıdaki tablo, bu üç platformun temel trafik filtreleme mekanizmalarını özetlemektedir.
 
-![](https://cdn-images-1.medium.com/max/800/1*Rsbt4vyN_qIdQmyZHFOLdQ.png)
+![](/images/1_Rsbt4vyN_qIdQmyZHFOLdQ.png)
 
 **AWS SG, Azure NSG ve GCP Güvenlik Duvarı Kuralları Karşılaştırması**
 
@@ -242,7 +242,7 @@ Bu iki teknoloji arasındaki paradigma değişimi, güvenlik çevresinin (perime
 
 Aşağıdaki tablo, bu iki yaklaşım arasındaki temel farkları özetlemektedir.
 
-![](https://cdn-images-1.medium.com/max/800/1*ONz6_-qBi4Nekat2qavKdg.png)
+![](/images/1_ONz6_-qBi4Nekat2qavKdg.png)
 
 **Geleneksel VPN ve ZTNA Karşılaştırması**
 

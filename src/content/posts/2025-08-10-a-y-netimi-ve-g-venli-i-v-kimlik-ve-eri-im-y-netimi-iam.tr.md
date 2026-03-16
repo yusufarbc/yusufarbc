@@ -8,7 +8,7 @@ draft: false
 
 ### Ağ Yönetimi ve Güvenliği V: Kimlik ve Erişim Yönetimi (IAM)
 
-![](https://cdn-images-1.medium.com/max/800/1*6OkxmUjEoOjEZW17jo7E8w.png)
+![](/images/1_6OkxmUjEoOjEZW17jo7E8w.png)
 
 Kimlik ve Erişim Yönetimi (Identity and Access Management — IAM), bir organizasyonun dijital kimlikleri ve bu kimliklerin kritik sistemlere, uygulamalara ve verilere erişim haklarını yönetmek için kullandığı iş süreçleri, politikalar ve teknolojiler bütünüdür. Temel amacı, doğru kişilerin veya hizmetlerin, doğru kaynaklara, doğru zamanda ve doğru nedenlerle erişmesini sağlamaktır. Bu çerçeve, yalnızca bir teknoloji yığınından ibaret olmayıp, aynı zamanda bir kurumun güvenlik duruşunu ve operasyonel verimliliğini temelden şekillendiren stratejik bir yönetişim disiplinidir. IAM, bir organizasyon içindeki çalışanlar, sözleşmeli personel, iş ortakları ve hatta müşteriler gibi tüm kullanıcı kimliklerini kapsar ve her bir kimliğin yaşam döngüsünü (oluşturma, yönetme, silme) kontrol eder.
 
@@ -51,7 +51,7 @@ Protokol seçimi, sadece teknik bir tercih değil, aynı zamanda bir organizasyo
 
 * TACACS+ ise daha derin bir soru sorar: “Ağa giren bu yönetici, cihaz üzerinde *hangi komutları* çalıştırabilir?”. AAA süreçlerini ayırması, ona bir “operasyon denetçisi” yeteneği kazandırır. Bu sayede bir ağ yöneticisinin kimliği doğrulandıktan sonra, ona yalnızca `show interface` gibi izleme komutlarını çalıştırma yetkisi verilirken, `configure terminal` gibi yapılandırma komutlarını çalıştırma yetkisi engellenebilir. Bu granüler kontrol seviyesi, en az ayrıcalık ilkesinin ağ cihazı yönetimi katmanında hassas bir şekilde uygulanmasını sağlar. Bu nedenle TACACS+, finans, savunma ve telekomünikasyon gibi yüksek güvenlik gerektiren sektörlerde ve ağ altyapısının yönetiminde tercih edilen protokoldür.
 
-![](https://cdn-images-1.medium.com/max/800/1*p7VHlJuCXv1f6irJuqfB_g.png)
+![](/images/1_p7VHlJuCXv1f6irJuqfB_g.png)
 
 iki protokol arasındaki temel farkları
 
@@ -121,7 +121,7 @@ Erişim kontrol modelleri, PoLP’nin uygulanmasında temel araçlardır. **RBAC
 
 Aşağıdaki tablo, erişim kontrol modellerini temel özellikleri açısından karşılaştırmaktadır:
 
-![](https://cdn-images-1.medium.com/max/800/1*nVP5oHjzybYftBsE0y9dnQ.png)
+![](/images/1_nVP5oHjzybYftBsE0y9dnQ.png)
 
 Erişim Kontrol Modelleri
 
@@ -178,7 +178,7 @@ Modern IAM sistemleri, her giriş denemesinde aynı MFA yöntemini zorunlu kılm
 
 Aşağıdaki tablo, farklı MFA yöntemlerini pratik karar verme kriterlerine göre karşılaştırmaktadır:
 
-![](https://cdn-images-1.medium.com/max/800/1*8TTOg_EU2ai3ZII65l_vMQ.png)
+![](/images/1_8TTOg_EU2ai3ZII65l_vMQ.png)
 
 MFA yöntemleri
 

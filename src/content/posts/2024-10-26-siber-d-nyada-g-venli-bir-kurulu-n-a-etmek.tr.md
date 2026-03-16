@@ -8,11 +8,11 @@ draft: false
 
 ### Siber Dünyada Güvenli Bir Kuruluş İnşa Etmek
 
-![](https://cdn-images-1.medium.com/max/800/1*sWahjiY8Mezr6QWu9JJDAg.png)
+![](/images/1_sWahjiY8Mezr6QWu9JJDAg.png)
 
 İster ticari ister kâr amacı gütmeyen bir işletme olsun, her işletmenin güvenli bir organizasyon oluşturmanın uzun vadeli başarı için önemli olduğunu anlaması mantıklı görünmektedir. Bir işletme güçlü bir güvenlik duruşu uyguladığında ve sürdürdüğünde, çok sayıda avantajdan yararlanabilir. Güvenli bir kuruluş, güvenlik programını bir pazarlama aracı olarak kullanabilir ve müşterilerine işlerine ne kadar değer verdiğini ve bilgilerini korumak için ne derece bir duruş sergilediğini gösterebilir. Ancak en önemlisi, güvenli bir kuruluş güvenlik ihlallerini tespit etmek ve bu ihlallerin sonuçlarına müdahale etmek için zaman ve para harcamak zorunda kalmayacaktır.
 
-![](https://cdn-images-1.medium.com/max/800/1*m9xT3lhsreu1zC6hSYK13Q.png)
+![](/images/1_m9xT3lhsreu1zC6hSYK13Q.png)
 
 Bilgi Güvenliği
 
@@ -28,7 +28,7 @@ Güvenlik önlemlerinin yol açtığı hayal kırıklığını tam olarak anlama
 
 Ev bilgisayarları kişisel verilerin deposu haline geldi. Bilgisayarlarımız artık düğün videoları, taranmış aile fotoğrafları, müzik kütüphaneleri, film koleksiyonları ve finansal ve sağlık bilgileri içeriyor. Bilgisayarlar bu kadar tanıdık bilgiler içerdiği ve hayatın içine girdiği için ne kadar güçlü ve karmaşık cihazlar olduklarını unuttuk. Bundan çok uzun zaman önce masaüstü ve dizüstü bilgisayarlarımız kadar güçlü bilgisayarlar bir veya daha fazla büyük odayı doldururdu. Buna ek olarak, günümüz bilgisayarları dünyaya “kullanıcı dostu” bir yüz sunuyor.
 
-![](https://cdn-images-1.medium.com/max/800/1*Leuvd-FleRoFfKzpN26UhA.jpeg)
+![](/images/1_Leuvd-FleRoFfKzpN26UhA.jpeg)
 
 ENIAC Bilgisayarı
 
@@ -40,13 +40,13 @@ Birçok bilgisayar kullanıcısı, elektronik tablolar (excel gibi), kelime işl
 
 Bu “Bilgili Kullanıcılar” uygulama temellerinin ötesine geçmiştir, ancak birçoğu hala temel güvenlik kavramlarını bile anlamamaktadır. Birçok kullanıcı, bu eylemlerin şirket politikalarını ihlal edebileceği gerçeğine rağmen gelişigüzel yazılım yükleyecek ve şüpheli Web sitelerini ziyaret edecektir. “Kötü adamlar”, bilgisayar sistemlerinden bilgi çalmak ya da bilgisayar sistemlerine zarar vermek isteyen kişiler, son kullanıcının güvenlik zincirinde zayıf bir halka olduğunu da tespit etmişlerdir.
 
-![](https://cdn-images-1.medium.com/max/800/1*EVJHO-mSs1IsrPDez7zynQ.jpeg)
+![](/images/1_EVJHO-mSs1IsrPDez7zynQ.jpeg)
 
 Son Kullanıcı Riski
 
 Şirketler çevre savunmalarına daha fazla para yatırmaya başladıkça, saldırganlar en az direnç gösteren yolu aramaya başladılar. Zararlı yazılımları e-posta eki olarak göndererek alıcılardan eki açmalarını istiyorlar. Bilinmeyen göndericilerden gelen ekleri açmamaları ya da sadece ekleri hiç açmamaları söylenmesine rağmen, çalışanlar sürekli olarak bu politikayı ihlal ederek ağlarında hasara yol açıyor.
 
-![](https://cdn-images-1.medium.com/max/800/1*5sBt5Lq39KhCLqrEy3goxQ.jpeg)
+![](/images/1_5sBt5Lq39KhCLqrEy3goxQ.jpeg)
 
 Kimlik Avı
 
@@ -56,7 +56,7 @@ Kimlik avı dolandırıcılığı bireyleri kişisel çevrimiçi bankacılık ve
 
 Kişisel bilgisayarların (PC) geliştirilmesi sırasında güvenlik konusuna hiç kafa yorulmamıştır. İlk PC’ler sınırlı işlem gücüne sahip, klavyesi olmayan ve bir dizi düğmenin çevrilmesiyle programlanan çok basit cihazlardı. Neredeyse bir merak unsuru olarak geliştirilmişlerdi. Daha gelişmiş ve karmaşık hale geldiklerinde bile, tüm çabalar daha fazla gelişmişlik ve yetenek geliştirmeye odaklandı; kimse güvenlik sorunları olacağını düşünmedi. O zamanlar güvenliğin neden bir sorun olmadığını anlamak için Berkeley Enterprises Geniac, Heathkit EC-1 veya MITS Altair 8800 gibi ilk bilgisayarlardan bazılarına bakmamız yeterlidir. Bilgisayarların geliştirilmesi ne yapabileceklerine odaklanmıştı, nasıl saldırıya uğrayabileceklerine değil!
 
-![](https://cdn-images-1.medium.com/max/800/1*Bf4of7Vzp-zoPg86RGgYAQ.jpeg)
+![](/images/1_Bf4of7Vzp-zoPg86RGgYAQ.jpeg)
 
 MITS Altair 8800 — İlk Kişisel Bilgisayar
 
@@ -90,7 +90,7 @@ Kurumların yüksek motivasyonlu ve yetenekli bilgisayar korsanı grupları tara
 
 Çoğu kuruluş için güçlü bir güvenlik duruşu oluşturmanın maliyeti, sigorta satın almaya benzer şekilde gerekli bir kötülük olarak görülür. Kuruluşlar bunun için para harcamak istemezler, ancak satın alma yapmamanın riskleri maliyetlerden daha ağır basar. Bu tutum nedeniyle, güvenli bir organizasyon oluşturmak son derece zordur. Bu tutum, güvenlik araçlarına yönelik taleplerin genellikle güçlü bir güvenlik duruşunun daha somut faydalarını göstermek yerine bir güvenlik olayının ortalama maliyetini gösteren belgelerle desteklenmesinden kaynaklanmaktadır.
 
-![](https://cdn-images-1.medium.com/max/800/1*xgVvQ2QkFScPSanG1cBoRw.png)
+![](/images/1_xgVvQ2QkFScPSanG1cBoRw.png)
 
 İhlallerin Bedeli
 
@@ -185,7 +185,7 @@ Bu cihazlar verilere yönelik tek tehdit değildir. USB portu aracılığıyla b
 
 Neyse ki Microsoft Windows, HKEY\_Local\_Machine\System\ControlSet00x\Enum\USBStor adlı bir Kayıt Defteri anahtarında bir sisteme bağlı aygıtları izler. Ne tür aygıtların bağlandığını görmek için kendi bilgisayarınızda bu anahtara bakmak ilginç olabilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*lzT-9yy1W4twVkTy-OsLRg.png)
+![](/images/1_lzT-9yy1W4twVkTy-OsLRg.png)
 
 USBStor Kayıt Defteri anahtarında bağlı USB aygıtlarını tanımlama
 
@@ -209,7 +209,7 @@ Birçok kuruluş ve sistem yöneticisi, sınırlı kaynaklara sahip oldukları v
 
 Günümüzde bir kuruluştaki en büyük endişelerden biri, sağlam çevre güvenliğine rağmen gizli bilgilerin bir kuruluşu terk edebileceği yollar olan veri sızıntılarıdır. Daha önce de belirtildiği gibi, USB Flash sürücüler veri sızıntılarının bir nedenidir; bir diğeri ise bir bilgisayarın sabit diskinin ayrılmamış kümelerinde bulunan verilerin kurtarılmasıdır. Ayrılmamış kümeler ya da yaygın adıyla boş alan, işletim sistemi ve uygulamaların artıkları ya da artık verileri attığı sabit disk alanıdır. Bu veriler bir kullanıcı arayüzü aracılığıyla görüntülenemese de, WinHex gibi bir hex editörü kullanılarak kolayca tanımlanabilir (ve bazen kurtarılabilir).
 
-![](https://cdn-images-1.medium.com/max/800/1*DFq_JJiwXTd39CS0mUtrUQ.png)
+![](/images/1_DFq_JJiwXTd39CS0mUtrUQ.png)
 
 Silinen bir Word belgesinin içeriğini görüntüleyen WinHex
 
@@ -217,7 +217,7 @@ Bir bilgisayarın çalınması ya da bağışlanması durumunda, birisinin ayrı
 
 “Tüm birimdeki mevcut kullanılmayan disk alanından verileri kaldırır. Bu seçenek seçilirse, diğer tüm seçenekler yok sayılır. Belirtilen dizin yerel bir birimde herhangi bir yerde olabilir. Bir bağlama noktasıysa veya başka bir birimdeki bir dizine işaret ediyorsa, o birimdeki veriler kaldırılır.”
 
-![](https://cdn-images-1.medium.com/max/800/1*tEwQUN4ab95pS6kEQM4DIA.png)
+![](/images/1_tEwQUN4ab95pS6kEQM4DIA.png)
 
 cipher kullanımı
 
@@ -275,7 +275,7 @@ Gereksinim 6 biraz zorlayıcı görünüyor, çünkü çok az kuruluşun log dos
 
 Sistemlerinizi izlemek için daha da ayrıntılı bir yaklaşım, ağınıza bir paket yakalama aracı yüklemektir, böylece trafiği gerçek zamanlı olarak analiz edebilir ve yakalayabilirsiniz. Çok yararlı olabilecek bir araç, “ağ uzmanlarından oluşan uluslararası bir ekip tarafından geliştirilen ödüllü bir ağ protokolü analizörü” olan Wireshark’tır. Wireshark orijinal paket yakalama aracı Ethereal’e dayanmaktadır. Ağ trafiğini analiz etmek önemsiz bir iş değildir ve biraz eğitim gerektirir, ancak ağınızda neler olup bittiğini belirlemenin belki de en doğru yoludur. Şekilde , Wireshark’ın bir kablosuz arayüzdeki trafiği izlemesini göstermektedir.
 
-![](https://cdn-images-1.medium.com/max/800/1*x187pNRitiY0IegmpeG-dQ.png)
+![](/images/1_x187pNRitiY0IegmpeG-dQ.png)
 
 Wireshark
 

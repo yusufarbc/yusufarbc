@@ -8,7 +8,7 @@ draft: false
 
 ### Microsoft’un Bulut Odaklı Stratejisi
 
-![](https://cdn-images-1.medium.com/max/800/1*tdun2Bby5gQIKpvNeEUi2Q.png)
+![](/images/1_tdun2Bby5gQIKpvNeEUi2Q.png)
 
 Microsoft, son yıllarda “cloud-first” yaklaşımını net bir biçimde benimsemiş; Windows Server, kimlik yönetimi ve diğer ürünlerini Azure bulutuyla entegre edecek şekilde konumlandırmaktadır. Örneğin Microsoft dokümantasyonunda Windows Server 2022’nin “güvenlik, Azure hibrit entegrasyonu ve yönetimi” ana temalarına dayalı yenilikler getirdiği vurgulanmaktadır. Hatta Windows Server 2022 Datacenter: Azure Edition sürümünün “bulutun faydalarını kullanarak VM’leri kesinti olmadan güncel tutmaya” yönelik özellikler sunduğu, Hotpatch, SMB over QUIC ve Azure Extended Networking gibi bulut odaklı yenilikler içerdiği belirtilmektedir. Bu da Microsoft’un hem ürün yeniliklerinde hem de yönetim metotlarında Azure’a ve bulut entegrasyonuna ağırlık verdiğini göstermektedir.
 

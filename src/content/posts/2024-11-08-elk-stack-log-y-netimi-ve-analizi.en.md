@@ -8,7 +8,7 @@ draft: false
 
 ### ELK Stack Log Management and Analysis
 
-![](https://cdn-images-1.medium.com/max/800/1*O7bMqTbQv_OX5x75qkY6Ug.png)
+![](/images/1_O7bMqTbQv_OX5x75qkY6Ug.png)
 
 Hello, in this article, I will talk about the log management of ELK Stack, which we installed in my last article, namely log collection, parsing and enrichment processes. How to Collect, Process and Send Logs with Logstash?
 
@@ -45,7 +45,7 @@ In this article, we will send logs with beats and collect logs with logstash fro
 
 Logstash is easier to understand when you imagine it as a pipeline. At one end of this pipeline are **inputs** that represent data sources. As log records pass through the Logstash pipeline, they can be enriched, filtered or manipulated based on your needs. Ultimately, when they reach the end of the pipeline, Logstash can deliver these logs to configured destinations for storage or analysis.
 
-![](https://cdn-images-1.medium.com/max/800/1*sf3D7DyNWppst-cVl_z42g.png)
+![](/images/1_sf3D7DyNWppst-cVl_z42g.png)
 
 Logstash Pipeline
 
@@ -145,7 +145,7 @@ I used the grok plugin as a filter on Logstash. grok is a very good parser plugi
 
 Now change ownership of directory `/usr/share/logstash/data` to user `logstash`:
 
-![](https://cdn-images-1.medium.com/max/800/1*AQQWHHMHTuYtBxAsZ0DWzg.png)
+![](/images/1_AQQWHHMHTuYtBxAsZ0DWzg.png)
 
 Changing ownership of Logstash data directory
 
@@ -159,17 +159,17 @@ Now start Logstash by passing the path to the configuration file:
 sudo -u logstash /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/logstash.conf
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*IN4dRRoxrItJa5eUNsAFqw.png)
+![](/images/1_IN4dRRoxrItJa5eUNsAFqw.png)
 
 Starting logstashi
 
 When you start it with the Logstash configuration file, if there are no errors, you will receive a message that the pipeline is listening and ready.
 
-![](https://cdn-images-1.medium.com/max/800/1*eGddI0ws1vfegy_IhfJl_w.png)
+![](/images/1_eGddI0ws1vfegy_IhfJl_w.png)
 
 Pipeline listening
 
-![](https://cdn-images-1.medium.com/max/800/1*j93RhXtzHMuobzrXoKpjDQ.png)
+![](/images/1_j93RhXtzHMuobzrXoKpjDQ.png)
 
 Logstash Service Status
 
@@ -197,7 +197,7 @@ wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.15.3-amd64
 sudo dpkg -i filebeat-8.15.3-amd64.deb
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*h8EWICxmNAUUwQgfbizXjQ.png)
+![](/images/1_h8EWICxmNAUUwQgfbizXjQ.png)
 
 Filebeat installation
 
@@ -207,19 +207,19 @@ After downloading and installing Filebeat, we proceed to the configuration proce
 sudo nano /etc/filebeat/filebeat.yml
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*CigAmS2AF5tsJWQYLetpkg.png)
+![](/images/1_CigAmS2AF5tsJWQYLetpkg.png)
 
 Elasticsearch Output
 
 Since we will direct our output to logstashe, we close the elasticsearch section with a square sign.
 
-![](https://cdn-images-1.medium.com/max/800/1*Hnz7Cpp4QzquIrc10rjBdQ.png)
+![](/images/1_Hnz7Cpp4QzquIrc10rjBdQ.png)
 
 Logstash Output
 
 In the Logstash section, we enter the IP and port number of our Logstash server.
 
-![](https://cdn-images-1.medium.com/max/800/1*MBSKQNv8BjcCL-dWN4oZCg.png)
+![](/images/1_MBSKQNv8BjcCL-dWN4oZCg.png)
 
 Log Collection Configuration
 
@@ -235,7 +235,7 @@ sudo systemctl enable filebeat.service
 sudo systemctl start filebeat.service
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*5fkN3mf3RSkcR8i5pj_eXg.png)
+![](/images/1_5fkN3mf3RSkcR8i5pj_eXg.png)
 
 Filebeat Service Status
 
@@ -249,19 +249,19 @@ You can install and configure other beats products in a similar way.
 
 We have completed our Logstash and Filebeat installations. Now let's open our kibana interface. Then let's enter the elasticsearch section. Let's check if our index has arrived in the Indicies area.
 
-![](https://cdn-images-1.medium.com/max/800/1*Y2bco0zQhKvUxE1T2mvOxw.png)
+![](/images/1_Y2bco0zQhKvUxE1T2mvOxw.png)
 
 Kibana Interface
 
 We can see our incoming index in this interface. Now let's go to the “Discover” section.
 
-![](https://cdn-images-1.medium.com/max/800/1*t9aAyIPyNRzcWZK7wsbouA.png)
+![](/images/1_t9aAyIPyNRzcWZK7wsbouA.png)
 
 Discover Panel
 
 We will create a new data view by clicking the Create Data View button.
 
-![](https://cdn-images-1.medium.com/max/800/1*oDaljym5JgsWwDuNrK5cjg.png)
+![](/images/1_oDaljym5JgsWwDuNrK5cjg.png)
 
 Creating a Data View
 
@@ -269,7 +269,7 @@ Give it a name and select the index pattern, you may want to name it filebeat\* 
 
 After saving the Data View, logs should appear in the discover panel. If it hasn't arrived, there is a problem.
 
-![](https://cdn-images-1.medium.com/max/800/1*yXjPbz-6CYRJekTkqSvHwQ.png)
+![](/images/1_yXjPbz-6CYRJekTkqSvHwQ.png)
 
 Discover Panel
 

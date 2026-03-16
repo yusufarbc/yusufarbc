@@ -8,7 +8,7 @@ draft: false
 
 ### Kriptoloji Temelleri:#4 Blokzincir
 
-![](https://cdn-images-1.medium.com/max/800/1*Ci1P1v2xXKNrCvqur5DbQQ.png)
+![](/images/1_Ci1P1v2xXKNrCvqur5DbQQ.png)
 
 Merhaba, kriptoloji temelleri serisinin bu yazısında blokzincirin ne olduğundan nasıl çalıştığından ve nerelerde kullanıldığından bahsedeceğim.
 

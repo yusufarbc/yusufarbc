@@ -8,7 +8,7 @@ draft: false
 
 ### Hakerlar için Python: requests
 
-![](https://cdn-images-1.medium.com/max/800/1*a87phGSd-sbfiJLWPfGMxA.png)
+![](/images/1_a87phGSd-sbfiJLWPfGMxA.png)
 
 ### Giriş
 
@@ -140,7 +140,7 @@ Burada aldığımız cevap ile ilgili bilgiler görüyoruz. Ayrıca aldığımı
 
 requests.models.Response türünde bir nesne olduğunu anlıyoruz. [Kaynak koduna](https://requests.readthedocs.io/en/latest/_modules/requests/models/) baktığımzda:
 
-![](https://cdn-images-1.medium.com/max/800/0*L_iXdDv3gSm2uu6j.png)
+![](/images/0_L_iXdDv3gSm2uu6j.png)
 
 uzunca bir kod görüyoruz. Kendi dökümantasyonuna da [buradan](https://requests.readthedocs.io/en/latest/api/#requests.Response) ulaşabilirsiniz. Bizim için burada önemli olan \_\_attrs\_\_ kısmında yazan attiributeleridir.
 
@@ -173,7 +173,7 @@ f.close()
 
 sayfa kaynağının aşağıdaki gibi çekildiğini görebilirsiniz. (CSS ve Javascript kodlarıyla birlikte)
 
-![](https://cdn-images-1.medium.com/max/800/0*W3QQk0ZEoY20GPcY.png)
+![](/images/0_W3QQk0ZEoY20GPcY.png)
 
 Sayfa kaynağını [BeautifulSoup](https://pypi.org/project/beautifulsoup4/) modülü ile ayrıştırabilir içinden istedğiniz bilgileri alabilirsiniz. Ama bu yazımızda daha farklı şeyler yapacağız.
 
@@ -212,7 +212,7 @@ Fonksiyona verdiğimiz URL’i aldığımız metin dosyasında arayarak bulduğu
 
 Kaba Kuvvet Saldırısı, doğrusunu bulma umuduyla deneme yanılma yönetimi kullanarak bir web sayfasına giriş yapmak için kullanabileceğimiz basit ancak hala etkili bir saldırı türüdür. Bunu python uygulamamızla nasıl yapabileceğimize bir bakalım. Bunun için DVWA uygulamasını kullanacağım.
 
-![](https://cdn-images-1.medium.com/max/800/0*D7cpaI2bY2tgv3Ig.png)
+![](/images/0_D7cpaI2bY2tgv3Ig.png)
 
 Burada giriş sayfamı [burp suite](https://portswigger.net/burp) aracıyla dinledim. username ve password alanlarına ‘aa’ değerini girerek login butonuna bastım. Yapılan GET isteği burp aracım üzerinde HTTP History bölümünde yakalanmış oldu. Tabi bunun için faklı araçlar da kullanabilirsiniz. Biz buradaki bazı bilgileri kullanacağız. Öncellikle DVWA sayfasına oturum açarak eriştiğimiz için python uygulamamızında bir şekilde oturuma erişmesi gerekiyor. Peki oturum nedir? kısaca bahsedecek olursak, bir giriş sayfasından kullanıcı adı/şifre bilgilerimizle giriş yaptığımızda aslında bir oturum başlatmış oluruz. İşimiz bitip tarayıcımızı kapattığımızda veya üzerinden belli bir süre geçtiğinde oturum sonlandırılır. Web uygulamaları oturum oluştururken çerelerden(cookie) yararlanır, bir çerez istemci bilgisayarında bir çerez sunucuda olmak üzere iki çerez oluşturulur. Bu iki çerez de kaybolmadığı sürece oturum devam eder. Biz burada DVWA sayfasına giriş yaparak aldığımız oturum çerezini python uygulamamıza vererek bizim otururumuz ile web sayfasına erişmesini sağlayacağız. Burp aracında işaretli alan ‘PHPSESID’ bizim oturum çerezimizdir. Yalnız acele etsek iyi olur, oturumun süresi bitiyor…
 
@@ -243,7 +243,7 @@ for i in usernames:
       print("Username and Password is found")
 ```
 
-![](https://cdn-images-1.medium.com/max/800/0*WFaG5gXYv4_u5frj.png)
+![](/images/0_WFaG5gXYv4_u5frj.png)
 
 Kodu python dosyasına yazıp çalıştırdığımızda canlıdaki DVWA sunucusuna GET istekleri göndererek denemeler yapacaktır.
 
@@ -274,7 +274,7 @@ for i in fuzzing_list:
 
 python kodunu çalıştırdığımızda listedeki dizin ve dosya adlarını deneyerek bize aşağıdaki sonucu verecektir.
 
-![](https://cdn-images-1.medium.com/max/800/0*P0_DM5nuoLcNWX16.png)
+![](/images/0_P0_DM5nuoLcNWX16.png)
 
 ### XSS Saldırısı
 
@@ -301,7 +301,7 @@ for payload in xss_list:
 
 Kodu python dosyasına yazıp çalıştırdığımızda canlıdaki DVWA sunucusuna GET istekleri göndererek denemeler yapacaktır.
 
-![](https://cdn-images-1.medium.com/max/800/0*5GN1pw6l0XKQVsRQ.png)
+![](/images/0_5GN1pw6l0XKQVsRQ.png)
 
 Aldığımız sonuca bakarsak, web sayfası filtreleme yaptığı için XSS scriptlerimiz çalışmadı. <h1>xss</h1> HTML injection scriptiydi, XSS ise düz bir stringden ibaret. Siz daha farklı XSS scriptleri deneyebilirsiniz.
 
@@ -309,11 +309,11 @@ Aldığımız sonuca bakarsak, web sayfası filtreleme yaptığı için XSS scri
 
 Command injection,kod çalıştırma açıklığı olarak da bilinen bir zafiyet çeşididir. Girdiler filtrelenmeden sunucu shellinde çalıştırılması bu zafiyeti doğuruur. Saldırgan bu sayede istediği zararlı kodları sunucu shellinde çalıştırabilir. Uygulamamızda DVWA’nın command injection web sayfasını kullanacağız.
 
-![](https://cdn-images-1.medium.com/max/800/0*Ik2wa2BdVo1Kxt3p.png)
+![](/images/0_Ik2wa2BdVo1Kxt3p.png)
 
 Burada verilen ip adresine ping atan bir girdi bulunuyor. ip’nin devamına noktalı virgül atıp ls komutunu çalıştırmayı denediğimizde, çalıştıığını ve sunucu dizinini bize listelediğini görürürüz. Buradan hareketle bu sayfada comman injection zaafiyeti olduğunu belirleyebiliriz. Şimdi python ile nu zafiyeti nasıl tesğit edebileceğimize bakalım.
 
-![](https://cdn-images-1.medium.com/max/800/0*64jFt9fe7MaTcEu7.png)
+![](/images/0_64jFt9fe7MaTcEu7.png)
 
 Sayfaya gönderdiğimiz isteği burp ile dinlediğimizde bu isteğin bir POST metodu ile yapıldığını ve gönderilen parametreleri görebiliyoruz. Önceki uygulamalarda yaptığımız gibi yine oturum çerezimizi(‘PHPSESSID) header parametremize vereceğiz. Devamında POST isteği olduğu için bir data tuple yapısı oluşturacağız ve bunu post() metodumuza vereceğiz.
 
@@ -336,7 +336,7 @@ if "www-data" in str(response.content):
 
 ‘www-data’ gelen cevapta bulunduğunda komutun çalıştığını anlayabileceğimiz bir stringden ibaret, passwd dosyası içinde bulunuyor. Bu yöntemi kullanarak daha uzun komutları sırayla python ile çalıştırabilirsiniz.
 
-![](https://cdn-images-1.medium.com/max/800/0*HJlxB5W113qQFTkD.png)
+![](/images/0_HJlxB5W113qQFTkD.png)
 
 Sonuç olarak, python kodunu çalıştırarak zafiyeti bulmuş olduk.
 

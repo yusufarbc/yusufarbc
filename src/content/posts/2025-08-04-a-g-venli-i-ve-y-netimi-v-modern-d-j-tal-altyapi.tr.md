@@ -8,7 +8,7 @@ draft: false
 
 ### Ağ Güvenliği ve Yönetimi V: MODERN DİJİTAL ALTYAPILAR
 
-![](https://cdn-images-1.medium.com/max/800/1*aBV-V0NvCXaSMoVRhcmT9w.png)
+![](/images/1_aBV-V0NvCXaSMoVRhcmT9w.png)
 
 Bu bölüm, ağ yönetimi ve güvenliğinin en ileri ve dinamik alanlarına odaklanarak, modern dijital altyapıların temelini oluşturan kritik teknolojileri derinlemesine incelemektedir. Geleneksel ağ paradigmalarının ötesine geçerek, internetin temel isim çözümleme mekanizması olan DNS’in güvenlik katmanlarını, kurumsal hareketliliğin bel kemiği olan kablosuz ağların karmaşık yönetim ve güvenlik mimarilerini ve son olarak, bilişimin geleceğini şekillendiren bulut tabanlı, yazılım tanımlı ve sıfır güvene dayalı modern ağ mimarilerini ele alacağız. Bu konular, günümüz ağ ve güvenlik profesyonellerinin yüzleştiği en güncel zorlukları ve fırsatları temsil etmektedir.
 
@@ -29,7 +29,7 @@ Bu sınırı aşmak için **VXLAN (Virtual Extensible Local Area Network)** geli
 * **Devasa Ölçeklenebilirlik:** VLAN’ın 12 bitlik ID’si yerine, VXLAN 24 bitlik bir VXLAN Network Identifier (VNI) kullanır. Bu, 16 milyondan (224) fazla benzersiz sanal ağ segmenti oluşturulmasına olanak tanır.
 * **Esneklik:** VXLAN, Katman 3 IP ağı üzerinde çalıştığı için, aynı sanal ağa ait sanal makineler fiziksel olarak farklı raflarda, hatta farklı coğrafi konumlarda olabilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*3b1rG2nxmQE_BzL1LsBfhA.png)
+![](/images/1_3b1rG2nxmQE_BzL1LsBfhA.png)
 
 *VLAN ve VXLAN Teknolojilerinin Karşılaştırması*
 
@@ -78,7 +78,7 @@ Geleneksel WAN mimarilerinde, şubelerden gelen tüm internet ve bulut trafiği,
 
 **SASE (Secure Access Service Edge)**, ağ ve güvenliğin yakınsamasının bir sonraki adımıdır. Gartner tarafından tanımlanan SASE, SD-WAN’ın ağ yeteneklerini, bulut tabanlı bir güvenlik hizmetleri yığını ile tek bir birleşik, bulut tabanlı hizmette birleştiren bir mimari çerçevedir. SASE’nin temel felsefesi, güvenlik kontrollerini veri merkezinden alıp kullanıcıya veya cihaza en yakın “kenar” (edge) noktasına taşımaktır.
 
-![](https://cdn-images-1.medium.com/max/800/1*05xI3WYS5avJ1qxcB7x3Jw.png)
+![](/images/1_05xI3WYS5avJ1qxcB7x3Jw.png)
 
 *SASE Mimarisi Bileşenleri ve İşlevleri*
 
@@ -231,7 +231,7 @@ SFTP (SSH File Transfer Protocol), adındaki benzerliğe rağmen FTP ile teknik 
 
 FTPS ve SFTP arasındaki seçim, genellikle bir kuruluşun mevcut altyapısı, güvenlik gereksinimleri ve operasyonel tercihleri tarafından belirlenir. Aşağıdaki tablo ve analiz, bu iki protokol arasındaki temel farkları özetlemektedir.
 
-![](https://cdn-images-1.medium.com/max/800/1*Gkg9LdRs7aUgCFgrIVuXbA.png)
+![](/images/1_Gkg9LdRs7aUgCFgrIVuXbA.png)
 
 Bu karşılaştırma, iki protokol arasındaki tasarım felsefesi farkını ortaya koymaktadır. FTPS, “mevcut olanı yamama” (bolting on) yaklaşımını temsil ederken, SFTP “doğru olanı sıfırdan tasarlama” (secure by design) felsefesini yansıtır. Teknik olarak SFTP’nin daha zarif, yönetimi kolay ve bütünleşik bir çözüm olduğu açıktır. Ancak FTPS’nin hala varlığını sürdürmesinin nedeni, web sunucularını yöneten sistem yöneticilerinin zaten aşina olduğu SSL/TLS sertifika altyapısını kullanması ve bazı eski sistemlerle uyumluluk gereksinimleridir.
 
@@ -258,7 +258,7 @@ En yaygın kullanılan iki FTP sunucusu olan vsftpd ve ProFTPD için kritik güv
 
 vsftpd (Very Secure FTP Daemon), adından da anlaşılacağı gibi güvenlik odaklı tasarlanmış bir sunucudur. Ancak güvenli bir operasyon için doğru yapılandırılması esastır. Aşağıdaki tablo, vsftpd.conf dosyasındaki en kritik güvenlik direktiflerini özetlemektedir.
 
-![](https://cdn-images-1.medium.com/max/800/1*OeZJlSJK2eHzJb485cCaSw.png)
+![](/images/1_OeZJlSJK2eHzJb485cCaSw.png)
 
 Güvenlik duvarı kurallarını basitleştirir ve saldırı yüzeyini daraltır.
 
@@ -327,7 +327,7 @@ Ağdaki cihazları ve servisleri keşfetmek için temel bir araçtır. Bir FTP s
 * **Zafiyet Tespiti (NSE):** Nmap Scripting Engine (NSE) kullanarak, anonim giriş izni, FTP bounce saldırısı zafiyeti gibi yaygın yanlış yapılandırmaları ve zafiyetleri otomatik olarak kontrol etmek. nmap — script ftp-anon,ftp-bounce -p 21 <hedef\_ip>.81
 * Aşağıdaki tablo, çeşitli FTP tarama senaryoları için kullanılabilecek Nmap komutlarını özetlemektedir.
 
-![](https://cdn-images-1.medium.com/max/800/1*yVNOZ3Pyn_2nBdGy1ioNhA.png)
+![](/images/1_yVNOZ3Pyn_2nBdGy1ioNhA.png)
 
 #### **Nessus ve OpenVAS**
 
@@ -531,7 +531,7 @@ Bu katman, kanalın güvenliğinden ziyade, mesajın *içeriğinin* ve *iddia ed
 
 Aşağıdaki tablo, DMARC kayıtlarını yapılandırırken yöneticiler için kapsamlı bir referans sağlamaktadır. Yanlış yapılandırmalar yaygın bir başarısızlık kaynağı olduğundan, bu tablo bu tür hataları önlemek için kesin bir kılavuz görevi görür.
 
-![](https://cdn-images-1.medium.com/max/800/1*BTspc1ihDHP1TnCDshFk1Q.png)
+![](/images/1_BTspc1ihDHP1TnCDshFk1Q.png)
 
 **DMARC Etiket Referans Kılavuzu**
 
@@ -653,7 +653,7 @@ Exim, son derece esnek yapılandırma yetenekleriyle bilinir ve güvenliği büy
 
 Aşağıdaki tablo, yöneticilerin Postfix ve Exim arasındaki temel güvenlik yapılandırmalarını karşılaştırmasına yardımcı olmak için tasarlanmıştır. Bu, heterojen ortamları yöneten veya bir MTA’dan diğerine geçiş yapanlar için pratik bir referans sağlar.
 
-![](https://cdn-images-1.medium.com/max/800/1*MPd54_ipO2OgxqoNSDr3AQ.png)
+![](/images/1_MPd54_ipO2OgxqoNSDr3AQ.png)
 
 **Postfix ve Exim Güvenlik Yapılandırması Karşılaştırması**
 
@@ -733,7 +733,7 @@ Bir HTTP mesajı, hem istekler hem de yanıtlar için benzer olan dört ana böl
 
 HTTP metotları, istemcinin sunucu üzerinde gerçekleştirmek istediği eylemi belirten “fiiller” olarak düşünülebilir. Her metodun belirli bir anlamsal amacı vardır ve bu amaçlara uygun kullanılmaları, hem RESTful API tasarımı hem de güvenlik açısından önemlidir.
 
-![](https://cdn-images-1.medium.com/max/800/1*AfRW74G2s4kd4qoKZWUNcA.png)
+![](/images/1_AfRW74G2s4kd4qoKZWUNcA.png)
 
 HTTP Method
 
@@ -835,7 +835,7 @@ SQLi’ye karşı en etkili savunma, **parametreli sorgular (prepared statements
 
 XSS, bir saldırganın, başka bir kullanıcının tarayıcısında kötü amaçlı bir betik (genellikle JavaScript) çalıştırmasına olanak tanıyan bir enjeksiyon zafiyetidir. Bu, web uygulamasının kullanıcıdan aldığı girdiyi güvenli bir şekilde işlemeden (sanitize etmeden) doğrudan bir web sayfasına yerleştirmesiyle ortaya çıkar. Başarılı bir XSS saldırısı, saldırganın kurban adına eylemler gerçekleştirmesine, oturum çerezlerini çalmasına, sayfanın içeriğini değiştirmesine veya kullanıcıyı kötü amaçlı bir siteye yönlendirmesine olanak tanır. OWASP, XSS’i üç ana kategoriye ayırır:
 
-![](https://cdn-images-1.medium.com/max/800/1*ij2B5LDXI_43PvmcqF0ioA.png)
+![](/images/1_ij2B5LDXI_43PvmcqF0ioA.png)
 
 XSS Türleri
 
@@ -938,7 +938,7 @@ Bir kullanıcı bir web sayfasındaki bir bağlantıya tıkladığında, tarayı
 
 Yukarıda belirtilen ana başlıklara ek olarak, kapsamlı bir “derinlemesine savunma” stratejisi için uygulanması gereken başka başlıklar ve çerez ayarları da vardır.
 
-![](https://cdn-images-1.medium.com/max/800/1*jw25Q0zcB_7U5Ls_Zz2Nyg.png)
+![](/images/1_jw25Q0zcB_7U5Ls_Zz2Nyg.png)
 
 ### HTTP Trafik Analizi ve Güvenlik Testi Metodolojileri
 
@@ -1066,7 +1066,7 @@ Bu sürecin verimliliğini artırmak için, çözümlemenin her aşamasında eld
 
 Bir DNS zone dosyası, farklı amaçlara hizmet eden çeşitli kaynak kayıtlarından (Resource Records — RR) oluşur. Her kayıt, alan adıyla ilgili belirli bir bilgiyi depolar. En yaygın kullanılan DNS kayıt türleri ve işlevleri aşağıdaki tabloda özetlenmiştir.
 
-![](https://cdn-images-1.medium.com/max/800/1*-P4ySoKUyIhAnuhgi_59jg.png)
+![](/images/1_-P4ySoKUyIhAnuhgi_59jg.png)
 
 DNS kayıt türleri ve işlevleri
 
@@ -1084,7 +1084,7 @@ Geleneksel DNS’te kayıtlar manuel olarak yönetilirken, binlerce istemcinin b
 
 DNS’in internet altyapısındaki merkezi rolü ve temel tasarımındaki güvenlik eksiklikleri, onu siber saldırganlar için cazip bir hedef haline getirmektedir. Bu saldırıların evrimi, protokolün meşru özelliklerinin (açık resolver’lar, büyük cevap paketleri, port 53'ün güvenilirliği) birer silaha dönüştürülmesini göstermektedir. Bu durum, tespit yöntemlerinin de basit imza tabanlı kontrollerden, davranışsal anomali ve istatistiksel analiz gibi daha gelişmiş tekniklere evrilmesini gerektirmiştir.
 
-![](https://cdn-images-1.medium.com/max/800/1*jDadlG2PZV67wFY3Xsk3EQ.png)
+![](/images/1_jDadlG2PZV67wFY3Xsk3EQ.png)
 
 *DNS Saldırı Vektörleri Karşılaştırması*
 

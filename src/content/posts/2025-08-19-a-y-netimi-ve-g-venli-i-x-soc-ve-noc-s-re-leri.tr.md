@@ -8,7 +8,7 @@ draft: false
 
 ### Ağ Yönetimi ve Güvenliği X: SOC ve NOC Süreçleri
 
-![](https://cdn-images-1.medium.com/max/800/1*S7cMHBrZlktBq6LvzR_AYQ.png)
+![](/images/1_S7cMHBrZlktBq6LvzR_AYQ.png)
 
 SOC (Security Operations Center — Güvenlik Operasyon Merkezi) ve NOC (Network Operations Center — Ağ Operasyon Merkezi) birbirini tamamlayan ancak farklı odaklara sahip iki merkezi yapıdır. NOC, bir kuruluşun ağ altyapısını, sistem performansını ve hizmet sürekliliğini 7/24 izler ve kesinti süresini minimuma indirmeyi hedefler Temel işlevleri arasında ağ/sunucu izleme, arıza kaydı oluşturma, bakım ve güncelleme yönetimi yer alır. SOC ise bilgi teknolojisi altyapısını dış/ iç tehditlere, kötü amaçlı yazılımlara ve güvenlik ihlallerine karşı koruyan merkezdir. SOC ekipleri, güvenlik olaylarını önceden tespit etmek, analiz etmek ve olası bir saldırıya anında müdahale etmek için 7/24 çalışır.
 
@@ -16,7 +16,7 @@ SOC (Security Operations Center — Güvenlik Operasyon Merkezi) ve NOC (Net
 
 ### SOC ve NOC Tanımı ve Temel Farklar
 
-![](https://cdn-images-1.medium.com/max/800/1*wT8UMU4_ZcVdPNLwUlYoYg.png)
+![](/images/1_wT8UMU4_ZcVdPNLwUlYoYg.png)
 
 SOC vs NOC
 

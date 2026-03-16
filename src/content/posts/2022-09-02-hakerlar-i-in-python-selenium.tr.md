@@ -8,7 +8,7 @@ draft: false
 
 ### **Hakerlar için Python: selenium**
 
-![](https://cdn-images-1.medium.com/max/800/1*0uUmJ2J01vpcie8grd91Yw.png)
+![](/images/1_0uUmJ2J01vpcie8grd91Yw.png)
 
 ### Giriş
 
@@ -73,7 +73,7 @@ driver.get("http://google.com")
 
 Seleniumu [docker](https://hub.docker.com/r/selenium/standalone-firefox) ile çalıştırmak için ise [github](https://github.com/SeleniumHQ/docker-selenium) sayfasınındaki yönlendirmeleri izleyebilirsiniz. Dockerı kurup çalıştırınca [http://localhost:4444](http://localhost:4444/) adresinde seslenium grid arayüzüne erişebilirsiniz.
 
-![](https://cdn-images-1.medium.com/max/800/1*ibMLsRZmjC54Fxcif1XP_A.png)
+![](/images/1_ibMLsRZmjC54Fxcif1XP_A.png)
 
 <http://localhost:7900/> adresinden de web tarayıcıyı görüntüleyebiliriz. Varsayılan parola *secret* dır.  
  Docker ayakta iken aşağıdaki test kodunu çalıştırabiliriz.
@@ -91,7 +91,7 @@ driver.get("http://google.com")
 
 Burada browserName kısmına dockerı hangi browser ile kurduysanız o browserın ismini yazmalısınız. Kodu çalıştırılınca <http://localhost:7900/> adresi üzerinde google’ın açıldığını görebilirsiniz.
 
-![](https://cdn-images-1.medium.com/max/800/1*WoWx7BtNKQIIwMPjVnMg4w.png)
+![](/images/1_WoWx7BtNKQIIwMPjVnMg4w.png)
 
 Python kodu çalıştırıldı ve selenium grid üzerinde bir sesssion oluşturuldu. Bu session ile google.com adresine gittik. Ancak bu oturumu kapatmadan python kodumuz sonlandı ve oturumumuz açık kaldı. Sessionı kapatmadan başka python kodları çalıştıramayız. Oturumu kapatmak için python kodumuzun sonuna *driver.quit()* ekleyebiliriz ya da docker’ı yeniden başlatabilrisiniz.
 
@@ -106,7 +106,7 @@ Web sayfası üzerinde her ne yapmak istersek isteyelim önce o işlemi yapacağ
 * CLASS: Elemana bir class değeri eklenmişse bu class değeri ile erişebiliriz.
 * XPATH: Sayfa kaynağında erişmek istediğimiz elemanın xpath’ini vererek erişebiliriz. Xpath’i inspector aracından kopyalayabiliriz.
 
-![](https://cdn-images-1.medium.com/max/800/1*6iylSyMtw2y6d-OsZcECpA.png)
+![](/images/1_6iylSyMtw2y6d-OsZcECpA.png)
 
 Burada Google’daki arama çubuğunun XPath’ini almış olduk. Şimdi küçük bir örnek uygulama üzerinde temel mantığı anlamaya çalışalım.
 
@@ -154,7 +154,7 @@ driver.quit()
 
 Örnek uygulamayı çalıştırdığımızda, github web sayfası açılır, arama çubuğunu CVE yazılıp arama sayfasına gidilir. Ardından 5 saniye sonra tarayıcı kapanacaktır.
 
-![](https://cdn-images-1.medium.com/max/800/1*MWyxd0MQQ9IsRkFYJK7s8w.png)
+![](/images/1_MWyxd0MQQ9IsRkFYJK7s8w.png)
 
 Burada çıkan sonuçları çekip indeksleyebiliriz. Bu işleme web scraping diyoruz.
 
@@ -162,7 +162,7 @@ Burada çıkan sonuçları çekip indeksleyebiliriz. Bu işleme web scraping diy
 
 Şimdi Shodan üzerinde çalışan bir web botu uygulaması yapalım. Bunun için [shodan.io](https://www.shodan.io/)’a girip buradaki arana çubuğununun Xpath değerini kopyalıyoruz. Bu değeri uygulamamızda arama çubuğuna erişmek için kullanacağız.
 
-![](https://cdn-images-1.medium.com/max/800/1*e5yR7mUfSRno_MxYDkshNg.png)
+![](/images/1_e5yR7mUfSRno_MxYDkshNg.png)
 
 Şimdi kodumuzu yazmaya başlayabiliriz. Öncellikle yukarıda bahsettiğimiz gibi import işlemlerini yapıp driver nesnemizi oluşturacağız. Ardından aldığımız xpath değeri ile arama çubuğuna sorgulayacağımız değeri gönderip ‘*ENTER’* değerini göndereceğiz.
 
@@ -198,7 +198,7 @@ driver.quit()
 
 Uygulamamızı çalıştırdığımızda arama çubuğuna ‘phpMyAdmin’ yazıp sorgulayacaktır. Şimdi dönen değerleri almaya çalışalım.
 
-![](https://cdn-images-1.medium.com/max/800/1*nryPmk-rhb0RiU-lv0zniw.png)
+![](/images/1_nryPmk-rhb0RiU-lv0zniw.png)
 
 Gördüğümüz gibi dönen bütün sonuçların class isimleri ‘result’ olarak atanmış. Bu durumdan yararlanarak gelen sonuçlara erişebiliriz.
 
@@ -207,7 +207,7 @@ results = driver.find_elements(By.CLASS_NAME, 'result')
 print(results)
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*YjRwxuXoOD18s9ceUn04MA.png)
+![](/images/1_YjRwxuXoOD18s9ceUn04MA.png)
 
 Burada alınan elementleri görebiliyoruz.
 

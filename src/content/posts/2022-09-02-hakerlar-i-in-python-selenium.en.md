@@ -8,7 +8,7 @@ draft: false
 
 ### **Python for hackers: selenium**
 
-![](https://cdn-images-1.medium.com/max/800/1*0uUmJ2J01vpcie8grd91Yw.png)
+![](/images/1_0uUmJ2J01vpcie8grd91Yw.png)
 
 ### Introduction
 
@@ -73,7 +73,7 @@ driver.get("http://google.com")
 
 To run Selenium with [docker](https://hub.docker.com/r/selenium/standalone-firefox), you can follow the instructions on the [github](https://github.com/SeleniumHQ/docker-selenium) page. Once you install and run Docker, you can access the Sesenium Grid interface at [http://localhost:4444](http://localhost:4444/).
 
-![](https://cdn-images-1.medium.com/max/800/1*ibMLsRZmjC54Fxcif1XP_A.png)
+![](/images/1_ibMLsRZmjC54Fxcif1XP_A.png)
 
 We can also view the web browser at <http://localhost:7900/>. The default password is *secret*.  
  We can run the following test code while Docker is running.
@@ -91,7 +91,7 @@ driver.get("http://google.com")
 
 Here, in the browserName section, you must write the name of the browser with which you installed Docker. When the code is run, you can see that Google opens on the address <http://localhost:7900/>.
 
-![](https://cdn-images-1.medium.com/max/800/1*WoWx7BtNKQIIwMPjVnMg4w.png)
+![](/images/1_WoWx7BtNKQIIwMPjVnMg4w.png)
 
 Python code was run and a session was created on the selenium grid. We went to google.com with this session. However, without closing this session, our python code terminated and our session remained open. We cannot run other Python codes without closing the session. To log out, we can add *driver.quit()* at the end of our python code or restart docker.
 
@@ -106,7 +106,7 @@ Whatever we want to do on the web page, we first need to access the HTML element
 * CLASS: If a class value is added to the element, thisWe can access it with the class value.
 * XPATH: We can access it by giving the xpath of the element we want to access in the page source. We can copy the xpath from the inspector tool.
 
-![](https://cdn-images-1.medium.com/max/800/1*6iylSyMtw2y6d-OsZcECpA.png)
+![](/images/1_6iylSyMtw2y6d-OsZcECpA.png)
 
 Here we have got the XPath of the search bar in Google. Now let's try to understand the basic logic on a small sample application.
 
@@ -154,7 +154,7 @@ driver.quit()
 
 When we run the sample application, the github web page opens, type CVE in the search bar and go to the search page. Then after 5 seconds the browser will close.
 
-![](https://cdn-images-1.medium.com/max/800/1*MWyxd0MQQ9IsRkFYJK7s8w.png)
+![](/images/1_MWyxd0MQQ9IsRkFYJK7s8w.png)
 
 We can pull and index the results here. We call this process web scraping.
 
@@ -162,7 +162,7 @@ We can pull and index the results here. We call this process web scraping.
 
 Now let's make a web bot application running on Shodan. To do this, we go to [shodan.io](https://www.shodan.io/) and copy the Xpath value of the search bar there. We will use this value to access the search bar in our application.
 
-![](https://cdn-images-1.medium.com/max/800/1*e5yR7mUfSRno_MxYDkshNg.png)
+![](/images/1_e5yR7mUfSRno_MxYDkshNg.png)
 
 Now we can start writing our code. First of all, we will perform the import operations as mentioned above and create our driver object. Then, we will send the value we will query to the search bar with the xpath value we received and send the '*ENTER'* value.
 
@@ -198,7 +198,7 @@ driver.quit()
 
 When we run our application, it will type 'phpMyAdmin' in the search bar and query it. Now let's try to get the returned values.
 
-![](https://cdn-images-1.medium.com/max/800/1*nryPmk-rhb0RiU-lv0zniw.png)
+![](/images/1_nryPmk-rhb0RiU-lv0zniw.png)
 
 As we can see, the class names of all returned results are assigned as 'result'. We can achieve the results by taking advantage of this situation.
 
@@ -207,7 +207,7 @@ results = driver.find_elements(By.CLASS_NAME, 'result')
 print(results)
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*YjRwxuXoOD18s9ceUn04MA.png)
+![](/images/1_YjRwxuXoOD18s9ceUn04MA.png)
 
 Here we can see the elements taken.
 

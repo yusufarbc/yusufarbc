@@ -8,7 +8,7 @@ draft: false
 
 ### Network Management and Security II: Network Protocols, Routing and Addressing
 
-![](https://cdn-images-1.medium.com/max/800/0*1gN6tP9Nv5sf9IGl.png)
+![](/images/0_1gN6tP9Nv5sf9IGl.png)
 
 In today's hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an invisible backbone that requires billions of components to work in harmony, from data centers on different continents to smart devices in our homes. So, how can these devices, produced by different manufacturers and using different technologies, communicate with each other so smoothly, quickly and securely? The answer to this question lies in the standardized protocols, hierarchical addressing systems and intelligent routing algorithms that form the basis of network engineering.
 
@@ -49,7 +49,7 @@ Unlike the OSI model, the TCP/IP model is not used as a theoretical framework bu
 
 The success of TCP/IP stems from its simplicity and pragmatic approach. Even before the model was formalized, the internet was already being built on these protocols. This can be seen as a victory of engineering pragmatism over committee-based theoretical idealism. While OSI was a “top-down” approach that tried to create a perfect framework *before* building the network, TCP/IP was a “bottom-up” solution that solved an immediate problem, worked, and was “good enough.” As is often the case in the history of technology, a solution that worked and was adopted early prevailed over a theoretically superior but complex and late-arriving alternative.
 
-![](https://cdn-images-1.medium.com/max/800/0*0uu7t1OYMiHTQNyo.png)
+![](/images/0_0uu7t1OYMiHTQNyo.png)
 
 OSI Model vs TCP/IP Model
 
@@ -153,7 +153,7 @@ Routing is the process of determining the path that data packets will follow bet
 
 ### 3.1 Routing Fundamentals: Static and Dynamic Approaches
 
-![](https://cdn-images-1.medium.com/max/800/0*8Q5DoM_nd0PtJKLk.png)
+![](/images/0_8Q5DoM_nd0PtJKLk.png)
 
 Static and Dynamic Approaches
 
@@ -169,7 +169,7 @@ IGPs are used to manage routing within a single autonomous system (AS), that is,
 * **OSPF (Open Shortest Path First):** It is the most widely used Link-State protocol. In OSPF, each router creates a topological map of the entire network (Link-State Database (LSDB)) and calculates the best paths to destinations by running **Dijkstra's shortest path priority (SPF)** algorithm on this map. It uses **cost** as the metric, which is generally inversely proportional to the bandwidth of the connection. It is highly scalable in large networks thanks to its **area** structure that allows for a hierarchical design.
 * **EIGRP (Enhanced Interior Gateway Routing Protocol):** Developed by Cisco, this protocol is considered a “hybrid” or “enhanced distance-vector” protocol that combines the best features of both Distance-Vector and Link-State protocols. Thanks to **DUAL (Diffusing Update Algorithm)**, it provides very fast convergence by instantly activating pre-calculated backup paths when the primary path crashes. It uses a **composite metric** that includes multiple parameters such as bandwidth, latency, load, and reliability as metrics, allowing it to make smarter path choices.
 
-![](https://cdn-images-1.medium.com/max/800/0*KO7-ySH9na-aDkyD.png)
+![](/images/0_KO7-ySH9na-aDkyD.png)
 
 Gateway Protocols
 
@@ -251,7 +251,7 @@ Connect redundantly between switches to ensure high availability in networks. Es
 
 **Multiple Spanning Tree Protocol (MSTP - IEEE 802.1s):** MSTP both maintains the speed of RSTP and solves the inefficiency problem of STP/RSTP. MSTP groups VLANs into logical **instances** and runs a separate Spanning Tree for each instance. This allows VLAN-based load balancing. For example, while a link may be active (forwarding) for VLAN 10-20 group, the same link may be blocked (discarding) for VLAN 30-40 group. In this way, all redundant connections are actively used for some traffic, bandwidth waste is prevented and network resources are used in the most efficient way.
 
-![](https://cdn-images-1.medium.com/max/800/0*iZqupuFz_XXG4e9n.png)
+![](/images/0_iZqupuFz_XXG4e9n.png)
 
 Loop Prevention
 

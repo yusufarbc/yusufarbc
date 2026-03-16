@@ -8,7 +8,7 @@ draft: false
 
 ### UDP Wireshark Analysis
 
-![](https://cdn-images-1.medium.com/max/800/1*cReiU6D1Aj-Zf-J3628uNA.png)
+![](/images/1_cReiU6D1Aj-Zf-J3628uNA.png)
 
 Hello, in this article I will try to explain the UDP protocol and its analysis with Wireshark.
 
@@ -18,7 +18,7 @@ Hello, in this article I will try to explain the UDP protocol and its analysis w
 
 If you see a lot of broadcast/multicast broadcasts in the traffic you capture, it means you have too many UDP-based communications. UDP provides transfer without establishing a connection. Broadcast and multicast traffic flows over UDP. In the UDP header, port fields identify the application using the transport. Because UDP uses a simple 8-byte header consisting of four fields, UDP itself rarely causes problems. UDP is defined in RFC 768, User Datagram Protocol.
 
-![](https://cdn-images-1.medium.com/max/800/1*WSaFhaEgqTIuM9sF4oZYng.png)
+![](/images/1_WSaFhaEgqTIuM9sF4oZYng.png)
 
 Provides UDP connectionless transport service
 
@@ -30,7 +30,7 @@ Common applications that use UDP are DHCP/BOOTP, SIP, RTP, DNS, TFTP and various
 
 Normal UDP communications, such as DHCP Discover packets, are sent with the destination port number of the requested service. The figure shows the UDP header in a DHCP packet. DHCP uses UDP as the transport protocol. DHCP communications use port 68 as the client port number and port 67 as the server port number.
 
-![](https://cdn-images-1.medium.com/max/800/1*Z2tNaovhf93xqYVPROVNww.png)
+![](/images/1_Z2tNaovhf93xqYVPROVNww.png)
 
 A UDP-based DHCP initialization sequence
 
@@ -38,13 +38,13 @@ Most applications use a default port number for the client side of communication
 
 There are very few problems that occur directly with UDP. One possible problem is traffic blocked based on the UDP port number value. It shows the results of capturing UDP traffic on a network consisting of a firewall that does not forward traffic sent to certain port numbers. In this case, the firewall blocks traffic to ports 161 (SNMP) and 5060 (SIP). Instead of responding with ICMP Destination Unreachable/Port Unreachable (Type 3/Code 3) packets, the firewall silently discards the packets. Your PCAP file only shows UDP traffic; no response is seen.
 
-![](https://cdn-images-1.medium.com/max/800/1*W8kjuMS7QjymLfAcp5qPfg.png)
+![](/images/1_W8kjuMS7QjymLfAcp5qPfg.png)
 
 There is no response to SNMP deficiencies, it is caused by a firewall that filters ports
 
 UDP scans are evident when you see the sorting of UDP packets and ICMP responses using Wireshark's default coloring rules. Again, if a firewall is blocking traffic by port filtering, you may not see ICMP responses.
 
-![](https://cdn-images-1.medium.com/max/800/1*mLgL_SfU5rNO7Gk-mkT1sQ.png)
+![](/images/1_mLgL_SfU5rNO7Gk-mkT1sQ.png)
 
 UDP scanning triggers a series of ICMP Destination Unreachable/Port Unreachable responses
 
@@ -62,7 +62,7 @@ The UDP header contains only four fields and is always 8 bytes long.
 
 The source port field has the same purpose in TCP and UDP — to open a listening port for response packets and, in some cases, to identify the application or protocol sending the packet.
 
-![](https://cdn-images-1.medium.com/max/800/1*PCIysV4QPzkJ6NaUaJcx3g.png)
+![](/images/1_PCIysV4QPzkJ6NaUaJcx3g.png)
 
 #### Destination Port Field
 

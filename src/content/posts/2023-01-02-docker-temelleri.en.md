@@ -8,7 +8,7 @@ draft: false
 
 ### Docker Basics
 
-![](https://cdn-images-1.medium.com/max/800/1*2Vt-GnSjtWGchPVgF1fX6g.png)
+![](/images/1_2Vt-GnSjtWGchPVgF1fX6g.png)
 
 ### What is Docker?
 
@@ -78,7 +78,7 @@ Docker containers are structures that run the applications installed in them ind
 
 If we want to keep the data in the container even if it is deleted, we use docker volume. Volume is a mechanism produced by the docker container that stores data on the host.
 
-![](https://cdn-images-1.medium.com/max/800/0*wWoNuW_cAt4LTNiH.jpg)
+![](/images/0_wWoNuW_cAt4LTNiH.jpg)
 
 The data in the Docker volume can be used in more than one container. Even if the Docker image is updated, the data in the volume does not change. Data in the Docker volume can be moved and backed up. Docker volumes does not increase the container size.
 

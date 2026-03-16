@@ -8,7 +8,7 @@ draft: false
 
 ### Ağ Güvenliği ve Yönetimi VI: Kimlik ve Erişim Yönetimi (IAM)
 
-![](https://cdn-images-1.medium.com/max/800/1*v6bkvamS0ChDDdA-D-8BtQ.png)
+![](/images/1_v6bkvamS0ChDDdA-D-8BtQ.png)
 
 ### Bölüm 1: Kimlik ve Erişim Yönetiminin Temelleri
 
@@ -306,7 +306,7 @@ Bu model, on-premise ve bulut tabanlı çözümlerin bir kombinasyonunu kullanı
 
 Pazar eğilimi açıkça IDaaS modeline doğru kaymaktadır. Ancak, nihai karar; kurumun güvenlik duruşu, uyumluluk gereksinimleri, mevcut altyapısı, bütçesi ve stratejik hedefleri gibi bir dizi faktöre bağlıdır. Aşağıdaki tablo, karar verme sürecine yardımcı olmak amacıyla bu iki modeli özetlemektedir.
 
-![](https://cdn-images-1.medium.com/max/800/1*K-HnrjAYtc3JlkJuPDg2aQ.png)
+![](/images/1_K-HnrjAYtc3JlkJuPDg2aQ.png)
 
 **On-Premise ve Bulut (IDaaS) IAM Çözümlerinin Karşılaştırılması**
 
@@ -547,7 +547,7 @@ SCIM, “En Az Ayrıcalık” (Least Privilege) ve “Sıfır Güven” (Zero Tr
 
 Modern IAM mimarilerinde protokol seçimi, genellikle SAML ve OIDC arasında bir karar vermeyi gerektirir. Her iki protokol de güçlü SSO yetenekleri sunsa da, farklı teknik temellere ve ideal kullanım alanlarına sahiptirler. Doğru seçimi yapmak, uygulamanın türü, mevcut altyapı ve geliştirici kaynakları gibi faktörlere bağlıdır. Aşağıdaki tablo, bu iki temel protokol arasındaki temel farkları özetlemektedir.
 
-![](https://cdn-images-1.medium.com/max/800/1*tCZ-uqq2JuDDKO3cazPmNw.png)
+![](/images/1_tCZ-uqq2JuDDKO3cazPmNw.png)
 
 **SAML ve OIDC Protokollerinin Teknik ve Kullanım Alanı Karşılaştırması**
 

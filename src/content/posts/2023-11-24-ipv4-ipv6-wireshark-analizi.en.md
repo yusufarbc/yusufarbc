@@ -8,7 +8,7 @@ draft: false
 
 ### IPv4/IPv6 Wireshark Analysis
 
-![](https://cdn-images-1.medium.com/max/800/1*qSAbdDrUrlN_SQ9p_AXpFQ.png)
+![](/images/1_qSAbdDrUrlN_SQ9p_AXpFQ.png)
 
 Hello, in this article, I will try to explain the IPv4 and IPv6 protocols and their analysis with Wireshark.
 
@@ -20,7 +20,7 @@ IP (v4/v6 — collectively referred to as “IP”) provides delivery servic
 
 IP is connectionless and unreliable, providing optimal delivery of datagrams between IP hosts. IP itself provides no way to determine whether a packet has reached its destination. An application that needs guaranteed delivery should use TCP over IP.
 
-![](https://cdn-images-1.medium.com/max/800/1*T7ew3u6ttBWwa5NsNgjR3g.png)
+![](/images/1_T7ew3u6ttBWwa5NsNgjR3g.png)
 
 Provides delivery services for IP, UDP and TCP based applications and ICMP
 
@@ -38,7 +38,7 @@ If all goes well in an IPv4 communication, traffic should flow to and from IP ad
 
 If a packet is too large to be forwarded to the next link in the path, the router examines the IP header fragmentation setting. If the Don't Fragment bit is set, the packet cannot be transmitted. The router must send an ICMP Type 3, Code 4 message (Destination Unreachable/Fragmentation Required, but Fragmentation Bit Set) to the originator of the packet, identifying the MTU limitation. The sender must retransmit the packet in a smaller packet size. If fragmentation is allowed, the router must split the single large packet into two (or more) smaller packets, define the fragment offset, and indicate that the packets are fragments and forward them.
 
-![](https://cdn-images-1.medium.com/max/800/1*Gmy9Pgg9xp9UlBITMfwglg.png)
+![](/images/1_Gmy9Pgg9xp9UlBITMfwglg.png)
 
 IP can fragment packets when a connection's MTU does not support the datagram size
 
@@ -51,7 +51,7 @@ IPv4 problems are often related to fragmentation, unusual IP addresses, and exce
 
 * Fragmentation problems can occur when ICMP Type 3, Code 4 packets are blocked, preventing a host from learning why its packets did not reach the destination. ICMP Type 3, Code 4 packet is used for black hole detection.
 
-![](https://cdn-images-1.medium.com/max/800/1*fLWJpNDw-l0U1eNT73tlaQ.png)
+![](/images/1_fLWJpNDw-l0U1eNT73tlaQ.png)
 
 Source IP address 127.0.0.1 is suspicious
 
@@ -66,7 +66,7 @@ The figure shows a packet that should never be on the network — the source
 
 IPv6 is a layer 3 routed protocol only.
 
-![](https://cdn-images-1.medium.com/max/800/1*WltOTqu_1iZzyc0O4u5zgg.png)
+![](/images/1_WltOTqu_1iZzyc0O4u5zgg.png)
 
 IPv6 Header
 
@@ -86,7 +86,7 @@ There is no broadcast address in IPv6 - multicasts are used instead of network b
 
 IPv6 addresses are sixteen bytes long (128 bits) and are written as x:x:x:x:x:x:x; where x represents one to four hexadecimal digits. You can omit leading zeros in a single field to shorten the notation.
 
-![](https://cdn-images-1.medium.com/max/800/1*aLNQlmlSWWQnFYKi0MA9rw.png)
+![](/images/1_aLNQlmlSWWQnFYKi0MA9rw.png)
 
 Multicast broadcasts start with ff02
 
@@ -111,7 +111,7 @@ Link-Local addresses are used for addressing on a single link and are not routed
 
 The first packet seen in the figure above is an ICMPv6 Request — this protocol replaces ARP. When the source address is ::, the purpose of the packet is Duplicate Address Detection (DAD).
 
-![](https://cdn-images-1.medium.com/max/800/1*b6BPriW0o2QQNIce_G74JA.png)
+![](/images/1_b6BPriW0o2QQNIce_G74JA.png)
 
 Managed Address Configuration and Other Configuration bits define how a DHCPv6 client receives an IPv6 address and other parameters
 
@@ -130,7 +130,7 @@ DHCPv6 client address and other parameters will be configured according to the s
 
 As part of the transition to IPv6, existing TCP/IP hosts support dual stacks and IPv6 tunneling capability within IPv4. These packets can be routed to the destination IPv6 host over an IPv4 network. There are three different encapsulation methods - 6to4, Teredo and ISATAP.
 
-![](https://cdn-images-1.medium.com/max/800/1*wfLk0ygZStuJ43NRGFg65Q.png)
+![](/images/1_wfLk0ygZStuJ43NRGFg65Q.png)
 
 Protocol value 41 indicates an IPv6 header comes later
 
@@ -145,7 +145,7 @@ The first 2 bytes of the source address will be 0x2002. The 6to4 Gateway address
 
 Teredo, oneIt is another tunneling method that encapsulates the IPv6 header within a UDP packet. This technology was developed to help bypass Network Address Translation (NAT) devices that do not handle Protocol 41. Teredo is covered in RFC 4380, IPv6 Tunneling over UDP via Network Address Translations (NATs).
 
-![](https://cdn-images-1.medium.com/max/800/1*W8wVMRwalacSMFyhQtSyfQ.png)
+![](/images/1_W8wVMRwalacSMFyhQtSyfQ.png)
 
 Teredo tunnels IPv6 inside a UDP packet
 
@@ -171,7 +171,7 @@ ISATAP requires ISATAP routers to configure an intrasite tunnel for IPv6 traffic
 
 In this section, header fields and their functions are explained in detail. You can see RFC 791 for more details on each field.
 
-![](https://cdn-images-1.medium.com/max/800/1*GJHqitNsY8XKz2li3lXVDQ.png)
+![](/images/1_GJHqitNsY8XKz2li3lXVDQ.png)
 
 IPv4 Header
 
@@ -222,7 +222,7 @@ An application (application layer protocols) can be written in a way that does n
 
 If the packet is a fragment, this field indicates where the data for this packet will be placed when the fragments are combined back into a single packet (on the target host). This field provides the offset in 8-byte values. For example, the first fragment might have an offset of 0 and contain 1400 bytes of data (not including any headers). The offset value of the second piece will be 175 (175 x 8 = 1400). This field is used only if the packet is a fragment, otherwise it is set to 0.
 
-![](https://cdn-images-1.medium.com/max/800/1*6Y7PXca_YiF7g2nbehV6oA.png)
+![](/images/1_6Y7PXca_YiF7g2nbehV6oA.png)
 
 Wireshark viewing IP fragments
 

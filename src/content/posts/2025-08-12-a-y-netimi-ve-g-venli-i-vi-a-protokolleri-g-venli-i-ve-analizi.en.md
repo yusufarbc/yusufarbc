@@ -8,7 +8,7 @@ draft: false
 
 ### Network Management and Security VI: Network Protocols Security and Analysis
 
-![](https://cdn-images-1.medium.com/max/800/1*4B83QjV-QTWjVqB0z6ktug.png)
+![](/images/1_4B83QjV-QTWjVqB0z6ktug.png)
 
 This article is structured to comprehensively analyze the four pillars of modern digital communication — email, web, Domain Name System (DNS), and file transfer. Each chapter will examine in depth the historical development of the relevant protocol family, the inherent vulnerabilities arising from its design, the modern security mechanisms developed to eliminate these vulnerabilities, and their place in today's complex threat environment. The main purpose of the report is to not only describe protocols and security plugins individually, but also to reveal the complex interactions, dependencies between them and their roles within a unified security architecture. For example, issues such as how a secure email infrastructure depends on a reliable DNS infrastructure or how secure web traffic requires layered defense at both the transport layer and the application layer will be discussed from a holistic perspective. This methodology aims to provide the reader with an integrated, strategic understanding of protocol security rather than isolated pieces of information.
 
@@ -143,7 +143,7 @@ DMARC's reporting feature is invaluable for domain owners. The `rua` (Reporting 
 
 SPF and DKIM have emerged as independent technologies to improve email security. However, they lack policy enforcement mechanisms and are not sufficient on their own against `From:` header spoofing. Their lack of success has limited their adoption. The emergence of DMARC has fundamentally changed this equation. DMARC has taken the authentication results of SPF and DKIM and assigned a “meaning” and “action” (i.e. a policy) to them. An organization that wants to enforce a strict DMARC policy such as `p=reject` now *must* configure SPF and DKIM correctly; Otherwise, they run the risk of having their legitimate emails blocked as well. This has led to DMARC itself acting as a “policy engine”, a catalyst that encourages both more widespread adoption and more accurate configuration of the two protocols that preceded it. This is an important example in cybersecurity of how an upper-layer standard can mandate the adoption and maturation of its underlying components.
 
-![](https://cdn-images-1.medium.com/max/800/1*-0B-a2lIL3ynJWniGhKLgg.png)
+![](/images/1_-0B-a2lIL3ynJWniGhKLgg.png)
 
 SPF, DKIM, DMARC
 
@@ -321,7 +321,7 @@ Web security must be addressed at two basic and distinct layers: the transport l
 
 In the traditional web model, the server sends content and the browser processes that content according to its default rules. But CSP and other OWASP security headers have radically changed this dynamic. The server no longer just sends content, it also sends a “policy document” with strict rules on *how* that content will be rendered in the browser, what resources it can load, and what actions it can perform. For example, the `Content-Security-Policy: script-src 'self'` header instructs the browser "I do not allow you to run any JavaScript code within this HTML document that I have sent you that does not come from me (the same source)." This allows the server to define the security boundaries of the client-side (browser) execution environment dynamically and specifically for each response. In this model, the server becomes a sort of remote rule configurator for the browser's security engine. This is a significant paradigm shift in the sharing of responsibility between server and client, placing the responsibility for security more proactively on the server side.
 
-![](https://cdn-images-1.medium.com/max/800/1*C_77zQqrn-BGzkE5DYFK1A.png)
+![](/images/1_C_77zQqrn-BGzkE5DYFK1A.png)
 
 TLS Types
 
@@ -398,7 +398,7 @@ DNS security is split into two different technologies to solve two separate but 
 
 The basic design philosophy of DoH is to “camouflage” DNS traffic within standard HTTPS traffic. While this is a victory for individual user privacy and bypassing censorship, it is a nightmare for corporate network management and security. Traditionally, network administrators would detect malware command-and-control (C2) communication, data leak attempts, and corporate policy violations by monitoring DNS queries. By removing this visibility, DoH creates a “shadow IT” situation where users or applications can use their own DNS resolvers, bypassing corporate policies. This represents one of the most fundamental tensions in the world of cybersecurity: the balance between individual privacy and organizational control and security. This conflict is one of the most important debates that will shape the future architecture and management of the Internet.
 
-![](https://cdn-images-1.medium.com/max/800/1*EH_7Ex7NamcxzJeldgLUEQ.png)
+![](/images/1_EH_7Ex7NamcxzJeldgLUEQ.png)
 
 DoT vs DoH
 
@@ -483,7 +483,7 @@ Besides traditional file transfer protocols, modern alternatives also exist for 
 
 FTPS and SFTP represent two different philosophies that address the security issues of FTP, an insecure protocol. FTPS offers an **evolutionary** solution by taking an existing, widely used protocol (FTP) and “patching” a security layer (SSL/TLS) on top of it. This approach facilitates backward compatibility with existing systems, but inherits weaknesses of the underlying architecture (for example, dual-channel nature and the firewall complexity it introduces). In contrast, SFTP addresses the problem from scratch, offering a **revolutionary** solution built on a secure foundation (SSH). This approach results in a cleaner, more efficient, and inherently more secure architecture, without concerns about backward compatibility. This illustrates a common dilemma in cybersecurity: Improving an existing system or building a secure alternative from scratch? The fact that SFTP is more preferred in modern networks generally shows that the second approach is more sustainable and secure in the long run.
 
-![](https://cdn-images-1.medium.com/max/800/1*7ANigANBbyhJp_SS0wNP2A.png)
+![](/images/1_7ANigANBbyhJp_SS0wNP2A.png)
 
 FTP, FTPS, SFTP
 

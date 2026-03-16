@@ -8,7 +8,7 @@ draft: false
 
 ### Python for Hackers: requests
 
-![](https://cdn-images-1.medium.com/max/800/1*a87phGSd-sbfiJLWPfGMxA.png)
+![](/images/1_a87phGSd-sbfiJLWPfGMxA.png)
 
 ### Introduction
 
@@ -140,7 +140,7 @@ Here we see information about the answer we received. Let's also look at the typ
 
 We understand that it is an object of type requests.models.Response. Looking at the [source code](https://requests.readthedocs.io/en/latest/_modules/requests/models/):
 
-![](https://cdn-images-1.medium.com/max/800/0*L_iXdDv3gSm2uu6j.png)
+![](/images/0_L_iXdDv3gSm2uu6j.png)
 
 We see a long code. You can also access its documentation [here](https://requests.readthedocs.io/en/latest/api/#requests.Response). What is important for us here are the attiributes written in the \_\_attrs\_\_ section.
 
@@ -173,7 +173,7 @@ f.close()
 
 You can see that the page source is pulled as follows. (with CSS and Javascript codes)
 
-![](https://cdn-images-1.medium.com/max/800/0*W3QQk0ZEoY20GPcY.png)
+![](/images/0_W3QQk0ZEoY20GPcY.png)
 
 You can parse the page source with the [BeautifulSoup](https://pypi.org/project/beautifulsoup4/) module and get the information you want from it. But in this article we will do something different.
 
@@ -212,7 +212,7 @@ We have created an application that searches for the URL we gave to the function
 
 Brute Force Attack is a simple but still effective type of attack that we can use to log into a web page using trial and error management in the hope of finding the right one. Let's see how we can do this with our python application. I will use the DVWA app for this.
 
-![](https://cdn-images-1.medium.com/max/800/0*D7cpaI2bY2tgv3Ig.png)
+![](/images/0_D7cpaI2bY2tgv3Ig.png)
 
 Here I listened to my login page with the [burp suite](https://portswigger.net/burp) tool. I entered the value 'aa' in the username and password fields and pressed the login button. The GET request was captured in the HTTP History section on my burp tool. Of course, you can also use different tools for this. We will use some of the information here. First of all, since we access the DVWA page by logging in, our Python application also needs to access the session somehow. So what is a session? To put it briefly, when we log in from a login page with our username/password information, we actually start a session. The session is terminated when we finish our work and close our browser or when a certain amount of time has passed. Web applications use cookies when creating a session; two cookies are created, one on the client computer and one on the server. The session continues as long as both cookies are not lost. Here, we will log in to the DVWA page and give the session cookie we received to our Python application, allowing it to access the web page with our session. The field marked in the Burp tool ‘PHPSESID’ is our session cookie. But we better hurry, the session is running out…
 
@@ -243,7 +243,7 @@ for i in usernames:
       print("Username and Password is found")
 ```
 
-![](https://cdn-images-1.medium.com/max/800/0*WFaG5gXYv4_u5frj.png)
+![](/images/0_WFaG5gXYv4_u5frj.png)
 
 When we write the code in the python file and run it, it will make tests by sending GET requests to the live DVWA server.
 
@@ -274,7 +274,7 @@ for i in fuzzing_list:
 
 When we run the Python code, it will try the directory and file names in the list and give us the following result.
 
-![](https://cdn-images-1.medium.com/max/800/0*P0_DM5nuoLcNWX16.png)
+![](/images/0_P0_DM5nuoLcNWX16.png)
 
 ### XSS Attack
 
@@ -301,7 +301,7 @@ for payload in xss_list:
 
 When we write the code in the python file and run it, it will make tests by sending GET requests to the live DVWA server.
 
-![](https://cdn-images-1.medium.com/max/800/0*5GN1pw6l0XKQVsRQ.png)
+![](/images/0_5GN1pw6l0XKQVsRQ.png)
 
 If we look at the result we got, our XSS scripts did not work because the web page was filtering. <h1>xss</h1> was an HTML injection script, while XSS is just a plain string. You can try different XSS scripts.
 
@@ -309,11 +309,11 @@ If we look at the result we got, our XSS scripts did not work because the web pa
 
 Command injection is a type of vulnerability also known as code execution vulnerability. Running it in the server shell without filtering the input causes this vulnerability. In this way, the attacker can run any malicious code he wants in the server shell. We will use DVWA's command injection web page in our application.
 
-![](https://cdn-images-1.medium.com/max/800/0*Ik2wa2BdVo1Kxt3p.png)
+![](/images/0_Ik2wa2BdVo1Kxt3p.png)
 
 There is an entry here that pings the given IP address. When we add a semicolon to the rest of the ip and try to run the ls command, we see that it works and lists the server directory. Based on this, we can determine that there is a command injection vulnerability on this page. Now let's see how we can detect this vulnerability with Python.
 
-![](https://cdn-images-1.medium.com/max/800/0*64jFt9fe7MaTcEu7.png)
+![](/images/0_64jFt9fe7MaTcEu7.png)
 
 When we listen to the request we sent to the page with burp, we can see that this request was made with a POST method and the parameters sent. As we did in previous applications, we will give our session cookie ('PHPSESSID) to our header parameter. Next, since it is a POST request, we will create a data tuple structure and give it to our post() method.
 
@@ -336,7 +336,7 @@ if "www-data" in str(response.content):
 
 'www-data' consists of a string that we can understand that the command is working when it is found in the response, it is located in the passwd file. Using this method, you can run longer commands sequentially with Python.
 
-![](https://cdn-images-1.medium.com/max/800/0*HJlxB5W113qQFTkD.png)
+![](/images/0_HJlxB5W113qQFTkD.png)
 
 As a result, we found the vulnerability by running the python code.
 

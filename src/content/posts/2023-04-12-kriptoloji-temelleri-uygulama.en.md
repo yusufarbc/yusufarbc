@@ -8,7 +8,7 @@ draft: false
 
 ### Cryptology Fundamentals:#5 Applications
 
-![](https://cdn-images-1.medium.com/max/800/1*Sk1u0b-kaNN7j57oE13CBA.png)
+![](/images/1_Sk1u0b-kaNN7j57oE13CBA.png)
 
 Hello, in this last article of the cryptology basics series, I will talk about how cryptographic protocols are implemented. I will use the Java programming language during the implementation phase.
 

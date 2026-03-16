@@ -8,7 +8,7 @@ draft: false
 
 ### TheHive Incident Response Platform
 
-![](https://cdn-images-1.medium.com/max/800/1*f8PP6v-xaqnfWogAG6RITw.png)
+![](/images/1_f8PP6v-xaqnfWogAG6RITw.png)
 
 ### 1. Basic Functions and How It Works
 
@@ -27,7 +27,7 @@ TheHive offers benefits designed specifically for SOC/CSIRT teams. **Threat inte
 
 **Cortex** and **MISP** are two main components that are tightly integrated with TheHive. Cortex is the analytics and automation engine for TheHive. TheHive talks to one or more Cortex servers via REST API. In this way, observables such as IP, domain name, file hash in an incident or alert can be analyzed with a single click or in bulk. When an analysis is started from TheHive, Cortex creates a job and sends short (mini) and long reports to TheHive when the analysis is completed. It returns more than 200 ready-made *analyzers* and *responders* (e.g. VirusTotal, Shodan, Yara, AbuseIPDB) which can be selected via TheHive interface[[11]](https://strangebee.com/thehive/#:~:text=Automated%20analysis%20%26%20response). It is also possible to develop and add a custom analyzer. By connecting to Cortex responders, automatic response mechanisms can be created based on analysis results; for example, actions such as blocking the DNS server if a bad domain is detected, or triggering an antivirus scan when an FTP virus is detected.
 
-![](https://cdn-images-1.medium.com/max/800/1*SORLbZSRUDrUTApG84U7IA.png)
+![](/images/1_SORLbZSRUDrUTApG84U7IA.png)
 
 **MISP integration** is for sharing threat data. TheHive can display current events on connected MISP servers in the alarms list and organize them into incidents. It can convert those into cases easily. On the other hand, IOCs (IP, domain, hash, etc.) arising in cases can be transferred collectively to MISP; they are shareable with other communities. The threat context is enriched by searching for IOC in the MISP database with the search analyzer (MISP Search Analyzer) in TheHive interface. In this way, it both imports the incoming information from MISP and exports the findings obtained as a result of the analysis back to MISP. The entire integration is configured with API keys and is easily enableable from TheHive interface.
 

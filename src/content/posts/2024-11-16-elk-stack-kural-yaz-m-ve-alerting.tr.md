@@ -8,7 +8,7 @@ draft: false
 
 ### ELK Stack Kural Yazımı ve Alerting
 
-![](https://cdn-images-1.medium.com/max/800/1*YtvtZTc7PJHVByo3n9E_lg.png)
+![](/images/1_YtvtZTc7PJHVByo3n9E_lg.png)
 
 Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. **ELK Stack** (Elasticsearch, Logstash, Kibana) ile kural yazımı ve uyarı (alerting) işlemleri, veri analizi ve yönetimini kolaylaştırır.
 
@@ -43,7 +43,7 @@ IoA, bir saldırının gerçekleştirilmekte olduğunu veya gerçekleşme aşama
 
 Elastalert, Elasticsearch’te belirli koşulların gerçekleştiğinde uyarılar oluşturmanıza olanak tanır. Elastalert, belirli filtreler ve koşullarla yapılandırılabilir ve uyarılar e-posta, webhook, Slack gibi çeşitli kanallarda bildirilebilir. bknz: <https://elastalert.readthedocs.io/en/latest/elastalert.html>
 
-![](https://cdn-images-1.medium.com/max/800/1*49Mk87Ovld-HkJr8fx3uUA.png)
+![](/images/1_49Mk87Ovld-HkJr8fx3uUA.png)
 
 ELK Stack
 
@@ -70,15 +70,15 @@ Kibana’da uyarılar oluşturmak ve yönetmek için aşağıdaki adımları izl
 3. **Uyarıyı Yapılandırın**: Uyarıyı belirli filtreler ve koşullarla yapılandırın.
 4. **Eylemleri Bağlayın**: Uyarıları e-posta, webhook, Slack gibi çeşitli kanallara bağlayın.
 
-![](https://cdn-images-1.medium.com/max/800/1*HOGFGHf9G27KLYAsknxMTQ.png)
+![](/images/1_HOGFGHf9G27KLYAsknxMTQ.png)
 
 Rules Menüsü
 
-![](https://cdn-images-1.medium.com/max/800/1*bs5pPfXzAcVKHNfjcZ0TRQ.png)
+![](/images/1_bs5pPfXzAcVKHNfjcZ0TRQ.png)
 
 Rule Type
 
-![](https://cdn-images-1.medium.com/max/800/1*lxEwyHDi0nyIRYpEKS4skg.png)
+![](/images/1_lxEwyHDi0nyIRYpEKS4skg.png)
 
 Create Rule
 

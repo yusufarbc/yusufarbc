@@ -8,7 +8,7 @@ draft: false
 
 ### **Güvenlik Analistleri için Security Onion**
 
-![](https://cdn-images-1.medium.com/max/800/1*vqqoSWZ-zucw12rjrcFPWA.png)
+![](/images/1_vqqoSWZ-zucw12rjrcFPWA.png)
 
 ### Security Onion Nedir?
 
@@ -38,7 +38,7 @@ Security Onion, siber güvenlik analistlerinin tehditleri daha hızlı tespit et
 
 Security Onion, siber güvenlik analistleri için geliştirilmiş ücretsiz ve açık kaynak bir Linux dağıtımıdır. Doug Burks tarafından 2008’de başlatılan bu proje, *tehdit avcılığı*, ağ güvenliği izleme (NSM) ve log yönetimini tek bir bütünleşik platformda sunar. Amacı, ağ trafiği ve sistem günlükleri üzerinde tam görünürlük sağlayarak saldırıları tespit etmek ve analiz etmektir. Resmi tanımda da belirtildiği üzere, Security Onion “tehdit avcılığı, kurumsal güvenlik izleme ve log yönetimi” için bir platform olarak tanımlanır. İçerisindeki bileşenler ile IDS/IPS uyarıları, protokol meta verisi, tam paket yakalama ve uç nokta telemetrisi gibi çok çeşitli veri kaynaklarını bir araya getirir. Böylece SOC ekipleri, güvenlik olaylarını merkezi bir konsolda yöneterek otomatik ve manuel analizler yapabilir. Örneğin, Security Onion’un yaptığı *network visibility* sayesinde Suricata ile imza tabanlı saldırı tespiti ve Zeek ile ağ protokol analizleri yapılır; *host visibility* sayesinde ise Elastic Agent/​osquery gibi araçlarla sunucu ve uç bilgisayar aktiviteleri takip edilir. Tüm bunlar, analistlerin kötü niyetli trafiği tekrar oynatıp derinlemesine incelemesine imkân tanır. Ayrıca platform’un açık kaynak ve ücretsiz olması, daha düşük maliyetle kapsamlı ağ güvenliği yönetimi yapılmasını sağlar.
 
-![](https://cdn-images-1.medium.com/max/800/1*jVZkCzaVnB_CiU6L1eaYOQ.png)
+![](/images/1_jVZkCzaVnB_CiU6L1eaYOQ.png)
 
 **Security Onion**
 

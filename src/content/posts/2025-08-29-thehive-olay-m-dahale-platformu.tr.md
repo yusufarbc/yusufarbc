@@ -8,7 +8,7 @@ draft: false
 
 ### TheHive Olay Müdahale Platformu
 
-![](https://cdn-images-1.medium.com/max/800/1*f8PP6v-xaqnfWogAG6RITw.png)
+![](/images/1_f8PP6v-xaqnfWogAG6RITw.png)
 
 ### 1. Temel İşlevleri ve Çalışma Şekli
 
@@ -27,7 +27,7 @@ TheHive, özellikle SOC/CSIRT ekipleri için tasarlanmış avantajlar sunar. **T
 
 **Cortex** ve **MISP**, TheHive ile sıkı şekilde entegre olan iki ana bileşendir. Cortex, TheHive için analiz ve otomasyon motorudur. TheHive, bir veya birden çok Cortex sunucusu ile REST API üzerinden konuşur. Bu sayede bir vaka veya uyarı içindeki IP, alan adı, dosya hash’i gibi gözlemlenebilirleri tek tıkla ya da topluca analiz ettirebilir. TheHive içinden bir analiz başlatıldığında Cortex bir iş (job) oluşturur ve analiz tamamlandığında TheHive’ye kısa (mini) ve uzun raporlar döner[[10]](https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=)[[8]](https://docs.strangebee.com/cortex/#:~:text=TheHive%20can%20also%20leverage%20Cortex,of%20urgently%20and%20much%20more). TheHive arayüzü üzerinden 200’den fazla hazır *analyzer* ve *responder* (örn. VirusTotal, Shodan, Yara, AbuseIPDB gibi) seçilebilir[[11]](https://strangebee.com/thehive/#:~:text=Automated%20analysis%20%26%20response). Ayrıca özel bir analizör geliştirip eklemek de mümkündür. Cortex yanıtlayıcılarıyla (responder) da bağlanarak analiz sonuçlarına göre otomatik yanıt mekanizmaları oluşturulabilir; örneğin bir kötü domain tespit edilirse DNS sunucuda engelleme, ya da bir FTP virüsü görünce antivirüs taraması tetikleme gibi aksiyonlar alınabilir[[8]](https://docs.strangebee.com/cortex/#:~:text=TheHive%20can%20also%20leverage%20Cortex,of%20urgently%20and%20much%20more)[[11]](https://strangebee.com/thehive/#:~:text=Automated%20analysis%20%26%20response).
 
-![](https://cdn-images-1.medium.com/max/800/1*SORLbZSRUDrUTApG84U7IA.png)
+![](/images/1_SORLbZSRUDrUTApG84U7IA.png)
 
 **MISP entegrasyonu** ise tehdit verisinin paylaşımı içindir. TheHive, bağlı MISP sunucularındaki güncel olayları (event) alarmlar listesinde gösterebilir ve bunları vakalara dönüştürebilir[[3]](https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=TheHive%2C%20as%20a%20SIRP%2C%20allows,preview%20new%20alerts%20to%20decide). Öte yandan vakalarda ortaya çıkan IOC’ler (IP, domain, hash vb.) topluca MISP’ye aktarılabilir, böylece diğer topluluklarla paylaşılabilir[[12]](https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=Observables%20can%20be%20tagged%2C%20flagged,you%20can%20use%20to%20add)[[13]](https://strangebee.com/thehive/#:~:text=,framework%20TTPs%20from%20MITRE%20ATT%26CK). TheHive arayüzünde arama analyzeri (MISP Search Analyzer) ile de MISP veritabanında IOC arayarak tehdit bağlamı zenginleştirilir. Bu sayede hem gelen bilgiyi MISP’den içe alır, hem de analiz sonucunda elde edilen bulguları tekrar MISP’e ihraç eder. Tüm entegrasyon, API anahtarlarıyla yapılandırılır ve TheHive arayüzünden kolayca etkinleştirilebilir[[14]](https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=,preview%20new%20alerts%20to%20decide)[[12]](https://blog.thehive-project.org/2017/06/19/thehive-cortex-and-misp-how-they-all-fit-together/#:~:text=Observables%20can%20be%20tagged%2C%20flagged,you%20can%20use%20to%20add).
 

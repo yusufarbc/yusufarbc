@@ -8,7 +8,7 @@ draft: false
 
 ### X86 Based Microprocessor Architecture
 
-![](https://cdn-images-1.medium.com/max/800/1*LCI0x-uWvBBHYDnFGti6BA.png)
+![](/images/1_LCI0x-uWvBBHYDnFGti6BA.png)
 
 ### What is X86?
 
@@ -18,7 +18,7 @@ The name x86 is the name given to processors based on the original Intel process
 
 Advanced microprocessors also have a register section, ALU and Control unit, basically like 8-bit microprocessors. However, as the architectural structure was later adapted to a multitasking environment, the sections within the processor needed to be explained in more detail in terms of functionality, as two logical main sections.
 
-![](https://cdn-images-1.medium.com/max/800/0*7PswzKiGH1B4pThm.png)
+![](/images/0_7PswzKiGH1B4pThm.png)
 
 X86-based processors can be examined in two main parts: Bus Adaptation Unit (BIU) and Execution Unit (EU). The BIU unit is responsible for feeding the EU unit with data, while the EU unit is responsible for executing the instructions.
 

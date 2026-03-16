@@ -8,7 +8,7 @@ draft: false
 
 ### Kriptoloji Temelleri:#5 Uygulama
 
-![](https://cdn-images-1.medium.com/max/800/1*Sk1u0b-kaNN7j57oE13CBA.png)
+![](/images/1_Sk1u0b-kaNN7j57oE13CBA.png)
 
 Merhaba, kriptoloji temelleri serisinin bu son yazısında kriptografik protokollerin nasıl uygulandığından bahsedeceğim. Uygulama aşamasında Java programalama dilini kullanacağım.
 

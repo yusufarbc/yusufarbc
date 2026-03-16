@@ -8,7 +8,7 @@ draft: false
 
 ### Network Security and Management VI: Identity and Access Management (IAM)
 
-![](https://cdn-images-1.medium.com/max/800/1*v6bkvamS0ChDDdA-D-8BtQ.png)
+![](/images/1_v6bkvamS0ChDDdA-D-8BtQ.png)
 
 ### Chapter 1: Fundamentals of Identity and Access Management
 
@@ -304,7 +304,7 @@ This model uses a combination of on-premise and cloud-based solutions. Enterpris
 
 The market trend is clearly shifting towards the IDaaS model. However, the final decision; It depends on a number of factors, including the organization's security posture, compliance requirements, existing infrastructure, budget and strategic goals. The table below summarizes these two models to assist in the decision-making process.
 
-![](https://cdn-images-1.medium.com/max/800/1*K-HnrjAYtc3JlkJuPDg2aQ.png)
+![](/images/1_K-HnrjAYtc3JlkJuPDg2aQ.png)
 
 **Comparison of On-Premise and Cloud (IDaaS) IAM Solutions**
 
@@ -545,7 +545,7 @@ SCIM, “Least Privilege” and “Zero Trust”It is a critical tool that ensur
 
 In modern IAM architectures, protocol selection often requires a decision between SAML and OIDC. Although both protocols offer strong SSO capabilities, they have different technical foundations and ideal use cases. Making the right choice depends on factors such as the type of application, existing infrastructure, and developer resources. The table below summarizes the key differences between these two basic protocols.
 
-![](https://cdn-images-1.medium.com/max/800/1*tCZ-uqq2JuDDKO3cazPmNw.png)
+![](/images/1_tCZ-uqq2JuDDKO3cazPmNw.png)
 
 **Technical and Usage Area Comparison of SAML and OIDC Protocols**
 

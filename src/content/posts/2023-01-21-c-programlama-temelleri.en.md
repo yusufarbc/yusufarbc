@@ -8,7 +8,7 @@ draft: false
 
 ### C Programming Fundamentals
 
-![](https://cdn-images-1.medium.com/max/800/1*wb7CfskOL2Lhc26j2XpbTQ.png)
+![](/images/1_wb7CfskOL2Lhc26j2XpbTQ.png)
 
 ### What is Syntax?
 
@@ -513,7 +513,7 @@ Let p be a variable that holds the memory address, that is, a pointer. \*p retur
 
 With this logic, we can create another pointer that references a pointer.
 
-![](https://cdn-images-1.medium.com/max/800/0*fqOhphnMCqrtdVI2.jpg)
+![](/images/0_fqOhphnMCqrtdVI2.jpg)
 
 pointer to pointer
 

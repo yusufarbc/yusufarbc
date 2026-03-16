@@ -8,17 +8,17 @@ draft: false
 
 ### **SentinelOne Singularity Platform: Advanced Cybersecurity Solutions and Architecture Analysis**
 
-![](https://cdn-images-1.medium.com/max/800/0*paXLme-hMtfJIUSk.jpg)
+![](/images/0_paXLme-hMtfJIUSk.jpg)
 
 ### Executive Summary
 
 SentinelOne Singularity Platform offers an artificial intelligence (AI) supported and autonomous solution against today's rapidly changing cyber security threat environments. The platform provides integrated protection by combining various security features such as endpoint protection (EPP), endpoint detection and response (EDR), extended detection and response (XDR), and identity-based threat detection and response (ITDR) into a single platform. In addition to being positioned as a "Leader" for the fourth consecutive time in Gartner's 2024 Magic Quadrant report, MITRE attracts attention with 100% detection success in ATT&CK tests.
 
-![](https://cdn-images-1.medium.com/max/800/1*jlrnbhcogdwACT7gXmQjYw.png)
+![](/images/1_jlrnbhcogdwACT7gXmQjYw.png)
 
 SentinelOne's features include critical functions such as the ability to work offline, automatic incident response, and file rollback. This platform makes security operations more efficient by offering organizations fast installation, high detection success and integrated visibility. Additionally, it strengthens the cyber security infrastructure of institutions by supporting Zero Trust strategies.
 
-![](https://cdn-images-1.medium.com/max/800/1*v_dw2Vr5-UjnAo2d02KXBg.png)
+![](/images/1_v_dw2Vr5-UjnAo2d02KXBg.png)
 
 This report comprehensively examines the SentinelOne Singularity Platform's architecture, threat detection methods, management console components, identity security module, licensing options and comparative analysis with competing products. Additionally, sample scenarios are supported with MITRE mappings and application recommendations.
 
@@ -30,7 +30,7 @@ SentinelOne Singularity Platform offers a multi-layered security architecture, c
 
 On this platform, two basic artificial intelligence engines, such as **Static Artificial Intelligence (AI) engine** and **Behavioral Artificial Intelligence engine**, work in an integrated manner. The static engine blocks threats in advance by evaluating the file's structure and code properties without considering its signature or hash. The behavioral AI engine detects abnormal behavior by monitoring interactions such as inter-process relationships, API calls and network connections. These structures provide critical protection, especially against zero-day threats and unsigned attacks.
 
-![](https://cdn-images-1.medium.com/max/800/1*_hbumiRrnimNfSolItu4dg.png)
+![](/images/1__hbumiRrnimNfSolItu4dg.png)
 
 **Autonomous Decision Capability**: SentinelOne can make autonomous decisions to analyze and respond to threats. Agents can detect and block threats even without an internet connection. This is especially important for isolated networks or critical infrastructures.
 
@@ -45,11 +45,11 @@ SentinelOne Singularity Platform provides comprehensive protection against known
 1. **On-Write Static Analysis**: Before the file is written to the disk, its structure and code features are evaluated and threats are prevented in advance.
 2. **On-Execute Behavioral Analysis**: When the file is executed, abnormal behavior is detected by monitoring transactions within the application, API calls, network connections and changes in the system.
 
-![](https://cdn-images-1.medium.com/max/800/1*Ti63wzo9C4Vci3ZJbJ242A.png)
+![](/images/1_Ti63wzo9C4Vci3ZJbJ242A.png)
 
 This approach offers a critical advantage, especially for **zero-day threats** (0-day) and **unsigned attacks**. SentinelOne also allows security teams to perform deeper analysis by visualizing the contextual timeline of events with its **Deep Visibility** module.
 
-![](https://cdn-images-1.medium.com/max/800/1*pMu0HoEd4BRugo45sjXNmA.png)
+![](/images/1_pMu0HoEd4BRugo45sjXNmA.png)
 
 Deep Visibility module transforms SentinelOne from a classic prevention tool into a full-fledged security operations platform that enables contextual understanding of events and rapid response.
 
@@ -73,11 +73,11 @@ WHERE LOWER(CommandLine) LIKE '%net user%' AND Timestamp > NOW()-180d;
 
 **1-Click Remediation & Rollback**: After threats such as ransomware, files and system settings can be quickly restored. The platform stores file versions prior to the attack, ensuring secure retrieval of data immediately after the threat.
 
-![](https://cdn-images-1.medium.com/max/800/1*hFQ_jeDEtsU3QEl9pSJbGA.png)
+![](/images/1_hFQ_jeDEtsU3QEl9pSJbGA.png)
 
 The **Automation / RemoteOps** tab on the console allows running batch or scheduled commands on endpoints at the time of an incident or during routine operations. For example, operations such as service shutdown, log collection, or memory dumping for forensic analysis can be applied to hundreds of devices simultaneously.
 
-![](https://cdn-images-1.medium.com/max/800/1*QnY2c-2-jEBISzxsEEgOAA.png)
+![](/images/1_QnY2c-2-jEBISzxsEEgOAA.png)
 
 Additionally, thanks to **API-based integrations**, SentinelOne can trigger automatic actions with other security and IT systems. For example, when a **SIEM** rule detects a suspicious account lockout, SentinelOne can find and automatically isolate the devices to which that account is connected via the API.
 
@@ -111,7 +111,7 @@ SentinelOne offers a flexible licensing model based on corporate needs. Differen
 * **Commercial**: Identity security features such as the ITDR module and WatchTower managed threat hunting.
 * **Enterprise**: Unlimited scale includes custom AI modules (Purple AI, Agentic SOC Analyst).
 
-![](https://cdn-images-1.medium.com/max/800/1*-_aMQrqV4B2SeCtfuWtLYA.png)
+![](/images/1_-_aMQrqV4B2SeCtfuWtLYA.png)
 
 ---
 
@@ -119,7 +119,7 @@ SentinelOne offers a flexible licensing model based on corporate needs. Differen
 
 SentinelOne provides a broad integration ecosystem by offering more than 70 ready-made integration modules. These integrations work with various systems such as **SIEM**, **SOAR**, **ITSM**, **IAM**, **NGFW**, **MDM/UEM**, **cloud services** (AWS, Azure), and **DevOps tools**.
 
-![](https://cdn-images-1.medium.com/max/800/1*iLFyX0FNTl5lkXBZsij6Aw.png)
+![](/images/1_iLFyX0FNTl5lkXBZsij6Aw.png)
 
 Thanks to these integrations, the platform enables the transfer of event data, triggering of automatic actions and central management of security operations.
 

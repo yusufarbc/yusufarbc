@@ -8,7 +8,7 @@ draft: false
 
 ### OpenCV ile Görüntü İşlemeye Giriş
 
-![](https://cdn-images-1.medium.com/max/800/0*tAmPWiGxMp-BWqSx.png)
+![](/images/0_tAmPWiGxMp-BWqSx.png)
 
 Merhaba, bu yazımızda, OpenCVnin ne olduğundan, bilgisayarlı görüden ve Python ile bu işlemlerin nasıl yapılacağından bahsedeceğiz.
 

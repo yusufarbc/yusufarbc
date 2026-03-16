@@ -8,7 +8,7 @@ draft: false
 
 ### Network Management and Security I: Basic Concepts
 
-![](https://cdn-images-1.medium.com/max/800/1*-M8PH7FuSJ3sOgJgiKLzCg.png)
+![](/images/1_-M8PH7FuSJ3sOgJgiKLzCg.png)
 
 Cybersecurity is a dynamic discipline that has been evolving since the dawn of the digital age. In the past, the security paradigm was largely based on a static fortress defense that focused on protecting the network perimeter. In this model, the digital assets of the institution were considered as if they were in a castle, and the walls of this castle were strengthened with controls such as firewalls. However, technological transformations such as cloud computing, the proliferation of mobile devices, the Internet of Things (IoT) and complex supply chains have made this traditional “safe inside, dangerous outside” distinction meaningless. The attack surface has expanded, threats have become more sophisticated, and defense lines have become unclear.
 
@@ -68,7 +68,7 @@ This process is particularly vital to the effectiveness of technologies such as 
 
 Although classification levels can be customized to each institution, there is a hierarchical model that is widely accepted in the public and private sectors. This model generally consists of four main levels: Top Secret, Secret, Service Specific, and Public. Each level reflects the potential impact of harm to the organization if that category of data were to be unauthorized disclosed, altered, or made inaccessible. The table below defines these classification levels and provides practical examples of typical security controls that should be implemented for each level in line with CIA guidelines.
 
-![](https://cdn-images-1.medium.com/max/800/1*Z4xvNhUEhoGq9K66T-Laaw.png)
+![](/images/1_Z4xvNhUEhoGq9K66T-Laaw.png)
 
 **Data Classification Levels and Implemented Security Controls**
 
@@ -233,7 +233,7 @@ The ATT&CK matrix consists of Tactics, Techniques and Procedures (TTPs):
 
 The table below maps the behavior of the thought-to-be Iran-backed APT39 group into concrete TTPs using the MITER ATT&CK framework. This provides a practical roadmap for what types of behaviors analysts should look for during a threat hunting or defense gap analysis.
 
-![](https://cdn-images-1.medium.com/max/800/1*oAJtmJSOS5OCUBxm_WX20A.png)
+![](/images/1_oAJtmJSOS5OCUBxm_WX20A.png)
 
 MITER ATT&CK TTP Mapping for Example APT Group (APT39)
 

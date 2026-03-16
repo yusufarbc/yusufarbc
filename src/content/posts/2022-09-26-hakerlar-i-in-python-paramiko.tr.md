@@ -8,7 +8,7 @@ draft: false
 
 ### **Hakerlar için Python: paramiko**
 
-![](https://cdn-images-1.medium.com/max/800/1*cHmfmYLtoze7wtcUFY5BVA.png)
+![](/images/1_cHmfmYLtoze7wtcUFY5BVA.png)
 
 ### Giriş
 
@@ -69,7 +69,7 @@ ssh.close()
 
 Bu örnekte pramaiko modülü ile bir SSH client’ı oluşturduk. Uygulama belirtilen ip ve port adresine kullanıcı adı ve parola bilgileri ile bir bağlantı gerçekleştirir ve ‘whoami’ komutunu çalıştırır. Ardından dönen cevabı ekrana yazdırır ve SSH bağlantısını kapatır.
 
-![](https://cdn-images-1.medium.com/max/800/1*yht4td7gjtuSn40eYD1_mQ.png)
+![](/images/1_yht4td7gjtuSn40eYD1_mQ.png)
 
 Bu örnekte, sanal ortamda [Typhoon](https://www.vulnhub.com/entry/typhoon-102,267/) makinesini çalıştırarak SSH ile bağlandık. Şimdi bu modül ile daha neler yapabileceğimize bir bakalım.
 

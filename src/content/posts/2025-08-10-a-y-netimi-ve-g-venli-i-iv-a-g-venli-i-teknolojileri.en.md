@@ -8,7 +8,7 @@ draft: false
 
 ### Network Management and Security IV: Network Security Technologies
 
-![](https://cdn-images-1.medium.com/max/800/1*Fhet-NIJbKlNzPESUc1Ttw.png)
+![](/images/1_Fhet-NIJbKlNzPESUc1Ttw.png)
 
 The complexity of digital infrastructures and the sophisticated nature of cyber threats have necessitated a radical transformation in network security approaches. The traditional “castle and moat” perimeter security model strongly guarded the boundaries of the network, assigning implicit trust to every entity within. However, with the rise of modern IT paradigms such as cloud computing, mobility, remote working and the Internet of Things (IoT), this clearly defined network perimeter has become increasingly blurred. In these distributed and dynamic environments, the inability of the traditional model to prevent threats has led to the adoption of more integrated and identity-centered architectures such as defense-in-depth and Zero Trust.
 
@@ -85,7 +85,7 @@ By systematically analyzing these logs, various malicious activities can be dete
 
 For effective log analysis, all firewall logs and logs from other network devices should be sent to a central **Security Information and Event Management (SIEM)** platform using a standard protocol such as **Syslog**. Syslog messages generally follow the format `<PRI>TIMESTAMP HOSTNAME: MESSAGE`; where the `<PRI>` value contains both the severity and source (facility) information of the message. For example, a message such as `%ASA-6-106100` produced by a Cisco ASA firewall includes the device type (ASA), severity level (6 - Informational), and specific event ID (106100). This structured data forms the basis for event correlation and automatic alert generation in SIEM platforms.
 
-![](https://cdn-images-1.medium.com/max/800/1*B1xzRwD1QjcobyhgHaewZQ.png)
+![](/images/1_B1xzRwD1QjcobyhgHaewZQ.png)
 
 **Firewall Technologies Comparison**
 
@@ -224,7 +224,7 @@ IDS/IPS systems basically use three different methodologies to detect threats. E
 2. **Anomaly-based Detection:** Instead of looking for a specific attack signature, this approach learns the “normal” behavior of the network and flags deviations from this normal as a potential threat. The system creates a **baseline** by observing network traffic metrics (for example, bandwidth usage, protocols used, connection counts) over a period of time. Whenever a statistically significant deviation from this baseline profile is detected (for example, an unexpected increase in FTP traffic in the middle of the night), an anomaly alert is triggered. The biggest advantage of this method is its potential to detect new and unknown attacks without a signature. However, it tends to have a **high false positive rate** because it can also flag legitimate but unexpected network activity (for example, the deployment of a new application) as anomalies.
 3. **Behavioral Analysis:** This is a more advanced form of anomaly-based detection. Rather than focusing solely on statistical deviations such as traffic volume, it analyzes the behavioral logic of protocols and applications. For example, when a DNS server transfers large amounts of data outward in a way it normally shouldn't, or when a web server tries to launch a command line (shell), the protocol detects violations or unexpected sequences of actions. This method can produce more accurate results than anomaly-based detection because it uses more context information.
 
-![](https://cdn-images-1.medium.com/max/800/1*PjPS0Bfp8Mb94zqFwP74Dw.png)
+![](/images/1_PjPS0Bfp8Mb94zqFwP74Dw.png)
 
 **IDS/IPS Detection Methods Comparison**
 
@@ -324,7 +324,7 @@ It is a technique that splits a VPN user's traffic into two. Traffic destined fo
 
 Because IPSec uses IP headers to verify the integrity of packets, the source IP address or port cannot be detected by NAT devices.Changing it will disrupt the authentication process. **NAT Traversal** is a mechanism developed to solve this problem. NAT-T encapsulates IPSec (specifically ESP) packets within a UDP header. These UDP packets generally use port 4500. Even if NAT devices redirect by changing the port information of these UDP packets, the original ESP packet inside remains intact and can be processed correctly by the VPN gateway at the destination.
 
-![](https://cdn-images-1.medium.com/max/800/1*qcfN3w9nucr_-rFUjvihHg.png)
+![](/images/1_qcfN3w9nucr_-rFUjvihHg.png)
 
 **VPN Protocols Comparison**
 
@@ -361,7 +361,7 @@ There are many platforms on the market that offer these services, and each has d
 * **IBM QRadar:** It is a well-established and mature SIEM platform. It is particularly strong in rule-based correlation and compliance reporting. It is generally seen as a more cost-effective option than Splunk, but its interface may be considered outdated by some users.
 * **Microsoft Sentinel:** It is a cloud-native SIEM and SOAR solution. It stands out especially with its deep integration with Azure cloud services and artificial intelligence-supported analysis capabilities. It is a popular option for modern cloud environments because it does not require infrastructure management and is scalable.
 
-![](https://cdn-images-1.medium.com/max/800/1*pGGWBXfh3FmW4dBdnSiGIA.png)
+![](/images/1_pGGWBXfh3FmW4dBdnSiGIA.png)
 
 **Key Differences Between SIEM and SOAR**
 
@@ -454,7 +454,7 @@ A multi-layered approach is required to protect against these threats:
 * **Regular Network Scans:** It is important to detect unauthorized devices by regularly scanning the network.
 * **User Education:** Educating users about the risks of connecting to unknown or suspicious Wi-Fi networks, paying attention to certificate warnings, and the importance of using a VPN on public networks is one of the most important lines of defense.
 
-![](https://cdn-images-1.medium.com/max/800/1*1MluVyG6UZhxsJniWxTz2g.png)
+![](/images/1_1MluVyG6UZhxsJniWxTz2g.png)
 
 **WPA2 and WPA3 Comparison**
 

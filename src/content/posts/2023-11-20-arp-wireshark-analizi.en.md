@@ -8,7 +8,7 @@ draft: false
 
 ### ARP Wireshark Analysis
 
-![](https://cdn-images-1.medium.com/max/800/1*ao4qe1GrmozJwGfFHn-v_Q.png)
+![](/images/1_ao4qe1GrmozJwGfFHn-v_Q.png)
 
 Hello, in this article, I will try to explain the Address Resolution Protocol (ARP) protocol and its analysis with Wireshark.
 
@@ -18,13 +18,13 @@ Hello, in this article, I will try to explain the Address Resolution Protocol (A
 
 ARP is used to associate a hardware address (physical address, MAC address) with an IP address on the local network and to test for duplicate IPv4 addresses. No matter how simple ARP is, it can be the protocol that signals problems with network addressing or configurations. ARP is defined in RFC 826, Ethernet Address Resolution Protocol, and is not used in IPv6 communications.
 
-![](https://cdn-images-1.medium.com/max/800/1*H46AliIQi_SWSWD9GTZ5nw.png)
+![](/images/1_H46AliIQi_SWSWD9GTZ5nw.png)
 
 ARP Protocol
 
 **ARP protocol can only be used on the local network (internal network)!**Therefore, to analyze ARP conversations, you must be connected to the local network where the traffic flows.
 
-![](https://cdn-images-1.medium.com/max/800/1*3BrM69K5ZUI6UjmzxvaKVg.png)
+![](/images/1_3BrM69K5ZUI6UjmzxvaKVg.png)
 
 Provides address resolution between ARP, MAC and IP address layers
 
@@ -36,13 +36,13 @@ ARP packets are unique compared to most traffic on a TCP network because they do
 
 Normal ARP communications consist of a simple request and a simple response. A host sends an ARP broadcast containing the destination IP address (but no destination MAC address — ARP is used for MAC address resolution).
 
-![](https://cdn-images-1.medium.com/max/800/1*JePuyNi_ro4-wNE9_kryWg.png)
+![](/images/1_JePuyNi_ro4-wNE9_kryWg.png)
 
 ARP request
 
 In the figure, a host with a MAC address of 00:23:54:69:8f:58 and an IP address of 24.6.170.101 is looking for the MAC address for 24.6.168.1. In broadcast broadcasts, the MAC address is 00:00:00:00:00:00 as shown in the figure. This is because switches forward packets according to the destination MAC address in unicast traffic. MAC address with 0 represents broadcast transmission.
 
-![](https://cdn-images-1.medium.com/max/800/1*vJW2quVT-FBv0mVUtbl9kA.png)
+![](/images/1_vJW2quVT-FBv0mVUtbl9kA.png)
 
 ARP Response
 
@@ -54,7 +54,7 @@ The response packet shown in the figure now contains the sender IP address 24.6.
 
 Missed ARP requests are used to determine whether another host on the network has the same IP address as the sender. It sends ARP requests to all hosts regardless of whether their IP addresses are statically or dynamically assigned. If there is no response, it is determined that this IP address is not used on the network and is empty. Wireshark can identify missed ARP packets.
 
-![](https://cdn-images-1.medium.com/max/800/1*mxbRrUNWgTfuMhM4jnlsmA.png)
+![](/images/1_mxbRrUNWgTfuMhM4jnlsmA.png)
 
 ARP Announcement
 
@@ -68,7 +68,7 @@ If you are examining ARP traffic but seeing no response to ARP broadcasts 
 
 Network addressing issues can also cause ARP problems.
 
-![](https://cdn-images-1.medium.com/max/800/1*eC8hFeOTJBcj4tZwmb9S5A.png)
+![](/images/1_eC8hFeOTJBcj4tZwmb9S5A.png)
 
 An ARP issue caused by a misconfigured host subnet value
 
@@ -82,7 +82,7 @@ Routers that support proxy ARP (defined in RFC 1027, Using ARP to Implement Tran
 
 ARP poisoning traffic also appears uniquely on Wireshark.
 
-![](https://cdn-images-1.medium.com/max/800/1*YzDmMwMEJw2ovJ6ArWXWaQ.png)
+![](/images/1_YzDmMwMEJw2ovJ6ArWXWaQ.png)
 
 Harp Poisoning
 

@@ -8,7 +8,7 @@ draft: false
 
 ### Ağ Yönetimi ve Güvenliği IV: Ağ Güvenliği Teknolojileri
 
-![](https://cdn-images-1.medium.com/max/800/1*Fhet-NIJbKlNzPESUc1Ttw.png)
+![](/images/1_Fhet-NIJbKlNzPESUc1Ttw.png)
 
 Dijital altyapıların karmaşıklığı ve siber tehditlerin sofistike doğası, ağ güvenliği yaklaşımlarında köklü bir dönüşümü zorunlu kılmıştır. Geleneksel “kale ve hendek” (castle and moat) olarak bilinen çevre güvenliği modeli, ağın sınırlarını güçlü bir şekilde koruyarak içerideki her varlığa örtük bir güven atfederdi. Ancak, bulut bilişim, mobilite, uzaktan çalışma ve Nesnelerin İnterneti (IoT) gibi modern IT paradigmalarının yükselişiyle birlikte, bu net bir şekilde tanımlanmış ağ çevresi giderek belirsizleşmiştir. Bu dağıtık ve dinamik ortamlarda, geleneksel modelin tehditleri engellemedeki yetersizliği, savunma-derinlik (defense-in-depth) ve Sıfır Güven (Zero Trust) gibi daha bütünleşik ve kimlik merkezli mimarilerin benimsenmesini sağlamıştır.
 
@@ -85,7 +85,7 @@ Bu logların sistematik olarak analiz edilmesiyle, çeşitli kötü niyetli akti
 
 Etkili bir log analizi için, tüm güvenlik duvarlarından ve diğer ağ cihazlarından gelen logların **Syslog** gibi standart bir protokol kullanılarak merkezi bir **Güvenlik Bilgi ve Olay Yönetimi (SIEM)** platformuna gönderilmesi esastır. Syslog mesajları genellikle `<PRI>TIMESTAMP HOSTNAME: MESSAGE` formatını takip eder; burada `<PRI>` değeri, mesajın hem önem (severity) hem de kaynak (facility) bilgisini içerir. Örneğin, bir Cisco ASA güvenlik duvarı tarafından üretilen `%ASA-6-106100` gibi bir mesaj, cihazın türünü (ASA), önem seviyesini (6 - Informational) ve spesifik olay kimliğini (106100) içerir. Bu yapılandırılmış veriler, SIEM platformlarında olay korelasyonu ve otomatik uyarı üretimi için temel oluşturur.
 
-![](https://cdn-images-1.medium.com/max/800/1*B1xzRwD1QjcobyhgHaewZQ.png)
+![](/images/1_B1xzRwD1QjcobyhgHaewZQ.png)
 
 **Firewall Teknolojileri Karşılaştırması**
 
@@ -224,7 +224,7 @@ IDS/IPS sistemleri, tehditleri tespit etmek için temel olarak üç farklı meto
 2. **Anomali Tabanlı Tespit (Anomaly-based Detection):** Bu yaklaşım, belirli bir saldırı imzası aramak yerine, ağın “normal” davranışını öğrenir ve bu normalden sapmaları potansiyel bir tehdit olarak işaretler. Sistem, belirli bir süre boyunca ağ trafiği metriklerini (örneğin, bant genişliği kullanımı, kullanılan protokoller, bağlantı sayıları) gözlemleyerek bir **temel profil (baseline)** oluşturur. Bu temel profilden istatistiksel olarak anlamlı bir sapma tespit edildiğinde (örneğin, gece yarısı beklenmedik bir FTP trafiği artışı), bir anomali uyarısı tetiklenir. Bu yöntemin en büyük avantajı, imzası olmayan yeni ve bilinmeyen saldırıları tespit etme potansiyelidir. Ancak, meşru ama beklenmedik ağ aktivitelerini (örneğin, yeni bir uygulamanın devreye alınması) de anomali olarak işaretleyebileceği için **yüksek yanlış pozitif (false positive)** oranına sahip olma eğilimindedir.
 3. **Davranışsal Analiz (Behavioral Analysis):** Bu, anomali tabanlı tespitin daha gelişmiş bir formudur. Sadece trafik hacmi gibi istatistiksel sapmalara odaklanmak yerine, protokollerin ve uygulamaların davranışsal mantığını analiz eder. Örneğin, bir DNS sunucusunun normalde yapmaması gereken bir şekilde dışarıya doğru büyük miktarda veri transferi yapması veya bir web sunucusunun bir komut satırı (shell) başlatmaya çalışması gibi protokol ihlallerini veya beklenmedik eylem dizilerini tespit eder. Bu yöntem, daha fazla bağlam bilgisi kullandığı için anomali tabanlı tespitten daha isabetli sonuçlar üretebilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*PjPS0Bfp8Mb94zqFwP74Dw.png)
+![](/images/1_PjPS0Bfp8Mb94zqFwP74Dw.png)
 
 **IDS/IPS Tespit Yöntemleri Karşılaştırması**
 
@@ -326,7 +326,7 @@ Bir VPN kullanıcısının trafiğini ikiye bölen bir tekniktir. Kurumsal kayna
 
 IPSec, paketlerin bütünlüğünü doğrulamak için IP başlıklarını kullandığından, NAT cihazları tarafından kaynak IP adresinin veya portunun değiştirilmesi kimlik doğrulama sürecini bozar. **NAT Traversal**, bu sorunu çözmek için geliştirilmiş bir mekanizmadır. NAT-T, IPSec (özellikle ESP) paketlerini bir UDP başlığı içine kapsüller. Bu UDP paketleri genellikle 4500 portunu kullanır. NAT cihazları bu UDP paketlerinin port bilgisini değiştirerek yönlendirme yapsa bile, içindeki orijinal ESP paketi bozulmadan kalır ve hedefteki VPN ağ geçidi tarafından doğru bir şekilde işlenebilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*qcfN3w9nucr_-rFUjvihHg.png)
+![](/images/1_qcfN3w9nucr_-rFUjvihHg.png)
 
 **VPN Protokolleri Karşılaştırması**
 
@@ -363,7 +363,7 @@ Piyasada bu hizmetleri sunan birçok platform bulunmaktadır ve her birinin fark
 * **IBM QRadar:** Köklü ve olgun bir SIEM platformudur. Özellikle kural tabanlı korelasyon ve uyumluluk raporlaması konularında güçlüdür. Genellikle Splunk’a göre daha uygun maliyetli bir seçenek olarak görülür, ancak arayüzü bazı kullanıcılar tarafından daha eski olarak değerlendirilebilir.
 * **Microsoft Sentinel:** Bulut tabanlı (cloud-native) bir SIEM ve SOAR çözümüdür. Özellikle Azure bulut hizmetleriyle derin entegrasyonu ve yapay zeka destekli analiz yetenekleri ile öne çıkar. Altyapı yönetimi gerektirmediği ve ölçeklenebilir olduğu için modern bulut ortamları için popüler bir seçenektir.
 
-![](https://cdn-images-1.medium.com/max/800/1*pGGWBXfh3FmW4dBdnSiGIA.png)
+![](/images/1_pGGWBXfh3FmW4dBdnSiGIA.png)
 
 **SIEM ve SOAR Arasındaki Temel Farklar**
 
@@ -456,7 +456,7 @@ Bu tehditlere karşı korunmak için çok katmanlı bir yaklaşım gereklidir :
 * **Düzenli Ağ Taramaları:** Ağın düzenli olarak taranarak yetkisiz cihazların tespit edilmesi önemlidir.
 * **Kullanıcı Eğitimi:** Kullanıcıları, bilinmeyen veya şüpheli Wi-Fi ağlarına bağlanmanın riskleri, sertifika uyarılarına dikkat etme ve halka açık ağlarda VPN kullanmanın önemi konusunda eğitmek, en önemli savunma hatlarından biridir.
 
-![](https://cdn-images-1.medium.com/max/800/1*1MluVyG6UZhxsJniWxTz2g.png)
+![](/images/1_1MluVyG6UZhxsJniWxTz2g.png)
 
 **WPA2 ve WPA3 Karşılaştırması**
 

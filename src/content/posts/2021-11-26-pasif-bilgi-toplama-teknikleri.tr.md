@@ -8,7 +8,7 @@ draft: false
 
 ### Pasif Bilgi Toplama Teknikleri
 
-![](https://cdn-images-1.medium.com/max/800/0*2NsHt2LZX3ORPYxb.jpg)
+![](/images/0_2NsHt2LZX3ORPYxb.jpg)
 
 Merhaba, Mehmet Bulut hocamla birlikte hazırladığımız bu yazımızda, sizlere Pasif Bilgi Toplama Tekniklerinden bahsedeceğiz.
 

@@ -8,7 +8,7 @@ draft: false
 
 ### **Python:socket for hackers**
 
-![](https://cdn-images-1.medium.com/max/800/1*Z3ieIgd5w_LPy0R2bLu6pg.png)
+![](/images/1_Z3ieIgd5w_LPy0R2bLu6pg.png)
 
 ### Introduction
 
@@ -85,7 +85,7 @@ print('Received ', data)
 
 This code will send data one by one to establish a connection with the socket operating at 127.0.0.1:2222. The data sent here is the 'hello' message. Then, it receives the incoming data and the program ends.
 
-![](https://cdn-images-1.medium.com/max/800/1*0epPGqrnUjKfpY9yg8YoKg.png)
+![](/images/1_0epPGqrnUjKfpY9yg8YoKg.png)
 
 Let's save the code we use to listen to the socket in a file named *server.py*. Let's save the code we use to connect to the socket in a file named *client.py*. When we first run the server.py file and then the client.py file, the connection will be established.
 
@@ -122,7 +122,7 @@ print(banners)
 
 If we run this code on the Typhoon machine, it will get us open ports and banner information.
 
-![](https://cdn-images-1.medium.com/max/800/1*p297l0qe6OnuUmY7ep52sA.png)
+![](/images/1_p297l0qe6OnuUmY7ep52sA.png)
 
 ### SSL
 

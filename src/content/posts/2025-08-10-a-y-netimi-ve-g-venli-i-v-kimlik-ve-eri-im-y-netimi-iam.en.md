@@ -8,7 +8,7 @@ draft: false
 
 ### Network Management and Security V: Identity and Access Management (IAM)
 
-![](https://cdn-images-1.medium.com/max/800/1*6OkxmUjEoOjEZW17jo7E8w.png)
+![](/images/1_6OkxmUjEoOjEZW17jo7E8w.png)
 
 Identity and Access Management (IAM) is the set of business processes, policies and technologies that an organization uses to manage digital identities and their access rights to critical systems, applications and data. Its main purpose is to ensure that the right people or services have access to the right resources, at the right time and for the right reasons. This framework is not just a technology stack, but a strategic governance discipline that fundamentally shapes an organization's security posture and operational efficiency. IAM covers all user identities within an organization, such as employees, contractors, business partners, and even customers, and controls the lifecycle (create, manage, delete) of each identity.
 
@@ -51,7 +51,7 @@ Protocol choice is not just a technical choice but also reflects an organization
 
 * TACACS+, on the other hand, asks a deeper question: “Which commands can this administrator who enters the network run on the device?” Separating AAA processes gives it an “operations auditor” capability. This way, once a network administrator is authenticated, he or she may only be authorized to run monitoring commands such as `show interface`. While this is granted, the ability to run configuration commands such as `configure terminal` may be blocked. This granular level of control ensures fine-grained enforcement of the principle of least privilege at the network device management layer. Therefore, TACACS+ is the preferred protocol in sectors requiring high security, such as finance, defense and telecommunications, and in the management of network infrastructure.
 
-![](https://cdn-images-1.medium.com/max/800/1*p7VHlJuCXv1f6irJuqfB_g.png)
+![](/images/1_p7VHlJuCXv1f6irJuqfB_g.png)
 
 The main differences between the two protocols.
 
@@ -121,7 +121,7 @@ Access control models are essential tools in implementing PoLP. **RBAC** structu
 
 The following table compares access control models in terms of their key features:
 
-![](https://cdn-images-1.medium.com/max/800/1*nVP5oHjzybYftBsE0y9dnQ.png)
+![](/images/1_nVP5oHjzybYftBsE0y9dnQ.png)
 
 Access Control Models
 
@@ -178,7 +178,7 @@ Rather than requiring the same MFA method on every login attempt, modern IAM sys
 
 The table below compares different MFA methods based on practical decision-making criteria:
 
-![](https://cdn-images-1.medium.com/max/800/1*8TTOg_EU2ai3ZII65l_vMQ.png)
+![](/images/1_8TTOg_EU2ai3ZII65l_vMQ.png)
 
 MFA methods
 

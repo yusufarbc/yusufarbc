@@ -8,7 +8,7 @@ draft: false
 
 ### Network Security and Management IV: NETWORK SECURITY
 
-![](https://cdn-images-1.medium.com/max/800/1*BZVwBIefZNbdIE6Sn8hDrQ.png)
+![](/images/1_BZVwBIefZNbdIE6Sn8hDrQ.png)
 
 The fundamental philosophical and strategic frameworks on which the entire cybersecurity discipline is built are examined. Answers are sought to basic questions such as what security means, what strategy it should be implemented with, and what types of threats are defended against. This chapter highlights the importance of shifting from a reactive “problem solving” mindset to a proactive “risk management” mindset.
 
@@ -64,7 +64,7 @@ These attack vectors rarely act alone; They are often part of a complex attack c
 
 The table below summarizes common attack vectors and the underlying security principles that these attacks directly target.
 
-![](https://cdn-images-1.medium.com/max/800/1*FAdKptOhUIKWjicuMUi8JQ.png)
+![](/images/1_FAdKptOhUIKWjicuMUi8JQ.png)
 
 **Common Attack Vectors and the Security Principles They Target**
 
@@ -105,7 +105,7 @@ In practice, the best aspects of symmetric and asymmetric encryption are combine
 
 The table below summarizes the key features of the two primary encryption methods comparatively.
 
-![](https://cdn-images-1.medium.com/max/800/1*uLkJ1fxvGAvAmTITuC3VVA.png)
+![](/images/1_uLkJ1fxvGAvAmTITuC3VVA.png)
 
 **Comparison of Cryptographic Methods**
 
@@ -186,7 +186,7 @@ IDS/IPS systems use two primary methods to detect threats:
 
 The choice between these two methods is a trade-off between “precision” and “coverage”. Signature-based systems offer high accuracy against “baddies we know,” while anomaly-based systems offer broader coverage against “baddies we don't know.” Modern security systems combine these two approaches in a hybrid model, trying to take advantage of both.
 
-![](https://cdn-images-1.medium.com/max/800/1*IwTYwOqFbmnzoAnDVPl8DA.png)
+![](/images/1_IwTYwOqFbmnzoAnDVPl8DA.png)
 
 **Comparison of IDS/IPS Detection Methods**
 

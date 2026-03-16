@@ -8,7 +8,7 @@ draft: false
 
 ### Microsoft's Cloud-Focused Strategy
 
-![](https://cdn-images-1.medium.com/max/800/1*tdun2Bby5gQIKpvNeEUi2Q.png)
+![](/images/1_tdun2Bby5gQIKpvNeEUi2Q.png)
 
 Microsoft has clearly adopted the "cloud-first" approach in recent years; Windows Server is positioning itself to integrate its identity management and other products with the Azure cloud. For example, Microsoft documentation emphasizes that Windows Server 2022 brings innovations based on the main themes of "security, Azure hybrid integration and management". In fact, it is stated that Windows Server 2022 Datacenter: Azure Edition offers features to "keep VMs updated without interruption by using the benefits of the cloud" and includes cloud-focused innovations such as Hotpatch, SMB over QUIC and Azure Extended Networking. This shows that Microsoft focuses on Azure and cloud integration in both product innovations and management methods.
 

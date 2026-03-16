@@ -8,7 +8,7 @@ draft: false
 
 ### Introduction to Malware Analysis: #5 Source Investigation
 
-![](https://cdn-images-1.medium.com/max/800/1*dJBvI3SpcGPLEmaFbLhm9A.png)
+![](/images/1_dJBvI3SpcGPLEmaFbLhm9A.png)
 
 In this article, I listed the resources I found on malware analysis. Repos, books, sites and videos are in this article.
 
@@ -55,7 +55,7 @@ There are source books written on malware analysis. I have compiled some of thes
 
 This book, which is well-known and popular in the industry, explains malware analysis techniques and tools in detail. You can find the pdf with a little Google research.
 
-![](https://cdn-images-1.medium.com/max/800/0*J3edrfFpwSJo_242.jpg)
+![](/images/0_J3edrfFpwSJo_242.jpg)
 
 You can access it from this link:  
 <https://www.amazon.com/Practical-Malware-Analysis-Hands-Dissecting-ebook/dp/B007ED2XDS>
@@ -64,7 +64,7 @@ You can access it from this link:
 
 This book was the source I used most while preparing my articles. Since it is a newer book than the previous book, it also includes newer techniques. It also discusses detection engineering in detail.
 
-![](https://cdn-images-1.medium.com/max/800/0*JkTFYNXISyFP8PtR.jpg)
+![](/images/0_JkTFYNXISyFP8PtR.jpg)
 
 You can access it from this link:  
 <https://www.amazon.com/Malware-Analysis-Detection-Engineering-Comprehensive/dp/1484261925>
@@ -73,7 +73,7 @@ You can access it from this link:
 
 It is a book for those who want to specialize in malware analysis. Its content is a bit advanced.
 
-![](https://cdn-images-1.medium.com/max/800/0*FYrrXetOcwog8gf_.jpg)
+![](/images/0_FYrrXetOcwog8gf_.jpg)
 
 You can access it from this link:  
 <https://www.amazon.com/Mastering-Malware-Analysis-combating-cybercrime/dp/1789610788?asin=1789610788&revisionId=&format=4&depth=1>
@@ -106,7 +106,7 @@ You can access it from this link:
 
 We can say that it is a malware database. A platform where we can download and install malware samples
 
-![](https://cdn-images-1.medium.com/max/800/1*q0gdIoG_ec64kiABMf1EGQ.png)
+![](/images/1_q0gdIoG_ec64kiABMf1EGQ.png)
 
 You can access it from this link:  
 <https://bazaar.abuse.ch/>
@@ -115,7 +115,7 @@ You can access it from this link:
 
 VirusShare is a service hosted and maintained by Corvus Forensics.
 
-![](https://cdn-images-1.medium.com/max/800/1*Bxk0P0kNEoGjruxszJWKBQ.png)
+![](/images/1_Bxk0P0kNEoGjruxszJWKBQ.png)
 
 ---
 

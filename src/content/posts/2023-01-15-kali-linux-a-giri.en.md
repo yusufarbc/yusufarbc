@@ -8,7 +8,7 @@ draft: false
 
 ### Introduction to Kali Linux
 
-![](https://cdn-images-1.medium.com/max/800/1*zHe4hqRCHYvBY6Sul53MaQ.png)
+![](/images/1_zHe4hqRCHYvBY6Sul53MaQ.png)
 
 ### Introduction
 
@@ -33,7 +33,7 @@ Kalinin [documentation page](https://www.kali.org/docs/) contains detailed infor
 
 The easiest of the methods I listed above is to install it on a computer as a virtual machine. For this, we need a virtualization program such as [VMware](https://www.vmware.com/) or [virtualbox](https://www.virtualbox.org/). We can download the installation files for these programs from Kalinin [download page](https://www.kali.org/get-kali/#kali-virtual-machines).
 
-![](https://cdn-images-1.medium.com/max/800/1*oGbHJaE4HvWhKg2MLcBg7g.png)
+![](/images/1_oGbHJaE4HvWhKg2MLcBg7g.png)
 
 On this page, 32-bit and 64-bit options are also available at the top. After downloading the file suitable for our virtualization program, all that remains is to open this file in our virtualization program. Then you will see Kalinin started.
 
@@ -62,7 +62,7 @@ In the field of penetration testing, Kali Linux is a widely used distribution. N
 
 While in the Kali Linux desktop environment, if you click on the logo, you will see the general menu open. Here, you can make various customizations from the settings section. When you look further down, you will come across various sections.
 
-![](https://cdn-images-1.medium.com/max/800/1*oRREtWWP_05h_uj2e0gZvQ.png)
+![](/images/1_oRREtWWP_05h_uj2e0gZvQ.png)
 
 Kali Linux Menu
 

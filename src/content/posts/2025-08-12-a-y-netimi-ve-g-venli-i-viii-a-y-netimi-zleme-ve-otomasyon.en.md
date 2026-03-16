@@ -8,7 +8,7 @@ draft: false
 
 ### Network Management and Security VIII: Network Management, Monitoring and Automation
 
-![](https://cdn-images-1.medium.com/max/800/1*Iv6EqXHTlTeVgd7LlSNDOQ.png)
+![](/images/1_Iv6EqXHTlTeVgd7LlSNDOQ.png)
 
 Network management has undergone a radical transformation in the last two decades. In the past, network management relied heavily on individual troubleshooting efforts that were manual, reactive, and command-line interface (CLI)-based. Network engineers would intervene when problems arose, connecting devices one by one and manually adjusting configurations. This approach is no longer sustainable for today's complex, dynamic and business-critical network infrastructures. Modern network operations are built on three deeply interconnected pillars that replace this old paradigm:
 
@@ -66,7 +66,7 @@ It is a modern and secure standard developed specifically to fix obvious securit
 
 The choice between SNMPv2c and SNMPv3 is not just a technical choice but also a reflection of an organization's overall security maturity and philosophy. The fact that SNMPv1/v2c transmits credentials and data over the network in clear text is an unacceptable vulnerability in modern networks. SNMPv3 offers authentication and encryption to close these vulnerabilities. However, v3 is “quite complex” to configure and imposes an additional technical overhead and performance (CPU/memory) cost on monitored devices. This creates a direct trade-off between simplicity and performance (v2c) and security and complexity (v3). Therefore, an organization's decision in this regard reveals its risk appetite. A company that prefers ease of deployment to security of management traffic may consider v2c combined with access control lists (ACLs) as a “good enough” measure. An organization with strict compliance requirements or a mature security program will enforce the `authPriv` level of v3, accepting the operational overhead to reduce the risk of credential theft or data manipulation. This shows how seriously the organization takes insider threats and in-network eavesdropping and can be considered an indicator of the transition to a zero-trust network.
 
-![](https://cdn-images-1.medium.com/max/800/1*psfUsG7oSQeQYJHqnwtiNg.png)
+![](/images/1_psfUsG7oSQeQYJHqnwtiNg.png)
 
 Comparative Analysis of SNMP Versions (v1, v2c, v3)
 
@@ -105,7 +105,7 @@ The main difference between NetFlow and sFlow is not only technical (stateful/st
 
 The table below clarifies the often confused differences between these two critical streaming protocols and enables engineers to choose the right technology for their specific use case and network environment.
 
-![](https://cdn-images-1.medium.com/max/800/1*Fn_jt2stbWxL_YVnRuYbnQ.png)
+![](/images/1_Fn_jt2stbWxL_YVnRuYbnQ.png)
 
 Flow-Based Monitoring Protocols: NetFlow vs. sFlow
 
@@ -145,7 +145,7 @@ Nagios Core is free and open source and can be extended to do anything thanks to
 
 The table below provides a direct, feature-by-feature comparison of three lead monitoring platforms to help organizations make an informed decision based on their specific technical needs, budget, and team skills.
 
-![](https://cdn-images-1.medium.com/max/800/1*8hiUXuINrhx_sc7cJlTO-A.png)
+![](/images/1_8hiUXuINrhx_sc7cJlTO-A.png)
 
 Feature Matrix of Tracking Platforms (Nagios vs. Zabbix vs. PRTG)
 

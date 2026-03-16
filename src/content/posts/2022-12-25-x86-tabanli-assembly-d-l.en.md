@@ -8,7 +8,7 @@ draft: false
 
 ### X86 Based Assembly Language
 
-![](https://cdn-images-1.medium.com/max/800/1*BAtuHRcfthhw1Adspm0Jsg.png)
+![](/images/1_BAtuHRcfthhw1Adspm0Jsg.png)
 
 ### Assembly language Overview
 
@@ -18,7 +18,7 @@ A computer system basically consists of elements such as hardware and software. 
 
 In order for a human being to communicate with a machine, he must understand its language. For this purpose, the language of the system is created by serializing the logical 0 and 1 values, which are the basic elements in the operation of the system, in certain proportions and interpreting them according to a certain order.
 
-![](https://cdn-images-1.medium.com/max/800/0*ORZKX7SQuqXG8bU2.jpg)
+![](/images/0_ORZKX7SQuqXG8bU2.jpg)
 
 In microprocessor systems, the language consisting of logical 0s and 1s and written to perform a certain task is called machine language. The juxtaposition of these numbers that make up the machine language creates a sequence that is incomprehensible to the programmer.
 
@@ -41,7 +41,7 @@ INT 21H
 
 Each company also offers mnemonics related to the microprocessor it produces to the market. In the small program snippet above, each line handles a complete command. Each instruction corresponds to one two or 3 bytes of binary code.
 
-![](https://cdn-images-1.medium.com/max/800/0*JB_H9rRUMsl76-cW.png)
+![](/images/0_JB_H9rRUMsl76-cW.png)
 
 assembler
 
@@ -165,7 +165,7 @@ Let's look at the commonly used commands.
   - memory, immediate  
   - REG, immediate
 
-![](https://cdn-images-1.medium.com/max/800/1*cTFBzk0u0qRVO5sdUCTZtw.png)
+![](/images/1_cTFBzk0u0qRVO5sdUCTZtw.png)
 
 Status of flags at the end of the CMP process
 

@@ -8,7 +8,7 @@ draft: false
 
 ### **Hakerlar için Python:socket**
 
-![](https://cdn-images-1.medium.com/max/800/1*Z3ieIgd5w_LPy0R2bLu6pg.png)
+![](/images/1_Z3ieIgd5w_LPy0R2bLu6pg.png)
 
 ### Giriş
 
@@ -85,7 +85,7 @@ print('Received ', data)
 
 Bu kod 127.0.0.1:2222 adresinde çalışan soketle bağlantı kuracak bir bir data gönderecektir. Burada gönderilen data ‘merhaba’ mesajıdır. Ardından karşıdan gelen datayı alır ve program sonlanır.
 
-![](https://cdn-images-1.medium.com/max/800/1*0epPGqrnUjKfpY9yg8YoKg.png)
+![](/images/1_0epPGqrnUjKfpY9yg8YoKg.png)
 
 Soket dinlediğimiz kodu *server.py i*simli bir dosyaya kaydedelim. Sokete bağlandığımız kodu ise *client.py* isimli bir dosyaya kaydedelim. Önce server.py dosyasını sonra client.py dosyasını çalıştırdığımızda bağlantı kurulmuş olacaktır.
 
@@ -122,7 +122,7 @@ print(banners)
 
 Typhoon makinesi üzerinde bu kodu çalıştırırsak bize açık portları ve banner bilgilerini gertirir.
 
-![](https://cdn-images-1.medium.com/max/800/1*p297l0qe6OnuUmY7ep52sA.png)
+![](/images/1_p297l0qe6OnuUmY7ep52sA.png)
 
 ### SSL
 

@@ -8,7 +8,7 @@ draft: false
 
 ### Active Information Gathering Techniques
 
-![](https://cdn-images-1.medium.com/max/800/0*oiybh8KKS4kV2xtr.jpg)
+![](/images/0_oiybh8KKS4kV2xtr.jpg)
 
 In this article, we will talk about Active Information Gathering Techniques.
 

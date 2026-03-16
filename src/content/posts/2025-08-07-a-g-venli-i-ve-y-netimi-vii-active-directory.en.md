@@ -8,7 +8,7 @@ draft: false
 
 ### Network Security and Management VII: Active Directory
 
-![](https://cdn-images-1.medium.com/max/800/1*xHCEWIgWsOG-PR1mgpcXvQ.png)
+![](/images/1_xHCEWIgWsOG-PR1mgpcXvQ.png)
 
 It examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of "identity is the new security perimeter", this study presents a comprehensive strategy that aims to transform AD from a security weakness into a defense fortress. The report covers common attack vectors such as Kerberoasting, Pass-the-Hash and Golden Ticket, advanced defense mechanisms such as Tiered Model, Credential Guard and Group Managed Service Accounts (gMSA), security of hybrid identity infrastructures, and continuous monitoring and disaster recovery operations in technical detail. This guide concludes by providing an actionable roadmap for security leaders and technical practitioners to improve the security and resilience of AD infrastructures.
 
@@ -141,7 +141,7 @@ AD attacks often proceed as a chain reaction of a series of linked actions rathe
 | **Pass-the-Hash** (T1550.002) | Using the NTLM hash to authenticate without the password. | Credential Guard, LAPS, Restricted Admin Mode, Tiered Model. | Mimikatz, Impacket |
 | **DCSync** (T1003.006) | Spoofing a DC to request password data via replication. | Monitoring for specific ACL permissions, auditing directory replication events. | Mimikatz |
 
-![](https://cdn-images-1.medium.com/max/800/1*YontK_x4FdZcm4LQIPCUtw.png)
+![](/images/1_YontK_x4FdZcm4LQIPCUtw.png)
 
 ---
 
@@ -221,7 +221,7 @@ Multi-Factor Authentication (MFA) is a critical layer that significantly increas
 
 Although these defense mechanisms are valuable on their own, their real power comes when they come together. This creates a unified defensive philosophy that makes the attacker's job almost impossible. Once an attacker compromises an account in Tier 2, the Tiered Model prevents them from gaining access to Tier 0 assets. When trying to move laterally within the same layer, PtH attacks are rendered ineffective because each machine has a different local administrator password, thanks to LAPS. Even if it somehow gains administrative rights on a machine, Credential Guard fundamentally defeats PtH and PtT attacks by preventing it from stealing credentials from LSASS. When it tries to target service accounts, the Kerberoasting attack fails, thanks to gMSAs' almost impossible-to-crack passwords. This layered defense renders AD a fortress by disabling the attacker's most basic weapons: credential theft and reuse.
 
-![](https://cdn-images-1.medium.com/max/800/1*m6kPdehFatPSmDwBEF0fDw.png)
+![](/images/1_m6kPdehFatPSmDwBEF0fDw.png)
 
 ---
 

@@ -8,7 +8,7 @@ draft: false
 
 ### Network Management and Security III: **Network Hardware and Physical Infrastructure Security**
 
-![](https://cdn-images-1.medium.com/max/800/1*0XinYbzhfLKDESwpfYfKIQ.png)
+![](/images/1_0XinYbzhfLKDESwpfYfKIQ.png)
 
 Network equipment and the physical layer, which form the invisible but indispensable basis of modern digital infrastructures, are the lifeblood of data flow and digital communication. Although cyber security discussions generally focus on software-based threats and vulnerabilities in logical layers, the security of the routers, switches, cables that make up this infrastructure and the physical environment where this hardware is hosted is the most critical and fundamental component of the overall security posture. A breach at the physical layer can render even the most complex security architectures built on it meaningless. The purpose of this report is to delve into the core technologies, industry standards, and modern security paradigms of network equipment and physical infrastructure security. Combining theoretical knowledge with practical and applicable strategies, this study aims to offer a holistic security perspective, starting from the most basic layer of networks and extending to the hardware-based roots of trust.
 
@@ -18,7 +18,7 @@ Network equipment and the physical layer, which form the invisible but indispens
 
 This chapter examines in detail the basic hardware components that make up modern networks and the functional architectures of these components. Beyond the individual functions of each device, we will discuss how they come together in today's networks to create more complex, integrated and multifunctional systems.
 
-![](https://cdn-images-1.medium.com/max/800/1*k_j5IYCHQwXfvGfVB-MfRg.png)
+![](/images/1_k_j5IYCHQwXfvGfVB-MfRg.png)
 
 Network Hardware
 
@@ -26,7 +26,7 @@ Network Hardware
 
 Routers are basic network devices that operate at the Network Layer, Layer 3 of the OSI (Open Systems Interconnection) model. Their primary function is to interconnect different networks, such as a local area network (LAN) to a wide area network (WAN) or the Internet, and to transmit data packets between these networks.
 
-![](https://cdn-images-1.medium.com/max/800/1*NRUWES15R8BF3M2q5MwyjA.png)
+![](/images/1_NRUWES15R8BF3M2q5MwyjA.png)
 
 router
 
@@ -38,7 +38,7 @@ The traditional functional boundaries between today's networking equipment are b
 
 Switches are critical hardware that works on the Data Link Layer, the 2nd Layer of the OSI model, connecting devices such as computers, servers, and printers within the same local network. Unlike the Hubs used in the past, switches are smart devices. Instead of sending incoming data frames to all ports on the network, they create a MAC address table (CAM table) by learning the source MAC addresses. Thanks to this table, they direct an incoming frame only to the port to which the target device is connected. This mechanism improves network performance by largely preventing unnecessary network traffic and data collisions.
 
-![](https://cdn-images-1.medium.com/max/800/1*dVrvRAvKIIWiuLKOWG80sg.png)
+![](/images/1_dVrvRAvKIIWiuLKOWG80sg.png)
 
 switch
 
@@ -53,7 +53,7 @@ Switches can be managed via CLI (Command Line Interface) or web-based interfaces
 
 Firewalls act as a barrier between the organization's internal network (trusted zone) and external networks (usually untrusted zones such as the internet). Its basic function is to inspect, filter and control incoming and outgoing network traffic based on a set of predefined security rules. They can be found both as hardware-based devices (appliances) designed specifically for this purpose and as software-based solutions running on a server or operating system.
 
-![](https://cdn-images-1.medium.com/max/800/1*VrtyRsOk1XkW05VTKClE4A.png)
+![](/images/1_VrtyRsOk1XkW05VTKClE4A.png)
 
 firewall
 
@@ -65,7 +65,7 @@ This combination of functions reflects a strong industry trend towards reducing 
 
 Access Points (APs) act as a bridge that allows wireless devices (laptops, smartphones, tablets) to connect to the wired network infrastructure. By emitting Wi-Fi signals via radio frequencies (RF), they create a wireless local area network (WLAN) through which users can access the network without the need for a physical cable.
 
-![](https://cdn-images-1.medium.com/max/800/1*BB5o1ZHqGc3_CcdfBvEBoQ.png)
+![](/images/1_BB5o1ZHqGc3_CcdfBvEBoQ.png)
 
 Access Points
 
@@ -80,7 +80,7 @@ Management of large-scale wireless networks is shaped around architectures based
 
 #### **Wireless LAN Controller (WLC)**
 
-![](https://cdn-images-1.medium.com/max/800/1*fGB8KjJIihKfecVgZq_WwQ.png)
+![](/images/1_fGB8KjJIihKfecVgZq_WwQ.png)
 
 Wireless LAN Controller
 
@@ -92,7 +92,7 @@ Wireless LAN Controller
 
 #### **Wireless Mesh Networks**
 
-![](https://cdn-images-1.medium.com/max/800/1*u2SR48AvAhMUAm5WLa8sbA.png)
+![](/images/1_u2SR48AvAhMUAm5WLa8sbA.png)
 
 Wireless Mesh Network
 
@@ -115,7 +115,7 @@ Ultimately, there is no such thing as a “best” wireless architecture; There 
 
 These devices are a key component of a broader product category often called Application Delivery Controllers — ADCs. The evolution of load balancers represents a move from simple network devices to complex application delivery controllers, and this evolution can be most clearly understood by the difference between Layer 4 and Layer 7 load balancing.
 
-![](https://cdn-images-1.medium.com/max/800/1*XIicX2GoNfM2aNxStwWaNA.png)
+![](/images/1_XIicX2GoNfM2aNxStwWaNA.png)
 
 load balancer
 
@@ -138,7 +138,7 @@ This evolution shows that load balancer configuration is no longer just a networ
 
 The table below summarizes the key differences between the two load balancing approaches and their strategic implications.
 
-![](https://cdn-images-1.medium.com/max/800/1*uCCf5zODV3BjKEh5ls8_Dg.png)
+![](/images/1_uCCf5zODV3BjKEh5ls8_Dg.png)
 
 **Comparative Analysis of Layer 4 and Layer 7 Load Balancers**
 
@@ -156,7 +156,7 @@ Cable selection for network infrastructure is a fundamental decision that goes b
 
 Twisted pair cables are the most common component of today's LAN infrastructure, reducing electromagnetic interference (crosstalk) by twisting the conductive wires inside them together in pairs.
 
-![](https://cdn-images-1.medium.com/max/800/1*JjKobkLx8NHNLFO0uwsqYw.png)
+![](/images/1_JjKobkLx8NHNLFO0uwsqYw.png)
 
 UTP vs STP
 
@@ -169,7 +169,7 @@ The physical layer is not only a foundation of connectivity but also a foundatio
 
 Coaxial cables have a layered structure consisting of a central copper conductor, an insulating dielectric layer surrounding this conductor, a metal braid armor on top of this layer, and a protective plastic sheath on the outermost layer. This structure gives it inherently better interference resistance than twisted pair cables. Although they were widely used in the past, especially in Ethernet networks with Bus topology, today they have largely been replaced by UTP cables in this field. Their modern uses are mostly limited to cable TV (CATV) distribution and cable internet (Cable Modem) connections. The biggest disadvantage of coaxial cables is that the signal weakens with distance (high attenuation), making them inefficient for long-distance data transfers.
 
-![](https://cdn-images-1.medium.com/max/800/1*fRrKBRjjuUeNfndzLucPzA.png)
+![](/images/1_fRrKBRjjuUeNfndzLucPzA.png)
 
 Coaxial Cable
 
@@ -177,7 +177,7 @@ Coaxial Cable
 
 Fiber optic cables transmit data with light pulses, not electrical signals like traditional copper cables. This transmission occurs through thin fiber strands, as thick as a human hair, made of glass or plastic.
 
-![](https://cdn-images-1.medium.com/max/800/1*hjf5jibnEtvo-EZkRRwOmA.png)
+![](/images/1_hjf5jibnEtvo-EZkRRwOmA.png)
 
 Fiber Optic Cable
 
@@ -191,7 +191,7 @@ These advantages make fiber optic cables indispensable, especially for connectio
 
 The table below compares the critical features of the basic cable types.
 
-![](https://cdn-images-1.medium.com/max/800/1*uCCf5zODV3BjKEh5ls8_Dg.png)
+![](/images/1_uCCf5zODV3BjKEh5ls8_Dg.png)
 
 **Feature and Performance Comparison of Network Cable Types**
 
@@ -203,7 +203,7 @@ TIA/EIA-568 is a set of industry standards that define pin alignments, cable dis
 
 These two standards precisely determine which pins the eight colored wires in the 8-pin RJ-45 connector attached to the end of UTP cables will be connected to. The only physical difference between the two standards is that the locations of the green and orange wire pairs (Pin 1&2 and Pin 3&6) have been changed. Functionally, both standards offer the same performance.
 
-![](https://cdn-images-1.medium.com/max/800/1*MFqXd6X5BvGRGqlGFiws-g.png)
+![](/images/1_MFqXd6X5BvGRGqlGFiws-g.png)
 
 T568A vs T568B
 
@@ -218,11 +218,11 @@ The standard by which both ends of the cables are terminated determines the func
 
 * **Straight-Through:** Both ends of the cable are terminated with the same standard (both T568A or both T568B). This is the most common type of cable in a network and is used to connect devices operating at different layers; for example, connecting a computer (Host) to a switch or a router to a switch.
 
-![](https://cdn-images-1.medium.com/max/800/1*8x3tbnjjQcnOsQUtYbHyNw.png)
+![](/images/1_8x3tbnjjQcnOsQUtYbHyNw.png)
 
 * **Crossover:** One end of the cable is terminated according to T568A standard and the other end is terminated according to T568B standard. This process includes cross-connecting sending (Transmit — TX) and receiving (Receive — RX) pins. This type of cable is used to connect two devices of the same type directly together without an intermediary device such as a switch or hub between them; for example, connecting two computers or two switches together. However, most modern network switches and network cards have
 
-![](https://cdn-images-1.medium.com/max/800/1*b-6qOmahXSlEtJrMwuqYMw.png)
+![](/images/1_b-6qOmahXSlEtJrMwuqYMw.png)
 
 * Since the **Auto-MDI/MDIX** feature can automatically detect the cable type and automatically adjust the pin configuration of the port, the need for crossover cables is largely eliminated.
 
@@ -232,7 +232,7 @@ A network topology is an architectural plan that describes the physical or logic
 
 #### 2.3.1. Central Connection: Star Topology
 
-![](https://cdn-images-1.medium.com/max/800/1*xq6KRi9mFmHc3JHk47i-Ig.png)
+![](/images/1_xq6KRi9mFmHc3JHk47i-Ig.png)
 
 Star Topology
 
@@ -242,7 +242,7 @@ Star Topology
 
 #### 2.3.2. Shared Line: Bus Topology
 
-![](https://cdn-images-1.medium.com/max/800/1*v1rYev12y5WXk0UAZ08ASQ.png)
+![](/images/1_v1rYev12y5WXk0UAZ08ASQ.png)
 
 Bus Topology
 
@@ -252,7 +252,7 @@ Bus Topology
 
 #### 2.3.3. Circular Data Flow: Ring Topology
 
-![](https://cdn-images-1.medium.com/max/800/1*OSqknuwFEXaUj_4WeJg1pg.png)
+![](/images/1_OSqknuwFEXaUj_4WeJg1pg.png)
 
 Ring Topology
 
@@ -262,7 +262,7 @@ Ring Topology
 
 #### 2.3.4. High Durability: Mesh Topology
 
-![](https://cdn-images-1.medium.com/max/800/1*mjKnxAD_DhYVPgP2WFBbjA.png)
+![](/images/1_mjKnxAD_DhYVPgP2WFBbjA.png)
 
 Mesh Topology
 
@@ -277,7 +277,7 @@ Mesh Topology
 
 Topology selection is a fundamental part of an organization's business continuity and disaster recovery plans. The topological structure of the network directly determines which services will be affected in the event of a failure and for how long. Therefore, network architects must consider not only the technical requirements but also the risk tolerance and operational priorities of the business when making topology decisions. The table below summarizes the key architectural features of these topologies.
 
-![](https://cdn-images-1.medium.com/max/800/1*oVZ5_j48uuqEPLf3dz2xxA.png)
+![](/images/1_oVZ5_j48uuqEPLf3dz2xxA.png)
 
 **Advantages and Disadvantages of Network Topologies**
 
@@ -391,7 +391,7 @@ Although TPM and HSM are both hardware-based roots of trust, they are not compet
 
 The table below summarizes the key differences and ideal uses between these two critical security technologies.
 
-![](https://cdn-images-1.medium.com/max/800/1*c_ZQKlfDV_isCps7fxyH8A.png)
+![](/images/1_c_ZQKlfDV_isCps7fxyH8A.png)
 
 **Key Differences and Uses Between HSM and TPM**
 

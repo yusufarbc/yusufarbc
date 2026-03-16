@@ -8,11 +8,11 @@ draft: false
 
 ### Building a Secure Organization in the Cyber World
 
-![](https://cdn-images-1.medium.com/max/800/1*sWahjiY8Mezr6QWu9JJDAg.png)
+![](/images/1_sWahjiY8Mezr6QWu9JJDAg.png)
 
 It seems logical that every business, whether commercial or non-profit, understands that creating a secure organization is important for long-term success. When a business implements and maintains a strong security posture, it can enjoy numerous benefits. A secure organization can use its security program as a marketing tool and show customers how much it values ​​their business and how it stands to protect their information. But most importantly, a secure organization will not have to spend time and money detecting security breaches and responding to the consequences of those breaches.
 
-![](https://cdn-images-1.medium.com/max/800/1*m9xT3lhsreu1zC6hSYK13Q.png)
+![](/images/1_m9xT3lhsreu1zC6hSYK13Q.png)
 
 Information Security
 
@@ -28,7 +28,7 @@ We only have to watch the Transportation Security Administration (TSA) security 
 
 Home computers have become repositories of personal data. Our computers now contain wedding videos, scanned family photos, music libraries, movie collections, and financial and health information. Because computers contain so much familiar information and are so integrated into life, we have forgotten how powerful and complex devices they are. Not long ago, computers as powerful as our desktops and laptops would fill one or more large rooms. In addition, today's computers present a “user-friendly” face to the world.
 
-![](https://cdn-images-1.medium.com/max/800/1*Leuvd-FleRoFfKzpN26UhA.jpeg)
+![](/images/1_Leuvd-FleRoFfKzpN26UhA.jpeg)
 
 ENIAC Computer
 
@@ -40,13 +40,13 @@ Many computer users believe they “know everything about computers” because t
 
 These “Savvy Users” have advanced beyond the application basics, but many still do not even understand basic security concepts. Many users will haphazardly install software and visit questionable Web sites despite the fact that these actions may violate company policies. “Bad guys,” people who want to steal information from or damage computer systems, have also identified the end user as a weak link in the security chain.ir.
 
-![](https://cdn-images-1.medium.com/max/800/1*EVJHO-mSs1IsrPDez7zynQ.jpeg)
+![](/images/1_EVJHO-mSs1IsrPDez7zynQ.jpeg)
 
 End User Risk
 
 As companies began to invest more money in perimeter defenses, attackers began to look for the path of least resistance. They send malicious software as an email attachment and ask recipients to open the attachment. Despite being told not to open attachments from unknown senders or simply not to open attachments at all, employees continually violate this policy, wreaking havoc on their networks.
 
-![](https://cdn-images-1.medium.com/max/800/1*5sBt5Lq39KhCLqrEy3goxQ.jpeg)
+![](/images/1_5sBt5Lq39KhCLqrEy3goxQ.jpeg)
 
 Phishing
 
@@ -56,7 +56,7 @@ Phishing scams have been very effective at convincing individuals to provide the
 
 During the development of personal computers (PCs), no thought was given to security. The first PCs were very simple devices with limited processing power, no keyboard, and were programmed by turning a series of knobs. They were developed almost as a curiosity. Even as they became more advanced and complex, all efforts were focused on developing greater sophistication and capabilities; no one thought there would be security issues. We only have to look at some of the first computers, such as the Berkeley Enterprises Geniac, Heathkit EC-1 or MITS Altair 8800, to understand why security was not an issue at the time. The development of computers focused on what they could do, not how they could be attacked!
 
-![](https://cdn-images-1.medium.com/max/800/1*Bf4of7Vzp-zoPg86RGgYAQ.jpeg)
+![](/images/1_Bf4of7Vzp-zoPg86RGgYAQ.jpeg)
 
 MITS Altair 8800 — The First Personal Computer
 
@@ -90,7 +90,7 @@ Nowadays, when institutions are attacked by groups of highly motivated and skill
 
 For most organizations, the cost of establishing a strong security posture is viewed as a necessary evil, similar to purchasing insurance. Organizations don't want to spend money on this, but the risks of not making the purchase outweigh the costs. Because of this attitude, it is extremely difficult to create a secure organization. This attitude stems from the fact that requests for security tools are often backed by documentation that shows the average cost of a security incident rather than demonstrating the more tangible benefits of a strong security posture.
 
-![](https://cdn-images-1.medium.com/max/800/1*xgVvQ2QkFScPSanG1cBoRw.png)
+![](/images/1_xgVvQ2QkFScPSanG1cBoRw.png)
 
 Cost of Violations
 
@@ -185,7 +185,7 @@ These devices are not the only threat to data. Since other devices can also be c
 
 Fortunately, Microsoft Windows keeps track of devices connected to a system in a Registry key called HKEY\_Local\_Machine\System\ControlSet00x\Enum\USBStor. It might be interesting to look at this switch on your own computer to see what kind of devices are connected.
 
-![](https://cdn-images-1.medium.com/max/800/1*lzT-9yy1W4twVkTy-OsLRg.png)
+![](/images/1_lzT-9yy1W4twVkTy-OsLRg.png)
 
 Identifying connected USB devices in the USBStor Registry key
 
@@ -209,7 +209,7 @@ Many organizations and system administrators state that they cannot create a sec
 
 One of the biggest concerns in an organization today is data leakage, the ways in which confidential information can leave an organization despite robust perimeter security.It's the impressions. As mentioned before, USB Flash drives are a cause of data leaks; Another is the recovery of data located in unallocated clusters of a computer's hard disk. Unallocated clusters, or free space as they are commonly known, are hard disk space where the operating system and applications discard leftovers or leftover data. Although this data cannot be viewed through a user interface, it can be easily identified (and sometimes recovered) using a hex editor such as WinHex.
 
-![](https://cdn-images-1.medium.com/max/800/1*DFq_JJiwXTd39CS0mUtrUQ.png)
+![](/images/1_DFq_JJiwXTd39CS0mUtrUQ.png)
 
 WinHex displaying the contents of a deleted Word document
 
@@ -217,7 +217,7 @@ If a computer is stolen or donated, it is very possible for someone to access da
 
 "Removes data from available unused disk space on the entire volume. If this option is selected, all other options are ignored. The specified directory can be anywhere on a local volume. If it is a mount point or points to a directory on another volume, data on that volume is removed."
 
-![](https://cdn-images-1.medium.com/max/800/1*tEwQUN4ab95pS6kEQM4DIA.png)
+![](/images/1_tEwQUN4ab95pS6kEQM4DIA.png)
 
 cipher usage
 
@@ -275,7 +275,7 @@ Requirement 6 seems a bit challenging because few organizations have the time to
 
 An even more granular approach to monitoring your systems is to install a packet capture tool on your network so you can analyze and capture traffic in real time. One tool that can be very useful is Wireshark, “an award-winning network protocol analyzer developed by an international team of networking experts.” Wireshark is based on the original packet capture tool Ethereal. Analyzing network traffic is not a trivial task and requires some training, but it is perhaps the most accurate way to determine what is happening on your network. The figure shows Wireshark monitoring traffic on a wireless interface.
 
-![](https://cdn-images-1.medium.com/max/800/1*x187pNRitiY0IegmpeG-dQ.png)
+![](/images/1_x187pNRitiY0IegmpeG-dQ.png)
 
 wireshark
 

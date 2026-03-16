@@ -8,7 +8,7 @@ draft: false
 
 ### Denial of Service Attacks (DoS-DDoS) Wireshark Analysis
 
-![](https://cdn-images-1.medium.com/max/800/1*tKGgOxt2Mq5piyQ3_CJDdg.png)
+![](/images/1_tKGgOxt2Mq5piyQ3_CJDdg.png)
 
 Hello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.
 
@@ -91,7 +91,7 @@ In this attack, attackers send a large number of fraudulent connection requests 
 
 When we detect a SYN Flood attack with Wireshark, we see many TCP packets with SYN flags sent at very short time intervals.
 
-![](https://cdn-images-1.medium.com/max/800/1*8f1IfL0GBQhChQvtBIMM1w.png)
+![](/images/1_8f1IfL0GBQhChQvtBIMM1w.png)
 
 SYN-Flood
 
@@ -101,7 +101,7 @@ Attackers reset existing connections by sending spoofed TCP RST packets to the t
 
 When we detect an RST Flood attack with Wireshark, we see many RST flagged TCP packets sent at very short time intervals. It also manipulates the source address and makes it appear as if it comes from different IP addresses.
 
-![](https://cdn-images-1.medium.com/max/800/1*3YLM5vaoxJjO3zo5h_nA1w.png)
+![](/images/1_3YLM5vaoxJjO3zo5h_nA1w.png)
 
 RST Flood
 
@@ -111,7 +111,7 @@ In this type of attack, attackers send large amounts of fake TCP ACK and PSH (Pu
 
 When we detect an ACK-PSH Flood attack with Wireshark, we see many TCP packets with PSH+ACK flags sent in very short time intervals. It manipulates the source address and makes it appear as if it comes from different IP addresses.
 
-![](https://cdn-images-1.medium.com/max/800/1*N5dYU-KK2LY19L4dcajOuw.png)
+![](/images/1_N5dYU-KK2LY19L4dcajOuw.png)
 
 ACK-PSH Flood
 
@@ -121,7 +121,7 @@ Attackers send large amounts of fake TCP ACK (Acknowledgment) packets to the tar
 
 Similar to ACK-PSH, when we look at ACK Floo with wireshark, we see TCP packets with ACK flags sent at very short intervals. The source address was manipulated to appear as coming from a different source.
 
-![](https://cdn-images-1.medium.com/max/800/1*UgJojmwpCwsycIQG5kO7UQ.png)
+![](/images/1_UgJojmwpCwsycIQG5kO7UQ.png)
 
 ACK Flood
 
@@ -141,7 +141,7 @@ In this type of attack, attackers send a large amount of spoofed UDP packets to 
 
 Similar to TCP attacks, when we look at UDP attacks with Wireshark, we see packets sent at very short intervals. The difference is this time there are UDP packets, not TCP. In addition, the source address was manipulated and shown as coming from a different source.
 
-![](https://cdn-images-1.medium.com/max/800/1*VNf1wUYOGRdXBuNUeU0qPg.png)
+![](/images/1_VNf1wUYOGRdXBuNUeU0qPg.png)
 
 UDP Flood
 
@@ -163,7 +163,7 @@ Attackers send large amounts of ICMP Echo Request (ping) requests to the target 
 
 When we examine the network traffic with Wireshark, we see many ICMP echo request packets. These requests came from a single source.
 
-![](https://cdn-images-1.medium.com/max/800/1*dqsZopEHHSShzDAVlx62gA.png)
+![](/images/1_dqsZopEHHSShzDAVlx62gA.png)
 
 Ping Flood
 
@@ -173,7 +173,7 @@ In this type of attack, attackers send large amounts of ICMP Echo Requests using
 
 When we examine the network traffic with Wireshark, we see many ICMP echo request packets. These requests appear to come from manipulated sources.
 
-![](https://cdn-images-1.medium.com/max/800/1*KKFdMVKStomIrgb24zsXWA.png)
+![](/images/1_KKFdMVKStomIrgb24zsXWA.png)
 
 Smurf Attack
 
@@ -201,7 +201,7 @@ I found a tool written in Python to perform this attack. Link [here](https://git
 
 When we examine the traffic with Wireshark, we see that many HTTP GET packets are sent in very short intervals.
 
-![](https://cdn-images-1.medium.com/max/800/1*wr8sajciDuwntDmn68NOdw.png)
+![](/images/1_wr8sajciDuwntDmn68NOdw.png)
 
 HTTP GET Flood
 

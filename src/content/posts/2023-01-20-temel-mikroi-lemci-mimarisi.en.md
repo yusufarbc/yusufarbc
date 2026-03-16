@@ -8,7 +8,7 @@ draft: false
 
 ### Basic Microprocessor Architecture
 
-![](https://cdn-images-1.medium.com/max/800/1*eBP9qyGpkYsx-Zgy3Jvsqg.png)
+![](/images/1_eBP9qyGpkYsx-Zgy3Jvsqg.png)
 
 ### What is a Microprocessor?
 

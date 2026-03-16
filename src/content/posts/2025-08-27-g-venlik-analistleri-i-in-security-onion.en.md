@@ -8,7 +8,7 @@ draft: false
 
 ### **Security Onion for Security Analysts**
 
-![](https://cdn-images-1.medium.com/max/800/1*vqqoSWZ-zucw12rjrcFPWA.png)
+![](/images/1_vqqoSWZ-zucw12rjrcFPWA.png)
 
 ### What is Security Onion?
 
@@ -38,7 +38,7 @@ Security Onion helps cybersecurity analysts detect threats faster and better und
 
 Security Onion is a free and open source Linux distribution developed for cybersecurity analysts. Launched by Doug Burks in 2008, this project offers threat hunting, network security monitoring (NSM) and log management in a single integrated platform. Its purpose is to detect and analyze attacks by providing full visibility over network traffic and system logs. As stated in the official description, Security Onion is described as a platform for “threat hunting, enterprise security monitoring and log management.” It brings together a wide range of data sources such as IDS/IPS alerts, protocol metadata, full packet capture and endpoint telemetry. Thus, SOC teams can manage security events in a central console and perform automatic and manual analysis. For example, thanks to the *network visibility* provided by Security Onion, signature-based attack detection is performed with Suricata and network protocol analyzes are performed with Zeek; Thanks to *host visibility*, server and end computer activities are monitored with tools such as Elastic Agent/​osquery. All of this allows analysts to replay and dive deeper into malicious traffic. In addition, the platform is open source and free, allowing comprehensive network security management at a lower cost.
 
-![](https://cdn-images-1.medium.com/max/800/1*jVZkCzaVnB_CiU6L1eaYOQ.png)
+![](/images/1_jVZkCzaVnB_CiU6L1eaYOQ.png)
 
 **Security Onion**
 

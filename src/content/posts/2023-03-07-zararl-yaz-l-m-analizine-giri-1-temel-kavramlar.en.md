@@ -8,7 +8,7 @@ draft: false
 
 ### Introduction to Malware Analysis: #1 Basic Concepts
 
-![](https://cdn-images-1.medium.com/max/800/1*wRwVFbFX3SX1zyV-mTRt_w.png)
+![](/images/1_wRwVFbFX3SX1zyV-mTRt_w.png)
 
 In this article series, I will give information about malware analysis; viruses, worms etc. You may have heard the terms. But what do these things mean? Is a virus a worm? What exactly does malware do? Let's learn these...
 

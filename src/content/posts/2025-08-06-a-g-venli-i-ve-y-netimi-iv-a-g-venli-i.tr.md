@@ -8,7 +8,7 @@ draft: false
 
 ### Ağ Güvenliği ve Yönetimi IV: AĞ GÜVENLİĞİ
 
-![](https://cdn-images-1.medium.com/max/800/1*BZVwBIefZNbdIE6Sn8hDrQ.png)
+![](/images/1_BZVwBIefZNbdIE6Sn8hDrQ.png)
 
 Tüm siber güvenlik disiplininin üzerine inşa edildiği temel felsefi ve stratejik çerçeveler incelenmektedir. Güvenliğin ne anlama geldiği, nasıl bir stratejiyle uygulanması gerektiği ve hangi tür tehditlere karşı savunma yapıldığı gibi temel sorulara yanıt aranmaktadır. Bu bölüm, reaktif bir “sorun çözme” zihniyetinden, proaktif bir “risk yönetimi” zihniyetine geçişin önemini vurgulamaktadır.
 
@@ -64,7 +64,7 @@ Bu saldırı vektörleri nadiren tek başlarına hareket ederler; genellikle kar
 
 Aşağıdaki tablo, yaygın saldırı vektörlerini ve bu saldırıların doğrudan hedef aldığı temel güvenlik ilkelerini özetlemektedir.
 
-![](https://cdn-images-1.medium.com/max/800/1*FAdKptOhUIKWjicuMUi8JQ.png)
+![](/images/1_FAdKptOhUIKWjicuMUi8JQ.png)
 
 **Yaygın Saldırı Vektörleri ve Hedefledikleri Güvenlik İlkeleri**
 
@@ -105,7 +105,7 @@ Pratikte, simetrik ve asimetrik şifrelemenin en iyi yönleri bir hibrit modelde
 
 Aşağıdaki tablo, iki temel şifreleme yönteminin temel özelliklerini karşılaştırmalı olarak özetlemektedir.
 
-![](https://cdn-images-1.medium.com/max/800/1*uLkJ1fxvGAvAmTITuC3VVA.png)
+![](/images/1_uLkJ1fxvGAvAmTITuC3VVA.png)
 
 **Kriptografik Yöntemlerin Karşılaştırması**
 
@@ -186,7 +186,7 @@ IDS/IPS sistemleri, tehditleri tespit etmek için iki temel yöntemi kullanır:
 
 Bu iki yöntem arasındaki seçim, “kesinlik” ve “kapsam” arasında bir ödünleşimdir. İmza tabanlı sistemler, “bildiğimiz kötülere” karşı yüksek kesinlik sunarken, anomali tabanlı sistemler “bilmediğimiz kötülere” karşı daha geniş bir kapsama alanı sunar. Modern güvenlik sistemleri, bu iki yaklaşımı hibrit bir modelde birleştirerek her ikisinin de avantajlarından yararlanmaya çalışır.
 
-![](https://cdn-images-1.medium.com/max/800/1*IwTYwOqFbmnzoAnDVPl8DA.png)
+![](/images/1_IwTYwOqFbmnzoAnDVPl8DA.png)
 
 **IDS/IPS Tespit Yöntemlerinin Karşılaştırması**
 

@@ -28,7 +28,7 @@ Let's deploy sysmon.
 
 1- First download the sysmon from official website. Then unzip the archive and open powershell as admin and navigate to the sysmon directory. We recommend unzipping the sysmon files under “C:\Windows\”, so the sysmon path becomes “C:\Windows\sysmon”.
 
-![](https://cdn-images-1.medium.com/max/800/0*4kr37CLKrNbKE8-M.png)
+![](/images/0_4kr37CLKrNbKE8-M.png)
 
 2- Download the sysmon config. Either do it manually by visiting github or we can also use powershell to directly download it. You can use the following command to do it:
 
@@ -36,7 +36,7 @@ Let's deploy sysmon.
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/olafhartong/sysmon-modular/master/sysmonconfig.xml -OutFile C:\Windows\\Sysmon\config.xml
 ```
 
-![](https://cdn-images-1.medium.com/max/800/0*WHwE2JTHWJtLTLlM.png)
+![](/images/0_WHwE2JTHWJtLTLlM.png)
 
 3- Then run the following command to register sysmon as a service:
 
@@ -44,7 +44,7 @@ Invoke-WebRequest -Uri https://raw.githubusercontent.com/olafhartong/sysmon-modu
 Sysmon64.exe -accepteula -i config.xml
 ```
 
-![](https://cdn-images-1.medium.com/max/800/0*LIASzx0oCZW53Aqn.png)
+![](/images/0_LIASzx0oCZW53Aqn.png)
 
 4- Verify that service is running on the system. We can do it using the Get-Service powershell cmdlet:
 
@@ -52,7 +52,7 @@ Sysmon64.exe -accepteula -i config.xml
 Get-Service -name Sysmon64
 ```
 
-![](https://cdn-images-1.medium.com/max/800/0*AIep6aNpbmBhgM9T.png)
+![](/images/0_AIep6aNpbmBhgM9T.png)
 
 This part of the training explains how to deploy sysmon. The next part of the training covers “ **Hunting Malwares with Process Execution** “.
 
@@ -74,7 +74,7 @@ Let's discuss this with an example.
 
 Suppose mimikatz was used on an endpoint.
 
-![](https://cdn-images-1.medium.com/max/800/0*sQCsv03_U7-n9UJb.png)
+![](/images/0_sQCsv03_U7-n9UJb.png)
 
 We can see how much details are logged about the process. Of course in this example we can clearly see that the tool ran is called mimikatz, but soon we will discuss other use cases using the same tool. In the above example we can see some important fields which provides value during analysis phase:
 
@@ -87,11 +87,11 @@ We can see how much details are logged about the process. Of course in this exam
 
 Let's rename the mimikatz file and move it to some other location. Then we will execute it, then discuss how to spot the anomaly.
 
-![](https://cdn-images-1.medium.com/max/800/0*nQpwNYgOtjbXeuC4.png)
+![](/images/0_nQpwNYgOtjbXeuC4.png)
 
 Here we can see a file named WinSvc in Windows folder. Threat actors love to setup their tools in legitimate file system locations in order to evade defenses. In our case, the file metadata immediately gives it away that the process spawned is actually mimikatz. Adversaries often make their own custom tools or strip the known default metadata like in our case it shows the company name, description of tool etc. For a second assume that there's no file metadata or the metadata is also tampered and makes the tool look like a legitimate tool. In such cases we can make use of hashes using threat intelligence vendors. It may be that the same tool is used by different threat actors in various campaigns and it's a known malicious tool.
 
-![](https://cdn-images-1.medium.com/max/800/0*5fJ8b7J_2EKYF5PM.png)![](https://cdn-images-1.medium.com/max/800/0*b4uDBvvGt18LQ6Hi.png)
+![](/images/0_5fJ8b7J_2EKYF5PM.png)![](/images/0_b4uDBvvGt18LQ6Hi.png)
 
 <https://www.virustotal.com/gui/file/92804faaab2175dc501d73e814663058c78c0a042675a8937266357bcfb96c50>
 
@@ -99,11 +99,11 @@ The power of Sysmon Event ID 1 is the commandline visibility of the spawned proc
 
 Anyways, back to our topic. Let's assume a powershell payload was executed on the endpoint which reached back to a command and control channel. If powershell logging is not enabled, how can we know what payload was executed which established the remote access for the attackers.
 
-![](https://cdn-images-1.medium.com/max/800/0*vTu1KiidPUQcZ3KD.png)
+![](/images/0_vTu1KiidPUQcZ3KD.png)
 
 Here we can see the full command line. The first thing this event does is make it obvious that something fishy is going on. Secondly, we can now add this to TTPs being used by attackers. We can decode the command get useful information like the variables used, IP address etc. which can then be used to hunt across your environment in case same attacker has breached other systems which remained undetected so far.
 
-![](https://cdn-images-1.medium.com/max/800/0*MfUMcNzszYzMCGHw.png)
+![](/images/0_MfUMcNzszYzMCGHw.png)
 
 Here we used cyberchef to decode this command, and it gave us important pieces about this incident.
 

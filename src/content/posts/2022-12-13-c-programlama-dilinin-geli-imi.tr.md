@@ -8,7 +8,7 @@ draft: false
 
 ### C Programlama Dilinin Gelişimi
 
-![](https://cdn-images-1.medium.com/max/800/1*LNiEJoSd69b4K-ABg14OYw.png)
+![](/images/1_LNiEJoSd69b4K-ABg14OYw.png)
 
 ### **Programlama Dili Nedir?**
 
@@ -16,7 +16,7 @@ Programlama bir bilgisayara yürütmesi için bir dizi talimat vermektir. Bilgis
 
 Programlama dilleri, bilgisayarların izleyeceği talimatları yazmak için kullandığımız araçlardır. Bilgisayarlar ikili olarak düşünür yani 1'ler ve 0'lardan oluşan diziler ile işlemlerini gerçekleştirir. Programlama dilleri, 1'leri ve 0'ları insanların anlayabileceği ve yazabileceği bir şeye çevirmemizi sağlar. Bir programlama dili, insanların düşüncelerimizi bilgisayarların anlayabileceği talimatlara çevirmesini sağlayan bir köprü görevi gören bir dizi sembolden oluşur. Bu sembollerden oluşan cümleler derleyici aracılığıyla makine koduna(ikili koda) çevrilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*JTvQeZhMZ--8BDeKaABmKw.jpeg)
+![](/images/1_JTvQeZhMZ--8BDeKaABmKw.jpeg)
 
 Derleyicinin Görevi
 
@@ -35,7 +35,7 @@ verilebilir. Peki her işe yarayan tek bir programlama dili var mıdır? Bilgisa
 
 Programlama dillerini, insan diline ve makine diline yakınlıklarına göre sınıflandırabiliriz. Bu görselde programlama dili, üste çıkıldıkça konuşma diline, aşağı indikçe makine diline yaklaşır.
 
-![](https://cdn-images-1.medium.com/max/800/1*ezQx18YckMStFClue9R1qg.jpeg)
+![](/images/1_ezQx18YckMStFClue9R1qg.jpeg)
 
 Programlama Dillerinin Sınıflandırılması
 

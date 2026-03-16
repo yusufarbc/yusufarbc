@@ -10,7 +10,7 @@ draft: false
 
 Bu yazımda, dünya genelinde popüler olarak kullanılan uç nokta güvenliği çözümlerine göz atacağız. Bu çözümleri özellikler, artıarı ve eksileri ile ele alacağız.
 
-![](https://cdn-images-1.medium.com/max/800/1*BXOc1yXaiBaFvxECQ6ekEg.png)
+![](/images/1_BXOc1yXaiBaFvxECQ6ekEg.png)
 
 Dijitalleşen dünyada bilgi güvenliği artık sadece kurumsal sınırları korumaktan ibaret değil. Bu sınırların ötesindeki tehditleri de tespit etmek, değerlendirmek ve bunlara yanıt vermek gerekiyor. Bu bağlamda, Endpoint Detection and Response (EDR) ve eXtended Detection and Response (XDR) sistemleri, siber güvenlik tehditlerine karşı savunma ve bunlara yanıt verme konusunda en gelişmiş sistemlerden biri olarak ön plana çıkıyor.
 
@@ -22,7 +22,7 @@ Geleneksel antivirüs çözümlerinin ve güvenlik duvarı tipi güvenlik cihazl
 
 CrowdStrike Falcon, bulut tabanlı bir uç nokta algılama ve yanıt (EDR) platformudur. Aynı zamanda XDR özellikleri de sunar. Tamamen bulut odaklı yapısı sayesinde hızlı dağıtım ve ölçeklenebilirlik avantajları sunar. Tek bir hafif istemci yazılımı (agent) üzerinden çalışarak kapsamlı koruma sağlar, bu da uç nokta performansı üzerindeki etkiyi en aza indirir. Özellikle proaktif tehdit avcılığı yetenekleri ve kapsamlı tehdit istihbarat ağı ile biliniyor. Bu, kuruluşlara gerçek zamanlı tehdit bilgileri sağlayarak daha hızlı ve daha etkili bir şekilde yanıt vermelerini sağlar. Ayrıca makine öğrenimi tabanlı algoritmaları sayesinde bilinmeyen tehditlere karşı uyarlanabilir koruma sunar. CrowdStrike Falcon hem büyük ölçekli kuruluşlar hem de küçük işletmeler için uygundur ve sektörde öne çıkan bir EDR çözümü olarak kabul edilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*_kgTgnMeuxdWZpaqUIRQuA.png)
+![](/images/1__kgTgnMeuxdWZpaqUIRQuA.png)
 
 <https://www.crowdstrike.com/cybersecurity-101/what-is-xdr/>
 
@@ -36,7 +36,7 @@ Platform, siber tehditleri tespit etmek, analiz etmek ve yanıt vermek için gel
 
 Ayrıca, platform sadece reaktif değil aynı zamanda proaktif koruma yetenekleriyle de öne çıkıyor, böylece tehditler sistemlere sızmadan önce tespit edilebiliyor ve engellenebiliyor.
 
-![](https://cdn-images-1.medium.com/max/800/1*aAxP6F9J1jCk4t9qtoMjtw.png)
+![](/images/1_aAxP6F9J1jCk4t9qtoMjtw.png)
 
 <https://www.cybereason.com/platform>
 
@@ -50,7 +50,7 @@ Platform, yalnızca mevcut tehditleri değil, potansiyel riskleri ve sızıntıl
 
 Özetlemek gerekirse, Uç Nokta için Microsoft Defender, modern tehdit ortamıyla mücadele etmek için gerekli araçları ve yetenekleri sağlayarak kurumların siber güvenliğini güçlendiren bir platformdur. Uç Nokta için Microsoft Defender, uç nokta verileri üzerinde ve diğer kaynaklardan gelen potansiyel tehditlere karşı da koruma sağladığı için artık bir XDR çözümü olarak kabul edilmektedir.
 
-![](https://cdn-images-1.medium.com/max/800/1*V8WCU_-sfrU6AN97IFk8mQ.png)
+![](/images/1_V8WCU_-sfrU6AN97IFk8mQ.png)
 
 <https://www.infusedinnovations.com/blog/secure-intelligent-workplace/budgeting-for-microsoft-defender-xdr-and-zero-trust-security>
 
@@ -66,7 +66,7 @@ Platform, otomatik tehdit avcılığı, olay müdahalesi ve sürekli izleme gibi
 
 Özetlemek gerekirse, Palo Alto Cortex XDR, kuruluşların siber tehditlere karşı daha etkili ve proaktif bir savunma oluşturmasına yardımcı olmak için tasarlanmış kapsamlı, genişletilmiş bir algılama ve yanıt platformudur.
 
-![](https://cdn-images-1.medium.com/max/800/1*isZKTqF4Dh4MoKGRIFmEBw.png)
+![](/images/1_isZKTqF4Dh4MoKGRIFmEBw.png)
 
 <https://www.xcitium.com/palo-alto-cortex-xdr/>
 
@@ -84,7 +84,7 @@ Entegrasyon konusunda ise SentinelOne XDR, diğer güvenlik ürünleri ve üçü
 
 Özetlemek gerekirse SentinelOne XDR, modern tehdit ortamına karşı proaktif ve kapsamlı koruma sağlayarak kurumların siber güvenlik duruşlarını güçlendirmelerine yardımcı olan lider bir güvenlik platformudur.
 
-![](https://cdn-images-1.medium.com/max/800/1*OezKFGZY0Xx-TjZ1ZpmN7A.png)
+![](/images/1_OezKFGZY0Xx-TjZ1ZpmN7A.png)
 
 <https://www.sentinelone.com/platform/>
 
@@ -94,7 +94,7 @@ Entegrasyon konusunda ise SentinelOne XDR, diğer güvenlik ürünleri ve üçü
 
 VMware Carbon Black, Uç Nokta Tespit ve Yanıt (EDR) ve Genişletilmiş Tespit ve Yanıt (XDR) özellikleri sunan kapsamlı bir siber güvenlik platformudur. EDR, uç noktalar için gerçek zamanlı görünürlük, tehdit avcılığı ve otomatik yanıt sağlarken, XDR karmaşık saldırıları tespit etmek için verileri ilişkilendirerek korumayı ağlar, bulutlar ve iş yükleri genelinde genişletir. Platform hem şirket içi hem de bulut tabanlı dağıtımlarda kullanılabilir. Şirket içi çözümler, verileri üzerinde tam kontrole ihtiyaç duyan kuruluşlara hitap eder ve düzenlemeye tabi sektörler için idealdir. Bulut tabanlı platform ölçeklenebilirlik, gerçek zamanlı güncellemeler ve merkezi yönetim sunarak dağıtık veya hibrit ortamlar için mükemmeldir. Davranışsal analitik, makine öğrenimi ve VMware ekosistemiyle entegrasyon gibi özelliklerle Carbon Black, gelişmiş tehditlere karşı güçlü koruma sağlayarak modern işletmeler için proaktif savunma ve basitleştirilmiş güvenlik yönetimi sağlar.
 
-![](https://cdn-images-1.medium.com/max/800/1*o3iQ7r-BtNGQaYYCkPoItw.jpeg)
+![](/images/1_o3iQ7r-BtNGQaYYCkPoItw.jpeg)
 
 <https://www.vmware.com/docs/vmw-datasheet-carbon-black-hosted-edr>
 
@@ -104,7 +104,7 @@ VMware Carbon Black, Uç Nokta Tespit ve Yanıt (EDR) ve Genişletilmiş Tespit 
 
 Wazuh, açık kaynaklı bir siber güvenlik platformu olarak uç nokta koruma, log yönetimi, tehdit avı, uyumluluk denetimleri ve zafiyet tespiti gibi çeşitli güvenlik ihtiyaçlarını karşılar. **Uç nokta koruma** özellikleriyle dosya bütünlüğünü izler, kötü amaçlı yazılımları tespit eder ve gerçek zamanlı tehdit avı yapar. **SIEM** yetenekleri sayesinde farklı kaynaklardan gelen logları toplar, analiz eder ve anormal davranışları tespit eder. **Uyumluluk** modülleri, PCI DSS, GDPR, HIPAA gibi düzenlemelere uyum sağlamaya yardımcı olurken, **zafiyet tespiti** özelliği sistemlerdeki bilinen güvenlik açıklarını tarar ve raporlar. Wazuh, gerçek zamanlı izleme ve otomatik yanıt mekanizmalarıyla proaktif bir savunma sağlar. Açık kaynaklı olması, esnek yapısı ve bulut veya şirket içi altyapılarda çalışabilmesi, onu küçük ve orta ölçekli işletmeler için ekonomik ve etkili bir çözüm haline getirir.
 
-![](https://cdn-images-1.medium.com/max/800/1*SRprtJmrWdmwclsziL7B7w.png)
+![](/images/1_SRprtJmrWdmwclsziL7B7w.png)
 
 <https://documentation.wazuh.com/current/getting-started/components/index.html>
 
@@ -114,6 +114,6 @@ Wazuh, açık kaynaklı bir siber güvenlik platformu olarak uç nokta koruma, l
 
 Elastic Security, güçlü bir siber güvenlik çözümü olarak, tehdit tespiti, olay müdahalesi ve uç nokta güvenliği gibi kapsamlı özellikler sunar. Bulut, şirket içi ve hibrit ortamlarda gerçek zamanlı tehdit analizi yapabilen bu platform, yapay zeka ve makine öğrenimi teknolojileriyle anormal davranışları tespit edebilir. Merkezi bir panodan tüm güvenlik olaylarını izleyebilme, otomatik alarmlar ve entegre log yönetimi ile kullanıcıların hızlıca aksiyon almasını sağlar. Ayrıca, uç nokta cihazlarını korumak için gelişmiş önleyici kontroller ve kötü amaçlı yazılım tespiti sunar. Elastic Security, açık kaynaklı Elastic Stack (ELK Stack) altyapısı üzerine kuruludur ve esnek yapısı sayesinde kurumların özel ihtiyaçlarına uyum sağlayabilir. Bu özellikleriyle, modern siber tehditlere karşı kapsamlı bir koruma ve analiz imkanı sunar.
 
-![](https://cdn-images-1.medium.com/max/800/1*eM1tia-nqbzoMV6tho98xw.png)
+![](/images/1_eM1tia-nqbzoMV6tho98xw.png)
 
 <https://dzlab.github.io/2023/04/26/elastic-cybersecurity/>

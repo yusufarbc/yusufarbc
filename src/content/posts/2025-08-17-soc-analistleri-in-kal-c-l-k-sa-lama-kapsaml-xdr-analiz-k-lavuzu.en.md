@@ -8,7 +8,7 @@ draft: false
 
 ### Ensuring Persistence for SOC Analysts Comprehensive XDR Analysis Guide
 
-![](https://cdn-images-1.medium.com/max/800/1*t3uzw3mQTB-z3Mm777G-RQ.png)
+![](/images/1_t3uzw3mQTB-z3Mm777G-RQ.png)
 
 In cyber security operations, persistence is one of the most critical stages that allows an attacker to leave a permanent footprint on the system. This makes it possible for the attack to reach its long-term goals beyond the initial access vector (for example, a phishing email or a vulnerability exploit). It guarantees attackers continued access to the system, beyond traditional antivirus (AV) solutions or system reboots. Persistence provides threat actors with a number of advantages: the ability to create a backdoor to communicate with Command and Control (C2) servers, bypass traditional security controls, and facilitate privilege escalation and horizontal mobility within the network. This stage plays a decisive role in transforming a cyber attack from a short-term incident into a long-term infiltration operation.
 
@@ -46,7 +46,7 @@ MITRE ATT&CK data provides concrete examples of how different threat groups and 
 
 The following table serves as a quick reference guide for a SOC analyst and summarizes the most common registry persistence keys, their effects, and related threat examples.
 
-![](https://cdn-images-1.medium.com/max/800/1*EOdZ-x8gqkMWMCJo5HLhqg.png)
+![](/images/1_EOdZ-x8gqkMWMCJo5HLhqg.png)
 
 ---
 
@@ -72,7 +72,7 @@ Sysmon (System Monitor) is a tool that provides much richer and more detailed te
 
 These Sysmon events represent critical information for an analyst, such as `ParentImage` and `ParentCommandLine`. Contains key areas. These fields show what the main process that made the change was and how it was started. This is vital for tracing back to the source of the attack and reconstructing the attack chain. For example, if a PowerShell script is detected to cause a registry change, the `ParentImage` field can indicate which parent process (such as `explorer.exe`) started this script.
 
-![](https://cdn-images-1.medium.com/max/800/1*VR-A4gThQLNfdXDYlpGuwQ.png)
+![](/images/1_VR-A4gThQLNfdXDYlpGuwQ.png)
 
 ---
 

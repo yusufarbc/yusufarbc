@@ -8,7 +8,7 @@ draft: false
 
 ### Development of C Programming Language
 
-![](https://cdn-images-1.medium.com/max/800/1*LNiEJoSd69b4K-ABg14OYw.png)
+![](/images/1_LNiEJoSd69b4K-ABg14OYw.png)
 
 ### **What is a Programming Language?**
 
@@ -16,7 +16,7 @@ Programming is giving a computer a set of instructions to execute. The computer 
 
 Programming languages ​​are the tools we use to write instructions for computers to follow. Computers think in binary, that is, they perform operations with strings of 1s and 0s. Programming languages ​​allow us to translate 1s and 0s into something humans can understand and write. A programming language consists of a set of symbols that act as a bridge that allows humans to translate our thoughts into instructions that computers can understand. Sentences consisting of these symbols are converted into machine code (binary code) through the compiler.
 
-![](https://cdn-images-1.medium.com/max/800/1*JTvQeZhMZ--8BDeKaABmKw.jpeg)
+![](/images/1_JTvQeZhMZ--8BDeKaABmKw.jpeg)
 
 Compiler's Task
 
@@ -35,7 +35,7 @@ can be given. So is there a single programming language that works for everythin
 
 We can classify programming languages ​​according to their closeness to human language and machine language. In this image, the programming language gets closer to spoken language as you go up, and to machine language as you go down.
 
-![](https://cdn-images-1.medium.com/max/800/1*ezQx18YckMStFClue9R1qg.jpeg)
+![](/images/1_ezQx18YckMStFClue9R1qg.jpeg)
 
 Classification of Programming Languages
 

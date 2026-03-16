@@ -8,7 +8,7 @@ draft: false
 
 ### Cryptology Fundamentals:#3 Cryptanalysis
 
-![](https://cdn-images-1.medium.com/max/800/1*aZ11lfSR2DfxXotqqA4KhA.png)
+![](/images/1_aZ11lfSR2DfxXotqqA4KhA.png)
 
 Hello, in this article of the cryptology basics series, I will talk about what cryptanalysis is, password cracking techniques and social engineering methods.
 
@@ -18,7 +18,7 @@ Hello, in this article of the cryptology basics series, I will talk about what c
 
 Cryptanalysis is the science of breaking and deciphering crypto systems. It is the branch of cryptology that investigates the decryption of encrypted texts. Cryptanalysis is used to find unknown keys.
 
-![](https://cdn-images-1.medium.com/max/800/0*WYSM0JXe3tpf70lG.png)
+![](/images/0_WYSM0JXe3tpf70lG.png)
 
 Cryptanalysis; We can divide Application Attacks into three areas: classical cryptanalysis and social engineering. Now let's look at these areas and the methods used.
 
@@ -32,7 +32,7 @@ Cryptanalysis methods that attempt to obtain the secret key through reverse engi
 
 This type of password attack uses trial and error methods to guess the target user's password information. The attacker tries as many permutations as possible to correctly guess the user's password. Although it is a relatively old method that requires a lot of patience and time, a brute force attack is still one of the most used methods because it is automatic and straightforward.
 
-![](https://cdn-images-1.medium.com/max/800/1*TC-mr-YoZ9Rb2ZQ3syKvEw.png)
+![](/images/1_TC-mr-YoZ9Rb2ZQ3syKvEw.png)
 
 There are several types of brute force attacks:  
 **1. Simple brute force attacks:** Uses data about a user to guess the most likely password. This technique is used for simple passwords, such as those containing a combination of pet name-year and birth.  

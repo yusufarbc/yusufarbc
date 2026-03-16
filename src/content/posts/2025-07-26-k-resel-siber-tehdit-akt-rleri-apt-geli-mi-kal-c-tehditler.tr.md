@@ -8,7 +8,7 @@ draft: false
 
 ### Küresel Siber Tehdit Aktörleri: APT (Gelişmiş Kalıcı Tehditler)
 
-![](https://cdn-images-1.medium.com/max/800/1*-TdWFhjfQyoq9f--c4bfLw.png)
+![](/images/1_-TdWFhjfQyoq9f--c4bfLw.png)
 
 ### Bölüm 1: Modern Tehdit Ortamına Giriş
 
@@ -34,7 +34,7 @@ Bu giriş bölümü, sonraki ayrıntılı aktör profillerini anlamak için gere
 
 Farklı ve karmaşık adlandırma şemalarının varlığı, siber güvenlik endüstrisinin yapısını doğrudan yansıtır: her biri özel verilere sahip özel kuruluşlardan oluşan rekabetçi bir pazar. Bu parçalanma, zengin ve çeşitli istihbarat kaynağı olsa da, bu farklı akışları sentezlemek zorunda olan savunucular üzerinde doğal olarak operasyonel bir yük oluşturur. Bir Güvenlik Operasyon Merkezi (SOC) analisti için zorluk sadece teknik (tehdidi tespit etmek) değil, aynı zamanda analitiktir (tehdit hakkındaki istihbaratı ilişkilendirmek). Bu raporun temel değeri, bu analitik boşluğu dolduracak bir araç olarak hizmet etmektir.
 
-![](https://cdn-images-1.medium.com/max/800/1*AKhTf6UJZmCzPzY3lZvMPw.png)
+![](/images/1_AKhTf6UJZmCzPzY3lZvMPw.png)
 
 **Tehdit Aktörü Taksonomisi Rosetta Taşı**
 

@@ -8,7 +8,7 @@ draft: false
 
 ### Ağ Güvenliği ve Yönetimi VII: Active Directory
 
-![](https://cdn-images-1.medium.com/max/800/1*xHCEWIgWsOG-PR1mgpcXvQ.png)
+![](/images/1_xHCEWIgWsOG-PR1mgpcXvQ.png)
 
 Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolünü ve neden birincil saldırı hedefi olduğunu detaylı bir şekilde incelemektedir. “Kimlik, yeni güvenlik çevresidir” paradigmasından yola çıkarak, bu çalışma, AD’yi bir güvenlik zafiyetinden bir savunma kalesine dönüştürmeyi amaçlayan kapsamlı bir strateji sunmaktadır. Rapor, Kerberoasting, Pass-the-Hash ve Golden Ticket gibi yaygın saldırı vektörlerini, Yönetimsel Katman Modeli (Tiered Model), Credential Guard ve Grup Yönetimli Hizmet Hesapları (gMSA) gibi gelişmiş savunma mekanizmalarını, hibrit kimlik altyapılarının güvenliğini ve sürekli izleme ile felaket kurtarma operasyonlarını teknik ayrıntılarıyla ele almaktadır. Bu kılavuz, güvenlik liderleri ve teknik uygulayıcılar için AD altyapılarının güvenliğini ve dayanıklılığını artırmaya yönelik eyleme geçirilebilir bir yol haritası sunarak son bulmaktadır.
 
@@ -141,7 +141,7 @@ Saldırı Tekniği (MITRE ATT&CK ID)Çalışma Prensibi (Özet)Birincil Savunma 
 
 Grup Yönetimli Hizmet Hesapları (gMSA), 25+ karakterli karmaşık hizmet hesabı parolaları, AES şifrelemesini zorunlu kılma.
 
-![](https://cdn-images-1.medium.com/max/800/1*YontK_x4FdZcm4LQIPCUtw.png)
+![](/images/1_YontK_x4FdZcm4LQIPCUtw.png)
 
 ---
 
@@ -221,7 +221,7 @@ Ulusal Standartlar ve Teknoloji Enstitüsü (NIST), parola politikaları için m
 
 Bu savunma mekanizmaları, tek başlarına değerli olsalar da, asıl güçleri bir araya geldiklerinde ortaya çıkar. Bu, saldırganın işini neredeyse imkansız hale getiren birleşik bir savunma felsefesi oluşturur. Bir saldırgan Tier 2'de bir hesap ele geçirdiğinde, Tiered Model onun Tier 0 varlıklarına ulaşmasını engeller. Aynı katman içinde yanal hareket etmeye çalıştığında, LAPS sayesinde her makinenin farklı bir yerel yönetici parolası olduğundan PtH saldırıları etkisiz kalır. Bir şekilde bir makinede yönetici hakları elde etse bile, Credential Guard LSASS’ten kimlik bilgisi çalmasını önleyerek PtH ve PtT saldırılarını temelden bozar. Hizmet hesaplarını hedeflemeye çalıştığında ise, gMSA’ların kırılması imkansıza yakın parolaları sayesinde Kerberoasting saldırısı başarısız olur. Bu katmanlı savunma, saldırganın en temel silahları olan kimlik bilgisi hırsızlığı ve yeniden kullanımını işlevsiz kılarak AD’yi bir kale haline getirir.
 
-![](https://cdn-images-1.medium.com/max/800/1*m6kPdehFatPSmDwBEF0fDw.png)
+![](/images/1_m6kPdehFatPSmDwBEF0fDw.png)
 
 ---
 
@@ -327,7 +327,7 @@ Bu sürecin en kritik adımı **KRBTGT hesabı parolasının sıfırlanmasıdır
 3. Acil bir durum yoksa, mevcut Kerberos biletlerinin doğal olarak süresinin dolması ve replikasyonun tüm DC’lere yayılması için **en az 10 saat beklenmesi** şiddetle tavsiye edilir. Bu, hizmet kesintilerini en aza indirir. Acil bir kurtarma senaryosunda bu bekleme süresi atlanabilir, ancak bu durum geçici kimlik doğrulama sorunlarına yol açabilir.
 4. İkinci sıfırlama işlemi gerçekleştirilerek parola geçmişi tamamen temizlenir ve orman yeniden güvenli hale getirilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*LthF_GXjUk5o1DenNl0tAw.png)
+![](/images/1_LthF_GXjUk5o1DenNl0tAw.png)
 
 olay güvenliği
 

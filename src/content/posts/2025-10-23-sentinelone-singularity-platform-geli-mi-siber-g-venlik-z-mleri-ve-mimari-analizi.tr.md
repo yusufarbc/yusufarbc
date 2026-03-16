@@ -8,17 +8,17 @@ draft: false
 
 ### **SentinelOne Singularity Platform: Gelişmiş Siber Güvenlik Çözümleri ve Mimari Analizi**
 
-![](https://cdn-images-1.medium.com/max/800/0*paXLme-hMtfJIUSk.jpg)
+![](/images/0_paXLme-hMtfJIUSk.jpg)
 
 ### Yönetici Özeti
 
 SentinelOne Singularity Platform, günümüzün hızla değişen siber güvenlik tehdit ortamlarına karşı, yapay zekâ (AI) destekli ve otonom çalışan bir çözüm sunmaktadır. Platform, uç nokta koruması (EPP), uç nokta tespiti ve yanıtı (EDR), genişletilmiş tespit ve yanıt (XDR) ile kimlik tabanlı tehdit tespiti ve yanıtı (ITDR) gibi çeşitli güvenlik özelliklerini tek bir platformda birleştirerek bütünleşik koruma sağlar. Gartner’ın 2024 Magic Quadrant raporunda, üst üste dördüncü kez “Lider” olarak konumlandırılmasının yanı sıra, MITRE ATT&CK testlerinde %100 tespit başarısı ile dikkat çekmektedir.
 
-![](https://cdn-images-1.medium.com/max/800/1*jlrnbhcogdwACT7gXmQjYw.png)
+![](/images/1_jlrnbhcogdwACT7gXmQjYw.png)
 
 SentinelOne’ın özellikleri arasında çevrimdışı çalışma yeteneği, otomatik olay yanıtı ve dosya geri alma (rollback) gibi kritik fonksiyonlar bulunur. Bu platform, kurumlara hızlı kurulum, yüksek tespit başarısı ve entegre görünürlük sunarak güvenlik operasyonlarını daha verimli hale getirir. Ayrıca, Zero Trust stratejilerini destekleyerek kurumların siber güvenlik altyapısını güçlendirir.
 
-![](https://cdn-images-1.medium.com/max/800/1*v_dw2Vr5-UjnAo2d02KXBg.png)
+![](/images/1_v_dw2Vr5-UjnAo2d02KXBg.png)
 
 Bu rapor, SentinelOne Singularity Platform’un mimarisini, tehdit tespit yöntemlerini, yönetim konsolu bileşenlerini, kimlik güvenliği modülünü, lisanslama seçeneklerini ve rakip ürünlerle karşılaştırmalı analizlerini kapsamlı şekilde incelemektedir. Ek olarak, örnek senaryolar, MITRE eşlemeleri ve uygulama önerileriyle desteklenmiştir.
 
@@ -30,7 +30,7 @@ SentinelOne Singularity Platform, çok katmanlı bir güvenlik mimarisi sunarak,
 
 Bu platformda, **Statik Yapay Zeka (AI) motoru** ve **Davranışsal Yapay Zeka motoru** gibi iki temel yapay zeka motoru entegre bir şekilde çalışır. Statik motor, dosyanın imzasını veya hash’ini dikkate almadan yapısını ve kod özelliklerini değerlendirerek tehditleri önceden engeller. Davranışsal AI motoru ise, süreçler arası ilişkiler, API çağrıları ve ağ bağlantıları gibi etkileşimleri izleyerek, anormal davranışları tespit eder. Bu yapılar, özellikle sıfır gün (0-day) tehditleri ve imzasız saldırılar için kritik bir koruma sağlar.
 
-![](https://cdn-images-1.medium.com/max/800/1*_hbumiRrnimNfSolItu4dg.png)
+![](/images/1__hbumiRrnimNfSolItu4dg.png)
 
 **Otonom Karar Yeteneği**: SentinelOne, tehditleri analiz etme ve yanıt verme konusunda otonom kararlar alabilir. Ajanlar, internet bağlantısı olmasa bile tehditleri tespit edip engelleyebilir. Bu, özellikle izole ağlar veya kritik altyapılar için önemlidir.
 
@@ -45,11 +45,11 @@ SentinelOne Singularity Platform, çok katmanlı bir tehdit tespit mimarisiyle, 
 1. **On-Write (Yazma Aşamasında) Statik Analiz**: Dosya henüz diske yazılmadan önce, yapısı ve kod özellikleri değerlendirilerek tehditler önceden engellenir.
 2. **On-Execute (Çalıştırma Aşamasında) Davranışsal Analiz**: Dosya çalıştırıldığında, uygulama içindeki işlemler, API çağrıları, ağ bağlantıları ve sistemdeki değişiklikler izlenerek anormal davranışlar tespit edilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*Ti63wzo9C4Vci3ZJbJ242A.png)
+![](/images/1_Ti63wzo9C4Vci3ZJbJ242A.png)
 
 Bu yaklaşım, özellikle **sıfır gün tehditleri** (0-day) ve **imzasız saldırılar** için kritik bir avantaj sunar. SentinelOne ayrıca, **Deep Visibility** modülü ile güvenlik ekiplerine olayların bağlamsal zaman çizelgesini görselleştirerek daha derinlemesine analiz yapma imkanı tanır.
 
-![](https://cdn-images-1.medium.com/max/800/1*pMu0HoEd4BRugo45sjXNmA.png)
+![](/images/1_pMu0HoEd4BRugo45sjXNmA.png)
 
 Deep Visibility modülü SentinelOne’ı klasik bir önleme aracından çıkarıp, olayların bağlamsal olarak anlaşılmasını ve hızlı müdahaleyi mümkün kılan tam teşekküllü bir güvenlik operasyon platformuna dönüştürür.
 
@@ -73,11 +73,11 @@ WHERE LOWER(CommandLine) LIKE '%net user%' AND Timestamp > NOW()-180d;
 
 **1-Click Remediation & Rollback**: Fidye yazılımı gibi tehditlerin ardından, dosyalar ve sistem ayarları hızlıca geri yüklenebilir. Platform, saldırıdan önceki dosya sürümlerini saklayarak, tehditten hemen sonra verilerin güvenli bir şekilde geri alınmasını sağlar.
 
-![](https://cdn-images-1.medium.com/max/800/1*hFQ_jeDEtsU3QEl9pSJbGA.png)
+![](/images/1_hFQ_jeDEtsU3QEl9pSJbGA.png)
 
 Konsol üzerindeki **Automation / RemoteOps** sekmesi, olay anında veya rutin operasyonlarda uç noktalarda toplu ya da zamanlanmış komutlar çalıştırmaya olanak tanır. Örneğin, servis kapatma, log toplama veya adli analiz için bellek dökümü alma gibi işlemler yüzlerce cihaza eş zamanlı olarak uygulanabilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*QnY2c-2-jEBISzxsEEgOAA.png)
+![](/images/1_QnY2c-2-jEBISzxsEEgOAA.png)
 
 Ayrıca, **API tabanlı entegrasyonlar** sayesinde SentinelOne, diğer güvenlik ve IT sistemleri ile otomatik aksiyonlar tetikleyebilir. Örneğin, bir **SIEM** kuralı şüpheli bir hesap kilitlenmesini tespit ettiğinde, SentinelOne API üzerinden bu hesabın bağlı olduğu cihazları bulabilir ve otomatik olarak izole edebilir.
 
@@ -111,7 +111,7 @@ SentinelOne, kurumsal ihtiyaçlara göre esnek bir lisanslama modeli sunar. Fark
 * **Commercial**: Kimlik güvenliği modülü ve WatchTower yönetimli tehdit avcılığı gibi özelliklere sahiptir.
 * **Enterprise**: Sınırsız ölçek, özel AI modülleri (Purple AI, Agentic SOC Analyst) içerir.
 
-![](https://cdn-images-1.medium.com/max/800/1*-_aMQrqV4B2SeCtfuWtLYA.png)
+![](/images/1_-_aMQrqV4B2SeCtfuWtLYA.png)
 
 ---
 
@@ -119,7 +119,7 @@ SentinelOne, kurumsal ihtiyaçlara göre esnek bir lisanslama modeli sunar. Fark
 
 SentinelOne, 70'ten fazla hazır entegrasyon modülü sunarak, geniş bir entegrasyon ekosistemi sağlar. Bu entegrasyonlar, **SIEM**, **SOAR**, **ITSM**, **IAM**, **NGFW**, **MDM/UEM**, **bulut servisleri** (AWS, Azure), ve **DevOps araçları** gibi çeşitli sistemlerle uyumlu çalışır.
 
-![](https://cdn-images-1.medium.com/max/800/1*iLFyX0FNTl5lkXBZsij6Aw.png)
+![](/images/1_iLFyX0FNTl5lkXBZsij6Aw.png)
 
 Bu entegrasyonlar sayesinde, platform, olay verilerinin aktarılmasını, otomatik aksiyonların tetiklenmesini ve güvenlik operasyonlarının merkezi olarak yönetilmesini sağlar.
 

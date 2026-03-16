@@ -8,7 +8,7 @@ draft: false
 
 ### Introduction to Malware Analysis: #3 Static Analysis
 
-![](https://cdn-images-1.medium.com/max/800/1*uStJb6CCMfH5-GAZXQbcOA.png)
+![](/images/1_uStJb6CCMfH5-GAZXQbcOA.png)
 
 In my previous article, I talked about preparing the analysis environment. In this article, we will try to do a static analysis of a malware with the environment we have established. Static analysis methods and related tools are in this article!
 
@@ -30,11 +30,11 @@ In the following stages, we will discuss analysis techniques step by step.
 
 If the hash value of a malware has been used before, it can provide a lot of information about that malware.
 
-![](https://cdn-images-1.medium.com/max/800/1*mD_yq3uoXjfXpsRBoQBRWA.png)
+![](/images/1_mD_yq3uoXjfXpsRBoQBRWA.png)
 
 We can obtain the hash value of our malware sample with the QuickHash tool. In addition, it is available in many other tools. If we search for this value on Google:
 
-![](https://cdn-images-1.medium.com/max/800/1*CUZw8_kVp9UI80lZZDTJqA.png)
+![](/images/1_CUZw8_kVp9UI80lZZDTJqA.png)
 
 We come across a lot of information about this malware sample. You can also search for this hash value on virustotal.
 
@@ -53,7 +53,7 @@ Extension spoofing works by using fake extensions as part of filenames. This tec
 
 Most clean software and files on our system have a Details tab at the bottom of the Properties window, which can be accessed by right-clicking on the file and selecting Properties. The Details tab shows various details about the file such as File version, Product name, Product version, and Copyright.
 
-![](https://cdn-images-1.medium.com/max/800/1*anLorCseI2uGz5rMjPGjqg.png)
+![](/images/1_anLorCseI2uGz5rMjPGjqg.png)
 
 If you do not see well-defined areas and features that describe the application, you can consider the sample suspicious, warranting further investigation. Likewise, if you see field values ​​that appear unimportant or have little or no meaning, you can consider the sample suspicious. You won't see neat apps that use unnecessary values ​​to describe their features and version information.
 
@@ -63,7 +63,7 @@ If you do not see well-defined areas and features that describe the application,
 
 Just as we sign documents with our signature, cryptographically generated digital keys, also known as code signing certificates, are used to sign files. Unique digital signatures created for files using these code signing certificates trace back to the original author of the file.
 
-![](https://cdn-images-1.medium.com/max/800/1*g5Jca8N37FnNvWsLyHQo3g.png)
+![](/images/1_g5Jca8N37FnNvWsLyHQo3g.png)
 
 ---
 
@@ -71,7 +71,7 @@ Just as we sign documents with our signature, cryptographically generated digita
 
 Malware samples are nothing more than software programs and the final executable. It contains many strings as part of the software. These strings can often serve as very good indicators to determine the type, functionality, and purpose of the software.
 
-![](https://cdn-images-1.medium.com/max/800/1*xxiRJuUPCO0OXfBg0cty8g.png)
+![](/images/1_xxiRJuUPCO0OXfBg0cty8g.png)
 
 We can find the strings in the file with the BinText tool and get information from there. This GOAT file was created by Andreas Marx. ROSEGOAT from RR! (08/23/1998) File: ROSE001.COM — 20,000 (4E20h) bytes long! We got information like this from here.
 
@@ -95,7 +95,7 @@ rule YARA_example
 
 If we run this rule on sample.exe, we see that there is a match.
 
-![](https://cdn-images-1.medium.com/max/800/1*DPMdAbAOT9U8dwFjbrKy6Q.png)
+![](/images/1_DPMdAbAOT9U8dwFjbrKy6Q.png)
 
 You can access more detailed information via YARA online.
 
@@ -105,7 +105,7 @@ You can access more detailed information via YARA online.
 
 The PE file format contains a header followed by a series of sections. The header contains metadata about the file itself. Following the header are the actual sections of the file, each containing useful information. We can view them with the PEview tool.
 
-![](https://cdn-images-1.medium.com/max/800/1*i5paAwoi1b4Mar08cmxetA.png)
+![](/images/1_i5paAwoi1b4Mar08cmxetA.png)
 
 Common PE sections:
 
@@ -120,7 +120,7 @@ The * .**rsrc** section contains resources such as icons, images, menus, and str
 
 Although there are many programs that can translate machine code into assembly language, we can say that IDA Pro is the best software.
 
-![](https://cdn-images-1.medium.com/max/800/1*8mnPSAupPgJ7C7pZWqVjug.png)
+![](/images/1_8mnPSAupPgJ7C7pZWqVjug.png)
 
 IDA pro is a paid software, but there is also a free version called IDA freeware, with which you can perform analysis.
 

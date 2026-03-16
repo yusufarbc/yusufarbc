@@ -8,7 +8,7 @@ draft: false
 
 ### Network Management and Security X: SOC and NOC Processes
 
-![](https://cdn-images-1.medium.com/max/800/1*S7cMHBrZlktBq6LvzR_AYQ.png)
+![](/images/1_S7cMHBrZlktBq6LvzR_AYQ.png)
 
 SOC (Security Operations Center) and NOC (Network Operations Center) are two central structures that complement each other but have different focuses. NOC monitors an organization's network infrastructure, system performance and service continuity 24/7 and aims to minimize downtime. Its core functions include network/server monitoring, fault logging, maintenance and update management. SOC is the center that protects the information technology infrastructure against external/internal threats, malware and security breaches. SOC teams work 24/7 to detect and analyze security incidents in advance and respond immediately to a possible attack.
 
@@ -16,7 +16,7 @@ SOC (Security Operations Center) and NOC (Network Operations Center) are two cen
 
 ### SOC and NOC Definition and Key Differences
 
-![](https://cdn-images-1.medium.com/max/800/1*wT8UMU4_ZcVdPNLwUlYoYg.png)
+![](/images/1_wT8UMU4_ZcVdPNLwUlYoYg.png)
 
 SOC vs NOC
 
@@ -75,7 +75,7 @@ Duties increasingly overlap in both centres; For example, in some large organiza
 
 The table below summarizes the key differences between these two approaches.
 
-![](https://cdn-images-1.medium.com/max/800/1*ONz6_-qBi4Nekat2qavKdg.png)
+![](/images/1_ONz6_-qBi4Nekat2qavKdg.png)
 
 **SOC vs NOC Comparison**
 

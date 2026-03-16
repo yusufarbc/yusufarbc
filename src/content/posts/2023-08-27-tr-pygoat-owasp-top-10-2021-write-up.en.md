@@ -8,7 +8,7 @@ draft: false
 
 ### TR-Pygoat OWASP TOP 10 2021 WRITE-UP
 
-![](https://cdn-images-1.medium.com/max/800/1*mIRdg0fVq0WdqzoayvZykA.png)
+![](/images/1_mIRdg0fVq0WdqzoayvZykA.png)
 
 Hello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reasons why these vulnerabilities arise.
 
@@ -17,7 +17,7 @@ Hello, in this article, I will solve the examples prepared in accordance with OW
 [Pygoat](https://owasp.org/www-project-pygoat/) is a vulnerable web application developed by OWASP(Open Worldwide Application Security Project**)**. The goal is to provide a platform to teach both developers and testers how to test and code applications securely. PyGoat is written in Python and uses the Django Framework.  
 PyGoat also has an area where you can view the source code to determine where the error was made that caused the vulnerability and allows you to make changes to make it secure.
 
-![](https://cdn-images-1.medium.com/max/800/1*1XctNRMmZBVl7M-IYHpuGA.png)
+![](/images/1_1XctNRMmZBVl7M-IYHpuGA.png)
 
 OWASP TOP 10 2021
 
@@ -43,33 +43,33 @@ Access control enforces the policy so that users cannot act outside their intend
 
 When we enter the lab and log in with the 'jack:jacktheripper' credentials, we see that this account does not have a secret key. We were informed that the Secret Key is in the admin account.
 
-![](https://cdn-images-1.medium.com/max/800/1*GsZNTPkjGJW-0WQxjN1qcA.png)
+![](/images/1_GsZNTPkjGJW-0WQxjN1qcA.png)
 
 When we capture and examine the request with burp suite, we see that I have a parameter named admin and it is given a value of 0. Access control is provided by this parameter, but we can manipulate this request.
 
-![](https://cdn-images-1.medium.com/max/800/1*IivQnGS-EFYtyfRXhWnwhQ.png)
+![](/images/1_IivQnGS-EFYtyfRXhWnwhQ.png)
 
 When we set this parameter to 1 and send the request, we log in with admin authority and obtain the password.
 
-![](https://cdn-images-1.medium.com/max/800/1*_NrmHQfYRTk810LH9v3Y9g.png)
+![](/images/1__NrmHQfYRTk810LH9v3Y9g.png)
 
 #### LAB 2
 
 When we enter the lab and log in with the 'jack:jacktheripper' credentials, we see that the jack user is not an admin and does not have a secret key.
 
-![](https://cdn-images-1.medium.com/max/800/1*XShmDM3Ad_TSrybSm54s7g.png)
+![](/images/1_XShmDM3Ad_TSrybSm54s7g.png)
 
 When we look at the source code of the page, it is written that the admin cannot use a bowser such as Google Chrome or Mozilla, but can only use the pygoat\_admin browser. Interesting.
 
-![](https://cdn-images-1.medium.com/max/800/1*7vSIhg1mgru3MNPtFyd6NA.png)
+![](/images/1_7vSIhg1mgru3MNPtFyd6NA.png)
 
 When we catch the Bur suite request and look at it, we see that we are passing our browser information in the user-agent parameter.
 
-![](https://cdn-images-1.medium.com/max/800/1*Rrh4mc0pJBjaud60_9MaqQ.png)
+![](/images/1_Rrh4mc0pJBjaud60_9MaqQ.png)
 
 I change the value here to **pygoat\_admin**. And yes, we obtained the secret key.
 
-![](https://cdn-images-1.medium.com/max/800/1*m7zvfQB4SXxVgwtPEJ1xxw.png)---
+![](/images/1_m7zvfQB4SXxVgwtPEJ1xxw.png)---
 
 ### A2: Cryptographic Failures
 
@@ -83,17 +83,17 @@ Cryptographic errors can cause sensitive information leaks (Sensitive Data Expos
 
 There is a DEBUG attribute that includes showing errors to developers who are developing in the Django Framework. One of the features of having DEBUG=True is that it dumps a lot of metadata from your environment, including all settings.py configurations, when an exception occurs. This is necessary for the developer to resolve the bug. However, having this attribute enabled in a published application provides the attacker with too much information about the web application.
 
-![](https://cdn-images-1.medium.com/max/800/1*fhpBBGKlmmV1iXT13OaZrg.png)
+![](/images/1_fhpBBGKlmmV1iXT13OaZrg.png)
 
 In LAB, he wanted us to find the 500error page.
 
 When we wanted to go to a page that was not like the one in the figure, it gave us the website directories.
 
-![](https://cdn-images-1.medium.com/max/800/1*l6WtGnxTx2_q3CFa-4R4tw.png)
+![](/images/1_l6WtGnxTx2_q3CFa-4R4tw.png)
 
 DEBUG=TRUE
 
-![](https://cdn-images-1.medium.com/max/800/1*gQbuy4Ff0h56u41Kz8tfhQ.png)
+![](/images/1_gQbuy4Ff0h56u41Kz8tfhQ.png)
 
 500error
 
@@ -118,13 +118,13 @@ An application is vulnerable to injection attack if:
 
 SQL injection is a famous Injection attack that consists of insertion or “injection” of a SQL query through input data from the client to the application. A successful SQL injection can read sensitive data from the database, modify database data (Insert/Update/Delete), perform administrative operations on the database (such as shutting down the DBMS), recover the contents of a specific file located on the DBMS file system, and in some cases issue commands to the operating system. SQL injection attacks are a type of injection attack in which SQL commands are injected into the data plane input with the aim of affecting the execution of predefined SQL commands.
 
-![](https://cdn-images-1.medium.com/max/800/1*J_T1XcqsCJsdhjlVM3W8CQ.png)
+![](/images/1_J_T1XcqsCJsdhjlVM3W8CQ.png)
 
 Login Form
 
 When we try to log in to the LAB environment with user/password credentials, we see the following SQL query.
 
-![](https://cdn-images-1.medium.com/max/800/1*qm6EomyLqxhWtSqbs71eeg.png)
+![](/images/1_qm6EomyLqxhWtSqbs71eeg.png)
 
 SQL Script
 
@@ -137,7 +137,7 @@ The password value in quotes in the password='password' section is the value we 
 
 The expression 1=1 in the SQL statement will ensure that the result returns TRUE and the SQL statement runs, thus allowing us to log in to the page.
 
-![](https://cdn-images-1.medium.com/max/800/1*P5dPNgsWkHGPMNaBrM93Ag.png)
+![](/images/1_P5dPNgsWkHGPMNaBrM93Ag.png)
 
 Log in as admin
 
@@ -147,7 +147,7 @@ Command injection is an infiltration of the target's host operating system via a
 
 There is a Name Server Lookup application in the LAB environment. It gives the domain name it receives from the user as a parameter to a command that performs name lookup on the operating system it runs on and returns the output to us.
 
-![](https://cdn-images-1.medium.com/max/800/1*VnYmabNdtLZtM6BUoOcZtA.png)
+![](/images/1_VnYmabNdtLZtM6BUoOcZtA.png)
 
 For Linux systems, ***dig*** uses the ***nslookup*** tool for Windows systems. It allows us to finish the command statement and run a different command on both Linux and Windows systems; There is an expression.
 
@@ -155,21 +155,21 @@ For Linux systems, after typing a domain in the input field; We can finish the c
 
 >google.com; cat /etc/passwd
 
-![](https://cdn-images-1.medium.com/max/800/1*F4asRoROjUr_7L0q4Q5xSw.png)
+![](/images/1_F4asRoROjUr_7L0q4Q5xSw.png)
 
 When we run this command, the passwd file will be printed on the web page after the dig results.
 
-![](https://cdn-images-1.medium.com/max/800/1*J8PdroB-PCC9Nr1JKUyrPQ.png)
+![](/images/1_J8PdroB-PCC9Nr1JKUyrPQ.png)
 
 For Windows systems, after typing domain in the input field; We can finish the command with and run the command we want. For example, we can print the files in the directory on Windows systems with the dir command.
 
 >google.com; is
 
-![](https://cdn-images-1.medium.com/max/800/1*3db0eRrvAffAM059j0rRDg.png)
+![](/images/1_3db0eRrvAffAM059j0rRDg.png)
 
 After running this command, the files in the directory will be printed to the web page after nslookup results.
 
-![](https://cdn-images-1.medium.com/max/800/1*8V6HolR2RmDh9ctp7OKeeA.png)
+![](/images/1_8V6HolR2RmDh9ctp7OKeeA.png)
 
 ---
 
@@ -181,13 +181,13 @@ Insecure design is a broad category that represents different vulnerabilities. T
 
 When we look at the example in the lab environment, we are faced with an application that gives us 5 free tickets but does not allow us to watch the movie until all the tickets are sold.
 
-![](https://cdn-images-1.medium.com/max/800/1*9IoF-emuRmtPxiJs5cnZsg.png)
+![](/images/1_9IoF-emuRmtPxiJs5cnZsg.png)
 
 This app only provides us 5 tickets for free. When I caught and looked at the burp request, I did not see any vulnerability.
 
 The statement in the lab environment said that we could buy all the tickets. But how? He said logout and think as a hint. I wonder if we can log out, create a new account and get free tickets from there?
 
-![](https://cdn-images-1.medium.com/max/800/1*mnAdcOtUSgaXb-rZwJwdbQ.png)
+![](/images/1_mnAdcOtUSgaXb-rZwJwdbQ.png)
 
 Yes it worked, we created another account and got 5 more free tickets. If we create 9 more accounts this way, we can buy all the tickets and watch our movie :)   
 As you can see, there is no known vulnerability in the application, but an error in the design, that is, in creating the business rules, brought us to this point.
@@ -204,20 +204,20 @@ Thanks to such flaws, attackers gain unauthorized access to some system data or 
 
 This is a misconfiguration in the laboratorybut there is It reveals the secret key and only the admin can view this key. What we need to ask here is how does it verify that you are an admin? Is there a cookie or header?
 
-![](https://cdn-images-1.medium.com/max/800/1*Vhai1BxfJiRuY6pVLqN5xQ.png)
+![](/images/1_Vhai1BxfJiRuY6pVLqN5xQ.png)
 
 When we press the Labda secret key button, it says that only admin.localhost:8000 can access this secret key. How could it be? Let's capture the request with Burp.
 
-![](https://cdn-images-1.medium.com/max/800/1*OY_YZmeVurlhV4MKW4UOdA.png)
+![](/images/1_OY_YZmeVurlhV4MKW4UOdA.png)
 
 In this burp request, we see that it sends a GET request to the secret. However, the X-Host header specified in the error message is not here. He did not inform us that its value was none anyway. What we need to do here is to add a header called X-Host and give its value as admin.localhost:8000.  
 This application verifies the admin account by looking at the X-Host value in the request, but it ignores that we can manipulate this request on the client side.
 
-![](https://cdn-images-1.medium.com/max/800/1*9DIQ37iE1AYtGP1rZfv2fA.png)
+![](/images/1_9DIQ37iE1AYtGP1rZfv2fA.png)
 
 When we capture the request in Burp's Proxy menu, there is a menu on the right where we can see and edit the headers. From here we add the X-Host header and give the required value. Then we can send the request. And we obtained the secret key.
 
-![](https://cdn-images-1.medium.com/max/800/1*RIaCAdysvIY_On1WNfJcZw.png)
+![](/images/1_RIaCAdysvIY_On1WNfJcZw.png)
 
 ---
 
@@ -229,11 +229,11 @@ When a developer uses a piece of code or library that already has a known vulner
 
 In this lab environment, there is an application that converts yaml files to json files. A yaml file needs to be selected and loaded to get the json data. There is also a get version feature that tells the user the version of the library the application is using.
 
-![](https://cdn-images-1.medium.com/max/800/1*EppokYoSMghu5tW6l4_ezQ.png)
+![](/images/1_EppokYoSMghu5tW6l4_ezQ.png)
 
 When we press the Get Version button, we see that pyyaml v5.1 is used in this application. Let's search for this version on the internet.
 
-![](https://cdn-images-1.medium.com/max/800/1*mWcoGEUEuFd_E0ne0P1PxA.png)
+![](/images/1_mWcoGEUEuFd_E0ne0P1PxA.png)
 
 Vulnerability Research
 
@@ -248,11 +248,11 @@ In order to exploit this vulnerability, we need to prepare a yaml file-payload. 
 
 Then I selected the file I created and clicked the upload button.
 
-![](https://cdn-images-1.medium.com/max/800/1*Xts7McZlvSLGwS9-OBnsaQ.png)
+![](/images/1_Xts7McZlvSLGwS9-OBnsaQ.png)
 
 When the payload we prepared runs, the command we gave, ***ls***, will run and print the files in the directory on the server. And we can see the directories and files in the resulting output.
 
-![](https://cdn-images-1.medium.com/max/800/1*N8TX7K3Ls7X5y90S1M-3Rg.png)
+![](/images/1_N8TX7K3Ls7X5y90S1M-3Rg.png)
 
 ---
 
@@ -267,21 +267,21 @@ Attackers use a variety of strategies to exploit these vulnerabilities, from aut
 The lab consists of a login page that asks users for their username and password. There is also a feature to login via otp(one-time-pad) if you don't know the password! When users click on the OTP login feature, the user is redirected to a page that asks for the email id to send the OTP. You can see that when the user provides an email ID, the 3-digit opt ​​is sent back to the page itself. This is not the common scenario, usually the code is sent to the user's registered email.  
 Once the user gets the 3 digit code he can now enter the code in the input box that says Enter your OTP After entering the valid OTP the user will get a page that says Login Successful as user : email. If the OTP is incorrect, the user will receive a message saying Invalid OTP.
 
-![](https://cdn-images-1.medium.com/max/800/1*qFdtiAX04zdzBl7_E85_vA.png)
+![](/images/1_qFdtiAX04zdzBl7_E85_vA.png)
 
 The admin e-mail address is given as `admin@pygoat.com`. When we came to the OTP login section in the application interface, I received an OTP code by typing this e-mail. OTP code is 3 digits and has no restrictions captcha etc. no. We can find the OTP by brute force on the application.
 
 We can try capturing the burp request, throwing it to the intruder, and doing a brute force attack from there.
 
-![](https://cdn-images-1.medium.com/max/800/1*TmoJ6_qjHN6N7SlDtUe5Cw.png)
+![](/images/1_TmoJ6_qjHN6N7SlDtUe5Cw.png)
 
 We select the otp header value in the Intruder, click on the add button and mark this value as payload. Then we move on to the payload tab, which is the second tab on the top right.
 
-![](https://cdn-images-1.medium.com/max/800/1*1nO5T5g9KjrCm8pf4YuZ6Q.png)
+![](/images/1_1nO5T5g9KjrCm8pf4YuZ6Q.png)
 
 In the Payload tab, we define a payload in which we will try all values between 111–999. Then we can launch the attack. In the community version of Burp, brute force attack speeds are slowed down. It may take a while for this to happen.
 
-![](https://cdn-images-1.medium.com/max/800/1*p4ge2cHqlrhq1SSXwMgSAg.png)
+![](/images/1_p4ge2cHqlrhq1SSXwMgSAg.png)
 
 As a result, we will find the OTP in the request with a different length value.
 
@@ -310,15 +310,15 @@ Applications and APIs will be vulnerable to deserialized malicious or tampered o
 
 In the lab environment, we are faced with a page that only the admin can access. How to verify that you are an admin? We need to investigate this.
 
-![](https://cdn-images-1.medium.com/max/800/1*f3FKpcsOgW_L9m5pNit8RQ.png)
+![](/images/1_f3FKpcsOgW_L9m5pNit8RQ.png)
 
 Let's capture the request to the page with burp. In this request, we see that the cookie information is base64 encoded.
 
-![](https://cdn-images-1.medium.com/max/800/1*iRZrBcOzuR164doOB8G6dQ.png)
+![](/images/1_iRZrBcOzuR164doOB8G6dQ.png)
 
 We can decode the base64 encoded token value with Burp Suite's decoder tool.
 
-![](https://cdn-images-1.medium.com/max/800/1*2gXLtT_iTD0Y68VkYWaSKw.png)
+![](/images/1_2gXLtT_iTD0Y68VkYWaSKw.png)
 
 ---
 
@@ -331,15 +331,15 @@ Most successful attacks start with vulnerability research. Allowing such probes 
 
 This lab helps you get an idea of how sometimes improper logging can lead to information disclosure. The user who accesses the lab is given a login page saying that the logs have been leaked. The user must find the leak and attempt to obtain the leaked credentials in the logs.
 
-![](https://cdn-images-1.medium.com/max/800/1*D52QViZ-2QoHV1MkEeSY6A.png)
+![](/images/1_D52QViZ-2QoHV1MkEeSY6A.png)
 
 When I enter an ordinary username and password on the page, I normally get an error saying incorrect username or password. When I scanned with dirb, I discovered a directory called /debug.
 
-![](https://cdn-images-1.medium.com/max/800/1*Rf867AJeBGAnDM_sCOvPOQ.png)
+![](/images/1_Rf867AJeBGAnDM_sCOvPOQ.png)
 
 The logs kept by the system can be viewed in the /debug directory. When we search the a10 page on these logs, we see an interesting log.
 
-![](https://cdn-images-1.medium.com/max/800/1*H9BTdl1b8IkpVoqIqWhliQ.png)
+![](/images/1_H9BTdl1b8IkpVoqIqWhliQ.png)
 
 Since the login page works with a GET request, the credentials used to log in are written in the url and recorded in the logs. We can log in with these credentials.
 
@@ -353,11 +353,11 @@ SSRF flaws occur when a web application fetches a remote resource without valida
 
 These lab environment pages show some blogs, but can you understand how the blogs are presented?
 
-![](https://cdn-images-1.medium.com/max/800/1*GdaChpvQ0G435rzb3g8a2g.png)
+![](/images/1_GdaChpvQ0G435rzb3g8a2g.png)
 
 The code running in the background in the lab environment is given and we are asked to find the env file. When we burp the request and inspect it,
 
-![](https://cdn-images-1.medium.com/max/800/1*vMxFjxvIZabnGY3Fn47S1w.png)
+![](/images/1_vMxFjxvIZabnGY3Fn47S1w.png)
 
 We see that the text file in this directory, given a directory with the blog parameter, is read and printed on the page. By manipulating this value, we can read the file we want in the directory. We were asked to read the a.env file. By trial and error, we can read the a.env file by searching for it.
 

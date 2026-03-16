@@ -10,7 +10,7 @@ draft: false
 
 Yapay zeka (AI) ajanları, yani karmaşık görevleri otonom olarak planlayabilen ve yürütebilen sistemler, teknoloji dünyasında hızla yükseliyor. Ancak bu güçlü ajanları, gerçek dünyadaki binlerce API’ye, veri kaynağına ve hizmete bağlamak, mühendislik açısından devasa bir karmaşıklık yumağı yaratıyor. Her bir entegrasyon, kendine özgü protokoller, uyumsuz veri formatları ve sürekli bakım gerektiren özel kodlar anlamına geliyor. İşte bu noktada Model Bağlam Protokolü (MCP), adeta teknolojinin USB-C’si gibi zarif bir “evrensel konektör” vaadiyle sahneye çıkıyor. Amacı, tüm yapay zeka ajanlarını ve araçlarını tek bir standart dilde konuşturmak. Ancak bu yeni ve parlak standardın arkasındaki gerçekler, yüzeysel görünümünden çok daha şaşırtıcı, karmaşık ve hatta bazı yönleriyle endişe verici.
 
-![](https://cdn-images-1.medium.com/max/800/1*5jGIJD4TmHvoDoLS_E5tdw.png)
+![](/images/1_5jGIJD4TmHvoDoLS_E5tdw.png)
 
 ---
 

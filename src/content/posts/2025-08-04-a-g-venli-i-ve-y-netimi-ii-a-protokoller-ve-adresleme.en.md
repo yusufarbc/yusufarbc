@@ -8,7 +8,7 @@ draft: false
 
 ### Network Security and Management II: NETWORK PROTOCOLS AND ADDRESSING
 
-![](https://cdn-images-1.medium.com/max/800/1*6rU6oXi2MLCrzFevgSY-_g.png)
+![](/images/1_6rU6oXi2MLCrzFevgSY-_g.png)
 
 ### Introduction
 
@@ -49,7 +49,7 @@ ARP and DHCP are a symbiotic duo that underpins the plug-and-play nature of an I
 
 The table below summarizes the key differences between these two protocols. This comparison clearly demonstrates one of the most fundamental tradeoffs in network engineering—the balance between reliability and speed—and is a critical reference for understanding why one transport protocol is preferred over another for a given application.
 
-![](https://cdn-images-1.medium.com/max/800/1*dVjq0Id2Id8E3HTP5kP_zg.png)
+![](/images/1_dVjq0Id2Id8E3HTP5kP_zg.png)
 
 **Comparative Analysis of TCP and UDP Protocols**
 
@@ -215,6 +215,6 @@ Other BGP attributes, such as LOCAL_PREF and MED, are policy tools used to influ
 
 The following table summarizes the key philosophical and technical differences between OSPF, an intra-AS routing protocol, and BGP, an inter-AS routing protocol.
 
-![](https://cdn-images-1.medium.com/max/800/1*FlgrJqdasUCOHJ1RQvVpGQ.png)
+![](/images/1_FlgrJqdasUCOHJ1RQvVpGQ.png)
 
 **Philosophical and Technical Differences Between OSPF (IGP) and BGP (EGP)**

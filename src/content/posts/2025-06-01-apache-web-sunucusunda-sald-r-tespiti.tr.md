@@ -10,7 +10,7 @@ draft: false
 
 Bu yazımda, web saldırı türlerini açıklayacağım ve apache web sunucu erişim logları üzerinden bu saldırıları nasıl tespit edebileceğimize değineceğim.
 
-![](https://cdn-images-1.medium.com/max/800/1*gtYIO-nyJZoIwSFEi_9xQA.png)
+![](/images/1_gtYIO-nyJZoIwSFEi_9xQA.png)
 
 Günümüzde web uygulamaları ve siteler, farklı türlerde siber saldırılara maruz kalmaktadır. Bu saldırıların erken tespiti, güvenlik önlemlerinin etkinliği ve sistemin sürekliliği açısından büyük önem taşır. Apache Web Sunucusu, dünya genelinde en yaygın kullanılan web sunucularından biridir ve bu nedenle saldırıların izlenmesi ve tespiti için doğru yöntemlerin uygulanması gerekmektedir.
 

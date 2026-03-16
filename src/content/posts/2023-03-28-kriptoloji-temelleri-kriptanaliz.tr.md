@@ -8,7 +8,7 @@ draft: false
 
 ### Kriptoloji Temelleri:#3 Kriptanaliz
 
-![](https://cdn-images-1.medium.com/max/800/1*aZ11lfSR2DfxXotqqA4KhA.png)
+![](/images/1_aZ11lfSR2DfxXotqqA4KhA.png)
 
 Merhaba, kriptoloji temelleri serisinin bu yazısında kriptanalizin ne olduğundan, şifre kırma tekniklerinden ve sosyal mühendislik yöntemlerinden bahsedeceğim.
 
@@ -18,7 +18,7 @@ Merhaba, kriptoloji temelleri serisinin bu yazısında kriptanalizin ne olduğun
 
 Kriptanaliz, kripto sistemleri kırma, deşifre etme bilimidir. Şifrelenmiş metinlerin çözümünü araştıran kriptoloji dalıdır. Kriptanaliz, bilinmeyen anahtarları bulmak için kullanılır.
 
-![](https://cdn-images-1.medium.com/max/800/0*WYSM0JXe3tpf70lG.png)
+![](/images/0_WYSM0JXe3tpf70lG.png)
 
 Kriptanalizi; Uygulama Saldırıları, klasik kriptanaliz ve sosyal mühendislik olarak 3 alana ayırabiliriz. Şimdi bu alanlara ve kullanılan yöntemlere bakalım.
 
@@ -32,7 +32,7 @@ Tersine mühendislik veya parola saldırıları yoluyla gizli anahtarı elde etm
 
 Bu tür bir parola saldırısı, hedef kullanıcının parola bilgilerini tahmin etmek için deneme yanılma yöntemlerini kullanır. Saldırgan, kullanıcının şifresini doğru bir şekilde tahmin etmek için mümkün olduğu kadar çok permütasyon üzerinde deneme yapar. Çok fazla sabır ve zaman gerektiren nispeten eski bir yöntem olsa da, kaba kuvvet saldırısı, otomatik ve anlaşılır olduğu için hala en çok kullanılan yöntemlerden biridir.
 
-![](https://cdn-images-1.medium.com/max/800/1*TC-mr-YoZ9Rb2ZQ3syKvEw.png)
+![](/images/1_TC-mr-YoZ9Rb2ZQ3syKvEw.png)
 
 Birkaç kaba kuvvet saldırısı türü vardır:  
 **1. Basit kaba kuvvet saldırıları:** En olası parolayı tahmin etmek için bir kullanıcı hakkındaki verileri kullanır. Bu teknik, evcil hayvan adı-yıl ve doğumun bir kombinasyonunu içerenler gibi basit parolalar için kullanılır.  

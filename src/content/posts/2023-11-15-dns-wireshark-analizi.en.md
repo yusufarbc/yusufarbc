@@ -8,7 +8,7 @@ draft: false
 
 ### DNS Wireshark Analysis
 
-![](https://cdn-images-1.medium.com/max/800/1*_OuE2zljUjPrg0g7TfljyQ.png)
+![](/images/1__OuE2zljUjPrg0g7TfljyQ.png)
 
 Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.
 
@@ -20,7 +20,7 @@ DNS is used to convert symbolic hostnames, such as [www.wiresharktraining.com](h
 
 DNS is one of the most important applications on the network. A DNS problem will prevent computers from finding each other when using hostname information.
 
-![](https://cdn-images-1.medium.com/max/800/1*-XBRoGHxww1KuVqyLDEznA.png)
+![](/images/1_-XBRoGHxww1KuVqyLDEznA.png)
 
 DNS package
 
@@ -36,7 +36,7 @@ DNS can operate over UDP or TCP. You'll commonly see DNS queries and responses t
 
 Domain resolution, DNS query and response operations are very simple. A client sends a DNS query to a DNS server, requesting an IP address, usually in exchange for a domain. The DNS server either responds directly with the information it has or asks other DNS servers on behalf of clients.
 
-![](https://cdn-images-1.medium.com/max/800/1*2Ye8QGf5KQIGJriwo33-jQ.png)
+![](/images/1_2Ye8QGf5KQIGJriwo33-jQ.png)
 
 A record DNS Query
 
@@ -50,7 +50,7 @@ The name requested by a client may not be the real name of the target. In this c
 
 The most common DNS problem is an error that occurs because a name does not exist in the ad namse server database. This may be due to entering an incorrect name or entering a new name that has not yet been propagated to Internet name servers.
 
-![](https://cdn-images-1.medium.com/max/800/1*QGZ4PNFbyz1aVA6W3cqXLQ.png)
+![](/images/1_QGZ4PNFbyz1aVA6W3cqXLQ.png)
 
 Unfound Domain Query
 
@@ -58,7 +58,7 @@ In the figure, a user is trying to access the address 2.26.64.24.in-addr.arpa. T
 
 Server error responses indicate that the name server was unable to resolve information for the client due to an error. This could be because the name server sent a query to another name server (via a recursive query) and timed out waiting for a response, or it could be that the response was not understood or related to a query due to some kind of internal error.
 
-![](https://cdn-images-1.medium.com/max/800/1*ubKDRzHewQqeMyGqbDFqMw.png)
+![](/images/1_ubKDRzHewQqeMyGqbDFqMw.png)
 
 IP Resolution Cannot Be Performed as a Result of DNS Errors
 
@@ -66,7 +66,7 @@ The figure shows the server error response received when trying to reach [www.nm
 
 To find the cause of DNS problems, you may need to move Wireshark upstream of the DNS server and monitor the lookup process at that location.
 
-![](https://cdn-images-1.medium.com/max/800/1*CaxBBdj7NrXCZ3tIF-Gxxg.png)
+![](/images/1_CaxBBdj7NrXCZ3tIF-Gxxg.png)
 
 The ICMP response indicates that port 53 is open on the target.
 
@@ -80,7 +80,7 @@ In this case, where the error occurs depends on whether the client's DNS server 
 
 Unlike other applications that use a single transport protocol (UDP or TCP), DNS uses both UDP and TCP. DNS generally uses UDP-53 for name resolution requests and responses, and TCP-53 for zone transfers and larger name resolutions and responses.
 
-![](https://cdn-images-1.medium.com/max/800/1*WDRDLWOoT1bKcj8KM2dyVA.png)
+![](/images/1_WDRDLWOoT1bKcj8KM2dyVA.png)
 
 DNS name reqests to [www.winpcap.com](http://www.winpcap.com)
 

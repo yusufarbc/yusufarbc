@@ -8,7 +8,7 @@ draft: false
 
 ### Threat Hunting with CTI Walkthrough — LetsDefend
 
-![](https://cdn-images-1.medium.com/max/800/0*FpGB8CsMakxWki-r.png)
+![](/images/0_FpGB8CsMakxWki-r.png)
 
 [LetsDefend — Blue Team Training Platform](https://letsdefend.io/)
 
@@ -41,7 +41,7 @@ Cyber Threat Intelligence (CTI) resources are critical for detecting and analyzi
 
 Open Source Intelligence (OSINT) is the process of creating threat intelligence using information collected from publicly available sources. It includes data and documents freely accessible on the internet.
 
-![](https://cdn-images-1.medium.com/max/800/0*QCFb2afqMZEyappU.png)
+![](/images/0_QCFb2afqMZEyappU.png)
 
 ( **Image Source** : <https://www.linkedin.com/pulse/osint-top-15-open-source-intelligence-tools-securetriad/> )
 
@@ -120,7 +120,7 @@ In summary, Commercial CTI providers offer in-depth knowledge and analysis, enha
 
 Dark Web Intelligence refers to threat intelligence obtained from activities conducted in the hidden and restricted areas of the internet (dark web). The dark web is a hub for cybercriminal activities, where transactions are anonymous and difficult to trace.
 
-![](https://cdn-images-1.medium.com/max/800/0*gLkIRKtsRkm_AvVk.png)
+![](/images/0_gLkIRKtsRkm_AvVk.png)
 
 ( **Image Source** : <https://www.hawk-eye.io/2020/12/dark-web-and-threat-intelligence-darkint/> )
 
@@ -161,7 +161,7 @@ In summary, Dark Web Intelligence plays a critical role in the early detection a
 
 Information Sharing and Analysis Centers (ISACs) are organizations established to facilitate threat intelligence sharing and collaboration among specific sectors or regions. ISACs encourage trusted information exchange among members, creating a collective defense mechanism against cyber threats.
 
-![](https://cdn-images-1.medium.com/max/800/0*ndThW-HJCSsjSzE-.png)
+![](/images/0_ndThW-HJCSsjSzE-.png)
 
 ( **Image Source** : <https://www.anomali.com/blog/the-power-of-active-collaboration-in-isacs-isaos-and-security-interest-groups> )
 
@@ -213,7 +213,7 @@ No Anser Needed
 
 Cyber Threat Intelligence (CTI) provides critical information for detecting, analyzing, and responding to threats, while threat hunting processes proactively search for potential threats using this information. It plays a vital role in every stage of the threat hunting cycle, from hypothesis creation to uncovering new threat patterns.
 
-![](https://cdn-images-1.medium.com/max/800/0*166341rvbHYBcLS5.png)
+![](/images/0_166341rvbHYBcLS5.png)
 
 **(Image Source:** <https://www.researchgate.net/figure/The-Threat-Hunting-Loop_fig2_344319370> **)**
 
@@ -346,93 +346,93 @@ Let's take a look at the information provided to us, then search for a domain si
 * **Company Name:** RiverKids
 * **Company Domain:** riverkidscorp.com
 
-![](https://cdn-images-1.medium.com/max/800/1*yekAJru0KMyVhlg6bpmN6A.png)
+![](/images/1_yekAJru0KMyVhlg6bpmN6A.png)
 
 Threat Intel Platform
 
 **Answer:** riverkidscompany.com
 
-![](https://cdn-images-1.medium.com/max/800/1*eqSXziyOfwwoJ53kaNcWOQ.png)
+![](/images/1_eqSXziyOfwwoJ53kaNcWOQ.png)
 > **According to the email security platform (LetsDefend — Email Security), what is the recipient email address of the email sent to company staff from the domain similar to the company’s name?**
 
 When we search for the email address we found in email security, we find the relevant email.
 
-![](https://cdn-images-1.medium.com/max/800/1*Pxwjuuz1HFyqSglRUJg30A.png)
+![](/images/1_Pxwjuuz1HFyqSglRUJg30A.png)
 
 Email Security
 
 We caught the phishing email!
 
-![](https://cdn-images-1.medium.com/max/800/1*ZKap_okrbnuoS-Wx9yXUlw.png)
+![](/images/1_ZKap_okrbnuoS-Wx9yXUlw.png)
 
 Phishing Email
 
 **Answer:** mike@riverkidscorp.com
 
-![](https://cdn-images-1.medium.com/max/800/1*5d15bAExCgOM6kBBzZSuLQ.png)
+![](/images/1_5d15bAExCgOM6kBBzZSuLQ.png)
 > **According to the email security platform (**[**LetsDefend — Email Security**](https://app.letsdefend.io/email-security)**) what is the sender’s email address of the email sent to company staff from the domain similar to the company’s name?**
 
 **Answer:** support@riverkidscompany.com
 
-![](https://cdn-images-1.medium.com/max/800/1*7JSWzpHE1uJMtG9fX3vv_A.png)
+![](/images/1_7JSWzpHE1uJMtG9fX3vv_A.png)
 > **According to the email security platform (LetsDefend — Email Security), what action was taken for the email sent to company staff from the domain similar to the company’s name?**
 
 **Answer:** supportcenter.login.vpnccloudd.io
 
-![](https://cdn-images-1.medium.com/max/800/1*XnJPvu9tSbR-XsOLVEVkEA.png)
+![](/images/1_XnJPvu9tSbR-XsOLVEVkEA.png)
 > **According to the Threat Intel (**[**LetsDefend**](https://app.letsdefend.io/threath-intelligence-feed)**) source, what is the category (TAG) of the domain included in the email sent to company staff from the domain similar to the company’s name?**
 
 Search for the domain in the LetsDefend Threat Intel module.
 
-![](https://cdn-images-1.medium.com/max/800/1*g2esRTQHtNb0XrjnKlYQ8g.png)
+![](/images/1_g2esRTQHtNb0XrjnKlYQ8g.png)
 
 Threat Intel Module
 
 **Answer:** phishing
 
-![](https://cdn-images-1.medium.com/max/800/1*c0BoESPwDPtS1IFQOBMWPw.png)
+![](/images/1_c0BoESPwDPtS1IFQOBMWPw.png)
 > **What is the IP address of the endpoint attempting to access the domain included in the email sent to company staff from the domain similar to the company’s name?**
 
 In the wazuh SIEM, search for the domain using the filter “data.win.eventdata.queryName: [domain\_name]” and find the “agent.ip” value in the results.
 
-![](https://cdn-images-1.medium.com/max/800/1*MnrquF9HFTs54z9kKVQHGQ.png)
+![](/images/1_MnrquF9HFTs54z9kKVQHGQ.png)
 
 wazuh search
 
 **Answer:** 192.168.16.54
 
-![](https://cdn-images-1.medium.com/max/800/1*jnK249p3Rv6oQ_nZ94bJ-Q.png)
+![](/images/1_jnK249p3Rv6oQ_nZ94bJ-Q.png)
 > **What process on the endpoint, identified in the previous question, sent the DNS request for the domain mentioned in the email that was sent to company staff from the domain resembling the company’s name?**
 
 In the SIEM, search for the domain using the filter “data.win.eventdata.queryName: [domain\_name]” and find the “data.win.eventdata.image” value in the results.
 
-![](https://cdn-images-1.medium.com/max/800/1*Fq2HwaplZwaRH9a-_mO_Cw.png)
+![](/images/1_Fq2HwaplZwaRH9a-_mO_Cw.png)
 
 wazuh search
 
 **Answer:** outlook.exe
 
-![](https://cdn-images-1.medium.com/max/800/1*-9bmE04JZ54U5ox3oR6IJA.png)
+![](/images/1_-9bmE04JZ54U5ox3oR6IJA.png)
 > **What is the IP address of the URL contained in the email sent to company staff from the domain detected as similar to the company name?**
 
 In the SIEM, search for the domain using the filter “data.win.eventdata.queryName: [domain\_name]” and find the “data.win.eventdata.queryResults” value in the results.
 
-![](https://cdn-images-1.medium.com/max/800/1*lOwxv9KQu_KFIVzOY44tDA.png)
+![](/images/1_lOwxv9KQu_KFIVzOY44tDA.png)
 
 **Answer:** 111.222.111.222
 
-![](https://cdn-images-1.medium.com/max/800/1*tqKZvyHyVL6ksLSSaCj1nA.png)
+![](/images/1_tqKZvyHyVL6ksLSSaCj1nA.png)
 > **What is the action taken for the access attempt to the IP address of the URL contained in the email sent to company staff from the domain detected as similar to the company name?**
 
 In the SIEM, apply the filter “data.dstip: [IP\_Address]” and check the “data.action” value in the results.
 
-![](https://cdn-images-1.medium.com/max/800/1*ReStdK8t9Nb3Whp8CGUR-Q.png)
+![](/images/1_ReStdK8t9Nb3Whp8CGUR-Q.png)
 
 wazuh search
 
 **Answer:** deny
 
-![](https://cdn-images-1.medium.com/max/800/1*Gmgyn6K9WEEeLku8z4fthQ.png)
+![](/images/1_Gmgyn6K9WEEeLku8z4fthQ.png)
 
 ---
 
@@ -467,73 +467,73 @@ wazuh search
 
 Search for the APT group name in the CTI platform.
 
-![](https://cdn-images-1.medium.com/max/800/1*5Yuk_f52Y7TVsNN1wozHhQ.png)
+![](/images/1_5Yuk_f52Y7TVsNN1wozHhQ.png)
 
 CTI platform
 
 **Answer:** 3
 
-![](https://cdn-images-1.medium.com/max/800/1*OFq10HlazVH4-1m47GftKA.png)
+![](/images/1_OFq10HlazVH4-1m47GftKA.png)
 > **According to the CTI Platform (**[**LetsDefend — Threat Intel**](https://app.letsdefend.io/threath-intelligence-feed)**), what is the IP address of the system that communicated with the IP address listed in the IoCs of the “APT-ENR-88” group?**
 
 Find the IP address among IoCs. Query IP address as destination IP address in SIEM. (data.dstip: 123.123.123.123)
 
-![](https://cdn-images-1.medium.com/max/800/1*0d8zs5GYGq5AfOg8lySnRg.png)
+![](/images/1_0d8zs5GYGq5AfOg8lySnRg.png)
 
 **Answer:** 192.168.123.123
 
-![](https://cdn-images-1.medium.com/max/800/1*PC6mnau3Vpt421Z3joovIQ.png)
+![](/images/1_PC6mnau3Vpt421Z3joovIQ.png)
 > **According to the CTI Platform (**[**LetsDefend — Threat Intel**](https://app.letsdefend.io/threath-intelligence-feed)**) what was the name of the process that communicated with the IP address listed in the IOCs published regarding the group APT-ENR-88?**
 
 Search for the IP address in SIEM using the destination IP address filter (“data.win.eventdata.destinationIp: [IP\_Address]”).
 
-![](https://cdn-images-1.medium.com/max/800/1*77gDh5EzbCf2l-IX5_fpfA.png)
+![](/images/1_77gDh5EzbCf2l-IX5_fpfA.png)
 
 wazuh search
 
 **Answer:** netapp0.exe
 
-![](https://cdn-images-1.medium.com/max/800/1*i9S0sk7Z3f8fGyoR_Zn5yQ.png)
+![](/images/1_i9S0sk7Z3f8fGyoR_Zn5yQ.png)
 > **According to the CTI Platform (**[**LetsDefend — Threat Intel**](https://app.letsdefend.io/threath-intelligence-feed)**), what is the IP address of the system where the hash (listed in the IOCs for threat group ‘APT-ENR-88’) was detected?**
 
 Search for the hash in the SIEM using “\*[Hash\_Value]\*” or “data.win.eventdata.hashes” filter with “MD5=[Hash\_Value]”.
 
-![](https://cdn-images-1.medium.com/max/800/1*EqomnGHWJy4E4AHcqXnRnA.png)
+![](/images/1_EqomnGHWJy4E4AHcqXnRnA.png)
 
 wazuh search
 
 **Answer:** 192.168.123.123
 
-![](https://cdn-images-1.medium.com/max/800/1*kT63X4o_kgQsMH130lQfOA.png)
+![](/images/1_kT63X4o_kgQsMH130lQfOA.png)
 > **According to the CTI Platform (**[**LetsDefend — Threat Intel**](https://app.letsdefend.io/threath-intelligence-feed)**), what is the name of the process in the event where the hash listed in the IoCs of “APT-ENR-88” group was detected?**
 
 Search for the hash as “\*[Hash\_Value]\*” in SIEM, or search by entering “MD5=[Hash\_Value]” in the “data.win.eventdata.hashes” field. Then, find the value “data.win.eventdata.image” in the output.
 
 **Answer:** C:\\Program Files\\App\\app0.exe
 
-![](https://cdn-images-1.medium.com/max/800/1*OTzASTm8XfJBVN-KCNrN_g.png)
+![](/images/1_OTzASTm8XfJBVN-KCNrN_g.png)
 > **According to the CTI Platform (**[**LetsDefend — Threat Intel**](https://app.letsdefend.io/threath-intelligence-feed)**), what is the firewall action for the access logs related to the IP address listed in the IoCs of the “APT-ENR-88” group?**
 
 In the SIEM’s firewall events, apply the filter “data.dstip: [IP\_Address]” and find the “data.action” value.
 
-![](https://cdn-images-1.medium.com/max/800/1*VfcxKaLhEbOxymFXcFH5og.png)
+![](/images/1_VfcxKaLhEbOxymFXcFH5og.png)
 
 wazuh search
 
 **Answer:** deny
 
-![](https://cdn-images-1.medium.com/max/800/1*nKIDHVE_5oVV9mW1KJ-Z9A.png)
+![](/images/1_nKIDHVE_5oVV9mW1KJ-Z9A.png)
 > **According to the CTI Platform (**[**LetsDefend — Threat Intel**](https://app.letsdefend.io/threath-intelligence-feed)**), what is the access log action for the IP address that the domain (listed in the IoCs of the group “APT-ENR-88”) resolved to?**
 
 Apply the “data.win.eventdata.queryName:” [Domain]” filter. Find the “QueryResults” value in the “data.win.system.message” field of the result, then search the firewall logs with the “data.dstip: [IP Address]” filter. Finally, check the “data.action” value in the result.
 
-![](https://cdn-images-1.medium.com/max/800/1*EtU9JpvdEEO5-a_z6uUVNg.png)
+![](/images/1_EtU9JpvdEEO5-a_z6uUVNg.png)
 
 wazuh search
 
 We found the IP address returned by the query response to be "18.22.0.44." Let's check the firewall logs for access to this IP address.
 
-![](https://cdn-images-1.medium.com/max/800/1*GUauV7aGVrW6-Zo53Yujeg.png)
+![](/images/1_GUauV7aGVrW6-Zo53Yujeg.png)
 
 “18.22.0.44” access logs
 
@@ -541,36 +541,36 @@ We see that access is allowed from here.
 
 **Answer:** allow
 
-![](https://cdn-images-1.medium.com/max/800/1*AciJMgtZ5zsX86eXkZC1Yg.png)
+![](/images/1_AciJMgtZ5zsX86eXkZC1Yg.png)
 > **According to the CTI Platform (**[**LetsDefend — Threat Intel**](https://app.letsdefend.io/threath-intelligence-feed)**), what was the target IP address within the organization’s network that received connection attempts from the IP address listed in the IoCs of the “APT-ENR-88” group?**
 
 In the SIEM’s firewall events, apply the filter “data.srcip: [IP\_Address]” and check the “data.dstip” value.
 
-![](https://cdn-images-1.medium.com/max/800/1*nnRFUmUVzzSZUTbvFe9S1g.png)
+![](/images/1_nnRFUmUVzzSZUTbvFe9S1g.png)
 
 wazuh search
 
 **Answer:** 172.16.8.5
 
-![](https://cdn-images-1.medium.com/max/800/1*3pwV0CkT0kfvgtpif8qvYw.png)
+![](/images/1_3pwV0CkT0kfvgtpif8qvYw.png)
 > **According to the CTI Platform (**[**LetsDefend — Threat Intel**](https://app.letsdefend.io/threath-intelligence-feed)**), what was the name of the IPS attack event triggered by access attempts from the IP address (listed in IoCs for the “APT-ENR-88” group) to the organization’s systems?**
 
 In the SIEM’s firewall events, apply the filters “data.srcip: [IP\_Address]” and “data.subtype: ips”, then find the “data.attack” value.
 
-![](https://cdn-images-1.medium.com/max/800/1*yfpmGF6Qhoo7pWeuG2qfHQ.png)
+![](/images/1_yfpmGF6Qhoo7pWeuG2qfHQ.png)
 
 IPS log
 
 **Answer:** Apache.Log4j.Remote.Code.Execution
 
-![](https://cdn-images-1.medium.com/max/800/1*GlUWLDW7W8y8H4Yntn_OCw.png)
+![](/images/1_GlUWLDW7W8y8H4Yntn_OCw.png)
 > **According to the CTI Platform (**[**LetsDefend — Threat Intel**](https://app.letsdefend.io/threath-intelligence-feed)**), what action did the IPS product take against the attack event triggered by access attempts from the IP address (listed in IoCs for “APT-ENR-88”) to organization’s systems?**
 
 When we look at the action field in the log, we see the answer.
 
 **Answer:** dropped
 
-![](https://cdn-images-1.medium.com/max/800/1*gYGSs3ryd1QXYwme6XrTEw.png)
+![](/images/1_gYGSs3ryd1QXYwme6XrTEw.png)
 
 ---
 
@@ -605,48 +605,48 @@ When we look at the action field in the log, we see the answer.
 
 Search for domains similar to third-party company names in the CTI platform. we have three **Third-Party domain**s: vertexenterprise.io , universalventures.io , pioneersystems.io. When we search for universalventures, we find results.
 
-![](https://cdn-images-1.medium.com/max/800/1*ua7S4nb6DNNl4oqnLNtrcQ.png)
+![](/images/1_ua7S4nb6DNNl4oqnLNtrcQ.png)
 
 Threat Intel
 
 **Answer:** universalventures.top
 
-![](https://cdn-images-1.medium.com/max/800/1*DDaOijlpvt4V2OpR9e_ixA.png)
+![](/images/1_DDaOijlpvt4V2OpR9e_ixA.png)
 > **According to the CTI Platform (**[**LetsDefend — Threat Intel**](https://app.letsdefend.io/threath-intelligence-feed)**), what is the TAG (CTI category) of the suspicious domain suspected to belong to a third-party company the organization works with, reported?**
 
 Search for domains similar to third-party company names in the CTI platform. Check the TAG.
 
 **Answer:** phishing
 
-![](https://cdn-images-1.medium.com/max/800/1*VqdaS78Ws4oLPuNhFQolRg.png)
+![](/images/1_VqdaS78Ws4oLPuNhFQolRg.png)
 > **According to the CTI Platform (**[**LetsDefend — Threat Intel**](https://app.letsdefend.io/threath-intelligence-feed)**), what is the email address of the sender of the email sent to the organization from the suspicious domain suspected to belong to a third-party company?**
 
 Search for the suspicious domain in the “Email Security” module.  
 The subject line of the email indicates an urgent call regarding a bank account. This is a well-known phishing tactic. Three emails were quarantined, while one was delivered to the user.
 
-![](https://cdn-images-1.medium.com/max/800/1*bGbWtToYCmuqTiLaa-fYAw.png)
+![](/images/1_bGbWtToYCmuqTiLaa-fYAw.png)
 
 **Answer:** john@universalventures.top
 
-![](https://cdn-images-1.medium.com/max/800/1*zE5kH1ztCuVG7cLF3hDUiQ.png)
+![](/images/1_zE5kH1ztCuVG7cLF3hDUiQ.png)
 > **According to the CTI Platform (**[**LetsDefend — Threat Intel**](https://app.letsdefend.io/threath-intelligence-feed)**), how many different email accounts in the organization received emails from the suspicious domain suspected to belong to a third-party company?**
 
 We found the answer in the previous question. anna@cnchomecorp.io, suzan@cnchomecorp.io, and eric@cnchomecorp.io
 
 **Answer: 3**
 
-![](https://cdn-images-1.medium.com/max/800/1*Du_xuBHSPOaxb2OifGfqNQ.png)
+![](/images/1_Du_xuBHSPOaxb2OifGfqNQ.png)
 > **According to the CTI Platform (**[**LetsDefend — Threat Intel**](https://app.letsdefend.io/threath-intelligence-feed)**), what is the recipient email address of the successfully delivered email sent from the suspicious domain (suspected to belong to a third-party company)?**
 
 We found the answer in the previous question
 
 **Answer:** anna@cnchomecorp
 
-![](https://cdn-images-1.medium.com/max/800/1*tb_QjISiTu62kXXDp0CCUw.png)
+![](/images/1_tb_QjISiTu62kXXDp0CCUw.png)
 > **According to the CTI Platform (**[**LetsDefend — Threat Intel**](https://app.letsdefend.io/threath-intelligence-feed)**), were any emails sent from the organization to the suspicious domain suspected to belong to the third-party company?**
 
 Search for the suspicious domain in the “Email Security” module using the “Recipients:” field in “Detailed Search”. we see that no response mail exist.
 
 **Answer: No**
 
-![](https://cdn-images-1.medium.com/max/800/1*lkGq5dGpu6eSWAY6ZSwKsA.png)
+![](/images/1_lkGq5dGpu6eSWAY6ZSwKsA.png)

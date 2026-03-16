@@ -8,7 +8,7 @@ draft: false
 
 ### Cryptology Fundamentals:#2 Cryptography
 
-![](https://cdn-images-1.medium.com/max/800/1*MPqOVwPSnGY3CguO7sg8Jw.png)
+![](/images/1_MPqOVwPSnGY3CguO7sg8Jw.png)
 
 Hello, in this article of the cryptology basics series, I will talk about what cryptography is, encryption techniques and cryptographic protocols.
 
@@ -18,11 +18,11 @@ Hello, in this article of the cryptology basics series, I will talk about what c
 
 Cryptography is the science of secret writing for the purpose of hiding the meaning of a message. Cryptography is a set of mathematical methods and is intended to provide conditions such as confidentiality, authenticity, authentication, and prevention of false rejection necessary for the security of important information. These methods aim to protect the information — and therefore the interests of the sender, receiver, carrier of the information, its subjects, and any other parties — from active attacks or passive perceptions that may be encountered during the transmission and storage of information.
 
-![](https://cdn-images-1.medium.com/max/800/0*2Vwirutk3ytVmQK7.png)
+![](/images/0_2Vwirutk3ytVmQK7.png)
 
 Cryptography; We can divide it into 3 areas: symmetric encryption, asymmetric encryption and cryptographic protocols. Now let's look at these areas and the methods used.
 
-![](https://cdn-images-1.medium.com/max/800/1*-xJo79RzeZLimVgF7AMPJw.png)
+![](/images/1_-xJo79RzeZLimVgF7AMPJw.png)
 
 Basic Classification Diagram for Cryptographic Algorithms
 
@@ -34,7 +34,7 @@ Symmetric Encryption** is an encryption technique where both parties use the sam
 
 All cryptography from ancient times until 1976 was based solely on symmetric methods, and symmetric ciphers are still widely used. It is especially useful for encryption and integrity control of messages.
 
-![](https://cdn-images-1.medium.com/max/800/0*XxKCSz8Z5gCClHYt.png)
+![](/images/0_XxKCSz8Z5gCClHYt.png)
 
 Symmetric Encryption
 
@@ -42,13 +42,13 @@ In the computer system; All data such as text, images, music are expressed as 1�
 
 Symmetric encryption is divided into block ciphers and stream ciphers. Although stream cipher and block cipher are symmetric encryption techniques, there are some important differences. While block ciphers encrypt fixed-length blocks of bits, stream ciphers combine plaintext bits into a text encryption stream using the XOR operation.
 
-![](https://cdn-images-1.medium.com/max/800/0*PVVBIhJHRuKvdXHi.png)
+![](/images/0_PVVBIhJHRuKvdXHi.png)
 
 ### Stream Encryption
 
 In stream encryption, bits are encrypted individually. Each bit is encrypted by XORing the bit coming from the bit stream generator. If the encrypted text is XORed with the cipher stream, the plain text is found and decrypted. For this reason, in the stream encryption technique, there is no need for different algorithms for encryption and decryption operations, these operations are performed with the same algorithm.
 
-![](https://cdn-images-1.medium.com/max/800/0*NDdy7s_T_pc-PWlx.png)
+![](/images/0_NDdy7s_T_pc-PWlx.png)
 
 XOR operation
 
@@ -60,7 +60,7 @@ ChaCha20 algorithm is a stream encryption algorithm. Supports 128 and 256 bits. 
 
 Google has a big part in making ChaCha20 so popular. Until a few years ago, Google used AES-GCM as the symmetric encryption algorithm for Chrome and Android. However, due to the use of ARM-based processors in mobile devices and the lack of AES configurations in these processors as in Intel-based processors, encryption was relatively slow. For this reason, Google was working on a more up-to-date, secure and faster encryption algorithm.
 
-![](https://cdn-images-1.medium.com/max/800/0*p11w2EzrPzNTF_DK.jpg)
+![](/images/0_p11w2EzrPzNTF_DK.jpg)
 
 ChaCha20-Poly1305
 
@@ -74,7 +74,7 @@ In block ciphering, an entire block of plaintext bits is encrypted at a time. Th
 
 In block ciphering, encryption and decryption algorithms are different algorithms. The decryption algorithm does the exact opposite of what is done in the encryption algorithm.
 
-![](https://cdn-images-1.medium.com/max/800/0*PgkgI4ShvSM2IppP.png)
+![](/images/0_PgkgI4ShvSM2IppP.png)
 
 Block Cipher
 
@@ -94,11 +94,11 @@ Data Encryption Standard (DES) has been by far the most popular block cipher met
 
 DES is an algorithm that encrypts 64-bit blocks with a 56-bit key. This algorithm completes the encryption process in 16 rounds, all performing the same operation. A different subkey is used in each round, and all subkeys are derived from the main key k.
 
-![](https://cdn-images-1.medium.com/max/800/0*jNDsQQQOcDvB7E2i.jpg)
+![](/images/0_jNDsQQQOcDvB7E2i.jpg)
 
 If we look in more detail at the transactions made in each round, we encounter the Feistel structure of the DES algorithm (also known as the Feistel network). If this feistel structure is carefully designed, very strong passwords can be created. In addition to their cryptographic power, an advantage of Feistel networks is that encryption and decryption are almost the same process.
 
-![](https://cdn-images-1.medium.com/max/800/0*fc-FSeFntoNvcQsj.jpg)
+![](/images/0_fc-FSeFntoNvcQsj.jpg)
 
 The two fundamental properties of passwords mentioned above, namely hashing and diffusion, are implemented within the f-function. Round is taken as the number of rounds and K1, K2,..KN are taken as subkeys for rounds 1,2,..,n respectively. Then, the Ciphertext blocks are divided into 2 equal parts, L and R, and processed within the function. Then, input R is output as L, input L is output as R, and this process is repeated n times.
 
@@ -112,7 +112,7 @@ Advanced Encryption Standard (AES) is the most widely used symmetric cipher toda
 
 Unlike DES, the AES algorithm does not have a Feistel structure. Feistel networks do not encrypt an entire block per iteration, for example in DES 64/2 = 32 bits are encrypted in one round. AES, on the other hand, encrypts all 128 bits in one round. Therefore, the AES algorithm has a relatively small number of rounds.
 
-![](https://cdn-images-1.medium.com/max/800/0*QSpz_OkltFg8Ljh_.png)
+![](/images/0_QSpz_OkltFg8Ljh_.png)
 
 AES algorithm
 
@@ -139,7 +139,7 @@ Asymmetric Encryption is an encryption technique in which a user has a private k
 
 It was introduced in 1976 as a completely different type of cipher by Whitfield Diffie, Martin Hellman and Ralph Merkle. Also known as public key encryption.
 
-![](https://cdn-images-1.medium.com/max/800/0*wwVcQD6ILTUMEAq3.png)
+![](/images/0_wwVcQD6ILTUMEAq3.png)
 
 Asymmetric Encryption
 
@@ -173,7 +173,7 @@ It should be noted that RSA encryption is not intended to replace symmetric ciph
 The underlying one-way function of RSA is the integer factorization problem:  
  Multiplying two large prime numbers is computationally easy (you can actually do it with paper and pencil).niz), but it is very difficult to factor the resulting product. Euler's theorem and Euler's phi function play important roles in RSA. Now, let's look at how encryption, decryption, and key generation work with RSA.
 
-![](https://cdn-images-1.medium.com/max/800/0*pVs1sy3vN5kCBdeb.png)
+![](/images/0_pVs1sy3vN5kCBdeb.png)
 
 RSA encryption algorithm
 
@@ -206,7 +206,7 @@ Cryptographic Protocols are encryption methods created by applying and standardi
 
 Digital signature is a legal authentication method used for authentication purposes in the electronic environment. It can be roughly defined as a signature made electronically. As with traditional handwritten signatures, only the person creating the digital message must be able to produce a valid signature. To achieve this with cryptographic primi-262 10 Digital Signatures we need to implement public key cryptography. The basic idea is that the person signing the message uses a private key and the receiving party uses the matching public key. The principle of the digital signature scheme is shown in the figure.
 
-![](https://cdn-images-1.medium.com/max/800/0*Q9yF6vAzC-qdlXni.png)
+![](/images/0_Q9yF6vAzC-qdlXni.png)
 
 Digital Signature
 
@@ -217,7 +217,7 @@ The key feature of digital signatures is this: Since a valid signature can only 
 
 Hash functions, also known as hash functions, are an important cryptographic protocol. It is extremely useful and appears in almost all information security applications. For a given message, the message digest or hash value can be viewed as a message fingerprint, that is, a unique representation of a message. Unlike other crypto algorithms, hash functions do not have a key.
 
-![](https://cdn-images-1.medium.com/max/800/0*caf2jzqzDuHFxZ2H.png)
+![](/images/0_caf2jzqzDuHFxZ2H.png)
 
 Summary Function
 
@@ -267,7 +267,7 @@ Whirlpool, 512 bIt is a hash function. It is derived from a modified version of 
 
 Key da protocol is an encryption protocol in which some secret values are shared among several members of a group. The secret value can also be used, for example, as a secret session key for a secure communication channel between members of the group. Roughly speaking, key distribution protocol deals with creating a shared key between two or more parties. For this, key transport or key agreement methods can be used. A key transport protocol is a technique by which one party securely transfers a secret value to others. In a key agreement protocol, two (or more) parties derive the public key, with all parties contributing the key. Ideally, neither party can control what the final public key will be.
 
-![](https://cdn-images-1.medium.com/max/800/0*TG166uwZDCXkgCtb.png)
+![](/images/0_TG166uwZDCXkgCtb.png)
 
 #### Key Agreement
 
@@ -281,6 +281,6 @@ Using a key agreement protocol avoids some of the key distribution problems asso
 
 ---
 
-![](https://cdn-images-1.medium.com/max/800/1*ILSONeBau6S2Vidq8GyOtA.png)
+![](/images/1_ILSONeBau6S2Vidq8GyOtA.png)
 
 In this article, I talked about cryptography. In my next article, I will talk about cryptanalysis. You can find the list of the series on my profile.

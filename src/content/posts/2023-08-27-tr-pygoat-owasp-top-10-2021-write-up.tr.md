@@ -8,7 +8,7 @@ draft: false
 
 ### TR-Pygoat OWASP TOP 10 2021 WRITE-UP
 
-![](https://cdn-images-1.medium.com/max/800/1*mIRdg0fVq0WdqzoayvZykA.png)
+![](/images/1_mIRdg0fVq0WdqzoayvZykA.png)
 
 Merhaba bu yazımda Pygoat lab ortamı üzerinde bulunan OWASP TOP 10 2021'e uygun hazırlanmış örneklerin çözümlerini gerçekleştireceğim. Hem OWASP TOP 10 zafiyetleri hem de bu zafiyetlerin neden kaynakalndığını anlatmaya çalışacağım.
 
@@ -17,7 +17,7 @@ Merhaba bu yazımda Pygoat lab ortamı üzerinde bulunan OWASP TOP 10 2021'e uyg
 [Pygoat](https://owasp.org/www-project-pygoat/), OWASP(Open Worldwide Application Security Project**)** tarafından geliştirilmiş zafiyetli bir web uygulamasıdır. Amaç, hem geliştiricilere hem de test uzmanlarına uygulamaların nasıl test edileceğini ve güvenli bir şekilde nasıl kodlanacağını öğretmek için bir platform sağlamaktır. PyGoat python dilinde yazılmıştır ve Django Frameworkünü kullanmaktadır.  
 PyGoat ayrıca, güvenlik açığına neden olan hatanın nerede yapıldığını belirlemek için kaynak kodunu görebileceğiniz ve güvenli hale getirmek için değişiklikler yapmanıza izin veren bir alana sahiptir.
 
-![](https://cdn-images-1.medium.com/max/800/1*1XctNRMmZBVl7M-IYHpuGA.png)
+![](/images/1_1XctNRMmZBVl7M-IYHpuGA.png)
 
 OWASP TOP 10 2021
 
@@ -43,33 +43,33 @@ Erişim kontrolü, kullanıcıların amaçlanan izinlerinin dışında hareket e
 
 Laba girip `jack:jacktheripper`credentialları ile oturum açtımızda bu hesabın bir secret keye sahip olamadığını görüyoruz. Secret Keyin admin hesabında olduğu bilgisi bize verilmiş.
 
-![](https://cdn-images-1.medium.com/max/800/1*GsZNTPkjGJW-0WQxjN1qcA.png)
+![](/images/1_GsZNTPkjGJW-0WQxjN1qcA.png)
 
 İsteği burp suite ile yakalayıp inceledeiğimizde admin isminde bir parametre olduğumu ve 0 değeri verildiğini görüyoruz. Erişim kontrolü bu parametre tarafından sağlanıyor ancak biz bu isteği manipüle edebiliyoruz.
 
-![](https://cdn-images-1.medium.com/max/800/1*IivQnGS-EFYtyfRXhWnwhQ.png)
+![](/images/1_IivQnGS-EFYtyfRXhWnwhQ.png)
 
 Bu parametreyi 1 yapıp isteği gönderdiğimizde ise admin yetkisiyle giriş yapıp şifreyi elde ediyoruz.
 
-![](https://cdn-images-1.medium.com/max/800/1*_NrmHQfYRTk810LH9v3Y9g.png)
+![](/images/1__NrmHQfYRTk810LH9v3Y9g.png)
 
 #### LAB 2
 
 Laba girip `jack:jacktheripper`credentialları ile oturum açtımızda yine aynı şekilde jack kullanıcısının admin olmadığını ve secret keye sahip olmadığını görüyoruz.
 
-![](https://cdn-images-1.medium.com/max/800/1*XShmDM3Ad_TSrybSm54s7g.png)
+![](/images/1_XShmDM3Ad_TSrybSm54s7g.png)
 
 Sayfanın kaynak koduna baktığımızda adminin google chrome mozilla gibi bir bowser kullanamayacağı sadece pygoat\_admin browserı kullanabileceği yazıyor. İlginç.
 
-![](https://cdn-images-1.medium.com/max/800/1*7vSIhg1mgru3MNPtFyd6NA.png)
+![](/images/1_7vSIhg1mgru3MNPtFyd6NA.png)
 
 Bur suite isteğini yakalayıp baktığımızda user-agent parametresinde bizim browser bilgimizi ilettiğimizi görüyoruz.
 
-![](https://cdn-images-1.medium.com/max/800/1*Rrh4mc0pJBjaud60_9MaqQ.png)
+![](/images/1_Rrh4mc0pJBjaud60_9MaqQ.png)
 
 Buradaki değeri **pygoat\_admin** olarak değiştiriyorum. Ve evet secret keyi elde ettik.
 
-![](https://cdn-images-1.medium.com/max/800/1*m7zvfQB4SXxVgwtPEJ1xxw.png)
+![](/images/1_m7zvfQB4SXxVgwtPEJ1xxw.png)
 
 ---
 
@@ -85,17 +85,17 @@ Kriptografik hatalar hassas bilgi sızıntılarına(Sensitive Data Exposure) ned
 
 Django Frameworkünde geliştirme yapan geliştiricilere hataların gösterilmesini içeren bir DEBUG niteliği vardır. DEBUG=True’ya sahip olmanın özelliklerinden biri, bir istisna oluştuğunda tüm settings.py yapılandırmaları da dahil olmak üzere ortamınızdan çok sayıda meta veri dökmektir. Bu geliştiricinin hatayı çözümlemesi için gereklidir. Ancak, yayınlanmış bir uygulamada bu niteliğin aktif olması saldırgana web uygulaması hakkında çok fazla bilgi sağlar.
 
-![](https://cdn-images-1.medium.com/max/800/1*fhpBBGKlmmV1iXT13OaZrg.png)
+![](/images/1_fhpBBGKlmmV1iXT13OaZrg.png)
 
 LAB’da bizden 500error sayfasını bulmamızı istiyordu.
 
 Şekildeki gibi olmayan bir sayfaya gitmek istediğimizde bize web site dizinlerini verdi.
 
-![](https://cdn-images-1.medium.com/max/800/1*l6WtGnxTx2_q3CFa-4R4tw.png)
+![](/images/1_l6WtGnxTx2_q3CFa-4R4tw.png)
 
 DEBUG=TRUE
 
-![](https://cdn-images-1.medium.com/max/800/1*gQbuy4Ff0h56u41Kz8tfhQ.png)
+![](/images/1_gQbuy4Ff0h56u41Kz8tfhQ.png)
 
 500error
 
@@ -120,13 +120,13 @@ Bir uygulama şu durumlarda enjeksiyon saldırısına açıktır:
 
 SQL enjeksiyonu, istemciden uygulamaya gelen girdi verileri aracılığıyla bir SQL sorgusunun eklenmesi veya “enjeksiyonundan” oluşan ünlü bir Enjeksiyon saldırısıdır. Başarılı bir SQL enjeksiyonu, veritabanından hassas verileri okuyabilir, veritabanı verilerini değiştirebilir (Ekle/Güncelle/Sil), veritabanı üzerinde yönetim işlemleri yürütebilir (VTYS’yi kapatmak gibi), VTYS dosya sisteminde bulunan belirli bir dosyanın içeriğini kurtarabilir ve bazı durumlarda işletim sistemine komutlar verebilir. SQL enjeksiyon saldırıları, önceden tanımlanmış SQL komutlarının yürütülmesini etkilemek amacıyla veri düzlemi girdisine SQL komutlarının enjekte edildiği bir enjeksiyon saldırısı türüdür.
 
-![](https://cdn-images-1.medium.com/max/800/1*J_T1XcqsCJsdhjlVM3W8CQ.png)
+![](/images/1_J_T1XcqsCJsdhjlVM3W8CQ.png)
 
 Login Form
 
 LAB ortamında user/password credentialları ile giriş yapmaya çalıştığımızda aşağıdaki SQL sorgusunu görüyoruz.
 
-![](https://cdn-images-1.medium.com/max/800/1*qm6EomyLqxhWtSqbs71eeg.png)
+![](/images/1_qm6EomyLqxhWtSqbs71eeg.png)
 
 SQL Script
 
@@ -139,7 +139,7 @@ password=’password’ kısmında tırnak içindeki password değeri forma gird
 
 SQL deyimindeki 1=1 ifadesi sonucun TRUE dönmesini ve SQL deyiminin çalışmasını dolayısıyla sayfaya login olmamızı sağlayacak.
 
-![](https://cdn-images-1.medium.com/max/800/1*P5dPNgsWkHGPMNaBrM93Ag.png)
+![](/images/1_P5dPNgsWkHGPMNaBrM93Ag.png)
 
 Admin olarak oturum açma
 
@@ -149,7 +149,7 @@ Komut enjeksiyonu, hedefin savunmasız bir uygulama aracılığıyla ana bilgisa
 
 LAB ortamında bir Name Server Lookup uygulaması bulunuyor. Kullanıcıdan aldığı domain name’i çalıştırdığı işletim sistemi üzerinde name lookup yapan bir komuta parametre olarak verip çıktısını bize döndürüyor.
 
-![](https://cdn-images-1.medium.com/max/800/1*VnYmabNdtLZtM6BUoOcZtA.png)
+![](/images/1_VnYmabNdtLZtM6BUoOcZtA.png)
 
 Linux sistemler için ***dig*** Windows sistemler için ***nslookup*** aracını kullanıyor. Hem linux hem de windows sistemlerde komut deyimini bitirmemize ve farklı bir komut çalıştırmamıza yarayan ; ifadesi vardır.
 
@@ -157,21 +157,21 @@ Linux sistemler için, input alanına bir domain yazdıktan sonra ; ile komutu 
 
 > google.com; cat /etc/passwd
 
-![](https://cdn-images-1.medium.com/max/800/1*F4asRoROjUr_7L0q4Q5xSw.png)
+![](/images/1_F4asRoROjUr_7L0q4Q5xSw.png)
 
 Bu komutu çalıştırdığımızda dig sonuçlarından sonra passwd dosyası web sayfasına yazdırılacaktır.
 
-![](https://cdn-images-1.medium.com/max/800/1*J8PdroB-PCC9Nr1JKUyrPQ.png)
+![](/images/1_J8PdroB-PCC9Nr1JKUyrPQ.png)
 
 Windows sistemelr için, input alanına domain yazdıkdan yine ; ile komutu bitirip istediğimiz komutu çalıştırabiliriz. Örneğin dir komutuyla Windows sistemlerde dizindeki dosyaları yazdırabilriz.
 
 > google.com; dir
 
-![](https://cdn-images-1.medium.com/max/800/1*3db0eRrvAffAM059j0rRDg.png)
+![](/images/1_3db0eRrvAffAM059j0rRDg.png)
 
 Bu komutu çalıştırdıktan sonra nslookup sonuçlarından sonra dizindeki dosyalar web sayfasına yazdırılacaktır.
 
-![](https://cdn-images-1.medium.com/max/800/1*8V6HolR2RmDh9ctp7OKeeA.png)
+![](/images/1_8V6HolR2RmDh9ctp7OKeeA.png)
 
 ---
 
@@ -183,13 +183,13 @@ Güvensiz tasarım, farklı zayıflıkları temsil eden geniş bir kategoridir. 
 
 Lab ortamındaki örneğe baktığımızda, bize 5 ücretsiz bilet veren ancak tüm biletler satılana kadar filmi izlememize izin ver meyen bir uygulama ile karşı kaşıyayız.
 
-![](https://cdn-images-1.medium.com/max/800/1*9IoF-emuRmtPxiJs5cnZsg.png)
+![](/images/1_9IoF-emuRmtPxiJs5cnZsg.png)
 
 Bu uygulama bize sadece 5 bileti ücretsiz sağlıyor. Burp isteğini yakalayıp baktığımda da herhangi bir zafiyet unsuru görmedim.
 
 Lab ortamındaki açıklamada, bizim bütün biletleri alabileceğimizi söylüyordu. Peki ya nasıl? ipucu olarak logout and think(çıkış yap ve düşün) demiş. Acaba çıkış yapıp yeni bir hesap oluşturup ordan da ücretsiz bilet alabilir miyiz?
 
-![](https://cdn-images-1.medium.com/max/800/1*mnAdcOtUSgaXb-rZwJwdbQ.png)
+![](/images/1_mnAdcOtUSgaXb-rZwJwdbQ.png)
 
 Evet işe yaradı başka bir hesap oluşturup ücretsiz 5 bilet daha aldık. Bu şekilde 9 hesap daha oluşturursak tüm biletleri alabiliriz ve filmimizi izleyabiliriz:)   
 Görüldüğü üzere uygulamada bilinen anlamda herhangi bir zafiyet yok ancak tasarımdaki yani iş kurallarını oluşturmadaki bir hata bizi bu noktaya getirdi.
@@ -206,20 +206,20 @@ Bu tür kusurlar sayesinde saldırganlar, bazı sistem verilerine veya işlevler
 
 Bu laboratuvarda bir yanlış yapılandırma var. Gizli anahtarı ortaya çıkaran ve ancak admin bu anahtarı görüntüleyebilir. Burada sormamız gereken şey admin olduğunu nasıl doğruluyor? Bir cookie ya da header mı var?
 
-![](https://cdn-images-1.medium.com/max/800/1*Vhai1BxfJiRuY6pVLqN5xQ.png)
+![](/images/1_Vhai1BxfJiRuY6pVLqN5xQ.png)
 
 Labda secret key düğmesine bastığımızda sadece admin.localhost:8000'in bu secret keye erişebildiğini bie söylüyor. Nasıl olabilir? Hadi Burp ile isteği yakalayalım.
 
-![](https://cdn-images-1.medium.com/max/800/1*OY_YZmeVurlhV4MKW4UOdA.png)
+![](/images/1_OY_YZmeVurlhV4MKW4UOdA.png)
 
 Bu burp isteğinde secret’a bir GET isteği attığını görüyoruz. Ancak hata mesajında bize belirtilen X-Host headerı burada yok. Zaten değerinin none yani olmadığını da bize iletmemiş. Burada yapmamız gerek bu X-Host adında bir header ekleyip değerini admin.localhost:8000 olarak vermek.  
 Bu uygulama admin hesabını istekteki X-Host değerine bakarak doğruluyor ancak client tarafında bizim bu isteği manipüle edebileceğimizi göz ardı etmiş durumda.
 
-![](https://cdn-images-1.medium.com/max/800/1*9DIQ37iE1AYtGP1rZfv2fA.png)
+![](/images/1_9DIQ37iE1AYtGP1rZfv2fA.png)
 
 Burpün Proxy menüsünde isteği yakaladığımızda hemen sağ tarafta headerları görebildiğimiz ve düzenleyebildiğimiz bir menü var. Buradan X-Host headerını ekleyerek olması gereken değeri veriyoruz. Ardından isteği gönderebiliriz. Ve secret keyi elde ettik.
 
-![](https://cdn-images-1.medium.com/max/800/1*RIaCAdysvIY_On1WNfJcZw.png)
+![](/images/1_RIaCAdysvIY_On1WNfJcZw.png)
 
 ---
 
@@ -231,11 +231,11 @@ Bir geliştirici halihazırda bilinen bir güvenlik açığı olan bir kod parç
 
 Bu lab ortamında, yaml dosyalarını json dosyalarına çeviren bir uygulama vardır. Json verilerini almak için bir yaml dosyasının seçilmesi ve yüklenmesi gerekir. Ayrıca, kullanıcıya uygulamanın kullandığı kütüphanenin sürümünü söyleyen bir get version özelliği de vardır.
 
-![](https://cdn-images-1.medium.com/max/800/1*EppokYoSMghu5tW6l4_ezQ.png)
+![](/images/1_EppokYoSMghu5tW6l4_ezQ.png)
 
 Get Version düğmesine bastığımızda bu uygulamada pyyaml v5.1 kullanıldığını görüyoruz. Bu versiyonu internette biraz araştıralım.
 
-![](https://cdn-images-1.medium.com/max/800/1*mWcoGEUEuFd_E0ne0P1PxA.png)
+![](/images/1_mWcoGEUEuFd_E0ne0P1PxA.png)
 
 Zafiyet Araştırması
 
@@ -250,11 +250,11 @@ Bu zafiyetti sömürebilmek için(exploit) bir yaml dosyası-payload hazırlamam
 
 Ardından oluşturduğum dosyayı seçip upload butonuna tıkladım.
 
-![](https://cdn-images-1.medium.com/max/800/1*Xts7McZlvSLGwS9-OBnsaQ.png)
+![](/images/1_Xts7McZlvSLGwS9-OBnsaQ.png)
 
 Hazırladığımız payload çalıştığında verdiğimiz komut olan ***ls*** komutu çalışacak ve bize sunucuda bulunduğu dizidneki dosyaları yazdıracak. Ve geelen çıktıda dizin ve dosyaları görebiliyoruz.
 
-![](https://cdn-images-1.medium.com/max/800/1*N8TX7K3Ls7X5y90S1M-3Rg.png)
+![](/images/1_N8TX7K3Ls7X5y90S1M-3Rg.png)
 
 ---
 
@@ -269,21 +269,21 @@ Saldırganlar bu zayıflıklardan yararlanmak için kimlik doğrulama saldırıl
 Laboratuvar, kullanıcılardan kullanıcı adı ve şifrelerini isteyen bir giriş sayfasından oluşur. Şifreyi bilmiyorsanız, otp(one-time-pad) ile giriş için bir özellik de vardır! Kullanıcılar otp ile giriş özelliğine tıkladığında, kullanıcı otp göndermek için e-posta kimliğini soran bir sayfaya yönlendirilir. Kullanıcı bir e-posta kimliği sağladığında, 3 haneli opt’un sayfanın kendisine geri gönderildiğini görebilirsiniz. Bu genel senaryo değildir, genellikle kod kullanıcının kayıtlı e-postasına gönderilir.  
 Kullanıcı 3 haneli kodu aldıktan sonra artık kodu OTP’nizi girin yazan giriş kutusuna girebilir Geçerli OTP’yi girdikten sonra kullanıcı, Login Successful as user : email yazan bir sayfa alır. Eğer OTP yanlışsa, kullanıcı Geçersiz OTP yazan bir mesaj alır.
 
-![](https://cdn-images-1.medium.com/max/800/1*qFdtiAX04zdzBl7_E85_vA.png)
+![](/images/1_qFdtiAX04zdzBl7_E85_vA.png)
 
 Admin e-posta adresi`admin@pygoat.com` olarak verilmiş. Uygulama arayüzünde OTP ile giriş bölümüne geldiğimizde bu e-postayı yazarak bir OTP kodu aldım. OTP kodu 3 haneli ve herhangi bir kısıtlama captcha vs. yok. Uygulama üzerinde kaba kuvvet ile OTP’i bulabiliriz.
 
 Burp isteğini yakalayıp intrudera atıp buradan bir kaba kuvvet saldırısı yapmayı deneyebiliriz.
 
-![](https://cdn-images-1.medium.com/max/800/1*TmoJ6_qjHN6N7SlDtUe5Cw.png)
+![](/images/1_TmoJ6_qjHN6N7SlDtUe5Cw.png)
 
 Intruderda otp header değerini seçerek add butonuna tıklıyoruz ve bu değeri payload olacak şekilde işaretliyoruz. Ardından sağ üstte bulunan ikinci sekme olan payload sekmesine geçiyoruz.
 
-![](https://cdn-images-1.medium.com/max/800/1*1nO5T5g9KjrCm8pf4YuZ6Q.png)
+![](/images/1_1nO5T5g9KjrCm8pf4YuZ6Q.png)
 
 Payload sekmesinde 111–999 arası tüm değerleri deneyeceğimiz bir payload tanımlıyoruz. Ardından saldırıyı başlatabiliriz. Burp’un community versiyonunda kaba kuvvet saldırı hızları yavaşlatılmıştır. Bunun için biraz uzun sürebilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*p4ge2cHqlrhq1SSXwMgSAg.png)
+![](/images/1_p4ge2cHqlrhq1SSXwMgSAg.png)
 
 Sonuçta length değeri farklı olan istekde OTP’yi bulmuş olacağız.
 
@@ -312,15 +312,15 @@ Uygulamalar ve API’ler, bir saldırgan tarafından sağlanan zararlı veya tah
 
 Lab ortamında yine sadece adminin girevileceği bir sayfa ile karşı karşıyayız. Admin olduğunun doğrulaması nasıl yapılıyor? Bunu araştırmamız lazım.
 
-![](https://cdn-images-1.medium.com/max/800/1*f3FKpcsOgW_L9m5pNit8RQ.png)
+![](/images/1_f3FKpcsOgW_L9m5pNit8RQ.png)
 
 Sayfaya giden isteği burp ile yakalayalım. Bu istekte cookie bilgisinin base64 encode edildiğini görüyoruz.
 
-![](https://cdn-images-1.medium.com/max/800/1*iRZrBcOzuR164doOB8G6dQ.png)
+![](/images/1_iRZrBcOzuR164doOB8G6dQ.png)
 
 Burp Suite’in decoder aracıyla base64 encodelu token değerini decode edebiliriz.
 
-![](https://cdn-images-1.medium.com/max/800/1*2gXLtT_iTD0Y68VkYWaSKw.png)
+![](/images/1_2gXLtT_iTD0Y68VkYWaSKw.png)
 
 ---
 
@@ -333,15 +333,15 @@ Başarılı saldırıların çoğu güvenlik açığı araştırması ile başla
 
 Bu laboratuvar, bazen uygunsuz günlük kaydının bilgi ifşasına nasıl yol açabileceği hakkında bir fikir edinmenize yardımcı olur. Laboratuvara erişen kullanıcıya, günlüklerin sızdırıldığını söyleyen bir giriş sayfası verilir. Kullanıcının sızıntıyı bulması ve günlüklerde sızdırılan kimlik bilgilerini elde etmeye çalışması gerekir.
 
-![](https://cdn-images-1.medium.com/max/800/1*D52QViZ-2QoHV1MkEeSY6A.png)
+![](/images/1_D52QViZ-2QoHV1MkEeSY6A.png)
 
 Sayfaya sıradan bir kullanıcı adı şifre girdiğimde normal olarak hatalı kullanıcı adı veya şifre diye hata dönüyor. Dirb ile bir tarama yaptığımda /debug isminde bir diin keşfettim.
 
-![](https://cdn-images-1.medium.com/max/800/1*Rf867AJeBGAnDM_sCOvPOQ.png)
+![](/images/1_Rf867AJeBGAnDM_sCOvPOQ.png)
 
 /debug dizini üzerinde sistemin tuttuğu loglar görüntülenebiliyor. Bu logların üzerinde a10 sayfasını aratınca ilginç bir log görüyoruz.
 
-![](https://cdn-images-1.medium.com/max/800/1*H9BTdl1b8IkpVoqIqWhliQ.png)
+![](/images/1_H9BTdl1b8IkpVoqIqWhliQ.png)
 
 Login sayfası GET isteğiyle çalıştığı için oturum açmada kullanılan credentiallar urle yazılmış ve loglara düşmüş. Bu credentiallarla login olabiliriz.
 
@@ -355,11 +355,11 @@ SSRF kusurları, bir web uygulaması kullanıcı tarafından sağlanan URL’yi 
 
 Bu lab ortamı sayfaları bazı blogları gösterir, ancak blogların nasıl sunulduğunu anlayabilir misiniz?
 
-![](https://cdn-images-1.medium.com/max/800/1*GdaChpvQ0G435rzb3g8a2g.png)
+![](/images/1_GdaChpvQ0G435rzb3g8a2g.png)
 
 Lab ortamında arka planda çalışan kod verilmiş ve bizden env dosyasını bulmamız isteniyor. İsteği burp ile bakıp incelediğimizde
 
-![](https://cdn-images-1.medium.com/max/800/1*vMxFjxvIZabnGY3Fn47S1w.png)
+![](/images/1_vMxFjxvIZabnGY3Fn47S1w.png)
 
 blog parametresitle bir dizin verildiği bu dizindeli text dosyasının okunup sayfaya bastırıldığını görüyoruz. Bu değeri manipüle ederek dizindeki istediğimiz dosyayı okuyabiliriz. Bizden a.env dosyasını okumamız istenmiş. Deneme yanılma yoluyla a.env dosyasını arayarak okuyabiliriz.
 

@@ -8,7 +8,7 @@ draft: false
 
 ### Kriptoloji Temelleri:#1 Giriş
 
-![](https://cdn-images-1.medium.com/max/800/1*uorh6uYHB7AdEDpEbCO_Tw.png)
+![](/images/1_uorh6uYHB7AdEDpEbCO_Tw.png)
 
 Merhaba, kriptoloji temelleri serisinin bu ilk yazısında, kriptolojinin ne olduğundan, geleneksel şifreleme tekniklerinden ve güçlü bir şifrenin nasıl oluşturulabileceğinden bahsedeceğim.
 
@@ -18,7 +18,7 @@ Merhaba, kriptoloji temelleri serisinin bu ilk yazısında, kriptolojinin ne old
 
 Şifreleme bilimi olarak adlandırılan bu bilim türünde, gizli tutulmak istenen şeyler bir sistem dahilinde değişik teknik ve yöntemler ile şifrelenir. Aynı zamanda kriptoloji bilimi, şifrelenen iletilerin istenmeyen kişiler tarafından deşifre edilmemesi için de çalışmalar yapmaktadır.
 
-![](https://cdn-images-1.medium.com/max/800/1*hjisKMmnXD1yQQXQ3IOFjA.png)
+![](/images/1_hjisKMmnXD1yQQXQ3IOFjA.png)
 
 Kriptoloji şifre bilimidir. Kriptografi bilgi güvenliği ile uğraşır, Kriptoanaliz güvenli bilginin kırılması başka bir deyişle kriptografinin tam karşıtıdır. Kriptoanalistler genelde şifre çözmeye dayalı çalışırlar. Kriptoloji bir [matematik](https://tr.wikipedia.org/wiki/Matematik "Matematik") bilimidir ve genelde sayılar teorisi üstüne kuruludur.
 
@@ -74,7 +74,7 @@ Frekasn Analizi 9.yy.’da Al-Kindi tarafından önerilmiştir. Dildeki tekrarla
 
 Herhangi bir dil için, o dildeki harflerin kullanım sıklıkları hesaplanır. İngilizce dilinde harflerin kullanım sıklığını içeren tablo aşağıda verilmiştir.
 
-![](https://cdn-images-1.medium.com/max/800/0*9LADpthWZ361CIFT.png)
+![](/images/0_9LADpthWZ361CIFT.png)
 
 Tablodan da görüleceği gibi, ingilizce dilinde en sık kullanılan harf ‘E’ harfidir, ikinci en sık kullanılan harf ise ‘T’ harfidir. Eğer şifreli metin uzunsa en çok gözüken harf büyük olasılıkla düz metindeki E’ye denk gelir ve ikinci en çok gözüken harfte büyük olasılıkla T’ye denk gelir, bu şekilde devam eder.
 
@@ -86,7 +86,7 @@ Sezar şifresi diğer adıyla kaydırma şifresi, aslında ikame şifresinin öz
  Tarihte Julius Sezar bu şifreyi üç konumlu bir kaydırma ile kullanmıştı. Sezar şifresi ismi buradan gelmektedir.  
  Şifrenin matematiksel ifadesi için alfabenin harfleri aşağıdaki tabloda gösterildiği gibi sayısal olarak kodlanmıştır.
 
-![](https://cdn-images-1.medium.com/max/800/0*0ATssVLmJQigP6cg.png)
+![](/images/0_0ATssVLmJQigP6cg.png)
 
 Anahtar k = 17 olsun ve düz metin:
 
@@ -129,7 +129,7 @@ Charles Wheatstone tarafından 1854'de önerilmiştir , Lord Playfair kullanım
 
 Bu durumda tablo şekildeki gibi olacaktır. Önce anahtar yazılır. Aynı harfler bir kez kullanılır. 5×5'lik tablonun geri kalanı, kalan harflerle doldurulur. 25 harfe inmek için I ve J harfi aynı kutuya konur.
 
-![](https://cdn-images-1.medium.com/max/800/0*Vo-d0ErN-moY0kLR.jpg)
+![](/images/0_Vo-d0ErN-moY0kLR.jpg)
 > *düz metin: kr ip to lo ji için*
 
 > *şifreli metin: rf hq kz sc jx olur*
@@ -150,7 +150,7 @@ Affine şifreeme mono alfabetik yerine koymalı şifreleme yöntemlerinin bir ç
 
 Adına kırılmaz şifreleme de diyebileceğimiz bu yöntem çok güvenilir olmasına rağmen pratikte uygulanması oldukçca zordur. Bu yöntemde, tek sefer kullanılacak rastgele karakterlerden/bitlerden oluşan uzun bir dizi üretilir. Düz metin, one-time pad’le XOR işlemine sokularak şifreli metin elde edilir. Şifreli metin ile one-time pad’in XOR işlemine sokulması düz metni geri getirir.
 
-![](https://cdn-images-1.medium.com/max/800/0*6s6SoNCSSj-Sqs27.png)
+![](/images/0_6s6SoNCSSj-Sqs27.png)
 
 one-time pad olarak da bilinen isminden anlaşılacağı gibi tek kullanımlık ve tamamen rastgele üretilmiş olmalıdır. .Aynı anahtarın tekrar kullanımı şifrelemede zayıflığa yol açar ve kırılabilmesine olanak tanır.
 

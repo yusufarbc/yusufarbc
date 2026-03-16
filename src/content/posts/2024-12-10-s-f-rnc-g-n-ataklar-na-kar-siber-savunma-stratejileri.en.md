@@ -8,7 +8,7 @@ draft: false
 
 ### Cyber Defense Strategies Against Zero-Day Attacks
 
-![](https://cdn-images-1.medium.com/max/800/1*iZ-lydJs7z0gBXIAY58wQQ.png)
+![](/images/1_iZ-lydJs7z0gBXIAY58wQQ.png)
 
 In this article, I will talk about how a cyber defense strategy can be developed against zero-day attacks, which are generally accepted to be difficult to detect and prevent. Of course, we cannot wait empty-handed against the zero-day attacks that many institutions suffer from. What kind of defense infrastructure do we need to establish? Let's have a little discussion.
 
@@ -22,13 +22,13 @@ First, let's understand what exactly zero-day attacks and vulnerabilities are an
 
 **Zero-Day Attacks** are attacks that exploit yet undiscovered or unreported vulnerabilities in the software or hardware components of the computer system. These vulnerabilities and vulnerabilities are exploited by attackers as soon as they are detected, causing the attacked party to be caught off guard.
 
-![](https://cdn-images-1.medium.com/max/800/1*5VuTqvd6RWdb2I052Nr74g.png)
+![](/images/1_5VuTqvd6RWdb2I052Nr74g.png)
 
 So why are they defenseless? No matter how much attention the organization pays to its vulnerability management processes, it cannot manage a security vulnerability that it is not aware of. The working logic of many products used for vulnerability management is aimed at detecting and eliminating known vulnerabilities. Therefore, it is not possible to fix a vulnerability that has not yet been discovered.
 
 The process of eliminating newly discovered vulnerabilities takes some time. If the provider of the platform where the vulnerability was discovered issues a patch, a certain amount of time is required until the institution closes the vulnerability by making the necessary updates with this patch. During this time, the institution becomes vulnerable to this vulnerability.
 
-![](https://cdn-images-1.medium.com/max/800/1*ciB4g3FrciO4GMJ5R6q_IA.png)
+![](/images/1_ciB4g3FrciO4GMJ5R6q_IA.png)
 
 As soon as the vulnerability is published, the attackers take action, leaving institutions vulnerable. They detect institutions with vulnerable platforms through platforms such as Shodan and try to carry out their attacks before the vulnerability is corrected.
 
@@ -40,7 +40,7 @@ So, will institutions really be defenseless against these attacks? Will he wait 
 
 **Defense-in-Depth** is a cybersecurity approach applied in layers to protect data and information using a series of defense mechanisms.
 
-![](https://cdn-images-1.medium.com/max/800/1*tymURTTvBKKQGCOSzpLpWQ.png)
+![](/images/1_tymURTTvBKKQGCOSzpLpWQ.png)
 
 Defense-in-Depth
 
@@ -50,7 +50,7 @@ However, there is one more thing we need to mention before that. The tactics and
 
 My scenario covers the detection and prevention of a zero-day vulnerability discovered in a particular service of an organization and an attack that exploits this vulnerability. Of course, one of the most critical among the discovered vulnerabilities; Let's consider the detection and prevention of an attack that exploits a zero-day vulnerability that occurs in an open service of the institution and allows remote access (RCE).
 
-![](https://cdn-images-1.medium.com/max/800/1*TW-N4pXoQLDERr1qtD09LA.png)
+![](/images/1_TW-N4pXoQLDERr1qtD09LA.png)
 
 Bank Network Topology
 
@@ -68,7 +68,7 @@ In this layer:
 * Application logs are collected and examined in the SIEM system to detect attacks on applications. (SOC)
 * Applications are tried to be protected from attacks by being placed behind application firewalls. (WAF)
 
-![](https://cdn-images-1.medium.com/max/800/1*ux6CxhDniTrfK7vaDwSz-A.jpeg)
+![](/images/1_ux6CxhDniTrfK7vaDwSz-A.jpeg)
 
 Application Protection
 
@@ -88,7 +88,7 @@ After gaining initial access, the attacker has two main purposes for the system 
 
 For methods of ensuring persistence in Windows-based systems, you can take a look at the relevant [article](https://medium.com/@yusufarbc/windows-kal%C4%B1c%C4%B1l%C4%B1k-sa%C4%9Flama-persistence-metotlar%C4%B1-b5fb4ac481c5).
 
-![](https://cdn-images-1.medium.com/max/800/1*3Tnfzr-Vt3pRPL_UF2j_Jg.jpeg)
+![](/images/1_3Tnfzr-Vt3pRPL_UF2j_Jg.jpeg)
 
 Endpoint Protection
 
@@ -123,7 +123,7 @@ Of course, this awareness is valid for institutions that have experts examining 
 
 We monitor our corporate network at the network security layer. At this point, we benefit from many network security systems. So what is the attacker's goal at this layer? and what will we do?
 
-![](https://cdn-images-1.medium.com/max/800/1*_t2bS_tKYBo8Z2TwG2p8XA.jpeg)
+![](/images/1__t2bS_tKYBo8Z2TwG2p8XA.jpeg)
 
 Network Protection
 
@@ -151,7 +151,7 @@ While endpoint security products and network security products are not impenetra
 
 In our last layer, the data security layer, some systems are used to prevent a data breach. So what is the attacker's goal at this layer? and what will we do?
 
-![](https://cdn-images-1.medium.com/max/800/1*tsNGz2GCC_G-OIMTA0xmpA.jpeg)
+![](/images/1_tsNGz2GCC_G-OIMTA0xmpA.jpeg)
 
 Data Protection
 

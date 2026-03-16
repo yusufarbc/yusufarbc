@@ -8,7 +8,7 @@ draft: false
 
 ### Global Cyber Threat Actors: APT (Advanced Persistent Threats)
 
-![](https://cdn-images-1.medium.com/max/800/1*-TdWFhjfQyoq9f--c4bfLw.png)
+![](/images/1_-TdWFhjfQyoq9f--c4bfLw.png)
 
 ### Chapter 1: Introduction to the Modern Threat Landscape
 
@@ -34,7 +34,7 @@ This introductory section will establish the basic concepts necessary to underst
 
 The existence of different and complex naming schemes directly reflects the structure of the cybersecurity industry: a competitive market of private organizations, each with private data. While this fragmentation is a rich and diverse source of intelligence, it inherently creates an operational burden on defenders who must synthesize these disparate streams. The challenge for a Security Operations Center (SOC) analyst is not just technical (detecting the threat) but alsois analytical (correlating intelligence about the threat). The primary value of this report is to serve as a tool to fill this analytical gap.
 
-![](https://cdn-images-1.medium.com/max/800/1*AKhTf6UJZmCzPzY3lZvMPw.png)
+![](/images/1_AKhTf6UJZmCzPzY3lZvMPw.png)
 
 **Threat Actor Taxonomy Rosetta Stone**
 

@@ -8,7 +8,7 @@ draft: false
 
 ### OSI Modelinde Siber Saldırılar
 
-![](https://cdn-images-1.medium.com/max/800/1*rOqngZk6L49NHbPm8MIG8w.png)
+![](/images/1_rOqngZk6L49NHbPm8MIG8w.png)
 
 Merhaba, Bu yazımda OSI modeli üzerinde Siber Saldırıları anatmaya çalıştım. Birçok siber saldırı türünü bu yazımda bulabilirsiniz.
 
@@ -18,7 +18,7 @@ Merhaba, Bu yazımda OSI modeli üzerinde Siber Saldırıları anatmaya çalış
 
 OSI (Open Systems Interconnection) modeli, bilgisayar ağlarının tasarımını ve işleyişini açıklamak için kullanılan bir referans modelidir. ISO (International Organization for Standardization) tarafından geliştirilmiştir ve 7 katmandan oluşur. Her katman, belirli bir işlevi yerine getirir ve bir ağdaki iletişimi yönetir.
 
-![](https://cdn-images-1.medium.com/max/800/1*NO93ucFJGdZnGEbqFZ9LWg.jpeg)
+![](/images/1_NO93ucFJGdZnGEbqFZ9LWg.jpeg)
 
 OSI MODEL
 
@@ -42,7 +42,7 @@ Bu katman, fiziksel cihazların bulunduğu katmandır. Bu katmanda saldırganlar
 
 Sniffing saldırıları, bir ağdaki veri iletimini izlemek veya yakalamak amacıyla gerçekleştirilen kötü niyetli faaliyetlerdir. Saldırganlar, ağdaki veri paketlerini ele geçirir ve içerisindeki hassas bilgileri (kullanıcı adları, şifreler, kredi kartı bilgileri vb.) çalmak veya izlemek için kullanır.
 
-![](https://cdn-images-1.medium.com/max/800/0*QX0yUeqWbkWlrcSM.png)
+![](/images/0_QX0yUeqWbkWlrcSM.png)
 
 sniffing
 
@@ -64,7 +64,7 @@ En basit ifadeyle, MAC adresi ağ üzerinden gönderilen bir IP adresinin hedefl
 
 Spoofing (sahtecilik) veya poisoning (zehirleme), iki sistem arasındaki güvenilir bir ilişkiden yararlanan bir tür kimliğe bürünme saldırısıdır.
 
-![](https://cdn-images-1.medium.com/max/800/1*dIW8GRH3OsHnLOP8WJixGA.png)
+![](/images/1_dIW8GRH3OsHnLOP8WJixGA.png)
 
 Spoofing
 
@@ -96,7 +96,7 @@ ICMP, teşhis(diagnostic) mesajları taşımak ve sunucular ile bağlantı nokta
 
 Saldırganlar, ICMP’yi keşif ve tarama amaçlı kullanır. Bu sayede bir ağ topolojisinin haritasını çıkarmak, hangi ana bilgisayarların aktif (erişilebilir) olduğunu keşfetmek, ana bilgisayar işletim sistemini tanımlamak (OS parmak izi) ve bir güvenlik duvarının durumunu belirlemek için bilgi toplama faaliyetleri yürütebilirler.
 
-![](https://cdn-images-1.medium.com/max/800/1*OaMHg5vMHFfRn5qPET_l7g.png)
+![](/images/1_OaMHg5vMHFfRn5qPET_l7g.png)
 
 ICMP Flood
 
@@ -313,7 +313,7 @@ Saldırgan daha sonra bu bilgileri hassas bilgiler içeren sunucu yapılandırma
 
 Bufferlar bir uygulamaya tahsis edilen bellek alanlarıdır. Veriler bir tamponun sınırlarının ötesine yazıldığında tampon taşması meydana gelir. Uygulama, verileri arabellek sınırlarının ötesinde değiştirerek diğer işlemlere ayrılmış belleğe erişebilir. Bu durum sistemin çökmesine veya verilerin ele geçirilmesine yol açabilir ya da ayrıcalıkların artmasını sağlayabilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*NQ9MzPUcJmS-Ku2GjvYBsA.png)
+![](/images/1_NQ9MzPUcJmS-Ku2GjvYBsA.png)
 
 Buffer Overflow
 

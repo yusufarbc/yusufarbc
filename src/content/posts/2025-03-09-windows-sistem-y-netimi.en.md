@@ -8,7 +8,7 @@ draft: false
 
 ### Windows System Management
 
-![](https://cdn-images-1.medium.com/max/800/1*QTSThAAz9yc368eD-MMw5g.png)
+![](/images/1_QTSThAAz9yc368eD-MMw5g.png)
 
 Windows System Administration is a set of processes and tools that involve managing Windows operating systems. These processes cover a wide range from user and account management to optimizing resources, from implementing security policies to controlling network configurations. System administrators; It improves operational efficiency by monitoring system performance, troubleshooting, and automating using tools such as Microsoft Management Console (MMC), PowerShell, and Group Policy Management (GPO). It also performs the necessary configurations to ensure that users and system resources work in harmony at the central or local level. Windows system administration plays a critical role in meeting the needs of individual users and corporate networks.
 
@@ -219,10 +219,10 @@ You can run MSC files on your computer by pressing the “Win ​​+ R” hotke
 
 #### 1- Computer Management
 
-![](https://cdn-images-1.medium.com/max/800/1*MpU8TSbaM6qR2u2-ihXfqg.png)
+![](/images/1_MpU8TSbaM6qR2u2-ihXfqg.png)
 > `compmgmt.msc`
 
-![](https://cdn-images-1.medium.com/max/800/1*qYkUr1fgV87iFe6utqzSdA.png)
+![](/images/1_qYkUr1fgV87iFe6utqzSdA.png)
 
 **Computer Management**
 
@@ -230,10 +230,10 @@ It is an interface used to open the **Computer Management** console in the Windo
 
 #### 2- Device Manager
 
-![](https://cdn-images-1.medium.com/max/800/1*-9-W8H4OOTMvEsRMj-Hqdw.png)
+![](/images/1_-9-W8H4OOTMvEsRMj-Hqdw.png)
 > `devmgmt.msc`
 
-![](https://cdn-images-1.medium.com/max/800/1*7w5iLQ5wGIt1r8PDdJxh9A.png)
+![](/images/1_7w5iLQ5wGIt1r8PDdJxh9A.png)
 
 Device Manager
 
@@ -241,10 +241,10 @@ It is a script used to open the **Device Manager** tool in the Windows operating
 
 #### 3- Disk Management
 
-![](https://cdn-images-1.medium.com/max/800/1*R4PceSSdAKcNpyGNmeTdkw.png)
+![](/images/1_R4PceSSdAKcNpyGNmeTdkw.png)
 > `diskmgmt.msc`
 
-![](https://cdn-images-1.medium.com/max/800/1*eBTghtHiVBRBsAQj8f8e_w.png)
+![](/images/1_eBTghtHiVBRBsAQj8f8e_w.png)
 
 DiskManagement
 
@@ -252,19 +252,19 @@ It is a script used to open the **Disk Management** tool in the Windows operatin
 
 #### 4- Services
 
-![](https://cdn-images-1.medium.com/max/800/1*0KIsamFvchIgkx-NituRgg.png)
+![](/images/1_0KIsamFvchIgkx-NituRgg.png)
 > `services.msc`
 
-![](https://cdn-images-1.medium.com/max/800/1*6uv3dpx_XipXh_qbq01PFg.png)
+![](/images/1_6uv3dpx_XipXh_qbq01PFg.png)
 
 It is a script used to open the **Services** management console in the Windows operating system. This tool allows you to view and manage the list of all running or stopped services in the system. Users can start, stop, restart services, or configure their startup type (automatic, manual, disabled). For example, services such as Windows Update or Network Connections can be managed in this console. `services.msc` plays a critical role in optimizing system performance and troubleshooting.
 
 #### 5- Event Viewer
 
-![](https://cdn-images-1.medium.com/max/800/1*ULhrQ5wKEn3HO73IVquJtw.png)
+![](/images/1_ULhrQ5wKEn3HO73IVquJtw.png)
 > `eventvwr.msc`
 
-![](https://cdn-images-1.medium.com/max/800/1*N8gONxQA7kwwBszjUEvAWg.png)
+![](/images/1_N8gONxQA7kwwBszjUEvAWg.png)
 
 Event Viewer
 
@@ -272,10 +272,10 @@ It is a script used to open the **Event Viewer** tool in the Windows operating s
 
 #### 6- Local Security Policy
 
-![](https://cdn-images-1.medium.com/max/800/1*eQz3psGx6dDTuQOk0rRyCA.png)
+![](/images/1_eQz3psGx6dDTuQOk0rRyCA.png)
 >secpol.msc
 
-![](https://cdn-images-1.medium.com/max/800/1*l3kApq4SYaZ7M-8L5KQVKg.png)
+![](/images/1_l3kApq4SYaZ7M-8L5KQVKg.png)
 
 Local Security Policy
 
@@ -283,10 +283,10 @@ It is a script used to open the **Local Security Policy** tool in the Windows op
 
 #### 7- Local Group Policy Editor
 
-![](https://cdn-images-1.medium.com/max/800/1*dQsN3KsDl549381FOo6nDA.png)
+![](/images/1_dQsN3KsDl549381FOo6nDA.png)
 > `gpedit.msc`
 
-![](https://cdn-images-1.medium.com/max/800/1*XETMBSBOzK7D4tqp1o8mrQ.png)
+![](/images/1_XETMBSBOzK7D4tqp1o8mrQ.png)
 
 Local Group Policy Editor
 
@@ -294,10 +294,10 @@ It is a script used to open the **Local Group Policy Editor** in the Windows ope
 
 #### 8- Local Users and Groups
 
-![](https://cdn-images-1.medium.com/max/800/1*Ph4cBMvCzWWC8F4wSrBKMA.png)
+![](/images/1_Ph4cBMvCzWWC8F4wSrBKMA.png)
 > `lusrmgr.msc`
 
-![](https://cdn-images-1.medium.com/max/800/1*PpzC4VflE9EQfpHgFzywDA.png)
+![](/images/1_PpzC4VflE9EQfpHgFzywDA.png)
 
 Local Users and Groups
 
@@ -305,10 +305,10 @@ It is a script used to open the **Local Users and Groups** management tool in th
 
 #### 9- Task Scheduler
 
-![](https://cdn-images-1.medium.com/max/800/1*aw0BmV1O3rpNqEEpvbv07Q.png)
+![](/images/1_aw0BmV1O3rpNqEEpvbv07Q.png)
 > `taskschd.msc`
 
-![](https://cdn-images-1.medium.com/max/800/1*771nW9DentMsT-0R_XxE2w.png)
+![](/images/1_771nW9DentMsT-0R_XxE2w.png)
 
 Task Scheduler
 
@@ -316,10 +316,10 @@ It is a script used to open the **Task Scheduler** tool in the Windows operating
 
 #### 10- Shared Folders
 
-![](https://cdn-images-1.medium.com/max/800/1*1_05HPAMwCvgzwqHjRKYKw.png)
+![](/images/1_1_05HPAMwCvgzwqHjRKYKw.png)
 > `fsmgmt.msc`
 
-![](https://cdn-images-1.medium.com/max/800/1*weE9YAJ7nRYtMRsPpYRszw.png)
+![](/images/1_weE9YAJ7nRYtMRsPpYRszw.png)
 
 Shared Folders
 
@@ -327,10 +327,10 @@ It is a script used to open the **Shared Folders** management console in the Win
 
 #### 11- Advanced Security with Windows Defender Firewall
 
-![](https://cdn-images-1.medium.com/max/800/1*XejYGc58spUFIjCG_1iN2A.png)
+![](/images/1_XejYGc58spUFIjCG_1iN2A.png)
 > `wf.msc`
 
-![](https://cdn-images-1.medium.com/max/800/1*ChA1HxpNqJ7ucgVk_cA-mw.png)
+![](/images/1_ChA1HxpNqJ7ucgVk_cA-mw.png)
 
 **Windows Defender Firewall**
 
@@ -338,10 +338,10 @@ It is a script used to open the **Advanced Security with Windows Defender Firewa
 
 #### 12- Printing Management
 
-![](https://cdn-images-1.medium.com/max/800/1*MTSqO1OEapX1hDEQ_s7QuA.png)
+![](/images/1_MTSqO1OEapX1hDEQ_s7QuA.png)
 >printmanagement.msc
 
-![](https://cdn-images-1.medium.com/max/800/1*HmtdMCPwr-n95OLQwRQFNg.png)
+![](/images/1_HmtdMCPwr-n95OLQwRQFNg.png)
 
 Print Management
 
@@ -349,10 +349,10 @@ It is a script used to open the **Print Management** console in the Windows oper
 
 #### 13- Certificate Management
 
-![](https://cdn-images-1.medium.com/max/800/1*cijWlhOxGxjRqXHwSebeOQ.png)
+![](/images/1_cijWlhOxGxjRqXHwSebeOQ.png)
 > `certlm.msc`
 
-![](https://cdn-images-1.medium.com/max/800/1*4kxWFhlcjgX6STpedTFqDA.png)
+![](/images/1_4kxWFhlcjgX6STpedTFqDA.png)
 
 Certificates — Local Computers
 
@@ -360,10 +360,10 @@ It is a script used to open the **Local Computer Certificates Management** tool 
 
 #### 14- Performance Monitor
 
-![](https://cdn-images-1.medium.com/max/800/1*drGVabk1_JuCxoBQLN9ldw.png)
+![](/images/1_drGVabk1_JuCxoBQLN9ldw.png)
 > `perfmon.msc`
 
-![](https://cdn-images-1.medium.com/max/800/1*PkQsxpMaGI2TSQDpb9R8wQ.png)
+![](/images/1_PkQsxpMaGI2TSQDpb9R8wQ.png)
 
 Performance Monitor
 
@@ -371,19 +371,19 @@ It is a script used to open the **Performance Monitor** tool in the Windows oper
 
 #### 15- Remote Desktop Services Manager
 
-![](https://cdn-images-1.medium.com/max/800/1*kO1BtfC5frTaF-qbfuBCaQ.png)
+![](/images/1_kO1BtfC5frTaF-qbfuBCaQ.png)
 > `tsadmin.msc`
 
-![](https://cdn-images-1.medium.com/max/800/1*BPLbsJAB4eySqgSpwwG3uw.jpeg)
+![](/images/1_BPLbsJAB4eySqgSpwwG3uw.jpeg)
 
 Also known as Remote Desktop Services Manager, it is an administrative tool used in Windows Server operating systems. This tool is designed specifically for managing Terminal Server user sessions. Through this console, administrators can monitor connected users' sessions, end sessions, send messages, and control user sessions remotely. It is also used to view performance data about sessions and troubleshoot problems. However, in Windows Server 2012 and later this tool is not available by default; Instead, alternative management tools such as Server Manager or Group Policy are used.
 
 #### 16- Authorizedirme Manager
 
-![](https://cdn-images-1.medium.com/max/800/1*5ycPzQAAhzh_4Ut2SLA1Ow.png)
+![](/images/1_5ycPzQAAhzh_4Ut2SLA1Ow.png)
 > `azman.msc`
 
-![](https://cdn-images-1.medium.com/max/800/1*tPmIFI6iET881lNc83L8EQ.png)
+![](/images/1_tPmIFI6iET881lNc83L8EQ.png)
 
 Authorization Manager
 
@@ -391,10 +391,10 @@ It is an administrative tool known as Microsoft Authorization Manager. This tool
 
 #### 17- Component Services
 
-![](https://cdn-images-1.medium.com/max/800/1*q5vZ5cZncnQHSTB3ADbqzg.png)
+![](/images/1_q5vZ5cZncnQHSTB3ADbqzg.png)
 > `comexp.msc`
 
-![](https://cdn-images-1.medium.com/max/800/1*pIdbGHCOEizkpzvXjro0aA.png)
+![](/images/1_pIdbGHCOEizkpzvXjro0aA.png)
 
 Component Services
 
@@ -406,7 +406,7 @@ It is a Microsoft Management Console (MMC) component used in Windows operating s
 
 Windows Active Directory Administrative Tools (ADAT) are tools used to manage and configure an Active Directory (AD) environment. These tools allow system administrators to manage user accounts, computers, groups, policies, and other AD objects. Active Directory plays a central role for user and resource management, especially in enterprise networks. Here are the most commonly used Active Directory management tools:
 
-![](https://cdn-images-1.medium.com/max/800/1*KUc3xyohoMX461oMMITE7g.png)
+![](/images/1_KUc3xyohoMX461oMMITE7g.png)
 
 ADAT
 
@@ -414,7 +414,7 @@ ADAT
 
 It is used within Microsoft's Active Directory service to manage user accounts, computers, groups, and organizational units (OU). Administrators can create new users, edit accounts, enforce password policies, and move objects between different organizational units
 
-![](https://cdn-images-1.medium.com/max/800/1*K_zUm1r0QVCnLQgnDwczLA.png)
+![](/images/1_K_zUm1r0QVCnLQgnDwczLA.png)
 
 Active Directory Users and Computers
 
@@ -422,7 +422,7 @@ Active Directory Users and Computers
 
 It is used within Microsoft's Active Directory service to manage trust relationships between domains. Administrators can create, edit, or remove domain trusts. Additionally, operations such as increasing the domain functional level are also performed through this tool.
 
-![](https://cdn-images-1.medium.com/max/800/1*QDVkcGG3felLhq9GADjBeA.png)
+![](/images/1_QDVkcGG3felLhq9GADjBeA.png)
 
 Active Directory Domains and Trusts
 
@@ -430,7 +430,7 @@ Active Directory Domains and Trusts
 
 It is used to manage the physical topology of AD. Administrators can optimize network traffic and adjust replication settings by configuring sites, subnets, and site links.
 
-![](https://cdn-images-1.medium.com/max/800/1*eFJ89GnmWgGiAWAFvMmwsQ.png)
+![](/images/1_eFJ89GnmWgGiAWAFvMmwsQ.png)
 
 Active Directory Sites and Services
 
@@ -438,7 +438,7 @@ Active Directory Sites and Services
 
 It offers a more modern interface for managing AD objects. This tool, which is used especially in Windows Server 2008 R2 and later, offers more advanced management options by integrating with PowerShell cmdlets.
 
-![](https://cdn-images-1.medium.com/max/800/1*gVvHgx857TBhTzD6NmW7jQ.png)
+![](/images/1_gVvHgx857TBhTzD6NmW7jQ.png)
 
 Active Directory Administrative Center
 
@@ -446,7 +446,7 @@ Active Directory Administrative Center
 
 It is used to manage Group Policies. Administrators can create and edit policies and apply them to specific groups of users or computers. GPMC makes it easy to manage policy settings centrally.
 
-![](https://cdn-images-1.medium.com/max/800/1*xbLyZ5DCZebIw1hn2NsiVw.png)
+![](/images/1_xbLyZ5DCZebIw1hn2NsiVw.png)
 
 Group Policy Management Console
 
@@ -454,7 +454,7 @@ Group Policy Management Console
 
 It is used to perform AD management operations via the command line. poVarious operations can be performed on user accounts, groups, policies and other AD objects with werShell cmdlets. This is especially useful for automation and batch processing.
 
-![](https://cdn-images-1.medium.com/max/800/1*26CfeO0LwUnxTiVbXoBOxg.png)
+![](/images/1_26CfeO0LwUnxTiVbXoBOxg.png)
 
 Active Directory Module for Windows PowerShell
 
@@ -473,7 +473,7 @@ WMI allows system administrators to:
 
 WMI works through **WMI Providers**. These providers collect information about hardware, software, and operating system components and provide this information to WMI. WMI makes this information queryable with a query language called **WMI Query Language (WQL)**.
 
-![](https://cdn-images-1.medium.com/max/800/1*8Uxx0e4xpvHQA5JVh43iIQ.png)
+![](/images/1_8Uxx0e4xpvHQA5JVh43iIQ.png)
 
 #### Methods of Working with WMI
 
@@ -540,7 +540,7 @@ wmic cpu get name
 
 It is Microsoft's cloud-based identity and access management solution. It provides secure management of both users and applications and provides a critical infrastructure for modern business environments.
 
-![](https://cdn-images-1.medium.com/max/800/1*pqT3BvT-gibeMBhl0SiIFg.jpeg)
+![](/images/1_pqT3BvT-gibeMBhl0SiIFg.jpeg)
 
 Many management and business tools are available in the Azure AD ecosystem. This makes Azure AD a powerful and integrated solution in terms of both security and management.
 

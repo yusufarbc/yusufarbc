@@ -10,7 +10,7 @@ draft: false
 
 Artificial intelligence (AI) agents—systems that can autonomously plan and execute complex tasks—are rapidly rising in the technology world. But connecting these powerful agents to thousands of real-world APIs, data sources, and services creates a massive engineering complexity. Each integration means unique protocols, incompatible data formats, and proprietary code that requires constant maintenance. At this point, Model Context Protocol (MCP) comes on the scene with the promise of an elegant "universal connector", almost like the USB-C of technology. Its goal is to make all AI agents and tools speak in a single standard language. But the facts behind this shiny new standard are much more surprising, complex, and in some ways even alarming than its superficial appearance.
 
-![](https://cdn-images-1.medium.com/max/800/1*5jGIJD4TmHvoDoLS_E5tdw.png)
+![](/images/1_5jGIJD4TmHvoDoLS_E5tdw.png)
 
 ---
 

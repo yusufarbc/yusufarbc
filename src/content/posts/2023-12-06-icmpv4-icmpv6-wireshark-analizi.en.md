@@ -8,7 +8,7 @@ draft: false
 
 ### ICMPv4/ICMPv6 Wireshark Analysis
 
-![](https://cdn-images-1.medium.com/max/800/1*qw1Nso3IaiA7Jptb-0T1qQ.png)
+![](/images/1_qw1Nso3IaiA7Jptb-0T1qQ.png)
 
 Hello, in this article I will try to explain the ICMPv4 and ICMPv6 protocols and their analysis with Wireshark.
 
@@ -24,7 +24,7 @@ ICMP is used as a messaging system for errors, alerts, and general notifications
 
 By examining ICMP traffic on your network over several hours or days, you can determine how efficiently the network is designed and detect numerous configuration errors, functional issues, or security breaches. ICMPv4 is defined in RFC 792.
 
-![](https://cdn-images-1.medium.com/max/800/1*LHTLnK4dnNwCs20ZDNBf8g.png)
+![](/images/1_LHTLnK4dnNwCs20ZDNBf8g.png)
 
 ICMP provides messaging services on IP networks
 
@@ -36,17 +36,17 @@ RFC 4443 defines the purpose and functionality of ICMPv6. ICMPv6 packet structur
 
 ICMP traffic is difficult to define because it is specific to each network. While some network personnel use ping for connection tests, some companies restrict ICMP Echo Requests/Responses. We can define the ICMP traffic from these ping tests and the ICMP traffic from traceroute tests as “normal ICMP traffic”. ICMP based pings use ICMP Type 8 for echo Requests and ICMP Type 0 for echo replies.
 
-![](https://cdn-images-1.medium.com/max/800/1*4qv9iLVW9NDKL4GxWnpXKw.png)
+![](/images/1_4qv9iLVW9NDKL4GxWnpXKw.png)
 
 ICMP Echo Request
 
-![](https://cdn-images-1.medium.com/max/800/1*gdUehz7murFdf2ZsU48Cmw.png)
+![](/images/1_gdUehz7murFdf2ZsU48Cmw.png)
 
 ICMP Echo Reply
 
 The figures show ICMPv4 echo request and echo reply packets.
 
-![](https://cdn-images-1.medium.com/max/800/1*2A2yFLq4vs7G70TfEM0oHw.png)
+![](/images/1_2A2yFLq4vs7G70TfEM0oHw.png)
 
 ICMPv6
 
@@ -56,11 +56,11 @@ There are three flavors of Traceroute – ICMP based, TCP based and UDP based. I
 
 There are three flavors of Traceroute – ICMP based, TCP based and UDP based. ICMP based traceroute uses ICMP echo Requests and changes the Time to Live (TTL) value in the IP header. When packets reach routers along the path, the incoming TTL value is examined. If the incoming TTL value is 1, the router responds with an ICMP Time Exceeded/Time to Live Exceeded in Transit (Type 11, Code 0) (unless this response is disabled on the router). This allows you to find the IP address of the router.
 
-![](https://cdn-images-1.medium.com/max/800/1*bJcu5LI83HlJKEJlBK6QUQ.png)
+![](/images/1_bJcu5LI83HlJKEJlBK6QUQ.png)
 
 ICMP Ping Request — no response
 
-![](https://cdn-images-1.medium.com/max/800/1*EPaLsDeBtWdcmSiyOLbZbw.png)
+![](/images/1_EPaLsDeBtWdcmSiyOLbZbw.png)
 
 ICMP Time-to-live-exceed
 
@@ -74,7 +74,7 @@ However, ICMP itself can help detect many other network issues and security issu
 
 Another example would be excessive redirects.
 
-![](https://cdn-images-1.medium.com/max/800/1*09eyyZQ32tAra5CruF7ajQ.png)
+![](/images/1_09eyyZQ32tAra5CruF7ajQ.png)
 
 ICMP Redirect
 

@@ -8,7 +8,7 @@ draft: false
 
 ### X86 Tabanlı Mikroişlemci Mimarisi
 
-![](https://cdn-images-1.medium.com/max/800/1*LCI0x-uWvBBHYDnFGti6BA.png)
+![](/images/1_LCI0x-uWvBBHYDnFGti6BA.png)
 
 ### X86 Nedir?
 
@@ -18,7 +18,7 @@ X86 adı, orjinal Intel işlemci çekirdek lisansına dayanan işlemcilere veril
 
 Gelişmiş mikroişlemciler de temel olarak 8-bitlik mikroişlemcilerde olduğu gibi kaydedici Bölümü, ALU ve Kontrol birimine sahiptir. Fakat daha sonra mimari yapısı çoklu görev ortamına uygun hale getirildiğinden, işlemci içerisindeki bölümlerin de fonksiyonel açıdan iki mantıksal ana bölüm halinde daha ayrıntılı açıklanması gerekmektedir.
 
-![](https://cdn-images-1.medium.com/max/800/0*7PswzKiGH1B4pThm.png)
+![](/images/0_7PswzKiGH1B4pThm.png)
 
 X86 tabanlı işlemciler Veri Yolu Bağdaştırma Birimi(BIU) ve İcra Birimi(EU) olmak üzere iki ana bölümde incelenebilir. BIU birimi, EU birimini veriyle beslemekten sorumluyken, EU birimi talimatların icrasından sorumludur.
 

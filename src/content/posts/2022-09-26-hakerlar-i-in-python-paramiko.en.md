@@ -8,7 +8,7 @@ draft: false
 
 ### **Python for hackers: paramiko**
 
-![](https://cdn-images-1.medium.com/max/800/1*cHmfmYLtoze7wtcUFY5BVA.png)
+![](/images/1_cHmfmYLtoze7wtcUFY5BVA.png)
 
 ### Introduction
 
@@ -69,7 +69,7 @@ ssh.close()
 
 In this example, we created an SSH client with the pramaiko module. The application makes a connection to the specified IP and port address with the username and password information and runs the 'whoami' command. Then it prints the response to the screen and closes the SSH connection.
 
-![](https://cdn-images-1.medium.com/max/800/1*yht4td7gjtuSn40eYD1_mQ.png)
+![](/images/1_yht4td7gjtuSn40eYD1_mQ.png)
 
 In this example, we connected via SSH by running machine [Typhoon](https://www.vulnhub.com/entry/typhoon-102,267/) in the virtual environment. Now let's see what more we can do with this module.
 

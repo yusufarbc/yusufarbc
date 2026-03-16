@@ -8,7 +8,7 @@ draft: false
 
 ### Aktif Bilgi Toplama Teknikleri
 
-![](https://cdn-images-1.medium.com/max/800/0*oiybh8KKS4kV2xtr.jpg)
+![](/images/0_oiybh8KKS4kV2xtr.jpg)
 
 Bu yazımızda, sizlere Aktif Bilgi Toplama Tekniklerinden bahsedeceğiz.
 

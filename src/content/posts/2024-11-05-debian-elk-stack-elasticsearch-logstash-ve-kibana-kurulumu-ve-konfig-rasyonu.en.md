@@ -8,7 +8,7 @@ draft: false
 
 ### Debian ELK Stack (Elasticsearch, Logstash and Kibana) Installation and Configuration
 
-![](https://cdn-images-1.medium.com/max/800/1*0wM3nsUfgol-TsAFYBZJzQ.png)
+![](/images/1_0wM3nsUfgol-TsAFYBZJzQ.png)
 
 Hello, in this article, I will explain the installation and configuration of ELK Stack on Debian-based Linux distributions.
 
@@ -16,7 +16,7 @@ Hello, in this article, I will explain the installation and configuration of ELK
 
 ELK Stack is an open source platform frequently used in log management and analysis. It consists of three main components that make up its name: Elasticsearch, Logstash and Kibana.
 
-![](https://cdn-images-1.medium.com/max/800/1*Bp8Ab2mZiMAygbxDYEqFmQ.png)
+![](/images/1_Bp8Ab2mZiMAygbxDYEqFmQ.png)
 
 ELK Stack
 
@@ -53,7 +53,7 @@ We have listed some members of the Debian family here. Apart from this, you can 
 
 First, let's look at the information of the system we will install and make sure that the distribution is the latest version for security reasons.
 
-![](https://cdn-images-1.medium.com/max/800/1*pw90BcHIGlE5VaK1ZZuUVw.png)
+![](/images/1_pw90BcHIGlE5VaK1ZZuUVw.png)
 
 Version information of the Ubuntu distribution I installed.
 
@@ -63,7 +63,7 @@ Then let's make updates to our system. Performing these updates before each inst
 
 > sudo apt update && sudo apt upgrade
 
-![](https://cdn-images-1.medium.com/max/800/1*RmnuJn-ue_IxM-v_HVKbiw.png)
+![](/images/1_RmnuJn-ue_IxM-v_HVKbiw.png)
 
 Package updates
 
@@ -75,7 +75,7 @@ Finally, we need to make sure that our machine has enough resources. So it must 
 
 To install Elasticsearch, we first need to download the Debian package.
 
-![](https://cdn-images-1.medium.com/max/800/1*AceB4HkqR-_Vhu5jPvDkiw.png)
+![](/images/1_AceB4HkqR-_Vhu5jPvDkiw.png)
 
 Downloading process of elasticsearch debian package with wget
 
@@ -87,7 +87,7 @@ We can download using the wget tool.
 
 Then, let's perform the installation process with dpkg, which is the package installation tool of Debian. We need root authority for installation.
 
-![](https://cdn-images-1.medium.com/max/800/1*juhgX_jliDWJaXNGhR2_RA.png)
+![](/images/1_juhgX_jliDWJaXNGhR2_RA.png)
 
 Elasticsearch installation
 
@@ -97,7 +97,7 @@ sudo dpkg -i elasticsearch-8.15.3-amd64.deb
 
 At the end of the installation, it offers us suggestions on how to continue the installation.
 
-![](https://cdn-images-1.medium.com/max/800/1*9iK82eWFRbtdDSDV_HxY1A.png)
+![](/images/1_9iK82eWFRbtdDSDV_HxY1A.png)
 
 Post-installation steps
 
@@ -111,7 +111,7 @@ sudo systemctl start elasticsearch.service
 
 We can obtain information about the status of the service by using the journalctl command.
 
-![](https://cdn-images-1.medium.com/max/800/1*iiD9Azwdmg2h8zAxXbyjsg.png)
+![](/images/1_iiD9Azwdmg2h8zAxXbyjsg.png)
 
 Service status review with journalctl
 
@@ -121,7 +121,7 @@ Now, the password of the user “elastic”, which is the default authorized use
 sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic -i
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*5z1Fz-4kByoU9dcWfWWOiQ.png)
+![](/images/1_5z1Fz-4kByoU9dcWfWWOiQ.png)
 
 elastic user password reset
 
@@ -131,7 +131,7 @@ Now it is time to generate the token that we will use in the Kibana connection.
 sudo /usr/share/elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*J94WTHXjHFlwjNDD7PQXbg.png)
+![](/images/1_J94WTHXjHFlwjNDD7PQXbg.png)
 
 Generating tokens for kibana connection
 
@@ -143,7 +143,7 @@ Finally, we need to open the elasticsearch port on our system's firewall.
 sudo ufw allow 9200
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*HyY2hwiWpzI2Nq7KMoOY_A.png)
+![](/images/1_HyY2hwiWpzI2Nq7KMoOY_A.png)
 
 Firewall port opening process
 
@@ -151,7 +151,7 @@ Now our system broadcasts the elasticsearch service to the network it is located
 
 > https://<host-ip>:9200
 
-![](https://cdn-images-1.medium.com/max/800/1*DKO6wjEJvGNu288erqcVww.png)
+![](/images/1_DKO6wjEJvGNu288erqcVww.png)
 
 Access via browser
 
@@ -163,7 +163,7 @@ Here, you can access elasticsearch by entering elastic as the username and the p
 
 To install Kibana, we first need to download the Debian package.
 
-![](https://cdn-images-1.medium.com/max/800/1*86bu_iqDIMsOtPeqFpDM9Q.png)
+![](/images/1_86bu_iqDIMsOtPeqFpDM9Q.png)
 
 Downloading process of elasticsearch debian package with wget
 
@@ -175,7 +175,7 @@ We can download using the wget tool.
 
 Then, let's perform the installation process with dpkg, which is the package installation tool of Debian. We need root authority for installation.
 
-![](https://cdn-images-1.medium.com/max/800/1*3mmYQBaOZcZ5dL7QllEQjw.png)
+![](/images/1_3mmYQBaOZcZ5dL7QllEQjw.png)
 
 Kibana installation
 
@@ -189,43 +189,43 @@ After the installation is completed, we can start kibana configurations. To do t
 sudo nano /etc/kibana/kibana.yml
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*2wmFBqMb-196gT4FAxSJHQ.png)
+![](/images/1_2wmFBqMb-196gT4FAxSJHQ.png)
 
 kibana.yml file
 
 Here I will only show the areas that need to be changed.
 
-![](https://cdn-images-1.medium.com/max/800/1*xXYvST90ltTvpnbTtpGllw.png)
+![](/images/1_xXYvST90ltTvpnbTtpGllw.png)
 
 server.port
 
 Delete the # sign in front of the server.port field and write the port you want the Kibana service to run on in quotes. By default it is 5601.
 
-![](https://cdn-images-1.medium.com/max/800/1*lh2yAPGIeDqfd3g6q1yqXA.png)
+![](/images/1_lh2yAPGIeDqfd3g6q1yqXA.png)
 
 server.host
 
 Delete the # sign in front of the server.host field and write the IP address of your own system in quotes.
 
-![](https://cdn-images-1.medium.com/max/800/1*QDnnLo2LEY-j6UHLc3H2tg.png)
+![](/images/1_QDnnLo2LEY-j6UHLc3H2tg.png)
 
 server.name
 
 Delete the # sign in front of the server.name field and write your own system's hostname in quotes. I wrote it because mine was "elastic".
 
-![](https://cdn-images-1.medium.com/max/800/1*nIirHOJJZRFIMoT2nfCv6Q.png)
+![](/images/1_nIirHOJJZRFIMoT2nfCv6Q.png)
 
 elasticsearch.hosts
 
 The elasticsearch service that kibana will connect to. Since I installed this service on the same machine, localhost can remain. If it was a different host, I would have to write its IP. Also, let's not forget to change the initial protocol to "https".
 
-![](https://cdn-images-1.medium.com/max/800/1*qTZgYDVXyheJ8YX8firPEg.png)
+![](/images/1_qTZgYDVXyheJ8YX8firPEg.png)
 
 elasticsearch token link
 
 kibana offers 2 ways to authenticate the elasticsearch connection. One of these is verification with username and password, and the other is verification with the token we will use. If you remember, we created a token during the elasticsearch installation. We enter this token between quotation marks.
 
-![](https://cdn-images-1.medium.com/max/800/1*Gsnn46-BQ3AWc43sEMAiHQ.png)
+![](/images/1_Gsnn46-BQ3AWc43sEMAiHQ.png)
 
 ssl.verification
 
@@ -243,7 +243,7 @@ sudo systemctl start kibana.service
 
 We can obtain information about the status of the service by using the journalctl command.
 
-![](https://cdn-images-1.medium.com/max/800/1*1_rsonaVsKsxze1R0baGYg.png)
+![](/images/1_1_rsonaVsKsxze1R0baGYg.png)
 
 kibana service startthrowing away
 
@@ -253,7 +253,7 @@ Finally, we open the 5601 port used by Kibana through the system firewall.
 sudo ufw allow 5601
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*A37mSKxxkscotaC3ebJnrQ.png)
+![](/images/1_A37mSKxxkscotaC3ebJnrQ.png)
 
 Port Opening Process
 
@@ -263,7 +263,7 @@ You can now access the kibana panel via your browser.
 
 It may take a while for Kibana to stand up.
 
-![](https://cdn-images-1.medium.com/max/800/1*RyBvS-VDY3UCca5O0DYwVw.png)
+![](/images/1_RyBvS-VDY3UCca5O0DYwVw.png)
 
 kibana panel
 
@@ -275,7 +275,7 @@ Our Kibana panel has appeared. You can log in to this panel with the “elastic�
 
 To install Logstash, we first need to download the Debian package.
 
-![](https://cdn-images-1.medium.com/max/800/1*tA9E8Yt9URg678EjB31jxw.png)
+![](/images/1_tA9E8Yt9URg678EjB31jxw.png)
 
 Downloading logstash package with wget
 
@@ -285,7 +285,7 @@ wget https://artifacts.elastic.co/downloads/logstash/logstash-8.15.3-amd64.deb
 
 Then, let's perform the installation process with dpkg, which is the package installation tool of Debian. We need root authority for installation.
 
-![](https://cdn-images-1.medium.com/max/800/1*NjLTqnfQa1SiyzhxR9iD4A.png)
+![](/images/1_NjLTqnfQa1SiyzhxR9iD4A.png)
 
 logstash installation process
 
@@ -301,7 +301,7 @@ First, let's give the password to the logstash\_system user for the elasticsearc
 sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u logstash_system -i
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*9DZhN0vdF_SVqx7PQ7XzjA.png)
+![](/images/1_9DZhN0vdF_SVqx7PQ7XzjA.png)
 
 logstash\_system user password setting
 
@@ -311,7 +311,7 @@ Then let's open the logstashin configuration file and edit it.
 sudo nano /etc/logstash/logstash.yml
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*mxiT9gqvMZzk0-UAUrdVDg.png)
+![](/images/1_mxiT9gqvMZzk0-UAUrdVDg.png)
 
 logstash.yml file
 
@@ -319,7 +319,7 @@ Do not forget to enclose the string values we provide in this file in quotes.
 
 Now we can start the logstash service.
 
-![](https://cdn-images-1.medium.com/max/800/1*4dOXa3frSYz4B_PZ4kpjYA.png)
+![](/images/1_4dOXa3frSYz4B_PZ4kpjYA.png)
 
 starting logstash service
 
@@ -331,7 +331,7 @@ sudo systemctl start logstash.service
 
 Finally, we open the 5044 port, which is the default port of logstashin, in our system.
 
-![](https://cdn-images-1.medium.com/max/800/1*Dx8ZAvD-yDQbhtg8LI0-RQ.png)
+![](/images/1_Dx8ZAvD-yDQbhtg8LI0-RQ.png)
 
 Port opening process
 
@@ -343,17 +343,17 @@ We cannot access Logstashe through a browser like elasticsearch or kibana. Becau
 
 Let's configure our first pipeline!
 
-![](https://cdn-images-1.medium.com/max/800/1*DXhxcdqUi6XyHxgqB8Zonw.png)
+![](/images/1_DXhxcdqUi6XyHxgqB8Zonw.png)
 
 ```
 /usr/share/logstash/bin/logstash -e 'input { stdin { } } output { stdout {} }'
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*Kk9b336oR1cUIE-FWJPYfA.png)
+![](/images/1_Kk9b336oR1cUIE-FWJPYfA.png)
 
 Creating a logstash pipeline
 
-![](https://cdn-images-1.medium.com/max/800/1*T-DI81u4d3jc5zpCW_tX9A.png)
+![](/images/1_T-DI81u4d3jc5zpCW_tX9A.png)
 
 Ready for input
 

@@ -8,7 +8,7 @@ draft: false
 
 ### Windows Persistence Methods
 
-![](https://cdn-images-1.medium.com/max/800/1*embmEuQRxJRHe7TWE4Y6hw.png)
+![](/images/1_embmEuQRxJRHe7TWE4Y6hw.png)
 
 Persistence methods in Windows are used to ensure that malicious software or unauthorized access continues even if a system is restarted or the user is logged off.
 
@@ -20,7 +20,7 @@ Generated users usually contain keywords such as “support”, “sysadmin”, 
 
 We can use the “net users” command to view existing accounts on the computer.
 
-![](https://cdn-images-1.medium.com/max/800/1*HvOGzRb3pHx18C05BL9HYg.png)
+![](/images/1_HvOGzRb3pHx18C05BL9HYg.png)
 
 netuser
 
@@ -36,13 +36,13 @@ We can search on EventViewer to see created and deleted users.
 
 * **Event ID 4726**: This event is logged when a user account is deleted.
 
-![](https://cdn-images-1.medium.com/max/800/1*4nn-RZO_QOj2Z31N2iW__Q.png)
+![](/images/1_4nn-RZO_QOj2Z31N2iW__Q.png)
 
 Event Viewer Filtering
 
 In the records in the Event Viewer, we can see the user created, the time and the user through whom it was created.
 
-![](https://cdn-images-1.medium.com/max/800/1*1xVpZh22clB0-MLj_t8dfA.png)
+![](/images/1_1xVpZh22clB0-MLj_t8dfA.png)
 
 EventViewer log review
 
@@ -52,7 +52,7 @@ EventViewer log review
 
 One of the most used persistence methods is to create scheduled tasks. From viruses to ransomware, most malicious things use scheduled tasks to maintain persistence. The attacker uses scheduled tasks to ensure that the malicious file runs at regular intervals. There are various ways to detect suspicious scheduled tasks actively running on the system. First, let's show how to do this using “Autoruns”, a sysinternals tool. Autoruns: [Download](https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns).
 
-![](https://cdn-images-1.medium.com/max/800/1*idpBPfOpk5jfDLg-y3C8wA.png)
+![](/images/1_idpBPfOpk5jfDLg-y3C8wA.png)
 
 Analysis with Autoruns tool
 
@@ -66,7 +66,7 @@ When we look at the scheduled tasks section with the Autorun tool, we can see th
 
 Registry keys can be edited with the regedit tool.
 
-![](https://cdn-images-1.medium.com/max/800/1*KJ7xCp0G-BiHtQ1-wsCjBw.jpeg)
+![](/images/1_KJ7xCp0G-BiHtQ1-wsCjBw.jpeg)
 
 registry editor
 
@@ -98,11 +98,11 @@ registry editor
 
 With these keys, programs can be started at boot time or logon time. We can see the programs launched with the Autoruns tool.
 
-![](https://cdn-images-1.medium.com/max/800/1*y3d5O0LdaV4GmOdbHnHpng.png)
+![](/images/1_y3d5O0LdaV4GmOdbHnHpng.png)
 
 Autoruns Logon Keys
 
-![](https://cdn-images-1.medium.com/max/800/1*Z-1VEztRVjoi7huNxW_u3A.png)
+![](/images/1_Z-1VEztRVjoi7huNxW_u3A.png)
 
 Autoruns Boot Keys
 
@@ -119,13 +119,13 @@ We can access the startup folder with the run window opened by pressing the Win 
 
 >shell:startup
 
-![](https://cdn-images-1.medium.com/max/800/1*1VKN6kfhHUHtAxIC_SMn-g.png)
+![](/images/1_1VKN6kfhHUHtAxIC_SMn-g.png)
 
 startup folder
 
 We can see the files left by the malware in the startup folder we open with the Run tool.
 
-![](https://cdn-images-1.medium.com/max/800/1*wYEoJlBvJhUvXomYDotB-g.png)
+![](/images/1_wYEoJlBvJhUvXomYDotB-g.png)
 
 Startup Folder
 

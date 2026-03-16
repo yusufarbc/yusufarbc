@@ -8,7 +8,7 @@ draft: false
 
 ### Ağ Yönetimi ve Güvenliği VIII: Ağ Yönetimi, İzleme ve Otomasyon
 
-![](https://cdn-images-1.medium.com/max/800/1*Iv6EqXHTlTeVgd7LlSNDOQ.png)
+![](/images/1_Iv6EqXHTlTeVgd7LlSNDOQ.png)
 
 Ağ yönetimi, son yirmi yılda köklü bir dönüşüm geçirmiştir. Geçmişte, ağ yönetimi büyük ölçüde manuel, reaktif ve komut satırı arayüzü (CLI) tabanlı bireysel sorun giderme çabalarına dayanıyordu. Ağ mühendisleri, sorunlar ortaya çıktığında müdahale eder, cihazlara tek tek bağlanır ve yapılandırmaları manuel olarak düzenlerdi. Bu yaklaşım, günümüzün karmaşık, dinamik ve iş açısından kritik ağ altyapıları için artık sürdürülebilir değildir. Modern ağ operasyonları, bu eski paradigmanın yerini alan, birbiriyle derinden bağlantılı üç temel sütun üzerine inşa edilmiştir:
 
@@ -66,7 +66,7 @@ SNMPv1 üzerine yapılan bir geliştirmedir ve temel olarak performans iyileşti
 
 SNMPv2c ve SNMPv3 arasındaki seçim, yalnızca teknik bir tercih değil, aynı zamanda bir kuruluşun genel güvenlik olgunluğunun ve felsefesinin bir yansımasıdır. SNMPv1/v2c’nin kimlik bilgilerini ve verileri ağ üzerinden açık metin olarak ilettiği gerçeği, modern ağlarda kabul edilemez bir güvenlik açığıdır. SNMPv3, bu açıkları kapatmak için kimlik doğrulama ve şifreleme sunar. Ancak, v3'ün yapılandırılması “oldukça karmaşık” olup, izlenen cihazlarda ek bir teknik yük ve performans (CPU/bellek) maliyeti getirir. Bu durum, basitlik ve performans (v2c) ile güvenlik ve karmaşıklık (v3) arasında doğrudan bir denge kurma zorunluluğu yaratır. Bu nedenle, bir kuruluşun bu konudaki kararı, risk iştahını ortaya koyar. Dağıtım kolaylığını yönetim trafiğinin güvenliğine tercih eden bir şirket, v2c’yi erişim kontrol listeleri (ACL’ler) ile birleştirerek “yeterince iyi” bir önlem olarak görebilir. Sıkı uyumluluk gereksinimleri olan veya olgun bir güvenlik programına sahip bir kuruluş ise, kimlik bilgisi hırsızlığı veya veri manipülasyonu riskini azaltmak için operasyonel ek yükü kabul ederek v3'ün `authPriv` seviyesini zorunlu kılacaktır. Bu, kuruluşun iç tehditleri ve ağ içi dinlemeyi ne kadar ciddiye aldığını gösterir ve sıfır güven (zero-trust) ağına geçişin bir göstergesi olarak kabul edilebilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*psfUsG7oSQeQYJHqnwtiNg.png)
+![](/images/1_psfUsG7oSQeQYJHqnwtiNg.png)
 
 SNMP Sürümlerinin Karşılaştırmalı Analizi (v1, v2c, v3)
 
@@ -105,7 +105,7 @@ NetFlow ve sFlow arasındaki temel fark yalnızca teknik (durum bilgili/durum bi
 
 Aşağıdaki tablo, bu iki kritik akış protokolü arasındaki genellikle karıştırılan farkları netleştirmekte ve mühendislerin kendi özel kullanım durumları ve ağ ortamları için doğru teknolojiyi seçmelerini sağlamaktadır.
 
-![](https://cdn-images-1.medium.com/max/800/1*Fn_jt2stbWxL_YVnRuYbnQ.png)
+![](/images/1_Fn_jt2stbWxL_YVnRuYbnQ.png)
 
 Akış Tabanlı İzleme Protokolleri: NetFlow vs. sFlow
 
@@ -145,7 +145,7 @@ Nagios Core ücretsiz ve açık kaynaklıdır ve eklenti mimarisi sayesinde her 
 
 Aşağıdaki tablo, kuruluşların kendi özel teknik gereksinimlerine, bütçelerine ve ekip becerilerine göre bilinçli bir karar vermelerine yardımcı olmak amacıyla üç lider izleme platformunun doğrudan, özellik bazında bir karşılaştırmasını sunmaktadır.
 
-![](https://cdn-images-1.medium.com/max/800/1*8hiUXuINrhx_sc7cJlTO-A.png)
+![](/images/1_8hiUXuINrhx_sc7cJlTO-A.png)
 
 İzleme Platformlarının Özellik Matrisi (Nagios vs. Zabbix vs. PRTG)
 

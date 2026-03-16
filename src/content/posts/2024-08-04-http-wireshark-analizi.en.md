@@ -16,7 +16,7 @@ Hello, in this article I will try to explain the HTTP protocol and its analysis 
 
 Hypertext Transfer Protocol (HTTP) is called “distributed hypermedia information distribution application”. HTTP is the application used when a person browses the internet. HTTP uses a request/response model.
 
-![](https://cdn-images-1.medium.com/max/800/1*lpMM04aqUuEX3GMKaDsawQ.png)
+![](/images/1_lpMM04aqUuEX3GMKaDsawQ.png)
 
 HTTP and HTTPS use TCP transport
 
@@ -28,7 +28,7 @@ HTTP v1.0 is not used as frequently as HTTP v1.1, the current version in use. HT
 
 Normal HTTP communications use the request/response communication style. Clients make requests to HTTP servers and servers respond with Status Codes.
 
-![](https://cdn-images-1.medium.com/max/800/1*OrN2W6uGR9b__wtBdJotrw.png)
+![](/images/1_OrN2W6uGR9b__wtBdJotrw.png)
 
 HTTP uses a request/response pattern
 
@@ -118,7 +118,7 @@ Wireshark monitors HTTP statistics for payload distribution, packet counters, an
 
 An option is provided to apply a display filter to the statistics. For example, if you have a trace file that contains web browsing sessions to many hosts, you can filter “*http.host==*[*www.wireshark.org*](http://www.wireshark.org)*”* to examine statistics for web browsing sessions only to [www.wireshark.org](http://www.wireshark.org).You can apply it.
 
-![](https://cdn-images-1.medium.com/max/800/1*9wkbOuaZAyEIRxnP9eAtzQ.png)
+![](/images/1_9wkbOuaZAyEIRxnP9eAtzQ.png)
 
 Statistics
 
@@ -126,13 +126,13 @@ HTTP Load Distribution lists HTTP requests and responses by server. Expanding th
 
 The HTTP Load Distribution statistic is an excellent resource for identifying website redirects and dependencies.
 
-![](https://cdn-images-1.medium.com/max/800/1*nol9M0Y4tZhIQSfzlR0wgA.png)
+![](/images/1_nol9M0Y4tZhIQSfzlR0wgA.png)
 
 HTTP payload distribution
 
 When we browse to [www.espn.com](http://www.espn.com) in the figure, we see the HTTP redirects and dependencies.
 
-![](https://cdn-images-1.medium.com/max/800/1*KYKO1fj8c3rUSDlHeYenFw.png)
+![](/images/1_KYKO1fj8c3rUSDlHeYenFw.png)
 
 HTTP Packet Counter
 
@@ -140,7 +140,7 @@ HTTP Packet Counter is very valuable because it lists the Status Code
 answers. Detecting 4xx Client Error or 5xx Server Error responses is simple. The figure shows the HTTP Packet Counter for another browsing session to [www.espn.com](http://www.espn.com) (httpespn2007.  
 pcapng). We can see some HTTP 301 and 302 redirects and a 404 Not Found response.
 
-![](https://cdn-images-1.medium.com/max/800/1*2YKXJLq89yAY7hD0U-wqzQ.png)
+![](/images/1_2YKXJLq89yAY7hD0U-wqzQ.png)
 
 HTTP Requests
 
@@ -156,7 +156,7 @@ RFC 2818 defines the use of HTTP over Transport Layer Security (TLS) for secure 
 
 HTTPS communication begins with a TCP handshake on the port to be used for secure communication. In our example, we are using standard HTTPS port 443. If you use another port for SSL/TLS traffic, add these ports to the HTTP preferences setting for SSL/TLS ports. Port 443 is defined by default.
 
-![](https://cdn-images-1.medium.com/max/800/1*XjCeq6WCg-sCh-bmywOeXg.png)
+![](/images/1_XjCeq6WCg-sCh-bmywOeXg.png)
 
 What is FTP? Use the ssl.record.content\_type==22 display filter to view the TLS handshake
 
@@ -172,7 +172,7 @@ This handshake process includes the following types of traffic:
 * **Cipher spec**: defines the data encryption algorithm
 * **Master secret**: 48 bytes of secret information shared between client and server
 
-![](https://cdn-images-1.medium.com/max/800/1*nfOsRO6Q1iAWlV1OKsGsUw.png)
+![](/images/1_nfOsRO6Q1iAWlV1OKsGsUw.png)
 
 The client lists 34 supported cipher suites; the server will choose which one to use
 
@@ -188,7 +188,7 @@ Extensions add functionality to TLS. The presence of extensions is detected as t
 
 An extension provides the server name, in this case [www.bankofamerica.com](http://www.bankofamerica.com). The server name extension allows the client to create a secure connection to a virtual server that can be hosted on a machine that supports multiple servers on a single IP address.
 
-![](https://cdn-images-1.medium.com/max/800/1*n8YUEDlR5Fog8x16NgsNSg.png)
+![](/images/1_n8YUEDlR5Fog8x16NgsNSg.png)
 
 Pack 10
 
@@ -205,13 +205,13 @@ Among the 34 cipher suites offered, the server chose TLS\_RSA\_with\_RC4\_128\_M
 
 This second packet of the handshake process also contains the certificate from the server. Within the same packet is the phrase Server Hello Done to indicate that the server has completed the Hello process.
 
-![](https://cdn-images-1.medium.com/max/800/1*L6vYPqYmakuATBNGQPSBnQ.png)
+![](/images/1_L6vYPqYmakuATBNGQPSBnQ.png)
 
 Pack 12
 
 Packet 12 shown in the figure is the next packet from the client. This packet indicates that the client calculates a premaster secret from both client and server random values. The Change Cipher Spe assignment indicates that all messages coming from the client will be encrypted using the defined keys and algorithms.
 
-![](https://cdn-images-1.medium.com/max/800/1*5-SH0IZAQCnHR0hROkZ1Uw.png)
+![](/images/1_5-SH0IZAQCnHR0hROkZ1Uw.png)
 
 Pack 14
 
@@ -227,7 +227,7 @@ In November 2009, PhoneFactor’s Steve Dispensa and Marsh Ray wrote an 8-page o
 
 In the example below, we are working with the client\_init\_renego.pcap file provided as an attachment to the PhoneFactor document. Additionally, PhoneFactor has provided an RSA key named ws01.mogul.test.key.
 
-![](https://cdn-images-1.medium.com/max/800/1*UGaIEdpGL4TRQ8etJgQN0g.png)
+![](/images/1_UGaIEdpGL4TRQ8etJgQN0g.png)
 
 Enter the path to the RSA key file to decrypt traffic
 
@@ -235,7 +235,7 @@ To decrypt HTTPS traffic, we copied the RSA key to a \keys directory on the loca
 
 The figure shows the settings used to decrypt this file. Notice that the Protocol column indicates TCP, SSL, or TLSv1. We cannot see decrypted traffic yet.
 
-![](https://cdn-images-1.medium.com/max/800/1*MP7YsmkIUYyh5XdMFlEUTw.png)
+![](/images/1_MP7YsmkIUYyh5XdMFlEUTw.png)
 
 Once the key is configured and applied, we can see the HTTP communication clearly
 
@@ -253,7 +253,7 @@ Everyone has typed in the wrong website address at one time or another. If the s
 
 Additionally, HTTP connection problems can occur when the HTTP daemon is not running on the web server. When the HTTP daemon is not running on the server, the server responds to the client's SYN with a TCP RST/ACK. Connection cannot be established.
 
-![](https://cdn-images-1.medium.com/max/800/1*eAvT4-k9dlHwViEHYgBIxA.png)
+![](/images/1_eAvT4-k9dlHwViEHYgBIxA.png)
 
 Additionally, HTTP connection problems can occur on the web server when multiple failed HTTP connection attempts create a stripe pattern in Wiresharkdaemon.
 
@@ -263,7 +263,7 @@ If the HTTP client successfully connects to the HTTP server, but then requests a
 
 Some redirect services replace the standard 404 Not Found message with suggested links or redirect the HTTP client to another site entirely. Create a coloring rule for HTTP client and server errors using http.response.code >= 400.
 
-![](https://cdn-images-1.medium.com/max/800/1*Gy6gBNz0W8u_QdGzPmZ-OQ.png)
+![](/images/1_Gy6gBNz0W8u_QdGzPmZ-OQ.png)
 
 frys.com server responds with an internal server error
 
@@ -273,7 +273,7 @@ When we look at the trace file, we can see that the [www.frys.com](http://www.fr
 
 Open the http-fault-post.pcapng file and set the Time column to Seconds Since Previous Displayed Packet. Note that there is a large delay before packet 29. Be careful here. The FIN bit is set in the 29th packet. This indicates that the client has finished sending information to the server. These packets (and packets with the Reset bit set) can be triggered long after the user has finished receiving the required data. The user does not notice this delay, so do not waste your time removing delays before packets marked with the FIN (or Reset) bit.
 
-![](https://cdn-images-1.medium.com/max/800/1*5T1I_7MbqgFJ_G0DjnkpMA.png)
+![](/images/1_5T1I_7MbqgFJ_G0DjnkpMA.png)
 
 The client's POST fails, indicating a web server issue
 
@@ -288,7 +288,7 @@ When troubleshooting web browsing issues, look for TCP errors before focusing on
 
 HTTP packets are of variable length. In this section we list some important fields in the HTTP packet structure. HTTP requests consist of a Method that defines the purpose of the HTTP request. HTTP responses contain a numeric response code called a Status Code.
 
-![](https://cdn-images-1.medium.com/max/800/1*AU90ZRoS-ZXyas8DmkoIaQ.png)
+![](/images/1_AU90ZRoS-ZXyas8DmkoIaQ.png)
 
 An HTTP GET request packet for the Facebook homepage
 
@@ -365,7 +365,7 @@ The filtering syntax for HTTP or HTTPS traffic is *tcp port http* or *tcp port h
 
 To save downloaded objects when using HTTP, click File | Export Objects| Select HTTP. When you export HTTP objects, the original object name is preserved.
 
-![](https://cdn-images-1.medium.com/max/800/1*MQa1Gu3-dpFdafp7wg2lQA.png)
+![](/images/1_MQa1Gu3-dpFdafp7wg2lQA.png)
 
 We can export objects downloaded from a site
 

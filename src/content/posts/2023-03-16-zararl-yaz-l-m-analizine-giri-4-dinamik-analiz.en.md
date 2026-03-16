@@ -8,7 +8,7 @@ draft: false
 
 ### Introduction to Malware Analysis: #4 Dynamic Analysis
 
-![](https://cdn-images-1.medium.com/max/800/1*XhHw4q_6KEejBGJHX3iENw.png)
+![](/images/1_XhHw4q_6KEejBGJHX3iENw.png)
 
 I talked about static analysis methods in my previous article. In this article, I will talk about dynamic analysis methods in Malware Analysis. What types of dynamic analysis techniques are there? What tools are used? How is analysis done? it's all in this article!
 
@@ -36,19 +36,19 @@ Casual observation of the behavior of executing malware helps us set our expecta
 
 We may need to repeat this process and randomly re-run the same instance multiple times, as a single execution will not help us make enough observations about its behavior. It is recommended to reset the VM every time we randomly re-run the instance. For this, you can take a [snapshot](https://www.techrepublic.com/article/how-to-use-snapshots-in-virtualbox/) before running it and restore it after running the malware.
 
-![](https://cdn-images-1.medium.com/max/800/1*TeWf88TlRm-4hgARIytSFA.png)
+![](/images/1_TeWf88TlRm-4hgARIytSFA.png)
 
 In carrying out this process, we can also get help from a few simple tools, such as Process Hacker and a file browser, which help us passively observe the behavior of the sample.
 
-![](https://cdn-images-1.medium.com/max/800/1*3Gszc0IZVUjKcJiNdTTGFQ.png)
+![](/images/1_3Gszc0IZVUjKcJiNdTTGFQ.png)
 
 For example, here we have a malware called sample.exe. Let's observe what happens when we run it.
 
-![](https://cdn-images-1.medium.com/max/800/1*A_SOhSImS-Ag6WFwPd4H0Q.png)
+![](/images/1_A_SOhSImS-Ag6WFwPd4H0Q.png)
 
 The sample.exe element disappeared and new processes started. Our computer is now infected.
 
-![](https://cdn-images-1.medium.com/max/800/1*bbN3yVKANOp7YerFaB1qBw.png)
+![](/images/1_bbN3yVKANOp7YerFaB1qBw.png)
 
 After our process is completed, we need to restore the snapshot to reset our machine. When we restart, the machine will start as it was when we took the snapshot.
 
@@ -58,11 +58,11 @@ After our process is completed, we need to restore the snapshot to reset our mac
 
 The malware carries out its activities through Win API calls. You can obtain the APIs used by an instance using an API logger tool such as APIMiner or Cuckoo Sandbox. Based on APIs, you can conclude whether the sample is malware and find out its category.
 
-![](https://cdn-images-1.medium.com/max/800/1*pfOmNJu2eNiLE6VdAnRwcg.png)
+![](/images/1_pfOmNJu2eNiLE6VdAnRwcg.png)
 
 [APIminer](https://github.com/poona/APIMiner) tool creates a log file for us. Log files are arranged in chronological order. The first file you see will be the first file created. You can see the created log file below.
 
-![](https://cdn-images-1.medium.com/max/800/1*tB_oxh5iHu7jN3Ni5dgR1Q.png)
+![](/images/1_tB_oxh5iHu7jN3Ni5dgR1Q.png)
 
 So, what inferences will we draw from this information?
 
@@ -97,7 +97,7 @@ What does this whole set of APIs look like? This indicates that the sample is us
 We concluded that it was malware from the API logs, but can we understand the family of the malware? Each malware belonging to the same family has features or structures specific to that family. Its properties can be investigated through API logs. For the example, there are three API log files created. Take the first log file and call the CreateMutant API, which creates a mutex.   
 It is a synchronization method commonly used by malware. Our malware creates a mutex called 2GVWNQJz1, as you can see via the API call.
 
-![](https://cdn-images-1.medium.com/max/800/1*gd1heUrxhjyJuqn7_SnqYg.png)
+![](/images/1_gd1heUrxhjyJuqn7_SnqYg.png)
 
 Mutex created by our sample reveals that it belongs to the kuluoz family and is a botnet virus
 
@@ -109,13 +109,13 @@ The first step in string analysis is to understand whether it is packed or not. 
 
 PEiD is a great tool that can provide the entropy of a static file so you can tell whether it is packed or not, for example.
 
-![](https://cdn-images-1.medium.com/max/800/1*Po9quWJijYlHKhvJpMIlkQ.png)
+![](/images/1_Po9quWJijYlHKhvJpMIlkQ.png)
 
 Strings are hidden in packaged malware. This makes static analysis of strings using BinText useless. When we run packaged malware, they unpack themselves in memory. Once you unpack it, all hidden strings will now become visible. We will try to detect these strings.
 
 At this point, process hacker comes to our aid again. We can click on the process started by process hacker and view its memory data.
 
-![](https://cdn-images-1.medium.com/max/800/1*3m0V-UQ4Yb1nse2pzeteTA.png)
+![](/images/1_3m0V-UQ4Yb1nse2pzeteTA.png)
 
 Here, we can see many strings.
 
@@ -123,7 +123,7 @@ What can we extract from these strings? There are numerous strings that refer to
 
 Look for strange names within strings that look different but still mean something (you need to be very patient for this). Among all these strings, there is also the string YUIPWDFILE0YUIPKDFILE0YUICRYPTED0YUI1.0, which looks very strange but also has a structure consisting of words such as CRYPTED and FILE0.
 
-![](https://cdn-images-1.medium.com/max/800/1*el0yaQ8iSrmox-8IUb3CbQ.png)
+![](/images/1_el0yaQ8iSrmox-8IUb3CbQ.png)
 
 When we search for this string on Google, it points to many analysis reports for other malware samples, such as Pony Loader or Fareit, which belong to the same family as our sample.
 
@@ -135,19 +135,19 @@ Converting the example into assembly code and executing it may be useful to see 
 
 First of all, on OllyDbg we need to make a few small adjustments. We go to the Options menu.
 
-![](https://cdn-images-1.medium.com/max/800/1*eri6ggOwF_WG8_bhqPcVqQ.png)
+![](/images/1_eri6ggOwF_WG8_bhqPcVqQ.png)
 
 Here, we go to the start section on the left and select the Entry point of main module option.
 
-![](https://cdn-images-1.medium.com/max/800/1*mIJOmn4P3sGowZPeg3L87A.png)
+![](/images/1_mIJOmn4P3sGowZPeg3L87A.png)
 
 Then we go to the SFX section and uncheck the boxes. We are ready now. We open our malware file with OllyDbg. It may take a while to open.
 
-![](https://cdn-images-1.medium.com/max/800/1*Or7YLdKi5dvafIWnuo-wXw.png)
+![](/images/1_Or7YLdKi5dvafIWnuo-wXw.png)
 
 Here you see the main screen of OllyDbg. The image may be a bit intimidating. Actually, this part depends on your assembly knowledge.
 
-![](https://cdn-images-1.medium.com/max/800/1*EqbuAGEZvZeUYzrb9FERwQ.png)
+![](/images/1_EqbuAGEZvZeUYzrb9FERwQ.png)
 
 Quick access buttons on OllyDbg are as shown in the figure. With OllyDbg, you can run the software line by line and observe its actions.
 
@@ -166,7 +166,7 @@ We will touch on ProcMon, another very important analysis tool that can capture 
 
 Let's review the events and see if we can notice any malicious events/indicators from the events directly or indirectly related to our example process.
 
-![](https://cdn-images-1.medium.com/max/800/1*ML1czN-nNauQcOxJ4Y4PAw.png)
+![](/images/1_ML1czN-nNauQcOxJ4Y4PAw.png)
 
 All events indicate harmful activity.
 
@@ -180,7 +180,7 @@ Copying and pasting its contents into this new file is a commonly used malware t
 
 Since the malware sample created a RUN persistence entry, let's verify with the AutoRuns tool whether this persistence RUN entry still exists.
 
-![](https://cdn-images-1.medium.com/max/800/1*O8xKtlyx0K9aReVvbccSPw.png)
+![](/images/1_O8xKtlyx0K9aReVvbccSPw.png)
 
 You can see the record created with the Autoruns tool.
 
@@ -194,7 +194,7 @@ Code injection is caught using various techniques. One method detects the use of
 
 Let's say you understand that the malware sample is performing code injection. Not every code injection technique indicates that the malware is planning API hooking or trying to use rootkit functionality. However, at this point, it is likely that one of the malware's goals is API hooking or rootkit. At this stage, using the GMER tool is a good step.
 
-![](https://cdn-images-1.medium.com/max/800/1*ailBIordEk9B2cmjVNPNVQ.png)
+![](/images/1_ailBIordEk9B2cmjVNPNVQ.png)
 
 GMER Scan
 
@@ -220,7 +220,7 @@ Computer forensics begins with data collection. Since we want to look at memory,
 
 We can use FTK Imager Lite to get the memory image. This tool is extremely lightweight and easy to use.
 
-![](https://cdn-images-1.medium.com/max/800/1*xpfdO7cMxtGKfdMhM179ug.png)
+![](/images/1_xpfdO7cMxtGKfdMhM179ug.png)
 
 You can create a memory dump by clicking the Capture memory button. The memory dump file created has a special file format that can be understood by memory forensics tools.
 
@@ -228,21 +228,21 @@ You can create a memory dump by clicking the Capture memory button. The memory d
 
 To analyze our memory dumps, we can use a well-known open-source memory forensics tool called Volatility.
 
-![](https://cdn-images-1.medium.com/max/800/1*NId-X0OTydEM4KekMvEpeQ.png)
+![](/images/1_NId-X0OTydEM4KekMvEpeQ.png)
 
 volatility
 
 Volality is a command line tool, and if the output of the tool is very large, viewing the output from the command prompt is inconvenient. You can redirect the output of the command to a text file instead.
 
-![](https://cdn-images-1.medium.com/max/800/1*1PBp2-WEY1sk0r6l7oehsw.png)
+![](/images/1_1PBp2-WEY1sk0r6l7oehsw.png)
 
 The output from the command to the help.txt file can now be viewed using a text editor such as Notepad or Notepad++.
 
-![](https://cdn-images-1.medium.com/max/800/1*1VOuaZCymL2zzn8nWbVmsA.png)
+![](/images/1_1VOuaZCymL2zzn8nWbVmsA.png)
 
 The screenshot displays the list of commands provided by the tool. Volatility is a very comprehensive tool. I will not explain all its features in this article.
 
-![](https://cdn-images-1.medium.com/max/800/1*52I5nvpzGb-GDJfZ6LamjQ.png)
+![](/images/1_52I5nvpzGb-GDJfZ6LamjQ.png)
 
 image information
 

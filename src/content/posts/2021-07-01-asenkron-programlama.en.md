@@ -8,7 +8,7 @@ draft: false
 
 ### Asynchronous Programming
 
-![](https://cdn-images-1.medium.com/max/800/0*DH7q_354Ghtgzp3H.jpg)
+![](/images/0_DH7q_354Ghtgzp3H.jpg)
 
 In this article, I will try to explain asynchronous programming, which many of us have difficulty understanding. What is this type of programming known as async-await structures in the Python language? What does it do? How to use? Let's see together.
 
@@ -23,7 +23,7 @@ Synchronous programming is a type of programming in which we carry out operation
 
 Asynchronous programming works on the principle of executing multiple processes simultaneously. Transactions are executed independently of other transactions, without being placed in any order.
 
-![](https://cdn-images-1.medium.com/max/800/0*1mtD1Dvr0zhe2FMH.png)
+![](/images/0_1mtD1Dvr0zhe2FMH.png)
 
 Multiple processes accessing systems such as APIs and databases at the same time may cause problems. For example, two processes in the database may try to update the same data at the same time. As a result, errors may occur. Therefore, transactions are queued in API and database accesses, that is, they are **synchronized**.
 
@@ -35,7 +35,7 @@ While the program is executing, the operating system manages operations such as 
 
 Asynchronous programming is used very frequently in API access. In this article, I will access Discord's API as an example and perform operations with this API.
 
-![](https://cdn-images-1.medium.com/max/800/0*nQM6utN7rsQyrkQG.png)
+![](/images/0_nQM6utN7rsQyrkQG.png)
 
 As you can see in the Python code above, there is the "**async**" keyword at the beginning of the functions. This word synchronizes the function, which the discord API requires. If you do not write this word, your code will not work. So what is this synchronization process?
 
@@ -43,7 +43,7 @@ The synchronization process enqueues asynchronous operations, that is, it queues
 
 So, will the program we wrote wait idle until a response comes from the API? If this were the case, our program would be blocked and could not do anything until a response came from the API. At this point, the "**await**" keyword comes into play. We write the keyword "await" at the beginning of the operations that will wait for the response from the API, so that our program will not be blocked and can continue to perform other operations until the response from the API.
 
-![](https://cdn-images-1.medium.com/max/800/0*8LjK86AP9OU2d4QV.png)
+![](/images/0_8LjK86AP9OU2d4QV.png)
 
 If the "await" keyword was not written and this process was done synchronously, our program would send the request to the discord server, wait until it received a response, and send the next request when it received a response. When we do it asynchronously, requests are sent sequentially while responses are received sequentially. In this respect, we can compare synchronous operation to a one-way road, and asynchronous operation to a two-way road. In synchronous operation, since the road is single-lane and one-way, no other packet can come from the other side while the packet is traveling, whereas in asynchronous operation, packets can go back and forth independently of each other on the two-way road.
 

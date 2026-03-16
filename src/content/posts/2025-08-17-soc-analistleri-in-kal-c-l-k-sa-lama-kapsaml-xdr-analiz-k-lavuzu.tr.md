@@ -8,7 +8,7 @@ draft: false
 
 ### SOC Analistleri İçin Kalıcılık Sağlama Kapsamlı XDR Analiz Kılavuzu
 
-![](https://cdn-images-1.medium.com/max/800/1*t3uzw3mQTB-z3Mm777G-RQ.png)
+![](/images/1_t3uzw3mQTB-z3Mm777G-RQ.png)
 
 Siber güvenlik operasyonlarında, kalıcılık (persistence) bir saldırganın sistemde kalıcı bir ayak izi bırakmasını sağlayan en kritik aşamalardan biridir. Bu, saldırının ilk erişim vektöründen (örneğin, bir oltalama e-postası veya bir açık istismarı) sonraki uzun vadeli hedeflerine ulaşmasını mümkün kılar. Geleneksel antivirüs (AV) çözümlerinin veya sistemin yeniden başlatılmasının ötesinde, saldırganların sisteme sürekli erişimini garanti altına alır. Kalıcılık, tehdit aktörlerine bir dizi avantaj sağlar: Komuta ve Kontrol (C2) sunucularıyla iletişim kurmak için bir arka kapı oluşturma, geleneksel güvenlik kontrollerini atlatma ve ağ içinde ayrıcalık yükseltme ve yatay hareketliliği kolaylaştırma imkanı. Bu aşama, bir siber saldırının kısa süreli bir olaydan uzun soluklu bir sızma operasyonuna dönüşmesinde belirleyici rol oynar.
 
@@ -46,7 +46,7 @@ MITRE ATT&CK verileri, farklı tehdit gruplarının ve zararlı yazılımların 
 
 Aşağıdaki tablo, bir SOC analisti için hızlı bir başvuru kılavuzu niteliğindedir ve en sık karşılaşılan registry kalıcılık anahtarlarını, bunların etkilerini ve ilgili tehdit örneklerini özetlemektedir.
 
-![](https://cdn-images-1.medium.com/max/800/1*EOdZ-x8gqkMWMCJo5HLhqg.png)
+![](/images/1_EOdZ-x8gqkMWMCJo5HLhqg.png)
 
 ---
 
@@ -72,7 +72,7 @@ Sysmon (System Monitor), Windows Event Log’larına kıyasla çok daha zengin v
 
 Bu Sysmon olayları, bir analist için `ParentImage` ve `ParentCommandLine` gibi kritik alanlar içerir. Bu alanlar, değişikliği yapan ana sürecin ne olduğunu ve nasıl başlatıldığını gösterir. Bu, saldırının kaynağına doğru iz sürmek ve saldırı zincirini yeniden oluşturmak için hayati önem taşır. Örneğin, bir PowerShell betiğinin bir registry değişikliğine neden olduğu tespit edildiğinde, `ParentImage` alanı bu betiğin hangi ana süreç (`explorer.exe` gibi) tarafından başlatıldığını gösterebilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*VR-A4gThQLNfdXDYlpGuwQ.png)
+![](/images/1_VR-A4gThQLNfdXDYlpGuwQ.png)
 
 ---
 

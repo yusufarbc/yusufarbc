@@ -46,7 +46,7 @@ The most critical architectural feature of the SentinelOne agent is its **abilit
 
 The agent's **Autonomous Decision Mechanism (On-Agent Intelligence)** produces decisions (**Verdicts**) that determine the security status of a file or process. These decisions (**Malicious, Suspicious, Benign**) form the basis of SentinelOne's security policies, determining threat severity and the automated action to be taken.
 
-![](https://cdn-images-1.medium.com/max/800/1*cRqq7JFeY3W2TDgR9BznmA.png)
+![](/images/1_cRqq7JFeY3W2TDgR9BznmA.png)
 
 To minimize risk, SentinelOne recommends enabling **Protect/Protect** mode, which automatically **Kill & Quarantine** both **Malicious** and **Suspicious** threats. This utilizes the agent's **autonomous intelligence** to the fullest, eliminating the attacker's range of action with **zero latency**.
 
@@ -166,7 +166,7 @@ The technical superiority of a cybersecurity platform only makes strategic sense
 
 MITRE Engenuity ATT&CK® Evaluations are one of the most prestigious tests that measure a platform's detection and visibility capabilities against real-world attack scenarios. SentinelOne achieved outstanding results in the 2024 Enterprise Assessment, proving its autonomous capabilities.
 
-![](https://cdn-images-1.medium.com/max/800/1*ngCUgm4Pkesl_gBvk_Sdlg.png)
+![](/images/1_ngCUgm4Pkesl_gBvk_Sdlg.png)
 
 Among these results, generating **88% fewer alerts** than the average seller is one of the most critical data of the report. This metric concretely confirms the platform's “Autonomous SOC” vision. The effectiveness of the artificial intelligence-supported filtering mechanism has a direct effect by preventing analyst burnout and increasing operational efficiency (OpEx). It creates business value. This is proof of how a technical metric turns into a strategic outcome.
 

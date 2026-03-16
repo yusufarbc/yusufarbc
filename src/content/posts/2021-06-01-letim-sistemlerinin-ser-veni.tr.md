@@ -8,7 +8,7 @@ draft: false
 
 ### İşletim Sistemlerinin Serüveni
 
-![](https://cdn-images-1.medium.com/max/800/1*xr3hyWH8B1uBJitVrIH3xQ.jpeg)
+![](/images/1_xr3hyWH8B1uBJitVrIH3xQ.jpeg)
 
 Bu yazımızda, günümüzde bilgisayar sistemleri için olmazsa olmaz konuma gelmiş olan işletim sistemlerini inceleyeceğiz. Nasıl geliştiğine, bu günlere nasıl geldiğine deyineceğiz. Günümüzde popüler olan işletim sistemelerinin nasıl ortaya çıktığına şahit olacağız.
 
@@ -16,7 +16,7 @@ Bu yazımızda, günümüzde bilgisayar sistemleri için olmazsa olmaz konuma ge
 
 ### İlk bilgisayarlar
 
-![](https://cdn-images-1.medium.com/max/800/0*mQmzkEmOfRVLwzCZ.jpeg)
+![](/images/0_mQmzkEmOfRVLwzCZ.jpeg)
 
 İlk bilgisayarlar bir oda büyüklüğündeydi. Bir işletim sistemine de sahip değillerdi. Programlar delikli kartlar üzerine kodlanırdı ve bilgisayara sırayla verilip çalıştırılırdı. Görev adı verilen bu süreç ciddi bir hazırlık gerektiriyordu. Bilgisayarda bir program yürütmek için önceden rezervasyon yapılır ve bu süre içerisinde bilgisayarın kullanım hakkı o kullanıcının olurdu.
 
@@ -30,7 +30,7 @@ Kısacası, işletim sistemleri zaman içinde, aynı anda tek bir görevi yürü
 
 ### Unix’in doğuşu
 
-![](https://cdn-images-1.medium.com/max/800/0*j5b0VF0AN66jHyIQ.gif)
+![](/images/0_j5b0VF0AN66jHyIQ.gif)
 
 1960'lı yıllarda AT&T’nin Bell laboratuarları, MIT ve General Electric’in birlikte yürüttükleri bir projede zaman paylaşımlı bir işletim sistemi üzerinde çalışmışlardır. Bu proje sonucunda ortaya “Multics” adında bir işletim sistemi çkmıştır. Bell laboratuarı projeden çekilince, burada çalışan **Dennis Ritchie** ve **Ken Thompson** “Multics” projesindeki tecrübelerinden de yararlanarak yeni bir projede yeni bir işletim sistemi ortaya çıkardılar. Başlangıçta assembly dilinde yazılarak geliştirilen bu işletim sistemine “Unix” adı verildi.
 
@@ -42,7 +42,7 @@ Unix işletim sistemi, komut satırlı ve Windows gibi bazı grafik ögelerini i
 
 ### Linux’un doğuşu
 
-![](https://cdn-images-1.medium.com/max/800/0*kTMsIQ1DbZOPM85o.jpg)
+![](/images/0_kTMsIQ1DbZOPM85o.jpg)
 
 **GNU** projesi kapsamında Unix türevi olan **Minix** işletim sistemini ortaya çıktı. Bu işletim sistemi Prof. Andrew S. Tanenbaum tarafından, üniversitelerde bilgisayar bölümlerinde öğrencilere işletim sistemlerinin çalışma prensipleri ve işlevlerini öğretebilmek için mikro çekirdek mimarili olarak geliştirilmişti.
 
@@ -50,7 +50,7 @@ Unix işletim sistemi, komut satırlı ve Windows gibi bazı grafik ögelerini i
 
 ### Windows’un doğuşu
 
-![](https://cdn-images-1.medium.com/max/800/0*NSHG5-qdcNnonu_n.jpg)
+![](/images/0_NSHG5-qdcNnonu_n.jpg)
 
 Kişisel bilgisayarlar 70'li yılların ortasında henüz gelişimlerinin ilk aşamasında bulunuyorlardı. MITS şirketinin Altair adını verdikleri en önemli numunesi henüz tek biςim, kullanılabilir bir yazılıma sahip olmayıp ancak tamamlanmamış bir işletim sistemine sahipti. Bill Gates ve Allen’ın, Altair iςin 1974'te geliştirdikleri yazılım dili BASIC sayesinde bilgisayar kullanıcıları programlarını kendileri yazabiliyorlardı. MITS şirketi genç araştırmacılardan pazarlama ruhsatını satın alarak kendilerine sistemi daha da geliştirmeleri iςin sipariş verdi. Bunun üzerine, Gates Allen ile birlikte New Mexico’da Microsoft adlı şirketi kurdu.
 
@@ -58,7 +58,7 @@ Microsoft, IBM PC uyumlu bilgisayarlar için MS -DOS isminde bir işletim sistem
 
 ### Günümüz İşletim Sistemleri
 
-![](https://cdn-images-1.medium.com/max/800/0*L1PHGnrU90lDyD_b.png)
+![](/images/0_L1PHGnrU90lDyD_b.png)
 
 Bilgisayar dünyasında, Windows, Unix ve Linux işletim sistemleri genel kabul görmüş ve zamanla gelişerek farklı sürümlerle günümüze kadar gelmişlerdir. Günümüzdeki işletim sistemleri, Windows, Unix veya Lnux işletim sistemlerinden birini temel almışlardır. Bu 3 işletim sisteminden türemişlerdir. Bu yönüyle işletim sistemlerini 3 sınıfa ayırabiliriz.
 

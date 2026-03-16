@@ -10,7 +10,7 @@ draft: false
 
 In this article, I will explain the types of web attacks and how we can detect these attacks through Apache web server access logs.
 
-![](https://cdn-images-1.medium.com/max/800/1*gtYIO-nyJZoIwSFEi_9xQA.png)
+![](/images/1_gtYIO-nyJZoIwSFEi_9xQA.png)
 
 Nowadays, web applications and sites are exposed to different types of cyber attacks. Early detection of these attacks is of great importance for the effectiveness of security measures and the continuity of the system. Apache Web Server is one of the most widely used web servers around the world and therefore it is necessary to implement the right methods for monitoring and detecting attacks.
 

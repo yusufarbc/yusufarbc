@@ -8,7 +8,7 @@ draft: false
 
 ### Zararlı Yazılım Analizine Giriş: #1 Temel Kavramlar
 
-![](https://cdn-images-1.medium.com/max/800/1*wRwVFbFX3SX1zyV-mTRt_w.png)
+![](/images/1_wRwVFbFX3SX1zyV-mTRt_w.png)
 
 Bu yazı serimizde zararlı yazılım analizi hakkında bilgiler vereceğim; virüsler, solucanlar vb. terimleri duymuşsunuzdur. Ama bu şeyler ne anlama geliyor? Virüs solucan mıdır? Kötü amaçlı yazılım tam olarak ne yapar? Hadi bunları öğrenelim…
 

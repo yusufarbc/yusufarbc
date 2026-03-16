@@ -8,11 +8,11 @@ draft: false
 
 ### Defense in Depth Strategy
 
-![](https://cdn-images-1.medium.com/max/800/1*T4RL-NrRsRdZSjXM4Ja3Lg.png)
+![](/images/1_T4RL-NrRsRdZSjXM4Ja3Lg.png)
 
 Most security experts agree that perfect network security is impossible and that any defenses can always be bypassed. The defense-in-depth strategy embraces blocking the attacker with multiple layers of defense. He acknowledges that each layer can be overcome. Valuable assets are protected by more layers of defense. The combination of multiple layers increases the cost of success of the attack, which is proportional to the value of the assets protected. Additionally, the combination of multiple layers is more effective than a single optimized defense against unexpected attacks. The cost to the attacker may come in the form of additional time, effort, or equipment. For example, an attacker's delay can increase an organization's chances of detecting and responding to the attack in progress. If the increased costs outweigh the gains from a successful attack, some attempts may be discouraged.
 
-![](https://cdn-images-1.medium.com/max/800/1*m1IdlCgTOzsBqAq42efKQA.png)
+![](/images/1_m1IdlCgTOzsBqAq42efKQA.png)
 
 Defense In Depth
 
@@ -20,7 +20,7 @@ Defense in depth is sometimes said to involve people, technology and operations.
 
 Various technological measures can be used for protection layers. These include firewalls, IDSs, access control lists (ACLs), antivirus software, access control, spam filters, etc. should take place.
 
-![](https://cdn-images-1.medium.com/max/800/1*tymURTTvBKKQGCOSzpLpWQ.png)
+![](/images/1_tymURTTvBKKQGCOSzpLpWQ.png)
 
 Defense in Depth
 
@@ -70,7 +70,7 @@ especially those in the higher range. For example, the Sub7 Trojan is known to u
 
 When most people think of network security, firewalls are one of the first things that come to mind. Firewalls are a perimeter security tool that protects an internal network from external threats. A firewall selectively allows or blocks incoming and outgoing traffic. Firewalls can be standalone network devices located at the entrance to a private network or personal firewall programs running on computers. An organization's firewall protects the internal community; A personal firewall can be customized to an individual's needs.
 
-![](https://cdn-images-1.medium.com/max/800/1*9_PlK7S2sJYQmOwWCz8sAw.png)
+![](/images/1_9_PlK7S2sJYQmOwWCz8sAw.png)
 
 A firewall that isolates various network zones.
 
@@ -134,7 +134,7 @@ Honeypots are generally classified according to their level of interaction, from
 
 A vulnerable computer can put not only itself but the entire community at risk. First of all, a vulnerable computer can attract attacks. If compromised, the host can be used to launch attacks against other hosts. The compromised computer may provide information to the attacker, or there may be trust relationships between computers that could help the attacker. In any case, it is undesirable to have a poorly protected computer in your network.
 
-![](https://cdn-images-1.medium.com/max/800/1*dJpeXIwbTsTpQForJQxrlw.png)
+![](/images/1_dJpeXIwbTsTpQForJQxrlw.png)
 
 Network Access Control
 
@@ -150,7 +150,7 @@ Preventive measures, a reactive approach, are necessary and help reduce the risk
 
 IDS approaches can be categorized in at least two ways. One way is to distinguish between host-based and network-based IDSs depending on where detection is done. While a host-based IDS monitors a single computer, a network-based IDS operates on network packets. Another way to view IDSs is through analysis approaches. Traditionally, the two analysis approaches are abuse (signature-based) detection and anomaly (behavior-based) detection.
 
-![](https://cdn-images-1.medium.com/max/800/1*Sy2rKhp9DU3_9_5GeiFI0w.png)
+![](/images/1_Sy2rKhp9DU3_9_5GeiFI0w.png)
 
 Misuse detection and anomaly detection
 
@@ -170,7 +170,7 @@ A computer-based IDS alone is not a complete solution. While monitoring the comp
 
 Network-based IDSs typically monitor network packets for signs of reconnaissance, exploitation, DoS attacks, and malware. They have strengths that complement host-based IDSs: network-based IDSs can see the traffic of a population of hosts; can recognize patterns shared by multiple hosts; and they have the potential to see attacks before they reach hosts.
 
-![](https://cdn-images-1.medium.com/max/800/1*Hpz_IDGuT1fn2cEHAG4EWg.png)
+![](/images/1_Hpz_IDGuT1fn2cEHAG4EWg.png)
 
 IDSs that monitor various network zones.
 

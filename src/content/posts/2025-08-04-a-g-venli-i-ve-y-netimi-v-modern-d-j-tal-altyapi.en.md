@@ -8,7 +8,7 @@ draft: false
 
 ### Network Security and Management V: MODERN DIGITAL INFRASTRUCTURES
 
-![](https://cdn-images-1.medium.com/max/800/1*aBV-V0NvCXaSMoVRhcmT9w.png)
+![](/images/1_aBV-V0NvCXaSMoVRhcmT9w.png)
 
 This chapter takes an in-depth look at the critical technologies that underpin modern digital infrastructures, focusing on the most advanced and dynamic areas of network management and security. Going beyond traditional network paradigms, we will cover the security layers of DNS, the basic name resolution mechanism of the Internet, the complex management and security architectures of wireless networks, which are the backbone of enterprise mobility, and finally, the cloud-based, software-defined and zero-trust modern network architectures that shape the future of computing. These topics represent the most current challenges and opportunities facing today's network and security professionals.
 
@@ -29,7 +29,7 @@ To overcome this limit, **VXLAN (Virtual Extensible Local Area Network)** was de
 * **Massively Scalable:** Instead of the VLAN's 12-bit ID, VXLAN uses a 24-bit VXLAN Network Identifier (VNI). This allows creating more than 16 million (224) unique virtual network segments.
 * **Flexibility:** Because VXLAN runs on a Layer 3 IP network, virtual machines belonging to the same virtual network can be physically located in different racks or even in different geographical locations.
 
-![](https://cdn-images-1.medium.com/max/800/1*3b1rG2nxmQE_BzL1LsBfhA.png)
+![](/images/1_3b1rG2nxmQE_BzL1LsBfhA.png)
 
 *Comparison of VLAN and VXLAN Technologies*
 
@@ -74,7 +74,7 @@ In traditional WAN architectures, all internet and cloud traffic from branches i
 
 **SASE (Secure Access Service Edge)** is the next step in the convergence of networking and security. Defined by Gartner, SASE is an architectural framework that combines the networking capabilities of SD-WAN with a cloud-based security services stack into a single unified, cloud-based service. SASE's basic philosophy is to implement security controls from the data center and move them to the "edge" point closest to the user or device.
 
-![](https://cdn-images-1.medium.com/max/800/1*05xI3WYS5avJ1qxcB7x3Jw.png)
+![](/images/1_05xI3WYS5avJ1qxcB7x3Jw.png)
 
 *SASE Architecture Components and Functions*
 
@@ -226,7 +226,7 @@ SFTP (SSH File Transfer Protocol) is a completely different protocol that has no
 
 The choice between FTPS and SFTP is often determined by an organization's existing infrastructure, security requirements, and operational preferences. The table and analysis below summarize the key differences between these two protocols.
 
-![](https://cdn-images-1.medium.com/max/800/1*Gkg9LdRs7aUgCFgrIVuXbA.png)
+![](/images/1_Gkg9LdRs7aUgCFgrIVuXbA.png)
 
 This comparison reveals the difference in design philosophy between the two protocols. While FTPS represents the "bolting on the existing" approach, SFTP reflects the philosophy of "designing the right thing from scratch" (secure by design). Technically, it is clear that SFTP is a more elegant, easy-to-manage and integrated solution. However, the reason why FTPS still exists is that it uses the SSL/TLS certificate infrastructure that system administrators managing web servers are already familiar with and its compatibility requirements with some legacy systems.
 
@@ -253,7 +253,7 @@ Critical security settings for vsftpd and ProFTPD, the two most widely used FTP 
 
 vsftpd (Very Secure FTP Daemon), as its name suggests, is a server designed with a security focus. However, correct configuration is essential for safe operation. The following table summarizes the most critical security directives in the vsftpd.conf file.
 
-![](https://cdn-images-1.medium.com/max/800/1*OeZJlSJK2eHzJb485cCaSw.png)
+![](/images/1_OeZJlSJK2eHzJb485cCaSw.png)
 
 It simplifies firewall rules and narrows the attack surface.
 
@@ -322,7 +322,7 @@ It is an essential tool for discovering devices and services on the network. Whe
 *   **Vulnerability Detection (NSE):** Automatically checking common misconfigurations and vulnerabilities such as anonymous login permission, FTP bounce attack vulnerability, using Nmap Scripting Engine (NSE). nmap — script ftp-anon,ftp-bounce -p 21 <target\_ip>
 *   The following table summarizes the Nmap commands that can be used for various FTP scanning scenarios.
 
-![](https://cdn-images-1.medium.com/max/800/1*yVNOZ3Pyn_2nBdGy1ioNhA.png)
+![](/images/1_yVNOZ3Pyn_2nBdGy1ioNhA.png)
 
 #### **Nessus and OpenVAS**
 
@@ -527,7 +527,7 @@ This layer focuses on verifying the legitimacy of the *content* and *claimed ide
 
 The following table provides a comprehensive reference for administrators when configuring DMARC records. Since misconfigurations are a common source of failure, this table serves as a definitive guide to avoid such errors.
 
-![](https://cdn-images-1.medium.com/max/800/1*BTspc1ihDHP1TnCDshFk1Q.png)
+![](/images/1_BTspc1ihDHP1TnCDshFk1Q.png)
 
 **DMARC Tag Reference Guide**
 
@@ -649,7 +649,7 @@ Exim is known for its highly flexible configuration capabilities and its securit
 
 The following table is designed to help administrators compare basic security configurations between Postfix and Exim. This provides a practical reference for those managing heterogeneous environments or migrating from one MTA to another.
 
-![](https://cdn-images-1.medium.com/max/800/1*MPd54_ipO2OgxqoNSDr3AQ.png)
+![](/images/1_MPd54_ipO2OgxqoNSDr3AQ.png)
 
 **Postfix and Exim Security Configuration Comparison**
 
@@ -729,7 +729,7 @@ An HTTP message consists of four main parts, which are similar for both requests
 
 HTTP methods can be thought of as “verbs” that specify the action the client wants to perform on the server. Each method has a specific semantic purpose, and using them accordingly is important for both RESTful API design and security.
 
-![](https://cdn-images-1.medium.com/max/800/1*AfRW74G2s4kd4qoKZWUNcA.png)
+![](/images/1_AfRW74G2s4kd4qoKZWUNcA.png)
 
 HTTP Method
 
@@ -831,7 +831,7 @@ The most effective defense against SQLi is to use **parameterized queries (prepa
 
 XSS is an injection vulnerability that allows an attacker to run a malicious script (usually JavaScript) in another user's browser. This occurs when the web application embeds input from the user directly into a web page without securely processing (sanitizing) it. A successful XSS attack allows the attacker to perform actions on behalf of the victim, stealing session cookies, altering the content of the page, or redirecting the user to a malicious site. OWASP divides XSS into three main categories:
 
-![](https://cdn-images-1.medium.com/max/800/1*ij2B5LDXI_43PvmcqF0ioA.png)
+![](/images/1_ij2B5LDXI_43PvmcqF0ioA.png)
 
 Types of XSS
 
@@ -932,7 +932,7 @@ The `Referrer-Policy` header allows servers to control how much information is s
 
 In addition to the main headers mentioned above, there are other headers and cookie settings that must be implemented for a comprehensive “defense in depth” strategy.
 
-![](https://cdn-images-1.medium.com/max/800/1*jw25Q0zcB_7U5Ls_Zz2Nyg.png)
+![](/images/1_jw25Q0zcB_7U5Ls_Zz2Nyg.png)
 
 ### HTTP Traffic Analysis and Security Testing Methodologies
 
@@ -1052,7 +1052,7 @@ To increase the efficiency of this process, information obtained at each stage o
 
 A DNS zone file consists of various resource records (Resource Records — RR) that serve different purposes. Each record stores specific information about the domain name. The most commonly used DNS record types and functions are summarized in the table below.
 
-![](https://cdn-images-1.medium.com/max/800/1*-P4ySoKUyIhAnuhgi_59jg.png)
+![](/images/1_-P4ySoKUyIhAnuhgi_59jg.png)
 
 DNS record types and functions
 
@@ -1070,7 +1070,7 @@ While records are managed manually in traditional DNS, this is not sustainable i
 
 DNS's central role in the internet infrastructure and the security deficiencies in its basic design make it an attractive target for cyber attackers. The evolution of these attacks demonstrates the weaponization of legitimate features of the protocol (open resolvers, large reply packets, reliability of port 53). This has required detection methods to evolve from simple signature-based checks to more advanced techniques such as behavioral anomaly and statistical analysis.
 
-![](https://cdn-images-1.medium.com/max/800/1*jDadlG2PZV67wFY3Xsk3EQ.png)
+![](/images/1_jDadlG2PZV67wFY3Xsk3EQ.png)
 
 *DNS Attack Vectors Comparison*
 

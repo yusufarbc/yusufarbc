@@ -8,7 +8,7 @@ draft: false
 
 ### X86 Tabanlı Assembly Dili
 
-![](https://cdn-images-1.medium.com/max/800/1*BAtuHRcfthhw1Adspm0Jsg.png)
+![](/images/1_BAtuHRcfthhw1Adspm0Jsg.png)
 
 ### Assembly diline Genel Bakış
 
@@ -18,7 +18,7 @@ Bir bilgisayar sistemi temel olarak donanım ve yazılım gini unsurlardan meyda
 
 İnsan oğlunun makine ile iletişimde bulunabilmesi için onun dilinden anlaması gerekmektedir. Bunun için sistemin çalışmasında temel unsur olan mantıksal 0 ve 1 değerlerinin belli oranlarda dizi haline getrilmesi ve belli bir düzene göre yorumlanması ile sistemin dili oluşturulur.
 
-![](https://cdn-images-1.medium.com/max/800/0*ORZKX7SQuqXG8bU2.jpg)
+![](/images/0_ORZKX7SQuqXG8bU2.jpg)
 
 Mikroişlemcili sistemlerde mantıksal 0 ve 1'lerden oluşan ve belli bir görevi yerine getirek üzere yazılmış dile makine dili denir. Makine dilini meydana getiren bu sayıların yan yana gelmesi programcı için anlaşılmayan bir dizi oluşturur.
 
@@ -41,7 +41,7 @@ INT 21H
 
 Her firma ürettiği mikroişlemciyle ilgili mnemonikleri de piyasaya sunmaktadır. Yukarıdaki küçük program parçasında her bir satır tam bir komutu ele alır. Her bir komut, bir iki veya 3 baytlık ikili koda karşılık gelir.
 
-![](https://cdn-images-1.medium.com/max/800/0*JB_H9rRUMsl76-cW.png)
+![](/images/0_JB_H9rRUMsl76-cW.png)
 
 assembler
 
@@ -165,7 +165,7 @@ Bu komutlardan yaygın olarak kullanılanlara bakalım.
   - memory, immediate  
   - REG, immediate
 
-![](https://cdn-images-1.medium.com/max/800/1*cTFBzk0u0qRVO5sdUCTZtw.png)
+![](/images/1_cTFBzk0u0qRVO5sdUCTZtw.png)
 
 CMP işleminin sonunda bayrakların durumları
 

@@ -8,7 +8,7 @@ draft: false
 
 ### Network Security and Management I: BASICS OF NETWORK TECHNOLOGIES
 
-![](https://cdn-images-1.medium.com/max/800/1*QsixbjAc424hJKBe9MKq-g.png)
+![](/images/1_QsixbjAc424hJKBe9MKq-g.png)
 
 ### Introduction
 
@@ -87,7 +87,7 @@ In the receiving device, the de-encapsulation process, which is the opposite of 
 
 Moreover, these layered models and the encapsulation process have directly shaped the design philosophy of modern networking hardware. The “division of labor” dictated by the models has allowed network devices to specialize in processing headers of specific layers.1 For example, a Layer 2 switch makes the transmission decision by simply reading the Layer 2 MAC address header of an incoming frame; It does not need to understand the IP address inside the packet. This specialization allows it to do this extremely quickly using Application Specific Integrated Circuits (ASICs).1 In contrast, a Layer 3 router focuses on making more complex routing decisions between different networks by examining the Layer 3 IP header of the packet.1 In this way, each device can perform its specific task in the most efficient way, laying the foundation for modular, scalable and high-performance networks.
 
-![](https://cdn-images-1.medium.com/max/800/1*FDaZNME-1NddEaSU4DPFhA.png)
+![](/images/1_FDaZNME-1NddEaSU4DPFhA.png)
 
 OSI Reference Model
 
@@ -178,7 +178,7 @@ Wi-Fi technology is defined by the IEEE 802.11 family of standards. Over the yea
 * **802.11ac (Wi-Fi 5):** Operates mainly on the less crowded 5 GHz band and uses MU-MIMO (Multi-User MIMO) to deliver gigabit-level speeds.
 * **802.11ax (Wi-Fi 6/6E):** It is specifically designed for dense device environments and its main focus is on improving efficiency.
 
-![](https://cdn-images-1.medium.com/max/800/1*nyc2HGIS-z2d_X8Wuq1lMg.png)
+![](/images/1_nyc2HGIS-z2d_X8Wuq1lMg.png)
 
 Wi-Fi Standards
 

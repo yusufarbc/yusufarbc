@@ -10,7 +10,7 @@ draft: false
 
 Hello, in this article I will talk about HTTP tunneling techniques.
 
-![](https://cdn-images-1.medium.com/max/800/1*cWRqt_otCGQkQf0iobOVnw.png)
+![](/images/1_cWRqt_otCGQkQf0iobOVnw.png)
 
 In the field of computer security, the term “Hidden Tunnels” generally refers to hidden or unauthorized network connections used for various purposes such as malicious data exfiltration, command and control (C&C), or bypassing network detection. These secret tunnels help attackers hide their activities and bypass security measures.
 
@@ -57,7 +57,7 @@ DNS tunneling is accomplished by hiding DNS queries and responses within normal 
 3. DNS resolver is a server that forwards IP address requests to the root and top-level domain servers. This directs the query to the attacker's command and control server where the tunneling program is installed.
 4. A connection has now been established between the victim and the attacker via the DNS resolver. This tunnel can be used to exfiltrate data or other malicious purposes. Since there is no direct connection between the attacker and the victim, it is more difficult to track down the attacker's computer.
 
-![](https://cdn-images-1.medium.com/max/800/1*gpckGRQF8yG7icj509DazA.png)
+![](/images/1_gpckGRQF8yG7icj509DazA.png)
 
 DNS Tunneling
 

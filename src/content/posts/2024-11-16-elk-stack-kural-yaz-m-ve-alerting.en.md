@@ -8,7 +8,7 @@ draft: false
 
 ### ELK Stack Rule Writing and Alerting
 
-![](https://cdn-images-1.medium.com/max/800/1*YtvtZTc7PJHVByo3n9E_lg.png)
+![](/images/1_YtvtZTc7PJHVByo3n9E_lg.png)
 
 Hello, in this article, I will talk about rule writing, that is, warnings indicating security violations, and alerting operations of ELK Stack, which we installed in my last article. **ELK Stack** (Elasticsearch, Logstash, Kibana) facilitates rule writing and alerting operations, data analysis and management.
 
@@ -43,7 +43,7 @@ IoA are indicators that indicate that an attack is being carried out or is in th
 
 Elastalert allows you to create alerts when certain conditions occur in Elasticsearch. Elastalert can be configured with specific filters and conditions, and alerts can be notified across various channels such as email, webhook, Slack. see: <https://elastalert.readthedocs.io/en/latest/elastalert.html>
 
-![](https://cdn-images-1.medium.com/max/800/1*49Mk87Ovld-HkJr8fx3uUA.png)
+![](/images/1_49Mk87Ovld-HkJr8fx3uUA.png)
 
 ELK Stack
 
@@ -70,15 +70,15 @@ You can follow the steps below to create and manage alerts in Kibana:
 3. **Configure Alert**: Configure the alert with specific filters and conditions.
 4. **Link Actions**: Link alerts to various channels such as email, webhook, Slack.
 
-![](https://cdn-images-1.medium.com/max/800/1*HOGFGHf9G27KLYAsknxMTQ.png)
+![](/images/1_HOGFGHf9G27KLYAsknxMTQ.png)
 
 Rules Menu
 
-![](https://cdn-images-1.medium.com/max/800/1*bs5pPfXzAcVKHNfjcZ0TRQ.png)
+![](/images/1_bs5pPfXzAcVKHNfjcZ0TRQ.png)
 
 Rule Type
 
-![](https://cdn-images-1.medium.com/max/800/1*lxEwyHDi0nyIRYpEKS4skg.png)
+![](/images/1_lxEwyHDi0nyIRYpEKS4skg.png)
 
 Create Rule
 

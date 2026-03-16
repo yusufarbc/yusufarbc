@@ -8,7 +8,7 @@ draft: false
 
 ### Introduction to Malware Analysis: #2 Sandbox Setup
 
-![](https://cdn-images-1.medium.com/max/800/1*rXDQnvecujpcn5O9zt_liQ.png)
+![](/images/1_rXDQnvecujpcn5O9zt_liQ.png)
 
 In my previous article, I talked about basic concepts. In this article, I will explain the environment setup that we will use in malware analysis. What should we pay attention to when preparing the analysis environment? What tools will we use? It's all in this article….
 
@@ -30,7 +30,7 @@ In this article, we will use the veteran Windows7 32-bit operating system. Becau
 
 VirtualBox is a general-purpose virtualization software developed by Oracle. You can download the version suitable for your current operating system and version from the downloads tab at <https://www.virtualbox.org/>.
 
-![](https://cdn-images-1.medium.com/max/800/1*bAHl-81CJsNK9t4vmvylOg.png)
+![](/images/1_bAHl-81CJsNK9t4vmvylOg.png)
 
 After downloading the installation file, run it and complete the installation.
 
@@ -44,37 +44,37 @@ To install Windows7, you first need to find a 32-bit ISO file. Since Microsoft h
 
 After we have our ISO file ready, we can now start the installation. First of all, we need to create an empty machine on virtualbox. For this;
 
-![](https://cdn-images-1.medium.com/max/800/1*-0pEFla7ntLU8wE_1F2sMQ.png)
+![](/images/1_-0pEFla7ntLU8wE_1F2sMQ.png)
 
 1
 
 We click on the new button. In the window that opens, it asks us for operating system information.
 
-![](https://cdn-images-1.medium.com/max/800/1*_Z9Dl9qcu5ivIFjMh5HeyA.png)
+![](/images/1__Z9Dl9qcu5ivIFjMh5HeyA.png)
 
 We choose Windows 7 (32-bit) and give a name to our machine. I named it SANDBOX. You can also give another name. Then we click on the Next button.
 
-![](https://cdn-images-1.medium.com/max/800/1*0o-EluVqdxumU78nWRr36A.png)
+![](/images/1_0o-EluVqdxumU78nWRr36A.png)
 
 Here we adjust the RAM space we will give to the machine. I gave 4GB RAM. When the machine runs, 4GB of RAM of my computer will be allocated to this machine. You can give more if you want, depending on the condition of your system. We click on the Next button.
 
-![](https://cdn-images-1.medium.com/max/800/1*YelA6_DmCbJbJzjknDkmRQ.png)
+![](/images/1_YelA6_DmCbJbJzjknDkmRQ.png)
 
 Here we create a virtual hard disk where system files will be installed. The part selected as default does our job. We click on the Create button.
 
-![](https://cdn-images-1.medium.com/max/800/1*uo7tJ4EQAe00OSAvmZLJbQ.png)
+![](/images/1_uo7tJ4EQAe00OSAvmZLJbQ.png)
 
 The Create Virtual Hard Disk menu will appear, with options such as VDI, VHDI, VMDK. I prefer VDI. We press the Next button.
 
-![](https://cdn-images-1.medium.com/max/800/1*sWxdSieNwBwGcBUX8tfHXg.png)
+![](/images/1_sWxdSieNwBwGcBUX8tfHXg.png)
 
 In the menu that appears, there are fixed size and dynamic size options. If you choose a fixed size, your system will be more stable, but you will completely lose the space you allocated to the system. In the dynamic size, the space you allocate to the system is increased as the virtual machine fills up. In other words, even if you give 100GB of space to the virtual machine, if 20GB is used within the virtual machine itself, 80GB will appear as free in your basic operating system and can be used. I prefer dynamic size since it is a sandbox machine. Continue with the Next button.
 
-![](https://cdn-images-1.medium.com/max/800/1*ERtiLWewifFLdwCUqRsvsA.png)
+![](/images/1_ERtiLWewifFLdwCUqRsvsA.png)
 
 Here you determine the disk space you will allocate for the machine. It needs to be at least 32GB. I gave 64GB. We can continue with the Create button. And finally we created our empty virtual machine
 
-![](https://cdn-images-1.medium.com/max/800/1*3NgY5McJzyVr-GTdmJexXQ.png)
+![](/images/1_3NgY5McJzyVr-GTdmJexXQ.png)
 
 If you start the machine with the start button, you will only see a black screen. Because we haven't uploaded our ISO file yet.
 
@@ -82,19 +82,19 @@ If you start the machine with the start button, you will only see a black screen
 
 To install the Windows ISO on the empty virtual machine we created, we need to edit the settings of the virtual machine.
 
-![](https://cdn-images-1.medium.com/max/800/1*-JYi1XcTSXAnsadBUb0-uA.png)
+![](/images/1_-JYi1XcTSXAnsadBUb0-uA.png)
 
 Now, with our SANDBOX machine selected in the menu on the left, we click on the settings button. Here we will make the settings for the machine.
 
-![](https://cdn-images-1.medium.com/max/800/1*YJNsG-sra5t4ZauZlPllbA.png)
+![](/images/1_YJNsG-sra5t4ZauZlPllbA.png)
 
 We can make many settings for our virtual machine from the menu that opens. We go to the storage tab from the menu on the left. Here we click on the + icon on the CD. We will upload our ISO file from here.
 
-![](https://cdn-images-1.medium.com/max/800/1*6mcDi5d4T8DUJX5Z1jdVWQ.png)
+![](/images/1_6mcDi5d4T8DUJX5Z1jdVWQ.png)
 
 We click on the Add button from the menu that opens and from the window that opens, we find and select our Windows7 (32-bit) ISO file wherever we saved it on our computer.
 
-![](https://cdn-images-1.medium.com/max/800/1*ddD0E9vEge4iuRehfIf6-A.png)
+![](/images/1_ddD0E9vEge4iuRehfIf6-A.png)
 
 Then we select the ISO we uploaded and press the choose button. Our processing is complete, now we can start the machine.
 
@@ -102,13 +102,13 @@ Then we select the ISO we uploaded and press the choose button. Our processing i
 
 After that, it's a classic Windows installation. You can start the machine from the start button.
 
-![](https://cdn-images-1.medium.com/max/800/1*W0pHYBmPMUHFqYxiid_vCA.png)
+![](/images/1_W0pHYBmPMUHFqYxiid_vCA.png)
 
 windows7 installation
 
 Windows installation is quite simple. You can easily do it from the Windows installation interface. After the machine installation is finished, Windows will start.
 
-![](https://cdn-images-1.medium.com/max/800/1*feg30wY7_q3Nlj5JaMWALg.png)
+![](/images/1_feg30wY7_q3Nlj5JaMWALg.png)
 
 The next step is to install the tools required for Malware Analysis. Of course, you can install all of these at once, or you can install them gradually.
 
@@ -116,15 +116,15 @@ The next step is to install the tools required for Malware Analysis. Of course, 
 
 Now let's see how to put the machine down so that we don't have to worry about setting it up again if something happens to our machine.
 
-![](https://cdn-images-1.medium.com/max/800/1*H0PHw86ioHsxZ9NP3aCO4Q.png)
+![](/images/1_H0PHw86ioHsxZ9NP3aCO4Q.png)
 
 To do this, we right-click on our machine and click clone in the window that opens.
 
-![](https://cdn-images-1.medium.com/max/800/1*-_W07d55vop2s7pojzqSeQ.png)
+![](/images/1_-_W07d55vop2s7pojzqSeQ.png)
 
 A window like this appears, we can press the next button and continue.
 
-![](https://cdn-images-1.medium.com/max/800/1*4y8XvnOmd-eCcx0bSpM4xA.png)
+![](/images/1_4y8XvnOmd-eCcx0bSpM4xA.png)
 
 Here we need to determine the clone type. We have two types of clones.
 
@@ -132,7 +132,7 @@ Here we need to determine the clone type. We have two types of clones.
 
 **Linked clone:** The cloned machine is dependent on the host machine. So, if the host machine is deleted, its linked clone also becomes non-functional.
 
-![](https://cdn-images-1.medium.com/max/800/1*GkV9fxO_Uf7K_a_AsQaLYQ.png)
+![](/images/1_GkV9fxO_Uf7K_a_AsQaLYQ.png)
 
 You can choose full clone and continue. Then wait until the VM is cloned and your clone is ready.
 

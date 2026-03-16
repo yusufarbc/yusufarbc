@@ -8,7 +8,7 @@ draft: false
 
 ### ELK Stack Log Yönetimi ve Analizi
 
-![](https://cdn-images-1.medium.com/max/800/1*O7bMqTbQv_OX5x75qkY6Ug.png)
+![](/images/1_O7bMqTbQv_OX5x75qkY6Ug.png)
 
 Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in log yönetimini, yani log toplama, parse etme ve zenginleştirme işlemlerine değineceğim. Logstash ile loglar Nasıl Toplanır, İşlenir ve Gönderilir?
 
@@ -45,7 +45,7 @@ Biz bu yazımızda bir linux sistemden beats ile log gönderim ve logstash ile l
 
 Logstash’ı bir boru hattı olarak hayal ettiğinizde anlamak daha kolaydır. Bu boru hattının bir ucunda veri kaynaklarını temsil eden **girdiler** bulunur. Günlük kayıtları Logstash boru hattından geçerken, gereksinimlerinize göre zenginleştirilebilir, filtrelenebilir veya manipüle edilebilir. Nihayetinde, boru hattının sonuna ulaştıklarında, Logstash bu günlükleri depolama veya analiz için yapılandırılmış hedeflere teslim edebilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*sf3D7DyNWppst-cVl_z42g.png)
+![](/images/1_sf3D7DyNWppst-cVl_z42g.png)
 
 Logstash Boru Hattı
 
@@ -145,7 +145,7 @@ Logstash üzerinde filter olarak grok eklentisini kullandım. grok çok iyi bir 
 
 Şimdi `/usr/share/logstash/data` dizininin sahipliğini `logstash` kullanıcısına değiştirin:
 
-![](https://cdn-images-1.medium.com/max/800/1*AQQWHHMHTuYtBxAsZ0DWzg.png)
+![](/images/1_AQQWHHMHTuYtBxAsZ0DWzg.png)
 
 Logstash data dizinin sahipliğini değiştirme
 
@@ -159,17 +159,17 @@ sudo chown -R logstash:logstash /usr/share/logstash/data
 sudo -u logstash /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/logstash.conf
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*IN4dRRoxrItJa5eUNsAFqw.png)
+![](/images/1_IN4dRRoxrItJa5eUNsAFqw.png)
 
 Logstashi başlatma
 
 Logstash konfigürasyon dosyası ile başlattığınızda eğer herhangi bir hata yok ise pipeline’ın dinlemede ve hazır olduğuna dair bir mesaj alacaksınız.
 
-![](https://cdn-images-1.medium.com/max/800/1*eGddI0ws1vfegy_IhfJl_w.png)
+![](/images/1_eGddI0ws1vfegy_IhfJl_w.png)
 
 Pipeline dinlemede
 
-![](https://cdn-images-1.medium.com/max/800/1*j93RhXtzHMuobzrXoKpjDQ.png)
+![](/images/1_j93RhXtzHMuobzrXoKpjDQ.png)
 
 Logstash Servis Durumu
 
@@ -197,7 +197,7 @@ wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.15.3-amd64
 sudo dpkg -i filebeat-8.15.3-amd64.deb
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*h8EWICxmNAUUwQgfbizXjQ.png)
+![](/images/1_h8EWICxmNAUUwQgfbizXjQ.png)
 
 Filebeat kurulumu
 
@@ -207,19 +207,19 @@ Filebeati indirip kurduktan sonra konfigürasyon işlemlerine geçiyoruz.
 sudo nano /etc/filebeat/filebeat.yml
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*CigAmS2AF5tsJWQYLetpkg.png)
+![](/images/1_CigAmS2AF5tsJWQYLetpkg.png)
 
 Elasticsearch Output
 
 Biz çıktımızı logstashe yönlendireceğimiz için elasticsearch kısmını kare işareti ile kapatıyoruz.
 
-![](https://cdn-images-1.medium.com/max/800/1*Hnz7Cpp4QzquIrc10rjBdQ.png)
+![](/images/1_Hnz7Cpp4QzquIrc10rjBdQ.png)
 
 Logstash Output
 
 Logstash bölümüne Logstash sunucumuzun IPsini ve port numarasını giriyoruz.
 
-![](https://cdn-images-1.medium.com/max/800/1*MBSKQNv8BjcCL-dWN4oZCg.png)
+![](/images/1_MBSKQNv8BjcCL-dWN4oZCg.png)
 
 Log Toplama Yaplandırması
 
@@ -235,7 +235,7 @@ sudo systemctl enable filebeat.service
 sudo systemctl start filebeat.service
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*5fkN3mf3RSkcR8i5pj_eXg.png)
+![](/images/1_5fkN3mf3RSkcR8i5pj_eXg.png)
 
 Filebeat Servis Durumu
 
@@ -249,19 +249,19 @@ Diğer beats ürünlerini de benzre şekilde kurup yapılandırabilirsiniz.
 
 Logstash ve Filebeat kurulumlarımızı tamamladık. Şimdi kibana arayüzümüzü açalım. Ardından elasticsearch bölümüne girelim. Indicies alanında indeximiz gelmiş mi kontrol edelim.
 
-![](https://cdn-images-1.medium.com/max/800/1*Y2bco0zQhKvUxE1T2mvOxw.png)
+![](/images/1_Y2bco0zQhKvUxE1T2mvOxw.png)
 
 Kibana Arayüzü
 
 Bu arayüzde gelen indeximizi görebiliyoruz. Şimdi “Discover” bölümüne gidelim.
 
-![](https://cdn-images-1.medium.com/max/800/1*t9aAyIPyNRzcWZK7wsbouA.png)
+![](/images/1_t9aAyIPyNRzcWZK7wsbouA.png)
 
 Discover Paneli
 
 Create Data View butonuna tıklayarak yeni bir data view oluşturacağız.
 
-![](https://cdn-images-1.medium.com/max/800/1*oDaljym5JgsWwDuNrK5cjg.png)
+![](/images/1_oDaljym5JgsWwDuNrK5cjg.png)
 
 Data View Oluşturma
 
@@ -269,7 +269,7 @@ Bir isim verin ve index pattern seçin, oluşturulduğu zamana rağmen filebeat 
 
 Data Viewi kaydettikten sonra discover paneline logların gelmiş olması lazım. Gelmediyse bir sorun vardır.
 
-![](https://cdn-images-1.medium.com/max/800/1*yXjPbz-6CYRJekTkqSvHwQ.png)
+![](/images/1_yXjPbz-6CYRJekTkqSvHwQ.png)
 
 Discover Paneli
 

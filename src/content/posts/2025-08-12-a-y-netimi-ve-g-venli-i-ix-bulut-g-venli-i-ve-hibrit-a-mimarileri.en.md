@@ -8,7 +8,7 @@ draft: false
 
 ### Network Management and Security IX: Cloud Security and Hybrid Network Architectures
 
-![](https://cdn-images-1.medium.com/max/800/1*mmBfnODexSndicvHEIF90w.png)
+![](/images/1_mmBfnODexSndicvHEIF90w.png)
 
 Digital transformation has irreversibly changed the enterprise IT landscape. Moving from static, on-premises data centers to dynamic, scalable and innovative cloud environments is no longer a trend, but a fundamental business imperative. Driven by the promise of agility and cost efficiency, this evolution has resulted in complex ecosystems spanning multiple service models (IaaS, PaaS, SaaS) and deployment strategies such as hybrid and multi-cloud.
 
@@ -140,7 +140,7 @@ Traffic filtering in **AWS** is achieved through a two-layer approach:
 
 The table below summarizes the basic traffic filtering mechanisms of these three platforms.
 
-![](https://cdn-images-1.medium.com/max/800/1*Rsbt4vyN_qIdQmyZHFOLdQ.png)
+![](/images/1_Rsbt4vyN_qIdQmyZHFOLdQ.png)
 
 **AWS SG, Azure NSG and GCP Firewall Rules Comparison**
 
@@ -233,7 +233,7 @@ The paradigm shift between these two technologies reflects the evolution of the 
 
 The table below summarizes the key differences between these two approaches.
 
-![](https://cdn-images-1.medium.com/max/800/1*ONz6_-qBi4Nekat2qavKdg.png)
+![](/images/1_ONz6_-qBi4Nekat2qavKdg.png)
 
 **Traditional VPN and ZTNA Comparison**
 

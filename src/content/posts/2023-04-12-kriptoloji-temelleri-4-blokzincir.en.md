@@ -8,7 +8,7 @@ draft: false
 
 ### Cryptology Fundamentals:#4 Blockchain
 
-![](https://cdn-images-1.medium.com/max/800/1*Ci1P1v2xXKNrCvqur5DbQQ.png)
+![](/images/1_Ci1P1v2xXKNrCvqur5DbQQ.png)
 
 Hello, in this article of the cryptology basics series, I will talk about what blockchain is, how it works and where it is used.
 

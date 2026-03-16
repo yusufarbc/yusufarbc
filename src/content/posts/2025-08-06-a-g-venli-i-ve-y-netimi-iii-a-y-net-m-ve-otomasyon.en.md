@@ -8,7 +8,7 @@ draft: false
 
 ### Network Security and Management III: NETWORK MANAGEMENT AND AUTOMATION
 
-![](https://cdn-images-1.medium.com/max/800/1*-Ly5E9MK-j1Q58Bvn6XnWQ.png)
+![](/images/1_-Ly5E9MK-j1Q58Bvn6XnWQ.png)
 
 ### Introduction
 
@@ -57,7 +57,7 @@ The evolution of SNMP can be examined through three main versions with critical 
 
 The table below summarizes the main differences between SNMP versions, with a particular focus on security.
 
-![](https://cdn-images-1.medium.com/max/800/1*uS7J0TK_5kSe1Sm4dn7DPg.png)
+![](/images/1_uS7J0TK_5kSe1Sm4dn7DPg.png)
 
 **Comparative Analysis of SNMP Versions**
 
@@ -92,7 +92,7 @@ The choice between NetFlow/IPFIX and sFlow reflects a fundamental engineering tr
 
 The table below summarizes the key differences and trade-offs between these three technologies.
 
-![](https://cdn-images-1.medium.com/max/800/1*BUDYZKZ43rAN7rz3qf8FWw.png)
+![](/images/1_BUDYZKZ43rAN7rz3qf8FWw.png)
 
 **Comparison of Flow Analysis Technologies**
 
@@ -156,7 +156,7 @@ Although SNMP is the industry standard for network monitoring, it has remained p
 
 The table below summarizes the philosophical and technical differences between the configuration (SET operation) capabilities of SNMP and NETCONF.
 
-![](https://cdn-images-1.medium.com/max/800/1*k9H5BU4Vg5vNEkVIK0IKUg.png)
+![](/images/1_k9H5BU4Vg5vNEkVIK0IKUg.png)
 
 **Management Protocols: SNMP etc. NETCONF**
 

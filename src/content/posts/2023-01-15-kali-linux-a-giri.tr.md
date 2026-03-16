@@ -8,7 +8,7 @@ draft: false
 
 ### Kali Linux’a Giriş
 
-![](https://cdn-images-1.medium.com/max/800/1*zHe4hqRCHYvBY6Sul53MaQ.png)
+![](/images/1_zHe4hqRCHYvBY6Sul53MaQ.png)
 
 ### Giriş
 
@@ -33,7 +33,7 @@ Kalinin [dökümantasyon sayfasında](https://www.kali.org/docs/) kurulum ve son
 
 Üstte saydığım yöntemlerden en kolay olanı sanal makine olarak bilgisayara kurulumdur. Bunun için [VMware](https://www.vmware.com/) veya [virtualbox](https://www.virtualbox.org/) gibi bir sanallaştırma programlarına ihtiyaç duyarız. Kalinin [download sayfasında](https://www.kali.org/get-kali/#kali-virtual-machines) bu programlara yönelik kurulum dosyalarını indirebiliriz.
 
-![](https://cdn-images-1.medium.com/max/800/1*oGbHJaE4HvWhKg2MLcBg7g.png)
+![](/images/1_oGbHJaE4HvWhKg2MLcBg7g.png)
 
 Bu sayfada, üstte 32-bit ve 64-bit seçenekleri de mevcut. Sanallaştırma programımıza uygun dosyayı indirdikten sonra geriye kalan tek şey bu dosyayı sanallaştırma programımızda açmak. Ardından Kalinin başlatıldığını göreceksiniz.
 
@@ -62,7 +62,7 @@ Sızma testi alanında, Kali Linux çok kullanılan bir dağıtımdır. Şimdi, 
 
 Kali Linux masaüstü ortamındayken, logosunun bulunduğu kısma tıklarsanız genel menüsünün açıldığını göreceksiniz. Burada, ayarlar kısmından çeşitli özelleştirmeler yapabilirsiniz. Daha aşağıya baktığınızda çeşitli bölümlerle karşılacaksınız.
 
-![](https://cdn-images-1.medium.com/max/800/1*oRREtWWP_05h_uj2e0gZvQ.png)
+![](/images/1_oRREtWWP_05h_uj2e0gZvQ.png)
 
 Kali Linux Menu
 

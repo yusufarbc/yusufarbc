@@ -8,7 +8,7 @@ draft: false
 
 ### Siber Saldırılar Nasıl Önlenir?
 
-![](https://cdn-images-1.medium.com/max/800/1*Qlpv80LBf1a8sr3QfH3Bww.png)
+![](/images/1_Qlpv80LBf1a8sr3QfH3Bww.png)
 
 Aktif bir Web varlığı oluşturduğunuz anda, şirketinizin sırtına bir hedef koymuş olursunuz. Örümceğin ağına düşen talihsiz böcek gibi, şirketinizin büyüklüğü de Web’de yarattığınız rahatsızlığın boyutunu ve kötü adamlar tarafından ne kadar çabuk fark edildiğinizi belirler. Bir av olarak ne kadar çekici olduğunuz, genellikle bir avcıya sunabileceklerinizle doğru orantılıdır. Eğer işiniz kredi kartı ya da diğer finansal bilgilerle gelişen bir e-ticaret sitesi ya da çalınacak değerli sırları olan bir şirketse, caziplik katsayınız artar; çalacak daha fazla değeriniz vardır. Ve eğer işiniz yeniyse ve Web’deki varlığınız yeniyse, belki de siber savaşın incelikleri konusunda henüz deneyimli olmadığınız ve dolayısıyla bir saldırıya karşı daha savunmasız olduğunuz varsayılabilir.
 
@@ -145,7 +145,7 @@ Mobil bilişime izin verirken ağınızın güvenliğini sağlamak için atacağ
 
 Peki, mevcut ağınızı nasıl “temizler ve sıkılaştırırsınız” ya da kaçınılmaz saldırılara karşı koyabilecek yeni bir ağı nasıl tasarlarsınız? Bazı temel noktalara bakalım.
 
-![](https://cdn-images-1.medium.com/max/800/1*6HrtaqcektCOcSC5xOnqCQ.png)
+![](/images/1_6HrtaqcektCOcSC5xOnqCQ.png)
 
 Ağ diyagramı
 
@@ -163,7 +163,7 @@ Politika neredeyse her zaman devam eden bir çalışmadır. Teknolojiyle, özell
 
 İyi bir güvenlik politikası her zaman tek bir belge değildir; daha ziyade bilgisayar ve ağ kullanımı, kimlik doğrulama biçimleri, e-posta politikaları, uzaktan/mobil teknoloji kullanımı ve Web’de gezinme politikaları gibi belirli alanları ele alan politikaların bir araya getirilmesinden oluşur. Kapsamlı olmakla birlikte, etkilediği kişiler tarafından kolayca anlaşılabilecek şekilde yazılmalıdır. Bu doğrultuda, politikanızın aşırı karmaşık olması gerekmez. Yeni çalışanlara Savaş ve Barış’ı andıran boyutta bir şey verir ve içeriğini bilmekten sorumlu olduklarını söylerseniz, iyi bir ağ güvenliği farkındalığını sürdürmede sürekli sorunlar yaşamayı bekleyebilirsiniz. Basit tutun.
 
-![](https://cdn-images-1.medium.com/max/800/1*2K0SwOV19idVKFdjaNpaEQ.png)
+![](/images/1_2K0SwOV19idVKFdjaNpaEQ.png)
 
 Güvenlik Standartları
 

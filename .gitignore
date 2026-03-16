@@ -113,9 +113,10 @@ dist
 Thumbs.db
 
 # Hugo build output
+src/public/
+src/resources/
+src/.hugo_build.lock
 public/
-resources/
-.hugo_build.lock
 
 # Migration source and temporary files
 medium/

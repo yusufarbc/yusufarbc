@@ -8,7 +8,7 @@ draft: false
 
 ### Docker Temelleri
 
-![](https://cdn-images-1.medium.com/max/800/1*2Vt-GnSjtWGchPVgF1fX6g.png)
+![](/images/1_2Vt-GnSjtWGchPVgF1fX6g.png)
 
 ### Docker Nedir?
 
@@ -78,7 +78,7 @@ Docker konteynırları, içlerine kurulan uygulamaları ana sistemden bağımsı
 
 Konteynır silinse dahi içindeki dataları tutmak istiyorsak docker volume kullanırız. Volume, docker konteynırı tarafından üretilen ve verileri ana bilgisayarda saklayan bir mekanizmadır.
 
-![](https://cdn-images-1.medium.com/max/800/0*wWoNuW_cAt4LTNiH.jpg)
+![](/images/0_wWoNuW_cAt4LTNiH.jpg)
 
 Docker volume içindeki datalar birden fazla konteynırda kullanılabilir. Docker imaj güncellemesi yapılsa bile volume içerisindeki datalar değişmez. Docker volume içerisindeki datalar taşınabilir ve yedeklenebilir. Docker volumes konteynır boyutunu arttırmaz.
 

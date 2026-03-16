@@ -8,7 +8,7 @@ draft: false
 
 ### İşletim Sistemi Konsepti
 
-![](https://cdn-images-1.medium.com/max/800/1*IvUopr4Tqf2K6eew539ATw.png)
+![](/images/1_IvUopr4Tqf2K6eew539ATw.png)
 
 Merhaba bu yazımda işletim sistemlerinin yapısından, konseptinden ve özelliklerinden bahsedeceğim. İşletim sisteminin tasarımsal zorlukları, güvenlik gereksinimleri ve dahası bu yazıda!
 
@@ -30,7 +30,7 @@ Evet son derece karmaşık bir sistemden söz ediyoruz. Bütün bileşenleri bir
 
 İşletim sistemi, bilgisayar donanımı ile yazılım arasında bir arabirim görevi gören ve bilgisayarın kaynaklarını yöneten bir yazılımdır. İşletim sistemi, bilgisayarın bellek, işlemci, dosya sistemleri, cihaz sürücüleri ve ağ bağlantıları gibi kaynaklara erişimi düzenler ve kullanıcıların bu kaynakları etkili bir şekilde kullanabilmesini sağlar.
 
-![](https://cdn-images-1.medium.com/max/800/1*Xpk60lGLgXPw0S25Wf7sxw.jpeg)
+![](/images/1_Xpk60lGLgXPw0S25Wf7sxw.jpeg)
 
 İşletim Sistemi Yapısı
 
@@ -105,7 +105,7 @@ Her bir süreç işletim sisteminde bir süreç kontrol bloğu (PCB) ile temsil 
 * **G/Ç durum bilgisi:** Bu bilgiler, sürece tahsis edilen G/Ç aygıtlarının  
   listesini, açık dosyaların listesini vb. içerir.
 
-![](https://cdn-images-1.medium.com/max/800/1*RrcLvg5ZJ9nHEVCHm7VEeA.png)
+![](/images/1_RrcLvg5ZJ9nHEVCHm7VEeA.png)
 
 Proses kontrol bloğu (PCB)
 
@@ -127,7 +127,7 @@ iletişimin iki temel modeli vardır: *paylaşılan bellek* ve *mesaj iletimi.*
 
 İş parçacığı, CPU kullanımının temel bir birimidir; bir iş parçacığı kimliği, bir program sayacı, bir kayıt seti ve bir yığından oluşur. Aynı sürece ait diğer iş parçacıkları ile kod bölümünü, veri bölümünü ve açık dosyalar ve sinyaller gibi diğer işletim sistemi kaynaklarını paylaşır. Geleneksel bir işlemin tek bir kontrol iş parçacığı vardır. Bir işlem birden çok iş parçacığına sahip olabilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*Oj15rspOQ1TXXtw4k4d2xQ.png)
+![](/images/1_Oj15rspOQ1TXXtw4k4d2xQ.png)
 
 İş Parçacıklı İşlem
 
@@ -179,7 +179,7 @@ Kritik kesit sorununa yönelik donanım tabanlı çözümler karmaşıktır ve g
 sişlem kritik bir bölüme girmeden önce kilidi edinmelidir; kritik bölümden  
 çıktığında kilidi serbest bırakır.
 
-![](https://cdn-images-1.medium.com/max/800/1*6IRXR8Sw9EndL-QKPRmL6w.png)
+![](/images/1_6IRXR8Sw9EndL-QKPRmL6w.png)
 
 Muteks kilitleri kullanımı
 
@@ -207,7 +207,7 @@ bağımsız olarak bu veriler üzerinde çalışacak bir dizi işlevle birlikte 
 kapsar. Monitör yapısı, monitör içinde aynı anda yalnızca bir sürecin etkin  
 olmasını sağlar.
 
-![](https://cdn-images-1.medium.com/max/800/1*1yFRNX_7QPDEhWUFWc-61w.png)
+![](/images/1_1yFRNX_7QPDEhWUFWc-61w.png)
 
 monitör
 
@@ -259,7 +259,7 @@ adlandırılırken, bellek birimi tarafından görülen bir adres — yani b
 
 Bir işlemin yürütülebilmesi için bellekte olması gerekir. Ancak bir işlem geçici olarak bellekten diske yerleştirilebilir ve daha sonra yürütmeye devam etmek için belleğe geri getirilebilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*iB_t0Cpvz9x4aAf2_0bu9A.png)
+![](/images/1_iB_t0Cpvz9x4aAf2_0bu9A.png)
 
 Takas (Swap) işlemi
 
@@ -288,7 +288,7 @@ Bu işlem için geliştirilmiş stratejiler:
 
 Belleği fiziksel özellikleri açısından ele almak hem işletim sistemi hem de programcı için sakıncalıdır. Peki ya donanım, programcının görüşünü gerçek fiziksel bellekle eşleyen bir bellek mekanizması sağlayabilseydi? Sistem belleği yönetmek için daha fazla özgürlüğe sahip olurken, programcı da daha doğal bir programlama ortamına sahip olurdu. Segmentasyon böyle bir mekanizma sağlar.
 
-![](https://cdn-images-1.medium.com/max/800/1*-jrsYdgi6mk5r2ySy2Dp9Q.png)
+![](/images/1_-jrsYdgi6mk5r2ySy2Dp9Q.png)
 
 Segmentasyon Donanımı
 
@@ -299,7 +299,7 @@ Her segmentin bir adı ve uzunluğu vardır. Adresler hem segment adını hem de
 Segmentasyon, bir sürecin fiziksel adres alanının bitişik olmamasına izin verir. Sayfalama, bu avantajı sunan başka bir bellek yönetim şemasıdır. Bununla birlikte, sayfalama harici parçalanmayı önler ve sıkıştırırken, segmentasyon bunu yapmaz. Ayrıca, farklı boyutlardaki bellek  
 parçalarını destek deposuna sığdırmak gibi önemli bir sorunu da çözer.
 
-![](https://cdn-images-1.medium.com/max/800/1*0Ir0o5wtu7y2mwjfFarrHA.png)
+![](/images/1_0Ir0o5wtu7y2mwjfFarrHA.png)
 
 Sayfalama Donanımı
 
@@ -310,7 +310,7 @@ Sayfalamayı uygulamak için temel yöntem, fiziksel belleği çerçeve adı ver
 Sanal bellek, kullanıcılar tarafından algılanan mantıksal belleğin fiziksel bellekten ayrılmasını içerir. Bu ayırma, yalnızca daha küçük bir fiziksel bellek mevcut olduğunda programcılar için son derece büyük bir sanal belleğin sağlanmasına izin verir. Sanal bellek, programlama görevini çok daha kolay hale getirir, çünkü programcının artık kullanılabilir fiziksel bellek miktarı hakkında endişelenmesine gerek yoktur; bunun yerine  
 programlanacak soruna konsantre olabilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*QvvtOf3Vf930Fs19eSHqjQ.png)
+![](/images/1_QvvtOf3Vf930Fs19eSHqjQ.png)
 
 Sanal Bellek
 
@@ -332,7 +332,7 @@ işletim sistemi tarafından bilgisayardaki büyük veri depolama birimlerinin y
 
 Disk, verilerin kalıcı olarak depolandığı ve erişildiği bir depolama birimidir. Bilgisayar sistemlerinde yaygın olarak kullanılan diskler, sabit disk sürücüleri (Hard Disk Drive — HDD) ve katı hal sürücüleri (Solid State Drive — SSD) olarak iki ana kategoriye ayrılır.
 
-![](https://cdn-images-1.medium.com/max/800/1*zfPPKDtSp7k9jBGej2m-dw.png)
+![](/images/1_zfPPKDtSp7k9jBGej2m-dw.png)
 
 HDD Disk
 
@@ -357,25 +357,25 @@ Disk zamanlama algoritmaları, gelen talepleri yönetir ve talepleri işleyeceğ
 
 * **FCFS (First-Come, First-Served):** Bu algoritma, gelen talepleri sırayla işleme alır ve önce gelen talepleri önce işler. Ancak, bu algoritma disk üzerindeki fiziksel konumları dikkate almaz ve sıra dışı bir sıralama durumunda disk erişim sürelerini artırabilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*kVk--dRni90LbzTYov3b4w.png)
+![](/images/1_kVk--dRni90LbzTYov3b4w.png)
 
 FCFS
 
 * **SSTF (Shortest Seek Time First):** Bu algoritma, disk kafasının şu anda konumlandığı yerden en kısa hareket mesafesine sahip talebi işleme alır. Yani, kafanın en kısa mesafede gitmesi gereken talepler öncelikli olarak işlenir. Bu algoritma, toplam disk erişim süresini azaltır ve daha iyi bir performans sağlar.
 
-![](https://cdn-images-1.medium.com/max/800/1*_3w6z61oJ6PQpjmsAAPmmg.png)
+![](/images/1__3w6z61oJ6PQpjmsAAPmmg.png)
 
 SSTF
 
 * **SCAN (Elevator):** Bu algoritma, disk kafasını belirli bir yönde (örneğin, içe veya dışa doğru) hareket ettirirken talepleri işler. Kafa ilerlerken tüm talepleri işler ve en sona ulaştığında yönden döner ve geri gelir. Bu şekilde, disk üzerindeki talepleri sürekli tarar. SCAN algoritması, talepleri adil bir şekilde işler ve disk üzerindeki taleplerin bekleme sürelerini azaltır.
 
-![](https://cdn-images-1.medium.com/max/800/1*t7kHcp1t1Z8vX1HjZq4I-w.png)
+![](/images/1_t7kHcp1t1Z8vX1HjZq4I-w.png)
 
 SCAN
 
 * **C-SCAN (Circular SCAN):** Bu algoritma, SCAN algoritmasına benzer şekilde talepleri işler, ancak SCAN’dan farklı olarak geri dönerken son talepten başlar. Yani, talepleri işlerken disk üzerinde bir yönde hareket eder ve son talebe ulaştığında hızla diğer uca geçer ve yeniden başlar. C-SCAN, SCAN’dan daha adil bir talep işleme sırası sağlar.
 
-![](https://cdn-images-1.medium.com/max/800/1*3GQpsL_MjPT6VphPF1Uerw.png)
+![](/images/1_3GQpsL_MjPT6VphPF1Uerw.png)
 
 C-SCAN
 

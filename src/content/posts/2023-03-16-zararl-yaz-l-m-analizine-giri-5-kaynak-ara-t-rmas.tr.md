@@ -8,7 +8,7 @@ draft: false
 
 ### Zararlı Yazılım Analizine Giriş: #5 Kaynak Araştırması
 
-![](https://cdn-images-1.medium.com/max/800/1*dJBvI3SpcGPLEmaFbLhm9A.png)
+![](/images/1_dJBvI3SpcGPLEmaFbLhm9A.png)
 
 Bu yazımda zararlı yazılım analizi konusunda bulduğum kaynakları listeledim. Repolar, kitaplar, siteler ve videolar bu yazıda.
 
@@ -55,7 +55,7 @@ Zararlı yazılım analizi üzerine yazılmış kaynak kitaplar mevcuttur. Bu ka
 
 Sektörde çok bilinen ve popüler olan bıu kitapta zararlı yazılım anallizi teknikleri ve araçları ayrıntılı şekilde anlatılmakta. Küçük bir google araştırmasıyla pdfini bulabilirsiniz.
 
-![](https://cdn-images-1.medium.com/max/800/0*J3edrfFpwSJo_242.jpg)
+![](/images/0_J3edrfFpwSJo_242.jpg)
 
 Bu linkten erişebilirsiniz:  
 <https://www.amazon.com/Practical-Malware-Analysis-Hands-Dissecting-ebook/dp/B007ED2XDS>
@@ -64,7 +64,7 @@ Bu linkten erişebilirsiniz:
 
 Yazılarımı hazırlarken en çok yararlandığım kaynak bu kitaptı. Bir önceki kitaba göre daha yeni bir kitap olduğu için daha yeni teknikleri de içermekte. Ayrıca detection engineering konusunu da ayrıntılı ele almakta.
 
-![](https://cdn-images-1.medium.com/max/800/0*JkTFYNXISyFP8PtR.jpg)
+![](/images/0_JkTFYNXISyFP8PtR.jpg)
 
 Bu linkten erişebilirsiniz:  
 <https://www.amazon.com/Malware-Analysis-Detection-Engineering-Comprehensive/dp/1484261925>
@@ -73,7 +73,7 @@ Bu linkten erişebilirsiniz:
 
 Zararlı yazılım analizi alanında uzmanlaşmak isteyenlere yöneil bir kitaptır. İçeriği biraz ileri seviyedir.
 
-![](https://cdn-images-1.medium.com/max/800/0*FYrrXetOcwog8gf_.jpg)
+![](/images/0_FYrrXetOcwog8gf_.jpg)
 
 Bu linkten erişebilirsiniz:  
 <https://www.amazon.com/Mastering-Malware-Analysis-combating-cybercrime/dp/1789610788?asin=1789610788&revisionId=&format=4&depth=1>
@@ -106,7 +106,7 @@ Bu linten ulaşabilirsiniz:
 
 Bir zaararlı yazılım veritabanıdır diyebiliriz. Zararlı yazılım örneklerini indirip yükleyebilileceğimiz bir platform
 
-![](https://cdn-images-1.medium.com/max/800/1*q0gdIoG_ec64kiABMf1EGQ.png)
+![](/images/1_q0gdIoG_ec64kiABMf1EGQ.png)
 
 Bu linkten ulaşabilirsiniz:  
 <https://bazaar.abuse.ch/>
@@ -115,7 +115,7 @@ Bu linkten ulaşabilirsiniz:
 
 VirusShare, Corvus Forensics tarafından barındırılan ve sürdürülen bir hizmettir.
 
-![](https://cdn-images-1.medium.com/max/800/1*Bxk0P0kNEoGjruxszJWKBQ.png)
+![](/images/1_Bxk0P0kNEoGjruxszJWKBQ.png)
 
 ---
 

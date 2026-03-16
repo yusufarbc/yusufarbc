@@ -8,7 +8,7 @@ draft: false
 
 ### Cyber Attacks in the OSI Model
 
-![](https://cdn-images-1.medium.com/max/800/1*rOqngZk6L49NHbPm8MIG8w.png)
+![](/images/1_rOqngZk6L49NHbPm8MIG8w.png)
 
 Hello, in this article, I tried to explain Cyber Attacks on the OSI model. You can find many types of cyber attacks in this article.
 
@@ -18,7 +18,7 @@ Hello, in this article, I tried to explain Cyber Attacks on the OSI model. You c
 
 The OSI (Open Systems Interconnection) model is a reference model used to describe the design and operation of computer networks. It was developed by ISO (International Organization for Standardization) and consists of 7 layers. Each layer performs a specific function and manages communication in a network.
 
-![](https://cdn-images-1.medium.com/max/800/1*NO93ucFJGdZnGEbqFZ9LWg.jpeg)
+![](/images/1_NO93ucFJGdZnGEbqFZ9LWg.jpeg)
 
 OSI MODEL
 
@@ -42,7 +42,7 @@ This layer is the layer where physical devices are located. At this layer, attac
 
 Sniffing attacks are malicious activities carried out to monitor or capture data transmission on a network. Attackers capture data packets on the network and use them to steal or monitor sensitive information (usernames, passwords, credit card information, etc.).
 
-![](https://cdn-images-1.medium.com/max/800/0*QX0yUeqWbkWlrcSM.png)
+![](/images/0_QX0yUeqWbkWlrcSM.png)
 
 sniffing
 
@@ -64,7 +64,7 @@ In the simplest terms, a MAC address identifies the intended recipient of an IP 
 
 Spoofing or poisoning is a type of impersonation attack that takes advantage of a trusted relationship between two systems.
 
-![](https://cdn-images-1.medium.com/max/800/1*dIW8GRH3OsHnLOP8WJixGA.png)
+![](/images/1_dIW8GRH3OsHnLOP8WJixGA.png)
 
 Spoofing
 
@@ -96,7 +96,7 @@ ICMP was developed to carry diagnostic messages and report error conditions when
 
 Attackers use ICMP for reconnaissance and scanning purposes. In this way, they can conduct information gathering activities to map a network topology, discover which hosts are active (accessible), identify the host operating system (OS fingerprinting), and determine the status of a firewall.
 
-![](https://cdn-images-1.medium.com/max/800/1*OaMHg5vMHFfRn5qPET_l7g.png)
+![](/images/1_OaMHg5vMHFfRn5qPET_l7g.png)
 
 ICMP Flood
 
@@ -313,7 +313,7 @@ The attacker can then use this information to download server configuration file
 
 Buffers are memory areas allocated to an application. A buffer overflow occurs when data is written beyond the boundaries of a buffer. The application can access memory reserved for other processes by manipulating data beyond buffer boundaries. This may lead to a system crash, data compromise, or escalation of privileges.
 
-![](https://cdn-images-1.medium.com/max/800/1*NQ9MzPUcJmS-Ku2GjvYBsA.png)
+![](/images/1_NQ9MzPUcJmS-Ku2GjvYBsA.png)
 
 Buffer Overflow
 

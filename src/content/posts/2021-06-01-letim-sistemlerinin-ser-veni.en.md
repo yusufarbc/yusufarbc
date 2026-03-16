@@ -8,7 +8,7 @@ draft: false
 
 ### The Adventure of Operating Systems
 
-![](https://cdn-images-1.medium.com/max/800/1*xr3hyWH8B1uBJitVrIH3xQ.jpeg)
+![](/images/1_xr3hyWH8B1uBJitVrIH3xQ.jpeg)
 
 In this article, we will examine the operating systems that have become indispensable for computer systems today. We will talk about how it developed and how it came to these days. We will witness how the operating systems popular today emerged.
 
@@ -16,7 +16,7 @@ To start with what the operating system is; Operating system is software that co
 
 ### First computers
 
-![](https://cdn-images-1.medium.com/max/800/0*mQmzkEmOfRVLwzCZ.jpeg)
+![](/images/0_mQmzkEmOfRVLwzCZ.jpeg)
 
 The first computers were the size of a room. They did not have an operating system. Programs were coded on punched cards and were given to the computer and executed sequentially. This process, called the mission, required serious preparation. To run a program on the computer, a reservation was made in advance and that user would have the right to use the computer during this period.
 
@@ -30,7 +30,7 @@ In short, operating systems have evolved over time from simple programs that can
 
 ### The birth of Unix
 
-![](https://cdn-images-1.medium.com/max/800/0*j5b0VF0AN66jHyIQ.gif)
+![](/images/0_j5b0VF0AN66jHyIQ.gif)
 
 In the 1960s, AT&T's Bell laboratories, MIT and General Electric worked on a time-sharing operating system in a project carried out together. As a result of this project, an operating system called "Multics" emerged. When Bell Laboratory withdrew from the project, **Dennis Ritchie** and **Ken Thompson**, who worked there, created a new operating system in a new project, taking advantage of their experience in the "Multics" project. This operating system, which was initially written in assembly language, was called "Unix".
 
@@ -42,7 +42,7 @@ In the early 1980s, AT&T sought to monetize the UNIX operating system and began 
 
 ### The birth of Linux
 
-![](https://cdn-images-1.medium.com/max/800/0*kTMsIQ1DbZOPM85o.jpg)
+![](/images/0_kTMsIQ1DbZOPM85o.jpg)
 
 Within the scope of the **GNU** project, the **Minix** operating system, a Unix derivative, emerged. This operating system was developed by Prof. It was developed by Andrew S. Tanenbaum with a microkernel architecture in order to teach students in university computer departments the working principles and functions of operating systems.
 
@@ -50,7 +50,7 @@ In 1991, computer science student **Linus Torwalds** posted a message to a newsg
 
 ### The birth of Windows
 
-![](https://cdn-images-1.medium.com/max/800/0*NSHG5-qdcNnonu_n.jpg)
+![](/images/0_NSHG5-qdcNnonu_n.jpg)
 
 Personal computers were still in the early stages of their development in the mid-70s. MITS' most important sample, called Altair, did not yet have a uniform, usable software, but had an incomplete operating system. Thanks to BASIC, the software language developed by Bill Gates and Allen for Altair in 1974, computer users could write their own programs. MITS company purchased the marketing license from young researchers and ordered them to further develop the system. Thereupon, Gates founded the company called Microsoft in New Mexico with Allen.
 
@@ -58,7 +58,7 @@ Microsoft developed an operating system called MS-DOS for IBM PC compatible comp
 
 ### Today's Operating Systems
 
-![](https://cdn-images-1.medium.com/max/800/0*L1PHGnrU90lDyD_b.png)
+![](/images/0_L1PHGnrU90lDyD_b.png)
 
 In the computer world, Windows, Unix and Linux operating systems have become generally accepted and have evolved over time and come to this day with different versions. Today's operating systems are based on one of the Windows, Unix or Lnux operating systems. They are derived from these 3 operating systems. In this respect, we can divide operating systems into 3 classes.
 

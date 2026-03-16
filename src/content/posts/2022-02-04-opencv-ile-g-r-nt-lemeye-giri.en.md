@@ -8,7 +8,7 @@ draft: false
 
 ### Introduction to Image Processing with OpenCV
 
-![](https://cdn-images-1.medium.com/max/800/0*tAmPWiGxMp-BWqSx.png)
+![](/images/0_tAmPWiGxMp-BWqSx.png)
 
 Hello, in this article, we will talk about what OpenCV is, computer vision and how to do these operations with Python.
 

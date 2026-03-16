@@ -8,7 +8,7 @@ draft: false
 
 ### C Programlama Temelleri
 
-![](https://cdn-images-1.medium.com/max/800/1*wb7CfskOL2Lhc26j2XpbTQ.png)
+![](/images/1_wb7CfskOL2Lhc26j2XpbTQ.png)
 
 ### Syntax Nedir?
 
@@ -513,7 +513,7 @@ p bellek adresi tutan bir değişken olsun yani pointer. \*p, p’de tutulan bel
 
 Bu mantıkla bir pointerı referans eden başka bir pointer yaratabiliriz.
 
-![](https://cdn-images-1.medium.com/max/800/0*fqOhphnMCqrtdVI2.jpg)
+![](/images/0_fqOhphnMCqrtdVI2.jpg)
 
 pointer to pointer
 

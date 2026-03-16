@@ -8,7 +8,7 @@ draft: false
 
 ### Cryptology Fundamentals:#1 Introduction
 
-![](https://cdn-images-1.medium.com/max/800/1*uorh6uYHB7AdEDpEbCO_Tw.png)
+![](/images/1_uorh6uYHB7AdEDpEbCO_Tw.png)
 
 Hello, in this first article of the cryptology basics series, I will talk about what cryptology is, traditional encryption techniques and how to create a strong password.
 
@@ -18,7 +18,7 @@ Hello, in this first article of the cryptology basics series, I will talk about 
 
 In this type of science, called encryption science, things that are intended to be kept secret are encrypted using different techniques and methods within a system. At the same time, the science of cryptology also works to prevent encrypted messages from being deciphered by unwanted people.
 
-![](https://cdn-images-1.medium.com/max/800/1*hjisKMmnXD1yQQXQ3IOFjA.png)
+![](/images/1_hjisKMmnXD1yQQXQ3IOFjA.png)
 
 Cryptology is the science of passwords. Cryptography deals with information security, Cryptoanalysis is the exact opposite of cryptography, in other words, breaking secure information. Cryptoanalysts generally work based on decryption. Cryptology is a [mathematics](https://tr.wikipedia.org/wiki/Matematik "Mathematics") science and is generally based on number theory.
 
@@ -74,7 +74,7 @@ Frequency Analysis was proposed by Al-Kindi in the 9th century. It is based on r
 
 For any language, the frequency of use of letters in that language is calculated. The table containing the frequency of use of letters in the English language is given below.
 
-![](https://cdn-images-1.medium.com/max/800/0*9LADpthWZ361CIFT.png)
+![](/images/0_9LADpthWZ361CIFT.png)
 
 As can be seen from the table, the most frequently used letter in the English language is the letter 'E', and the second most frequently used letter is the letter 'T'. If the ciphertext is long, the most visible letter most likely corresponds to E in the plaintext, the second most visible letter most likely corresponds to T, and so on.
 
@@ -86,7 +86,7 @@ The Caesar cipher, also known as the shift cipher, is actually a special case of
  Historically, Julius Caesar used this cipher with a three-position shift. This is where the name Caesar cipher comes from.  
  For the mathematical expression of the cipher, the letters of the alphabet are numerically encoded as shown in the table below.
 
-![](https://cdn-images-1.medium.com/max/800/0*0ATssVLmJQigP6cg.png)
+![](/images/0_0ATssVLmJQigP6cg.png)
 
 Let the key be k = 17 and the plaintext is:
 
@@ -129,7 +129,7 @@ A 5×5 table containing the key and the rest of the alphabet is used in encrypti
 
 In this case, the table will be as shown in the figure. The key is written first. The same letters are used once. The rest of the 5×5 grid is filled with the remaining letters. To reduce the number to 25 letters, the letter I and J are placed in the same box.
 
-![](https://cdn-images-1.medium.com/max/800/0*Vo-d0ErN-moY0kLR.jpg)
+![](/images/0_Vo-d0ErN-moY0kLR.jpg)
 > *plaintext: for kr ip to lo ji*
 
 > *ciphertext: becomes rf hq kz sc jx*
@@ -150,7 +150,7 @@ For each character of the clear message to be encrypted, the number value corres
 
 Although this method, which we can also call unbreakable encryption, is very reliable, it is quite difficult to implement in practice. In this method, a long string of random characters/bits is generated to be used one time. The plain text is XORed with a one-time pad to obtain the cipher text. XORing the ciphertext with the one-time pad returns the plaintext.
 
-![](https://cdn-images-1.medium.com/max/800/0*6s6SoNCSSj-Sqs27.png)
+![](/images/0_6s6SoNCSSj-Sqs27.png)
 
 As its name suggests, also known as one-time pad, it should be disposable and completely randomly produced. .Reusing the same key causes weakness in encryption and allows it to be broken.
 

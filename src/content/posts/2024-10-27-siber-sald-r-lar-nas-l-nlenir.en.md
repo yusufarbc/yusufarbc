@@ -8,7 +8,7 @@ draft: false
 
 ### How to Prevent Cyber Attacks?
 
-![](https://cdn-images-1.medium.com/max/800/1*Qlpv80LBf1a8sr3QfH3Bww.png)
+![](/images/1_Qlpv80LBf1a8sr3QfH3Bww.png)
 
 Once you establish an active Web presence, you put a target on your company's back. Like the unfortunate insect caught in a spider's web, the size of your company determines the extent of disruption you create on the Web and how quickly you get noticed by the bad guys. How attractive you are as prey is often directly proportional to what you can offer a predator. If your business is an e-commerce site that thrives on credit cards or other financial information, or a company with valuable secrets to steal, your attractiveness quotient increases; You have more value to steal. And if your business is new and your presence on the Web is new, it can be assumed that perhaps you are not yet versed in the intricacies of cyber warfare and therefore more vulnerable to an attack.
 
@@ -145,7 +145,7 @@ One of the first steps you can take to ensure the security of your network while
 
 So how do you “clean and tighten” your existing network or design a new network that can withstand the inevitable attacks? Let's look at some basics.
 
-![](https://cdn-images-1.medium.com/max/800/1*6HrtaqcektCOcSC5xOnqCQ.png)
+![](/images/1_6HrtaqcektCOcSC5xOnqCQ.png)
 
 network diagram
 
@@ -163,7 +163,7 @@ Politics is almost always a work in progress. It must evolve with technology, es
 
 A good security policy is not always a single document; Rather, it is a collection of policies that address specific areas such as computer and network use, authentication styles, email policies, remote/mobile technology use, and Web browsing policies. While it should be comprehensive, it should be written in a way that is easily understood by those it affects. Accordingly, your policy does not need to be overly complex. If you give new employees something the size of War and Peace and tell them they are responsible for knowing its content, you can expect to have ongoing problems maintaining good network security awareness. Keep it simple.
 
-![](https://cdn-images-1.medium.com/max/800/1*2K0SwOV19idVKFdjaNpaEQ.png)
+![](/images/1_2K0SwOV19idVKFdjaNpaEQ.png)
 
 Security Standards
 

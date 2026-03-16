@@ -8,7 +8,7 @@ draft: false
 
 ### Is RDP Secure?
 
-![](https://cdn-images-1.medium.com/max/800/1*UP8fyAdYI17KDIqhtDK4Sg.png)
+![](/images/1_UP8fyAdYI17KDIqhtDK4Sg.png)
 
 In this article, we will discuss whether the RDP (Remote Desktop Protocol) protocol is secure or not. **RDP (Remote Desktop Protocol)** has become a protocol frequently used by **APT (Advanced Persistent Threat)** groups for **lateral movement**, that is, horizontal movement within the network. In this respect, it creates the impression that it is not a secure protocol. So what is the reason for this?
 
@@ -20,7 +20,7 @@ In this article, we will discuss whether the RDP (Remote Desktop Protocol) proto
 
 RDP is a protocol developed by Microsoft and widely used for remote desktop connections. RDP allows users to use a remote desktop environment as if it were local by connecting to another computer or server over the network.
 
-![](https://cdn-images-1.medium.com/max/800/1*_XjdN0sbwr04IpjBK0mVcA.jpeg)
+![](/images/1__XjdN0sbwr04IpjBK0mVcA.jpeg)
 
 RDP Protocol
 
@@ -47,7 +47,7 @@ RDP Protocol
 
 APT groups often carefully monitor a specific target for long periods of time. After initial access is achieved, attackers often move through the network using vulnerabilities and credentials in existing systems to make lateral movement. RDP plays a critical role in such attacks because RDP allows attackers to remotely connect to different devices on a network. APT groups move to other systems on the network using the credentials of the first target they capture. This allows them to move quickly through the network.
 
-![](https://cdn-images-1.medium.com/max/800/1*XsWJxISsqgpXS_I2ecBx9g.png)
+![](/images/1_XsWJxISsqgpXS_I2ecBx9g.png)
 
 Lateral Movement with RDP
 
@@ -113,7 +113,7 @@ APT groups can use RDP to engage in lateral movement in several ways:
 
 PAM, **Privileged Access Management** (Privileged Access Management**), is a security solution used to control and audit the access of users with high privileges on systems and networks in organizations. PAM solutions apply specifically to system administrators, network administrators, and other privileged accounts.
 
-![](https://cdn-images-1.medium.com/max/800/1*4a2mtAcF5OWpT77b-eeS0g.jpeg)
+![](/images/1_4a2mtAcF5OWpT77b-eeS0g.jpeg)
 
 PAM
 

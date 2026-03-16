@@ -8,7 +8,7 @@ draft: false
 
 ### TCP/IP Model Wireshark Analysis
 
-![](https://cdn-images-1.medium.com/max/800/1*vQHzVUN_qVpKQQbS9Cr4Ug.png)
+![](/images/1_vQHzVUN_qVpKQQbS9Cr4Ug.png)
 
 Hello, in this article, I tried to explain the TCP/IP model and how to perform a basic network analysis with Wireshark.
 
@@ -20,7 +20,7 @@ Hello, in this article, I tried to explain the TCP/IP model and how to perform a
 
 Switches forward packets based on the destination MAC address (also known as the destination hardware address, physical address) contained in the MAC header (like the Ethernet header).
 
-![](https://cdn-images-1.medium.com/max/800/1*NsSETtT4IofH-5OXSKDrzQ.png)
+![](/images/1_NsSETtT4IofH-5OXSKDrzQ.png)
 
 Switches do not change MAC or IP addresses in packets
 
@@ -30,7 +30,7 @@ When a packet reaches a switch, the switch checks the packet to make sure it has
 
 Routers forward packets based on the destination IP address in the IP header. When a packet is sent to the router's MAC address, that router examines the checksum to make sure the packet is valid. If the checksum is invalid, the packet is dropped. If the checksum is valid, the router extracts the MAC header (e.g. Ethernet header) and examines the IP header to determine the “TTL” (Time to Live) and its destination. package. If the packet is too “old” (Time to Live value is 1), the router discards the packet and an ICMP Time to Live Exceeded message is sent back to the sender. If the packet is not stale(TTL time has not been Exceeded), the router looks at the routing tables to determine if the destination IP network is known. If the router is directly connected to the destination network, it can send the packet to the destination. The router reduces the IP header Time to Live value and then creates and applies a new MAC header to the packet before forwarding it
 
-![](https://cdn-images-1.medium.com/max/800/1*Utuq1h526m5eoCl4wWYJGQ.png)
+![](/images/1_Utuq1h526m5eoCl4wWYJGQ.png)
 
 Routers change destination MAC address to destination or next router
 
@@ -44,7 +44,7 @@ Firewalls are created to inspect traffic and allow/deny communication based on a
 
 Basic firewalls operate at Layer 3 of the OSI model, the network layer. In this capacity, the firewall acts as a router when processing network traffic and forwards traffic that is not blocked by firewall rules. The firewall adds a new MAC header to the packet before forwarding it. If the firewall supports additional features such as Network Address Translation (NAT) or proxy capabilities, additional packet switching will occur.
 
-![](https://cdn-images-1.medium.com/max/800/1*0sZI8QkhS5eWd1ef0qJyXw.png)
+![](/images/1_0sZI8QkhS5eWd1ef0qJyXw.png)
 
 Firewall uses NAT to hide the real source IP address
 
@@ -66,7 +66,7 @@ Multiprotocol Label Switching (MPLS) is a method of creating virtual connections
 
 It shows the basic TCP/IP elements along with the TCP/IP Model and the OSI Model. Although the elements of TCP/IP match nicely with the TCP/IP Model, the OSI Model is still constantly referred to in our industry. “Layer 2” devices (switches) and “Layer 3” devices (routers) receive numerical identification according to the OSI Model, not the TCP/IP Model.
 
-![](https://cdn-images-1.medium.com/max/800/1*X4_tzi-NjihAqIAJEunVWA.png)
+![](/images/1_X4_tzi-NjihAqIAJEunVWA.png)
 
 TCP/IP elements with the TCP/IP Model and OSI Model
 
@@ -94,13 +94,13 @@ TCP/IP uses a multi-step resolution process when a client communicates with a se
 * If the destination is remote, determine the best router to use to reach the destination (route analysis).
 * If the destination is remote, determine the router's MAC address (local MAC address resolution again).
 
-![](https://cdn-images-1.medium.com/max/800/1*AWmwmBOwxbf1QyEXXsjg0Q.png)
+![](/images/1_AWmwmBOwxbf1QyEXXsjg0Q.png)
 
 TCP/IP resolution processes
 
 In our example we will consider the connection between a client and the FTP Server.
 
-![](https://cdn-images-1.medium.com/max/800/1*cPS6KAp-bJl1xjrg96dEMg.png)
+![](/images/1_cPS6KAp-bJl1xjrg96dEMg.png)
 
 The client wants to make an FTP connection to CORPFS1
 
@@ -164,7 +164,7 @@ If all goes well (and in this case the target is local), we should have resolved
 * Destination IP address
 * Source and destination port numbers
 
-![](https://cdn-images-1.medium.com/max/800/1*tCpXIwj6CXujGOtmMVR_pA.png)
+![](/images/1_tCpXIwj6CXujGOtmMVR_pA.png)
 
 Discovered information for TCP/IP packet over Ethernet
 
@@ -200,25 +200,25 @@ You will also notice that the total number of packages in http-riverbed-two.pcap
 
 When we look at the protocol statistics (Statistic | Protocol hierarchy) in the http-riverbed-**one**.pcapng file, we see that most of the traffic uses TCP. Because the HTTP protocol uses TCP. When we look at UDP traffic, we see that it uses the Domain Name System (DNS) protocol.
 
-![](https://cdn-images-1.medium.com/max/800/1*zal0jQY1slYuV6RDm5UdCg.png)
+![](/images/1_zal0jQY1slYuV6RDm5UdCg.png)
 
 http-riverbed-**one**.pcapng Protocol Statistics
 
 To see the dominant traffic in http-riverbed-**one**.pcapng file Statistic| We can open the Conversations window. If we sort by packets when we open the IPv4 tab here, we can say that the dominant traffic is between IPs **24.61.173.220** and **208.70.196.59** with 1140 packets going between hosts.
 
-![](https://cdn-images-1.medium.com/max/800/1*Hb4M03jKQ_8Lp1YzMShv2Q.png)
+![](/images/1_Hb4M03jKQ_8Lp1YzMShv2Q.png)
 
 conversations
 
 Statistic| in http-riverbed-**one**.pcapng IP name mentioned in traffic in the Endpoints windowWe can see the pictures. All of the IP addresses here seem to be public IP addresses. Therefore, we can say that the traffic was captured on an external network.
 
-![](https://cdn-images-1.medium.com/max/800/1*5XvOPLu2866hRTPDdvUjig.png)
+![](/images/1_5XvOPLu2866hRTPDdvUjig.png)
 
 endpoints
 
 Statistic| in http-riverbed-**one**.pcapng HTTP| In the Requests window, we can view the web addresses visited in the pcap file.
 
-![](https://cdn-images-1.medium.com/max/800/1*2QwpmwBds_gI3oZfGyMGKA.png)
+![](/images/1_2QwpmwBds_gI3oZfGyMGKA.png)
 
 Requests
 
@@ -226,19 +226,19 @@ In http-riverbed-**one**.pcapng 
 ip.addr == 24.6.173.220 && ip.addr == 208.70.196.59   
 Let's examine the dominant traffic we found before by typing its filter.
 
-![](https://cdn-images-1.medium.com/max/800/1*MkagBTP5iI4imfNHp5V5nw.png)
+![](/images/1_MkagBTP5iI4imfNHp5V5nw.png)
 
 Dominant Traffic
 
 If we click on the HTTP packet and select the follow HTTP Stream option, we can view all HTTP traffic.
 
-![](https://cdn-images-1.medium.com/max/800/1*-2JPla-66SZrjX-kKCsECg.png)
+![](/images/1_-2JPla-66SZrjX-kKCsECg.png)
 
 Follow HTTP Stream
 
 We are faced with a long flow. Here he found the traffic to and from [www.riverbed.com](http://www.riverbed.com). We can see the HTTP connections established with this address as request (red text) and response (blue text).
 
-![](https://cdn-images-1.medium.com/max/800/1*4B5HtycWS34GEws6jMxlnA.png)
+![](/images/1_4B5HtycWS34GEws6jMxlnA.png)
 
 www.riverbed.com HTTP Stream
 

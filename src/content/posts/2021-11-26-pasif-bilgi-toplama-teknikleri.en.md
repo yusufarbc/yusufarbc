@@ -8,7 +8,7 @@ draft: false
 
 ### Passive Information Gathering Techniques
 
-![](https://cdn-images-1.medium.com/max/800/0*2NsHt2LZX3ORPYxb.jpg)
+![](/images/0_2NsHt2LZX3ORPYxb.jpg)
 
 Hello, in this article that we prepared with my teacher Mehmet Bulut, we will talk about Passive Information Gathering Techniques.
 

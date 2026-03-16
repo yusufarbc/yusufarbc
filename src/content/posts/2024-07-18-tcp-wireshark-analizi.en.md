@@ -18,7 +18,7 @@ TCP provides connected transport over a connection that begins with a three-way 
 
 TCP supports windowing, which is the process of sending multiple data packets sequentially without waiting for an intervening acknowledgment. The size of the window depends on the amount of traffic the network can handle (network congestion rate), the receiver's available buffer space, and the sender's transmission buffer capacity. Most file transfer protocols use TCP to ensure reliable delivery of data.
 
-![](https://cdn-images-1.medium.com/max/800/1*eV6FVT7z6k3hb3M6-DRqtw.png)
+![](/images/1_eV6FVT7z6k3hb3M6-DRqtw.png)
 
 Offers streaming for applications like TCP, HTTP, HTTPS, email, FTP and more
 
@@ -36,7 +36,7 @@ TCP connections are established through a three-way handshake. The basic handsha
 
 SYN packets synchronize sequence numbers to ensure that both parties know each other's initial sequence numbers (Initial Sequence Number or ISN). This is how the order of data exchanged between them is kept track of.
 
-![](https://cdn-images-1.medium.com/max/800/1*MVWnM3ExdWfUNeZCyXpERQ.png)
+![](/images/1_MVWnM3ExdWfUNeZCyXpERQ.png)
 
 Three-way TCP handshake establishes an FTP connection
 
@@ -46,7 +46,7 @@ TCP connections can be terminated in various ways. An explicit termination uses 
 
 When FIN is used, a host sends a FIN packet and enters the FIN-WAIT state until its FIN is acknowledged and the peer sends back its FIN. According to RFC 793, there are actually a few situations that are possible when FIN is used to implicitly terminate a connection.
 
-![](https://cdn-images-1.medium.com/max/800/1*oKbEZpebc55HRhufKktDkw.png)
+![](/images/1_oKbEZpebc55HRhufKktDkw.png)
 
 Type netstat -a to find out the current status of TCP connections on a Windows or Linux host. Below is an example of the connection status on a Windows host.
 
@@ -69,7 +69,7 @@ TCP 24.6.173.220:22171 216–115–209–254:https TIME\_WAIT
 FIN Doesn't Mean "Shut Up"  
 RFC 793 defines the purpose of the FIN bit as indicating that no more data will arrive from the sender. This does not prevent the recipient of the FIN packet from sending additional data, which is allowed.
 
-![](https://cdn-images-1.medium.com/max/800/1*smMgrW01y8cfs7-ZvQ813Q.png)
+![](/images/1_smMgrW01y8cfs7-ZvQ813Q.png)
 
 TCP Reset is used to explicitly close a TCP connection
 
@@ -81,7 +81,7 @@ The sorting/validation process monitors the order of packets and detects and rec
 
 During the handshake process, each side of the connection selects its own starting sequence number (Initial Sequence Number). Both parties increment this sequence number by the amount of data contained in each packet. When analyzing the ranking/approval process, this simple equation is used:
 
-![](https://cdn-images-1.medium.com/max/800/1*cXVzyyVpFHkcZXppMisl5Q.png)
+![](/images/1_cXVzyyVpFHkcZXppMisl5Q.png)
 
 Here's a quick example of how a sequential communication can happen with simple terms/numbers:
 
@@ -89,17 +89,17 @@ The Confirmation Number field is only incremented when data is received. By defa
 
 Once agreement is reached, sequence numbers only increase by the number of actual data bytes sent. In this example, the client is the first peer to send data (a request to retrieve the home page on a web server).
 
-![](https://cdn-images-1.medium.com/max/800/1*iWouL0pOxZ6CGzHveXRqaA.png)
+![](/images/1_iWouL0pOxZ6CGzHveXRqaA.png)
 
 TCP Sequence and Acknowledgment numbers keep track of data being exchanged
 
-![](https://cdn-images-1.medium.com/max/800/1*bga1HCi_98qMzffpg5tHag.png)
+![](/images/1_bga1HCi_98qMzffpg5tHag.png)
 
 First Connection
 
 The TCP communications shown in the figure can be seen in the file named http-espn2011.pcapng. In this file, the user connects to [www.espn.com](http://www.espn.com%27a) and is notified that the content has been permanently moved to go.espn.com. The client then connects to go.espn.com.
 
-![](https://cdn-images-1.medium.com/max/800/1*xsmRACMlX0dHKNm2d4v3TQ.png)
+![](/images/1_xsmRACMlX0dHKNm2d4v3TQ.png)
 
 Second Link
 
@@ -109,7 +109,7 @@ TCP is capable of detecting packet loss (based on missing sequence numbers) and 
 
 When the recipient notices that the expected sequence number is not on the package, they assume the package is lost. At this point, the receiver sets the Acknowledgment Number field to ACK to the next expected sequence number from the peer.
 
-![](https://cdn-images-1.medium.com/max/800/1*ag_paaFMEEadzkxMp25WHQ.png)
+![](/images/1_ag_paaFMEEadzkxMp25WHQ.png)
 
 High latency paths may cause more than three identical ACKs
 
@@ -117,7 +117,7 @@ Receiving more than three ACs will trigger retransmission. For example, when the
 
 TCP senders maintain a TCP Retransmission Timeout (RTO) value to determine when a packet not acknowledged by a TCP peer should be retransmitted. If a data packet is sent and is not acknowledged before the RTO timer expires, the TCP sender can retransmit the packet using the sequence number of the original packet.
 
-![](https://cdn-images-1.medium.com/max/800/1*-mKnrW-dlf9Xjy9Bv4i1cQ.png)
+![](/images/1_-mKnrW-dlf9Xjy9Bv4i1cQ.png)
 
 The HTTP server retransmits a packet when the retransmission timeout value is reached
 
@@ -141,7 +141,7 @@ The actual congestion is not 65,535 bytes but a lower value depending on what th
 
 There are many problems that can occur at the TCP layer, from problems with the handshake process to packet loss, TCP connection drops, frozen windows.
 
-![](https://cdn-images-1.medium.com/max/800/1*07AoMOodVO2M9hTual5LLg.png)
+![](/images/1_07AoMOodVO2M9hTual5LLg.png)
 
 TCP connection rejected with RST/ACK
 
@@ -149,7 +149,7 @@ We start with TCP handshake problems. The figure shows a TCP connection rejectio
 
 An excessive number of failed TCP connection attempts may indicate a TCP scan.
 
-![](https://cdn-images-1.medium.com/max/800/1*x5VezCndlQUpY7QlfAaMbQ.png)
+![](/images/1_x5VezCndlQUpY7QlfAaMbQ.png)
 
 A failed TCP connection due to packet loss
 
