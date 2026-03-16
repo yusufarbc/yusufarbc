@@ -40,15 +40,15 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build with Hugo
-        run: hugo --minify --source src
+        run: hugo --minify --source website
 
       - name: Index with Pagefind
-        run: npx pagefind --site src/public
+        run: npx pagefind --site website/public
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: src/public
+          path: website/public
 
   deploy:
     environment:
@@ -60,4 +60,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-

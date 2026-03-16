@@ -9,6 +9,7 @@ enableEmoji = true
 
 [languages]
   [languages.en]
+    contentDir = "content/en"
     languageName = "English"
     weight = 1
     [languages.en.params]
@@ -26,6 +27,7 @@ enableEmoji = true
       url = "about/"
 
   [languages.tr]
+    contentDir = "content/tr"
     languageName = "Türkçe"
     weight = 2
     [languages.tr.params]
