@@ -120,6 +120,7 @@ resources/
 # Migration source and temporary files
 medium/
 portfolio/
+/portfolio/
 tmp/
 migrate_hugo.py
 fix_frontmatter.py

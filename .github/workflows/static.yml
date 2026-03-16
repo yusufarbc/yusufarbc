@@ -31,6 +31,11 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
+      - name: Debugging - List files
+        run: |
+          ls -R
+          hugo env
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 

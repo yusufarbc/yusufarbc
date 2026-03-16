@@ -10,7 +10,6 @@ enableEmoji = true
 [languages]
   [languages.en]
     languageName = "English"
-    contentDir = "content"
     weight = 1
     [languages.en.params]
       author = "Yusuf Talha ARABACI"
@@ -28,7 +27,6 @@ enableEmoji = true
 
   [languages.tr]
     languageName = "Türkçe"
-    contentDir = "content"
     weight = 2
     [languages.tr.params]
       author = "Yusuf Talha ARABACI"
@@ -57,7 +55,7 @@ enableEmoji = true
   avatarURL = "images/avatar.png"
   
   # Technical SEO
-  images = ["images/avatar.jpg"]
+  images = ["images/avatar.png"]
   titleSeparator = "|"
   customCSS = ["css/custom.css"]
   
