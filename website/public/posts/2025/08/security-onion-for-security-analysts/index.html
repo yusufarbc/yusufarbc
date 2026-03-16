@@ -13,37 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-  Security Onion for Security Analysts
-  
-    
-    Link to heading
-  
-
-
-
-  What is Security Onion?
-  
-    
-    Link to heading
-  
-
-Security Onion is an open source security platform and was developed by cybersecurity experts. Essentially, it offers functions such as network visibility, computer visibility, intrusion detection, log management, and event management.
-
-  Main Features:
-  
-    
-    Link to heading
-  
-
-
-Network Visibility: Monitors network traffic to detect security threats. It identifies malicious or anomalous traffic using tools like Suricata and Zeek.
-Host Visibility: With Elastic Agent, collects data from servers and workstations, performs live queries and provides centralized management.
-Intrusion Detection: Detects known malicious activities by monitoring network traffic.
-Log Management: All data flows into Elasticsearch and can be used for analysis and reporting.
-Incident Management: Provides an interface to track and manage security incidents.
-
-Security Onion helps cybersecurity analysts detect threats faster and better understand events in their networks.">
+<meta name="description" content="Security Onion is an open source security platform and was developed by cybersecurity experts. Essentially, it offers functions such as network visibility, computer visibility, intrusion detection, log management, and event management.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -51,14 +21,12 @@ Security Onion helps cybersecurity analysts detect threats faster and better und
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Security Onion for Security Analysts">
-  <meta name="twitter:description" content="Security Onion for Security AnalystsLink to headingWhat is Security Onion?Link to headingSecurity Onion is an open source security platform and was developed by cybersecurity experts. Essentially, it offers functions such as network visibility, computer visibility, intrusion detection, log management, and event management.
-Main Features:Link to headingNetwork Visibility: Monitors network traffic to detect security threats. It identifies malicious or anomalous traffic using tools like Suricata and Zeek. Host Visibility: With Elastic Agent, collects data from servers and workstations, performs live queries and provides centralized management. Intrusion Detection: Detects known malicious activities by monitoring network traffic. Log Management: All data flows into Elasticsearch and can be used for analysis and reporting. Incident Management: Provides an interface to track and manage security incidents. Security Onion helps cybersecurity analysts detect threats faster and better understand events in their networks.">
+  <meta name="twitter:description" content="Security Onion is an open source security platform and was developed by cybersecurity experts. Essentially, it offers functions such as network visibility, computer visibility, intrusion detection, log management, and event management.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2025/08/security-onion-for-security-analysts/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Security Onion for Security Analysts">
-  <meta property="og:description" content="Security Onion for Security AnalystsLink to headingWhat is Security Onion?Link to headingSecurity Onion is an open source security platform and was developed by cybersecurity experts. Essentially, it offers functions such as network visibility, computer visibility, intrusion detection, log management, and event management.
-Main Features:Link to headingNetwork Visibility: Monitors network traffic to detect security threats. It identifies malicious or anomalous traffic using tools like Suricata and Zeek. Host Visibility: With Elastic Agent, collects data from servers and workstations, performs live queries and provides centralized management. Intrusion Detection: Detects known malicious activities by monitoring network traffic. Log Management: All data flows into Elasticsearch and can be used for analysis and reporting. Incident Management: Provides an interface to track and manage security incidents. Security Onion helps cybersecurity analysts detect threats faster and better understand events in their networks.">
+  <meta property="og:description" content="Security Onion is an open source security platform and was developed by cybersecurity experts. Essentially, it offers functions such as network visibility, computer visibility, intrusion detection, log management, and event management.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -233,7 +201,6 @@ Main Features:Link to headingNetwork Visibility: Monitors network traffic to d
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*vqqoSWZ-zucw12rjrcFPWA.png" alt=""></p>
 <h3 id="what-is-security-onion">
   What is Security Onion?
   <a class="heading-link" href="#what-is-security-onion">
@@ -271,7 +238,6 @@ Main Features:Link to headingNetwork Visibility: Monitors network traffic to d
 <li><strong>Wazuh</strong>: It is a security monitoring tool that provides log analysis, intrusion detection, and compliance monitoring.</li>
 <li><strong>CyberChef</strong>: It is a web application used for data transformations and analysis.</li>
 </ol>
-<hr>
 <h3 id="open-source-security-analysis-platform">
   Open Source Security Analysis Platform
   <a class="heading-link" href="#open-source-security-analysis-platform">
@@ -320,7 +286,6 @@ Main Features:Link to headingNetwork Visibility: Monitors network traffic to d
 <li><strong>Security Tool Collection:</strong> Sguil/Squert (legacy UI), NetworkMiner, and Threat Integration options with Intel sources (STIX/TAXII, MISP, etc.) are also available. Security Onion can pull data from many third-party solutions, both in its own interfaces and through Elastic&rsquo;s integrations.</li>
 </ul>
 <p>Thanks to this integrated toolset, Security Onion offers a complete security environment for attack detection and analysis. In summary, the platform creates a comprehensive security base by collecting network data from Suricata/Zeek and endpoint data from Elastic Agent in a single place. (Note: In newer versions, TheHive is no longer used and Wazuh support has been largely replaced by Elastic Agent.)</p>
-<hr>
 <h3 id="log-aggregation-and-correlation-features">
   Log Aggregation and Correlation Features
   <a class="heading-link" href="#log-aggregation-and-correlation-features">
@@ -340,7 +305,6 @@ Main Features:Link to headingNetwork Visibility: Monitors network traffic to d
 <p>Security Onion offers multi-layered threat detection capabilities suitable for both automated and analyst intervention. Signature-based attacks (snort/Suricata rules) are constantly scanned by the network with Suricata and critical alerts are generated. Zeek provides protocol-specific anomalies and metadata, while Strelka scans suspicious content for YARA signatures with file analysis.</p>
 <p>With the combination of Elastic Agent and osquery on the host side, malware, signature matches, file integrity violations and similar events are detected. For <em>threat hunting</em>, security analysts can make targeted queries using the <strong>Hunt</strong> tab in the SOC interface (for example, not searching for a specific IP or file hash). <em>Detective rules</em> (Sigma, YARA, Snort/Suricata) are managed on the SOC&rsquo;s <strong>Detections</strong> page; analysts can add new rules or customize existing rules.</p>
 <p>From an incident response perspective, all findings can be converted into cases within Security Onion. While there used to be TheHive integration, now case management is done through the platform&rsquo;s own <strong>Cases</strong> interface. When an alert is detected, the analyst can move this alert to the case and save all associated logs and observations. For example, when suspicious traffic is seen, it can document the relevant IP, file hash and other IOCs by creating <strong>Cases</strong> through this alert. Then, similar events are scanned in the <strong>Hunt</strong> tab, full packages are examined from the <strong>PCAP</strong> interface when necessary, and harmful contents are analyzed with <strong>CyberChef</strong>. In the last step, the level of infection is measured by performing live queries on the endpoints with <strong>osquery</strong> (e.g. searching for machines where a certain file is located). This entire process is carried out in an integrated manner with the SOC interface (Alerts→Hunt→PCAP→Cases). Thanks to ElastAlert support, user-defined custom alarms can also be created. In summary, Security Onion provides coverage with multiple detectors, both network and host focused.It detects relevant threats; facilitates monitoring, intervention and reporting with case-based workflows.</p>
-<hr>
 <h3 id="user-interface-and-visualization">
   User Interface and Visualization
   <a class="heading-link" href="#user-interface-and-visualization">
@@ -369,7 +333,6 @@ Main Features:Link to headingNetwork Visibility: Monitors network traffic to d
 </h3>
 <p>Security Onion installation is done via ISO. After the installation, the system is configured with the <em>so-setup</em> command. There is an installation wizard that offers the user various deployment scenarios. For example, <strong>Eval</strong> mode quickly creates a test environment with a single network interface, while <strong>Standalone</strong> mode is a full-featured single server setup. In Standalone, the Logstash→Redis→Logstash→Elasticsearch line runs. In <strong>Distributor</strong> mode, you can select manager, search and forward roles during installation. Thus, a scalable grid is created. When running Manager node, Kibana and Elasticsearch; forward nodes operate as Suricata/Zeek sensors; Search nodes contain the indexing and query infrastructure. Additionally, a desktop environment with a graphical interface can be installed using the <strong>Desktop</strong> mode.</p>
 <p>During the installation, network interfaces are determined (such as management, sniffing) and the node role is selected. Addressing and certification settings for all components are made with SaltStack-based configuration (SO-setup). Software updates are performed with the <em>soup</em> command (security onion upgrade playbook). AWS/Azure marketplace images are also available; It can be quickly deployed in cloud environments using official AMI/VM images. After each installation, the status of the services can be checked with the <strong>so-status</strong> command. In distributed environments, the status of all components is monitored centrally via the <strong>Grid</strong> panel.</p>
-<hr>
 <h3 id="daily-operational-use-cases-and-scenarios">
   Daily Operational Use Cases and Scenarios
   <a class="heading-link" href="#daily-operational-use-cases-and-scenarios">
@@ -379,7 +342,6 @@ Main Features:Link to headingNetwork Visibility: Monitors network traffic to d
 </h3>
 <p>Security Onion is used in many scenarios in daily SOC operations. <strong>Sample usage flow</strong> is as follows: The analyst first reviews incoming Suricata alerts in the <em>Alerts</em> tab. If a suspicious IP, domain or attack signature is detected, it moves this alarm to the <em>Hunt</em> tab and initiates a detailed query. For example, it can examine DNS records and connection graphs for the relevant IP. Then, that traffic flow from the <em>PCAP</em> tab. Analyzes the raw packages of the beam. It sends a potentially harmful file it finds to <em>CyberChef</em>, where it decodes its content and performs hash analysis. All these findings are noted in the <strong>Cases</strong> module; The scope and steps of the event are documented. If necessary, the existence of this file is checked on all machines on the network with <em>osquery</em>. Ultimately, the case is closed or an action plan is created when necessary.</p>
 <p>In daily use, the general status of the network is also evaluated by looking at the <strong>dashboard</strong> panels. For example, metrics such as top sources of daily traffic, DNS requests, suspicious URLs are reviewed. New IDS rules are written and tested on the <strong>Detections</strong> page. For automation, you can import <em>Threat Intel</em> data or existing vulnerability intelligence (e.g. CVEs, IOC lists) with Elastic integrations and keep it constantly updated. After installation, you can also review the system logs in <em>Kibana Discover</em> to monitor abnormal user movements or unsuccessful login attempts. In short, with Security Onion, all security operations are carried out on a single platform, from the morning-breakfast routine to the end of attack analysis. In a typical threat hunting scenario, the SOC tool Waterfall workflow from alarm detection to case closure proceeds as follows: <em>Hunt → PCAP → CyberChef → Cases</em><a href="https://www.starwindsoftware.com/blog/security-onion-threat-hunting/#:~:text=1,case%20with%20a%20full%20report"  class="external-link" target="_blank" rel="noopener">[29]</a>. With this integrated workflow, analysts can quickly resolve incidents without having to switch between multiple tools.</p>
-<hr>
 <h3 id="advantages-and-limitations">
   Advantages and Limitations
   <a class="heading-link" href="#advantages-and-limitations">

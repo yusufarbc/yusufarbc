@@ -13,8 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-It examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of &ldquo;identity is the new security perimeter&rdquo;, this study presents a comprehensive strategy that aims to transform AD from a security weakness into a defense fortress. The report covers common attack vectors such as Kerberoasting, Pass-the-Hash and Golden Ticket, advanced defense mechanisms such as Tiered Model, Credential Guard and Group Managed Service Accounts (gMSA), security of hybrid identity infrastructures, and continuous monitoring and disaster recovery operations in technical detail. This guide concludes by providing an actionable roadmap for security leaders and technical practitioners to improve the security and resilience of AD infrastructures.">
+<meta name="description" content="It examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of &#34;identity is the new security perimeter&#34;, this study presents a comprehensive strate...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -22,12 +21,12 @@ It examines in detail the central role of Active Directory (AD) in the modern cy
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Network Security and Management VII: Active Directory">
-  <meta name="twitter:description" content="It examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of “identity is the new security perimeter”, this study presents a comprehensive strategy that aims to transform AD from a security weakness into a defense fortress. The report covers common attack vectors such as Kerberoasting, Pass-the-Hash and Golden Ticket, advanced defense mechanisms such as Tiered Model, Credential Guard and Group Managed Service Accounts (gMSA), security of hybrid identity infrastructures, and continuous monitoring and disaster recovery operations in technical detail. This guide concludes by providing an actionable roadmap for security leaders and technical practitioners to improve the security and resilience of AD infrastructures.">
+  <meta name="twitter:description" content="It examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of &#34;identity is the new security perimeter&#34;, this study presents a comprehensive strate...">
 
 <meta property="og:url" content="http://localhost:1313/posts/2025/08/network-security-and-management-vii-active-directory/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Network Security and Management VII: Active Directory">
-  <meta property="og:description" content="It examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of “identity is the new security perimeter”, this study presents a comprehensive strategy that aims to transform AD from a security weakness into a defense fortress. The report covers common attack vectors such as Kerberoasting, Pass-the-Hash and Golden Ticket, advanced defense mechanisms such as Tiered Model, Credential Guard and Group Managed Service Accounts (gMSA), security of hybrid identity infrastructures, and continuous monitoring and disaster recovery operations in technical detail. This guide concludes by providing an actionable roadmap for security leaders and technical practitioners to improve the security and resilience of AD infrastructures.">
+  <meta property="og:description" content="It examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of &#34;identity is the new security perimeter&#34;, this study presents a comprehensive strate...">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -202,9 +201,7 @@ It examines in detail the central role of Active Directory (AD) in the modern cy
         
           <img src="https://cdn-images-1.medium.com/max/800/1*xHCEWIgWsOG-PR1mgpcXvQ.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*xHCEWIgWsOG-PR1mgpcXvQ.png" alt=""></p>
-<p>It examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of &ldquo;identity is the new security perimeter&rdquo;, this study presents a comprehensive strategy that aims to transform AD from a security weakness into a defense fortress. The report covers common attack vectors such as Kerberoasting, Pass-the-Hash and Golden Ticket, advanced defense mechanisms such as Tiered Model, Credential Guard and Group Managed Service Accounts (gMSA), security of hybrid identity infrastructures, and continuous monitoring and disaster recovery operations in technical detail. This guide concludes by providing an actionable roadmap for security leaders and technical practitioners to improve the security and resilience of AD infrastructures.</p>
-<hr>
+        <p>It examines in detail the central role of Active Directory (AD) in the modern cybersecurity ecosystem and why it is a primary attack target. Based on the paradigm of &ldquo;identity is the new security perimeter&rdquo;, this study presents a comprehensive strategy that aims to transform AD from a security weakness into a defense fortress. The report covers common attack vectors such as Kerberoasting, Pass-the-Hash and Golden Ticket, advanced defense mechanisms such as Tiered Model, Credential Guard and Group Managed Service Accounts (gMSA), security of hybrid identity infrastructures, and continuous monitoring and disaster recovery operations in technical detail. This guide concludes by providing an actionable roadmap for security leaders and technical practitioners to improve the security and resilience of AD infrastructures.</p>
 <h3 id="active-directory-architecture-and-security-fundamentals">
   Active Directory Architecture and Security Fundamentals
   <a class="heading-link" href="#active-directory-architecture-and-security-fundamentals">
@@ -288,7 +285,6 @@ It examines in detail the central role of Active Directory (AD) in the modern cy
 </h3>
 <p>Group Policy Objects (GPOs) are one of AD&rsquo;s most powerful security management tools. Through GPOs, administrators can centrally configure and enforce security settings for thousands of computers and users. These settings include critical controls such as password policies, account lockout policies, auditing settings, software restrictions, and Windows Firewall rules. The ability to connect GPOs to OUs allows creating different security baselines for assets at different risk levels. This forms the basis of AD tightening.</p>
 <p>An attacker typically infiltrates a network by taking over a low-authority user account. This account resides within a specific OU and is subject to restrictions set by GPOs. The attacker&rsquo;s ultimate goal is to reach a Tier 0 level account, such as a Domain Admin, usually through lateral movement. If the AD architecture and GPOs are designed correctly according to the &ldquo;Principle of Least Privilege&rdquo;, the systems that this first compromised account can access and the actions it can perform will be extremely limited. This forces the attacker to look for additional vulnerabilities to move to an upper administrative boundary (for example, to servers in a different OU or directly to a Domain Controller). Therefore, a well-structured AD architecture acts as a passive defense mechanism that slows down the attack, leaves more traces, and gives security teams more opportunities for detection. On the contrary, a poorly structured AD is like a straight highway for the attacker to his goal.</p>
-<hr>
 <h3 id="active-directory-attack-surface-threat-vectors-and-techniques">
   Active Directory Attack Surface: Threat Vectors and Techniques
   <a class="heading-link" href="#active-directory-attack-surface-threat-vectors-and-techniques">
@@ -451,7 +447,6 @@ It examines in detail the central role of Active Directory (AD) in the modern cy
   </tbody>
 </table>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*YontK_x4FdZcm4LQIPCUtw.png" alt=""></p>
-<hr>
 <h3 id="depth-of-defense-multi-layered-security-strategies">
   Depth of Defense: Multi-Layered Security Strategies
   <a class="heading-link" href="#depth-of-defense-multi-layered-security-strategies">
@@ -589,7 +584,6 @@ It examines in detail the central role of Active Directory (AD) in the modern cy
 </ul>
 <p>Although these defense mechanisms are valuable on their own, their real power comes when they come together. This creates a unified defensive philosophy that makes the attacker&rsquo;s job almost impossible. Once an attacker compromises an account in Tier 2, the Tiered Model prevents them from gaining access to Tier 0 assets. When trying to move laterally within the same layer, PtH attacks are rendered ineffective because each machine has a different local administrator password, thanks to LAPS. Even if it somehow gains administrative rights on a machine, Credential Guard fundamentally defeats PtH and PtT attacks by preventing it from stealing credentials from LSASS. When it tries to target service accounts, the Kerberoasting attack fails, thanks to gMSAs&rsquo; almost impossible-to-crack passwords. This layered defense renders AD a fortress by disabling the attacker&rsquo;s most basic weapons: credential theft and reuse.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*m6kPdehFatPSmDwBEF0fDw.png" alt=""></p>
-<hr>
 <h3 id="security-of-hybrid-identity-infrastructures">
   Security of Hybrid Identity Infrastructures
   <a class="heading-link" href="#security-of-hybrid-identity-infrastructures">
@@ -658,7 +652,6 @@ It examines in detail the central role of Active Directory (AD) in the modern cy
 <li><strong>Just-In-Time (JIT):</strong> Using solutions such as Azure AD Privileged Identity Management (PIM), administrators should be granted access to cloud roles only for the time they need (for example, for 2 hours) and through an approval process, rather than permanently. This significantly reduces the risk of privileged access.</li>
 </ul>
 <p>In hybrid identity infrastructures, the trust relationship between on-premises AD and Azure AD can act as a bridge for attackers. When an organization federates with ADFS to improve user experience, they are essentially instructing Azure AD to “trust signed SAML tokens from the ADFS server.” If an attacker gains administrative access to the ADFS server by exploiting a vulnerability in the on-premises network, they can steal the token signing private key that underpins this trust. From this point on, the attacker can create a valid, signed SAML token on behalf of any user (for example, a Global Admin) over the internet, with no further need for the on-premises network. Azure AD will accept this token as a legitimate proof of identity, giving the attacker full control of the cloud environment. This scenario clearly demonstrates that in the hybrid model, the weakest link breaks the entire chain and the security of hybrid components such as ADFS becomes the security of the entire cloud identity infrastructure.</p>
-<hr>
 <h3 id="continuous-monitoring-audit-and-recovery">
   Continuous Monitoring, Audit and Recovery
   <a class="heading-link" href="#continuous-monitoring-audit-and-recovery">
@@ -754,8 +747,7 @@ It examines in detail the central role of Active Directory (AD) in the modern cy
 <li>Unless there is an emergency, it is strongly recommended to wait <strong>at least 10 hours</strong> for existing Kerberos tickets to expire naturally and for replication to propagate to all DCs. This minimizes service interruptions. In an emergency recovery scenario, this waiting period can be bypassed, but this may cause temporary authentication issues.</li>
 <li>By performing the second reset, the password history is completely cleared and the forest is made secure again.</li>
 </ol>
-<!-- Table or summary omitted -->
-<hr>
+<!-- Table or summary omitted -->
 <h3 id="conclusion-and-strategic-recommendations">
   Conclusion and Strategic Recommendations
   <a class="heading-link" href="#conclusion-and-strategic-recommendations">

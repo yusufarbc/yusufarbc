@@ -13,23 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-  Basic C Programming Tutorial #1
-  
-    
-    Link to heading
-  
-
-In this article, I will share the notes and practice questions of the Basic C Programming Training, the first week of which we completed. You can access my previous article here, where I explained the development and syntax of the C language.
-
-
-  Definitions
-  
-    
-    Link to heading
-  
-
-In our first lesson, we introduced the C language and touched on the basic definitions.">
+<meta name="description" content="In this article, I will share the notes and practice questions of the Basic C Programming Training, the first week of which we completed. You can access my previous article here, where I explained the development and syntax of the C language.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -37,14 +21,12 @@ In our first lesson, we introduced the C language and touched on the basic defin
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Basic C Programming Tutorial #1">
-  <meta name="twitter:description" content="Basic C Programming Tutorial #1Link to headingIn this article, I will share the notes and practice questions of the Basic C Programming Training, the first week of which we completed. You can access my previous article here, where I explained the development and syntax of the C language.
-DefinitionsLink to headingIn our first lesson, we introduced the C language and touched on the basic definitions.">
+  <meta name="twitter:description" content="In this article, I will share the notes and practice questions of the Basic C Programming Training, the first week of which we completed. You can access my previous article here, where I explained the development and syntax of the C language.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2022/12/basic-c-programming-tutorial-%231/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Basic C Programming Tutorial #1">
-  <meta property="og:description" content="Basic C Programming Tutorial #1Link to headingIn this article, I will share the notes and practice questions of the Basic C Programming Training, the first week of which we completed. You can access my previous article here, where I explained the development and syntax of the C language.
-DefinitionsLink to headingIn our first lesson, we introduced the C language and touched on the basic definitions.">
+  <meta property="og:description" content="In this article, I will share the notes and practice questions of the Basic C Programming Training, the first week of which we completed. You can access my previous article here, where I explained the development and syntax of the C language.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -218,7 +200,6 @@ DefinitionsLink to headingIn our first lesson, we introduced the C language an
   </a>
 </h3>
 <p>In this article, I will share the notes and practice questions of the Basic C Programming Training, the first week of which we completed. You can access my previous article <a href="https://medium.com/@yusufarbc/c-programlama-dilinin-geli%c5%9fimi-24ec503f108a"  class="external-link" target="_blank" rel="noopener">here</a>, where I explained the development and syntax of the C language.</p>
-<hr>
 <h3 id="definitions">
   Definitions
   <a class="heading-link" href="#definitions">
@@ -243,14 +224,14 @@ DefinitionsLink to headingIn our first lesson, we introduced the C language an
 <li>void — means without type.</li>
 </ul>
 <p>We can define variables using these data types:</p>
-<pre tabindex="0"><code>int a = 5;            // a variable of integer type named a with value &#39;5&#39;  
-float b = 7.5;        //a variable named b of type float with value &#39;7.5&#39;  
-char c = &#39;a&#39;;         //A variable named c with value &#39;a&#39; of type char  
+<pre tabindex="0"><code>int a = 5;            // a variable of integer type named a with value &#39;5&#39;  
+float b = 7.5;        //a variable named b of type float with value &#39;7.5&#39;  
+char c = &#39;a&#39;;         //A variable named c with value &#39;a&#39; of type char  
 double d = 8965.3645; //A variable of double type named d with value &#39;8965.3645&#39;
 </code></pre><p>If we want to define constants with these data types, all we need to do is add the &lsquo;const&rsquo; keyword to the beginning of the variable definition.</p>
-<pre tabindex="0"><code>const int a = 5;            // a constant of integer type named a with value &#39;5&#39;  
-const float b = 7.5;        //a constant named b of type float with value &#39;7.5&#39;  
-const char c = &#39;a&#39;;         //Create a constant named c with value &#39;a&#39; of type char  
+<pre tabindex="0"><code>const int a = 5;            // a constant of integer type named a with value &#39;5&#39;  
+const float b = 7.5;        //a constant named b of type float with value &#39;7.5&#39;  
+const char c = &#39;a&#39;;         //Create a constant named c with value &#39;a&#39; of type char  
 const double d = 8965.3645; //a constant with the name d of type double and the value &#39;8965.3645&#39;
 </code></pre><p>Constants, unlike variables, remain at the same value throughout the program&rsquo;s runtime. If you try to change the value they hold in the program flow, they will give an error.</p>
 <h4 id="array-definition">
@@ -263,19 +244,19 @@ const double d = 8965.3645; //a constant with the name d of type double and the 
 <p>The definition of arrays is very similar to variables. In fact, arrays are structures that hold more than one variable of the same type. For example, an array of type int; It contains integer values ​​that can change.</p>
 <p>The most important point when defining arrays is to specify the array size. When the program runs, it requests space from memory according to the size of this array, and this size does not change during the program&rsquo;s runtime.</p>
 <p>We can define arrays in two ways. One of them is specifying its size and the other is specifying the values it will take:</p>
-<pre tabindex="0"><code>int array1[10];            //A 10-element integer array.  
-  
+<pre tabindex="0"><code>int array1[10];            //A 10-element integer array.  
+  
 int array2[] = {1,2,3,4} //A 4-element integer array.
 </code></pre><p>To access the elements of the arrays, we write the index of the element we will access in square brackets. The index of an element is the number that indicates the rank of that element in the array. The first element of an array is at index 0, and when each element is added, it gets the next index value.</p>
-<pre tabindex="0"><code>number1 = array2[0];  //assigns the first element of array2 to number1  
-number2 = array2[1];  //assigns the second element of array2 to number2  
-number3 = array3[2];  //assigns the third element of array2 to number3  
+<pre tabindex="0"><code>number1 = array2[0];  //assigns the first element of array2 to number1  
+number2 = array2[1];  //assigns the second element of array2 to number2  
+number3 = array3[2];  //assigns the third element of array2 to number3  
 number4 = array4[3];  //assigns the fourth element of array2 to number4
 </code></pre><p>We can access the elements of the array named array2, which we defined in the previous example, as above.</p>
 <p>We could only receive a single character with the char variable type. We need strings of characters to get a word.</p>
-<pre tabindex="0"><code>char str1[20]; //Definition of a 20-character string  
-  
-  
+<pre tabindex="0"><code>char str1[20]; //Definition of a 20-character string  
+  
+  
 char str2[] = &#34;string expression&#34;; //character array with a certain value (string)
 </code></pre><h4 id="printf--scanf-functions">
   printf() &amp; scanf() functions
@@ -297,15 +278,14 @@ char str2[] = &#34;string expression&#34;; //character array with a certain valu
 <li>%x: used for hexadecimal values.</li>
 </ul>
 <p>We can take input from the user and give output using these specifiers:</p>
-<pre tabindex="0"><code>int number;  
-printf(&#34;Enter a number: &#34;);scanf(&#34;%d&#34;, &amp;number);  
+<pre tabindex="0"><code>int number;  
+printf(&#34;Enter a number: &#34;);scanf(&#34;%d&#34;, &amp;number);  
 printf(&#34;The entered number is %d&#34;, number);
-</code></pre><p>Things we need to pay attention to here: 
+</code></pre><p>Things we need to pay attention to here:<br>
 In the scanf() function, placing the &lsquo;&amp;&rsquo; sign when specifying the variable to which the value will be assigned and using the specifiers in the first parameter and in double quotes in both functions.</p>
-<pre tabindex="0"><code>char[20] name;  //Definition of a 20-character string named name  
+<pre tabindex="0"><code>char[20] name;  //Definition of a 20-character string named name  
 printf(&#34;enter your name: &#34;);
 </code></pre><p>In the example above, a program was written that takes a string from the user and returns this value to the user in a message.</p>
-<hr>
 <h3 id="condition-structures">
   Condition Structures
   <a class="heading-link" href="#condition-structures">
@@ -345,13 +325,13 @@ printf(&#34;enter your name: &#34;);
   </a>
 </h4>
 <p>The if else structure is one of the structures we can use to define condition statements. It always starts with an <em>if</em> statement, and falls into an <em>else</em> statement if the condition is not met. <em>else if</em> statement can be used to define more than one condition.</p>
-<pre tabindex="0"><code>if(a==b){  
-  printf(&#34;a and b equal&#34;);  
-}else if(a&gt;b){  
-  printf(&#34;a is greater than b&#34;);  
-}else{  
-  printf(&#34;a is less than b&#34;);  
-}  
+<pre tabindex="0"><code>if(a==b){  
+  printf(&#34;a and b equal&#34;);  
+}else if(a&gt;b){  
+  printf(&#34;a is greater than b&#34;);  
+}else{  
+  printf(&#34;a is less than b&#34;);  
+}  
 printf(&#34;outside condition);
 </code></pre><p>If the if condition is met, the statements within the condition are executed and the program flow continues outside the condition statement. If the <em>if</em> condition is not met, the next <em>else looks at the condition in if</em> (if any), if no condition is met, it falls to <em>else</em> (if any).</p>
 <h4 id="switch-case-structure">
@@ -362,24 +342,24 @@ printf(&#34;outside condition);
   </a>
 </h4>
 <p>The switch-case structure is a structure developed to deal with multiple situations.</p>
-<pre tabindex="0"><code>int number;  
-printf(&#34;Enter a number: &#34;);   
-scanf(&#34;%d&#34;, &amp;number);  
-  
-switch(condition){  
-  case 1:  
-    printf(&#34;Number 1 entered&#34;);  
-    break;  
-  case 2:  
-    //Since we don&#39;t break it, it continues to run with case3.  
-  case 3:  
-    printf(&#34;The number 2 or 3 was entered&#34;);  
-    break;  
-  case 4:  
-    printf(&#34;The number 4 was entered&#34;);  
-    //Since we do not put a break statement, it also works as default  
-  default:  
-    printf(&#34;undefined number&#34;);  
+<pre tabindex="0"><code>int number;  
+printf(&#34;Enter a number: &#34;);   
+scanf(&#34;%d&#34;, &amp;number);  
+  
+switch(condition){  
+  case 1:  
+    printf(&#34;Number 1 entered&#34;);  
+    break;  
+  case 2:  
+    //Since we don&#39;t break it, it continues to run with case3.  
+  case 3:  
+    printf(&#34;The number 2 or 3 was entered&#34;);  
+    break;  
+  case 4:  
+    printf(&#34;The number 4 was entered&#34;);  
+    //Since we do not put a break statement, it also works as default  
+  default:  
+    printf(&#34;undefined number&#34;);  
 }
 </code></pre><p>It executes the statements in <em>case</em> that are appropriate based on the value of the given condition variable. This condition variable can only be of type <em>int</em> and <em>char</em>. Execution of statements continues until you see a <em>break</em> statement. That is, unless there is a <em>break</em>, the program continues to execute the statements in other <em>cases</em>.</p>
 <h4 id="ternary-operator">
@@ -392,7 +372,6 @@ switch(condition){
 <p>ternaty operator is used to define quick and short conditional expressions in a single line</p>
 <pre tabindex="0"><code>(a==b)?printf(&#34;a and b are equal&#34;):printf(&#34;a and b are not equal&#34;);
 </code></pre><p>A condition is written in parentheses, followed by a question mark. The section after the question mark is the section that will be executed if the condition is true. Two points are placed after this section. The next part runs if the condition is false.</p>
-<hr>
 <h3 id="practice-questions">
   Practice Questions
   <a class="heading-link" href="#practice-questions">

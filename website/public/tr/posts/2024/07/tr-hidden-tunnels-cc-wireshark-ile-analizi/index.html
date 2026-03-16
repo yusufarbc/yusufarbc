@@ -13,25 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-  [TR] Hidden Tunnels (C&amp;C) Wireshark ile Analizi
-  
-    
-    Başlık Linki
-  
-
-Merhaba bu yazımda HTTP tünelleme tekniklerinden bahsedeceğim.
-
-Bilgisayar güvenliği alanında “Hidden Tunnels” terimi genellikle kötü amaçlar için kullanılan veri sızdırma, komuta ve kontrol (C&amp;C) veya ağ tespitini atlama gibi çeşitli amaçlar için kullanılan gizli veya izinsiz ağ bağlantılarını ifade eder. Bu gizli tüneller, saldırganların faaliyetlerini gizlemelerine ve güvenlik önlemlerini aşmalarına yardımcı olur.
-
-
-  HTTP/HTTPS Tünelleme
-  
-    
-    Başlık Linki
-  
-
-HTTP/HTTPS tünellemesi, ağ güvenlik önlemlerini atlatmak için kullanılan bir tekniktir. Bu yöntem, HTTP veya HTTPS paketlerinin içine HTTP olmayan trafiği kapsüllenerek gerçekleştirilir. HTTP/HTTPS tünellemesi, kısıtlayıcı web filtreleme politikalarının olduğu ortamlarda sıkışmış web sitelerine veya hizmetlere erişim sağlamak gibi meşru amaçlar için kullanılabilir, ancak aynı zamanda veri sızdırma veya kompromize edilmiş sistemlerin uzaktan kontrolü gibi kötü amaçlı aktiviteler için de kullanılabilir.">
+<meta name="description" content="Merhaba bu yazımda HTTP tünelleme tekniklerinden bahsedeceğim.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -39,16 +21,12 @@ HTTP/HTTPS tünellemesi, ağ güvenlik önlemlerini atlatmak için kullanılan b
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="[TR] Hidden Tunnels (C&C) Wireshark ile Analizi">
-  <meta name="twitter:description" content="[TR] Hidden Tunnels (C&amp;C) Wireshark ile AnaliziBaşlık LinkiMerhaba bu yazımda HTTP tünelleme tekniklerinden bahsedeceğim.
-Bilgisayar güvenliği alanında “Hidden Tunnels” terimi genellikle kötü amaçlar için kullanılan veri sızdırma, komuta ve kontrol (C&amp;C) veya ağ tespitini atlama gibi çeşitli amaçlar için kullanılan gizli veya izinsiz ağ bağlantılarını ifade eder. Bu gizli tüneller, saldırganların faaliyetlerini gizlemelerine ve güvenlik önlemlerini aşmalarına yardımcı olur.
-HTTP/HTTPS TünellemeBaşlık LinkiHTTP/HTTPS tünellemesi, ağ güvenlik önlemlerini atlatmak için kullanılan bir tekniktir. Bu yöntem, HTTP veya HTTPS paketlerinin içine HTTP olmayan trafiği kapsüllenerek gerçekleştirilir. HTTP/HTTPS tünellemesi, kısıtlayıcı web filtreleme politikalarının olduğu ortamlarda sıkışmış web sitelerine veya hizmetlere erişim sağlamak gibi meşru amaçlar için kullanılabilir, ancak aynı zamanda veri sızdırma veya kompromize edilmiş sistemlerin uzaktan kontrolü gibi kötü amaçlı aktiviteler için de kullanılabilir.">
+  <meta name="twitter:description" content="Merhaba bu yazımda HTTP tünelleme tekniklerinden bahsedeceğim.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2024/07/tr-hidden-tunnels-cc-wireshark-ile-analizi/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="[TR] Hidden Tunnels (C&C) Wireshark ile Analizi">
-  <meta property="og:description" content="[TR] Hidden Tunnels (C&amp;C) Wireshark ile AnaliziBaşlık LinkiMerhaba bu yazımda HTTP tünelleme tekniklerinden bahsedeceğim.
-Bilgisayar güvenliği alanında “Hidden Tunnels” terimi genellikle kötü amaçlar için kullanılan veri sızdırma, komuta ve kontrol (C&amp;C) veya ağ tespitini atlama gibi çeşitli amaçlar için kullanılan gizli veya izinsiz ağ bağlantılarını ifade eder. Bu gizli tüneller, saldırganların faaliyetlerini gizlemelerine ve güvenlik önlemlerini aşmalarına yardımcı olur.
-HTTP/HTTPS TünellemeBaşlık LinkiHTTP/HTTPS tünellemesi, ağ güvenlik önlemlerini atlatmak için kullanılan bir tekniktir. Bu yöntem, HTTP veya HTTPS paketlerinin içine HTTP olmayan trafiği kapsüllenerek gerçekleştirilir. HTTP/HTTPS tünellemesi, kısıtlayıcı web filtreleme politikalarının olduğu ortamlarda sıkışmış web sitelerine veya hizmetlere erişim sağlamak gibi meşru amaçlar için kullanılabilir, ancak aynı zamanda veri sızdırma veya kompromize edilmiş sistemlerin uzaktan kontrolü gibi kötü amaçlı aktiviteler için de kullanılabilir.">
+  <meta property="og:description" content="Merhaba bu yazımda HTTP tünelleme tekniklerinden bahsedeceğim.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -230,9 +208,7 @@ HTTP/HTTPS TünellemeBaşlık LinkiHTTP/HTTPS tünellemesi, ağ güvenlik önl
   </a>
 </h3>
 <p>Merhaba bu yazımda HTTP tünelleme tekniklerinden bahsedeceğim.</p>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*cWRqt_otCGQkQf0iobOVnw.png" alt=""></p>
 <p>Bilgisayar güvenliği alanında “Hidden Tunnels” terimi genellikle kötü amaçlar için kullanılan veri sızdırma, komuta ve kontrol (C&amp;C) veya ağ tespitini atlama gibi çeşitli amaçlar için kullanılan gizli veya izinsiz ağ bağlantılarını ifade eder. Bu gizli tüneller, saldırganların faaliyetlerini gizlemelerine ve güvenlik önlemlerini aşmalarına yardımcı olur.</p>
-<hr>
 <h3 id="httphttps-tünelleme">
   HTTP/HTTPS Tünelleme
   <a class="heading-link" href="#httphttps-t%c3%bcnelleme">
@@ -270,7 +246,6 @@ HTTP/HTTPS TünellemeBaşlık LinkiHTTP/HTTPS tünellemesi, ağ güvenlik önl
   </a>
 </h4>
 <p>HTTP/HTTPS tünelleme, ağ güvenliği açısından dikkatle izlenmesi gereken bir konudur. Güvenlik duvarları, IDS/IPS (Intrusion Detection System/Intrusion Prevention System) sistemleri ve diğer güvenlik önlemleri, bu tür tünelleme trafiğini izlemek ve tespit etmek için kullanılabilir. Ayrıca, kullanıcı eğitimi ve güvenlik politikaları, HTTP/HTTPS tünelleme ile ilgili riskleri azaltmaya yardımcı olabilir.</p>
-<hr>
 <h3 id="dns-tünelleme">
   <strong>DNS Tünelleme</strong>
   <a class="heading-link" href="#dns-t%c3%bcnelleme">
@@ -304,7 +279,6 @@ HTTP/HTTPS TünellemeBaşlık LinkiHTTP/HTTPS tünellemesi, ağ güvenlik önl
 </h4>
 <p>wireshark</p>
 <p>DNS tünelleme, ağ güvenliği açısından ciddi bir tehdit oluşturabilir, bu nedenle güvenlik duvarları, IDS/IPS sistemleri ve DNS denetimleri, bu tür saldırılara karşı korunma amacıyla kullanılmalıdır. Ayrıca, iyi bir güvenlik politikası ve DNS trafiği izleme ve analiz etme yetenekleri bu tür tehditleri tespit etmeye yardımcı olabilir.</p>
-<hr>
 <h3 id="icmp-tünelleme">
   <strong>ICMP</strong> Tünelleme
   <a class="heading-link" href="#icmp-t%c3%bcnelleme">
@@ -350,7 +324,6 @@ HTTP/HTTPS TünellemeBaşlık LinkiHTTP/HTTPS tünellemesi, ağ güvenlik önl
 </li>
 </ol>
 <p>ICMP tünelleme, ağ güvenliği açısından ciddi bir tehdit oluşturabilir çünkü bu tür trafiği izlemek ve engellemek zor olabilir. Bu nedenle, ağ güvenlik duvarları ve IDS/IPS (Intrusion Detection System/Intrusion Prevention System) sistemleri, ICMP tünelleme trafiğini tespit etmek ve engellemek için iyi yapılandırılmalıdır. Ayrıca, düzenli güvenlik denetimleri ve güvenlik politikaları da bu tür tehditlere karşı önlem alınmasına yardımcı olabilir.</p>
-<hr>
 <h3 id="kaynaklar">
   Kaynaklar
   <a class="heading-link" href="#kaynaklar">

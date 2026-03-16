@@ -13,17 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-Merhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
-
-
-  UDP Nedir?
-  
-    
-    Başlık Linki
-  
-
-Yakaladığınız trafikte çokça broadcast/multicast yayın görüyorsanız fazla sayıda UDP tabanlı iletişiminiz var demektir. UDP bağlantı kurmadan aktarım sağlar. Broadcast ve multicast trafiği UDP üzerinden akar. UDP başlığında port alanları, aktarımı kullanan uygulamayı tanımlar. UDP dört alandan oluşan 8 baytlık basit bir başlık(header) kullandığından, UDP’nin kendisi nadiren problem üretir. UDP, RFC 768, Kullanıcı Datagram Protokolü’nde tanımlanmıştır.">
+<meta name="description" content="Merhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -31,14 +21,12 @@ Yakaladığınız trafikte çokça broadcast/multicast yayın görüyorsanız fa
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="UDP Wireshark Analizi">
-  <meta name="twitter:description" content="Merhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
-UDP Nedir?Başlık LinkiYakaladığınız trafikte çokça broadcast/multicast yayın görüyorsanız fazla sayıda UDP tabanlı iletişiminiz var demektir. UDP bağlantı kurmadan aktarım sağlar. Broadcast ve multicast trafiği UDP üzerinden akar. UDP başlığında port alanları, aktarımı kullanan uygulamayı tanımlar. UDP dört alandan oluşan 8 baytlık basit bir başlık(header) kullandığından, UDP’nin kendisi nadiren problem üretir. UDP, RFC 768, Kullanıcı Datagram Protokolü’nde tanımlanmıştır.">
+  <meta name="twitter:description" content="Merhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2023/12/udp-wireshark-analizi/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="UDP Wireshark Analizi">
-  <meta property="og:description" content="Merhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
-UDP Nedir?Başlık LinkiYakaladığınız trafikte çokça broadcast/multicast yayın görüyorsanız fazla sayıda UDP tabanlı iletişiminiz var demektir. UDP bağlantı kurmadan aktarım sağlar. Broadcast ve multicast trafiği UDP üzerinden akar. UDP başlığında port alanları, aktarımı kullanan uygulamayı tanımlar. UDP dört alandan oluşan 8 baytlık basit bir başlık(header) kullandığından, UDP’nin kendisi nadiren problem üretir. UDP, RFC 768, Kullanıcı Datagram Protokolü’nde tanımlanmıştır.">
+  <meta property="og:description" content="Merhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -212,9 +200,7 @@ UDP Nedir?Başlık LinkiYakaladığınız trafikte çokça broadcast/multicast
         
           <img src="https://cdn-images-1.medium.com/max/800/1*cReiU6D1Aj-Zf-J3628uNA.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*cReiU6D1Aj-Zf-J3628uNA.png" alt=""></p>
-<p>Merhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
-<hr>
+        <p>Merhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
 <h3 id="udp-nedir">
   UDP Nedir?
   <a class="heading-link" href="#udp-nedir">
@@ -226,7 +212,6 @@ UDP Nedir?Başlık LinkiYakaladığınız trafikte çokça broadcast/multicast
 <p><img src="https://cdn-images-1.medium.com/max/800/1*WSaFhaEgqTIuM9sF4oZYng.png" alt=""></p>
 <p>UDP bağlantısız taşıma hizmeti sunar</p>
 <p>UDP kullanan yaygın uygulamalar DHCP/BOOTP, SIP, RTP, DNS, TFTP ve çeşitli video stream uygulamalarıdır.</p>
-<hr>
 <h3 id="udp-trafikanalizi">
   UDP Trafik Analizi
   <a class="heading-link" href="#udp-trafikanalizi">
@@ -245,7 +230,6 @@ UDP Nedir?Başlık LinkiYakaladığınız trafikte çokça broadcast/multicast
 <p><img src="https://cdn-images-1.medium.com/max/800/1*mLgL_SfU5rNO7Gk-mkT1sQ.png" alt=""></p>
 <p>UDP taraması bir dizi ICMP Hedefe Ulaşılamıyor/Port Ulaşılamıyor yanıtını tetikler</p>
 <p>Şekilde 192.168.1.123 adresini hedef alan bir UDP taraması gösterilmektedir. Her UDP paketi bir ICMP Hedefe Ulaşılamıyor/Port Ulaşılamıyor yanıtı tetiklediğinden, UDP taraması henüz açık bir UDP portu bulamamıştır.</p>
-<hr>
 <h3 id="udp-paketyapısı">
   UDP Paket Yapısı
   <a class="heading-link" href="#udp-paketyap%c4%b1s%c4%b1">
@@ -296,7 +280,6 @@ UDP Nedir?Başlık LinkiYakaladığınız trafikte çokça broadcast/multicast
   </a>
 </h4>
 <p>Sağlama toplamı, UDP başlığının içeriği, veri ve IP başlığından türetilen bir sözde başlık üzerinde gerçekleştirilir. Sözde başlık IP başlığı kaynak adres alanı, hedef adres alanı, protokol alanı ve UDP uzunluk alanından oluşur. UDP tabanlı iletişimler her zaman bir sağlama toplamı gerektirmez — bazen bu alanın alıcıya sağlama toplamının doğrulanmaması gerektiğini söyleyen tüm sıfırlara (0x0000) ayarlandığını görürsünüz.</p>
-<hr>
 <h4 id="udp-traffiği-filtreleri">
   UDP Traffiği Filtreleri
   <a class="heading-link" href="#udp-traffi%c4%9fi-filtreleri">
@@ -311,7 +294,6 @@ UDP Nedir?Başlık LinkiYakaladığınız trafikte çokça broadcast/multicast
 <li>udp.length &gt; 248 — 240 data bytedan daha fazla içeren UDP paketleri (8 byte UDP headerı için rezerve edilmiştir.)</li>
 </ul>
 <p>UDP, TCP’nin heyecan verici, karmaşık dünyasına kıyasla nispeten sıkıcıdır.</p>
-<hr>
 <h3 id="kaynakça">
   Kaynakça
   <a class="heading-link" href="#kaynak%c3%a7a">

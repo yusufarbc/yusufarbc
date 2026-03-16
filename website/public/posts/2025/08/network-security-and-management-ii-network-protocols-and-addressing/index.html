@@ -13,15 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-
-  Introduction
-  
-    
-    Link to heading
-  
-
-This chapter takes an in-depth look at two vital elements that form the basis of computer networks: protocols and addressing. Protocols are sets of rules and standards that define how networked devices communicate with each other, exchange data, and manage errors; It is a kind of universal &ldquo;language&rdquo; of the network. Addressing is the mechanism that ensures that the sent data reaches the correct destination by assigning a unique &ldquo;identity&rdquo; to each device on this network. In this section, a wide range will be discussed, starting from the core protocols of the TCP/IP model to innovative protocols that meet the performance and security needs of the modern Internet. Then, the challenges posed by IPv4 addressing from the early days of the internet and the techniques developed to overcome these challenges, and the transition to the IPv6 architecture that shapes the internet of the future will be examined. Finally, the complex routing protocols that hold together the huge &ldquo;network of networks&rdquo; structure of the Internet and enable data packets to find the most appropriate paths between continents and the technical and political logic behind these protocols will be analyzed.">
+<meta name="description" content="This chapter takes an in-depth look at two vital elements that form the basis of computer networks: protocols and addressing. Protocols are sets of rules and standards that define how networked devices communicate with each other, exchange data, and ...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -29,12 +21,12 @@ This chapter takes an in-depth look at two vital elements that form the basis of
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Network Security and Management II: NETWORK PROTOCOLS AND ADDRESSING">
-  <meta name="twitter:description" content="IntroductionLink to headingThis chapter takes an in-depth look at two vital elements that form the basis of computer networks: protocols and addressing. Protocols are sets of rules and standards that define how networked devices communicate with each other, exchange data, and manage errors; It is a kind of universal “language” of the network. Addressing is the mechanism that ensures that the sent data reaches the correct destination by assigning a unique “identity” to each device on this network. In this section, a wide range will be discussed, starting from the core protocols of the TCP/IP model to innovative protocols that meet the performance and security needs of the modern Internet. Then, the challenges posed by IPv4 addressing from the early days of the internet and the techniques developed to overcome these challenges, and the transition to the IPv6 architecture that shapes the internet of the future will be examined. Finally, the complex routing protocols that hold together the huge “network of networks” structure of the Internet and enable data packets to find the most appropriate paths between continents and the technical and political logic behind these protocols will be analyzed.">
+  <meta name="twitter:description" content="This chapter takes an in-depth look at two vital elements that form the basis of computer networks: protocols and addressing. Protocols are sets of rules and standards that define how networked devices communicate with each other, exchange data, and ...">
 
 <meta property="og:url" content="http://localhost:1313/posts/2025/08/network-security-and-management-ii-network-protocols-and-addressing/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Network Security and Management II: NETWORK PROTOCOLS AND ADDRESSING">
-  <meta property="og:description" content="IntroductionLink to headingThis chapter takes an in-depth look at two vital elements that form the basis of computer networks: protocols and addressing. Protocols are sets of rules and standards that define how networked devices communicate with each other, exchange data, and manage errors; It is a kind of universal “language” of the network. Addressing is the mechanism that ensures that the sent data reaches the correct destination by assigning a unique “identity” to each device on this network. In this section, a wide range will be discussed, starting from the core protocols of the TCP/IP model to innovative protocols that meet the performance and security needs of the modern Internet. Then, the challenges posed by IPv4 addressing from the early days of the internet and the techniques developed to overcome these challenges, and the transition to the IPv6 architecture that shapes the internet of the future will be examined. Finally, the complex routing protocols that hold together the huge “network of networks” structure of the Internet and enable data packets to find the most appropriate paths between continents and the technical and political logic behind these protocols will be analyzed.">
+  <meta property="og:description" content="This chapter takes an in-depth look at two vital elements that form the basis of computer networks: protocols and addressing. Protocols are sets of rules and standards that define how networked devices communicate with each other, exchange data, and ...">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -209,8 +201,7 @@ This chapter takes an in-depth look at two vital elements that form the basis of
         
           <img src="https://cdn-images-1.medium.com/max/800/1*6rU6oXi2MLCrzFevgSY-_g.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*6rU6oXi2MLCrzFevgSY-_g.png" alt=""></p>
-<h3 id="introduction">
+        <h3 id="introduction">
   Introduction
   <a class="heading-link" href="#introduction">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
@@ -218,7 +209,6 @@ This chapter takes an in-depth look at two vital elements that form the basis of
   </a>
 </h3>
 <p>This chapter takes an in-depth look at two vital elements that form the basis of computer networks: protocols and addressing. Protocols are sets of rules and standards that define how networked devices communicate with each other, exchange data, and manage errors; It is a kind of universal &ldquo;language&rdquo; of the network. Addressing is the mechanism that ensures that the sent data reaches the correct destination by assigning a unique &ldquo;identity&rdquo; to each device on this network. In this section, a wide range will be discussed, starting from the core protocols of the TCP/IP model to innovative protocols that meet the performance and security needs of the modern Internet. Then, the challenges posed by IPv4 addressing from the early days of the internet and the techniques developed to overcome these challenges, and the transition to the IPv6 architecture that shapes the internet of the future will be examined. Finally, the complex routing protocols that hold together the huge &ldquo;network of networks&rdquo; structure of the Internet and enable data packets to find the most appropriate paths between continents and the technical and political logic behind these protocols will be analyzed.</p>
-<hr>
 <h3 id="main-topic-3-basic-and-modern-network-protocols">
   Main Topic 3: Basic and Modern Network Protocols
   <a class="heading-link" href="#main-topic-3-basic-and-modern-network-protocols">
@@ -310,7 +300,6 @@ This chapter takes an in-depth look at two vital elements that form the basis of
 <p><strong>Additional Benefits:</strong> QUIC reduces connection setup to 1-RTT or 0-RTT by combining transport (TCP) and cryptographic (TLS) handshakes in a single step. It also has a “connection migration” feature that ensures that the connection is not interrupted when the IP address changes, such as when a user moves from Wi-Fi to a mobile network.</p>
 <p><strong>HTTP/3:</strong> It is the newest version of the HTTP protocol designed to use QUIC instead of TCP as the transport layer. In this way, it brings all the performance and security advantages of QUIC to web applications.</p>
 <p>The rise of TLS 1.3, QUIC, and HTTP/3 represents a significant paradigm shift in internet architecture. Intelligence and control are moving from the slowly evolving layers traditionally found in the operating system kernel and middlebox devices to the application layer (browsers, server software) where innovation can occur rapidly. The traditional TCP/TLS stack sits at the core of operating systems, and making a change to these layers is a slow process that requires all operating system vendors to adopt updates. Big tech companies didn&rsquo;t want to be stuck in this slow evolution to improve web performance. The solution is to bypass TCP completely and use UDP as a basis, which is already present in every operating system and can be programmed from the application layer. QUIC takes all the good features of TCP and TLS, such as reliability, flow control, and encryption, and reimplements them at the application layer, over UDP. This strategic move has enabled application developers to roll out a new transport protocol to the world, without waiting for operating system updates, simply by updating their browsers and server software. This has accelerated the pace of innovation and shifted control from network operators to application developers.</p>
-<hr>
 <h3 id="main-topic-4-ip-addressing-and-networkdesign">
   Main Topic 4: IP Addressing and Network Design
   <a class="heading-link" href="#main-topic-4-ip-addressing-and-networkdesign">
@@ -419,7 +408,6 @@ This chapter takes an in-depth look at two vital elements that form the basis of
 <li><strong>Tunneling:</strong> Allows IPv6 traffic to be carried over IPv4 networks that do not yet support IPv6. In this technique, an IPv6 packet is encapsulated by placing it in the data portion of an IPv4 packet. Various automatic and manual tunneling techniques are available, such as 6to4, Teredo and ISATAP.</li>
 </ul>
 <p>IPv6&rsquo;s design reflects a conscious engineering effort to not only solve address scarcity, but also to clean up the &ldquo;technical debt&rdquo; that IPv4 had accumulated over time. To IPv4&rsquo;s complex manual or DHCP-based configuration problem, IPv6 answers with SLAAC. IPv6 finds a solution to IPv4&rsquo;s NAT problem, which disrupts end-to-end connections, by eliminating the need for NAT thanks to its large address space. In contrast to IPv4&rsquo;s complex processor-intensive packet header, IPv6 offers a simplified, fixed-size header that can be processed more quickly by routers. As a result, IPv6 not only offers “more IP addresses”; It is also a holistic redesign aimed at simplifying network management, improving performance, and restoring the original architectural vision of the internet.</p>
-<hr>
 <h3 id="main-topic-5-routing-protocols-and-the-backbone-of-the-internet">
   Main Topic 5: Routing Protocols and the Backbone of the Internet
   <a class="heading-link" href="#main-topic-5-routing-protocols-and-the-backbone-of-the-internet">

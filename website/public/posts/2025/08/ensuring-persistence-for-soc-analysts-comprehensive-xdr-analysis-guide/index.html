@@ -13,15 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-  Ensuring Persistence for SOC Analysts Comprehensive XDR Analysis Guide
-  
-    
-    Link to heading
-  
-
-
-In cyber security operations, persistence is one of the most critical stages that allows an attacker to leave a permanent footprint on the system. This makes it possible for the attack to reach its long-term goals beyond the initial access vector (for example, a phishing email or a vulnerability exploit). It guarantees attackers continued access to the system, beyond traditional antivirus (AV) solutions or system reboots. Persistence provides threat actors with a number of advantages: the ability to create a backdoor to communicate with Command and Control (C2) servers, bypass traditional security controls, and facilitate privilege escalation and horizontal mobility within the network. This stage plays a decisive role in transforming a cyber attack from a short-term incident into a long-term infiltration operation.">
+<meta name="description" content="In cyber security operations, persistence is one of the most critical stages that allows an attacker to leave a permanent footprint on the system. This makes it possible for the attack to reach its long-term goals beyond the initial access vector (fo...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -29,12 +21,12 @@ In cyber security operations, persistence is one of the most critical stages tha
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Ensuring Persistence for SOC Analysts Comprehensive XDR Analysis Guide">
-  <meta name="twitter:description" content="Ensuring Persistence for SOC Analysts Comprehensive XDR Analysis GuideLink to headingIn cyber security operations, persistence is one of the most critical stages that allows an attacker to leave a permanent footprint on the system. This makes it possible for the attack to reach its long-term goals beyond the initial access vector (for example, a phishing email or a vulnerability exploit). It guarantees attackers continued access to the system, beyond traditional antivirus (AV) solutions or system reboots. Persistence provides threat actors with a number of advantages: the ability to create a backdoor to communicate with Command and Control (C2) servers, bypass traditional security controls, and facilitate privilege escalation and horizontal mobility within the network. This stage plays a decisive role in transforming a cyber attack from a short-term incident into a long-term infiltration operation.">
+  <meta name="twitter:description" content="In cyber security operations, persistence is one of the most critical stages that allows an attacker to leave a permanent footprint on the system. This makes it possible for the attack to reach its long-term goals beyond the initial access vector (fo...">
 
 <meta property="og:url" content="http://localhost:1313/posts/2025/08/ensuring-persistence-for-soc-analysts-comprehensive-xdr-analysis-guide/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Ensuring Persistence for SOC Analysts Comprehensive XDR Analysis Guide">
-  <meta property="og:description" content="Ensuring Persistence for SOC Analysts Comprehensive XDR Analysis GuideLink to headingIn cyber security operations, persistence is one of the most critical stages that allows an attacker to leave a permanent footprint on the system. This makes it possible for the attack to reach its long-term goals beyond the initial access vector (for example, a phishing email or a vulnerability exploit). It guarantees attackers continued access to the system, beyond traditional antivirus (AV) solutions or system reboots. Persistence provides threat actors with a number of advantages: the ability to create a backdoor to communicate with Command and Control (C2) servers, bypass traditional security controls, and facilitate privilege escalation and horizontal mobility within the network. This stage plays a decisive role in transforming a cyber attack from a short-term incident into a long-term infiltration operation.">
+  <meta property="og:description" content="In cyber security operations, persistence is one of the most critical stages that allows an attacker to leave a permanent footprint on the system. This makes it possible for the attack to reach its long-term goals beyond the initial access vector (fo...">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -209,10 +201,8 @@ In cyber security operations, persistence is one of the most critical stages tha
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*t3uzw3mQTB-z3Mm777G-RQ.png" alt=""></p>
 <p>In cyber security operations, persistence is one of the most critical stages that allows an attacker to leave a permanent footprint on the system. This makes it possible for the attack to reach its long-term goals beyond the initial access vector (for example, a phishing email or a vulnerability exploit). It guarantees attackers continued access to the system, beyond traditional antivirus (AV) solutions or system reboots. Persistence provides threat actors with a number of advantages: the ability to create a backdoor to communicate with Command and Control (C2) servers, bypass traditional security controls, and facilitate privilege escalation and horizontal mobility within the network. This stage plays a decisive role in transforming a cyber attack from a short-term incident into a long-term infiltration operation.</p>
 <p>This report dives into the Windows registry-based persistence mechanisms a SOC analyst may encounter, focusing on specific tactics and techniques from the MITRE ATT&amp;CK knowledge base. In particular, common techniques such as <code>T1547: Boot or Logon Autostart Execution</code> and <code>T1112: Modify Registry</code> will be discussed and how to detect these techniques will be detailed.</p>
-<hr>
 <h3 id="part-1-persistence-mechanisms-via-windows-registry">
   Part 1: Persistence Mechanisms via Windows Registry
   <a class="heading-link" href="#part-1-persistence-mechanisms-via-windows-registry">
@@ -262,7 +252,6 @@ In cyber security operations, persistence is one of the most critical stages tha
 </ul>
 <p>The following table serves as a quick reference guide for a SOC analyst and summarizes the most common registry persistence keys, their effects, and related threat examples.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*EOdZ-x8gqkMWMCJo5HLhqg.png" alt=""></p>
-<hr>
 <h3 id="part-2-detection-and-analysis-via-event-logs">
   Part 2: Detection and Analysis via Event Logs
   <a class="heading-link" href="#part-2-detection-and-analysis-via-event-logs">
@@ -299,7 +288,6 @@ In cyber security operations, persistence is one of the most critical stages tha
 </ul>
 <p>These Sysmon events represent critical information for an analyst, such as <code>ParentImage</code> and <code>ParentCommandLine</code>. Contains key areas. These fields show what the main process that made the change was and how it was started. This is vital for tracing back to the source of the attack and reconstructing the attack chain. For example, if a PowerShell script is detected to cause a registry change, the <code>ParentImage</code> field can indicate which parent process (such as <code>explorer.exe</code>) started this script.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*VR-A4gThQLNfdXDYlpGuwQ.png" alt=""></p>
-<hr>
 <h3 id="chapter-3-in-depth-analysis-and-threathunting-with-edrxdr-solutions">
   Chapter 3: In-Depth Analysis and Threat Hunting with EDR/XDR Solutions
   <a class="heading-link" href="#chapter-3-in-depth-analysis-and-threathunting-with-edrxdr-solutions">
@@ -344,7 +332,6 @@ In cyber security operations, persistence is one of the most critical stages tha
 <li><strong>Correlation with File and Process Events:</strong> When the <code>Registry modification</code> alarm is triggered, simultaneous <code>Process creation</code> (Sysmon Event ID 1) and <code>File creation</code> (Sysmon Event ID 11) events should be examined. This helps understand how the malicious file first entered the system (for example, it may have been dropped by a PowerShell script) and which host process made this change.</li>
 </ul>
 <p>Many legitimate software (e.g. updates, antiviruses) can also modify <code>Run</code> keys, resulting in false positives. However, on an EDR/XDR platform, the mere act of a process changing the <code>Run</code> key may not be suspicious. This event, combined with the same process dropping a new file into a suspicious directory such as <code>C:\Users\Public\</code> and then establishing a network connection to a known malicious IP address, creates a high reliability alarm. This multi-event correlation is key to reducing false positives and uncovering real threats.</p>
-<hr>
 <h3 id="chapter-4-limitations-cautions-and-advanced-techniques">
   Chapter 4: Limitations, Cautions, and Advanced Techniques
   <a class="heading-link" href="#chapter-4-limitations-cautions-and-advanced-techniques">
@@ -386,7 +373,6 @@ In cyber security operations, persistence is one of the most critical stages tha
 <li><strong>WMI Event Subscriptions:</strong> WMI (Windows Management Instrumentation) is a powerful system management tool that can be used to run code following an event (for example, a system power-up or a user logon). Attackers can gain a permanent position in the system by creating WMI event filters, consumers, and bindings.</li>
 <li><strong>Windows Services:</strong> Attackers can create a new service with the <code>sc create</code> command or hijack an existing service and run their malicious codes with <code>SYSTEM</code> privileges.</li>
 </ul>
-<hr>
 <h3 id="conclusion-andrecommendations">
   Conclusion and Recommendations
   <a class="heading-link" href="#conclusion-andrecommendations">

@@ -13,17 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-Hello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reasons why these vulnerabilities arise.
-
-  What is Pygoat?
-  
-    
-    Link to heading
-  
-
-Pygoat is a vulnerable web application developed by OWASP(Open Worldwide Application Security Project**)**. The goal is to provide a platform to teach both developers and testers how to test and code applications securely. PyGoat is written in Python and uses the Django Framework. 
-PyGoat also has an area where you can view the source code to determine where the error was made that caused the vulnerability and allows you to make changes to make it secure.">
+<meta name="description" content="Hello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reasons why these vulnerabilities arise.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -31,14 +21,12 @@ PyGoat also has an area where you can view the source code to determine where th
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="TR-Pygoat OWASP TOP 10 2021 WRITE-UP">
-  <meta name="twitter:description" content="Hello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reasons why these vulnerabilities arise.
-What is Pygoat?Link to headingPygoat is a vulnerable web application developed by OWASP(Open Worldwide Application Security Project**)**. The goal is to provide a platform to teach both developers and testers how to test and code applications securely. PyGoat is written in Python and uses the Django Framework. PyGoat also has an area where you can view the source code to determine where the error was made that caused the vulnerability and allows you to make changes to make it secure.">
+  <meta name="twitter:description" content="Hello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reasons why these vulnerabilities arise.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2023/08/tr-pygoat-owasp-top-10-2021-write-up/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="TR-Pygoat OWASP TOP 10 2021 WRITE-UP">
-  <meta property="og:description" content="Hello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reasons why these vulnerabilities arise.
-What is Pygoat?Link to headingPygoat is a vulnerable web application developed by OWASP(Open Worldwide Application Security Project**)**. The goal is to provide a platform to teach both developers and testers how to test and code applications securely. PyGoat is written in Python and uses the Django Framework. PyGoat also has an area where you can view the source code to determine where the error was made that caused the vulnerability and allows you to make changes to make it secure.">
+  <meta property="og:description" content="Hello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reasons why these vulnerabilities arise.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -204,8 +192,7 @@ What is Pygoat?Link to headingPygoat is a vulnerable web application developed
         
           <img src="https://cdn-images-1.medium.com/max/800/1*mIRdg0fVq0WdqzoayvZykA.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*mIRdg0fVq0WdqzoayvZykA.png" alt=""></p>
-<p>Hello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reasons why these vulnerabilities arise.</p>
+        <p>Hello, in this article, I will solve the examples prepared in accordance with OWASP TOP 10 2021 in the Pygoat lab environment. I will try to explain both the OWASP TOP 10 vulnerabilities and the reasons why these vulnerabilities arise.</p>
 <h3 id="what-is-pygoat">
   <strong>What is Pygoat?</strong>
   <a class="heading-link" href="#what-is-pygoat">
@@ -213,7 +200,7 @@ What is Pygoat?Link to headingPygoat is a vulnerable web application developed
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><a href="https://owasp.org/www-project-pygoat/"  class="external-link" target="_blank" rel="noopener">Pygoat</a> is a vulnerable web application developed by OWASP(Open Worldwide Application Security Project**)**. The goal is to provide a platform to teach both developers and testers how to test and code applications securely. PyGoat is written in Python and uses the Django Framework. 
+<p><a href="https://owasp.org/www-project-pygoat/"  class="external-link" target="_blank" rel="noopener">Pygoat</a> is a vulnerable web application developed by OWASP(Open Worldwide Application Security Project**)**. The goal is to provide a platform to teach both developers and testers how to test and code applications securely. PyGoat is written in Python and uses the Django Framework.<br>
 PyGoat also has an area where you can view the source code to determine where the error was made that caused the vulnerability and allows you to make changes to make it secure.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*1XctNRMmZBVl7M-IYHpuGA.png" alt=""></p>
 <p>OWASP TOP 10 2021</p>
@@ -231,7 +218,6 @@ PyGoat also has an area where you can view the source code to determine where th
 <li>Running with Docker: Pygoat has a ready-made docker container in which the application is installed. To install this, you can install Docker on your computer and run the container. Docker Container: <a href="https://hub.docker.com/r/pygoat/pygoat"  class="external-link" target="_blank" rel="noopener">https://hub.docker.com/r/pygoat/pygoat</a></li>
 <li>Running with DockerVuln: DockerVuln is a program with an interface that contains vulnerable web applications. By installing this program on any Linux distribution, you can run its web applications with two clicks. DockerVuln: <a href="https://github.com/yusufarbc/DockerVuln"  class="external-link" target="_blank" rel="noopener">https://github.com/yusufarbc/DockerVuln</a></li>
 </ol>
-<hr>
 <h3 id="a1-broken-access-control">
   A1: Broken Access Control
   <a class="heading-link" href="#a1-broken-access-control">
@@ -298,7 +284,6 @@ PyGoat also has an area where you can view the source code to determine where th
 <p><img src="https://cdn-images-1.medium.com/max/800/1*gQbuy4Ff0h56u41Kz8tfhQ.png" alt=""></p>
 <p>500error</p>
 <p>When we go to the page we find, it provides us with a lot of metadata about the web application.</p>
-<hr>
 <h3 id="a3-injection">
   A3: Injection
   <a class="heading-link" href="#a3-injection">
@@ -331,7 +316,7 @@ PyGoat also has an area where you can view the source code to determine where th
 <p>To log in to the admin account, we need to give the value &ldquo;admin&rdquo; to the username field. But we don&rsquo;t know the password. However, we can manipulate this SQL script.</p>
 <p>The password value in quotes in the password=&lsquo;password&rsquo; section is the value we entered into the form. We can first close the quotes in the form and then run the SQL command I wrote.</p>
 <blockquote>
-<p>username: admin 
+<p>username: admin<br>
 password: ‘ OR ‘1’ =’1</p>
 </blockquote>
 <p>The expression 1=1 in the SQL statement will ensure that the result returns TRUE and the SQL statement runs, thus allowing us to log in to the page.</p>
@@ -362,7 +347,6 @@ password: ‘ OR ‘1’ =’1</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*3db0eRrvAffAM059j0rRDg.png" alt=""></p>
 <p>After running this command, the files in the directory will be printed to the web page after nslookup results.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*8V6HolR2RmDh9ctp7OKeeA.png" alt=""></p>
-<hr>
 <h3 id="a4-insecuredesign">
   A4: Insecure Design
   <a class="heading-link" href="#a4-insecuredesign">
@@ -383,9 +367,8 @@ password: ‘ OR ‘1’ =’1</p>
 <p>This app only provides us 5 tickets for free. When I caught and looked at the burp request, I did not see any vulnerability.</p>
 <p>The statement in the lab environment said that we could buy all the tickets. But how? He said logout and think as a hint. I wonder if we can log out, create a new account and get free tickets from there?</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*mnAdcOtUSgaXb-rZwJwdbQ.png" alt=""></p>
-<p>Yes it worked, we created another account and got 5 more free tickets. If we create 9 more accounts this way, we can buy all the tickets and watch our movie :)  
+<p>Yes it worked, we created another account and got 5 more free tickets. If we create 9 more accounts this way, we can buy all the tickets and watch our movie :) <br>
 As you can see, there is no known vulnerability in the application, but an error in the design, that is, in creating the business rules, brought us to this point.</p>
-<hr>
 <h3 id="a5-security-misconfiguration">
   A5: Security Misconfiguration
   <a class="heading-link" href="#a5-security-misconfiguration">
@@ -406,12 +389,11 @@ As you can see, there is no known vulnerability in the application, but an error
 <p><img src="https://cdn-images-1.medium.com/max/800/1*Vhai1BxfJiRuY6pVLqN5xQ.png" alt=""></p>
 <p>When we press the Labda secret key button, it says that only admin.localhost:8000 can access this secret key. How could it be? Let&rsquo;s capture the request with Burp.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*OY_YZmeVurlhV4MKW4UOdA.png" alt=""></p>
-<p>In this burp request, we see that it sends a GET request to the secret. However, the X-Host header specified in the error message is not here. He did not inform us that its value was none anyway. What we need to do here is to add a header called X-Host and give its value as admin.localhost:8000. 
+<p>In this burp request, we see that it sends a GET request to the secret. However, the X-Host header specified in the error message is not here. He did not inform us that its value was none anyway. What we need to do here is to add a header called X-Host and give its value as admin.localhost:8000.<br>
 This application verifies the admin account by looking at the X-Host value in the request, but it ignores that we can manipulate this request on the client side.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*9DIQ37iE1AYtGP1rZfv2fA.png" alt=""></p>
 <p>When we capture the request in Burp&rsquo;s Proxy menu, there is a menu on the right where we can see and edit the headers. From here we add the X-Host header and give the required value. Then we can send the request. And we obtained the secret key.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*RIaCAdysvIY_On1WNfJcZw.png" alt=""></p>
-<hr>
 <h3 id="a6-vulnerable-and-outdated-components">
   A6: Vulnerable and Outdated Components
   <a class="heading-link" href="#a6-vulnerable-and-outdated-components">
@@ -434,13 +416,12 @@ This application verifies the admin account by looking at the X-Host value in th
 <p>Vulnerability Research</p>
 <p>As a result of research, I found that the module used has a <strong>critical</strong> vulnerability called <em><strong>Arbitary Code Executio</strong></em>n. Then you can do research on how to exploit this vulnerability.</p>
 <p>In order to exploit this vulnerability, we need to prepare a yaml file-payload. I saved the following script in a yaml file.</p>
-<pre tabindex="0"><code>!!python/object/apply:subprocess.check_output  
+<pre tabindex="0"><code>!!python/object/apply:subprocess.check_output  
 -ls
 </code></pre><p>Then I selected the file I created and clicked the upload button.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*Xts7McZlvSLGwS9-OBnsaQ.png" alt=""></p>
 <p>When the payload we prepared runs, the command we gave, <em><strong>ls</strong></em>, will run and print the files in the directory on the server. And we can see the directories and files in the resulting output.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*N8TX7K3Ls7X5y90S1M-3Rg.png" alt=""></p>
-<hr>
 <h3 id="a7-identification-and-authentication-failures">
   A7: Identification and Authentication Failures
   <a class="heading-link" href="#a7-identification-and-authentication-failures">
@@ -457,7 +438,7 @@ This application verifies the admin account by looking at the X-Host value in th
     <span class="sr-only">Link to heading</span>
   </a>
 </h4>
-<p>The lab consists of a login page that asks users for their username and password. There is also a feature to login via otp(one-time-pad) if you don&rsquo;t know the password! When users click on the OTP login feature, the user is redirected to a page that asks for the email id to send the OTP. You can see that when the user provides an email ID, the 3-digit opt ​​is sent back to the page itself. This is not the common scenario, usually the code is sent to the user&rsquo;s registered email. 
+<p>The lab consists of a login page that asks users for their username and password. There is also a feature to login via otp(one-time-pad) if you don&rsquo;t know the password! When users click on the OTP login feature, the user is redirected to a page that asks for the email id to send the OTP. You can see that when the user provides an email ID, the 3-digit opt ​​is sent back to the page itself. This is not the common scenario, usually the code is sent to the user&rsquo;s registered email.<br>
 Once the user gets the 3 digit code he can now enter the code in the input box that says Enter your OTP After entering the valid OTP the user will get a page that says Login Successful as user : email. If the OTP is incorrect, the user will receive a message saying Invalid OTP.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*qFdtiAX04zdzBl7_E85_vA.png" alt=""></p>
 <p>The admin e-mail address is given as <code>admin@pygoat.com</code>. When we came to the OTP login section in the application interface, I received an OTP code by typing this e-mail. OTP code is 3 digits and has no restrictions captcha etc. no. We can find the OTP by brute force on the application.</p>
@@ -468,7 +449,6 @@ Once the user gets the 3 digit code he can now enter the code in the input box t
 <p>In the Payload tab, we define a payload in which we will try all values between 111–999. Then we can launch the attack. In the community version of Burp, brute force attack speeds are slowed down. It may take a while for this to happen.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*p4ge2cHqlrhq1SSXwMgSAg.png" alt=""></p>
 <p>As a result, we will find the OTP in the request with a different length value.</p>
-<hr>
 <h3 id="a8-software-and-data-integrity-failures">
   A8: Software and Data Integrity Failures
   <a class="heading-link" href="#a8-software-and-data-integrity-failures">
@@ -504,7 +484,6 @@ Once the user gets the 3 digit code he can now enter the code in the input box t
 <p><img src="https://cdn-images-1.medium.com/max/800/1*iRZrBcOzuR164doOB8G6dQ.png" alt=""></p>
 <p>We can decode the base64 encoded token value with Burp Suite&rsquo;s decoder tool.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*2gXLtT_iTD0Y68VkYWaSKw.png" alt=""></p>
-<hr>
 <h3 id="a9-security-logging-and-monitoring-failures">
   A9: Security Logging and Monitoring Failures
   <a class="heading-link" href="#a9-security-logging-and-monitoring-failures">
@@ -512,7 +491,7 @@ Once the user gets the 3 digit code he can now enter the code in the input box t
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>Improper logging and monitoring are the basis of nearly every major cyber attack. Attackers rely on a lack of monitoring and timely response to achieve their goals without being detected. 
+<p>Improper logging and monitoring are the basis of nearly every major cyber attack. Attackers rely on a lack of monitoring and timely response to achieve their goals without being detected.<br>
 Most successful attacks start with vulnerability research. Allowing such probes to persist can increase the likelihood of a successful exploit to almost 100%.</p>
 <h4 id="lab-7">
   LAB
@@ -528,7 +507,6 @@ Most successful attacks start with vulnerability research. Allowing such probes 
 <p>The logs kept by the system can be viewed in the /debug directory. When we search the a10 page on these logs, we see an interesting log.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*H9BTdl1b8IkpVoqIqWhliQ.png" alt=""></p>
 <p>Since the login page works with a GET request, the credentials used to log in are written in the url and recorded in the logs. We can log in with these credentials.</p>
-<hr>
 <h3 id="a10-server-side-request-forgery">
   A10: Server-Side Request Forgery
   <a class="heading-link" href="#a10-server-side-request-forgery">
@@ -549,7 +527,6 @@ Most successful attacks start with vulnerability research. Allowing such probes 
 <p>The code running in the background in the lab environment is given and we are asked to find the env file. When we burp the request and inspect it,</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*vMxFjxvIZabnGY3Fn47S1w.png" alt=""></p>
 <p>We see that the text file in this directory, given a directory with the blog parameter, is read and printed on the page. By manipulating this value, we can read the file we want in the directory. We were asked to read the a.env file. By trial and error, we can read the a.env file by searching for it.</p>
-<hr>
 <h3 id="resources">
   Resources
   <a class="heading-link" href="#resources">

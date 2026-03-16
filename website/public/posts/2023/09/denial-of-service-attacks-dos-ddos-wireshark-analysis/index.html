@@ -13,19 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-Hello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.
-
-
-  Wireshark
-  
-    
-    Link to heading
-  
-
-Wireshark is open source software used as a network analysis tool. Wireshark can capture, inspect and analyze network traffic so it can be used to diagnose network problems, detect security threats or monitor network performance.
-For detailed information: https://www.wireshark.org/
-You can follow the steps below to install Wireshark on your computer. Please note that these steps may vary depending on your operating system and intended use. Here are the general steps to install Wireshark:">
+<meta name="description" content="Hello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -33,18 +21,12 @@ You can follow the steps below to install Wireshark on your computer. Please not
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Denial of Service Attacks (DoS-DDoS) Wireshark Analysis">
-  <meta name="twitter:description" content="Hello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.
-WiresharkLink to headingWireshark is open source software used as a network analysis tool. Wireshark can capture, inspect and analyze network traffic so it can be used to diagnose network problems, detect security threats or monitor network performance.
-For detailed information: https://www.wireshark.org/
-You can follow the steps below to install Wireshark on your computer. Please note that these steps may vary depending on your operating system and intended use. Here are the general steps to install Wireshark:">
+  <meta name="twitter:description" content="Hello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2023/09/denial-of-service-attacks-dos-ddos-wireshark-analysis/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Denial of Service Attacks (DoS-DDoS) Wireshark Analysis">
-  <meta property="og:description" content="Hello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.
-WiresharkLink to headingWireshark is open source software used as a network analysis tool. Wireshark can capture, inspect and analyze network traffic so it can be used to diagnose network problems, detect security threats or monitor network performance.
-For detailed information: https://www.wireshark.org/
-You can follow the steps below to install Wireshark on your computer. Please note that these steps may vary depending on your operating system and intended use. Here are the general steps to install Wireshark:">
+  <meta property="og:description" content="Hello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -219,9 +201,7 @@ You can follow the steps below to install Wireshark on your computer. Please not
         
           <img src="https://cdn-images-1.medium.com/max/800/1*tKGgOxt2Mq5piyQ3_CJDdg.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*tKGgOxt2Mq5piyQ3_CJDdg.png" alt=""></p>
-<p>Hello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.</p>
-<hr>
+        <p>Hello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.</p>
 <h3 id="wireshark">
   Wireshark
   <a class="heading-link" href="#wireshark">
@@ -256,7 +236,7 @@ You can follow the steps below to install Wireshark on your computer. Please not
   </a>
 </h4>
 <p>Wireshark is available in the repositories of many Linux distributions, so you can install the package using the commands below. For example, on a Debian or Ubuntu based system:</p>
-<pre tabindex="0"><code>sudo apt update  
+<pre tabindex="0"><code>sudo apt update  
 sudo apt install wireshark
 </code></pre><p>Administrator permission with sudo may be required during installation. Additionally, in order to use Wireshark, it may be necessary to add the user to the “wireshark” group or start it with sudo.</p>
 <h4 id="for-mac-os">
@@ -268,7 +248,6 @@ sudo apt install wireshark
 </h4>
 <p>To use Wireshark on Mac OS X, you can download and install a DMG file from the official website. You should frequently follow the instructions during installation.</p>
 <p>Once you install Wireshark, you can start using it to capture and analyze network traffic. Remember that monitoring network traffic may require certain permissions and you must do so in a legal and ethical manner.</p>
-<hr>
 <h3 id="dosddos">
   DoS — DDoS
   <a class="heading-link" href="#dosddos">
@@ -280,7 +259,6 @@ sudo apt install wireshark
 <p><img src="https://cdn-images-1.medium.com/max/800/0*CnVj85vNvqXwZqbI" alt=""></p>
 <p>A DoS (Denial of Service) attack is an attempt to make traffic from a single source unusable. DDoS (Distributed Denial of Service) attack is an attempt to make coordinated traffic coming from many sources unusable. The main difference is that DoS comes from a single source whereas DDoS comes from multiple sources. DDoS is a larger and more effective type of attack.</p>
 <p>You can use the <a href="https://www.kali.org/tools/hping3/"  class="external-link" target="_blank" rel="noopener">hping3</a> tool on a Linux machine to perform these attacks in your own lab environment. In addition, the <a href="https://github.com/yusufarbc/DoS-Attack-Framework"  class="external-link" target="_blank" rel="noopener">DoS Attack Framework</a> tool offers you an interactive interface to perform DoS attacks.</p>
-<hr>
 <h3 id="tcp-attacks">
   TCP Attacks
   <a class="heading-link" href="#tcp-attacks">
@@ -350,7 +328,6 @@ sudo apt install wireshark
 <p><img src="https://cdn-images-1.medium.com/max/800/1*UgJojmwpCwsycIQG5kO7UQ.png" alt=""></p>
 <p>ACK Flood</p>
 <p>These types of attacks create situations where servers and networks are overloaded and can cause service outages. Therefore, targets often use security measures and cybersecurity solutions to detect and defend against attacks. These solutions may include measures such as traffic filtering, firewalls, intrusion detection systems, and load balancing. Additionally, network security policies and good security practices are also important.</p>
-<hr>
 <h3 id="udp-attacks">
   UDP Attacks
   <a class="heading-link" href="#udp-attacks">
@@ -380,7 +357,6 @@ sudo apt install wireshark
 </h4>
 <p>In this type of attack, attackers divide large UDP packets into small pieces and send these pieces to the target server. This may cause the target server to exhaust its resources to reassemble packages.</p>
 <p>Protection against UDP attacks may include security measures such as traffic filtering, firewalls, packet balancing, and intrusion detection systems. Additionally, the target server&rsquo;s resources and network traffic should be monitored and intervention should be taken when abnormal situations are detected.</p>
-<hr>
 <h3 id="icmp-attacks">
   ICMP Attacks
   <a class="heading-link" href="#icmp-attacks">
@@ -428,7 +404,6 @@ sudo apt install wireshark
 </h4>
 <p>In this type of attack, attackers try to exhaust the target server&rsquo;s resources by sending ICMP Time Exceeded messages. These messages may increase traffic generated by ICMP traffic.</p>
 <p>ICMP attacks can overload the target network or server, causing service interruptions. Protection against such attacks may include security measures such as firewalls, IPS (Intrusion Prevention System), ICMP traffic filtering and penetration tests. Additionally, it is important for network administrators to monitor network traffic and detect abnormal activity.</p>
-<hr>
 <h3 id="httphttps-attacks">
   HTTP/HTTPS Attacks
   <a class="heading-link" href="#httphttps-attacks">
@@ -482,7 +457,6 @@ sudo apt install wireshark
 </h4>
 <p>Heartbleed vulnerability is a type of attack that targets SSL/TLS servers. Attackers can steal sensitive information from the server. Likewise, for this attack, the target web server must use the HTTPS protocol and have an SSL certificate.</p>
 <p>Methods of protection against denial of service attacks may include security measures such as traffic filtering, firewalls, load balancing, use of CDN (Content Delivery Network) and service monitoring. It is also important to apply up-to-date software patches and security policies.</p>
-<hr>
 <h3 id="dns-attacks">
   DNS Attacks
   <a class="heading-link" href="#dns-attacks">
@@ -527,7 +501,6 @@ sudo apt install wireshark
 </h4>
 <p>Attackers exhaust the target&rsquo;s resources by sending fake NXDOMAIN (Domain Not Found) queries to which the target server responds.</p>
 <p>DNS denial of service attacks can have serious consequences, such as disrupting internet access or rendering websites unusable. Protecting against such attacks may include measures such as improving the security settings of DNS servers, monitoring and filtering traffic, using DNS security extensions, and maintaining backup DNS servers. It is also important to ensure that DNS servers and infrastructure are up to date and secure.</p>
-<hr>
 <h3 id="macof-attack">
   Macof Attack
   <a class="heading-link" href="#macof-attack">
@@ -543,7 +516,6 @@ sudo apt install wireshark
 <li>Overloaded switchers forward data packets to all ports, which can slow down network traffic or cause outages.</li>
 </ol>
 <p>The MACOF attack aims to disable the network by disrupting the normal function of the switchers. Protecting against this type of attack may include firewalls and security policies, as well as measures such as monitoring network traffic and detecting anomalous traffic. Additionally, it is important to configure the security settings of the switchers in the network correctly.</p>
-<hr>
 <h3 id="resources">
   Resources
   <a class="heading-link" href="#resources">
@@ -551,9 +523,9 @@ sudo apt install wireshark
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><a href="https://wiki.wireshark.org/SampleCaptures#sample-captures" title="https://wiki.wireshark.org/SampleCaptures#sample-captures"  class="external-link" target="_blank" rel="noopener"><strong>SampleCaptures</strong> 
+<p><a href="https://wiki.wireshark.org/SampleCaptures#sample-captures" title="https://wiki.wireshark.org/SampleCaptures#sample-captures"  class="external-link" target="_blank" rel="noopener"><strong>SampleCaptures</strong><br>
 *So you&rsquo;re at home tonight,Having just installed Wireshark. You want to take the program for a test drive. But your…*wiki.wireshark.org</a></p>
-<p><a href="https://github.com/topics/dns-amplification-attack" title="https://github.com/topics/dns-amplification-attack"  class="external-link" target="_blank" rel="noopener"><strong>Build software better, together</strong> 
+<p><a href="https://github.com/topics/dns-amplification-attack" title="https://github.com/topics/dns-amplification-attack"  class="external-link" target="_blank" rel="noopener"><strong>Build software better, together</strong><br>
 *GitHub is where people build software. More than 100 million people use GitHub to discover, fork, and contribute to…*github.com</a></p>
 
       </div>

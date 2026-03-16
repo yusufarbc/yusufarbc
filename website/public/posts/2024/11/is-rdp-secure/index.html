@@ -13,15 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-  Is RDP Secure?
-  
-    
-    Link to heading
-  
-
-
-In this article, we will discuss whether the RDP (Remote Desktop Protocol) protocol is secure or not. RDP (Remote Desktop Protocol) has become a protocol frequently used by APT (Advanced Persistent Threat) groups for lateral movement, that is, horizontal movement within the network. In this respect, it creates the impression that it is not a secure protocol. So what is the reason for this?">
+<meta name="description" content="In this article, we will discuss whether the RDP (Remote Desktop Protocol) protocol is secure or not. RDP (Remote Desktop Protocol) has become a protocol frequently used by APT (Advanced Persistent Threat) groups for lateral movement, that is, horizo...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -29,12 +21,12 @@ In this article, we will discuss whether the RDP (Remote Desktop Protocol) proto
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Is RDP Secure?">
-  <meta name="twitter:description" content="Is RDP Secure?Link to headingIn this article, we will discuss whether the RDP (Remote Desktop Protocol) protocol is secure or not. RDP (Remote Desktop Protocol) has become a protocol frequently used by APT (Advanced Persistent Threat) groups for lateral movement, that is, horizontal movement within the network. In this respect, it creates the impression that it is not a secure protocol. So what is the reason for this?">
+  <meta name="twitter:description" content="In this article, we will discuss whether the RDP (Remote Desktop Protocol) protocol is secure or not. RDP (Remote Desktop Protocol) has become a protocol frequently used by APT (Advanced Persistent Threat) groups for lateral movement, that is, horizo...">
 
 <meta property="og:url" content="http://localhost:1313/posts/2024/11/is-rdp-secure/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Is RDP Secure?">
-  <meta property="og:description" content="Is RDP Secure?Link to headingIn this article, we will discuss whether the RDP (Remote Desktop Protocol) protocol is secure or not. RDP (Remote Desktop Protocol) has become a protocol frequently used by APT (Advanced Persistent Threat) groups for lateral movement, that is, horizontal movement within the network. In this respect, it creates the impression that it is not a secure protocol. So what is the reason for this?">
+  <meta property="og:description" content="In this article, we will discuss whether the RDP (Remote Desktop Protocol) protocol is secure or not. RDP (Remote Desktop Protocol) has become a protocol frequently used by APT (Advanced Persistent Threat) groups for lateral movement, that is, horizo...">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -209,9 +201,7 @@ In this article, we will discuss whether the RDP (Remote Desktop Protocol) proto
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*UP8fyAdYI17KDIqhtDK4Sg.png" alt=""></p>
 <p>In this article, we will discuss whether the RDP (Remote Desktop Protocol) protocol is secure or not. <strong>RDP (Remote Desktop Protocol)</strong> has become a protocol frequently used by <strong>APT (Advanced Persistent Threat)</strong> groups for <strong>lateral movement</strong>, that is, horizontal movement within the network. In this respect, it creates the impression that it is not a secure protocol. So what is the reason for this?</p>
-<hr>
 <h3 id="what-is-rdp-remote-desktop-protocol">
   <strong>What is RDP (Remote Desktop Protocol)?</strong>
   <a class="heading-link" href="#what-is-rdp-remote-desktop-protocol">
@@ -256,7 +246,6 @@ In this article, we will discuss whether the RDP (Remote Desktop Protocol) proto
 <blockquote>
 <p><strong>RDP (Remote Desktop Protocol)</strong> has become a protocol frequently used by <strong>APT (Advanced Persistent Threat)</strong> groups for <strong>lateral movement</strong>, that is, horizontal movement within the network.</p>
 </blockquote>
-<hr>
 <h3 id="role-of-rdp-in-apt-attacks">
   Role of RDP in APT Attacks
   <a class="heading-link" href="#role-of-rdp-in-apt-attacks">
@@ -314,7 +303,6 @@ In this article, we will discuss whether the RDP (Remote Desktop Protocol) proto
 <blockquote>
 <p>Despite the fact that RDP is innocent, the opportunities it offers continue to make hackers salivate! So what can we do? Let&rsquo;s discuss these now.</p>
 </blockquote>
-<hr>
 <h3 id="security-precautions-against-lateral-movement-with-rdp">
   Security Precautions Against Lateral Movement with RDP
   <a class="heading-link" href="#security-precautions-against-lateral-movement-with-rdp">
@@ -333,7 +321,6 @@ In this article, we will discuss whether the RDP (Remote Desktop Protocol) proto
 <blockquote>
 <p>So is the only problem with RDP? Aren&rsquo;t other remote access tools dangerous? Let&rsquo;s discuss this now.</p>
 </blockquote>
-<hr>
 <h3 id="apt-attacks-and-popular-use-of-remote-access-tools">
   APT Attacks and Popular Use of Remote Access Tools
   <a class="heading-link" href="#apt-attacks-and-popular-use-of-remote-access-tools">
@@ -342,18 +329,17 @@ In this article, we will discuss whether the RDP (Remote Desktop Protocol) proto
   </a>
 </h3>
 <ol>
-<li><strong>RDP (Remote Desktop Protocol)</strong>:  
+<li><strong>RDP (Remote Desktop Protocol)</strong>: <br>
 <strong>RDP</strong> is a tool very often used by attackers to spread across the network.</li>
-<li><strong>TeamViewer</strong>: 
+<li><strong>TeamViewer</strong>:<br>
 <strong>TeamViewer</strong> is a widely used remote access tool and is often used by system administrators. However, <strong>APT groups</strong> can abuse this tool to connect to target computers. Having TeamViewer installed and running can often go unnoticed by network administrators, allowing attackers to secretly move around the network. Initiating the installation of TeamViewer on target machines via <strong>social engineering</strong> attacks gives attackers covert access to the network.</li>
-<li><strong>AnyDesk</strong>: 
+<li><strong>AnyDesk</strong>:<br>
 <strong>AnyDesk</strong> is another common remote access tool used to gain access to target systems, similar to TeamViewer. It is generally preferred because it offers <strong>fast connections</strong> and <strong>high performance</strong>. APT groups can use this software to steal data from target devices on the network or infiltrate more systems. Because AnyDesk, like TeamViewer, is often used legitimately by users for business purposes, malicious use may go undetected.</li>
 </ol>
 <blockquote>
-<p>As you can see, RDP was not the culprit. All remote access tools carry similar risks. In fact, RDP&rsquo;s APT attackThe popularity of its use on the internet stems from the popularity of using RDP. Since many institutions already use RDP, hackers also use this tool. The same goes for other widely used remote access tools!  
+<p>As you can see, RDP was not the culprit. All remote access tools carry similar risks. In fact, RDP&rsquo;s APT attackThe popularity of its use on the internet stems from the popularity of using RDP. Since many institutions already use RDP, hackers also use this tool. The same goes for other widely used remote access tools! <br>
 A while ago, many institutions were hacked due to a vulnerability in the Anydesk application. This shows how careful we need to be about the risks of remote access tools.</p>
 </blockquote>
-<hr>
 <h3 id="privileged-access-management-pam">
   Privileged Access Management (PAM)
   <a class="heading-link" href="#privileged-access-management-pam">
@@ -375,7 +361,6 @@ A while ago, many institutions were hacked due to a vulnerability in the Anydesk
   </a>
 </h4>
 <p>PAM plays a critical role, especially in managing high-privilege access. Remote desktop connections made via RDP are a potential entry point that can be exploited and is vulnerable to attacks. PAM provides strong security measures for auditing, managing passwords, and access monitoring of high-privilege transactions over RDP connections.</p>
-<hr>
 <p>In this article, I discussed whether the RDP protocol is secure or not. You can express your opinions and support me in the comments.</p>
 
       </div>

@@ -13,8 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-In today&rsquo;s hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an invisible backbone that requires billions of components to work in harmony, from data centers on different continents to smart devices in our homes. So, how can these devices, produced by different manufacturers and using different technologies, communicate with each other so smoothly, quickly and securely? The answer to this question lies in the standardized protocols, hierarchical addressing systems and intelligent routing algorithms that form the basis of network engineering.">
+<meta name="description" content="In today&#39;s hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an invisible backbone that requires billions of componen...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -22,12 +21,12 @@ In today&rsquo;s hyper-connected world, a complex and massive infrastructure of 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Network Management and Security II: Network Protocols, Routing and Addressing">
-  <meta name="twitter:description" content="In today’s hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an invisible backbone that requires billions of components to work in harmony, from data centers on different continents to smart devices in our homes. So, how can these devices, produced by different manufacturers and using different technologies, communicate with each other so smoothly, quickly and securely? The answer to this question lies in the standardized protocols, hierarchical addressing systems and intelligent routing algorithms that form the basis of network engineering.">
+  <meta name="twitter:description" content="In today&#39;s hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an invisible backbone that requires billions of componen...">
 
 <meta property="og:url" content="http://localhost:1313/posts/2025/08/network-management-and-security-ii-network-protocols-routing-and-addressing/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Network Management and Security II: Network Protocols, Routing and Addressing">
-  <meta property="og:description" content="In today’s hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an invisible backbone that requires billions of components to work in harmony, from data centers on different continents to smart devices in our homes. So, how can these devices, produced by different manufacturers and using different technologies, communicate with each other so smoothly, quickly and securely? The answer to this question lies in the standardized protocols, hierarchical addressing systems and intelligent routing algorithms that form the basis of network engineering.">
+  <meta property="og:description" content="In today&#39;s hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an invisible backbone that requires billions of componen...">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -202,10 +201,8 @@ In today&rsquo;s hyper-connected world, a complex and massive infrastructure of 
         
           <img src="https://cdn-images-1.medium.com/max/800/0*1gN6tP9Nv5sf9IGl.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/0*1gN6tP9Nv5sf9IGl.png" alt=""></p>
-<p>In today&rsquo;s hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an invisible backbone that requires billions of components to work in harmony, from data centers on different continents to smart devices in our homes. So, how can these devices, produced by different manufacturers and using different technologies, communicate with each other so smoothly, quickly and securely? The answer to this question lies in the standardized protocols, hierarchical addressing systems and intelligent routing algorithms that form the basis of network engineering.</p>
+        <p>In today&rsquo;s hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an invisible backbone that requires billions of components to work in harmony, from data centers on different continents to smart devices in our homes. So, how can these devices, produced by different manufacturers and using different technologies, communicate with each other so smoothly, quickly and securely? The answer to this question lies in the standardized protocols, hierarchical addressing systems and intelligent routing algorithms that form the basis of network engineering.</p>
 <p>This technical article has been prepared to delve into the fundamental principles behind the functioning of modern networks. From the OSI model, which provides a theoretical framework, to the TCP/IP protocol stack, which is the backbone of the internet; All critical issues will be discussed, from IPv4 and IPv6 addressing that provides identity to every device on the network, to dynamic routing protocols that enable data packets to find the most efficient paths, and BGP, which draws the global road map of the internet. Additionally, a detailed look at switching technologies, VLAN management and loop prevention mechanisms that ensure efficiency and security in local networks will be presented. This article aims to be a basic reference source for students, IT professionals and engineers interested in network technologies.</p>
-<hr>
 <h3 id="chapter-1-basic-models-of-networking-and-data-flow">
   Chapter 1: Basic Models of Networking and Data Flow
   <a class="heading-link" href="#chapter-1-basic-models-of-networking-and-data-flow">
@@ -304,7 +301,6 @@ In today&rsquo;s hyper-connected world, a complex and massive infrastructure of 
 </h4>
 <p>This approach not only detects errors but also attempts to correct them using additional data. This is usually done by encoding the data in a redundant manner. However, these methods bring much more overhead than error detection.</p>
 <p>Error detection and subsequent retransmission is more efficient for networks such as the Internet, where retransmission is relatively cheap and fast. Error correction is preferred in situations where retransmission is too costly or impossible (for example, satellite communications or one-way broadcasts).</p>
-<hr>
 <h3 id="chapter-2-ip-addressing-and-subnet-management">
   Chapter 2: IP Addressing and Subnet Management
   <a class="heading-link" href="#chapter-2-ip-addressing-and-subnet-management">
@@ -323,10 +319,10 @@ In today&rsquo;s hyper-connected world, a complex and massive infrastructure of 
 <p>IPv4 uses a 32-bit addressing scheme, which theoretically provides approximately 4.3 billion unique addresses. These addresses are usually shown in dot-separated decimal format (for example, 192.168.1.1).</p>
 <ul>
 <li><strong>Class Addressing (A Historical Overview):</strong> Originally, IPv4 addresses were divided into classes such as A, B, and C. These classes rigidly determined how much of the address represented the network part and how much represented the host part. For example, Class A networks allowed very few networks but millions of hosts, while Class C networks allowed millions of networks but only 254 hosts each. This rigid structure led to inefficient use of addresses and great waste, as blocks were allocated that were much larger or much smaller than an organization needed.</li>
-<li><strong>Private and Public IP Address Ranges (RFC 1918):</strong> To slow the rapid depletion of IPv4 addresses, the Internet Assigned Numbers Authority (IANA) has reserved private IP address ranges for use in local area networks (LANs). These ranges are: 
-<code>10.0.0.0</code> - <code>10.255.255.255</code> (<code>10.0.0.0/8</code>) 
-<code>172.16.0.0</code> - <code>172.31.255.255</code> (<code>172.16.0.0/12</code>) 
-<code>192.168.0.0</code> - <code>192.168.255.255</code> (<code>192.168.0.0/16</code>) 
+<li><strong>Private and Public IP Address Ranges (RFC 1918):</strong> To slow the rapid depletion of IPv4 addresses, the Internet Assigned Numbers Authority (IANA) has reserved private IP address ranges for use in local area networks (LANs). These ranges are:<br>
+<code>10.0.0.0</code> - <code>10.255.255.255</code> (<code>10.0.0.0/8</code>)<br>
+<code>172.16.0.0</code> - <code>172.31.255.255</code> (<code>172.16.0.0/12</code>)<br>
+<code>192.168.0.0</code> - <code>192.168.255.255</code> (<code>192.168.0.0/16</code>)<br>
 These private addresses are non-routable on the public internet and can be used by any organization without permission.</li>
 <li><strong>Network Address Translation (NAT):</strong> <strong>NAT (Network Address Translation)</strong> is used so that devices using private IP addresses can access the internet. NAT usually runs on a router or firewall and maps multiple private IP addresses on the local network to a single public IP address. In this way, hundreds of devices can access the internet via a single public IP address. NAT has been a critical technology that has significantly alleviated the problem of IPv4 address scarcity.</li>
 </ul>
@@ -402,7 +398,6 @@ These private addresses are non-routable on the public internet and can be used 
   </a>
 </h4>
 <p>DHCP is not an inherently secure protocol. By installing a rogue (<strong>Rogue</strong>) DHCP server on the network, an attacker can provide false gateway or DNS information to clients and thus perform a “man-in-the-middle” attack by passing traffic through them. The most effective measure against this threat is <strong>DHCP Snooping</strong>. This feature is enabled on network switches and monitors DHCP messages. The switch divides its ports into <strong>trusted</strong> and <strong>untrusted</strong>. Trusted ports are ports connected to legitimate DHCP servers. Server messages such as <code>DHCPOFFER</code> and <code>DHCPACK</code> from untrusted ports are blocked, allowing only authorized servers to distribute IP addresses.</p>
-<hr>
 <h3 id="chapter-3-routing-protocols-and-the-internet-backbone">
   Chapter 3: Routing Protocols and the Internet Backbone
   <a class="heading-link" href="#chapter-3-routing-protocols-and-the-internet-backbone">
@@ -466,7 +461,6 @@ These private addresses are non-routable on the public internet and can be used 
 </h3>
 <p>Security was not a priority in the original design of BGP. This has led to serious security threats such as <strong>BGP Route Hijacking</strong>. Route hijacking is when an AS illegally absorbs internet traffic by adopting an IP prefix that does not belong to it. This could lead to data theft, service outages, or widespread fraud.</p>
 <p>The most effective modern solution against this threat is the <strong>RPKI (Resource Public Key Infrastructure)</strong> system. RPKI is an infrastructure that cryptographically verifies which ASN an IP prefix can be legally advertised by. Regional Internet Registries (RIRs) allow IP address owners to create <strong>Route Resource Authorizations (ROA)</strong>. An ROA is a digitally signed object that binds together a specific IP prefix, the ASN authorized to announce that prefix, and the maximum prefix length. On networks that support RPKI, BGP routers check an incoming route announcement against this ROA database (<strong>Route Source Verification (ROV)</strong>). If the announcement is invalid (for example, made by the wrong ASN), the route is rejected and hijacking is prevented. The proliferation of RPKI has significantly reduced the impact of hijacking attacks targeting major platforms such as YouTube and Twitter.</p>
-<hr>
 <h3 id="chapter-4-switching-technologies-and-local-area-network-lan-management">
   Chapter 4: Switching Technologies and Local Area Network (LAN) Management
   <a class="heading-link" href="#chapter-4-switching-technologies-and-local-area-network-lan-management">
@@ -538,7 +532,6 @@ These private addresses are non-routable on the public internet and can be used 
 <p><img src="https://cdn-images-1.medium.com/max/800/0*iZqupuFz_XXG4e9n.png" alt=""></p>
 <p>Loop Prevention</p>
 <p>This evolutionary path summarizes the fundamental goal of network engineering: to ensure basic security (loop prevention), then add speed (fast convergence), and finally introduce intelligence and efficiency (load balancing).</p>
-<hr>
 <h3 id="result">
   Result
   <a class="heading-link" href="#result">

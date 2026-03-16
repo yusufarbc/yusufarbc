@@ -13,17 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-  Google Dorks and Google Hacking
-  
-    
-    Link to heading
-  
-
-
-Hello, in this article, I will introduce you to Google Dorks, which are very useful in collecting passive information. I will talk about how to use it. Then, I will try to explain how we can find vulnerabilities with these dors and what we can achieve.
-
-Google dork is a system that contains some parameters that make it easier for us to search with the Google search engine. These parameters allow us to filter the words we will search for. In this way, we can easily access the information we are looking for among the billions of sites indexed by Google. This system is indispensable for passive information collection.">
+<meta name="description" content="Hello, in this article, I will introduce you to Google Dorks, which are very useful in collecting passive information. I will talk about how to use it. Then, I will try to explain how we can find vulnerabilities with these dors and what we can achiev...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -31,14 +21,12 @@ Google dork is a system that contains some parameters that make it easier for us
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Google Dorks and Google Hacking">
-  <meta name="twitter:description" content="Google Dorks and Google HackingLink to headingHello, in this article, I will introduce you to Google Dorks, which are very useful in collecting passive information. I will talk about how to use it. Then, I will try to explain how we can find vulnerabilities with these dors and what we can achieve.
-Google dork is a system that contains some parameters that make it easier for us to search with the Google search engine. These parameters allow us to filter the words we will search for. In this way, we can easily access the information we are looking for among the billions of sites indexed by Google. This system is indispensable for passive information collection.">
+  <meta name="twitter:description" content="Hello, in this article, I will introduce you to Google Dorks, which are very useful in collecting passive information. I will talk about how to use it. Then, I will try to explain how we can find vulnerabilities with these dors and what we can achiev...">
 
 <meta property="og:url" content="http://localhost:1313/posts/2021/10/google-dorks-and-google-hacking/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Google Dorks and Google Hacking">
-  <meta property="og:description" content="Google Dorks and Google HackingLink to headingHello, in this article, I will introduce you to Google Dorks, which are very useful in collecting passive information. I will talk about how to use it. Then, I will try to explain how we can find vulnerabilities with these dors and what we can achieve.
-Google dork is a system that contains some parameters that make it easier for us to search with the Google search engine. These parameters allow us to filter the words we will search for. In this way, we can easily access the information we are looking for among the billions of sites indexed by Google. This system is indispensable for passive information collection.">
+  <meta property="og:description" content="Hello, in this article, I will introduce you to Google Dorks, which are very useful in collecting passive information. I will talk about how to use it. Then, I will try to explain how we can find vulnerabilities with these dors and what we can achiev...">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -213,11 +201,9 @@ Google dork is a system that contains some parameters that make it easier for us
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/0*wiiHrCXFveGl4-e-" alt=""></p>
 <p>Hello, in this article, I will introduce you to Google Dorks, which are very useful in collecting passive information. I will talk about how to use it. Then, I will try to explain how we can find vulnerabilities with these dors and what we can achieve.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*k0S1ZefFPj_ccZmA.jpg" alt=""></p>
 <p>Google dork is a system that contains some parameters that make it easier for us to search with the Google search engine. These parameters allow us to filter the words we will search for. In this way, we can easily access the information we are looking for among the billions of sites indexed by Google. This system is indispensable for passive information collection.</p>
-<hr>
 <h3 id="google-search-parameters">
   Google Search Parameters
   <a class="heading-link" href="#google-search-parameters">
@@ -294,8 +280,7 @@ Google dork is a system that contains some parameters that make it easier for us
 </code></pre><p>The &amp; operator and the AND operator correspond to the “and” logical operator in Turkish. Lists only results from two conditions that both satisfy.</p>
 <p>example</p>
 <pre tabindex="0"><code>site:facebook.com &amp; site:twitter.com
-</code></pre><hr>
-<h3 id="what-is-google-hacking">
+</code></pre><h3 id="what-is-google-hacking">
   What is Google Hacking?
   <a class="heading-link" href="#what-is-google-hacking">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
@@ -404,7 +389,7 @@ Google dork is a system that contains some parameters that make it easier for us
 </h3>
 <p>It&rsquo;s not too difficult to find WordPress Admin login pages with a dork:</p>
 <pre tabindex="0"><code>intitle:&#34;Index of&#34; wp-admin
-</code></pre><p>Apache servers may be misconfigured. This makes them great targets for botnets. 
+</code></pre><p>Apache servers may be misconfigured. This makes them great targets for botnets.<br>
  We can find Apache2 web pages with the following dork:</p>
 <pre tabindex="0"><code>intitle:&#34;Apache2 Ubuntu Default Page: It works&#34;
 </code></pre><h3 id="phpmyadmin">
@@ -428,7 +413,6 @@ Google dork is a system that contains some parameters that make it easier for us
 <p>Google dorks can also be used to find web applications that host important corporate data (via JIRA or Kibana).</p>
 <pre tabindex="0"><code>inurl:Dashboard.jspa intext:&#34;Atlassian Jira Project Management Software&#34; inurl:app/kibana intext:Loading Kibana
 </code></pre><p><a href="https://www.exploit-db.com/google-hacking-database"  class="external-link" target="_blank" rel="noopener">Google Hacking Database</a> is a database containing dors that we can use for hacking activities. On this platform offered by Exploit DB, we can list the dors used by many experts and use the dors that we think will be useful to us.</p>
-<hr>
 <p><em>source:</em> Google Hacking for Penetration Testers*,*Johnny Long, Bill Gardner, Justin Brown, 2015 <em>Originally published at</em> <a href="https://pwnlab.me/tr-google-dorks-ve-google-hacking/"  class="external-link" target="_blank" rel="noopener"><em>https://pwnlab.me</em></a> <em>on October 19, 2021.</em></p>
 
       </div>

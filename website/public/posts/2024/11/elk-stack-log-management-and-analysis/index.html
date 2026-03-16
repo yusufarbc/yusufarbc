@@ -13,16 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-Hello, in this article, I will talk about the log management of ELK Stack, which we installed in my last article, namely log collection, parsing and enrichment processes. How to Collect, Process and Send Logs with Logstash?
-
-  What is Log Management?
-  
-    
-    Link to heading
-  
-
-Log management is the process of collecting, storing, analyzing and managing all log records (logs) produced by a system or application. These logs contain important information about the operation of the system and are used in many areas such as troubleshooting, security analysis, and performance monitoring.">
+<meta name="description" content="Hello, in this article, I will talk about the log management of ELK Stack, which we installed in my last article, namely log collection, parsing and enrichment processes. How to Collect, Process and Send Logs with Logstash?">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -30,14 +21,12 @@ Log management is the process of collecting, storing, analyzing and managing all
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="ELK Stack Log Management and Analysis">
-  <meta name="twitter:description" content="Hello, in this article, I will talk about the log management of ELK Stack, which we installed in my last article, namely log collection, parsing and enrichment processes. How to Collect, Process and Send Logs with Logstash?
-What is Log Management?Link to headingLog management is the process of collecting, storing, analyzing and managing all log records (logs) produced by a system or application. These logs contain important information about the operation of the system and are used in many areas such as troubleshooting, security analysis, and performance monitoring.">
+  <meta name="twitter:description" content="Hello, in this article, I will talk about the log management of ELK Stack, which we installed in my last article, namely log collection, parsing and enrichment processes. How to Collect, Process and Send Logs with Logstash?">
 
 <meta property="og:url" content="http://localhost:1313/posts/2024/11/elk-stack-log-management-and-analysis/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="ELK Stack Log Management and Analysis">
-  <meta property="og:description" content="Hello, in this article, I will talk about the log management of ELK Stack, which we installed in my last article, namely log collection, parsing and enrichment processes. How to Collect, Process and Send Logs with Logstash?
-What is Log Management?Link to headingLog management is the process of collecting, storing, analyzing and managing all log records (logs) produced by a system or application. These logs contain important information about the operation of the system and are used in many areas such as troubleshooting, security analysis, and performance monitoring.">
+  <meta property="og:description" content="Hello, in this article, I will talk about the log management of ELK Stack, which we installed in my last article, namely log collection, parsing and enrichment processes. How to Collect, Process and Send Logs with Logstash?">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -205,8 +194,7 @@ What is Log Management?Link to headingLog management is the process of collect
         
           <img src="https://cdn-images-1.medium.com/max/800/1*O7bMqTbQv_OX5x75qkY6Ug.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*O7bMqTbQv_OX5x75qkY6Ug.png" alt=""></p>
-<p>Hello, in this article, I will talk about the log management of ELK Stack, which we installed in my last article, namely log collection, parsing and enrichment processes. How to Collect, Process and Send Logs with Logstash?</p>
+        <p>Hello, in this article, I will talk about the log management of ELK Stack, which we installed in my last article, namely log collection, parsing and enrichment processes. How to Collect, Process and Send Logs with Logstash?</p>
 <h3 id="what-is-log-management">
   What is Log Management?
   <a class="heading-link" href="#what-is-log-management">
@@ -237,7 +225,6 @@ What is Log Management?Link to headingLog management is the process of collect
 <li><strong>Compatibility Issues</strong>: Compatibility issues may occur between different systems and platforms. Some agents may not have full functionality on certain systems.</li>
 </ol>
 <p>In this article, we will send logs with beats and collect logs with logstash from a Linux system.</p>
-<hr>
 <h3 id="1--logstash-configuration">
   1- Logstash Configuration
   <a class="heading-link" href="#1--logstash-configuration">
@@ -249,16 +236,16 @@ What is Log Management?Link to headingLog management is the process of collect
 <p><img src="https://cdn-images-1.medium.com/max/800/1*sf3D7DyNWppst-cVl_z42g.png" alt=""></p>
 <p>Logstash Pipeline</p>
 <p>To create this data processing pipeline, you can configure Logstash using a configuration file. A typical logstash configuration file:</p>
-<pre tabindex="0"><code>input {  
-      plugin_name{...}  
- }  
-  
-filter {  
-     plugin_name{...}  
-}  
-  
-out {  
-     plugin_name{...}  
+<pre tabindex="0"><code>input {  
+      plugin_name{...}  
+ }  
+  
+filter {  
+     plugin_name{...}  
+}  
+  
+out {  
+     plugin_name{...}  
 }
 </code></pre><p>Now let&rsquo;s examine these components:</p>
 <ul>
@@ -312,33 +299,33 @@ out {
 <p>To set up the logstash pipeline, create a configuration file in the <code>etc/logstash/conf.d</code> directory.</p>
 <pre tabindex="0"><code>sudo nano /etc/logstash/conf.d/logstash.conf
 </code></pre><p>We will transfer logs with beats. Our configuration file for this is:</p>
-<pre tabindex="0"><code># Sample Logstash configuration for creating a simple  
-# Beats -&gt; Logstash -&gt; Elasticsearch pipeline.  
-  
-input {  
-  beats {  
-    port =&gt; 5044  
-  }  
-}  
-  
-filter {  
-  grok {  
-    # Match nginx headers  
-    match =&gt; {  
-      &#34;message&#34; =&gt; &#39;%{IP:client_ip} - - \[%{HTTPDATE:access_time}\] &#34;%{WORD:http_method} %{URIPATH:request_page} HTTP/%{NUMBER:http_version}&#34; %{NUMBER:response_code} %{NUMBER:response_size} &#34;-&#34; &#34;%{GREEDYDATA:user_agent}&#34;&#39;  
-    }  
-  }  
-  }  
-  
-out {  
-  elasticsearch {  
-    hosts =&gt; [&#34;https://&lt;host-ip&gt;:9200&#34;]  
-    index =&gt; &#34;filebeat-test-%{+YYYY.MM.dd}&#34;  
-    ssl =&gt; true  
-    ssl_certificate_verification =&gt; false  
-    user =&gt; &#34;elastic&#34;  
-    password =&gt; &#34;changeme&#34;  
-  }  
+<pre tabindex="0"><code># Sample Logstash configuration for creating a simple  
+# Beats -&gt; Logstash -&gt; Elasticsearch pipeline.  
+  
+input {  
+  beats {  
+    port =&gt; 5044  
+  }  
+}  
+  
+filter {  
+  grok {  
+    # Match nginx headers  
+    match =&gt; {  
+      &#34;message&#34; =&gt; &#39;%{IP:client_ip} - - \[%{HTTPDATE:access_time}\] &#34;%{WORD:http_method} %{URIPATH:request_page} HTTP/%{NUMBER:http_version}&#34; %{NUMBER:response_code} %{NUMBER:response_size} &#34;-&#34; &#34;%{GREEDYDATA:user_agent}&#34;&#39;  
+    }  
+  }  
+  }  
+  
+out {  
+  elasticsearch {  
+    hosts =&gt; [&#34;https://&lt;host-ip&gt;:9200&#34;]  
+    index =&gt; &#34;filebeat-test-%{+YYYY.MM.dd}&#34;  
+    ssl =&gt; true  
+    ssl_certificate_verification =&gt; false  
+    user =&gt; &#34;elastic&#34;  
+    password =&gt; &#34;changeme&#34;  
+  }  
 } beats { port =&gt; 5044 } } filter { grok { # Match nginx headers match =&gt; { &#34;message&#34; =&gt; &#39;%{IP:client_ip} - - \[%{HTTPDATE:access_time}\] &#34;%{WORD:http_method} %{URIPATH:request_page} HTTP/%{NUMBER:http_version}&#34; %{NUMBER:response_code} %{NUMBER:response_size} &#34;-&#34; &#34;%{GREEDYDATA:user_agent}&#34;&#39; } } } output { elasticsearch { hosts =&gt; [&#34;https://192.168.1.100:9200&#34;] index =&gt; &#34;filebeat-test-%{+YYYY.MM.dd}&#34; ssl =&gt; true ssl_certificate_verification =&gt; false user =&gt; &#34;elastic&#34; password =&gt; &#34;123456&#34; } }
 </code></pre><p>In this file, you need to write the password of your own “elastic” user in the password field.</p>
 <p>I used the grok plugin as a filter on Logstash. grok is a very good parser plugin. We will be parsing our incoming logs on Logstash with the grok plugin.</p>
@@ -375,7 +362,7 @@ out {
 </ul>
 <p>As you can see, there are many beat products. Let&rsquo;s use the <strong>filebeat</strong> product to send the log files in our system.</p>
 <p>We start the installation on our client system. I will continue with my same system. The server on which I installed my ELK system will also be my client.</p>
-<pre tabindex="0"><code>wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.15.3-amd64.deb  
+<pre tabindex="0"><code>wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.15.3-amd64.deb  
 sudo dpkg -i filebeat-8.15.3-amd64.deb
 </code></pre><p><img src="https://cdn-images-1.medium.com/max/800/1*h8EWICxmNAUUwQgfbizXjQ.png" alt=""></p>
 <p>Filebeat installation</p>
@@ -392,14 +379,13 @@ sudo dpkg -i filebeat-8.15.3-amd64.deb
 <p>In the Paths section, we can configure the logs that our beat will collect. By default, it collects log files under the /var/log/ directory. For more, we can add the logs of important services (WEB, DNS, DHCP, etc.) running on our server to this section.</p>
 <p>When our configuration settings are completed, we can save the file and exit.</p>
 <p>Now it&rsquo;s time to start our filebeat.</p>
-<pre tabindex="0"><code>sudo systemctl daemon-reload  
-sudo systemctl enable filebeat.service  
+<pre tabindex="0"><code>sudo systemctl daemon-reload  
+sudo systemctl enable filebeat.service  
 sudo systemctl start filebeat.service
 </code></pre><p><img src="https://cdn-images-1.medium.com/max/800/1*5fkN3mf3RSkcR8i5pj_eXg.png" alt=""></p>
 <p>Filebeat Service Status</p>
 <p>We have now completed our filebeat configuration and started our service. Our service is up and running.</p>
 <p>You can install and configure other beats products in a similar way.</p>
-<hr>
 <h3 id="3--kibana-configuration">
   3- Kibana Configuration
   <a class="heading-link" href="#3--kibana-configuration">
@@ -421,7 +407,6 @@ sudo systemctl start filebeat.service
 <p><img src="https://cdn-images-1.medium.com/max/800/1*yXjPbz-6CYRJekTkqSvHwQ.png" alt=""></p>
 <p>Discover Panel</p>
 <p>We can now perform log search from this panel.</p>
-<hr>
 <p>In this article, we added a log source to our ELK system. We parsed the logs and sent them to elasticsearch. We made the necessary configurations in the Kibana interface.</p>
 
       </div>

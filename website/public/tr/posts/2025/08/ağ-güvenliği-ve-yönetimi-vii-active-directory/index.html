@@ -13,8 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolünü ve neden birincil saldırı hedefi olduğunu detaylı bir şekilde incelemektedir. “Kimlik, yeni güvenlik çevresidir” paradigmasından yola çıkarak, bu çalışma, AD’yi bir güvenlik zafiyetinden bir savunma kalesine dönüştürmeyi amaçlayan kapsamlı bir strateji sunmaktadır. Rapor, Kerberoasting, Pass-the-Hash ve Golden Ticket gibi yaygın saldırı vektörlerini, Yönetimsel Katman Modeli (Tiered Model), Credential Guard ve Grup Yönetimli Hizmet Hesapları (gMSA) gibi gelişmiş savunma mekanizmalarını, hibrit kimlik altyapılarının güvenliğini ve sürekli izleme ile felaket kurtarma operasyonlarını teknik ayrıntılarıyla ele almaktadır. Bu kılavuz, güvenlik liderleri ve teknik uygulayıcılar için AD altyapılarının güvenliğini ve dayanıklılığını artırmaya yönelik eyleme geçirilebilir bir yol haritası sunarak son bulmaktadır.">
+<meta name="description" content="Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolünü ve neden birincil saldırı hedefi olduğunu detaylı bir şekilde incelemektedir. “Kimlik, yeni güvenlik çevresidir” paradigmasından yola çıkarak, bu çalışma, AD’yi bir güvenl...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -22,12 +21,12 @@ Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolü
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Ağ Güvenliği ve Yönetimi VII: Active Directory">
-  <meta name="twitter:description" content="Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolünü ve neden birincil saldırı hedefi olduğunu detaylı bir şekilde incelemektedir. “Kimlik, yeni güvenlik çevresidir” paradigmasından yola çıkarak, bu çalışma, AD’yi bir güvenlik zafiyetinden bir savunma kalesine dönüştürmeyi amaçlayan kapsamlı bir strateji sunmaktadır. Rapor, Kerberoasting, Pass-the-Hash ve Golden Ticket gibi yaygın saldırı vektörlerini, Yönetimsel Katman Modeli (Tiered Model), Credential Guard ve Grup Yönetimli Hizmet Hesapları (gMSA) gibi gelişmiş savunma mekanizmalarını, hibrit kimlik altyapılarının güvenliğini ve sürekli izleme ile felaket kurtarma operasyonlarını teknik ayrıntılarıyla ele almaktadır. Bu kılavuz, güvenlik liderleri ve teknik uygulayıcılar için AD altyapılarının güvenliğini ve dayanıklılığını artırmaya yönelik eyleme geçirilebilir bir yol haritası sunarak son bulmaktadır.">
+  <meta name="twitter:description" content="Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolünü ve neden birincil saldırı hedefi olduğunu detaylı bir şekilde incelemektedir. “Kimlik, yeni güvenlik çevresidir” paradigmasından yola çıkarak, bu çalışma, AD’yi bir güvenl...">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi-vii-active-directory/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Ağ Güvenliği ve Yönetimi VII: Active Directory">
-  <meta property="og:description" content="Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolünü ve neden birincil saldırı hedefi olduğunu detaylı bir şekilde incelemektedir. “Kimlik, yeni güvenlik çevresidir” paradigmasından yola çıkarak, bu çalışma, AD’yi bir güvenlik zafiyetinden bir savunma kalesine dönüştürmeyi amaçlayan kapsamlı bir strateji sunmaktadır. Rapor, Kerberoasting, Pass-the-Hash ve Golden Ticket gibi yaygın saldırı vektörlerini, Yönetimsel Katman Modeli (Tiered Model), Credential Guard ve Grup Yönetimli Hizmet Hesapları (gMSA) gibi gelişmiş savunma mekanizmalarını, hibrit kimlik altyapılarının güvenliğini ve sürekli izleme ile felaket kurtarma operasyonlarını teknik ayrıntılarıyla ele almaktadır. Bu kılavuz, güvenlik liderleri ve teknik uygulayıcılar için AD altyapılarının güvenliğini ve dayanıklılığını artırmaya yönelik eyleme geçirilebilir bir yol haritası sunarak son bulmaktadır.">
+  <meta property="og:description" content="Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolünü ve neden birincil saldırı hedefi olduğunu detaylı bir şekilde incelemektedir. “Kimlik, yeni güvenlik çevresidir” paradigmasından yola çıkarak, bu çalışma, AD’yi bir güvenl...">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -202,9 +201,7 @@ Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolü
         
           <img src="https://cdn-images-1.medium.com/max/800/1*xHCEWIgWsOG-PR1mgpcXvQ.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*xHCEWIgWsOG-PR1mgpcXvQ.png" alt=""></p>
-<p>Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolünü ve neden birincil saldırı hedefi olduğunu detaylı bir şekilde incelemektedir. “Kimlik, yeni güvenlik çevresidir” paradigmasından yola çıkarak, bu çalışma, AD’yi bir güvenlik zafiyetinden bir savunma kalesine dönüştürmeyi amaçlayan kapsamlı bir strateji sunmaktadır. Rapor, Kerberoasting, Pass-the-Hash ve Golden Ticket gibi yaygın saldırı vektörlerini, Yönetimsel Katman Modeli (Tiered Model), Credential Guard ve Grup Yönetimli Hizmet Hesapları (gMSA) gibi gelişmiş savunma mekanizmalarını, hibrit kimlik altyapılarının güvenliğini ve sürekli izleme ile felaket kurtarma operasyonlarını teknik ayrıntılarıyla ele almaktadır. Bu kılavuz, güvenlik liderleri ve teknik uygulayıcılar için AD altyapılarının güvenliğini ve dayanıklılığını artırmaya yönelik eyleme geçirilebilir bir yol haritası sunarak son bulmaktadır.</p>
-<hr>
+        <p>Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolünü ve neden birincil saldırı hedefi olduğunu detaylı bir şekilde incelemektedir. “Kimlik, yeni güvenlik çevresidir” paradigmasından yola çıkarak, bu çalışma, AD’yi bir güvenlik zafiyetinden bir savunma kalesine dönüştürmeyi amaçlayan kapsamlı bir strateji sunmaktadır. Rapor, Kerberoasting, Pass-the-Hash ve Golden Ticket gibi yaygın saldırı vektörlerini, Yönetimsel Katman Modeli (Tiered Model), Credential Guard ve Grup Yönetimli Hizmet Hesapları (gMSA) gibi gelişmiş savunma mekanizmalarını, hibrit kimlik altyapılarının güvenliğini ve sürekli izleme ile felaket kurtarma operasyonlarını teknik ayrıntılarıyla ele almaktadır. Bu kılavuz, güvenlik liderleri ve teknik uygulayıcılar için AD altyapılarının güvenliğini ve dayanıklılığını artırmaya yönelik eyleme geçirilebilir bir yol haritası sunarak son bulmaktadır.</p>
 <h3 id="active-directory-mimarisi-ve-güvenlik-temelleri">
   Active Directory Mimarisi ve Güvenlik Temelleri
   <a class="heading-link" href="#active-directory-mimarisi-ve-g%c3%bcvenlik-temelleri">
@@ -288,7 +285,6 @@ Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolü
 </h3>
 <p>Grup İlkesi Nesneleri (GPO’lar), AD’nin en güçlü güvenlik yönetimi araçlarından biridir. GPO’lar aracılığıyla yöneticiler, binlerce bilgisayar ve kullanıcı için güvenlik ayarlarını merkezi olarak yapılandırabilir ve zorunlu kılabilirler. Bu ayarlar arasında parola politikaları, hesap kilitleme politikaları, denetim ayarları, yazılım kısıtlamaları ve Windows Güvenlik Duvarı kuralları gibi kritik kontroller bulunur. GPO’ların OU’lara bağlanabilmesi, farklı risk seviyelerindeki varlıklar için farklı güvenlik temelleri (security baselines) oluşturulmasına olanak tanır. Bu, AD sıkılaştırmasının temelini oluşturur.</p>
 <p>Bir saldırgan genellikle düşük yetkili bir kullanıcı hesabını ele geçirerek bir ağa sızar. Bu hesap, belirli bir OU içinde yer alır ve GPO’lar tarafından belirlenen kısıtlamalara tabidir. Saldırganın nihai hedefi, genellikle yanal hareket (lateral movement) yoluyla bir Etki Alanı Yöneticisi (Domain Admin) gibi Tier 0 seviyesinde bir hesaba ulaşmaktır. Eğer AD mimarisi ve GPO’lar “En Az Ayrıcalık İlkesi”ne göre doğru tasarlanmışsa, bu ilk ele geçirilen hesabın erişebileceği sistemler ve gerçekleştirebileceği eylemler son derece sınırlı olacaktır. Bu durum, saldırganı bir üst yönetimsel sınıra (örneğin, farklı bir OU’daki sunuculara veya doğrudan bir Etki Alanı Denetleyicisine) geçmek için ek zafiyetler aramaya zorlar. Dolayısıyla, iyi yapılandırılmış bir AD mimarisi, saldırıyı yavaşlatan, daha fazla iz bırakmasına neden olan ve tespit için güvenlik ekiplerine daha fazla fırsat tanıyan pasif bir savunma mekanizması işlevi görür. Aksine, kötü yapılandırılmış bir AD, saldırgan için hedefine giden düz bir otoban gibidir.</p>
-<hr>
 <h3 id="active-directory-saldırı-yüzeyi-tehdit-vektörleri-ve-teknikleri">
   Active Directory Saldırı Yüzeyi: Tehdit Vektörleri ve Teknikleri
   <a class="heading-link" href="#active-directory-sald%c4%b1r%c4%b1-y%c3%bczeyi-tehdit-vekt%c3%b6rleri-ve-teknikleri">
@@ -424,7 +420,6 @@ Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolü
 <p>Saldırı Tekniği (MITRE ATT&amp;CK ID)Çalışma Prensibi (Özet)Birincil Savunma Stratejileriİlgili Araçlar (Saldırı/Savunma)<strong>Kerberoasting</strong> (T1558.003)SPN’i olan hizmet bileti hash’ini çevrimdışı kırma.</p>
 <p>Grup Yönetimli Hizmet Hesapları (gMSA), 25+ karakterli karmaşık hizmet hesabı parolaları, AES şifrelemesini zorunlu kılma.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*YontK_x4FdZcm4LQIPCUtw.png" alt=""></p>
-<hr>
 <h3 id="savunma-derinliği-çok-katmanlı-güvenlik-stratejileri">
   Savunma Derinliği: Çok Katmanlı Güvenlik Stratejileri
   <a class="heading-link" href="#savunma-derinli%c4%9fi-%c3%a7ok-katmanl%c4%b1-g%c3%bcvenlik-stratejileri">
@@ -562,7 +557,6 @@ Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolü
 </ul>
 <p>Bu savunma mekanizmaları, tek başlarına değerli olsalar da, asıl güçleri bir araya geldiklerinde ortaya çıkar. Bu, saldırganın işini neredeyse imkansız hale getiren birleşik bir savunma felsefesi oluşturur. Bir saldırgan Tier 2&rsquo;de bir hesap ele geçirdiğinde, Tiered Model onun Tier 0 varlıklarına ulaşmasını engeller. Aynı katman içinde yanal hareket etmeye çalıştığında, LAPS sayesinde her makinenin farklı bir yerel yönetici parolası olduğundan PtH saldırıları etkisiz kalır. Bir şekilde bir makinede yönetici hakları elde etse bile, Credential Guard LSASS’ten kimlik bilgisi çalmasını önleyerek PtH ve PtT saldırılarını temelden bozar. Hizmet hesaplarını hedeflemeye çalıştığında ise, gMSA’ların kırılması imkansıza yakın parolaları sayesinde Kerberoasting saldırısı başarısız olur. Bu katmanlı savunma, saldırganın en temel silahları olan kimlik bilgisi hırsızlığı ve yeniden kullanımını işlevsiz kılarak AD’yi bir kale haline getirir.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*m6kPdehFatPSmDwBEF0fDw.png" alt=""></p>
-<hr>
 <h3 id="hibrit-kimlik-altyapılarının-güvenliği">
   Hibrit Kimlik Altyapılarının Güvenliği
   <a class="heading-link" href="#hibrit-kimlik-altyap%c4%b1lar%c4%b1n%c4%b1n-g%c3%bcvenli%c4%9fi">
@@ -631,7 +625,6 @@ Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolü
 <li><strong>Tam Zamanında Erişim (Just-In-Time — JIT):</strong> Azure AD Privileged Identity Management (PIM) gibi çözümler kullanılarak, yöneticilere bulut rollerine kalıcı olarak değil, yalnızca ihtiyaç duydukları süre boyunca (örneğin, 2 saatliğine) ve bir onay sürecinden geçerek erişim hakkı verilmelidir. Bu, ayrıcalıklı erişimin riskini önemli ölçüde azaltır.</li>
 </ul>
 <p>Hibrit kimlik altyapılarında, şirket içi AD ile Azure AD arasındaki güven ilişkisi, saldırganlar için bir köprü işlevi görebilir. Bir kuruluş, kullanıcı deneyimini iyileştirmek amacıyla ADFS ile federasyon kurduğunda, aslında Azure AD’ye “ADFS sunucusundan gelen imzalı SAML token’larına güven” talimatı vermiş olur. Eğer bir saldırgan, şirket içi ağdaki bir zafiyetten faydalanarak ADFS sunucusuna yönetici erişimi elde ederse , bu güvenin temelini oluşturan token imzalama özel anahtarını çalabilir. Bu noktadan sonra saldırgan, şirket içi ağa artık ihtiyaç duymadan, internet üzerinden herhangi bir kullanıcı (örneğin, bir Global Admin) adına geçerli ve imzalı bir SAML token’ı oluşturabilir. Azure AD, bu token’ı meşru bir kimlik kanıtı olarak kabul edecek ve saldırgana bulut ortamında tam kontrol sağlayacaktır. Bu senaryo, hibrit modelde en zayıf halkanın tüm zinciri kopardığını ve ADFS gibi hibrit bileşenlerin güvenliğinin, tüm bulut kimlik altyapısının güvenliği haline geldiğini net bir şekilde ortaya koymaktadır.</p>
-<hr>
 <h3 id="sürekli-izleme-denetim-vekurtarma">
   Sürekli İzleme, Denetim ve Kurtarma
   <a class="heading-link" href="#s%c3%bcrekli-izleme-denetim-vekurtarma">
@@ -729,7 +722,6 @@ Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolü
 </ol>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*LthF_GXjUk5o1DenNl0tAw.png" alt=""></p>
 <p>olay güvenliği</p>
-<hr>
 <h3 id="sonuç-ve-stratejik-öneriler">
   Sonuç ve Stratejik Öneriler
   <a class="heading-link" href="#sonu%c3%a7-ve-stratejik-%c3%b6neriler">

@@ -13,7 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Hello, in this article I will try to explain the HTTP protocol and its analysis with Wireshark. --- ### What is HTTP? Hypertext Transfer Protocol (HTTP) is called “distributed hypermedia info...">
+<meta name="description" content="Hello, in this article I will try to explain the HTTP protocol and its analysis with Wireshark.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +21,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="HTTP Wireshark Analysis">
-  <meta name="twitter:description" content="Hello, in this article I will try to explain the HTTP protocol and its analysis with Wireshark. --- ### What is HTTP? Hypertext Transfer Protocol (HTTP) is called “distributed hypermedia info...">
+  <meta name="twitter:description" content="Hello, in this article I will try to explain the HTTP protocol and its analysis with Wireshark.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2024/08/http-wireshark-analysis/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="HTTP Wireshark Analysis">
-  <meta property="og:description" content="Hello, in this article I will try to explain the HTTP protocol and its analysis with Wireshark. --- ### What is HTTP? Hypertext Transfer Protocol (HTTP) is called “distributed hypermedia info...">
+  <meta property="og:description" content="Hello, in this article I will try to explain the HTTP protocol and its analysis with Wireshark.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -201,7 +201,6 @@
           <img src="https://cdn-images-1.medium.com/max/800/1*lpMM04aqUuEX3GMKaDsawQ.png" alt="Featured image"/>
         
         <p>Hello, in this article I will try to explain the HTTP protocol and its analysis with Wireshark.</p>
-<hr>
 <h3 id="what-is-http">
   What is HTTP?
   <a class="heading-link" href="#what-is-http">
@@ -210,10 +209,8 @@
   </a>
 </h3>
 <p>Hypertext Transfer Protocol (HTTP) is called “distributed hypermedia information distribution application”. HTTP is the application used when a person browses the internet. HTTP uses a request/response model.</p>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*lpMM04aqUuEX3GMKaDsawQ.png" alt=""></p>
 <p>HTTP and HTTPS use TCP transport</p>
 <p>HTTP v1.0 is not used as frequently as HTTP v1.1, the current version in use. HTTP v1.1 is covered in RFC 2616, Hypertext Transfer Protocol — HTTP/1.1.</p>
-<hr>
 <h3 id="http-trafficanalysis">
   HTTP Traffic Analysis
   <a class="heading-link" href="#http-trafficanalysis">
@@ -349,13 +346,12 @@
 <p>When we browse to <a href="http://www.espn.com"  class="external-link" target="_blank" rel="noopener">www.espn.com</a> in the figure, we see the HTTP redirects and dependencies.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*KYKO1fj8c3rUSDlHeYenFw.png" alt=""></p>
 <p>HTTP Packet Counter</p>
-<p>HTTP Packet Counter is very valuable because it lists the Status Code 
-answers. Detecting 4xx Client Error or 5xx Server Error responses is simple. The figure shows the HTTP Packet Counter for another browsing session to <a href="http://www.espn.com"  class="external-link" target="_blank" rel="noopener">www.espn.com</a> (httpespn2007. 
+<p>HTTP Packet Counter is very valuable because it lists the Status Code<br>
+answers. Detecting 4xx Client Error or 5xx Server Error responses is simple. The figure shows the HTTP Packet Counter for another browsing session to <a href="http://www.espn.com"  class="external-link" target="_blank" rel="noopener">www.espn.com</a> (httpespn2007.<br>
 pcapng). We can see some HTTP 301 and 302 redirects and a 404 Not Found response.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*2YKXJLq89yAY7hD0U-wqzQ.png" alt=""></p>
 <p>HTTP Requests</p>
 <p>HTTP Requests lists each item requested from each HTTP server. In the figure, we examine HTTP Requests Requests sent to <a href="http://www.espn.com"  class="external-link" target="_blank" rel="noopener">www.espn.com</a> during our Web browser session.</p>
-<hr>
 <h3 id="https-trafficanalysis">
   HTTPS Traffic Analysis
   <a class="heading-link" href="#https-trafficanalysis">
@@ -388,7 +384,7 @@ pcapng). We can see some HTTP 301 and 302 redirects and a 404 Not Found response
 <p>An extension provides the server name, in this case <a href="http://www.bankofamerica.com"  class="external-link" target="_blank" rel="noopener">www.bankofamerica.com</a>. The server name extension allows the client to create a secure connection to a virtual server that can be hosted on a machine that supports multiple servers on a single IP address.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*n8YUEDlR5Fog8x16NgsNSg.png" alt=""></p>
 <p>Pack 10</p>
-<p>In packet 10, the Server responds with a packet of three functions:  
+<p>In packet 10, the Server responds with a packet of three functions: <br>
 Server Hello, Certificate and Server Hello Done.</p>
 <p>In the Random part, the server provides 28 random bytes and a 32-byte Session ID value to allow the client to reconnect later. This random set of bytes will then be sent again during the handshake, but will then be encrypted with the client&rsquo;s public key. These random bytes are used for key generation.</p>
 <p>Among the 34 cipher suites offered, the server chose TLS_RSA_with_RC4_128_MD5 (0x0004), which means:</p>
@@ -423,7 +419,6 @@ Server Hello, Certificate and Server Hello Done.</p>
 <p>Once the key is configured and applied, we can see the HTTP communication clearly</p>
 <p>The figure shows the results of applying the switch. protocolIn the ol column we still see TCP and TLSv1, but we also see HTTP listed for decrypted traffic. In addition, we can now right-click on an HTTP packet listed in the Packet List pane and select <em>Follow SSL Stream</em> to see the communication clearly</p>
 <p>When you decrypt TLS traffic (just like when you decrypt WLAN traffic), a tab appears just below the Packet Bytes pane, as shown in the figure. Click the <em>Decrypted SSL data</em> tab to view the decrypted traffic in the Packet Bytes pane. This tab will only appear when you (a) decrypt the traffic and (b) make the Packet Bytes pane visible.</p>
-<hr>
 <h3 id="http-errorsanalysis">
   HTTP Errors Analysis
   <a class="heading-link" href="#http-errorsanalysis">
@@ -448,9 +443,15 @@ Server Hello, Certificate and Server Hello Done.</p>
 <p>The client&rsquo;s POST fails, indicating a web server issue</p>
 <p>We are trying to fill out an online form as follows (http-fault-post.pcapng). But when the Submit button is clicked, the client system seems to crash. In this case, we can look at the HTTP traffic and observe the 403 Forbidden status code coming from the server. When we follow the TCP stream, we see clear text and HTML tags with more information about the state (we removed the HTML tags):</p>
 <p>“The page cannot be displayed — you attempted to execute a CGI, ISAPI, or other executable program from a directory that does not allow programs to be executed.”</p>
-<p>Again, the issue does not appear to be a client issue and we do not consider TCP transfer errors to be an issue. The problem is on the server. 
+<p>Again, the issue does not appear to be a client issue and we do not consider TCP transfer errors to be an issue. The problem is on the server.<br>
 When troubleshooting web browsing issues, look for TCP errors before focusing on HTTP traffic.</p>
-<p>&mdash;### <strong>HTTP Packet Structure</strong></p>
+<h3 id="http-packetstructure">
+  <strong>HTTP Packet Structure</strong>
+  <a class="heading-link" href="#http-packetstructure">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>HTTP packets are of variable length. In this section we list some important fields in the HTTP packet structure. HTTP requests consist of a Method that defines the purpose of the HTTP request. HTTP responses contain a numeric response code called a Status Code.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*AU90ZRoS-ZXyas8DmkoIaQ.png" alt=""></p>
 <p>An HTTP GET request packet for the Facebook homepage</p>
@@ -509,7 +510,6 @@ When troubleshooting web browsing issues, look for TCP errors before focusing on
 <li><strong>UserAgent</strong>: User agent — typically browser and operating system</li>
 <li><strong>Via</strong>: Passed proxies</li>
 </ul>
-<hr>
 <h3 id="filtering-httphttps-traffic">
   Filtering HTTP/HTTPS Traffic
   <a class="heading-link" href="#filtering-httphttps-traffic">
@@ -532,7 +532,6 @@ When troubleshooting web browsing issues, look for TCP errors before focusing on
 <li>ssl.record.content_type==20 — TLSv1 Change Cipher Spec</li>
 <li>http.content_type contains “ocsp” — Online Certificate Status Protocol (OCSP) is used</li>
 </ul>
-<hr>
 <h3 id="exporting-http-objects">
   Exporting HTTP Objects
   <a class="heading-link" href="#exporting-http-objects">

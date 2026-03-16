@@ -13,30 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-  Python:socket for hackers
-  
-    
-    Link to heading
-  
-
-
-
-  Introduction
-  
-    
-    Link to heading
-  
-
-Hello, in this article, we will get to know the socket module that we can use to connect to the IP and port addresses of remote servers.
-
-  What is a socket?
-  
-    
-    Link to heading
-  
-
-Socket is a module that comes installed with Python. Thanks to this module, we can connect to the desired IP and port address. Now let&rsquo;s take a look at how to use this module and what we can do with it.">
+<meta name="description" content="Hello, in this article, we will get to know the socket module that we can use to connect to the IP and port addresses of remote servers.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -44,14 +21,12 @@ Socket is a module that comes installed with Python. Thanks to this module, we c
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Python:socket for hackers">
-  <meta name="twitter:description" content="Python:socket for hackersLink to headingIntroductionLink to headingHello, in this article, we will get to know the socket module that we can use to connect to the IP and port addresses of remote servers.
-What is a socket?Link to headingSocket is a module that comes installed with Python. Thanks to this module, we can connect to the desired IP and port address. Now let’s take a look at how to use this module and what we can do with it.">
+  <meta name="twitter:description" content="Hello, in this article, we will get to know the socket module that we can use to connect to the IP and port addresses of remote servers.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2022/09/pythonsocket-for-hackers/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Python:socket for hackers">
-  <meta property="og:description" content="Python:socket for hackersLink to headingIntroductionLink to headingHello, in this article, we will get to know the socket module that we can use to connect to the IP and port addresses of remote servers.
-What is a socket?Link to headingSocket is a module that comes installed with Python. Thanks to this module, we can connect to the desired IP and port address. Now let’s take a look at how to use this module and what we can do with it.">
+  <meta property="og:description" content="Hello, in this article, we will get to know the socket module that we can use to connect to the IP and port addresses of remote servers.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -229,7 +204,6 @@ What is a socket?Link to headingSocket is a module that comes installed with P
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*Z3ieIgd5w_LPy0R2bLu6pg.png" alt=""></p>
 <h3 id="introduction">
   Introduction
   <a class="heading-link" href="#introduction">
@@ -275,17 +249,17 @@ What is a socket?Link to headingSocket is a module that comes installed with P
 </h3>
 <p>We can listen to a specific port by opening a socket.</p>
 <pre tabindex="0"><code>import socket
-</code></pre><pre tabindex="0"><code>HOST = &#39;127.0.0.1&#39;                   
-PORT = 2222                
-with socket.socket() as s:  
-    s.bind((HOST, PORT))  
-    s.listen()  
-    conn, addr = s.accept()  
-    with conn:  
-        print(&#39;Connected by &#39;, addr)  
-        while True:  
-            data = conn.recv(1024)  
-            if not data: break  
+</code></pre><pre tabindex="0"><code>HOST = &#39;127.0.0.1&#39;                   
+PORT = 2222                
+with socket.socket() as s:  
+    s.bind((HOST, PORT))  
+    s.listen()  
+    conn, addr = s.accept()  
+    with conn:  
+        print(&#39;Connected by &#39;, addr)  
+        while True:  
+            data = conn.recv(1024)  
+            if not data: break  
             conn.sendall(data)
 </code></pre><p>This code will listen to the socket opened at 127.0.0.1:2222, and when it detects a connection, it will send back the incoming data in the same way. Then the program ends.</p>
 <h3 id="connecting-to-socket">
@@ -297,12 +271,12 @@ with socket.socket() as s:
 </h3>
 <p>By opening a socket, we can establish a connection to a specific IP address and port.</p>
 <pre tabindex="0"><code>import socket
-</code></pre><pre tabindex="0"><code>HOST = &#39;127.0.0.1&#39;      
-PORT = 2222             
-with socket.socket() as s:  
-    s.connect((HOST, PORT))  
-    s.sendall(b&#39;Hello&#39;)  
-    data = s.recv(1024)  
+</code></pre><pre tabindex="0"><code>HOST = &#39;127.0.0.1&#39;      
+PORT = 2222             
+with socket.socket() as s:  
+    s.connect((HOST, PORT))  
+    s.sendall(b&#39;Hello&#39;)  
+    data = s.recv(1024)  
 print(&#39;Received &#39;, data)
 </code></pre><p>This code will send data one by one to establish a connection with the socket operating at 127.0.0.1:2222. The data sent here is the &lsquo;hello&rsquo; message. Then, it receives the incoming data and the program ends.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*0epPGqrnUjKfpY9yg8YoKg.png" alt=""></p>
@@ -316,22 +290,22 @@ print(&#39;Received &#39;, data)
 </h3>
 <p>We could connect to IP and port addresses with the socket module. In this way, we can find open ports and banner information on a host. Banner information will give us information about which service is running on this port.</p>
 <pre tabindex="0"><code>import socket
-</code></pre><pre tabindex="0"><code>ip = &#34;10.10.10.10&#34;  
-ports = []  
+</code></pre><pre tabindex="0"><code>ip = &#34;10.10.10.10&#34;  
+ports = []  
 banners = []
-</code></pre><pre tabindex="0"><code>for port in range(1,1000):  
-    try:  
-        s = socket.socket()  
-        s.connect((str(ip), int(port)))  
-        banner = s.recv(1024)  
-        banners.append(str(banner))  
-        ports.append(str(port))  
-        s.close()  
-        print(port)  
-    except:  
-        pass  
-          
-print(ports)  
+</code></pre><pre tabindex="0"><code>for port in range(1,1000):  
+    try:  
+        s = socket.socket()  
+        s.connect((str(ip), int(port)))  
+        banner = s.recv(1024)  
+        banners.append(str(banner))  
+        ports.append(str(port))  
+        s.close()  
+        print(port)  
+    except:  
+        pass  
+          
+print(ports)  
 print(banners)
 </code></pre><p>If we run this code on the Typhoon machine, it will get us open ports and banner information.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*p297l0qe6OnuUmY7ep52sA.png" alt=""></p>
@@ -344,12 +318,12 @@ print(banners)
 </h3>
 <p>When we try to access secure sites that work with the HTTPS protocol, we need an SSL certificate. We can get help from the SSL module for this.</p>
 <p>By default, http protocol works on port 80 and https protocol works on port 443.</p>
-<pre tabindex="0"><code>import socket  
+<pre tabindex="0"><code>import socket  
 import ssl
-</code></pre><pre tabindex="0"><code>hostname = &#39;www.python.org&#39;  
+</code></pre><pre tabindex="0"><code>hostname = &#39;www.python.org&#39;  
 context = ssl.create_default_context()
-</code></pre><pre tabindex="0"><code>with socket.create_connection((hostname, 443)) as sock:  
-    with context.wrap_socket(sock, server_hostname=hostname) as ssock:  
+</code></pre><pre tabindex="0"><code>with socket.create_connection((hostname, 443)) as sock:  
+    with context.wrap_socket(sock, server_hostname=hostname) as ssock:  
         print(ssock.version())
 </code></pre><h3 id="end">
   End

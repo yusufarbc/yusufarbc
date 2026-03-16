@@ -13,8 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-Network management has undergone a radical transformation in the last two decades. In the past, network management relied heavily on individual troubleshooting efforts that were manual, reactive, and command-line interface (CLI)-based. Network engineers would intervene when problems arose, connecting devices one by one and manually adjusting configurations. This approach is no longer sustainable for today&rsquo;s complex, dynamic and business-critical network infrastructures. Modern network operations are built on three deeply interconnected pillars that replace this old paradigm:">
+<meta name="description" content="Network management has undergone a radical transformation in the last two decades. In the past, network management relied heavily on individual troubleshooting efforts that were manual, reactive, and command-line interface (CLI)-based. Network engine...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -22,12 +21,12 @@ Network management has undergone a radical transformation in the last two decade
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Network Management and Security VIII: Network Management, Monitoring and Automation">
-  <meta name="twitter:description" content="Network management has undergone a radical transformation in the last two decades. In the past, network management relied heavily on individual troubleshooting efforts that were manual, reactive, and command-line interface (CLI)-based. Network engineers would intervene when problems arose, connecting devices one by one and manually adjusting configurations. This approach is no longer sustainable for today’s complex, dynamic and business-critical network infrastructures. Modern network operations are built on three deeply interconnected pillars that replace this old paradigm:">
+  <meta name="twitter:description" content="Network management has undergone a radical transformation in the last two decades. In the past, network management relied heavily on individual troubleshooting efforts that were manual, reactive, and command-line interface (CLI)-based. Network engine...">
 
 <meta property="og:url" content="http://localhost:1313/posts/2025/08/network-management-and-security-viii-network-management-monitoring-and-automation/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Network Management and Security VIII: Network Management, Monitoring and Automation">
-  <meta property="og:description" content="Network management has undergone a radical transformation in the last two decades. In the past, network management relied heavily on individual troubleshooting efforts that were manual, reactive, and command-line interface (CLI)-based. Network engineers would intervene when problems arose, connecting devices one by one and manually adjusting configurations. This approach is no longer sustainable for today’s complex, dynamic and business-critical network infrastructures. Modern network operations are built on three deeply interconnected pillars that replace this old paradigm:">
+  <meta property="og:description" content="Network management has undergone a radical transformation in the last two decades. In the past, network management relied heavily on individual troubleshooting efforts that were manual, reactive, and command-line interface (CLI)-based. Network engine...">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -201,15 +200,13 @@ Network management has undergone a radical transformation in the last two decade
         
           <img src="https://cdn-images-1.medium.com/max/800/1*Iv6EqXHTlTeVgd7LlSNDOQ.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*Iv6EqXHTlTeVgd7LlSNDOQ.png" alt=""></p>
-<p>Network management has undergone a radical transformation in the last two decades. In the past, network management relied heavily on individual troubleshooting efforts that were manual, reactive, and command-line interface (CLI)-based. Network engineers would intervene when problems arose, connecting devices one by one and manually adjusting configurations. This approach is no longer sustainable for today&rsquo;s complex, dynamic and business-critical network infrastructures. Modern network operations are built on three deeply interconnected pillars that replace this old paradigm:</p>
+        <p>Network management has undergone a radical transformation in the last two decades. In the past, network management relied heavily on individual troubleshooting efforts that were manual, reactive, and command-line interface (CLI)-based. Network engineers would intervene when problems arose, connecting devices one by one and manually adjusting configurations. This approach is no longer sustainable for today&rsquo;s complex, dynamic and business-critical network infrastructures. Modern network operations are built on three deeply interconnected pillars that replace this old paradigm:</p>
 <ol>
 <li><strong>Comprehensive Visibility:</strong> The ability to understand the status, health, and traffic patterns of the network in real time. This involves understanding the nature of each conversation on the network, performance metrics, and potential anomalies, rather than just knowing whether devices are “working”.</li>
 <li><strong>Smart Automation:</strong> Using software to control, configure and manage the lifecycle of the network. Automation reduces human error, eliminates repetitive tasks, ensures consistency, and increases the speed and agility of network changes.</li>
 <li><strong>Integrated Resilience:</strong> Combining performance management and security operations into a unified strategy. This approach ensures that the network is not only available and performant, but also secure against ever-evolving threats.</li>
 </ol>
 <p>The main thesis of this report is that these pillars are not disciplines isolated from each other, but rather an integrated system that feeds and strengthens each other. The visibility gained from monitoring tools provides the necessary data to trigger intelligent automation. Automation, on the other hand, is used to enforce security policies and performance guarantees. This creates a powerful feedback loop that is at the core of the modern NetDevOps philosophy. This comprehensive whitepaper will delve into these three cornerstones, analyzing key technologies, protocols, tools, and best practices to provide a holistic picture of modern network management, monitoring, and automation.</p>
-<hr>
 <h3 id="part-i-network-visibility--the-foundation-of-management">
   Part I: Network Visibility — The Foundation of Management
   <a class="heading-link" href="#part-i-network-visibility--the-foundation-of-management">
@@ -293,7 +290,6 @@ Network management has undergone a radical transformation in the last two decade
 <p>The choice between SNMPv2c and SNMPv3 is not just a technical choice but also a reflection of an organization&rsquo;s overall security maturity and philosophy. The fact that SNMPv1/v2c transmits credentials and data over the network in clear text is an unacceptable vulnerability in modern networks. SNMPv3 offers authentication and encryption to close these vulnerabilities. However, v3 is “quite complex” to configure and imposes an additional technical overhead and performance (CPU/memory) cost on monitored devices. This creates a direct trade-off between simplicity and performance (v2c) and security and complexity (v3). Therefore, an organization&rsquo;s decision in this regard reveals its risk appetite. A company that prefers ease of deployment to security of management traffic may consider v2c combined with access control lists (ACLs) as a “good enough” measure. An organization with strict compliance requirements or a mature security program will enforce the <code>authPriv</code> level of v3, accepting the operational overhead to reduce the risk of credential theft or data manipulation. This shows how seriously the organization takes insider threats and in-network eavesdropping and can be considered an indicator of the transition to a zero-trust network.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*psfUsG7oSQeQYJHqnwtiNg.png" alt=""></p>
 <p>Comparative Analysis of SNMP Versions (v1, v2c, v3)</p>
-<hr>
 <h3 id="chapter-2-traffic-flow-analysis--understanding-network-conversations">
   Chapter 2: Traffic Flow Analysis — Understanding Network Conversations
   <a class="heading-link" href="#chapter-2-traffic-flow-analysis--understanding-network-conversations">
@@ -336,7 +332,6 @@ Network management has undergone a radical transformation in the last two decade
 <p>The table below clarifies the often confused differences between these two critical streaming protocols and enables engineers to choose the right technology for their specific use case and network environment.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*Fn_jt2stbWxL_YVnRuYbnQ.png" alt=""></p>
 <p>Flow-Based Monitoring Protocols: NetFlow vs. sFlow</p>
-<hr>
 <h3 id="chapter-3-centralized-monitoring-platforms-a-comparative-review">
   Chapter 3: Centralized Monitoring Platforms: A Comparative Review
   <a class="heading-link" href="#chapter-3-centralized-monitoring-platforms-a-comparative-review">
@@ -393,7 +388,6 @@ Network management has undergone a radical transformation in the last two decade
 <p>The table below provides a direct, feature-by-feature comparison of three lead monitoring platforms to help organizations make an informed decision based on their specific technical needs, budget, and team skills.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*8hiUXuINrhx_sc7cJlTO-A.png" alt=""></p>
 <p>Feature Matrix of Tracking Platforms (Nagios vs. Zabbix vs. PRTG)</p>
-<hr>
 <h3 id="chapter-4-scripting-for-network-automation">
   Chapter 4: Scripting for Network Automation
   <a class="heading-link" href="#chapter-4-scripting-for-network-automation">
@@ -418,11 +412,11 @@ Network management has undergone a radical transformation in the last two decade
 <strong>Intuitive Methods:</strong> It offers simple and understandable methods such as sending commands with <code>send_command()</code> and applying configuration commands with <code>send_config_set()</code>.</li>
 </ul>
 <p><strong>Example: Getting Information from the Device with Netmiko</strong> The following Python script connects to a Cisco IOS device using Netmiko, runs the <code>show ip interface brief</code> command and prints its output to the screen:</p>
-<pre tabindex="0"><code>from netmiko import ConnectHandler  
-import logging  
-  
-# Settings for detailed logging  
-logging.basicConfig(filename=&#39;netmiko.log&#39;, level=logging.DEBUG)  
+<pre tabindex="0"><code>from netmiko import ConnectHandler  
+import logging  
+  
+# Settings for detailed logging  
+logging.basicConfig(filename=&#39;netmiko.log&#39;, level=logging.DEBUG)  
 logger = logging.getLogger(&#34;netmiko&#34;)
 </code></pre><ul>
 <li><strong>NAPALM (Network Automation and Programmability Abstraction Layer with Multivendor support):</strong> Provides an abstraction layer for retrieving structured data from devices from different vendors. NAPALM, <code>get_facts()</code> (device information), <code>get_interfaces()</code> (interface status), <code>get_bgp_neighbors()</code> (BGP neighbors), returns a consistent JSON output regardless of the device operating system. This greatly simplifies automation in multi-vendor environments.</li>
@@ -437,26 +431,26 @@ logger = logging.getLogger(&#34;netmiko&#34;)
 <p>Bash (Bourne-Again SHell) is a powerful command line shell that comes standard on Linux and macOS systems. It is ideal for simple, sequential tasks and becomes an effective automation tool when combined with command line tools such as <code>ssh</code>, <code>scp</code>, <code>awk</code>.</p>
 <p><strong>Example: Backing Up Cisco Device Configuration with Bash</strong> The following Bash script backs up the running configuration of a Cisco switch using <code>sshpass</code>. <code>sshpass</code> is used within the script to provide the SSH password non-interactively.</p>
 <pre tabindex="0"><code>#!/bin/bash
-</code></pre><pre tabindex="0"><code>### Configuration Section ###  
-DATE=$(date &#34;+%Y-%m-%d&#34;)  
-SWITCH_IP=&#34;172.16.177.61&#34;  
-HOSTNAME=&#34;sw1&#34;  
-SSH_USER=&#34;cisco&#34;  
-SSH_PASS=&#34;your_ssh_password&#34;  
-ENABLE_PASS=&#34;your_enable_password&#34;  
+</code></pre><pre tabindex="0"><code>### Configuration Section ###  
+DATE=$(date &#34;+%Y-%m-%d&#34;)  
+SWITCH_IP=&#34;172.16.177.61&#34;  
+HOSTNAME=&#34;sw1&#34;  
+SSH_USER=&#34;cisco&#34;  
+SSH_PASS=&#34;your_ssh_password&#34;  
+ENABLE_PASS=&#34;your_enable_password&#34;  
 BACKUP_DIR=&#34;/var/backups/switches&#34;
-</code></pre><pre tabindex="0"><code># Make sure the backup directory exists  
+</code></pre><pre tabindex="0"><code># Make sure the backup directory exists  
 mkdir -p ${BACKUP_DIR}
-</code></pre><pre tabindex="0"><code># Cisco commands to execute  
-#1. Switch to privileged mode  
-#2. Reset terminal length (no pagination)  
-#3. Show running configuration  
+</code></pre><pre tabindex="0"><code># Cisco commands to execute  
+#1. Switch to privileged mode  
+#2. Reset terminal length (no pagination)  
+#3. Show running configuration  
 CMDS=&#34;enable\n${ENABLE_PASS}\nterminal length 0\nshow running-config\nexit&#34;
 </code></pre><pre tabindex="0"><code>echo &#34;Creating config backup of ${HOSTNAME} (${SWITCH_IP})&#34;
-</code></pre><pre tabindex="0"><code># connect to the device with sshpass and run commands  
-# Clear output and write to file  
-sshpass -p &#34;${SSH_PASS}&#34; ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SWITCH_IP} &lt;&lt;&lt;- EOM  
-${CMDS}  
+</code></pre><pre tabindex="0"><code># connect to the device with sshpass and run commands  
+# Clear output and write to file  
+sshpass -p &#34;${SSH_PASS}&#34; ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SWITCH_IP} &lt;&lt;&lt;- EOM  
+${CMDS}  
 EOM | tee &#34;${BACKUP_DIR}/config-${DATE}-${HOSTNAME}.log&#34;
 </code></pre><pre tabindex="0"><code>echo &#34;Backup for ${HOSTNAME} completed.&#34;
 </code></pre><p>This script requires <code>sshpass</code> to be installed and should be used with caution in secure environments because it contains passwords in plaintext. More secure approaches include SSH key-based authentication or password management systems.</p>
@@ -469,25 +463,24 @@ EOM | tee &#34;${BACKUP_DIR}/config-${DATE}-${HOSTNAME}.log&#34;
 </h4>
 <p>PowerShell is a command line shell and scripting language that has become the standard for network management and automation in Windows environments. It provides comprehensive control over Windows-based systems and services, thanks to its powerful commands called &lsquo;cmdlets&rsquo; and deep integration with the .NET Framework.</p>
 <p><strong>Example: Network Tasks with PowerShell</strong> PowerShell provides built-in cmdlets for tasks such as testing network connectivity, managing network adapters, and retrieving IP configuration.</p>
-<pre tabindex="0"><code># Testing connections to multiple servers  
-$servers = &#34;google.com&#34;, &#34;bing.com&#34;, &#34;192.168.1.1&#34;  
-foreach ($server in $servers) {  
-    if (Test-Connection -ComputerName $server -Count 2 -Quiet) {  
-        Write-Host &#34;$server is reachable.&#34; -ForegroundColor Green  
-    } else {  
-        Write-Host &#34;$server is NOT reachable.&#34; -ForegroundColor Red  
-    }  
-}  
-  
-# List all IP addresses on the local machine  
-Get-NetIPAddress -AddressFamily IPv4 | Select-Object IPAddress, InterfaceAlias  
-  
-# Disable a specific network adapter  
-# Get-NetAdapter -Name &#34;Ethernet&#34; | Disable-NetAdapter -Confirm:$false  
-  
+<pre tabindex="0"><code># Testing connections to multiple servers  
+$servers = &#34;google.com&#34;, &#34;bing.com&#34;, &#34;192.168.1.1&#34;  
+foreach ($server in $servers) {  
+    if (Test-Connection -ComputerName $server -Count 2 -Quiet) {  
+        Write-Host &#34;$server is reachable.&#34; -ForegroundColor Green  
+    } else {  
+        Write-Host &#34;$server is NOT reachable.&#34; -ForegroundColor Red  
+    }  
+}  
+  
+# List all IP addresses on the local machine  
+Get-NetIPAddress -AddressFamily IPv4 | Select-Object IPAddress, InterfaceAlias  
+  
+# Disable a specific network adapter  
+# Get-NetAdapter -Name &#34;Ethernet&#34; | Disable-NetAdapter -Confirm:$false  
+  
 # Retrieve IP configuration from a remote computer
 </code></pre><p>These examples show what a powerful and flexible tool PowerShell is for network administrators. <code>Cmdlets</code> such as <code>Test-Connection</code> (ping-like), <code>Get-NetIPAddress</code> and <code>Get-NetAdapter</code> are commonly used to troubleshoot network problems and collect inventory.</p>
-<hr>
 <h3 id="chapter-5-configuration-management-and-orchestration">
   Chapter 5: Configuration Management and Orchestration
   <a class="heading-link" href="#chapter-5-configuration-management-and-orchestration">
@@ -516,30 +509,29 @@ Get-NetIPAddress -AddressFamily IPv4 | Select-Object IPAddress, InterfaceAlias
 <ul>
 <li>Inventory File (<code>inventory.ini</code>):</li>
 </ul>
-<pre tabindex="0"><code>[switches]  
-switch1 ansible_host=192.168.1.10  
-switch2 ansible_host=192.168.1.11  
-  
-[switches:vars]  
-ansible_network_os=cisco.ios.ios  
-ansible_user=admin  
-ansible_password=your_password  
-ansible_connection=network_cli  
-ansible_become=yes  
+<pre tabindex="0"><code>[switches]  
+switch1 ansible_host=192.168.1.10  
+switch2 ansible_host=192.168.1.11  
+  
+[switches:vars]  
+ansible_network_os=cisco.ios.ios  
+ansible_user=admin  
+ansible_password=your_password  
+ansible_connection=network_cli  
+ansible_become=yes  
 ansible_become_method=enable
 </code></pre><ul>
 <li><strong>Playbook File (</strong><code>configure_vlan.yml</code><strong>):</strong></li>
 </ul>
-<pre tabindex="0"><code>---  
-- name: Configure VLANs on Core Switches  
-  hosts: switches  
-  gather_facts: false  
-  
-  tasks:  
-    - name: Create and name VLAN 20  
-      cisco.ios.ios_config:  
-        lines:  
-          - vlan 20  
+<pre tabindex="0"><code>- name: Configure VLANs on Core Switches  
+  hosts: switches  
+  gather_facts: false  
+  
+  tasks:  
+    - name: Create and name VLAN 20  
+      cisco.ios.ios_config:  
+        lines:  
+          - vlan 20  
           - name engineering
 </code></pre><p>When this <code>playbook</code> is run, Ansible connects via SSH to each switch in the inventory and creates the specified VLAN using the <code>ios_config</code> module. This approach is much faster, more consistent, and less error-prone than manually applying the same change to dozens of devices.</p>
 <h4 id="52-terraform-infrastructure-as-code">
@@ -556,21 +548,21 @@ ansible_become_method=enable
 <li><strong>State File:</strong> A JSON file containing the current state of the infrastructure managed by Terraform. Terraform compares this file with configuration files to determine what should be created, updated, or deleted on the next run.</li>
 </ul>
 <p><strong>Example: Creating a VPC in AWS with Terraform</strong> The following <code>.tf</code> configuration file creates a simple Virtual Private Cloud (VPC) in AWS.</p>
-<pre tabindex="0"><code># Configure AWS provider  
-provider &#34;aws&#34; {  
-  region = &#34;us-east-1&#34;  
+<pre tabindex="0"><code># Configure AWS provider  
+provider &#34;aws&#34; {  
+  region = &#34;us-east-1&#34;  
 }
-</code></pre><pre tabindex="0"><code># Define a VPC resource  
-resource &#34;aws_vpc&#34; &#34;main_vpc&#34; {  
-  cidr_block = &#34;10.0.0.0/16&#34;  
+</code></pre><pre tabindex="0"><code># Define a VPC resource  
+resource &#34;aws_vpc&#34; &#34;main_vpc&#34; {  
+  cidr_block = &#34;10.0.0.0/16&#34;  
   instance_tenancy = &#34;default&#34;
-</code></pre><pre tabindex="0"><code>tags = {  
-    Name=&#34;MainVPC&#34;  
-  }  
+</code></pre><pre tabindex="0"><code>tags = {  
+    Name=&#34;MainVPC&#34;  
+  }  
 }
-</code></pre><pre tabindex="0"><code># Output the ID of the created VPC  
-output &#34;vpc_id&#34; {  
-  value = aws_vpc.main_vpc.id  
+</code></pre><pre tabindex="0"><code># Output the ID of the created VPC  
+output &#34;vpc_id&#34; {  
+  value = aws_vpc.main_vpc.id  
 }
 </code></pre><p>To apply this configuration, <code>terraform init</code>, <code>terraform plan</code> and <code>terraform apply</code> commands are used. Terraform reads the current state (initially empty), infers the desired state (a VPC) from the configuration, and makes the necessary calls to the AWS API to bridge the gap.</p>
 <h4 id="53-ansible-and-terraform-collaboration-or-competition">
@@ -586,7 +578,6 @@ output &#34;vpc_id&#34; {
 <li><strong>Ansible is designed for configuration management and application deployment on existing infrastructure.</strong> It is used to install software on a virtual machine created by Terraform, configure services, or set VLANs on a network device.</li>
 </ul>
 <p>A common workflow is for Terraform to create the underlying infrastructure (for example, virtual machines) and then call Ansible to configure those machines.</p>
-<hr>
 <h3 id="chapter-6-integration-of-automation-into-cicd-processes-netdevops">
   Chapter 6: Integration of Automation into CI/CD Processes (NetDevOps)
   <a class="heading-link" href="#chapter-6-integration-of-automation-into-cicd-processes-netdevops">
@@ -614,7 +605,6 @@ output &#34;vpc_id&#34; {
 3-<strong>Post-Deployment Validation:</strong> After the change is implemented, a final set of validation tests are run to ensure that the network is working as expected.</li>
 </ul>
 <p>This approach significantly increases the speed, reliability and consistency of network changes, reduces manual errors and allows network engineers to focus on more strategic tasks.</p>
-<hr>
 <h3 id="chapter-7-log-management-and-siem-integration">
   Chapter 7: Log Management and SIEM Integration
   <a class="heading-link" href="#chapter-7-log-management-and-siem-integration">
@@ -686,9 +676,9 @@ output &#34;vpc_id&#34; {
   </a>
 </h4>
 <ul>
-<li><strong>Brute Force Attack Detection:</strong> This rule may indicate that an attacker is trying to gain access to an account. 
+<li><strong>Brute Force Attack Detection:</strong> This rule may indicate that an attacker is trying to gain access to an account.<br>
 <strong>Rule Logic:</strong> “If there are more than 20 failed login attempts to the same target system from the same source IP address within 5 minutes <strong>AND</strong> these events are followed by a successful login from the same source IP, generate a high priority alarm.”. This rule helps distinguish normal failed attempts caused by a user forgetting their password from a targeted attack attempt that results in a successful login.</li>
-<li><strong>Data Exfiltration Detection:</strong> This rule may indicate that an insider threat or a compromised account is trying to transfer sensitive data out of the network. 
+<li><strong>Data Exfiltration Detection:</strong> This rule may indicate that an insider threat or a compromised account is trying to transfer sensitive data out of the network.<br>
 <strong>Rule Logic:</strong> “If a user transfers an amount of data to an off-network destination that is 3 standard deviations above the baseline of normal behavior <strong>AND</strong> if this event is associated with an escalation event on that user&rsquo;s account (for example, being added to the administrator group) in the last 24 hours, raise a critical alert.” This type of behavioral and situational correlation reveals complex threats that single events may miss.</li>
 </ul>
 <h4 id="73-incident-response-and-soar-integration">
@@ -700,13 +690,12 @@ output &#34;vpc_id&#34; {
 </h4>
 <p>Security Orchestration, Automation, and Response (SOAR) platforms are designed to automate the process of responding to SIEM-generated alerts. SOAR reduces the burden on security analysts by automating repetitive, manual response steps and significantly shortens response time (<strong>MTTR — Mean Time to Respond</strong>).</p>
 <ul>
-<li><strong>SOAR Playbook Workflow:</strong> When a SIEM alert is received, the SOAR platform triggers a predefined <strong>playbook</strong>. A typical <code>playbook</code> for a “malware detection” alert might include the following steps: 
-<strong>Enrichment:</strong> SOAR takes the indicators from the alert (IP addresses, file hashes, domain names) and compares them to threat intelligence platforms (for example, VirusTotal) and internal systems (for example, CMDB) to gather additional context. This helps determine the severity and impact of the alert. 
-<strong>Containment:</strong> If the threat is confirmed, SOAR automatically initiates containment actions. This is where network automation plays a critical role. SOAR can command the EDR (Endpoint Detection and Response) tool to isolate the affected endpoint from the network or tell the firewall to add a rule to block all traffic to the malicious IP address. 
-<strong>Eradication:</strong> Once the threat is isolated, SOAR triggers eradication steps using the EDR tool, such as removing the malware from the endpoint or reinstalling the affected system from a clean image. 
+<li><strong>SOAR Playbook Workflow:</strong> When a SIEM alert is received, the SOAR platform triggers a predefined <strong>playbook</strong>. A typical <code>playbook</code> for a “malware detection” alert might include the following steps:<br>
+<strong>Enrichment:</strong> SOAR takes the indicators from the alert (IP addresses, file hashes, domain names) and compares them to threat intelligence platforms (for example, VirusTotal) and internal systems (for example, CMDB) to gather additional context. This helps determine the severity and impact of the alert.<br>
+<strong>Containment:</strong> If the threat is confirmed, SOAR automatically initiates containment actions. This is where network automation plays a critical role. SOAR can command the EDR (Endpoint Detection and Response) tool to isolate the affected endpoint from the network or tell the firewall to add a rule to block all traffic to the malicious IP address.<br>
+<strong>Eradication:</strong> Once the threat is isolated, SOAR triggers eradication steps using the EDR tool, such as removing the malware from the endpoint or reinstalling the affected system from a clean image.<br>
 <strong>Recovery &amp; Reporting:</strong> After the system is cleaned, SOAR returns the system to normal (for example, removes network isolation) and generates a detailed report containing all steps of the incident, findings and actions taken.</li>
 </ul>
-<hr>
 <h3 id="chapter-8-performance-management-and-sla-monitoring">
   Chapter 8: Performance Management and SLA Monitoring
   <a class="heading-link" href="#chapter-8-performance-management-and-sla-monitoring">
@@ -753,14 +742,13 @@ output &#34;vpc_id&#34; {
 <ul>
 <li><strong>Classification and Marking:</strong> Routers at the edge of the network examine incoming packets (e.g. source/destination IP, port number, application type) and assign them to a class. It then “marks” the packet by writing a DSCP (Differentiated Services Code Point) value into the 6-bit Differentiated Services Field (DS field) field in the IP header of the packet.</li>
 <li><strong>Per-Hop Behavior (PHB):</strong> Each router in the network looks at the DSCP value of the packet and applies a forwarding behavior (PHB) accordingly. This behavior determines which queue the packet will be placed in, how much bandwidth it will receive, and the likelihood that it will be dropped in the event of congestion.</li>
-<li>Common DSCP Values and Meanings: 
-1-<strong>EF (Expedited Forwarding — DSCP 46):</strong> Used for traffic that requires low latency, low loss, and low jitter (for example, VoIP). It is usually placed in the highest priority queue. 
-2-<strong>AF (Assured Forwarding):</strong> A family of classes that offer different priority levels and downgrade possibilities (for example, AF41, AF22). Used for business critical applications. 
-3-<strong>CS (Class Selector):</strong> Used for backward compatibility with the old IP Precedence field. 
+<li>Common DSCP Values and Meanings:<br>
+1-<strong>EF (Expedited Forwarding — DSCP 46):</strong> Used for traffic that requires low latency, low loss, and low jitter (for example, VoIP). It is usually placed in the highest priority queue.<br>
+2-<strong>AF (Assured Forwarding):</strong> A family of classes that offer different priority levels and downgrade possibilities (for example, AF41, AF22). Used for business critical applications.<br>
+3-<strong>CS (Class Selector):</strong> Used for backward compatibility with the old IP Precedence field.<br>
 4-<strong>BE (Best Effort — DSCP 0):</strong> Default traffic class. It is not a priority and in case of congestion these packets are dropped first.</li>
 <li><strong>SLA Reporting:</strong> Network monitoring platforms use collected performance metrics (latency, jitter, packet loss, availability) to generate reports that show whether Service Level Agreements (SLA) are being met. These reports are used to prove whether agreed performance targets for a particular service (for example, 99.95% monthly availability, less than 50 ms latency) are being met and are critical for both IT departments and service providers.</li>
 </ul>
-<hr>
 <h3 id="result">
   Result
   <a class="heading-link" href="#result">

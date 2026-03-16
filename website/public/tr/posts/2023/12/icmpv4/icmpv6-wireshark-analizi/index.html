@@ -13,23 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-Merhaba bu yazımda ICMPv4 ve ICMPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
-
-
-  ICMP Nedir?
-  
-    
-    Başlık Linki
-  
-
-ICMP, bir IP ağındaki hatalar, uyarılar ve genel bildirimler için bir mesajlaşma sistemi olarak kullanılır. Aşağıdakiler de dahil olmak üzere birçok ICMP mesaj türü vardır:
-
-Echo Message: ping ve traceroute tarafından uçtan uca bağlantıyı test etmek için kullanılır. Bunların çok fazla olması bir keşif işlemine veya muhtemelen bir Hizmet Reddi saldırısına işaret edebilir.
-Redirect Message: Yönlendiriciler tarafından kaynağa bir hedefe giden daha iyi bir yol olduğunu bildirmek için kullanılır. Bu paket bir yönlendirici tarafından gönderilmemişse, şüpheli olarak değerlendirilmelidir.
-Destination Unreachable messages: Kaynak ana bilgisayara paketlerinin bir nedenden dolayı teslim edilemediğini söylemek için kullanılır — nedeni Hedefe Ulaşılamıyor mesajında belirtilir. Bu yanıt paketlerinin çok sayıda olması, başarısız bir UDP bağlantı noktası taramasının devam ettiğini veya bir hizmetin düzgün çalışmadığını gösterebilir.
-
-Ağınızdaki ICMP trafiğini birkaç saat veya gün boyunca inceleyerek, ağın ne kadar verimli bir şekilde tasarlandığını belirleyebilir ve çok sayıda yapılandırma hatasını, işlevsel sorunu veya güvenlik ihlalini tespit edebilirsiniz. ICMPv4 RFC 792&rsquo;de tanımlanmıştır.">
+<meta name="description" content="Merhaba bu yazımda ICMPv4 ve ICMPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -37,16 +21,12 @@ Ağınızdaki ICMP trafiğini birkaç saat veya gün boyunca inceleyerek, ağın
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="ICMPv4/ICMPv6 Wireshark Analizi">
-  <meta name="twitter:description" content="Merhaba bu yazımda ICMPv4 ve ICMPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
-ICMP Nedir?Başlık LinkiICMP, bir IP ağındaki hatalar, uyarılar ve genel bildirimler için bir mesajlaşma sistemi olarak kullanılır. Aşağıdakiler de dahil olmak üzere birçok ICMP mesaj türü vardır:
-Echo Message: ping ve traceroute tarafından uçtan uca bağlantıyı test etmek için kullanılır. Bunların çok fazla olması bir keşif işlemine veya muhtemelen bir Hizmet Reddi saldırısına işaret edebilir. Redirect Message: Yönlendiriciler tarafından kaynağa bir hedefe giden daha iyi bir yol olduğunu bildirmek için kullanılır. Bu paket bir yönlendirici tarafından gönderilmemişse, şüpheli olarak değerlendirilmelidir. Destination Unreachable messages: Kaynak ana bilgisayara paketlerinin bir nedenden dolayı teslim edilemediğini söylemek için kullanılır — nedeni Hedefe Ulaşılamıyor mesajında belirtilir. Bu yanıt paketlerinin çok sayıda olması, başarısız bir UDP bağlantı noktası taramasının devam ettiğini veya bir hizmetin düzgün çalışmadığını gösterebilir. Ağınızdaki ICMP trafiğini birkaç saat veya gün boyunca inceleyerek, ağın ne kadar verimli bir şekilde tasarlandığını belirleyebilir ve çok sayıda yapılandırma hatasını, işlevsel sorunu veya güvenlik ihlalini tespit edebilirsiniz. ICMPv4 RFC 792’de tanımlanmıştır.">
+  <meta name="twitter:description" content="Merhaba bu yazımda ICMPv4 ve ICMPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2023/12/icmpv4/icmpv6-wireshark-analizi/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="ICMPv4/ICMPv6 Wireshark Analizi">
-  <meta property="og:description" content="Merhaba bu yazımda ICMPv4 ve ICMPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
-ICMP Nedir?Başlık LinkiICMP, bir IP ağındaki hatalar, uyarılar ve genel bildirimler için bir mesajlaşma sistemi olarak kullanılır. Aşağıdakiler de dahil olmak üzere birçok ICMP mesaj türü vardır:
-Echo Message: ping ve traceroute tarafından uçtan uca bağlantıyı test etmek için kullanılır. Bunların çok fazla olması bir keşif işlemine veya muhtemelen bir Hizmet Reddi saldırısına işaret edebilir. Redirect Message: Yönlendiriciler tarafından kaynağa bir hedefe giden daha iyi bir yol olduğunu bildirmek için kullanılır. Bu paket bir yönlendirici tarafından gönderilmemişse, şüpheli olarak değerlendirilmelidir. Destination Unreachable messages: Kaynak ana bilgisayara paketlerinin bir nedenden dolayı teslim edilemediğini söylemek için kullanılır — nedeni Hedefe Ulaşılamıyor mesajında belirtilir. Bu yanıt paketlerinin çok sayıda olması, başarısız bir UDP bağlantı noktası taramasının devam ettiğini veya bir hizmetin düzgün çalışmadığını gösterebilir. Ağınızdaki ICMP trafiğini birkaç saat veya gün boyunca inceleyerek, ağın ne kadar verimli bir şekilde tasarlandığını belirleyebilir ve çok sayıda yapılandırma hatasını, işlevsel sorunu veya güvenlik ihlalini tespit edebilirsiniz. ICMPv4 RFC 792’de tanımlanmıştır.">
+  <meta property="og:description" content="Merhaba bu yazımda ICMPv4 ve ICMPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -220,9 +200,7 @@ Echo Message: ping ve traceroute tarafından uçtan uca bağlantıyı test etmek
         
           <img src="https://cdn-images-1.medium.com/max/800/1*qw1Nso3IaiA7Jptb-0T1qQ.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*qw1Nso3IaiA7Jptb-0T1qQ.png" alt=""></p>
-<p>Merhaba bu yazımda ICMPv4 ve ICMPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
-<hr>
+        <p>Merhaba bu yazımda ICMPv4 ve ICMPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
 <h3 id="icmp-nedir">
   ICMP Nedir?
   <a class="heading-link" href="#icmp-nedir">
@@ -240,7 +218,6 @@ Echo Message: ping ve traceroute tarafından uçtan uca bağlantıyı test etmek
 <p><img src="https://cdn-images-1.medium.com/max/800/1*LHTLnK4dnNwCs20ZDNBf8g.png" alt=""></p>
 <p>ICMP, IP ağlarında mesajlaşma hizmetleri sunar</p>
 <p>RFC 4443, ICMPv6&rsquo;nın amacını ve işlevselliğini tanımlar. ICMPv6 paket yapısı ICMPv4 paket yapısı ile aynıdır.</p>
-<hr>
 <h3 id="icmp-trafikanalizi">
   ICMP Trafik Analizi
   <a class="heading-link" href="#icmp-trafikanalizi">
@@ -279,7 +256,6 @@ Echo Message: ping ve traceroute tarafından uçtan uca bağlantıyı test etmek
 <p>Şekilde, 10.2.99.98 adresindeki başka bir ağ geçidini(gateway) işaret eden bir ICMP Yönlendirme paketini göstermektedir. Bu paket, alıcı yönlendirici gönderici için daha iyi bir yönlendirici belirlediğinde gönderilir. Alıcı yönlendirici, kullanılması önerilen yönlendiriciyi içeren bir ICMP Yönlendirme (Tip 5/Kod 1) paketi oluşturur. Alındığında, bir host yönlendirme tablosunu güncellemelidir. Yönlendirmeler yalnızca yönlendiriciler tarafından gönderilmelidir.</p>
 <p>ICMP Redirect ve ICMP Destination Unreachable paketleri gibi bazı ICMP paketleri, ICMP yanıtını tetikleyen orijinal paketin bir bölümünü içerir. Şekilde, ICMP başlığını ICMP yanıtını tetikleyen paketin orijinal IP başlığı takip eder.</p>
 <p>TCP bağlantı istekleri ya bir TCP SYN/ACK ya da bir TCP Sıfırlaması ortaya çıkarması gerektiğinden, TCP el sıkışma bağlantı isteklerine ICMP Hedefe Ulaşılamıyor yanıtları olağandışıdır. Bu TCP el sıkışma bağlantı isteklerine verilen ICMP yanıtı, bir hostun güvenlik duvarının bir portu engellediğinin muhtemel bir göstergesidir.</p>
-<hr>
 <h3 id="icmpv4-paketyapısı">
   ICMPv4 Paket Yapısı
   <a class="heading-link" href="#icmpv4-paketyap%c4%b1s%c4%b1">
@@ -398,7 +374,6 @@ Echo Message: ping ve traceroute tarafından uçtan uca bağlantıyı test etmek
   </a>
 </h4>
 <p>Sağlama toplamı alanı yalnızca ICMP başlığını kapsar.</p>
-<hr>
 <h3 id="icmpv6-paketyapısı">
   ICMPv6 Paket Yapısı
   <a class="heading-link" href="#icmpv6-paketyap%c4%b1s%c4%b1">
@@ -431,7 +406,7 @@ Echo Message: ping ve traceroute tarafından uçtan uca bağlantıyı test etmek
 <li>Type 131 Multicast Listener Report [RFC2710] — sent by IPv6 hosts to indicate they are listening for a particular multicast address on an interface</li>
 <li>Type 132 Multicast Listener Done [RFC2710] — can be sent by an IPv6 node to indicate that it has stopped listening to a multicast address on an interface</li>
 <li>Type 133 Router Solicitation [RFC4861] — can be sent when an interface becomes enabled, to request routers to generate Router Advertisements immediately rather than at their next scheduled time</li>
-<li>Type 134 Router Advertisement [RFC4861] — used by IPv6 routers to advertise their presence together with various link and Internet parameters either periodically, or in response to a Router Solicitation 
+<li>Type 134 Router Advertisement [RFC4861] — used by IPv6 routers to advertise their presence together with various link and Internet parameters either periodically, or in response to a Router Solicitation<br>
 message</li>
 <li>Type 135 Neighbor Solicitation [RFC4861] — sent by a node to determine the link-layer address of a neighbor or to verify that a neighbor is still reachable via a cached link-layer address. Neighbor solicitations are also used for Duplicate Address Detection as seen in Figure 207.</li>
 <li>Type 136 Neighbor Advertisement [RFC4861] — a response to a Neighbor Solicitation message. A node may also send unsolicited Neighbor Advertisements to announce a link-layer address change.</li>
@@ -574,7 +549,6 @@ message</li>
 <li>Kod 2: Sorgunun Q tipi Yanıtlayıcı tarafından bilinmiyor. Yanıt Verisi alanı boş olacaktır.</li>
 </ul>
 <p>ICMPv6 türü ve kod numaraları hakkında daha fazla bilgi için <a href="http://www.iana.org/assignments/icmpv6-parameters"  class="external-link" target="_blank" rel="noopener">www.iana.org/assignments/icmpv6-parameters</a> adresine bakın.</p>
-<hr>
 <h3 id="kaynakça">
   Kaynakça
   <a class="heading-link" href="#kaynak%c3%a7a">

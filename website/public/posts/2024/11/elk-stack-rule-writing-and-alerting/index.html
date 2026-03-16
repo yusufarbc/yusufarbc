@@ -13,16 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-Hello, in this article, I will talk about rule writing, that is, warnings indicating security violations, and alerting operations of ELK Stack, which we installed in my last article. ELK Stack (Elasticsearch, Logstash, Kibana) facilitates rule writing and alerting operations, data analysis and management.
-
-  What are IoC and IoA ?
-  
-    
-    Link to heading
-  
-
-IoC (Indicators of Compromise) and IoA (Indicators of Attack) are important concepts in the field of cyber security and are used in the detection and analysis of attacks.">
+<meta name="description" content="Hello, in this article, I will talk about rule writing, that is, warnings indicating security violations, and alerting operations of ELK Stack, which we installed in my last article. ELK Stack (Elasticsearch, Logstash, Kibana) facilitates rule writin...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -30,14 +21,12 @@ IoC (Indicators of Compromise) and IoA (Indicators of Attack) are important conc
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="ELK Stack Rule Writing and Alerting">
-  <meta name="twitter:description" content="Hello, in this article, I will talk about rule writing, that is, warnings indicating security violations, and alerting operations of ELK Stack, which we installed in my last article. ELK Stack (Elasticsearch, Logstash, Kibana) facilitates rule writing and alerting operations, data analysis and management.
-What are IoC and IoA ?Link to headingIoC (Indicators of Compromise) and IoA (Indicators of Attack) are important concepts in the field of cyber security and are used in the detection and analysis of attacks.">
+  <meta name="twitter:description" content="Hello, in this article, I will talk about rule writing, that is, warnings indicating security violations, and alerting operations of ELK Stack, which we installed in my last article. ELK Stack (Elasticsearch, Logstash, Kibana) facilitates rule writin...">
 
 <meta property="og:url" content="http://localhost:1313/posts/2024/11/elk-stack-rule-writing-and-alerting/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="ELK Stack Rule Writing and Alerting">
-  <meta property="og:description" content="Hello, in this article, I will talk about rule writing, that is, warnings indicating security violations, and alerting operations of ELK Stack, which we installed in my last article. ELK Stack (Elasticsearch, Logstash, Kibana) facilitates rule writing and alerting operations, data analysis and management.
-What are IoC and IoA ?Link to headingIoC (Indicators of Compromise) and IoA (Indicators of Attack) are important concepts in the field of cyber security and are used in the detection and analysis of attacks.">
+  <meta property="og:description" content="Hello, in this article, I will talk about rule writing, that is, warnings indicating security violations, and alerting operations of ELK Stack, which we installed in my last article. ELK Stack (Elasticsearch, Logstash, Kibana) facilitates rule writin...">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -205,8 +194,7 @@ What are IoC and IoA ?Link to headingIoC (Indicators of Compromise) and IoA (
         
           <img src="https://cdn-images-1.medium.com/max/800/1*YtvtZTc7PJHVByo3n9E_lg.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*YtvtZTc7PJHVByo3n9E_lg.png" alt=""></p>
-<p>Hello, in this article, I will talk about rule writing, that is, warnings indicating security violations, and alerting operations of ELK Stack, which we installed in my last article. <strong>ELK Stack</strong> (Elasticsearch, Logstash, Kibana) facilitates rule writing and alerting operations, data analysis and management.</p>
+        <p>Hello, in this article, I will talk about rule writing, that is, warnings indicating security violations, and alerting operations of ELK Stack, which we installed in my last article. <strong>ELK Stack</strong> (Elasticsearch, Logstash, Kibana) facilitates rule writing and alerting operations, data analysis and management.</p>
 <h3 id="what-are-ioc-and-ioa">
   What are IoC and IoA ?
   <a class="heading-link" href="#what-are-ioc-and-ioa">
@@ -245,7 +233,6 @@ What are IoC and IoA ?Link to headingIoC (Indicators of Compromise) and IoA (
 <li><strong>File System Changes</strong>: Unexpected file additions or deletions.</li>
 <li><strong>Exploiting Software Vulnerabilities</strong>: Attempts to exploit known software vulnerabilities.</li>
 </ul>
-<hr>
 <h3 id="elastalert">
   Elastalert
   <a class="heading-link" href="#elastalert">
@@ -259,7 +246,6 @@ What are IoC and IoA ?Link to headingIoC (Indicators of Compromise) and IoA (
 <p>ElastAlert is a simple framework for alerting about anomalies, spikes, or other interesting patterns from data in Elasticsearch.</p>
 <p>If you are writing data to Elasticsearch in real time and want to receive alerts when this data matches certain patterns, ElastAlert is the tool for you.</p>
 <p>Kibana provides an easy interface to create and manage alerts in Elasticsearch. In Kibana, you can create new alerts and manage existing alerts in the alerts and actions section.</p>
-<hr>
 <h3 id="alerting">
   Alerting
   <a class="heading-link" href="#alerting">
@@ -291,7 +277,6 @@ What are IoC and IoA ?Link to headingIoC (Indicators of Compromise) and IoA (
 <p>Create Rule</p>
 <p>For example, we activated the CPU usage rule. If the CPU Usage rate on the machine exceeds 10%, a warning will be generated.</p>
 <p>You can write all kinds of rules through this menu.</p>
-<hr>
 <h3 id="the-changing-face-of-threat-oriented-defense-strategy">
   The Changing Face of Threat-Oriented Defense Strategy
   <a class="heading-link" href="#the-changing-face-of-threat-oriented-defense-strategy">
@@ -394,9 +379,9 @@ What are IoC and IoA ?Link to headingIoC (Indicators of Compromise) and IoA (
 </h3>
 <p>One of the most important elements of the rule set is that each rule is accurately labeled with the MITER ATT&amp;CK tactic and technique it identifies. This tagging puts raw log data into the context of the attack, allowing security teams to more quickly understand the intent behind an incident.</p>
 <p>When creating a rule in Kibana, it is possible to add these tags via custom fields such as <code>mitre.tactic</code> and <code>mitre.technique_id</code>. For example, the JSON output of a rule might look like this:</p>
-<pre tabindex="0"><code>{  
-  &#34;mitre.technique_id&#34;: &#34;T1059&#34;,  
-  &#34;mitre.tactic&#34;: &#34;execution&#34;  
+<pre tabindex="0"><code>{  
+  &#34;mitre.technique_id&#34;: &#34;T1059&#34;,  
+  &#34;mitre.tactic&#34;: &#34;execution&#34;  
 }
 </code></pre><p>These tags act as a bridge for security analysts, allowing them to instantly understand what the attacker is trying to do (tactics) and what method (technique) they are using when they see an alarm. This information speeds up the incident response process and allows for a holistic picture of the defense strategy.</p>
 <h3 id="rule-examples-and-identification-according-to-miter-attck-tactics">

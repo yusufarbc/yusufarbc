@@ -13,27 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-Hello, in this article, I will explain the installation and configuration of ELK Stack on Debian-based Linux distributions.
-
-  What is ELK Stack ?
-  
-    
-    Link to heading
-  
-
-ELK Stack is an open source platform frequently used in log management and analysis. It consists of three main components that make up its name: Elasticsearch, Logstash and Kibana.
-
-ELK Stack
-
-Elasticsearch: It is a search and analysis engine used to store, index and quickly search large amounts of structured and unstructured data. In addition to log data, it can also index data from various sources.
-Logstash: It is a tool that manages data collection, processing and transformation processes. It collects data from different sources (system logs, application logs, network traffic, etc.), filters, enriches it and sends it to Elasticsearch.
-Kibana: A tool used to visualize data stored in Elasticsearch. It enables drawing meaningful conclusions from data by creating interactive dashboards, graphs and maps.
-
-Installation order of Elastic Stack products: 
- 1- Elasticsearch 
- 2- Kibana 
- 3- Logstash">
+<meta name="description" content="Hello, in this article, I will explain the installation and configuration of ELK Stack on Debian-based Linux distributions.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -41,18 +21,12 @@ Installation order of Elastic Stack products:
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Debian ELK Stack (Elasticsearch, Logstash and Kibana) Installation and Configuration">
-  <meta name="twitter:description" content="Hello, in this article, I will explain the installation and configuration of ELK Stack on Debian-based Linux distributions.
-What is ELK Stack ?Link to headingELK Stack is an open source platform frequently used in log management and analysis. It consists of three main components that make up its name: Elasticsearch, Logstash and Kibana.
-ELK Stack
-Elasticsearch: It is a search and analysis engine used to store, index and quickly search large amounts of structured and unstructured data. In addition to log data, it can also index data from various sources. Logstash: It is a tool that manages data collection, processing and transformation processes. It collects data from different sources (system logs, application logs, network traffic, etc.), filters, enriches it and sends it to Elasticsearch. Kibana: A tool used to visualize data stored in Elasticsearch. It enables drawing meaningful conclusions from data by creating interactive dashboards, graphs and maps. Installation order of Elastic Stack products: 1- Elasticsearch 2- Kibana 3- Logstash">
+  <meta name="twitter:description" content="Hello, in this article, I will explain the installation and configuration of ELK Stack on Debian-based Linux distributions.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2024/11/debian-elk-stack-elasticsearch-logstash-and-kibana-installation-and-configuration/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Debian ELK Stack (Elasticsearch, Logstash and Kibana) Installation and Configuration">
-  <meta property="og:description" content="Hello, in this article, I will explain the installation and configuration of ELK Stack on Debian-based Linux distributions.
-What is ELK Stack ?Link to headingELK Stack is an open source platform frequently used in log management and analysis. It consists of three main components that make up its name: Elasticsearch, Logstash and Kibana.
-ELK Stack
-Elasticsearch: It is a search and analysis engine used to store, index and quickly search large amounts of structured and unstructured data. In addition to log data, it can also index data from various sources. Logstash: It is a tool that manages data collection, processing and transformation processes. It collects data from different sources (system logs, application logs, network traffic, etc.), filters, enriches it and sends it to Elasticsearch. Kibana: A tool used to visualize data stored in Elasticsearch. It enables drawing meaningful conclusions from data by creating interactive dashboards, graphs and maps. Installation order of Elastic Stack products: 1- Elasticsearch 2- Kibana 3- Logstash">
+  <meta property="og:description" content="Hello, in this article, I will explain the installation and configuration of ELK Stack on Debian-based Linux distributions.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -220,8 +194,7 @@ Elasticsearch: It is a search and analysis engine used to store, index and quick
         
           <img src="https://cdn-images-1.medium.com/max/800/1*0wM3nsUfgol-TsAFYBZJzQ.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*0wM3nsUfgol-TsAFYBZJzQ.png" alt=""></p>
-<p>Hello, in this article, I will explain the installation and configuration of ELK Stack on Debian-based Linux distributions.</p>
+        <p>Hello, in this article, I will explain the installation and configuration of ELK Stack on Debian-based Linux distributions.</p>
 <h3 id="what-is-elk-stack">
   What is ELK Stack ?
   <a class="heading-link" href="#what-is-elk-stack">
@@ -237,9 +210,9 @@ Elasticsearch: It is a search and analysis engine used to store, index and quick
 <li><strong>Logstash:</strong> It is a tool that manages data collection, processing and transformation processes. It collects data from different sources (system logs, application logs, network traffic, etc.), filters, enriches it and sends it to Elasticsearch.</li>
 <li><strong>Kibana:</strong> A tool used to visualize data stored in Elasticsearch. It enables drawing meaningful conclusions from data by creating interactive dashboards, graphs and maps.</li>
 </ul>
-<p>Installation order of Elastic Stack products: 
- 1- <strong>Elasticsearch</strong> 
- 2- <strong>Kibana</strong> 
+<p>Installation order of Elastic Stack products:<br>
+ 1- <strong>Elasticsearch</strong><br>
+ 2- <strong>Kibana</strong><br>
  3- <strong>Logstash</strong></p>
 <p>First, we need to prepare the environment in which we will install. For this we need to have an operating system.</p>
 <h3 id="what-is-debian">
@@ -262,7 +235,6 @@ Elasticsearch: It is a search and analysis engine used to store, index and quick
 <li><strong>Pardus</strong></li>
 </ul>
 <p>We have listed some members of the Debian family here. Apart from this, you can also install the ELK stack on <strong>Windows</strong>, <strong>Macos</strong> or <strong>Redhat</strong> based or other independent Linux distributions. In this article, I will install on an <strong>ubuntu</strong> machine. However, the same installation steps are valid for other Debian-based distributions.</p>
-<hr>
 <h3 id="1--preliminary-preparation">
   1- Preliminary Preparation
   <a class="heading-link" href="#1--preliminary-preparation">
@@ -281,7 +253,6 @@ Elasticsearch: It is a search and analysis engine used to store, index and quick
 <p><img src="https://cdn-images-1.medium.com/max/800/1*RmnuJn-ue_IxM-v_HVKbiw.png" alt=""></p>
 <p>Package updates</p>
 <p>Finally, we need to make sure that our machine has enough resources. So it must have enough disk, ram and CPU. This will vary depending on your needs.</p>
-<hr>
 <h3 id="2--elasticsearch-installation">
   2- <strong>Elasticsearch Installation</strong>
   <a class="heading-link" href="#2--elasticsearch-installation">
@@ -302,8 +273,8 @@ Elasticsearch: It is a search and analysis engine used to store, index and quick
 <p><img src="https://cdn-images-1.medium.com/max/800/1*9iK82eWFRbtdDSDV_HxY1A.png" alt=""></p>
 <p>Post-installation steps</p>
 <p>From here, let&rsquo;s continue with the post-installation steps. First, let&rsquo;s start our service.</p>
-<pre tabindex="0"><code>sudo systemctl daemon-reload  
-sudo systemctl enable elasticsearch.service  
+<pre tabindex="0"><code>sudo systemctl daemon-reload  
+sudo systemctl enable elasticsearch.service  
 sudo systemctl start elasticsearch.service
 </code></pre><p>We can obtain information about the status of the service by using the journalctl command.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*iiD9Azwdmg2h8zAxXbyjsg.png" alt=""></p>
@@ -328,7 +299,6 @@ sudo systemctl start elasticsearch.service
 <p><img src="https://cdn-images-1.medium.com/max/800/1*DKO6wjEJvGNu288erqcVww.png" alt=""></p>
 <p>Access via browser</p>
 <p>Here, you can access elasticsearch by entering elastic as the username and the password you determined in the previous steps as the password.</p>
-<hr>
 <h3 id="2--kibanainstallation">
   2- Kibana Installation
   <a class="heading-link" href="#2--kibanainstallation">
@@ -370,8 +340,8 @@ sudo systemctl start elasticsearch.service
 <p>Since the certificate used by elasticsearch is self-signed, it has not been verified by any authority. This causes us to receive an SSL verification error when connecting to Kibana. To avoid this error, we set the ssl.verification field to “none”. Or you can install a verified ssl certificate.</p>
 <p>That&rsquo;s basically all we need to configure. You can review Kibana&rsquo;s documentation to set other fields. I&rsquo;m sticking with the default configurations for the rest.</p>
 <p>Now let&rsquo;s start our service.</p>
-<pre tabindex="0"><code>sudo systemctl daemon-reload  
-sudo systemctl enable kibana.service  
+<pre tabindex="0"><code>sudo systemctl daemon-reload  
+sudo systemctl enable kibana.service  
 sudo systemctl start kibana.service
 </code></pre><p>We can obtain information about the status of the service by using the journalctl command.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*1_rsonaVsKsxze1R0baGYg.png" alt=""></p>
@@ -388,7 +358,6 @@ sudo systemctl start kibana.service
 <p><img src="https://cdn-images-1.medium.com/max/800/1*RyBvS-VDY3UCca5O0DYwVw.png" alt=""></p>
 <p>kibana panel</p>
 <p>Our Kibana panel has appeared. You can log in to this panel with the “elastic” user. Let&rsquo;s continue the installations.</p>
-<hr>
 <h3 id="3--logstashinstallation">
   3- Logstash Installation
   <a class="heading-link" href="#3--logstashinstallation">
@@ -417,8 +386,8 @@ sudo systemctl start kibana.service
 <p>Now we can start the logstash service.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*4dOXa3frSYz4B_PZ4kpjYA.png" alt=""></p>
 <p>starting logstash service</p>
-<pre tabindex="0"><code>sudo systemctl daemon-reload  
-sudo systemctl enable logstash.service  
+<pre tabindex="0"><code>sudo systemctl daemon-reload  
+sudo systemctl enable logstash.service  
 sudo systemctl start logstash.service
 </code></pre><p>Finally, we open the 5044 port, which is the default port of logstashin, in our system.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*Dx8ZAvD-yDQbhtg8LI0-RQ.png" alt=""></p>
@@ -434,7 +403,6 @@ sudo systemctl start logstash.service
 <p>Ready for input</p>
 <p>Our pipeline is listening and ready for logs coming to port 5044.</p>
 <p>You can parse your logs by writing various parsers with logstash.</p>
-<hr>
 <p>In this article, I mentioned the ELK stack installation. In my next article, I will talk about sending logs to ELK, agent installation and log parceling. You can follow me to be informed about the articles I publish.</p>
 
       </div>

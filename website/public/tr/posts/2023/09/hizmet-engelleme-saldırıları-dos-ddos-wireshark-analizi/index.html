@@ -13,19 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.
-
-
-  Wireshark
-  
-    
-    Başlık Linki
-  
-
-Wireshark, bir ağ analiz aracı olarak kullanılan açık kaynaklı bir yazılımdır. Wireshark, ağ trafiğini yakalayabilir, inceleyebilir ve analiz edebilir, böylece ağ sorunlarını teşhis etmek, güvenlik tehditlerini tespit etmek veya ağ performansını izlemek için kullanılabilir.
-Detaylı bilgi için: https://www.wireshark.org/
-Wireshark’ı bilgisayarınıza kurmak için aşağıdaki adımları izleyebilirsiniz. Unutmayın ki işletim sisteminize ve kullanım amacınıza bağlı olarak bu adımlar değişebilir. İşte Wireshark’ı kurmanın genel adımları:">
+<meta name="description" content="Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -33,18 +21,12 @@ Wireshark’ı bilgisayarınıza kurmak için aşağıdaki adımları izleyebili
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Hizmet Engelleme Saldırıları (DoS-DDoS) Wireshark Analizi">
-  <meta name="twitter:description" content="Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.
-WiresharkBaşlık LinkiWireshark, bir ağ analiz aracı olarak kullanılan açık kaynaklı bir yazılımdır. Wireshark, ağ trafiğini yakalayabilir, inceleyebilir ve analiz edebilir, böylece ağ sorunlarını teşhis etmek, güvenlik tehditlerini tespit etmek veya ağ performansını izlemek için kullanılabilir.
-Detaylı bilgi için: https://www.wireshark.org/
-Wireshark’ı bilgisayarınıza kurmak için aşağıdaki adımları izleyebilirsiniz. Unutmayın ki işletim sisteminize ve kullanım amacınıza bağlı olarak bu adımlar değişebilir. İşte Wireshark’ı kurmanın genel adımları:">
+  <meta name="twitter:description" content="Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2023/09/hizmet-engelleme-sald%C4%B1r%C4%B1lar%C4%B1-dos-ddos-wireshark-analizi/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Hizmet Engelleme Saldırıları (DoS-DDoS) Wireshark Analizi">
-  <meta property="og:description" content="Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.
-WiresharkBaşlık LinkiWireshark, bir ağ analiz aracı olarak kullanılan açık kaynaklı bir yazılımdır. Wireshark, ağ trafiğini yakalayabilir, inceleyebilir ve analiz edebilir, böylece ağ sorunlarını teşhis etmek, güvenlik tehditlerini tespit etmek veya ağ performansını izlemek için kullanılabilir.
-Detaylı bilgi için: https://www.wireshark.org/
-Wireshark’ı bilgisayarınıza kurmak için aşağıdaki adımları izleyebilirsiniz. Unutmayın ki işletim sisteminize ve kullanım amacınıza bağlı olarak bu adımlar değişebilir. İşte Wireshark’ı kurmanın genel adımları:">
+  <meta property="og:description" content="Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -219,9 +201,7 @@ Wireshark’ı bilgisayarınıza kurmak için aşağıdaki adımları izleyebili
         
           <img src="https://cdn-images-1.medium.com/max/800/1*tKGgOxt2Mq5piyQ3_CJDdg.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*tKGgOxt2Mq5piyQ3_CJDdg.png" alt=""></p>
-<p>Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.</p>
-<hr>
+        <p>Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.</p>
 <h3 id="wireshark">
   Wireshark
   <a class="heading-link" href="#wireshark">
@@ -256,7 +236,7 @@ Wireshark’ı bilgisayarınıza kurmak için aşağıdaki adımları izleyebili
   </a>
 </h4>
 <p>Wireshark, birçok Linux dağıtımının depolarında bulunur, bu yüzden aşağıdaki komutları kullanarak paketi yükleyebilirsiniz. Örneğin, Debian veya Ubuntu tabanlı bir sistemde:</p>
-<pre tabindex="0"><code>sudo apt update  
+<pre tabindex="0"><code>sudo apt update  
 sudo apt install wireshark
 </code></pre><p>Kurulum sırasında sudo ile yönetici izni gerekebilir. Ayrıca, Wireshark’ı kullanabilmek için kullanıcıyı “wireshark” grubuna eklemek veya sudo ile başlatmak gerekebilir.</p>
 <h4 id="mac-işletim-sistemiiçin">
@@ -268,7 +248,6 @@ sudo apt install wireshark
 </h4>
 <p>Wireshark’ı Mac OS X üzerinde kullanmak için, resmi web sitesinden bir DMG dosyasını indirebilir ve kurabilirsiniz. Kurulum sırasında sık sık yönergeleri takip etmelisiniz.</p>
 <p>Wireshark’ı kurduktan sonra, ağ trafiğini yakalamak ve analiz etmek için kullanmaya başlayabilirsiniz. Unutmayın ki ağ trafiği izleme işlemi, belirli izinler gerektirebilir ve bu işlemi yasal ve etik kurallara uygun bir şekilde yapmalısınız.</p>
-<hr>
 <h3 id="dosddos">
   DoS — DDoS
   <a class="heading-link" href="#dosddos">
@@ -280,7 +259,6 @@ sudo apt install wireshark
 <p><img src="https://cdn-images-1.medium.com/max/800/0*CnVj85vNvqXwZqbI" alt=""></p>
 <p>DoS (Denial of Service) saldırısı, tek bir kaynaktan gelen trafiği kullanılamaz hale getirme girişimidir. DDoS (Distributed Denial of Service) saldırısı ise birçok kaynaktan gelen koordineli trafiği kullanılamaz hale getirme girişimidir. Temel fark, DoS’ün tek kaynaktan gelmesi, DDoS’ün ise çoklu kaynaklardan gelmesidir. DDoS, daha büyük ve daha etkili bir saldırı türüdür.</p>
 <p>Bu saldırıları kendi lab ortamınızda gerçekleştirmek için bir linux makine üzerinde <a href="https://www.kali.org/tools/hping3/"  class="external-link" target="_blank" rel="noopener">hping3</a> aracını kullanabilirsiniz. Bunun yanında <a href="https://github.com/yusufarbc/DoS-Attack-Framework"  class="external-link" target="_blank" rel="noopener">DoS Attack Framework</a> aracı da DoS saldırıları yapmak için size bir etkileşimli arayüz sunar.</p>
-<hr>
 <h3 id="tcp-saldırıları">
   TCP Saldırıları
   <a class="heading-link" href="#tcp-sald%c4%b1r%c4%b1lar%c4%b1">
@@ -350,7 +328,6 @@ sudo apt install wireshark
 <p><img src="https://cdn-images-1.medium.com/max/800/1*UgJojmwpCwsycIQG5kO7UQ.png" alt=""></p>
 <p>ACK Flood</p>
 <p>Bu tür saldırılar, sunucuların ve ağların aşırı yüklendiği durumlar yaratır ve hizmet kesintilerine neden olabilir. Bu nedenle, hedefler genellikle saldırıları tespit etmek ve savunmak için güvenlik önlemleri ve siber güvenlik çözümleri kullanırlar. Bu çözümler, trafiği filtreleme, güvenlik duvarları, saldırı tespiti sistemleri ve yük dengeleme gibi önlemleri içerebilir. Ayrıca, ağ güvenliği politikaları ve iyi güvenlik uygulamaları da önemlidir.</p>
-<hr>
 <h3 id="udp-saldırıları">
   UDP Saldırıları
   <a class="heading-link" href="#udp-sald%c4%b1r%c4%b1lar%c4%b1">
@@ -380,7 +357,6 @@ sudo apt install wireshark
 </h4>
 <p>Bu tür saldırılarda, saldırganlar büyük UDP paketlerini küçük parçalara böler ve hedef sunucuya bu parçaları gönderirler. Bu, hedef sunucunun paketleri yeniden monte etmek için kaynaklarını tüketmesine neden olabilir.</p>
 <p>UDP saldırılarına karşı korunma, trafik filtreleme, güvenlik duvarları, paket dengeleme ve saldırı tespiti sistemleri gibi güvenlik önlemleri içerebilir. Ayrıca, hedef sunucunun kaynakları ve ağ trafiği izlenmeli ve anormal durumlar tespit edildiğinde müdahale edilmelidir.</p>
-<hr>
 <h3 id="icmp-saldırıları">
   ICMP Saldırıları
   <a class="heading-link" href="#icmp-sald%c4%b1r%c4%b1lar%c4%b1">
@@ -428,7 +404,6 @@ sudo apt install wireshark
 </h4>
 <p>Bu tür saldırılarda, saldırganlar ICMP Time Exceeded mesajları göndererek hedef sunucunun kaynaklarını tüketmeye çalışır. Bu mesajlar, ICMP trafiği tarafından oluşturulan trafiği artırabilir.</p>
 <p>ICMP saldırıları, hedef ağı veya sunucuyu aşırı yükleyerek hizmet kesintilerine neden olabilir. Bu tür saldırılara karşı korunma, güvenlik duvarları, IPS (Intrusion Prevention System), ICMP trafiği filtreleme ve sızma testleri gibi güvenlik önlemlerini içerebilir. Ayrıca, ağ yöneticilerinin ağ trafiğini izlemesi ve anormal aktiviteyi tespit etmesi önemlidir.</p>
-<hr>
 <h3 id="httphttps-saldırıları">
   HTTP/HTTPS Saldırıları
   <a class="heading-link" href="#httphttps-sald%c4%b1r%c4%b1lar%c4%b1">
@@ -482,7 +457,6 @@ sudo apt install wireshark
 </h4>
 <p>Heartbleed zafiyeti, SSL/TLS sunucularını hedef alan bir saldırı türüdür. Saldırganlar sunucudan hassas bilgileri çalabilirler. Aynı şekilde bu saldırı için hedef web sunucusunun HTTPS protokolünü kullanması ve SSL sertifikasının olması gerekir.</p>
 <p>Hizmet engelleme saldırılarına karşı korunma yöntemleri, trafik filtreleme, güvenlik duvarları, yük dengeleme, CDN (Content Delivery Network) kullanımı ve hizmet izleme gibi güvenlik önlemlerini içerebilir. Ayrıca, güncel yazılım yamaları ve güvenlik politikalarının uygulanması da önemlidir.</p>
-<hr>
 <h3 id="dns-saldırıları">
   DNS Saldırıları
   <a class="heading-link" href="#dns-sald%c4%b1r%c4%b1lar%c4%b1">
@@ -527,7 +501,6 @@ sudo apt install wireshark
 </h4>
 <p>Saldırganlar, hedef sunucunun yanıt verdiği sahte NXDOMAIN (Domain Bulunamadı) sorguları göndererek hedefin kaynaklarını tüketirler.</p>
 <p>DNS hizmet engelleme saldırıları, internet erişimini kesmek veya web sitelerini kullanılamaz hale getirmek gibi ciddi sonuçlara yol açabilir. Bu tür saldırılara karşı korunma, DNS sunucularının güvenlik ayarlarının iyileştirilmesi, trafiği izleme ve filtreleme, DNS güvenlik uzantılarının kullanılması ve yedek DNS sunucularının bulundurulması gibi önlemleri içerebilir. DNS sunucularının ve altyapının güncel ve güvende olduğundan emin olmak da önemlidir.</p>
-<hr>
 <h3 id="macof-saldırısı">
   Macof Saldırısı
   <a class="heading-link" href="#macof-sald%c4%b1r%c4%b1s%c4%b1">
@@ -543,7 +516,6 @@ sudo apt install wireshark
 <li>Aşırı yüklenen anahtarlayıcılar, veri paketlerini tüm bağlantı noktalarına iletir, bu da ağ trafiğini yavaşlatır veya kesintilere neden olabilir.</li>
 </ol>
 <p>MACOF saldırısı, anahtarlayıcıların normal işlevini bozarak ağı etkisiz hale getirmeyi amaçlar. Bu tür bir saldırıya karşı korunma, güvenlik duvarları ve güvenlik politikaları ile ağ trafiğini izleme ve anormal trafiği tespit etme gibi önlemler içerebilir. Ayrıca, ağdaki anahtarlayıcıların güvenlik ayarlarının doğru bir şekilde yapılandırılması önemlidir.</p>
-<hr>
 <h3 id="kaynaklar">
   Kaynaklar
   <a class="heading-link" href="#kaynaklar">
@@ -551,9 +523,9 @@ sudo apt install wireshark
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><a href="https://wiki.wireshark.org/SampleCaptures#sample-captures" title="https://wiki.wireshark.org/SampleCaptures#sample-captures"  class="external-link" target="_blank" rel="noopener"><strong>SampleCaptures</strong> 
+<p><a href="https://wiki.wireshark.org/SampleCaptures#sample-captures" title="https://wiki.wireshark.org/SampleCaptures#sample-captures"  class="external-link" target="_blank" rel="noopener"><strong>SampleCaptures</strong><br>
 *So you&rsquo;re at home tonight, having just installed Wireshark. You want to take the program for a test drive. But your…*wiki.wireshark.org</a></p>
-<p><a href="https://github.com/topics/dns-amplification-attack" title="https://github.com/topics/dns-amplification-attack"  class="external-link" target="_blank" rel="noopener"><strong>Build software better, together</strong> 
+<p><a href="https://github.com/topics/dns-amplification-attack" title="https://github.com/topics/dns-amplification-attack"  class="external-link" target="_blank" rel="noopener"><strong>Build software better, together</strong><br>
 *GitHub is where people build software. More than 100 million people use GitHub to discover, fork, and contribute to…*github.com</a></p>
 
       </div>

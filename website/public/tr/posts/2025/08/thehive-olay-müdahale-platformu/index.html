@@ -13,15 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-
-  1. Temel İşlevleri ve Çalışma Şekli
-  
-    
-    Başlık Linki
-  
-
-TheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olarak tasarlanmıştır. Olay yönetimi, takım temelli işbirliği ve tehdit zekâsı entegrasyonuna odaklanır. TheHive’in temel işlevleri arasında alarmların toplanması, olay vakalarına (case) dönüştürülmesi, vakalara atanan alt görevlerin ve “gözlemlenebilir” (observable) göstergelerin izlenmesi yer alır. Örneğin, gelen bir uyarı TheHive’e aktarıldığında yeni bir vaka oluşturulur ve bu vaka “tanımlama, düzeltme, kontrol” gibi önceden tanımlı görevlerle incelenir. Her görev için analistler log kaydı bırakabilir; bu loglar zengin metin veya Markdown formatında olabilir[1]. Ayrıca TheHive, şablon motoru ile benzer tipteki vakalar için tekrar kullanılabilir önceden tanımlı görev listeleri (case template) oluşturulmasına imkân verir, böylece rutin analiz iş akışları hızla başlatılabilir[2]. TheHive, çok sayıda analisti aynı anda destekleyerek toplu işbirliği yapmaya uygundur[3]. Örneğin alarm besleyicilerle (TheHive4py ile) dış sistemlerden gelen alarmlar otomatik çekilerek ortak bir panoda gösterilir; analistler bu alarmları inceleyip gerekirse vaka başlatabilir[3][1].">
+<meta name="description" content="TheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olarak tasarlanmıştır. Olay yönetimi, takım temelli işbirliği ve tehdit zekâsı entegrasyonuna odaklanır. TheHive’in temel işlevleri arasında alarmların toplanması, olay vakalarına...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -29,12 +21,12 @@ TheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olara
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="TheHive Olay Müdahale Platformu">
-  <meta name="twitter:description" content="1. Temel İşlevleri ve Çalışma ŞekliBaşlık LinkiTheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olarak tasarlanmıştır. Olay yönetimi, takım temelli işbirliği ve tehdit zekâsı entegrasyonuna odaklanır. TheHive’in temel işlevleri arasında alarmların toplanması, olay vakalarına (case) dönüştürülmesi, vakalara atanan alt görevlerin ve “gözlemlenebilir” (observable) göstergelerin izlenmesi yer alır. Örneğin, gelen bir uyarı TheHive’e aktarıldığında yeni bir vaka oluşturulur ve bu vaka “tanımlama, düzeltme, kontrol” gibi önceden tanımlı görevlerle incelenir. Her görev için analistler log kaydı bırakabilir; bu loglar zengin metin veya Markdown formatında olabilir[1]. Ayrıca TheHive, şablon motoru ile benzer tipteki vakalar için tekrar kullanılabilir önceden tanımlı görev listeleri (case template) oluşturulmasına imkân verir, böylece rutin analiz iş akışları hızla başlatılabilir[2]. TheHive, çok sayıda analisti aynı anda destekleyerek toplu işbirliği yapmaya uygundur[3]. Örneğin alarm besleyicilerle (TheHive4py ile) dış sistemlerden gelen alarmlar otomatik çekilerek ortak bir panoda gösterilir; analistler bu alarmları inceleyip gerekirse vaka başlatabilir[3][1].">
+  <meta name="twitter:description" content="TheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olarak tasarlanmıştır. Olay yönetimi, takım temelli işbirliği ve tehdit zekâsı entegrasyonuna odaklanır. TheHive’in temel işlevleri arasında alarmların toplanması, olay vakalarına...">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2025/08/thehive-olay-m%C3%BCdahale-platformu/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="TheHive Olay Müdahale Platformu">
-  <meta property="og:description" content="1. Temel İşlevleri ve Çalışma ŞekliBaşlık LinkiTheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olarak tasarlanmıştır. Olay yönetimi, takım temelli işbirliği ve tehdit zekâsı entegrasyonuna odaklanır. TheHive’in temel işlevleri arasında alarmların toplanması, olay vakalarına (case) dönüştürülmesi, vakalara atanan alt görevlerin ve “gözlemlenebilir” (observable) göstergelerin izlenmesi yer alır. Örneğin, gelen bir uyarı TheHive’e aktarıldığında yeni bir vaka oluşturulur ve bu vaka “tanımlama, düzeltme, kontrol” gibi önceden tanımlı görevlerle incelenir. Her görev için analistler log kaydı bırakabilir; bu loglar zengin metin veya Markdown formatında olabilir[1]. Ayrıca TheHive, şablon motoru ile benzer tipteki vakalar için tekrar kullanılabilir önceden tanımlı görev listeleri (case template) oluşturulmasına imkân verir, böylece rutin analiz iş akışları hızla başlatılabilir[2]. TheHive, çok sayıda analisti aynı anda destekleyerek toplu işbirliği yapmaya uygundur[3]. Örneğin alarm besleyicilerle (TheHive4py ile) dış sistemlerden gelen alarmlar otomatik çekilerek ortak bir panoda gösterilir; analistler bu alarmları inceleyip gerekirse vaka başlatabilir[3][1].">
+  <meta property="og:description" content="TheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olarak tasarlanmıştır. Olay yönetimi, takım temelli işbirliği ve tehdit zekâsı entegrasyonuna odaklanır. TheHive’in temel işlevleri arasında alarmların toplanması, olay vakalarına...">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -202,8 +194,7 @@ TheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olara
         
           <img src="https://cdn-images-1.medium.com/max/800/1*f8PP6v-xaqnfWogAG6RITw.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*f8PP6v-xaqnfWogAG6RITw.png" alt=""></p>
-<h3 id="1-temel-işlevleri-ve-çalışmaşekli">
+        <h3 id="1-temel-işlevleri-ve-çalışmaşekli">
   1. Temel İşlevleri ve Çalışma Şekli
   <a class="heading-link" href="#1-temel-i%c5%9flevleri-ve-%c3%a7al%c4%b1%c5%9fma%c5%9fekli">
     <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
@@ -306,7 +297,6 @@ TheHive, açık kaynak kodlu bir Güvenlik Olay Müdahale Platformu (SIRP) olara
 <p>TheHive projesi geniş bir topluluk tarafından desteklenmektedir. Resmi <strong>dökümantasyon</strong> ve kılavuzlar, TheHive Project’in GitHub sayfası, <a href="https://blog.thehive-project.org/"  class="external-link" target="_blank" rel="noopener">blog.thehive-project.org</a> üzerindeki güncel gönderiler ve StrangeBee’in docs siteleri (docs.strangebee.com) üzerinden erişilebilir. Geliştirici ekibi ve kullanıcı topluluğu çevrimiçi forumlar (Discord sohbet kanalları, Google grupları vb.) aracılığıyla etkileşimde bulunur. Sürekli güncellemeler Twitter, Mastodon, Discord ve resmi blog’da düzenli olarak paylaşılıyor<a href="https://docs.strangebee.com/cortex/#:~:text=Updates%20and%20community%20discussions"  class="external-link" target="_blank" rel="noopener">[27]</a>.</p>
 <p>Lisans açısından, TheHive 3 serisi 31 Aralık 2021’de, TheHive 4 serisi ise 31 Aralık 2022’de resmi destek (EOS) almıştır<a href="https://strangebee.com/thehive/#:~:text=Can%20I%20still%20use%20TheHive,3%20and%204%20for%20free"  class="external-link" target="_blank" rel="noopener">[28]</a>. Buna karşın TheHive 5’in <strong>Community Edition</strong> sürümü ücretsizdir ve kullanım süresi sınırı yoktur<a href="https://strangebee.com/thehive/#:~:text=Can%20I%20still%20use%20TheHive,3%20and%204%20for%20free"  class="external-link" target="_blank" rel="noopener">[28]</a>. Yani, açık kaynak topluluğu TheHive 4 ile gelen tüm özelliklere erişebilir ve TheHive 5’in ücretsiz versiyonuna güncellemeler alarak devam edebilir. Cortex gibi alt sistemler AGPL lisansı altında açık kaynak kalmaya devam etmektedir<a href="https://docs.strangebee.com/cortex/#:~:text=License"  class="external-link" target="_blank" rel="noopener">[29]</a><a href="https://strangebee.com/thehive/#:~:text=Can%20I%20still%20use%20TheHive,3%20and%204%20for%20free"  class="external-link" target="_blank" rel="noopener">[28]</a>.</p>
 <p>Özetle, TheHive ve yan bileşenleri (Cortex, MISP) aktif geliştirilen projelerdir. Kullanıcılar GitHub üzerinden hataları bildirebilir ve yeni özellik taleplerinde bulunabilir. Geliştirici ekip, topluluktan gelen geri bildirimleri değerlendirmekte ve platformu güncellemeye devam etmektedir. Belgeler düzenli güncellenmekte, topluluk da deneyimlerini paylaşıp sorularına cevap bulmaktadır. Bu canlı ekosistem sayesinde TheHive, SOC odaklı açık kaynak bir çözüm olarak güncelliğini korumaktadır.</p>
-<hr>
 <h3 id="kaynaklar">
   <strong>Kaynaklar</strong>
   <a class="heading-link" href="#kaynaklar">

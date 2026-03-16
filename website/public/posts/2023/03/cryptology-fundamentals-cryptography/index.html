@@ -13,24 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-  Cryptology Fundamentals:#2 Cryptography
-  
-    
-    Link to heading
-  
-
-
-Hello, in this article of the cryptology basics series, I will talk about what cryptography is, encryption techniques and cryptographic protocols.
-
-
-  Cryptography Overview
-  
-    
-    Link to heading
-  
-
-Cryptography is the science of secret writing for the purpose of hiding the meaning of a message. Cryptography is a set of mathematical methods and is intended to provide conditions such as confidentiality, authenticity, authentication, and prevention of false rejection necessary for the security of important information. These methods aim to protect the information — and therefore the interests of the sender, receiver, carrier of the information, its subjects, and any other parties — from active attacks or passive perceptions that may be encountered during the transmission and storage of information.">
+<meta name="description" content="Hello, in this article of the cryptology basics series, I will talk about what cryptography is, encryption techniques and cryptographic protocols.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -38,14 +21,12 @@ Cryptography is the science of secret writing for the purpose of hiding the mean
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Cryptology Fundamentals: Cryptography">
-  <meta name="twitter:description" content="Cryptology Fundamentals:#2 CryptographyLink to headingHello, in this article of the cryptology basics series, I will talk about what cryptography is, encryption techniques and cryptographic protocols.
-Cryptography OverviewLink to headingCryptography is the science of secret writing for the purpose of hiding the meaning of a message. Cryptography is a set of mathematical methods and is intended to provide conditions such as confidentiality, authenticity, authentication, and prevention of false rejection necessary for the security of important information. These methods aim to protect the information — and therefore the interests of the sender, receiver, carrier of the information, its subjects, and any other parties — from active attacks or passive perceptions that may be encountered during the transmission and storage of information.">
+  <meta name="twitter:description" content="Hello, in this article of the cryptology basics series, I will talk about what cryptography is, encryption techniques and cryptographic protocols.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2023/03/cryptology-fundamentals-cryptography/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Cryptology Fundamentals: Cryptography">
-  <meta property="og:description" content="Cryptology Fundamentals:#2 CryptographyLink to headingHello, in this article of the cryptology basics series, I will talk about what cryptography is, encryption techniques and cryptographic protocols.
-Cryptography OverviewLink to headingCryptography is the science of secret writing for the purpose of hiding the meaning of a message. Cryptography is a set of mathematical methods and is intended to provide conditions such as confidentiality, authenticity, authentication, and prevention of false rejection necessary for the security of important information. These methods aim to protect the information — and therefore the interests of the sender, receiver, carrier of the information, its subjects, and any other parties — from active attacks or passive perceptions that may be encountered during the transmission and storage of information.">
+  <meta property="og:description" content="Hello, in this article of the cryptology basics series, I will talk about what cryptography is, encryption techniques and cryptographic protocols.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -224,9 +205,7 @@ Cryptography OverviewLink to headingCryptography is the science of secret writ
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*MPqOVwPSnGY3CguO7sg8Jw.png" alt=""></p>
 <p>Hello, in this article of the cryptology basics series, I will talk about what cryptography is, encryption techniques and cryptographic protocols.</p>
-<hr>
 <h3 id="cryptography-overview">
   Cryptography Overview
   <a class="heading-link" href="#cryptography-overview">
@@ -239,7 +218,6 @@ Cryptography OverviewLink to headingCryptography is the science of secret writ
 <p>Cryptography; We can divide it into 3 areas: symmetric encryption, asymmetric encryption and cryptographic protocols. Now let&rsquo;s look at these areas and the methods used.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*-xJo79RzeZLimVgF7AMPJw.png" alt=""></p>
 <p>Basic Classification Diagram for Cryptographic Algorithms</p>
-<hr>
 <h3 id="symmetric-encryption">
   Symmetric Encryption
   <a class="heading-link" href="#symmetric-encryption">
@@ -324,7 +302,6 @@ Cryptography OverviewLink to headingCryptography is the science of secret writ
 <li>The <strong>Column Mixing (MixColumn) layer</strong> mixes the four-byte blocks in each column. Last round, the MixColumn transform is not used.</li>
 </ol>
 <p>In the AES encryption algorithm, the reverse process is done to decrypt.</p>
-<hr>
 <h3 id="asymmetric-encryption">
   Asymmetric Encryption
   <a class="heading-link" href="#asymmetric-encryption">
@@ -365,7 +342,7 @@ Cryptography OverviewLink to headingCryptography is the science of secret writ
 </h4>
 <p>RSA is an encryption technique developed considering the algorithmic difficulty of factoring very large integers. There are many applications where RSA is used, but in practice it is most commonly used for digital signatures, digital certificates, and encryption of small pieces of data. Additionally, RSA is the most widely used asymmetric encryption scheme today.</p>
 <p>It should be noted that RSA encryption is not intended to replace symmetric ciphers, as it is several times slower than symmetric ciphers such as AES. This is due to the many calculations involved in performing RSA (or any other public key algorithm). Therefore, the main use of the encryption feature is to securely exchange a key with a symmetric cipher (key transfer). In practice, RSA is often used in conjunction with a symmetric cipher such as AES, where the symmetric cipher does the actual bulk data encryption.</p>
-<p>The underlying one-way function of RSA is the integer factorization problem: 
+<p>The underlying one-way function of RSA is the integer factorization problem:<br>
  Multiplying two large prime numbers is computationally easy (you can actually do it with paper and pencil).niz), but it is very difficult to factor the resulting product. Euler&rsquo;s theorem and Euler&rsquo;s phi function play important roles in RSA. Now, let&rsquo;s look at how encryption, decryption, and key generation work with RSA.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*pVs1sy3vN5kCBdeb.png" alt=""></p>
 <p>RSA encryption algorithm</p>
@@ -373,18 +350,17 @@ Cryptography OverviewLink to headingCryptography is the science of secret writ
 <p>Modular computations play an important role in RSA encryption and decryption. In practice x, y, n and d are very long numbers (usually 1024 bits).</p>
 <p>A distinctive feature of all asymmetric schemes is that there is a setup phase in which the public and private key are calculated. Depending on the public key scheme, key generation can be quite complex. Let&rsquo;s take a look at the steps involved in calculating the public and private key for an RSA encryption system:</p>
 <ol>
-<li>N = p.q 
+<li>N = p.q<br>
  Two different and large prime numbers are determined, which will form the very large integer that we will denote by N. These numbers are called p and q.</li>
-<li>φ(N) = (p-1)(q-1) 
+<li>φ(N) = (p-1)(q-1)<br>
  The totient value of number N is calculated. Totient is a function in number theory that indicates the number of numbers that are smaller than an integer and prime to that number.</li>
-<li>1 &lt; e &lt; φ(N) and GCF(e, φ(N)) = 1 
+<li>1 &lt; e &lt; φ(N) and GCF(e, φ(N)) = 1<br>
  As can be understood from the mathematical expression above, an integer between 1 and the Totient value, which is prime between the Totient value and the Totient value, is selected and named e. Choosing a small number of e to be chosen here provides performance gains when performing operations such as mod and exponentiation, but in some cases it reduces security.</li>
-<li>d.e ≡ 1 (mod φ(N) 
+<li>d.e ≡ 1 (mod φ(N)<br>
  The number d that provides equivalence and will be used to create the secret key is found. The process to be done here is to find the inverse of the number e in mod φ(N).</li>
 </ol>
 <p>We have obtained all the values necessary to create the public and private key. Provided that the numbers (p,q, φ(N)) used in calculating the number d constituting the private key remain secret, the pair (N,e) is the public key; The (N,d) pair constitutes the secret key.</p>
 <p>As you can see, doing these operations can be very long and tiring. For this purpose, some practical methods are used in advanced systems. When designing the RSA scheme, if the e and d values are too large, it may cause slow encryption. On the other hand, if these values are too small, this brings security problems.</p>
-<hr>
 <h3 id="protocols">
   Protocols
   <a class="heading-link" href="#protocols">
@@ -403,7 +379,7 @@ Cryptography OverviewLink to headingCryptography is the science of secret writ
 <p>Digital signature is a legal authentication method used for authentication purposes in the electronic environment. It can be roughly defined as a signature made electronically. As with traditional handwritten signatures, only the person creating the digital message must be able to produce a valid signature. To achieve this with cryptographic primi-262 10 Digital Signatures we need to implement public key cryptography. The basic idea is that the person signing the message uses a private key and the receiving party uses the matching public key. The principle of the digital signature scheme is shown in the figure.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*Q9yF6vAzC-qdlXni.png" alt=""></p>
 <p>Digital Signature</p>
-<p>The key feature of digital signatures is this: Since a valid signature can only be calculated with the signer&rsquo;s private key, a signed message can be unambiguously traced back to its origin. Only the signer has the authority to create a signature in his or her own name. Therefore, we can prove that the signing party actually created the message. 
+<p>The key feature of digital signatures is this: Since a valid signature can only be calculated with the signer&rsquo;s private key, a signed message can be unambiguously traced back to its origin. Only the signer has the authority to create a signature in his or her own name. Therefore, we can prove that the signing party actually created the message.<br>
  Each of three popular families of public key algorithms, namely integer factorization, discrete logarithms, and elliptic curves, allow us to create digital signatures.</p>
 <h3 id="summary-functions">
   Summary Functions
@@ -489,7 +465,6 @@ Cryptography OverviewLink to headingCryptography is the science of secret writ
 </h4>
 <p>In many key transport protocols, one party simply generates the key and sends that key to the other party; the other side has no influence on the key.</p>
 <p>Using a key agreement protocol avoids some of the key distribution problems associated with such systems. Protocols where both parties influence the final derived key are the only way to implement perfect forward secrecy.</p>
-<hr>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*ILSONeBau6S2Vidq8GyOtA.png" alt=""></p>
 <p>In this article, I talked about cryptography. In my next article, I will talk about cryptanalysis. You can find the list of the series on my profile.</p>
 

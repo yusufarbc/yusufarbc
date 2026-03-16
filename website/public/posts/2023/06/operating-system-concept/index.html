@@ -13,24 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-  Operating System Concept
-  
-    
-    Link to heading
-  
-
-
-Hello, in this article I will talk about the structure, concept and features of operating systems. Design challenges of the operating system, security requirements and more are in this article!
-
-
-  Operating System
-  
-    
-    Link to heading
-  
-
-An operating system is a program that manages a computer&rsquo;s hardware. It also provides a basis for application programs and acts as an intermediary between the computer user and the computer hardware.">
+<meta name="description" content="Hello, in this article I will talk about the structure, concept and features of operating systems. Design challenges of the operating system, security requirements and more are in this article!">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -38,14 +21,12 @@ An operating system is a program that manages a computer&rsquo;s hardware. It al
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Operating System Concept">
-  <meta name="twitter:description" content="Operating System ConceptLink to headingHello, in this article I will talk about the structure, concept and features of operating systems. Design challenges of the operating system, security requirements and more are in this article!
-Operating SystemLink to headingAn operating system is a program that manages a computer’s hardware. It also provides a basis for application programs and acts as an intermediary between the computer user and the computer hardware.">
+  <meta name="twitter:description" content="Hello, in this article I will talk about the structure, concept and features of operating systems. Design challenges of the operating system, security requirements and more are in this article!">
 
 <meta property="og:url" content="http://localhost:1313/posts/2023/06/operating-system-concept/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Operating System Concept">
-  <meta property="og:description" content="Operating System ConceptLink to headingHello, in this article I will talk about the structure, concept and features of operating systems. Design challenges of the operating system, security requirements and more are in this article!
-Operating SystemLink to headingAn operating system is a program that manages a computer’s hardware. It also provides a basis for application programs and acts as an intermediary between the computer user and the computer hardware.">
+  <meta property="og:description" content="Hello, in this article I will talk about the structure, concept and features of operating systems. Design challenges of the operating system, security requirements and more are in this article!">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -220,9 +201,7 @@ Operating SystemLink to headingAn operating system is a program that manages a
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*IvUopr4Tqf2K6eew539ATw.png" alt=""></p>
 <p>Hello, in this article I will talk about the structure, concept and features of operating systems. Design challenges of the operating system, security requirements and more are in this article!</p>
-<hr>
 <h3 id="operating-system">
   Operating System
   <a class="heading-link" href="#operating-system">
@@ -268,7 +247,6 @@ Operating SystemLink to headingAn operating system is a program that manages a
 <p><strong>5. Input/Output Management:</strong> The operating system enables communication with external devices (keyboard, mouse, printer, disk drives, etc.). Input/output management controls data transfer between these devices, manages the input/output sequence, and deals with error conditions.</p>
 <p><strong>6. Network Management:</strong> The operating system manages network connections and enables communication on the network. Network management includes tasks such as configuring network settings, controlling the transmission of data packets, ensuring network security, and regulating access to the network.</p>
 <p><strong>7. Security and Access Control</strong>: The operating system takes security measures to keep the computer system safe. Controls user access, provides authorization, manages user accounts and ensures data security</p>
-<hr>
 <h3 id="processes">
   Processes
   <a class="heading-link" href="#processes">
@@ -278,7 +256,7 @@ Operating SystemLink to headingAn operating system is a program that manages a
 </h3>
 <p>In an operating system environment, a process is an executable instance of a program. A process is an entity that is managed, uses resources (such as memory, processor time, files, and input/output devices) and is executed by the operating system.</p>
 <p>The process occurs when a program becomes executable. A program exists in the form of a file stored on disk, while the process represents its state while running in memory. The process contains program code, variables, execution status (program counter, pointers, etc.), and other running information.</p>
-<p>We would like to emphasize that a program is not a process in itself. 
+<p>We would like to emphasize that a program is not a process in itself.<br>
 A program is a passive entity, such as a file containing a list of instructions stored on disk. In contrast, a process is an active entity with a program counter and a set of associated resources that specify the next instruction to be executed. A program becomes a process when an executable file is loaded into memory.</p>
 <h4 id="transaction-status">
   Transaction Status
@@ -291,7 +269,7 @@ A program is a passive entity, such as a file containing a list of instructions 
 <ul>
 <li><em>New</em>— Creating the transaction.</li>
 <li><em>Running</em>— Instructions are being executed.</li>
-<li><em>Waiting</em>— The process is waiting for an event to occur (for example, an I/O 
+<li><em>Waiting</em>— The process is waiting for an event to occur (for example, an I/O<br>
 completion or reception of a signal).</li>
 <li><em>Ready</em>— The process is waiting to be assigned to a processor.</li>
 <li>*Terminated —*The execution of the transaction is complete.</li>
@@ -307,16 +285,16 @@ completion or reception of a signal).</li>
 </h4>
 <p>Each process is represented by a process control block (PCB) in the operating system. It contains many pieces of information associated with a particular process, including:</p>
 <ul>
-<li><strong>Process status:</strong> Status is new, ready, running, waiting, stopped, etc. 
+<li><strong>Process status:</strong> Status is new, ready, running, waiting, stopped, etc.<br>
 it could be.</li>
-<li><strong>Program counter:</strong> The counter indicates the next instruction to be executed for this operation. 
+<li><strong>Program counter:</strong> The counter indicates the next instruction to be executed for this operation.<br>
 shows the address.</li>
 <li><strong>CPU registers</strong>: Registers vary in number and type depending on the computer architecture. These include accumulators, index registers, stack pointers, and general-purpose registers, as well as any status code information. This status information, along with the program counter, must be recorded when an interrupt occurs to ensure that the operation continues correctly at a later time.</li>
-<li><strong>CPU timing information:</strong> This information is a process priority, timing 
+<li><strong>CPU timing information:</strong> This information is a process priority, timing<br>
 Contains pointers to queues and other timing parameters.</li>
 <li><strong>Memory management information:</strong> This information may include items such as the value of base and boundary registers and page tables or segment tables, depending on the memory system used by the operating system.</li>
 <li><strong>Accounting information:</strong> This information includes the amount of CPU and actual time used, time limits, account numbers, job or transaction numbers, etc. Contains.</li>
-<li><strong>I/O status information:</strong> This information includes information about the I/O devices allocated to the process. 
+<li><strong>I/O status information:</strong> This information includes information about the I/O devices allocated to the process.<br>
 list, list of open files, etc. Contains.</li>
 </ul>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*RrcLvg5ZJ9nHEVCHm7VEeA.png" alt=""></p>
@@ -328,7 +306,7 @@ list, list of open files, etc. Contains.</li>
     <span class="sr-only">Link to heading</span>
   </a>
 </h4>
-<p>Processes running concurrently in the operating system can be independent processes or collaborating processes. A process is <strong>independent</strong> if it does not affect or is affected by other processes running in the system. Any process that does not share data with another process is independent. A process affects other processes running in the system.Knowing or being influenced by them is a <strong>collaborative</strong> process. 
+<p>Processes running concurrently in the operating system can be independent processes or collaborating processes. A process is <strong>independent</strong> if it does not affect or is affected by other processes running in the system. Any process that does not share data with another process is independent. A process affects other processes running in the system.Knowing or being influenced by them is a <strong>collaborative</strong> process.<br>
 There are several reasons to provide an environment conducive to process collaboration:</p>
 <ul>
 <li>Information sharing</li>
@@ -336,8 +314,8 @@ There are several reasons to provide an environment conducive to process collabo
 <li>Modularity</li>
 <li>Convenience</li>
 </ul>
-<p>Collaborating processes will enable them to exchange data and information 
-It requires an inter-process communication (IPC) mechanism. interprocess 
+<p>Collaborating processes will enable them to exchange data and information<br>
+It requires an inter-process communication (IPC) mechanism. interprocess<br>
 There are two basic models of communication: <em>shared memory</em> and <em>message passing.</em></p>
 <h4 id="threads">
   Threads
@@ -356,7 +334,7 @@ There are two basic models of communication: <em>shared memory</em> and <em>mess
     <span class="sr-only">Link to heading</span>
   </a>
 </h4>
-<p>Support for threads may be provided at the user level for <em>user threads</em> or by the kernel for <em>kernel threads</em>.  
+<p>Support for threads may be provided at the user level for <em>user threads</em> or by the kernel for <em>kernel threads</em>. <br>
 While user threads are supported on top of the kernel and managed without kernel support, kernel threads are supported and managed directly by the operating system. Nearly all contemporary operating systems, including Windows, Linux, Mac OS X, and Solaris, support kernel threads. After all, there must be a relationship between user threads and kernel threads. These models:</p>
 <ul>
 <li>Many-to-One Model (Multiple user threads to one core thread)</li>
@@ -364,7 +342,6 @@ While user threads are supported on top of the kernel and managed without kernel
 <li>Many to Many Model (Multiple user threads to multiple seed threads)</li>
 </ul>
 <p>Linux implements the same model as the Windows family of operating systems.</p>
-<hr>
 <h3 id="cpu-scheduling">
   CPU Scheduling
   <a class="heading-link" href="#cpu-scheduling">
@@ -384,15 +361,15 @@ While user threads are supported on top of the kernel and managed without kernel
 <p>The process may have a section of code called the critical section, where the process modifies public variables. While a process is executing in the critical section, no other processes are allowed to execute in the critical section. That is, two processes cannot run on their critical section at the same time.</p>
 <p>The solution to the critical section problem must meet the following three requirements:</p>
 <ol>
-<li><strong>Mutual exclusion:</strong> if the process is running on its critical section, no other 
+<li><strong>Mutual exclusion:</strong> if the process is running on its critical section, no other<br>
 The process cannot run on the critical section.</li>
-<li><strong>Progress:</strong> If no process is running on its critical partition and some 
-If processes want to enter the critical section, only the remaining 
-The processes that do not work in the sections should be transferred to the next critical section. 
-may participate in deciding whether to enter, and this choice may last indefinitely. 
+<li><strong>Progress:</strong> If no process is running on its critical partition and some<br>
+If processes want to enter the critical section, only the remaining<br>
+The processes that do not work in the sections should be transferred to the next critical section.<br>
+may participate in deciding whether to enter, and this choice may last indefinitely.<br>
 It cannot be postponed.</li>
-<li><strong>Limited waiting</strong>e: After a transaction, other transactions have critical 
-a limit or limit on the number of people allowed into the section 
+<li><strong>Limited waiting</strong>e: After a transaction, other transactions have critical<br>
+a limit or limit on the number of people allowed into the section<br>
 There is.</li>
 </ol>
 <p><a href="http://boron.physics.metu.edu.tr/ozdogan/OperatingSystems/week7/node1.html"  class="external-link" target="_blank" rel="noopener"><em>Peterson Solution</em></a> was developed for these requirements.</p>
@@ -405,12 +382,12 @@ There is.</li>
     <span class="sr-only">Link to heading</span>
   </a>
 </h4>
-<p>Hardware-based solutions to the critical cross-section problem are complex and often inaccessible to application programmers. Instead, operating system designers develop software tools to solve the critical section problem. The simplest of these tools is the mutex lock. (In fact, the term mutex is short for mutual exclusion.) MWe use uteks lock to protect critical regions and thus prevent race conditions. So, one 
-The transaction must acquire the lock before entering a critical section; from critical section 
+<p>Hardware-based solutions to the critical cross-section problem are complex and often inaccessible to application programmers. Instead, operating system designers develop software tools to solve the critical section problem. The simplest of these tools is the mutex lock. (In fact, the term mutex is short for mutual exclusion.) MWe use uteks lock to protect critical regions and thus prevent race conditions. So, one<br>
+The transaction must acquire the lock before entering a critical section; from critical section<br>
 When it comes out, it releases the lock.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*6IRXR8Sw9EndL-QKPRmL6w.png" alt=""></p>
 <p>Use of mutex locks</p>
-<p>The <em>acquire()</em> function acquires the lock and the <em>release()</em> function releases the lock. Calls to <em>acquire()</em> or <em>release()</em> must be executed atomically.  
+<p>The <em>acquire()</em> function acquires the lock and the <em>release()</em> function releases the lock. Calls to <em>acquire()</em> or <em>release()</em> must be executed atomically. <br>
 A mutex lock has a boolean variable whose value indicates whether the lock is usable. If the lock is usable, the <em>acquire()</em> call succeeds and the lock is then considered unusable. A process attempting to acquire an unusable lock is blocked until the lock is released.</p>
 <h4 id="semaphores">
   Semaphores
@@ -419,8 +396,8 @@ A mutex lock has a boolean variable whose value indicates whether the lock is us
     <span class="sr-only">Link to heading</span>
   </a>
 </h4>
-<p>It acts similar to a mutex lock, but locks down the activities of processes. 
-It can also provide more complex ways for them to sync. 
+<p>It acts similar to a mutex lock, but locks down the activities of processes.<br>
+It can also provide more complex ways for them to sync.<br>
 A semaphore S is an integer variable that is accessed by only two standard atomic operations other than initialization.</p>
 <p>Operating systems often distinguish between counting and binary semaphores. The value of a <em>counting semaphore</em> can vary over an unlimited area. The value of a <em>binary semaphore</em> can only vary between 0 and 1. Therefore, binary semaphores behave similarly to mutex locks.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*MVu1lrfs6ciG-dEC" alt=""></p>
@@ -433,9 +410,9 @@ A semaphore S is an integer variable that is accessed by only two standard atomi
   </a>
 </h4>
 <p>Although semaphores provide a convenient and effective mechanism for process synchronization, their misuse can cause timing errors that are difficult to detect, because these errors occur only when certain execution sequences occur, and these sequences do not always occur.</p>
-<p>Monitors do not require any specific implementation of an abstract data type (ADT). 
-data with a set of functions that will operate on that data independently 
-covers. The monitor structure allows only one process to be active within the monitor at a time. 
+<p>Monitors do not require any specific implementation of an abstract data type (ADT).<br>
+data with a set of functions that will operate on that data independently<br>
+covers. The monitor structure allows only one process to be active within the monitor at a time.<br>
 makes it happen.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*1yFRNX_7QPDEhWUFWc-61w.png" alt=""></p>
 <p>monitor</p>
@@ -451,28 +428,27 @@ makes it happen.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*CH9-cCR_FTNViJ6l" alt=""></p>
 <p>A deadlock condition can occur in a system if the following four conditions occur simultaneously:</p>
 <ol>
-<li><strong>Mutual exclusion:</strong> At least one resource must be kept in non-shareable mode; 
-that is, only one process can use the resource at a time. another process 
-If it requests this resource, the requesting process will wait until the resource is released. 
+<li><strong>Mutual exclusion:</strong> At least one resource must be kept in non-shareable mode;<br>
+that is, only one process can use the resource at a time. another process<br>
+If it requests this resource, the requesting process will wait until the resource is released.<br>
 should be postponed until</li>
-<li><strong>Hold and wait:</strong> A process is holding at least one resource and other processes 
+<li><strong>Hold and wait:</strong> A process is holding at least one resource and other processes<br>
 It must be waiting to receive additional resources held by</li>
 <li><strong>No prioritization:</strong> Resources cannot be prioritized; that is, a resource can only be voluntarily released by the process holding it after that process has completed its task.</li>
-<li><strong>Circular waiting:</strong> The set of waiting processes {P , P01 , …, Pn }, where P0 is waiting for a resource held by P1, P1 is waiting for a resource held by P2, …, Pn−1 is waiting for a resource held by Pn 
+<li><strong>Circular waiting:</strong> The set of waiting processes {P , P01 , …, Pn }, where P0 is waiting for a resource held by P1, P1 is waiting for a resource held by P2, …, Pn−1 is waiting for a resource held by Pn<br>
 It must exist as it expects and as Pn expects.</li>
 </ol>
-<p>All four conditions must be met for a deadlock to occur. 
+<p>All four conditions must be met for a deadlock to occur.<br>
 We emphasize that it is necessary. The cyclic wait condition requires the wait and hold condition, so the four conditions are not completely independent.</p>
 <p>In general, we can deal with the deadlock problem in one of three ways:</p>
 <ul>
-<li>A protocol to prevent or avoid deadlocks 
-to ensure that the system never enters a deadlock state by using 
+<li>A protocol to prevent or avoid deadlocks<br>
+to ensure that the system never enters a deadlock state by using<br>
 we can provide.</li>
 <li>Allow the system to enter a crash stateWe can detect it and recover it.</li>
-<li>You can completely ignore the problem and avoid any crashes in the system. 
+<li>You can completely ignore the problem and avoid any crashes in the system.<br>
 We can assume that it did not occur.</li>
 </ul>
-<hr>
 <h3 id="memory-management">
   Memory Management
   <a class="heading-link" href="#memory-management">
@@ -482,8 +458,8 @@ We can assume that it did not occur.</li>
 </h3>
 <p>The operating system&rsquo;s memory management refers to the process of effectively allocating and controlling the computer&rsquo;s memory resources. Thanks to memory management, the operating system monitors the memory usage of processes and programs, allocates and retrieves memory space when necessary.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*p0FxSir6Up3i3hAC" alt=""></p>
-<p>Main memory (RAM) and registers located inside the processor (Cache) are the only general-purpose storage areas that the CPU can directly access. There are machine instructions that take memory addresses as arguments, but there are no instructions that take disk addresses. Therefore, all instructions being executed and all data used by the instructions must be on one of these direct access storage devices. If the data is not in memory, it must be moved to main memory (RAM) before the CPU can operate on it. 
-An address generated by the CPU is usually called a logical address. 
+<p>Main memory (RAM) and registers located inside the processor (Cache) are the only general-purpose storage areas that the CPU can directly access. There are machine instructions that take memory addresses as arguments, but there are no instructions that take disk addresses. Therefore, all instructions being executed and all data used by the instructions must be on one of these direct access storage devices. If the data is not in memory, it must be moved to main memory (RAM) before the CPU can operate on it.<br>
+An address generated by the CPU is usually called a logical address.<br>
 An address seen by the memory unit — that is, the address loaded into the memory address register of the memory — is usually called a physical address. The runtime mapping from virtual addresses to physical addresses is done by a hardware device called a memory management unit (MMU).</p>
 <h4 id="swap">
   Swap
@@ -502,11 +478,11 @@ An address seen by the memory unit — that is, the address loaded into the 
     <span class="sr-only">Link to heading</span>
   </a>
 </h4>
-<p>Main memory supports both the operating system and various user processes. 
+<p>Main memory supports both the operating system and various user processes.<br>
 should contain. Therefore, we need to allocate main memory in the most efficient way possible.</p>
 <p>One of the simplest methods for memory allocation is to divide memory into several fixed-size partitions. Each section can contain exactly one transaction. Thus, the degree of multiprogramming depends on the number of partitions. In this multi-partition method, when a partition is empty, a process is selected from the input queue and loaded into the empty partition. When the process ends, the partition becomes available for another process.</p>
-<p>In a variable partition scheme, the operating system determines which parts of the memory 
-keeps a table showing which ones are available and which are occupied. Available memory blocks consist of a series of spaces of various sizes distributed throughout memory. When a process arrives and needs memory, the system looks for a space large enough for that process. If there is too much space 
+<p>In a variable partition scheme, the operating system determines which parts of the memory<br>
+keeps a table showing which ones are available and which are occupied. Available memory blocks consist of a series of spaces of various sizes distributed throughout memory. When a process arrives and needs memory, the system looks for a space large enough for that process. If there is too much space<br>
 If it is large, it is divided into two parts. A piece is allocated to the incoming process; the other is sent back to the set of spaces. When a process terminates, it frees the block of memory, which is then placed back into the set of holes.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*XAENmzVV04429w9N" alt=""></p>
 <p>Memory Allocation</p>
@@ -534,7 +510,7 @@ If it is large, it is divided into two parts. A piece is allocated to the incomi
     <span class="sr-only">Link to heading</span>
   </a>
 </h4>
-<p>Segmentation allows the physical address space of a process to be non-contiguous. Paging is another memory management scheme that offers this advantage. However, paging prevents and compresses external fragmentation, whereas segmentation does not. Additionally, different sizes of memory 
+<p>Segmentation allows the physical address space of a process to be non-contiguous. Paging is another memory management scheme that offers this advantage. However, paging prevents and compresses external fragmentation, whereas segmentation does not. Additionally, different sizes of memory<br>
 It also solves the important problem of fitting parts into the support tank.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*0Ir0o5wtu7y2mwjfFarrHA.png" alt=""></p>
 <p>Paging Hardware</p>
@@ -546,7 +522,7 @@ It also solves the important problem of fitting parts into the support tank.</p>
     <span class="sr-only">Link to heading</span>
   </a>
 </h4>
-<p>Virtual memory involves separating logical memory from physical memory as perceived by users. This allocation allows an extremely large amount of virtual memory to be available to programmers when only smaller physical memory is available. Virtual memory makes the programming task much easier because the programmer no longer needs to worry about the amount of physical memory available; instead 
+<p>Virtual memory involves separating logical memory from physical memory as perceived by users. This allocation allows an extremely large amount of virtual memory to be available to programmers when only smaller physical memory is available. Virtual memory makes the programming task much easier because the programmer no longer needs to worry about the amount of physical memory available; instead<br>
 can concentrate on the problem to be programmed.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*QvvtOf3Vf930Fs19eSHqjQ.png" alt=""></p>
 <p>Virtual Memory</p>
@@ -557,7 +533,6 @@ can concentrate on the problem to be programmed.</p>
 <li>Similarly, processes can share memory. Recall from Chapter 3 that two or more processes can communicate through the use of shared memory. Virtual memory allows a process to create a region of memory that it can share with another process. Processes sharing this region consider it part of their virtual address space, but the actual physical pages of memory are shared.</li>
 <li>Pages can be shared with the fork() system call during process creation, thus speeding up process creation.</li>
 </ul>
-<hr>
 <h3 id="disk-management-mass-storage-management">
   Disk Management (Mass Storage Management)
   <a class="heading-link" href="#disk-management-mass-storage-management">
@@ -691,7 +666,6 @@ can concentrate on the problem to be programmed.</p>
 <li><strong>Direct Access:</strong> Direct access files are very useful for instant access to large amounts of information. Databases are often of this type. When a query comes in on a particular topic, we calculate which block contains the answer and then read that block directly to provide the desired information.</li>
 <li><strong>Other Access Methods:</strong> Other access methods can be built directly on top of the access method. With this methodr usually involves creating a directory for the file. An index contains pointers to various blocks, like the index at the back of a book. To find a record in the file, we first search the index and then use the pointer to directly access the file and find the desired record.</li>
 </ol>
-<hr>
 <h3 id="protection-and-security">
   Protection and Security
   <a class="heading-link" href="#protection-and-security">
@@ -737,7 +711,6 @@ can concentrate on the problem to be programmed.</p>
 <p><strong>Patch Updates</strong>: A patch is a small update released to fix vulnerabilities or fix bugs in an existing software or operating system. This update does not make the system or software more secure.It completes the deficiencies for k. Patch updates often contain important fixes for common vulnerabilities or attacks. Users should ensure that the system remains up-to-date and secure by downloading and installing these updates regularly.</p>
 <p><strong>Zero-day Vulnerabilities:</strong> Zero-day vulnerabilities are vulnerabilities that have not yet been discovered or published. Attackers may attempt to infiltrate and attack systems or software by using such vulnerabilities. The reason zero-day vulnerabilities are potentially dangerous is that software developers become targets of attacks before they have the opportunity to discover and fix them.</p>
 <p>Security updates are vital to keep systems and software up to date and secure. It is important for users to regularly monitor updates and install the necessary updates to fix security vulnerabilities. This supports protecting from malicious attacks and ensuring data security.</p>
-<hr>
 <p>In this article, I tried to explain the general concept of operating systems. I talked about what features it has and what difficulties it has. You can look at this link for more details: <a href="https://www.geeksforgeeks.org/operating-systems/"  class="external-link" target="_blank" rel="noopener">https://www.geeksforgeeks.org/operating-systems/</a> If there are points I am missing, you can write a comment.</p>
 
       </div>

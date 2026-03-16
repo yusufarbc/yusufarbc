@@ -13,18 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
-
-
-  DNS Nasıl Çalışır?
-  
-    
-    Başlık Linki
-  
-
-DNS, www.wiresharktraining.com gibi sembolik ana bilgisayar adlarını IP adreslerine dönüştürmek için kullanılır. DNS ayrıca ad bilgilerini DNS sunucuları arasında aktarmak, bir IP adresiyle ilişkili ana bilgisayar adını belirlemek (ters veya işaretçi sorgusu) ve MX (posta alışverişi) kaydı gibi diğer ad öğelerini aramak için de kullanılabilir.
-DNS ağ üzerindeki en önemli uygulamalardan biridir. Bir DNS sorunu, bilgisayarların hostname bilgilerini kullanırken birbirlerini bulmalarını engelleyecektir.">
+<meta name="description" content="Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -32,16 +21,12 @@ DNS ağ üzerindeki en önemli uygulamalardan biridir. Bir DNS sorunu, bilgisaya
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="DNS Wireshark Analizi">
-  <meta name="twitter:description" content="Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
-DNS Nasıl Çalışır?Başlık LinkiDNS, www.wiresharktraining.com gibi sembolik ana bilgisayar adlarını IP adreslerine dönüştürmek için kullanılır. DNS ayrıca ad bilgilerini DNS sunucuları arasında aktarmak, bir IP adresiyle ilişkili ana bilgisayar adını belirlemek (ters veya işaretçi sorgusu) ve MX (posta alışverişi) kaydı gibi diğer ad öğelerini aramak için de kullanılabilir.
-DNS ağ üzerindeki en önemli uygulamalardan biridir. Bir DNS sorunu, bilgisayarların hostname bilgilerini kullanırken birbirlerini bulmalarını engelleyecektir.">
+  <meta name="twitter:description" content="Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2023/11/dns-wireshark-analizi/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="DNS Wireshark Analizi">
-  <meta property="og:description" content="Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
-DNS Nasıl Çalışır?Başlık LinkiDNS, www.wiresharktraining.com gibi sembolik ana bilgisayar adlarını IP adreslerine dönüştürmek için kullanılır. DNS ayrıca ad bilgilerini DNS sunucuları arasında aktarmak, bir IP adresiyle ilişkili ana bilgisayar adını belirlemek (ters veya işaretçi sorgusu) ve MX (posta alışverişi) kaydı gibi diğer ad öğelerini aramak için de kullanılabilir.
-DNS ağ üzerindeki en önemli uygulamalardan biridir. Bir DNS sorunu, bilgisayarların hostname bilgilerini kullanırken birbirlerini bulmalarını engelleyecektir.">
+  <meta property="og:description" content="Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -216,9 +201,7 @@ DNS ağ üzerindeki en önemli uygulamalardan biridir. Bir DNS sorunu, bilgisaya
         
           <img src="https://cdn-images-1.medium.com/max/800/1*_OuE2zljUjPrg0g7TfljyQ.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*_OuE2zljUjPrg0g7TfljyQ.png" alt=""></p>
-<p>Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
-<hr>
+        <p>Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
 <h3 id="dns-nasılçalışır">
   DNS Nasıl Çalışır?
   <a class="heading-link" href="#dns-nas%c4%b1l%c3%a7al%c4%b1%c5%9f%c4%b1r">
@@ -233,7 +216,6 @@ DNS ağ üzerindeki en önemli uygulamalardan biridir. Bir DNS sorunu, bilgisaya
 <p>DNS UDP veya TCP üzerinden çalışabilir. Yaygın olarak UDP kullanan DNS sorguları ve yanıtları görürsünüz. Bölge aktarımları TCP üzerinden çalışır. DNS için varsayılan port numarası 53dür.</p>
 <p><a href="https://www.rfc-editor.org/rfc/rfc1035"  class="external-link" target="_blank" rel="noopener">RFC 1035</a>, Domain Names — Implementation and Specification, UDP paket yükü üzerinden DNS’yi 512 bayt ile sınırlar. Bu genellikle bir DNS sorgusu için yeterlidir. Ancak bir yanıt 512 bayttan fazla alan gerektirdiğinde, yanıtta bir kesme bayrağı biti gönderilir. Bu, çözümleyicinin DNS sorgusunu daha büyük bir paket boyutuna izin veren TCP kullanarak tekrar göndermesini tetikler.</p>
 <p><a href="https://www.rfc-editor.org/rfc/rfc2671"  class="external-link" target="_blank" rel="noopener">RFC 2671</a>, DNS için Uzatma Mekanizmaları (EDNS0), UDP üzerinden 512 bayttan daha fazlasına izin verir.</p>
-<hr>
 <h3 id="dns-queryresponse-analizi">
   DNS Query/Response Analizi
   <a class="heading-link" href="#dns-queryresponse-analizi">
@@ -246,7 +228,6 @@ DNS ağ üzerindeki en önemli uygulamalardan biridir. Bir DNS sorunu, bilgisaya
 <p>A kaydı DNS Sorgusu</p>
 <p>Şekilde <a href="https://www.winpcap.org"  class="external-link" target="_blank" rel="noopener">www.winpcap.org</a> için A kaydına (CNAME) yönelik standart bir DNS isteğini göstermektedir. Bu DNS sorgusu, kullanıcının domaini tarayıcı URL bölümüne girip Enter tuşuna bastığında otomatik olarak oluşturulmuştur.</p>
 <p>Bir istemcinin talep ettiği ad, hedefin gerçek adı olmayabilir. Bu durumda, <a href="https://www.winpcap.org"  class="external-link" target="_blank" rel="noopener">www.winpcap.org</a> için bir canonical name(CNAME) veya gerçek ad döndürülmüştür. CNAME <a href="http://www.winpcap.org"  class="external-link" target="_blank" rel="noopener">winpcap.org</a>dur ve bu ana bilgisayarın adresi 128.121.79.138&rsquo;dür.</p>
-<hr>
 <h3 id="dns-hatalarıanalizi">
   DNS Hataları Analizi
   <a class="heading-link" href="#dns-hatalar%c4%b1analizi">
@@ -267,7 +248,6 @@ DNS ağ üzerindeki en önemli uygulamalardan biridir. Bir DNS sorunu, bilgisaya
 <p>ICMP cevabı hedefde 53 portuun açık oladığını belirtir.</p>
 <p>Şekilde istemcimiz DNS sorguları göndermekte ve bu sorgular ICMP Destination Unreachable/Port Unreachable yanıtlarıyla yanıtlanarak 53 numaralı portun bu hostta açık olmadığını göstermektedir.</p>
 <p>Bu durumda hatanın nerde olduğu, istemcinin DNS sunucusunun doğru IP adresine sahip olup olmadığına ya da DNS sunucusu servisinin istek atılan IP üzerinde çalışıyor olup olmadığına bağlıdır. Bu durumda, istemci tekrar dener — yapılandırılmış yalnızca bir DNS sunucusu vardır(genelde 2 tane olur), bu nedenle aramayı tekrar dener. Sunucu bu portun dinlemediğini belirttiği için istemcinin isteği yine reddedilir.</p>
-<hr>
 <h3 id="dns-paketyapısı">
   DNS Paket Yapısı
   <a class="heading-link" href="#dns-paketyap%c4%b1s%c4%b1">
@@ -476,9 +456,8 @@ DNS ağ üzerindeki en önemli uygulamalardan biridir. Bir DNS sorunu, bilgisaya
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>Bu alan DNS yanıtlarının Yanıt bölümünde yer alır ve alıcının DNS bilgilerini önbellekte ne kadar süre tutabileceğini gösterir. DNS’deki her yanıt, o DNS bilgisi için bir TTL değeri içerecektir. 
+<p>Bu alan DNS yanıtlarının Yanıt bölümünde yer alır ve alıcının DNS bilgilerini önbellekte ne kadar süre tutabileceğini gösterir. DNS’deki her yanıt, o DNS bilgisi için bir TTL değeri içerecektir.<br>
 RR bilgileriyle yanıt veren DNS sunucuları, kalan TTL değerini sürekli olarak geri sayar; aynı DNS sorgusunu on saniye arayla yapmak, sunulan TTL değerinde on saniyelik bir fark gösterecektir.</p>
-<hr>
 <h4 id="dnsmdns-trafiği-filtreleri">
   DNS/mDNS Trafiği Filtreleri
   <a class="heading-link" href="#dnsmdns-trafi%c4%9fi-filtreleri">
@@ -504,7 +483,6 @@ RR bilgileriyle yanıt veren DNS sunucuları, kalan TTL değerini sürekli olara
 <li>dns.flags.recavail==1 : recursion availabl ile başlayan DNS responselar</li>
 </ul>
 <p>Daha fazla Display filter seçeneği Wireshark’ın şu adresteki Referansında bulunabilir <a href="http://www.wireshark.org/docs/dfref/d/dns.html"  class="external-link" target="_blank" rel="noopener">www.wireshark.org/docs/dfref/d/dns.html</a>.</p>
-<hr>
 <h3 id="kaynakça">
   Kaynakça
   <a class="heading-link" href="#kaynak%c3%a7a">

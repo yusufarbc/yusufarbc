@@ -13,17 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.
-
-
-  How Does DNS Work?
-  
-    
-    Link to heading
-  
-
-DNS is used to convert symbolic hostnames, such as www.wiresharktraining.com, into IP addresses. DNS can also be used to transfer name information between DNS servers, determine the hostname associated with an IP address (reverse or pointer query), and look up other name elements such as an MX (mail exchange) record.">
+<meta name="description" content="Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -31,14 +21,12 @@ DNS is used to convert symbolic hostnames, such as www.wiresharktraining.com, in
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="DNS Wireshark Analysis">
-  <meta name="twitter:description" content="Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.
-How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, such as www.wiresharktraining.com, into IP addresses. DNS can also be used to transfer name information between DNS servers, determine the hostname associated with an IP address (reverse or pointer query), and look up other name elements such as an MX (mail exchange) record.">
+  <meta name="twitter:description" content="Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2023/11/dns-wireshark-analysis/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="DNS Wireshark Analysis">
-  <meta property="og:description" content="Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.
-How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, such as www.wiresharktraining.com, into IP addresses. DNS can also be used to transfer name information between DNS servers, determine the hostname associated with an IP address (reverse or pointer query), and look up other name elements such as an MX (mail exchange) record.">
+  <meta property="og:description" content="Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -213,9 +201,7 @@ How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, s
         
           <img src="https://cdn-images-1.medium.com/max/800/1*_OuE2zljUjPrg0g7TfljyQ.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*_OuE2zljUjPrg0g7TfljyQ.png" alt=""></p>
-<p>Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.</p>
-<hr>
+        <p>Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.</p>
 <h3 id="how-does-dnswork">
   How Does DNS Work?
   <a class="heading-link" href="#how-does-dnswork">
@@ -230,7 +216,6 @@ How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, s
 <p>DNS can operate over UDP or TCP. You&rsquo;ll commonly see DNS queries and responses that use UDP. Zone transfers operate over TCP. The default port number for DNS is 53.</p>
 <p><a href="https://www.rfc-editor.org/rfc/rfc1035"  class="external-link" target="_blank" rel="noopener">RFC 1035</a>, Domain Names — Implementation and Specification limits DNS over UDP packet payload to 512 bytes. This is usually enough for a DNS query. However, when a response requires more than 512 bytes of space, an interrupt flag bit is sent in the response. This triggers the resolver to resend the DNS query using TCP, which allows for a larger packet size.</p>
 <p><a href="https://www.rfc-editor.org/rfc/rfc2671"  class="external-link" target="_blank" rel="noopener">RFC 2671</a>, Extension Mechanisms for DNS (EDNS0), allows more than 512 bytes over UDP.</p>
-<hr>
 <h3 id="dns-queryresponse-analysis">
   DNS Query/Response Analysis
   <a class="heading-link" href="#dns-queryresponse-analysis">
@@ -243,7 +228,6 @@ How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, s
 <p>A record DNS Query</p>
 <p>The figure shows a standard DNS request to the A record (CNAME) for <a href="https://www.winpcap.org"  class="external-link" target="_blank" rel="noopener">www.winpcap.org</a>. This DNS query is automatically generated when the user enters the domain in the browser URL and presses the Enter key.</p>
 <p>The name requested by a client may not be the real name of the target. In this case, a canonical name(CNAME) or real name is returned for <a href="https://www.winpcap.org"  class="external-link" target="_blank" rel="noopener">www.winpcap.org</a>. The CNAME is <a href="http://www.winpcap.org"  class="external-link" target="_blank" rel="noopener">winpcap.org</a> and the address of this host is 128.121.79.138.</p>
-<hr>
 <h3 id="dns-errorsanalysis">
   DNS Errors Analysis
   <a class="heading-link" href="#dns-errorsanalysis">
@@ -264,7 +248,6 @@ How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, s
 <p>The ICMP response indicates that port 53 is open on the target.</p>
 <p>In the figure, our client sends DNS queries and these queries are answered with ICMP Destination Unreachable/Port Unreachable responses.The response shows that port 53 is not open on this host.</p>
 <p>In this case, where the error occurs depends on whether the client&rsquo;s DNS server has the correct IP address or whether the DNS server service is running on the requested IP. In this case, the client tries again — there is only one DNS server configured (usually there will be 2), so it tries the lookup again. The client&rsquo;s request is rejected again because the server indicates that this port is not listening.</p>
-<hr>
 <h3 id="dns-packagestructure">
   DNS Package Structure
   <a class="heading-link" href="#dns-packagestructure">
@@ -459,9 +442,8 @@ How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, s
     <span class="sr-only">Link to heading</span>
   </a>
 </h4>
-<p>This field is located in the Response section of DNS responses and indicates how long the recipient can cache DNS information. Each response in DNS will contain a TTL value for that DNS information. 
+<p>This field is located in the Response section of DNS responses and indicates how long the recipient can cache DNS information. Each response in DNS will contain a TTL value for that DNS information.<br>
 DNS servers responding with RR information continuously count down the remaining TTL value; Making the same DNS query ten seconds apart will show a ten second difference in the TTL value presented.</p>
-<hr>
 <h4 id="dnsmdns-traffic-filters">
   DNS/mDNS Traffic Filters
   <a class="heading-link" href="#dnsmdns-traffic-filters">
@@ -487,7 +469,6 @@ DNS servers responding with RR information continuously count down the remaining
 <li>dns.flags.recavail==1: DNS responses starting with recursion available</li>
 </ul>
 <p>More Display filter options can be found in Wireshark&rsquo;s Reference at <a href="http://www.wireshark.org/docs/dfref/d/dns.html"  class="external-link" target="_blank" rel="noopener">www.wireshark.org/docs/dfref/d/dns.html</a>.</p>
-<hr>
 <h3 id="references">
   References
   <a class="heading-link" href="#references">

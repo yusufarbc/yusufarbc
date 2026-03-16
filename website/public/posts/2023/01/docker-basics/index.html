@@ -13,18 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-
-  What is Docker?
-  
-    
-    Link to heading
-  
-
-Docker is an open source container platform used to develop, deploy and manage applications in virtualized environments. It is a technology that distributes the resources of the operating system to the applications it manages. Docker is lighter and faster than virtual machines.
-
-docker vs virtual machines
-Docker containers provide lightweight virtualized runtime environments for running applications. Package applications in isolated environments; makes it easier to develop, deploy and maintain applications. Containers are independent and isolated from the host and other applications running on the host.">
+<meta name="description" content="Docker is an open source container platform used to develop, deploy and manage applications in virtualized environments. It is a technology that distributes the resources of the operating system to the applications it manages. Docker is lighter and f...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -32,16 +21,12 @@ Docker containers provide lightweight virtualized runtime environments for runni
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Docker Basics">
-  <meta name="twitter:description" content="What is Docker?Link to headingDocker is an open source container platform used to develop, deploy and manage applications in virtualized environments. It is a technology that distributes the resources of the operating system to the applications it manages. Docker is lighter and faster than virtual machines.
-docker vs virtual machines
-Docker containers provide lightweight virtualized runtime environments for running applications. Package applications in isolated environments; makes it easier to develop, deploy and maintain applications. Containers are independent and isolated from the host and other applications running on the host.">
+  <meta name="twitter:description" content="Docker is an open source container platform used to develop, deploy and manage applications in virtualized environments. It is a technology that distributes the resources of the operating system to the applications it manages. Docker is lighter and f...">
 
 <meta property="og:url" content="http://localhost:1313/posts/2023/01/docker-basics/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Docker Basics">
-  <meta property="og:description" content="What is Docker?Link to headingDocker is an open source container platform used to develop, deploy and manage applications in virtualized environments. It is a technology that distributes the resources of the operating system to the applications it manages. Docker is lighter and faster than virtual machines.
-docker vs virtual machines
-Docker containers provide lightweight virtualized runtime environments for running applications. Package applications in isolated environments; makes it easier to develop, deploy and maintain applications. Containers are independent and isolated from the host and other applications running on the host.">
+  <meta property="og:description" content="Docker is an open source container platform used to develop, deploy and manage applications in virtualized environments. It is a technology that distributes the resources of the operating system to the applications it manages. Docker is lighter and f...">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -209,8 +194,7 @@ Docker containers provide lightweight virtualized runtime environments for runni
         
           <img src="https://cdn-images-1.medium.com/max/800/1*2Vt-GnSjtWGchPVgF1fX6g.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*2Vt-GnSjtWGchPVgF1fX6g.png" alt=""></p>
-<h3 id="what-is-docker">
+        <h3 id="what-is-docker">
   What is Docker?
   <a class="heading-link" href="#what-is-docker">
     <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
@@ -230,7 +214,6 @@ Docker containers provide lightweight virtualized runtime environments for runni
 </h4>
 <p>It is Docker&rsquo;s repository service. You can become a member of this platform and store the docker containers you have prepared here. You can also download ready-made Docker containers from this platform and install them quickly. You can access Docker hub <a href="https://hub.docker.com/"  class="external-link" target="_blank" rel="noopener"><em>here</em></a>.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*t1XOZZHUt_GtjX9F" alt=""></p>
-<hr>
 <h3 id="docker-installation">
   Docker Installation
   <a class="heading-link" href="#docker-installation">
@@ -261,7 +244,6 @@ Docker containers provide lightweight virtualized runtime environments for runni
 <p>You can use Docker CLI commands to install these images or you can install via the derstop application.</p>
 <p>As an example, we can give <a href="https://github.com/vulhub/vulhub"  class="external-link" target="_blank" rel="noopener">vulnhub</a>. Testing environments are needed to practice in the field of Cyber ​​Security. This is where docker containers become very useful. vulnhubda is a docker compose that makes it easy to install these containers.</p>
 <p>An easier way to install vulnerable web applications is the <a href="https://github.com/yusufarbc/DockerVuln"  class="external-link" target="_blank" rel="noopener">dockervuln</a> tool. This tool provides automatic installation and operation of indexed images with a graphical interface. I recommend it :)</p>
-<hr>
 <h3 id="docker-architecture">
   Docker Architecture
   <a class="heading-link" href="#docker-architecture">
@@ -309,7 +291,6 @@ Docker containers provide lightweight virtualized runtime environments for runni
 </h4>
 <p>It allows containers on the same network to communicate with each other. It segments multiple network traffic. It allows containers to be included in more than one network.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/0*8VlhQr5TKVSiZYPW" alt=""></p>
-<hr>
 <h3 id="docker-cli-command-line-interface">
   Docker CLI (Command Line Interface)
   <a class="heading-link" href="#docker-cli-command-line-interface">
@@ -447,7 +428,6 @@ Docker containers provide lightweight virtualized runtime environments for runni
   </a>
 </h4>
 <p>It is used to upload the image to the Docker repo.</p>
-<hr>
 <h3 id="docker-file">
   Docker File
   <a class="heading-link" href="#docker-file">
@@ -488,30 +468,30 @@ Docker containers provide lightweight virtualized runtime environments for runni
     <span class="sr-only">Link to heading</span>
   </a>
 </h4>
-<pre tabindex="0"><code># syntax=docker/dockerfile:1  
-FROM golang:1.16-alpine AS build  
-  
-# Install tools required for project  
-# Run `docker build --no-cache .` to update dependencies  
-RUN apk add --no-cache git  
-RUN go get github.com/golang/dep/cmd/dep  
-  
-# List project dependencies with Gopkg.toml and Gopkg.lock  
-# These layers are only re-built when Gopkg files are updated  
-COPY Gopkg.lock Gopkg.toml /go/src/project/  
-WORKDIR /go/src/project/  
-# Install library dependencies  
-RUN dep ensure -vendor-only  
-  
-# Copy the entire project and build it  
-# This layer is rebuilt when a file changes in the project directory  
-COPY . /go/src/project/  
-RUN go build -o /bin/project  
-  
-# These results in a single layer image  
-FROM scratch  
-COPY --from=build /bin/project /bin/project  
-ENTRYPOINT [&#34;/bin/project&#34;]  
+<pre tabindex="0"><code># syntax=docker/dockerfile:1  
+FROM golang:1.16-alpine AS build  
+  
+# Install tools required for project  
+# Run `docker build --no-cache .` to update dependencies  
+RUN apk add --no-cache git  
+RUN go get github.com/golang/dep/cmd/dep  
+  
+# List project dependencies with Gopkg.toml and Gopkg.lock  
+# These layers are only re-built when Gopkg files are updated  
+COPY Gopkg.lock Gopkg.toml /go/src/project/  
+WORKDIR /go/src/project/  
+# Install library dependencies  
+RUN dep ensure -vendor-only  
+  
+# Copy the entire project and build it  
+# This layer is rebuilt when a file changes in the project directory  
+COPY . /go/src/project/  
+RUN go build -o /bin/project  
+  
+# These results in a single layer image  
+FROM scratch  
+COPY --from=build /bin/project /bin/project  
+ENTRYPOINT [&#34;/bin/project&#34;]  
 CMD [&#34;--help&#34;]
 </code></pre>
       </div>

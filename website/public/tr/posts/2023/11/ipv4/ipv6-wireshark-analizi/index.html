@@ -13,18 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
-
-
-  IP Nedir?
-  
-    
-    Başlık Linki
-  
-
-IP (v4/v6 — topluca “IP” olarak anılır), ağa bağlı sistemler için teslim hizmetlerinin yanı sıra düşük MTU (Maximum Transmission Unit) ağları için parçalama ve yeniden birleştirme sağlar. IP ayrıca belirli trafiğin diğer trafiğe göre önceliklendirilmesini sağlamak için hizmet kalitesi belirleme özelliği de sunar.
-IP bağlantısız ve güvenilmezdir, IP ana bilgisayarları arasında datagramların en iyi şekilde teslim edilmesini sağlar. IP’nin kendisi, bir paketin hedef konuma ulaşıp ulaşmadığını belirlemenin hiçbir yolunu sunmaz. Garantili teslimata ihtiyaç duyan bir uygulama IP üzerinden TCP (TCP over IP) kullanmalıdır.">
+<meta name="description" content="Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -32,16 +21,12 @@ IP bağlantısız ve güvenilmezdir, IP ana bilgisayarları arasında datagramla
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="IPv4/IPv6 Wireshark Analizi">
-  <meta name="twitter:description" content="Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
-IP Nedir?Başlık LinkiIP (v4/v6 — topluca “IP” olarak anılır), ağa bağlı sistemler için teslim hizmetlerinin yanı sıra düşük MTU (Maximum Transmission Unit) ağları için parçalama ve yeniden birleştirme sağlar. IP ayrıca belirli trafiğin diğer trafiğe göre önceliklendirilmesini sağlamak için hizmet kalitesi belirleme özelliği de sunar.
-IP bağlantısız ve güvenilmezdir, IP ana bilgisayarları arasında datagramların en iyi şekilde teslim edilmesini sağlar. IP’nin kendisi, bir paketin hedef konuma ulaşıp ulaşmadığını belirlemenin hiçbir yolunu sunmaz. Garantili teslimata ihtiyaç duyan bir uygulama IP üzerinden TCP (TCP over IP) kullanmalıdır.">
+  <meta name="twitter:description" content="Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2023/11/ipv4/ipv6-wireshark-analizi/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="IPv4/IPv6 Wireshark Analizi">
-  <meta property="og:description" content="Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
-IP Nedir?Başlık LinkiIP (v4/v6 — topluca “IP” olarak anılır), ağa bağlı sistemler için teslim hizmetlerinin yanı sıra düşük MTU (Maximum Transmission Unit) ağları için parçalama ve yeniden birleştirme sağlar. IP ayrıca belirli trafiğin diğer trafiğe göre önceliklendirilmesini sağlamak için hizmet kalitesi belirleme özelliği de sunar.
-IP bağlantısız ve güvenilmezdir, IP ana bilgisayarları arasında datagramların en iyi şekilde teslim edilmesini sağlar. IP’nin kendisi, bir paketin hedef konuma ulaşıp ulaşmadığını belirlemenin hiçbir yolunu sunmaz. Garantili teslimata ihtiyaç duyan bir uygulama IP üzerinden TCP (TCP over IP) kullanmalıdır.">
+  <meta property="og:description" content="Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -215,9 +200,7 @@ IP bağlantısız ve güvenilmezdir, IP ana bilgisayarları arasında datagramla
         
           <img src="https://cdn-images-1.medium.com/max/800/1*qSAbdDrUrlN_SQ9p_AXpFQ.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*qSAbdDrUrlN_SQ9p_AXpFQ.png" alt=""></p>
-<p>Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
-<hr>
+        <p>Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
 <h3 id="ip-nedir">
   IP Nedir?
   <a class="heading-link" href="#ip-nedir">
@@ -230,7 +213,6 @@ IP bağlantısız ve güvenilmezdir, IP ana bilgisayarları arasında datagramla
 <p><img src="https://cdn-images-1.medium.com/max/800/1*T7ew3u6ttBWwa5NsNgjR3g.png" alt=""></p>
 <p>IP, UDP ve TCP tabanlı uygulamalar ve ICMP için teslim hizmetleri sağlar</p>
 <p>IPv4 başlığı tipik olarak 20 bayt uzunluğundadır, ancak IP başlık uzunluğunu (4 baytlık artışlarla) uzatabilen bir alan içerir.</p>
-<hr>
 <h3 id="ipv4-analizi">
   IPv4 Analizi
   <a class="heading-link" href="#ipv4-analizi">
@@ -245,7 +227,7 @@ IP bağlantısız ve güvenilmezdir, IP ana bilgisayarları arasında datagramla
 <p><img src="https://cdn-images-1.medium.com/max/800/1*Gmy9Pgg9xp9UlBITMfwglg.png" alt=""></p>
 <p>IP, bir bağlantının MTU’su datagram boyutunu desteklemediğinde paketleri parçalayabilir</p>
 <p>Şekilde, İstemci A’dan Sunucu A’ya giden 1500 baytlık bir MTU paketi yol boyunca gidemez. Sınırlama Yönlendirici B ve Yönlendirici C arasındaki bağlantıdadır. Yönlendirici B paketi parçalara ayırmalı (izin veriliyorsa) ve parçaları iletmeli veya ICMP Tip 3, Kod 4 mesajını İstemci A’ya geri göndermelidir.</p>
-<p>Parçalanma, veri akışının verimliliğini azalttığı için bir ağda arzu edilen bir durum değildir. Bununla birlikte, kaçınılmaz olabilir. Olası MTU sorunlarını wirehsarkda belirlemek için; 
+<p>Parçalanma, veri akışının verimliliğini azalttığı için bir ağda arzu edilen bir durum değildir. Bununla birlikte, kaçınılmaz olabilir. Olası MTU sorunlarını wirehsarkda belirlemek için;<br>
 İstatistikler | Paket Uzunluklarını inceleyin veya ICMP Tip 3/Kod 4 paketleri için bir filtre uygulayın (icmp.type==3 &amp;&amp; icmp.code==4).</p>
 <p>IPv4 sorunları genellikle parçalanma, olağandışı IP adresleri ve aşırı yayınlarla ilgilidir. Birkaç örnek aşağıda verilmiştir.</p>
 <ul>
@@ -258,7 +240,6 @@ IP bağlantısız ve güvenilmezdir, IP ana bilgisayarları arasında datagramla
 <li>Bir ağ boyunca akan aşırı yayınlar(broadcast), Wireshark’ı bir switche bağlayarak kolayca tespit edilebilir.</li>
 </ul>
 <p>Şekilde ağda asla bulunmaması gereken bir paket gösterilmektedir — kaynak 127.0.0.1 loopback adresidir.</p>
-<hr>
 <h3 id="ipv6-analizi">
   IPv6 Analizi
   <a class="heading-link" href="#ipv6-analizi">
@@ -284,13 +265,13 @@ IP bağlantısız ve güvenilmezdir, IP ana bilgisayarları arasında datagramla
 <p>Multicast yayınlar ff02 ile başlar</p>
 <p>RFC 4291, IPv6 adresleri için aşağıdaki örneği sağlar:</p>
 <ul>
-<li>Address 2001:0DB8:0:0:8:800:200C:417A (bir unicast adres) 
+<li>Address 2001:0DB8:0:0:8:800:200C:417A (bir unicast adres)<br>
 Shortened Version 2001:DB8::8:800:200C:417A</li>
-<li>Address FF01:0:0:0:0:0:0:101 (bir multicast adres) 
+<li>Address FF01:0:0:0:0:0:0:101 (bir multicast adres)<br>
 Shortened Version FF01::101</li>
-<li>Address 0:0:0:0:0:0:0:1 (bir loopback adres) 
+<li>Address 0:0:0:0:0:0:0:1 (bir loopback adres)<br>
 Shortened Version ::1</li>
-<li>Address 0:0:0:0:0:0:0:0 (unspecified adres) 
+<li>Address 0:0:0:0:0:0:0:0 (unspecified adres)<br>
 Shortened Version ::</li>
 </ul>
 <p>:: bir adreste yalnızca bir kez kullanılabilir ve 16 bitlik sıfırlardan oluşan bir veya daha fazla grubu temsil eder. :: bir adresteki baştaki veya sondaki sıfırları temsil etmek için de kullanılabilir. Wireshark, yukarıdaki şekilde gösterildiği gibi IPv6 adreslerinin kısaltılmış sürümünü kullanır.</p>
@@ -354,7 +335,6 @@ Shortened Version ::</li>
 <p>Hem 6to4 hem de ISATAP IPv6&rsquo;yı IPv4 içinde kapsüller, ancak paket bir IPv4 ağı üzerinden farklı şekilde gönderilir. Wireshark ISATAP’ın kullanımda olduğunu tespit edebilir (tıpkı Teredo’nun kullanımda olduğunu tespit ettiği gibi).</p>
 <p>6to4 tünellemenin aksine, ISATAP 64 bit arayüz tanımlayıcısı oluşturmak için yerel olarak atanmış bir IPv4 adresi (genel veya özel) kullanır. Örneğin, ISATAP’ta 24.6.173.220 IPv4 adresi ::0:5EFE:1806:addc olur. Bir 6to4 tünel yapılandırmasında, aynı IPv4 adresi Şekil 210&rsquo;da görüldüğü gibi 2002:1806:addc::/48 olur.</p>
 <p>ISATAP, ISATAP yönlendiricilerinin IPv6 trafiği için bir site içi tünel yapılandırmasını gerektirir ve bilgilendirici RFC 5214&rsquo;te ele alınmıştır.</p>
-<hr>
 <h3 id="ipv4-paketyapısı">
   IPv4 Paket Yapısı
   <a class="heading-link" href="#ipv4-paketyap%c4%b1s%c4%b1">
@@ -408,7 +388,7 @@ Shortened Version ::</li>
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h4>
-<p>Bu alan IP başlığının ve geçerli verilerin uzunluğunu tanımlar (buna herhangi bir veri bağlantısı dolgusu dahil değildir). 
+<p>Bu alan IP başlığının ve geçerli verilerin uzunluğunu tanımlar (buna herhangi bir veri bağlantısı dolgusu dahil değildir).<br>
 Şekilde gösterilen örnekte, toplam uzunluk alanı değeri 1500 bayttır. Bunun ilk 20 baytı IP başlığıdır — bu, kalan paket uzunluğunun (herhangi bir veri bağlantısı dolgusu dahil değil) 1480 bayt olduğunu gösterir.</p>
 <h4 id="identification-field">
   Identification Field
@@ -530,7 +510,6 @@ Shortened Version ::</li>
 </ul>
 <p>Duyuruya örnek olarak OSPF reklam çok noktaya yayını verilebilir. Bu paketler, bilinen bağlantı durumu yönlendirme girdileri hakkında istenmeyen duyurulardır.</p>
 <p>Günümüzün yüksek kapasiteli ağ bağlantılarında değerli bant genişliğini kaplayan yayınlar ve çoklu yayınlar konusundaki endişeler aşırı vurgulanmış olabilir. Diğer bir endişe ise bu paketlerin ileten veya alan cihazlarda ihtiyaç duyduğu işlem gücüdür. Bir anahtar veya yönlendirici aşırı yüklenmişse ve paketleri düşürüyor veya uzun süre kuyrukta tutuyor gibi görünüyorsa, ağdaki yayın/çoklu yayın oranını incelemeyi düşünün.</p>
-<hr>
 <h3 id="ipv6-paketyapısı">
   IPv6 Paket Yapısı
   <a class="heading-link" href="#ipv6-paketyap%c4%b1s%c4%b1">
@@ -618,7 +597,6 @@ Shortened Version ::</li>
   </a>
 </h4>
 <p>128 bit IPv6 hedef adresi.</p>
-<hr>
 <h3 id="ipv4-trafiğini-filtreleme">
   IPv4 Trafiğini Filtreleme
   <a class="heading-link" href="#ipv4-trafi%c4%9fini-filtreleme">
@@ -636,7 +614,6 @@ Shortened Version ::</li>
 <li>(ip.flags.mf==1) || !(ip.frag_offset==0) &amp;&amp; ip — Parçalanmış paket — IP parça ofseti alanında daha fazla parça biti ve sıfır olmayan değer arar. ARP dahil tüm IP dışı protokollerle başa çıkmak için “&amp;&amp; ip” eklendi. ip-fragments.pcapng üzerinde test edin.</li>
 <li>ip.ttl &lt; 10 — IP Yaşam Süresi(TTL) değerleri 10&rsquo;dan az</li>
 </ul>
-<hr>
 <h3 id="ipv6-trafiğini-filtreleme">
   IPv6 Trafiğini Filtreleme
   <a class="heading-link" href="#ipv6-trafi%c4%9fini-filtreleme">
@@ -645,7 +622,7 @@ Shortened Version ::</li>
   </a>
 </h3>
 <p>IPv6 için yakalama filtresi basitçe ip6&rsquo;dır. Tek bir hosttan gelen trafiği yakalamak için host[IPv6 adresi] kullanın — örneğin, ana bilgisayar fe80::708d:fe83:4114:a512.</p>
-<p>Belirli bir IPv6 alt ağından gelen trafik için bir yakalama filtresi uygulamak için aşağıdaki sözdizimini kullanın: 
+<p>Belirli bir IPv6 alt ağından gelen trafik için bir yakalama filtresi uygulamak için aşağıdaki sözdizimini kullanın:<br>
 ip6 net [network]::/[net bits],</p>
 <p>Örneğin, <em>ip6 net fe00::/8</em>, 0xfe ile başlayan adreslere giden veya gelen tüm IPv6 paketlerini yakalar. Tüm IPv6 trafiği için display filter ipv6&rsquo;dır. Aşağıdaki tabloda çok sayıda diğer IPv6 görüntüleme filtresi gösterilmektedir.</p>
 <ul>
@@ -655,7 +632,6 @@ ip6 net [network]::/[net bits],</p>
 <li>ipv6.src==2002:1806:addc::1806:addc — Belirli bir adresten gelen IPv6 paketleri</li>
 <li>ipv6.src &gt;= fe80:: &amp;&amp; ipv6.src &lt;= fec0 — Çeşitli ağlardan gelen IPv6 paketleri</li>
 </ul>
-<hr>
 <h3 id="kaynakça">
   Kaynakça
   <a class="heading-link" href="#kaynak%c3%a7a">

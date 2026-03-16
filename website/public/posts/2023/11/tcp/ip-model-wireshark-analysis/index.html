@@ -13,24 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-Hello, in this article, I tried to explain the TCP/IP model and how to perform a basic network analysis with Wireshark.
-
-
-  Understanding Network Traffic Flows
-  
-    
-    Link to heading
-  
-
-
-  Switching
-  
-    
-    Link to heading
-  
-
-Switches forward packets based on the destination MAC address (also known as the destination hardware address, physical address) contained in the MAC header (like the Ethernet header).">
+<meta name="description" content="Hello, in this article, I tried to explain the TCP/IP model and how to perform a basic network analysis with Wireshark.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -38,14 +21,12 @@ Switches forward packets based on the destination MAC address (also known as the
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="TCP/IP Model Wireshark Analysis">
-  <meta name="twitter:description" content="Hello, in this article, I tried to explain the TCP/IP model and how to perform a basic network analysis with Wireshark.
-Understanding Network Traffic FlowsLink to headingSwitchingLink to headingSwitches forward packets based on the destination MAC address (also known as the destination hardware address, physical address) contained in the MAC header (like the Ethernet header).">
+  <meta name="twitter:description" content="Hello, in this article, I tried to explain the TCP/IP model and how to perform a basic network analysis with Wireshark.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2023/11/tcp/ip-model-wireshark-analysis/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="TCP/IP Model Wireshark Analysis">
-  <meta property="og:description" content="Hello, in this article, I tried to explain the TCP/IP model and how to perform a basic network analysis with Wireshark.
-Understanding Network Traffic FlowsLink to headingSwitchingLink to headingSwitches forward packets based on the destination MAC address (also known as the destination hardware address, physical address) contained in the MAC header (like the Ethernet header).">
+  <meta property="og:description" content="Hello, in this article, I tried to explain the TCP/IP model and how to perform a basic network analysis with Wireshark.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -220,9 +201,7 @@ Understanding Network Traffic FlowsLink to headingSwitchingLink to headingSw
         
           <img src="https://cdn-images-1.medium.com/max/800/1*vQHzVUN_qVpKQQbS9Cr4Ug.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*vQHzVUN_qVpKQQbS9Cr4Ug.png" alt=""></p>
-<p>Hello, in this article, I tried to explain the TCP/IP model and how to perform a basic network analysis with Wireshark.</p>
-<hr>
+        <p>Hello, in this article, I tried to explain the TCP/IP model and how to perform a basic network analysis with Wireshark.</p>
 <h3 id="understanding-network-traffic-flows">
   Understanding Network Traffic Flows
   <a class="heading-link" href="#understanding-network-traffic-flows">
@@ -276,7 +255,6 @@ Understanding Network Traffic FlowsLink to headingSwitchingLink to headingSw
 <p>There are many other technologies that affect network traffic patterns and packet contents.</p>
 <p>Virtual LAN (VLAN) tagging (defined as 802.1Q) adds an ID (tag) to packets. This tag is used to create virtual networks in a switched environment. Figure 7 shows the VLAN tag in an Ethernet frame. In this case, the sender belongs to VLAN 32.</p>
 <p>Multiprotocol Label Switching (MPLS) is a method of creating virtual connections between remote hosts. MPLS packets are prefixed with a special header by MPLS edge devices. For example, a packet sent from a client reaches an MPLS router where the MPLS label is placed on the packet. The packet is now forwarded based on the MPLS tag rather than routing table lookups. The MPLS label is stripped when the packet leaves the MPLS network.</p>
-<hr>
 <h3 id="tcpip-model">
   TCP/IP Model
   <a class="heading-link" href="#tcpip-model">
@@ -298,7 +276,6 @@ Understanding Network Traffic FlowsLink to headingSwitchingLink to headingSw
 <li><strong>Address Resolution Protocol (ARP)</strong> provides hardware address lookup services for a local device. ARP also allows us to check and see if an IPv4 address is already in use (duplicate address test).</li>
 </ul>
 <p>If everything goes well with TCP/IP communication, clients find services quickly. These services respond quickly to requests, and client systems do not need to request a service multiple times. <strong>An analyst</strong> can uncover large delays between communications, name parsing errors, duplicate requests and retransmissions, insecure practices, and much more. Before analyzing traffic to identify errors, you need to know what is considered normal network communication.</p>
-<hr>
 <h3 id="clientftp-server-scenario">
   Client — FTP Server Scenario
   <a class="heading-link" href="#clientftp-server-scenario">
@@ -385,8 +362,8 @@ Understanding Network Traffic FlowsLink to headingSwitchingLink to headingSw
     <span class="sr-only">Link to heading</span>
   </a>
 </h4>
-<p>Finally, the client must resolve the MAC address of the next hop router or default gateway. The client first checks the ARP cache. If the information is not in the cache, the client sends an ARP broadcast to retrieve the information. 
-Next updates the router&rsquo;s MAC address and ARP cache. 
+<p>Finally, the client must resolve the MAC address of the next hop router or default gateway. The client first checks the ARP cache. If the information is not in the cache, the client sends an ARP broadcast to retrieve the information.<br>
+Next updates the router&rsquo;s MAC address and ARP cache.<br>
 This process may generate traffic on the network as indicated by TX. If a requested router&rsquo;s MAC address is cached, no packets will be sent. If an ARP query needs to be sent to the requested router, this query will appear in the trace file.</p>
 <h4 id="package-analysis">
   Package Analysis
@@ -403,7 +380,6 @@ This process may generate traffic on the network as indicated by TX. If a reques
 </ul>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*tCpXIwj6CXujGOtmMVR_pA.png" alt=""></p>
 <p>Discovered information for TCP/IP packet over Ethernet</p>
-<hr>
 <h4 id="tcpip-trafficanalysis">
   TCP/IP Traffic Analysis
   <a class="heading-link" href="#tcpip-trafficanalysis">
@@ -436,8 +412,8 @@ This process may generate traffic on the network as indicated by TX. If a reques
 <p>Statistic| in http-riverbed-<strong>one</strong>.pcapng HTTP| In the Requests window, we can view the web addresses visited in the pcap file.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*2QwpmwBds_gI3oZfGyMGKA.png" alt=""></p>
 <p>Requests</p>
-<p>In http-riverbed-<strong>one</strong>.pcapng  
-ip.addr == 24.6.173.220 &amp;&amp; ip.addr == 208.70.196.59  
+<p>In http-riverbed-<strong>one</strong>.pcapng <br>
+ip.addr == 24.6.173.220 &amp;&amp; ip.addr == 208.70.196.59 <br>
 Let&rsquo;s examine the dominant traffic we found before by typing its filter.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*MkagBTP5iI4imfNHp5V5nw.png" alt=""></p>
 <p>Dominant Traffic</p>
@@ -447,7 +423,6 @@ Let&rsquo;s examine the dominant traffic we found before by typing its filter.</
 <p>We are faced with a long flow. Here he found the traffic to and from <a href="http://www.riverbed.com"  class="external-link" target="_blank" rel="noopener">www.riverbed.com</a>. We can see the HTTP connections established with this address as request (red text) and response (blue text).</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*4B5HtycWS34GEws6jMxlnA.png" alt=""></p>
 <p><a href="https://www.riverbed.com"  class="external-link" target="_blank" rel="noopener">www.riverbed.com</a> HTTP Stream</p>
-<hr>
 <h3 id="references">
   References
   <a class="heading-link" href="#references">

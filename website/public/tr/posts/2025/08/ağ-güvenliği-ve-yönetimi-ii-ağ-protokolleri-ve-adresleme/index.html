@@ -13,15 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-
-  Giriş
-  
-    
-    Başlık Linki
-  
-
-Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların birbirleriyle nasıl iletişim kuracağını, veri alışverişinde bulunacağını ve hataları nasıl yöneteceğini tanımlayan kurallar ve standartlar bütünüdür; bir nevi ağın evrensel “dili”dir.1 Adresleme ise, bu ağ üzerindeki her bir cihaza benzersiz bir “kimlik” atayarak, gönderilen verinin doğru hedefe ulaşmasını sağlayan mekanizmadır.1 Bu bölümde, TCP/IP modelinin çekirdek protokollerinden başlayarak, modern internetin performans ve güvenlik ihtiyaçlarına cevap veren yenilikçi protokollere kadar geniş bir yelpaze ele alınacaktır. Ardından, internetin ilk günlerinden kalma IPv4 adreslemesinin getirdiği zorluklar ve bu zorlukları aşmak için geliştirilen tekniklerden, geleceğin internetini şekillendiren IPv6 mimarisine geçiş incelenecektir. Son olarak, internetin devasa “ağlar ağı” yapısını bir arada tutan ve veri paketlerinin kıtalar arasında en uygun yolları bulmasını sağlayan karmaşık yönlendirme protokolleri ve bu protokollerin ardındaki teknik ve politik mantık analiz edilecektir.">
+<meta name="description" content="Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların birbirleriyle nasıl iletişim kuracağını, veri alışverişinde bulunacağını ve hataları nasıl y...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -29,12 +21,12 @@ Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinl
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Ağ Güvenliği ve Yönetimi II: AĞ PROTOKOLLERİ VE ADRESLEME">
-  <meta name="twitter:description" content="GirişBaşlık LinkiBu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların birbirleriyle nasıl iletişim kuracağını, veri alışverişinde bulunacağını ve hataları nasıl yöneteceğini tanımlayan kurallar ve standartlar bütünüdür; bir nevi ağın evrensel “dili”dir.1 Adresleme ise, bu ağ üzerindeki her bir cihaza benzersiz bir “kimlik” atayarak, gönderilen verinin doğru hedefe ulaşmasını sağlayan mekanizmadır.1 Bu bölümde, TCP/IP modelinin çekirdek protokollerinden başlayarak, modern internetin performans ve güvenlik ihtiyaçlarına cevap veren yenilikçi protokollere kadar geniş bir yelpaze ele alınacaktır. Ardından, internetin ilk günlerinden kalma IPv4 adreslemesinin getirdiği zorluklar ve bu zorlukları aşmak için geliştirilen tekniklerden, geleceğin internetini şekillendiren IPv6 mimarisine geçiş incelenecektir. Son olarak, internetin devasa “ağlar ağı” yapısını bir arada tutan ve veri paketlerinin kıtalar arasında en uygun yolları bulmasını sağlayan karmaşık yönlendirme protokolleri ve bu protokollerin ardındaki teknik ve politik mantık analiz edilecektir.">
+  <meta name="twitter:description" content="Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların birbirleriyle nasıl iletişim kuracağını, veri alışverişinde bulunacağını ve hataları nasıl y...">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi-ii-a%C4%9F-protokolleri-ve-adresleme/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Ağ Güvenliği ve Yönetimi II: AĞ PROTOKOLLERİ VE ADRESLEME">
-  <meta property="og:description" content="GirişBaşlık LinkiBu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların birbirleriyle nasıl iletişim kuracağını, veri alışverişinde bulunacağını ve hataları nasıl yöneteceğini tanımlayan kurallar ve standartlar bütünüdür; bir nevi ağın evrensel “dili”dir.1 Adresleme ise, bu ağ üzerindeki her bir cihaza benzersiz bir “kimlik” atayarak, gönderilen verinin doğru hedefe ulaşmasını sağlayan mekanizmadır.1 Bu bölümde, TCP/IP modelinin çekirdek protokollerinden başlayarak, modern internetin performans ve güvenlik ihtiyaçlarına cevap veren yenilikçi protokollere kadar geniş bir yelpaze ele alınacaktır. Ardından, internetin ilk günlerinden kalma IPv4 adreslemesinin getirdiği zorluklar ve bu zorlukları aşmak için geliştirilen tekniklerden, geleceğin internetini şekillendiren IPv6 mimarisine geçiş incelenecektir. Son olarak, internetin devasa “ağlar ağı” yapısını bir arada tutan ve veri paketlerinin kıtalar arasında en uygun yolları bulmasını sağlayan karmaşık yönlendirme protokolleri ve bu protokollerin ardındaki teknik ve politik mantık analiz edilecektir.">
+  <meta property="og:description" content="Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların birbirleriyle nasıl iletişim kuracağını, veri alışverişinde bulunacağını ve hataları nasıl y...">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -209,8 +201,7 @@ Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinl
         
           <img src="https://cdn-images-1.medium.com/max/800/1*6rU6oXi2MLCrzFEvgSY-_g.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*6rU6oXi2MLCrzFEvgSY-_g.png" alt=""></p>
-<h3 id="giriş">
+        <h3 id="giriş">
   Giriş
   <a class="heading-link" href="#giri%c5%9f">
     <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
@@ -218,7 +209,6 @@ Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinl
   </a>
 </h3>
 <p>Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinlemesine incelemektedir: protokoller ve adresleme. Protokoller, ağa bağlı cihazların birbirleriyle nasıl iletişim kuracağını, veri alışverişinde bulunacağını ve hataları nasıl yöneteceğini tanımlayan kurallar ve standartlar bütünüdür; bir nevi ağın evrensel “dili”dir.1 Adresleme ise, bu ağ üzerindeki her bir cihaza benzersiz bir “kimlik” atayarak, gönderilen verinin doğru hedefe ulaşmasını sağlayan mekanizmadır.1 Bu bölümde, TCP/IP modelinin çekirdek protokollerinden başlayarak, modern internetin performans ve güvenlik ihtiyaçlarına cevap veren yenilikçi protokollere kadar geniş bir yelpaze ele alınacaktır. Ardından, internetin ilk günlerinden kalma IPv4 adreslemesinin getirdiği zorluklar ve bu zorlukları aşmak için geliştirilen tekniklerden, geleceğin internetini şekillendiren IPv6 mimarisine geçiş incelenecektir. Son olarak, internetin devasa “ağlar ağı” yapısını bir arada tutan ve veri paketlerinin kıtalar arasında en uygun yolları bulmasını sağlayan karmaşık yönlendirme protokolleri ve bu protokollerin ardındaki teknik ve politik mantık analiz edilecektir.</p>
-<hr>
 <h3 id="ana-başlık-3-temel-ve-modern-ağ-protokolleri">
   Ana Başlık 3: Temel ve Modern Ağ Protokolleri
   <a class="heading-link" href="#ana-ba%c5%9fl%c4%b1k-3-temel-ve-modern-a%c4%9f-protokolleri">
@@ -311,7 +301,6 @@ Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinl
 <p><strong>Ek Avantajlar:</strong> QUIC, taşıma (TCP) ve kriptografik (TLS) el sıkışmalarını tek bir adımda birleştirerek bağlantı kurulumunu 1-RTT veya 0-RTT’ye indirir. Ayrıca, bir kullanıcının Wi-Fi’den mobil ağa geçmesi gibi IP adresi değişikliklerinde bağlantının kopmamasını sağlayan “bağlantı geçişi” (connection migration) özelliğine sahiptir.1</p>
 <p><strong>HTTP/3:</strong> HTTP protokolünün, taşıma katmanı olarak TCP yerine QUIC kullanacak şekilde tasarlanmış en yeni sürümüdür.1 Bu sayede QUIC’in tüm performans ve güvenlik avantajlarını web uygulamalarına taşır.</p>
 <p>TLS 1.3, QUIC ve HTTP/3&rsquo;ün yükselişi, internet mimarisinde önemli bir paradigma kaymasını temsil etmektedir. Zeka ve kontrol, geleneksel olarak işletim sistemi çekirdeğinde ve ağın ortasındaki (middlebox) cihazlarda bulunan yavaş evrimleşen katmanlardan, hızla yenilik yapılabilen uygulama katmanına (tarayıcılar, sunucu yazılımları) taşınmaktadır. Geleneksel TCP/TLS yığını, işletim sistemlerinin çekirdeğinde yer alır ve bu katmanlarda bir değişiklik yapmak, tüm işletim sistemi satıcılarının güncellemeleri benimsemesini gerektiren yavaş bir süreçtir. Büyük teknoloji şirketleri, web performansını artırmak için bu yavaş evrime mahkum kalmak istemediler. Çözüm, TCP’yi tamamen baypas etmek ve zaten her işletim sisteminde bulunan ve uygulama katmanından programlanabilen UDP’yi bir temel olarak kullanmaktır. QUIC, güvenilirlik, akış kontrolü ve şifreleme gibi TCP ve TLS’in tüm iyi özelliklerini alır ve bunları UDP üzerinde, uygulama katmanında yeniden uygular.1 Bu stratejik hamle, uygulama geliştiricilerinin işletim sistemi güncellemelerini beklemeden, sadece tarayıcılarını ve sunucu yazılımlarını güncelleyerek yeni bir taşıma protokolünü dünyaya yaymasını sağlamıştır. Bu, inovasyonun hızını artırmış ve kontrolü ağ operatörlerinden uygulama geliştiricilerine kaydırmıştır.</p>
-<hr>
 <h3 id="ana-başlık-4-ip-adresleme-ve-ağtasarımı">
   Ana Başlık 4: IP Adresleme ve Ağ Tasarımı
   <a class="heading-link" href="#ana-ba%c5%9fl%c4%b1k-4-ip-adresleme-ve-a%c4%9ftasar%c4%b1m%c4%b1">
@@ -421,7 +410,6 @@ Bu bölüm, bilgisayar ağlarının temelini oluşturan iki hayati unsuru derinl
 <li><strong>Tünelleme (Tunneling):</strong> IPv6 trafiğinin, henüz IPv6 desteği olmayan IPv4 ağları üzerinden taşınmasını sağlar. Bu teknikte, bir IPv6 paketi, bir IPv4 paketinin veri kısmına yerleştirilerek sarmalanır (encapsulate). 6to4, Teredo ve ISATAP gibi çeşitli otomatik ve manuel tünelleme teknikleri mevcuttur.</li>
 </ul>
 <p>IPv6&rsquo;nın tasarımı, sadece adres kıtlığını çözmekle kalmayıp, aynı zamanda IPv4&rsquo;ün zamanla biriktirdiği “teknik borcu” temizlemeye yönelik bilinçli bir mühendislik çabasını yansıtır. IPv4&rsquo;ün karmaşık manuel veya DHCP tabanlı yapılandırma sorununa IPv6, SLAAC ile yanıt verir. IPv4&rsquo;ün uçtan uca bağlantıyı bozan NAT sorununa IPv6, geniş adres alanı sayesinde NAT’a gerek bırakmayarak çözüm bulur. IPv4&rsquo;ün işlemciyi yoran karmaşık paket başlığına karşılık IPv6, yönlendiriciler tarafından daha hızlı işlenebilen basitleştirilmiş, sabit boyutlu bir başlık sunar. Sonuç olarak, IPv6 sadece “daha fazla IP adresi” sunmakla kalmaz; aynı zamanda ağ yönetimini basitleştirmeyi, performansı artırmayı ve internetin orijinal mimari vizyonunu yeniden tesis etmeyi amaçlayan bütünsel bir yeniden tasarımdır.</p>
-<hr>
 <h3 id="ana-başlık-5-yönlendirme-protokolleri-ve-internetin-omurgası">
   Ana Başlık 5: Yönlendirme Protokolleri ve İnternetin Omurgası
   <a class="heading-link" href="#ana-ba%c5%9fl%c4%b1k-5-y%c3%b6nlendirme-protokolleri-ve-internetin-omurgas%c4%b1">

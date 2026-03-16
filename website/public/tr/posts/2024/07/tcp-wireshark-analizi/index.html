@@ -13,7 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Merhaba bu yazımda TCP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım. --- ### TCP Nedir? TCP, iki cihaz arasında üçlü el sıkışma ile başlayan bir bağlantı üzerinden bağlantılı ...">
+<meta name="description" content="Merhaba bu yazımda TCP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -21,12 +21,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="TCP Wireshark Analizi">
-  <meta name="twitter:description" content="Merhaba bu yazımda TCP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım. --- ### TCP Nedir? TCP, iki cihaz arasında üçlü el sıkışma ile başlayan bir bağlantı üzerinden bağlantılı ...">
+  <meta name="twitter:description" content="Merhaba bu yazımda TCP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2024/07/tcp-wireshark-analizi/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="TCP Wireshark Analizi">
-  <meta property="og:description" content="Merhaba bu yazımda TCP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım. --- ### TCP Nedir? TCP, iki cihaz arasında üçlü el sıkışma ile başlayan bir bağlantı üzerinden bağlantılı ...">
+  <meta property="og:description" content="Merhaba bu yazımda TCP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -201,7 +201,6 @@
           <img src="https://cdn-images-1.medium.com/max/800/1*eV6FVT7z6k3hb3M6-DRqtw.png" alt="Featured image"/>
         
         <p>Merhaba bu yazımda TCP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
-<hr>
 <h3 id="tcp-nedir">
   TCP Nedir?
   <a class="heading-link" href="#tcp-nedir">
@@ -211,10 +210,8 @@
 </h3>
 <p>TCP, iki cihaz arasında üçlü el sıkışma ile başlayan bir bağlantı üzerinden bağlantılı taşıma sağlar. Veriler sıralanır ve kayıp paketleri otomatik kurtarma sağlamak için onaylanır. UDP bir mektup veya kartpostal için standart posta dağıtım sistemine benzetilebilirken, TCP mektubunuzun veya kartpostalınızın teslimatını takip eden ve size alındığına dair bildirim gönderen bir ekspres taşıyıcıya benzetilebilir.</p>
 <p>TCP, araya giren bir onay beklemeden çok sayıda veri paketini sırayla gönderme işlemi olan pencerelemeyi destekler. Pencerenin boyutu, ağın kaldırabileceği trafik miktarına (ağ tıkanıklık oranı), alıcının kullanılabilir tampon alanına ve göndericinin iletim tampon kapasitesine bağlıdır. Çoğu dosya aktarım protokolü, verilerin güvenilir bir şekilde teslim edilmesini sağlamak için TCP kullanır.</p>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*eV6FVT7z6k3hb3M6-DRqtw.png" alt=""></p>
 <p>TCP, HTTP, HTTPS, e-posta, FTP ve daha fazlası gibi uygulamalar için aktarım sunar</p>
 <p>TCP RFC 793&rsquo;te ele alınmıştır, ancak orijinal TCP protokolünde TCP davranışını incelerken akılda tutulması gereken birçok geliştirme yapılmıştır.</p>
-<hr>
 <h3 id="tcp-trafikanalizi">
   TCP Trafik Analizi
   <a class="heading-link" href="#tcp-trafikanalizi">
@@ -239,22 +236,22 @@
 <p>FIN kullanıldığında, bir host bir FIN paketi gönderir ve FIN’i onaylanana ve eş kendi FIN’ini geri gönderene kadar FIN-WAIT durumuna girer. RFC 793&rsquo;e göre, FIN bir bağlantıyı dolaylı olarak sonlandırmak için kullanıldığında aslında mümkün olan birkaç durum vardır.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*oKbEZpebc55HRhufKktDkw.png" alt=""></p>
 <p>Bir Windows veya Linux ana bilgisayarındaki TCP bağlantılarının mevcut durumunu öğrenmek için netstat -a yazın. Aşağıda bir Windows ana bilgisayarındaki bağlantı durumuna ilişkin bir örnek verilmiştir.</p>
-<p>TCP 24.6.173.220:1035 poll:https ESTABLISHED 
-TCP 24.6.173.220:1071 egw1:https ESTABLISHED 
-TCP 24.6.173.220:9497 163–166:http CLOSE_WAIT 
-TCP 24.6.173.220:9699 nuq04s07-in-f11:http CLOSE_WAIT 
-TCP 24.6.173.220:9702 ec2–204–236–130–101:http CLOSE_WAIT 
-TCP 24.6.173.220:9703 ec2–204–236–131–42:http CLOSE_WAIT 
-TCP 24.6.173.220:9706 a184–84–222–33:http CLOSE_WAIT 
-TCP 24.6.173.220:9798 163–166:http CLOSE_WAIT 
-TCP 24.6.173.220:14717 nuq04s07-in-f5:http CLOSE_WAIT 
-TCP 24.6.173.220:15582 163–166:http CLOSE_WAIT 
-TCP 24.6.173.220:22167 66–151–158–187:https TIME_WAIT 
-TCP 24.6.173.220:22168 216–115–209–254:https TIME_WAIT 
-TCP 24.6.173.220:22169 probe-cgnt-sjc:https TIME_WAIT 
-TCP 24.6.173.220:22170 probe-cgnt-sjc:https TIME_WAIT 
+<p>TCP 24.6.173.220:1035 poll:https ESTABLISHED<br>
+TCP 24.6.173.220:1071 egw1:https ESTABLISHED<br>
+TCP 24.6.173.220:9497 163–166:http CLOSE_WAIT<br>
+TCP 24.6.173.220:9699 nuq04s07-in-f11:http CLOSE_WAIT<br>
+TCP 24.6.173.220:9702 ec2–204–236–130–101:http CLOSE_WAIT<br>
+TCP 24.6.173.220:9703 ec2–204–236–131–42:http CLOSE_WAIT<br>
+TCP 24.6.173.220:9706 a184–84–222–33:http CLOSE_WAIT<br>
+TCP 24.6.173.220:9798 163–166:http CLOSE_WAIT<br>
+TCP 24.6.173.220:14717 nuq04s07-in-f5:http CLOSE_WAIT<br>
+TCP 24.6.173.220:15582 163–166:http CLOSE_WAIT<br>
+TCP 24.6.173.220:22167 66–151–158–187:https TIME_WAIT<br>
+TCP 24.6.173.220:22168 216–115–209–254:https TIME_WAIT<br>
+TCP 24.6.173.220:22169 probe-cgnt-sjc:https TIME_WAIT<br>
+TCP 24.6.173.220:22170 probe-cgnt-sjc:https TIME_WAIT<br>
 TCP 24.6.173.220:22171 216–115–209–254:https TIME_WAIT</p>
-<p>FIN “Kapa Çeneni” Demek Değildir 
+<p>FIN “Kapa Çeneni” Demek Değildir<br>
 RFC 793, FIN bitinin amacını göndericiden daha fazla veri gelmeyeceğini belirtmek olarak tanımlar. Bu, FIN paketinin alıcısının ek veri göndermesini engellemez, buna izin verilir.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*smMgrW01y8cfs7-ZvQ813Q.png" alt=""></p>
 <p>TCP Sıfırlama, bir TCP bağlantısını açıkça kapatmak için kullanılır</p>
@@ -298,7 +295,6 @@ RFC 793, FIN bitinin amacını göndericiden daha fazla veri gelmeyeceğini beli
 </ul>
 <p>congestion her zaman bu üç değerden düşük olacaktır. Örneğin, bir Ethernet ağında, bir alıcının 65.535 baytlık bir frame tanıttığını, ancak bağlantının, eşin 65.535 alma arabelleğinden hiç faydalanmadan önce düzenli olarak paket kaybı yaşadığını varsayalım.</p>
 <p>Gerçek congestion 65.535 bayt değildir ancak ağın neyi destekleyeceğine bağlı olarak daha düşük bir değerdir. Paket kaybından sonra congestion belirleme süreci RFC 2001&rsquo;de ayrıntılı bir şekilde tanımlanmıştır.</p>
-<hr>
 <h3 id="tcp-sorunları-analizi">
   TCP Sorunları Analizi
   <a class="heading-link" href="#tcp-sorunlar%c4%b1-analizi">
@@ -322,7 +318,6 @@ RFC 793, FIN bitinin amacını göndericiden daha fazla veri gelmeyeceğini beli
 <li>Sunucu sürekli olarak el sıkışmanın üçüncü paketini ister. Ancak istemci, Sıra Numarası 1 olan iki paket göndermiştir. İstemci, el sıkışmanın son paketi yerine ilk veri paketini yeniden iletir.</li>
 </ul>
 <p>Bu sorun kendi kendine çözülemez. Sunucu, el sıkışma işleminin düzgün bir şekilde çözüldüğünü görene kadar 14 baytlık veriyi kabul etmeyecektir. Yeni bir bağlantı denemesi oluşturmak için 4321 numaralı portunda RWhois (Yönlendirme Whois) hizmetine TCP bağlantısı başlatan uygulamanın yeniden başlatılması gerekir.</p>
-<hr>
 <h3 id="tcp-paketyapısı">
   TCP Paket Yapısı
   <a class="heading-link" href="#tcp-paketyap%c4%b1s%c4%b1">
@@ -430,7 +425,6 @@ RFC 793, FIN bitinin amacını göndericiden daha fazla veri gelmeyeceğini beli
   </a>
 </h4>
 <p>Bu alan yalnızca URG biti ayarlanmışsa geçerlidir. URG biti ayarlanmışsa, alıcı pakette ilk olarak nereye bakacağını/okuyacağını görmek için bu alanı incelemelidir. Bu yaygın bir işlev değildir. Acil İşaretçi alanı içeren tüm paketler için görüntüleme filtresi tcp.urgent_pointer’dır. Acil biti 1 olarak ayarlanmadığı sürece Wireshark bu alanı görüntülemeyecektir.</p>
-<hr>
 <h3 id="tcp-trafiğini-filtreleme">
   TCP Trafiğini Filtreleme
   <a class="heading-link" href="#tcp-trafi%c4%9fini-filtreleme">
@@ -450,7 +444,6 @@ RFC 793, FIN bitinin amacını göndericiden daha fazla veri gelmeyeceğini beli
 <li>tcp.analysis.flags — Paketler TCP sorunları veya bildirimleri ile işaretlendi (TCP tercihlerinde TCP Sıra Numaralarını Analiz Et devre dışı bırakılmışsa çalışmaz)</li>
 <li>tcp.analysis.lost_segment — Bu paketten önce kayıp bir segment tespit edildi- mevcut birçok bireysel TCP analiz bayraklarından biri. Diğer TCP analiz bayraklarını görüntülemek için otomatik tamamlama özelliğini (tcp.analysis.)-dönemi dahil edin- veya İfadeleri kullanın</li>
 </ul>
-<hr>
 <h3 id="kaynakça">
   Kaynakça
   <a class="heading-link" href="#kaynak%c3%a7a">

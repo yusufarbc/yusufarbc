@@ -13,17 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-Hello, in this article I will try to explain the UDP protocol and its analysis with Wireshark.
-
-
-  What is UDP?
-  
-    
-    Link to heading
-  
-
-If you see a lot of broadcast/multicast broadcasts in the traffic you capture, it means you have too many UDP-based communications. UDP provides transfer without establishing a connection. Broadcast and multicast traffic flows over UDP. In the UDP header, port fields identify the application using the transport. Because UDP uses a simple 8-byte header consisting of four fields, UDP itself rarely causes problems. UDP is defined in RFC 768, User Datagram Protocol.">
+<meta name="description" content="Hello, in this article I will try to explain the UDP protocol and its analysis with Wireshark.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -31,14 +21,12 @@ If you see a lot of broadcast/multicast broadcasts in the traffic you capture, i
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="UDP Wireshark Analysis">
-  <meta name="twitter:description" content="Hello, in this article I will try to explain the UDP protocol and its analysis with Wireshark.
-What is UDP?Link to headingIf you see a lot of broadcast/multicast broadcasts in the traffic you capture, it means you have too many UDP-based communications. UDP provides transfer without establishing a connection. Broadcast and multicast traffic flows over UDP. In the UDP header, port fields identify the application using the transport. Because UDP uses a simple 8-byte header consisting of four fields, UDP itself rarely causes problems. UDP is defined in RFC 768, User Datagram Protocol.">
+  <meta name="twitter:description" content="Hello, in this article I will try to explain the UDP protocol and its analysis with Wireshark.">
 
 <meta property="og:url" content="http://localhost:1313/posts/2023/12/udp-wireshark-analysis/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="UDP Wireshark Analysis">
-  <meta property="og:description" content="Hello, in this article I will try to explain the UDP protocol and its analysis with Wireshark.
-What is UDP?Link to headingIf you see a lot of broadcast/multicast broadcasts in the traffic you capture, it means you have too many UDP-based communications. UDP provides transfer without establishing a connection. Broadcast and multicast traffic flows over UDP. In the UDP header, port fields identify the application using the transport. Because UDP uses a simple 8-byte header consisting of four fields, UDP itself rarely causes problems. UDP is defined in RFC 768, User Datagram Protocol.">
+  <meta property="og:description" content="Hello, in this article I will try to explain the UDP protocol and its analysis with Wireshark.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -212,9 +200,7 @@ What is UDP?Link to headingIf you see a lot of broadcast/multicast broadcasts 
         
           <img src="https://cdn-images-1.medium.com/max/800/1*cReiU6D1Aj-Zf-J3628uNA.png" alt="Featured image"/>
         
-        <p><img src="https://cdn-images-1.medium.com/max/800/1*cReiU6D1Aj-Zf-J3628uNA.png" alt=""></p>
-<p>Hello, in this article I will try to explain the UDP protocol and its analysis with Wireshark.</p>
-<hr>
+        <p>Hello, in this article I will try to explain the UDP protocol and its analysis with Wireshark.</p>
 <h3 id="what-is-udp">
   What is UDP?
   <a class="heading-link" href="#what-is-udp">
@@ -226,7 +212,6 @@ What is UDP?Link to headingIf you see a lot of broadcast/multicast broadcasts 
 <p><img src="https://cdn-images-1.medium.com/max/800/1*WSaFhaEgqTIuM9sF4oZYng.png" alt=""></p>
 <p>Provides UDP connectionless transport service</p>
 <p>Common applications that use UDP are DHCP/BOOTP, SIP, RTP, DNS, TFTP and various video streaming applications.</p>
-<hr>
 <h3 id="udp-trafficanalysis">
   UDP Traffic Analysis
   <a class="heading-link" href="#udp-trafficanalysis">
@@ -245,7 +230,6 @@ What is UDP?Link to headingIf you see a lot of broadcast/multicast broadcasts 
 <p><img src="https://cdn-images-1.medium.com/max/800/1*mLgL_SfU5rNO7Gk-mkT1sQ.png" alt=""></p>
 <p>UDP scanning triggers a series of ICMP Destination Unreachable/Port Unreachable responses</p>
 <p>The figure shows a UDP scan targeting the address 192.168.1.123. Because each UDP packet triggers an ICMP Destination Unreachable/Port Unreachable response, the UDP scan has not yet found an open UDP port.</p>
-<hr>
 <h3 id="udp-packetstructure">
   UDP Packet Structure
   <a class="heading-link" href="#udp-packetstructure">
@@ -296,7 +280,6 @@ What is UDP?Link to headingIf you see a lot of broadcast/multicast broadcasts 
   </a>
 </h4>
 <p>The checksum is performed on a pseudo-header derived from the contents of the UDP header, the data, and the IP header. The so-called IP header consists of the source address field, the destination address field, the protocol field and the UDP length field. UDP-based communications don&rsquo;t always require a checksum — sometimes you&rsquo;ll see this field set to all zeros (0x0000), which tells the recipient that the checksum should not be verified.</p>
-<hr>
 <h4 id="udp-traffic-filters">
   UDP Traffic Filters
   <a class="heading-link" href="#udp-traffic-filters">
@@ -311,7 +294,6 @@ What is UDP?Link to headingIf you see a lot of broadcast/multicast broadcasts 
 <li>udp.length &gt; 248 — UDP packets containing more than 240 data bytes (8 bytes are reserved for the UDP header)</li>
 </ul>
 <p>UDP is relatively boring compared to the exciting, complex world of TCP.</p>
-<hr>
 <h3 id="references">
   References
   <a class="heading-link" href="#references">

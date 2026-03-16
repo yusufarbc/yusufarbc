@@ -13,30 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-  Hakerlar için Python:socket
-  
-    
-    Başlık Linki
-  
-
-
-
-  Giriş
-  
-    
-    Başlık Linki
-  
-
-Merhaba bu yazımızda, uzak sunucuların ip ve port adreslerine bağlantı kurmak için kullanabileceğimiz socket modülünü tanıyacağız.
-
-  Socket nedir?
-  
-    
-    Başlık Linki
-  
-
-Socket python ile birlikte kurulu halde gelen bir modüldür. Bu modül sayesinde, istenilen ip ve port adresine bağlantı kurabiliriz. Şimdi gelin bu modülü nasıl kullanacağımıza ve bu modül ile neler yapabileceğimize bir bakalım.">
+<meta name="description" content="Merhaba bu yazımızda, uzak sunucuların ip ve port adreslerine bağlantı kurmak için kullanabileceğimiz socket modülünü tanıyacağız.">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -44,14 +21,12 @@ Socket python ile birlikte kurulu halde gelen bir modüldür. Bu modül sayesind
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Hakerlar için Python:socket">
-  <meta name="twitter:description" content="Hakerlar için Python:socketBaşlık LinkiGirişBaşlık LinkiMerhaba bu yazımızda, uzak sunucuların ip ve port adreslerine bağlantı kurmak için kullanabileceğimiz socket modülünü tanıyacağız.
-Socket nedir?Başlık LinkiSocket python ile birlikte kurulu halde gelen bir modüldür. Bu modül sayesinde, istenilen ip ve port adresine bağlantı kurabiliriz. Şimdi gelin bu modülü nasıl kullanacağımıza ve bu modül ile neler yapabileceğimize bir bakalım.">
+  <meta name="twitter:description" content="Merhaba bu yazımızda, uzak sunucuların ip ve port adreslerine bağlantı kurmak için kullanabileceğimiz socket modülünü tanıyacağız.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2022/09/hakerlar-i%C3%A7in-pythonsocket/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Hakerlar için Python:socket">
-  <meta property="og:description" content="Hakerlar için Python:socketBaşlık LinkiGirişBaşlık LinkiMerhaba bu yazımızda, uzak sunucuların ip ve port adreslerine bağlantı kurmak için kullanabileceğimiz socket modülünü tanıyacağız.
-Socket nedir?Başlık LinkiSocket python ile birlikte kurulu halde gelen bir modüldür. Bu modül sayesinde, istenilen ip ve port adresine bağlantı kurabiliriz. Şimdi gelin bu modülü nasıl kullanacağımıza ve bu modül ile neler yapabileceğimize bir bakalım.">
+  <meta property="og:description" content="Merhaba bu yazımızda, uzak sunucuların ip ve port adreslerine bağlantı kurmak için kullanabileceğimiz socket modülünü tanıyacağız.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -229,7 +204,6 @@ Socket nedir?Başlık LinkiSocket python ile birlikte kurulu halde gelen bir m
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*Z3ieIgd5w_LPy0R2bLu6pg.png" alt=""></p>
 <h3 id="giriş">
   Giriş
   <a class="heading-link" href="#giri%c5%9f">
@@ -275,17 +249,17 @@ Socket nedir?Başlık LinkiSocket python ile birlikte kurulu halde gelen bir m
 </h3>
 <p>Soket açarak belirli bir portu dinleyebiliriz.</p>
 <pre tabindex="0"><code>import socket
-</code></pre><pre tabindex="0"><code>HOST = &#39;127.0.0.1&#39;                   
-PORT = 2222                
-with socket.socket() as s:  
-    s.bind((HOST, PORT))  
-    s.listen()  
-    conn, addr = s.accept()  
-    with conn:  
-        print(&#39;Connected by &#39;, addr)  
-        while True:  
-            data = conn.recv(1024)  
-            if not data: break  
+</code></pre><pre tabindex="0"><code>HOST = &#39;127.0.0.1&#39;                   
+PORT = 2222                
+with socket.socket() as s:  
+    s.bind((HOST, PORT))  
+    s.listen()  
+    conn, addr = s.accept()  
+    with conn:  
+        print(&#39;Connected by &#39;, addr)  
+        while True:  
+            data = conn.recv(1024)  
+            if not data: break  
             conn.sendall(data)
 </code></pre><p>Bu kod 127.0.0.1:2222 adresinde açılan soketi dinleyecek, bir bağlantı yakaladığında gelen veriyi aynı şekilde geri gönderecektir. Ardından program sonlanır.</p>
 <h3 id="sokete-bağlanma">
@@ -297,12 +271,12 @@ with socket.socket() as s:
 </h3>
 <p>Soket açarak belirli bir ip adresi ve porta bağlantı kurabiliriz.</p>
 <pre tabindex="0"><code>import socket
-</code></pre><pre tabindex="0"><code>HOST = &#39;127.0.0.1&#39;      
-PORT = 2222             
-with socket.socket() as s:  
-    s.connect((HOST, PORT))  
-    s.sendall(b&#39;Merhaba&#39;)  
-    data = s.recv(1024)  
+</code></pre><pre tabindex="0"><code>HOST = &#39;127.0.0.1&#39;      
+PORT = 2222             
+with socket.socket() as s:  
+    s.connect((HOST, PORT))  
+    s.sendall(b&#39;Merhaba&#39;)  
+    data = s.recv(1024)  
 print(&#39;Received &#39;, data)
 </code></pre><p>Bu kod 127.0.0.1:2222 adresinde çalışan soketle bağlantı kuracak bir bir data gönderecektir. Burada gönderilen data ‘merhaba’ mesajıdır. Ardından karşıdan gelen datayı alır ve program sonlanır.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*0epPGqrnUjKfpY9yg8YoKg.png" alt=""></p>
@@ -316,22 +290,22 @@ print(&#39;Received &#39;, data)
 </h3>
 <p>Socket modülü ile ip ve port adreslerine bağlantı kurabiliyorduk. Bu sayede bir host üzerinde açık portları ve banner bilgilerini bulabiliriz. Banner bilgileri bu portta hangi servisin çalıştığı hakkında bize bilgi verecektir.</p>
 <pre tabindex="0"><code>import socket
-</code></pre><pre tabindex="0"><code>ip = &#34;10.10.10.10&#34;  
-ports = []  
+</code></pre><pre tabindex="0"><code>ip = &#34;10.10.10.10&#34;  
+ports = []  
 banners = []
-</code></pre><pre tabindex="0"><code>for port in range(1,1000):  
-    try:  
-        s = socket.socket()  
-        s.connect((str(ip), int(port)))  
-        banner = s.recv(1024)  
-        banners.append(str(banner))  
-        ports.append(str(port))  
-        s.close()  
-        print(port)  
-    except:  
-        pass  
-          
-print(ports)  
+</code></pre><pre tabindex="0"><code>for port in range(1,1000):  
+    try:  
+        s = socket.socket()  
+        s.connect((str(ip), int(port)))  
+        banner = s.recv(1024)  
+        banners.append(str(banner))  
+        ports.append(str(port))  
+        s.close()  
+        print(port)  
+    except:  
+        pass  
+          
+print(ports)  
 print(banners)
 </code></pre><p>Typhoon makinesi üzerinde bu kodu çalıştırırsak bize açık portları ve banner bilgilerini gertirir.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*p297l0qe6OnuUmY7ep52sA.png" alt=""></p>
@@ -344,12 +318,12 @@ print(banners)
 </h3>
 <p>Https protokolü ile çalışan güvenli sitelere erişmeye çalıştığımızda bir SSL sertifikasına ihiyaç duyarız. Bunun için ssl modülünden yardım alabiliriz.</p>
 <p>Varsayılan olarak http protokolü 80, https protokolü 443 portlarında çalışır.</p>
-<pre tabindex="0"><code>import socket  
+<pre tabindex="0"><code>import socket  
 import ssl
-</code></pre><pre tabindex="0"><code>hostname = &#39;www.python.org&#39;  
+</code></pre><pre tabindex="0"><code>hostname = &#39;www.python.org&#39;  
 context = ssl.create_default_context()
-</code></pre><pre tabindex="0"><code>with socket.create_connection((hostname, 443)) as sock:  
-    with context.wrap_socket(sock, server_hostname=hostname) as ssock:  
+</code></pre><pre tabindex="0"><code>with socket.create_connection((hostname, 443)) as sock:  
+    with context.wrap_socket(sock, server_hostname=hostname) as ssock:  
         print(ssock.version())
 </code></pre><h3 id="son">
   Son

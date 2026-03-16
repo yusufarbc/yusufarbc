@@ -13,15 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-  Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve Analizi
-  
-    
-    Başlık Linki
-  
-
-
-Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web, Alan Adı Sistemi (DNS) ve dosya transferi — kapsamlı bir şekilde analiz etmek üzere yapılandırılmıştır. Her bölüm, ilgili protokol ailesinin tarihsel gelişimini, tasarımından kaynaklanan doğal zafiyetlerini, bu zafiyetleri gidermek için geliştirilen modern güvenlik mekanizmalarını ve günümüzün karmaşık tehdit ortamındaki yerlerini derinlemesine inceleyecektir. Raporun temel amacı, sadece protokolleri ve güvenlik eklentilerini ayrı ayrı tanımlamak değil, aynı zamanda aralarındaki karmaşık etkileşimleri, bağımlılıkları ve birleşik bir güvenlik mimarisi içindeki rollerini ortaya koymaktır. Örneğin, güvenli bir e-posta altyapısının, güvenilir bir DNS altyapısına nasıl bağımlı olduğu veya güvenli web trafiğinin, hem taşıma katmanında hem de uygulama katmanında nasıl katmanlı bir savunma gerektirdiği gibi konular, bütüncül bir bakış açısıyla ele alınacaktır. Bu metodoloji, okuyucuya izole bilgi parçaları yerine, birbiriyle entegre, stratejik bir protokol güvenliği anlayışı sunmayı hedeflemektedir.">
+<meta name="description" content="Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web, Alan Adı Sistemi (DNS) ve dosya transferi — kapsamlı bir şekilde analiz etmek üzere yapılandırılmıştır. Her bölüm, ilgili protokol ailesinin tarihsel gelişimini, tasarımından kayn...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -29,12 +21,12 @@ Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web,
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve Analizi">
-  <meta name="twitter:description" content="Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve AnaliziBaşlık LinkiBu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web, Alan Adı Sistemi (DNS) ve dosya transferi — kapsamlı bir şekilde analiz etmek üzere yapılandırılmıştır. Her bölüm, ilgili protokol ailesinin tarihsel gelişimini, tasarımından kaynaklanan doğal zafiyetlerini, bu zafiyetleri gidermek için geliştirilen modern güvenlik mekanizmalarını ve günümüzün karmaşık tehdit ortamındaki yerlerini derinlemesine inceleyecektir. Raporun temel amacı, sadece protokolleri ve güvenlik eklentilerini ayrı ayrı tanımlamak değil, aynı zamanda aralarındaki karmaşık etkileşimleri, bağımlılıkları ve birleşik bir güvenlik mimarisi içindeki rollerini ortaya koymaktır. Örneğin, güvenli bir e-posta altyapısının, güvenilir bir DNS altyapısına nasıl bağımlı olduğu veya güvenli web trafiğinin, hem taşıma katmanında hem de uygulama katmanında nasıl katmanlı bir savunma gerektirdiği gibi konular, bütüncül bir bakış açısıyla ele alınacaktır. Bu metodoloji, okuyucuya izole bilgi parçaları yerine, birbiriyle entegre, stratejik bir protokol güvenliği anlayışı sunmayı hedeflemektedir.">
+  <meta name="twitter:description" content="Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web, Alan Adı Sistemi (DNS) ve dosya transferi — kapsamlı bir şekilde analiz etmek üzere yapılandırılmıştır. Her bölüm, ilgili protokol ailesinin tarihsel gelişimini, tasarımından kayn...">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-vi-a%C4%9F-protokolleri-g%C3%BCvenli%C4%9Fi-ve-analizi/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve Analizi">
-  <meta property="og:description" content="Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve AnaliziBaşlık LinkiBu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web, Alan Adı Sistemi (DNS) ve dosya transferi — kapsamlı bir şekilde analiz etmek üzere yapılandırılmıştır. Her bölüm, ilgili protokol ailesinin tarihsel gelişimini, tasarımından kaynaklanan doğal zafiyetlerini, bu zafiyetleri gidermek için geliştirilen modern güvenlik mekanizmalarını ve günümüzün karmaşık tehdit ortamındaki yerlerini derinlemesine inceleyecektir. Raporun temel amacı, sadece protokolleri ve güvenlik eklentilerini ayrı ayrı tanımlamak değil, aynı zamanda aralarındaki karmaşık etkileşimleri, bağımlılıkları ve birleşik bir güvenlik mimarisi içindeki rollerini ortaya koymaktır. Örneğin, güvenli bir e-posta altyapısının, güvenilir bir DNS altyapısına nasıl bağımlı olduğu veya güvenli web trafiğinin, hem taşıma katmanında hem de uygulama katmanında nasıl katmanlı bir savunma gerektirdiği gibi konular, bütüncül bir bakış açısıyla ele alınacaktır. Bu metodoloji, okuyucuya izole bilgi parçaları yerine, birbiriyle entegre, stratejik bir protokol güvenliği anlayışı sunmayı hedeflemektedir.">
+  <meta property="og:description" content="Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web, Alan Adı Sistemi (DNS) ve dosya transferi — kapsamlı bir şekilde analiz etmek üzere yapılandırılmıştır. Her bölüm, ilgili protokol ailesinin tarihsel gelişimini, tasarımından kayn...">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -215,9 +207,7 @@ Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web,
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*4B83QjV-QTWjVqB0z6ktug.png" alt=""></p>
 <p>Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web, Alan Adı Sistemi (DNS) ve dosya transferi — kapsamlı bir şekilde analiz etmek üzere yapılandırılmıştır. Her bölüm, ilgili protokol ailesinin tarihsel gelişimini, tasarımından kaynaklanan doğal zafiyetlerini, bu zafiyetleri gidermek için geliştirilen modern güvenlik mekanizmalarını ve günümüzün karmaşık tehdit ortamındaki yerlerini derinlemesine inceleyecektir. Raporun temel amacı, sadece protokolleri ve güvenlik eklentilerini ayrı ayrı tanımlamak değil, aynı zamanda aralarındaki karmaşık etkileşimleri, bağımlılıkları ve birleşik bir güvenlik mimarisi içindeki rollerini ortaya koymaktır. Örneğin, güvenli bir e-posta altyapısının, güvenilir bir DNS altyapısına nasıl bağımlı olduğu veya güvenli web trafiğinin, hem taşıma katmanında hem de uygulama katmanında nasıl katmanlı bir savunma gerektirdiği gibi konular, bütüncül bir bakış açısıyla ele alınacaktır. Bu metodoloji, okuyucuya izole bilgi parçaları yerine, birbiriyle entegre, stratejik bir protokol güvenliği anlayışı sunmayı hedeflemektedir.</p>
-<hr>
 <h3 id="bölüm-1-e-posta-iletişiminin-güvenlikmimarisi">
   Bölüm 1: E-posta İletişiminin Güvenlik Mimarisi
   <a class="heading-link" href="#b%c3%b6l%c3%bcm-1-e-posta-ileti%c5%9fiminin-g%c3%bcvenlikmimarisi">
@@ -490,7 +480,6 @@ Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web,
 <li><strong>Bant Dışı Doğrulama (Out-of-Band Verification):</strong> Özellikle para transferi, ödeme bilgilerinin değiştirilmesi veya hassas verilerin paylaşılması gibi kritik talepler için, e-posta dışında ikinci bir doğrulama kanalı zorunlu kılınmalıdır. Örneğin, bir yöneticiden gelen acil bir para transferi talebi, e-posta ile yanıtlanmak yerine, önceden bilinen bir telefon numarasından sözlü olarak teyit edilmelidir. Bu basit prosedür, BEC saldırılarına karşı en etkili önlemlerden biridir.</li>
 </ul>
 <p>SPF, DKIM ve DMARC gibi protokoller, SMTP oturumunun temel yapısını, yani kimin kiminle konuştuğunu ve mesajın ne olduğunu doğru bir şekilde varsayar. Ancak SMTP Smuggling saldırısı , bu temel varsayıma meydan okur. Saldırgan, iki MTA arasındaki protokol yorumlama farklılıklarını kullanarak, tek bir SMTP oturumunun içine ikinci, sahte bir oturum “saklar”. Giden sunucu bunu tek bir e-posta olarak görür ve güvenlik kontrollerini uygular. Ancak gelen sunucu, veri akışındaki bir belirsizlikten dolayı bunu iki ayrı e-posta olarak yorumlar. İkinci (sahte) e-posta, giden sunucunun SPF/DKIM kontrollerinden hiç geçmediği için bu korumaları etkili bir şekilde atlatır. Bu durum, en sağlam güvenlik katmanlarının bile, altındaki temel protokolün en ince ve beklenmedik uygulama farklılıklarındaki zafiyetlerden etkilenebileceğini göstermektedir. Güvenlik, sadece protokolün teorik tanımında değil, aynı zamanda onun heterojen uygulamalarının kesişim noktasında da sağlanmalıdır. Bu, protokol standartlarının ve uygulamalarının sürekli olarak gözden geçirilmesi ve sıkılaştırılması gerektiğini ortaya koyan önemli bir bulgudur.</p>
-<hr>
 <h3 id="bölüm-2-web-iletişiminin-güvenlikmimarisi">
   Bölüm 2: Web İletişiminin Güvenlik Mimarisi
   <a class="heading-link" href="#b%c3%b6l%c3%bcm-2-web-ileti%c5%9fiminin-g%c3%bcvenlikmimarisi">
@@ -737,7 +726,6 @@ Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web,
 <p>Geleneksel web modelinde sunucu, içeriği gönderir ve tarayıcı bu içeriği kendi varsayılan kurallarına göre işler. Ancak CSP ve diğer OWASP güvenlik başlıkları , bu dinamiği kökten değiştirir. Sunucu artık sadece içerik göndermekle kalmaz, aynı zamanda o içeriğin tarayıcıda <em>nasıl</em> işleneceğine, hangi kaynakları yükleyebileceğine ve hangi eylemleri gerçekleştirebileceğine dair katı kurallar içeren bir “politika belgesi” de gönderir. Örneğin, <code>Content-Security-Policy: script-src 'self'</code> başlığı, tarayıcıya &ldquo;Sana gönderdiğim bu HTML belgesinin içinde, benden (aynı kaynaktan) gelmeyen hiçbir JavaScript kodunu çalıştırmana izin vermiyorum&rdquo; talimatını verir. Bu, sunucunun, istemci tarafındaki (tarayıcı) yürütme ortamının güvenlik sınırlarını dinamik olarak ve her yanıt için özel olarak tanımlamasını sağlar. Sunucu, bu modelde tarayıcının güvenlik motoru için bir nevi uzaktan kural yapılandırıcısı haline gelir. Bu, sunucu ve istemci arasındaki sorumluluk paylaşımında önemli bir paradigma değişikliğidir ve güvenliğin sorumluluğunu daha proaktif bir şekilde sunucu tarafına yükler.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*C_77zQqrn-BGzkE5DYFK1A.png" alt=""></p>
 <p>TLS Türleri</p>
-<hr>
 <h3 id="bölüm-3-dns-altyapısının-güvenlikmimarisi">
   Bölüm 3: DNS Altyapısının Güvenlik Mimarisi
   <a class="heading-link" href="#b%c3%b6l%c3%bcm-3-dns-altyap%c4%b1s%c4%b1n%c4%b1n-g%c3%bcvenlikmimarisi">
@@ -860,7 +848,6 @@ Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web,
 <p>DoH’un temel tasarım felsefesi, DNS trafiğini standart HTTPS trafiği içinde “kamufle etmektir”. Bu, bireysel kullanıcı gizliliği ve sansürü aşma açısından bir zaferken, kurumsal ağ yönetimi ve güvenliği açısından bir kabustur. Geleneksel olarak, ağ yöneticileri DNS sorgularını izleyerek kötü amaçlı yazılım komuta-kontrol (C2) iletişimini, veri sızıntısı girişimlerini ve kurumsal politika ihlallerini tespit ederdi. DoH, bu görünürlüğü ortadan kaldırarak, kullanıcıların veya uygulamaların kurumsal politikaları atlayarak kendi DNS çözümleyicilerini kullanabildiği bir “gölge BT” (shadow IT) durumu yaratır. Bu durum, siber güvenlik dünyasındaki en temel gerilimlerden birini temsil eder: bireysel gizlilik ile kurumsal kontrol ve güvenlik arasındaki denge. Bu çatışma, internetin gelecekteki mimarisini ve yönetimini şekillendirecek en önemli tartışma konularından biridir.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*EH_7Ex7NamcxzJeldgLUEQ.png" alt=""></p>
 <p>DoT vs DoH</p>
-<hr>
 <h3 id="bölüm-4-dosya-transfer-protokollerinin-güvenlikmimarisi">
   Bölüm 4: Dosya Transfer Protokollerinin Güvenlik Mimarisi
   <a class="heading-link" href="#b%c3%b6l%c3%bcm-4-dosya-transfer-protokollerinin-g%c3%bcvenlikmimarisi">
@@ -1016,7 +1003,6 @@ Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web,
 <p>FTPS ve SFTP, güvensiz bir protokol olan FTP’nin güvenlik sorunlarına yönelik iki farklı felsefeyi temsil eder. FTPS, mevcut ve yaygın olarak kullanılan bir protokolü (FTP) alıp, üzerine bir güvenlik katmanı (SSL/TLS) “yamayarak” <strong>evrimsel</strong> bir çözüm sunar. Bu yaklaşım, mevcut sistemlerle geriye dönük uyumluluğu kolaylaştırır ancak temel mimarinin zayıf yönlerini (örneğin, çift kanallı yapı ve bunun getirdiği güvenlik duvarı karmaşıklığı) miras alır. Buna karşılık SFTP, problemi sıfırdan ele alarak, güvenli bir temel (SSH) üzerine inşa edilmiş <strong>devrimsel</strong> bir çözüm sunar. Bu yaklaşım, geriye dönük uyumluluk kaygısı olmadan, daha temiz, daha verimli ve doğası gereği daha güvenli bir mimariyle sonuçlanır. Bu durum, siber güvenlikte sıkça karşılaşılan bir ikilemi göstermektedir: Mevcut bir sistemi iyileştirmek mi, yoksa sıfırdan güvenli bir alternatif inşa etmek mi? SFTP’nin modern ağlarda daha çok tercih edilmesi, genellikle ikinci yaklaşımın uzun vadede daha sürdürülebilir ve güvenli olduğunu göstermektedir.</p>
 <p><img src="https://cdn-images-1.medium.com/max/800/1*7ANigANBbyhJp_SS0wNP2A.png" alt=""></p>
 <p>FTP, FTPS, SFTP</p>
-<hr>
 <h3 id="sonuç">
   Sonuç:
   <a class="heading-link" href="#sonu%c3%a7">

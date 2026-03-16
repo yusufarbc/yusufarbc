@@ -13,23 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-  ELK Stack Kural Yazımı ve Alerting
-  
-    
-    Başlık Linki
-  
-
-
-Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash, Kibana) ile kural yazımı ve uyarı (alerting) işlemleri, veri analizi ve yönetimini kolaylaştırır.
-
-  IoC ve IoA Nedir?
-  
-    
-    Başlık Linki
-  
-
-IoC (Indicators of Compromise) ve IoA (Indicators of Attack), siber güvenlik alanında önemli kavramlardır ve saldırıların tespiti ve analizinde kullanılırlar.">
+<meta name="description" content="Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash, Kibana) ile kural yazımı ve uyarı (alerting) işle...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -37,14 +21,12 @@ IoC (Indicators of Compromise) ve IoA (Indicators of Attack), siber güvenlik al
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="ELK Stack Kural Yazımı ve Alerting">
-  <meta name="twitter:description" content="ELK Stack Kural Yazımı ve AlertingBaşlık LinkiMerhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash, Kibana) ile kural yazımı ve uyarı (alerting) işlemleri, veri analizi ve yönetimini kolaylaştırır.
-IoC ve IoA Nedir?Başlık LinkiIoC (Indicators of Compromise) ve IoA (Indicators of Attack), siber güvenlik alanında önemli kavramlardır ve saldırıların tespiti ve analizinde kullanılırlar.">
+  <meta name="twitter:description" content="Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash, Kibana) ile kural yazımı ve uyarı (alerting) işle...">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2024/11/elk-stack-kural-yaz%C4%B1m%C4%B1-ve-alerting/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="ELK Stack Kural Yazımı ve Alerting">
-  <meta property="og:description" content="ELK Stack Kural Yazımı ve AlertingBaşlık LinkiMerhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash, Kibana) ile kural yazımı ve uyarı (alerting) işlemleri, veri analizi ve yönetimini kolaylaştırır.
-IoC ve IoA Nedir?Başlık LinkiIoC (Indicators of Compromise) ve IoA (Indicators of Attack), siber güvenlik alanında önemli kavramlardır ve saldırıların tespiti ve analizinde kullanılırlar.">
+  <meta property="og:description" content="Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. ELK Stack (Elasticsearch, Logstash, Kibana) ile kural yazımı ve uyarı (alerting) işle...">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -219,7 +201,6 @@ IoC ve IoA Nedir?Başlık LinkiIoC (Indicators of Compromise) ve IoA (Indicat
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*YtvtZTc7PJHVByo3n9E_lg.png" alt=""></p>
 <p>Merhaba bu yazımda, geçen yazımda kurulumunu yaptığımız ELK Stack’in kural yazımı, yani güvenlik ihlallerini belirten uyarılar, ve alerting işlemlerine değineceğim. <strong>ELK Stack</strong> (Elasticsearch, Logstash, Kibana) ile kural yazımı ve uyarı (alerting) işlemleri, veri analizi ve yönetimini kolaylaştırır.</p>
 <h3 id="ioc-ve-ioanedir">
   IoC ve IoA Nedir?
@@ -259,7 +240,6 @@ IoC ve IoA Nedir?Başlık LinkiIoC (Indicators of Compromise) ve IoA (Indicat
 <li><strong>Dosya Sisteminde Değişiklikler</strong>: Beklenmeyen dosya eklemeleri veya silinmeleri.</li>
 <li><strong>Yazılım Açıkları Kullanımı</strong>: Bilinen yazılım açıklarını istismar etme girişimleri.</li>
 </ul>
-<hr>
 <h3 id="elastalert">
   Elastalert
   <a class="heading-link" href="#elastalert">
@@ -273,7 +253,6 @@ IoC ve IoA Nedir?Başlık LinkiIoC (Indicators of Compromise) ve IoA (Indicat
 <p>ElastAlert, Elasticsearch’teki verilerden anomaliler, ani artışlar veya diğer ilgi çekici modeller hakkında uyarı vermek için basit bir çerçevedir.</p>
 <p>Elasticsearch’e gerçek zamanlı olarak veri yazıyorsanız ve bu veriler belirli kalıplarla eşleştiğinde uyarı almak istiyorsanız, ElastAlert tam size göre bir araç.</p>
 <p>Kibana, Elasticsearch’te uyarılar oluşturmanın ve yönetmenin kolay bir arayüzü sağlar. Kibana’da, uyarılar ve eylemler bölümünde yeni uyarılar oluşturabilir ve mevcut uyarıları yönetebilirsiniz.</p>
-<hr>
 <h3 id="alerting">
   Alerting
   <a class="heading-link" href="#alerting">
@@ -305,7 +284,6 @@ IoC ve IoA Nedir?Başlık LinkiIoC (Indicators of Compromise) ve IoA (Indicat
 <p>Create Rule</p>
 <p>Örnek olarak CPU kullanım kuralını aktif ettik. Makinedeki CPU Kullanım oranı %10u aşarsa uyarı oluşturacak.</p>
 <p>Bu menü üzerinden her türlü kural yazımını yapabilirsiniz.</p>
-<hr>
 <h3 id="tehdit-odaklı-savunma-stratejisinin-değişenyüzü">
   Tehdit Odaklı Savunma Stratejisinin Değişen Yüzü
   <a class="heading-link" href="#tehdit-odakl%c4%b1-savunma-stratejisinin-de%c4%9fi%c5%9feny%c3%bcz%c3%bc">
@@ -408,9 +386,9 @@ IoC ve IoA Nedir?Başlık LinkiIoC (Indicators of Compromise) ve IoA (Indicat
 </h3>
 <p>Kural setinin en önemli unsurlarından biri, her kuralın tespit ettiği MITRE ATT&amp;CK taktiği ve tekniği ile doğru bir şekilde etiketlenmesidir. Bu etiketleme, ham log verisini saldırı bağlamına oturtarak güvenlik ekiplerinin bir olayın arkasındaki amacı daha hızlı anlamasını sağlar.</p>
 <p>Kibana’da bir kural oluştururken, <code>mitre.tactic</code> ve <code>mitre.technique_id</code> gibi özel alanlar aracılığıyla bu etiketleri eklemek mümkündür. Örneğin, bir kuralın JSON çıktısı şu şekilde olabilir:</p>
-<pre tabindex="0"><code>{  
-  &#34;mitre.technique_id&#34;: &#34;T1059&#34;,  
-  &#34;mitre.tactic&#34;: &#34;execution&#34;  
+<pre tabindex="0"><code>{  
+  &#34;mitre.technique_id&#34;: &#34;T1059&#34;,  
+  &#34;mitre.tactic&#34;: &#34;execution&#34;  
 }
 </code></pre><p>Bu etiketler, güvenlik analistleri için bir köprü görevi görerek, bir alarmı gördüklerinde saldırganın ne yapmaya çalıştığını (taktik) ve hangi yöntemi (teknik) kullandığını anında kavrayabilmelerini sağlar. Bu bilgi, olay müdahale sürecini hızlandırır ve savunma stratejisinin bütünsel bir resmini görmeye olanak tanır.</p>
 <h3 id="mitre-attck-taktiklerine-göre-kural-örnekleri-vetespiti">

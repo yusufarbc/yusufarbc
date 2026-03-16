@@ -13,15 +13,7 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="
-  Cyber Defense Strategies Against Zero-Day Attacks
-  
-    
-    Link to heading
-  
-
-
-In this article, I will talk about how a cyber defense strategy can be developed against zero-day attacks, which are generally accepted to be difficult to detect and prevent. Of course, we cannot wait empty-handed against the zero-day attacks that many institutions suffer from. What kind of defense infrastructure do we need to establish? Let&rsquo;s have a little discussion.">
+<meta name="description" content="In this article, I will talk about how a cyber defense strategy can be developed against zero-day attacks, which are generally accepted to be difficult to detect and prevent. Of course, we cannot wait empty-handed against the zero-day attacks that ma...">
 <meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
 
 
@@ -29,12 +21,12 @@ In this article, I will talk about how a cyber defense strategy can be developed
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Cyber ​​Defense Strategies Against Zero-Day Attacks">
-  <meta name="twitter:description" content="Cyber Defense Strategies Against Zero-Day AttacksLink to headingIn this article, I will talk about how a cyber defense strategy can be developed against zero-day attacks, which are generally accepted to be difficult to detect and prevent. Of course, we cannot wait empty-handed against the zero-day attacks that many institutions suffer from. What kind of defense infrastructure do we need to establish? Let’s have a little discussion.">
+  <meta name="twitter:description" content="In this article, I will talk about how a cyber defense strategy can be developed against zero-day attacks, which are generally accepted to be difficult to detect and prevent. Of course, we cannot wait empty-handed against the zero-day attacks that ma...">
 
 <meta property="og:url" content="http://localhost:1313/posts/2024/12/cyber-defense-strategies-against-zero-day-attacks/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Cyber ​​Defense Strategies Against Zero-Day Attacks">
-  <meta property="og:description" content="Cyber Defense Strategies Against Zero-Day AttacksLink to headingIn this article, I will talk about how a cyber defense strategy can be developed against zero-day attacks, which are generally accepted to be difficult to detect and prevent. Of course, we cannot wait empty-handed against the zero-day attacks that many institutions suffer from. What kind of defense infrastructure do we need to establish? Let’s have a little discussion.">
+  <meta property="og:description" content="In this article, I will talk about how a cyber defense strategy can be developed against zero-day attacks, which are generally accepted to be difficult to detect and prevent. Of course, we cannot wait empty-handed against the zero-day attacks that ma...">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -209,9 +201,7 @@ In this article, I will talk about how a cyber defense strategy can be developed
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*iZ-lydJs7z0gBXIAY58wQQ.png" alt=""></p>
 <p>In this article, I will talk about how a cyber defense strategy can be developed against zero-day attacks, which are generally accepted to be difficult to detect and prevent. Of course, we cannot wait empty-handed against the zero-day attacks that many institutions suffer from. What kind of defense infrastructure do we need to establish? Let&rsquo;s have a little discussion.</p>
-<hr>
 <h3 id="what-are-zero-day-attacks">
   What are Zero-Day Attacks?
   <a class="heading-link" href="#what-are-zero-day-attacks">
@@ -228,7 +218,6 @@ In this article, I will talk about how a cyber defense strategy can be developed
 <p><img src="https://cdn-images-1.medium.com/max/800/1*ciB4g3FrciO4GMJ5R6q_IA.png" alt=""></p>
 <p>As soon as the vulnerability is published, the attackers take action, leaving institutions vulnerable. They detect institutions with vulnerable platforms through platforms such as Shodan and try to carry out their attacks before the vulnerability is corrected.</p>
 <p>So, will institutions really be defenseless against these attacks? Will he wait with his hands tied? Of course not. So what kind of defense strategy is required? Now let&rsquo;s talk about this.</p>
-<hr>
 <h3 id="defense-in-depth-strategy">
   Defense-in-Depth Strategy
   <a class="heading-link" href="#defense-in-depth-strategy">
@@ -245,7 +234,6 @@ In this article, I will talk about how a cyber defense strategy can be developed
 <p><img src="https://cdn-images-1.medium.com/max/800/1*TW-N4pXoQLDERr1qtD09LA.png" alt=""></p>
 <p>Bank Network Topology</p>
 <p>Let&rsquo;s say that an RCE vulnerability was discovered in a publicly accessible service of a bank within the scope of Sernaryo. And let&rsquo;s prevent an attack that exploits this vulnerability layer by layer..</p>
-<hr>
 <h3 id="1--application-protection">
   1- Application Protection
   <a class="heading-link" href="#1--application-protection">
@@ -264,7 +252,6 @@ In this article, I will talk about how a cyber defense strategy can be developed
 <p>Application Protection</p>
 <p>Zero-day attacks can bypass this layer. Because vulnerability scans cannot detect zero-day vulnerabilities. The rules in our SIEM system do not alert for zero-day vulnerabilities. Our application firewall can be bypassed with various methods (<a href="https://attack.mitre.org/tactics/TA0005"  class="external-link" target="_blank" rel="noopener">Defense Evasion</a>-Mitre).</p>
 <p>In our scenario, exploiting the RCE vulnerability and gaining access to the target system means that this layer is breached. The initial access phase in Mitre has been successful. Unauthorized access has been achieved and we are not aware of it. However, let&rsquo;s add that the attacker has no gains yet. Still, the attacker seems to be ahead of us 1-0. However, we have 3 more defense lines behind us. Let&rsquo;s continue looking at these.</p>
-<hr>
 <h3 id="2-endpoint-protection">
   2-Endpoint Protection
   <a class="heading-link" href="#2-endpoint-protection">
@@ -272,7 +259,7 @@ In this article, I will talk about how a cyber defense strategy can be developed
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p>We monitor the computer systems we have at the endpoint security layer. These systems are basically divided into two: Windows-based systems and Unix/Linux-based systems. Although the purpose of the attack on these two systems is the same, the methods are different. So what is the attacker&rsquo;s goal at this layer? and what will we do? 
+<p>We monitor the computer systems we have at the endpoint security layer. These systems are basically divided into two: Windows-based systems and Unix/Linux-based systems. Although the purpose of the attack on these two systems is the same, the methods are different. So what is the attacker&rsquo;s goal at this layer? and what will we do?<br>
 After gaining initial access, the attacker has two main purposes for the system he accesses:</p>
 <ul>
 <li><strong>Providing permanence</strong>( <a href="https://attack.mitre.org/tactics/TA0003"  class="external-link" target="_blank" rel="noopener">Persistence</a>-Mitre) in the system it accesses. In other words, even if the connection is terminated or the system is shut down, being able to access the system without having to exploit the zero-day vulnerability again. There are many different techniques in Windows and Linux/Unix systems to achieve this.</li>
@@ -313,7 +300,6 @@ After gaining initial access, the attacker has two main purposes for the system 
 </ul>
 <p>A detailed examination of the endpoint for the <strong>3 important things</strong> I mentioned above will reveal the attacker&rsquo;s activity. For this purpose, various forensic tools are used. The most well-known are <a href="https://www.kroll.com/en/insights/publications/cyber/kroll-artifact-parser-extractor-kape"  class="external-link" target="_blank" rel="noopener"><strong>kape</strong></a> and <a href="https://www.nextron-systems.com/thor/"  class="external-link" target="_blank" rel="noopener"><strong>thor</strong></a>.</p>
 <p>Of course, this awareness is valid for institutions that have experts examining these products. Unfortunately, even if many organizations purchase such endpoint security products, they do not open them and look. Although security products detect and automatically block malware, they may not completely eliminate the attacker&rsquo;s access to the system. In this case, the attacker tries various methods to bypass or disable the security product, and if successful, can also bypass this layer.</p>
-<hr>
 <h3 id="3-network-protection">
   3-Network Protection
   <a class="heading-link" href="#3-network-protection">
@@ -337,7 +323,6 @@ After gaining initial access, the attacker has two main purposes for the system 
 <p>They are used to analyze and scan network traffic and prevent intrusion attacks. We need to collect the logs from these systems in our SIEM system. By analyzing these logs in our SIEM system, suspicious network activities can be seen and source hosts can be detected.</p>
 <p>With Firewall, we can block the malicious IPs we detect and prevent attackers from harming our institution. IDS/IPS systems detect and automatically block intrusion attacks in the corporate network. If attackers&rsquo; scans and attacks create large amounts of network traffic/noise. Therefore it is easy to detect. However, the attacker who is aware of this situation can try to do his job without making too much noise. By slowing down its scans, it can reduce its visibility in crowded network traffic. Although network security products are effective, they are not insurmountable.</p>
 <p>While endpoint security products and network security products are not impenetrable, they present obstacles for attackers to overcome. Attackers trying to bypass these systems waste time and slow down. This creates time for the attack to be detected by security experts. Some cyber attacks can last weeks or even months. As I said before, in the absence of security experts to detect this attack, the attacker will continue his way, albeit slowly.</p>
-<hr>
 <h3 id="4-data-protection">
   4-Data Protection
   <a class="heading-link" href="#4-data-protection">
@@ -359,7 +344,6 @@ After gaining initial access, the attacker has two main purposes for the system 
 </ul>
 <p>The purpose of these products is to control access to data, protect data and prevent data breach. Possible data losses are prevented with backup systems, data is protected with data encryption systems, violations are prevented with the DLP system, and access to data is controlled with the IAM system.</p>
 <p>Although these systems are configured correctly, they are not insurmountable like the network security and endpoint security products we mentioned before. An attacker can evade DLP by escaping small amounts of data. It can crack the encrypted data it receives, even if it is a hassle. It can even destroy data in backup systems. And he can finish his attack.</p>
-<hr>
 <h3 id="result">
   Result
   <a class="heading-link" href="#result">
