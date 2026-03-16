@@ -167,8 +167,10 @@ Saldırganlar tarafından kalıcılığı sürdürmek için yaygın olarak kulla
                 
               
               <li class="navigation-item">
-                <a href="/posts/2024/11/windows-persistence-methods/">English</a>
+                <a href="/">English</a>
               </li>
+            
+          
             
           
         
@@ -222,7 +224,7 @@ Saldırganlar tarafından kalıcılığı sürdürmek için yaygın olarak kulla
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="/images/1_embmEuQRxJRHe7TWE4Y6hw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*embmEuQRxJRHe7TWE4Y6hw.png" alt=""></p>
 <p>Windows’ta kalıcılık sağlama (persistence) yöntemleri, bir sistemin yeniden başlatılması veya kullanıcı oturumunun kapatılması durumunda bile zararlı yazılımların veya yetkisiz erişimlerin devam etmesini sağlamak için kullanılır.</p>
 <h3 id="1--kullanıcı-manipülasyonu-users">
   1- Kullanıcı Manipülasyonu (Users)
@@ -234,7 +236,7 @@ Saldırganlar tarafından kalıcılığı sürdürmek için yaygın olarak kulla
 <p>Saldırganlar tarafından kalıcılığı sürdürmek için yaygın olarak kullanılan bir yöntem de kullanıcı yaratmaktır. Aslında bunun yapılmasının tek nedeni kalıcılığı sağlamak değildir. Saldırgan(lar)ın “Administrator” hesabının kontrolünü ele geçirdiklerinde yeni kullanıcılar oluşturduklarını gözlemliyoruz. Çünkü bu önemli bir kullanıcıdır ve faaliyetleri düzenli olarak takip edilebilir. Bu nedenle, çok dikkat çekmeyecek yeni bir kullanıcı yaratıyorlar ve mümkünse bu kullanıcının ayrıcalıklarını artırıyorlar.</p>
 <p>Oluşturulan kullanıcılar genellikle “support”, “sysadmin”, “admin” gibi anahtar kelimeler içerir. Çoğu şirkette bu gibi isimlere sahip kullanıcılar fazla dikkat çekmeyecektir.</p>
 <p>Bilgisayarda var olan hesapları görüntülemek için “net users” komutunu kullanabiliriz.</p>
-<p><img src="/images/1_HvOGzRb3pHx18C05BL9HYg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*HvOGzRb3pHx18C05BL9HYg.png" alt=""></p>
 <p>net user</p>
 <p>Bir olay müdahale prosedürü sırasında, hızlı bir şekilde değerlendirmemiz gereken 2 şey vardır. Şu anda sistemde olmaması gereken bir kullanıcı var mı? Saldırı sırasında bir kullanıcı oluşturuldu ve daha sonra silindi mi?</p>
 <p>Oluşturulan ve silinen kullanıcıları görmek için EventViewer üzerinde araştırabiliriz.</p>
@@ -250,10 +252,10 @@ Saldırganlar tarafından kalıcılığı sürdürmek için yaygın olarak kulla
 <ul>
 <li><strong>Event ID 4726</strong>: Bir kullanıcı hesabı silindiğinde bu olay kaydedilir.</li>
 </ul>
-<p><img src="/images/1_4nn-RZO_QOj2Z31N2iW__Q.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*4nn-RZO_QOj2Z31N2iW__Q.png" alt=""></p>
 <p>Event Viewer Filtereleme</p>
 <p>Olay Görüntüleyecisinde yer alan kayıtlarda oluşturulan kullanıcıyı, zamanını ve hangi kullanıcı üzerinden oluşturulduğunu görebiliriz.</p>
-<p><img src="/images/1_1xVpZh22clB0-MLj_t8dfA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*1xVpZh22clB0-MLj_t8dfA.png" alt=""></p>
 <p>EventViewer log inceleme</p>
 <hr>
 <h3 id="2--zamanlanmış-görevler-scheduled-task">
@@ -264,7 +266,7 @@ Saldırganlar tarafından kalıcılığı sürdürmek için yaygın olarak kulla
   </a>
 </h3>
 <p>En çok kullanılan kalıcılık yöntemlerinden biri zamanlanmış görevler oluşturmaktır. Virüslerden fidye yazılımlarına kadar çoğu zararlı şey, kalıcılığı korumak için zamanlanmış görevler kullanır. Saldırgan, zamanlanmış görevler kullanarak zararlı dosyanın düzenli aralıklarla çalışmasını sağlar. Sistemde aktif olarak çalışan şüpheli zamanlanmış görevleri tespit etmenin çeşitli yolları vardır. Öncelikle bir sysinternals aracı olan “Autoruns” kullanılarak bunun nasıl yapıldığını gösterelim. Autoruns: <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns"  class="external-link" target="_blank" rel="noopener">İndir</a>.</p>
-<p><img src="/images/1_idpBPfOpk5jfDLg-y3C8wA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*idpBPfOpk5jfDLg-y3C8wA.png" alt=""></p>
 <p>Autoruns aracı ile analiz</p>
 <p>Autorun aracı ile scheduled tasks bölümüne baktığımızda OneDrive servisinin zamanlanmış görevlerini görebiliriz. Tabi bu servis microsoft imzalı ve doğrulanmış olduğu için güvenli ve yasaldır.</p>
 <hr>
@@ -277,7 +279,7 @@ Saldırganlar tarafından kalıcılığı sürdürmek için yaygın olarak kulla
 </h3>
 <p><strong>Registry run keyleri</strong>, Windows işletim sisteminde, belirli programların veya komutların otomatik olarak başlatılmasını sağlamak için kullanılan yerlerdir. Bu anahtarlar, sistem açıldığında veya bir kullanıcı oturum açtığında devreye girer. Zararlı yazılımlar, bu anahtarları kullanarak sistemde kalıcılık (persistence) sağlamaya çalışır, yani sistem yeniden başlatıldığında veya kullanıcı oturum açtığında kendilerini yeniden başlatabilirler.</p>
 <p>Registry keyleri regedit aracı ile düzenlenebilir.</p>
-<p><img src="/images/1_KJ7xCp0G-BiHtQ1-wsCjBw.jpeg" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*KJ7xCp0G-BiHtQ1-wsCjBw.jpeg" alt=""></p>
 <p>registry editor</p>
 <p><strong>Aşağıdaki çalıştırma anahtarları Windows sistemlerinde varsayılan olarak oluşturulur:</strong><br>
  <br>
@@ -299,9 +301,9 @@ Saldırganlar tarafından kalıcılığı sürdürmek için yaygın olarak kulla
 <p>● HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run<br>
  ● HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run</p>
 <p>Bu anahtarlar ile boot zamanında veya logon zamanında programlar başlatıabilir. Autoruns aracı ile başlatılan programlaarı görebiliriz.</p>
-<p><img src="/images/1_y3d5O0LdaV4GmOdbHnHpng.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*y3d5O0LdaV4GmOdbHnHpng.png" alt=""></p>
 <p>Autoruns Logon Keys</p>
-<p><img src="/images/1_Z-1VEztRVjoi7huNxW_u3A.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Z-1VEztRVjoi7huNxW_u3A.png" alt=""></p>
 <p>Autoruns Boot Keys</p>
 <hr>
 <h3 id="4-başlangıç-klasörüstartup-folder">
@@ -320,10 +322,10 @@ Saldırganlar tarafından kalıcılığı sürdürmek için yaygın olarak kulla
 <blockquote>
 <p>shell:startup</p>
 </blockquote>
-<p><img src="/images/1_1VKN6kfhHUHtAxIC_SMn-g.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*1VKN6kfhHUHtAxIC_SMn-g.png" alt=""></p>
 <p>startup folder</p>
 <p>Çalıştır aracı ile açtığımız başlangıç klasöründe zararlının bırakmış olduğu dosyaları görebiliriz.</p>
-<p><img src="/images/1_wYEoJlBvJhUvXomYDotB-g.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*wYEoJlBvJhUvXomYDotB-g.png" alt=""></p>
 <p>Başlangıç Klasörü</p>
 <hr>
 <h3 id="5--hizmetlerservices">

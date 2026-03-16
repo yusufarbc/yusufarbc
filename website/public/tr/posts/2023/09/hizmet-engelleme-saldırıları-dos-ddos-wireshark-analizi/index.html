@@ -171,8 +171,10 @@ Detaylı bilgi için: https://www.wireshark.org/">
                 
               
               <li class="navigation-item">
-                <a href="/posts/2023/09/denial-of-service-attacks-dos-ddos-wireshark-analysis/">English</a>
+                <a href="/">English</a>
               </li>
+            
+          
             
           
         
@@ -226,7 +228,7 @@ Detaylı bilgi için: https://www.wireshark.org/">
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="/images/1_tKGgOxt2Mq5piyQ3_CJDdg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*tKGgOxt2Mq5piyQ3_CJDdg.png" alt=""></p>
 <p>Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.</p>
 <hr>
 <h3 id="wireshark">
@@ -321,7 +323,7 @@ sudo apt install wireshark
 </h4>
 <p>Bu saldırıda, saldırganlar hedef sunucuya çok sayıda sahte bağlantı isteği (SYN isteği) gönderirler. Hedef sunucu bu istekleri yanıtlamaya çalışırken kaynaklarını tüketir ve gerçek kullanıcılara hizmet veremez hale gelir.</p>
 <p>Wireshark ile SYN Flood saldırısı yakaladığımızda çok kısa zaman aralıklarıyla gönderilmiş birçok SYN bayraklı TCP paketi görürüz.</p>
-<p><img src="/images/1_8f1IfL0GBQhChQvtBIMM1w.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*8f1IfL0GBQhChQvtBIMM1w.png" alt=""></p>
 <p>SYN-Flood</p>
 <h4 id="rst-flood-saldırısı">
   RST Flood Saldırısı
@@ -332,7 +334,7 @@ sudo apt install wireshark
 </h4>
 <p>Saldırganlar, hedef sunucuya sahte TCP RST paketleri göndererek mevcut bağlantıları sıfırlarlar. Bu, hedef sunucunun işleyişini bozabilir ve hizmetleri kullanılamaz hale getirebilir.</p>
 <p>Wireshark ile RST Flood saldırısı yakaladığımızda çok kısa zaman aralıklarıyla gönderilmiş birçok RST bayraklı TCP paketi görür. Kaynak adresini de manipüle eder farklı IP adreslerinden geliyormuş gibi gösterir.</p>
-<p><img src="/images/1_3YLM5vaoxJjO3zo5h_nA1w.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*3YLM5vaoxJjO3zo5h_nA1w.png" alt=""></p>
 <p>RST Flood</p>
 <h4 id="ack-psh-flood-saldırısı">
   ACK-PSH Flood Saldırısı
@@ -343,7 +345,7 @@ sudo apt install wireshark
 </h4>
 <p>Bu tür saldırılarda, saldırganlar hedef sunucuya büyük miktarda sahte TCP ACK ve PSH (Push) paketleri gönderirler. Bu, sunucunun kaynaklarını tüketmeye ve hizmetlerin yavaşlamasına neden olabilir.</p>
 <p>Wireshark ile ACK-PSH Flood saldırısı yakaladığımızda çok kısa zaman aralıklarıyla gönderilmiş birçok PSH+ACK bayraklı TCP paketi görür. Kaynak adresini manipüle eder farklı IP adreslerinden geliyormuş gibi gösterir.</p>
-<p><img src="/images/1_N5dYU-KK2LY19L4dcajOuw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*N5dYU-KK2LY19L4dcajOuw.png" alt=""></p>
 <p>ACK-PSH Flood</p>
 <h4 id="ack-flood-saldırısı">
   ACK Flood Saldırısı
@@ -354,7 +356,7 @@ sudo apt install wireshark
 </h4>
 <p>Saldırganlar, hedef sunucuya büyük miktarda sahte TCP ACK (Acknowledgment) paketi gönderirler. Bu, sunucunun kaynaklarını hızla tüketebilir.</p>
 <p>ACK-PSH’e benzer şekilde ACK Flooda da wireshark ile baktığımızda çok kısa aralıklarla gönderilmiş ACK bayraklı TCP paketleri görüyoruz. Kaynak adresi manipüle edilerek farklı kaynaktan geliyormuş gibi gösterilmiş.</p>
-<p><img src="/images/1_UgJojmwpCwsycIQG5kO7UQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*UgJojmwpCwsycIQG5kO7UQ.png" alt=""></p>
 <p>ACK Flood</p>
 <p>Bu tür saldırılar, sunucuların ve ağların aşırı yüklendiği durumlar yaratır ve hizmet kesintilerine neden olabilir. Bu nedenle, hedefler genellikle saldırıları tespit etmek ve savunmak için güvenlik önlemleri ve siber güvenlik çözümleri kullanırlar. Bu çözümler, trafiği filtreleme, güvenlik duvarları, saldırı tespiti sistemleri ve yük dengeleme gibi önlemleri içerebilir. Ayrıca, ağ güvenliği politikaları ve iyi güvenlik uygulamaları da önemlidir.</p>
 <hr>
@@ -376,7 +378,7 @@ sudo apt install wireshark
 </h4>
 <p>Bu tür bir saldırıda, saldırganlar hedef sunucuya büyük miktarda sahte UDP paketi gönderirler. Bu paketler, hedef sunucunun kaynaklarını tüketmeye ve hizmetlerini kullanılamaz hale getirmeye çalışır. Bu tür saldırılar, hedef sunucunun yanıt veremediği kadar hızlı bir şekilde paket göndermeyi içerebilir.</p>
 <p>TCP saldırılarına benzer şekilde UDP salrıılarında da wireshark ile baktığımızda çok kısa aralıklarla gönderilmiş paketler görürüz. Farklı olan nokta bu sefer TCP değil UDP paketleri mevcut. Ayrıca yine kaynak adresi manipüle edilerek farklı kaynaktan geliyormuş gibi gösterilmiş.</p>
-<p><img src="/images/1_VNf1wUYOGRdXBuNUeU0qPg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*VNf1wUYOGRdXBuNUeU0qPg.png" alt=""></p>
 <p>UDP Flood</p>
 <h4 id="udp-fragmentation-saldırıları">
   <strong>UDP Fragmentation Saldırıları</strong>
@@ -405,7 +407,7 @@ sudo apt install wireshark
 </h4>
 <p>Saldırganlar, hedef sunucuya büyük miktarda ICMP Echo Request (ping) isteği gönderirler. Bu istekler, hedef sunucunun yanıtlamasını gerektirir ve sunucunun kaynaklarını tüketebilir.</p>
 <p>Wireshark ile ağ trafiğini incelediğimizde çok sayıda ICMP echo request paketi görüyoruz. Bu istekler tek bir kaynaktan gelmiş.</p>
-<p><img src="/images/1_dqsZopEHHSShzDAVlx62gA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*dqsZopEHHSShzDAVlx62gA.png" alt=""></p>
 <p>Ping Flood</p>
 <h4 id="smurf-saldırıları">
   Smurf Saldırıları
@@ -416,7 +418,7 @@ sudo apt install wireshark
 </h4>
 <p>Bu tür saldırılarda, saldırganlar sahte kaynak IP adresleri kullanarak büyük miktarda ICMP Echo Request isteği gönderirler. Bu istekler, ağdaki tüm cihazlara iletilir ve tüm cihazlar yanıt verir, bu da hedef sunucunun aşırı yüklenmesine neden olur.</p>
 <p>Wireshark ile ağ trafiğini incelediğimizde çok sayıda ICMP echo request paketi görüyoruz. Bu istekler manipüle edilmiş kaynaklardan gelmiş görünüyor.</p>
-<p><img src="/images/1_KKFdMVKStomIrgb24zsXWA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*KKFdMVKStomIrgb24zsXWA.png" alt=""></p>
 <p>Smurf Attack</p>
 <h4 id="icmp-redirect-saldırıları">
   <strong>ICMP Redirect Saldırıları</strong>
@@ -454,7 +456,7 @@ sudo apt install wireshark
 <p>Saldırganlar, hedef web sunucusuna çok sayıda HTTP isteği gönderirler. Bu, sunucunun kaynaklarını tüketebilir ve hizmet verememesine neden olabilir.</p>
 <p>Bu saldırının gerçekleştirilmesi için python dili ile yazılmış bir araç buldum. Linki <a href="https://github.com/D4Vinci/PyFlooder"  class="external-link" target="_blank" rel="noopener">burada</a>. Kendi lokalimde kurduğum bir web sunucusuna HTTP flood saldırısı gerçekleştirdim.</p>
 <p>Wireshark ile trafiği incelediğimizde çok kısa aralıklarla çok sayıda HTTP GET paketi gittiğini görüyoruz.</p>
-<p><img src="/images/1_wr8sajciDuwntDmn68NOdw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*wr8sajciDuwntDmn68NOdw.png" alt=""></p>
 <p>HTTP GET Flood</p>
 <h4 id="slowloris-saldırıları">
   <strong>Slowloris Saldırıları</strong>

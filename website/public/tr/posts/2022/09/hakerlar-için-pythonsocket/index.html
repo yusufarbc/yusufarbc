@@ -14,14 +14,6 @@
 
 <meta name="author" content="Yusuf Talha ARABACI">
 <meta name="description" content="
-  te: 2022-09-21
-draft: false
-  
-    
-    Başlık Linki
-  
-
-
 
   Hakerlar için Python:socket
   
@@ -53,13 +45,13 @@ Socket python ile birlikte kurulu halde gelen bir modüldür. Bu modül sayesind
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Hakerlar için Python:socket">
-  <meta name="twitter:description" content="te: 2022-09-21 draft: falseBaşlık LinkiHakerlar için Python:socketBaşlık LinkiGirişBaşlık LinkiMerhaba bu yazımızda, uzak sunucuların ip ve port adreslerine bağlantı kurmak için kullanabileceğimiz socket modülünü tanıyacağız.
+  <meta name="twitter:description" content="Hakerlar için Python:socketBaşlık LinkiGirişBaşlık LinkiMerhaba bu yazımızda, uzak sunucuların ip ve port adreslerine bağlantı kurmak için kullanabileceğimiz socket modülünü tanıyacağız.
 Socket nedir?Başlık LinkiSocket python ile birlikte kurulu halde gelen bir modüldür. Bu modül sayesinde, istenilen ip ve port adresine bağlantı kurabiliriz. Şimdi gelin bu modülü nasıl kullanacağımıza ve bu modül ile neler yapabileceğimize bir bakalım.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2022/09/hakerlar-i%C3%A7in-pythonsocket/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Hakerlar için Python:socket">
-  <meta property="og:description" content="te: 2022-09-21 draft: falseBaşlık LinkiHakerlar için Python:socketBaşlık LinkiGirişBaşlık LinkiMerhaba bu yazımızda, uzak sunucuların ip ve port adreslerine bağlantı kurmak için kullanabileceğimiz socket modülünü tanıyacağız.
+  <meta property="og:description" content="Hakerlar için Python:socketBaşlık LinkiGirişBaşlık LinkiMerhaba bu yazımızda, uzak sunucuların ip ve port adreslerine bağlantı kurmak için kullanabileceğimiz socket modülünü tanıyacağız.
 Socket nedir?Başlık LinkiSocket python ile birlikte kurulu halde gelen bir modüldür. Bu modül sayesinde, istenilen ip ve port adresine bağlantı kurabiliriz. Şimdi gelin bu modülü nasıl kullanacağımıza ve bu modül ile neler yapabileceğimize bir bakalım.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
@@ -182,8 +174,10 @@ Socket nedir?Başlık LinkiSocket python ile birlikte kurulu halde gelen bir m
                 
               
               <li class="navigation-item">
-                <a href="/posts/2022/09/pythonsocket-for-hackers/">English</a>
+                <a href="/">English</a>
               </li>
+            
+          
             
           
         
@@ -229,15 +223,7 @@ Socket nedir?Başlık LinkiSocket python ile birlikte kurulu halde gelen bir m
 
       <div class="post-content">
         
-        <h2 id="draft-false">
-  te: 2022-09-21
-draft: false
-  <a class="heading-link" href="#draft-false">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
-    <span class="sr-only">Başlık Linki</span>
-  </a>
-</h2>
-<hr>
+        <hr>
 <h3 id="hakerlar-için-pythonsocket">
   <strong>Hakerlar için Python:socket</strong>
   <a class="heading-link" href="#hakerlar-i%c3%a7in-pythonsocket">
@@ -245,7 +231,7 @@ draft: false
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="/images/1_Z3ieIgd5w_LPy0R2bLu6pg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Z3ieIgd5w_LPy0R2bLu6pg.png" alt=""></p>
 <h3 id="giriş">
   Giriş
   <a class="heading-link" href="#giri%c5%9f">
@@ -321,7 +307,7 @@ with socket.socket() as s:
     data = s.recv(1024)  
 print(&#39;Received &#39;, data)
 </code></pre><p>Bu kod 127.0.0.1:2222 adresinde çalışan soketle bağlantı kuracak bir bir data gönderecektir. Burada gönderilen data ‘merhaba’ mesajıdır. Ardından karşıdan gelen datayı alır ve program sonlanır.</p>
-<p><img src="/images/1_0epPGqrnUjKfpY9yg8YoKg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*0epPGqrnUjKfpY9yg8YoKg.png" alt=""></p>
 <p>Soket dinlediğimiz kodu <em>server.py i</em>simli bir dosyaya kaydedelim. Sokete bağlandığımız kodu ise <em>client.py</em> isimli bir dosyaya kaydedelim. Önce server.py dosyasını sonra client.py dosyasını çalıştırdığımızda bağlantı kurulmuş olacaktır.</p>
 <h3 id="port-taraması">
   Port Taraması
@@ -350,7 +336,7 @@ banners = []
 print(ports)  
 print(banners)
 </code></pre><p>Typhoon makinesi üzerinde bu kodu çalıştırırsak bize açık portları ve banner bilgilerini gertirir.</p>
-<p><img src="/images/1_p297l0qe6OnuUmY7ep52sA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*p297l0qe6OnuUmY7ep52sA.png" alt=""></p>
 <h3 id="ssl">
   SSL
   <a class="heading-link" href="#ssl">
@@ -374,7 +360,7 @@ context = ssl.create_default_context()
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p>Bu modül ile siber güvenlik alanında yapabileceğimiz başka ne tür işlem</p>
+<p>Bu modül ile siber güvenlik alanında yapabileceğimiz başka ne tür işlemler olabilir? Yorumlara beklerim…</p>
 
       </div>
 

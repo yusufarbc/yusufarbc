@@ -150,6 +150,8 @@ The complexity of digital infrastructures and the sophisticated nature of cyber 
           
           
             
+          
+            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -157,7 +159,7 @@ The complexity of digital infrastructures and the sophisticated nature of cyber 
                 
               
               <li class="navigation-item">
-                <a href="/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-iv-a%C4%9F-g%C3%BCvenli%C4%9Fi-teknolojileri/">Türkçe</a>
+                <a href="/tr/">Türkçe</a>
               </li>
             
           
@@ -212,7 +214,7 @@ The complexity of digital infrastructures and the sophisticated nature of cyber 
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="/images/1_Fhet-NIJbKlNzPESUc1Ttw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Fhet-NIJbKlNzPESUc1Ttw.png" alt=""></p>
 <p>The complexity of digital infrastructures and the sophisticated nature of cyber threats have necessitated a radical transformation in network security approaches. The traditional “castle and moat” perimeter security model strongly guarded the boundaries of the network, assigning implicit trust to every entity within. However, with the rise of modern IT paradigms such as cloud computing, mobility, remote working and the Internet of Things (IoT), this clearly defined network perimeter has become increasingly blurred. In these distributed and dynamic environments, the inability of the traditional model to prevent threats has led to the adoption of more integrated and identity-centered architectures such as defense-in-depth and Zero Trust.</p>
 <p>This evolution represents a fundamental shift from reactive defense mechanisms to proactive control strategies. Initially, it was considered sufficient to place a firewall around the network, assuming that the threats were largely external. However, when attackers began to target the application layer (OSI Layer 7) to bypass this defense, tools that could go deeper and analyze the content, such as Web Application Firewalls (WAF) and Intrusion Prevention Systems (IPS), were needed. With the increasing ability of threat actors to steal credentials and exploit insider threats, it has become clear that even a user or device inside the network cannot be trusted by default. This awareness has formed the basic philosophy of the Zero Trust architecture, which stipulates that every access request must be dynamically verified and authorized, regardless of who and where it comes from. Therefore, the evolution of network security technologies is not only a technical advance, but also a concrete reflection of a philosophical shift towards the concept of “trust”. This report aims to comprehensively examine today&rsquo;s network security technologies within the framework of these modern paradigms, at the level of architecture, protocol and strategy.</p>
 <hr>
@@ -298,7 +300,7 @@ The complexity of digital infrastructures and the sophisticated nature of cyber 
 <li><strong>Malware Activity:</strong> Connection attempts from known malicious IP addresses or command-and-control servers may indicate that a system has been compromised within the network.</li>
 </ul>
 <p>For effective log analysis, all firewall logs and logs from other network devices should be sent to a central <strong>Security Information and Event Management (SIEM)</strong> platform using a standard protocol such as <strong>Syslog</strong>. Syslog messages generally follow the format <code>&lt;PRI&gt;TIMESTAMP HOSTNAME: MESSAGE</code>; where the <code>&lt;PRI&gt;</code> value contains both the severity and source (facility) information of the message. For example, a message such as <code>%ASA-6-106100</code> produced by a Cisco ASA firewall includes the device type (ASA), severity level (6 - Informational), and specific event ID (106100). This structured data forms the basis for event correlation and automatic alert generation in SIEM platforms.</p>
-<p><img src="/images/1_B1xzRwD1QjcobyhgHaewZQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*B1xzRwD1QjcobyhgHaewZQ.png" alt=""></p>
 <p><strong>Firewall Technologies Comparison</strong></p>
 <h3 id="16-dmz-design-patterns-single-and-double-firewall-architectures">
   1.6. DMZ Design Patterns: Single and Double Firewall Architectures
@@ -484,7 +486,7 @@ The complexity of digital infrastructures and the sophisticated nature of cyber 
 <li><strong>Anomaly-based Detection:</strong> Instead of looking for a specific attack signature, this approach learns the “normal” behavior of the network and flags deviations from this normal as a potential threat. The system creates a <strong>baseline</strong> by observing network traffic metrics (for example, bandwidth usage, protocols used, connection counts) over a period of time. Whenever a statistically significant deviation from this baseline profile is detected (for example, an unexpected increase in FTP traffic in the middle of the night), an anomaly alert is triggered. The biggest advantage of this method is its potential to detect new and unknown attacks without a signature. However, it tends to have a <strong>high false positive rate</strong> because it can also flag legitimate but unexpected network activity (for example, the deployment of a new application) as anomalies.</li>
 <li><strong>Behavioral Analysis:</strong> This is a more advanced form of anomaly-based detection. Rather than focusing solely on statistical deviations such as traffic volume, it analyzes the behavioral logic of protocols and applications. For example, when a DNS server transfers large amounts of data outward in a way it normally shouldn&rsquo;t, or when a web server tries to launch a command line (shell), the protocol detects violations or unexpected sequences of actions. This method can produce more accurate results than anomaly-based detection because it uses more context information.</li>
 </ol>
-<p><img src="/images/1_PjPS0Bfp8Mb94zqFwP74Dw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*PjPS0Bfp8Mb94zqFwP74Dw.png" alt=""></p>
 <p><strong>IDS/IPS Detection Methods Comparison</strong></p>
 <h3 id="32-architecture-of-open-source-idsips-engines-comparison-of-snort-suricata-and-zeek-bro">
   3.2. Architecture of Open Source IDS/IPS Engines: Comparison of Snort, Suricata and Zeek (Bro)
@@ -638,7 +640,7 @@ The complexity of digital infrastructures and the sophisticated nature of cyber 
   </a>
 </h4>
 <p>Because IPSec uses IP headers to verify the integrity of packets, the source IP address or port cannot be detected by NAT devices.Changing it will disrupt the authentication process. <strong>NAT Traversal</strong> is a mechanism developed to solve this problem. NAT-T encapsulates IPSec (specifically ESP) packets within a UDP header. These UDP packets generally use port 4500. Even if NAT devices redirect by changing the port information of these UDP packets, the original ESP packet inside remains intact and can be processed correctly by the VPN gateway at the destination.</p>
-<p><img src="/images/1_qcfN3w9nucr_-rFUjvihHg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*qcfN3w9nucr_-rFUjvihHg.png" alt=""></p>
 <p><strong>VPN Protocols Comparison</strong></p>
 <hr>
 <h3 id="chapter-5-the-central-nervous-system-of-security-operations-siem-and-soar">
@@ -690,7 +692,7 @@ The complexity of digital infrastructures and the sophisticated nature of cyber 
 <li><strong>IBM QRadar:</strong> It is a well-established and mature SIEM platform. It is particularly strong in rule-based correlation and compliance reporting. It is generally seen as a more cost-effective option than Splunk, but its interface may be considered outdated by some users.</li>
 <li><strong>Microsoft Sentinel:</strong> It is a cloud-native SIEM and SOAR solution. It stands out especially with its deep integration with Azure cloud services and artificial intelligence-supported analysis capabilities. It is a popular option for modern cloud environments because it does not require infrastructure management and is scalable.</li>
 </ul>
-<p><img src="/images/1_pGGWBXfh3FmW4dBdnSiGIA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*pGGWBXfh3FmW4dBdnSiGIA.png" alt=""></p>
 <p><strong>Key Differences Between SIEM and SOAR</strong></p>
 <hr>
 <h3 id="chapter-6-zero-trust-in-network-access-network-access-control-nac">
@@ -826,7 +828,7 @@ The complexity of digital infrastructures and the sophisticated nature of cyber 
 <li><strong>Regular Network Scans:</strong> It is important to detect unauthorized devices by regularly scanning the network.</li>
 <li><strong>User Education:</strong> Educating users about the risks of connecting to unknown or suspicious Wi-Fi networks, paying attention to certificate warnings, and the importance of using a VPN on public networks is one of the most important lines of defense.</li>
 </ul>
-<p><img src="/images/1_1MluVyG6UZhxsJniWxTz2g.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*1MluVyG6UZhxsJniWxTz2g.png" alt=""></p>
 <p><strong>WPA2 and WPA3 Comparison</strong></p>
 <hr>
 <h3 id="result">

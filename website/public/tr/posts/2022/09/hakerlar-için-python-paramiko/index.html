@@ -14,14 +14,6 @@
 
 <meta name="author" content="Yusuf Talha ARABACI">
 <meta name="description" content="
-  te: 2022-09-26
-draft: false
-  
-    
-    Başlık Linki
-  
-
-
 
   Hakerlar için Python: paramiko
   
@@ -53,13 +45,13 @@ SSH (Secure Shell), ağ hizmetlerinin güvenli olmayan bir ağ üzerinde güvenl
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Hakerlar için Python: paramiko">
-  <meta name="twitter:description" content="te: 2022-09-26 draft: falseBaşlık LinkiHakerlar için Python: paramikoBaşlık LinkiGirişBaşlık LinkiMerhaba, bu yazımda Python ile SSH bağlantıları kurmamızı sağlayan paramiko modülünü tanıyacağız.
+  <meta name="twitter:description" content="Hakerlar için Python: paramikoBaşlık LinkiGirişBaşlık LinkiMerhaba, bu yazımda Python ile SSH bağlantıları kurmamızı sağlayan paramiko modülünü tanıyacağız.
 paramiko nedir?Başlık LinkiSSH (Secure Shell), ağ hizmetlerinin güvenli olmayan bir ağ üzerinde güvenli şekilde çalıştırılması için kullanılan bir kriptografik ağ protokolüdür. SSH ile ağ cihazlarınıza, linux ve windows makinelere bağlanabilir ve onları yönetebilirsiniz. Ön tanımlı olarak 22 portunda çalışır.">
 
 <meta property="og:url" content="http://localhost:1313/tr/posts/2022/09/hakerlar-i%C3%A7in-python-paramiko/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Hakerlar için Python: paramiko">
-  <meta property="og:description" content="te: 2022-09-26 draft: falseBaşlık LinkiHakerlar için Python: paramikoBaşlık LinkiGirişBaşlık LinkiMerhaba, bu yazımda Python ile SSH bağlantıları kurmamızı sağlayan paramiko modülünü tanıyacağız.
+  <meta property="og:description" content="Hakerlar için Python: paramikoBaşlık LinkiGirişBaşlık LinkiMerhaba, bu yazımda Python ile SSH bağlantıları kurmamızı sağlayan paramiko modülünü tanıyacağız.
 paramiko nedir?Başlık LinkiSSH (Secure Shell), ağ hizmetlerinin güvenli olmayan bir ağ üzerinde güvenli şekilde çalıştırılması için kullanılan bir kriptografik ağ protokolüdür. SSH ile ağ cihazlarınıza, linux ve windows makinelere bağlanabilir ve onları yönetebilirsiniz. Ön tanımlı olarak 22 portunda çalışır.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="article">
@@ -182,8 +174,10 @@ paramiko nedir?Başlık LinkiSSH (Secure Shell), ağ hizmetlerinin güvenli ol
                 
               
               <li class="navigation-item">
-                <a href="/posts/2022/09/python-for-hackers-paramiko/">English</a>
+                <a href="/">English</a>
               </li>
+            
+          
             
           
         
@@ -229,15 +223,7 @@ paramiko nedir?Başlık LinkiSSH (Secure Shell), ağ hizmetlerinin güvenli ol
 
       <div class="post-content">
         
-        <h2 id="draft-false">
-  te: 2022-09-26
-draft: false
-  <a class="heading-link" href="#draft-false">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
-    <span class="sr-only">Başlık Linki</span>
-  </a>
-</h2>
-<hr>
+        <hr>
 <h3 id="hakerlar-için-pythonparamiko">
   <strong>Hakerlar için Python: paramiko</strong>
   <a class="heading-link" href="#hakerlar-i%c3%a7in-pythonparamiko">
@@ -245,7 +231,7 @@ draft: false
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="/images/1_cHmfmYLtoze7wtcUFY5BVA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*cHmfmYLtoze7wtcUFY5BVA.png" alt=""></p>
 <h3 id="giriş">
   Giriş
   <a class="heading-link" href="#giri%c5%9f">
@@ -296,7 +282,7 @@ stdin, stdout, stderr = ssh.exec_command(command) # Komut çalıştırma
 print(stdout.read())
 </code></pre><pre tabindex="0"><code>ssh.close()
 </code></pre><p>Bu örnekte pramaiko modülü ile bir SSH client’ı oluşturduk. Uygulama belirtilen ip ve port adresine kullanıcı adı ve parola bilgileri ile bir bağlantı gerçekleştirir ve ‘whoami’ komutunu çalıştırır. Ardından dönen cevabı ekrana yazdırır ve SSH bağlantısını kapatır.</p>
-<p><img src="/images/1_yht4td7gjtuSn40eYD1_mQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*yht4td7gjtuSn40eYD1_mQ.png" alt=""></p>
 <p>Bu örnekte, sanal ortamda <a href="https://www.vulnhub.com/entry/typhoon-102,267/"  class="external-link" target="_blank" rel="noopener">Typhoon</a> makinesini çalıştırarak SSH ile bağlandık. Şimdi bu modül ile daha neler yapabileceğimize bir bakalım.</p>
 <h3 id="ssh-brute-force-saldırısı">
   SSH brute force saldırısı
@@ -342,7 +328,7 @@ print(stdout.read().decode(‘ascii’))
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p>Sonuç olarak, paramiko modülü ile uzak sunuculara SSH bağlantısı yaptık ve sunucular üzerinde komut çalıştırdık. Paramiko ile başka ne tür uygulamalar</p>
+<p>Sonuç olarak, paramiko modülü ile uzak sunuculara SSH bağlantısı yaptık ve sunucular üzerinde komut çalıştırdık. Paramiko ile başka ne tür uygulamalar yapılabilir yorumlara beklerim…</p>
 
       </div>
 

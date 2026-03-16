@@ -150,6 +150,8 @@ In cyber security operations, persistence is one of the most critical stages tha
           
           
             
+          
+            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -157,7 +159,7 @@ In cyber security operations, persistence is one of the most critical stages tha
                 
               
               <li class="navigation-item">
-                <a href="/tr/posts/2025/08/soc-analistleri-i%C3%A7in-kal%C4%B1c%C4%B1l%C4%B1k-sa%C4%9Flama-kapsaml%C4%B1-xdr-analiz-k%C4%B1lavuzu/">Türkçe</a>
+                <a href="/tr/">Türkçe</a>
               </li>
             
           
@@ -212,7 +214,7 @@ In cyber security operations, persistence is one of the most critical stages tha
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="/images/1_t3uzw3mQTB-z3Mm777G-RQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*t3uzw3mQTB-z3Mm777G-RQ.png" alt=""></p>
 <p>In cyber security operations, persistence is one of the most critical stages that allows an attacker to leave a permanent footprint on the system. This makes it possible for the attack to reach its long-term goals beyond the initial access vector (for example, a phishing email or a vulnerability exploit). It guarantees attackers continued access to the system, beyond traditional antivirus (AV) solutions or system reboots. Persistence provides threat actors with a number of advantages: the ability to create a backdoor to communicate with Command and Control (C2) servers, bypass traditional security controls, and facilitate privilege escalation and horizontal mobility within the network. This stage plays a decisive role in transforming a cyber attack from a short-term incident into a long-term infiltration operation.</p>
 <p>This report dives into the Windows registry-based persistence mechanisms a SOC analyst may encounter, focusing on specific tactics and techniques from the MITRE ATT&amp;CK knowledge base. In particular, common techniques such as <code>T1547: Boot or Logon Autostart Execution</code> and <code>T1112: Modify Registry</code> will be discussed and how to detect these techniques will be detailed.</p>
 <hr>
@@ -264,7 +266,7 @@ In cyber security operations, persistence is one of the most critical stages tha
 <li><strong>APT41:</strong> APT41&rsquo;s use of the <code>Svchost</code> key proves that attackers have a deep understanding of the inner workings of Windows and can go beyond standard security controls.</li>
 </ul>
 <p>The following table serves as a quick reference guide for a SOC analyst and summarizes the most common registry persistence keys, their effects, and related threat examples.</p>
-<p><img src="/images/1_EOdZ-x8gqkMWMCJo5HLhqg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*EOdZ-x8gqkMWMCJo5HLhqg.png" alt=""></p>
 <hr>
 <h3 id="part-2-detection-and-analysis-via-event-logs">
   Part 2: Detection and Analysis via Event Logs
@@ -301,7 +303,7 @@ In cyber security operations, persistence is one of the most critical stages tha
 <li><code>Event ID 13</code> <strong>(RegistryEvent - Value Set):</strong> This event records changes to the content of existing registry values. This event can detect an attacker changing the value of a previously existing &lsquo;Run&rsquo; key.</li>
 </ul>
 <p>These Sysmon events represent critical information for an analyst, such as <code>ParentImage</code> and <code>ParentCommandLine</code>. Contains key areas. These fields show what the main process that made the change was and how it was started. This is vital for tracing back to the source of the attack and reconstructing the attack chain. For example, if a PowerShell script is detected to cause a registry change, the <code>ParentImage</code> field can indicate which parent process (such as <code>explorer.exe</code>) started this script.</p>
-<p><img src="/images/1_VR-A4gThQLNfdXDYlpGuwQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*VR-A4gThQLNfdXDYlpGuwQ.png" alt=""></p>
 <hr>
 <h3 id="chapter-3-in-depth-analysis-and-threathunting-with-edrxdr-solutions">
   Chapter 3: In-Depth Analysis and Threat Hunting with EDR/XDR Solutions

@@ -172,8 +172,10 @@ Bu noktada, üzerinde çalışacağı donanıma(hardware) bağımlı bir sistemd
                 
               
               <li class="navigation-item">
-                <a href="/posts/2023/06/operating-system-concept/">English</a>
+                <a href="/">English</a>
               </li>
+            
+          
             
           
         
@@ -227,7 +229,7 @@ Bu noktada, üzerinde çalışacağı donanıma(hardware) bağımlı bir sistemd
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="/images/1_IvUopr4Tqf2K6eew539ATw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*IvUopr4Tqf2K6eew539ATw.png" alt=""></p>
 <p>Merhaba bu yazımda işletim sistemlerinin yapısından, konseptinden ve özelliklerinden bahsedeceğim. İşletim sisteminin tasarımsal zorlukları, güvenlik gereksinimleri ve dahası bu yazıda!</p>
 <hr>
 <h3 id="işletim-sistemi-operating-system">
@@ -250,7 +252,7 @@ Bu noktada, üzerinde çalışacağı donanıma(hardware) bağımlı bir sistemd
   </a>
 </h4>
 <p>İşletim sistemi, bilgisayar donanımı ile yazılım arasında bir arabirim görevi gören ve bilgisayarın kaynaklarını yöneten bir yazılımdır. İşletim sistemi, bilgisayarın bellek, işlemci, dosya sistemleri, cihaz sürücüleri ve ağ bağlantıları gibi kaynaklara erişimi düzenler ve kullanıcıların bu kaynakları etkili bir şekilde kullanabilmesini sağlar.</p>
-<p><img src="/images/1_Xpk60lGLgXPw0S25Wf7sxw.jpeg" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Xpk60lGLgXPw0S25Wf7sxw.jpeg" alt=""></p>
 <p>İşletim Sistemi Yapısı</p>
 <p>İşletim sistemi genellikle çekirdek (kernel) ve kullanıcı arayüzü (shell) olmak üzere iki temel bileşenden oluşur.</p>
 <p><strong>1. Çekirdek (Kernel):</strong> Çekirdek, işletim sisteminin temel parçasıdır ve en düşük seviyede donanım kaynaklarını yönetir. Bellek yönetimi, işlem yönetimi, dosya sistemleri, sürücüler ve ağ bağlantıları gibi temel işlevleri yerine getirir. Çekirdek, doğrudan donanım ile iletişim kurar ve uygulamaların bu kaynaklara erişimini sağlar.</p>
@@ -326,7 +328,7 @@ kuyruklarına işaretçiler ve diğer zamanlama parametrelerini içerir.</li>
 <li><strong>G/Ç durum bilgisi:</strong> Bu bilgiler, sürece tahsis edilen G/Ç aygıtlarının<br>
 listesini, açık dosyaların listesini vb. içerir.</li>
 </ul>
-<p><img src="/images/1_RrcLvg5ZJ9nHEVCHm7VEeA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*RrcLvg5ZJ9nHEVCHm7VEeA.png" alt=""></p>
 <p>Proses kontrol bloğu (PCB)</p>
 <h4 id="işlemler-arasıiletişim">
   İşlemler Arası İletişim
@@ -354,7 +356,7 @@ iletişimin iki temel modeli vardır: <em>paylaşılan bellek</em> ve <em>mesaj 
   </a>
 </h4>
 <p>İş parçacığı, CPU kullanımının temel bir birimidir; bir iş parçacığı kimliği, bir program sayacı, bir kayıt seti ve bir yığından oluşur. Aynı sürece ait diğer iş parçacıkları ile kod bölümünü, veri bölümünü ve açık dosyalar ve sinyaller gibi diğer işletim sistemi kaynaklarını paylaşır. Geleneksel bir işlemin tek bir kontrol iş parçacığı vardır. Bir işlem birden çok iş parçacığına sahip olabilir.</p>
-<p><img src="/images/1_Oj15rspOQ1TXXtw4k4d2xQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Oj15rspOQ1TXXtw4k4d2xQ.png" alt=""></p>
 <p>İş Parçacıklı İşlem</p>
 <h4 id="multithreading-modelleri">
   Multithreading Modelleri
@@ -415,7 +417,7 @@ vardır.</li>
 <p>Kritik kesit sorununa yönelik donanım tabanlı çözümler karmaşıktır ve genellikle uygulama programcıları için erişilemezdir. Bunun yerine, işletim sistemi tasarımcıları kritik bölüm sorununu çözmek için yazılım araçları geliştirirler. Bu araçların en basiti muteks kilididir. (Aslında muteks terimi karşılıklı dışlamanın kısaltmasıdır.) Muteks kilidini kritik bölgeleri korumak ve böylece yarış koşullarını önlemek için kullanırız. Yani, bir<br>
 sişlem kritik bir bölüme girmeden önce kilidi edinmelidir; kritik bölümden<br>
 çıktığında kilidi serbest bırakır.</p>
-<p><img src="/images/1_6IRXR8Sw9EndL-QKPRmL6w.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*6IRXR8Sw9EndL-QKPRmL6w.png" alt=""></p>
 <p>Muteks kilitleri kullanımı</p>
 <p><em>acquire()</em> fonksiyonu kilidi alır ve <em>release()</em> fonksiyonu kilidi serbest bırakır. <em>acquire()</em> ya da <em>release()</em> çağrıları atomik olarak gerçekleştirilmelidir. <br>
 Bir muteks kilidinin, değeri kilidin kullanılabilir olup olmadığını gösteren bir boolean değişkeni vardır. Kilit kullanılabilir durumdaysa, <em>acquire()</em> çağrısı başarılı olur ve kilit daha sonra kullanılamaz olarak kabul edilir. Kullanılamayan bir kilidi almaya çalışan bir işlem, kilit serbest bırakılana kadar engellenir.</p>
@@ -444,7 +446,7 @@ Bir semafor S, başlatma dışında yalnızca iki standart atomik işlemle eriş
 bağımsız olarak bu veriler üzerinde çalışacak bir dizi işlevle birlikte verileri<br>
 kapsar. Monitör yapısı, monitör içinde aynı anda yalnızca bir sürecin etkin<br>
 olmasını sağlar.</p>
-<p><img src="/images/1_1yFRNX_7QPDEhWUFWc-61w.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*1yFRNX_7QPDEhWUFWc-61w.png" alt=""></p>
 <p>monitör</p>
 <p>Bir monitör içinde tanımlanan bir fonksiyon sadece monitör içinde yerel olarak bildirilen değişkenlere ve onun resmi parametrelerine erişebilir. Benzer şekilde, bir monitörün yerel değişkenlerine sadece yerel fonksiyonlar tarafından erişilebilir.</p>
 <h4 id="deadlocks">
@@ -500,7 +502,7 @@ adlandırılırken, bellek birimi tarafından görülen bir adres — yani b
   </a>
 </h4>
 <p>Bir işlemin yürütülebilmesi için bellekte olması gerekir. Ancak bir işlem geçici olarak bellekten diske yerleştirilebilir ve daha sonra yürütmeye devam etmek için belleğe geri getirilebilir.</p>
-<p><img src="/images/1_iB_t0Cpvz9x4aAf2_0bu9A.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*iB_t0Cpvz9x4aAf2_0bu9A.png" alt=""></p>
 <p>Takas (Swap) işlemi</p>
 <h4 id="bellek-tahsisi">
   Bellek Tahsisi
@@ -531,7 +533,7 @@ büyükse, iki parçaya bölünür. Bir parça gelen işleme tahsis edilir; diğ
   </a>
 </h4>
 <p>Belleği fiziksel özellikleri açısından ele almak hem işletim sistemi hem de programcı için sakıncalıdır. Peki ya donanım, programcının görüşünü gerçek fiziksel bellekle eşleyen bir bellek mekanizması sağlayabilseydi? Sistem belleği yönetmek için daha fazla özgürlüğe sahip olurken, programcı da daha doğal bir programlama ortamına sahip olurdu. Segmentasyon böyle bir mekanizma sağlar.</p>
-<p><img src="/images/1_-jrsYdgi6mk5r2ySy2Dp9Q.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*-jrsYdgi6mk5r2ySy2Dp9Q.png" alt=""></p>
 <p>Segmentasyon Donanımı</p>
 <p>Her segmentin bir adı ve uzunluğu vardır. Adresler hem segment adını hem de segment içindeki ofseti belirtir. Bu nedenle programcı her adresi iki büyüklükle belirtir: bir segment adı ve bir ofset. Uygulama kolaylığı için segmentler numaralandırılır ve segment adı yerine segment numarası ile anılır. Böylece, bir mantıksal adres iki tuple’dan oluşur:</p>
 <h4 id="sayfalamapaging">
@@ -543,7 +545,7 @@ büyükse, iki parçaya bölünür. Bir parça gelen işleme tahsis edilir; diğ
 </h4>
 <p>Segmentasyon, bir sürecin fiziksel adres alanının bitişik olmamasına izin verir. Sayfalama, bu avantajı sunan başka bir bellek yönetim şemasıdır. Bununla birlikte, sayfalama harici parçalanmayı önler ve sıkıştırırken, segmentasyon bunu yapmaz. Ayrıca, farklı boyutlardaki bellek<br>
 parçalarını destek deposuna sığdırmak gibi önemli bir sorunu da çözer.</p>
-<p><img src="/images/1_0Ir0o5wtu7y2mwjfFarrHA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*0Ir0o5wtu7y2mwjfFarrHA.png" alt=""></p>
 <p>Sayfalama Donanımı</p>
 <p>Sayfalamayı uygulamak için temel yöntem, fiziksel belleği çerçeve adı verilen sabit boyutlu bloklara bölmeyi ve mantıksal belleği sayfa adı verilen aynı boyuttaki bloklara bölmeyi içerir. Bir işlem yürütüleceği zaman, sayfaları kaynaklarından(bir dosya sistemi veya destek deposu) mevcut herhangi bir bellek çerçevesine yüklenir. Destek deposu, bellek çerçeveleri ya da birden fazla çerçeveden oluşan kümelerle aynı boyutta olan sabit boyutlu bloklara bölünmüştür. Bu oldukça basit fikrin büyük işlevselliği ve geniş sonuçları vardır. Örneğin, mantıksal adres alanı artık fiziksel adres alanından tamamen ayrıdır, bu nedenle sistem 264 bayttan daha az fiziksel belleğe sahip olsa bile bir işlemin mantıksal 64 bit adres alanı olabilir.</p>
 <h4 id="sanal-bellekvirtual-memory">
@@ -555,7 +557,7 @@ parçalarını destek deposuna sığdırmak gibi önemli bir sorunu da çözer.<
 </h4>
 <p>Sanal bellek, kullanıcılar tarafından algılanan mantıksal belleğin fiziksel bellekten ayrılmasını içerir. Bu ayırma, yalnızca daha küçük bir fiziksel bellek mevcut olduğunda programcılar için son derece büyük bir sanal belleğin sağlanmasına izin verir. Sanal bellek, programlama görevini çok daha kolay hale getirir, çünkü programcının artık kullanılabilir fiziksel bellek miktarı hakkında endişelenmesine gerek yoktur; bunun yerine<br>
 programlanacak soruna konsantre olabilir.</p>
-<p><img src="/images/1_QvvtOf3Vf930Fs19eSHqjQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*QvvtOf3Vf930Fs19eSHqjQ.png" alt=""></p>
 <p>Sanal Bellek</p>
 <p>Bir işlemin sanal adres alanı, bir işlemin bellekte nasıl saklandığına ilişkin mantıksal(veya sanal) görünümü ifade eder. Tipik olarak, bu görüş, bir işlemin belirli bir mantıksal adreste (örneğin adres 0) başladığı ve bitişik bellekte var olduğu şeklindedir.</p>
 <p>Sanal bellek, mantıksal belleği fiziksel bellekten ayırmanın yanı sıra, dosyaların ve belleğin sayfa paylaşımı yoluyla iki veya daha fazla işlem tarafından paylaşılmasına olanak tanır. Bu, aşağıdaki avantajlara yol açar:</p>
@@ -581,7 +583,7 @@ programlanacak soruna konsantre olabilir.</p>
   </a>
 </h4>
 <p>Disk, verilerin kalıcı olarak depolandığı ve erişildiği bir depolama birimidir. Bilgisayar sistemlerinde yaygın olarak kullanılan diskler, sabit disk sürücüleri (Hard Disk Drive — HDD) ve katı hal sürücüleri (Solid State Drive — SSD) olarak iki ana kategoriye ayrılır.</p>
-<p><img src="/images/1_zfPPKDtSp7k9jBGej2m-dw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*zfPPKDtSp7k9jBGej2m-dw.png" alt=""></p>
 <p>HDD Disk</p>
 <p>Modern manyetik disk sürücüleri, büyük tek boyutlu diziler olarak ele alınır. mantıksal bloklar, burada mantıksal blok en küçük aktarım birimidir. Mantıksal blok boyutu genellikle 512 bayttır, ancak bazı diskler düşük seviyeli olabilir 1,024 bayt gibi farklı bir mantıksal blok boyutuna sahip olacak şekilde biçimlendirilmiştir.</p>
 <h4 id="disk-bağlantısı">
@@ -611,22 +613,22 @@ programlanacak soruna konsantre olabilir.</p>
 <ul>
 <li><strong>FCFS (First-Come, First-Served):</strong> Bu algoritma, gelen talepleri sırayla işleme alır ve önce gelen talepleri önce işler. Ancak, bu algoritma disk üzerindeki fiziksel konumları dikkate almaz ve sıra dışı bir sıralama durumunda disk erişim sürelerini artırabilir.</li>
 </ul>
-<p><img src="/images/1_kVk--dRni90LbzTYov3b4w.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*kVk--dRni90LbzTYov3b4w.png" alt=""></p>
 <p>FCFS</p>
 <ul>
 <li><strong>SSTF (Shortest Seek Time First):</strong> Bu algoritma, disk kafasının şu anda konumlandığı yerden en kısa hareket mesafesine sahip talebi işleme alır. Yani, kafanın en kısa mesafede gitmesi gereken talepler öncelikli olarak işlenir. Bu algoritma, toplam disk erişim süresini azaltır ve daha iyi bir performans sağlar.</li>
 </ul>
-<p><img src="/images/1__3w6z61oJ6PQpjmsAAPmmg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*_3w6z61oJ6PQpjmsAAPmmg.png" alt=""></p>
 <p>SSTF</p>
 <ul>
 <li><strong>SCAN (Elevator):</strong> Bu algoritma, disk kafasını belirli bir yönde (örneğin, içe veya dışa doğru) hareket ettirirken talepleri işler. Kafa ilerlerken tüm talepleri işler ve en sona ulaştığında yönden döner ve geri gelir. Bu şekilde, disk üzerindeki talepleri sürekli tarar. SCAN algoritması, talepleri adil bir şekilde işler ve disk üzerindeki taleplerin bekleme sürelerini azaltır.</li>
 </ul>
-<p><img src="/images/1_t7kHcp1t1Z8vX1HjZq4I-w.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*t7kHcp1t1Z8vX1HjZq4I-w.png" alt=""></p>
 <p>SCAN</p>
 <ul>
 <li><strong>C-SCAN (Circular SCAN):</strong> Bu algoritma, SCAN algoritmasına benzer şekilde talepleri işler, ancak SCAN’dan farklı olarak geri dönerken son talepten başlar. Yani, talepleri işlerken disk üzerinde bir yönde hareket eder ve son talebe ulaştığında hızla diğer uca geçer ve yeniden başlar. C-SCAN, SCAN’dan daha adil bir talep işleme sırası sağlar.</li>
 </ul>
-<p><img src="/images/1_3GQpsL_MjPT6VphPF1Uerw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*3GQpsL_MjPT6VphPF1Uerw.png" alt=""></p>
 <p>C-SCAN</p>
 <p>Bu algoritmalara ek olarak, LOOK, C-LOOK, N-Step-SCAN ve N-Step-LOOK gibi diğer disk zamanlama algoritmaları da bulunmaktadır. Disk Scheduling algoritmaları, disk üzerindeki veri erişimini optimize etmek ve bekleme sürelerini azaltmak için çeşitli stratejiler kullanır. Her</p>
 <h4 id="disk-yönetimi">

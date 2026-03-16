@@ -150,6 +150,8 @@ This chapter takes an in-depth look at the critical technologies that underpin m
           
           
             
+          
+            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -157,7 +159,7 @@ This chapter takes an in-depth look at the critical technologies that underpin m
                 
               
               <li class="navigation-item">
-                <a href="/tr/posts/2025/08/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi-v-modern-dijital-altyapi/">Türkçe</a>
+                <a href="/tr/">Türkçe</a>
               </li>
             
           
@@ -212,7 +214,7 @@ This chapter takes an in-depth look at the critical technologies that underpin m
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="/images/1_aBV-V0NvCXaSMoVRhcmT9w.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*aBV-V0NvCXaSMoVRhcmT9w.png" alt=""></p>
 <p>This chapter takes an in-depth look at the critical technologies that underpin modern digital infrastructures, focusing on the most advanced and dynamic areas of network management and security. Going beyond traditional network paradigms, we will cover the security layers of DNS, the basic name resolution mechanism of the Internet, the complex management and security architectures of wireless networks, which are the backbone of enterprise mobility, and finally, the cloud-based, software-defined and zero-trust modern network architectures that shape the future of computing. These topics represent the most current challenges and opportunities facing today&rsquo;s network and security professionals.</p>
 <hr>
 <h3 id="modern-network-architectures">
@@ -243,7 +245,7 @@ This chapter takes an in-depth look at the critical technologies that underpin m
 <li><strong>Massively Scalable:</strong> Instead of the VLAN&rsquo;s 12-bit ID, VXLAN uses a 24-bit VXLAN Network Identifier (VNI). This allows creating more than 16 million (224) unique virtual network segments.</li>
 <li><strong>Flexibility:</strong> Because VXLAN runs on a Layer 3 IP network, virtual machines belonging to the same virtual network can be physically located in different racks or even in different geographical locations.</li>
 </ul>
-<p><img src="/images/1_3b1rG2nxmQE_BzL1LsBfhA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*3b1rG2nxmQE_BzL1LsBfhA.png" alt=""></p>
 <p><em>Comparison of VLAN and VXLAN Technologies</em></p>
 <h4 id="software-defined-networking-sdn-and-openflow-protocol">
   Software Defined Networking (SDN) and OpenFlow Protocol
@@ -296,7 +298,7 @@ This chapter takes an in-depth look at the critical technologies that underpin m
 <p>In traditional WAN architectures, all internet and cloud traffic from branches is first directed to the central data center (backhauling) to pass security audits. This approach negatively affects the user experience by creating additional latency, especially for cloud applications.</p>
 <p><strong>SD-WAN (Software-Defined WAN)</strong> solves this problem by applying SDN principles to the WAN. It combines different WAN connection types (MPLS, internet, 5G) into a single pool and dynamically directs traffic to the best path instantly with application awareness. This optimizes performance by allowing unreliable cloud traffic to be exited directly from the branch to the internet.</p>
 <p><strong>SASE (Secure Access Service Edge)</strong> is the next step in the convergence of networking and security. Defined by Gartner, SASE is an architectural framework that combines the networking capabilities of SD-WAN with a cloud-based security services stack into a single unified, cloud-based service. SASE&rsquo;s basic philosophy is to implement security controls from the data center and move them to the &ldquo;edge&rdquo; point closest to the user or device.</p>
-<p><img src="/images/1_05xI3WYS5avJ1qxcB7x3Jw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*05xI3WYS5avJ1qxcB7x3Jw.png" alt=""></p>
 <p><em>SASE Architecture Components and Functions</em></p>
 <h3 id="the-evolving-role-of-the-network-engineer-and-futuretrends">
   The Evolving Role of the Network Engineer and Future Trends
@@ -520,7 +522,7 @@ The PORT command tells the server to connect to the client&rsquo;s IP address an
   </a>
 </h3>
 <p>The choice between FTPS and SFTP is often determined by an organization&rsquo;s existing infrastructure, security requirements, and operational preferences. The table and analysis below summarize the key differences between these two protocols.</p>
-<p><img src="/images/1_Gkg9LdRs7aUgCFgrIVuXbA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Gkg9LdRs7aUgCFgrIVuXbA.png" alt=""></p>
 <p>This comparison reveals the difference in design philosophy between the two protocols. While FTPS represents the &ldquo;bolting on the existing&rdquo; approach, SFTP reflects the philosophy of &ldquo;designing the right thing from scratch&rdquo; (secure by design). Technically, it is clear that SFTP is a more elegant, easy-to-manage and integrated solution. However, the reason why FTPS still exists is that it uses the SSL/TLS certificate infrastructure that system administrators managing web servers are already familiar with and its compatibility requirements with some legacy systems.</p>
 <p>In terms of performance, the general consensus was that FTPS could be slightly faster than SFTP due to less protocol overhead. However, detailed benchmark tests have shown that this perception is not always correct. Performance; It varies significantly depending on many factors such as file size, number of files, network latency, and especially the client software used (such as <em>curl</em> vs <em>lftp</em>). In some scenarios, SFTP may be faster, especially for transferring many small files, while FTPS may be advantageous for fewer large files. Therefore, it can be concluded that performance depends on the implementation.</p>
 <h3 id="hardening-ftp-servers">
@@ -561,7 +563,7 @@ The PORT command tells the server to connect to the client&rsquo;s IP address an
   </a>
 </h4>
 <p>vsftpd (Very Secure FTP Daemon), as its name suggests, is a server designed with a security focus. However, correct configuration is essential for safe operation. The following table summarizes the most critical security directives in the vsftpd.conf file.</p>
-<p><img src="/images/1_OeZJlSJK2eHzJb485cCaSw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*OeZJlSJK2eHzJb485cCaSw.png" alt=""></p>
 <p>It simplifies firewall rules and narrows the attack surface.</p>
 <h4 id="422-proftpd-security-configuration-proftpdconf">
   4.2.2. ProFTPD Security Configuration (proftpd.conf)
@@ -665,7 +667,7 @@ The PORT command tells the server to connect to the client&rsquo;s IP address an
 <li><strong>Vulnerability Detection (NSE):</strong> Automatically checking common misconfigurations and vulnerabilities such as anonymous login permission, FTP bounce attack vulnerability, using Nmap Scripting Engine (NSE). nmap — script ftp-anon,ftp-bounce -p 21 &lt;target_ip&gt;</li>
 <li>The following table summarizes the Nmap commands that can be used for various FTP scanning scenarios.</li>
 </ul>
-<p><img src="/images/1_yVNOZ3Pyn_2nBdGy1ioNhA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*yVNOZ3Pyn_2nBdGy1ioNhA.png" alt=""></p>
 <h4 id="nessus-andopenvas">
   <strong>Nessus and OpenVAS</strong>
   <a class="heading-link" href="#nessus-andopenvas">
@@ -985,7 +987,7 @@ It is achieved by routing packets from the kernel to Suricata using iptables and
 <li><code>p=reject</code>: The strictest policy. It instructs recipients to block unsuccessful emails completely.</li>
 </ul>
 <p>The following table provides a comprehensive reference for administrators when configuring DMARC records. Since misconfigurations are a common source of failure, this table serves as a definitive guide to avoid such errors.</p>
-<p><img src="/images/1_BTspc1ihDHP1TnCDshFk1Q.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*BTspc1ihDHP1TnCDshFk1Q.png" alt=""></p>
 <p><strong>DMARC Tag Reference Guide</strong></p>
 <h3 id="layer-3-enhanced-trust-and-integrity-mechanisms">
   Layer 3: Enhanced Trust and Integrity Mechanisms
@@ -1155,7 +1157,7 @@ It is achieved by routing packets from the kernel to Suricata using iptables and
 <li><strong>DMARC Integration:</strong> Exim has built-in DMARC support that can be enabled in ACLs. Variables starting with <code>dmarc_...</code> control its behavior. Alternatively, it can also integrate with external validators such as <code>rspamd</code>.</li>
 </ul>
 <p>The following table is designed to help administrators compare basic security configurations between Postfix and Exim. This provides a practical reference for those managing heterogeneous environments or migrating from one MTA to another.</p>
-<p><img src="/images/1_MPd54_ipO2OgxqoNSDr3AQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*MPd54_ipO2OgxqoNSDr3AQ.png" alt=""></p>
 <p><strong>Postfix and Exim Security Configuration Comparison</strong></p>
 <h3 id="44-securingmicrosoft-exchange-environments">
   4.4. Securing Microsoft Exchange Environments
@@ -1275,7 +1277,7 @@ It is achieved by routing packets from the kernel to Suricata using iptables and
   </a>
 </h3>
 <p>HTTP methods can be thought of as “verbs” that specify the action the client wants to perform on the server. Each method has a specific semantic purpose, and using them accordingly is important for both RESTful API design and security.</p>
-<p><img src="/images/1_AfRW74G2s4kd4qoKZWUNcA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*AfRW74G2s4kd4qoKZWUNcA.png" alt=""></p>
 <p>HTTP Method</p>
 <h3 id="http-status-codes-analysis-of-success-redirect-and-error-classes">
   HTTP Status Codes: Analysis of Success, Redirect and Error Classes
@@ -1418,7 +1420,7 @@ It is achieved by routing packets from the kernel to Suricata using iptables and
   </a>
 </h4>
 <p>XSS is an injection vulnerability that allows an attacker to run a malicious script (usually JavaScript) in another user&rsquo;s browser. This occurs when the web application embeds input from the user directly into a web page without securely processing (sanitizing) it. A successful XSS attack allows the attacker to perform actions on behalf of the victim, stealing session cookies, altering the content of the page, or redirecting the user to a malicious site. OWASP divides XSS into three main categories:</p>
-<p><img src="/images/1_ij2B5LDXI_43PvmcqF0ioA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*ij2B5LDXI_43PvmcqF0ioA.png" alt=""></p>
 <p>Types of XSS</p>
 <h3 id="session-management-vulnerabilities">
   Session Management Vulnerabilities
@@ -1564,7 +1566,7 @@ It is achieved by routing packets from the kernel to Suricata using iptables and
   </a>
 </h3>
 <p>In addition to the main headers mentioned above, there are other headers and cookie settings that must be implemented for a comprehensive “defense in depth” strategy.</p>
-<p><img src="/images/1_jw25Q0zcB_7U5Ls_Zz2Nyg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*jw25Q0zcB_7U5Ls_Zz2Nyg.png" alt=""></p>
 <h3 id="http-traffic-analysis-and-security-testing-methodologies">
   HTTP Traffic Analysis and Security Testing Methodologies
   <a class="heading-link" href="#http-traffic-analysis-and-security-testing-methodologies">
@@ -1731,7 +1733,7 @@ It is achieved by routing packets from the kernel to Suricata using iptables and
   </a>
 </h3>
 <p>A DNS zone file consists of various resource records (Resource Records — RR) that serve different purposes. Each record stores specific information about the domain name. The most commonly used DNS record types and functions are summarized in the table below.</p>
-<p><img src="/images/1_-P4ySoKUyIhAnuhgi_59jg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*-P4ySoKUyIhAnuhgi_59jg.png" alt=""></p>
 <p>DNS record types and functions</p>
 <h3 id="active-directory-and-dns-integration-srv-records-secureddns">
   Active Directory and DNS Integration (SRV Records, Secure DDNS)
@@ -1752,7 +1754,7 @@ It is achieved by routing packets from the kernel to Suricata using iptables and
   </a>
 </h3>
 <p>DNS&rsquo;s central role in the internet infrastructure and the security deficiencies in its basic design make it an attractive target for cyber attackers. The evolution of these attacks demonstrates the weaponization of legitimate features of the protocol (open resolvers, large reply packets, reliability of port 53). This has required detection methods to evolve from simple signature-based checks to more advanced techniques such as behavioral anomaly and statistical analysis.</p>
-<p><img src="/images/1_jDadlG2PZV67wFY3Xsk3EQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*jDadlG2PZV67wFY3Xsk3EQ.png" alt=""></p>
 <p><em>DNS Attack Vectors Comparison</em></p>
 <h4 id="dns-cache-poisoning">
   DNS Cache Poisoning

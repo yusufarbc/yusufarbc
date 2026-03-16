@@ -163,8 +163,10 @@ Ağ yönetimi, son yirmi yılda köklü bir dönüşüm geçirmiştir. Geçmişt
                 
               
               <li class="navigation-item">
-                <a href="/posts/2025/08/network-management-and-security-viii-network-management-monitoring-and-automation/">English</a>
+                <a href="/">English</a>
               </li>
+            
+          
             
           
         
@@ -218,7 +220,7 @@ Ağ yönetimi, son yirmi yılda köklü bir dönüşüm geçirmiştir. Geçmişt
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="/images/1_Iv6EqXHTlTeVgd7LlSNDOQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Iv6EqXHTlTeVgd7LlSNDOQ.png" alt=""></p>
 <p>Ağ yönetimi, son yirmi yılda köklü bir dönüşüm geçirmiştir. Geçmişte, ağ yönetimi büyük ölçüde manuel, reaktif ve komut satırı arayüzü (CLI) tabanlı bireysel sorun giderme çabalarına dayanıyordu. Ağ mühendisleri, sorunlar ortaya çıktığında müdahale eder, cihazlara tek tek bağlanır ve yapılandırmaları manuel olarak düzenlerdi. Bu yaklaşım, günümüzün karmaşık, dinamik ve iş açısından kritik ağ altyapıları için artık sürdürülebilir değildir. Modern ağ operasyonları, bu eski paradigmanın yerini alan, birbiriyle derinden bağlantılı üç temel sütun üzerine inşa edilmiştir:</p>
 <ol>
 <li><strong>Kapsamlı Görünürlük:</strong> Ağın durumunu, sağlığını ve trafik modellerini gerçek zamanlı olarak anlama yeteneği. Bu, yalnızca cihazların “çalışıp çalışmadığını” bilmekten öte, ağdaki her bir konuşmanın doğasını, performans metriklerini ve potansiyel anormallikleri anlamayı içerir.</li>
@@ -308,7 +310,7 @@ Ağ yönetimi, son yirmi yılda köklü bir dönüşüm geçirmiştir. Geçmişt
 <li><strong>v3 Eklemeleri:</strong> <code>Report</code> PDU&rsquo;su, güvenlik modeliyle ilgili mesajlaşma için kullanılır.</li>
 </ul>
 <p>SNMPv2c ve SNMPv3 arasındaki seçim, yalnızca teknik bir tercih değil, aynı zamanda bir kuruluşun genel güvenlik olgunluğunun ve felsefesinin bir yansımasıdır. SNMPv1/v2c’nin kimlik bilgilerini ve verileri ağ üzerinden açık metin olarak ilettiği gerçeği, modern ağlarda kabul edilemez bir güvenlik açığıdır. SNMPv3, bu açıkları kapatmak için kimlik doğrulama ve şifreleme sunar. Ancak, v3&rsquo;ün yapılandırılması “oldukça karmaşık” olup, izlenen cihazlarda ek bir teknik yük ve performans (CPU/bellek) maliyeti getirir. Bu durum, basitlik ve performans (v2c) ile güvenlik ve karmaşıklık (v3) arasında doğrudan bir denge kurma zorunluluğu yaratır. Bu nedenle, bir kuruluşun bu konudaki kararı, risk iştahını ortaya koyar. Dağıtım kolaylığını yönetim trafiğinin güvenliğine tercih eden bir şirket, v2c’yi erişim kontrol listeleri (ACL’ler) ile birleştirerek “yeterince iyi” bir önlem olarak görebilir. Sıkı uyumluluk gereksinimleri olan veya olgun bir güvenlik programına sahip bir kuruluş ise, kimlik bilgisi hırsızlığı veya veri manipülasyonu riskini azaltmak için operasyonel ek yükü kabul ederek v3&rsquo;ün <code>authPriv</code> seviyesini zorunlu kılacaktır. Bu, kuruluşun iç tehditleri ve ağ içi dinlemeyi ne kadar ciddiye aldığını gösterir ve sıfır güven (zero-trust) ağına geçişin bir göstergesi olarak kabul edilebilir.</p>
-<p><img src="/images/1_psfUsG7oSQeQYJHqnwtiNg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*psfUsG7oSQeQYJHqnwtiNg.png" alt=""></p>
 <p>SNMP Sürümlerinin Karşılaştırmalı Analizi (v1, v2c, v3)</p>
 <hr>
 <h3 id="bölüm-2-trafik-akış-analiziağ-konuşmalarını-anlamak">
@@ -351,7 +353,7 @@ Ağ yönetimi, son yirmi yılda köklü bir dönüşüm geçirmiştir. Geçmişt
 <p>NetFlow’dan daha basittir. Ağ cihazının donanımına (genellikle CPU yükünü azaltmak için özel bir yonga üzerine) gömülü bir <strong>sFlow Ajanı</strong> ve UDP datagramlarını (genellikle 6343 numaralı port üzerinden) alan bir <strong>sFlow Toplayıcısı</strong>’ndan oluşur.</p>
 <p>NetFlow ve sFlow arasındaki temel fark yalnızca teknik (durum bilgili/durum bilgisi olmayan, %100/örneklenmiş) değil, aynı zamanda felsefidir. NetFlow, temel olarak bir <em>muhasebe</em> protokolüdür; faturalandırma, güvenlik adli analizi ve hassas kapasite planlaması için <em>her</em> konuşmayı izlemek üzere tasarlanmıştır. sFlow ise bir <em>gözlem</em> protokolüdür; mutlak hassasiyet yerine düşük ek yük ve ölçeklenebilirliğe öncelik vererek ağ genelindeki davranışın gerçek zamanlı, istatistiksel olarak temsili bir anlık görüntüsünü sağlamak üzere tasarlanmıştır. NetFlow, her akışı durum bilgisiyle izleyerek her biri için bir kayıt oluşturur. Bu, kullanım tabanlı faturalandırma veya bir güvenlik ihlalinden sonra ayrıntılı adli analiz gibi eksiksiz bir geçmiş kaydı gerektiren kullanım durumları için neredeyse mükemmel bir doğruluk sağlar. Buna karşılık sFlow, durum bilgisi tutmaz ve rastgele örnekleme kullanır. Bu, her kısa ömürlü veya düşük hacimli akışı göreceğini garanti edemeyeceği anlamına gelir. Amacı her baytı saymak değil, her akışı izlemenin cihazın CPU ve belleği için engelleyici derecede pahalı olacağı yüksek hızlı (10G, 40G, 100G) bağlantılarda neler olduğuna dair ölçeklenebilir, gerçek zamanlı bir görünüm sağlamaktır. Bu durum, görünürlükte de bir fark yaratır. NetFlow doğası gereği IP merkezlidir (L3/L4) , sFlow’un paket örneklemesi ise gerçek paket başlığını dışa aktardığı için doğal olarak L2-L7 görünürlüğü sağlar. Sonuç olarak, protokol seçimi tamamen izleme hedefine bağlıdır. Bir veri sızıntısının tam yolunu izlemesi gereken bir güvenlik ekibi için örneklenmemiş NetFlow/IPFIX üstündür. Büyük bir veri merkezi yapısında tıkanıklığa neden olan en önemli uygulamaları hızla belirlemesi gereken bir ağ operatörü için sFlow’un düşük ek yüklü, gerçek zamanlı doğası daha uygundur.</p>
 <p>Aşağıdaki tablo, bu iki kritik akış protokolü arasındaki genellikle karıştırılan farkları netleştirmekte ve mühendislerin kendi özel kullanım durumları ve ağ ortamları için doğru teknolojiyi seçmelerini sağlamaktadır.</p>
-<p><img src="/images/1_Fn_jt2stbWxL_YVnRuYbnQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Fn_jt2stbWxL_YVnRuYbnQ.png" alt=""></p>
 <p>Akış Tabanlı İzleme Protokolleri: NetFlow vs. sFlow</p>
 <hr>
 <h3 id="bölüm-3-merkezi-izleme-platformları-karşılaştırmalı-birinceleme">
@@ -408,7 +410,7 @@ Ağ yönetimi, son yirmi yılda köklü bir dönüşüm geçirmiştir. Geçmişt
 </ol>
 <p>Nagios Core ücretsiz ve açık kaynaklıdır ve eklenti mimarisi sayesinde her şeyi yapacak şekilde genişletilebilir. Ancak derin teknik bilgi ve manuel yapılandırma dosyası düzenlemesi gerektirir. Bu, onu “yüksek esneklik, düşük kullanılabilirlik” köşesine yerleştirir. Zabbix de ücretsiz ve açık kaynaklıdır ve temel işlevsellik için harici eklentilere dayanmadan kutudan çıktığı gibi geniş bir özellik yelpazesi (otomatik keşif, şablonlar, proxy mimarisi) sunar. Bu, onu daha çok “hepsi bir arada” bir çözüm yapar, ancak geniş seçenekleri dik bir öğrenme eğrisi yaratır. Bu, onu ortada, yüksek güç sunan ancak bir karmaşıklık engeli olan bir konuma yerleştirir. PRTG, kullanım kolaylığına net bir şekilde odaklanan ticari bir üründür. Sensör tabanlı modeli ve cilalı GUI’si, kullanıcıların hızla izlemeye başlaması için tasarlanmıştır. Ancak bu, parasal bir maliyetle gelir ve çekirdek sunucusu Windows platformuyla sınırlıdır , bu da bazı ortamlar için bir engel olabilir. Bu, onu “yüksek kullanılabilirlik, yüksek ticari maliyet” köşesine yerleştirir. Sonuç olarak, bir kuruluşun seçimi stratejiktir. Bir startup veya Linux uzmanlarından oluşan bir ekip, paradan tasarruf etmek ve teknik becerilerinden yararlanmak için Nagios Core veya Zabbix’i seçebilir. Karma bir ortama ve özel bir izleme ekibine sahip büyük bir kuruluş, gücü ve ölçeklenebilirliği için Zabbix’i seçebilir. Ağırlıklı olarak Windows ortamına sahip ve hızlı sonuçlara ihtiyaç duyan küçük ve orta ölçekli bir işletme, lisans maliyeti yerine zaman tasarrufunu değerlendirerek PRTG’yi seçebilir.</p>
 <p>Aşağıdaki tablo, kuruluşların kendi özel teknik gereksinimlerine, bütçelerine ve ekip becerilerine göre bilinçli bir karar vermelerine yardımcı olmak amacıyla üç lider izleme platformunun doğrudan, özellik bazında bir karşılaştırmasını sunmaktadır.</p>
-<p><img src="/images/1_8hiUXuINrhx_sc7cJlTO-A.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*8hiUXuINrhx_sc7cJlTO-A.png" alt=""></p>
 <p>İzleme Platformlarının Özellik Matrisi (Nagios vs. Zabbix vs. PRTG)</p>
 <hr>
 <h3 id="bölüm-4-ağ-otomasyonu-için-betik-yazımı-scripting">

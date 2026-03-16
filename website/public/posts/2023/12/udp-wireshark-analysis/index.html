@@ -161,6 +161,8 @@ What is UDP?Link to headingIf you see a lot of broadcast/multicast broadcasts 
           
           
             
+          
+            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -168,7 +170,7 @@ What is UDP?Link to headingIf you see a lot of broadcast/multicast broadcasts 
                 
               
               <li class="navigation-item">
-                <a href="/tr/posts/2023/12/udp-wireshark-analizi/">Türkçe</a>
+                <a href="/tr/">Türkçe</a>
               </li>
             
           
@@ -223,7 +225,7 @@ What is UDP?Link to headingIf you see a lot of broadcast/multicast broadcasts 
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="/images/1_cReiU6D1Aj-Zf-J3628uNA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*cReiU6D1Aj-Zf-J3628uNA.png" alt=""></p>
 <p>Hello, in this article I will try to explain the UDP protocol and its analysis with Wireshark.</p>
 <hr>
 <h3 id="what-is-udp">
@@ -234,7 +236,7 @@ What is UDP?Link to headingIf you see a lot of broadcast/multicast broadcasts 
   </a>
 </h3>
 <p>If you see a lot of broadcast/multicast broadcasts in the traffic you capture, it means you have too many UDP-based communications. UDP provides transfer without establishing a connection. Broadcast and multicast traffic flows over UDP. In the UDP header, port fields identify the application using the transport. Because UDP uses a simple 8-byte header consisting of four fields, UDP itself rarely causes problems. UDP is defined in RFC 768, User Datagram Protocol.</p>
-<p><img src="/images/1_WSaFhaEgqTIuM9sF4oZYng.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*WSaFhaEgqTIuM9sF4oZYng.png" alt=""></p>
 <p>Provides UDP connectionless transport service</p>
 <p>Common applications that use UDP are DHCP/BOOTP, SIP, RTP, DNS, TFTP and various video streaming applications.</p>
 <hr>
@@ -246,14 +248,14 @@ What is UDP?Link to headingIf you see a lot of broadcast/multicast broadcasts 
   </a>
 </h3>
 <p>Normal UDP communications, such as DHCP Discover packets, are sent with the destination port number of the requested service. The figure shows the UDP header in a DHCP packet. DHCP uses UDP as the transport protocol. DHCP communications use port 68 as the client port number and port 67 as the server port number.</p>
-<p><img src="/images/1_Z2tNaovhf93xqYVPROVNww.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Z2tNaovhf93xqYVPROVNww.png" alt=""></p>
 <p>A UDP-based DHCP initialization sequence</p>
 <p>Most applications use a default port number for the client side of communication. For example, a DNS query is typically sent to port 53. Source port is a temporary port number.</p>
 <p>There are very few problems that occur directly with UDP. One possible problem is traffic blocked based on the UDP port number value. It shows the results of capturing UDP traffic on a network consisting of a firewall that does not forward traffic sent to certain port numbers. In this case, the firewall blocks traffic to ports 161 (SNMP) and 5060 (SIP). Instead of responding with ICMP Destination Unreachable/Port Unreachable (Type 3/Code 3) packets, the firewall silently discards the packets. Your PCAP file only shows UDP traffic; no response is seen.</p>
-<p><img src="/images/1_W8kjuMS7QjymLfAcp5qPfg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*W8kjuMS7QjymLfAcp5qPfg.png" alt=""></p>
 <p>There is no response to SNMP deficiencies, it is caused by a firewall that filters ports</p>
 <p>UDP scans are evident when you see the sorting of UDP packets and ICMP responses using Wireshark&rsquo;s default coloring rules. Again, if a firewall is blocking traffic by port filtering, you may not see ICMP responses.</p>
-<p><img src="/images/1_mLgL_SfU5rNO7Gk-mkT1sQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*mLgL_SfU5rNO7Gk-mkT1sQ.png" alt=""></p>
 <p>UDP scanning triggers a series of ICMP Destination Unreachable/Port Unreachable responses</p>
 <p>The figure shows a UDP scan targeting the address 192.168.1.123. Because each UDP packet triggers an ICMP Destination Unreachable/Port Unreachable response, the UDP scan has not yet found an open UDP port.</p>
 <hr>
@@ -274,7 +276,7 @@ What is UDP?Link to headingIf you see a lot of broadcast/multicast broadcasts 
   </a>
 </h4>
 <p>The source port field has the same purpose in TCP and UDP — to open a listening port for response packets and, in some cases, to identify the application or protocol sending the packet.</p>
-<p><img src="/images/1_PCIysV4QPzkJ6NaUaJcx3g.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*PCIysV4QPzkJ6NaUaJcx3g.png" alt=""></p>
 <h4 id="destination-portfield">
   Destination Port Field
   <a class="heading-link" href="#destination-portfield">

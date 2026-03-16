@@ -184,8 +184,10 @@ KurulumBaşlık LinkiSelenium modülünü kurmak ve çalıştırmak için birk
                 
               
               <li class="navigation-item">
-                <a href="/posts/2022/09/python-for-hackers-selenium/">English</a>
+                <a href="/">English</a>
               </li>
+            
+          
             
           
         
@@ -239,7 +241,7 @@ KurulumBaşlık LinkiSelenium modülünü kurmak ve çalıştırmak için birk
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="/images/1_0uUmJ2J01vpcie8grd91Yw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*0uUmJ2J01vpcie8grd91Yw.png" alt=""></p>
 <h3 id="giriş">
   Giriş
   <a class="heading-link" href="#giri%c5%9f">
@@ -289,7 +291,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 </code></pre><pre tabindex="0"><code>driver = webdriver.Chrome(ChromeDriverManager().install())  
 driver.get(&#34;http://google.com&#34;)
 </code></pre><p>Seleniumu <a href="https://hub.docker.com/r/selenium/standalone-firefox"  class="external-link" target="_blank" rel="noopener">docker</a> ile çalıştırmak için ise <a href="https://github.com/SeleniumHQ/docker-selenium"  class="external-link" target="_blank" rel="noopener">github</a> sayfasınındaki yönlendirmeleri izleyebilirsiniz. Dockerı kurup çalıştırınca <a href="http://localhost:4444/"  class="external-link" target="_blank" rel="noopener">http://localhost:4444</a> adresinde seslenium grid arayüzüne erişebilirsiniz.</p>
-<p><img src="/images/1_ibMLsRZmjC54Fxcif1XP_A.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*ibMLsRZmjC54Fxcif1XP_A.png" alt=""></p>
 <p><a href="http://localhost:7900/"  class="external-link" target="_blank" rel="noopener">http://localhost:7900/</a> adresinden de web tarayıcıyı görüntüleyebiliriz. Varsayılan parola <em>secret</em> dır.<br>
  Docker ayakta iken aşağıdaki test kodunu çalıştırabiliriz.</p>
 <pre tabindex="0"><code>from selenium import webdriver  
@@ -301,7 +303,7 @@ driver = webdriver.Remote(
    desired_capabilities={&#34;browserName&#34;: &#34;firefox&#34;})  
 driver.get(&#34;http://google.com&#34;)
 </code></pre><p>Burada browserName kısmına dockerı hangi browser ile kurduysanız o browserın ismini yazmalısınız. Kodu çalıştırılınca <a href="http://localhost:7900/"  class="external-link" target="_blank" rel="noopener">http://localhost:7900/</a> adresi üzerinde google’ın açıldığını görebilirsiniz.</p>
-<p><img src="/images/1_WoWx7BtNKQIIwMPjVnMg4w.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*WoWx7BtNKQIIwMPjVnMg4w.png" alt=""></p>
 <p>Python kodu çalıştırıldı ve selenium grid üzerinde bir sesssion oluşturuldu. Bu session ile google.com adresine gittik. Ancak bu oturumu kapatmadan python kodumuz sonlandı ve oturumumuz açık kaldı. Sessionı kapatmadan başka python kodları çalıştıramayız. Oturumu kapatmak için python kodumuzun sonuna <em>driver.quit()</em> ekleyebiliriz ya da docker’ı yeniden başlatabilrisiniz.</p>
 <h3 id="selenium-modülü-nasıl-kullanılır">
   Selenium Modülü Nasıl Kullanılır?
@@ -318,7 +320,7 @@ driver.get(&#34;http://google.com&#34;)
 <li>CLASS: Elemana bir class değeri eklenmişse bu class değeri ile erişebiliriz.</li>
 <li>XPATH: Sayfa kaynağında erişmek istediğimiz elemanın xpath’ini vererek erişebiliriz. Xpath’i inspector aracından kopyalayabiliriz.</li>
 </ul>
-<p><img src="/images/1_6iylSyMtw2y6d-OsZcECpA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*6iylSyMtw2y6d-OsZcECpA.png" alt=""></p>
 <p>Burada Google’daki arama çubuğunun XPath’ini almış olduk. Şimdi küçük bir örnek uygulama üzerinde temel mantığı anlamaya çalışalım.</p>
 <pre tabindex="0"><code>#import işlemleri
 </code></pre><pre tabindex="0"><code>from selenium import webdriver                    
@@ -339,7 +341,7 @@ searchInput.send_keys(Keys.ENTER) # arama çubuğunda ENTER’a bas.
 time.sleep(5)
 </code></pre><pre tabindex="0"><code>driver.quit()
 </code></pre><p>Örnek uygulamayı çalıştırdığımızda, github web sayfası açılır, arama çubuğunu CVE yazılıp arama sayfasına gidilir. Ardından 5 saniye sonra tarayıcı kapanacaktır.</p>
-<p><img src="/images/1_MWyxd0MQQ9IsRkFYJK7s8w.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*MWyxd0MQQ9IsRkFYJK7s8w.png" alt=""></p>
 <p>Burada çıkan sonuçları çekip indeksleyebiliriz. Bu işleme web scraping diyoruz.</p>
 <h3 id="shodan">
   Shodan
@@ -349,7 +351,7 @@ time.sleep(5)
   </a>
 </h3>
 <p>Şimdi Shodan üzerinde çalışan bir web botu uygulaması yapalım. Bunun için <a href="https://www.shodan.io/"  class="external-link" target="_blank" rel="noopener">shodan.io</a>’a girip buradaki arana çubuğununun Xpath değerini kopyalıyoruz. Bu değeri uygulamamızda arama çubuğuna erişmek için kullanacağız.</p>
-<p><img src="/images/1_e5yR7mUfSRno_MxYDkshNg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*e5yR7mUfSRno_MxYDkshNg.png" alt=""></p>
 <p>Şimdi kodumuzu yazmaya başlayabiliriz. Öncellikle yukarıda bahsettiğimiz gibi import işlemlerini yapıp driver nesnemizi oluşturacağız. Ardından aldığımız xpath değeri ile arama çubuğuna sorgulayacağımız değeri gönderip ‘<em>ENTER’</em> değerini göndereceğiz.</p>
 <pre tabindex="0"><code>from selenium import webdriver  
 from selenium.webdriver.common.keys import Keys  
@@ -364,11 +366,11 @@ import time
 </code></pre><pre tabindex="0"><code>time.sleep(10)  
 driver.quit()
 </code></pre><p>Uygulamamızı çalıştırdığımızda arama çubuğuna ‘phpMyAdmin’ yazıp sorgulayacaktır. Şimdi dönen değerleri almaya çalışalım.</p>
-<p><img src="/images/1_nryPmk-rhb0RiU-lv0zniw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*nryPmk-rhb0RiU-lv0zniw.png" alt=""></p>
 <p>Gördüğümüz gibi dönen bütün sonuçların class isimleri ‘result’ olarak atanmış. Bu durumdan yararlanarak gelen sonuçlara erişebiliriz.</p>
 <pre tabindex="0"><code>results = driver.find_elements(By.CLASS_NAME, &#39;result&#39;)  
 print(results)
-</code></pre><p><img src="/images/1_YjRwxuXoOD18s9ceUn04MA.png" alt=""></p>
+</code></pre><p><img src="https://cdn-images-1.medium.com/max/800/1*YjRwxuXoOD18s9ceUn04MA.png" alt=""></p>
 <p>Burada alınan elementleri görebiliyoruz.</p>
 <h3 id="twitter-bot">
   Twitter Bot

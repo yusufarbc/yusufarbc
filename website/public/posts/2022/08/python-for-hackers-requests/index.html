@@ -163,6 +163,8 @@ requests is a simple but elegant HTTP module of Python. It allows you to send HT
           
           
             
+          
+            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -170,7 +172,7 @@ requests is a simple but elegant HTTP module of Python. It allows you to send HT
                 
               
               <li class="navigation-item">
-                <a href="/tr/posts/2022/08/hakerlar-i%C3%A7in-python-requests/">Türkçe</a>
+                <a href="/tr/">Türkçe</a>
               </li>
             
           
@@ -225,7 +227,7 @@ requests is a simple but elegant HTTP module of Python. It allows you to send HT
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="/images/1_a87phGSd-sbfiJLWPfGMxA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*a87phGSd-sbfiJLWPfGMxA.png" alt=""></p>
 <h3 id="introduction">
   Introduction
   <a class="heading-link" href="#introduction">
@@ -328,7 +330,7 @@ It takes a value of TRUE to verify the TLS certificate of the servers and FALSE 
 <pre tabindex="0"><code>&gt;&gt;print(type(response))
 </code></pre><pre tabindex="0"><code>&lt;class &#39;requests.models.Response&#39;&gt;
 </code></pre><p>We understand that it is an object of type requests.models.Response. Looking at the <a href="https://requests.readthedocs.io/en/latest/_modules/requests/models/"  class="external-link" target="_blank" rel="noopener">source code</a>:</p>
-<p><img src="/images/0_L_iXdDv3gSm2uu6j.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*L_iXdDv3gSm2uu6j.png" alt=""></p>
 <p>We see a long code. You can also access its documentation <a href="https://requests.readthedocs.io/en/latest/api/#requests.Response"  class="external-link" target="_blank" rel="noopener">here</a>. What is important for us here are the attiributes written in the __attrs__ section.</p>
 <pre tabindex="0"><code>print(response.__attrs__)
 </code></pre><pre tabindex="0"><code>[&#39;_content&#39;, &#39;status_code&#39;, &#39;headers&#39;, &#39;url&#39;, &#39;history&#39;, &#39;encoding&#39;, &#39;reason&#39;, &#39;cookies&#39;, &#39;elapsed&#39;, &#39;request&#39;]
@@ -341,7 +343,7 @@ f = open(&#34;source.html&#34;,&#34;w&#34;)
 f.write(str(response.content))  
 f.close()
 </code></pre><p>You can see that the page source is pulled as follows. (with CSS and Javascript codes)</p>
-<p><img src="/images/0_W3QQk0ZEoY20GPcY.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*W3QQk0ZEoY20GPcY.png" alt=""></p>
 <p>You can parse the page source with the <a href="https://pypi.org/project/beautifulsoup4/"  class="external-link" target="_blank" rel="noopener">BeautifulSoup</a> module and get the information you want from it. But in this article we will do something different.</p>
 <h3 id="pulling-malicious-websites-from-usom">
   Pulling malicious websites from Usom
@@ -375,7 +377,7 @@ with open(&#34;usom.txt&#34;, &#34;wb&#34;) as binary_file:
   </a>
 </h3>
 <p>Brute Force Attack is a simple but still effective type of attack that we can use to log into a web page using trial and error management in the hope of finding the right one. Let&rsquo;s see how we can do this with our python application. I will use the DVWA app for this.</p>
-<p><img src="/images/0_D7cpaI2bY2tgv3Ig.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*D7cpaI2bY2tgv3Ig.png" alt=""></p>
 <p>Here I listened to my login page with the <a href="https://portswigger.net/burp"  class="external-link" target="_blank" rel="noopener">burp suite</a> tool. I entered the value &lsquo;aa&rsquo; in the username and password fields and pressed the login button. The GET request was captured in the HTTP History section on my burp tool. Of course, you can also use different tools for this. We will use some of the information here. First of all, since we access the DVWA page by logging in, our Python application also needs to access the session somehow. So what is a session? To put it briefly, when we log in from a login page with our username/password information, we actually start a session. The session is terminated when we finish our work and close our browser or when a certain amount of time has passed. Web applications use cookies when creating a session; two cookies are created, one on the client computer and one on the server. The session continues as long as both cookies are not lost. Here, we will log in to the DVWA page and give the session cookie we received to our Python application, allowing it to access the web page with our session. The field marked in the Burp tool ‘PHPSESID’ is our session cookie. But we better hurry, the session is running out…</p>
 <pre tabindex="0"><code>import requests
 </code></pre><pre tabindex="0"><code>header = {&#34;Cookie&#34;: &#34;security=low; PHPSESSID=2d9gb38rft9o87vv22vbtnlu91&#34;} #We give the session cookie to the header.
@@ -392,7 +394,7 @@ passwords = [&#34;resu&#34;, &#34;password&#34;, &#34;toor&#34;, &#34;1234&#34;]
       print(&#34;Status code: &#34;,result.status_code)  
       print(&#34;Length: &#34;, len(result.content))  
       print(&#34;Username and Password is found&#34;)
-</code></pre><p><img src="/images/0_WFaG5gXYv4_u5frj.png" alt=""></p>
+</code></pre><p><img src="https://cdn-images-1.medium.com/max/800/0*WFaG5gXYv4_u5frj.png" alt=""></p>
 <p>When we write the code in the python file and run it, it will make tests by sending GET requests to the live DVWA server.</p>
 <p>And yes, our attack was successful, we found the username and password information. Since the GET method was used on this web page, we were able to easily perform the attack by editing the URL. If the POST method had been used, we could have created a tuple according to the names of the <em>name</em> attributes in the HTML form and given it to the <em>data</em> parameter of the post() method and carried out our attack. That&rsquo;s enough tips, the rest is up to you&hellip;</p>
 <h3 id="url-fuzzing">
@@ -414,7 +416,7 @@ header = {&#34;Cookie&#34;: &#34;security=low; PHPSESSID=0k6634cfi19e5sfn2vb754u
   else:  
     print(&#34;file or directory isn&#39;t found: &#34;,i)
 </code></pre><p>When we run the Python code, it will try the directory and file names in the list and give us the following result.</p>
-<p><img src="/images/0_P0_DM5nuoLcNWX16.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*P0_DM5nuoLcNWX16.png" alt=""></p>
 <h3 id="xss-attack">
   XSS Attack
   <a class="heading-link" href="#xss-attack">
@@ -433,7 +435,7 @@ xss_list = [&#34;&lt;h1&gt;xss&lt;/h1&gt;&#34;,&#34;&lt;script&gt;alert(&#39;xss
   if str(payload) in str(result.content):  
     print(&#34;Possible XSS found: &#34;+str(payload))
 </code></pre><p>When we write the code in the python file and run it, it will make tests by sending GET requests to the live DVWA server.</p>
-<p><img src="/images/0_5GN1pw6l0XKQVsRQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*5GN1pw6l0XKQVsRQ.png" alt=""></p>
 <p>If we look at the result we got, our XSS scripts did not work because the web page was filtering. <h1>xss</h1> was an HTML injection script, while XSS is just a plain string. You can try different XSS scripts.</p>
 <h3 id="command-injection-attack">
   Command Injection Attack
@@ -443,9 +445,9 @@ xss_list = [&#34;&lt;h1&gt;xss&lt;/h1&gt;&#34;,&#34;&lt;script&gt;alert(&#39;xss
   </a>
 </h3>
 <p>Command injection is a type of vulnerability also known as code execution vulnerability. Running it in the server shell without filtering the input causes this vulnerability. In this way, the attacker can run any malicious code he wants in the server shell. We will use DVWA&rsquo;s command injection web page in our application.</p>
-<p><img src="/images/0_Ik2wa2BdVo1Kxt3p.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*Ik2wa2BdVo1Kxt3p.png" alt=""></p>
 <p>There is an entry here that pings the given IP address. When we add a semicolon to the rest of the ip and try to run the ls command, we see that it works and lists the server directory. Based on this, we can determine that there is a command injection vulnerability on this page. Now let&rsquo;s see how we can detect this vulnerability with Python.</p>
-<p><img src="/images/0_64jFt9fe7MaTcEu7.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*64jFt9fe7MaTcEu7.png" alt=""></p>
 <p>When we listen to the request we sent to the page with burp, we can see that this request was made with a POST method and the parameters sent. As we did in previous applications, we will give our session cookie (&lsquo;PHPSESSID) to our header parameter. Next, since it is a POST request, we will create a data tuple structure and give it to our post() method.</p>
 <pre tabindex="0"><code>import requests
 </code></pre><pre tabindex="0"><code>command = &#34;cat /etc/passwd&#34; #the command we want to run  
@@ -456,7 +458,7 @@ response = requests.post(url=url, data=data, headers=header) #sending the reques
 </code></pre><pre tabindex="0"><code>if &#34;www-data&#34; in str(response.content):  
   print(&#34;command injection vulnerability found!&#34;)
 </code></pre><p>&lsquo;www-data&rsquo; consists of a string that we can understand that the command is working when it is found in the response, it is located in the passwd file. Using this method, you can run longer commands sequentially with Python.</p>
-<p><img src="/images/0_HJlxB5W113qQFTkD.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*HJlxB5W113qQFTkD.png" alt=""></p>
 <p>As a result, we found the vulnerability by running the python code.</p>
 <h3 id="end">
   End

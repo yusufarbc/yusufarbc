@@ -174,8 +174,10 @@ requests nedir?Başlık Linkirequests python’un basit ama zarif bir HTTP mod
                 
               
               <li class="navigation-item">
-                <a href="/posts/2022/08/python-for-hackers-requests/">English</a>
+                <a href="/">English</a>
               </li>
+            
+          
             
           
         
@@ -229,7 +231,7 @@ requests nedir?Başlık Linkirequests python’un basit ama zarif bir HTTP mod
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="/images/1_a87phGSd-sbfiJLWPfGMxA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*a87phGSd-sbfiJLWPfGMxA.png" alt=""></p>
 <h3 id="giriş">
   Giriş
   <a class="heading-link" href="#giri%c5%9f">
@@ -344,7 +346,7 @@ Sunucuların TLS sertifikasını doğrulamak için TRUE doğrulamayı kapatmak i
 <pre tabindex="0"><code>&gt;&gt;print(type(response))
 </code></pre><pre tabindex="0"><code>&lt;class &#39;requests.models.Response&#39;&gt;
 </code></pre><p>requests.models.Response türünde bir nesne olduğunu anlıyoruz. <a href="https://requests.readthedocs.io/en/latest/_modules/requests/models/"  class="external-link" target="_blank" rel="noopener">Kaynak koduna</a> baktığımzda:</p>
-<p><img src="/images/0_L_iXdDv3gSm2uu6j.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*L_iXdDv3gSm2uu6j.png" alt=""></p>
 <p>uzunca bir kod görüyoruz. Kendi dökümantasyonuna da <a href="https://requests.readthedocs.io/en/latest/api/#requests.Response"  class="external-link" target="_blank" rel="noopener">buradan</a> ulaşabilirsiniz. Bizim için burada önemli olan __attrs__ kısmında yazan attiributeleridir.</p>
 <pre tabindex="0"><code>print(response.__attrs__)
 </code></pre><pre tabindex="0"><code>[&#39;_content&#39;, &#39;status_code&#39;, &#39;headers&#39;, &#39;url&#39;, &#39;history&#39;, &#39;encoding&#39;, &#39;reason&#39;, &#39;cookies&#39;, &#39;elapsed&#39;, &#39;request&#39;]
@@ -357,7 +359,7 @@ f = open(&#34;source.html&#34;,&#34;w&#34;)
 f.write(str(response.content))  
 f.close()
 </code></pre><p>sayfa kaynağının aşağıdaki gibi çekildiğini görebilirsiniz. (CSS ve Javascript kodlarıyla birlikte)</p>
-<p><img src="/images/0_W3QQk0ZEoY20GPcY.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*W3QQk0ZEoY20GPcY.png" alt=""></p>
 <p>Sayfa kaynağını <a href="https://pypi.org/project/beautifulsoup4/"  class="external-link" target="_blank" rel="noopener">BeautifulSoup</a> modülü ile ayrıştırabilir içinden istedğiniz bilgileri alabilirsiniz. Ama bu yazımızda daha farklı şeyler yapacağız.</p>
 <h3 id="usomdan-zararlı-web-sitelerini-çekme">
   Usomdan zararlı web sitelerini çekme
@@ -391,7 +393,7 @@ with open(&#34;usom.txt&#34;, &#34;wb&#34;) as binary_file:
   </a>
 </h3>
 <p>Kaba Kuvvet Saldırısı, doğrusunu bulma umuduyla deneme yanılma yönetimi kullanarak bir web sayfasına giriş yapmak için kullanabileceğimiz basit ancak hala etkili bir saldırı türüdür. Bunu python uygulamamızla nasıl yapabileceğimize bir bakalım. Bunun için DVWA uygulamasını kullanacağım.</p>
-<p><img src="/images/0_D7cpaI2bY2tgv3Ig.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*D7cpaI2bY2tgv3Ig.png" alt=""></p>
 <p>Burada giriş sayfamı <a href="https://portswigger.net/burp"  class="external-link" target="_blank" rel="noopener">burp suite</a> aracıyla dinledim. username ve password alanlarına ‘aa’ değerini girerek login butonuna bastım. Yapılan GET isteği burp aracım üzerinde HTTP History bölümünde yakalanmış oldu. Tabi bunun için faklı araçlar da kullanabilirsiniz. Biz buradaki bazı bilgileri kullanacağız. Öncellikle DVWA sayfasına oturum açarak eriştiğimiz için python uygulamamızında bir şekilde oturuma erişmesi gerekiyor. Peki oturum nedir? kısaca bahsedecek olursak, bir giriş sayfasından kullanıcı adı/şifre bilgilerimizle giriş yaptığımızda aslında bir oturum başlatmış oluruz. İşimiz bitip tarayıcımızı kapattığımızda veya üzerinden belli bir süre geçtiğinde oturum sonlandırılır. Web uygulamaları oturum oluştururken çerelerden(cookie) yararlanır, bir çerez istemci bilgisayarında bir çerez sunucuda olmak üzere iki çerez oluşturulur. Bu iki çerez de kaybolmadığı sürece oturum devam eder. Biz burada DVWA sayfasına giriş yaparak aldığımız oturum çerezini python uygulamamıza vererek bizim otururumuz ile web sayfasına erişmesini sağlayacağız. Burp aracında işaretli alan ‘PHPSESID’ bizim oturum çerezimizdir. Yalnız acele etsek iyi olur, oturumun süresi bitiyor…</p>
 <pre tabindex="0"><code>import requests
 </code></pre><pre tabindex="0"><code>header = {&#34;Cookie&#34;: &#34;security=low; PHPSESSID=2d9gb38rft9o87vv22vbtnlu91&#34;} #oturum çerezini header&#39;a veriyoruz.
@@ -408,7 +410,7 @@ passwords = [&#34;resu&#34;, &#34;password&#34;, &#34;toor&#34;, &#34;1234&#34;]
       print(&#34;Status code: &#34;,result.status_code)  
       print(&#34;Length: &#34;, len(result.content))  
       print(&#34;Username and Password is found&#34;)
-</code></pre><p><img src="/images/0_WFaG5gXYv4_u5frj.png" alt=""></p>
+</code></pre><p><img src="https://cdn-images-1.medium.com/max/800/0*WFaG5gXYv4_u5frj.png" alt=""></p>
 <p>Kodu python dosyasına yazıp çalıştırdığımızda canlıdaki DVWA sunucusuna GET istekleri göndererek denemeler yapacaktır.</p>
 <p>Ve evet saldırımız başarılı kullanıcı adı ve şifre bilgisini bulduk. Bu web sayfasında GET metodu kullanıldığı için saldırıyı URL üzerinde düzenleme yaparak kolayca gerçekleştirebildik. Eğer POST metodu kullanılmış olsaydı HTML formundaki <em>name</em> niteliklerinin isimlerine göre bir tuple oluşturup post() metodunun <em>data</em> parametresine verip saldırımızı gerçekleştirebilirdik. Bu kadar ipucu yeter, gerisi sizde…</p>
 <h3 id="url-fuzzing">
@@ -430,7 +432,7 @@ header = {&#34;Cookie&#34;: &#34;security=low; PHPSESSID=0k6634cfi19e5sfn2vb754u
   else:  
     print(&#34;file or directory isn&#39;t found: &#34;,i)
 </code></pre><p>python kodunu çalıştırdığımızda listedeki dizin ve dosya adlarını deneyerek bize aşağıdaki sonucu verecektir.</p>
-<p><img src="/images/0_P0_DM5nuoLcNWX16.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*P0_DM5nuoLcNWX16.png" alt=""></p>
 <h3 id="xss-saldırısı">
   XSS Saldırısı
   <a class="heading-link" href="#xss-sald%c4%b1r%c4%b1s%c4%b1">
@@ -449,7 +451,7 @@ xss_list = [&#34;&lt;h1&gt;xss&lt;/h1&gt;&#34;,&#34;&lt;script&gt;alert(&#39;xss
   if str(payload) in str(result.content):  
     print(&#34;Muhtemel XSS bulundu: &#34;+str(payload))
 </code></pre><p>Kodu python dosyasına yazıp çalıştırdığımızda canlıdaki DVWA sunucusuna GET istekleri göndererek denemeler yapacaktır.</p>
-<p><img src="/images/0_5GN1pw6l0XKQVsRQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*5GN1pw6l0XKQVsRQ.png" alt=""></p>
 <p>Aldığımız sonuca bakarsak, web sayfası filtreleme yaptığı için XSS scriptlerimiz çalışmadı. <h1>xss</h1> HTML injection scriptiydi, XSS ise düz bir stringden ibaret. Siz daha farklı XSS scriptleri deneyebilirsiniz.</p>
 <h3 id="command-injection-saldırısı">
   Command Injection Saldırısı
@@ -459,9 +461,9 @@ xss_list = [&#34;&lt;h1&gt;xss&lt;/h1&gt;&#34;,&#34;&lt;script&gt;alert(&#39;xss
   </a>
 </h3>
 <p>Command injection,kod çalıştırma açıklığı olarak da bilinen bir zafiyet çeşididir. Girdiler filtrelenmeden sunucu shellinde çalıştırılması bu zafiyeti doğuruur. Saldırgan bu sayede istediği zararlı kodları sunucu shellinde çalıştırabilir. Uygulamamızda DVWA’nın command injection web sayfasını kullanacağız.</p>
-<p><img src="/images/0_Ik2wa2BdVo1Kxt3p.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*Ik2wa2BdVo1Kxt3p.png" alt=""></p>
 <p>Burada verilen ip adresine ping atan bir girdi bulunuyor. ip’nin devamına noktalı virgül atıp ls komutunu çalıştırmayı denediğimizde, çalıştıığını ve sunucu dizinini bize listelediğini görürürüz. Buradan hareketle bu sayfada comman injection zaafiyeti olduğunu belirleyebiliriz. Şimdi python ile nu zafiyeti nasıl tesğit edebileceğimize bakalım.</p>
-<p><img src="/images/0_64jFt9fe7MaTcEu7.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*64jFt9fe7MaTcEu7.png" alt=""></p>
 <p>Sayfaya gönderdiğimiz isteği burp ile dinlediğimizde bu isteğin bir POST metodu ile yapıldığını ve gönderilen parametreleri görebiliyoruz. Önceki uygulamalarda yaptığımız gibi yine oturum çerezimizi(‘PHPSESSID) header parametremize vereceğiz. Devamında POST isteği olduğu için bir data tuple yapısı oluşturacağız ve bunu post() metodumuza vereceğiz.</p>
 <pre tabindex="0"><code>import requests
 </code></pre><pre tabindex="0"><code>command = &#34;cat /etc/passwd&#34;  #çalıştırmak istediğimizz komut  
@@ -472,7 +474,7 @@ response = requests.post(url=url, data=data, headers=header) #isteğin gönderil
 </code></pre><pre tabindex="0"><code>if &#34;www-data&#34; in str(response.content):  
   print(&#34;command injection zafiyeti bulundu!&#34;)
 </code></pre><p>‘www-data’ gelen cevapta bulunduğunda komutun çalıştığını anlayabileceğimiz bir stringden ibaret, passwd dosyası içinde bulunuyor. Bu yöntemi kullanarak daha uzun komutları sırayla python ile çalıştırabilirsiniz.</p>
-<p><img src="/images/0_HJlxB5W113qQFTkD.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*HJlxB5W113qQFTkD.png" alt=""></p>
 <p>Sonuç olarak, python kodunu çalıştırarak zafiyeti bulmuş olduk.</p>
 <h3 id="son">
   Son
@@ -488,14 +490,6 @@ response = requests.post(url=url, data=data, headers=header) #isteğin gönderil
 
       <footer>
         
-
-<section class="see-also">
-  
-    
-    
-    
-  
-</section>
 
 
         

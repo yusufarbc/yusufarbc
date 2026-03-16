@@ -157,6 +157,8 @@ Modern network infrastructures form the backbone of digital transformation, play
           
           
             
+          
+            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -164,7 +166,7 @@ Modern network infrastructures form the backbone of digital transformation, play
                 
               
               <li class="navigation-item">
-                <a href="/tr/posts/2025/08/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi-iii-a%C4%9F-y%C3%B6netimi-ve-otomasyon/">Türkçe</a>
+                <a href="/tr/">Türkçe</a>
               </li>
             
           
@@ -219,7 +221,7 @@ Modern network infrastructures form the backbone of digital transformation, play
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="/images/1_-Ly5E9MK-j1Q58Bvn6XnWQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*-Ly5E9MK-j1Q58Bvn6XnWQ.png" alt=""></p>
 <h3 id="introduction">
   Introduction
   <a class="heading-link" href="#introduction">
@@ -301,7 +303,7 @@ Modern network infrastructures form the backbone of digital transformation, play
 </li>
 </ul>
 <p>The table below summarizes the main differences between SNMP versions, with a particular focus on security.</p>
-<p><img src="/images/1_uS7J0TK_5kSe1Sm4dn7DPg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*uS7J0TK_5kSe1Sm4dn7DPg.png" alt=""></p>
 <p><strong>Comparative Analysis of SNMP Versions</strong></p>
 <h4 id="622-management-information-base-mib-and-object-identifier-oid">
   6.2.2. Management Information Base (MIB) and Object Identifier (OID)
@@ -352,7 +354,7 @@ Modern network infrastructures form the backbone of digital transformation, play
 </ul>
 <p>The choice between NetFlow/IPFIX and sFlow reflects a fundamental engineering trade-off: 100% accuracy or unlimited scalability? NetFlow tracks each “conversation” (flow) from beginning to end, creating a detailed record that is perfect for scenarios where every byte counts, such as security forensics or billing. However, this requires the device to keep track of the state of tens of thousands of active streams in its memory and CPU. In a data center backbone operating at 100 Gbps, millions of new flows can start per second, making it impossible for hardware to keep track of every flow at this scale. sFlow solves this problem by saying, “I don&rsquo;t need to see all the traffic, a statistically valid sample is enough to understand the general trend.” This greatly reduces resource consumption and allows it to run even at top speeds. However, this sampling carries the risk of missing a brief microburst or a small stream that represents the first steps of an insidious cyber attack. Therefore, a network architect may choose the accuracy of IPFIX for security analysis at the enterprise WAN edge, while a cloud provider may choose the scalability of sFlow to understand overall traffic patterns in the data center backbone. The choice depends on the use case and business requirements rather than technical superiority.</p>
 <p>The table below summarizes the key differences and trade-offs between these three technologies.</p>
-<p><img src="/images/1_BUDYZKZ43rAN7rz3qf8FWw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*BUDYZKZ43rAN7rz3qf8FWw.png" alt=""></p>
 <p><strong>Comparison of Flow Analysis Technologies</strong></p>
 <h3 id="subheading-64-log-management-and-syslog-protocol">
   Subheading 6.4: Log Management and Syslog Protocol
@@ -443,7 +445,7 @@ Modern network infrastructures form the backbone of digital transformation, play
 <li><strong>Separation of Configuration Datastores:</strong> NETCONF makes a clear distinction between different configuration datastores, such as running-config (active configuration) and startup-config. This allows changes to be validated and tested before being implemented into the live system.</li>
 </ul>
 <p>The table below summarizes the philosophical and technical differences between the configuration (SET operation) capabilities of SNMP and NETCONF.</p>
-<p><img src="/images/1_k9H5BU4Vg5vNEkVIK0IKUg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*k9H5BU4Vg5vNEkVIK0IKUg.png" alt=""></p>
 <p><strong>Management Protocols: SNMP etc. NETCONF</strong></p>
 <h3 id="subheading-74-configuration-management-backup-and-version-controlgo">
   Subheading 7.4: Configuration Management: Backup and Version Control (Go)

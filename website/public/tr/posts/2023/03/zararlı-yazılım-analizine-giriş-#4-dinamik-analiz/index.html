@@ -168,8 +168,10 @@ Dinamik Analiz YöntemleriBaşlık LinkiÇeşitli araçların yardımıyla bir
                 
               
               <li class="navigation-item">
-                <a href="/posts/2023/03/introduction-to-malware-analysis-%234-dynamic-analysis/">English</a>
+                <a href="/">English</a>
               </li>
+            
+          
             
           
         
@@ -223,7 +225,7 @@ Dinamik Analiz YöntemleriBaşlık LinkiÇeşitli araçların yardımıyla bir
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="/images/1_XhHw4q_6KEejBGJHX3iENw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*XhHw4q_6KEejBGJHX3iENw.png" alt=""></p>
 <p>Bir önceki yazımda statik analiz yöntemlerinden bahsetmiştim. Bu yazımda ise Zararlı Yazılım Analizinde, dinamik analiz yöntemlerinden bahsedeceğim. Ne tür dinamik analiz teknikleri var? hangi araçlar kullaılıyor? nasıl analiz yapılıyor? hepsi bu yazıda!</p>
 <hr>
 <h3 id="dinamik-analiz-yöntemleri">
@@ -249,13 +251,13 @@ Dinamik Analiz YöntemleriBaşlık LinkiÇeşitli araçların yardımıyla bir
 <p>Fidye yazılımı gibi pek çok örneğin açık davranışları vardır. Örneği çalıştırmak ve yazılımın sistem ve diskteki dosyalar üzerindeki etkilerini gözlemlemek, örneğin zararlı yazılım olduğu sonucuna varmak, zararlı yazılımın türünü ve amacını anlamak için yeterli olabilir.</p>
 <p>Yürütülen zararlı yazılımın davranışını gelişigüzel bir şekilde gözlemlemek beklentilerimizi belirlememize ve derinlemesine analizine devam etmek için gereken bir sonraki araç setine kendimizi hazırlamamıza yardımcı olur.</p>
 <p>Tek bir yürütme, davranışı hakkında yeterince gözlem yapmamıza yardımcı olmayacağından, bu işlemi tekrarlamamız ve aynı örneği gelişigüzel bir şekilde birden çok kez yeniden çalıştırmamız gerekebilir. Örneği gelişigüzel bir şekilde her yeniden çalıştırdığımızda, VM’i sıfırlamamız önerilir. Bunun için çalıştırmadan önce <a href="https://www.techrepublic.com/article/how-to-use-snapshots-in-virtualbox/"  class="external-link" target="_blank" rel="noopener">snapshot</a> alabilirsiniz ve zararlı yazılımı çalıştırdıktan sonra restore edebilirsiniz.</p>
-<p><img src="/images/1_TeWf88TlRm-4hgARIytSFA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*TeWf88TlRm-4hgARIytSFA.png" alt=""></p>
 <p>Bu işlemi gerçekleştirirken, örneğin davranışını pasif olarak gözlemlememize yardımcı olan Process Hacker ve dosya tarayıcısı gibi birkaç basit araçtan da yardım alabiliriz.</p>
-<p><img src="/images/1_3Gszc0IZVUjKcJiNdTTGFQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*3Gszc0IZVUjKcJiNdTTGFQ.png" alt=""></p>
 <p>örneğin burada sample.exe adında bir zararlı yazılımız var Bunu çalıştırdığımızda neler olacak gözlemleyelim.</p>
-<p><img src="/images/1_A_SOhSImS-Ag6WFwPd4H0Q.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*A_SOhSImS-Ag6WFwPd4H0Q.png" alt=""></p>
 <p>sample.exe öğresi ortadan kayboldu ve yeni prosesler başladı. Artık bilgisayarımız enfekte olmuş durumda.</p>
-<p><img src="/images/1_bbN3yVKANOp7YerFaB1qBw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*bbN3yVKANOp7YerFaB1qBw.png" alt=""></p>
 <p>işlemimiz tamamlandıktan sonra makinemizi sıfırlamak için snapshotu restore etmemiz gerekli. Tekrar başlattığımızda makine snapshot aldığımız hali ile başlayacak.</p>
 <hr>
 <h3 id="api-log-davranışı">
@@ -266,9 +268,9 @@ Dinamik Analiz YöntemleriBaşlık LinkiÇeşitli araçların yardımıyla bir
   </a>
 </h3>
 <p>Zararlı yazılım, Win API çağrılarıyla faaliyetlerini gerçekleştirir. APIMiner veya Cuckoo Sandbox gibi bir API kaydedici aracı kullanarak bir örnek tarafından kullanılan API’leri elde edebilirsiniz. API’lere dayanarak, örneğin zararlı yazılım olup olmadığı sonucuna varabilir ve kategorisini öğrenebilirsiniz.</p>
-<p><img src="/images/1_pfOmNJu2eNiLE6VdAnRwcg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*pfOmNJu2eNiLE6VdAnRwcg.png" alt=""></p>
 <p><a href="https://github.com/poona/APIMiner"  class="external-link" target="_blank" rel="noopener">APIminer</a> aracı bize bir log dosyası yaratır. Log dosyaları, zaman sırasına göre düzenlenir. Gördüğünüz ilk dosya oluşturulan ilk dosya olur. Oluşturulan log dosyasını alttaki şekilde görebilirsiniz.</p>
-<p><img src="/images/1_tB_oxh5iHu7jN3Ni5dgR1Q.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*tB_oxh5iHu7jN3Ni5dgR1Q.png" alt=""></p>
 <p>Peki bu bilgilerden ne gibi çıkarımlar yapacağız.</p>
 <p>CreateProcessInternalW([command_line]”svchost.exe”,<br>
  [process_identifier]4080,<br>
@@ -303,7 +305,7 @@ C:\Windows\System32\svchost.exe konumunda bulunan işlem</li>
 </h3>
 <p>API loglarından zararlı yazılım olduğu sonucuna vardık, ancak zararlı yazılımın ailesini anlayabilir miyiz? Aynı aileye ait her zararlı yazılımın o aileye özgü özellikleri veya yapıları vardır. Özellikleri API logları aracılığıyla araştırılabilir. Örnek için, oluşturulan üç API log dosyası vardır. İlk log dosyasını alın ve bir muteks oluşturan CreateMutant API’sini arayın. <br>
 Zararlı yazılımlar tarafından yaygın olarak kullanılan bir senkronizasyon yöntemidir. Zararlı yazılımımız, API çağrısı aracılığıyla görebileceğiniz gibi, 2GVWNQJz1 adlı bir muteks oluşturur.</p>
-<p><img src="/images/1_gd1heUrxhjyJuqn7_SnqYg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*gd1heUrxhjyJuqn7_SnqYg.png" alt=""></p>
 <p>Örneğimiz tarafından oluşturulan Mutex, kuluoz ailesine ait olduğunu ve bir botnet virüsü olduğunu ortaya koyuyor</p>
 <hr>
 <h3 id="dinamik-stringanalizi">
@@ -315,14 +317,14 @@ Zararlı yazılımlar tarafından yaygın olarak kullanılan bir senkronizasyon 
 </h3>
 <p>String analizinde ilk adım, paketlenmiş olup olmadığını anlamaktır. Paketlenmemiş ise statik analiz yöntemleri ile stringler tespit edilebilir. Eğer paketlenmişse bu durumda dinamik analize ihtiyaç duyulur.</p>
 <p>PEiD, örneğin paketlenip paketlenmediğini anlayabileceğiniz statik dosyanın entropisini sağlayabilen harika bir araçtır.</p>
-<p><img src="/images/1_Po9quWJijYlHKhvJpMIlkQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Po9quWJijYlHKhvJpMIlkQ.png" alt=""></p>
 <p>Paketlenen zararlı yazılımlarda stringler gizlenmiş olur. Bu, BinText kullanarak stringlerin statik analizini işe yaramaz hale getirir. Paketlenmiş zararlı yazılım çalıştırdığımızda, kendilerini bellekte açarlar. Kendi paketini açtıktan sonra, tüm gizlenmiş stringleri artık görünür hale gelir. Bu stringleri tespit etmeye çalışacağız.</p>
 <p>Bu noktada yardımımıza yine process hacker koşuyor. process hacker ile başlatılan sürece tıklayıp bellek verilerini görüntüleyebiliriz.</p>
-<p><img src="/images/1_3m0V-UQ4Yb1nse2pzeteTA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*3m0V-UQ4Yb1nse2pzeteTA.png" alt=""></p>
 <p>Burada, birçok stringi görebiliyoruz.</p>
 <p>Bu stringlerde ne çıkarabiliriz? SMTP ve POP gibi çeşitli protokoller ve Filezilla ve Internet Explorer gibi çeşitli araçlarla birlikte Kullanıcı Adı ve Parolaya atıfta bulunan çok sayıda string bulunuyor. Bu, örneğin kullanıcıların kullandığı çeşitli araçlardan kimlik bilgilerini çalmaya çalışan infoStealers sınıfınfa bir zararlı yazılım olduğunu gösterir.</p>
 <p>Stringler içinde farklı görünen ama yine de bir anlamı olan garip isimler arayın (bunun için çok sabırlı olmanız gerekir). Tüm bu stringler arasında bir de YUIPWDFILE0YUIPKDFILE0YUICRYPTED0YUI1.0 stringi var ki bu string çok tuhaf görünüyor ama aynı zamanda CRYPTED ve FILE0 gibi kelimelerden oluşan bir yapıya sahip.</p>
-<p><img src="/images/1_el0yaQ8iSrmox-8IUb3CbQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*el0yaQ8iSrmox-8IUb3CbQ.png" alt=""></p>
 <p>Google’da bu stringi aradığımızda, örneğimizle aynı aileye ait olan Pony Loader veya Fareit gibi diğer zararlı yazılım örnekleri için birçok analiz raporuna işaret eder.</p>
 <hr>
 <h3 id="debuging">
@@ -334,13 +336,13 @@ Zararlı yazılımlar tarafından yaygın olarak kullanılan bir senkronizasyon 
 </h3>
 <p>Örneği assembly kodıuna çevirip yürütmek, yaptığı çağrıları görmemiz açısından faydalı olabilir. OllyDbg bu noktada bize yardımcı olacak.</p>
 <p>Öncelikle OllyDbg üzerinde birkaç küçük ayar yapamız lazım option menüsüne geliyoruz.</p>
-<p><img src="/images/1_eri6ggOwF_WG8_bhqPcVqQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*eri6ggOwF_WG8_bhqPcVqQ.png" alt=""></p>
 <p>Burada sol taraftan start bölümüne gelip Entry point of main module seçeneğini işaretliyoruz.</p>
-<p><img src="/images/1_mIJOmn4P3sGowZPeg3L87A.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*mIJOmn4P3sGowZPeg3L87A.png" alt=""></p>
 <p>Ardından SFX bölümüne gelip kutucuklardaki tikleri kaldırıyoruz. Artık hazırız. OllyDbg ile zararlı yazılım dosyamızı açıyoruz. Açılması biraz sürebilir.</p>
-<p><img src="/images/1_Or7YLdKi5dvafIWnuo-wXw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Or7YLdKi5dvafIWnuo-wXw.png" alt=""></p>
 <p>Burada OllyDbg’ın ana ekranını görüyorsunuzç Görüntü gözünüzü biraz korkutabilir. Aslında bu kısım assembly bilginize bağlı.</p>
-<p><img src="/images/1_EqbuAGEZvZeUYzrb9FERwQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*EqbuAGEZvZeUYzrb9FERwQ.png" alt=""></p>
 <p>OllyDbg üzerindeki hızlı erişim butonları şekildeki gibidir. OllyDbg ile yazılımı satır satır çalıştırabilir ve yaptığı işlemleri gözlemleyebilirsiniz.</p>
 <hr>
 <h3 id="davranış-olaylarıanalizi">
@@ -360,7 +362,7 @@ Zararlı yazılımlar tarafından yaygın olarak kullanılan bir senkronizasyon 
 <li>Örneği bir süre çalıştırın ve ardından ProcMon’da Ctrl+E tuşlarına basın. Ancak çok uzun süre çalıştırmak istemezsiniz; aksi takdirde, analiz edilecek çok fazla olayla boğulursunuz.</li>
 </ol>
 <p>Olayları gözden geçirelim ve örnek sürecimizle doğrudan veya dolaylı olarak ilgili olaylardan herhangi bir kötü niyetli olay/gösterge fark edip edemeyeceğimize bakalım.</p>
-<p><img src="/images/1_ML1czN-nNauQcOxJ4Y4PAw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*ML1czN-nNauQcOxJ4Y4PAw.png" alt=""></p>
 <p>Tüm olaylar zararlı bir aktiviteyi gösteriyor.</p>
 <ol>
 <li>SCOHOST.EXE adında bir dosya oluşturmaya çalışıyor ki bu isim sistem programı olcan svchost.exe’ye çok yakın.</li>
@@ -376,7 +378,7 @@ Zararlı yazılımlar tarafından yaygın olarak kullanılan bir senkronizasyon 
   </a>
 </h4>
 <p>Zararlı yazılım örneği bir RUN kalıcılık girişi oluşturduğundan, bu kalıcılık RUN girişinin hala var olup olmadığını AutoRuns aracıyla doğrulayalım.</p>
-<p><img src="/images/1_O8xKtlyx0K9aReVvbccSPw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*O8xKtlyx0K9aReVvbccSPw.png" alt=""></p>
 <p>Autoruns aracı ile oluşturulan kaydı görebilirsiniz.</p>
 <hr>
 <h3 id="kod-enjeksiyonu-tespiti">
@@ -395,7 +397,7 @@ Zararlı yazılımlar tarafından yaygın olarak kullanılan bir senkronizasyon 
   </a>
 </h4>
 <p>Zararlı yazılım örneğinin kod enjeksiyonu gerçekleştirdiğini anladığınızı varsayalım. Her kod enjeksiyon tekniği, zararlı yazılımın API hooking yapmayı planladığını veya rootkit işlevini kullanmaya çalıştığını göstermez. Ancak bu noktada kötü amaçlı yazılımın amaçlarından birinin API hooking veya rootkit olma olasılığı yüksek. Bu aşamada, GMER aracını kullanmak iyi bir adımdır.</p>
-<p><img src="/images/1_ailBIordEk9B2cmjVNPNVQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*ailBIordEk9B2cmjVNPNVQ.png" alt=""></p>
 <p>GMER Taraması</p>
 <hr>
 <h3 id="memory-forensics-adlibilişim">
@@ -426,7 +428,7 @@ Zararlı yazılımlar tarafından yaygın olarak kullanılan bir senkronizasyon 
 <li>Memoryze</li>
 </ul>
 <p>Bellek imajını almak için FTP Imager Lite’u kullanabiiriz. Bu araç son derece hafif ve kullanımı kolaydır.</p>
-<p><img src="/images/1_xpfdO7cMxtGKfdMhM179ug.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*xpfdO7cMxtGKfdMhM179ug.png" alt=""></p>
 <p>Capture memory düğmesine tıklayarak bir hafıza dökümü oluşturabilirsiniz. Oluşturulan bellek dökümü dosyası, adli bellek araçları tarafından anlaşılabilecek özel bir dosya biçimine sahiptir.</p>
 <h4 id="memory-analysis">
   Memory Analysis
@@ -436,14 +438,14 @@ Zararlı yazılımlar tarafından yaygın olarak kullanılan bir senkronizasyon 
   </a>
 </h4>
 <p>Dökümlerimizi analiz etmek için, Volatility adlı iyi bilinen bir açık kaynaklı adli bellek aracını kullanabiliriz.</p>
-<p><img src="/images/1_NId-X0OTydEM4KekMvEpeQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*NId-X0OTydEM4KekMvEpeQ.png" alt=""></p>
 <p>volality</p>
 <p>Volality bir komut satırı aracıdır ve aracın çıktısı çok büyükse çıktıyı komut isteminden görüntülemek sakıncalıdır. Bunun yerine komutun çıktısını bir metin dosyasına yönlendirebilirsiniz.</p>
-<p><img src="/images/1_1PBp2-WEY1sk0r6l7oehsw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*1PBp2-WEY1sk0r6l7oehsw.png" alt=""></p>
 <p>Komuttan help.txt dosyasına yönlendirilen çıktı artık Notepad veya Notepad++ gibi bir metin düzenleyici kullanılarak görüntülenebilir.</p>
-<p><img src="/images/1_1VOuaZCymL2zzn8nWbVmsA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*1VOuaZCymL2zzn8nWbVmsA.png" alt=""></p>
 <p>Ekran görüntüsü, araç tarafından sağlanan komutların listesini görüntüler. Volality çok kapsamlı bir araçtır. Bütün özelliklerini bu yazıda anlatmayacağım.</p>
-<p><img src="/images/1_52I5nvpzGb-GDJfZ6LamjQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*52I5nvpzGb-GDJfZ6LamjQ.png" alt=""></p>
 <p>imaj bilgileri</p>
 <p>Bellek imajını analiz etmek için pek çok komut ve teknik vardır. Bunları araştırarak öğrenebilirsiniz.</p>
 <hr>

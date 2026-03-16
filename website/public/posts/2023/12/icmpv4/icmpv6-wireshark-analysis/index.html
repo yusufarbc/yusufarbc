@@ -169,6 +169,8 @@ Echo Message: Used by ping and traceroute to test end-to-end connectivity. Too m
           
           
             
+          
+            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -176,7 +178,7 @@ Echo Message: Used by ping and traceroute to test end-to-end connectivity. Too m
                 
               
               <li class="navigation-item">
-                <a href="/tr/posts/2023/12/icmpv4/icmpv6-wireshark-analizi/">Türkçe</a>
+                <a href="/tr/">Türkçe</a>
               </li>
             
           
@@ -231,7 +233,7 @@ Echo Message: Used by ping and traceroute to test end-to-end connectivity. Too m
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="/images/1_qw1Nso3IaiA7Jptb-0T1qQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*qw1Nso3IaiA7Jptb-0T1qQ.png" alt=""></p>
 <p>Hello, in this article I will try to explain the ICMPv4 and ICMPv6 protocols and their analysis with Wireshark.</p>
 <hr>
 <h3 id="what-is-icmp">
@@ -248,7 +250,7 @@ Echo Message: Used by ping and traceroute to test end-to-end connectivity. Too m
 <li><strong>Destination Unreachable messages:</strong> Used to tell the source host that its packets could not be delivered for some reason — the reason is specified in the Destination Unreachable message. A large number of these response packets may indicate a failed UDP port scan is in progress or a service is not functioning properly.</li>
 </ul>
 <p>By examining ICMP traffic on your network over several hours or days, you can determine how efficiently the network is designed and detect numerous configuration errors, functional issues, or security breaches. ICMPv4 is defined in RFC 792.</p>
-<p><img src="/images/1_LHTLnK4dnNwCs20ZDNBf8g.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*LHTLnK4dnNwCs20ZDNBf8g.png" alt=""></p>
 <p>ICMP provides messaging services on IP networks</p>
 <p>RFC 4443 defines the purpose and functionality of ICMPv6. ICMPv6 packet structure is the same as ICMPv4 packet structure.</p>
 <hr>
@@ -260,19 +262,19 @@ Echo Message: Used by ping and traceroute to test end-to-end connectivity. Too m
   </a>
 </h3>
 <p>ICMP traffic is difficult to define because it is specific to each network. While some network personnel use ping for connection tests, some companies restrict ICMP Echo Requests/Responses. We can define the ICMP traffic from these ping tests and the ICMP traffic from traceroute tests as “normal ICMP traffic”. ICMP based pings use ICMP Type 8 for echo Requests and ICMP Type 0 for echo replies.</p>
-<p><img src="/images/1_4qv9iLVW9NDKL4GxWnpXKw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*4qv9iLVW9NDKL4GxWnpXKw.png" alt=""></p>
 <p>ICMP Echo Request</p>
-<p><img src="/images/1_gdUehz7murFdf2ZsU48Cmw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*gdUehz7murFdf2ZsU48Cmw.png" alt=""></p>
 <p>ICMP Echo Reply</p>
 <p>The figures show ICMPv4 echo request and echo reply packets.</p>
-<p><img src="/images/1_2A2yFLq4vs7G70TfEM0oHw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*2A2yFLq4vs7G70TfEM0oHw.png" alt=""></p>
 <p>ICMPv6</p>
 <p>The figure shows an ICMPv6 echo request packet. The packets in this trace are 6to4 packets.</p>
 <p>There are three flavors of Traceroute – ICMP based, TCP based and UDP based. ICMP based traceroute uses ICMP echo Requests and changes the Time to Live (TTL) value in the IP header. When packets reach routers along the path, the incoming TTL value is examined. If the incoming TTL value is 1, the router responds with an ICMP Time Exceeded/Time to Live Exceeded in Transit (Type 11, Code 0) (unless this response is disabled on the router). This allows you to find the IP address of the router.</p>
 <p>There are three flavors of Traceroute – ICMP based, TCP based and UDP based. ICMP based traceroute uses ICMP echo Requests and changes the Time to Live (TTL) value in the IP header. When packets reach routers along the path, the incoming TTL value is examined. If the incoming TTL value is 1, the router responds with an ICMP Time Exceeded/Time to Live Exceeded in Transit (Type 11, Code 0) (unless this response is disabled on the router). This allows you to find the IP address of the router.</p>
-<p><img src="/images/1_bJcu5LI83HlJKEJlBK6QUQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*bJcu5LI83HlJKEJlBK6QUQ.png" alt=""></p>
 <p>ICMP Ping Request — no response</p>
-<p><img src="/images/1_EPaLsDeBtWdcmSiyOLbZbw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*EPaLsDeBtWdcmSiyOLbZbw.png" alt=""></p>
 <p>ICMP Time-to-live-exceed</p>
 <p>The figures show typical striping that Wireshark displays when default coloring is enabled during a traceroute operation.</p>
 <h4 id="icmpv4-problems">
@@ -285,7 +287,7 @@ Echo Message: Used by ping and traceroute to test end-to-end connectivity. Too m
 <p>A common ICMP problem is a no-response echo test, indicating no connection to a destination. To determine the point at which ICMP traffic drops, you need to move the Wireshark system along the path until it reaches the point where packet loss occurs.</p>
 <p>However, ICMP itself can help detect many other network issues and security issues. For example, if a DNS query returns Destination Unreachable/Port Unreachable (Type 3/Code 3), either the client is sending DNS queries to the wrong destination or name service is not running on the server.It&rsquo;s tiring.</p>
 <p>Another example would be excessive redirects.</p>
-<p><img src="/images/1_09eyyZQ32tAra5CruF7ajQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*09eyyZQ32tAra5CruF7ajQ.png" alt=""></p>
 <p>ICMP Redirect</p>
 <p>The figure shows an ICMP Redirect packet pointing to another gateway at address 10.2.99.98. This packet is sent when the receiving router determines a better router for the sender. The receiving router creates an ICMP Forwarding (Type 5/Code 1) packet containing the recommended router to use. When received, a host must update its routing table. Redirects should only be sent by routers.</p>
 <p>Some ICMP packets, such as ICMP Redirect and ICMP Destination Unreachable packets, contain part of the original packet that triggered the ICMP response. In the figure, the ICMP header is followed by the original IP header of the packet that triggered the ICMP response.</p>

@@ -161,6 +161,8 @@ How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, s
           
           
             
+          
+            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -168,7 +170,7 @@ How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, s
                 
               
               <li class="navigation-item">
-                <a href="/tr/posts/2023/11/dns-wireshark-analizi/">Türkçe</a>
+                <a href="/tr/">Türkçe</a>
               </li>
             
           
@@ -223,7 +225,7 @@ How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, s
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="/images/1__OuE2zljUjPrg0g7TfljyQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*_OuE2zljUjPrg0g7TfljyQ.png" alt=""></p>
 <p>Hello, in this article, I will try to explain the Domain Name System (DNS) protocol and its analysis with Wireshark.</p>
 <hr>
 <h3 id="how-does-dnswork">
@@ -235,7 +237,7 @@ How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, s
 </h3>
 <p>DNS is used to convert symbolic hostnames, such as <a href="http://www.wiresharktraining.com"  class="external-link" target="_blank" rel="noopener">www.wiresharktraining.com</a>, into IP addresses. DNS can also be used to transfer name information between DNS servers, determine the hostname associated with an IP address (reverse or pointer query), and look up other name elements such as an MX (mail exchange) record.</p>
 <p>DNS is one of the most important applications on the network. A DNS problem will prevent computers from finding each other when using hostname information.</p>
-<p><img src="/images/1_-XBRoGHxww1KuVqyLDEznA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*-XBRoGHxww1KuVqyLDEznA.png" alt=""></p>
 <p>DNS package</p>
 <p>DNS can operate over UDP or TCP. You&rsquo;ll commonly see DNS queries and responses that use UDP. Zone transfers operate over TCP. The default port number for DNS is 53.</p>
 <p><a href="https://www.rfc-editor.org/rfc/rfc1035"  class="external-link" target="_blank" rel="noopener">RFC 1035</a>, Domain Names — Implementation and Specification limits DNS over UDP packet payload to 512 bytes. This is usually enough for a DNS query. However, when a response requires more than 512 bytes of space, an interrupt flag bit is sent in the response. This triggers the resolver to resend the DNS query using TCP, which allows for a larger packet size.</p>
@@ -249,7 +251,7 @@ How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, s
   </a>
 </h3>
 <p>Domain resolution, DNS query and response operations are very simple. A client sends a DNS query to a DNS server, requesting an IP address, usually in exchange for a domain. The DNS server either responds directly with the information it has or asks other DNS servers on behalf of clients.</p>
-<p><img src="/images/1_2Ye8QGf5KQIGJriwo33-jQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*2Ye8QGf5KQIGJriwo33-jQ.png" alt=""></p>
 <p>A record DNS Query</p>
 <p>The figure shows a standard DNS request to the A record (CNAME) for <a href="https://www.winpcap.org"  class="external-link" target="_blank" rel="noopener">www.winpcap.org</a>. This DNS query is automatically generated when the user enters the domain in the browser URL and presses the Enter key.</p>
 <p>The name requested by a client may not be the real name of the target. In this case, a canonical name(CNAME) or real name is returned for <a href="https://www.winpcap.org"  class="external-link" target="_blank" rel="noopener">www.winpcap.org</a>. The CNAME is <a href="http://www.winpcap.org"  class="external-link" target="_blank" rel="noopener">winpcap.org</a> and the address of this host is 128.121.79.138.</p>
@@ -262,15 +264,15 @@ How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, s
   </a>
 </h3>
 <p>The most common DNS problem is an error that occurs because a name does not exist in the ad namse server database. This may be due to entering an incorrect name or entering a new name that has not yet been propagated to Internet name servers.</p>
-<p><img src="/images/1_QGZ4PNFbyz1aVA6W3cqXLQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*QGZ4PNFbyz1aVA6W3cqXLQ.png" alt=""></p>
 <p>Unfound Domain Query</p>
 <p>In the figure, a user is trying to access the address 2.26.64.24.in-addr.arpa. The Name Server responds by stating that there is no such domain. If the user cannot resolve the domain, he cannot reach the destination address.</p>
 <p>Server error responses indicate that the name server was unable to resolve information for the client due to an error. This could be because the name server sent a query to another name server (via a recursive query) and timed out waiting for a response, or it could be that the response was not understood or related to a query due to some kind of internal error.</p>
-<p><img src="/images/1_ubKDRzHewQqeMyGqbDFqMw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*ubKDRzHewQqeMyGqbDFqMw.png" alt=""></p>
 <p>IP Resolution Cannot Be Performed as a Result of DNS Errors</p>
 <p>The figure shows the server error response received when trying to reach <a href="http://www.nmap.org"  class="external-link" target="_blank" rel="noopener">www.nmap.org</a>. We know this is a valid address, but DNS cannot resolve it. We cannot reach the site due to a DNS problem. Pay attention to the time column; We can see that the client sends a DNS query, then waits 1 second for the response before resending the query. The client waited another 1 second before the third query, but doubled that wait time to approximately 2 seconds before the fourth DNS query.</p>
 <p>To find the cause of DNS problems, you may need to move Wireshark upstream of the DNS server and monitor the lookup process at that location.</p>
-<p><img src="/images/1_CaxBBdj7NrXCZ3tIF-Gxxg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*CaxBBdj7NrXCZ3tIF-Gxxg.png" alt=""></p>
 <p>The ICMP response indicates that port 53 is open on the target.</p>
 <p>In the figure, our client sends DNS queries and these queries are answered with ICMP Destination Unreachable/Port Unreachable responses.The response shows that port 53 is not open on this host.</p>
 <p>In this case, where the error occurs depends on whether the client&rsquo;s DNS server has the correct IP address or whether the DNS server service is running on the requested IP. In this case, the client tries again — there is only one DNS server configured (usually there will be 2), so it tries the lookup again. The client&rsquo;s request is rejected again because the server indicates that this port is not listening.</p>
@@ -283,7 +285,7 @@ How Does DNS Work?Link to headingDNS is used to convert symbolic hostnames, s
   </a>
 </h3>
 <p>Unlike other applications that use a single transport protocol (UDP or TCP), DNS uses both UDP and TCP. DNS generally uses UDP-53 for name resolution requests and responses, and TCP-53 for zone transfers and larger name resolutions and responses.</p>
-<p><img src="/images/1_WDRDLWOoT1bKcj8KM2dyVA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*WDRDLWOoT1bKcj8KM2dyVA.png" alt=""></p>
 <p>DNS name reqests to <a href="http://www.winpcap.com"  class="external-link" target="_blank" rel="noopener">www.winpcap.com</a></p>
 <p>All DNS packages use a single basic structure consisting of four main parts as shown in the Figure.</p>
 <h4 id="transaction-id">

@@ -163,8 +163,10 @@ Dijital altyapıların karmaşıklığı ve siber tehditlerin sofistike doğası
                 
               
               <li class="navigation-item">
-                <a href="/posts/2025/08/network-management-and-security-iv-network-security-technologies/">English</a>
+                <a href="/">English</a>
               </li>
+            
+          
             
           
         
@@ -218,7 +220,7 @@ Dijital altyapıların karmaşıklığı ve siber tehditlerin sofistike doğası
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="/images/1_Fhet-NIJbKlNzPESUc1Ttw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Fhet-NIJbKlNzPESUc1Ttw.png" alt=""></p>
 <p>Dijital altyapıların karmaşıklığı ve siber tehditlerin sofistike doğası, ağ güvenliği yaklaşımlarında köklü bir dönüşümü zorunlu kılmıştır. Geleneksel “kale ve hendek” (castle and moat) olarak bilinen çevre güvenliği modeli, ağın sınırlarını güçlü bir şekilde koruyarak içerideki her varlığa örtük bir güven atfederdi. Ancak, bulut bilişim, mobilite, uzaktan çalışma ve Nesnelerin İnterneti (IoT) gibi modern IT paradigmalarının yükselişiyle birlikte, bu net bir şekilde tanımlanmış ağ çevresi giderek belirsizleşmiştir. Bu dağıtık ve dinamik ortamlarda, geleneksel modelin tehditleri engellemedeki yetersizliği, savunma-derinlik (defense-in-depth) ve Sıfır Güven (Zero Trust) gibi daha bütünleşik ve kimlik merkezli mimarilerin benimsenmesini sağlamıştır.</p>
 <p>Bu evrim, reaktif savunma mekanizmalarından proaktif kontrol stratejilerine doğru temel bir geçişi temsil etmektedir. Başlangıçta, tehditlerin büyük ölçüde dış kaynaklı olduğu varsayımıyla, ağın çevresine bir güvenlik duvarı (firewall) yerleştirmek yeterli görülüyordu. Ancak saldırganlar, bu savunmayı aşmak için uygulama katmanını (OSI Layer 7) hedef almaya başladığında, Web Uygulama Güvenlik Duvarları (WAF) ve Saldırı Önleme Sistemleri (IPS) gibi daha derine inebilen ve içeriği analiz edebilen araçlara ihtiyaç duyuldu. Tehdit aktörlerinin kimlik bilgilerini çalma ve içeriden gelen tehditleri (insider threats) istismar etme yeteneklerinin artmasıyla, ağın içindeki bir kullanıcı veya cihazın dahi varsayılan olarak güvenilir olamayacağı anlaşıldı. Bu farkındalık, her erişim talebinin, kimden ve nereden geldiğine bakılmaksızın, dinamik olarak doğrulanması ve yetkilendirilmesi gerektiğini öngören Sıfır Güven mimarisinin temel felsefesini oluşturmuştur. Dolayısıyla, ağ güvenliği teknolojilerinin evrimi, yalnızca teknik bir ilerleme değil, aynı zamanda “güven” kavramına yönelik felsefi bir değişimin somut bir yansımasıdır. Bu rapor, günümüzün ağ güvenliği teknolojilerini, bu modern paradigmalar çerçevesinde, mimari, protokol ve strateji düzeyinde kapsamlı bir şekilde incelemeyi amaçlamaktadır.</p>
 <hr>
@@ -304,7 +306,7 @@ Dijital altyapıların karmaşıklığı ve siber tehditlerin sofistike doğası
 <li><strong>Kötü Amaçlı Yazılım Faaliyetleri:</strong> Bilinen kötü amaçlı IP adreslerinden veya komuta-kontrol sunucularından gelen bağlantı denemeleri, ağ içinde bir sistemin ele geçirildiğini gösterebilir.</li>
 </ul>
 <p>Etkili bir log analizi için, tüm güvenlik duvarlarından ve diğer ağ cihazlarından gelen logların <strong>Syslog</strong> gibi standart bir protokol kullanılarak merkezi bir <strong>Güvenlik Bilgi ve Olay Yönetimi (SIEM)</strong> platformuna gönderilmesi esastır. Syslog mesajları genellikle <code>&lt;PRI&gt;TIMESTAMP HOSTNAME: MESSAGE</code> formatını takip eder; burada <code>&lt;PRI&gt;</code> değeri, mesajın hem önem (severity) hem de kaynak (facility) bilgisini içerir. Örneğin, bir Cisco ASA güvenlik duvarı tarafından üretilen <code>%ASA-6-106100</code> gibi bir mesaj, cihazın türünü (ASA), önem seviyesini (6 - Informational) ve spesifik olay kimliğini (106100) içerir. Bu yapılandırılmış veriler, SIEM platformlarında olay korelasyonu ve otomatik uyarı üretimi için temel oluşturur.</p>
-<p><img src="/images/1_B1xzRwD1QjcobyhgHaewZQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*B1xzRwD1QjcobyhgHaewZQ.png" alt=""></p>
 <p><strong>Firewall Teknolojileri Karşılaştırması</strong></p>
 <h3 id="16-dmz-tasarım-desenleri-tek-ve-çift-güvenlik-duvarı-mimarileri">
   1.6. DMZ Tasarım Desenleri: Tek ve Çift Güvenlik Duvarı Mimarileri
@@ -490,7 +492,7 @@ Dijital altyapıların karmaşıklığı ve siber tehditlerin sofistike doğası
 <li><strong>Anomali Tabanlı Tespit (Anomaly-based Detection):</strong> Bu yaklaşım, belirli bir saldırı imzası aramak yerine, ağın “normal” davranışını öğrenir ve bu normalden sapmaları potansiyel bir tehdit olarak işaretler. Sistem, belirli bir süre boyunca ağ trafiği metriklerini (örneğin, bant genişliği kullanımı, kullanılan protokoller, bağlantı sayıları) gözlemleyerek bir <strong>temel profil (baseline)</strong> oluşturur. Bu temel profilden istatistiksel olarak anlamlı bir sapma tespit edildiğinde (örneğin, gece yarısı beklenmedik bir FTP trafiği artışı), bir anomali uyarısı tetiklenir. Bu yöntemin en büyük avantajı, imzası olmayan yeni ve bilinmeyen saldırıları tespit etme potansiyelidir. Ancak, meşru ama beklenmedik ağ aktivitelerini (örneğin, yeni bir uygulamanın devreye alınması) de anomali olarak işaretleyebileceği için <strong>yüksek yanlış pozitif (false positive)</strong> oranına sahip olma eğilimindedir.</li>
 <li><strong>Davranışsal Analiz (Behavioral Analysis):</strong> Bu, anomali tabanlı tespitin daha gelişmiş bir formudur. Sadece trafik hacmi gibi istatistiksel sapmalara odaklanmak yerine, protokollerin ve uygulamaların davranışsal mantığını analiz eder. Örneğin, bir DNS sunucusunun normalde yapmaması gereken bir şekilde dışarıya doğru büyük miktarda veri transferi yapması veya bir web sunucusunun bir komut satırı (shell) başlatmaya çalışması gibi protokol ihlallerini veya beklenmedik eylem dizilerini tespit eder. Bu yöntem, daha fazla bağlam bilgisi kullandığı için anomali tabanlı tespitten daha isabetli sonuçlar üretebilir.</li>
 </ol>
-<p><img src="/images/1_PjPS0Bfp8Mb94zqFwP74Dw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*PjPS0Bfp8Mb94zqFwP74Dw.png" alt=""></p>
 <p><strong>IDS/IPS Tespit Yöntemleri Karşılaştırması</strong></p>
 <h3 id="32-açık-kaynak-idsips-motorlarının-mimarisi-snort-suricata-ve-zeek-bro-karşılaştırması">
   3.2. Açık Kaynak IDS/IPS Motorlarının Mimarisi: Snort, Suricata ve Zeek (Bro) Karşılaştırması
@@ -647,7 +649,7 @@ Dijital altyapıların karmaşıklığı ve siber tehditlerin sofistike doğası
   </a>
 </h4>
 <p>IPSec, paketlerin bütünlüğünü doğrulamak için IP başlıklarını kullandığından, NAT cihazları tarafından kaynak IP adresinin veya portunun değiştirilmesi kimlik doğrulama sürecini bozar. <strong>NAT Traversal</strong>, bu sorunu çözmek için geliştirilmiş bir mekanizmadır. NAT-T, IPSec (özellikle ESP) paketlerini bir UDP başlığı içine kapsüller. Bu UDP paketleri genellikle 4500 portunu kullanır. NAT cihazları bu UDP paketlerinin port bilgisini değiştirerek yönlendirme yapsa bile, içindeki orijinal ESP paketi bozulmadan kalır ve hedefteki VPN ağ geçidi tarafından doğru bir şekilde işlenebilir.</p>
-<p><img src="/images/1_qcfN3w9nucr_-rFUjvihHg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*qcfN3w9nucr_-rFUjvihHg.png" alt=""></p>
 <p><strong>VPN Protokolleri Karşılaştırması</strong></p>
 <hr>
 <h3 id="bölüm-5-güvenlik-operasyonlarının-merkezi-sinir-sistemi-siem-vesoar">
@@ -699,7 +701,7 @@ Dijital altyapıların karmaşıklığı ve siber tehditlerin sofistike doğası
 <li><strong>IBM QRadar:</strong> Köklü ve olgun bir SIEM platformudur. Özellikle kural tabanlı korelasyon ve uyumluluk raporlaması konularında güçlüdür. Genellikle Splunk’a göre daha uygun maliyetli bir seçenek olarak görülür, ancak arayüzü bazı kullanıcılar tarafından daha eski olarak değerlendirilebilir.</li>
 <li><strong>Microsoft Sentinel:</strong> Bulut tabanlı (cloud-native) bir SIEM ve SOAR çözümüdür. Özellikle Azure bulut hizmetleriyle derin entegrasyonu ve yapay zeka destekli analiz yetenekleri ile öne çıkar. Altyapı yönetimi gerektirmediği ve ölçeklenebilir olduğu için modern bulut ortamları için popüler bir seçenektir.</li>
 </ul>
-<p><img src="/images/1_pGGWBXfh3FmW4dBdnSiGIA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*pGGWBXfh3FmW4dBdnSiGIA.png" alt=""></p>
 <p><strong>SIEM ve SOAR Arasındaki Temel Farklar</strong></p>
 <hr>
 <h3 id="bölüm-6-ağa-erişimde-sıfır-güven-ağ-erişim-kontrolünac">
@@ -835,7 +837,7 @@ Dijital altyapıların karmaşıklığı ve siber tehditlerin sofistike doğası
 <li><strong>Düzenli Ağ Taramaları:</strong> Ağın düzenli olarak taranarak yetkisiz cihazların tespit edilmesi önemlidir.</li>
 <li><strong>Kullanıcı Eğitimi:</strong> Kullanıcıları, bilinmeyen veya şüpheli Wi-Fi ağlarına bağlanmanın riskleri, sertifika uyarılarına dikkat etme ve halka açık ağlarda VPN kullanmanın önemi konusunda eğitmek, en önemli savunma hatlarından biridir.</li>
 </ul>
-<p><img src="/images/1_1MluVyG6UZhxsJniWxTz2g.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*1MluVyG6UZhxsJniWxTz2g.png" alt=""></p>
 <p><strong>WPA2 ve WPA3 Karşılaştırması</strong></p>
 <hr>
 <h3 id="sonuç">

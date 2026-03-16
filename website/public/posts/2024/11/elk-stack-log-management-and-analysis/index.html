@@ -160,6 +160,8 @@ What is Log Management?Link to headingLog management is the process of collect
           
           
             
+          
+            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -167,7 +169,7 @@ What is Log Management?Link to headingLog management is the process of collect
                 
               
               <li class="navigation-item">
-                <a href="/tr/posts/2024/11/elk-stack-log-y%C3%B6netimi-ve-analizi/">Türkçe</a>
+                <a href="/tr/">Türkçe</a>
               </li>
             
           
@@ -222,7 +224,7 @@ What is Log Management?Link to headingLog management is the process of collect
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="/images/1_O7bMqTbQv_OX5x75qkY6Ug.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*O7bMqTbQv_OX5x75qkY6Ug.png" alt=""></p>
 <p>Hello, in this article, I will talk about the log management of ELK Stack, which we installed in my last article, namely log collection, parsing and enrichment processes. How to Collect, Process and Send Logs with Logstash?</p>
 <h3 id="what-is-log-management">
   What is Log Management?
@@ -263,7 +265,7 @@ What is Log Management?Link to headingLog management is the process of collect
   </a>
 </h3>
 <p>Logstash is easier to understand when you imagine it as a pipeline. At one end of this pipeline are <strong>inputs</strong> that represent data sources. As log records pass through the Logstash pipeline, they can be enriched, filtered or manipulated based on your needs. Ultimately, when they reach the end of the pipeline, Logstash can deliver these logs to configured destinations for storage or analysis.</p>
-<p><img src="/images/1_sf3D7DyNWppst-cVl_z42g.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*sf3D7DyNWppst-cVl_z42g.png" alt=""></p>
 <p>Logstash Pipeline</p>
 <p>To create this data processing pipeline, you can configure Logstash using a configuration file. A typical logstash configuration file:</p>
 <pre tabindex="0"><code>input {  
@@ -360,17 +362,17 @@ out {
 </code></pre><p>In this file, you need to write the password of your own “elastic” user in the password field.</p>
 <p>I used the grok plugin as a filter on Logstash. grok is a very good parser plugin. We will be parsing our incoming logs on Logstash with the grok plugin.</p>
 <p>Now change ownership of directory <code>/usr/share/logstash/data</code> to user <code>logstash</code>:</p>
-<p><img src="/images/1_AQQWHHMHTuYtBxAsZ0DWzg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*AQQWHHMHTuYtBxAsZ0DWzg.png" alt=""></p>
 <p>Changing ownership of Logstash data directory</p>
 <pre tabindex="0"><code>sudo chown -R logstash:logstash /usr/share/logstash/data
 </code></pre><p>Now start Logstash by passing the path to the configuration file:</p>
 <pre tabindex="0"><code>sudo -u logstash /usr/share/logstash/bin/logstash -f /etc/logstash/conf.d/logstash.conf
-</code></pre><p><img src="/images/1_IN4dRRoxrItJa5eUNsAFqw.png" alt=""></p>
+</code></pre><p><img src="https://cdn-images-1.medium.com/max/800/1*IN4dRRoxrItJa5eUNsAFqw.png" alt=""></p>
 <p>Starting logstashi</p>
 <p>When you start it with the Logstash configuration file, if there are no errors, you will receive a message that the pipeline is listening and ready.</p>
-<p><img src="/images/1_eGddI0ws1vfegy_IhfJl_w.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*eGddI0ws1vfegy_IhfJl_w.png" alt=""></p>
 <p>Pipeline listening</p>
-<p><img src="/images/1_j93RhXtzHMuobzrXoKpjDQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*j93RhXtzHMuobzrXoKpjDQ.png" alt=""></p>
 <p>Logstash Service Status</p>
 <p>Now our pipilen is ready. Our service is up and running. We can move on to the next step.</p>
 <h3 id="2--beats-configuration">
@@ -394,17 +396,17 @@ out {
 <p>We start the installation on our client system. I will continue with my same system. The server on which I installed my ELK system will also be my client.</p>
 <pre tabindex="0"><code>wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.15.3-amd64.deb  
 sudo dpkg -i filebeat-8.15.3-amd64.deb
-</code></pre><p><img src="/images/1_h8EWICxmNAUUwQgfbizXjQ.png" alt=""></p>
+</code></pre><p><img src="https://cdn-images-1.medium.com/max/800/1*h8EWICxmNAUUwQgfbizXjQ.png" alt=""></p>
 <p>Filebeat installation</p>
 <p>After downloading and installing Filebeat, we proceed to the configuration process.</p>
 <pre tabindex="0"><code>sudo nano /etc/filebeat/filebeat.yml
-</code></pre><p><img src="/images/1_CigAmS2AF5tsJWQYLetpkg.png" alt=""></p>
+</code></pre><p><img src="https://cdn-images-1.medium.com/max/800/1*CigAmS2AF5tsJWQYLetpkg.png" alt=""></p>
 <p>Elasticsearch Output</p>
 <p>Since we will direct our output to logstashe, we close the elasticsearch section with a square sign.</p>
-<p><img src="/images/1_Hnz7Cpp4QzquIrc10rjBdQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Hnz7Cpp4QzquIrc10rjBdQ.png" alt=""></p>
 <p>Logstash Output</p>
 <p>In the Logstash section, we enter the IP and port number of our Logstash server.</p>
-<p><img src="/images/1_MBSKQNv8BjcCL-dWN4oZCg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*MBSKQNv8BjcCL-dWN4oZCg.png" alt=""></p>
 <p>Log Collection Configuration</p>
 <p>In the Paths section, we can configure the logs that our beat will collect. By default, it collects log files under the /var/log/ directory. For more, we can add the logs of important services (WEB, DNS, DHCP, etc.) running on our server to this section.</p>
 <p>When our configuration settings are completed, we can save the file and exit.</p>
@@ -412,7 +414,7 @@ sudo dpkg -i filebeat-8.15.3-amd64.deb
 <pre tabindex="0"><code>sudo systemctl daemon-reload  
 sudo systemctl enable filebeat.service  
 sudo systemctl start filebeat.service
-</code></pre><p><img src="/images/1_5fkN3mf3RSkcR8i5pj_eXg.png" alt=""></p>
+</code></pre><p><img src="https://cdn-images-1.medium.com/max/800/1*5fkN3mf3RSkcR8i5pj_eXg.png" alt=""></p>
 <p>Filebeat Service Status</p>
 <p>We have now completed our filebeat configuration and started our service. Our service is up and running.</p>
 <p>You can install and configure other beats products in a similar way.</p>
@@ -425,17 +427,17 @@ sudo systemctl start filebeat.service
   </a>
 </h3>
 <p>We have completed our Logstash and Filebeat installations. Now let&rsquo;s open our kibana interface. Then let&rsquo;s enter the elasticsearch section. Let&rsquo;s check if our index has arrived in the Indicies area.</p>
-<p><img src="/images/1_Y2bco0zQhKvUxE1T2mvOxw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Y2bco0zQhKvUxE1T2mvOxw.png" alt=""></p>
 <p>Kibana Interface</p>
 <p>We can see our incoming index in this interface. Now let&rsquo;s go to the “Discover” section.</p>
-<p><img src="/images/1_t9aAyIPyNRzcWZK7wsbouA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*t9aAyIPyNRzcWZK7wsbouA.png" alt=""></p>
 <p>Discover Panel</p>
 <p>We will create a new data view by clicking the Create Data View button.</p>
-<p><img src="/images/1_oDaljym5JgsWwDuNrK5cjg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*oDaljym5JgsWwDuNrK5cjg.png" alt=""></p>
 <p>Creating a Data View</p>
 <p>Give it a name and select the index pattern, you may want to name it filebeat* as you want the filebeat directory despite the time it was created, if you select filebat-test-2023.10.03* only one directory will be loaded and the new directory will not be able to receive real time data as it will be under different data. Therefore, you should avoid it.</p>
 <p>After saving the Data View, logs should appear in the discover panel. If it hasn&rsquo;t arrived, there is a problem.</p>
-<p><img src="/images/1_yXjPbz-6CYRJekTkqSvHwQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*yXjPbz-6CYRJekTkqSvHwQ.png" alt=""></p>
 <p>Discover Panel</p>
 <p>We can now perform log search from this panel.</p>
 <hr>

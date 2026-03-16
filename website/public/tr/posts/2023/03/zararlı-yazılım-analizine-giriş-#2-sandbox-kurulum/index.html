@@ -168,8 +168,10 @@ SandboxBaşlık LinkiZararlı Yazılım Analizinde kullandığımız ortama sa
                 
               
               <li class="navigation-item">
-                <a href="/posts/2023/03/introduction-to-malware-analysis-%232-sandbox-installation/">English</a>
+                <a href="/">English</a>
               </li>
+            
+          
             
           
         
@@ -223,7 +225,7 @@ SandboxBaşlık LinkiZararlı Yazılım Analizinde kullandığımız ortama sa
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="/images/1_rXDQnvecujpcn5O9zt_liQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*rXDQnvecujpcn5O9zt_liQ.png" alt=""></p>
 <p>Bir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araçları kullanacağız? Hepsi bu yazıda….</p>
 <hr>
 <h3 id="sandbox">
@@ -246,7 +248,7 @@ SandboxBaşlık LinkiZararlı Yazılım Analizinde kullandığımız ortama sa
   </a>
 </h3>
 <p>VirtualBox, Oracle tarafından geliştirilmiş genel amaçlı bir sanallaştırma yazılımıdır. <a href="https://www.virtualbox.org/"  class="external-link" target="_blank" rel="noopener">https://www.virtualbox.org/</a> adresinden downloads sekmesinden mevcut işletim sistemi ve sürümünüze uygun olan versiyonu indirebilirsiniz.</p>
-<p><img src="/images/1_bAHl-81CJsNK9t4vmvylOg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*bAHl-81CJsNK9t4vmvylOg.png" alt=""></p>
 <p>Kurulum dosyasını indirdikten sonra çalıştırın ve kurulumu tamamlayın.</p>
 <hr>
 <h3 id="windows7-kurulumu">
@@ -265,22 +267,22 @@ SandboxBaşlık LinkiZararlı Yazılım Analizinde kullandığımız ortama sa
   </a>
 </h4>
 <p>ISO dosyamızı hazır ettikten sonra artık kuruluma başlayabiliriz. Öncellikle virtualbox üzerinde boş bir makine oluşturmamız gerekiyor. Bunun için;</p>
-<p><img src="/images/1_-0pEFla7ntLU8wE_1F2sMQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*-0pEFla7ntLU8wE_1F2sMQ.png" alt=""></p>
 <p>1</p>
 <p>new butonuna tıklıyoruz açılan pencerede bizden işletim sistemi bilgilerini istiyor.</p>
-<p><img src="/images/1__Z9Dl9qcu5ivIFjMh5HeyA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*_Z9Dl9qcu5ivIFjMh5HeyA.png" alt=""></p>
 <p>Windows 7 (32-bit)’i seçiyoruz ve makinemize bir isim veriyoruz. Ben SANDBOX ismini verdim. Siz başka bir isim de verebilirsiniz. Ardından Next butonuna tıklıyoruz.</p>
-<p><img src="/images/1_0o-EluVqdxumU78nWRr36A.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*0o-EluVqdxumU78nWRr36A.png" alt=""></p>
 <p>Burada makineye vereceğimiz RAM alanını ayarlıyoruz ben 4GB RAM verdim. Makine çalıştığında bilgisayarımın 4GB RAMi bu makineye tahsis edilecek. Siz isterseniz daha fazla da verebilirsiniz sisteminizin durumuna göre. Next butonuna tıklıyoruz.</p>
-<p><img src="/images/1_YelA6_DmCbJbJzjknDkmRQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*YelA6_DmCbJbJzjknDkmRQ.png" alt=""></p>
 <p>Burada sistem dosyalarının kurulacağı bir sanal harddisk oluşturuyoruz. Default olarak seçili olan kısım bizim işimizi görür. Create butonuna tıklyıoruz.</p>
-<p><img src="/images/1_uo7tJ4EQAe00OSAvmZLJbQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*uo7tJ4EQAe00OSAvmZLJbQ.png" alt=""></p>
 <p>Create Virtual Hard Disk menüsü karşımıza çıkacak, VDI, VHDI, VMDK gibi seçenekler karşımıza çıkıyor. Ben VDI’ı tercih ediyorum. Next butonuna basıyoruz.</p>
-<p><img src="/images/1_sWxdSieNwBwGcBUX8tfHXg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*sWxdSieNwBwGcBUX8tfHXg.png" alt=""></p>
 <p>Gelen menüde, sabit boyut ve dinamik boyut seçenekleri var. Eğer sabit boyut seçerseniz sisteminiz daha stabi olur ancak sisteme ayırdığınız alanı tamamen kaybedersiniz. Dinamik boyutda ise sisteme ayırdığınız alan sanal makine içinde doldukça arttırılır. Yani sanal makineye 100GB alan verseniz bile, sanal makine kendi içinde 20GB’ı kullanılıyorsa 80GB’ı temel işletim sisteminizde boş olarak görünür, kllanılabilir. Ben sandbox makinesi olduğu için sabit boyutu tercih ederim. Fixed Size’ı seçtim. Next butonuyla devam.</p>
-<p><img src="/images/1_ERtiLWewifFLdwCUqRsvsA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*ERtiLWewifFLdwCUqRsvsA.png" alt=""></p>
 <p>Burada makine için ayıracağınız disk alanını belirliyorsunuz. Minimum 32GB olması gerekiyor. Ben 64GB verdim. Create butonu ile devam edebiliriz. Ve sonunda boş sanal makinemizi oluşturduk</p>
-<p><img src="/images/1_3NgY5McJzyVr-GTdmJexXQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*3NgY5McJzyVr-GTdmJexXQ.png" alt=""></p>
 <p>Start butonu ile makineyi başlatırsanız karşınıza sadece siyah ekran çıkacaktır. Çünkü daha ISO dosyamızı yüklemedik.</p>
 <h4 id="windows-isoyükleme">
   Windows ISO Yükleme
@@ -290,13 +292,13 @@ SandboxBaşlık LinkiZararlı Yazılım Analizinde kullandığımız ortama sa
   </a>
 </h4>
 <p>Oluşturduğumuz boş sanal makineye Windows ISO’sunu yüklemek için sanal makinenin ayarlarını düzenlememiz lazım.</p>
-<p><img src="/images/1_-JYi1XcTSXAnsadBUb0-uA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*-JYi1XcTSXAnsadBUb0-uA.png" alt=""></p>
 <p>Şimdi soldaki menüde SANDBOX makinemiz seçili halde settings butonuna tıklıyoruz. Burada makine için ayarları yapacağız.</p>
-<p><img src="/images/1_YJNsG-sra5t4ZauZlPllbA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*YJNsG-sra5t4ZauZlPllbA.png" alt=""></p>
 <p>Açılan menüden sanal makinamız ile ilgili pek çok ayarı yapabiliriz. Soldaki menüden storage sekmesine geliyoruz. Burda cd üzerinde + olan simgeye tıklıyoruz. Burdan ISO dosyamızı yükleeceğiz.</p>
-<p><img src="/images/1_6mcDi5d4T8DUJX5Z1jdVWQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*6mcDi5d4T8DUJX5Z1jdVWQ.png" alt=""></p>
 <p>Açılan menüden Add butonuna tıklıyoruz ve açılan pencereden Windows7 (32-bit) ISO dosyamızı bilgisayarımızda nereye kaydettiysek bulup seçiyoruz.</p>
-<p><img src="/images/1_ddD0E9vEge4iuRehfIf6-A.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*ddD0E9vEge4iuRehfIf6-A.png" alt=""></p>
 <p>Ardından yüklediğimiz ISO’yu seçip choose butonuna basıyoruz. İşlememiz tamamlandı artık makineyi çalıştırabiliriz.</p>
 <h4 id="windows-kurulıumu">
   Windows Kurulıumu
@@ -306,10 +308,10 @@ SandboxBaşlık LinkiZararlı Yazılım Analizinde kullandığımız ortama sa
   </a>
 </h4>
 <p>Bundan sonrası klasik windows kurulumu. Start butonundan makineyi çalıştırabilirsiniz.</p>
-<p><img src="/images/1_W0pHYBmPMUHFqYxiid_vCA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*W0pHYBmPMUHFqYxiid_vCA.png" alt=""></p>
 <p>windows7 kurulum</p>
 <p>Windows kurulumu oldukça basittir. Windowsun kurulum arayüzünden kolaylıkla yapabilirsiniz. Makine kurulumu bittikten sonra windows başlatılacaktır.</p>
-<p><img src="/images/1_feg30wY7_q3Nlj5JaMWALg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*feg30wY7_q3Nlj5JaMWALg.png" alt=""></p>
 <p>Bundan sonraki aşama Zararlı Yazılım Analizi için gerekli olan araçları kurmanızdır. Tabi bunların hepsini bir anda da kurabilirsiniz, peyder pey de kurabilirsiniz.</p>
 <h4 id="makine-klonlama">
   Makine Klonlama
@@ -319,15 +321,15 @@ SandboxBaşlık LinkiZararlı Yazılım Analizinde kullandığımız ortama sa
   </a>
 </h4>
 <p>Şimdi makinemize birşey olursa tekrar kurmak ile uğraşmamak için makineyi konlamayı görelim.</p>
-<p><img src="/images/1_H0PHw86ioHsxZ9NP3aCO4Q.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*H0PHw86ioHsxZ9NP3aCO4Q.png" alt=""></p>
 <p>Bunun için makinemize sağ tıklayıp açılan pencerede clone’a tıklıyoruz.</p>
-<p><img src="/images/1_-_W07d55vop2s7pojzqSeQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*-_W07d55vop2s7pojzqSeQ.png" alt=""></p>
 <p>karşımıza böyle bir pencere çıkıyor next butonuna basıp devam edebiliriz.</p>
-<p><img src="/images/1_4y8XvnOmd-eCcx0bSpM4xA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*4y8XvnOmd-eCcx0bSpM4xA.png" alt=""></p>
 <p>Burada klon tipini belirlememiz gerekiyor. İki çeşit klon tipimiz var.</p>
 <p><strong>Full clone:</strong> adından da anlaşılacağı gibi sanal makinenin aynısından bir tane daha oluşturur. Dolaysıyla klonlandığı makineye bir bağımlılığı yoktur.</p>
 <p><strong>Linked clone:</strong> klonlanan makine ana makineye bağımlıdır. Yani ana makine silinirse bağlantılı klonu da işlevsiz kalır.</p>
-<p><img src="/images/1_GkV9fxO_Uf7K_a_AsQaLYQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*GkV9fxO_Uf7K_a_AsQaLYQ.png" alt=""></p>
 <p>full cloneu seçip devam edebilirsiniz. Ardından VM klonlanana kadar bekleyiniz ve klonunuz hazır.</p>
 <hr>
 <h3 id="önerilen-araçlar">

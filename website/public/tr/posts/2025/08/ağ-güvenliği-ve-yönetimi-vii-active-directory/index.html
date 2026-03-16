@@ -42,6 +42,13 @@ Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolü
     <meta property="article:published_time" content="2025-08-07T00:00:00+00:00">
     <meta property="article:modified_time" content="2025-08-07T00:00:00+00:00">
     <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-x-soc-ve-noc-s%C3%BCre%C3%A7leri/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-ix-bulut-g%C3%BCvenli%C4%9Fi-ve-hibrit-a%C4%9F-mimarileri/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-vi-a%C4%9F-protokolleri-g%C3%BCvenli%C4%9Fi-ve-analizi/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-viii-a%C4%9F-y%C3%B6netimi-izleme-ve-otomasyon/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-iii-a%C4%9F-donan%C4%B1mlar%C4%B1-ve-fiziksel-altyap%C4%B1-g%C3%BCvenli%C4%9Fi/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-iv-a%C4%9F-g%C3%BCvenli%C4%9Fi-teknolojileri/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-v-kimlik-ve-eri%C5%9Fim-y%C3%B6netimi-iam/">
 
 
 
@@ -157,8 +164,10 @@ Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolü
                 
               
               <li class="navigation-item">
-                <a href="/posts/2025/08/network-security-and-management-vii-active-directory/">English</a>
+                <a href="/">English</a>
               </li>
+            
+          
             
           
         
@@ -212,7 +221,7 @@ Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolü
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="/images/1_xHCEWIgWsOG-PR1mgpcXvQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*xHCEWIgWsOG-PR1mgpcXvQ.png" alt=""></p>
 <p>Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolünü ve neden birincil saldırı hedefi olduğunu detaylı bir şekilde incelemektedir. “Kimlik, yeni güvenlik çevresidir” paradigmasından yola çıkarak, bu çalışma, AD’yi bir güvenlik zafiyetinden bir savunma kalesine dönüştürmeyi amaçlayan kapsamlı bir strateji sunmaktadır. Rapor, Kerberoasting, Pass-the-Hash ve Golden Ticket gibi yaygın saldırı vektörlerini, Yönetimsel Katman Modeli (Tiered Model), Credential Guard ve Grup Yönetimli Hizmet Hesapları (gMSA) gibi gelişmiş savunma mekanizmalarını, hibrit kimlik altyapılarının güvenliğini ve sürekli izleme ile felaket kurtarma operasyonlarını teknik ayrıntılarıyla ele almaktadır. Bu kılavuz, güvenlik liderleri ve teknik uygulayıcılar için AD altyapılarının güvenliğini ve dayanıklılığını artırmaya yönelik eyleme geçirilebilir bir yol haritası sunarak son bulmaktadır.</p>
 <hr>
 <h3 id="active-directory-mimarisi-ve-güvenlik-temelleri">
@@ -433,7 +442,7 @@ Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolü
 <p>AD saldırıları genellikle tek bir olaydan ziyade bir dizi bağlantılı eylemden oluşan bir zincir reaksiyonu şeklinde ilerler. Bir zafiyetin sömürülmesi, bir sonrakinin kapısını aralar. Örneğin, zayıf bir ağ segmentinde LLMNR/NBT-NS protokollerinin aktif olması , bir saldırganın Responder aracıyla düşük yetkili bir kullanıcının NTLM hash’ini yakalamasına olanak tanır. Saldırgan bu hash’i kıramasa bile, Pass-the-Hash tekniğini kullanarak aynı kimlik bilgileriyle diğer makinelere yanal olarak hareket edebilir. Bu yeni erişilen makinelerden birinde, BloodHound gibi bir araçla yapılan keşif, zayıf bir parolaya sahip bir SQL hizmet hesabının varlığını ortaya çıkarabilir. Bu noktada saldırgan, Kerberoasting saldırısı ile bu hizmet hesabının biletini talep eder ve parolasını çevrimdışı olarak kırar. Bu hizmet hesabının yerel yönetici olduğu sunuculara erişim kazandıktan sonra, bu sunuculardan birinde daha önce oturum açmış bir Domain Admin’in önbelleğe alınmış kimlik bilgilerini Mimikatz ile çalabilir veya bu hizmet hesabının yanlışlıkla<code>Replicating Directory Changes</code> iznine sahip olduğunu keşfedebilir. Bu izinle, DCSync saldırısı gerçekleştirerek<code>krbtgt</code> hesabının hash&rsquo;ini çalar ve son adım olarak bir Golden Ticket oluşturarak tüm etki alanında kalıcı ve mutlak kontrol sağlar. Bu zincir, AD güvenliğinin tek bir noktayı korumaktan ziyade, tüm saldırı zincirinin halkalarını kırmaya odaklanması gerektiğini açıkça göstermektedir.</p>
 <p>Saldırı Tekniği (MITRE ATT&amp;CK ID)Çalışma Prensibi (Özet)Birincil Savunma Stratejileriİlgili Araçlar (Saldırı/Savunma)<strong>Kerberoasting</strong> (T1558.003)SPN’i olan hizmet bileti hash’ini çevrimdışı kırma.</p>
 <p>Grup Yönetimli Hizmet Hesapları (gMSA), 25+ karakterli karmaşık hizmet hesabı parolaları, AES şifrelemesini zorunlu kılma.</p>
-<p><img src="/images/1_YontK_x4FdZcm4LQIPCUtw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*YontK_x4FdZcm4LQIPCUtw.png" alt=""></p>
 <hr>
 <h3 id="savunma-derinliği-çok-katmanlı-güvenlik-stratejileri">
   Savunma Derinliği: Çok Katmanlı Güvenlik Stratejileri
@@ -571,7 +580,7 @@ Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolü
 <li><strong>RADIUS veya SAML Proxy:</strong> VPN veya diğer ağ cihazları için kimlik doğrulama isteklerini bir proxy sunucusu üzerinden geçirerek MFA uygularlar. Bu çözümleri (örneğin, UserLock, Rublon, Silverfort) seçerken, çevrimdışı veya ağ bağlantısı olmadığında çalışabilme, granüler politika uygulama (örneğin, yalnızca belirli bağlantı türleri için MFA isteme) ve mevcut AD altyapısıyla sorunsuz entegrasyon gibi özellikler dikkate alınmalıdır.</li>
 </ul>
 <p>Bu savunma mekanizmaları, tek başlarına değerli olsalar da, asıl güçleri bir araya geldiklerinde ortaya çıkar. Bu, saldırganın işini neredeyse imkansız hale getiren birleşik bir savunma felsefesi oluşturur. Bir saldırgan Tier 2&rsquo;de bir hesap ele geçirdiğinde, Tiered Model onun Tier 0 varlıklarına ulaşmasını engeller. Aynı katman içinde yanal hareket etmeye çalıştığında, LAPS sayesinde her makinenin farklı bir yerel yönetici parolası olduğundan PtH saldırıları etkisiz kalır. Bir şekilde bir makinede yönetici hakları elde etse bile, Credential Guard LSASS’ten kimlik bilgisi çalmasını önleyerek PtH ve PtT saldırılarını temelden bozar. Hizmet hesaplarını hedeflemeye çalıştığında ise, gMSA’ların kırılması imkansıza yakın parolaları sayesinde Kerberoasting saldırısı başarısız olur. Bu katmanlı savunma, saldırganın en temel silahları olan kimlik bilgisi hırsızlığı ve yeniden kullanımını işlevsiz kılarak AD’yi bir kale haline getirir.</p>
-<p><img src="/images/1_m6kPdehFatPSmDwBEF0fDw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*m6kPdehFatPSmDwBEF0fDw.png" alt=""></p>
 <hr>
 <h3 id="hibrit-kimlik-altyapılarının-güvenliği">
   Hibrit Kimlik Altyapılarının Güvenliği
@@ -737,7 +746,7 @@ Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolü
 <li>Acil bir durum yoksa, mevcut Kerberos biletlerinin doğal olarak süresinin dolması ve replikasyonun tüm DC’lere yayılması için <strong>en az 10 saat beklenmesi</strong> şiddetle tavsiye edilir. Bu, hizmet kesintilerini en aza indirir. Acil bir kurtarma senaryosunda bu bekleme süresi atlanabilir, ancak bu durum geçici kimlik doğrulama sorunlarına yol açabilir.</li>
 <li>İkinci sıfırlama işlemi gerçekleştirilerek parola geçmişi tamamen temizlenir ve orman yeniden güvenli hale getirilir.</li>
 </ol>
-<p><img src="/images/1_LthF_GXjUk5o1DenNl0tAw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*LthF_GXjUk5o1DenNl0tAw.png" alt=""></p>
 <p>olay güvenliği</p>
 <hr>
 <h3 id="sonuç-ve-stratejik-öneriler">
@@ -793,6 +802,14 @@ Active Directory’nin (AD) modern siber güvenlik ekosistemindeki merkezi rolü
 
       <footer>
         
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
 
 
         

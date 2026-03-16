@@ -164,6 +164,8 @@ HTTP and HTTPS use TCP transport">
           
           
             
+          
+            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -171,7 +173,7 @@ HTTP and HTTPS use TCP transport">
                 
               
               <li class="navigation-item">
-                <a href="/tr/posts/2024/08/http-wireshark-analizi/">Türkçe</a>
+                <a href="/tr/">Türkçe</a>
               </li>
             
           
@@ -236,7 +238,7 @@ HTTP and HTTPS use TCP transport">
   </a>
 </h3>
 <p>Hypertext Transfer Protocol (HTTP) is called “distributed hypermedia information distribution application”. HTTP is the application used when a person browses the internet. HTTP uses a request/response model.</p>
-<p><img src="/images/1_lpMM04aqUuEX3GMKaDsawQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*lpMM04aqUuEX3GMKaDsawQ.png" alt=""></p>
 <p>HTTP and HTTPS use TCP transport</p>
 <p>HTTP v1.0 is not used as frequently as HTTP v1.1, the current version in use. HTTP v1.1 is covered in RFC 2616, Hypertext Transfer Protocol — HTTP/1.1.</p>
 <hr>
@@ -248,7 +250,7 @@ HTTP and HTTPS use TCP transport">
   </a>
 </h3>
 <p>Normal HTTP communications use the request/response communication style. Clients make requests to HTTP servers and servers respond with Status Codes.</p>
-<p><img src="/images/1_OrN2W6uGR9b__wtBdJotrw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*OrN2W6uGR9b__wtBdJotrw.png" alt=""></p>
 <p>HTTP uses a request/response pattern</p>
 <p>Once the TCP connection is successfully established, the client makes an HTTP GET request for “/”. The server responds with a 200 OK status code and starts sending the contents of the <a href="http://www.facebook.com"  class="external-link" target="_blank" rel="noopener">www.facebook.com</a> homepage to the client.</p>
 <p>All HTTP Status Codes seen in http-facebook.pcapng are good - all 200 OK. The HTTP Status Code Registry is kept at <a href="http://www.iana.org/assignments/http-status-codes"  class="external-link" target="_blank" rel="noopener">www.iana.org/assignments/http-status-codes</a>. Available Status Codes are listed below.</p>
@@ -366,19 +368,19 @@ HTTP and HTTPS use TCP transport">
 </h4>
 <p>Wireshark monitors HTTP statistics for payload distribution, packet counters, and HTTP requests. Statistics | Select HTTP and choose the type of statistics you are interested in.</p>
 <p>An option is provided to apply a display filter to the statistics. For example, if you have a trace file that contains web browsing sessions to many hosts, you can filter “<em>http.host==</em><a href="http://www.wireshark.org"  class="external-link" target="_blank" rel="noopener"><em>www.wireshark.org</em></a><em>”</em> to examine statistics for web browsing sessions only to <a href="http://www.wireshark.org"  class="external-link" target="_blank" rel="noopener">www.wireshark.org</a>.You can apply it.</p>
-<p><img src="/images/1_9wkbOuaZAyEIRxnP9eAtzQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*9wkbOuaZAyEIRxnP9eAtzQ.png" alt=""></p>
 <p>Statistics</p>
 <p>HTTP Load Distribution lists HTTP requests and responses by server. Expanding the HTTP Requests by HTTP host section lists the hosts contacted and the number of request packets sent to each.</p>
 <p>The HTTP Load Distribution statistic is an excellent resource for identifying website redirects and dependencies.</p>
-<p><img src="/images/1_nol9M0Y4tZhIQSfzlR0wgA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*nol9M0Y4tZhIQSfzlR0wgA.png" alt=""></p>
 <p>HTTP payload distribution</p>
 <p>When we browse to <a href="http://www.espn.com"  class="external-link" target="_blank" rel="noopener">www.espn.com</a> in the figure, we see the HTTP redirects and dependencies.</p>
-<p><img src="/images/1_KYKO1fj8c3rUSDlHeYenFw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*KYKO1fj8c3rUSDlHeYenFw.png" alt=""></p>
 <p>HTTP Packet Counter</p>
 <p>HTTP Packet Counter is very valuable because it lists the Status Code<br>
 answers. Detecting 4xx Client Error or 5xx Server Error responses is simple. The figure shows the HTTP Packet Counter for another browsing session to <a href="http://www.espn.com"  class="external-link" target="_blank" rel="noopener">www.espn.com</a> (httpespn2007.<br>
 pcapng). We can see some HTTP 301 and 302 redirects and a 404 Not Found response.</p>
-<p><img src="/images/1_2YKXJLq89yAY7hD0U-wqzQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*2YKXJLq89yAY7hD0U-wqzQ.png" alt=""></p>
 <p>HTTP Requests</p>
 <p>HTTP Requests lists each item requested from each HTTP server. In the figure, we examine HTTP Requests Requests sent to <a href="http://www.espn.com"  class="external-link" target="_blank" rel="noopener">www.espn.com</a> during our Web browser session.</p>
 <hr>
@@ -392,7 +394,7 @@ pcapng). We can see some HTTP 301 and 302 redirects and a 404 Not Found response
 <p>Your web analysis will likely include analysis of HTTPS communications. At the beginning of a secure HTTP conversation, a standard TCP handshake is followed by a secure handshake.</p>
 <p>RFC 2818 defines the use of HTTP over Transport Layer Security (TLS) for secure communications. RFC 2246 details Transport Layer Security version 1.0, which is based on SSL version 3.0. Although there is little difference between TLS 1.0 and SSL 3.0, the two are not interoperable</p>
 <p>HTTPS communication begins with a TCP handshake on the port to be used for secure communication. In our example, we are using standard HTTPS port 443. If you use another port for SSL/TLS traffic, add these ports to the HTTP preferences setting for SSL/TLS ports. Port 443 is defined by default.</p>
-<p><img src="/images/1_XjCeq6WCg-sCh-bmywOeXg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*XjCeq6WCg-sCh-bmywOeXg.png" alt=""></p>
 <p>What is FTP? Use the ssl.record.content_type==22 display filter to view the TLS handshake</p>
 <p>In HTTPS communications, a TLS handshake occurs after the TCP handshake. The TLS handshake consists of a series of packets with a content type value of 22. Use the <em>ssl.record.content_type==22</em> filter to view TLS handshake packets as shown in Figure.</p>
 <p>The TLS handshake allows peers to agree on security parameters for exchanging data and verify their identities. Additionally, errors during the handshake process are transmitted in TLS handshake packets.</p>
@@ -404,7 +406,7 @@ pcapng). We can see some HTTP 301 and 302 redirects and a 404 Not Found response
 <li><strong>Cipher spec</strong>: defines the data encryption algorithm</li>
 <li><strong>Master secret</strong>: 48 bytes of secret information shared between client and server</li>
 </ul>
-<p><img src="/images/1_nfOsRO6Q1iAWlV1OKsGsUw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*nfOsRO6Q1iAWlV1OKsGsUw.png" alt=""></p>
 <p>The client lists 34 supported cipher suites; the server will choose which one to use</p>
 <p>The first packet of the TLS handshake, Packet 4 in the Figure, is a Client Hello as specified in the handshake protocol field. The client also indicates that it is using TLS version 1.0.</p>
 <p>In the Random section, this package includes the Universal Coordinated Time (UTC) in the client provided in UNIX format. The Session ID field is set to 0, indicating that this is a new session. If the Session ID field contains a non-zero value, this is a restarted session.</p>
@@ -412,7 +414,7 @@ pcapng). We can see some HTTP 301 and 302 redirects and a 404 Not Found response
 <p>The client provides a list of cipher suites supported by the browser. In this case, the client supports 34 cipher suites and lists them all in the client hello packet as shown in Figure. Ultimately, the server will decide which cipher suite to use, butn upper password is the client&rsquo;s choice.</p>
 <p>Extensions add functionality to TLS. The presence of extensions is detected as there are bytes following the Compression Methods field at the end of the Client Hello packet.</p>
 <p>An extension provides the server name, in this case <a href="http://www.bankofamerica.com"  class="external-link" target="_blank" rel="noopener">www.bankofamerica.com</a>. The server name extension allows the client to create a secure connection to a virtual server that can be hosted on a machine that supports multiple servers on a single IP address.</p>
-<p><img src="/images/1_n8YUEDlR5Fog8x16NgsNSg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*n8YUEDlR5Fog8x16NgsNSg.png" alt=""></p>
 <p>Pack 10</p>
 <p>In packet 10, the Server responds with a packet of three functions: <br>
 Server Hello, Certificate and Server Hello Done.</p>
@@ -424,10 +426,10 @@ Server Hello, Certificate and Server Hello Done.</p>
 <li>The 128-bit MD5 hash function will be used to verify the content of exchanged messages.</li>
 </ul>
 <p>This second packet of the handshake process also contains the certificate from the server. Within the same packet is the phrase Server Hello Done to indicate that the server has completed the Hello process.</p>
-<p><img src="/images/1_L6vYPqYmakuATBNGQPSBnQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*L6vYPqYmakuATBNGQPSBnQ.png" alt=""></p>
 <p>Pack 12</p>
 <p>Packet 12 shown in the figure is the next packet from the client. This packet indicates that the client calculates a premaster secret from both client and server random values. The Change Cipher Spe assignment indicates that all messages coming from the client will be encrypted using the defined keys and algorithms.</p>
-<p><img src="/images/1_5-SH0IZAQCnHR0hROkZ1Uw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*5-SH0IZAQCnHR0hROkZ1Uw.png" alt=""></p>
 <p>Pack 14</p>
 <p>In packet 14, the unencrypted part of the handshake process ends with the server indicating that all messages it sends will also be encrypted.</p>
 <h4 id="decrypting-https-traffic">
@@ -441,11 +443,11 @@ Server Hello, Certificate and Server Hello Done.</p>
 <p>To decrypt this data, we need the private key of the server certificate. To retrieve the private key, you need to access the server; You cannot retrieve the private key from the client side of the communication. Since our example uses a browsing session to Bank of America&rsquo;s website and we have no way of obtaining the key, we will focus on another HTTPS trace file provided with the key.</p>
 <p>In November 2009, PhoneFactor’s Steve Dispensa and Marsh Ray wrote an 8-page overview of the security issues surrounding the TLS renegotiation process. Security issues have been demonstrated against recent versions of Microsoft IIS and Apache HTTPD. In essence, the described renegotiation attack method is used to inject malicious code into the “secure” connection.</p>
 <p>In the example below, we are working with the client_init_renego.pcap file provided as an attachment to the PhoneFactor document. Additionally, PhoneFactor has provided an RSA key named ws01.mogul.test.key.</p>
-<p><img src="/images/1_UGaIEdpGL4TRQ8etJgQN0g.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*UGaIEdpGL4TRQ8etJgQN0g.png" alt=""></p>
 <p>Enter the path to the RSA key file to decrypt traffic</p>
 <p>To decrypt HTTPS traffic, we copied the RSA key to a \keys directory on the local Wireshark host. In order for Wireshark to recognize the key, we must configure the SSL preferences to recognize the speech we want to decrypt and point to the \keys directory. Wireshark&rsquo;s RSA keys list setting includes the IP address of the server, the port used for encrypted communication, the name of the application being encrypted, and the key name as well as the path to the key.</p>
 <p>The figure shows the settings used to decrypt this file. Notice that the Protocol column indicates TCP, SSL, or TLSv1. We cannot see decrypted traffic yet.</p>
-<p><img src="/images/1_MP7YsmkIUYyh5XdMFlEUTw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*MP7YsmkIUYyh5XdMFlEUTw.png" alt=""></p>
 <p>Once the key is configured and applied, we can see the HTTP communication clearly</p>
 <p>The figure shows the results of applying the switch. protocolIn the ol column we still see TCP and TLSv1, but we also see HTTP listed for decrypted traffic. In addition, we can now right-click on an HTTP packet listed in the Packet List pane and select <em>Follow SSL Stream</em> to see the communication clearly</p>
 <p>When you decrypt TLS traffic (just like when you decrypt WLAN traffic), a tab appears just below the Packet Bytes pane, as shown in the figure. Click the <em>Decrypted SSL data</em> tab to view the decrypted traffic in the Packet Bytes pane. This tab will only appear when you (a) decrypt the traffic and (b) make the Packet Bytes pane visible.</p>
@@ -460,17 +462,17 @@ Server Hello, Certificate and Server Hello Done.</p>
 <p>HTTP communication problems can occur due to problems with site name resolution, problems with the TCP connection process, HTTP requests for non-existent pages or elements, packet loss, and congestion on the HTTP server or client.</p>
 <p>Everyone has typed in the wrong website address at one time or another. If the site name cannot be resolved, you cannot access the site. This creates a DNS Name Error. It&rsquo;s important to pay attention to DNS traffic when analyzing web browsing problems.</p>
 <p>Additionally, HTTP connection problems can occur when the HTTP daemon is not running on the web server. When the HTTP daemon is not running on the server, the server responds to the client&rsquo;s SYN with a TCP RST/ACK. Connection cannot be established.</p>
-<p><img src="/images/1_eAvT4-k9dlHwViEHYgBIxA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*eAvT4-k9dlHwViEHYgBIxA.png" alt=""></p>
 <p>Additionally, HTTP connection problems can occur on the web server when multiple failed HTTP connection attempts create a stripe pattern in Wiresharkdaemon.</p>
 <p>This should be monitored carefully as the SYN — RST/ACK pattern is seen during a port scan operation as shown in the figure.</p>
 <p>If the HTTP client successfully connects to the HTTP server, but then requests a page that does not exist, HTTP 404 Not Found errors are generated by the web server.</p>
 <p>Some redirect services replace the standard 404 Not Found message with suggested links or redirect the HTTP client to another site entirely. Create a coloring rule for HTTP client and server errors using http.response.code &gt;= 400.</p>
-<p><img src="/images/1_Gy6gBNz0W8u_QdGzPmZ-OQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Gy6gBNz0W8u_QdGzPmZ-OQ.png" alt=""></p>
 <p>frys.com server responds with an internal server error</p>
 <p>The figure shows an issue when opening a list of laptops for sale on the <a href="http://www.frys.com"  class="external-link" target="_blank" rel="noopener">www.frys.com</a> website. We were able to resolve the IP address of the site and the page exists. By following the TCP flow we can see that the server responds with the page title. However, laptop items are not displayed on the page; page is blank.</p>
 <p>When we look at the trace file, we can see that the <a href="http://www.frys.com"  class="external-link" target="_blank" rel="noopener">www.frys.com</a> web server is reporting an internal server error. This is not a problem with the customer&rsquo;s system or network. This issue is most likely caused by a database issue in Fry&rsquo;s web services infrastructure.</p>
 <p>Open the http-fault-post.pcapng file and set the Time column to Seconds Since Previous Displayed Packet. Note that there is a large delay before packet 29. Be careful here. The FIN bit is set in the 29th packet. This indicates that the client has finished sending information to the server. These packets (and packets with the Reset bit set) can be triggered long after the user has finished receiving the required data. The user does not notice this delay, so do not waste your time removing delays before packets marked with the FIN (or Reset) bit.</p>
-<p><img src="/images/1_5T1I_7MbqgFJ_G0DjnkpMA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*5T1I_7MbqgFJ_G0DjnkpMA.png" alt=""></p>
 <p>The client&rsquo;s POST fails, indicating a web server issue</p>
 <p>We are trying to fill out an online form as follows (http-fault-post.pcapng). But when the Submit button is clicked, the client system seems to crash. In this case, we can look at the HTTP traffic and observe the 403 Forbidden status code coming from the server. When we follow the TCP stream, we see clear text and HTML tags with more information about the state (we removed the HTML tags):</p>
 <p>“The page cannot be displayed — you attempted to execute a CGI, ISAPI, or other executable program from a directory that does not allow programs to be executed.”</p>
@@ -478,7 +480,7 @@ Server Hello, Certificate and Server Hello Done.</p>
 When troubleshooting web browsing issues, look for TCP errors before focusing on HTTP traffic.</p>
 <p>&mdash;### <strong>HTTP Packet Structure</strong></p>
 <p>HTTP packets are of variable length. In this section we list some important fields in the HTTP packet structure. HTTP requests consist of a Method that defines the purpose of the HTTP request. HTTP responses contain a numeric response code called a Status Code.</p>
-<p><img src="/images/1_AU90ZRoS-ZXyas8DmkoIaQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*AU90ZRoS-ZXyas8DmkoIaQ.png" alt=""></p>
 <p>An HTTP GET request packet for the Facebook homepage</p>
 <p>The figure shows a GET request for the main Facebook page. The GET request contains the name of the target host, details about the browser sending this GET request, and information about what data types and format the browser will accept.</p>
 <h4 id="http-methods">
@@ -567,7 +569,7 @@ When troubleshooting web browsing issues, look for TCP errors before focusing on
   </a>
 </h3>
 <p>To save downloaded objects when using HTTP, click File | Export Objects| Select HTTP. When you export HTTP objects, the original object name is preserved.</p>
-<p><img src="/images/1_MQa1Gu3-dpFdafp7wg2lQA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*MQa1Gu3-dpFdafp7wg2lQA.png" alt=""></p>
 <p>We can export objects downloaded from a site</p>
 <p>We can save objects to our computer via this menu.</p>
 

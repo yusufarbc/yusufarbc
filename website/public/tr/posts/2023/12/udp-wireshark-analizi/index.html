@@ -168,8 +168,10 @@ UDP Nedir?Başlık LinkiYakaladığınız trafikte çokça broadcast/multicast
                 
               
               <li class="navigation-item">
-                <a href="/posts/2023/12/udp-wireshark-analysis/">English</a>
+                <a href="/">English</a>
               </li>
+            
+          
             
           
         
@@ -223,7 +225,7 @@ UDP Nedir?Başlık LinkiYakaladığınız trafikte çokça broadcast/multicast
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="/images/1_cReiU6D1Aj-Zf-J3628uNA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*cReiU6D1Aj-Zf-J3628uNA.png" alt=""></p>
 <p>Merhaba bu yazımda UDP protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
 <hr>
 <h3 id="udp-nedir">
@@ -234,7 +236,7 @@ UDP Nedir?Başlık LinkiYakaladığınız trafikte çokça broadcast/multicast
   </a>
 </h3>
 <p>Yakaladığınız trafikte çokça broadcast/multicast yayın görüyorsanız fazla sayıda UDP tabanlı iletişiminiz var demektir. UDP bağlantı kurmadan aktarım sağlar. Broadcast ve multicast trafiği UDP üzerinden akar. UDP başlığında port alanları, aktarımı kullanan uygulamayı tanımlar. UDP dört alandan oluşan 8 baytlık basit bir başlık(header) kullandığından, UDP’nin kendisi nadiren problem üretir. UDP, RFC 768, Kullanıcı Datagram Protokolü’nde tanımlanmıştır.</p>
-<p><img src="/images/1_WSaFhaEgqTIuM9sF4oZYng.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*WSaFhaEgqTIuM9sF4oZYng.png" alt=""></p>
 <p>UDP bağlantısız taşıma hizmeti sunar</p>
 <p>UDP kullanan yaygın uygulamalar DHCP/BOOTP, SIP, RTP, DNS, TFTP ve çeşitli video stream uygulamalarıdır.</p>
 <hr>
@@ -246,14 +248,14 @@ UDP Nedir?Başlık LinkiYakaladığınız trafikte çokça broadcast/multicast
   </a>
 </h3>
 <p>DHCP Discover paketleri gibi normal UDP iletişimleri, istenen hizmetin hedef port numarası ile gönderilir. Şekilde bir DHCP paketindeki UDP başlığı gösterilmektedir. DHCP, aktarım protokolü olarak UDP kullanır. DHCP iletişimleri, istemci portnumarası olarak 68 numaralı bağlantı noktasını ve sunucu port numarası olarak 67 numaralı bağlantı noktasını kullanır.</p>
-<p><img src="/images/1_Z2tNaovhf93xqYVPROVNww.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Z2tNaovhf93xqYVPROVNww.png" alt=""></p>
 <p>UDP tabanlı bir DHCP başlatma sırası</p>
 <p>Çoğu uygulama, iletişimin istemci tarafı için varsayılan port numarası kullanır. Örneğin, bir DNS sorgusu tipik olarak 53 numaralı porta gönderilir. Kaynak bağlantı noktası geçici bir port numarasıdır.</p>
 <p>Doğrudan UDP ile ortaya çıkan çok az sorun vardır. Olası bir sorun, UDP port numarası değerine bağlı olarak engellenen trafiktir. Belirli port numaralarına gönderilen trafiği iletmeyen bir güvenlik duvarından oluşan bir ağdaki UDP trafiğini yakalama sonuçlarını göstermektedir. Bu durumda, güvenlik duvarı 161 (SNMP) ve 5060 (SIP) portlara giden trafiği engellemektedir. ICMP Destination Unreachable/Port Unreachable (Type 3/Code 3) paketleriyle yanıt vermek yerine, güvenlik duvarı paketleri sessizce atar. PCAP dosyanız yalnızca UDP trafiğini gösterir; yanıt görülmez.</p>
-<p><img src="/images/1_W8kjuMS7QjymLfAcp5qPfg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*W8kjuMS7QjymLfAcp5qPfg.png" alt=""></p>
 <p>SNMP eksiklerine bir cevap görülmez, port filtreleyen bir güvenlik duvarından kaynaklanmaktadır</p>
 <p>UDP taramaları, Wireshark’ın varsayılan renklendirme kurallarını kullanarak UDP paketlerinin ve ICMP yanıtlarının sıralanmasını gördüğünüzde belirgindir. Yine, bir güvenlik duvarı port filtreleme yaparak trafiği engelliyorsa ICMP yanıtlarını göremeyebilirsiniz.</p>
-<p><img src="/images/1_mLgL_SfU5rNO7Gk-mkT1sQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*mLgL_SfU5rNO7Gk-mkT1sQ.png" alt=""></p>
 <p>UDP taraması bir dizi ICMP Hedefe Ulaşılamıyor/Port Ulaşılamıyor yanıtını tetikler</p>
 <p>Şekilde 192.168.1.123 adresini hedef alan bir UDP taraması gösterilmektedir. Her UDP paketi bir ICMP Hedefe Ulaşılamıyor/Port Ulaşılamıyor yanıtı tetiklediğinden, UDP taraması henüz açık bir UDP portu bulamamıştır.</p>
 <hr>
@@ -274,7 +276,7 @@ UDP Nedir?Başlık LinkiYakaladığınız trafikte çokça broadcast/multicast
   </a>
 </h4>
 <p>Kaynak port alanı TCP ve UDP’de aynı amaca sahiptir — yanıt paketleri için bir dinleme portu açmak ve bazı durumlarda paketi gönderen uygulama veya protokolü tanımlamak.</p>
-<p><img src="/images/1_PCIysV4QPzkJ6NaUaJcx3g.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*PCIysV4QPzkJ6NaUaJcx3g.png" alt=""></p>
 <h4 id="destination-portfield">
   Destination Port Field
   <a class="heading-link" href="#destination-portfield">

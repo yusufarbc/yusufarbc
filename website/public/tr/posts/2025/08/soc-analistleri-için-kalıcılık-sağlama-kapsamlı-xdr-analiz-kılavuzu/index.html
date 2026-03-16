@@ -157,8 +157,10 @@ Siber güvenlik operasyonlarında, kalıcılık (persistence) bir saldırganın 
                 
               
               <li class="navigation-item">
-                <a href="/posts/2025/08/ensuring-persistence-for-soc-analysts-comprehensive-xdr-analysis-guide/">English</a>
+                <a href="/">English</a>
               </li>
+            
+          
             
           
         
@@ -212,7 +214,7 @@ Siber güvenlik operasyonlarında, kalıcılık (persistence) bir saldırganın 
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="/images/1_t3uzw3mQTB-z3Mm777G-RQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*t3uzw3mQTB-z3Mm777G-RQ.png" alt=""></p>
 <p>Siber güvenlik operasyonlarında, kalıcılık (persistence) bir saldırganın sistemde kalıcı bir ayak izi bırakmasını sağlayan en kritik aşamalardan biridir. Bu, saldırının ilk erişim vektöründen (örneğin, bir oltalama e-postası veya bir açık istismarı) sonraki uzun vadeli hedeflerine ulaşmasını mümkün kılar. Geleneksel antivirüs (AV) çözümlerinin veya sistemin yeniden başlatılmasının ötesinde, saldırganların sisteme sürekli erişimini garanti altına alır. Kalıcılık, tehdit aktörlerine bir dizi avantaj sağlar: Komuta ve Kontrol (C2) sunucularıyla iletişim kurmak için bir arka kapı oluşturma, geleneksel güvenlik kontrollerini atlatma ve ağ içinde ayrıcalık yükseltme ve yatay hareketliliği kolaylaştırma imkanı. Bu aşama, bir siber saldırının kısa süreli bir olaydan uzun soluklu bir sızma operasyonuna dönüşmesinde belirleyici rol oynar.</p>
 <p>Bu rapor, MITRE ATT&amp;CK bilgi tabanındaki belirli taktik ve tekniklere odaklanarak, bir SOC analistinin karşılaşabileceği Windows registry tabanlı kalıcılık mekanizmalarını derinlemesine incelemektedir. Özellikle <code>T1547: Boot or Logon Autostart Execution</code> ve <code>T1112: Modify Registry</code> gibi yaygın teknikler ele alınacak ve bu tekniklerin nasıl tespit edileceği detaylandırılacaktır.</p>
 <hr>
@@ -264,7 +266,7 @@ Siber güvenlik operasyonlarında, kalıcılık (persistence) bir saldırganın 
 <li><strong>APT41:</strong> APT41&rsquo;in <code>Svchost</code> anahtarını kullanması, saldırganların Windows&rsquo;un iç işleyişine derinlemesine hakim olduğunu ve standart güvenlik denetimlerinin ötesine geçebildiğini kanıtlamaktadır.</li>
 </ul>
 <p>Aşağıdaki tablo, bir SOC analisti için hızlı bir başvuru kılavuzu niteliğindedir ve en sık karşılaşılan registry kalıcılık anahtarlarını, bunların etkilerini ve ilgili tehdit örneklerini özetlemektedir.</p>
-<p><img src="/images/1_EOdZ-x8gqkMWMCJo5HLhqg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*EOdZ-x8gqkMWMCJo5HLhqg.png" alt=""></p>
 <hr>
 <h3 id="bölüm-2-olay-kayıtları-event-logs-üzerinden-tespit-veanaliz">
   Bölüm 2: Olay Kayıtları (Event Logs) Üzerinden Tespit ve Analiz
@@ -301,7 +303,7 @@ Siber güvenlik operasyonlarında, kalıcılık (persistence) bir saldırganın 
 <li><code>Event ID 13</code> <strong>(RegistryEvent - Value Set):</strong> Bu olay, mevcut registry değerlerinin içeriğindeki değişiklikleri kaydeder. Bir saldırganın, daha önce var olan bir <code>Run</code> anahtarının değerini değiştirmesi bu olayla tespit edilebilir.</li>
 </ul>
 <p>Bu Sysmon olayları, bir analist için <code>ParentImage</code> ve <code>ParentCommandLine</code> gibi kritik alanlar içerir. Bu alanlar, değişikliği yapan ana sürecin ne olduğunu ve nasıl başlatıldığını gösterir. Bu, saldırının kaynağına doğru iz sürmek ve saldırı zincirini yeniden oluşturmak için hayati önem taşır. Örneğin, bir PowerShell betiğinin bir registry değişikliğine neden olduğu tespit edildiğinde, <code>ParentImage</code> alanı bu betiğin hangi ana süreç (<code>explorer.exe</code> gibi) tarafından başlatıldığını gösterebilir.</p>
-<p><img src="/images/1_VR-A4gThQLNfdXDYlpGuwQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*VR-A4gThQLNfdXDYlpGuwQ.png" alt=""></p>
 <hr>
 <h3 id="bölüm-3-edrxdr-çözümleriyle-derinlemesine-analiz-ve-tehditavcılığı">
   Bölüm 3: EDR/XDR Çözümleriyle Derinlemesine Analiz ve Tehdit Avcılığı

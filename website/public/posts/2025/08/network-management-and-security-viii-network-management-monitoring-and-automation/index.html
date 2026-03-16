@@ -150,6 +150,8 @@ Network management has undergone a radical transformation in the last two decade
           
           
             
+          
+            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -157,7 +159,7 @@ Network management has undergone a radical transformation in the last two decade
                 
               
               <li class="navigation-item">
-                <a href="/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-viii-a%C4%9F-y%C3%B6netimi-izleme-ve-otomasyon/">Türkçe</a>
+                <a href="/tr/">Türkçe</a>
               </li>
             
           
@@ -212,7 +214,7 @@ Network management has undergone a radical transformation in the last two decade
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="/images/1_Iv6EqXHTlTeVgd7LlSNDOQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Iv6EqXHTlTeVgd7LlSNDOQ.png" alt=""></p>
 <p>Network management has undergone a radical transformation in the last two decades. In the past, network management relied heavily on individual troubleshooting efforts that were manual, reactive, and command-line interface (CLI)-based. Network engineers would intervene when problems arose, connecting devices one by one and manually adjusting configurations. This approach is no longer sustainable for today&rsquo;s complex, dynamic and business-critical network infrastructures. Modern network operations are built on three deeply interconnected pillars that replace this old paradigm:</p>
 <ol>
 <li><strong>Comprehensive Visibility:</strong> The ability to understand the status, health, and traffic patterns of the network in real time. This involves understanding the nature of each conversation on the network, performance metrics, and potential anomalies, rather than just knowing whether devices are “working”.</li>
@@ -302,7 +304,7 @@ Network management has undergone a radical transformation in the last two decade
 <li><strong>v3 Additions:</strong> The <code>Report</code> PDU is used for messaging about the security model.</li>
 </ul>
 <p>The choice between SNMPv2c and SNMPv3 is not just a technical choice but also a reflection of an organization&rsquo;s overall security maturity and philosophy. The fact that SNMPv1/v2c transmits credentials and data over the network in clear text is an unacceptable vulnerability in modern networks. SNMPv3 offers authentication and encryption to close these vulnerabilities. However, v3 is “quite complex” to configure and imposes an additional technical overhead and performance (CPU/memory) cost on monitored devices. This creates a direct trade-off between simplicity and performance (v2c) and security and complexity (v3). Therefore, an organization&rsquo;s decision in this regard reveals its risk appetite. A company that prefers ease of deployment to security of management traffic may consider v2c combined with access control lists (ACLs) as a “good enough” measure. An organization with strict compliance requirements or a mature security program will enforce the <code>authPriv</code> level of v3, accepting the operational overhead to reduce the risk of credential theft or data manipulation. This shows how seriously the organization takes insider threats and in-network eavesdropping and can be considered an indicator of the transition to a zero-trust network.</p>
-<p><img src="/images/1_psfUsG7oSQeQYJHqnwtiNg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*psfUsG7oSQeQYJHqnwtiNg.png" alt=""></p>
 <p>Comparative Analysis of SNMP Versions (v1, v2c, v3)</p>
 <hr>
 <h3 id="chapter-2-traffic-flow-analysis--understanding-network-conversations">
@@ -345,7 +347,7 @@ Network management has undergone a radical transformation in the last two decade
 <p>It is simpler than NetFlow. It consists of an <strong>sFlow Agent</strong> embedded in the hardware of the network device (usually on a special chip to reduce CPU load) and an <strong>sFlow Collector</strong> that receives UDP datagrams (usually over port 6343).</p>
 <p>The main difference between NetFlow and sFlow is not only technical (stateful/stateless, 100%/instantiated) but also philosophical. NetFlow is basically an <em>accounting</em> protocol; It is designed to monitor <em>every</em> conversation for billing, security forensic analysis, and precise capacity planning. sFlow is an <em>observation</em> protocol; It is designed to provide a real-time, statistically representative snapshot of network-wide behavior, prioritizing low overhead and scalability over absolute precision. NetFlow tracks each flow with state information, creating a record for each one. This provides near-perfect accuracy for use cases that require a complete historical record, such as usage-based billing or detailed forensic analysis after a security breach. In contrast, sFlow is stateless and uses random sampling. This means it can&rsquo;t guarantee that it will see every ephemeral or low-volume stream. Its goal is not to count every byte, but to provide a scalable, real-time view of what&rsquo;s happening on high-speed (10G, 40G, 100G) connections, where monitoring every stream would be prohibitively expensive for the device&rsquo;s CPU and memory. This also makes a difference in visibility. NetFlow is inherently IP-centric (L3/L4) while sFlow’s packet sampling inherently provides L2-L7 visibility because it exports the actual packet header. Ultimately, the choice of protocol depends entirely on the monitoring goal. For a security team that needs to trace the full path of a data leak, unsampled NetFlow/IPFIX is superior. For a network operator that needs to quickly identify top applications causing traffic congestion in a large data center structure, the low overhead, real-time nature of sFlow is more suitable.</p>
 <p>The table below clarifies the often confused differences between these two critical streaming protocols and enables engineers to choose the right technology for their specific use case and network environment.</p>
-<p><img src="/images/1_Fn_jt2stbWxL_YVnRuYbnQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Fn_jt2stbWxL_YVnRuYbnQ.png" alt=""></p>
 <p>Flow-Based Monitoring Protocols: NetFlow vs. sFlow</p>
 <hr>
 <h3 id="chapter-3-centralized-monitoring-platforms-a-comparative-review">
@@ -402,7 +404,7 @@ Network management has undergone a radical transformation in the last two decade
 </ol>
 <p>Nagios Core is free and open source and can be extended to do anything thanks to its plugin architecture. However, it requires deep technical knowledge and manual configuration file editing. This puts it in the “high flexibility, low availability” corner. Zabbix is ​​also free and open source, offering a wide range of features (auto-discovery, templates, proxy architecture) out of the box without relying on external plugins for core functionality. This makes it more of an “all-in-one” solution, but its wide range of options creates a steep learning curve. This places it in the middle, offering high power but a complexity hurdle. PRTG is a commercial product with a clear focus on ease of use. Its sensor-based model and polished GUI are designed for users to start monitoring quickly. However, this comes at a monetary cost and the core server is limited to the Windows platform which can be a hurdle for some environments. This puts it in the “high availability, high commercial cost” corner. Ultimately, the choice of an organization is strategic. A startup or a team of Linux experts can choose Nagios Core or Zabbix to save money and leverage their technical skills. A large organization with a hybrid environment and a dedicated monitoring team may choose Zabbix for its power and scalability. A small to medium-sized business with a predominantly Windows environment and needing fast results may choose PRTG, considering time savings over licensing costs.</p>
 <p>The table below provides a direct, feature-by-feature comparison of three lead monitoring platforms to help organizations make an informed decision based on their specific technical needs, budget, and team skills.</p>
-<p><img src="/images/1_8hiUXuINrhx_sc7cJlTO-A.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*8hiUXuINrhx_sc7cJlTO-A.png" alt=""></p>
 <p>Feature Matrix of Tracking Platforms (Nagios vs. Zabbix vs. PRTG)</p>
 <hr>
 <h3 id="chapter-4-scripting-for-network-automation">

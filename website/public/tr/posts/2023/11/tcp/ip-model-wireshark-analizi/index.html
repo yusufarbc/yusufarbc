@@ -179,8 +179,10 @@ Switchler paketlerdeki MAC veya IP adreslerini değiştirmez">
                 
               
               <li class="navigation-item">
-                <a href="/posts/2023/11/tcp/ip-model-wireshark-analysis/">English</a>
+                <a href="/">English</a>
               </li>
+            
+          
             
           
         
@@ -234,7 +236,7 @@ Switchler paketlerdeki MAC veya IP adreslerini değiştirmez">
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="/images/1_vQHzVUN_qVpKQQbS9Cr4Ug.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*vQHzVUN_qVpKQQbS9Cr4Ug.png" alt=""></p>
 <p>Merhaba bu yazımda TCP/IP modelini ve Wireshark ile temel bir ağ analizinin nasıl yapılabileceğini anlatmaya çalıştım.</p>
 <hr>
 <h3 id="ağ-trafik-akışlarını-anlama">
@@ -252,7 +254,7 @@ Switchler paketlerdeki MAC veya IP adreslerini değiştirmez">
   </a>
 </h4>
 <p>Anahtarlar paketleri MAC başlığında (Ethernet başlığı gibi) bulunan hedef MAC adresine (hedef donanım adresi, fiziksel adresi olarak da bilinir) göre iletir.</p>
-<p><img src="/images/1_NsSETtT4IofH-5OXSKDrzQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*NsSETtT4IofH-5OXSKDrzQ.png" alt=""></p>
 <p>Switchler paketlerdeki MAC veya IP adreslerini değiştirmez</p>
 <p>Bir paket bir anahtara ulaştığında, anahtar doğru sağlama toplamına (checksum) sahip olduğundan emin olmak için paketi kontrol eder. Paketin sağlama toplamı yanlışsa, paket “bad” olarak kabul edilir ve paket atılır. Anahtarlar, kötü sağlama toplamları nedeniyle kaç paketi attıklarını gösteren hata sayaçları tutmalıdır. Sağlama toplamı doğruysa, anahtar paketin hedef MAC adresini inceler ve bu MAC adresini kullanan ana bilgisayara hangi anahtar bağlantı noktasının gittiğini bilip bilmediğini belirlemek için MAC adresi tablosuna başvurur. Anahtarın tablolarında hedef MAC adresi yoksa, paketi tüm anahtar bağlantı noktalarından( portlardan) iletir cevap veren hedefi keşfetmeyi umar. Bu işlem <strong>ARP</strong> protokolü ile gerçekleştirilir.Anahtarın tablolarında hedef MAC adresi varsa, paketi uygun bağlantı noktasına iletir .</p>
 <h4 id="routing-yönlendirme">
@@ -263,7 +265,7 @@ Switchler paketlerdeki MAC veya IP adreslerini değiştirmez">
   </a>
 </h4>
 <p>Yönlendiriciler paketleri IP başlığındaki hedef IP adresine göre iletir. Bir paket yönlendiriciye gönderildiğinde Yönlendiricinin MAC adresi, bu yönlendirici paketin geçerli olduğundan emin olmak için sağlama toplamını(checksum) inceler. Sağlama toplamı geçersizse paket düşürülür. Sağlama toplamı geçerliyse, yönlendirici MAC başlığını çıkarır (örneğin Ethernet başlığı) ve IP başlığını inceleyerek “TTL” (Time to Live) ve hedefini belirler. paketi. Eğer paket çok “eski” ise (Time to Live değeri 1), yönlendirici paketi atar ve bir ICMP Yaşam Süresi Aşıldı mesajı göndericiye geri gönderilir. Paket eski değilse(TTL süresi Aşılmadıysa), yönlendirici hedef IP ağının bilinip bilinmediğini belirlemek için yönlendirme tablolarına bakar. Yönlendirici hedef ağa doğrudan bağlıysa, paketi hedefe gönderebilir. Yönlendirici, IP başlığı Time to Live değerini azaltır ve ardından paketi iletmeden önce pakete yeni bir MAC başlığı oluşturur ve uygular</p>
-<p><img src="/images/1_Utuq1h526m5eoCl4wWYJGQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Utuq1h526m5eoCl4wWYJGQ.png" alt=""></p>
 <p>Yönlendiriciler hedef MAC adresini hedefe veya bir sonraki yönlendiriciye değiştirir</p>
 <p>Hedef yerel olarak bağlı bir ağda değilse, yönlendirici paketi yönlendirme tablolarına bakarken öğrendiği sonraki atlama yönlendiricisine iletir.</p>
 <p>Yönlendiriciler, adresleme bilgilerine dayalı olarak paketleri engelleyen veya izin veren kurallar içerebilir. Birçok yönlendirici güvenlik duvarı özellikleri sağlar ve diğer özelliklere göre trafiği engelleyebilir/izin verebilir.</p>
@@ -276,7 +278,7 @@ Switchler paketlerdeki MAC veya IP adreslerini değiştirmez">
 </h4>
 <p>Güvenlik duvarları trafiği incelemek ve bir dizi kurala dayalı olarak letişime izin vermek/vermemek için oluşturulur. Örneğin, güvenlik duvarı dışındaki ana bilgisayarlardan gelen ve dahili sunuculardaki 21 numaralı porta yönlendirilen tüm TCP bağlantı girişimlerini engellemek isteyebilirsiniz.</p>
 <p>Temel güvenlik duvarları OSI modelinin 3. Katmanında, yani ağ katmanında çalışır. Bu kapasitede, güvenlik duvarı ağ trafiğini işlerken bir yönlendirici gibi davranır ve güvenlik duvarı kuralları tarafından engellenmeyen trafiği iletir. Güvenlik duvarı, paketi iletmeden önce pakete yeni bir MAC başlığı ekler. Güvenlik duvarı Ağ Adresi Çevirisi(NAT) veya proxy yetenekleri gibi ek özellikleri destekliyorsa, ek paket değişikliği gerçekleşecektir.</p>
-<p><img src="/images/1_0sZI8QkhS5eWd1ef0qJyXw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*0sZI8QkhS5eWd1ef0qJyXw.png" alt=""></p>
 <p>Güvenlik duvarı gerçek kaynak IP adresini gizlemek için NAT kullanır</p>
 <p>NAT sistemleri paketteki IP adreslerini Şekilde gösterildiği gibi değiştirir. Bu genellikle istemcinin özel IP adresini gizlemek için kullanılır. Temel bir NAT sistemi basitçe paketin kaynak ve hedef IP adresini değiştirir ve bir yanıt alındığında trafiği düzgün bir şekilde iletmek için bağlantı ilişkilerini bir tabloda izler.</p>
 <p>Port Address Translation (PAT) sistemleri de port bilgilerini değiştirir ve bunu tek bir giden adres kullanırken birden fazla dahili bağlantıyı demultiplex etmek için bir yöntem olarak kullanır. Bir NAT/PAT cihazının bir tarafında gördüğünüz IP adresleri NAT/PAT cihazının diğer tarafında gördüğünüz IP adresleriyle eşleşmeyecektir. Bir NAT cihazının her iki tarafındaki iletişimleri ilişkilendirmek için, eşleşen paketleri tanımlamak üzere IP başlığının ötesine bakmanız gerekecektir.</p>
@@ -299,7 +301,7 @@ Switchler paketlerdeki MAC veya IP adreslerini değiştirmez">
   </a>
 </h3>
 <p>TCP/IP Modelinin ve OSI Modelinin yanında temel TCP/IP öğelerini göstermektedir. TCP/IP öğeleri TCP/IP Modeli ile güzel bir şekilde eşleşmesine rağmen, OSI Modeli hala sektörümüzde sürekli olarak anılmaktadır. “Katman 2” cihazları (anahtarlar) ve “Katman 3” cihazları (yönlendiriciler) TCP/IP Modeline göre değil OSI Modeline göre sayısal tanımlama alırlar.</p>
-<p><img src="/images/1_X4_tzi-NjihAqIAJEunVWA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*X4_tzi-NjihAqIAJEunVWA.png" alt=""></p>
 <p>TCP/IP Modeli ve OSI Modeli ile birlikte TCP/IP öğeleri</p>
 <p>Birçok ağ hatası veya ihlali TCP/IP protokolü veya uygulama sorunlarına bağlanabilir. Bu sorunları tanımak için normal davranışın ne olduğunu bilmemiz gerekir. TCP/IP yapısında sık kullanılan protokeller şunlardır:</p>
 <ul>
@@ -328,10 +330,10 @@ Switchler paketlerdeki MAC veya IP adreslerini değiştirmez">
 <li>Hedef uzaksa, hedefe ulaşmak için kullanılacak en iyi yönlendiriciyi belirleyin (rota çözümlemesi).</li>
 <li>Hedef uzaksa, yönlendiricinin MAC adresini belirleyin (tekrar yerel MAC adresi çözümlemesi).</li>
 </ul>
-<p><img src="/images/1_AWmwmBOwxbf1QyEXXsjg0Q.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*AWmwmBOwxbf1QyEXXsjg0Q.png" alt=""></p>
 <p>TCP/IP çözümleme süreçleri</p>
 <p>Örneğimizde bir istemci ile FTP Sunucu arasında yapılan bağlantıyı ele alacağız.</p>
-<p><img src="/images/1_cPS6KAp-bJl1xjrg96dEMg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*cPS6KAp-bJl1xjrg96dEMg.png" alt=""></p>
 <p>İstemci CORPFS1&rsquo;e bir FTP bağlantısı yapmak istiyor</p>
 <h4 id="adım-1-port-numarası-çözümleme">
   Adım 1: Port Numarası Çözümleme
@@ -415,7 +417,7 @@ Bu işlem, TX ile belirtildiği gibi ağ üzerinde trafik oluşturabilir. İsten
 <li>Hedef IP adresi</li>
 <li>Kaynak ve hedef bağlantı noktası numaraları</li>
 </ul>
-<p><img src="/images/1_tCpXIwj6CXujGOtmMVR_pA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*tCpXIwj6CXujGOtmMVR_pA.png" alt=""></p>
 <p>Ethernet üzerinden TCP/IP paketi için keşfedilen bilgiler</p>
 <hr>
 <h4 id="tcpip-trafikanalizi">
@@ -439,27 +441,27 @@ Bu işlem, TX ile belirtildiği gibi ağ üzerinde trafik oluşturabilir. İsten
 <p>http-riverbed-two.pcapng dosyasında yenilenen DNS çözümlemeleri</p>
 <p>Ayrıca http-riverbed-two.pcapng dosyasındaki toplam paket sayısının sadece 319 olduğunu fark edeceksiniz. Tarayıcı, DNS bilgilerinin bir kısmını önbellekten almanın yanı sıra çok sayıda sayfa öğesini de önbellekten görüntülemiştir.</p>
 <p>http-riverbed-<strong>one</strong>.pcapng dosyasında protokol istatistiklerine baktığımızda (Statistic | Protocol hierarchy) trafiğin büyük oranda TCP kullandığını görürüz. Çünkü HTTP protokolü TCP’yi kullanır. UDP trafiğine baktığımızda ise Domain Name System(DNS) protokolünün kullandığını görürüz.</p>
-<p><img src="/images/1_zal0jQY1slYuV6RDm5UdCg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*zal0jQY1slYuV6RDm5UdCg.png" alt=""></p>
 <p>http-riverbed-<strong>one</strong>.pcapng Protokol İstatistikleri</p>
 <p>http-riverbed-<strong>one</strong>.pcapng dosyasındaki dominant trafiği görmek için Statistic| Conversations penceresini açabiliriz. Burda IPv4 sekmesini açtığımızda paketlere göre sıralama yaparsak dominant trafiğin hostlar arasında giden 1140 paketle <strong>24.61.173.220</strong> ile <strong>208.70.196.59</strong> IPleri arasında olduğunu söyleyebiliriz.</p>
-<p><img src="/images/1_Hb4M03jKQ_8Lp1YzMShv2Q.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Hb4M03jKQ_8Lp1YzMShv2Q.png" alt=""></p>
 <p>conversations</p>
 <p>http-riverbed-<strong>one</strong>.pcapng dosyasında Statistic| Endpoints penceresinde trafikte geçen IP adreslerini görebiliriz. Buradai IP adreslerinnin hepi public IP adresi gibi görünüyor. Dolayısıyla trafik dış bir networkde yakalanmış diyebiliriz.</p>
-<p><img src="/images/1_5XvOPLu2866hRTPDdvUjig.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*5XvOPLu2866hRTPDdvUjig.png" alt=""></p>
 <p>endpoints</p>
 <p>http-riverbed-<strong>one</strong>.pcapng dosyasında Statistic| HTTP| Requests penceresinde pcap dosyası içerisinde gidilen web adreslerini görüntüleyebiliriz.</p>
-<p><img src="/images/1_2QwpmwBds_gI3oZfGyMGKA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*2QwpmwBds_gI3oZfGyMGKA.png" alt=""></p>
 <p>Requests</p>
 <p>http-riverbed-<strong>one</strong>.pcapng dosyasında <br>
 ip.addr == 24.6.173.220 &amp;&amp; ip.addr == 208.70.196.59 <br>
 fltresini yazarak daha önce bulduğumuz dominant trafiği inceleyelim.</p>
-<p><img src="/images/1_MkagBTP5iI4imfNHp5V5nw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*MkagBTP5iI4imfNHp5V5nw.png" alt=""></p>
 <p>Dominant Trafik</p>
 <p>HTTP paketinin üzerine tıklayıp follow HTTP Stream seçeneğini seçersek tüm HTTP trafiğini görüntüleyebiliriz.</p>
-<p><img src="/images/1_-2JPla-66SZrjX-kKCsECg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*-2JPla-66SZrjX-kKCsECg.png" alt=""></p>
 <p>Follow HTTP Stream</p>
 <p>Karşımıza uzun bir akış çıkıyor. Burada <a href="http://www.riverbed.com"  class="external-link" target="_blank" rel="noopener">www.riverbed.com</a> adresine giden-gelen trafiği bulmuş olmuş. Bu adresle kurulan HTTP bağlantılarını request (kırmızı yazı) ve response (mavi yazı) olarak görebiliriz.</p>
-<p><img src="/images/1_4B5HtycWS34GEws6jMxlnA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*4B5HtycWS34GEws6jMxlnA.png" alt=""></p>
 <p><a href="https://www.riverbed.com"  class="external-link" target="_blank" rel="noopener">www.riverbed.com</a> HTTP Stream</p>
 <hr>
 <h3 id="kaynakça">

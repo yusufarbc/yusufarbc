@@ -150,6 +150,8 @@ In today&rsquo;s hyper-connected world, a complex and massive infrastructure of 
           
           
             
+          
+            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -157,7 +159,7 @@ In today&rsquo;s hyper-connected world, a complex and massive infrastructure of 
                 
               
               <li class="navigation-item">
-                <a href="/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-ii-a%C4%9F-protokolleri-y%C3%B6nlendirme-ve-adresleme/">Türkçe</a>
+                <a href="/tr/">Türkçe</a>
               </li>
             
           
@@ -212,7 +214,7 @@ In today&rsquo;s hyper-connected world, a complex and massive infrastructure of 
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="/images/0_1gN6tP9Nv5sf9IGl.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*1gN6tP9Nv5sf9IGl.png" alt=""></p>
 <p>In today&rsquo;s hyper-connected world, a complex and massive infrastructure of computer networks underlies everything from the global economy to our daily social interactions. This infrastructure is an invisible backbone that requires billions of components to work in harmony, from data centers on different continents to smart devices in our homes. So, how can these devices, produced by different manufacturers and using different technologies, communicate with each other so smoothly, quickly and securely? The answer to this question lies in the standardized protocols, hierarchical addressing systems and intelligent routing algorithms that form the basis of network engineering.</p>
 <p>This technical article has been prepared to delve into the fundamental principles behind the functioning of modern networks. From the OSI model, which provides a theoretical framework, to the TCP/IP protocol stack, which is the backbone of the internet; All critical issues will be discussed, from IPv4 and IPv6 addressing that provides identity to every device on the network, to dynamic routing protocols that enable data packets to find the most efficient paths, and BGP, which draws the global road map of the internet. Additionally, a detailed look at switching technologies, VLAN management and loop prevention mechanisms that ensure efficiency and security in local networks will be presented. This article aims to be a basic reference source for students, IT professionals and engineers interested in network technologies.</p>
 <hr>
@@ -265,7 +267,7 @@ In today&rsquo;s hyper-connected world, a complex and massive infrastructure of 
 <li><strong>Application Layer:</strong> It combines OSI&rsquo;s Session, Presentation and Application layers into a single layer. It includes end user protocols such as HTTP, FTP, SMTP.</li>
 </ol>
 <p>The success of TCP/IP stems from its simplicity and pragmatic approach. Even before the model was formalized, the internet was already being built on these protocols. This can be seen as a victory of engineering pragmatism over committee-based theoretical idealism. While OSI was a “top-down” approach that tried to create a perfect framework <em>before</em> building the network, TCP/IP was a “bottom-up” solution that solved an immediate problem, worked, and was “good enough.” As is often the case in the history of technology, a solution that worked and was adopted early prevailed over a theoretically superior but complex and late-arriving alternative.</p>
-<p><img src="/images/0_0uu7t1OYMiHTQNyo.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*0uu7t1OYMiHTQNyo.png" alt=""></p>
 <p>OSI Model vs TCP/IP Model</p>
 <h3 id="12-data-encapsulation-and-de-encapsulation">
   1.2 Data Encapsulation and De-encapsulation
@@ -428,7 +430,7 @@ These private addresses are non-routable on the public internet and can be used 
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="/images/0_8Q5DoM_nd0PtJKLk.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*8Q5DoM_nd0PtJKLk.png" alt=""></p>
 <p>Static and Dynamic Approaches</p>
 <p><strong>Static Routing:</strong> In this method, the network administrator manually enters routes into each router&rsquo;s routing table. These routes remain fixed until changed by the administrator. It is a simple, secure and resource-efficient solution for small networks whose topology does not change. Because no protocol traffic occurs between routers and which routes will be used is fully controlled. However, as the network grows or a connection breaks, it becomes impossible to manage as all routes must be manually updated and the network has low tolerance to faults.</p>
 <ul>
@@ -447,7 +449,7 @@ These private addresses are non-routable on the public internet and can be used 
 <li><strong>OSPF (Open Shortest Path First):</strong> It is the most widely used Link-State protocol. In OSPF, each router creates a topological map of the entire network (Link-State Database (LSDB)) and calculates the best paths to destinations by running <strong>Dijkstra&rsquo;s shortest path priority (SPF)</strong> algorithm on this map. It uses <strong>cost</strong> as the metric, which is generally inversely proportional to the bandwidth of the connection. It is highly scalable in large networks thanks to its <strong>area</strong> structure that allows for a hierarchical design.</li>
 <li><strong>EIGRP (Enhanced Interior Gateway Routing Protocol):</strong> Developed by Cisco, this protocol is considered a “hybrid” or “enhanced distance-vector” protocol that combines the best features of both Distance-Vector and Link-State protocols. Thanks to <strong>DUAL (Diffusing Update Algorithm)</strong>, it provides very fast convergence by instantly activating pre-calculated backup paths when the primary path crashes. It uses a <strong>composite metric</strong> that includes multiple parameters such as bandwidth, latency, load, and reliability as metrics, allowing it to make smarter path choices.</li>
 </ul>
-<p><img src="/images/0_KO7-ySH9na-aDkyD.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*KO7-ySH9na-aDkyD.png" alt=""></p>
 <p>Gateway Protocols</p>
 <h3 id="33-border-gateway-protocol--bgp">
   3.3 Border Gateway Protocol — BGP
@@ -545,7 +547,7 @@ These private addresses are non-routable on the public internet and can be used 
 </ol>
 <p><strong>Rapid Spanning Tree Protocol (RSTP - IEEE 802.1w):</strong> RSTP was developed to solve the slow convergence problem of STP. It reduces convergence time to seconds by simplifying port states (a single <strong>Discarding</strong> state instead of Blocking, Listening, Disabled) and adding new port roles (such as <strong>Alternate Port</strong>, which takes over immediately when the primary root port goes down). RSTP is backwards compatible with STP but does not solve the problem of bandwidth inefficiency as it still creates a single tree for all VLANs.</p>
 <p><strong>Multiple Spanning Tree Protocol (MSTP - IEEE 802.1s):</strong> MSTP both maintains the speed of RSTP and solves the inefficiency problem of STP/RSTP. MSTP groups VLANs into logical <strong>instances</strong> and runs a separate Spanning Tree for each instance. This allows VLAN-based load balancing. For example, while a link may be active (forwarding) for VLAN 10-20 group, the same link may be blocked (discarding) for VLAN 30-40 group. In this way, all redundant connections are actively used for some traffic, bandwidth waste is prevented and network resources are used in the most efficient way.</p>
-<p><img src="/images/0_iZqupuFz_XXG4e9n.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*iZqupuFz_XXG4e9n.png" alt=""></p>
 <p>Loop Prevention</p>
 <p>This evolutionary path summarizes the fundamental goal of network engineering: to ensure basic security (loop prevention), then add speed (fast convergence), and finally introduce intelligence and efficiency (load balancing).</p>
 <hr>

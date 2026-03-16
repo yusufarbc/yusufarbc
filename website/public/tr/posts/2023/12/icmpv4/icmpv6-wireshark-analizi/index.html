@@ -176,8 +176,10 @@ Echo Message: ping ve traceroute tarafından uçtan uca bağlantıyı test etmek
                 
               
               <li class="navigation-item">
-                <a href="/posts/2023/12/icmpv4/icmpv6-wireshark-analysis/">English</a>
+                <a href="/">English</a>
               </li>
+            
+          
             
           
         
@@ -231,7 +233,7 @@ Echo Message: ping ve traceroute tarafından uçtan uca bağlantıyı test etmek
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="/images/1_qw1Nso3IaiA7Jptb-0T1qQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*qw1Nso3IaiA7Jptb-0T1qQ.png" alt=""></p>
 <p>Merhaba bu yazımda ICMPv4 ve ICMPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
 <hr>
 <h3 id="icmp-nedir">
@@ -248,7 +250,7 @@ Echo Message: ping ve traceroute tarafından uçtan uca bağlantıyı test etmek
 <li><strong>Destination Unreachable messages:</strong> Kaynak ana bilgisayara paketlerinin bir nedenden dolayı teslim edilemediğini söylemek için kullanılır — nedeni Hedefe Ulaşılamıyor mesajında belirtilir. Bu yanıt paketlerinin çok sayıda olması, başarısız bir UDP bağlantı noktası taramasının devam ettiğini veya bir hizmetin düzgün çalışmadığını gösterebilir.</li>
 </ul>
 <p>Ağınızdaki ICMP trafiğini birkaç saat veya gün boyunca inceleyerek, ağın ne kadar verimli bir şekilde tasarlandığını belirleyebilir ve çok sayıda yapılandırma hatasını, işlevsel sorunu veya güvenlik ihlalini tespit edebilirsiniz. ICMPv4 RFC 792&rsquo;de tanımlanmıştır.</p>
-<p><img src="/images/1_LHTLnK4dnNwCs20ZDNBf8g.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*LHTLnK4dnNwCs20ZDNBf8g.png" alt=""></p>
 <p>ICMP, IP ağlarında mesajlaşma hizmetleri sunar</p>
 <p>RFC 4443, ICMPv6&rsquo;nın amacını ve işlevselliğini tanımlar. ICMPv6 paket yapısı ICMPv4 paket yapısı ile aynıdır.</p>
 <hr>
@@ -260,19 +262,19 @@ Echo Message: ping ve traceroute tarafından uçtan uca bağlantıyı test etmek
   </a>
 </h3>
 <p>ICMP trafiğini tanımlamak zordur çünkü bu her ağ için özeldir. Bazı ağ personeli bağlantı testleri için ping kullanırken, bazı şirketler ICMP Echo İsteklerini/Yanıtlarını kısıtlar. Bu ping testlerinden gelen ICMP trafiğini ve traceroute testlerinden gelen ICMP trafiğini “normal ICMP trafiği” olarak tanımlayabiliriz. ICMP tabanlı pingler echo İstekleri için ICMP Tip 8 ve echo reply için ICMP Tip 0 kullanır.</p>
-<p><img src="/images/1_4qv9iLVW9NDKL4GxWnpXKw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*4qv9iLVW9NDKL4GxWnpXKw.png" alt=""></p>
 <p>ICMP Echo Request</p>
-<p><img src="/images/1_gdUehz7murFdf2ZsU48Cmw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*gdUehz7murFdf2ZsU48Cmw.png" alt=""></p>
 <p>ICMP Echo Reply</p>
 <p>Şekiller ICMPv4 echo request ve echo reply paketlerini göstermektedir.</p>
-<p><img src="/images/1_2A2yFLq4vs7G70TfEM0oHw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*2A2yFLq4vs7G70TfEM0oHw.png" alt=""></p>
 <p>ICMPv6</p>
 <p>Şekilde bir ICMPv6 echo request paketi gösterilmektedir. Bu tracedeki paketler 6to4 paketleridir.</p>
 <p>Traceroute’un üç çeşidi vardır-ICMP tabanlı, TCP tabanlı ve UDP tabanlı. ICMP tabanlı traceroute, ICMP echo İsteklerini kullanır ve IP başlığındaki Yaşam Süresi (TTL) değerini değiştirir. Paketler yol boyunca yönlendiricilere ulaştığında, gelen TTL değeri incelenir. Gelen TTL değeri 1 ise, yönlendirici bir ICMP Time Exceeded/Time to Live Exceeded in Transit (Tip 11, Kod 0) ile yanıt verir (bu yanıt yönlendiricide devre dışı bırakılmamışsa). Bu, yönlendiricinin IP adresini bulmanızı sağlar.</p>
 <p>Traceroute’un üç çeşidi vardır-ICMP tabanlı, TCP tabanlı ve UDP tabanlı. ICMP tabanlı traceroute, ICMP echo İsteklerini kullanır ve IP başlığındaki Yaşam Süresi (TTL) değerini değiştirir. Paketler yol boyunca yönlendiricilere ulaştığında, gelen TTL değeri incelenir. Gelen TTL değeri 1 ise, yönlendirici bir ICMP Time Exceeded/Time to Live Exceeded in Transit (Tip 11, Kod 0) ile yanıt verir (bu yanıt yönlendiricide devre dışı bırakılmamışsa). Bu, yönlendiricinin IP adresini bulmanızı sağlar.</p>
-<p><img src="/images/1_bJcu5LI83HlJKEJlBK6QUQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*bJcu5LI83HlJKEJlBK6QUQ.png" alt=""></p>
 <p>ICMP Ping Request — no response</p>
-<p><img src="/images/1_EPaLsDeBtWdcmSiyOLbZbw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*EPaLsDeBtWdcmSiyOLbZbw.png" alt=""></p>
 <p>ICMP Time-to-live-exceed</p>
 <p>Şekillerde, bir traceroute işlemi sırasında varsayılan renklendirme etkinleştirildiğinde Wireshark’ın gösterdiği tipik şeritlemeyi göstermektedir.</p>
 <h4 id="icmpv4-problemleri">
@@ -285,7 +287,7 @@ Echo Message: ping ve traceroute tarafından uçtan uca bağlantıyı test etmek
 <p>Yaygın bir ICMP sorunu, bir hedefe bağlantı olmadığını gösteren yanıt almayan bir echo testidir. ICMP trafiğinin düştüğü noktayı belirlemek için Wireshark sistemini paket kaybının meydana geldiği noktaya ulaşana kadar yol boyunca hareket ettirmeniz gerekir.</p>
 <p>Bununla birlikte, ICMP’nin kendisi diğer birçok ağ sorununu ve güvenlik sorununu tespit etmeye yardımcı olabilir. Örneğin, bir DNS sorgusu Hedefe Ulaşılamıyor/Port Erişilemiyor (Tip 3/Kod 3) sonucunu veriyorsa, ya istemci DNS sorgularını yanlış hedefe gönderiyordur ya da sunucuda ad hizmeti çalışmıyordur.</p>
 <p>Başka bir örnek de aşırı yönlendirmeler olabilir.</p>
-<p><img src="/images/1_09eyyZQ32tAra5CruF7ajQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*09eyyZQ32tAra5CruF7ajQ.png" alt=""></p>
 <p>ICMP Redirect</p>
 <p>Şekilde, 10.2.99.98 adresindeki başka bir ağ geçidini(gateway) işaret eden bir ICMP Yönlendirme paketini göstermektedir. Bu paket, alıcı yönlendirici gönderici için daha iyi bir yönlendirici belirlediğinde gönderilir. Alıcı yönlendirici, kullanılması önerilen yönlendiriciyi içeren bir ICMP Yönlendirme (Tip 5/Kod 1) paketi oluşturur. Alındığında, bir host yönlendirme tablosunu güncellemelidir. Yönlendirmeler yalnızca yönlendiriciler tarafından gönderilmelidir.</p>
 <p>ICMP Redirect ve ICMP Destination Unreachable paketleri gibi bazı ICMP paketleri, ICMP yanıtını tetikleyen orijinal paketin bir bölümünü içerir. Şekilde, ICMP başlığını ICMP yanıtını tetikleyen paketin orijinal IP başlığı takip eder.</p>

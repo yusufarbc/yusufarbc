@@ -161,6 +161,8 @@ WiresharkLink to headingWireshark is open source software used as a network an
           
           
             
+          
+            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -168,7 +170,7 @@ WiresharkLink to headingWireshark is open source software used as a network an
                 
               
               <li class="navigation-item">
-                <a href="/tr/posts/2023/09/hizmet-engelleme-sald%C4%B1r%C4%B1lar%C4%B1-dos-ddos-wireshark-analizi/">Türkçe</a>
+                <a href="/tr/">Türkçe</a>
               </li>
             
           
@@ -223,7 +225,7 @@ WiresharkLink to headingWireshark is open source software used as a network an
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="/images/1_tKGgOxt2Mq5piyQ3_CJDdg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*tKGgOxt2Mq5piyQ3_CJDdg.png" alt=""></p>
 <p>Hello, in this article, I will analyze denial of service attacks known as DoS and DDoS with Wireshark.</p>
 <hr>
 <h3 id="wireshark">
@@ -318,7 +320,7 @@ sudo apt install wireshark
 </h4>
 <p>In this attack, attackers send a large number of fraudulent connection requests (SYN requests) to the target server. While the target server tries to respond to these requests, it consumes its resources and becomes unable to serve real users.</p>
 <p>When we detect a SYN Flood attack with Wireshark, we see many TCP packets with SYN flags sent at very short time intervals.</p>
-<p><img src="/images/1_8f1IfL0GBQhChQvtBIMM1w.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*8f1IfL0GBQhChQvtBIMM1w.png" alt=""></p>
 <p>SYN-Flood</p>
 <h4 id="rst-flood-attack">
   RST Flood Attack
@@ -329,7 +331,7 @@ sudo apt install wireshark
 </h4>
 <p>Attackers reset existing connections by sending spoofed TCP RST packets to the target server. This may disrupt the functioning of the target server and render services unusable.</p>
 <p>When we detect an RST Flood attack with Wireshark, we see many RST flagged TCP packets sent at very short time intervals. It also manipulates the source address and makes it appear as if it comes from different IP addresses.</p>
-<p><img src="/images/1_3YLM5vaoxJjO3zo5h_nA1w.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*3YLM5vaoxJjO3zo5h_nA1w.png" alt=""></p>
 <p>RST Flood</p>
 <h4 id="ack-psh-flood-attack">
   ACK-PSH Flood Attack
@@ -340,7 +342,7 @@ sudo apt install wireshark
 </h4>
 <p>In this type of attack, attackers send large amounts of fake TCP ACK and PSH (Push) packets to the target server. This can consume the server&rsquo;s resources and cause services to slow down.</p>
 <p>When we detect an ACK-PSH Flood attack with Wireshark, we see many TCP packets with PSH+ACK flags sent in very short time intervals. It manipulates the source address and makes it appear as if it comes from different IP addresses.</p>
-<p><img src="/images/1_N5dYU-KK2LY19L4dcajOuw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*N5dYU-KK2LY19L4dcajOuw.png" alt=""></p>
 <p>ACK-PSH Flood</p>
 <h4 id="ack-flood-attack">
   ACK Flood Attack
@@ -351,7 +353,7 @@ sudo apt install wireshark
 </h4>
 <p>Attackers send large amounts of fake TCP ACK (Acknowledgment) packets to the target server. This can quickly consume the server&rsquo;s resources.</p>
 <p>Similar to ACK-PSH, when we look at ACK Floo with wireshark, we see TCP packets with ACK flags sent at very short intervals. The source address was manipulated to appear as coming from a different source.</p>
-<p><img src="/images/1_UgJojmwpCwsycIQG5kO7UQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*UgJojmwpCwsycIQG5kO7UQ.png" alt=""></p>
 <p>ACK Flood</p>
 <p>These types of attacks create situations where servers and networks are overloaded and can cause service outages. Therefore, targets often use security measures and cybersecurity solutions to detect and defend against attacks. These solutions may include measures such as traffic filtering, firewalls, intrusion detection systems, and load balancing. Additionally, network security policies and good security practices are also important.</p>
 <hr>
@@ -373,7 +375,7 @@ sudo apt install wireshark
 </h4>
 <p>In this type of attack, attackers send a large amount of spoofed UDP packets to the target server. These packets attempt to exhaust the target server&rsquo;s resources and render its services unusable.Such attacks may involve sending packets so fast that the target server cannot respond.</p>
 <p>Similar to TCP attacks, when we look at UDP attacks with Wireshark, we see packets sent at very short intervals. The difference is this time there are UDP packets, not TCP. In addition, the source address was manipulated and shown as coming from a different source.</p>
-<p><img src="/images/1_VNf1wUYOGRdXBuNUeU0qPg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*VNf1wUYOGRdXBuNUeU0qPg.png" alt=""></p>
 <p>UDP Flood</p>
 <h4 id="udp-fragmentation-attacks">
   <strong>UDP Fragmentation Attacks</strong>
@@ -402,7 +404,7 @@ sudo apt install wireshark
 </h4>
 <p>Attackers send large amounts of ICMP Echo Request (ping) requests to the target server. These requests require the target server to respond and may consume the server&rsquo;s resources.</p>
 <p>When we examine the network traffic with Wireshark, we see many ICMP echo request packets. These requests came from a single source.</p>
-<p><img src="/images/1_dqsZopEHHSShzDAVlx62gA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*dqsZopEHHSShzDAVlx62gA.png" alt=""></p>
 <p>Ping Flood</p>
 <h4 id="smurf-attacks">
   Smurf Attacks
@@ -413,7 +415,7 @@ sudo apt install wireshark
 </h4>
 <p>In this type of attack, attackers send large amounts of ICMP Echo Requests using spoofed source IP addresses. These requests are forwarded to all devices on the network and all devices respond, causing the target server to become overloaded.</p>
 <p>When we examine the network traffic with Wireshark, we see many ICMP echo request packets. These requests appear to come from manipulated sources.</p>
-<p><img src="/images/1_KKFdMVKStomIrgb24zsXWA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*KKFdMVKStomIrgb24zsXWA.png" alt=""></p>
 <p>Smurf Attack</p>
 <h4 id="icmp-redirect-attacks">
   <strong>ICMP Redirect Attacks</strong>
@@ -451,7 +453,7 @@ sudo apt install wireshark
 <p>Attackers send a large number of HTTP requests to the target web server. This can consume the server&rsquo;s resources and cause it to become unavailable.</p>
 <p>I found a tool written in Python to perform this attack. Link <a href="https://github.com/D4Vinci/PyFlooder"  class="external-link" target="_blank" rel="noopener">here</a>. I performed an HTTP flood attack on a web server I set up at my local location.</p>
 <p>When we examine the traffic with Wireshark, we see that many HTTP GET packets are sent in very short intervals.</p>
-<p><img src="/images/1_wr8sajciDuwntDmn68NOdw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*wr8sajciDuwntDmn68NOdw.png" alt=""></p>
 <p>HTTP GET Flood</p>
 <h4 id="slowloris-attacks">
   <strong>Slowloris Attacks</strong>

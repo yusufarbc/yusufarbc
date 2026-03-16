@@ -161,6 +161,8 @@ Operating SystemLink to headingAn operating system is a program that manages a
           
           
             
+          
+            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -168,7 +170,7 @@ Operating SystemLink to headingAn operating system is a program that manages a
                 
               
               <li class="navigation-item">
-                <a href="/tr/posts/2023/06/i%C5%9Fletim-sistemi-konsepti/">Türkçe</a>
+                <a href="/tr/">Türkçe</a>
               </li>
             
           
@@ -223,7 +225,7 @@ Operating SystemLink to headingAn operating system is a program that manages a
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="/images/1_IvUopr4Tqf2K6eew539ATw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*IvUopr4Tqf2K6eew539ATw.png" alt=""></p>
 <p>Hello, in this article I will talk about the structure, concept and features of operating systems. Design challenges of the operating system, security requirements and more are in this article!</p>
 <hr>
 <h3 id="operating-system">
@@ -246,7 +248,7 @@ Operating SystemLink to headingAn operating system is a program that manages a
   </a>
 </h4>
 <p>An operating system is software that acts as an interface between computer hardware and software and manages the computer&rsquo;s resources. The operating system regulates access to the computer&rsquo;s resources such as memory, processor, file systems, device drivers and network connections and ensures that users can use these resources effectively.</p>
-<p><img src="/images/1_Xpk60lGLgXPw0S25Wf7sxw.jpeg" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Xpk60lGLgXPw0S25Wf7sxw.jpeg" alt=""></p>
 <p>Operating System Structure</p>
 <p>The operating system generally consists of two basic components: the kernel and the user interface (shell).</p>
 <p><strong>1. Kernel:</strong> The kernel is the fundamental part of the operating system and manages hardware resources at the lowest level. It performs basic functions such as memory management, process management, file systems, drivers, and network connections. The kernel communicates directly with the hardware and provides applications with access to these resources.</p>
@@ -322,7 +324,7 @@ Contains pointers to queues and other timing parameters.</li>
 <li><strong>I/O status information:</strong> This information includes information about the I/O devices allocated to the process.<br>
 list, list of open files, etc. Contains.</li>
 </ul>
-<p><img src="/images/1_RrcLvg5ZJ9nHEVCHm7VEeA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*RrcLvg5ZJ9nHEVCHm7VEeA.png" alt=""></p>
 <p>Process control block (PCB)</p>
 <h4 id="inter-processcommunication">
   Inter-Process Communication
@@ -350,7 +352,7 @@ There are two basic models of communication: <em>shared memory</em> and <em>mess
   </a>
 </h4>
 <p>A thread is a basic unit of CPU usage; It consists of a thread ID, a program counter, a register set, and a stack. It shares the code section, data section, and other operating system resources such as open files and signals with other threads belonging to the same process. A traditional process has a single thread of control. A process can have multiple threads.</p>
-<p><img src="/images/1_Oj15rspOQ1TXXtw4k4d2xQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Oj15rspOQ1TXXtw4k4d2xQ.png" alt=""></p>
 <p>Threaded Processing</p>
 <h4 id="multithreading-models">
   Multithreading Models
@@ -411,7 +413,7 @@ There is.</li>
 <p>Hardware-based solutions to the critical cross-section problem are complex and often inaccessible to application programmers. Instead, operating system designers develop software tools to solve the critical section problem. The simplest of these tools is the mutex lock. (In fact, the term mutex is short for mutual exclusion.) MWe use uteks lock to protect critical regions and thus prevent race conditions. So, one<br>
 The transaction must acquire the lock before entering a critical section; from critical section<br>
 When it comes out, it releases the lock.</p>
-<p><img src="/images/1_6IRXR8Sw9EndL-QKPRmL6w.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*6IRXR8Sw9EndL-QKPRmL6w.png" alt=""></p>
 <p>Use of mutex locks</p>
 <p>The <em>acquire()</em> function acquires the lock and the <em>release()</em> function releases the lock. Calls to <em>acquire()</em> or <em>release()</em> must be executed atomically. <br>
 A mutex lock has a boolean variable whose value indicates whether the lock is usable. If the lock is usable, the <em>acquire()</em> call succeeds and the lock is then considered unusable. A process attempting to acquire an unusable lock is blocked until the lock is released.</p>
@@ -440,7 +442,7 @@ A semaphore S is an integer variable that is accessed by only two standard atomi
 data with a set of functions that will operate on that data independently<br>
 covers. The monitor structure allows only one process to be active within the monitor at a time.<br>
 makes it happen.</p>
-<p><img src="/images/1_1yFRNX_7QPDEhWUFWc-61w.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*1yFRNX_7QPDEhWUFWc-61w.png" alt=""></p>
 <p>monitor</p>
 <p>A function defined within a monitor can only access variables declared locally within the monitor and its formal parameters. Similarly, a monitor&rsquo;s local variables can only be accessed by local functions.</p>
 <h4 id="deadlocks">
@@ -496,7 +498,7 @@ An address seen by the memory unit — that is, the address loaded into the 
   </a>
 </h4>
 <p>For a process to be executed, it must be in memory. However, a process can be temporarily moved from memory to disk and then brought back to memory to continue execution.</p>
-<p><img src="/images/1_iB_t0Cpvz9x4aAf2_0bu9A.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*iB_t0Cpvz9x4aAf2_0bu9A.png" alt=""></p>
 <p>Swap transaction</p>
 <h4 id="memory-allocation">
   Memory Allocation
@@ -527,7 +529,7 @@ If it is large, it is divided into two parts. A piece is allocated to the incomi
   </a>
 </h4>
 <p>Considering memory in terms of its physical properties is harmful for both the operating system and the programmer. What if hardware could provide a memory mechanism that mapped the programmer&rsquo;s view to actual physical memory? While the system would have more freedom to manage memory, the programmer would have a more natural programming environment. Segmentation provides such a mechanism.</p>
-<p><img src="/images/1_-jrsYdgi6mk5r2ySy2Dp9Q.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*-jrsYdgi6mk5r2ySy2Dp9Q.png" alt=""></p>
 <p>Segmentation Hardware</p>
 <p>Each segment has a name and length. Addresses specify both the segment name and the offset within the segment. Therefore, the programmer specifies each address with two quantities: a segment name and an offset. Segments for ease of applicationIt is classified and referred to by the segment number instead of the segment name. Thus, a logical address consists of two tuples:</p>
 <h4 id="paging">
@@ -539,7 +541,7 @@ If it is large, it is divided into two parts. A piece is allocated to the incomi
 </h4>
 <p>Segmentation allows the physical address space of a process to be non-contiguous. Paging is another memory management scheme that offers this advantage. However, paging prevents and compresses external fragmentation, whereas segmentation does not. Additionally, different sizes of memory<br>
 It also solves the important problem of fitting parts into the support tank.</p>
-<p><img src="/images/1_0Ir0o5wtu7y2mwjfFarrHA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*0Ir0o5wtu7y2mwjfFarrHA.png" alt=""></p>
 <p>Paging Hardware</p>
 <p>The basic method for implementing paging involves dividing physical memory into fixed-size blocks called frames and dividing logical memory into blocks of the same size called pages. When a process is to be executed, its pages are loaded from their source (a file system or backing store) into any available memory frame. The backing store is divided into fixed-size blocks that are the same size as memory frames or clusters of multiple frames. This rather simple idea has great functionality and wide implications. For example, the logical address space is now completely separate from the physical address space, so a process can have a logical 64-bit address space even if the system has less than 264 bytes of physical memory.</p>
 <h4 id="virtual-memory">
@@ -551,7 +553,7 @@ It also solves the important problem of fitting parts into the support tank.</p>
 </h4>
 <p>Virtual memory involves separating logical memory from physical memory as perceived by users. This allocation allows an extremely large amount of virtual memory to be available to programmers when only smaller physical memory is available. Virtual memory makes the programming task much easier because the programmer no longer needs to worry about the amount of physical memory available; instead<br>
 can concentrate on the problem to be programmed.</p>
-<p><img src="/images/1_QvvtOf3Vf930Fs19eSHqjQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*QvvtOf3Vf930Fs19eSHqjQ.png" alt=""></p>
 <p>Virtual Memory</p>
 <p>A process&rsquo;s virtual address space refers to the logical (or virtual) view of how a process is stored in memory. Typically, this view is that a process starts at a particular logical address (e.g. address 0) and exists in contiguous memory.</p>
 <p>In addition to separating logical memory from physical memory, virtual memory allows files and memory to be shared by two or more processes through page sharing. This leads to the following advantages:</p>
@@ -577,7 +579,7 @@ can concentrate on the problem to be programmed.</p>
   </a>
 </h4>
 <p>A disk is a storage unit where data is permanently stored and accessed. Disks commonly used in computer systems are divided into two main categories: hard disk drives (Hard Disk Drive — HDD) and solid state drives (Solid State Drive — SSD).</p>
-<p><img src="/images/1_zfPPKDtSp7k9jBGej2m-dw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*zfPPKDtSp7k9jBGej2m-dw.png" alt=""></p>
 <p>HDD Disk</p>
 <p>Modern magnetic disk drives are treated as large one-dimensional arrays. logical blocks, where logical block is the smallest transfer unit. The logical block size is usually 512 bytes, but some disks may be low-level formatted to have a different logical block size, such as 1,024 bytes.</p>
 <h4 id="disk-connection">
@@ -607,22 +609,22 @@ can concentrate on the problem to be programmed.</p>
 <ul>
 <li><strong>FCFS (First-Come, First-Served):</strong> This algorithm processes incoming requests sequentially and processes incoming requests first. However, this algorithm does not take into account physical locations on the disk and can increase disk access times in case of an out-of-order sorting.</li>
 </ul>
-<p><img src="/images/1_kVk--dRni90LbzTYov3b4w.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*kVk--dRni90LbzTYov3b4w.png" alt=""></p>
 <p>FCFS</p>
 <ul>
 <li><strong>SSTF (Shortest Seek Time First):</strong> This algorithm processes the request with the shortest travel distance from where the disk head is currently positioned. That is, requests where the head must travel the shortest distance are processed with priority. This algorithm reduces the total disk access time and provides better performance.</li>
 </ul>
-<p><img src="/images/1__3w6z61oJ6PQpjmsAAPmmg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*_3w6z61oJ6PQpjmsAAPmmg.png" alt=""></p>
 <p>SSTF</p>
 <ul>
 <li><strong>SCAN (Elevator):</strong> This algorithm processes requests when moving the disk head in a specific direction (for example, inward or outward). As the head progresses, it processes all the requests and when it reaches the end, it turns away from the direction and comes back. This way, it constantly scans for requests on the disk. The SCAN algorithm processes requests fairly and reduces waiting times for on-disk requests.</li>
 </ul>
-<p><img src="/images/1_t7kHcp1t1Z8vX1HjZq4I-w.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*t7kHcp1t1Z8vX1HjZq4I-w.png" alt=""></p>
 <p>SCAN</p>
 <ul>
 <li><strong>C-SCAN (Circular SCAN):</strong> This algorithm processes requests similar to the SCAN algorithm, but unlike SCAN, it starts from the last request when returning. That is, it moves across the disk in one direction as it processes requests, and when it reaches the last request it quickly moves to the other end and starts again. C-SCAN provides a fairer request processing order than SCAN.</li>
 </ul>
-<p><img src="/images/1_3GQpsL_MjPT6VphPF1Uerw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*3GQpsL_MjPT6VphPF1Uerw.png" alt=""></p>
 <p>C-SCAN</p>
 <p>In addition to these algorithms, there are other disk timing algorithms such as LOOK, C-LOOK, N-Step-SCAN and N-Step-LOOK. Disk Scheduling algorithms use various strategies to optimize on-disk data access and reduce wait times. every</p>
 <h4 id="disk-management">

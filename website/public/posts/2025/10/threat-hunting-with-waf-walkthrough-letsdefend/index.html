@@ -52,12 +52,6 @@ IntroductionLink to headingA Web Application Firewall (WAF) is a security laye
     <meta property="article:published_time" content="2025-10-03T00:00:00+00:00">
     <meta property="article:modified_time" content="2025-10-03T00:00:00+00:00">
     <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
-      <meta property="og:see_also" content="http://localhost:1313/posts/2025/10/threat-hunting-with-deception-walkthrough-letsdefend/">
-      <meta property="og:see_also" content="http://localhost:1313/posts/2025/10/threat-hunting-with-email-security-walkthrough-letsdefend/">
-      <meta property="og:see_also" content="http://localhost:1313/posts/2025/10/threat-hunting-with-edr-walkthrough-letsdefend/">
-      <meta property="og:see_also" content="http://localhost:1313/posts/2025/10/threat-hunting-with-dns-walkthrough-letsdefend/">
-      <meta property="og:see_also" content="http://localhost:1313/posts/2025/10/threat-hunting-with-ips/ids-walkthrough-letsdefend/">
-      <meta property="og:see_also" content="http://localhost:1313/posts/2025/09/threat-hunting-with-cti-walkthrough-letsdefend/">
 
 
 
@@ -228,7 +222,7 @@ IntroductionLink to headingA Web Application Firewall (WAF) is a security laye
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="/images/0_aaFgUhGoEHzP09NU.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*aaFgUhGoEHzP09NU.png" alt=""></p>
 <p><a href="https://letsdefend.io/"  class="external-link" target="_blank" rel="noopener">LetsDefend — Blue Team Training Platform</a></p>
 <h3 id="introduction">
   Introduction
@@ -239,7 +233,7 @@ IntroductionLink to headingA Web Application Firewall (WAF) is a security laye
 </h3>
 <p>A Web Application Firewall (WAF) is a security layer used to protect web applications. Unlike traditional firewalls, WAFs specifically target threats aimed at web applications. These threats include SQL injections, XSS (Cross-Site Scripting) attacks, file upload attacks, and other web-based threats.</p>
 <p>WAF-based threat hunting is a proactive security approach aimed at protecting web applications. This process is carried out using logs, alerts, and analyzes provided by WAFs. Threat hunters examine WAF data to identify potential threats, analyze the source of these threats, and develop strategies to prevent similar attacks in the future.</p>
-<p><img src="/images/0_DvRCHqrdmU5Lv1or.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*DvRCHqrdmU5Lv1or.png" alt=""></p>
 <p>( <strong>Image Source</strong> : <a href="https://www.linkedin.com/pulse/what-waf-web-application-firewall-ronen-taieb/"  class="external-link" target="_blank" rel="noopener">https://www.linkedin.com/pulse/what-waf-web-application-firewall-ronen-taieb/</a> )</p>
 <p>This lesson has provided an introduction to the topic. The next lesson will cover the “ <strong>Role of WAF in Threat Hunting</strong> “.</p>
 <h3 id="questions">
@@ -272,7 +266,7 @@ IntroductionLink to headingA Web Application Firewall (WAF) is a security laye
 <li><strong>Attack Detection:</strong> The WAF continuously scans traffic for specific attack patterns and signatures. For example, requests that contain common web attacks such as SQL injection or XSS (Cross-Site Scripting) are immediately detected and blocked by the WAF. This allows attackers to be stopped before they reach their target.</li>
 <li><strong>Real-time Intervention:</strong> The WAF&rsquo;s instant monitoring capability allows for rapid response when an attack is detected. Threat hunters can then identify the source of the attack and take immediate security action.</li>
 </ul>
-<p><img src="/images/0_cx66MkIkLNYO93wM.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*cx66MkIkLNYO93wM.png" alt=""></p>
 <p>( <strong>Image Source</strong> : <a href="https://www.radware.com/cyberpedia/application-security/what-is-waf/"  class="external-link" target="_blank" rel="noopener">https://www.radware.com/cyberpedia/application-security/what-is-waf/</a> )</p>
 <h3 id="signature-and-behavior-based-detection">
   Signature and Behavior-Based Detection
@@ -304,7 +298,7 @@ IntroductionLink to headingA Web Application Firewall (WAF) is a security laye
 <li><strong>Anomaly Detection:</strong> Behavior-based detection monitors deviations from the normal operation of the system. For detecting previously unseen or unknown attacks, this method is very effective. For example, a user uploading or downloading large amounts of data at unusual times could be a sign of an attack.</li>
 <li><strong>Machine Learning Support:</strong> Behavior-based systems are often supported by machine learning algorithms. This allows the WAF to better differentiate between normal and abnormal behavior over time, and to more accurately detect attacks.</li>
 </ul>
-<p><img src="/images/0_gGxXzd_gWOk-1NXL.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*gGxXzd_gWOk-1NXL.png" alt=""></p>
 <p>( <strong>Image Source</strong> : <a href="https://my.f5.com/manage/s/article/K28426659"  class="external-link" target="_blank" rel="noopener">https://my.f5.com/manage/s/article/K28426659</a> )</p>
 <h3 id="detailed-logging-and-reporting">
   Detailed Logging and Reporting
@@ -336,7 +330,7 @@ IntroductionLink to headingA Web Application Firewall (WAF) is a security laye
 <li><strong>Customized Reports:</strong> The WAF can generate detailed reports on attack activity over a specified time period. Attack types, frequency, and sources are included in these reports.</li>
 <li><strong>Visualization and Analysis:</strong> WAF reports provide visualized data for threat hunters to better understand attacks. Graphs and tables show the distribution and impact of attacks over time.</li>
 </ul>
-<p><img src="/images/0_luGMiMpdx75uiwTa.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*luGMiMpdx75uiwTa.png" alt=""></p>
 <p>( <strong>Image Source</strong> : <a href="https://splunkbase.splunk.com/app/2873"  class="external-link" target="_blank" rel="noopener">https://splunkbase.splunk.com/app/2873</a> )</p>
 <h3 id="root-causeanalysis">
   Root Cause Analysis
@@ -510,7 +504,7 @@ IntroductionLink to headingA Web Application Firewall (WAF) is a security laye
   </a>
 </h3>
 <p>For more comprehensive analysis, WAF logs can be correlated with logs from other security systems. This can help threat hunters detect larger-scale attacks. In addition, log anomalies can help identify deviations from normal behavior and uncover unknown threats.</p>
-<p><img src="/images/0_jGSe2YBLcuWJfZtg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*jGSe2YBLcuWJfZtg.png" alt=""></p>
 <p>( <strong>Image Source</strong> : <a href="https://www.techmatrix.de/app-protect-dashboard/"  class="external-link" target="_blank" rel="noopener">https://www.techmatrix.de/app-protect-dashboard/</a> )</p>
 <h3 id="detection-and-analysis-of-web-attacks">
   Detection and Analysis of Web Attacks
@@ -609,7 +603,7 @@ IntroductionLink to headingA Web Application Firewall (WAF) is a security laye
   </a>
 </h3>
 <p>A threat actor may be targeting login forms on a web application using brute force methods to gain unauthorized access and steal credentials.</p>
-<p><img src="/images/0_gqvC9lf2TrPcrMoB.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*gqvC9lf2TrPcrMoB.png" alt=""></p>
 <p>( <strong>Image Source</strong> : <a href="https://www.thesslstore.com/blog/brute-force-attack-definition-how-brute-force-works/"  class="external-link" target="_blank" rel="noopener">https://www.thesslstore.com/blog/brute-force-attack-definition-how-brute-force-works/</a> )</p>
 <h3 id="data-sources">
   Data Sources
@@ -720,56 +714,56 @@ IntroductionLink to headingA Web Application Firewall (WAF) is a security laye
 <p><strong>According to WAF logs, what is the URL where the Directory Traversal attack occurred most frequently?</strong></p>
 </blockquote>
 <p>Use the filter “data.subtype: waf” in SIEM. Check the values ​​in the “data.url” field.</p>
-<p><img src="/images/1_woEGDa62G34NK56BDMyZuA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*woEGDa62G34NK56BDMyZuA.png" alt=""></p>
 <p><strong>Answer:</strong> /page.php?file=../../../../etc/shadow</p>
 <blockquote>
 <p><strong>What is the URL of the Directory Traversal attack that was allowed by the WAF?</strong></p>
 </blockquote>
 <p>Use the filters “data.subtype: waf” and “data.action: Alert” in SIEM.</p>
-<p><img src="/images/1_Lws_8FcuGAzvt12KfDiTag.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Lws_8FcuGAzvt12KfDiTag.png" alt=""></p>
 <p><strong>Answer:</strong> /page.php?file=../../../../home/user/.ssh/id_rsa</p>
 <blockquote>
 <p><strong>What is the HTTP status code of the Directory Traversal attack that was allowed by the WAF?</strong></p>
 </blockquote>
 <p>Apply the filters “data.subtype: waf” and “data.action: Alert” in SIEM. Locate the “return_code” value within the “full_log”.</p>
-<p><img src="/images/1_d9VtggWq0LsNsz_UQPHo3w.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*d9VtggWq0LsNsz_UQPHo3w.png" alt=""></p>
 <p><strong>Answer:</strong> 200</p>
 <blockquote>
 <p><strong>During previous stages of the threat hunting process, an IP address was detected performing a directory traversal attack that was allowed by the WAF. This same IP address has also launched a different type of web attack. What type of web attack is it?</strong></p>
 </blockquote>
 <p>Identify the IP address from the output generated by applying ‘data.subtype: waf’ and ‘data.action: Alert’ filters in SIEM. Then review WAF logs to examine different attack types originating from this IP address.</p>
 <p>We see the source address &lsquo;16.61.7.181&rsquo; in the previous stage.</p>
-<p><img src="/images/1_q81fiePDc9xz_VZuuVNpJg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*q81fiePDc9xz_VZuuVNpJg.png" alt=""></p>
 <p><strong>Answer:</strong> OS Command Injection</p>
 <blockquote>
 <p><strong>During previous stages of the threat hunting process, an IP address was detected performing a directory traversal attack that was allowed by the WAF. This same IP address has also launched a different type of web attack. What WAF action was taken against this web attack?</strong></p>
 </blockquote>
 <p>Apply the filter “data.subtype: waf” in SIEM. Check the “data.action” field in the log entry related to the web attack.</p>
-<p><img src="/images/1_GjvzG4LqTBHV78pIMF11wA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*GjvzG4LqTBHV78pIMF11wA.png" alt=""></p>
 <p><strong>Answer:</strong> Block</p>
 <blockquote>
 <p><strong>What is the target server IP address of the Directory Traversal attack allowed by the WAF?</strong></p>
 </blockquote>
 <p>Apply the filters “data.subtype: waf” and “data.action: Alert” in SIEM. Check the “data.dstip” field.</p>
-<p><img src="/images/1_-YsBUNDR59qsWgUmlG9NfA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*-YsBUNDR59qsWgUmlG9NfA.png" alt=""></p>
 <p><strong>Answer:</strong> 10.10.10.88</p>
 <blockquote>
 <p><strong>Which APT group does the IP address that carried out the directory traversal attack allowed by the WAF belong to?</strong></p>
 </blockquote>
 <p>Search for the IP address in the Threat Intel LetsDefend Platform.</p>
-<p><img src="/images/1_xjtLg78ErcNdoPiGEDSOmQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*xjtLg78ErcNdoPiGEDSOmQ.png" alt=""></p>
 <p><strong>Answer:</strong> APT-LL-23</p>
 <blockquote>
 <p><strong>What is another reported IP address belonging to the same APT group that carried out the directory traversal attack allowed by the WAF?</strong></p>
 </blockquote>
 <p>Search for the APT group&rsquo;s name in the Threat Intel LetsDefend Platform.</p>
-<p><img src="/images/1_s9Yy-aJyyWn5SLvFbUsNNA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*s9Yy-aJyyWn5SLvFbUsNNA.png" alt=""></p>
 <p><strong>Answer:</strong> 101.203.172.3</p>
 <blockquote>
 <p><strong>During earlier stages of Threat Hunting, an IP address was identified executing Directory Traversal attacks. Subsequently, another IP address belonging to the same threat group was discovered. What is the source IP address that accessed this related external IP address in a ‘local → WAN’ pattern?</strong></p>
 </blockquote>
 <p>Locate the IP address of APT Group that was identified in the Threat Intel platform. Apply the filters “rule.groups: firewall” and “data.dstip: “ in SIEM.</p>
-<p><img src="/images/1_ZG3TWF9ZjxKMBzOivVWl4Q.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*ZG3TWF9ZjxKMBzOivVWl4Q.png" alt=""></p>
 <p><strong>Answer:</strong> 10.10.10.88</p>
 <blockquote>
 <p><strong>Earlier in the Threat Hunting process, an IP address performing Directory Traversal attacks was identified. Another IP address from the same threat group was found later. What was the firewall action on the endpoint&rsquo;s access request to this external IP address?</strong></p>
@@ -782,14 +776,6 @@ IntroductionLink to headingA Web Application Firewall (WAF) is a security laye
 
       <footer>
         
-
-<section class="see-also">
-  
-    
-    
-    
-  
-</section>
 
 
         

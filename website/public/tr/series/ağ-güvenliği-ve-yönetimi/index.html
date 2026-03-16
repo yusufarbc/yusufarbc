@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Ağ Güvenliği Ve Yönetimi · Yusuf Talha ARABACI
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="Security Engineer specializing in Cloud-Native Security, SOC Architecture, and Open Source Defense.">
+<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Ağ Güvenliği Ve Yönetimi">
+  <meta name="twitter:description" content="Security Engineer specializing in Cloud-Native Security, SOC Architecture, and Open Source Defense.">
+
+<meta property="og:url" content="http://localhost:1313/tr/series/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi/">
+  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:title" content="Ağ Güvenliği Ve Yönetimi">
+  <meta property="og:description" content="Security Engineer specializing in Cloud-Native Security, SOC Architecture, and Open Source Defense.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="website">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/series/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link rel="alternate" type="application/rss+xml" href="/tr/series/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi/index.xml" title="Yusuf Talha ARABACI" />
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      Yusuf Talha ARABACI
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/">English</a>
+              </li>
+            
+          
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container list">
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/tr/series/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi/">
+          Ağ Güvenliği Ve Yönetimi
+        </a>
+      </h1>
+    </header>
+
+    
+    
+    
+    <div class="series-list-top">
+      <h3>Yazı Serileri</h3>
+      <div class="series-tags">
+        
+          <a href="/tr/series/a%c4%9f-g%c3%bcvenli%c4%9fi-ve-y%c3%b6netimi/" class="series-tag">#ağ güvenliği ve yönetimi</a>
+        
+      </div>
+    </div>
+    
+
+    <hr>
+
+    
+    <ul><li>
+  <span class="date">Ağustos 19, 2025</span>
+  <a class="title" href="/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-x-soc-ve-noc-s%C3%BCre%C3%A7leri/">Ağ Yönetimi ve Güvenliği X: SOC ve NOC Süreçleri</a>
+  
+    <span class="series">
+      
+        <a href="/tr/series/a%c4%9f-g%c3%bcvenli%c4%9fi-ve-y%c3%b6netimi/">[Ağ Güvenliği ve Yönetimi]</a>
+      
+    </span>
+  
+</li>
+<li>
+  <span class="date">Ağustos 12, 2025</span>
+  <a class="title" href="/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-ix-bulut-g%C3%BCvenli%C4%9Fi-ve-hibrit-a%C4%9F-mimarileri/">Ağ Yönetimi ve Güvenliği IX: Bulut Güvenliği ve Hibrit Ağ Mimarileri</a>
+  
+    <span class="series">
+      
+        <a href="/tr/series/a%c4%9f-g%c3%bcvenli%c4%9fi-ve-y%c3%b6netimi/">[Ağ Güvenliği ve Yönetimi]</a>
+      
+    </span>
+  
+</li>
+<li>
+  <span class="date">Ağustos 12, 2025</span>
+  <a class="title" href="/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-vi-a%C4%9F-protokolleri-g%C3%BCvenli%C4%9Fi-ve-analizi/">Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve Analizi</a>
+  
+    <span class="series">
+      
+        <a href="/tr/series/a%c4%9f-g%c3%bcvenli%c4%9fi-ve-y%c3%b6netimi/">[Ağ Güvenliği ve Yönetimi]</a>
+      
+    </span>
+  
+</li>
+<li>
+  <span class="date">Ağustos 12, 2025</span>
+  <a class="title" href="/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-viii-a%C4%9F-y%C3%B6netimi-izleme-ve-otomasyon/">Ağ Yönetimi ve Güvenliği VIII: Ağ Yönetimi, İzleme ve Otomasyon</a>
+  
+    <span class="series">
+      
+        <a href="/tr/series/a%c4%9f-g%c3%bcvenli%c4%9fi-ve-y%c3%b6netimi/">[Ağ Güvenliği ve Yönetimi]</a>
+      
+    </span>
+  
+</li>
+<li>
+  <span class="date">Ağustos 10, 2025</span>
+  <a class="title" href="/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-iii-a%C4%9F-donan%C4%B1mlar%C4%B1-ve-fiziksel-altyap%C4%B1-g%C3%BCvenli%C4%9Fi/">Ağ Yönetimi ve Güvenliği III: Ağ Donanımları ve Fiziksel Altyapı Güvenliği</a>
+  
+    <span class="series">
+      
+        <a href="/tr/series/a%c4%9f-g%c3%bcvenli%c4%9fi-ve-y%c3%b6netimi/">[Ağ Güvenliği ve Yönetimi]</a>
+      
+    </span>
+  
+</li>
+<li>
+  <span class="date">Ağustos 10, 2025</span>
+  <a class="title" href="/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-iv-a%C4%9F-g%C3%BCvenli%C4%9Fi-teknolojileri/">Ağ Yönetimi ve Güvenliği IV: Ağ Güvenliği Teknolojileri</a>
+  
+    <span class="series">
+      
+        <a href="/tr/series/a%c4%9f-g%c3%bcvenli%c4%9fi-ve-y%c3%b6netimi/">[Ağ Güvenliği ve Yönetimi]</a>
+      
+    </span>
+  
+</li>
+<li>
+  <span class="date">Ağustos 10, 2025</span>
+  <a class="title" href="/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-v-kimlik-ve-eri%C5%9Fim-y%C3%B6netimi-iam/">Ağ Yönetimi ve Güvenliği V: Kimlik ve Erişim Yönetimi (IAM)</a>
+  
+    <span class="series">
+      
+        <a href="/tr/series/a%c4%9f-g%c3%bcvenli%c4%9fi-ve-y%c3%b6netimi/">[Ağ Güvenliği ve Yönetimi]</a>
+      
+    </span>
+  
+</li>
+<li>
+  <span class="date">Ağustos 9, 2025</span>
+  <a class="title" href="/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-i-temel-kavramlar/">Ağ Yönetimi ve Güvenliği I: Temel Kavramlar</a>
+  
+    <span class="series">
+      
+        <a href="/tr/series/a%c4%9f-g%c3%bcvenli%c4%9fi-ve-y%c3%b6netimi/">[Ağ Güvenliği ve Yönetimi]</a>
+      
+    </span>
+  
+</li>
+<li>
+  <span class="date">Ağustos 9, 2025</span>
+  <a class="title" href="/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-ii-a%C4%9F-protokolleri-y%C3%B6nlendirme-ve-adresleme/">Ağ Yönetimi ve Güvenliği II: Ağ Protokolleri, Yönlendirme ve Adresleme</a>
+  
+    <span class="series">
+      
+        <a href="/tr/series/a%c4%9f-g%c3%bcvenli%c4%9fi-ve-y%c3%b6netimi/">[Ağ Güvenliği ve Yönetimi]</a>
+      
+    </span>
+  
+</li>
+<li>
+  <span class="date">Ağustos 7, 2025</span>
+  <a class="title" href="/tr/posts/2025/08/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi-vii-active-directory/">Ağ Güvenliği ve Yönetimi VII: Active Directory</a>
+  
+    <span class="series">
+      
+        <a href="/tr/series/a%c4%9f-g%c3%bcvenli%c4%9fi-ve-y%c3%b6netimi/">[Ağ Güvenliği ve Yönetimi]</a>
+      
+    </span>
+  
+</li>
+</ul>
+
+    
+
+
+
+
+
+<ul class="pagination">
+  
+  
+    
+    
+      
+    
+    
+      
+      <li>1</li>
+      
+    
+  
+    
+    
+      
+    
+    
+      
+      <li><a href="/tr/series/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi/page/2/">2</a></li>
+      
+    
+  
+  
+    <li class="hidden"><a href="/tr/series/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi/page/2/">&rsaquo;</a></li>
+    
+    <li><a href="/tr/series/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi/page/2/">&raquo;</a></li>
+    
+  
+</ul>
+
+
+  </section>
+
+  <style>
+    .series-list-top {
+      margin-bottom: 2rem;
+    }
+    .series-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .series-tag {
+      padding: 5px 12px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      font-size: 0.9em;
+      transition: all 0.2s;
+    }
+    .series-tag:hover {
+      border-color: var(--primary-accent);
+      background: var(--primary-accent);
+      color: white !important;
+    }
+  </style>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

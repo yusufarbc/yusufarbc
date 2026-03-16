@@ -168,8 +168,10 @@ ARP Nasıl Çalışır?Başlık LinkiARP, bir donanım adresini(fiziksel adre
                 
               
               <li class="navigation-item">
-                <a href="/posts/2023/11/arp-wireshark-analysis/">English</a>
+                <a href="/">English</a>
               </li>
+            
+          
             
           
         
@@ -223,7 +225,7 @@ ARP Nasıl Çalışır?Başlık LinkiARP, bir donanım adresini(fiziksel adre
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="/images/1_ao4qe1GrmozJwGfFHn-v_Q.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*ao4qe1GrmozJwGfFHn-v_Q.png" alt=""></p>
 <p>Merhaba bu yazımda Address Resolution Protocol (ARP) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
 <hr>
 <h3 id="arp-nasılçalışır">
@@ -234,10 +236,10 @@ ARP Nasıl Çalışır?Başlık LinkiARP, bir donanım adresini(fiziksel adre
   </a>
 </h3>
 <p>ARP, bir donanım adresini(fiziksel adres, MAC adresi) yerel ağdaki bir IP adresiyle ilişkilendirmek ve yinelenen IPv4 adreslerini test etmek için kullanılır. ARP ne kadar basit olursa olsun, ağ adresleme veya yapılandırmalarla ilgili sorunları işaret eden protokol olabilir. ARP, RFC 826, Ethernet Adres Çözümleme Protokolü’nde tanımlanmıştır ve IPv6 iletişiminde kullanılmaz.</p>
-<p><img src="/images/1_H46AliIQi_SWSWD9GTZ5nw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*H46AliIQi_SWSWD9GTZ5nw.png" alt=""></p>
 <p>ARP Protokolü</p>
 <p>**ARP protokolü sadece yerel ağda(internal network) kullanılabilir!**Bu nedenle ARP konuşmalarını analiz etmek için sizinde trafiğin aktığı yerel ağa bağlı olmanız gerekir.</p>
-<p><img src="/images/1_3BrM69K5ZUI6UjmzxvaKVg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*3BrM69K5ZUI6UjmzxvaKVg.png" alt=""></p>
 <p>ARP, MAC ve IP adres katmanları arasında adres çözümlemesi sunar</p>
 <p>ARP paketleri, bir IP başlığı içermedikleri için TCP ağındaki trafiğin çoğuna kıyasla benzersizdir(internet katnanında çalışan bir protokol değildir). Bu özellik ARP paketlerinin yönlendirilemeyen(data-link katmanı protokolü olduğu için) paketler olduğu anlamına gelir.</p>
 <hr>
@@ -249,10 +251,10 @@ ARP Nasıl Çalışır?Başlık LinkiARP, bir donanım adresini(fiziksel adre
   </a>
 </h4>
 <p>Normal ARP iletişimleri basit bir istek ve basit bir yanıttan oluşur. Bir host, hedef IP adresini içeren bir ARP yayını gönderir (ancak hedef MAC adresi yoktur — ARP MAC adresi çözümlemesi için kullanılır).</p>
-<p><img src="/images/1_JePuyNi_ro4-wNE9_kryWg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*JePuyNi_ro4-wNE9_kryWg.png" alt=""></p>
 <p>ARP isteği</p>
 <p>Şekilde 00:23:54:69:8f:58 MAC adresine ve 24.6.170.101 IP adresine sahip bir host 24.6.168.1 için MAC adresini aramaktadır. Broadcast yayınlarda MAC adresi şekilde görüldüğü 00:00:00:00:00:00 olur. Bunun nedeni, switchlerin unicast trafikte paketleri hedef MAC adresine göre iletmesidir. 0lı MAC adresi broadcast iletimi tesmil eder.</p>
-<p><img src="/images/1_vJW2quVT-FBv0mVUtbl9kA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*vJW2quVT-FBv0mVUtbl9kA.png" alt=""></p>
 <p>ARP Yanıtı</p>
 <p>Şekilde gösterilen yanıt paketi artık 24.6.168.1 gönderici IP adresini ve bu cihazın MAC adresini içerir. Gönderen ve hedef adreslerinin ARP isteklerinde ve yanıtlarında geçerli paket göndericisiyle ilişkilendirilir. Yani yanıt unicast olarak döner.</p>
 <hr>
@@ -264,7 +266,7 @@ ARP Nasıl Çalışır?Başlık LinkiARP, bir donanım adresini(fiziksel adre
   </a>
 </h3>
 <p>Cevapsız ARP istekleri ağdaki başka bir hostun göndericiyle aynı IP adresine sahip olup olmadığını belirlemek için kullanılır. IP adreslerinin statik veya dinamik olarak atanmış olmasına bakılmaksızın tüm hostlara ARP istekleri gönderir. Cevap gelmemesi durumunda bu IP adresinin ağda kullanılmadığı ve boş olduğu tespit edilir. Wireshark cevapssız ARP paketlerini belirleyebilir.</p>
-<p><img src="/images/1_mxbRrUNWgTfuMhM4jnlsmA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*mxbRrUNWgTfuMhM4jnlsmA.png" alt=""></p>
 <p>ARP Duyurusu</p>
 <p>Şekilde bir hostun ağdaki başka bir cihazın 24.6.170.101 IP adresini kullanıp kullanmadığını kontrol etmektedir.</p>
 <p>ARP trafiğini inceliyor, ancak ARP yayınlarına yanıt göremiyorsanız <br>
@@ -278,7 +280,7 @@ ARP Nasıl Çalışır?Başlık LinkiARP, bir donanım adresini(fiziksel adre
   </a>
 </h4>
 <p>Ağ adresleme sorunları da ARP sorunlarına neden olabilir.</p>
-<p><img src="/images/1_eC8hFeOTJBcj4tZwmb9S5A.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*eC8hFeOTJBcj4tZwmb9S5A.png" alt=""></p>
 <p>Yanlış yapılandırılmış bir host subnet değerinden kaynaklanan bir ARP sorunu</p>
 <p>Şekilde, İstemci A yanlış alt ağ maskesiyle yapılandırılmıştır. İstemci A, 10.2.99.99 adresindeki hedef Sunucu A’nın yerel mi yoksa uzak mı olduğunu belirlemek için çözümleme sürecinden geçtiğinde, İstemci A(client A) sunucunun yerel olduğunu belirler. İstemci A, sunucunun 10.0.0.0/8 ağında olduğuna inanır. İstemci A, sunucunun da 10.0.0.0/8 ağında bulunduğuna inanır. Bunun nedeni, İstemci A’nın alt ağ maskesinin 255.0.0.0 olarak ayarlanmış olmasıdır.</p>
 <h4 id="proxy-arp">
@@ -297,7 +299,7 @@ ARP Nasıl Çalışır?Başlık LinkiARP, bir donanım adresini(fiziksel adre
   </a>
 </h4>
 <p>ARP zehirleme trafiği de wireshark üzerinde benzersiz bir şekilde görünmektedir.</p>
-<p><img src="/images/1_YzDmMwMEJw2ovJ6ArWXWaQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*YzDmMwMEJw2ovJ6ArWXWaQ.png" alt=""></p>
 <p>ARP Poisoning</p>
 <p>Şekilde Wireshark mükerrer adres kullanımının gerçekleştiğini tespit etmiştir. 00:d0:59:aa:af:80 adresindeki bir hostun hem 192.168.1.103 hem de 192.168.1.1 adreslerine arp yanıtı gönderdiğini görebiliriz. Bu, ARP tabanlı MITM(Man-in-the-Middle) saldırısının ilk aşamasıdır.</p>
 <hr>

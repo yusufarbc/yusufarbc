@@ -168,8 +168,10 @@ DNS Nasıl Çalışır?Başlık LinkiDNS, www.wiresharktraining.com gibi semb
                 
               
               <li class="navigation-item">
-                <a href="/posts/2023/11/dns-wireshark-analysis/">English</a>
+                <a href="/">English</a>
               </li>
+            
+          
             
           
         
@@ -223,7 +225,7 @@ DNS Nasıl Çalışır?Başlık LinkiDNS, www.wiresharktraining.com gibi semb
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="/images/1__OuE2zljUjPrg0g7TfljyQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*_OuE2zljUjPrg0g7TfljyQ.png" alt=""></p>
 <p>Merhaba bu yazımda Domain Name System(DNS) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.</p>
 <hr>
 <h3 id="dns-nasılçalışır">
@@ -235,7 +237,7 @@ DNS Nasıl Çalışır?Başlık LinkiDNS, www.wiresharktraining.com gibi semb
 </h3>
 <p>DNS, <a href="http://www.wiresharktraining.com"  class="external-link" target="_blank" rel="noopener">www.wiresharktraining.com</a> gibi sembolik ana bilgisayar adlarını IP adreslerine dönüştürmek için kullanılır. DNS ayrıca ad bilgilerini DNS sunucuları arasında aktarmak, bir IP adresiyle ilişkili ana bilgisayar adını belirlemek (ters veya işaretçi sorgusu) ve MX (posta alışverişi) kaydı gibi diğer ad öğelerini aramak için de kullanılabilir.</p>
 <p>DNS ağ üzerindeki en önemli uygulamalardan biridir. Bir DNS sorunu, bilgisayarların hostname bilgilerini kullanırken birbirlerini bulmalarını engelleyecektir.</p>
-<p><img src="/images/1_-XBRoGHxww1KuVqyLDEznA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*-XBRoGHxww1KuVqyLDEznA.png" alt=""></p>
 <p>DNS paketi</p>
 <p>DNS UDP veya TCP üzerinden çalışabilir. Yaygın olarak UDP kullanan DNS sorguları ve yanıtları görürsünüz. Bölge aktarımları TCP üzerinden çalışır. DNS için varsayılan port numarası 53dür.</p>
 <p><a href="https://www.rfc-editor.org/rfc/rfc1035"  class="external-link" target="_blank" rel="noopener">RFC 1035</a>, Domain Names — Implementation and Specification, UDP paket yükü üzerinden DNS’yi 512 bayt ile sınırlar. Bu genellikle bir DNS sorgusu için yeterlidir. Ancak bir yanıt 512 bayttan fazla alan gerektirdiğinde, yanıtta bir kesme bayrağı biti gönderilir. Bu, çözümleyicinin DNS sorgusunu daha büyük bir paket boyutuna izin veren TCP kullanarak tekrar göndermesini tetikler.</p>
@@ -249,7 +251,7 @@ DNS Nasıl Çalışır?Başlık LinkiDNS, www.wiresharktraining.com gibi semb
   </a>
 </h3>
 <p>Domain çözümlemesi DNS sorgu ve yanıt işlemleri çok basittir. Bir istemci DNS sunucusuna bir DNS sorgusu göndererek genellikle bir domain karşılığında bir IP adresi ister. DNS sunucusu ya doğrudan sahip olduğu bilgilerle yanıt verir ya da istemciler adına diğer DNS sunucularına sorar.</p>
-<p><img src="/images/1_2Ye8QGf5KQIGJriwo33-jQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*2Ye8QGf5KQIGJriwo33-jQ.png" alt=""></p>
 <p>A kaydı DNS Sorgusu</p>
 <p>Şekilde <a href="https://www.winpcap.org"  class="external-link" target="_blank" rel="noopener">www.winpcap.org</a> için A kaydına (CNAME) yönelik standart bir DNS isteğini göstermektedir. Bu DNS sorgusu, kullanıcının domaini tarayıcı URL bölümüne girip Enter tuşuna bastığında otomatik olarak oluşturulmuştur.</p>
 <p>Bir istemcinin talep ettiği ad, hedefin gerçek adı olmayabilir. Bu durumda, <a href="https://www.winpcap.org"  class="external-link" target="_blank" rel="noopener">www.winpcap.org</a> için bir canonical name(CNAME) veya gerçek ad döndürülmüştür. CNAME <a href="http://www.winpcap.org"  class="external-link" target="_blank" rel="noopener">winpcap.org</a>dur ve bu ana bilgisayarın adresi 128.121.79.138&rsquo;dür.</p>
@@ -262,15 +264,15 @@ DNS Nasıl Çalışır?Başlık LinkiDNS, www.wiresharktraining.com gibi semb
   </a>
 </h3>
 <p>En yaygın DNS sorunu, bir adın ad namse server veritabanında bulunmaması nedeniyle oluşan hatadır. Bunun nedeni yanlış bir ad girilmesi veya henüz İnternet name serverlarına yayılmamış yeni bir name girilmesi olabilir.</p>
-<p><img src="/images/1_QGZ4PNFbyz1aVA6W3cqXLQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*QGZ4PNFbyz1aVA6W3cqXLQ.png" alt=""></p>
 <p>Bulunamayan Domain Sorgusu</p>
 <p>Şekilde bir kullanıcı 2.26.64.24.in-addr.arpa adresine erişmeye çalışmaktadır. Name Server böyle bir domain olmadığını belirterek yanıt verir. Kullanıcı domain çözümleyemezse, hedef adrese ulaşamaz.</p>
 <p>Sunucu hatası yanıtları, name serverın bir hata nedeniyle istemci için bilgileri çözümleyemediğini gösterir. Bu, name serverın başka bir name servera bir sorgu göndermesi (özyinelemeli bir sorgu yoluyla) ve yanıt beklerken zaman aşımına uğraması veya bir tür dahili hata nedeniyle yanıtın anlaşılamaması veya bir sorguyla bağlantılı olmaması olabilir.</p>
-<p><img src="/images/1_ubKDRzHewQqeMyGqbDFqMw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*ubKDRzHewQqeMyGqbDFqMw.png" alt=""></p>
 <p>DNS Hataları Sonucu IP Çözümlemesi Yapılamıyor</p>
 <p>Şekilde <a href="http://www.nmap.org"  class="external-link" target="_blank" rel="noopener">www.nmap.org</a> adresine ulaşmaya çalışırken alınan sunucu hatası yanıtı gösterilmektedir. Bunun geçerli bir adres olduğunu biliyoruz, ancak DNS bunu çözümleyemiyor. Bir DNS sorunu nedeniyle siteye ulaşamıyoruz. Zaman sütununa dikkat edin; istemcinin bir DNS sorgusu gönderdiğini, ardından sorguyu yeniden göndermeden önce yanıt için 1 saniye beklediğini görebiliriz. İstemci üçüncü sorgudan önce 1 saniye daha beklemiş, ancak dördüncü DNS sorgusundan önce bu bekleme süresini iki katına çıkararak yaklaşık 2 saniyeye çıkarmıştır.</p>
 <p>DNS sorunlarının nedenini bulmak için Wireshark’ı DNS sunucusunun yukarısına taşıyarak bu konumdaki arama işlemini izlemeniz gerekebilir.</p>
-<p><img src="/images/1_CaxBBdj7NrXCZ3tIF-Gxxg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*CaxBBdj7NrXCZ3tIF-Gxxg.png" alt=""></p>
 <p>ICMP cevabı hedefde 53 portuun açık oladığını belirtir.</p>
 <p>Şekilde istemcimiz DNS sorguları göndermekte ve bu sorgular ICMP Destination Unreachable/Port Unreachable yanıtlarıyla yanıtlanarak 53 numaralı portun bu hostta açık olmadığını göstermektedir.</p>
 <p>Bu durumda hatanın nerde olduğu, istemcinin DNS sunucusunun doğru IP adresine sahip olup olmadığına ya da DNS sunucusu servisinin istek atılan IP üzerinde çalışıyor olup olmadığına bağlıdır. Bu durumda, istemci tekrar dener — yapılandırılmış yalnızca bir DNS sunucusu vardır(genelde 2 tane olur), bu nedenle aramayı tekrar dener. Sunucu bu portun dinlemediğini belirttiği için istemcinin isteği yine reddedilir.</p>
@@ -283,7 +285,7 @@ DNS Nasıl Çalışır?Başlık LinkiDNS, www.wiresharktraining.com gibi semb
   </a>
 </h3>
 <p>Tek bir transport protokolü (UDP veya TCP) kullanan diğer uygulamaların aksine, DNS hem UDP hem de TCP kullanır. DNS genellikle name resolution istekleri ve yanıtları için UDP-53&rsquo;ü, zone transferleri ile daha büyük name resolutionlar ve yanıtları için TCP-53&rsquo;ü kullanır.</p>
-<p><img src="/images/1_WDRDLWOoT1bKcj8KM2dyVA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*WDRDLWOoT1bKcj8KM2dyVA.png" alt=""></p>
 <p><a href="http://www.winpcap.com"  class="external-link" target="_blank" rel="noopener">www.winpcap.com</a> adresine yapılan DNS name reqestleri</p>
 <p>Tüm DNS paketleri Şekilde gösterildiği gibi dört ana bölümden oluşan tek bir temel yapı kullanır.</p>
 <h4 id="transaction-id">

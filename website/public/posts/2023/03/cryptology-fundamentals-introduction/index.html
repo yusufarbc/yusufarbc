@@ -161,6 +161,8 @@ Cryptology OverviewLink to headingIn this type of science, called encryption s
           
           
             
+          
+            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -168,7 +170,7 @@ Cryptology OverviewLink to headingIn this type of science, called encryption s
                 
               
               <li class="navigation-item">
-                <a href="/tr/posts/2023/03/kriptoloji-temelleri-giri%C5%9F/">Türkçe</a>
+                <a href="/tr/">Türkçe</a>
               </li>
             
           
@@ -223,7 +225,7 @@ Cryptology OverviewLink to headingIn this type of science, called encryption s
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="/images/1_uorh6uYHB7AdEDpEbCO_Tw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*uorh6uYHB7AdEDpEbCO_Tw.png" alt=""></p>
 <p>Hello, in this first article of the cryptology basics series, I will talk about what cryptology is, traditional encryption techniques and how to create a strong password.</p>
 <hr>
 <h3 id="cryptology-overview">
@@ -234,7 +236,7 @@ Cryptology OverviewLink to headingIn this type of science, called encryption s
   </a>
 </h3>
 <p>In this type of science, called encryption science, things that are intended to be kept secret are encrypted using different techniques and methods within a system. At the same time, the science of cryptology also works to prevent encrypted messages from being deciphered by unwanted people.</p>
-<p><img src="/images/1_hjisKMmnXD1yQQXQ3IOFjA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*hjisKMmnXD1yQQXQ3IOFjA.png" alt=""></p>
 <p>Cryptology is the science of passwords. Cryptography deals with information security, Cryptoanalysis is the exact opposite of cryptography, in other words, breaking secure information. Cryptoanalysts generally work based on decryption. Cryptology is a <a href="https://tr.wikipedia.org/wiki/Matematik" title="Mathematics"  class="external-link" target="_blank" rel="noopener">mathematics</a> science and is generally based on number theory.</p>
 <p><strong>Cryptography</strong> is the science of secret writing for the purpose of concealing the meaning of a message.</p>
 <p><strong>Cryptanalysis</strong> is the science of breaking and deciphering crypto systems.</p>
@@ -295,7 +297,7 @@ In this example, <em>ABBA</em> will be encrypted as <em>kddk</em>.</p>
 </h4>
 <p>Frequency Analysis was proposed by Al-Kindi in the 9th century. It is based on repetitions in the language.</p>
 <p>For any language, the frequency of use of letters in that language is calculated. The table containing the frequency of use of letters in the English language is given below.</p>
-<p><img src="/images/0_9LADpthWZ361CIFT.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*9LADpthWZ361CIFT.png" alt=""></p>
 <p>As can be seen from the table, the most frequently used letter in the English language is the letter &lsquo;E&rsquo;, and the second most frequently used letter is the letter &lsquo;T&rsquo;. If the ciphertext is long, the most visible letter most likely corresponds to E in the plaintext, the second most visible letter most likely corresponds to T, and so on.</p>
 <p>The substitution cipher can be easily cracked by such an analytical attack. The biggest weakness of the password is that every character of the plaintext is replaced with the same character every time.</p>
 <h4 id="caesar-code">
@@ -308,7 +310,7 @@ In this example, <em>ABBA</em> will be encrypted as <em>kddk</em>.</p>
 <p>The Caesar cipher, also known as the shift cipher, is actually a special case of the substitution cipher. The shift cipher itself is extremely simple: We shift each letter of the plaintext by a fixed number of positions in the alphabet. For example, if we shift 3 positions, d instead of A, e instead of B, etc. would come. The only problem arises towards the end of the alphabet: what should we do with X, Y, Z? In this case, we go back to the beginning. In this case, X-&gt;a is replaced by Y-&gt;b and Z-&gt;c.<br>
  Historically, Julius Caesar used this cipher with a three-position shift. This is where the name Caesar cipher comes from.<br>
  For the mathematical expression of the cipher, the letters of the alphabet are numerically encoded as shown in the table below.</p>
-<p><img src="/images/0_0ATssVLmJQigP6cg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*0ATssVLmJQigP6cg.png" alt=""></p>
 <p>Let the key be k = 17 and the plaintext is:</p>
 <p>Let ATTACK = x1,x2,…,x6 = 0,19,19,0,2,10.s</p>
 <p>Ciphertext is calculated as follows:</p>
@@ -343,7 +345,7 @@ In this example, <em>ABBA</em> will be encrypted as <em>kddk</em>.</p>
 <p><strong>our message: cryptology</strong><br>
 <strong>our password: keyword</strong></p>
 <p>In this case, the table will be as shown in the figure. The key is written first. The same letters are used once. The rest of the 5×5 grid is filled with the remaining letters. To reduce the number to 25 letters, the letter I and J are placed in the same box.</p>
-<p><img src="/images/0_Vo-d0ErN-moY0kLR.jpg" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*Vo-d0ErN-moY0kLR.jpg" alt=""></p>
 <blockquote>
 <p><em>plaintext: for kr ip to lo ji</em></p>
 </blockquote>
@@ -370,7 +372,7 @@ In this example, <em>ABBA</em> will be encrypted as <em>kddk</em>.</p>
   </a>
 </h4>
 <p>Although this method, which we can also call unbreakable encryption, is very reliable, it is quite difficult to implement in practice. In this method, a long string of random characters/bits is generated to be used one time. The plain text is XORed with a one-time pad to obtain the cipher text. XORing the ciphertext with the one-time pad returns the plaintext.</p>
-<p><img src="/images/0_6s6SoNCSSj-Sqs27.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*6s6SoNCSSj-Sqs27.png" alt=""></p>
 <p>As its name suggests, also known as one-time pad, it should be disposable and completely randomly produced. .Reusing the same key causes weakness in encryption and allows it to be broken.</p>
 <p>This encryption technique provides perfect confidentiality because the ciphertext does not contain any information about the plaintext. Frequency analysis cannot be used in this technique. It is also possible to use a version that works on letters or characters instead of bits.</p>
 <p>In addition, the fact that the key is very long (the same length as the message) and difficult to distribute makes it difficult to use this cipher in practice.</p>

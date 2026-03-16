@@ -161,6 +161,8 @@ How Does ARP Work?Link to headingARP is used to associate a hardware address 
           
           
             
+          
+            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -168,7 +170,7 @@ How Does ARP Work?Link to headingARP is used to associate a hardware address 
                 
               
               <li class="navigation-item">
-                <a href="/tr/posts/2023/11/arp-wireshark-analizi/">Türkçe</a>
+                <a href="/tr/">Türkçe</a>
               </li>
             
           
@@ -223,7 +225,7 @@ How Does ARP Work?Link to headingARP is used to associate a hardware address 
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="/images/1_ao4qe1GrmozJwGfFHn-v_Q.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*ao4qe1GrmozJwGfFHn-v_Q.png" alt=""></p>
 <p>Hello, in this article, I will try to explain the Address Resolution Protocol (ARP) protocol and its analysis with Wireshark.</p>
 <hr>
 <h3 id="how-does-arpwork">
@@ -234,10 +236,10 @@ How Does ARP Work?Link to headingARP is used to associate a hardware address 
   </a>
 </h3>
 <p>ARP is used to associate a hardware address (physical address, MAC address) with an IP address on the local network and to test for duplicate IPv4 addresses. No matter how simple ARP is, it can be the protocol that signals problems with network addressing or configurations. ARP is defined in RFC 826, Ethernet Address Resolution Protocol, and is not used in IPv6 communications.</p>
-<p><img src="/images/1_H46AliIQi_SWSWD9GTZ5nw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*H46AliIQi_SWSWD9GTZ5nw.png" alt=""></p>
 <p>ARP Protocol</p>
 <p>**ARP protocol can only be used on the local network (internal network)!**Therefore, to analyze ARP conversations, you must be connected to the local network where the traffic flows.</p>
-<p><img src="/images/1_3BrM69K5ZUI6UjmzxvaKVg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*3BrM69K5ZUI6UjmzxvaKVg.png" alt=""></p>
 <p>Provides address resolution between ARP, MAC and IP address layers</p>
 <p>ARP packets are unique compared to most traffic on a TCP network because they do not contain an IP header (it is not a protocol operating at the Internet layer). This feature means that ARP packets are packets that cannot be routed (since it is a data-link layer protocol).</p>
 <hr>
@@ -249,10 +251,10 @@ How Does ARP Work?Link to headingARP is used to associate a hardware address 
   </a>
 </h4>
 <p>Normal ARP communications consist of a simple request and a simple response. A host sends an ARP broadcast containing the destination IP address (but no destination MAC address — ARP is used for MAC address resolution).</p>
-<p><img src="/images/1_JePuyNi_ro4-wNE9_kryWg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*JePuyNi_ro4-wNE9_kryWg.png" alt=""></p>
 <p>ARP request</p>
 <p>In the figure, a host with a MAC address of 00:23:54:69:8f:58 and an IP address of 24.6.170.101 is looking for the MAC address for 24.6.168.1. In broadcast broadcasts, the MAC address is 00:00:00:00:00:00 as shown in the figure. This is because switches forward packets according to the destination MAC address in unicast traffic. MAC address with 0 represents broadcast transmission.</p>
-<p><img src="/images/1_vJW2quVT-FBv0mVUtbl9kA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*vJW2quVT-FBv0mVUtbl9kA.png" alt=""></p>
 <p>ARP Response</p>
 <p>The response packet shown in the figure now contains the sender IP address 24.6.168.1 and the MAC address of this device. The sender and destination addresses are associated with the current packet sender in ARP requests and responses. So the response returns as unicast.</p>
 <hr>
@@ -264,7 +266,7 @@ How Does ARP Work?Link to headingARP is used to associate a hardware address 
   </a>
 </h3>
 <p>Missed ARP requests are used to determine whether another host on the network has the same IP address as the sender. It sends ARP requests to all hosts regardless of whether their IP addresses are statically or dynamically assigned. If there is no response, it is determined that this IP address is not used on the network and is empty. Wireshark can identify missed ARP packets.</p>
-<p><img src="/images/1_mxbRrUNWgTfuMhM4jnlsmA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*mxbRrUNWgTfuMhM4jnlsmA.png" alt=""></p>
 <p>ARP Announcement</p>
 <p>In the figure, a host checks whether another device on the network is using the IP address 24.6.170.101.</p>
 <p>If you are examining ARP traffic but seeing no response to ARP broadcasts <br>
@@ -278,7 +280,7 @@ How Does ARP Work?Link to headingARP is used to associate a hardware address 
   </a>
 </h4>
 <p>Network addressing issues can also cause ARP problems.</p>
-<p><img src="/images/1_eC8hFeOTJBcj4tZwmb9S5A.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*eC8hFeOTJBcj4tZwmb9S5A.png" alt=""></p>
 <p>An ARP issue caused by a misconfigured host subnet value</p>
 <p>In the figure, Client A is configured with the wrong subnet mask. When Client A goes through the resolution process to determine whether the target Server A at address 10.2.99.99 is local or remote, Client A determines that the server is local. Client A believes the server is on the 10.0.0.0/8 network. Client A believes that the server is also located on the 10.0.0.0/8 network. This is because Client A&rsquo;s subnet mask is set to 255.0.0.0.</p>
 <h4 id="proxy-arp">
@@ -297,7 +299,7 @@ How Does ARP Work?Link to headingARP is used to associate a hardware address 
   </a>
 </h4>
 <p>ARP poisoning traffic also appears uniquely on Wireshark.</p>
-<p><img src="/images/1_YzDmMwMEJw2ovJ6ArWXWaQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*YzDmMwMEJw2ovJ6ArWXWaQ.png" alt=""></p>
 <p>Harp Poisoning</p>
 <p>In the figure, Wireshark has detected that duplicate addresses are being used. A host at address 00:d0:59:aa:af:80 has both 19We can see that it is sending arp responses to both 2.168.1.103 and 192.168.1.1. This is the first phase of an ARP-based MITM(Man-in-the-Middle) attack.</p>
 <hr>

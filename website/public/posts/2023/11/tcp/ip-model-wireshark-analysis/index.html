@@ -168,6 +168,8 @@ Understanding Network Traffic FlowsLink to headingSwitchingLink to headingSw
           
           
             
+          
+            
               
                 <li class="navigation-item menu-separator">
                   <span>|</span>
@@ -175,7 +177,7 @@ Understanding Network Traffic FlowsLink to headingSwitchingLink to headingSw
                 
               
               <li class="navigation-item">
-                <a href="/tr/posts/2023/11/tcp/ip-model-wireshark-analizi/">Türkçe</a>
+                <a href="/tr/">Türkçe</a>
               </li>
             
           
@@ -230,7 +232,7 @@ Understanding Network Traffic FlowsLink to headingSwitchingLink to headingSw
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="/images/1_vQHzVUN_qVpKQQbS9Cr4Ug.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*vQHzVUN_qVpKQQbS9Cr4Ug.png" alt=""></p>
 <p>Hello, in this article, I tried to explain the TCP/IP model and how to perform a basic network analysis with Wireshark.</p>
 <hr>
 <h3 id="understanding-network-traffic-flows">
@@ -248,7 +250,7 @@ Understanding Network Traffic FlowsLink to headingSwitchingLink to headingSw
   </a>
 </h4>
 <p>Switches forward packets based on the destination MAC address (also known as the destination hardware address, physical address) contained in the MAC header (like the Ethernet header).</p>
-<p><img src="/images/1_NsSETtT4IofH-5OXSKDrzQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*NsSETtT4IofH-5OXSKDrzQ.png" alt=""></p>
 <p>Switches do not change MAC or IP addresses in packets</p>
 <p>When a packet reaches a switch, the switch checks the packet to make sure it has the correct checksum. If the packet&rsquo;s checksum is incorrect, the packet is considered bad and the packet is discarded. Switches should keep error counters that show how many packets they throw away due to bad checksums. If the checksum is correct, the switch examines the packet&rsquo;s destination MAC address and consults its MAC address table to determine whether it knows which switch port goes to the host using that MAC address. If the switch does not have the destination MAC address in its tables, it forwards the packet through all the switch ports hoping to discover the responding destination. This process is done with the <strong>ARP</strong> protocol. If the switch has the destination MAC address in its tables, it forwards the packet to the appropriate port.</p>
 <h4 id="routing">
@@ -259,7 +261,7 @@ Understanding Network Traffic FlowsLink to headingSwitchingLink to headingSw
   </a>
 </h4>
 <p>Routers forward packets based on the destination IP address in the IP header. When a packet is sent to the router&rsquo;s MAC address, that router examines the checksum to make sure the packet is valid. If the checksum is invalid, the packet is dropped. If the checksum is valid, the router extracts the MAC header (e.g. Ethernet header) and examines the IP header to determine the “TTL” (Time to Live) and its destination. package. If the packet is too “old” (Time to Live value is 1), the router discards the packet and an ICMP Time to Live Exceeded message is sent back to the sender. If the packet is not stale(TTL time has not been Exceeded), the router looks at the routing tables to determine if the destination IP network is known. If the router is directly connected to the destination network, it can send the packet to the destination. The router reduces the IP header Time to Live value and then creates and applies a new MAC header to the packet before forwarding it</p>
-<p><img src="/images/1_Utuq1h526m5eoCl4wWYJGQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Utuq1h526m5eoCl4wWYJGQ.png" alt=""></p>
 <p>Routers change destination MAC address to destination or next router</p>
 <p>If the destination is not on a locally connected network, the router forwards the packet to the next hop router it learned from looking at the routing tables.</p>
 <p>Routers may contain rules that block or allow packets based on addressing information. Many routers provide firewall features and can block/allow traffic based on other features.</p>
@@ -272,7 +274,7 @@ Understanding Network Traffic FlowsLink to headingSwitchingLink to headingSw
 </h4>
 <p>Firewalls are created to inspect traffic and allow/deny communication based on a set of rules. For example, you may want to block all TCP connection attempts from hosts outside the firewall that are forwarded to port 21 on internal servers.</p>
 <p>Basic firewalls operate at Layer 3 of the OSI model, the network layer. In this capacity, the firewall acts as a router when processing network traffic and forwards traffic that is not blocked by firewall rules. The firewall adds a new MAC header to the packet before forwarding it. If the firewall supports additional features such as Network Address Translation (NAT) or proxy capabilities, additional packet switching will occur.</p>
-<p><img src="/images/1_0sZI8QkhS5eWd1ef0qJyXw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*0sZI8QkhS5eWd1ef0qJyXw.png" alt=""></p>
 <p>Firewall uses NAT to hide the real source IP address</p>
 <p>NAT systems change the IP addresses in the packet as shown in Figure. This is often used to hide the client&rsquo;s private IP address. A basic NAT system simply swaps the source and destination IP address of the packet and tracks the connection relationships in a table to properly forward traffic when a response is received.</p>
 <p>Port Address Translation (PAT) systems also exchange port information and use this as a method to demultiplex multiple internal connections while using a single outgoing address. The IP addresses you see on one side of a NAT/PAT device are the IP addresses you see on the other side of the NAT/PAT device.will not match. To correlate communications on both sides of a NAT device, you will need to look beyond the IP header to identify matching packets.</p>
@@ -295,7 +297,7 @@ Understanding Network Traffic FlowsLink to headingSwitchingLink to headingSw
   </a>
 </h3>
 <p>It shows the basic TCP/IP elements along with the TCP/IP Model and the OSI Model. Although the elements of TCP/IP match nicely with the TCP/IP Model, the OSI Model is still constantly referred to in our industry. “Layer 2” devices (switches) and “Layer 3” devices (routers) receive numerical identification according to the OSI Model, not the TCP/IP Model.</p>
-<p><img src="/images/1_X4_tzi-NjihAqIAJEunVWA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*X4_tzi-NjihAqIAJEunVWA.png" alt=""></p>
 <p>TCP/IP elements with the TCP/IP Model and OSI Model</p>
 <p>Many network errors or violations can be attributed to TCP/IP protocol or application problems. To recognize these problems we need to know what normal behavior is. Commonly used protocols in the TCP/IP structure are:</p>
 <ul>
@@ -324,10 +326,10 @@ Understanding Network Traffic FlowsLink to headingSwitchingLink to headingSw
 <li>If the destination is remote, determine the best router to use to reach the destination (route analysis).</li>
 <li>If the destination is remote, determine the router&rsquo;s MAC address (local MAC address resolution again).</li>
 </ul>
-<p><img src="/images/1_AWmwmBOwxbf1QyEXXsjg0Q.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*AWmwmBOwxbf1QyEXXsjg0Q.png" alt=""></p>
 <p>TCP/IP resolution processes</p>
 <p>In our example we will consider the connection between a client and the FTP Server.</p>
-<p><img src="/images/1_cPS6KAp-bJl1xjrg96dEMg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*cPS6KAp-bJl1xjrg96dEMg.png" alt=""></p>
 <p>The client wants to make an FTP connection to CORPFS1</p>
 <h4 id="step-1-port-number-resolution">
   Step 1: Port Number Resolution
@@ -411,7 +413,7 @@ This process may generate traffic on the network as indicated by TX. If a reques
 <li>Destination IP address</li>
 <li>Source and destination port numbers</li>
 </ul>
-<p><img src="/images/1_tCpXIwj6CXujGOtmMVR_pA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*tCpXIwj6CXujGOtmMVR_pA.png" alt=""></p>
 <p>Discovered information for TCP/IP packet over Ethernet</p>
 <hr>
 <h4 id="tcpip-trafficanalysis">
@@ -435,27 +437,27 @@ This process may generate traffic on the network as indicated by TX. If a reques
 <p>Revamped DNS resolutions in http-riverbed-two.pcapng</p>
 <p>You will also notice that the total number of packages in http-riverbed-two.pcapng is only 319. In addition to fetching some of the DNS information from the cache, the browser also displayed a large number of page elements from the cache.</p>
 <p>When we look at the protocol statistics (Statistic | Protocol hierarchy) in the http-riverbed-<strong>one</strong>.pcapng file, we see that most of the traffic uses TCP. Because the HTTP protocol uses TCP. When we look at UDP traffic, we see that it uses the Domain Name System (DNS) protocol.</p>
-<p><img src="/images/1_zal0jQY1slYuV6RDm5UdCg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*zal0jQY1slYuV6RDm5UdCg.png" alt=""></p>
 <p>http-riverbed-<strong>one</strong>.pcapng Protocol Statistics</p>
 <p>To see the dominant traffic in http-riverbed-<strong>one</strong>.pcapng file Statistic| We can open the Conversations window. If we sort by packets when we open the IPv4 tab here, we can say that the dominant traffic is between IPs <strong>24.61.173.220</strong> and <strong>208.70.196.59</strong> with 1140 packets going between hosts.</p>
-<p><img src="/images/1_Hb4M03jKQ_8Lp1YzMShv2Q.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Hb4M03jKQ_8Lp1YzMShv2Q.png" alt=""></p>
 <p>conversations</p>
 <p>Statistic| in http-riverbed-<strong>one</strong>.pcapng IP name mentioned in traffic in the Endpoints windowWe can see the pictures. All of the IP addresses here seem to be public IP addresses. Therefore, we can say that the traffic was captured on an external network.</p>
-<p><img src="/images/1_5XvOPLu2866hRTPDdvUjig.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*5XvOPLu2866hRTPDdvUjig.png" alt=""></p>
 <p>endpoints</p>
 <p>Statistic| in http-riverbed-<strong>one</strong>.pcapng HTTP| In the Requests window, we can view the web addresses visited in the pcap file.</p>
-<p><img src="/images/1_2QwpmwBds_gI3oZfGyMGKA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*2QwpmwBds_gI3oZfGyMGKA.png" alt=""></p>
 <p>Requests</p>
 <p>In http-riverbed-<strong>one</strong>.pcapng <br>
 ip.addr == 24.6.173.220 &amp;&amp; ip.addr == 208.70.196.59 <br>
 Let&rsquo;s examine the dominant traffic we found before by typing its filter.</p>
-<p><img src="/images/1_MkagBTP5iI4imfNHp5V5nw.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*MkagBTP5iI4imfNHp5V5nw.png" alt=""></p>
 <p>Dominant Traffic</p>
 <p>If we click on the HTTP packet and select the follow HTTP Stream option, we can view all HTTP traffic.</p>
-<p><img src="/images/1_-2JPla-66SZrjX-kKCsECg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*-2JPla-66SZrjX-kKCsECg.png" alt=""></p>
 <p>Follow HTTP Stream</p>
 <p>We are faced with a long flow. Here he found the traffic to and from <a href="http://www.riverbed.com"  class="external-link" target="_blank" rel="noopener">www.riverbed.com</a>. We can see the HTTP connections established with this address as request (red text) and response (blue text).</p>
-<p><img src="/images/1_4B5HtycWS34GEws6jMxlnA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*4B5HtycWS34GEws6jMxlnA.png" alt=""></p>
 <p><a href="https://www.riverbed.com"  class="external-link" target="_blank" rel="noopener">www.riverbed.com</a> HTTP Stream</p>
 <hr>
 <h3 id="references">

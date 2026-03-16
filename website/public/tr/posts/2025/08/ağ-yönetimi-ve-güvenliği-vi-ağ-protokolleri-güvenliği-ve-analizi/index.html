@@ -163,8 +163,10 @@ Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web,
                 
               
               <li class="navigation-item">
-                <a href="/posts/2025/08/network-management-and-security-vi-network-protocols-security-and-analysis/">English</a>
+                <a href="/">English</a>
               </li>
+            
+          
             
           
         
@@ -218,7 +220,7 @@ Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web,
     <span class="sr-only">Başlık Linki</span>
   </a>
 </h3>
-<p><img src="/images/1_4B83QjV-QTWjVqB0z6ktug.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*4B83QjV-QTWjVqB0z6ktug.png" alt=""></p>
 <p>Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web, Alan Adı Sistemi (DNS) ve dosya transferi — kapsamlı bir şekilde analiz etmek üzere yapılandırılmıştır. Her bölüm, ilgili protokol ailesinin tarihsel gelişimini, tasarımından kaynaklanan doğal zafiyetlerini, bu zafiyetleri gidermek için geliştirilen modern güvenlik mekanizmalarını ve günümüzün karmaşık tehdit ortamındaki yerlerini derinlemesine inceleyecektir. Raporun temel amacı, sadece protokolleri ve güvenlik eklentilerini ayrı ayrı tanımlamak değil, aynı zamanda aralarındaki karmaşık etkileşimleri, bağımlılıkları ve birleşik bir güvenlik mimarisi içindeki rollerini ortaya koymaktır. Örneğin, güvenli bir e-posta altyapısının, güvenilir bir DNS altyapısına nasıl bağımlı olduğu veya güvenli web trafiğinin, hem taşıma katmanında hem de uygulama katmanında nasıl katmanlı bir savunma gerektirdiği gibi konular, bütüncül bir bakış açısıyla ele alınacaktır. Bu metodoloji, okuyucuya izole bilgi parçaları yerine, birbiriyle entegre, stratejik bir protokol güvenliği anlayışı sunmayı hedeflemektedir.</p>
 <hr>
 <h3 id="bölüm-1-e-posta-iletişiminin-güvenlikmimarisi">
@@ -428,7 +430,7 @@ Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web,
 </ul>
 <p>DMARC’ın raporlama özelliği, alan adı sahipleri için paha biçilmezdir. <code>rua</code> (Reporting URI for Aggregate data) etiketi, alıcı sunucuların günlük olarak gönderdiği, hangi IP&rsquo;lerden ne kadar e-postanın SPF/DKIM/DMARC kontrollerini geçtiğini veya geçemediğini özetleyen XML tabanlı toplu raporların gönderileceği e-posta adresini belirtir. <code>ruf</code> (Reporting URI for Forensic data) etiketi ise, kimlik doğrulama hatalarının spesifik örneklerini içeren adli raporların gönderileceği adresi tanımlar. Bu raporlar, bir kurumun e-posta ekosisteminin sağlığını izlemek, yapılandırma hatalarını gidermek ve kendi alan adını kullanarak yapılan sahtekarlık girişimlerini tespit etmek için kritik öneme sahiptir.</p>
 <p>SPF ve DKIM, e-posta güvenliğini artırmak için bağımsız teknolojiler olarak ortaya çıkmıştır. Ancak, politika uygulama mekanizmalarının olmaması ve <code>From:</code> başlığı sahtekarlığına karşı tek başlarına yetersiz kalmaları, benimsenmelerini sınırlamıştır. DMARC&rsquo;ın ortaya çıkışı bu denklemi temelden değiştirmiştir. DMARC, SPF ve DKIM&rsquo;in doğrulama sonuçlarını alıp onlara bir &ldquo;anlam&rdquo; ve &ldquo;eylem&rdquo; (yani bir politika) yüklemiştir. <code>p=reject</code> gibi katı bir DMARC politikası uygulamak isteyen bir kurum, artık SPF ve DKIM&rsquo;i doğru bir şekilde yapılandırmak <em>zorundadır</em>; aksi takdirde kendi meşru e-postalarının da engellenmesi riskiyle karşı karşıya kalır. Bu durum, DMARC&rsquo;ın kendisinin bir &ldquo;politika motoru&rdquo; olarak hareket ederek, kendisinden önceki iki protokolün hem daha yaygın bir şekilde benimsenmesini hem de daha doğru bir şekilde yapılandırılmasını teşvik eden bir katalizör görevi görmesine yol açmıştır. Bu, bir üst katman standardının, kendisini oluşturan temel bileşenlerin benimsenmesini ve olgunlaşmasını nasıl zorunlu kılabileceğine dair siber güvenlikte önemli bir örnektir.</p>
-<p><img src="/images/1_-0B-a2lIL3ynJWniGhKLgg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*-0B-a2lIL3ynJWniGhKLgg.png" alt=""></p>
 <p>SPF, DKIM, DMARC</p>
 <h3 id="13-gelişmiş-e-posta-tehditleri-ve-bütüncül-korunma-stratejileri">
   1.3. Gelişmiş E-posta Tehditleri ve Bütüncül Korunma Stratejileri
@@ -738,7 +740,7 @@ Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web,
 </ul>
 <p>Web güvenliği, iki temel ve birbirinden ayrı katmanda ele alınmalıdır: taşıma katmanı ve uygulama katmanı. HTTPS ve TLS, verinin istemci ile sunucu arasında <em>taşınması</em> sırasındaki güvenliğini, yani gizliliğini ve bütünlüğünü sağlar. Ancak bu, verinin sunucuya ulaştıktan sonra <em>uygulama</em> tarafından nasıl işlendiği ve yorumlandığı konusunda hiçbir güvence vermez. SQL Injection ve XSS gibi kritik zafiyetler, tamamen güvenli ve şifreli bir HTTPS kanalı üzerinden sömürülebilir. Bu durum, siber güvenlikteki “derinlemesine savunma” (defense-in-depth) ilkesinin web mimarisindeki en net ve en önemli örneklerinden biridir. Güvenlik, tek bir noktada sağlanan bir özellik değil, sistemin her katmanında (ağ, taşıma, uygulama, veri) uygulanması gereken bir süreçtir.</p>
 <p>Geleneksel web modelinde sunucu, içeriği gönderir ve tarayıcı bu içeriği kendi varsayılan kurallarına göre işler. Ancak CSP ve diğer OWASP güvenlik başlıkları , bu dinamiği kökten değiştirir. Sunucu artık sadece içerik göndermekle kalmaz, aynı zamanda o içeriğin tarayıcıda <em>nasıl</em> işleneceğine, hangi kaynakları yükleyebileceğine ve hangi eylemleri gerçekleştirebileceğine dair katı kurallar içeren bir “politika belgesi” de gönderir. Örneğin, <code>Content-Security-Policy: script-src 'self'</code> başlığı, tarayıcıya &ldquo;Sana gönderdiğim bu HTML belgesinin içinde, benden (aynı kaynaktan) gelmeyen hiçbir JavaScript kodunu çalıştırmana izin vermiyorum&rdquo; talimatını verir. Bu, sunucunun, istemci tarafındaki (tarayıcı) yürütme ortamının güvenlik sınırlarını dinamik olarak ve her yanıt için özel olarak tanımlamasını sağlar. Sunucu, bu modelde tarayıcının güvenlik motoru için bir nevi uzaktan kural yapılandırıcısı haline gelir. Bu, sunucu ve istemci arasındaki sorumluluk paylaşımında önemli bir paradigma değişikliğidir ve güvenliğin sorumluluğunu daha proaktif bir şekilde sunucu tarafına yükler.</p>
-<p><img src="/images/1_C_77zQqrn-BGzkE5DYFK1A.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*C_77zQqrn-BGzkE5DYFK1A.png" alt=""></p>
 <p>TLS Türleri</p>
 <hr>
 <h3 id="bölüm-3-dns-altyapısının-güvenlikmimarisi">
@@ -861,7 +863,7 @@ Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web,
 </ul>
 <p>DNS güvenliği, iki ayrı ama birbiriyle ilişkili problemi çözmek üzere iki farklı teknolojiye ayrılmıştır. DNSSEC, “Bu DNS yanıtı doğru mu ve gerçekten yetkili sunucudan mı geliyor?” sorusuna cevap vererek <strong>bütünlük</strong> ve <strong>kimlik doğrulama</strong> sağlar. DoH ve DoT ise, “Bu DNS sorgusunu kimin yaptığını ve ne sorduğunu üçüncü bir taraf görebilir mi?” sorusuna cevap vererek <strong>gizlilik</strong> sağlar. Bu iki teknoloji birbirinin alternatifi değildir; tam tersine, bütüncül ve modern bir DNS güvenliği mimarisi için her ikisinin de bir arada kullanılması gerekmektedir. Birinin varlığı diğerini gereksiz kılmaz.</p>
 <p>DoH’un temel tasarım felsefesi, DNS trafiğini standart HTTPS trafiği içinde “kamufle etmektir”. Bu, bireysel kullanıcı gizliliği ve sansürü aşma açısından bir zaferken, kurumsal ağ yönetimi ve güvenliği açısından bir kabustur. Geleneksel olarak, ağ yöneticileri DNS sorgularını izleyerek kötü amaçlı yazılım komuta-kontrol (C2) iletişimini, veri sızıntısı girişimlerini ve kurumsal politika ihlallerini tespit ederdi. DoH, bu görünürlüğü ortadan kaldırarak, kullanıcıların veya uygulamaların kurumsal politikaları atlayarak kendi DNS çözümleyicilerini kullanabildiği bir “gölge BT” (shadow IT) durumu yaratır. Bu durum, siber güvenlik dünyasındaki en temel gerilimlerden birini temsil eder: bireysel gizlilik ile kurumsal kontrol ve güvenlik arasındaki denge. Bu çatışma, internetin gelecekteki mimarisini ve yönetimini şekillendirecek en önemli tartışma konularından biridir.</p>
-<p><img src="/images/1_EH_7Ex7NamcxzJeldgLUEQ.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*EH_7Ex7NamcxzJeldgLUEQ.png" alt=""></p>
 <p>DoT vs DoH</p>
 <hr>
 <h3 id="bölüm-4-dosya-transfer-protokollerinin-güvenlikmimarisi">
@@ -1017,7 +1019,7 @@ Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web,
 </h4>
 <p>Geleneksel dosya transferi protokollerinin yanı sıra, özellikle büyük dosyaların güvenli ve kolay bir şekilde paylaşılması için modern alternatifler de mevcuttur. Filemail, WeTransfer, Dropbox ve TransferNow gibi Yönetilen Dosya Transferi (Managed File Transfer — MFT) ve bulut tabanlı hizmetler, kullanıcı dostu arayüzler sunar. Bu hizmetler genellikle protokollerin karmaşıklığını kullanıcıdan soyutlar ve ek güvenlik özellikleri sağlar. Bu özellikler arasında uçtan uca şifreleme, paylaşılan dosyalar için parola koruması, erişim kontrolü, indirme takibi ve dosyalar için otomatik son kullanma tarihi belirleme gibi yetenekler bulunur. Bu platformlar, özellikle teknik olmayan kullanıcıların güvenli bir şekilde dosya paylaşımı yapması için etkili çözümler sunar.</p>
 <p>FTPS ve SFTP, güvensiz bir protokol olan FTP’nin güvenlik sorunlarına yönelik iki farklı felsefeyi temsil eder. FTPS, mevcut ve yaygın olarak kullanılan bir protokolü (FTP) alıp, üzerine bir güvenlik katmanı (SSL/TLS) “yamayarak” <strong>evrimsel</strong> bir çözüm sunar. Bu yaklaşım, mevcut sistemlerle geriye dönük uyumluluğu kolaylaştırır ancak temel mimarinin zayıf yönlerini (örneğin, çift kanallı yapı ve bunun getirdiği güvenlik duvarı karmaşıklığı) miras alır. Buna karşılık SFTP, problemi sıfırdan ele alarak, güvenli bir temel (SSH) üzerine inşa edilmiş <strong>devrimsel</strong> bir çözüm sunar. Bu yaklaşım, geriye dönük uyumluluk kaygısı olmadan, daha temiz, daha verimli ve doğası gereği daha güvenli bir mimariyle sonuçlanır. Bu durum, siber güvenlikte sıkça karşılaşılan bir ikilemi göstermektedir: Mevcut bir sistemi iyileştirmek mi, yoksa sıfırdan güvenli bir alternatif inşa etmek mi? SFTP’nin modern ağlarda daha çok tercih edilmesi, genellikle ikinci yaklaşımın uzun vadede daha sürdürülebilir ve güvenli olduğunu göstermektedir.</p>
-<p><img src="/images/1_7ANigANBbyhJp_SS0wNP2A.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*7ANigANBbyhJp_SS0wNP2A.png" alt=""></p>
 <p>FTP, FTPS, SFTP</p>
 <hr>
 <h3 id="sonuç">
