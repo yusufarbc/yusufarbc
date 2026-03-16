@@ -1,15 +1,14 @@
 ---
-series: ["Threat Hunting"]
-title: "Threat Hunting with Email Security Walkthrough — LetsDefend"
-date: 2025-10-30
+date: '2025-10-30'
 draft: false
+title: Threat Hunting with Email Security Walkthrough — LetsDefend
 ---
 
 ---
 
 ### Threat Hunting with Email Security Walkthrough — LetsDefend
 
-![](/images/0_V1YCt7A3HhVJeU1A.png)
+![](https://cdn-images-1.medium.com/max/800/0*V1YCt7A3HhVJeU1A.png)
 
 [LetsDefend — Blue Team Training Platform](https://letsdefend.io/)
 
@@ -19,7 +18,7 @@ In today's digital world, email has emerged as one of the cornerstones of both p
 
 Email-based threat hunting is the process of in-depth analysis of email traffic to identify, analyze, and prevent potential threats and attacks. Detecting suspicious activity and malicious content requires advanced analysis techniques, threat intelligence, and automation tools. The goal is to catch and neutralize threats as quickly as possible before they start to spread.
 
-![](/images/0_EnY1qtDQU3ZuBq7k.png)
+![](https://cdn-images-1.medium.com/max/800/0*EnY1qtDQU3ZuBq7k.png)
 
 ### Common E-Mail Threats
 
@@ -30,7 +29,7 @@ Email-based threat hunting is the process of in-depth analysis of email traffic 
 * **Botnet Messages:** It is a method of infecting a computer network with malware. The network is controlled by a single attacker known as the “botnet leader. Botnet messages are used to launch attacks, steal data, send spam, and gain access to devices.
 * **Business Email Compromise (BEC):** In this method, attackers gain access to a business email account and impersonate its owner. These attackers often target companies that conduct wire transfers and have overseas suppliers.
 
-![](/images/0_hxh8nRQD_XyksTwL.png)
+![](https://cdn-images-1.medium.com/max/800/0*hxh8nRQD_XyksTwL.png)
 
 ( **Image Source** : <https://www.mailmunch.com/blog/email-security-best-practices> )
 
@@ -65,7 +64,7 @@ Threat hunting is a proactive cybersecurity strategy aimed at detecting attacks 
 * **Content and Link Analysis:** Email security systems generate detailed analysis reports that threat hunters use to examine the content and links in suspicious emails. These reports are particularly important for detecting and analyzing phishing emails used in targeted attacks.
 * **Automated Hunting Processes:** Email security systems support automated threat hunting processes, enabling effective threat hunting even in large-scale networks. They ensure continuous monitoring of email traffic and immediate detection of abnormal activities.
 
-![](/images/0_jp6OHhzpkRJrZAkD.png)
+![](https://cdn-images-1.medium.com/max/800/0*jp6OHhzpkRJrZAkD.png)
 
 ( **Image Source** : <https://www.mailmunch.com/blog/email-security-best-practices> )
 
@@ -77,7 +76,7 @@ Some of the key techniques and technologies used in email security systems inclu
 * **Sandboxing:** Email security systems execute files and links from incoming emails in isolated virtual environments to analyze their behavior, ensuring that malicious content is detected before it can harm real systems.
 * **Threat Intelligence Integration:** Email security systems leverage global threat intelligence to quickly detect known threats. Threat intelligence integration, combined with continuously updated threat databases, will provide more effective protection.
 
-![](/images/0_k2M_qgmzF64cPQmD.png)
+![](https://cdn-images-1.medium.com/max/800/0*k2M_qgmzF64cPQmD.png)
 
 ( **Image Source** : <https://www.anubisnetworks.com/email-sandboxing-integration> )
 
@@ -109,7 +108,7 @@ The collection of email data and the analysis of these logs hold a significant p
 
 Email data collection and log analysis is one of the fundamental elements of threat hunting. In order to detect threats in a timely manner and develop an effective defense strategy against cyber attacks, this process is critical.
 
-![](/images/0_Yapx_un0sVdyuHfS.png)
+![](https://cdn-images-1.medium.com/max/800/0*Yapx_un0sVdyuHfS.png)
 
 ( **Image Source** : <https://documentation.wazuh.com/current/cloud-security/office365/monitoring-office365-activity.html> )
 
@@ -120,7 +119,7 @@ Detecting and analyzing malicious email content is an important defense mechanis
 * **Detection Methods:** There are several methods used to detect malicious email content. Signature-based detection methods are effective for identifying known threats. However, for more advanced attacks, techniques such as behavioral analysis, machine learning, and sandboxing are used. These methods analyze suspicious email content and detect abnormal behavior. For example, sandboxing executes email attachments in an isolated environment to test for malware.
 * **Content Analysis:** Email content analysis involves a detailed examination of both text and attachments. Phishing emails often use specific patterns to deceive users, and natural language processing (NLP) techniques are used to detect these patterns. In addition, files in email attachments are scanned for known malware. Malicious email content often includes elements that pressure users to take certain actions (e.g., create a sense of urgency). Detecting such elements helps identify potential threats.
 
-![](/images/0_DT2LjsW9O_eWD-VB.png)
+![](https://cdn-images-1.medium.com/max/800/0*DT2LjsW9O_eWD-VB.png)
 
 ( **Image Source** : <https://www.proofpoint.com/us/blog/security-awareness-training/new-clear-solution-automation-email-reporting-remediation> )
 
@@ -133,7 +132,7 @@ Both real-time and retrospective email analysis are important for email security
 * **Real-time Email Analysis:** This method refers to the process by which email security systems monitor email traffic in real time and detect suspicious activity. Real-time analysis can immediately identify phishing attempts, malware distribution, or unusual email activity. This type of analysis can stop attacks before they fully materialize. For example, if an email system detects a user deviating from normal behavior, it can alert the user or IT in real time.
 * **Retrospective Email Analysis:** This method involves analyzing past email traffic. Especially after a security breach, retrospective analysis is used to understand how the breach occurred and to prevent similar incidents in the future. It involves a detailed examination of email logs and is also used to understand the methods used by cybercriminals and how attacks spread. Based on the findings, organizations can review their security policies and develop new strategies.
 
-![](/images/0_2wuURSlxtdaPcfeN.png)
+![](https://cdn-images-1.medium.com/max/800/0*2wuURSlxtdaPcfeN.png)
 
 ( **Image Source** : <https://emailanalytics.com/> )
 
@@ -157,7 +156,7 @@ No Answer Needed
 
 An employee's email account may be used to send a high volume of spam or malicious content to multiple external email addresses simultaneously in an unusual manner.
 
-![](/images/0_kmTdkqA1mLC8gnr-.png)
+![](https://cdn-images-1.medium.com/max/800/0*kmTdkqA1mLC8gnr-.png)
 
 ( **Image Source** : <https://www.howtogeek.com/412316/how-email-bombing-uses-spam-to-hide-an-attack/> )
 
@@ -242,7 +241,7 @@ No Answer Needed
 
 Hint: Search for the organization's domain in the Email Security platform.
 
-![](/images/1_qV0CknjOHxiP59Igt92dag.png)
+![](https://cdn-images-1.medium.com/max/800/1*qV0CknjOHxiP59Igt92dag.png)
 
 **Answer:** 5
 
@@ -262,7 +261,7 @@ In the Email Security platform, filter by the organization's domain and check th
 
 Filter by the organization's domain in the Email Security platform. Check the contents of emails with a “Final Action” of “Allowed”.
 
-![](/images/1_1At4pliPGDB2TcEUv-bXpQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*1At4pliPGDB2TcEUv-bXpQ.png)
 
 **Answer:** <http://chronocampaign.top/claim-your-gift-card>
 
@@ -270,7 +269,7 @@ Filter by the organization's domain in the Email Security platform. Check the co
 
 In SIEM, use the filter “data.win.eventdata.queryName: [Domain\_Name]” and check the “agent.ip” field in the result.
 
-![](/images/1_6tgFZ_ohAkw-TUf995DN4w.png)![](/images/1_mgepSPhyEbCn2fUEQ-tKpw.png)![](/images/1_IPfEO_93MHgn1DbF61laOg.png)
+![](https://cdn-images-1.medium.com/max/800/1*6tgFZ_ohAkw-TUf995DN4w.png)![](https://cdn-images-1.medium.com/max/800/1*mgepSPhyEbCn2fUEQ-tKpw.png)![](https://cdn-images-1.medium.com/max/800/1*IPfEO_93MHgn1DbF61laOg.png)
 
 **Answer:** 192.168.150.5
 
@@ -278,7 +277,7 @@ In SIEM, use the filter “data.win.eventdata.queryName: [Domain\_Name]” and c
 
 What is the firewall action for the system that accessed the URL found in the Allowed emails from domains with the .top extension?
 
-![](/images/1_YusX_zBn1U4QYnNrcL4TlA.png)![](/images/1_hgZ6HtCz8Tke9nN-s9sTvA.png)
+![](https://cdn-images-1.medium.com/max/800/1*YusX_zBn1U4QYnNrcL4TlA.png)![](https://cdn-images-1.medium.com/max/800/1*hgZ6HtCz8Tke9nN-s9sTvA.png)
 
 112.156.83.45 is C2 IP address
 
@@ -288,7 +287,7 @@ What is the firewall action for the system that accessed the URL found in the Al
 
 Search the domain or C2 IP in the Threat Intel platform.
 
-![](/images/1_70ifhGyPn9ae3y7Ea8eM2g.png)
+![](https://cdn-images-1.medium.com/max/800/1*70ifhGyPn9ae3y7Ea8eM2g.png)
 
 **Answer:** APT-SR-34
 
@@ -296,7 +295,7 @@ Search the domain or C2 IP in the Threat Intel platform.
 
 In the SIEM's EDR events, filter by the system's "agent.ip" value. Then apply the filter “data.win.eventdata.company: Unknown” and check the value of “data.win.eventdata.originalFileName”.
 
-![](/images/1_lakPCbw0YecNuPmyqk1zyA.png)
+![](https://cdn-images-1.medium.com/max/800/1*lakPCbw0YecNuPmyqk1zyA.png)
 
 **Answer:** outlook.exe
 

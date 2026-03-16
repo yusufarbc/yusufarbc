@@ -1,7 +1,7 @@
 ---
-title: "[TR] Hidden Tunnels (C&C) Wireshark ile Analizi"
-date: 2024-07-19
+date: '2024-07-19'
 draft: false
+title: '[TR] Hidden Tunnels (C&C) Wireshark ile Analizi'
 ---
 
 ---
@@ -10,7 +10,7 @@ draft: false
 
 Merhaba bu yazımda HTTP tünelleme tekniklerinden bahsedeceğim.
 
-![](/images/1_cWRqt_otCGQkQf0iobOVnw.png)
+![](https://cdn-images-1.medium.com/max/800/1*cWRqt_otCGQkQf0iobOVnw.png)
 
 Bilgisayar güvenliği alanında “Hidden Tunnels” terimi genellikle kötü amaçlar için kullanılan veri sızdırma, komuta ve kontrol (C&C) veya ağ tespitini atlama gibi çeşitli amaçlar için kullanılan gizli veya izinsiz ağ bağlantılarını ifade eder. Bu gizli tüneller, saldırganların faaliyetlerini gizlemelerine ve güvenlik önlemlerini aşmalarına yardımcı olur.
 
@@ -57,7 +57,7 @@ DNS tünelleme işlemi, DNS sorgularının ve cevaplarının normal DNS trafiği
 3. DNS çözümleyici, IP adresi isteklerini kök ve üst düzey etki alanı sunucularına ileten bir sunucudur. Bu sorguyu tünelleme programının yüklü olduğu saldırganın komuta ve kontrol sunucusuna yönlendirir.
 4. Artık kurban ile saldırgan arasında DNS çözümleyicisi üzerinden bir bağlantı kurulmuştur. Bu tünel veri sızdırmak ya da diğer kötü niyetli amaçlar için kullanılabilir. Saldırgan ve kurban arasında doğrudan bir bağlantı olmadığından, saldırganın bilgisayarının izini sürmek daha zordur.
 
-![](/images/1_gpckGRQF8yG7icj509DazA.png)
+![](https://cdn-images-1.medium.com/max/800/1*gpckGRQF8yG7icj509DazA.png)
 
 DNS Tünelleme
 

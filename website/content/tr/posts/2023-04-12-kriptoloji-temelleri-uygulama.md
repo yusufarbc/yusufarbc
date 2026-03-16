@@ -1,14 +1,14 @@
 ---
-title: "Kriptoloji Temelleri: Uygulama"
-date: 2023-04-12
+date: '2023-04-12'
 draft: false
+title: 'Kriptoloji Temelleri: Uygulama'
 ---
 
 ---
 
 ### Kriptoloji Temelleri:#5 Uygulama
 
-![](/images/1_Sk1u0b-kaNN7j57oE13CBA.png)
+![](https://cdn-images-1.medium.com/max/800/1*Sk1u0b-kaNN7j57oE13CBA.png)
 
 Merhaba, kriptoloji temelleri serisinin bu son yazısında kriptografik protokollerin nasıl uygulandığından bahsedeceğim. Uygulama aşamasında Java programalama dilini kullanacağım.
 

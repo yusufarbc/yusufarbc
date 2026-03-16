@@ -3,4 +3,4 @@ title: "OSINT"
 featuredImage: "images/series/osint.png"
 ---
 
-OSINT
+OSINT yazı serisi.

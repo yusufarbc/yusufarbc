@@ -1,15 +1,14 @@
 ---
-series: ["Threat Hunting"]
-title: "Threat Hunting with DNS Walkthrough — LetsDefend"
-date: 2025-10-23
+date: '2025-10-23'
 draft: false
+title: Threat Hunting with DNS Walkthrough — LetsDefend
 ---
 
 ---
 
 ### Threat Hunting with DNS Walkthrough — LetsDefend
 
-![](/images/0_MrtorSDpnFDZbdxk.png)
+![](https://cdn-images-1.medium.com/max/800/0*MrtorSDpnFDZbdxk.png)
 
 [LetsDefend — Blue Team Training Platform](https://letsdefend.io/)
 
@@ -32,7 +31,7 @@ This method often bypasses firewalls, allowing attackers to secretly transmit da
 
 Detecting this type of attack is challenging because DNS traffic is generally considered trustworthy and is not closely monitored in most networks.
 
-![](/images/0_3YJ3tUfJ7251zTLD.png)
+![](https://cdn-images-1.medium.com/max/800/0*3YJ3tUfJ7251zTLD.png)
 
 ( **Image Source** : <https://bluecatnetworks.com/blog/four-major-dns-attack-types-and-how-to-mitigate-them/> )
 
@@ -40,7 +39,7 @@ Detecting this type of attack is challenging because DNS traffic is generally co
 
 DNS cache poisoning is a type of attack where attackers flood DNS servers with false information to redirect users to fake websites. It causes users to receive an incorrect IP address from the DNS server, redirecting them to a site controlled by the attackers.
 
-![](/images/0_L1eAUJSW2NeDaZvE.png)
+![](https://cdn-images-1.medium.com/max/800/0*L1eAUJSW2NeDaZvE.png)
 
 ( **Image Source** : <https://www.cloudflare.com/learning/dns/dns-cache-poisoning/> )
 
@@ -54,7 +53,7 @@ This type of attack is often used to steal personal information or spread malwar
 
 DNS amplification is a technique used in distributed denial-of-service (DDoS) attacks. In this type of attack, attackers use DNS servers as reflectors to overwhelm the target server or network. DNS amplification attacks generate a massive amount of traffic, rendering the targeted system unusable.
 
-![](/images/0_YvqKAYqmpqLK-K4v.png)
+![](https://cdn-images-1.medium.com/max/800/0*YvqKAYqmpqLK-K4v.png)
 
 ( **Image Source** : <https://www.cloudflare.com/learning/ddos/dns-amplification-ddos-attack/> )
 
@@ -84,7 +83,7 @@ Users unknowingly enter a fake site and may share personal information.
 
 Such attacks are particularly common on public Wi-Fi networks, where users may be redirected to rogue DNS servers.
 
-![](/images/0__BHKZ-d0fx6pAfsY.png)
+![](https://cdn-images-1.medium.com/max/800/0*_BHKZ-d0fx6pAfsY.png)
 
 ( **Image Source** : <https://www.cloudns.net/blog/dns-hijacking-what-it-is-and-how-to-protect-yourself/> )
 
@@ -110,7 +109,7 @@ No Answer Needed
 
 Domain Name System (DNS), as one of the foundational components of the internet, performs many critical functions, from enabling website access to facilitating network communication. However, due to its important role, DNS has also become an attractive target for cyber attackers. DNS security systems have been developed to detect and prevent cyberattacks targeting the DNS protocol. Threat hunting proactively detects and stops potential attacks before they occur using the data provided by these systems. In this lesson, we will focus on how DNS security systems are used in the threat hunting process and the benefits they provide.
 
-![](/images/0_6CNsYsPjQY7wLFts.png)
+![](https://cdn-images-1.medium.com/max/800/0*6CNsYsPjQY7wLFts.png)
 
 ( **Image Source** : <https://www.varonis.com/blog/dns-security> )
 
@@ -127,11 +126,11 @@ DNS security systems are used to monitor and analyze DNS traffic to detect and p
 
 DNS security systems provide cybersecurity teams with critical data during the threat hunting process. Threat hunting is a proactive process designed to detect and stop cyber attacks before they occur.
 
-![](/images/0_KJRV96BtV4PfdcNt.png)
+![](https://cdn-images-1.medium.com/max/800/0*KJRV96BtV4PfdcNt.png)
 
 ( **Image Source** : <https://detect.fyi/threat-hunting-suspicious-tlds-a742c2adbf58> )
 
-![](/images/0_ttE2ZaJyqy_emnQe.png)
+![](https://cdn-images-1.medium.com/max/800/0*ttE2ZaJyqy_emnQe.png)
 
 ( **Image Source** : <https://detect.fyi/threat-hunting-suspicious-tlds-a742c2adbf58> )
 
@@ -193,7 +192,7 @@ Malicious DNS activities include various attacks that threaten network security.
 *   **Behavioral Analysis:** Behavioral analysis techniques are used to detect unknown or zero-day threats. It analyzes whether DNS queries deviate from normal behavior. For example, if a user device suddenly starts communicating with many different domains, this may indicate the presence of malware.
 *   **Machine Learning:** Machine learning algorithms can analyze DNS logs to distinguish between normal and abnormal behavior. The algorithms learn continuously and become more effective at detecting new threats on the network.
 
-![](/images/0_c5g2_96WlVIt_-c7.png)
+![](https://cdn-images-1.medium.com/max/800/0*c5g2_96WlVIt_-c7.png)
 
 ( **Image Source** : <https://medium.com/data-reply-it-datatech/dga-detection-with-data-analytics-121d4289fdf7> )
 
@@ -209,7 +208,7 @@ Both real-time and retrospective analysis of DNS traffic play an important role 
 * **Incident Response and Investigation**: Both real-time and retrospective DNS analysis play a critical role in the incident response process. When an attack is detected, both types of analysis can be used to understand the scope and impact of the incident. Real-time analysis allows for quick intervention, whereas retrospective analysis reveals all the details of the incident.
 * **Monitoring and Reporting:** The results of real-time and retrospective analysis should be supported by continuous monitoring and reporting processes. These reports provide an overview of the security status of the network and identify measures to prevent future threats.
 
-![](/images/0_YUkXocl1qAwWgz4i.png)
+![](https://cdn-images-1.medium.com/max/800/0*YUkXocl1qAwWgz4i.png)
 
 ( **Image Source** : <https://blog.pentesteracademy.com/elk-log-analysis-dns-logs-875f669c87fd> )
 
@@ -231,7 +230,7 @@ No Answer Needed
 
 A device may be exfiltrating data by making malicious DNS requests (after communicating with a command-and-control server).
 
-![](/images/0_V929J_K82XTd_WdZ.png)
+![](https://cdn-images-1.medium.com/max/800/0*V929J_K82XTd_WdZ.png)
 
 ( **Image Source** : <https://www.infoblox.com/glossary/data-exfiltration/> )
 
@@ -281,7 +280,7 @@ No Answer Needed
 
 A sudden increase in requests from suspicious or unknown domains from a specific internal IP address may be an indication that a device has been compromised by malware or that malicious activity, such as DNS tunneling, is in progress.
 
-![](/images/0_PMpCsxejUFxwF9Da.png)
+![](https://cdn-images-1.medium.com/max/800/0*PMpCsxejUFxwF9Da.png)
 
 ( **Image Source** : <https://www.socinvestigation.com/how-dns-tunneling-works-detection-response/> )
 
@@ -356,7 +355,7 @@ No Answer Needed
 
 In SIEM, use the filter “rule.groups: ids” and analyze the results. You can also search for the term \*DOMAIN\*.
 
-![](/images/1_WbxtJqV3TZLKNpOVMpUjCQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*WbxtJqV3TZLKNpOVMpUjCQ.png)
 
 **Answer:** ETPRO TROJAN Possible Virut DGA NXDOMAIN Responses (com)
 
@@ -382,7 +381,7 @@ In SIEM, apply the filter “rule.groups: ids” and analyze the results. Check 
 
 In SIEM, apply the filters “rule.groups: firewall” and “data.dstip: [IP\_Address]”. Check the “data.action” field.
 
-![](/images/1_NkQtyQH5Dz0Mx50Y3GUKfA.png)
+![](https://cdn-images-1.medium.com/max/800/1*NkQtyQH5Dz0Mx50Y3GUKfA.png)
 
 **Answer:** accept
 
@@ -396,7 +395,7 @@ In SIEM, apply the filters “rule.groups: firewall” and “data.dstip: [IP\_A
 
 In SIEM, apply the filter “rule.groups: ids” and analyze the results. Look for the identified IP address within the IDS alerts.
 
-![](/images/1_4ymR0dCKyKsFJe3PxID59w.png)
+![](https://cdn-images-1.medium.com/max/800/1*4ymR0dCKyKsFJe3PxID59w.png)
 
 **Answer:** ET EXPLOIT Apache log4j RCE Attempt — lower/upper UDP Bypass M2 (Outbound) (CVE-2021–44228)
 

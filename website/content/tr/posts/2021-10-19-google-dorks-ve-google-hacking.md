@@ -1,7 +1,7 @@
 ---
-title: "Google Dorks ve Google Hacking"
-date: 2021-10-19
+date: '2021-10-19'
 draft: false
+title: Google Dorks ve Google Hacking
 ---
 
 ---
@@ -12,7 +12,7 @@ draft: false
 
 Merhaba, bu yazımda sizlere pasif bilgi toplamada çok işimize yarayan google dorksları tanıtacağım. Nasıl kullanıldığından bahsedeceğim. Ardından, bu dorklarla nasıl zafiyetler bulabileceğimizi ve neler elde edebileceğimizi anlatmaya çalışacağım.
 
-![](/images/0_k0S1ZefFPj_ccZmA.jpg)
+![](https://cdn-images-1.medium.com/max/800/0*k0S1ZefFPj_ccZmA.jpg)
 
 Google dork, google arama motoru ile yapacağımız aramalarda bizlere kolaylık sağlayan bazı parametreleri barındıran bir sistemdir. Bu parametreler, arayacak olduğumuz kelimelere yönelik filtreleme işlemi yapmamıza olanak sağlar. Bu sayede google’ın indexlediği milyarlarca site içerisinde aradığımız bilgiye kolaylıkla ulaşabiliriz. Bu sistem pasif bilgi toplama işlemlerinin vazgeçilmezidir.
 
@@ -172,7 +172,7 @@ site:facebook.com & site:twitter.com
 
 ### Google Hacking Nedir?
 
-![](/images/0_7xiNCg0pcIr744aB.png)
+![](https://cdn-images-1.medium.com/max/800/0*7xiNCg0pcIr744aB.png)
 
 Google hacking, internette web sayfalarının zafiyetli bir indexinin bulunmasında veya tüm sitelerde açık verileri arayıp bilgi toplanmasında kullanılan yöntemdir. Örneğin, bir google sorgusuyla, bir sitenin login page’ini bulabilr ve burada zafiyet taraması yapabiliriz. Yani, dorklarla yaptığımız sorguların, hacking işlemleri için kullanımına ‘Google Hacking’ diyebiliriz.
 
@@ -295,7 +295,7 @@ Bu yazılıma sahip siteleri bulmak için kullanılacak dork:
 "Index of" inurl:phpmyadmin
 ```
 
-![](/images/0_igJI4VAzSEKlUXSX.png)
+![](https://cdn-images-1.medium.com/max/800/0*igJI4VAzSEKlUXSX.png)
 
 ### JIRA/Kibana
 

@@ -1,6 +1,6 @@
 ---
 title: "Threat Hunting Walkthroughs"
-featuredImage: "images/series/threat-hunting-walkthroughs.png"
+featuredImage: "images/series/threat-hunting.png"
 ---
 
-Threat Hunting Walkthroughs — LetsDefend
+Threat Hunting Walkthroughs yazı serisi.

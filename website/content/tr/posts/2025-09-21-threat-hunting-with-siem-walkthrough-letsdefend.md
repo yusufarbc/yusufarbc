@@ -1,15 +1,14 @@
 ---
-series: ["Threat Hunting Walkthroughs"]
-title: "Threat Hunting with SIEM Walkthrough — LetsDefend"
-date: 2025-09-21
+date: '2025-09-21'
 draft: false
+title: Threat Hunting with SIEM Walkthrough — LetsDefend
 ---
 
 ---
 
 ### Threat Hunting with SIEM Walkthrough — LetsDefend
 
-![](/images/0_MV50j2d8HexWcGdC.png)
+![](https://cdn-images-1.medium.com/max/800/0*MV50j2d8HexWcGdC.png)
 
 [LetsDefend — Blue Team Training Platform](https://letsdefend.io/)
 
@@ -43,7 +42,7 @@ SIEM systems collect, aggregate, and store data from multiple sources, including
 * **Data Enrichment:** Collected data is enriched with contextual information, such as IP address geolocation and threat intelligence.
 * **Centralized Storage:** All logs are stored in a centralized location, enabling quick access when needed.
 
-![](/images/0_Mu7xAmpFVC6THHcG.png)
+![](https://cdn-images-1.medium.com/max/800/0*Mu7xAmpFVC6THHcG.png)
 
 ( **Image Source** : <https://www.elastic.co/campaigns/elastic-guide-to-threat-hunting> )
 
@@ -95,7 +94,7 @@ No Anser Needed
 
 Creating hypotheses is a critical step in the threat hunting process. Cybersecurity analysts determine how potential threats might emerge based on existing data and threat intelligence, and they develop hypotheses accordingly. These hypotheses guide the detection of specific attacker behaviors or abnormal activities.
 
-![](/images/0_id6b7Z8ltJlqKSlt.png)
+![](https://cdn-images-1.medium.com/max/800/0*id6b7Z8ltJlqKSlt.png)
 
 ### Creating Hypotheses
 
@@ -317,7 +316,7 @@ No Anser Needed
 
 “An attacker may have compromised an admin account to gain access to critical systems.”
 
-![](/images/0_lUJJmMsCH5EQIDN4.png)
+![](https://cdn-images-1.medium.com/max/800/0*lUJJmMsCH5EQIDN4.png)
 
 ( **Image Source** : <https://blog.admindroid.com/enable-report-suspicious-activity-in-azure-ad/> )
 
@@ -410,92 +409,92 @@ No Anser Needed
 
 When we do the necessary filtering for firewall logs in the system, we find the logid value.
 
-![](/images/1_gic-ndoay-0M_G-dlcvSYw.png)
+![](https://cdn-images-1.medium.com/max/800/1*gic-ndoay-0M_G-dlcvSYw.png)
 
 **Answer:** 13579
 
-![](/images/1_kx41JqzXoJTxeQuyvR_ROQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*kx41JqzXoJTxeQuyvR_ROQ.png)
 > **According to firewall logs, which user allowed access to the IP address “172.16.8.190” on port 22 between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 If we look carefully at the log we found in the previous question, we observe that there are 22 SSH access requests. the user value asked to us is also in the log.
 
-![](/images/1_Ikvc0ow8S12lW7P3g16-Vw.png)
+![](https://cdn-images-1.medium.com/max/800/1*Ikvc0ow8S12lW7P3g16-Vw.png)
 
 **Answer:** fwadmin
 
-![](/images/1_Kts9_EcqCAEUgwIEw4fA7Q.png)
+![](https://cdn-images-1.medium.com/max/800/1*Kts9_EcqCAEUgwIEw4fA7Q.png)
 > **According to DMZ server logs, how many “sshd: authentication failed.” events occurred between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 We understand that 172.16.8 IPs are DMZ assests. Let’s search for ssh fail events to these hosts. For this we need to search for sshd group and authentication\_failed event. When we write the necessary filters, we find the answer as 24 hits.
 
-![](/images/1_4xh57yWlMzfXhJqY3NVt_A.png)
+![](https://cdn-images-1.medium.com/max/800/1*4xh57yWlMzfXhJqY3NVt_A.png)
 
 **Answer:** 24
 
-![](/images/1_uCQ_Jh-GRgg5GZ2yQAZI9A.png)
+![](https://cdn-images-1.medium.com/max/800/1*uCQ_Jh-GRgg5GZ2yQAZI9A.png)
 > **According to DMZ server logs, what is the IP address that successfully logged in (sshd: authentication success) after a failed attempt (sshd: authentication failed) between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 in the previous question we saw that 172.16.8.190 host received a large number of ssh auth failures. now let’s look at the auth succces logs. in the auth succes logs we see that 172.16.8.190 host was connected to 172.16.8.190 host by receiving success after a large number of ssh failures. we determine the source IP information as 12.13.14.15.
 
-![](/images/1_JDRNNg4vAGzUJSRheFW18g.png)
+![](https://cdn-images-1.medium.com/max/800/1*JDRNNg4vAGzUJSRheFW18g.png)
 
 **Answer:** 12.13.14.15
 
-![](/images/1_MmKXW-ITd4XY91aUFBgWhg.png)
+![](https://cdn-images-1.medium.com/max/800/1*MmKXW-ITd4XY91aUFBgWhg.png)
 > **What application was installed on the webserver with IP address “172.16.8.190” in the DMZ environment after unauthorized access between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 When we search for the relevant agent ip in the yum group, we get a result and when we look at the full log content in this result, we observe that nmap is installed on the host.
 
-![](/images/1_i4kRvCiG1YgZGg-I74j4gQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*i4kRvCiG1YgZGg-I74j4gQ.png)
 
 **Answer:** nmap-6.40–19.el7.x86\_64
 
-![](/images/1_eAe-igWD4N4j-JLxfhHW_w.png)
+![](https://cdn-images-1.medium.com/max/800/1*eAe-igWD4N4j-JLxfhHW_w.png)
 > **What IP block was scanned using the application installed after unauthorized access to the webserver with IP address “172.16.8.190” in the DMZ environment between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 When we filter by agent.name and search for nmap activities, we find the subnet information scanned in the audit logs.
 
-![](/images/1_Ofx0mBiHu7ZECUns4ERtrQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*Ofx0mBiHu7ZECUns4ERtrQ.png)
 
 **Answer:** 10.10.10.0/24
 
-![](/images/1_VE5LZ4nnxc3s_Pvwz5LCHQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*VE5LZ4nnxc3s_Pvwz5LCHQ.png)
 > **What is the number of the port that was scanned using the application that was installed after the unauthorized access to the web server with the IP address “172.16.8.190” in the DMZ environment between August 1, 2024 00:00 — August 7, 2024 00:00?**
 
 Again in the same log content, we see that the port information scanned is 22 ssh port.
 
-![](/images/1_9ybv94n_n1-pwVeGPqrdiQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*9ybv94n_n1-pwVeGPqrdiQ.png)
 
 **Answer:** 22
 
-![](/images/1_gKvAxV8XHw2AHAGKtUHBFg.png)
+![](https://cdn-images-1.medium.com/max/800/1*gKvAxV8XHw2AHAGKtUHBFg.png)
 > **According to firewall logs, how many unique destination IP addresses received “accept/allow” traffic from the IP address “172.16.8.190” to the “10.10.10.0/24” network between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 When we filter the allow fields from 22 ssh requests from 172.16.8.190 source ip in the firewall group, we see that there are 4 hits.
 
-![](/images/1_z793CO0Aj9gHGXyAZzWRtA.png)
+![](https://cdn-images-1.medium.com/max/800/1*z793CO0Aj9gHGXyAZzWRtA.png)
 
 **Answer:** 4
 
-![](/images/1_7vczN-m10e6vCx5CKs6XWA.png)
+![](https://cdn-images-1.medium.com/max/800/1*7vczN-m10e6vCx5CKs6XWA.png)
 > **According to firewall logs, how many “SSH authentication\_failed” events occurred from the IP address “172.16.8.190” to the “10.10.10.0/24” network between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 We can find this answer from sshd logs, not firewall logs. there seems to be a mistake in the question. when we look at auth fail events from ssh logs, we can see that it received 8 fail.
 
-![](/images/1_tRkYMuRdpQbEjKdLsm_SAw.png)
+![](https://cdn-images-1.medium.com/max/800/1*tRkYMuRdpQbEjKdLsm_SAw.png)
 
 **Answer:** 8
 
-![](/images/1_L1Gobb0NR84TXPAKLkxRxw.png)
+![](https://cdn-images-1.medium.com/max/800/1*L1Gobb0NR84TXPAKLkxRxw.png)
 > **What is the IP address of the system in the “10.10.10.0/24” network that successfully logged in via SSH (authentication\_success) from the IP address “172.16.8.190” between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 If we search for success events instead of fail using the same filter, we get 1 hit. in this event, agent ip information is our answer.
 
-![](/images/1_k46XKIhfXzcww5UIwcfs3g.png)
+![](https://cdn-images-1.medium.com/max/800/1*k46XKIhfXzcww5UIwcfs3g.png)
 
 **Answer:** 10.10.10.24
 
-![](/images/1_kH-37eWANC5YG25iZGALhw.png)
+![](https://cdn-images-1.medium.com/max/800/1*kH-37eWANC5YG25iZGALhw.png)
 
 ---
 
@@ -519,74 +518,74 @@ If we search for success events instead of fail using the same filter, we get 1 
 
 If we filter vpn subtype and auth fail events in firewall logs, we will reach the answer.
 
-![](/images/1_0iuUMF-O_zPPvvTUqFarpA.png)
+![](https://cdn-images-1.medium.com/max/800/1*0iuUMF-O_zPPvvTUqFarpA.png)
 
 **Answer:** adm\_eric
 
-![](/images/1_MbO7wHQAWqCda3Wo8ZN1FQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*MbO7wHQAWqCda3Wo8ZN1FQ.png)
 > **Apart from Germany, which country had successful logins for the VPN account with the most SSL VPN login failures between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 For the adm\_eric account, we need to find out from which country outside of Germany the successful login was made. for this we need to filter the account and aut success.
 
-![](/images/1_u94Hu0GERjlEjBC37CAEIg.png)
+![](https://cdn-images-1.medium.com/max/800/1*u94Hu0GERjlEjBC37CAEIg.png)
 
 **Answer:** Mexico
 
-![](/images/1_szFgQqiUtWSWnyr89B7vtQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*szFgQqiUtWSWnyr89B7vtQ.png)
 > **What “tunnel\_ip” was assigned after a successful login (excluding Germany) for the VPN account with the most SSL VPN login failures between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 In the previous question, when we examine the success log originating from mexico, we reach the tunnelip value when we examine the full log content in the relevant log.
 
-![](/images/1_KJePJ1yb2PeRV4YUgCONhw.png)
+![](https://cdn-images-1.medium.com/max/800/1*KJePJ1yb2PeRV4YUgCONhw.png)
 
 **Answer:** 10.34.1.13
 
-![](/images/1_jFLuhbZli4d5AlLaK8pazA.png)
+![](https://cdn-images-1.medium.com/max/800/1*jFLuhbZli4d5AlLaK8pazA.png)
 > **According to traffic logs, what is the most frequently accessed destination port from the “tunnel\_ip” assigned after a successful login (excluding Germany) for the VPN account with the most SSL VPN login failures between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 For this, we need to filter the traffic originating from the address 10.34.1.13 that we find in the firewall logs. Then, when we look at the dstport field, we can find out which port the outgoing traffic is most targeted.
 
-![](/images/1_gm5EHuxGTLVKaYq4ugKa3g.png)
+![](https://cdn-images-1.medium.com/max/800/1*gm5EHuxGTLVKaYq4ugKa3g.png)
 
 **Answer:** 22
 
-![](/images/1_GgvFqp5XqwRX-TO8QBMLfw.png)
+![](https://cdn-images-1.medium.com/max/800/1*GgvFqp5XqwRX-TO8QBMLfw.png)
 > **How many unique destinations had SSH service access allowed via the “tunnel\_ip” assigned after a successful login (excluding Germany) for the VPN account with the most SSL VPN login failures between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 For this, we need to filter the ‘action allow’ fields from the 10.34.1.13 IP addresses and the 22-port targeted traffic. The number of hits will then provide the answer.
 
-![](/images/1_0y4OPg_0OZ0nIKeZH7-O6w.png)
+![](https://cdn-images-1.medium.com/max/800/1*0y4OPg_0OZ0nIKeZH7-O6w.png)
 
 **Answer:** 3
 
-![](/images/1_DNm0sfXfxNmv1b9ckHZpnQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*DNm0sfXfxNmv1b9ckHZpnQ.png)
 > **What IP address received an ssh auth success from the “tunnel\_ip” assigned after a successful login (excluding Germany) for the VPN account with the most SSL VPN login failures between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 To do this, we need to look at the SSHD logs. Filtering the successful SSH logins by source IP address will reveal which host has logged in successfully via the agent.ip field.
 
-![](/images/1_GsIzZ-MKcm-SXhV05RrzhA.png)
+![](https://cdn-images-1.medium.com/max/800/1*GsIzZ-MKcm-SXhV05RrzhA.png)
 
 **Answer:** 10.10.10.11
 
-![](/images/1_fTCDRmf2vNNY8D3mPtb6Xw.png)
+![](https://cdn-images-1.medium.com/max/800/1*fTCDRmf2vNNY8D3mPtb6Xw.png)
 > **What command was executed for the “T1057-Process Discovery” activity after successful SSH access from the “tunnel\_ip” assigned after a successful login (excluding Germany) for the VPN account with the most SSL VPN login failures between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 For this, we should look at the audit logs. When we filter with agent.name, we can find the commands running on the host.
 
-![](/images/1_8ge_N2yB10CjjjOfKAl99Q.png)
+![](https://cdn-images-1.medium.com/max/800/1*8ge_N2yB10CjjjOfKAl99Q.png)
 
 **Answer:** ps
 
-![](/images/1_SQaYw4UT5oth9mrSyb8z-Q.png)
+![](https://cdn-images-1.medium.com/max/800/1*SQaYw4UT5oth9mrSyb8z-Q.png)
 > **Which process was searched for during the “T1057-Process Discovery” activity after successful SSH access from the “tunnel\_ip” assigned after a successful login (excluding Germany) for the VPN account with the most SSL VPN login failures between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 When we look at the full log in detail, we see that the “ps -aux | grep proftp” “command is executed.
 
-![](/images/1_a7L0ckeu5IvmSA67j5TT3g.png)
+![](https://cdn-images-1.medium.com/max/800/1*a7L0ckeu5IvmSA67j5TT3g.png)
 
 **Answer:** proftp
 
-![](/images/1_JrcF4Hc77iZaPrIANHWRvQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*JrcF4Hc77iZaPrIANHWRvQ.png)
 
 ---
 
@@ -613,69 +612,69 @@ When we look at the full log in detail, we see that the “ps -aux | grep proftp
 
 we can find with this filter.
 
-![](/images/1_mxlLJQ5_KBeC1FKXDvs3tg.png)
+![](https://cdn-images-1.medium.com/max/800/1*mxlLJQ5_KBeC1FKXDvs3tg.png)
 
 **Answer:** 111.1.2.3
 
-![](/images/1_PVx5AEpyYTXq2s31eefx-A.png)
+![](https://cdn-images-1.medium.com/max/800/1*PVx5AEpyYTXq2s31eefx-A.png)
 > **What is the “country name” of the IP address that successfully logged in as anonymous via FTP between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 If we search the GeoLocation.country\_name information in the log we find, we find the answer. Or you can sarch in the full log.
 
-![](/images/1_0SVCvuWZTTxOk1jHEbO-aQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*0SVCvuWZTTxOk1jHEbO-aQ.png)
 
 **Answer:** China
 
-![](/images/1_NFB4U4m2aQh5LT8SwgJfAA.png)
+![](https://cdn-images-1.medium.com/max/800/1*NFB4U4m2aQh5LT8SwgJfAA.png)
 > **What is the IP address of the system that allowed anonymous FTP logins between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 If we search the agent.ip information in the log we find, we find the answer.
 
-![](/images/1_vb0pwafIW15pl1iJOV9edw.png)
+![](https://cdn-images-1.medium.com/max/800/1*vb0pwafIW15pl1iJOV9edw.png)
 
 **Answer:** 172.16.8.21
 
-![](/images/1_29aRwlhh7jd8A7xlprDNTw.png)
+![](https://cdn-images-1.medium.com/max/800/1*29aRwlhh7jd8A7xlprDNTw.png)
 > **What is the name of the FTP service running on the system that allowed anonymous logins between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 we can see the answer from the full log content.
 
 **Answer:** proftpd
 
-![](/images/1_LkcDV8wSduIagbs8eige4g.png)
+![](https://cdn-images-1.medium.com/max/800/1*LkcDV8wSduIagbs8eige4g.png)
 > **When was the FTP service restarted on the system that allowed anonymous logins between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 Searching for the text ‘stopping’ in the FTP logs will help us to find the log about when the service was stopped.
 
-![](/images/1_V7ZeyrSaXZdtQJhlat4hfw.png)
+![](https://cdn-images-1.medium.com/max/800/1*V7ZeyrSaXZdtQJhlat4hfw.png)
 
 **Answer:** Aug 02 14:00:15
 
-![](/images/1_Q7pgyw3m1R02RtHtDQFANg.png)
+![](https://cdn-images-1.medium.com/max/800/1*Q7pgyw3m1R02RtHtDQFANg.png)
 > **What is the full path of the file related to the FTP service that was modified before the FTP service was restarted on the system that allowed anonymous logins between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 Examining the relevant host’s audit logs allows us to observe the activity. The answer can be found in the full log content and the fielded state.
 
-![](/images/1_2Xm0SzPg5P0_CT4W6NQPoQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*2Xm0SzPg5P0_CT4W6NQPoQ.png)
 
 type=SYSCALL msg=audit(1722777448.253:733): arch=c000003e syscall=59 success=yes exit=0 a0=56432e7a6700 a1=56432e754480 a2=56432e6ec6f0 a3=8 items=2 ppid=8289 pid=38868 auid=0 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=pts0 ses=9 comm=”vim” exe=”/usr/bin/vim” key=”susp\_activity”ARCH=x86\_64 SYSCALL=execve AUID=”root” UID=”root” GID=”root” EUID=”root” SUID=”root” FSUID=”root” EGID=”root” SGID=”root” FSGID=”root” type=EXECVE msg=audit(1722777448.253:733): argc=7 a0=”vim” a1=”/etc/proftpd/proftpd.conf” type=PATH msg=audit(1722777448.253:733): item=0 name=”/usr/bin/vim” inode=134362700 dev=fd:00 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap\_fp=0 cap\_fi=0 cap\_fe=0 cap\_fver=0 cap\_frootid=0OUID=”root” OGID=”root” type=PATH msg=audit(1722777448.253:733): item=1 name=”/lib64/ld-linux-x86–64.so.2" inode=201327911 dev=fd:00 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL cap\_fp=0 cap\_fi=0 cap\_fe=0 cap\_fver=0 cap\_frootid=0OUID=”root” OGID=”root” type=PROCTITLE msg=audit(1722777448.253:733): proctitle=6E6D6170002D7353002D506E002D6E002D700032320031302E31302E31302E302F3234
 
 **Answer:** /etc/proftpd/proftpd.conf
 
-![](/images/1_VpptpMS6F773-ZDFkTVidQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*VpptpMS6F773-ZDFkTVidQ.png)
 > **Which user modified the file related to the FTP service before it was restarted on the system that allowed anonymous logins between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 If we look at the full log content, we can determine that it is the root user.
 
 **Answer:** root
 
-![](/images/1_koOb08H3gKtgMxpSTzGc_Q.png)
+![](https://cdn-images-1.medium.com/max/800/1*koOb08H3gKtgMxpSTzGc_Q.png)
 > **From which IP address did the user who modified the FTP service file log in via SSH before the FTP service was restarted on the system that allowed anonymous logins between Aug 1, 2024 00:00 — Aug 7, 2024 00:00?**
 
 If we look at the sshd logs, we can detect the ssh connecting IP.
 
-![](/images/1_dz0fEg3Nx24YDQ1jKMOS2Q.png)
+![](https://cdn-images-1.medium.com/max/800/1*dz0fEg3Nx24YDQ1jKMOS2Q.png)
 
 **Answer:** 10.34.1.13
 
-![](/images/1_D_l3FtCKk5d6rwQ99nWhSQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*D_l3FtCKk5d6rwQ99nWhSQ.png)

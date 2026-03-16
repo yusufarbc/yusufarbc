@@ -1,7 +1,7 @@
 ---
-title: "HTTP Wireshark Analizi"
-date: 2024-08-04
+date: '2024-08-04'
 draft: false
+title: HTTP Wireshark Analizi
 ---
 
 ---
@@ -16,7 +16,7 @@ Merhaba bu yazımda HTTP protokolünü ve Wireshark ile analizini anlatmaya çal
 
 Hypertext Transfer Protocol (HTTP) “dağıtılmış hipermedya bilgi dağıtım uygulaması” olarak adlandırılır. HTTP, bir kişi internette gezinirken kullanılan uygulamadır. HTTP bir istek/cevap modeli kullanır.
 
-![](/images/1_lpMM04aqUuEX3GMKaDsawQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*lpMM04aqUuEX3GMKaDsawQ.png)
 
 HTTP ve HTTPS TCP aktarımını kullanır
 
@@ -28,7 +28,7 @@ HTTP v1.0, kullanımdaki mevcut sürüm olan HTTP v1.1 kadar sık kullanılmamak
 
 Normal HTTP iletişimleri istek/cevap iletişim tarzını kullanır. İstemciler HTTP sunucularından istekte bulunur ve sunucular Durum Kodları ile yanıt verir.
 
-![](/images/1_OrN2W6uGR9b__wtBdJotrw.png)
+![](https://cdn-images-1.medium.com/max/800/1*OrN2W6uGR9b__wtBdJotrw.png)
 
 HTTP bir istek/yanıt kalıbı kullanır
 
@@ -118,7 +118,7 @@ Wireshark yük dağıtımı, paket sayaçları ve HTTP istekleri için HTTP ista
 
 İstatistiklere bir display filter uygulamak için bir seçenek sunulur. Örneğin, çok sayıda hosta yönelik web tarama oturumlarını içeren bir trace dosyanız varsa, yalnızca [www.wireshark.org](http://www.wireshark.org) adresine yönelik web tarama oturumlarına ilişkin istatistikleri incelemek için “*http.host==*[*www.wireshark.org*](http://www.wireshark.org)*”* filtresini uygulayabilirsiniz.
 
-![](/images/1_9wkbOuaZAyEIRxnP9eAtzQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*9wkbOuaZAyEIRxnP9eAtzQ.png)
 
 İstatistikler
 
@@ -126,13 +126,13 @@ HTTP Load Distribution, HTTP isteklerini ve yanıtlarını sunucuya göre listel
 
 HTTP Yük Dağılımı istatistiği, web sitesi yönlendirmelerini ve bağımlılıklarını belirlemek için mükemmel bir kaynaktır.
 
-![](/images/1_nol9M0Y4tZhIQSfzlR0wgA.png)
+![](https://cdn-images-1.medium.com/max/800/1*nol9M0Y4tZhIQSfzlR0wgA.png)
 
 HTTP yük dağılımı
 
 Şekilde [www.espn.com](http://www.espn.com) adresine göz attığımızda HTTP yönlendirmelerini ve bağımlılıklarını görüntülemekteyiz.
 
-![](/images/1_KYKO1fj8c3rUSDlHeYenFw.png)
+![](https://cdn-images-1.medium.com/max/800/1*KYKO1fj8c3rUSDlHeYenFw.png)
 
 HTTP Paket Sayıcı
 
@@ -140,7 +140,7 @@ HTTP Paket Sayacı çok değerlidir çünkü Durum Kodunu listeler
 yanıtları. 4xx İstemci Hatası veya 5xx Sunucu Hatası yanıtlarını tespit etmek basittir. Şekilde [www.espn.com](http://www.espn.com) adresine yapılan başka bir tarama oturumu için HTTP Paket Sayacı gösterilmektedir (httpespn2007.  
 pcapng). Bazı HTTP 301 ve 302 yönlendirmelerini ve bir 404 Bulunamadı yanıtını görebiliriz.
 
-![](/images/1_2YKXJLq89yAY7hD0U-wqzQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*2YKXJLq89yAY7hD0U-wqzQ.png)
 
 HTTP İstekleri
 
@@ -156,7 +156,7 @@ RFC 2818, güvenli iletişim için Taşıma Katmanı Güvenliği (TLS) üzerinde
 
 HTTPS iletişimi, güvenli iletişim için kullanılacak portta TCP el sıkışması ile başlar. Örneğimizde, 443 numaralı standart HTTPS bağlantı noktasını kullanıyoruz. SSL/TLS trafiği için başka bir port kullanıyorsanız, bu portları SSL/TLS portları için HTTP tercihleri ayarına ekleyin. Port 443 varsayılan olarak tanımlanmıştır.
 
-![](/images/1_XjCeq6WCg-sCh-bmywOeXg.png)
+![](https://cdn-images-1.medium.com/max/800/1*XjCeq6WCg-sCh-bmywOeXg.png)
 
 FTP Nedir?TLS el sıkışmasını görüntülemek için ssl.record.content\_type==22 görüntüleme filtresini kullanın
 
@@ -172,7 +172,7 @@ Bu el sıkışma süreci aşağıdaki trafik türlerini içerir:
 * **Cipher spec**: veri şifreleme algoritmasını tanımlar
 * **Master secret**: İstemci ve sunucu arasında paylaşılan 48 baytlık gizli bilgi
 
-![](/images/1_nfOsRO6Q1iAWlV1OKsGsUw.png)
+![](https://cdn-images-1.medium.com/max/800/1*nfOsRO6Q1iAWlV1OKsGsUw.png)
 
 İstemci desteklenen 34 şifre paketini listeler; sunucu hangisinin kullanılacağını seçecektir
 
@@ -188,7 +188,7 @@ Uzantılar TLS’ye işlevsellik katar. Uzantıların varlığı, İstemci Merha
 
 Bir uzantı, bu durumda [www.bankofamerica.com](http://www.bankofamerica.com) olan sunucu adını sağlar. Sunucu adı uzantısı, istemcinin tek bir IP adresinde çok sayıda sunucuyu destekleyen bir makinede barındırılabilecek bir sanal sunucuya güvenli bir bağlantı oluşturmasını sağlar.
 
-![](/images/1_n8YUEDlR5Fog8x16NgsNSg.png)
+![](https://cdn-images-1.medium.com/max/800/1*n8YUEDlR5Fog8x16NgsNSg.png)
 
 Paket 10
 
@@ -205,13 +205,13 @@ Sunulan 34 şifre paketi arasından sunucu TLS\_RSA\_with\_RC4\_128\_MD5'i (0x00
 
 El sıkışma sürecinin bu ikinci paketi sunucudan gelen sertifikayı da içerir. Aynı paketin içinde, sunucunun Merhaba işlemini tamamladığını belirtmek için Server Hello Done ifadesi yer alır.
 
-![](/images/1_L6vYPqYmakuATBNGQPSBnQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*L6vYPqYmakuATBNGQPSBnQ.png)
 
 Paket 12
 
 Şekilde gösterilen Paket 12, istemciden gelen bir sonraki pakettir. Bu paket, istemcinin hem istemci hem de sunucu rastgele değerlerinden bir premaster sırrı hesapladığını gösterir. Change Cipher Spe ataması, istemciden gelecek tüm mesajların tanımlanan anahtarlar ve algoritmalar kullanılarak şifreleneceğini gösterir.
 
-![](/images/1_5-SH0IZAQCnHR0hROkZ1Uw.png)
+![](https://cdn-images-1.medium.com/max/800/1*5-SH0IZAQCnHR0hROkZ1Uw.png)
 
 Paket 14
 
@@ -227,7 +227,7 @@ Kasım 2009'da PhoneFactor’dan Steve Dispensa ve Marsh Ray, TLS yeniden müzak
 
 Aşağıdaki örnekte, PhoneFactor belgesine ek olarak sağlanan client\_init\_renego.pcap dosyası ile çalışıyoruz. Ayrıca, PhoneFactor ws01.mogul.test.key adında bir RSA anahtarı sağlamıştır.
 
-![](/images/1_UGaIEdpGL4TRQ8etJgQN0g.png)
+![](https://cdn-images-1.medium.com/max/800/1*UGaIEdpGL4TRQ8etJgQN0g.png)
 
 Trafiğin şifresini çözmek için RSA anahtar dosyasının yolunu girin
 
@@ -235,7 +235,7 @@ HTTPS trafiğinin şifresini çözmek için RSA anahtarını yerel Wireshark ana
 
 Şekilde bu dosyanın şifresini çözmek için kullanılan ayarlar gösterilmektedir. Protokol sütununun TCP, SSL veya TLSv1'i gösterdiğine dikkat edin. Henüz şifresi çözülmüş trafiği göremiyoruz.
 
-![](/images/1_MP7YsmkIUYyh5XdMFlEUTw.png)
+![](https://cdn-images-1.medium.com/max/800/1*MP7YsmkIUYyh5XdMFlEUTw.png)
 
 Anahtar yapılandırıldıktan ve uygulandıktan sonra, HTTP iletişimini net bir şekilde görebiliriz
 
@@ -253,7 +253,7 @@ Herkes bir zamanlar yanlış web sitesi adresi yazmıştır. Site adı çözüml
 
 Ayrıca, HTTP arka plan programı(backend) web sunucusunda çalışmadığında HTTP bağlantı sorunları ortaya çıkabilir. HTTP arka plan programı sunucuda çalışmadığında, sunucu istemcinin SYN’sine bir TCP RST/ACK ile yanıt verir. Bağlantı kurulamaz.
 
-![](/images/1_eAvT4-k9dlHwViEHYgBIxA.png)
+![](https://cdn-images-1.medium.com/max/800/1*eAvT4-k9dlHwViEHYgBIxA.png)
 
 Ayrıca, HTTP Birden fazla başarısız HTTP bağlantı denemesi Wiresharkdaemon’da bir şerit deseni oluşturduğunda web sunucusunda HTTP bağlantı sorunları oluşabilir.
 
@@ -263,7 +263,7 @@ HTTP istemcisi HTTP sunucusuna başarıyla bağlanır, ancak daha sonra var olma
 
 Bazı yeniden yönlendirme hizmetleri standart 404 Not Found mesajını önerilen bağlantılarla değiştirir veya HTTP istemcisini tamamen başka bir siteye yönlendirir. HTTP istemci ve sunucu hataları için http.response.code >= 400 kullanarak bir renklendirme kuralı oluşturun.
 
-![](/images/1_Gy6gBNz0W8u_QdGzPmZ-OQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*Gy6gBNz0W8u_QdGzPmZ-OQ.png)
 
 frys.com sunucusu bir iç sunucu hatası ile yanıt veriyor
 
@@ -273,7 +273,7 @@ trace dosyasına baktığımızda [www.frys.com](http://www.frys.com) web sunucu
 
 http-fault-post.pcapng dosyasını açın ve Time sütununu Seconds Since Previous Displayed Packet olarak ayarlayın. Paket 29'dan önce büyük bir gecikme olduğuna dikkat edin. Burada dikkatli olun. 29. pakette FIN biti ayarlanmıştır. Bu, istemcinin sunucuya bilgi göndermeyi bitirdiğini gösterir. Bu paketler (ve Reset biti ayarlı paketler) kullanıcı gerekli verileri almayı bitirdikten çok sonra tetiklenebilir. Kullanıcı bu gecikmeyi fark etmez, bu nedenle FIN (veya Reset) biti ile işaretlenmiş paketlerden önceki gecikmeleri gidermek için zamanınızı harcamayın.
 
-![](/images/1_5T1I_7MbqgFJ_G0DjnkpMA.png)
+![](https://cdn-images-1.medium.com/max/800/1*5T1I_7MbqgFJ_G0DjnkpMA.png)
 
 İstemcinin POST’u başarısızdır ve bir web sunucusu sorununa işaret eder
 
@@ -290,7 +290,7 @@ Web’de gezinme sorunlarını giderirken, HTTP trafiğine odaklanmadan önce TC
 
 HTTP paketleri değişken uzunluktadır. Bu bölümde HTTP paket yapısındaki bazı önemli alanları listeliyoruz. HTTP istekleri, HTTP isteğinin amacını tanımlayan bir Yöntemden oluşur. HTTP yanıtları, Durum Kodu olarak adlandırılan sayısal bir yanıt kodu içerir.
 
-![](/images/1_AU90ZRoS-ZXyas8DmkoIaQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*AU90ZRoS-ZXyas8DmkoIaQ.png)
 
 Facebook ana sayfası için bir HTTP GET istek paketi
 
@@ -367,7 +367,7 @@ HTTP veya HTTPS trafiği için filtreleme sözdizimi *tcp port http* veya *tcp p
 
 HTTP kullanırken indirilen nesneleri kaydetmek için Dosya | Nesneleri Export| HTTP öğesini seçin. HTTP nesnelerini dışa aktardığınızda, orijinal nesne adı korunur.
 
-![](/images/1_MQa1Gu3-dpFdafp7wg2lQA.png)
+![](https://cdn-images-1.medium.com/max/800/1*MQa1Gu3-dpFdafp7wg2lQA.png)
 
 Bir siteden indirilen nesneleri dışa aktarabiliriz
 

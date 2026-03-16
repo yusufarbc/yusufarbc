@@ -1,15 +1,14 @@
 ---
-series: ["Threat Hunting Walkthroughs"]
-title: "Threat Hunting with WAF Walkthrough — LetsDefend"
-date: 2025-10-03
+date: '2025-10-03'
 draft: false
+title: Threat Hunting with WAF Walkthrough — LetsDefend
 ---
 
 ---
 
 ### Threat Hunting with WAF Walkthrough — LetsDefend
 
-![](/images/0_aaFgUhGoEHzP09NU.png)
+![](https://cdn-images-1.medium.com/max/800/0*aaFgUhGoEHzP09NU.png)
 
 [LetsDefend — Blue Team Training Platform](https://letsdefend.io/)
 
@@ -19,7 +18,7 @@ A Web Application Firewall (WAF) is a security layer used to protect web applica
 
 WAF-based threat hunting is a proactive security approach aimed at protecting web applications. This process is carried out using logs, alerts, and analyses provided by WAFs. Threat hunters examine WAF data to identify potential threats, analyze the source of these threats, and develop strategies to prevent similar attacks in the future.
 
-![](/images/0_DvRCHqrdmU5Lv1or.png)
+![](https://cdn-images-1.medium.com/max/800/0*DvRCHqrdmU5Lv1or.png)
 
 ( **Image Source** : <https://www.linkedin.com/pulse/what-waf-web-application-firewall-ronen-taieb/> )
 
@@ -43,7 +42,7 @@ A Web Application Firewall (WAF) continuously monitors inbound and outbound traf
 * **Attack Detection:** The WAF continuously scans traffic for specific attack patterns and signatures. For example, requests that contain common web attacks such as SQL injection or XSS (Cross-Site Scripting) are immediately detected and blocked by the WAF. This allows attackers to be stopped before they reach their target.
 * **Real-time Intervention:** The WAF’s instant monitoring capability allows for rapid response when an attack is detected. Threat hunters can then identify the source of the attack and take immediate security action.
 
-![](/images/0_cx66MkIkLNYO93wM.png)
+![](https://cdn-images-1.medium.com/max/800/0*cx66MkIkLNYO93wM.png)
 
 ( **Image Source** : <https://www.radware.com/cyberpedia/application-security/what-is-waf/> )
 
@@ -61,7 +60,7 @@ WAF uses two main methods to detect threats: signature-based detection and behav
 * **Anomaly Detection:** Behavior-based detection monitors deviations from the normal operation of the system. For detecting previously unseen or unknown attacks, this method is very effective. For example, a user uploading or downloading large amounts of data at unusual times could be a sign of an attack.
 * **Machine Learning Support:** Behavior-based systems are often supported by machine learning algorithms. This allows the WAF to better differentiate between normal and anomalous behavior over time, and to more accurately detect attacks.
 
-![](/images/0_gGxXzd_gWOk-1NXL.png)
+![](https://cdn-images-1.medium.com/max/800/0*gGxXzd_gWOk-1NXL.png)
 
 ( **Image Source** : <https://my.f5.com/manage/s/article/K28426659> )
 
@@ -79,7 +78,7 @@ One of the biggest advantages of WAF in the threat hunting process is its compre
 * **Customized Reports:** The WAF can generate detailed reports on attack activity over a specified time period. Attack types, frequency, and source are included in these reports.
 * **Visualization and Analysis:** WAF reports provide visualized data for threat hunters to better understand attacks. Graphs and tables show the distribution and impact of attacks over time.
 
-![](/images/0_luGMiMpdx75uiwTa.png)
+![](https://cdn-images-1.medium.com/max/800/0*luGMiMpdx75uiwTa.png)
 
 ( **Image Source** : <https://splunkbase.splunk.com/app/2873> )
 
@@ -169,7 +168,7 @@ Analyzing WAF logs helps threat hunters understand the source, type, and scope o
 
 For more comprehensive analysis, WAF logs can be correlated with logs from other security systems. This can help threat hunters detect larger-scale attacks. In addition, log anomalies can help identify deviations from normal behavior and uncover unknown threats.
 
-![](/images/0_jGSe2YBLcuWJfZtg.png)
+![](https://cdn-images-1.medium.com/max/800/0*jGSe2YBLcuWJfZtg.png)
 
 ( **Image Source** : <https://www.techmatrix.de/app-protect-dashboard/> )
 
@@ -223,7 +222,7 @@ No Anser Needed
 
 A threat actor may be targeting login forms on a web application using brute force methods to gain unauthorized access and steal credentials.
 
-![](/images/0_gqvC9lf2TrPcrMoB.png)
+![](https://cdn-images-1.medium.com/max/800/0*gqvC9lf2TrPcrMoB.png)
 
 ( **Image Source** : <https://www.thesslstore.com/blog/brute-force-attack-definition-how-brute-force-works/> )
 
@@ -288,7 +287,7 @@ No Anser Needed
 
 Use the filter “data.subtype: waf” in SIEM. Check the values in the “data.url” field.
 
-![](/images/1_woEGDa62G34NK56BDMyZuA.png)
+![](https://cdn-images-1.medium.com/max/800/1*woEGDa62G34NK56BDMyZuA.png)
 
 **Answer:** /page.php?file=../../../../etc/shadow
 
@@ -296,7 +295,7 @@ Use the filter “data.subtype: waf” in SIEM. Check the values in the “data.
 
 Use the filters “data.subtype: waf” and “data.action: Alert” in SIEM.
 
-![](/images/1_Lws_8FcuGAzvt12KfDiTag.png)
+![](https://cdn-images-1.medium.com/max/800/1*Lws_8FcuGAzvt12KfDiTag.png)
 
 **Answer:**/page.php?file=../../../../home/user/.ssh/id\_rsa
 
@@ -304,7 +303,7 @@ Use the filters “data.subtype: waf” and “data.action: Alert” in SIEM.
 
 Apply the filters “data.subtype: waf” and “data.action: Alert” in SIEM. Locate the “return\_code” value within the “full\_log”.
 
-![](/images/1_d9VtggWq0LsNsz_UQPHo3w.png)
+![](https://cdn-images-1.medium.com/max/800/1*d9VtggWq0LsNsz_UQPHo3w.png)
 
 **Answer:** 200
 
@@ -314,7 +313,7 @@ Identify the IP address from the output generated by applying ‘data.subtype: w
 
 We see the source address '16.61.7.181' in the previous stage.
 
-![](/images/1_q81fiePDc9xz_VZuuVNpJg.png)
+![](https://cdn-images-1.medium.com/max/800/1*q81fiePDc9xz_VZuuVNpJg.png)
 
 **Answer:** OS Command Injection
 
@@ -322,7 +321,7 @@ We see the source address '16.61.7.181' in the previous stage.
 
 Apply the filter “data.subtype: waf” in SIEM. Check the “data.action” field in the log entry related to the web attack.
 
-![](/images/1_GjvzG4LqTBHV78pIMF11wA.png)
+![](https://cdn-images-1.medium.com/max/800/1*GjvzG4LqTBHV78pIMF11wA.png)
 
 **Answer:** Block
 
@@ -330,7 +329,7 @@ Apply the filter “data.subtype: waf” in SIEM. Check the “data.action” fi
 
 Apply the filters “data.subtype: waf” and “data.action: Alert” in SIEM. Check the “data.dstip” field.
 
-![](/images/1_-YsBUNDR59qsWgUmlG9NfA.png)
+![](https://cdn-images-1.medium.com/max/800/1*-YsBUNDR59qsWgUmlG9NfA.png)
 
 **Answer:** 10.10.10.88
 
@@ -338,7 +337,7 @@ Apply the filters “data.subtype: waf” and “data.action: Alert” in SIEM. 
 
 Search for the IP address in the Threat Intel LetsDefend Platform.
 
-![](/images/1_xjtLg78ErcNdoPiGEDSOmQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*xjtLg78ErcNdoPiGEDSOmQ.png)
 
 **Answer:** APT-LL-23
 
@@ -346,7 +345,7 @@ Search for the IP address in the Threat Intel LetsDefend Platform.
 
 Search for the APT group’s name in the Threat Intel LetsDefend Platform.
 
-![](/images/1_s9Yy-aJyyWn5SLvFbUsNNA.png)
+![](https://cdn-images-1.medium.com/max/800/1*s9Yy-aJyyWn5SLvFbUsNNA.png)
 
 **Answer:** 101.203.172.3
 
@@ -354,7 +353,7 @@ Search for the APT group’s name in the Threat Intel LetsDefend Platform.
 
 Locate the IP address of APT Group that was identified in the Threat Intel platform. Apply the filters “rule.groups: firewall” and “data.dstip: “ in SIEM.
 
-![](/images/1_ZG3TWF9ZjxKMBzOivVWl4Q.png)
+![](https://cdn-images-1.medium.com/max/800/1*ZG3TWF9ZjxKMBzOivVWl4Q.png)
 
 **Answer:** 10.10.10.88
 

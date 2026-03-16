@@ -1,6 +1,6 @@
 ---
-title: "Wazuh"
+title: "Wazuh SIEM"
 featuredImage: "images/series/wazuh.png"
 ---
 
-Wazuh yazı serisi.
+Wazuh SIEM yazı serisi.

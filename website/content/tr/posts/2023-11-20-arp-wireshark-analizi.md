@@ -1,14 +1,14 @@
 ---
-title: "ARP Wireshark Analizi"
-date: 2023-11-20
+date: '2023-11-20'
 draft: false
+title: ARP Wireshark Analizi
 ---
 
 ---
 
 ### ARP Wireshark Analizi
 
-![](/images/1_ao4qe1GrmozJwGfFHn-v_Q.png)
+![](https://cdn-images-1.medium.com/max/800/1*ao4qe1GrmozJwGfFHn-v_Q.png)
 
 Merhaba bu yazımda Address Resolution Protocol (ARP) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
 
@@ -18,13 +18,13 @@ Merhaba bu yazımda Address Resolution Protocol (ARP) protokolünü ve Wireshark
 
 ARP, bir donanım adresini(fiziksel adres, MAC adresi) yerel ağdaki bir IP adresiyle ilişkilendirmek ve yinelenen IPv4 adreslerini test etmek için kullanılır. ARP ne kadar basit olursa olsun, ağ adresleme veya yapılandırmalarla ilgili sorunları işaret eden protokol olabilir. ARP, RFC 826, Ethernet Adres Çözümleme Protokolü’nde tanımlanmıştır ve IPv6 iletişiminde kullanılmaz.
 
-![](/images/1_H46AliIQi_SWSWD9GTZ5nw.png)
+![](https://cdn-images-1.medium.com/max/800/1*H46AliIQi_SWSWD9GTZ5nw.png)
 
 ARP Protokolü
 
 **ARP protokolü sadece yerel ağda(internal network) kullanılabilir!**Bu nedenle ARP konuşmalarını analiz etmek için sizinde trafiğin aktığı yerel ağa bağlı olmanız gerekir.
 
-![](/images/1_3BrM69K5ZUI6UjmzxvaKVg.png)
+![](https://cdn-images-1.medium.com/max/800/1*3BrM69K5ZUI6UjmzxvaKVg.png)
 
 ARP, MAC ve IP adres katmanları arasında adres çözümlemesi sunar
 
@@ -36,13 +36,13 @@ ARP paketleri, bir IP başlığı içermedikleri için TCP ağındaki trafiğin 
 
 Normal ARP iletişimleri basit bir istek ve basit bir yanıttan oluşur. Bir host, hedef IP adresini içeren bir ARP yayını gönderir (ancak hedef MAC adresi yoktur — ARP MAC adresi çözümlemesi için kullanılır).
 
-![](/images/1_JePuyNi_ro4-wNE9_kryWg.png)
+![](https://cdn-images-1.medium.com/max/800/1*JePuyNi_ro4-wNE9_kryWg.png)
 
 ARP isteği
 
 Şekilde 00:23:54:69:8f:58 MAC adresine ve 24.6.170.101 IP adresine sahip bir host 24.6.168.1 için MAC adresini aramaktadır. Broadcast yayınlarda MAC adresi şekilde görüldüğü 00:00:00:00:00:00 olur. Bunun nedeni, switchlerin unicast trafikte paketleri hedef MAC adresine göre iletmesidir. 0lı MAC adresi broadcast iletimi tesmil eder.
 
-![](/images/1_vJW2quVT-FBv0mVUtbl9kA.png)
+![](https://cdn-images-1.medium.com/max/800/1*vJW2quVT-FBv0mVUtbl9kA.png)
 
 ARP Yanıtı
 
@@ -54,7 +54,7 @@ ARP Yanıtı
 
 Cevapsız ARP istekleri ağdaki başka bir hostun göndericiyle aynı IP adresine sahip olup olmadığını belirlemek için kullanılır. IP adreslerinin statik veya dinamik olarak atanmış olmasına bakılmaksızın tüm hostlara ARP istekleri gönderir. Cevap gelmemesi durumunda bu IP adresinin ağda kullanılmadığı ve boş olduğu tespit edilir. Wireshark cevapssız ARP paketlerini belirleyebilir.
 
-![](/images/1_mxbRrUNWgTfuMhM4jnlsmA.png)
+![](https://cdn-images-1.medium.com/max/800/1*mxbRrUNWgTfuMhM4jnlsmA.png)
 
 ARP Duyurusu
 
@@ -68,7 +68,7 @@ ARP trafiğini inceliyor, ancak ARP yayınlarına yanıt göremiyorsanız 
 
 Ağ adresleme sorunları da ARP sorunlarına neden olabilir.
 
-![](/images/1_eC8hFeOTJBcj4tZwmb9S5A.png)
+![](https://cdn-images-1.medium.com/max/800/1*eC8hFeOTJBcj4tZwmb9S5A.png)
 
 Yanlış yapılandırılmış bir host subnet değerinden kaynaklanan bir ARP sorunu
 
@@ -82,7 +82,7 @@ Proxy ARP’i destekleyen yönlendiriciler (RFC 1027, Using ARP to Implement Tra
 
 ARP zehirleme trafiği de wireshark üzerinde benzersiz bir şekilde görünmektedir.
 
-![](/images/1_YzDmMwMEJw2ovJ6ArWXWaQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*YzDmMwMEJw2ovJ6ArWXWaQ.png)
 
 ARP Poisoning
 

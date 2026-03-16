@@ -1,15 +1,14 @@
 ---
-series: ["Threat Hunting Walkthroughs"]
-title: "Threat Hunting with Deception Walkthrough — LetsDefend"
-date: 2025-10-31
+date: '2025-10-31'
 draft: false
+title: Threat Hunting with Deception Walkthrough — LetsDefend
 ---
 
 ---
 
 ### Threat Hunting with Deception Walkthrough — LetsDefend
 
-![](/images/0_V1YCt7A3HhVJeU1A.png)
+![](https://cdn-images-1.medium.com/max/800/0*V1YCt7A3HhVJeU1A.png)
 
 [LetsDefend — Blue Team Training Platform](https://letsdefend.io/)
 
@@ -21,7 +20,7 @@ This technique involves intentionally placing misleading information and decoy t
 
 Deception-based threat hunting not only detects attackers but also monitors their movements, contributing to the development of defense strategies against future attacks.
 
-![](/images/0_4SwuHlqMCpR60r3u.png)
+![](https://cdn-images-1.medium.com/max/800/0*4SwuHlqMCpR60r3u.png)
 
 ( **Image Source** : <https://www.wwt.com/article/deception-technology> )
 
@@ -43,7 +42,7 @@ These technologies integrate various deception elements (such as honeypots, hone
 
 The role of deception technologies in threat hunting is to mislead attackers, expose their methods, and help security teams understand the stage of the attack. By strategically placing decoys within networks and systems, these technologies deceive attackers and make it harder for them to reach their actual targets.
 
-![](/images/0_odeYx4pWwkrGi8tW.png)
+![](https://cdn-images-1.medium.com/max/800/0*odeYx4pWwkrGi8tW.png)
 
 ( **Image Source** : <https://www.youtube.com/watch?app=desktop&v=N9TkDjzeVDc> )
 
@@ -67,7 +66,7 @@ Deception-based detection is carried out through the following steps:
 
 Deception-based detection is a powerful component of cybersecurity defense. By engaging with decoys, attackers reveal their presence, allowing for a more complete assessment of the attack and helping to strengthen security strategies.
 
-![](/images/0_DDJsAx3m8Nvq7bkT.png)
+![](https://cdn-images-1.medium.com/max/800/0*DDJsAx3m8Nvq7bkT.png)
 
 ### Summary
 
@@ -89,7 +88,7 @@ Deception systems use decoys, such as honeypots, fake databases, and fake files,
 
 In other words, deception systems accelerate the threat hunting process, revealing the methods used by attackers and supporting the development of more effective defense measures against future threats.
 
-![](/images/0_ksZ7i8tqfKMwS-Wk.png)
+![](https://cdn-images-1.medium.com/max/800/0*ksZ7i8tqfKMwS-Wk.png)
 
 ( **Image Source** : <https://www.countercraftsec.com/blog/benefits-and-use-cases-of-deception-for-threat-hunting/> )
 
@@ -130,7 +129,7 @@ No Answer Needed
 
 Unusual access attempts to a fake database or file server from a specific internal IP address might indicate that an attacker has gained unauthorized access to the network and is attempting to obtain valuable data.
 
-![](/images/0_U0kGx4evnPoACruo.png)
+![](https://cdn-images-1.medium.com/max/800/0*U0kGx4evnPoACruo.png)
 
 ( **Image Source** : <https://www.linkedin.com/pulse/deception-technology-aditya-mukherjee-phd-information-security-/> )
 
@@ -207,7 +206,7 @@ No Answer Needed
 
 In SIEM, use the filters “rule.groups: fortideceptor” and “data.event\_type: ssh-logon-failure”, and check the “data.src\_ip” field.
 
-![](/images/1__yV0rLPLtrB2U6kkZtcOgA.png)
+![](https://cdn-images-1.medium.com/max/800/1*_yV0rLPLtrB2U6kkZtcOgA.png)
 
 **Answer**: 192.168.1.50
 
@@ -215,7 +214,7 @@ In SIEM, use the filters “rule.groups: fortideceptor” and “data.event\_typ
 
 In SIEM, apply the following filters: “rule.groups: fortideceptor” and “data.event\_type: ssh-logon-failure.” Then, exclude the “Vulnerability Scanner Tools” IP address and check the “data.src\_ip” field.
 
-![](/images/1_NPyVTgbcMuydzEzFelg-Vw.png)
+![](https://cdn-images-1.medium.com/max/800/1*NPyVTgbcMuydzEzFelg-Vw.png)
 
 **Answer**: 192.168.1.76
 
@@ -223,7 +222,7 @@ In SIEM, apply the following filters: “rule.groups: fortideceptor” and “da
 
 In SIEM, use the filters “rule.groups: fortigate,” “data.dstport: 22,” and “data.srcip: [IP\_Address].”
 
-![](/images/1_xHiYiQFQKwmepPD1tV2oSA.png)
+![](https://cdn-images-1.medium.com/max/800/1*xHiYiQFQKwmepPD1tV2oSA.png)
 
 **Answer**: 5
 
@@ -231,7 +230,7 @@ In SIEM, use the filters “rule.groups: fortigate,” “data.dstport: 22,” a
 
 In SIEM, use the filters “data.srcip: [IP\_Address]” and “rule.groups: sshd,” then analyze the ssh logon failure events. Find the “agent.name” value.
 
-![](/images/1_gfyv_zB8RA7qRQyjbQhRbQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*gfyv_zB8RA7qRQyjbQhRbQ.png)
 
 **Answer**: linuxtestvm.cc
 
@@ -239,7 +238,7 @@ In SIEM, use the filters “data.srcip: [IP\_Address]” and “rule.groups: ssh
 
 In SIEM, use the filters “data.srcip: [IP\_Address]” and “rule.groups: sshd,” then review the “ssh logon success” events. Check the “agent.ip” value.
 
-![](/images/1_McdnnB0ygN3zkJsgJgYqKA.png)
+![](https://cdn-images-1.medium.com/max/800/1*McdnnB0ygN3zkJsgJgYqKA.png)
 
 **Answer**: 192.168.5.14
 
@@ -247,7 +246,7 @@ In SIEM, use the filters “data.srcip: [IP\_Address]” and “rule.groups: ssh
 
 Search the IP address with full text search in SIEM and check the values in the “data.service” field.
 
-![](/images/1_tAeS4yEA5WMER68mkSE4oQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*tAeS4yEA5WMER68mkSE4oQ.png)
 
 **Answer**: RDP
 
@@ -255,7 +254,7 @@ Search the IP address with full text search in SIEM and check the values in the 
 
 In SIEM, use the filter “rule.groups: windows” and search for the IP address.
 
-![](/images/1_wHTuqJRDfuebq0FzoTOqKg.png)
+![](https://cdn-images-1.medium.com/max/800/1*wHTuqJRDfuebq0FzoTOqKg.png)
 
 **Answer**: 192.168.1.76
 
@@ -263,7 +262,7 @@ In SIEM, use the filter “rule.groups: windows” and search for the IP address
 
 In SIEM, use the filter “rule.groups: windows” and search for the IP address.
 
-![](/images/1__k9jpHQ6SYdJyuQaJfUV1A.png)
+![](https://cdn-images-1.medium.com/max/800/1*_k9jpHQ6SYdJyuQaJfUV1A.png)
 
 **Answer**: 172.16.8.159
 
@@ -271,6 +270,6 @@ In SIEM, use the filter “rule.groups: windows” and search for the IP address
 
 In SIEM, use the filter “rule.groups: windows” and search for the IP address.
 
-![](/images/1_5QpfgrHRBMxAIKffD3rmOQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*5QpfgrHRBMxAIKffD3rmOQ.png)
 
 **Answer**: Administrator

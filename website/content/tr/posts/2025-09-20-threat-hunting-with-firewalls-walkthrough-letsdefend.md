@@ -1,15 +1,14 @@
 ---
-series: ["Threat Hunting Walkthroughs"]
-title: "Threat Hunting with Firewalls Walkthrough — LetsDefend"
-date: 2025-09-20
+date: '2025-09-20'
 draft: false
+title: Threat Hunting with Firewalls Walkthrough — LetsDefend
 ---
 
 ---
 
 ### Threat Hunting with Firewalls Walkthrough — LetsDefend
 
-![](/images/1_yrGs0FOBn2uXV2jFhtrBVw.png)
+![](https://cdn-images-1.medium.com/max/800/1*yrGs0FOBn2uXV2jFhtrBVw.png)
 
 [LetsDefend — Blue Team Training Platform](https://letsdefend.io/)
 
@@ -17,7 +16,7 @@ draft: false
 
 Firewall logs are a critical source of data for monitoring network traffic and analyzing security incidents. During threat hunting, firewall logs are used to detect potential threats, identify anomalies, and respond to security incidents quickly and effectively. This course covers the role and importance of firewall logs in the threat hunting process.
 
-![](/images/0_-UAM8p1GX3rgrE6B.png)
+![](https://cdn-images-1.medium.com/max/800/0*-UAM8p1GX3rgrE6B.png)
 
 ( **Image Source** : <https://www.linkedin.com/pulse/crucial-logs-threat-hunting-alex-lasher-50eje/> )
 
@@ -33,7 +32,7 @@ No Anser Needed
 
 Firewall logs are essential for monitoring network traffic and detecting security threats. These logs help identify normal network behavior patterns, detect anomalies, and uncover potential threats. In the threat hunting process, firewall logs provide critical information such as source and destination IP addresses, port and protocol usage, access times, traffic types and volumes, access policies, and anomalous behavior. With this information in hand, security teams can develop proactive defense strategies and respond quickly to incidents.
 
-![](/images/0_Rlgew9D8vewyju5h.png)
+![](https://cdn-images-1.medium.com/max/800/0*Rlgew9D8vewyju5h.png)
 
 ( **Image Source** : <https://hackforlab.com/threat-hunting-with-firewall-traffic/> )
 
@@ -138,7 +137,7 @@ This section explains threat hunting methodology using firewall logs, focusing o
 * **Monitor User and Device Behavior:** To understand normal behavior, the daily activities of users and devices on the network are monitored. This includes tracking which systems specific users access and what they perform at specific times.
 * **Create Reference Points:** Data collected to understand normal traffic behavior is used as benchmarks to compare when detecting anomalies.
 
-![](/images/0_SlhfPpG5hIkE39O8.png)
+![](https://cdn-images-1.medium.com/max/800/0*SlhfPpG5hIkE39O8.png)
 
 ( **Image Source** : <https://www.digitalocean.com/community/tutorials/how-to-build-a-siem-with-suricata-and-elastic-stack-on-debian-11> )
 
@@ -154,7 +153,7 @@ This section explains threat hunting methodology using firewall logs, focusing o
 * **Unexpected Port Usage:** Monitor traffic to and from ports which are not normally or infrequently used. This is especially important for high-risk ports (e.g., 3389 — RDP).
 * **Suspicious Connections:** Unexpected connections from inside or outside the network, especially abnormal attempts to connect using certain protocols, are considered suspicious. For example, a system normally used only to access the internal network suddenly tries to connect to the outside world.
 
-![](/images/0_5pCVuxc2939BO77M.png)
+![](https://cdn-images-1.medium.com/max/800/0*5pCVuxc2939BO77M.png)
 
 ( **Image Source** : <https://www.researchgate.net/figure/Example-of-the-main-Elastiflow-Kibana-page-at-AGLT2_fig2_335862467> )
 
@@ -189,7 +188,7 @@ The Outbound Connection Hypothesis in cybersecurity focuses on detecting anomalo
 
 There may be a sudden high number of attempted connections from a specific local IP address to external IP addresses using unusual ports.
 
-![](/images/0_LYKtdcQfBZA1dvYH.png)
+![](https://cdn-images-1.medium.com/max/800/0*LYKtdcQfBZA1dvYH.png)
 
 ( **Image Source** : <https://www.techslang.com/definition/what-is-a-reverse-shell/> )
 
@@ -265,126 +264,126 @@ This is a Threat Hunting lab exercise based on the hypothesis that sophisticated
 
 Firstly, I need to set the timeline. I have set the time given in the relevant section of the question as absolute.
 
-![](/images/1_JeZ5WJUewEFmffcLWkK_FA.png)
+![](https://cdn-images-1.medium.com/max/800/1*JeZ5WJUewEFmffcLWkK_FA.png)
 
 setting the timeline
 
 Secondly, I need to select the log type. I need to filter the firewall log by rule groups. Use the ‘+’ button to automatically filter.
 
-![](/images/1_qgfMLjm5o-ZJn1TVFYW0uQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*qgfMLjm5o-ZJn1TVFYW0uQ.png)
 
 selecting log type
 
 Next, I need to select the source country. I can use the data.srccountry filter to do this.
 
-![](/images/1_zsRbrOSDTOp8gg3vBS5SnQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*zsRbrOSDTOp8gg3vBS5SnQ.png)
 
 filtering counrty
 
 Samely, filter with action type as allowed.
 
-![](/images/1_BNUO5HvJt8JF7E7VDdGyYw.png)
+![](https://cdn-images-1.medium.com/max/800/1*BNUO5HvJt8JF7E7VDdGyYw.png)
 
 filtering action allowed
 
 I can see the event count when I mouse over the graph. we found that our answer was 10.
 
-![](/images/1_ck5lJ0WxTiqJTTPtO1UR-w.png)
+![](https://cdn-images-1.medium.com/max/800/1*ck5lJ0WxTiqJTTPtO1UR-w.png)
 
 Filtered data
 
 **Answer: 10**
 
-![](/images/1_pNC5pxU5kuOeo1APziRDuQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*pNC5pxU5kuOeo1APziRDuQ.png)
 > **Among the firewall logs for network traffic from “Cambodia” that has the “Allow” action, how many unique destination systems are targeted?**
 
 When I look at the destination IP information over the fields, it is clearly seen that there is traffic to 3 different IPs. From here we found that the answer is 3.
 
-![](/images/1_otOEUf3airAO2T2PZJBEIw.png)
+![](https://cdn-images-1.medium.com/max/800/1*otOEUf3airAO2T2PZJBEIw.png)
 
 Destination IP field
 
 **Answer: 3**
 
-![](/images/1_c0jh1aL2nq4Nn7uTK7IIQQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*c0jh1aL2nq4Nn7uTK7IIQQ.png)
 > **Among the firewall logs for network traffic from “Cambodia” that has the “Allow” action, how many unique source IP addresses are there?**
 
 When I look at the source IP information over the fields, it is clearly seen that there is traffic to 3 different IPs. From here we found that the answer is 3.
 
-![](/images/1_lRfin8WNlyPa6sAxPln0cA.png)
+![](https://cdn-images-1.medium.com/max/800/1*lRfin8WNlyPa6sAxPln0cA.png)
 
 Source IP field
 
 **Answer: 3**
 
-![](/images/1_T9eLVsC1c4yQtUAGmrNo7g.png)
+![](https://cdn-images-1.medium.com/max/800/1*T9eLVsC1c4yQtUAGmrNo7g.png)
 > Investigate the source IPs (from firewall logs showing network traffic from ‘Cambodia’ with ‘Allow’ actions) in the [LetsDefend Threat Intel](https://app.letsdefend.io/threat-intelligence-feed) platform. Which threat actor group’s IoCs do these IP addresses belong to?
 
 When we search the relevant IP in the threat intel platform, we find the relevant APT group.
 
-![](/images/1_fSz0vD2rOMVcdXtlVpvbAw.png)
+![](https://cdn-images-1.medium.com/max/800/1*fSz0vD2rOMVcdXtlVpvbAw.png)
 
 **Answer:** APT-CN-54
 
-![](/images/1_oW8MgSPLtK-yHu_nR3oX8A.png)
+![](https://cdn-images-1.medium.com/max/800/1*oW8MgSPLtK-yHu_nR3oX8A.png)
 > **Investigate the source IPs (from firewall logs showing network traffic from ‘Cambodia’ with ‘Allow’ actions) in the** [**LetsDefend Threat Intel**](https://app.letsdefend.io/threat-intelligence-feed) **platform. What is the IP address of the detected attacker group that is not from Cambodia?**
 
 We know 3 IPs belonging to the traffic coming from Cambodia, let’s investigate which other IP address belongs to the APT group other than these 3 IPs. if we write and search the name of the APT group in the tag section, we will find the other IP.
 
-![](/images/1_SOf9-Yyt75vJFtds5uan2A.png)
+![](https://cdn-images-1.medium.com/max/800/1*SOf9-Yyt75vJFtds5uan2A.png)
 
 Threat Intel
 
 **Answer:** 22.51.177.88
 
-![](/images/1_sJWIu3fyq9DVH37kZJAq1Q.png)
+![](https://cdn-images-1.medium.com/max/800/1*sJWIu3fyq9DVH37kZJAq1Q.png)
 > **In previous stages of the threat hunting process, an IP address from a country other than Cambodia was detected and associated with an identified threat actor group. What is the number of different target systems in the firewall logs for network traffic that originates from this IP address and is marked with the action “Allow”?**
 
 When we filter the IP related to the data.srcip fielder, we see only 1 event that receives action allow.
 
-![](/images/1_OsrBYICtmRAQcxNGd29dvQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*OsrBYICtmRAQcxNGd29dvQ.png)
 
 **Answer: 1**
 
-![](/images/1_8B2BkiAGTDofl3l5pJ0FQg.png)
+![](https://cdn-images-1.medium.com/max/800/1*8B2BkiAGTDofl3l5pJ0FQg.png)
 > ***In previous stages of the threat hunting process, an IP address from a country other than Cambodia was detected and linked to the identified group of threat actors. How many different fire-wall events were reported as “anomalies” among the firewall logs for network traffic originating from this IP address?***
 
 When we remove the action allow filter, we observe that 1 packet is dropped due to port\_scan anomaly.
 
-![](/images/1_wSKHO-k8ykW4E2FxUqSBJw.png)
+![](https://cdn-images-1.medium.com/max/800/1*wSKHO-k8ykW4E2FxUqSBJw.png)
 
 **Answer: 1**
 
-![](/images/1_PV7FXRMbkbcXndQApB9rnQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*PV7FXRMbkbcXndQApB9rnQ.png)
 > **In previous stages of the threat hunting process, an IP address from a country other than Cambodia was detected and linked to the identified group of threat actors. What type of anomaly of the event/events was reported among the firewall logs for network traffic originating from this IP address?**
 
 we also found this answer in the previous question. we observed that the anomaly type was tcp\_port\_scan.
 
 **Answer:** tcp\_port\_scan
 
-![](/images/1_Qqbf_mCD1V2vOkvIZ27f7g.png)
+![](https://cdn-images-1.medium.com/max/800/1*Qqbf_mCD1V2vOkvIZ27f7g.png)
 > **In previous stages of the threat hunting process, an IP address from a country other than Cambodia was detected and linked to the identified group of threat actors. What was the firewall’s action for the anomaly events reported in the firewall logs for network traffic originating from this IP address?**
 
 we also found this answer in the previous question. we observed that the action type was dropped.
 
 **Answer:** dropped
 
-![](/images/1_m0LW5CQy2utFcR719sq8fA.png)
+![](https://cdn-images-1.medium.com/max/800/1*m0LW5CQy2utFcR719sq8fA.png)
 > **What is the domain listed in the IoCs of the threat actor group identified during previous threat hunting stages (earlier questions)?**
 
 We can find the relevant domain from the threat Intel platform.
 
-![](/images/1_vudqWPuIqKP9SHhLRJbtHw.png)
+![](https://cdn-images-1.medium.com/max/800/1*vudqWPuIqKP9SHhLRJbtHw.png)
 
 **Answer:** office365.online.secureconnecction.top
 
-![](/images/1_RVXgZXCb2peByyoI6KA79g.png)
+![](https://cdn-images-1.medium.com/max/800/1*RVXgZXCb2peByyoI6KA79g.png)
 > **Among the IoCs belonging to the threat actor group identified in previous threat hunting stages (earlier questions), what is the IP address of the system that made DNS queries to the associated domain?**
 
 We can now search using the domain that we found. We find one event in the Endpoint Event Logs. We can detect the IP address using the ‘Agent IP’ field.
 
-![](/images/1_q1xs6YbbE7hWOYp4ucL1mw.png)
+![](https://cdn-images-1.medium.com/max/800/1*q1xs6YbbE7hWOYp4ucL1mw.png)
 
 **Answer:** 172.16.8.5
 
-![](/images/1_86-ucOzlW7bAezx4MrjfEQ.png)
+![](https://cdn-images-1.medium.com/max/800/1*86-ucOzlW7bAezx4MrjfEQ.png)

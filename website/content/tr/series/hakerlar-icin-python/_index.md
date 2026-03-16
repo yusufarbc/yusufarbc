@@ -1,6 +1,6 @@
 ---
 title: "Hakerlar için Python"
-featuredImage: "images/series/hakerlar-icin-python.png"
+featuredImage: "images/series/hacker-python.png"
 ---
 
-Hakerlar için Python yazı serisi
+Hakerlar için Python yazı serisi.

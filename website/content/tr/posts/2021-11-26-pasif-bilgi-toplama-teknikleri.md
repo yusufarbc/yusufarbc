@@ -1,14 +1,14 @@
 ---
-title: "Pasif Bilgi Toplama Teknikleri"
-date: 2021-11-26
+date: '2021-11-26'
 draft: false
+title: Pasif Bilgi Toplama Teknikleri
 ---
 
 ---
 
 ### Pasif Bilgi Toplama Teknikleri
 
-![](/images/0_2NsHt2LZX3ORPYxb.jpg)
+![](https://cdn-images-1.medium.com/max/800/0*2NsHt2LZX3ORPYxb.jpg)
 
 Merhaba, Mehmet Bulut hocamla birlikte hazırladığımız bu yazımızda, sizlere Pasif Bilgi Toplama Tekniklerinden bahsedeceğiz.
 
@@ -143,7 +143,3 @@ Kullanımı ile alakalı ayrıntılı bilgiye ulaşmak için <https://github.com
 Osint Framework yüzlerce pasif bilgi toplama araçlarına ulaşabileceğiniz bir web sitesidir. İçerisindeki kategorilerden hedefinize uygun olan bölüme tıklayınca daha ayrıntılı sorgulama yapmanıza olanak sağlar. Ayrıca çıkan seçeneklerin sağında (T) yazısı mevcutsa bunu sadece terminal üzerinden gerçekleştirebileceğinizi görebilirsiniz.
 
 ilgili siteye [www.osintframework.com](http://osintframework.com) adresinden ulaşabiliriz.
-
----
-
-*Originally published at* [*https://pwnlab.me*](https://pwnlab.me/tr-pasif-bilgi-toplama-teknikleri/) *on November 26, 2021.*

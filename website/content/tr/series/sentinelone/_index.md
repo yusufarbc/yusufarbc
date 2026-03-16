@@ -1,6 +1,6 @@
 ---
-title: "SentinelOne"
+title: "SentinelOne EDR"
 featuredImage: "images/series/sentinelone.png"
 ---
 
-SentinelOne yazı serisi.
+SentinelOne EDR yazı serisi.

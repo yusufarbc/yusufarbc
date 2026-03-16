@@ -1,8 +1,7 @@
 ---
-series: ["Threat Hunting Walkthroughs"]
-title: "SentinelOne Singularity Platform: AI-POWERED XDR"
-date: 2025-11-18
+date: '2025-11-18'
 draft: false
+title: 'SentinelOne Singularity Platform: AI-POWERED XDR'
 ---
 
 ---
@@ -47,7 +46,7 @@ SentinelOne ajanının en kritik mimari özelliği, **tespit, önleme ve yanıt 
 
 Ajanın **Otonom Karar Mekanizması (On-Agent Intelligence)**, bir dosya veya sürecin güvenlik durumunu belirleyen kararları (**Verdicts**) üretir. Bu kararlar (**Malicious, Suspicious, Benign**), tehdit ciddiyetini ve alınacak otomatik eylemi belirlerken, SentinelOne’ın güvenlik politikalarının temelini oluşturur.
 
-![](/images/1_cRqq7JFeY3W2TDgR9BznmA.png)
+![](https://cdn-images-1.medium.com/max/800/1*cRqq7JFeY3W2TDgR9BznmA.png)
 
 SentinelOne, riskin en aza indirilmesi için hem **Malicious** hem de **Suspicious** tehditlerin otomatik olarak **Kill & Quarantine** edilmesini sağlayan **Protect/Protect** modunun etkinleştirilmesini önermektedir. Bu, ajanın **otonom zekasını** en üst düzeyde kullanarak saldırganın hareket alanını **sıfır gecikmeyle** ortadan kaldırır.
 
@@ -167,7 +166,7 @@ Bir siber güvenlik platformunun teknik üstünlüğü, ancak bağımsız ve obj
 
 MITRE Engenuity ATT&CK® Değerlendirmeleri, bir platformun gerçek dünya saldırı senaryoları karşısındaki tespit ve görünürlük yeteneklerini ölçen en prestijli testlerden biridir. SentinelOne, 2024 Kurumsal Değerlendirmesi’nde otonom yeteneklerini kanıtlayan olağanüstü sonuçlar elde etmiştir.
 
-![](/images/1_ngCUgm4Pkesl_gBvk_Sdlg.png)
+![](https://cdn-images-1.medium.com/max/800/1*ngCUgm4Pkesl_gBvk_Sdlg.png)
 
 Bu sonuçlar arasında, ortalama bir satıcıdan **%88 daha az uyarı** üretilmesi, raporun en kritik verilerinden biridir. Bu metrik, platformun “Otonom SOC” vizyonunu somut bir şekilde doğrulamaktadır. Yapay zeka destekli filtreleme mekanizmasının etkinliği, analist tükenmişliğini (analyst burnout) önleyerek ve operasyonel verimliliği (OpEx) artırarak doğrudan bir iş değeri yaratır. Bu, teknik bir metriğin stratejik bir sonuca nasıl dönüştüğünün kanıtıdır.
 
