@@ -1,6 +1,9 @@
 ---
 date: '2025-08-09'
-description: Günümüzün hiper-bağlantılı dünyasında, küresel ekonomiden günlük sosyal etkileşimlerimize kadar her şeyin temelinde karmaşık ve devasa bir bilgisayar ağları altyapısı yatmaktadır. Bu altyapı, farklı kıtalardaki veri merkezlerinden evimizdeki akıllı c...
+description: Günümüzün hiper-bağlantılı dünyasında, küresel ekonomiden günlük sosyal
+  etkileşimlerimize kadar her şeyin temelinde karmaşık ve devasa bir bilgisayar ağları
+  altyapısı yatmaktadır. Bu altyapı, farklı kıtalardaki veri merkezlerinden evimizdeki
+  akıllı c...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*1gN6tP9Nv5sf9IGl.png
 layout: single

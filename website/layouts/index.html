@@ -1,0 +1,17 @@
+{{ define "content" }}
+<section class="container centered">
+  <div class="about">
+    <div class="avatar">
+      <img src="{{ .Site.Params.avatarURL | default "images/profile.jpeg" | relURL }}" alt="avatar">
+    </div>
+
+    {{ partialCached "home/author.html" . }}
+
+    {{ partialCached "home/social.html" . }}
+  </div>
+
+  {{ partialCached "home/extensions.html" . }}
+</section>
+
+{{ partialCached "home/sections.html" . }}
+{{ end }}

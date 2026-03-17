@@ -1,6 +1,7 @@
 ---
 date: '2023-09-15'
-description: Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının wireshark ile analizini gerçekleştireceğim.
+description: Merhaba, bu yazımda DoS ve DDoS olarak bilinen hizmet engelleme saldırılarının
+  wireshark ile analizini gerçekleştireceğim.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*tKGgOxt2Mq5piyQ3_CJDdg.png
 layout: single

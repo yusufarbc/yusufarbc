@@ -1,6 +1,9 @@
 ---
 date: '2025-10-29'
-description: Threat hunting is a fundamental practice in modern cybersecurity strategies. It involves actively searching for potential security incidents and indicators of compromise (IOCs) that can evade traditional security measures. In this process, endpoint d...
+description: Threat hunting is a fundamental practice in modern cybersecurity strategies.
+  It involves actively searching for potential security incidents and indicators of
+  compromise (IOCs) that can evade traditional security measures. In this process,
+  endpoint d...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*TWCVA6eqWDZwyV86.png
 layout: single

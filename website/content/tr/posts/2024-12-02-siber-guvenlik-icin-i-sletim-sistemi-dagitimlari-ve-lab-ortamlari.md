@@ -1,6 +1,7 @@
 ---
 date: '2024-12-02'
-description: Merhaba bu yazımda siber güvenlik alanında sk kullanılan dağıtımlardan ve lab ortamlarından bahsedeceğim.
+description: Merhaba bu yazımda siber güvenlik alanında sk kullanılan dağıtımlardan
+  ve lab ortamlarından bahsedeceğim.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*IVkwxKLbpKSPwYtqpYG93w.jpeg
 layout: single

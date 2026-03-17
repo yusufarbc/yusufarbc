@@ -1,6 +1,7 @@
 ---
 date: '2023-03-28'
-description: Merhaba, kriptoloji temelleri seririsinin bu yazısında kiptografinin ne olduğundan, şifreleme tekniklerinden ve kriptografik protokollerden bahsedeceğim.
+description: Merhaba, kriptoloji temelleri seririsinin bu yazısında kiptografinin
+  ne olduğundan, şifreleme tekniklerinden ve kriptografik protokollerden bahsedeceğim.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*MPqOVwPSnGY3CguO7sg8Jw.png
 layout: single

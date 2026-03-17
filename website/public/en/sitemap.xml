@@ -17,8 +17,23 @@
                 href="http://localhost:1313/about/"
                 />
   </url><url>
+    <loc>http://localhost:1313/projects/</loc>
+    <lastmod>2026-03-17T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="http://localhost:1313/tr/projects/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/projects/"
+                />
+  </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-03-16T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-17T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -848,16 +863,6 @@
     <loc>http://localhost:1313/series/sentinelone/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="tr"
-                href="http://localhost:1313/tr/series/sentinelone/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/series/sentinelone/"
-                />
   </url><url>
     <loc>http://localhost:1313/series/sistem-programlama/</loc>
     <changefreq>weekly</changefreq>
@@ -890,15 +895,5 @@
     <loc>http://localhost:1313/series/wazuh/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="tr"
-                href="http://localhost:1313/tr/series/wazuh/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/series/wazuh/"
-                />
   </url>
 </urlset>

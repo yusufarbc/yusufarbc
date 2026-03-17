@@ -1,6 +1,6 @@
 ---
 title: "Zararlı Yazılım Analizine Giriş"
-featuredImage: "images/series/zararli-yazilim-analizine-giris.png"
+layout: "list"
 ---
 
-Zararlı yazılım analizi temelleri.
+Zararlı Yazılım Analizine Giriş yazı serisi.

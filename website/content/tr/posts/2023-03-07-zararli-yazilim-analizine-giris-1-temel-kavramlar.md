@@ -1,6 +1,8 @@
 ---
 date: '2023-03-07'
-description: Bu yazı serimizde zararlı yazılım analizi hakkında bilgiler vereceğim; virüsler, solucanlar vb. terimleri duymuşsunuzdur. Ama bu şeyler ne anlama geliyor? Virüs solucan mıdır? Kötü amaçlı yazılım tam olarak ne yapar? Hadi bunları öğrenelim…
+description: Bu yazı serimizde zararlı yazılım analizi hakkında bilgiler vereceğim;
+  virüsler, solucanlar vb. terimleri duymuşsunuzdur. Ama bu şeyler ne anlama geliyor?
+  Virüs solucan mıdır? Kötü amaçlı yazılım tam olarak ne yapar? Hadi bunları öğrenelim…
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*wRwVFbFX3SX1zyV-mTRt_w.png
 layout: single

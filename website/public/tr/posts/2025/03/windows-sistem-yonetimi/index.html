@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Windows Sistem Yönetimi · yusufarbc.dev
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="Windows Sistem Yönetimi, Windows işletim sistemlerini yönetmeyi içeren bir dizi süreç ve araçtır. Bu süreçler, kullanıcı ve hesap yönetiminden kaynakların optimize edilmesine, güvenlik politikalarının uygulanmasından ağ yapılandırmalarının kontrol ed...">
+<meta name="keywords" content="cybersecurity, IT engineer, systems administration, network security, infrastructure, proxmox, docker, yusuf talha arabaci">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Windows Sistem Yönetimi">
+  <meta name="twitter:description" content="Windows Sistem Yönetimi, Windows işletim sistemlerini yönetmeyi içeren bir dizi süreç ve araçtır. Bu süreçler, kullanıcı ve hesap yönetiminden kaynakların optimize edilmesine, güvenlik politikalarının uygulanmasından ağ yapılandırmalarının kontrol ed...">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2025/03/windows-sistem-yonetimi/">
+  <meta property="og:site_name" content="yusufarbc.dev">
+  <meta property="og:title" content="Windows Sistem Yönetimi">
+  <meta property="og:description" content="Windows Sistem Yönetimi, Windows işletim sistemlerini yönetmeyi içeren bir dizi süreç ve araçtır. Bu süreçler, kullanıcı ve hesap yönetiminden kaynakların optimize edilmesine, güvenlik politikalarının uygulanmasından ağ yapılandırmalarının kontrol ed...">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-03-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-03-09T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2025/03/windows-sistem-yonetimi/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      
+        <img class="navigation-logo" src="/images/profile.jpeg" alt="Logo">
+      
+      <span class="navigation-text">yusufarbc.dev</span>
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/projects/">Projeler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link btn-contact" href="mailto:yusuf.talhaarabaci@owasp.org">İletişim</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/">English</a>
+              </li>
+            
+          
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article class="post-full glass-card">
+      <header class="post-header">
+        <div class="post-meta">
+          <time datetime="2025-03-09T00:00:00Z">
+            March 9, 2025
+          </time>
+          
+          <span class="reading-time">
+            <i class="fa-solid fa-clock" aria-hidden="true"></i>
+            14 min read
+          </span>
+        </div>
+        <h1 class="post-title-full">Windows Sistem Yönetimi</h1>
+        
+        
+        <div class="post-featured-image">
+          <img src="https://cdn-images-1.medium.com/max/800/1*QTSThAAz9yc368eD-MMw5g.png" alt="Windows Sistem Yönetimi">
+        </div>
+        
+      </header>
+
+      <div class="post-content">
+        <h3 id="windows-sistemyönetimi">
+  Windows Sistem Yönetimi
+  <a class="heading-link" href="#windows-sistemy%c3%b6netimi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Windows Sistem Yönetimi, Windows işletim sistemlerini yönetmeyi içeren bir dizi süreç ve araçtır. Bu süreçler, kullanıcı ve hesap yönetiminden kaynakların optimize edilmesine, güvenlik politikalarının uygulanmasından ağ yapılandırmalarının kontrol edilmesine kadar geniş bir yelpazeyi kapsar. Sistem yöneticileri; Microsoft Management Console (MMC), PowerShell ve Grup İlkesi Yönetimi (GPO) gibi araçları kullanarak sistem performansını izler, sorun giderir ve otomasyon sağlayarak operasyonel verimliliği artırır. Ayrıca, kullanıcıların ve sistem kaynaklarının merkezi veya yerel düzeyde uyum içinde çalışmasını sağlamak için gerekli yapılandırmaları gerçekleştirir. Windows sistem yönetimi, bireysel kullanıcılar ve kurumsal ağların ihtiyaçlarını karşılamak için kritik bir rol oynar.</p>
+<h3 id="command-promptcmd">
+  Command Prompt — CMD
+  <a class="heading-link" href="#command-promptcmd">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Command Prompt (CMD)</strong>, Windows işletim sisteminin komut satırı arayüzüdür ve temel sistem yönetimi işlemleri dahil olmak üzere birçok görevi gerçekleştirmek için kullanılabilir.</p>
+<p>Otomasyon veya tekrar eden görevler için CMD komutları <strong>BAT dosyası</strong> (veya <strong>Batch dosyası</strong>) içinde toplanabilir. Bu dosyalar, <code>.bat</code> uzantısına sahiptir ve çift tıklanarak veya CMD üzerinden çalıştırılabilir.</p>
+<p>Bazı sık kullanılan cmd komutları listelenmiştir:</p>
+<h4 id="1--sistem-bilgilerini-görüntüleme">
+  1- <strong>Sistem Bilgilerini Görüntüleme</strong>
+  <a class="heading-link" href="#1--sistem-bilgilerini-g%c3%b6r%c3%bcnt%c3%bcleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>systeminfo</p>
+</blockquote>
+<p>İşletim sistemi, donanım ve ağ bilgileri gibi detaylı sistem bilgilerini listeler.</p>
+<h4 id="2--işletim-sistemi-sürümünü-görüntüleme">
+  2- <strong>İşletim Sistemi Sürümünü Görüntüleme</strong>
+  <a class="heading-link" href="#2--i%c5%9fletim-sistemi-s%c3%bcr%c3%bcm%c3%bcn%c3%bc-g%c3%b6r%c3%bcnt%c3%bcleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>ver</p>
+</blockquote>
+<p>İşletim sisteminin sürüm bilgisini gösterir</p>
+<h4 id="3--bilgisayar-adını-görüntüleme">
+  3- <strong>Bilgisayar Adını Görüntüleme</strong>
+  <a class="heading-link" href="#3--bilgisayar-ad%c4%b1n%c4%b1-g%c3%b6r%c3%bcnt%c3%bcleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>hostname</p>
+</blockquote>
+<p>Bilgisayarın adını gösterir.</p>
+<h4 id="4--sistem-zamanını-görüntüleme">
+  4- <strong>Sistem Zamanını Görüntüleme</strong>
+  <a class="heading-link" href="#4--sistem-zaman%c4%b1n%c4%b1-g%c3%b6r%c3%bcnt%c3%bcleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>time</p>
+</blockquote>
+<p>Sistem saatini gösterir ve değiştirmenize izin verir.</p>
+<h4 id="5--sistem-saatini-görüntüleme">
+  5- Sistem saatini görüntüleme
+  <a class="heading-link" href="#5--sistem-saatini-g%c3%b6r%c3%bcnt%c3%bcleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>date</p>
+</blockquote>
+<p>Sistem tarihini gösterir ve değiştirmenize izin verir.</p>
+<h4 id="6--dosyasilme">
+  <strong>6- Dosya Silme</strong>
+  <a class="heading-link" href="#6--dosyasilme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>del &lt;dosya_adı&gt;</p>
+</blockquote>
+<p>Belirtilen dosyayı siler.</p>
+<h4 id="7--dizinsilme">
+  <strong>7- Dizin Silme</strong>
+  <a class="heading-link" href="#7--dizinsilme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>rmdir &lt;dizin_adı&gt;</p>
+</blockquote>
+<p>Belirtilen dizini siler.</p>
+<h4 id="8--ip-adresini-görüntüleme">
+  8- <strong>IP Adresini Görüntüleme</strong>
+  <a class="heading-link" href="#8--ip-adresini-g%c3%b6r%c3%bcnt%c3%bcleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>ipconfig</p>
+</blockquote>
+<p>Ağ bağdaştırıcılarının IP adresi, alt ağ maskesi ve varsayılan ağ geçidi gibi bilgilerini gösterir.</p>
+<h4 id="9--ağ-bağlantılarını-test-etmeping">
+  <strong>9- Ağ Bağlantılarını Test Etme (Ping)</strong>
+  <a class="heading-link" href="#9--a%c4%9f-ba%c4%9flant%c4%b1lar%c4%b1n%c4%b1-test-etmeping">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>ping &lt;hedef_adres&gt;</p>
+</blockquote>
+<p>Belirtilen hedefe ping atarak bağlantıyı test eder</p>
+<h4 id="10--ağ-yönlendirme-tablosunu-görüntüleme">
+  10- <strong>Ağ Yönlendirme Tablosunu Görüntüleme</strong>
+  <a class="heading-link" href="#10--a%c4%9f-y%c3%b6nlendirme-tablosunu-g%c3%b6r%c3%bcnt%c3%bcleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>route print</p>
+</blockquote>
+<p>Ağ yönlendirme tablosunu gösterir.</p>
+<h4 id="11--ağ-paylaşımlarını-listeleme">
+  11- <strong>Ağ Paylaşımlarını Listeleme</strong>
+  <a class="heading-link" href="#11--a%c4%9f-payla%c5%9f%c4%b1mlar%c4%b1n%c4%b1-listeleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>net share</p>
+</blockquote>
+<p>Bilgisayardaki paylaşılan kaynakları listeler.</p>
+<h4 id="12--dns-önbelleğini-temizleme">
+  12- <strong>DNS Önbelleğini Temizleme</strong>
+  <a class="heading-link" href="#12--dns-%c3%b6nbelle%c4%9fini-temizleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>ipconfig /flushdns</p>
+</blockquote>
+<p>DNS önbelleğini temizler.</p>
+<h4 id="13--görevleri-listeleme">
+  13- <strong>Görevleri Listeleme</strong>
+  <a class="heading-link" href="#13--g%c3%b6revleri-listeleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>tasklist</p>
+</blockquote>
+<p>Çalışan süreçleri listeler.</p>
+<h4 id="14--görevi-sonlandırma">
+  14- <strong>Görevi Sonlandırma</strong>
+  <a class="heading-link" href="#14--g%c3%b6revi-sonland%c4%b1rma">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>taskkill /pid &lt;süreç_id&gt; /f</p>
+</blockquote>
+<p>Belirtilen süreci sonlandırır.</p>
+<h4 id="15--hizmetleri-listeleme">
+  <strong>15- Hizmetleri Listeleme</strong>
+  <a class="heading-link" href="#15--hizmetleri-listeleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>sc start &lt;hizmet_adı&gt;<br>
+sc stop &lt;hizmet_adı&gt;</p>
+</blockquote>
+<p>Belirtilen hizmeti başlatır veya durdurur.</p>
+<h4 id="16--hizmet-başlatmadurdurma">
+  16- <strong>Hizmet Başlatma/Durdurma</strong>
+  <a class="heading-link" href="#16--hizmet-ba%c5%9flatmadurdurma">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>shutdown /s /t 0<br>
+shutdown /r /t 0</p>
+</blockquote>
+<p>Belirtilen hizmeti başlatır veya durdurur.</p>
+<h4 id="17--sistem-kapatmayeniden-başlatma">
+  17- <strong>Sistem Kapatma/Yeniden Başlatma</strong>
+  <a class="heading-link" href="#17--sistem-kapatmayeniden-ba%c5%9flatma">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>shutdown /s /t 0<br>
+shutdown /r /t 0</p>
+</blockquote>
+<p>Sistemi kapatır veya yeniden başlatır.</p>
+<h4 id="18--güç-seçeneklerini-yönetme">
+  18- <strong>Güç Seçeneklerini Yönetme</strong>
+  <a class="heading-link" href="#18--g%c3%bc%c3%a7-se%c3%a7eneklerini-y%c3%b6netme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>powercfg /list</p>
+</blockquote>
+<p>Güç planlarını listeler.</p>
+<h4 id="19--disk-birimlerini-listeleme">
+  19- <strong>Disk Birimlerini Listeleme</strong>
+  <a class="heading-link" href="#19--disk-birimlerini-listeleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>diskpart<br>
+list volume</p>
+</blockquote>
+<p>Disk birimlerini listeler.</p>
+<h4 id="20--disk-temizleme">
+  20- <strong>Disk Temizleme</strong>
+  <a class="heading-link" href="#20--disk-temizleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>cleanmgr</p>
+</blockquote>
+<p>Disk temizleme aracını başlatır.</p>
+<h4 id="21--diskkontrolü">
+  21- <strong>Disk Kontrolü</strong>
+  <a class="heading-link" href="#21--diskkontrol%c3%bc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>chkdsk &lt;sürücü_harfi&gt;</p>
+</blockquote>
+<p>Diski kontrol eder ve hataları düzeltir.<br>
+<strong>Örnek</strong>: <code>chkdsk C: /f</code></p>
+<h4 id="22--kullanıcı-hesaplarını-listeleme">
+  22- <strong>Kullanıcı Hesaplarını Listeleme</strong>:
+  <a class="heading-link" href="#22--kullan%c4%b1c%c4%b1-hesaplar%c4%b1n%c4%b1-listeleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>net user</p>
+</blockquote>
+<p>Sistemdeki kullanıcı hesaplarını listeler</p>
+<h4 id="23--kullanıcı-eklemesilme">
+  <strong>23- Kullanıcı Ekleme/Silme</strong>
+  <a class="heading-link" href="#23--kullan%c4%b1c%c4%b1-eklemesilme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>net user &lt;kullanıcı_adı&gt; &lt;şifre&gt; /add<br>
+net user &lt;kullanıcı_adı&gt; /delete</p>
+</blockquote>
+<p>Belirtilen kullanıcı hesabını siler.<br>
+<strong>Örnek</strong>: net user Ahmet /delete</p>
+<h4 id="24--grup-üyeliklerini-görüntüleme">
+  24- <strong>Grup Üyeliklerini Görüntüleme</strong>
+  <a class="heading-link" href="#24--grup-%c3%bcyeliklerini-g%c3%b6r%c3%bcnt%c3%bcleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>net localgroup</p>
+</blockquote>
+<p>Yerel grupları ve üyelerini listeler.</p>
+<h4 id="25--komut-geçmişini-temizleme">
+  25- <strong>Komut Geçmişini Temizleme</strong>
+  <a class="heading-link" href="#25--komut-ge%c3%a7mi%c5%9fini-temizleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>cls</p>
+</blockquote>
+<p>Komut penceresini temizler.</p>
+<h4 id="26--içeriği-ekrana-yazdırmak">
+  26- İçeriği Ekrana Yazdırmak
+  <a class="heading-link" href="#26--i%c3%a7eri%c4%9fi-ekrana-yazd%c4%b1rmak">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>echo</p>
+</blockquote>
+<p>bir değişkenin veya stringi ekrana yazdırır.</p>
+<h4 id="27--dosyayı-ekrana-yazdırmak">
+  27- Dosyayı Ekrana Yazdırmak
+  <a class="heading-link" href="#27--dosyay%c4%b1-ekrana-yazd%c4%b1rmak">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>type</p>
+</blockquote>
+<p>bir metin dosyasının içeriğini ekrana yazdırır.</p>
+<h4 id="28--dizin-değiştirme">
+  28- Dizin Değiştirme
+  <a class="heading-link" href="#28--dizin-de%c4%9fi%c5%9ftirme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>cd</p>
+</blockquote>
+<p>cd (Change Directory), belirtilen dizine geçiş yapmak için kullanılır. Bu komut, dizinler arasında gezinmeyi sağlar.</p>
+<h4 id="29--dizini-görüntüleme">
+  29- Dizini Görüntüleme
+  <a class="heading-link" href="#29--dizini-g%c3%b6r%c3%bcnt%c3%bcleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>dir</p>
+</blockquote>
+<p>Dosya ve dizinlerin adlarını, boyutlarını, oluşturulma tarihlerini ve diğer özelliklerini görüntülemek için kullanılır</p>
+<h4 id="30--dosyadizin-kopyalama">
+  30- Dosya/Dizin Kopyalama
+  <a class="heading-link" href="#30--dosyadizin-kopyalama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<blockquote>
+<p>copy</p>
+</blockquote>
+<p>dosya veya dosyaları bir yerden başka bir yere kopyalamak için kullanılan temel bir komuttur.</p>
+<h3 id="microsoft-management-consolemmc">
+  Microsoft Management Console — MMC
+  <a class="heading-link" href="#microsoft-management-consolemmc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Windows işletim sisteminde birçok konfigürasyonu yapmamıza ve sistemi izlememize olanak tanıyan birçok araç içerir. <strong>MSC</strong>, Windows işletim sistemlerinde kullanılan <strong>Microsoft Management Console (MMC)</strong> dosyalarının bir uzantısıdır. Bu dosyalar, farklı yönetim araçlarını ve bileşenlerini bir arada çalıştırmayı sağlayan bir çerçeve sunar. MSC uzantılı dosyalar, sistem yöneticilerinin günlük yönetim görevlerini kolaylaştırmak için belirli bir yönetime odaklı araçlara doğrudan erişim sağlar. Şimdi bu araçlara teker ter bakalım.</p>
+<p>MSC dosyalarını bilgisayarınızda “Win + R” kısayol tuşuna bastıktan sonra açılan çalıştır menüsüne ismini yazarak çalıştırabilirsiniz.</p>
+<h4 id="1--bilgisayar-yönetimi">
+  1- Bilgisayar Yönetimi
+  <a class="heading-link" href="#1--bilgisayar-y%c3%b6netimi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*MpU8TSbaM6qR2u2-ihXfqg.png" alt=""></p>
+<blockquote>
+<p><code>compmgmt.msc</code></p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*qYkUr1fgV87iFe6utqzSdA.png" alt=""></p>
+<p><strong>Computer Management</strong></p>
+<p>Windows işletim sisteminde <strong>Bilgisayar Yönetimi (Computer Management)</strong> konsolunu açmak için kullanılan bir arayüzdür. Bu araç, kullanıcıların sistem kaynaklarını ve hizmetlerini bir arada yönetmesini sağlayan bir kontrol paneli gibidir. Bilgisayar Yönetimi, üç ana bölümü içerir: <strong>Sistem Araçları</strong> (Olay Görüntüleyici, Aygıt Yöneticisi, Paylaşılan Klasörler), <strong>Depolama</strong> (Disk Yönetimi gibi araçlarla disk yapılandırması) ve <strong>Hizmetler ve Uygulamalar</strong></p>
+<h4 id="2--aygıt-yöneticisi">
+  2- Aygıt Yöneticisi
+  <a class="heading-link" href="#2--ayg%c4%b1t-y%c3%b6neticisi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*-9-W8H4OOTMvEsRMj-Hqdw.png" alt=""></p>
+<blockquote>
+<p><code>devmgmt.msc</code></p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*7w5iLQ5wGIt1r8PDdJxh9A.png" alt=""></p>
+<p>Device Manager</p>
+<p>Windows işletim sisteminde <strong>Aygıt Yöneticisi</strong> (Device Manager) aracını açmak için kullanılan bir komut dosyasıdır. Aygıt Yöneticisi, bilgisayarınızda bulunan donanım aygıtlarını görüntülemenizi ve yönetmenizi sağlar. Bu araç, sürücüleri güncelleme, devre dışı bırakma, kaldırma veya sorun giderme işlemleri için kullanılır. Donanım kategorileri; işlemciler, ağ bağdaştırıcıları, ekran kartları, disk sürücüleri ve daha fazlasını içerir. Ayrıca, bir donanım aygıtıyla ilgili hatalar varsa, sarı üçgen uyarı simgeleri aracılığıyla bunu kullanıcıya bildirir. Aygıt Yöneticisi, sistem yöneticileri ve kullanıcılar için donanımla ilgili sorunları teşhis etmek ve yönetmek için kritik bir araçtır.</p>
+<h4 id="3--diskyönetimi">
+  3- Disk Yönetimi
+  <a class="heading-link" href="#3--disky%c3%b6netimi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*R4PceSSdAKcNpyGNmeTdkw.png" alt=""></p>
+<blockquote>
+<p><code>diskmgmt.msc</code></p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*eBTghtHiVBRBsAQj8f8e_w.png" alt=""></p>
+<p>Disk Management</p>
+<p>Windows işletim sisteminde <strong>Disk Yönetimi</strong> aracını açmak için kullanılan bir komut dosyasıdır. Disk Yönetimi, bilgisayarınızda bulunan sabit disklerin ve diğer depolama birimlerinin yapılandırılması ve yönetilmesi için kullanılır. Bu araç; disk bölümleri oluşturma, silme, biçimlendirme, birleştirme ve küçültme gibi işlemleri gerçekleştirmenizi sağlar. Ayrıca, disklerin çevrimdışı veya çevrimiçi durumlarını yönetebilir ve sürücü harflerini atayabilirsiniz. <code>diskmgmt.msc</code>, özellikle depolama düzenini optimize etmek ve yeni diskleri yapılandırmak gibi görevlerde önemli bir rol oynar.</p>
+<h4 id="4--hizmetler">
+  4- Hizmetler
+  <a class="heading-link" href="#4--hizmetler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*0KIsamFvchIgkx-NituRgg.png" alt=""></p>
+<blockquote>
+<p><code>services.msc</code></p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*6uv3dpx_XipXh_qbq01PFg.png" alt=""></p>
+<p>Windows işletim sisteminde <strong>Hizmetler (Services)</strong> yönetim konsolunu açmak için kullanılan bir komut dosyasıdır. Bu araç, sistemde çalışan veya durdurulan tüm hizmetlerin listesini görüntülemenize ve yönetmenize olanak tanır. Kullanıcılar, hizmetleri başlatabilir, durdurabilir, yeniden başlatabilir ya da başlangıç türlerini (otomatik, manuel, devre dışı) yapılandırabilir. Örneğin, Windows Update veya Ağ Bağlantıları gibi hizmetler bu konsolda yönetilebilir. <code>services.msc</code>, sistem performansını optimize etmek ve sorun giderme işlemleri için kritik bir rol oynar.</p>
+<h4 id="5--olay-görüntüleyici">
+  5- Olay Görüntüleyici
+  <a class="heading-link" href="#5--olay-g%c3%b6r%c3%bcnt%c3%bcleyici">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*ULhrQ5wKEn3HO73IVquJtw.png" alt=""></p>
+<blockquote>
+<p><code>eventvwr.msc</code></p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*N8gONxQA7kwwBszjUEvAWg.png" alt=""></p>
+<p>Event Viewer</p>
+<p>Windows işletim sisteminde <strong>Olay Görüntüleyici</strong> aracını açmak için kullanılan bir komut dosyasıdır. Olay Görüntüleyici, sistemde meydana gelen olayları ve hataları incelemek için kullanılan bir yönetim aracıdır. Sistem, güvenlik, uygulama ve diğer kategorilerdeki log kayıtlarını (olay günlüğü) düzenli olarak bu araçta depolar. Kullanıcılar bu logları inceleyerek, uygulama hatalarını, güvenlik ihlallerini veya donanım sorunlarını teşhis edebilir. Bu araç, özellikle sistem sorunlarını tespit etmek ve gidermek için kritik öneme sahiptir.</p>
+<h4 id="6--yerel-güvenlikilkesi">
+  6- Yerel Güvenlik İlkesi
+  <a class="heading-link" href="#6--yerel-g%c3%bcvenlikilkesi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*eQz3psGx6dDTuQOk0rRyCA.png" alt=""></p>
+<blockquote>
+<p>secpol.msc</p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*l3kApq4SYaZ7M-8L5KQVKg.png" alt=""></p>
+<p>Local Security Policy</p>
+<p>Windows işletim sisteminde <strong>Yerel Güvenlik İlkesi</strong> aracını açmak için kullanılan bir komut dosyasıdır. Bu araç, sistemin güvenlik ayarlarını merkezi bir şekilde yönetmek ve yapılandırmak için kullanılır. Yerel güvenlik ilkeleri; hesap politikaları (şifre gereksinimleri gibi), yerel politikalar (kayıt ve denetim kuralları gibi) ve kullanıcı izinleri üzerinde kontrol sağlar. Örneğin, şifre karmaşıklığını zorunlu kılma veya belirli bir kullanıcıya erişim kısıtlamaları uygulama gibi görevler <code>secpol.msc</code> üzerinden gerçekleştirilebilir. Bu araç, özellikle sistemin güvenliğini optimize etmek ve erişim kontrollerini düzenlemek için kritik bir rol oynar.</p>
+<h4 id="7--yerel-grup-ilkesi-düzenleyicisi">
+  7- Yerel Grup İlkesi Düzenleyicisi
+  <a class="heading-link" href="#7--yerel-grup-ilkesi-d%c3%bczenleyicisi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*dQsN3KsDl549381FOo6nDA.png" alt=""></p>
+<blockquote>
+<p><code>gpedit.msc</code></p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*XETMBSBOzK7D4tqp1o8mrQ.png" alt=""></p>
+<p>Local Group Policy Editor</p>
+<p>Windows işletim sisteminde <strong>Yerel Grup İlkesi Düzenleyicisi</strong>ni açmak için kullanılan bir komut dosyasıdır. Bu araç, kullanıcıların ve bilgisayarların sistem üzerindeki davranışlarını kontrol eden yerel grup ilkelerini yapılandırmak için kullanılır. Grup İlkesi Düzenleyicisi; yazılım kısıtlamalarını belirleme, oturum açma politikalarını yönetme, ağ ayarlarını yapılandırma ve güvenlik gereksinimlerini uygulama gibi geniş bir ayar yelpazesini içerir. Özellikle Windows Pro ve üst sürümlerde bulunur ve sistem yöneticileri için yerel politikaları merkezi bir şekilde düzenlemek adına kritik bir araçtır.</p>
+<h4 id="8--yerel-kullanıcılar-vegruplar">
+  8- Yerel Kullanıcılar ve Gruplar
+  <a class="heading-link" href="#8--yerel-kullan%c4%b1c%c4%b1lar-vegruplar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Ph4cBMvCzWWC8F4wSrBKMA.png" alt=""></p>
+<blockquote>
+<p><code>lusrmgr.msc</code></p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*PpzC4VflE9EQfpHgFzywDA.png" alt=""></p>
+<p>Local Users and Groups</p>
+<p>Windows işletim sisteminde <strong>Yerel Kullanıcılar ve Gruplar (Local Users and Groups)</strong> yönetim aracını açmak için kullanılan bir komut dosyasıdır. Bu araç, bir bilgisayar üzerindeki yerel kullanıcı hesaplarını ve grupları yönetmek için kullanılır. Kullanıcılar <code>lusrmgr.msc</code> aracılığıyla yeni kullanıcı hesapları oluşturabilir, mevcut hesapları düzenleyebilir, gruplara üyelik atayabilir ve kullanıcı izinlerini yapılandırabilir. Ayrıca, parola ayarlarını değiştirme, hesapların etkinlik durumunu kontrol etme veya belirli kullanıcılar için erişim sınırlamaları getirme gibi işlemleri de destekler. Bu araç, özellikle sistem yöneticileri tarafından yerel güvenlik ve kullanıcı erişimini yönetmek için önemli bir role sahiptir.</p>
+<h4 id="9--görev-zamanlayıcı">
+  9- Görev Zamanlayıcı
+  <a class="heading-link" href="#9--g%c3%b6rev-zamanlay%c4%b1c%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*aw0BmV1O3rpNqEEpvbv07Q.png" alt=""></p>
+<blockquote>
+<p><code>taskschd.msc</code></p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*771nW9DentMsT-0R_XxE2w.png" alt=""></p>
+<p>Task Scheduler</p>
+<p>Windows işletim sisteminde <strong>Görev Zamanlayıcı (Task Scheduler)</strong> aracını açmak için kullanılan bir komut dosyasıdır. Görev Zamanlayıcı, belirli zamanlarda veya olaylar gerçekleştiğinde görevleri otomatik olarak çalıştırmanızı sağlar. Kullanıcılar, bu araçla sistemdeki varsayılan görevleri inceleyebilir, yeni görevler oluşturabilir ve bu görevlerin zamanlama ayarlarını yapılandırabilir. Örneğin, belirli bir saatte bir yedekleme çalıştırma, sistem bakımı yapma veya bir uygulamayı başlatma gibi işlemler gerçekleştirilebilir. <code>taskschd.msc</code>, otomasyon sağlayarak kullanıcıların rutin işlemleri kolayca planlamasına olanak tanır.</p>
+<h4 id="10--paylaşılan-klasörler">
+  10- Paylaşılan Klasörler
+  <a class="heading-link" href="#10--payla%c5%9f%c4%b1lan-klas%c3%b6rler">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*1_05HPAMwCvgzwqHjRKYKw.png" alt=""></p>
+<blockquote>
+<p><code>fsmgmt.msc</code></p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*weE9YAJ7nRYtMRsPpYRszw.png" alt=""></p>
+<p>Shared Folders</p>
+<p>Windows işletim sisteminde <strong>Paylaşılan Klasörler (Shared Folders)</strong> yönetim konsolunu açmak için kullanılan bir komut dosyasıdır. Bu araç, bir bilgisayarda paylaşıma açılmış klasörleri ve bu klasörlere bağlı kullanıcı oturumlarını görüntülemek ve yönetmek için kullanılır. Kullanıcılar, bu konsol aracılığıyla mevcut paylaşımları inceleyebilir, yeni paylaşımlar ekleyebilir, erişim izinlerini yapılandırabilir ve aktif oturumları kontrol edebilir. Ayrıca, açık dosyaları yöneterek belirli kullanıcıların erişimini sonlandırma gibi işlemleri de destekler. <code>fsmgmt.msc</code>, özellikle ağ kaynaklarını paylaşan sistemlerde kullanıcı etkinliklerini ve paylaşım ayarlarını denetlemek için önemli bir rol oynar.</p>
+<h4 id="11--windows-defender-güvenlik-duvarı-ile-gelişmişgüvenlik">
+  11- Windows Defender Güvenlik Duvarı ile Gelişmiş Güvenlik
+  <a class="heading-link" href="#11--windows-defender-g%c3%bcvenlik-duvar%c4%b1-ile-geli%c5%9fmi%c5%9fg%c3%bcvenlik">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*XejYGc58spUFIjCG_1iN2A.png" alt=""></p>
+<blockquote>
+<p><code>wf.msc</code></p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*ChA1HxpNqJ7ucgVk_cA-mw.png" alt=""></p>
+<p><strong>Windows Defender Güvenlik Duvarı</strong></p>
+<p>Windows işletim sisteminde <strong>Windows Defender Güvenlik Duvarı ile Gelişmiş Güvenlik</strong> aracını açmak için kullanılan bir komut dosyasıdır. Bu araç, güvenlik duvarı ayarlarını ayrıntılı bir şekilde yönetmenizi sağlar. Kullanıcılar, bu konsol aracılığıyla gelen ve giden bağlantılar için kurallar oluşturabilir, mevcut kuralları düzenleyebilir veya devre dışı bırakabilir. Ayrıca, belirli uygulamalar veya portlar için özel güvenlik kuralları yapılandırılabilir. <code>wf.msc</code>, ağ trafiğini kontrol ederek bilgisayarın güvenliğini artırmak ve istenmeyen bağlantıları engellemek için kritik bir rol oynar.</p>
+<h4 id="12--yazdırmayönetimi">
+  12- Yazdırma Yönetimi
+  <a class="heading-link" href="#12--yazd%c4%b1rmay%c3%b6netimi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*MTSqO1OEapX1hDEQ_s7QuA.png" alt=""></p>
+<blockquote>
+<p>printmanagement.msc</p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*HmtdMCPwr-n95OLQwRQFNg.png" alt=""></p>
+<p>Print Management</p>
+<p>Windows işletim sisteminde <strong>Yazdırma Yönetimi (Print Management)</strong> konsolunu açmak için kullanılan bir komut dosyasıdır. Bu araç, yazıcıları ve yazdırma kuyruklarını merkezi bir şekilde yönetmenizi sağlar. Kullanıcılar, bu konsol aracılığıyla bağlı yazıcıları ekleyebilir, kaldırabilir, paylaşılan yazıcıları yönetebilir ve yazdırma işleri hakkında bilgi alabilir. Ayrıca, sürücü güncellemeleri, yazıcı sorunlarını giderme ve yazıcı erişim izinlerini yapılandırma gibi görevler de bu araç üzerinden gerçekleştirilebilir. <code>printmanagement.msc</code>, özellikle ağ yazıcılarını yöneten sistem yöneticileri için önemli bir rol oynar.</p>
+<h4 id="13--sertifika-yönetimi">
+  13- Sertifika Yönetimi
+  <a class="heading-link" href="#13--sertifika-y%c3%b6netimi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*cijWlhOxGxjRqXHwSebeOQ.png" alt=""></p>
+<blockquote>
+<p><code>certlm.msc</code></p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*4kxWFhlcjgX6STpedTFqDA.png" alt=""></p>
+<p>Certificates — Local Computers</p>
+<p>Windows işletim sisteminde <strong>Yerel Bilgisayar Sertifikaları Yönetimi</strong> aracını açmak için kullanılan bir komut dosyasıdır. Bu araç, bir bilgisayar üzerinde yüklü olan sertifikaları incelemek, yönetmek ve düzenlemek için kullanılır. Sertifikalar, güvenli bağlantılar, kimlik doğrulama ve şifreleme işlemleri gibi güvenlik görevlerinde kullanılır. Kullanıcılar, bu konsol üzerinden sertifika depolarını görüntüleyebilir, yeni sertifikalar ekleyebilir, mevcut sertifikaları silebilir veya sertifika özelliklerini inceleyebilir. <code>certlm.msc</code>, özellikle sistem yöneticileri için bilgisayar düzeyindeki sertifika yönetiminde kritik bir rol oynar.</p>
+<h4 id="14--performans-izleyicisi">
+  14- Performans İzleyicisi
+  <a class="heading-link" href="#14--performans-izleyicisi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*drGVabk1_JuCxoBQLN9ldw.png" alt=""></p>
+<blockquote>
+<p><code>perfmon.msc</code></p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*PkQsxpMaGI2TSQDpb9R8wQ.png" alt=""></p>
+<p>Performance Monitor</p>
+<p>Windows işletim sisteminde <strong>Performans İzleyici (Performance Monitor)</strong> aracını açmak için kullanılan bir komut dosyasıdır. Bu araç, bilgisayarın performansını gerçek zamanlı olarak izlemek ve performansla ilgili geçmiş verileri toplamak için kullanılır. Kullanıcılar, CPU, bellek, disk ve ağ kullanımı gibi sistem kaynaklarını ayrıntılı bir şekilde analiz edebilir. Ayrıca, özel performans sayaçları ekleyerek belirli süreçlerin veya uygulamaların performansını izlemek mümkündür. <code>perfmon.msc</code>, sistem performans sorunlarını teşhis etmek ve optimizasyon fırsatlarını belirlemek için kritik bir rol oynar.</p>
+<h4 id="15--uzak-masaüstü-hizmetleri-yöneticisi">
+  15- Uzak Masaüstü Hizmetleri Yöneticisi
+  <a class="heading-link" href="#15--uzak-masa%c3%bcst%c3%bc-hizmetleri-y%c3%b6neticisi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*kO1BtfC5frTaF-qbfuBCaQ.png" alt=""></p>
+<blockquote>
+<p><code>tsadmin.msc</code></p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*BPLbsJAB4eySqgSpwwG3uw.jpeg" alt=""></p>
+<p>Remote Desktop Services Manager olarak da bilinen, Windows Server işletim sistemlerinde kullanılan bir yönetim aracıdır. Bu araç, özellikle Terminal Server kullanıcı oturumlarını yönetmek için tasarlanmıştır. Yöneticiler, bu konsol aracılığıyla bağlı kullanıcıların oturumlarını izleyebilir, oturumları sonlandırabilir, mesaj gönderebilir ve kullanıcı oturumlarını uzaktan kontrol edebilir. Ayrıca, oturumlarla ilgili performans verilerini görüntülemek ve sorunları gidermek için kullanılır. Ancak, Windows Server 2012 ve sonraki sürümlerde bu araç varsayılan olarak bulunmamaktadır; bunun yerine, Server Manager veya Group Policy gibi alternatif yönetim araçları kullanılmaktadır.</p>
+<h4 id="16--yetkilendirme-yöneticisi">
+  16- Yetkilendirme Yöneticisi
+  <a class="heading-link" href="#16--yetkilendirme-y%c3%b6neticisi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*5ycPzQAAhzh_4Ut2SLA1Ow.png" alt=""></p>
+<blockquote>
+<p><code>azman.msc</code></p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*tPmIFI6iET881lNc83L8EQ.png" alt=""></p>
+<p>Authorization Manager</p>
+<p>Microsoft Authorization Manager (Yetkilendirme Yöneticisi) olarak bilinen bir yönetim aracıdır. Bu araç, .NET tabanlı uygulamalar için rol tabanlı erişim kontrolü ve güvenlik çerçevesi sağlar. Yöneticiler, bu konsolu kullanarak kullanıcıların ve grupların belirli kaynaklara erişim izinlerini yönetebilir, politikalar oluşturabilir ve uygulayabilir. Ayrıca, uygulamaların bu erişim kontrollerini çalıştırma zamanında kullanmasına olanak tanır. Ancak, bu araç daha yeni Windows sürümlerinde varsayılan olarak bulunmaz ve yerini genellikle daha modern güvenlik yönetim araçlarına bırakmıştır.</p>
+<h4 id="17--bileşen-hizmetleri">
+  17- Bileşen Hizmetleri
+  <a class="heading-link" href="#17--bile%c5%9fen-hizmetleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*q5vZ5cZncnQHSTB3ADbqzg.png" alt=""></p>
+<blockquote>
+<p><code>comexp.msc</code></p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*pIdbGHCOEizkpzvXjro0aA.png" alt=""></p>
+<p>Component Services</p>
+<p>Windows işletim sistemlerinde kullanılan bir Microsoft Yönetim Konsolu (MMC) bileşenidir ve “Component Services” (Bileşen Hizmetleri) olarak bilinir. Bu araç, özellikle COM+ uygulamalarını ve hizmetlerini yönetmek için tasarlanmıştır. Yöneticiler, bu konsolu kullanarak COM+ uygulama yapılandırmalarını düzenleyebilir, olay günlüklerini inceleyebilir ve sistemdeki bileşenlerin performansını optimize edebilir. Ayrıca, uygulamalar arasındaki iletişimi ve kaynak paylaşımını kolaylaştıran ayarları yapılandırma imkanı sunar. Bu araç, özellikle kurumsal uygulamaların güvenilir ve verimli bir şekilde çalışmasını sağlamak için kritik bir rol oynar.</p>
+<h3 id="active-directory-administrative-toolsadat">
+  Active Directory Administrative Tools — ADAT
+  <a class="heading-link" href="#active-directory-administrative-toolsadat">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Windows Active Directory Administrative Tools (ADAT), bir Active Directory (AD) ortamını yönetmek ve yapılandırmak için kullanılan araçlardır. Bu araçlar, sistem yöneticilerine kullanıcı hesaplarını, bilgisayarları, grupları, politikaları ve diğer AD nesnelerini yönetme imkanı sunar. Active Directory, özellikle kurumsal ağlarda kullanıcı ve kaynak yönetimi için merkezi bir rol oynar. İşte en yaygın kullanılan Active Directory yönetim araçları:</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*KUc3xyohoMX461oMMITE7g.png" alt=""></p>
+<p>ADAT</p>
+<h4 id="1-active-directory-users-and-computers-aduc">
+  1. Active Directory Users and Computers (ADUC)
+  <a class="heading-link" href="#1-active-directory-users-and-computers-aduc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Microsoft’un Active Directory hizmeti içinde, kullanıcı hesaplarını, bilgisayarları, grupları ve organizasyon birimlerini (OU) yönetmek için kullanılır. Yöneticiler, yeni kullanıcılar oluşturabilir, hesapları düzenleyebilir, parola politikalarını uygulayabilir ve nesneleri farklı organizasyon birimleri arasında taşıyabilir</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*K_zUm1r0QVCnLQgnDwczLA.png" alt=""></p>
+<p>Active Directory Users and Computers</p>
+<h4 id="2-active-directory-domains-andtrusts">
+  2. Active Directory Domains and Trusts
+  <a class="heading-link" href="#2-active-directory-domains-andtrusts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Microsoft’un Active Directory hizmeti içinde, etki alanları (domain) arasındaki güven ilişkilerini yönetmek için kullanılır. Yöneticiler, etki alanı güvenlerini oluşturabilir, düzenleyebilir veya kaldırabilir. Ayrıca, etki alanı işlevsel düzeyini yükseltmek gibi işlemler de bu araç üzerinden gerçekleştirilir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*QDVkcGG3felLhq9GADjBeA.png" alt=""></p>
+<p>Active Directory Domains and Trusts</p>
+<h4 id="3-active-directory-sites-andservices">
+  3. Active Directory Sites and Services
+  <a class="heading-link" href="#3-active-directory-sites-andservices">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>AD’nin fiziksel topolojisini yönetmek için kullanılır. Yöneticiler, siteleri, alt ağları ve site bağlantılarını yapılandırarak ağ trafiğini optimize edebilir ve replikasyon ayarlarını düzenleyebilir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*eFJ89GnmWgGiAWAFvMmwsQ.png" alt=""></p>
+<p>Active Directory Sites and Services</p>
+<h4 id="4-active-directory-administrative-centeradac">
+  4. Active Directory Administrative Center (ADAC)
+  <a class="heading-link" href="#4-active-directory-administrative-centeradac">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>AD nesnelerini yönetmek için daha modern bir arayüz sunar. Özellikle Windows Server 2008 R2 ve sonrasında kullanılan bu araç, PowerShell cmdlet’leri ile entegre çalışarak daha gelişmiş yönetim seçenekleri sunar.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*gVvHgx857TBhTzD6NmW7jQ.png" alt=""></p>
+<p>Active Directory Administrative Center</p>
+<h4 id="5--group-policy-management-consolegpmc">
+  <strong>5- Group Policy Management Console (GPMC)</strong>
+  <a class="heading-link" href="#5--group-policy-management-consolegpmc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Grup Politikalarını (Group Policy) yönetmek için kullanılır. Yöneticiler, politikalar oluşturabilir, düzenleyebilir ve bunları belirli kullanıcı veya bilgisayar gruplarına uygulayabilir. GPMC, politika ayarlarını merkezi olarak yönetmeyi kolaylaştırır.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*xbLyZ5DCZebIw1hn2NsiVw.png" alt=""></p>
+<p>Group Policy Management Console</p>
+<h4 id="6--active-directory-module-for-windows-powershell">
+  6- <strong>Active Directory Module for Windows PowerShell</strong>
+  <a class="heading-link" href="#6--active-directory-module-for-windows-powershell">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>AD yönetim işlemlerini komut satırı üzerinden gerçekleştirmek için kullanılır. PowerShell cmdlet’leri ile kullanıcı hesapları, gruplar, politikalar ve diğer AD nesneleri üzerinde çeşitli işlemler yapılabilir. Bu, özellikle otomasyon ve toplu işlemler için oldukça kullanışlıdır.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*26CfeO0LwUnxTiVbXoBOxg.png" alt=""></p>
+<p>Active Directory Module for Windows PowerShell</p>
+<h3 id="windows-management-instrumentationwmi">
+  **Windows Management Instrumentation —**WMI
+  <a class="heading-link" href="#windows-management-instrumentationwmi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Windows Management Instrumentation (WMI)</strong>, Microsoft’un Windows tabanlı işletim sistemlerinde sistem yönetimi ve veri erişimi için geliştirdiği bir altyapıdır.</p>
+<p>WMI, sistem yöneticilerine aşağıdaki işlemleri yapma imkanı sağlar:</p>
+<ul>
+<li>Sistem bilgilerini sorgulama (örneğin, işlemci, bellek, disk kullanımı).</li>
+<li>Hizmetleri başlatma, durdurma veya yeniden başlatma.</li>
+<li>Olayları izleme ve yönetme (örneğin, belirli bir olay gerçekleştiğinde bir komut çalıştırma).</li>
+<li>Uzak bilgisayarları yönetme.</li>
+</ul>
+<p>WMI, <strong>WMI Provider’lar</strong> aracılığıyla çalışır. Bu sağlayıcılar, donanım, yazılım ve işletim sistemi bileşenleri hakkında bilgi toplar ve bu bilgileri WMI’ye sunar. WMI, bu bilgileri <strong>WMI Query Language (WQL)</strong> adı verilen bir sorgu diliyle sorgulanabilir hale getirir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*8Uxx0e4xpvHQA5JVh43iIQ.png" alt=""></p>
+<h4 id="wmi-ile-çalışma-yöntemleri">
+  WMI ile Çalışma Yöntemleri
+  <a class="heading-link" href="#wmi-ile-%c3%a7al%c4%b1%c5%9fma-y%c3%b6ntemleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>WMI, sistem yönetimi için çeşitli yöntemler sunar. Bu yöntemler arasında <strong>PowerShell</strong>, <strong>VBScript</strong>, <strong>WMIC (WMI Command-Line)</strong> ve .<strong>NET</strong> gibi araçlar bulunur.</p>
+<h4 id="1--powershell">
+  1- <strong>PowerShell</strong>
+  <a class="heading-link" href="#1--powershell">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><strong>PowerShell</strong>, Windows işletim sistemi üzerinde kullanılan, komut satırı arabirimi ve betik dili bir arada sunan bir yönetim aracıdır. ve WMI sorgularını çalıştırmak için idealdir.</p>
+<p>Örnek: İşlemci bilgilerini sorgulama:</p>
+<pre tabindex="0"><code>Get-WmiObject -Class Win32_Processor
+</code></pre><h4 id="2--vbscript">
+  2- <strong>VBScript</strong>
+  <a class="heading-link" href="#2--vbscript">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><strong>VBScript (Visual Basic Scripting Edition)</strong>, Microsoft tarafından geliştirilen hafif bir betik dilidir. Özellikle Windows işletim sistemleri için tasarlanmış olup, görev otomasyonu ve uygulama geliştirme gibi işlemlerde kullanılır. Dolayısıyla, WMI sorgularını çalıştırmak için kullanılabilir.</p>
+<p>Örnek: Disk bilgilerini sorgulama:</p>
+<pre tabindex="0"><code>strComputer = &#34;.&#34;  
+Set objWMIService = GetObject(&#34;winmgmts:\\&#34; &amp; strComputer &amp; &#34;\root\cimv2&#34;)  
+Set colDisks = objWMIService.ExecQuery(&#34;SELECT * FROM Win32_DiskDrive&#34;)  
+For Each objDisk in colDisks  
+    WScript.Echo &#34;DeviceID: &#34; &amp; objDisk.DeviceID  
+Next
+</code></pre><h4 id="3-net">
+  3- <strong>.NET</strong>
+  <a class="heading-link" href="#3-net">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><strong>.NET</strong>, Microsoft tarafından geliştirilen bir yazılım platformudur. Hem uygulama geliştirme hem de çalışma zamanı ortamı sunar. NET uygulamaları, <code>System.Management</code> namespace&rsquo;i ile WMI sorguları çalıştırabilir.</p>
+<p>Örnek: İşlemci bilgilerini sorgulama:</p>
+<pre tabindex="0"><code>using System.Management;  
+  
+ManagementObjectSearcher searcher = new ManagementObjectSearcher(&#34;SELECT * FROM Win32_Processor&#34;);
+</code></pre><h4 id="4--wmic">
+  4- <strong>WMIC</strong>
+  <a class="heading-link" href="#4--wmic">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><strong>WMIC (Windows Management Instrumentation Command-line)</strong>, Windows işletim sisteminde kullanılan bir komut satırı aracıdır. WMI’ya (Windows Management Instrumentation) komut satırı üzerinden erişim sağlar ve sistem yönetimini kolaylaştırır.</p>
+<p>Örnek: İşlemci bilgilerini sorgulama:</p>
+<pre tabindex="0"><code>wmic cpu get name
+</code></pre><h3 id="azure-active-directory">
+  Azure Active Directory
+  <a class="heading-link" href="#azure-active-directory">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>Azure Active Directory (Azure AD)</strong>, Microsoft’un dijital dönüşüm stratejisinin temel taşlarından biridir ve yeni nesil kimlik ve erişim yönetimi çözümleriyle modern organizasyonların ihtiyaçlarını karşılar. İşte dönüşümün temel bileşenleri:</p>
+<ul>
+<li><strong>Bulut ve Hibrit Entegrasyon</strong>: Azure AD, şirket içi Active Directory ile entegre çalışarak hibrit kimlik yönetimine olanak tanır, böylece hem bulut hem de yerel kaynaklara güvenli erişim sağlar.</li>
+<li><strong>Zero Trust Güvenlik Modeli</strong>: Yeni nesil güvenlik stratejileri ile her erişim isteğini doğrular ve minimum ayrıcalık ilkesi uygular.</li>
+<li><strong>Koşullu Erişim</strong>: Cihaz durumu, konum ve oturum açma riski gibi faktörlere dayalı güvenlik politikaları oluşturur.</li>
+<li><strong>Kimlik Koruma</strong>: Yapay zeka destekli analizlerle riskli oturum açmaları algılar ve önler.</li>
+<li><strong>Mobil ve Uzak Çalışma Destekleri</strong>: Microsoft Intune ile entegrasyon sayesinde mobil cihazların ve uzak çalışanların yönetimi kolaylaşır.</li>
+</ul>
+<p>Microsoft’un bulut tabanlı kimlik ve erişim yönetimi çözümüdür. Hem kullanıcıların hem de uygulamaların güvenli bir şekilde yönetilmesini sağlar ve modern iş ortamları için kritik bir altyapı sunar.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*pqT3BvT-gibeMBhl0SiIFg.jpeg" alt=""></p>
+<p>Azure AD ekosisteminde birçok yönetim ve iş aracı mevcuttur. Bu da Azure AD’yi hem güvenlik hem de yönetim açısından güçlü ve entegre bir çözüm haline getirir.</p>
+<p>Bu ekosisteme; <a href="https://portal.azure.com"  class="external-link" target="_blank" rel="noopener">https://portal.azure.com</a> adresinden microsoft hesabınız ile erişip inceleyebilirsiniz.</p>
+
+      </div>
+
+      <footer class="post-footer-links">
+        
+
+
+      </footer>
+    </article>
+  </section>
+
+  <style>
+    .post-full {
+      padding: 2.5rem;
+      margin: 2rem auto;
+      max-width: 900px;
+    }
+    .post-header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .post-title-full {
+      font-size: 2.5rem;
+      margin: 1rem 0;
+      background: linear-gradient(to right, var(--primary-accent), var(--secondary-accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .post-featured-image {
+      margin: 2rem -2.5rem;
+      max-height: 500px;
+      overflow: hidden;
+    }
+    .post-featured-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .post-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: inherit;
+    }
+    .post-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 768px) {
+      .post-full {
+        padding: 1.5rem;
+      }
+      .post-title-full {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

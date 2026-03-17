@@ -1,6 +1,9 @@
 ---
 date: '2025-08-12'
-description: Ağ yönetimi, son yirmi yılda köklü bir dönüşüm geçirmiştir. Geçmişte, ağ yönetimi büyük ölçüde manuel, reaktif ve komut satırı arayüzü (CLI) tabanlı bireysel sorun giderme çabalarına dayanıyordu. Ağ mühendisleri, sorunlar ortaya çıktığında müdahale e...
+description: Ağ yönetimi, son yirmi yılda köklü bir dönüşüm geçirmiştir. Geçmişte,
+  ağ yönetimi büyük ölçüde manuel, reaktif ve komut satırı arayüzü (CLI) tabanlı bireysel
+  sorun giderme çabalarına dayanıyordu. Ağ mühendisleri, sorunlar ortaya çıktığında
+  müdahale e...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*Iv6EqXHTlTeVgd7LlSNDOQ.png
 layout: single

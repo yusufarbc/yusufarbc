@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Yazı Serileri on Yusuf Talha ARABACI</title>
+    <title>Yazı Serileri on yusufarbc.dev</title>
     <link>http://localhost:1313/tr/series/</link>
-    <description>Recent content in Yazı Serileri on Yusuf Talha ARABACI</description>
+    <description>Recent content in Yazı Serileri on yusufarbc.dev</description>
     <generator>Hugo</generator>
     <language>tr</language>
     <lastBuildDate>Tue, 18 Nov 2025 00:00:00 +0000</lastBuildDate>
@@ -13,7 +13,7 @@
       <link>http://localhost:1313/tr/series/sentinelone-edr/</link>
       <pubDate>Tue, 18 Nov 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tr/series/sentinelone-edr/</guid>
-      <description></description>
+      <description>&lt;p&gt;SentinelOne EDR yazı serisi.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Threat Hunting Walkthroughs</title>
@@ -24,9 +24,9 @@
     </item>
     <item>
       <title>Ağ Güvenliği Ve Yönetimi</title>
-      <link>http://localhost:1313/tr/series/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi/</link>
+      <link>http://localhost:1313/tr/series/ag-guvenligi-ve-yonetimi/</link>
       <pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tr/series/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi/</guid>
+      <guid>http://localhost:1313/tr/series/ag-guvenligi-ve-yonetimi/</guid>
       <description></description>
     </item>
     <item>
@@ -34,13 +34,13 @@
       <link>http://localhost:1313/tr/series/wazuh-siem/</link>
       <pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tr/series/wazuh-siem/</guid>
-      <description></description>
+      <description>&lt;p&gt;Wazuh SIEM yazı serisi.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Wireshark Ile Ağ Analizi</title>
-      <link>http://localhost:1313/tr/series/wireshark-ile-a%C4%9F-analizi/</link>
+      <link>http://localhost:1313/tr/series/wireshark-ile-ag-analizi/</link>
       <pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tr/series/wireshark-ile-a%C4%9F-analizi/</guid>
+      <guid>http://localhost:1313/tr/series/wireshark-ile-ag-analizi/</guid>
       <description></description>
     </item>
     <item>
@@ -52,16 +52,16 @@
     </item>
     <item>
       <title>Zararlı Yazılım Analizine Giriş</title>
-      <link>http://localhost:1313/tr/series/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F/</link>
+      <link>http://localhost:1313/tr/series/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris/</link>
       <pubDate>Thu, 16 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tr/series/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F/</guid>
+      <guid>http://localhost:1313/tr/series/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris/</guid>
       <description></description>
     </item>
     <item>
       <title>Hakerlar Için Python</title>
-      <link>http://localhost:1313/tr/series/hakerlar-i%C3%A7in-python/</link>
+      <link>http://localhost:1313/tr/series/hakerlar-icin-python/</link>
       <pubDate>Mon, 26 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tr/series/hakerlar-i%C3%A7in-python/</guid>
+      <guid>http://localhost:1313/tr/series/hakerlar-icin-python/</guid>
       <description></description>
     </item>
     <item>
@@ -93,25 +93,11 @@
       <description>&lt;p&gt;Açık kaynak istihbaratı teknikleri.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>SentinelOne EDR</title>
-      <link>http://localhost:1313/tr/series/sentinelone/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tr/series/sentinelone/</guid>
-      <description>&lt;p&gt;SentinelOne EDR analizi.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Sistem Programlama</title>
       <link>http://localhost:1313/tr/series/sistem-programlama/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tr/series/sistem-programlama/</guid>
       <description>&lt;p&gt;Düşük seviyeli sistem programlama.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Wazuh SIEM</title>
-      <link>http://localhost:1313/tr/series/wazuh/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tr/series/wazuh/</guid>
-      <description>&lt;p&gt;Wazuh SIEM kurulum ve analizi.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Wireshark ile Ağ Analizi</title>
@@ -125,7 +111,7 @@
       <link>http://localhost:1313/tr/series/zararli-yazilim-analizine-giris/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tr/series/zararli-yazilim-analizine-giris/</guid>
-      <description>&lt;p&gt;Zararlı yazılım analizi temelleri.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Zararlı Yazılım Analizine Giriş yazı serisi.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -1,11 +1,12 @@
 baseURL = "https://yusufarbc.dev/"
 languageCode = "en"
-title = "Yusuf Talha ARABACI"
+title = "yusufarbc.dev"
 theme = "hugo-coder"
 
 defaultContentLanguage = "en"
 paginate = 20
 enableEmoji = true
+removePathAccents = true
 
 [languages]
   [languages.en]
@@ -14,7 +15,7 @@ enableEmoji = true
     weight = 1
     [languages.en.params]
       author = "Yusuf Talha ARABACI"
-      info = "Security Engineer"
+      info = "IT & Security Engineer"
     [[languages.en.menu.main]]
       name = "Posts"
       weight = 1
@@ -24,9 +25,19 @@ enableEmoji = true
       weight = 2
       url = "series/"
     [[languages.en.menu.main]]
-      name = "About"
+      name = "Projects"
       weight = 3
+      url = "projects/"
+    [[languages.en.menu.main]]
+      name = "About"
+      weight = 4
       url = "about/"
+    [[languages.en.menu.main]]
+      name = "Contact Me"
+      weight = 5
+      url = "mailto:yusuf.talhaarabaci@owasp.org"
+      [languages.en.menu.main.params]
+        class = "btn-contact"
 
   [languages.tr]
     contentDir = "content/tr"
@@ -34,7 +45,7 @@ enableEmoji = true
     weight = 2
     [languages.tr.params]
       author = "Yusuf Talha ARABACI"
-      info = "Güvenlik Mühendisi"
+      info = "IT & Security Engineer (Bilgi İşlem ve Güvenlik Mühendisi)"
     [[languages.tr.menu.main]]
       name = "Yazılar"
       weight = 1
@@ -44,9 +55,19 @@ enableEmoji = true
       weight = 2
       url = "series/"
     [[languages.tr.menu.main]]
-      name = "Hakkımda"
+      name = "Projeler"
       weight = 3
+      url = "projects/"
+    [[languages.tr.menu.main]]
+      name = "Hakkımda"
+      weight = 4
       url = "about/"
+    [[languages.tr.menu.main]]
+      name = "İletişim"
+      weight = 5
+      url = "mailto:yusuf.talhaarabaci@owasp.org"
+      [languages.tr.menu.main.params]
+        class = "btn-contact"
 
 [sitemap]
   changefreq = "weekly"
@@ -55,9 +76,9 @@ enableEmoji = true
 
 [params]
   author = "Yusuf Talha ARABACI"
-  description = "Security Engineer specializing in Cloud-Native Security, SOC Architecture, and Open Source Defense."
-  keywords = "cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting"
-  info = "Security Engineer"
+  description = "IT & Security Engineer specializing in infrastructure management, secure-by-design architectures, and open-source enterprise solutions."
+  keywords = "cybersecurity, IT engineer, systems administration, network security, infrastructure, proxmox, docker, yusuf talha arabaci"
+  info = "IT & Security Engineer"
   avatarURL = "images/profile.jpeg"
   
   # Technical SEO

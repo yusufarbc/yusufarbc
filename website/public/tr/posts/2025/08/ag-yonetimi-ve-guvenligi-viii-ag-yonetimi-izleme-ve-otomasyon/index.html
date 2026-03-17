@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Ağ Yönetimi ve Güvenliği VIII: Ağ Yönetimi, İzleme ve Otomasyon · yusufarbc.dev
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="Ağ yönetimi, son yirmi yılda köklü bir dönüşüm geçirmiştir. Geçmişte, ağ yönetimi büyük ölçüde manuel, reaktif ve komut satırı arayüzü (CLI) tabanlı bireysel sorun giderme çabalarına dayanıyordu. Ağ mühendisleri, sorunlar ortaya çıktığında müdahale e...">
+<meta name="keywords" content="cybersecurity, IT engineer, systems administration, network security, infrastructure, proxmox, docker, yusuf talha arabaci">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Ağ Yönetimi ve Güvenliği VIII: Ağ Yönetimi, İzleme ve Otomasyon">
+  <meta name="twitter:description" content="Ağ yönetimi, son yirmi yılda köklü bir dönüşüm geçirmiştir. Geçmişte, ağ yönetimi büyük ölçüde manuel, reaktif ve komut satırı arayüzü (CLI) tabanlı bireysel sorun giderme çabalarına dayanıyordu. Ağ mühendisleri, sorunlar ortaya çıktığında müdahale e...">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-viii-ag-yonetimi-izleme-ve-otomasyon/">
+  <meta property="og:site_name" content="yusufarbc.dev">
+  <meta property="og:title" content="Ağ Yönetimi ve Güvenliği VIII: Ağ Yönetimi, İzleme ve Otomasyon">
+  <meta property="og:description" content="Ağ yönetimi, son yirmi yılda köklü bir dönüşüm geçirmiştir. Geçmişte, ağ yönetimi büyük ölçüde manuel, reaktif ve komut satırı arayüzü (CLI) tabanlı bireysel sorun giderme çabalarına dayanıyordu. Ağ mühendisleri, sorunlar ortaya çıktığında müdahale e...">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-12T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-12T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/wazuh-5.0da-neler-yeni-siber-tehdit-istihbarat%C4%B1nda-devrim-ve-uc-nokta-guvenliginde-yeni-bir-cag/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-x-soc-ve-noc-surecleri/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/soc-analistleri-icin-kal%C4%B1c%C4%B1l%C4%B1k-saglama-kapsaml%C4%B1-xdr-analiz-k%C4%B1lavuzu/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-ix-bulut-guvenligi-ve-hibrit-ag-mimarileri/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-vi-ag-protokolleri-guvenligi-ve-analizi/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-iii-ag-donan%C4%B1mlar%C4%B1-ve-fiziksel-altyap%C4%B1-guvenligi/">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-viii-ag-yonetimi-izleme-ve-otomasyon/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      
+        <img class="navigation-logo" src="/images/profile.jpeg" alt="Logo">
+      
+      <span class="navigation-text">yusufarbc.dev</span>
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/projects/">Projeler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link btn-contact" href="mailto:yusuf.talhaarabaci@owasp.org">İletişim</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/">English</a>
+              </li>
+            
+          
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article class="post-full glass-card">
+      <header class="post-header">
+        <div class="post-meta">
+          <time datetime="2025-08-12T00:00:00Z">
+            August 12, 2025
+          </time>
+          
+            <span class="post-series">in 
+              
+                <a href="/tr/series/ag-guvenligi-ve-yonetimi">Ağ Güvenliği ve Yönetimi</a>
+              
+            </span>
+          
+          <span class="reading-time">
+            <i class="fa-solid fa-clock" aria-hidden="true"></i>
+            27 min read
+          </span>
+        </div>
+        <h1 class="post-title-full">Ağ Yönetimi ve Güvenliği VIII: Ağ Yönetimi, İzleme ve Otomasyon</h1>
+        
+        
+        <div class="post-featured-image">
+          <img src="https://cdn-images-1.medium.com/max/800/1*Iv6EqXHTlTeVgd7LlSNDOQ.png" alt="Ağ Yönetimi ve Güvenliği VIII: Ağ Yönetimi, İzleme ve Otomasyon">
+        </div>
+        
+      </header>
+
+      <div class="post-content">
+        <p>Ağ yönetimi, son yirmi yılda köklü bir dönüşüm geçirmiştir. Geçmişte, ağ yönetimi büyük ölçüde manuel, reaktif ve komut satırı arayüzü (CLI) tabanlı bireysel sorun giderme çabalarına dayanıyordu. Ağ mühendisleri, sorunlar ortaya çıktığında müdahale eder, cihazlara tek tek bağlanır ve yapılandırmaları manuel olarak düzenlerdi. Bu yaklaşım, günümüzün karmaşık, dinamik ve iş açısından kritik ağ altyapıları için artık sürdürülebilir değildir. Modern ağ operasyonları, bu eski paradigmanın yerini alan, birbiriyle derinden bağlantılı üç temel sütun üzerine inşa edilmiştir:</p>
+<ol>
+<li><strong>Kapsamlı Görünürlük:</strong> Ağın durumunu, sağlığını ve trafik modellerini gerçek zamanlı olarak anlama yeteneği. Bu, yalnızca cihazların “çalışıp çalışmadığını” bilmekten öte, ağdaki her bir konuşmanın doğasını, performans metriklerini ve potansiyel anormallikleri anlamayı içerir.</li>
+<li><strong>Akıllı Otomasyon:</strong> Ağın yaşam döngüsünü kontrol etmek, yapılandırmak ve yönetmek için yazılım kullanmak. Otomasyon, insan hatasını azaltır, tekrarlayan görevleri ortadan kaldırır, tutarlılığı sağlar ve ağ değişikliklerinin hızını ve çevikliğini artırır.</li>
+<li><strong>Bütünleşik Dayanıklılık:</strong> Performans yönetimi ve güvenlik operasyonlarını birleşik bir stratejide birleştirmek. Bu yaklaşım, ağın yalnızca kullanılabilir ve performanslı olmasını değil, aynı zamanda sürekli gelişen tehditlere karşı güvende olmasını da sağlar.</li>
+</ol>
+<p>Bu raporun ana tezi, bu sütunların birbirinden izole disiplinler olmadığı, aksine birbirini besleyen ve güçlendiren entegre bir sistem olduğudur. İzleme araçlarından elde edilen görünürlük, akıllı otomasyonu tetiklemek için gerekli verileri sağlar. Otomasyon ise, güvenlik politikalarını ve performans garantilerini uygulamak için kullanılır. Bu durum, modern NetDevOps felsefesinin özünü oluşturan güçlü bir geri bildirim döngüsü yaratır. Bu kapsamlı teknik rapor, bu üç temel taşı derinlemesine inceleyecek, temel teknolojileri, protokolleri, araçları ve en iyi uygulamaları analiz ederek modern ağ yönetimi, izleme ve otomasyonun bütünsel bir resmini sunacaktır.</p>
+<h3 id="bölüm-i-ağ-görünürlüğüyönetimin-temeli">
+  Bölüm I: Ağ Görünürlüğü — Yönetimin Temeli
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-i-a%c4%9f-g%c3%b6r%c3%bcn%c3%bcrl%c3%bc%c4%9f%c3%bcy%c3%b6netimin-temeli">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu bölüm, sonraki tüm yönetim, otomasyon ve güvenlik faaliyetleri için gerekli olan ham verileri sağlayan teknolojilere odaklanmaktadır. Ağ cihazlarının “ne” durumda olduğunu (cihaz sağlığı), trafiğin “kim” tarafından “nereye” aktığını (akış analizi) ve bu verilerin “nasıl” bir araya getirilip anlamlandırıldığını (izleme platformları) inceleyeceğiz.</p>
+<h3 id="bölüm-1-snmp-ile-cihaz-sağlığı-ve-durumizleme">
+  Bölüm 1: SNMP ile Cihaz Sağlığı ve Durum İzleme
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-1-snmp-ile-cihaz-sa%c4%9fl%c4%b1%c4%9f%c4%b1-ve-durumizleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Simple Network Management Protocol (SNMP), ağ izlemenin en temel ve yaygın olarak kullanılan protokolüdür. Bu bölümde, SNMP’nin mimarisi, evrimi ve her bir sürümünün kritik güvenlik etkileri ayrıntılı olarak incelenecektir.</p>
+<h4 id="11-snmp-mimarisi-ve-temel-bileşenleri">
+  1.1. SNMP Mimarisi ve Temel Bileşenleri
+  <a class="heading-link" href="#11-snmp-mimarisi-ve-temel-bile%c5%9fenleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>SNMP, temel olarak bir yönetici-ajan (manager-agent) modeli üzerine kuruludur. Bu mimari, ağdaki cihazların durumunu ve performansını merkezi olarak izlemek ve yönetmek için tasarlanmıştır.</p>
+<ul>
+<li><strong>Yönetici-Ajan Modeli:</strong> Bu modelde, <strong>Yönetici</strong> (Manager) veya Ağ Yönetim İstasyonu (NMS) olarak adlandırılan merkezi bir sunucu bulunur. Bu sunucu, ağdaki yönetilen cihazlar (yönlendiriciler, anahtarlar, sunucular, yazıcılar vb.) üzerinde çalışan <strong>Ajan</strong> (Agent) yazılımlarıyla iletişim kurar. Yönetici, ajanlara istekler göndererek bilgi toplar veya yapılandırma değişiklikleri yapar. Ajanlar ise bu isteklere yanıt verir veya belirli olaylar meydana geldiğinde yöneticiye proaktif olarak bildirimler (trap) gönderir.</li>
+<li><strong>Yönetim Bilgi Tabanı (MIB) ve Nesne Tanımlayıcıları (OID):</strong> Her ajanın üzerinde, o cihazla ilgili yönetilebilir bilgilerin hiyerarşik bir veritabanı olan <strong>Yönetim Bilgi Tabanı (MIB)</strong> bulunur. MIB içindeki her bir bilgi parçası (örneğin, CPU kullanımı, arayüz durumu, bellek miktarı) <strong>Nesne Tanımlayıcısı (OID)</strong> adı verilen benzersiz bir adresle tanımlanır. Yönetici, belirli bir veriyi sorgulamak için bu OID’leri kullanır. Örneğin, bir arayüzün gelen trafik miktarını öğrenmek için ilgili arayüzün <code>ifInOctets</code> OID&rsquo;sini sorgular.</li>
+</ul>
+<h4 id="12-snmpnin-evrimi-güvenlik-ve-işlevsellik-derinlemesine-bakış">
+  1.2. SNMP’nin Evrimi: Güvenlik ve İşlevsellik Derinlemesine Bakış
+  <a class="heading-link" href="#12-snmpnin-evrimi-g%c3%bcvenlik-ve-i%c5%9flevsellik-derinlemesine-bak%c4%b1%c5%9f">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>SNMP, yıllar içinde önemli ölçüde gelişmiştir. Bu evrim, özellikle güvenlik alanındaki iyileştirmelerle karakterize edilir.</p>
+<h4 id="snmpv1">
+  <strong>SNMPv1</strong>
+  <a class="heading-link" href="#snmpv1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Protokolün orijinal versiyonudur. Temel amacı, ağ yönetimi için açık ve standart bir yöntem sağlamaktı. Ancak en büyük zayıflığı, şifrelenmemiş düz metin olarak iletilen ve parola işlevi gören “community string” adı verilen bir yapıya dayanan güvenlik modelidir. Bu, ağ trafiğini dinleyen herhangi birinin bu parolayı ele geçirip cihazlara yetkisiz erişim sağlamasına olanak tanır. Ayrıca, yalnızca 32-bit sayaçları desteklemesi, yüksek hızlı ağlarda sayaçların hızla sıfırlanmasına (rollover) neden olabildiği için bir sınırlamadır.</p>
+<h4 id="snmpv2c">
+  <strong>SNMPv2c</strong>
+  <a class="heading-link" href="#snmpv2c">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>SNMPv1 üzerine yapılan bir geliştirmedir ve temel olarak performans iyileştirmelerine odaklanır. Özellikle <code>GetBulkRequest</code> gibi yeni Protokol Veri Birimleri (PDU) ekleyerek büyük veri bloklarının daha verimli bir şekilde alınmasını sağlar. Ancak güvenlik açısından v1 ile tamamen aynıdır; hala şifrelenmemiş &ldquo;community string&rdquo; kullanır. İsmindeki &ldquo;c&rdquo; harfi, &ldquo;community-based&rdquo; (topluluk tabanlı) anlamına gelerek bu ortak güvenlik modelini vurgular.</p>
+<h4 id="snmpv3">
+  <strong>SNMPv3</strong>
+  <a class="heading-link" href="#snmpv3">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Önceki sürümlerin bariz güvenlik açıklarını gidermek için özel olarak geliştirilmiş modern ve güvenli standarttır. SNMPv3, sağlam bir güvenlik çerçevesi sunar:</p>
+<ul>
+<li><strong>Kullanıcı Tabanlı Güvenlik Modeli (USM):</strong> “Community string” yapısını, kullanıcı adları ile değiştirir. Bu, her kullanıcı için ayrı kimlik bilgileri tanımlanmasına ve daha granüler erişim kontrolüne olanak tanır.</li>
+<li><strong>Güvenlik Seviyeleri:</strong> SNMPv3, üç farklı güvenlik seviyesi sunar:<br>
+<code>noAuthNoPriv</code> (Kimlik Doğrulama Yok, Gizlilik Yok): Kimlik doğrulama veya şifreleme sağlamaz. İşlevsel olarak v1/v2c&rsquo;ye benzer ancak bir kullanıcı adı gerektirir. Hiçbir güvenlik avantajı sunmadığı ve performans maliyeti olduğu için genellikle önerilmez.<br>
+<code>authNoPriv</code> (Kimlik Doğrulama Var, Gizlilik Yok): Mesajların geçerli bir kaynaktan geldiğini ve değiştirilmediğini doğrulamak için MD5 veya SHA gibi özetleme (hashing) algoritmaları kullanarak mesaj bütünlüğü ve kimlik doğrulama sağlar. Ancak mesajın içeriği (veri yükü) şifrelenmez.<br>
+<code>authPriv</code> (Kimlik Doğrulama Var, Gizlilik Var): En yüksek güvenlik seviyesidir. Hem kimlik doğrulama (MD5/SHA) sağlar hem de DES, 3DES veya AES gibi algoritmalar kullanarak tüm SNMP mesaj yükünü şifreler, böylece verilerin gizliliğini garanti eder.</li>
+<li><strong>Görünüm Tabanlı Erişim Kontrol Modeli (VACM):</strong> Yöneticilerin, belirli bir kullanıcının MIB ağacının hangi bölümlerine erişebileceğini (sadece okuma veya okuma/yazma) hassas bir şekilde tanımlamasına olanak tanır.</li>
+</ul>
+<h4 id="protokol-veri-birimleri-pdu-ve-operasyonlar">
+  <strong>Protokol Veri Birimleri (PDU) ve Operasyonlar</strong>
+  <a class="heading-link" href="#protokol-veri-birimleri-pdu-ve-operasyonlar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Temel PDU’lar (v1):</strong> <code>GetRequest</code>, <code>GetNextRequest</code>, <code>SetRequest</code>, <code>Response</code>, <code>Trap</code>.</li>
+<li><strong>v2c Eklemeleri:</strong> <code>GetBulkRequest</code> (büyük veri bloklarını verimli bir şekilde almak için) ve <code>InformRequest</code> (yöneticinin bildirimi aldığını teyit eden, onaylanmış bir trap).</li>
+<li><strong>v3 Eklemeleri:</strong> <code>Report</code> PDU&rsquo;su, güvenlik modeliyle ilgili mesajlaşma için kullanılır.</li>
+</ul>
+<p>SNMPv2c ve SNMPv3 arasındaki seçim, yalnızca teknik bir tercih değil, aynı zamanda bir kuruluşun genel güvenlik olgunluğunun ve felsefesinin bir yansımasıdır. SNMPv1/v2c’nin kimlik bilgilerini ve verileri ağ üzerinden açık metin olarak ilettiği gerçeği, modern ağlarda kabul edilemez bir güvenlik açığıdır. SNMPv3, bu açıkları kapatmak için kimlik doğrulama ve şifreleme sunar. Ancak, v3&rsquo;ün yapılandırılması “oldukça karmaşık” olup, izlenen cihazlarda ek bir teknik yük ve performans (CPU/bellek) maliyeti getirir. Bu durum, basitlik ve performans (v2c) ile güvenlik ve karmaşıklık (v3) arasında doğrudan bir denge kurma zorunluluğu yaratır. Bu nedenle, bir kuruluşun bu konudaki kararı, risk iştahını ortaya koyar. Dağıtım kolaylığını yönetim trafiğinin güvenliğine tercih eden bir şirket, v2c’yi erişim kontrol listeleri (ACL’ler) ile birleştirerek “yeterince iyi” bir önlem olarak görebilir. Sıkı uyumluluk gereksinimleri olan veya olgun bir güvenlik programına sahip bir kuruluş ise, kimlik bilgisi hırsızlığı veya veri manipülasyonu riskini azaltmak için operasyonel ek yükü kabul ederek v3&rsquo;ün <code>authPriv</code> seviyesini zorunlu kılacaktır. Bu, kuruluşun iç tehditleri ve ağ içi dinlemeyi ne kadar ciddiye aldığını gösterir ve sıfır güven (zero-trust) ağına geçişin bir göstergesi olarak kabul edilebilir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*psfUsG7oSQeQYJHqnwtiNg.png" alt=""></p>
+<p>SNMP Sürümlerinin Karşılaştırmalı Analizi (v1, v2c, v3)</p>
+<h3 id="bölüm-2-trafik-akış-analiziağ-konuşmalarını-anlamak">
+  Bölüm 2: Trafik Akış Analizi — Ağ Konuşmalarını Anlamak
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-2-trafik-ak%c4%b1%c5%9f-analizia%c4%9f-konu%c5%9fmalar%c4%b1n%c4%b1-anlamak">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu bölüm, cihaz merkezli izlemeden trafik merkezli analize geçerek, ağ üzerinde kimin kiminle konuştuğunu ortaya çıkaran protokolleri inceler.</p>
+<h4 id="21-netflow-akış-muhasebesi-için-fiilistandart">
+  2.1. NetFlow: Akış Muhasebesi için Fiili Standart
+  <a class="heading-link" href="#21-netflow-ak%c4%b1%c5%9f-muhasebesi-i%c3%a7in-fiilistandart">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Cisco tarafından geliştirilen NetFlow, bir arayüze giren veya çıkan IP trafiği hakkında meta veri toplamak için kullanılan bir protokoldür. Paketlerin içeriğini (payload) değil, yalnızca meta verilerini yakalar. Bu özellik, onu tam paket yakalamadan (full packet capture) çok daha az kaynak yoğun hale getirir.</p>
+<p>Üç temel bileşenden oluşur :</p>
+<ol>
+<li><strong>Exporter (Dışa Aktarıcı):</strong> Paketleri gözlemleyen, onları “akışlar” (flows) halinde toplayan ve akış kayıtlarını dışa aktaran NetFlow özellikli bir cihazdır (yönlendirici, anahtar, güvenlik duvarı).</li>
+<li><strong>Collector (Toplayıcı):</strong> Dışa aktarıcılardan UDP üzerinden gönderilen akış kayıtlarını alan, işleyen ve depolayan bir sunucudur.</li>
+<li><strong>Analyzer (Analizci):</strong> Toplanan verileri işleyerek trafik modelleri, bant genişliği kullanımı ve potansiyel güvenlik sorunları hakkında insanlar tarafından okunabilir grafikler, raporlar ve uyarılar üreten yazılımdır.</li>
+</ol>
+<p><strong>“Akış” Kaydı:</strong> Bir akış, ortak özellikleri paylaşan tek yönlü bir paket dizisidir. Klasik “5-tuple” (beşli), bir akışı benzersiz şekilde tanımlar: Kaynak IP, Hedef IP, Kaynak Port, Hedef Port ve Katman 3 Protokolü. NetFlow v9 ve onun IETF standardı olan ardılı IPFIX (NetFlow v10), MAC adresleri ve VLAN ID’leri gibi Katman 2 bilgilerini de içeren çok daha fazla alanı dışa aktarabilen şablon tabanlı bir model kullanır.</p>
+<p>Akışlar, dışa aktarıcının önbelleğinden belirli koşullar altında dışa aktarılır: belirli bir süre (genellikle 15 saniye) boyunca pasif kaldıklarında (inactive timeout), çok uzun süre aktif kaldıklarında (active timeout) veya bir TCP bayrağı (FIN, RST) oturumun sona erdiğini belirttiğinde.</p>
+<h4 id="22-sflow-yüksek-hızlı-ağlar-için-istatistiksel-görünürlük">
+  2.2. sFlow: Yüksek Hızlı Ağlar için İstatistiksel Görünürlük
+  <a class="heading-link" href="#22-sflow-y%c3%bcksek-h%c4%b1zl%c4%b1-a%c4%9flar-i%c3%a7in-istatistiksel-g%c3%b6r%c3%bcn%c3%bcrl%c3%bck">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>sFlow (Sampled Flow), yüksek hızlı ağları izlemek için endüstri standardı, çok satıcılı bir teknolojidir. NetFlow’dan farklı olarak sFlow, durum bilgisi tutmaz (stateless) ve istatistiksel örneklemeye dayanır.</p>
+<p><strong>İkili Örnekleme Mekanizması:</strong></p>
+<ol>
+<li><strong>Paket Örnekleme (Flow Sampling):</strong> sFlow ajanı, bir arayüzdeki her N paketten 1&rsquo;ini rastgele örnekler. Daha sonra örneklenen paketin başlığını (genellikle ilk 64–128 byte) dışa aktarır. Bu, MAC, VLAN ve MPLS bilgileri de dahil olmak üzere Katman 2&rsquo;den Katman 7&rsquo;ye kadar görünürlük sağlar. Örnekleme oranı (örneğin, 4000&rsquo;de 1) yapılandırılabilir.</li>
+<li><strong>Sayaç Örnekleme (Counter Sampling):</strong> sFlow ajanı, periyodik olarak (örneğin, her 20–30 saniyede bir) arayüz sayaçlarını sorgular ve bu istatistikleri (toplam paket, byte, hata sayısı) toplayıcıya dışa aktarır. Bu, genel arayüz kullanımı hakkında sürekli ve düşük ek yüklü bir görünüm sağlar.</li>
+</ol>
+<p>NetFlow’dan daha basittir. Ağ cihazının donanımına (genellikle CPU yükünü azaltmak için özel bir yonga üzerine) gömülü bir <strong>sFlow Ajanı</strong> ve UDP datagramlarını (genellikle 6343 numaralı port üzerinden) alan bir <strong>sFlow Toplayıcısı</strong>’ndan oluşur.</p>
+<p>NetFlow ve sFlow arasındaki temel fark yalnızca teknik (durum bilgili/durum bilgisi olmayan, %100/örneklenmiş) değil, aynı zamanda felsefidir. NetFlow, temel olarak bir <em>muhasebe</em> protokolüdür; faturalandırma, güvenlik adli analizi ve hassas kapasite planlaması için <em>her</em> konuşmayı izlemek üzere tasarlanmıştır. sFlow ise bir <em>gözlem</em> protokolüdür; mutlak hassasiyet yerine düşük ek yük ve ölçeklenebilirliğe öncelik vererek ağ genelindeki davranışın gerçek zamanlı, istatistiksel olarak temsili bir anlık görüntüsünü sağlamak üzere tasarlanmıştır. NetFlow, her akışı durum bilgisiyle izleyerek her biri için bir kayıt oluşturur. Bu, kullanım tabanlı faturalandırma veya bir güvenlik ihlalinden sonra ayrıntılı adli analiz gibi eksiksiz bir geçmiş kaydı gerektiren kullanım durumları için neredeyse mükemmel bir doğruluk sağlar. Buna karşılık sFlow, durum bilgisi tutmaz ve rastgele örnekleme kullanır. Bu, her kısa ömürlü veya düşük hacimli akışı göreceğini garanti edemeyeceği anlamına gelir. Amacı her baytı saymak değil, her akışı izlemenin cihazın CPU ve belleği için engelleyici derecede pahalı olacağı yüksek hızlı (10G, 40G, 100G) bağlantılarda neler olduğuna dair ölçeklenebilir, gerçek zamanlı bir görünüm sağlamaktır. Bu durum, görünürlükte de bir fark yaratır. NetFlow doğası gereği IP merkezlidir (L3/L4) , sFlow’un paket örneklemesi ise gerçek paket başlığını dışa aktardığı için doğal olarak L2-L7 görünürlüğü sağlar. Sonuç olarak, protokol seçimi tamamen izleme hedefine bağlıdır. Bir veri sızıntısının tam yolunu izlemesi gereken bir güvenlik ekibi için örneklenmemiş NetFlow/IPFIX üstündür. Büyük bir veri merkezi yapısında tıkanıklığa neden olan en önemli uygulamaları hızla belirlemesi gereken bir ağ operatörü için sFlow’un düşük ek yüklü, gerçek zamanlı doğası daha uygundur.</p>
+<p>Aşağıdaki tablo, bu iki kritik akış protokolü arasındaki genellikle karıştırılan farkları netleştirmekte ve mühendislerin kendi özel kullanım durumları ve ağ ortamları için doğru teknolojiyi seçmelerini sağlamaktadır.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Fn_jt2stbWxL_YVnRuYbnQ.png" alt=""></p>
+<p>Akış Tabanlı İzleme Protokolleri: NetFlow vs. sFlow</p>
+<h3 id="bölüm-3-merkezi-izleme-platformları-karşılaştırmalı-birinceleme">
+  Bölüm 3: Merkezi İzleme Platformları: Karşılaştırmalı Bir İnceleme
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-3-merkezi-izleme-platformlar%c4%b1-kar%c5%9f%c4%b1la%c5%9ft%c4%b1rmal%c4%b1-birinceleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu bölüm, SNMP ve NetFlow/sFlow gibi protokollerden gelen verileri tüketerek birleşik bir izleme deneyimi sunan lider platformları değerlendirmektedir. Odak noktası mimari farklılıklar, kullanım kolaylığı ve genişletilebilirliktir.</p>
+<h4 id="31-nagios-açık-kaynak-izlemenin-duayeni">
+  3.1. Nagios: Açık Kaynak İzlemenin Duayeni
+  <a class="heading-link" href="#31-nagios-a%c3%a7%c4%b1k-kaynak-izlemenin-duayeni">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Mimari:</strong> Güçlü <strong>Nagios Core</strong> motoru etrafında inşa edilmiştir. Bu motor, kontrollerin zamanlanması, yürütülmesi ve olayların işlenmesinden sorumludur. <strong>Nagios XI</strong>, Core üzerine inşa edilmiş ticari kurumsal sürümdür ve yönetimi basitleştirmek için web tabanlı bir GUI, panolar, raporlama ve yapılandırma sihirbazları ekler.</li>
+<li><strong>İzleme Modeli:</strong> Geniş bir <strong>eklenti (plugin)</strong> ekosistemine dayanır. Core motoru, basitçe bir eklenti betiğini çalıştırır ve durumunu (OK, Warning, Critical, Unknown) belirlemek için betiğin çıkış kodunu yorumlar. Bu, onu inanılmaz derecede esnek kılar.</li>
+<li><strong>Yapılandırma:</strong> Nagios Core, metin tabanlı dosyalar aracılığıyla yapılandırılır. Bu, otomasyon için güçlü olsa da dik bir öğrenme eğrisine sahiptir. Nagios XI, bu yapılandırmayı yönetmek için bir web arayüzü sunarak, doğrudan dosya manipülasyonu yerine kullanım kolaylığına ihtiyaç duyan kurumsal kullanıcıları hedefler.</li>
+<li><strong>Hedef Kitle:</strong> Core, komut satırına hakim teknik uzmanlar ve hobi amaçlı kullanıcılar için uygundur. XI ise raporlama, pano ve daha az teknik personel için basitleştirilmiş yönetim ihtiyacı duyan işletmeler içindir.</li>
+</ul>
+<h4 id="32-zabbix-hepsi-bir-arada-kurumsalçözüm">
+  3.2. Zabbix: Hepsi Bir Arada Kurumsal Çözüm
+  <a class="heading-link" href="#32-zabbix-hepsi-bir-arada-kurumsal%c3%a7%c3%b6z%c3%bcm">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Mimari:</strong> Verileri depolayan ve uyarıları yöneten merkezi bir <strong>Zabbix Sunucusu</strong>’na sahiptir. Dağıtık ortamlar için, verileri yerel olarak toplamak ve sunucuya iletmek üzere <strong>Zabbix Proxy</strong>’leri dağıtılabilir. Bu, sunucu üzerindeki yükü azaltır ve güvenlik duvarlarının arkasındaki izlemeyi mümkün kılar. Veriler, <strong>Zabbix Ajanları</strong> (pasif veya aktif kontroller) veya SNMP, IPMI gibi ajansız yöntemlerle toplanır.</li>
+<li><strong>Temel Özellikler:</strong> Güçlü otomatik keşif yetenekleri, birçok ana bilgisayara kontrolleri dağıtmak için güçlü bir şablonlama sistemi ve proxy’ler için yüksek erişilebilirlik/yük dengeleme (Zabbix 7.0 ile tanıtıldı) özelliklerine sahiptir. Esnekliği ve neredeyse her şeyi izleyebilme yeteneği ile tanınır.</li>
+<li><strong>Kullanım Kolaylığı:</strong> Kapsamlı özellik seti ve özel terminolojisi nedeniyle kurulumu ve öğrenmesi karmaşık olabilir. Web arayüzü güçlüdür ancak rakiplerine göre daha az sezgisel olabilir.</li>
+</ul>
+<h4 id="33-prtg-network-monitor-kullanıcı-dostu-sensör-tabanlıaraç">
+  3.3. PRTG Network Monitor: Kullanıcı Dostu, Sensör Tabanlı Araç
+  <a class="heading-link" href="#33-prtg-network-monitor-kullan%c4%b1c%c4%b1-dostu-sens%c3%b6r-tabanl%c4%b1ara%c3%a7">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Mimari:</strong> Web sunucusu, veri depolama ve bildirim motorunu içeren bir <strong>Core Server</strong> (bir Windows hizmeti) ve asıl izlemeyi gerçekleştiren bir veya daha fazla <strong>Probe</strong>’dan oluşur. Core Server ile birlikte her zaman bir <strong>Local Probe</strong> kurulur. Farklı ağ segmentlerindeki veya müşteri sahalarındaki uzak kaynakları izlemek ve verileri SSL/TLS üzerinden güvenli bir şekilde geri göndermek için <strong>Remote Probe</strong>’lar kurulabilir.</li>
+<li><strong>“Sensör” Kavramı:</strong> Bu, PRTG’de izlemenin ve lisanslamanın temel birimidir. Bir sensör, bir cihazın tek bir yönünü izler; örneğin bir sunucunun CPU yükü, bir anahtar portunun trafiği veya bir PING testi. Çoğu cihaz, kapsamlı izleme için 5–10 sensör gerektirir.</li>
+<li><strong>Lisanslama:</strong> Lisanslama, cihaz sayısına göre değil, tamamen sensör sayısına göre yapılır. Bu esneklik sağlar ancak dikkatli planlama gerektirir. PRTG, 100 sensörlük ücretsiz bir sürüme dönüşen 30 günlük ücretsiz bir deneme sürümü ve 500 sensör ve üzeri için ticari lisanslar sunar.</li>
+<li><strong>Kullanım Kolaylığı:</strong> PRTG, net bir arayüz, yardımcı kurulum sihirbazları ve önceden yapılandırılmış sensörlerle geniş çapta kullanıcı dostu olarak kabul edilir. Bu da onu KOBİ’ler veya derin izleme uzmanlığı olmayan ekipler için güçlü bir seçenek haline getirir.</li>
+</ul>
+<p>Nagios, Zabbix ve PRTG arasındaki seçim, “hangisinin en iyi olduğu” ile ilgili değil, üç temel özellik arasındaki bir dengeyi yönetmekle ilgilidir:</p>
+<ol>
+<li><strong>Nihai Esneklik (Nagios Core):</strong> Kullanılabilirlik pahasına ve önemli ölçüde “kendin yap” çabası gerektirir.</li>
+<li><strong>Hepsi Bir Arada Güç (Zabbix):</strong> Başlangıçtaki karmaşıklık pahasına.</li>
+<li><strong>Basitlik ve Kullanılabilirlik (PRTG):</strong> Ticari ve yalnızca Windows tabanlı bir ürün olma pahasına.</li>
+</ol>
+<p>Nagios Core ücretsiz ve açık kaynaklıdır ve eklenti mimarisi sayesinde her şeyi yapacak şekilde genişletilebilir. Ancak derin teknik bilgi ve manuel yapılandırma dosyası düzenlemesi gerektirir. Bu, onu “yüksek esneklik, düşük kullanılabilirlik” köşesine yerleştirir. Zabbix de ücretsiz ve açık kaynaklıdır ve temel işlevsellik için harici eklentilere dayanmadan kutudan çıktığı gibi geniş bir özellik yelpazesi (otomatik keşif, şablonlar, proxy mimarisi) sunar. Bu, onu daha çok “hepsi bir arada” bir çözüm yapar, ancak geniş seçenekleri dik bir öğrenme eğrisi yaratır. Bu, onu ortada, yüksek güç sunan ancak bir karmaşıklık engeli olan bir konuma yerleştirir. PRTG, kullanım kolaylığına net bir şekilde odaklanan ticari bir üründür. Sensör tabanlı modeli ve cilalı GUI’si, kullanıcıların hızla izlemeye başlaması için tasarlanmıştır. Ancak bu, parasal bir maliyetle gelir ve çekirdek sunucusu Windows platformuyla sınırlıdır , bu da bazı ortamlar için bir engel olabilir. Bu, onu “yüksek kullanılabilirlik, yüksek ticari maliyet” köşesine yerleştirir. Sonuç olarak, bir kuruluşun seçimi stratejiktir. Bir startup veya Linux uzmanlarından oluşan bir ekip, paradan tasarruf etmek ve teknik becerilerinden yararlanmak için Nagios Core veya Zabbix’i seçebilir. Karma bir ortama ve özel bir izleme ekibine sahip büyük bir kuruluş, gücü ve ölçeklenebilirliği için Zabbix’i seçebilir. Ağırlıklı olarak Windows ortamına sahip ve hızlı sonuçlara ihtiyaç duyan küçük ve orta ölçekli bir işletme, lisans maliyeti yerine zaman tasarrufunu değerlendirerek PRTG’yi seçebilir.</p>
+<p>Aşağıdaki tablo, kuruluşların kendi özel teknik gereksinimlerine, bütçelerine ve ekip becerilerine göre bilinçli bir karar vermelerine yardımcı olmak amacıyla üç lider izleme platformunun doğrudan, özellik bazında bir karşılaştırmasını sunmaktadır.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*8hiUXuINrhx_sc7cJlTO-A.png" alt=""></p>
+<p>İzleme Platformlarının Özellik Matrisi (Nagios vs. Zabbix vs. PRTG)</p>
+<h3 id="bölüm-4-ağ-otomasyonu-için-betik-yazımı-scripting">
+  Bölüm 4: Ağ Otomasyonu için Betik Yazımı (Scripting)
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-4-a%c4%9f-otomasyonu-i%c3%a7in-betik-yaz%c4%b1m%c4%b1-scripting">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Betik yazımı, ağ otomasyonunun temel taşıdır. Tekrarlayan görevleri otomatikleştirmek, yapılandırma yedekleri almak veya cihazlardan operasyonel veri toplamak için güçlü bir yöntemdir.</p>
+<h4 id="41-python-ağ-otomasyonunun-fiili-standardı">
+  4.1. Python: Ağ Otomasyonunun Fiili Standardı
+  <a class="heading-link" href="#41-python-a%c4%9f-otomasyonunun-fiili-standard%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Python, okunabilir sözdizimi, geniş standart kütüphanesi ve ağ görevleri için özel olarak tasarlanmış zengin ekosistemi sayesinde ağ otomasyonu için en popüler dil haline gelmiştir.</p>
+<ul>
+<li><strong>Paramiko:</strong> Python’da SSHv2 protokolünü uygulayan düşük seviyeli bir kütüphanedir. Ağ cihazlarına SSH üzerinden bağlanmak için temel işlevselliği sağlar, ancak cihazların komut satırı istemlerini (prompts) yönetmek, ayrıcalıklı moda (enable mode) geçmek ve komut çıktılarını beklemek gibi ağ cihazlarına özgü karmaşıklıkları doğrudan ele almaz. Bu görevlerin geliştirici tarafından manuel olarak kodlanması gerekir.</li>
+<li><strong>Netmiko:</strong> Paramiko üzerine inşa edilmiş, ağ otomasyonu için özel olarak tasarlanmış bir kütüphanedir. Paramiko’nun karmaşıklıklarını soyutlayarak, ağ mühendislerinin minimum çabayla görevleri otomatikleştirmesine olanak tanır. Netmiko’nun temel avantajları şunlardır:<br>
+<strong>Cihaz Desteği:</strong> Cisco, Juniper, Arista, HP ve daha birçok farklı üreticinin cihaz türünü destekler. Her cihaz türü için özel olarak tasarlanmış sürücüler içerir.<br>
+<strong>Basitleştirilmiş Etkileşim:</strong> Cihaz istemlerini (prompt) otomatik olarak algılar, ayrıcalıklı moda geçişi (<code>secret</code> parametresi ile) yönetir ve komutların tamamlanmasını bekler.<br>
+<strong>Sezgisel Metotlar:</strong> <code>send_command()</code> ile komut göndermek ve <code>send_config_set()</code> ile yapılandırma komutları uygulamak gibi basit ve anlaşılır metotlar sunar.</li>
+</ul>
+<p><strong>Örnek: Netmiko ile Cihazdan Bilgi Alma</strong> Aşağıdaki Python betiği, Netmiko kullanarak bir Cisco IOS cihazına bağlanır, <code>show ip interface brief</code> komutunu çalıştırır ve çıktısını ekrana yazdırır :</p>
+<pre tabindex="0"><code>from netmiko import ConnectHandler  
+import logging  
+  
+# Detaylı loglama için ayar  
+logging.basicConfig(filename=&#39;netmiko.log&#39;, level=logging.DEBUG)  
+logger = logging.getLogger(&#34;netmiko&#34;)
+</code></pre><ul>
+<li><strong>NAPALM (Network Automation and Programmability Abstraction Layer with Multivendor support):</strong> Farklı satıcıların cihazlarından yapılandırılmış veri almak için bir soyutlama katmanı sunar. NAPALM, <code>get_facts()</code> (cihaz bilgileri), <code>get_interfaces()</code> (arayüz durumu), <code>get_bgp_neighbors()</code> (BGP komşuları) gibi standartlaştırılmış fonksiyonlar aracılığıyla, cihazın işletim sisteminden bağımsız olarak tutarlı bir JSON çıktısı döndürür. Bu, çok satıcılı ortamlarda otomasyonu büyük ölçüde basitleştirir.</li>
+</ul>
+<h4 id="42-bash-hızlı-ve-basit-görevler-için-evrenselaraç">
+  4.2. Bash: Hızlı ve Basit Görevler için Evrensel Araç
+  <a class="heading-link" href="#42-bash-h%c4%b1zl%c4%b1-ve-basit-g%c3%b6revler-i%c3%a7in-evrenselara%c3%a7">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bash (Bourne-Again SHell), Linux ve macOS sistemlerinde standart olarak bulunan güçlü bir komut satırı kabuğudur. Basit, sıralı görevler için idealdir ve <code>ssh</code>, <code>scp</code>, <code>awk</code> gibi komut satırı araçlarıyla birleştirildiğinde etkili bir otomasyon aracı haline gelir.</p>
+<p><strong>Örnek: Bash ile Cisco Cihaz Yapılandırmasını Yedekleme</strong> Aşağıdaki Bash betiği, <code>sshpass</code> kullanarak bir Cisco anahtarının çalışan yapılandırmasını yedekler. <code>sshpass</code>, betik içinde SSH parolasını etkileşimli olmayan bir şekilde sağlamak için kullanılır.</p>
+<pre tabindex="0"><code>#!/bin/bash
+</code></pre><pre tabindex="0"><code>### Yapılandırma Bölümü ###  
+DATE=$(date &#34;+%Y-%m-%d&#34;)  
+SWITCH_IP=&#34;172.16.177.61&#34;  
+HOSTNAME=&#34;sw1&#34;  
+SSH_USER=&#34;cisco&#34;  
+SSH_PASS=&#34;your_ssh_password&#34;  
+ENABLE_PASS=&#34;your_enable_password&#34;  
+BACKUP_DIR=&#34;/var/backups/switches&#34;
+</code></pre><pre tabindex="0"><code># Yedekleme dizininin var olduğundan emin ol  
+mkdir -p ${BACKUP_DIR}
+</code></pre><pre tabindex="0"><code># Yürütülecek Cisco komutları  
+# 1. Ayrıcalıklı moda geç  
+# 2. Terminal uzunluğunu sıfırla (sayfalama olmasın)  
+# 3. Çalışan yapılandırmayı göster  
+CMDS=&#34;enable\n${ENABLE_PASS}\nterminal length 0\nshow running-config\nexit&#34;
+</code></pre><pre tabindex="0"><code>echo &#34;Creating config backup of ${HOSTNAME} (${SWITCH_IP})&#34;
+</code></pre><pre tabindex="0"><code># sshpass ile cihaza bağlan ve komutları çalıştır  
+# Çıktıyı temizle ve dosyaya yaz  
+sshpass -p &#34;${SSH_PASS}&#34; ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SWITCH_IP} &lt;&lt;&lt;- EOM  
+${CMDS}  
+EOM | tee &#34;${BACKUP_DIR}/config-${DATE}-${HOSTNAME}.log&#34;
+</code></pre><pre tabindex="0"><code>echo &#34;Backup for ${HOSTNAME} completed.&#34;
+</code></pre><p>Bu betik, <code>sshpass</code>&lsquo;ın yüklü olmasını gerektirir ve parolaları düz metin olarak içerdiği için güvenli ortamlarda dikkatli kullanılmalıdır. Daha güvenli yaklaşımlar, SSH anahtar tabanlı kimlik doğrulama veya parola yönetimi sistemlerini içerir.</p>
+<h4 id="43-powershell-windows-merkezli-ortamların-gücü">
+  4.3. PowerShell: Windows Merkezli Ortamların Gücü
+  <a class="heading-link" href="#43-powershell-windows-merkezli-ortamlar%c4%b1n-g%c3%bcc%c3%bc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>PowerShell, Windows ortamlarında ağ yönetimi ve otomasyonu için standart haline gelmiş bir komut satırı kabuğu ve betik dilidir. <code>cmdlet</code> adı verilen güçlü komutları ve.NET Framework ile derin entegrasyonu sayesinde, Windows tabanlı sistemler ve hizmetler üzerinde kapsamlı kontrol sağlar.</p>
+<p><strong>Örnek: PowerShell ile Ağ Görevleri</strong> PowerShell, ağ bağlantısını test etmek, ağ adaptörlerini yönetmek ve IP yapılandırmasını almak gibi görevler için yerleşik <code>cmdlet</code>&lsquo;ler sunar.</p>
+<pre tabindex="0"><code># Birden fazla sunucuya bağlantıyı test etme  
+$servers = &#34;google.com&#34;, &#34;bing.com&#34;, &#34;192.168.1.1&#34;  
+foreach ($server in $servers) {  
+    if (Test-Connection -ComputerName $server -Count 2 -Quiet) {  
+        Write-Host &#34;$server is reachable.&#34; -ForegroundColor Green  
+    } else {  
+        Write-Host &#34;$server is NOT reachable.&#34; -ForegroundColor Red  
+    }  
+}  
+  
+# Yerel makinedeki tüm IP adreslerini listeleme  
+Get-NetIPAddress -AddressFamily IPv4 | Select-Object IPAddress, InterfaceAlias  
+  
+# Belirli bir ağ adaptörünü devre dışı bırakma  
+# Get-NetAdapter -Name &#34;Ethernet&#34; | Disable-NetAdapter -Confirm:$false  
+  
+# Uzak bir bilgisayardan IP yapılandırmasını alma
+</code></pre><p>Bu örnekler, PowerShell’in ağ yöneticileri için ne kadar güçlü ve esnek bir araç olduğunu göstermektedir. <code>Test-Connection</code> (ping benzeri), <code>Get-NetIPAddress</code> ve <code>Get-NetAdapter</code> gibi <code>cmdlet</code>&lsquo;ler, ağ sorunlarını gidermek ve envanter toplamak için yaygın olarak kullanılır.</p>
+<h3 id="bölüm-5-yapılandırma-yönetimi-ve-orkestrasyon">
+  Bölüm 5: Yapılandırma Yönetimi ve Orkestrasyon
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-5-yap%c4%b1land%c4%b1rma-y%c3%b6netimi-ve-orkestrasyon">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Betik yazımı tekil görevler için harika olsa da, büyük ölçekli altyapıları yönetmek için daha yapılandırılmış araçlar gereklidir. Yapılandırma yönetimi araçları, yüzlerce veya binlerce cihazın durumunu tutarlı bir şekilde yönetmeyi, yapılandırma sapmalarını (configuration drift) önlemeyi ve değişiklikleri güvenilir bir şekilde uygulamayı sağlar.</p>
+<h4 id="51-ansible-aracısız-ve-basit-yapılandırma-yönetimi">
+  5.1. Ansible: Aracısız ve Basit Yapılandırma Yönetimi
+  <a class="heading-link" href="#51-ansible-arac%c4%b1s%c4%b1z-ve-basit-yap%c4%b1land%c4%b1rma-y%c3%b6netimi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Ansible, basitliği, aracısız (agentless) mimarisi ve YAML tabanlı kolay okunabilir sözdizimi sayesinde ağ otomasyonunda hızla popülerlik kazanmıştır.</p>
+<ul>
+<li><strong>Control Node (Kontrol Düğümü):</strong> Ansible’ın kurulu olduğu ve <code>playbook</code>&lsquo;ların çalıştırıldığı makinedir. Bu, bir mühendisin dizüstü bilgisayarı veya merkezi bir sunucu olabilir.</li>
+<li><strong>Managed Nodes (Yönetilen Düğümler):</strong> Ansible tarafından yönetilen hedef cihazlardır (sunucular, ağ anahtarları vb.).</li>
+<li><strong>Inventory (Envanter):</strong> Yönetilen düğümlerin bir listesidir. Bu liste, statik bir INI veya YAML dosyası olabileceği gibi, dinamik olarak da oluşturulabilir. Envanter, cihazları gruplara ayırmaya ve grup bazında değişkenler atamaya olanak tanır.</li>
+<li><strong>Playbook:</strong> YAML formatında yazılmış, bir dizi görevi (task) tanımlayan dosyalardır. Bir <code>playbook</code>, hangi ana bilgisayar gruplarına (<code>hosts</code>) hangi görevlerin uygulanacağını belirtir.</li>
+<li><strong>Task (Görev):</strong> Bir <code>playbook</code> içindeki tek bir eylemdir. Her görev, bir <strong>modül</strong> çağrısıdır.</li>
+<li><strong>Module (Modül):</strong> Ansible’ın asıl işi yapan birimleridir. Örneğin, <code>ios_config</code> modülü Cisco IOS cihazlarında yapılandırma yapmak için, <code>package</code> modülü ise bir sunucuya yazılım paketi kurmak için kullanılır.</li>
+</ul>
+<p><strong>Örnek: Ansible Playbook ile VLAN Yapılandırması</strong> Bu <code>playbook</code>, envanterdeki <code>switches</code> grubunda yer alan tüm Cisco cihazlarında VLAN 20&rsquo;yi yapılandırır.</p>
+<ul>
+<li>Envanter Dosyası (<code>inventory.ini</code>):</li>
+</ul>
+<pre tabindex="0"><code>[switches]  
+switch1 ansible_host=192.168.1.10  
+switch2 ansible_host=192.168.1.11  
+  
+[switches:vars]  
+ansible_network_os=cisco.ios.ios  
+ansible_user=admin  
+ansible_password=your_password  
+ansible_connection=network_cli  
+ansible_become=yes  
+ansible_become_method=enable
+</code></pre><ul>
+<li><strong>Playbook Dosyası (</strong><code>configure_vlan.yml</code><strong>):</strong></li>
+</ul>
+<pre tabindex="0"><code>- name: Configure VLANs on Core Switches  
+  hosts: switches  
+  gather_facts: false  
+  
+  tasks:  
+    - name: Create and name VLAN 20  
+      cisco.ios.ios_config:  
+        lines:  
+          - vlan 20  
+          - name Engineering
+</code></pre><p>Bu <code>playbook</code> çalıştırıldığında, Ansible envanterdeki her bir anahtara SSH ile bağlanır ve <code>ios_config</code> modülünü kullanarak belirtilen VLAN&rsquo;ı oluşturur. Bu yaklaşım, aynı değişikliği onlarca cihaza manuel olarak uygulamaya kıyasla çok daha hızlı, tutarlı ve daha az hataya açıktır.</p>
+<h4 id="52-terraform-kod-olarak-altyapı-infrastructure-ascode">
+  5.2. Terraform: Kod Olarak Altyapı (Infrastructure as Code)
+  <a class="heading-link" href="#52-terraform-kod-olarak-altyap%c4%b1-infrastructure-ascode">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Terraform, HashiCorp tarafından geliştirilen ve altyapıyı bildirimsel (declarative) bir yaklaşımla yöneten bir IaC aracıdır. “Ne istediğinizi” tanımlarsınız ve Terraform, bu hedefe ulaşmak için gerekli adımları planlar ve uygular.</p>
+<ul>
+<li><strong>Provider (Sağlayıcı):</strong> Terraform’un etkileşimde bulunacağı altyapı platformu için bir eklentidir (örneğin, AWS, Azure, Google Cloud, VMware).</li>
+<li><strong>Resource (Kaynak):</strong> Yönetilecek bir altyapı bileşenidir (örneğin, bir AWS VPC, bir Azure sanal makinesi, bir DNS kaydı).</li>
+<li><strong>State File (Durum Dosyası):</strong> Terraform tarafından yönetilen altyapının mevcut durumunu içeren bir JSON dosyasıdır. Terraform, bir sonraki çalıştırmada neyin oluşturulması, güncellenmesi veya silinmesi gerektiğini belirlemek için bu dosyayı konfigürasyon dosyalarıyla karşılaştırır.</li>
+</ul>
+<p><strong>Örnek: Terraform ile AWS’de VPC Oluşturma</strong> Aşağıdaki <code>.tf</code> konfigürasyon dosyası, AWS&rsquo;de basit bir Sanal Özel Bulut (VPC) oluşturur.</p>
+<pre tabindex="0"><code># AWS sağlayıcısını yapılandır  
+provider &#34;aws&#34; {  
+  region = &#34;us-east-1&#34;  
+}
+</code></pre><pre tabindex="0"><code># Bir VPC kaynağı tanımla  
+resource &#34;aws_vpc&#34; &#34;main_vpc&#34; {  
+  cidr_block       = &#34;10.0.0.0/16&#34;  
+  instance_tenancy = &#34;default&#34;
+</code></pre><pre tabindex="0"><code>tags = {  
+    Name = &#34;MainVPC&#34;  
+  }  
+}
+</code></pre><pre tabindex="0"><code># Oluşturulan VPC&#39;nin ID&#39;sini çıktı olarak ver  
+output &#34;vpc_id&#34; {  
+  value = aws_vpc.main_vpc.id  
+}
+</code></pre><p>Bu konfigürasyonu uygulamak için <code>terraform init</code>, <code>terraform plan</code> ve <code>terraform apply</code> komutları kullanılır. Terraform, mevcut durumu (başlangıçta boş) okur, istenen durumu (bir VPC) konfigürasyondan anlar ve aradaki farkı kapatmak için AWS API&rsquo;sine gerekli çağrıları yapar.</p>
+<h4 id="53-ansible-ve-terraform-işbirliği-mi-rekabetmi">
+  5.3. Ansible ve Terraform: İşbirliği mi, Rekabet mi?
+  <a class="heading-link" href="#53-ansible-ve-terraform-i%c5%9fbirli%c4%9fi-mi-rekabetmi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Ansible ve Terraform genellikle rakip olarak görülse de, aslında farklı sorunları çözerler ve birbirlerini tamamlarlar.</p>
+<ul>
+<li><strong>Terraform, altyapıyı <em>sağlamak</em> (provisioning) ve yaşam döngüsünü yönetmek için tasarlanmıştır.</strong> Bir bulut ortamında VPC’leri, alt ağları, sanal makineleri ve güvenlik gruplarını oluşturmak, güncellemek ve yok etmek için idealdir.</li>
+<li><strong>Ansible, mevcut altyapı üzerinde <em>yapılandırma yönetimi</em> (configuration management) ve uygulama dağıtımı yapmak için tasarlanmıştır.</strong> Terraform tarafından oluşturulan bir sanal makineye yazılım yüklemek, hizmetleri yapılandırmak veya bir ağ cihazında VLAN’ları ayarlamak için kullanılır.</li>
+</ul>
+<p>Yaygın bir iş akışı, Terraform’un temel altyapıyı (örneğin, sanal makineler) oluşturması ve ardından Ansible’ı çağırarak bu makinelerin yapılandırılmasını sağlamasıdır.</p>
+<h3 id="bölüm-6-otomasyonun-cicd-süreçlerine-entegrasyonu-netdevops">
+  Bölüm 6: Otomasyonun CI/CD Süreçlerine Entegrasyonu (NetDevOps)
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-6-otomasyonun-cicd-s%c3%bcre%c3%a7lerine-entegrasyonu-netdevops">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>NetDevOps, DevOps ilkelerini ve uygulamalarını ağ altyapısına uygulayan bir felsefedir. Temel amacı, ağ değişikliklerini yazılım geliştirme süreçlerine benzer şekilde, otomatikleştirilmiş, test edilmiş ve güvenilir bir şekilde dağıtmaktır. Bu, CI/CD (Sürekli Entegrasyon/Sürekli Dağıtım) işlem hatları aracılığıyla gerçekleştirilir.</p>
+<h4 id="netdevops-cicd-işakışı">
+  <strong>NetDevOps CI/CD İş Akışı</strong>
+  <a class="heading-link" href="#netdevops-cicd-i%c5%9fak%c4%b1%c5%9f%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Kodlama ve Taahhüt (Commit):</strong> Ağ mühendisi, ağ yapılandırmasını (örneğin, bir Ansible <code>playbook</code> veya bir cihaz konfigürasyon şablonu) kod olarak değiştirir ve bu değişikliği bir Git deposuna gönderir (push).</li>
+<li><strong>Sürekli Entegrasyon (CI):<br>
+1-Linting ve Doğrulama:</strong> Değişiklik Git’e gönderildiğinde, CI sunucusu (örneğin, Jenkins) otomatik olarak bir işlem hattını tetikler. İlk adım, kodun sözdizimsel olarak doğru olup olmadığını kontrol etmektir (linting).<br>
+2-<strong>Test Ortamında Dağıtım:</strong> Doğrulanan değişiklik, Cisco CML veya EVE-NG gibi sanal bir laboratuvar ortamına otomatik olarak dağıtılır.<br>
+3-<strong>Otomatik Test:</strong> pyATS gibi test çerçeveleri, değişikliğin ağın durumunu (örneğin, yönlendirme tabloları, arayüz durumu) beklendiği gibi değiştirdiğini ve mevcut işlevselliği bozmadığını doğrulamak için bir dizi test çalıştırır.</li>
+<li><strong>Sürekli Dağıtım/Teslimat (CD):<br>
+1-Onay:</strong> Tüm testler başarıyla geçtiğinde, değişiklik üretim ortamına dağıtılmak üzere onaylanır. Bu adım manuel bir onay gerektirebilir (Sürekli Teslimat) veya tamamen otomatik olabilir (Sürekli Dağıtım).<br>
+2-<strong>Üretime Dağıtım:</strong> Onaylanan değişiklik, Ansible veya başka bir otomasyon aracı kullanılarak üretim ağına uygulanır.<br>
+3-<strong>Dağıtım Sonrası Doğrulama:</strong> Değişiklik uygulandıktan sonra, ağın beklendiği gibi çalıştığından emin olmak için son bir dizi doğrulama testi çalıştırılır.</li>
+</ul>
+<p>Bu yaklaşım, ağ değişikliklerinin hızını, güvenilirliğini ve tutarlılığını önemli ölçüde artırır, manuel hataları azaltır ve ağ mühendislerinin daha stratejik görevlere odaklanmasını sağlar.</p>
+<h3 id="bölüm-7-log-yönetimi-ve-siem-entegrasyonu">
+  Bölüm 7: Log Yönetimi ve SIEM Entegrasyonu
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-7-log-y%c3%b6netimi-ve-siem-entegrasyonu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Ağdaki her cihaz, sunucu ve uygulama, operasyonel durumları, hataları ve güvenlik olayları hakkında değerli bilgiler içeren loglar üretir. Bu logları etkili bir şekilde yönetmek, ağın sağlığını anlamak ve güvenlik tehditlerini tespit etmek için hayati önem taşır.</p>
+<h4 id="71-log-toplama-ayrıştırma-parsing-veanaliz">
+  7.1. Log Toplama, Ayrıştırma (Parsing) ve Analiz
+  <a class="heading-link" href="#71-log-toplama-ayr%c4%b1%c5%9ft%c4%b1rma-parsing-veanaliz">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<h4 id="log-yönetim-yaşamdöngüsü">
+  <strong>Log Yönetim Yaşam Döngüsü:</strong>
+  <a class="heading-link" href="#log-y%c3%b6netim-ya%c5%9famd%c3%b6ng%c3%bcs%c3%bc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Toplama (Collection):</strong> Ağdaki tüm kaynaklardan (yönlendiriciler, güvenlik duvarları, sunucular, uygulamalar) logların merkezi bir konumda toplanmasıdır. Syslog, bu amaçla en yaygın kullanılan protokoldür.</li>
+<li><strong>Ayrıştırma (Parsing):</strong> Ham, yapılandırılmamış log mesajlarının, analiz edilebilecek yapılandırılmış alanlara (örneğin, zaman damgası, kaynak IP, kullanıcı adı, olay mesajı) ayrılması işlemidir.</li>
+<li><strong>Normalleştirme (Normalization):</strong> Farklı kaynaklardan ve formatlardan gelen log verilerinin ortak bir şemaya dönüştürülmesidir. Bu, farklı cihazlardan gelen olayların birbiriyle ilişkilendirilmesini (korelasyon) mümkün kılar.</li>
+<li><strong>Analiz ve Korelasyon:</strong> Yapılandırılmış ve normalleştirilmiş log verilerinin, anormallikleri, eğilimleri ve potansiyel güvenlik tehditlerini belirlemek için analiz edilmesidir.</li>
+</ul>
+<h4 id="regex-ile-log-ayrıştırma">
+  <strong>Regex ile Log Ayrıştırma</strong>
+  <a class="heading-link" href="#regex-ile-log-ayr%c4%b1%c5%9ft%c4%b1rma">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Düzenli İfadeler (Regex), yapılandırılmamış metin verilerinden belirli desenleri eşleştirmek ve ayıklamak için güçlü bir araçtır. Log ayrıştırmada, bir log mesajındaki <code>hostname</code>, <code>process</code>, <code>message</code> gibi alanları çıkarmak için yaygın olarak kullanılır.</p>
+<p><strong>Örnek: Syslog Mesajı için Regex</strong> Aşağıdaki gibi bir syslog mesajı düşünün: <code>Mar 10 12:34:56 my-firewall ftpd: FTP session closed.</code></p>
+<p>Bu mesajdan ilgili alanları ayıklamak için kullanılabilecek bir Regex ifadesi şöyledir:</p>
+<p><code>^(?P&lt;timestamp&gt;\w{3}\s+\d{1,2}\s+\d{2}:\d{2}:\d{2})\s+(?P&lt;hostname&gt;\S+)\s+(?P&lt;process_name&gt;\w+)(?:\[(?P&lt;pid&gt;\d+)\])?:\s+(?P&lt;message&gt;.*)$</code></p>
+<p>Bu ifade, adlandırılmış yakalama grupları (<code>?P&lt;group_name&gt;</code>) kullanarak mesajı aşağıdaki gibi yapılandırılmış alanlara ayırır :</p>
+<ul>
+<li><code>timestamp</code>: <code>Mar 10 12:34:56</code></li>
+<li><code>hostname</code>: <code>my-firewall</code></li>
+<li><code>process_name</code>: <code>ftpd</code></li>
+<li><code>pid</code>: <code>2116</code></li>
+<li><code>message</code>: <code>FTP session closed.</code></li>
+</ul>
+<h4 id="72-siem-olay-korelasyonu-ve-alarmyönetimi">
+  7.2. SIEM Olay Korelasyonu ve Alarm Yönetimi
+  <a class="heading-link" href="#72-siem-olay-korelasyonu-ve-alarmy%c3%b6netimi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Güvenlik Bilgileri ve Olay Yönetimi (SIEM) sistemleri, kuruluşun BT altyapısındaki çeşitli kaynaklardan gelen log verilerini toplar, birleştirir ve analiz eder. SIEM’in temel gücü, tekil olarak anlamsız görünen olayları birleştirerek anlamlı güvenlik tehditlerini tespit etme yeteneği olan <strong>olay korelasyonudur</strong>.</p>
+<h4 id="korelasyon-nasılçalışır">
+  <strong>Korelasyon Nasıl Çalışır?</strong>
+  <a class="heading-link" href="#korelasyon-nas%c4%b1l%c3%a7al%c4%b1%c5%9f%c4%b1r">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir korelasyon kuralı, belirli bir zaman diliminde, belirli bir sırada veya mantıksal bir ilişki içinde meydana gelen bir dizi olayı tanımlar. SIEM, gelen tüm olayları bu kurallara göre sürekli olarak değerlendirir ve bir kural eşleştiğinde bir uyarı (alarm) oluşturur.</p>
+<h4 id="örnek-ağ-güvenliği-korelasyon-kuralları">
+  <strong>Örnek Ağ Güvenliği Korelasyon Kuralları:</strong>
+  <a class="heading-link" href="#%c3%b6rnek-a%c4%9f-g%c3%bcvenli%c4%9fi-korelasyon-kurallar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Kaba Kuvvet (Brute Force) Saldırısı Tespiti:</strong> Bu kural, bir saldırganın bir hesaba erişim kazanmaya çalıştığını gösterebilir.<br>
+<strong>Kural Mantığı:</strong> “Eğer aynı kaynak IP adresinden aynı hedef sisteme 5 dakika içinde 20&rsquo;den fazla başarısız oturum açma denemesi olursa <strong>VE</strong> bu olayları aynı kaynak IP’den başarılı bir oturum açma takip ederse, yüksek öncelikli bir alarm oluştur.”. Bu kural, bir kullanıcının şifresini unutmasından kaynaklanan normal başarısız denemeleri, başarılı bir girişle sonuçlanan hedefli bir saldırı girişiminden ayırmaya yardımcı olur.</li>
+<li><strong>Veri Sızdırma Tespiti:</strong> Bu kural, içeriden bir tehdidin veya ele geçirilmiş bir hesabın hassas verileri ağ dışına aktarmaya çalıştığını gösterebilir.<br>
+<strong>Kural Mantığı:</strong> “Eğer bir kullanıcı, normal davranış temel çizgisinin (baseline) 3 standart sapma üzerinde bir veri miktarını ağ dışındaki bir hedefe transfer ederse <strong>VE</strong> bu olay, son 24 saat içinde o kullanıcının hesabında bir yetki yükseltme olayı (örneğin, yönetici grubuna eklenme) ile ilişkiliyse, kritik bir alarm oluştur.” Bu tür davranışsal ve durumsal korelasyon, tekil olayların gözden kaçırabileceği karmaşık tehditleri ortaya çıkarır.</li>
+</ul>
+<h4 id="73-olay-müdahalesi-ve-soar-entegrasyonu">
+  7.3. Olay Müdahalesi ve SOAR Entegrasyonu
+  <a class="heading-link" href="#73-olay-m%c3%bcdahalesi-ve-soar-entegrasyonu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Güvenlik Orkestrasyonu, Otomasyonu ve Yanıtı (SOAR) platformları, SIEM tarafından oluşturulan uyarılara yanıt verme sürecini otomatikleştirmek için tasarlanmıştır. SOAR, tekrarlayan, manuel müdahale adımlarını otomatikleştirerek güvenlik analistlerinin yükünü azaltır ve müdahale süresini (MTTR — Mean Time to Respond) önemli ölçüde kısaltır.</p>
+<ul>
+<li><strong>SOAR Playbook İş Akışı:</strong> Bir SIEM uyarısı alındığında, SOAR platformu önceden tanımlanmış bir <strong>playbook</strong>’u (oyun kitabı) tetikler. “Zararlı yazılım tespiti” uyarısı için tipik bir <code>playbook</code> aşağıdaki adımları içerebilir :<br>
+<strong>Zenginleştirme (Enrichment):</strong> SOAR, uyarıdaki göstergeleri (IP adresleri, dosya karmaları, alan adları) alır ve bunları tehdit istihbarat platformları (örneğin, VirusTotal) ve dahili sistemlerle (örneğin, CMDB) karşılaştırarak ek bağlam toplar. Bu, uyarının ciddiyetini ve etkisini belirlemeye yardımcı olur.<br>
+<strong>Kontrol Altına Alma (Containment):</strong> Tehdit doğrulanırsa, SOAR otomatik olarak kontrol altına alma eylemlerini başlatır. Bu, ağ otomasyonunun kritik bir rol oynadığı yerdir. SOAR, EDR (Uç Nokta Tespiti ve Yanıtı) aracına etkilenen uç noktayı ağdan izole etmesi için komut verebilir veya güvenlik duvarına (firewall) kötü amaçlı IP adresine giden tüm trafiği engellemesi için bir kural eklemesini söyleyebilir.<br>
+<strong>Yok Etme (Eradication):</strong> Tehdit izole edildikten sonra, SOAR, EDR aracını kullanarak zararlı yazılımı uç noktadan kaldırmak veya etkilenen sistemi temiz bir imajdan yeniden kurmak gibi yok etme adımlarını tetikler.<br>
+<strong>Kurtarma ve Raporlama (Recovery &amp; Reporting):</strong> Sistem temizlendikten sonra, SOAR sistemi normale döndürür (örneğin, ağ izolasyonunu kaldırır) ve olayın tüm adımlarını, bulguları ve alınan aksiyonları içeren ayrıntılı bir rapor oluşturur.</li>
+</ul>
+<h3 id="bölüm-8-performans-yönetimi-ve-slatakibi">
+  Bölüm 8: Performans Yönetimi ve SLA Takibi
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-8-performans-y%c3%b6netimi-ve-slatakibi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Ağ performansını proaktif olarak yönetmek, kullanıcı deneyimini sağlamak ve Hizmet Seviyesi Anlaşmalarına (SLA) uymak için kritik öneme sahiptir. Bu, temel performans metriklerini sürekli olarak ölçmeyi, analiz etmeyi ve hizmet kalitesini (QoS) yönetmeyi gerektirir.</p>
+<h4 id="81-paket-kaybı-gecikme-ve-jitter-ölçümü-veanalizi">
+  8.1. Paket Kaybı, Gecikme ve Jitter Ölçümü ve Analizi
+  <a class="heading-link" href="#81-paket-kayb%c4%b1-gecikme-ve-jitter-%c3%b6l%c3%a7%c3%bcm%c3%bc-veanalizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu üç metrik, bir ağın performansını ve sağlığını anlamak için temel göstergelerdir.</p>
+<ul>
+<li><strong>Paket Kaybı (Packet Loss):</strong> Gönderilen ancak hedefe ulaşamayan veri paketlerinin yüzdesidir. Yüksek paket kaybı, özellikle dosya aktarımlarında yeniden iletimlere ve gerçek zamanlı uygulamalarda (VoIP, video konferans) kalitenin düşmesine neden olur.</li>
+<li><strong>Gecikme (Latency):</strong> Bir veri paketinin kaynaktan hedefe ulaşması için geçen süredir ve genellikle milisaniye (ms) cinsinden ölçülür. Yüksek gecikme, uygulamaların yavaş ve yanıtsız hissedilmesine neden olur.</li>
+<li><strong>Jitter:</strong> Paketler arasındaki varış süresi gecikmesindeki değişimdir. Başka bir deyişle, gecikmenin tutarsızlığıdır. Yüksek jitter, VoIP ve video akışı gibi gerçek zamanlı iletişimde sesin kesik kesik gelmesine veya görüntünün donmasına neden olur, çünkü paketler düzensiz aralıklarla ulaşır.</li>
+</ul>
+<h4 id="ölçüm-araçları-ve-yöntemleri">
+  <strong>Ölçüm Araçları ve Yöntemleri:</strong>
+  <a class="heading-link" href="#%c3%b6l%c3%a7%c3%bcm-ara%c3%a7lar%c4%b1-ve-y%c3%b6ntemleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<ul>
+<li><strong>Ping:</strong> Bir hedefe ICMP yankı istekleri göndererek gidiş-dönüş süresini (RTT — Round-Trip Time) ölçer ve böylece temel gecikme ve paket kaybı hakkında bilgi verir.</li>
+<li><strong>Traceroute (tracert):</strong> Bir paketin hedefe ulaşana kadar geçtiği tüm yönlendiricileri (hop) listeler ve her atlamadaki gecikmeyi gösterir. Bu, gecikmenin ağın neresinde meydana geldiğini belirlemek için kullanışlıdır.</li>
+<li><strong>iPerf/jPerf:</strong> İki nokta arasında maksimum TCP ve UDP bant genişliği performansını ölçmek için kullanılan bir araçtır. Ayrıca bant genişliği, gecikme, jitter ve paket kaybı hakkında ayrıntılı metrikler sağlayabilir.</li>
+<li><strong>Özel İzleme Araçları:</strong> SolarWinds VNQM veya PRTG gibi araçlar, Cisco IP SLA gibi teknolojileri kullanarak bu metrikleri sürekli olarak izleyebilir, geçmiş verileri saklayabilir ve eşik aşıldığında uyarılar oluşturabilir.</li>
+</ul>
+<h4 id="82-qos-yapılandırması-ve-sla-raporlama">
+  8.2. QoS Yapılandırması ve SLA Raporlama
+  <a class="heading-link" href="#82-qos-yap%c4%b1land%c4%b1rmas%c4%b1-ve-sla-raporlama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Hizmet Kalitesi (QoS), ağ kaynaklarının (özellikle bant genişliği) farklı trafik türleri arasında adil ve öncelikli bir şekilde dağıtılmasını sağlayan mekanizmalar bütünüdür. Tıkanıklık anlarında, QoS, kritik uygulamaların (örneğin, sesli arama) daha az önemli trafik (örneğin, e-posta) tarafından boğulmamasını sağlar.</p>
+<p><strong>DiffServ (Differentiated Services) Mimarisi:</strong> Modern ağlarda en yaygın kullanılan QoS modelidir. DiffServ, trafiği sınıflara ayırır ve her sınıfa farklı bir hizmet seviyesi uygular.</p>
+<ul>
+<li><strong>Sınıflandırma ve İşaretleme (Classification and Marking):</strong> Ağın kenarındaki yönlendiriciler, gelen paketleri inceler (örneğin, kaynak/hedef IP, port numarası, uygulama türü) ve onları bir sınıfa atar. Daha sonra, paketin IP başlığındaki 6-bitlik <strong>Differentiated Services Field (DS field)</strong> alanına bir <strong>DSCP (Differentiated Services Code Point)</strong> değeri yazarak paketi “işaretler”.</li>
+<li><strong>Per-Hop Behavior (PHB):</strong> Ağ içindeki her yönlendirici, paketin DSCP değerine bakar ve ona göre bir iletme davranışı (PHB) uygular. Bu davranış, paketin hangi kuyruğa yerleştirileceğini, ne kadar bant genişliği alacağını ve tıkanıklık durumunda düşürülme olasılığını belirler.</li>
+<li>Yaygın DSCP Değerleri ve Anlamları:<br>
+1-<strong>EF (Expedited Forwarding — Hızlandırılmış İletim — DSCP 46):</strong> Düşük gecikme, düşük kayıp ve düşük jitter gerektiren trafik (örneğin, VoIP) için kullanılır. Genellikle en yüksek önceliğe sahip kuyruğa yerleştirilir.<br>
+2-<strong>AF (Assured Forwarding — Güvenceli İletim):</strong> Farklı öncelik seviyeleri ve düşürme olasılıkları sunan bir sınıflar ailesidir (örneğin, AF41, AF22). İş açısından kritik uygulamalar için kullanılır.<br>
+3-<strong>CS (Class Selector):</strong> Eski IP Precedence alanı ile geriye dönük uyumluluk için kullanılır.<br>
+4-<strong>BE (Best Effort — En İyi Çaba — DSCP 0):</strong> Varsayılan trafik sınıfıdır. Öncelikli değildir ve tıkanıklık durumunda ilk olarak bu paketler düşürülür.</li>
+<li><strong>SLA Raporlama:</strong> Ağ izleme platformları, toplanan performans metriklerini (gecikme, jitter, paket kaybı, kullanılabilirlik) kullanarak Hizmet Seviyesi Anlaşmalarının (SLA) karşılanıp karşılanmadığını gösteren raporlar oluşturur. Bu raporlar, belirli bir hizmet için kararlaştırılan performans hedeflerine (örneğin, aylık %99.95 kullanılabilirlik, 50 ms’den az gecikme) uyulup uyulmadığını kanıtlamak için kullanılır ve hem BT departmanları hem de hizmet sağlayıcılar için kritik öneme sahiptir.</li>
+</ul>
+<h3 id="sonuç">
+  Sonuç
+  <a class="heading-link" href="#sonu%c3%a7">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu rapor, modern ağ yönetiminin üç temel direğini — görünürlük, otomasyon ve bütünleşik dayanıklılık — ayrıntılı bir şekilde incelemiştir. SNMP ile temel cihaz sağlığı izlemesinden, NetFlow ve sFlow ile karmaşık trafik akışlarının analizine; basit Bash betiklerinden Python, Ansible ve Terraform gibi güçlü otomasyon ve IaC araçlarına; ve son olarak log yönetimi, SIEM/SOAR entegrasyonu ve QoS ile performans yönetiminin birleştirilmesine kadar, ağ operasyonlarının reaktif bir disiplinden proaktif, programatik ve veri odaklı bir stratejiye nasıl dönüştüğü açıkça görülmektedir.</p>
+<p>İncelenen teknolojiler ve metodolojiler, birbirinden bağımsız çözümler değil, birbirini tamamlayan ve güçlendiren bir ekosistemin parçalarıdır. Etkili otomasyon, yalnızca kapsamlı ve doğru izleme verileriyle mümkündür. Sağlam bir güvenlik duruşu, hem görünürlük hem de otomatik müdahale yetenekleri gerektirir. Yüksek performanslı bir ağ ise, hem proaktif izleme hem de otomasyonla yönetilen QoS politikalarıyla sağlanır.</p>
+<p>Geleceğe bakıldığında, bu entegrasyonun daha da derinleşeceği açıktır. Makine öğrenimi ve yapay zeka (AIOps), anormallikleri daha akıllıca tespit etmek, sorunların temel nedenini otomatik olarak bulmak ve hatta kendi kendini iyileştiren eylemleri tetiklemek için izleme verilerini analiz edecektir. NetDevOps ve CI/CD işlem hatları, ağ değişikliklerini uygulama ve test etme standardı haline gelerek, altyapıyı uygulamalar kadar çevik hale getirecektir.</p>
+<p>Nihai hedef, insan müdahalesinin yalnızca stratejik kararlar ve üst düzey niyetler (intent) için gerekli olduğu, büyük ölçüde <strong>otonom bir ağdır</strong>. Bu raporda ele alınan araçlar, protokoller ve felsefeler, bu vizyona ulaşmak için gereken temel yapı taşlarıdır. Bu teknolojilere hakim olan ağ profesyonelleri, yalnızca günümüzün karmaşık ağlarını yönetmekle kalmayacak, aynı zamanda geleceğin kendi kendini yöneten altyapılarını inşa etmede de öncü olacaklardır.</p>
+
+      </div>
+
+      <footer class="post-footer-links">
+        
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
+
+
+      </footer>
+    </article>
+  </section>
+
+  <style>
+    .post-full {
+      padding: 2.5rem;
+      margin: 2rem auto;
+      max-width: 900px;
+    }
+    .post-header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .post-title-full {
+      font-size: 2.5rem;
+      margin: 1rem 0;
+      background: linear-gradient(to right, var(--primary-accent), var(--secondary-accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .post-featured-image {
+      margin: 2rem -2.5rem;
+      max-height: 500px;
+      overflow: hidden;
+    }
+    .post-featured-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .post-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: inherit;
+    }
+    .post-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 768px) {
+      .post-full {
+        padding: 1.5rem;
+      }
+      .post-title-full {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

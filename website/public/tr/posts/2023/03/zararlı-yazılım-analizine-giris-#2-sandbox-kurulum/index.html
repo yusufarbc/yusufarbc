@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Zararlı Yazılım Analizine Giriş: #2 Sandbox Kurulum · yusufarbc.dev
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="Bir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araçları kullanacağız? Hepsi bu yazıda….">
+<meta name="keywords" content="cybersecurity, IT engineer, systems administration, network security, infrastructure, proxmox, docker, yusuf talha arabaci">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Zararlı Yazılım Analizine Giriş: #2 Sandbox Kurulum">
+  <meta name="twitter:description" content="Bir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araçları kullanacağız? Hepsi bu yazıda….">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris-%232-sandbox-kurulum/">
+  <meta property="og:site_name" content="yusufarbc.dev">
+  <meta property="og:title" content="Zararlı Yazılım Analizine Giriş: #2 Sandbox Kurulum">
+  <meta property="og:description" content="Bir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araçları kullanacağız? Hepsi bu yazıda….">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-03-12T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-03-12T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris-%234-dinamik-analiz/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris-%235-kaynak-arast%C4%B1rmas%C4%B1/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris-%233-statik-analiz/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris-%231-temel-kavramlar/">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris-%232-sandbox-kurulum/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      
+        <img class="navigation-logo" src="/images/profile.jpeg" alt="Logo">
+      
+      <span class="navigation-text">yusufarbc.dev</span>
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/projects/">Projeler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link btn-contact" href="mailto:yusuf.talhaarabaci@owasp.org">İletişim</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/">English</a>
+              </li>
+            
+          
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article class="post-full glass-card">
+      <header class="post-header">
+        <div class="post-meta">
+          <time datetime="2023-03-12T00:00:00Z">
+            March 12, 2023
+          </time>
+          
+            <span class="post-series">in 
+              
+                <a href="/tr/series/zararl%c4%b1-yaz%c4%b1l%c4%b1m-analizine-giris">Zararlı Yazılım Analizine Giriş</a>
+              
+            </span>
+          
+          <span class="reading-time">
+            <i class="fa-solid fa-clock" aria-hidden="true"></i>
+            7 min read
+          </span>
+        </div>
+        <h1 class="post-title-full">Zararlı Yazılım Analizine Giriş: #2 Sandbox Kurulum</h1>
+        
+        
+        <div class="post-featured-image">
+          <img src="https://cdn-images-1.medium.com/max/800/1*rXDQnvecujpcn5O9zt_liQ.png" alt="Zararlı Yazılım Analizine Giriş: #2 Sandbox Kurulum">
+        </div>
+        
+      </header>
+
+      <div class="post-content">
+        <h3 id="zararlı-yazılım-analizine-giriş-2-sandboxkurulum">
+  Zararlı Yazılım Analizine Giriş: #2 Sandbox Kurulum
+  <a class="heading-link" href="#zararl%c4%b1-yaz%c4%b1l%c4%b1m-analizine-giri%c5%9f-2-sandboxkurulum">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araçları kullanacağız? Hepsi bu yazıda….</p>
+<h3 id="sandbox">
+  Sandbox
+  <a class="heading-link" href="#sandbox">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Zararlı Yazılım Analizinde kullandığımız ortama sandbox ismini veriyoruz. Özellikle dinamik analiz ile inceleme yaparken, zararlı yazılımı izole bir ortamda çalıştırmak zorundayız. Bunun için en kullanışlı yöntem sanal makine(Virutal Machine) kullanmaktır. Tabi bunun için birçok sanallaştırma yazılımı mevcut; VirtualBox, VMWare Workstation ve QEMU/kvm bunlardan birkaçı. Bu yazımızda <a href="https://www.virtualbox.org/"  class="external-link" target="_blank" rel="noopener">virutalbox</a> üzerinden ilerleyeceğiz.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*o2kFbeokidhcI32C" alt=""></p>
+<p>Bunun dışında bir de sanallaştırılmış ortamda kullanacağımız işletim sistemi ve sürümünü belirlememiz gerekiyor. Zararlı yazlımların çoğunluğu windows işletim sistemi üzerinde çalışacak şekilde geliştirilmiştir. Eğer bu yazılımları çalıştırmak istiyorsak , dinamik olarak analizini yapacaksak, bizim de windows işletim sistemini kullanmamız gerekir. Ancak, eğer zararlı yazılımı statik olarak incelemek istiyorsak bu noktada, bize sunduğu birçok tersine mühendislik aracıyla linux işletim sistemini de kullanabiliriz. Dahası, linux işletim sistemi kullanarak zararlı yazılım analizi yapmak için geliştirilmiş, gerekli araçlar kurulu olarak gelen, bir linux dağıtımı da mevcut. <a href="https://www.sans.org"  class="external-link" target="_blank" rel="noopener">Sans Enstitüsü</a> tarafından geliştirilmiş remnux ismindeki dağıtımı <a href="https://docs.remnux.org/"  class="external-link" target="_blank" rel="noopener">buradan</a> inceleyebilirsiniz.</p>
+<p>Biz bu yazımızda emektar windows7 32-bit işletim sistemini kullanacağız. Çünkü zararlı yazılımların büyük çoğunluğu windows7 üzerinde çalışır ve 32-bittir.</p>
+<h3 id="virtualbox-kurulumu">
+  VirtualBox Kurulumu
+  <a class="heading-link" href="#virtualbox-kurulumu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>VirtualBox, Oracle tarafından geliştirilmiş genel amaçlı bir sanallaştırma yazılımıdır. <a href="https://www.virtualbox.org/"  class="external-link" target="_blank" rel="noopener">https://www.virtualbox.org/</a> adresinden downloads sekmesinden mevcut işletim sistemi ve sürümünüze uygun olan versiyonu indirebilirsiniz.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*bAHl-81CJsNK9t4vmvylOg.png" alt=""></p>
+<p>Kurulum dosyasını indirdikten sonra çalıştırın ve kurulumu tamamlayın.</p>
+<h3 id="windows7-kurulumu">
+  Windows7 Kurulumu
+  <a class="heading-link" href="#windows7-kurulumu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Windows7 kurulumu için önce 32-bitlik ISO dosyası bulmanız gerekiyor. Microsoft windows7&rsquo;ye desteği kestiği için kendi sitesinden ISO dosyasını indiremiyoruz. İnternette windows7 iso yazarak diğer sitelerden iso dosyasını bulabilirsiniz. Hangi siteye güveneceğiniz size kalmış.</p>
+<h4 id="sanal-makinekurulumu">
+  Sanal Makine Kurulumu
+  <a class="heading-link" href="#sanal-makinekurulumu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>ISO dosyamızı hazır ettikten sonra artık kuruluma başlayabiliriz. Öncellikle virtualbox üzerinde boş bir makine oluşturmamız gerekiyor. Bunun için;</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*-0pEFla7ntLU8wE_1F2sMQ.png" alt=""></p>
+<p>1</p>
+<p>new butonuna tıklıyoruz açılan pencerede bizden işletim sistemi bilgilerini istiyor.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*_Z9Dl9qcu5ivIFjMh5HeyA.png" alt=""></p>
+<p>Windows 7 (32-bit)’i seçiyoruz ve makinemize bir isim veriyoruz. Ben SANDBOX ismini verdim. Siz başka bir isim de verebilirsiniz. Ardından Next butonuna tıklıyoruz.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*0o-EluVqdxumU78nWRr36A.png" alt=""></p>
+<p>Burada makineye vereceğimiz RAM alanını ayarlıyoruz ben 4GB RAM verdim. Makine çalıştığında bilgisayarımın 4GB RAMi bu makineye tahsis edilecek. Siz isterseniz daha fazla da verebilirsiniz sisteminizin durumuna göre. Next butonuna tıklıyoruz.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*YelA6_DmCbJbJzjknDkmRQ.png" alt=""></p>
+<p>Burada sistem dosyalarının kurulacağı bir sanal harddisk oluşturuyoruz. Default olarak seçili olan kısım bizim işimizi görür. Create butonuna tıklyıoruz.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*uo7tJ4EQAe00OSAvmZLJbQ.png" alt=""></p>
+<p>Create Virtual Hard Disk menüsü karşımıza çıkacak, VDI, VHDI, VMDK gibi seçenekler karşımıza çıkıyor. Ben VDI’ı tercih ediyorum. Next butonuna basıyoruz.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*sWxdSieNwBwGcBUX8tfHXg.png" alt=""></p>
+<p>Gelen menüde, sabit boyut ve dinamik boyut seçenekleri var. Eğer sabit boyut seçerseniz sisteminiz daha stabi olur ancak sisteme ayırdığınız alanı tamamen kaybedersiniz. Dinamik boyutda ise sisteme ayırdığınız alan sanal makine içinde doldukça arttırılır. Yani sanal makineye 100GB alan verseniz bile, sanal makine kendi içinde 20GB’ı kullanılıyorsa 80GB’ı temel işletim sisteminizde boş olarak görünür, kllanılabilir. Ben sandbox makinesi olduğu için sabit boyutu tercih ederim. Fixed Size’ı seçtim. Next butonuyla devam.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*ERtiLWewifFLdwCUqRsvsA.png" alt=""></p>
+<p>Burada makine için ayıracağınız disk alanını belirliyorsunuz. Minimum 32GB olması gerekiyor. Ben 64GB verdim. Create butonu ile devam edebiliriz. Ve sonunda boş sanal makinemizi oluşturduk</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*3NgY5McJzyVr-GTdmJexXQ.png" alt=""></p>
+<p>Start butonu ile makineyi başlatırsanız karşınıza sadece siyah ekran çıkacaktır. Çünkü daha ISO dosyamızı yüklemedik.</p>
+<h4 id="windows-isoyükleme">
+  Windows ISO Yükleme
+  <a class="heading-link" href="#windows-isoy%c3%bckleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Oluşturduğumuz boş sanal makineye Windows ISO’sunu yüklemek için sanal makinenin ayarlarını düzenlememiz lazım.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*-JYi1XcTSXAnsadBUb0-uA.png" alt=""></p>
+<p>Şimdi soldaki menüde SANDBOX makinemiz seçili halde settings butonuna tıklıyoruz. Burada makine için ayarları yapacağız.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*YJNsG-sra5t4ZauZlPllbA.png" alt=""></p>
+<p>Açılan menüden sanal makinamız ile ilgili pek çok ayarı yapabiliriz. Soldaki menüden storage sekmesine geliyoruz. Burda cd üzerinde + olan simgeye tıklıyoruz. Burdan ISO dosyamızı yükleeceğiz.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*6mcDi5d4T8DUJX5Z1jdVWQ.png" alt=""></p>
+<p>Açılan menüden Add butonuna tıklıyoruz ve açılan pencereden Windows7 (32-bit) ISO dosyamızı bilgisayarımızda nereye kaydettiysek bulup seçiyoruz.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*ddD0E9vEge4iuRehfIf6-A.png" alt=""></p>
+<p>Ardından yüklediğimiz ISO’yu seçip choose butonuna basıyoruz. İşlememiz tamamlandı artık makineyi çalıştırabiliriz.</p>
+<h4 id="windows-kurulıumu">
+  Windows Kurulıumu
+  <a class="heading-link" href="#windows-kurul%c4%b1umu">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bundan sonrası klasik windows kurulumu. Start butonundan makineyi çalıştırabilirsiniz.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*W0pHYBmPMUHFqYxiid_vCA.png" alt=""></p>
+<p>windows7 kurulum</p>
+<p>Windows kurulumu oldukça basittir. Windowsun kurulum arayüzünden kolaylıkla yapabilirsiniz. Makine kurulumu bittikten sonra windows başlatılacaktır.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*feg30wY7_q3Nlj5JaMWALg.png" alt=""></p>
+<p>Bundan sonraki aşama Zararlı Yazılım Analizi için gerekli olan araçları kurmanızdır. Tabi bunların hepsini bir anda da kurabilirsiniz, peyder pey de kurabilirsiniz.</p>
+<h4 id="makine-klonlama">
+  Makine Klonlama
+  <a class="heading-link" href="#makine-klonlama">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Şimdi makinemize birşey olursa tekrar kurmak ile uğraşmamak için makineyi konlamayı görelim.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*H0PHw86ioHsxZ9NP3aCO4Q.png" alt=""></p>
+<p>Bunun için makinemize sağ tıklayıp açılan pencerede clone’a tıklıyoruz.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*-_W07d55vop2s7pojzqSeQ.png" alt=""></p>
+<p>karşımıza böyle bir pencere çıkıyor next butonuna basıp devam edebiliriz.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*4y8XvnOmd-eCcx0bSpM4xA.png" alt=""></p>
+<p>Burada klon tipini belirlememiz gerekiyor. İki çeşit klon tipimiz var.</p>
+<p><strong>Full clone:</strong> adından da anlaşılacağı gibi sanal makinenin aynısından bir tane daha oluşturur. Dolaysıyla klonlandığı makineye bir bağımlılığı yoktur.</p>
+<p><strong>Linked clone:</strong> klonlanan makine ana makineye bağımlıdır. Yani ana makine silinirse bağlantılı klonu da işlevsiz kalır.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*GkV9fxO_Uf7K_a_AsQaLYQ.png" alt=""></p>
+<p>full cloneu seçip devam edebilirsiniz. Ardından VM klonlanana kadar bekleyiniz ve klonunuz hazır.</p>
+<h3 id="önerilen-araçlar">
+  Önerilen Araçlar
+  <a class="heading-link" href="#%c3%b6nerilen-ara%c3%a7lar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Zararlı yazılım analizi, çeşitli araçların yardımını gerektirir. Analiz VM’ine yüklenmesi gereken çeşitli araçların listesini inceleyeceğiz ve bu araçların kullanımını sonraki bölümlerde gerektiğinde ve gerektiğinde tanıtacağız. Bu araçlardan birkaçının GUI’si yoktur ve komut satırı istemi aracılığıyla çalıştırılmaları gerekir. Bazıları ise masaüstünden kısayol ile çalıştırılabilir.</p>
+<h4 id="quickhash">
+  <a href="https://quickhash-gui.org"  class="external-link" target="_blank" rel="noopener">QuickHash</a>
+  <a class="heading-link" href="#quickhash">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>QuickHash, hızlı ve güvenilir cross platform bir hashing aracıdır. Zararlı Yazılımın hashini almak için bu programı kullanabilirsiniz. <br>
+Bu linkten indirebilirsiniz: <a href="https://quickhash-gui.org"  class="external-link" target="_blank" rel="noopener">https://quickhash-gui.org</a></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*aQiJmFJU4ZX2I7q_" alt=""></p>
+<h4 id="peview">
+  <a href="http://wjradburn.com/software/"  class="external-link" target="_blank" rel="noopener">PEView</a>
+  <a class="heading-link" href="#peview">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>PEView popüler bir PE dosya ayrıştırıcısıdır. <br>
+Bu linkten indirebilirsiniz: <a href="http://wjradburn.com/software/"  class="external-link" target="_blank" rel="noopener">http://wjradburn.com/software/</a></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*jWxArTitASdjxEZI" alt=""></p>
+<h4 id="trid">
+  <a href="http://mark0.net/soft-trid-e.html"  class="external-link" target="_blank" rel="noopener">TrID</a>
+  <a class="heading-link" href="#trid">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Dosya türünün belirlenmesi için kullanılan bir araçtır.<br>
+Bu linkten indirebilirsiniz: <a href="http://mark0.net/soft-trid-e.html"  class="external-link" target="_blank" rel="noopener">http://mark0.net/soft-trid-e.html</a></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*-QEiy9fIOA1uogNw" alt=""></p>
+<h4 id="process-hacker">
+  <a href="https://processhacker.sourceforge.io/"  class="external-link" target="_blank" rel="noopener">Process Hacker</a>
+  <a class="heading-link" href="#process-hacker">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Process Hacker, çalışan süreçleri bunların iş parçacıklarını, çalışan hizmetleri, yapılan ağ bağlantılarını, disk kullanımını, işlem başına yüklenmiş DLL’leri vb. görüntüleme dahil olmak üzere sistemin çeşitli durumlarını görselleştirmeye yardımcı olur. Ayrıca, uygun şekilde kullanılırsa kötü amaçlı yazılımın analiz edilmesine ve incelenmesine yardımcı olabilecek, süreçle ilgili çeşitli özellikleri de gösterir.<br>
+Bu linkten indirebilirsiniz: <a href="https://processhacker.sourceforge.io/"  class="external-link" target="_blank" rel="noopener">https://processhacker.sourceforge.io/</a></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*c8qlSG0QBvJdItJU" alt=""></p>
+<h4 id="procmon">
+  <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/procmon"  class="external-link" target="_blank" rel="noopener">ProcMon</a>
+  <a class="heading-link" href="#procmon">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>ProcMon, süreç ve iş parçacığı oluşturma, ağ etkinlikleri, dosya oluşturma ve silme gibi dosyayla ilgili etkinlikler, kayıt defteriyle ilgili etkinlikler vb. dahil olmak üzere sistemde çalışan işlemlerin çeşitli etkinliklerini yakalayan ve görüntüleyen, iyi bilinen bir işlem izleme aracıdır.<br>
+Bu linkten indirebilirsiniz:<a href="https://docs.microsoft.com/en-us/sysinternals/downloads/procmon"  class="external-link" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/sysinternals/downloads/procmon</a></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*C95pxifPHhRN0cKG" alt=""></p>
+<h4 id="autoruns">
+  <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns"  class="external-link" target="_blank" rel="noopener">Autoruns</a>
+  <a class="heading-link" href="#autoruns">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Kötü amaçlı yazılım, sistem yeniden başlatıldıktan veya kullanıcı yeniden oturum açtıktan sonra devam etmek ve otomatik olarak çalışmak için kalıcılık mekanizmalarını kullanır. Autoruns, kötü amaçlı yazılım tarafından kullanılan kalıcılık mekanizmalarını yakalar ve sistem açılışında veya oturum açma sırasında çalışacak şekilde yapılandırılmış tüm programların bir listesini sağlar.<br>
+Bu linkten indirebilirsiniz: <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns"  class="external-link" target="_blank" rel="noopener"><strong>https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns</strong></a></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*--P_Mg0HGlnYc4Rt" alt=""></p>
+<h4 id="regshot">
+  <a href="https://sourceforge.net/projects/regshot/"  class="external-link" target="_blank" rel="noopener">Regshot</a>
+  <a class="heading-link" href="#regshot">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Regshot, registry farkını görüntülemek için Windows registry anlık görüntüsünü almanıza ve ikinci bir anlık görüntüyle karşılaştırmanıza olanak tanıyan bir registry farkı/karşılaştırma aracıdır.<br>
+Bu linkten indirebilirsiniz: <a href="https://sourceforge.net/projects/regshot/"  class="external-link" target="_blank" rel="noopener">https://sourceforge.net/projects/regshot/</a></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*Dmm8n56NqImVavtB" alt=""></p>
+<h4 id="fakenet">
+  <a href="https://sourceforge.net/projects/fakenet/"  class="external-link" target="_blank" rel="noopener">FakeNet</a>
+  <a class="heading-link" href="#fakenet">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>FakeNet, zararlı yazılımdan giden ağ bağlantılarını yakalayıp loglayan ve simüle edilmiş yanıtlar döndüren, böylece kötü amaçlı yazılıma harici ağ erişimini devre dışı bırakan, Windows için kullanılabilen dinamik bir zararlı yazılım analiz aracıdır. <br>
+Bu linkten indirebilirsiniz: <a href="https://sourceforge.net/projects/fakenet/"  class="external-link" target="_blank" rel="noopener">https://sourceforge.net/projects/fakenet/</a></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*QSnrA_ZzaxFOhl37" alt=""></p>
+<h4 id="bintext">
+  <a href="http://b2b-download.mcafee.com/products/tools/foundstone/bintext303.zip"  class="external-link" target="_blank" rel="noopener">BinText</a>
+  <a class="heading-link" href="#bintext">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bintext, dosyalardan ASCII ve Unicode metin dizelerini çıkarabilen bir statik analiz aracıdır.<br>
+Bu linkten indirebilirsiniz: <a href="http://b2b-download.mcafee.com/products/tools/foundstone/bintext303.zip"  class="external-link" target="_blank" rel="noopener">http://b2b-download.mcafee.com/products/tools/foundstone/bintext303.zip</a></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*PiKjgAUB7xGAnCv0" alt=""></p>
+<h4 id="yara">
+  <a href="https://virustotal.github.io/yara/"  class="external-link" target="_blank" rel="noopener">YARA</a>
+  <a class="heading-link" href="#yara">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>YARA, zararlı yazılım araştırmacıları için İsviçre çakısı olarak tanımlanıyor. Zararlı yazılımları tespit etmek ve sınıflandırmak için çok kullanışlıdır.<br>
+Bu linkten indirebilirsiniz: <a href="https://virustotal.github.io/yara/"  class="external-link" target="_blank" rel="noopener">https://virustotal.github.io/yara/</a></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*NfEcY779z-bTEzPr" alt=""></p>
+<h4 id="wireshark">
+  <a href="http://www.wireshark.org"  class="external-link" target="_blank" rel="noopener">Wireshark</a>
+  <a class="heading-link" href="#wireshark">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Wireshark, canlı ağ trafiğini yakalayıp inceleyebilen veya statik paket yakalama (PCAP) dosyalarını analiz edebilen bir grafik paket analiz aracıdır. Wireshark, çeşitli protokollerin kodunu çözmeyi destekler ve herhangi bir ağ trafiğini hızlı bir şekilde incelememize izin veren dahili paket filtreleme özelliği sağlar. <br>
+Bu linkten indirebilirsiniz: <a href="http://www.wireshark.org"  class="external-link" target="_blank" rel="noopener">http://www.wireshark.org</a></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*7-CPmBPDPgux12np" alt=""></p>
+<h4 id="gmer">
+  <a href="http://www.gmer.net"  class="external-link" target="_blank" rel="noopener">GMER</a>
+  <a class="heading-link" href="#gmer">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>GMER, hem kullanıcı alanı API kancalarını hem de çekirdek modeli SSDT kancalarını tespit etmek için kullanabileceğimiz bir araçtır.<br>
+Bu linkten indirebilirsiniz: <a href="http://www.gmer.net"  class="external-link" target="_blank" rel="noopener">http://www.gmer.net</a></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*iwTyjPPJVFCGDBBy" alt=""></p>
+<h4 id="driverview">
+  <a href="http://www.nirsoft.net/utils/driverview.html"  class="external-link" target="_blank" rel="noopener">DriverView</a>
+  <a class="heading-link" href="#driverview">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>DriverView, sisteminizdeki tüm yüklü sürücüleri görüntülemenize yardımcı olan bir GUI aracıdır ve sisteminizde herhangi bir kötü amaçlı çekirdek modülü/rootkit’in yüklü olup olmadığını kontrol etmek için harika bir araçtır.<br>
+Bu linkten indirebilirsiniz: <a href="http://www.nirsoft.net/utils/driverview.html"  class="external-link" target="_blank" rel="noopener">http://www.nirsoft.net/utils/driverview.html</a></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*PNLh21poQc8rvUkr" alt=""></p>
+<h4 id="strings">
+  <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/strings"  class="external-link" target="_blank" rel="noopener">Strings</a>
+  <a class="heading-link" href="#strings">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Sysinternals Strings, dosyalardan tüm stringleri bulmanıza yardımcı olan bir komut satırı aracıdır.<br>
+Bu linkten indirebilirsiniz: <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/strings"  class="external-link" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/sysinternals/downloads/strings</a></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*Q6YCNKcVS-uLZ8JI" alt=""></p>
+<h4 id="bulk-extractor">
+  <a href="http://downloads.digitalcorpora.org/downloads/bulk_extractor/"  class="external-link" target="_blank" rel="noopener">Bulk Extractor</a>
+  <a class="heading-link" href="#bulk-extractor">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bulk Extractor ağ paketi, dosyaları bellek dökümlerinden yakalayan bir komut satırı aracıdır.<br>
+Bu linkten indirebilirisiniz: <a href="http://downloads.digitalcorpora.org/downloads/bulk_extractor/"  class="external-link" target="_blank" rel="noopener">http://downloads.digitalcorpora.org/downloads/bulk_extractor/</a></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*ZPk6z5Btkygw5C4c" alt=""></p>
+<h4 id="ollydbg">
+  <a href="http://www.ollydbg.de/version2.html"  class="external-link" target="_blank" rel="noopener">OllyDbg</a>
+  <a class="heading-link" href="#ollydbg">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>OllyDbg, zararlı yazılım tersine mühendisliği için sahip olunması gereken bir araçtır. x86 yürütülebilir dosyalarını pencerelerde çalıştırabilen ve hatalarını ayıklayabilen grafiksel bir x86 hata ayıklayıcıdır.<br>
+Bu linkten indirebilirsiniz: <a href="http://www.ollydbg.de/version2.html"  class="external-link" target="_blank" rel="noopener">http://www.ollydbg.de/version2.html</a></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*XCSuwkqXtNnKGGQT" alt=""></p>
+<p>Bu yazımda, analiz ortamının hazırlanmasını ele aldım. Analiz için kullanacağımız windows7 sanal makine kurulumuna ve gerekli araçlara değindim. Bir sonraki yazımda analiz teknikleriyle devam edeceğiz. Yazıyı beğendiyseniz yorum yapmayı ve takip etmeyi unutmayın….</p>
+
+      </div>
+
+      <footer class="post-footer-links">
+        
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
+
+
+      </footer>
+    </article>
+  </section>
+
+  <style>
+    .post-full {
+      padding: 2.5rem;
+      margin: 2rem auto;
+      max-width: 900px;
+    }
+    .post-header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .post-title-full {
+      font-size: 2.5rem;
+      margin: 1rem 0;
+      background: linear-gradient(to right, var(--primary-accent), var(--secondary-accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .post-featured-image {
+      margin: 2rem -2.5rem;
+      max-height: 500px;
+      overflow: hidden;
+    }
+    .post-featured-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .post-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: inherit;
+    }
+    .post-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 768px) {
+      .post-full {
+        padding: 1.5rem;
+      }
+      .post-title-full {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

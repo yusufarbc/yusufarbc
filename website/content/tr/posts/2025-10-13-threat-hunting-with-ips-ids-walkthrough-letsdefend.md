@@ -1,6 +1,9 @@
 ---
 date: '2025-10-13'
-description: Threat hunting is a proactive cybersecurity strategy. Rather than focusing solely on known threats, security teams hunt for advanced and stealthy attacks that have yet to be detected. Intrusion prevention system (IPS) and intrusion detection system (...
+description: Threat hunting is a proactive cybersecurity strategy. Rather than focusing
+  solely on known threats, security teams hunt for advanced and stealthy attacks that
+  have yet to be detected. Intrusion prevention system (IPS) and intrusion detection
+  system (...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*0nXXxq60ZsaSHIFC.png
 layout: single

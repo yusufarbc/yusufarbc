@@ -1,6 +1,8 @@
 ---
 date: '2023-03-28'
-description: Merhaba, kriptoloji temelleri serisinin bu ilk yazısında, kriptolojinin ne olduğundan, geleneksel şifreleme tekniklerinden ve güçlü bir şifrenin nasıl oluşturulabileceğinden bahsedeceğim.
+description: Merhaba, kriptoloji temelleri serisinin bu ilk yazısında, kriptolojinin
+  ne olduğundan, geleneksel şifreleme tekniklerinden ve güçlü bir şifrenin nasıl oluşturulabileceğinden
+  bahsedeceğim.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*uorh6uYHB7AdEDpEbCO_Tw.png
 layout: single

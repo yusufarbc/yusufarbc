@@ -1,6 +1,9 @@
 ---
 date: '2025-08-10'
-description: Kimlik ve Erişim Yönetimi (Identity and Access Management — IAM), bir organizasyonun dijital kimlikleri ve bu kimliklerin kritik sistemlere, uygulamalara ve verilere erişim haklarını yönetmek için kullandığı iş süreçleri, politikalar ve teknolojiler ...
+description: Kimlik ve Erişim Yönetimi (Identity and Access Management — IAM), bir
+  organizasyonun dijital kimlikleri ve bu kimliklerin kritik sistemlere, uygulamalara
+  ve verilere erişim haklarını yönetmek için kullandığı iş süreçleri, politikalar
+  ve teknolojiler ...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*6OkxmUjEoOjEZW17jo7E8w.png
 layout: single

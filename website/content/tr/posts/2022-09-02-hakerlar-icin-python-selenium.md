@@ -1,6 +1,7 @@
 ---
 date: '2022-09-02'
-description: Merhaba bu yazımızda web siteleri üzerinde bir kullanıcı gibi işlemler yapmamızı sağlayan selenium modülünü tanıyacağız.
+description: Merhaba bu yazımızda web siteleri üzerinde bir kullanıcı gibi işlemler
+  yapmamızı sağlayan selenium modülünü tanıyacağız.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*0uUmJ2J01vpcie8grd91Yw.png
 layout: single

@@ -1,6 +1,7 @@
 ---
 date: '2023-12-06'
-description: Merhaba bu yazımda ICMPv4 ve ICMPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+description: Merhaba bu yazımda ICMPv4 ve ICMPv6 protokolünü ve Wireshark ile analizini
+  anlatmaya çalışacağım.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*qw1Nso3IaiA7Jptb-0T1qQ.png
 layout: single

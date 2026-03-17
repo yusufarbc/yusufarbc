@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="tr">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head>
   <title>
   Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve Analizi · Yusuf Talha ARABACI
 </title>
@@ -19,11 +19,11 @@
 
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:image" content="https://yusufarbc.dev/images/profile.jpeg">
   <meta name="twitter:title" content="Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve Analizi">
   <meta name="twitter:description" content="Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web, Alan Adı Sistemi (DNS) ve dosya transferi — kapsamlı bir şekilde analiz etmek üzere yapılandırılmıştır. Her bölüm, ilgili protokol ailesinin tarihsel gelişimini, tasarımından kayn...">
 
-<meta property="og:url" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-vi-a%C4%9F-protokolleri-g%C3%BCvenli%C4%9Fi-ve-analizi/">
+<meta property="og:url" content="https://yusufarbc.dev/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-vi-a%C4%9F-protokolleri-g%C3%BCvenli%C4%9Fi-ve-analizi/">
   <meta property="og:site_name" content="Yusuf Talha ARABACI">
   <meta property="og:title" content="Ağ Yönetimi ve Güvenliği VI: Ağ Protokolleri Güvenliği ve Analizi">
   <meta property="og:description" content="Bu yazı, modern dijital iletişimin dört temel sütununu — e-posta, web, Alan Adı Sistemi (DNS) ve dosya transferi — kapsamlı bir şekilde analiz etmek üzere yapılandırılmıştır. Her bölüm, ilgili protokol ailesinin tarihsel gelişimini, tasarımından kayn...">
@@ -32,18 +32,18 @@
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-08-12T00:00:00+00:00">
     <meta property="article:modified_time" content="2025-08-12T00:00:00+00:00">
-    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
-      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/wazuh-5.0da-neler-yeni-siber-tehdit-istihbarat%C4%B1nda-devrim-ve-u%C3%A7-nokta-g%C3%BCvenli%C4%9Finde-yeni-bir-%C3%A7a%C4%9F/">
-      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-x-soc-ve-noc-s%C3%BCre%C3%A7leri/">
-      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/soc-analistleri-i%C3%A7in-kal%C4%B1c%C4%B1l%C4%B1k-sa%C4%9Flama-kapsaml%C4%B1-xdr-analiz-k%C4%B1lavuzu/">
-      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-ix-bulut-g%C3%BCvenli%C4%9Fi-ve-hibrit-a%C4%9F-mimarileri/">
-      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-viii-a%C4%9F-y%C3%B6netimi-izleme-ve-otomasyon/">
-      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-iii-a%C4%9F-donan%C4%B1mlar%C4%B1-ve-fiziksel-altyap%C4%B1-g%C3%BCvenli%C4%9Fi/">
+    <meta property="og:image" content="https://yusufarbc.dev/images/profile.jpeg">
+      <meta property="og:see_also" content="https://yusufarbc.dev/tr/posts/2025/10/wazuh-5.0da-neler-yeni-siber-tehdit-istihbarat%C4%B1nda-devrim-ve-u%C3%A7-nokta-g%C3%BCvenli%C4%9Finde-yeni-bir-%C3%A7a%C4%9F/">
+      <meta property="og:see_also" content="https://yusufarbc.dev/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-x-soc-ve-noc-s%C3%BCre%C3%A7leri/">
+      <meta property="og:see_also" content="https://yusufarbc.dev/tr/posts/2025/08/soc-analistleri-i%C3%A7in-kal%C4%B1c%C4%B1l%C4%B1k-sa%C4%9Flama-kapsaml%C4%B1-xdr-analiz-k%C4%B1lavuzu/">
+      <meta property="og:see_also" content="https://yusufarbc.dev/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-ix-bulut-g%C3%BCvenli%C4%9Fi-ve-hibrit-a%C4%9F-mimarileri/">
+      <meta property="og:see_also" content="https://yusufarbc.dev/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-viii-a%C4%9F-y%C3%B6netimi-izleme-ve-otomasyon/">
+      <meta property="og:see_also" content="https://yusufarbc.dev/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-iii-a%C4%9F-donan%C4%B1mlar%C4%B1-ve-fiziksel-altyap%C4%B1-g%C3%BCvenli%C4%9Fi/">
 
 
 
 
-<link rel="canonical" href="http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-vi-a%C4%9F-protokolleri-g%C3%BCvenli%C4%9Fi-ve-analizi/">
+<link rel="canonical" href="https://yusufarbc.dev/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-vi-a%C4%9F-protokolleri-g%C3%BCvenli%C4%9Fi-ve-analizi/">
 
 
 <link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -53,7 +53,7 @@
 
   
   
-  <link rel="stylesheet" href="/css/coder.css" media="screen">
+  <link rel="stylesheet" href="/css/coder.min.f6b1b35a7b02521b25338f6cf58975f9980a6c12847763fe35a48307758cd1e7.css" integrity="sha256-9rGzWnsCUhslM49s9Yl1&#43;ZgKbBKEd2P&#43;NaSDB3WM0ec=" crossorigin="anonymous" media="screen" />
 
 
 
@@ -63,7 +63,7 @@
   
     
     
-    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
   
 
 
@@ -71,7 +71,7 @@
  
   
     
-    <link rel="stylesheet" href="/css/custom.css" media="screen">
+    <link rel="stylesheet" href="/css/custom.min.9ba1d18380369e5b820aaa1ded2e21aa03060cf450fcd67334bd2ff45583a4f8.css" integrity="sha256-m6HRg4A2nluCCqod7S4hqgMGDPRQ/NZzNL0v9FWDpPg=" crossorigin="anonymous" media="screen" />
   
 
 
@@ -112,7 +112,7 @@
     <nav class="navigation">
   <section class="container">
     
-    <a class="navigation-title" href="http://localhost:1313/tr/">
+    <a class="navigation-title" href="https://yusufarbc.dev/tr/">
       Yusuf Talha ARABACI
     </a>
     
@@ -1102,7 +1102,7 @@
 
   
   
-  <script src="/js/coder.js"></script>
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
   
 
   

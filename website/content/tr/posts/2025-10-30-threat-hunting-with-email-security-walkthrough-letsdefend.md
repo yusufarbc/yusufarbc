@@ -1,6 +1,9 @@
 ---
 date: '2025-10-30'
-description: In today’s digital world, email has emerged as one of the cornerstones of both personal and business communications. However, this widespread use makes email accounts an attractive target for cyber attackers. Cybercriminals can cause significant dama...
+description: In today’s digital world, email has emerged as one of the cornerstones
+  of both personal and business communications. However, this widespread use makes
+  email accounts an attractive target for cyber attackers. Cybercriminals can cause
+  significant dama...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*V1YCt7A3HhVJeU1A.png
 layout: single

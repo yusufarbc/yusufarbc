@@ -1,6 +1,9 @@
 ---
 date: '2025-10-31'
-description: In the world of cybersecurity, threat hunting requires developing proactive approaches to detect attackers and stop their activities. While traditional security measures offer passive methods to stop attackers, deception-based threat hunting takes th...
+description: In the world of cybersecurity, threat hunting requires developing proactive
+  approaches to detect attackers and stop their activities. While traditional security
+  measures offer passive methods to stop attackers, deception-based threat hunting
+  takes th...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/0*V1YCt7A3HhVJeU1A.png
 layout: single

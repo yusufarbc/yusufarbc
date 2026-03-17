@@ -3,7 +3,7 @@
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>
-  Zararlı Yazılım Analizine Giriş · Yusuf Talha ARABACI
+  Zararlı Yazılım Analizine Giriş · yusufarbc.dev
 </title>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,20 +13,20 @@
 
 
 <meta name="author" content="Yusuf Talha ARABACI">
-<meta name="description" content="Zararlı yazılım analizi temelleri.">
-<meta name="keywords" content="cybersecurity, infosec, cloud-native security, soc architecture, open source defense, yusuf talha arabaci, malware analysis, pentesting">
+<meta name="description" content="Zararlı Yazılım Analizine Giriş yazı serisi.">
+<meta name="keywords" content="cybersecurity, IT engineer, systems administration, network security, infrastructure, proxmox, docker, yusuf talha arabaci">
 
 
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
   <meta name="twitter:title" content="Zararlı Yazılım Analizine Giriş">
-  <meta name="twitter:description" content="Zararlı yazılım analizi temelleri.">
+  <meta name="twitter:description" content="Zararlı Yazılım Analizine Giriş yazı serisi.">
 
 <meta property="og:url" content="http://localhost:1313/tr/series/zararli-yazilim-analizine-giris/">
-  <meta property="og:site_name" content="Yusuf Talha ARABACI">
+  <meta property="og:site_name" content="yusufarbc.dev">
   <meta property="og:title" content="Zararlı Yazılım Analizine Giriş">
-  <meta property="og:description" content="Zararlı yazılım analizi temelleri.">
+  <meta property="og:description" content="Zararlı Yazılım Analizine Giriş yazı serisi.">
   <meta property="og:locale" content="tr">
   <meta property="og:type" content="website">
     <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
@@ -75,7 +75,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
 
 
-<link rel="alternate" type="application/rss+xml" href="/tr/series/zararli-yazilim-analizine-giris/index.xml" title="Yusuf Talha ARABACI" />
+<link rel="alternate" type="application/rss+xml" href="/tr/series/zararli-yazilim-analizine-giris/index.xml" title="yusufarbc.dev" />
 
 
 
@@ -103,11 +103,12 @@
   <main class="wrapper">
     <nav class="navigation">
   <section class="container">
-    
     <a class="navigation-title" href="http://localhost:1313/tr/">
-      Yusuf Talha ARABACI
+      
+        <img class="navigation-logo" src="/images/profile.jpeg" alt="Logo">
+      
+      <span class="navigation-text">yusufarbc.dev</span>
     </a>
-    
     
       <input type="checkbox" id="menu-toggle" />
       <label class="menu-button float-right" for="menu-toggle">
@@ -125,7 +126,15 @@
             </li>
           
             <li class="navigation-item">
+              <a class="navigation-link " href="/tr/projects/">Projeler</a>
+            </li>
+          
+            <li class="navigation-item">
               <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link btn-contact" href="mailto:yusuf.talhaarabaci@owasp.org">İletişim</a>
             </li>
           
         
@@ -165,52 +174,62 @@
 
     
     
-    
-    <div class="series-list-section">
-      <h3 class="section-subtitle">Yazı Serileri</h3>
-      <div class="series-tag-container">
-        
-          <a href="/tr/series/a%c4%9f-g%c3%bcvenli%c4%9fi-ve-y%c3%b6netimi/" class="series-nav-tag">#ağ güvenliği ve yönetimi</a>
-        
-          <a href="/tr/series/hakerlar-i%c3%a7in-python/" class="series-nav-tag">#hakerlar için python</a>
-        
-          <a href="/tr/series/kriptoloji-temelleri/" class="series-nav-tag">#kriptoloji temelleri</a>
-        
-          <a href="/tr/series/sentinelone-edr/" class="series-nav-tag">#sentinelone edr</a>
-        
-          <a href="/tr/series/threat-hunting-walkthroughs/" class="series-nav-tag">#threat hunting walkthroughs</a>
-        
-          <a href="/tr/series/wazuh-siem/" class="series-nav-tag">#wazuh siem</a>
-        
-          <a href="/tr/series/wireshark-ile-a%c4%9f-analizi/" class="series-nav-tag">#wireshark ile ağ analizi</a>
-        
-          <a href="/tr/series/zararl%c4%b1-yaz%c4%b1l%c4%b1m-analizine-giri%c5%9f/" class="series-nav-tag">#zararlı yazılım analizine giriş</a>
-        
-      </div>
-    </div>
-    
+      
+      
+      
 
-    <hr class="section-divider">
+      <ul class="posts-list-grid"></ul>
 
-    <ul class="posts-list-grid"></ul>
+      
+
+
+
+
+
 
     
-
-
-
-
-
-
   </section>
 
   <style>
-    .series-list-section {
+     
+    .section-divider {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--glass-border), transparent);
       margin: 2rem 0;
     }
-    .section-subtitle {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      opacity: 0.8;
+    
+     
+    .series-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 2rem;
+    }
+    .series-card {
+      overflow: hidden;
+      padding: 0 !important;
+      display: flex;
+      flex-direction: column;
+    }
+    .series-image {
+      height: 150px;
+      background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .series-info {
+      padding: 15px;
+    }
+    .series-desc {
+      font-size: 0.85rem;
+      margin-top: 10px;
+      opacity: 0.7;
+    }
+
+     
+    .series-list-section {
+      margin: 2rem 0;
     }
     .series-tag-container {
       display: flex;
@@ -231,12 +250,6 @@
       background: var(--primary-accent);
       color: white !important;
       border-color: var(--primary-accent);
-    }
-    .section-divider {
-      border: 0;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--glass-border), transparent);
-      margin: 2rem 0;
     }
     .posts-list-grid {
       list-style: none;

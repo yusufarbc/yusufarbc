@@ -1,6 +1,8 @@
 ---
 date: '2025-08-06'
-description: Modern ağ altyapıları, dijital dönüşümün bel kemiğini oluşturarak, kurumların iş operasyonlarının sürekliliği, performansı ve güvenliği için hayati bir rol oynamaktadır. Bulut bilişim entegrasyonu, Nesnelerin İnterneti (IoT) cihazlarının yaygınlaşmas...
+description: Modern ağ altyapıları, dijital dönüşümün bel kemiğini oluşturarak, kurumların
+  iş operasyonlarının sürekliliği, performansı ve güvenliği için hayati bir rol oynamaktadır.
+  Bulut bilişim entegrasyonu, Nesnelerin İnterneti (IoT) cihazlarının yaygınlaşmas...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*-Ly5E9MK-j1Q58Bvn6XnWQ.png
 layout: single

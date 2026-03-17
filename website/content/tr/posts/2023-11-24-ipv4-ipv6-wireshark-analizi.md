@@ -1,6 +1,7 @@
 ---
 date: '2023-11-24'
-description: Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+description: Merhaba bu yazımda IPv4 ve IPv6 protokolünü ve Wireshark ile analizini
+  anlatmaya çalışacağım.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*qSAbdDrUrlN_SQ9p_AXpFQ.png
 layout: single

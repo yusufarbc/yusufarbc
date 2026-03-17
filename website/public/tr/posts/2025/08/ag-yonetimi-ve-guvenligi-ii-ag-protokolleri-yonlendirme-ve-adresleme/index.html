@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Ağ Yönetimi ve Güvenliği II: Ağ Protokolleri, Yönlendirme ve Adresleme · yusufarbc.dev
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="Günümüzün hiper-bağlantılı dünyasında, küresel ekonomiden günlük sosyal etkileşimlerimize kadar her şeyin temelinde karmaşık ve devasa bir bilgisayar ağları altyapısı yatmaktadır. Bu altyapı, farklı kıtalardaki veri merkezlerinden evimizdeki akıllı c...">
+<meta name="keywords" content="cybersecurity, IT engineer, systems administration, network security, infrastructure, proxmox, docker, yusuf talha arabaci">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Ağ Yönetimi ve Güvenliği II: Ağ Protokolleri, Yönlendirme ve Adresleme">
+  <meta name="twitter:description" content="Günümüzün hiper-bağlantılı dünyasında, küresel ekonomiden günlük sosyal etkileşimlerimize kadar her şeyin temelinde karmaşık ve devasa bir bilgisayar ağları altyapısı yatmaktadır. Bu altyapı, farklı kıtalardaki veri merkezlerinden evimizdeki akıllı c...">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-ii-ag-protokolleri-yonlendirme-ve-adresleme/">
+  <meta property="og:site_name" content="yusufarbc.dev">
+  <meta property="og:title" content="Ağ Yönetimi ve Güvenliği II: Ağ Protokolleri, Yönlendirme ve Adresleme">
+  <meta property="og:description" content="Günümüzün hiper-bağlantılı dünyasında, küresel ekonomiden günlük sosyal etkileşimlerimize kadar her şeyin temelinde karmaşık ve devasa bir bilgisayar ağları altyapısı yatmaktadır. Bu altyapı, farklı kıtalardaki veri merkezlerinden evimizdeki akıllı c...">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-08-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-09T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/wazuh-5.0da-neler-yeni-siber-tehdit-istihbarat%C4%B1nda-devrim-ve-uc-nokta-guvenliginde-yeni-bir-cag/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-x-soc-ve-noc-surecleri/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/soc-analistleri-icin-kal%C4%B1c%C4%B1l%C4%B1k-saglama-kapsaml%C4%B1-xdr-analiz-k%C4%B1lavuzu/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-ix-bulut-guvenligi-ve-hibrit-ag-mimarileri/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-vi-ag-protokolleri-guvenligi-ve-analizi/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-viii-ag-yonetimi-izleme-ve-otomasyon/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-iii-ag-donan%C4%B1mlar%C4%B1-ve-fiziksel-altyap%C4%B1-guvenligi/">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-ii-ag-protokolleri-yonlendirme-ve-adresleme/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      
+        <img class="navigation-logo" src="/images/profile.jpeg" alt="Logo">
+      
+      <span class="navigation-text">yusufarbc.dev</span>
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/projects/">Projeler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link btn-contact" href="mailto:yusuf.talhaarabaci@owasp.org">İletişim</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/">English</a>
+              </li>
+            
+          
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article class="post-full glass-card">
+      <header class="post-header">
+        <div class="post-meta">
+          <time datetime="2025-08-09T00:00:00Z">
+            August 9, 2025
+          </time>
+          
+            <span class="post-series">in 
+              
+                <a href="/tr/series/ag-guvenligi-ve-yonetimi">Ağ Güvenliği ve Yönetimi</a>
+              
+            </span>
+          
+          <span class="reading-time">
+            <i class="fa-solid fa-clock" aria-hidden="true"></i>
+            22 min read
+          </span>
+        </div>
+        <h1 class="post-title-full">Ağ Yönetimi ve Güvenliği II: Ağ Protokolleri, Yönlendirme ve Adresleme</h1>
+        
+        
+        <div class="post-featured-image">
+          <img src="https://cdn-images-1.medium.com/max/800/0*1gN6tP9Nv5sf9IGl.png" alt="Ağ Yönetimi ve Güvenliği II: Ağ Protokolleri, Yönlendirme ve Adresleme">
+        </div>
+        
+      </header>
+
+      <div class="post-content">
+        <p>Günümüzün hiper-bağlantılı dünyasında, küresel ekonomiden günlük sosyal etkileşimlerimize kadar her şeyin temelinde karmaşık ve devasa bir bilgisayar ağları altyapısı yatmaktadır. Bu altyapı, farklı kıtalardaki veri merkezlerinden evimizdeki akıllı cihazlara kadar milyarlarca bileşenin uyum içinde çalışmasını gerektiren, görünmez bir omurgadır. Peki, farklı üreticiler tarafından üretilmiş, farklı teknolojileri kullanan bu cihazlar birbirleriyle nasıl bu kadar sorunsuz, hızlı ve güvenli bir şekilde iletişim kurabilmektedir? Bu sorunun cevabı, ağ mühendisliğinin temelini oluşturan standartlaştırılmış protokoller, hiyerarşik adresleme sistemleri ve akıllı yönlendirme algoritmalarında saklıdır.</p>
+<p>Bu teknik makale, modern ağların işleyişinin ardındaki temel prensipleri derinlemesine incelemek amacıyla hazırlanmıştır. Teorik bir çerçeve sunan OSI modelinden, internetin bel kemiği olan TCP/IP protokol yığınına; ağdaki her cihaza kimlik kazandıran IPv4 ve IPv6 adreslemeden, veri paketlerinin en verimli yolları bulmasını sağlayan dinamik yönlendirme protokollerine ve internetin küresel yol haritasını çizen BGP’ye kadar tüm kritik konular ele alınacaktır. Ayrıca, yerel ağlarda verimliliği ve güvenliği sağlayan anahtarlama teknolojileri, VLAN yönetimi ve döngü önleme mekanizmalarına da detaylı bir bakış sunulacaktır. Bu yazı, ağ teknolojilerine ilgi duyan öğrenciler, bilişim profesyonelleri ve mühendisler için temel bir başvuru kaynağı olmayı hedeflemektedir.</p>
+<h3 id="bölüm-1-ağ-iletişiminin-temel-modelleri-ve-veriakışı">
+  Bölüm 1: Ağ İletişiminin Temel Modelleri ve Veri Akışı
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-1-a%c4%9f-ileti%c5%9fiminin-temel-modelleri-ve-veriak%c4%b1%c5%9f%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Modern bilgisayar ağları, farklı üreticilerin cihazlarının ve yazılımlarının sorunsuz bir şekilde birlikte çalışabilmesini sağlayan standartlaştırılmış protokoller ve kavramsal modeller üzerine kuruludur. Bu bölüm, ağ iletişiminin temelini oluşturan OSI ve TCP/IP referans modellerini, verinin ağ katmanları arasındaki yolculuğunu ve bu süreçte karşılaşılan hataların nasıl yönetildiğini derinlemesine incelemektedir.</p>
+<h3 id="11-referans-modelleri-osi-ve-tcpip-karşılaştırması">
+  1.1 Referans Modelleri: OSI ve TCP/IP Karşılaştırması
+  <a class="heading-link" href="#11-referans-modelleri-osi-ve-tcpip-kar%c5%9f%c4%b1la%c5%9ft%c4%b1rmas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Ağ iletişiminin karmaşıklığını yönetilebilir parçalara ayırmak için iki temel referans modeli geliştirilmiştir: teorik olarak kapsamlı olan OSI modeli ve pratik uygulamada standart haline gelen TCP/IP modeli.</p>
+<h4 id="osi-modelinin-yedi-katmanı-teorik-birbaşyapıt">
+  OSI Modelinin Yedi Katmanı: Teorik Bir Başyapıt
+  <a class="heading-link" href="#osi-modelinin-yedi-katman%c4%b1-teorik-birba%c5%9fyap%c4%b1t">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Uluslararası Standartlar Örgütü (ISO) tarafından geliştirilen Açık Sistemler Bağlantısı (Open Systems Interconnection — OSI) modeli, ağ işlevlerini yedi mantıksal katmana ayıran kavramsal bir çerçevedir. Her katman, belirli bir görevi yerine getirir ve altındaki katmandan hizmet alırken üstündeki katmana hizmet sunar. Bu katmanlar aşağıdan yukarıya şunlardır:</p>
+<ol>
+<li><strong>Fiziksel Katman (Physical Layer):</strong> Veriyi bitler halinde (0&rsquo;lar ve 1&rsquo;ler) kablolar, fiber optikler veya radyo dalgaları gibi fiziksel bir ortam üzerinden iletir. Konektörler ve voltaj seviyeleri gibi elektriksel ve fiziksel özellikleri tanımlar.</li>
+<li><strong>Veri Bağlantısı Katmanı (Data Link Layer):</strong> Fiziksel katmandaki hataları düzelterek verinin güvenilir bir şekilde aynı ağ segmentindeki cihazlar arasında aktarılmasını yönetir. MAC adreslerini kullanarak çerçeveler (frames) oluşturur.</li>
+<li><strong>Ağ Katmanı (Network Layer):</strong> Farklı ağlar arasında paketlerin (packets) yönlendirilmesinden ve adreslenmesinden sorumludur. IP adresleri bu katmanda çalışır.</li>
+<li><strong>Taşıma Katmanı (Transport Layer):</strong> Uçtan uca bağlantı, veri bütünlüğü ve akış kontrolü sağlar. Veriyi segmentlere (segments) ayırır ve TCP (bağlantı odaklı) veya UDP (bağlantısız) gibi protokoller aracılığıyla iletir.</li>
+<li><strong>Oturum Katmanı (Session Layer):</strong> Cihazlar arasındaki iletişim oturumlarını kurar, yönetir ve sonlandırır.</li>
+<li><strong>Sunum Katmanı (Presentation Layer):</strong> Veriyi uygulamaların anlayabileceği bir formata çevirir. Veri sıkıştırma ve şifreleme gibi görevler bu katmanda gerçekleştirilir.</li>
+<li><strong>Uygulama Katmanı (Application Layer):</strong> Son kullanıcı uygulamalarına (web tarayıcıları, e-posta istemcileri vb.) doğrudan ağ hizmetleri sağlar.</li>
+</ol>
+<p>OSI modelinin en büyük gücü, protokollerden bağımsız (protocol-agnostic) yapısı ve her katmanın işlevini net bir şekilde ayırmasıdır. Bu modülerlik, ağ sorunlarını giderme sürecini büyük ölçüde basitleştirir, çünkü her katman bağımsız olarak incelenebilir.</p>
+<h4 id="tcpip-protokol-yığını-pragmatik-bir-gerçeklik">
+  TCP/IP Protokol Yığını: Pragmatik Bir Gerçeklik
+  <a class="heading-link" href="#tcpip-protokol-y%c4%b1%c4%9f%c4%b1n%c4%b1-pragmatik-bir-ger%c3%a7eklik">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>OSI modelinin aksine, TCP/IP modeli teorik bir çerçeve olarak değil, interneti inşa eden çalışan protokoller etrafında geliştirilmiş pratik bir modeldir. Genellikle dört katmanlı bir yapı olarak kabul edilir:</p>
+<ol>
+<li><strong>Ağ Erişimi Katmanı (Network Access Layer):</strong> OSI’nin Fiziksel ve Veri Bağlantısı katmanlarını birleştirir. Cihazlar arasındaki fiziksel ve mantıksal bağlantılardan sorumludur.</li>
+<li><strong>İnternet Katmanı (Internet Layer):</strong> OSI’nin Ağ katmanına karşılık gelir. IP (İnternet Protokolü) bu katmanın temelidir ve paketlerin farklı ağlar arasında en iyi yolu bularak yönlendirilmesini sağlar.</li>
+<li><strong>Taşıma Katmanı (Transport Layer):</strong> OSI’nin Taşıma katmanıyla aynı işlevleri yerine getirir. TCP ve UDP protokolleri ile güvenilir veya hızlı veri iletimi sağlar.</li>
+<li><strong>Uygulama Katmanı (Application Layer):</strong> OSI’nin Oturum, Sunum ve Uygulama katmanlarını tek bir katmanda birleştirir. HTTP, FTP, SMTP gibi son kullanıcı protokollerini içerir.</li>
+</ol>
+<p>TCP/IP’nin başarısı, onun basitliğinden ve pragmatik yaklaşımından kaynaklanır. Model resmileştirilmeden önce bile, internet zaten bu protokoller üzerine inşa ediliyordu. Bu durum, mühendislik pragmatizminin, komite temelli teorik idealizme karşı bir zaferi olarak görülebilir. OSI, ağı inşa etmeden <em>önce</em> mükemmel bir çerçeve oluşturmaya çalışan “yukarıdan aşağıya” bir yaklaşımken, TCP/IP acil bir sorunu çözen, çalışan ve “yeterince iyi” olan “aşağıdan yukarıya” bir çözümdü. Teknoloji tarihinde sıkça görüldüğü gibi, çalışan ve erken benimsenen bir çözüm, teorik olarak daha üstün ancak karmaşık ve geç gelen bir alternatife üstün gelmiştir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*0uu7t1OYMiHTQNyo.png" alt=""></p>
+<p>OSI Modeli vs TCP/IP Modeli</p>
+<h3 id="12-veri-kapsülleme-encapsulation-ve-kapsülden-çıkarma-de-encapsulation">
+  1.2 Veri Kapsülleme (Encapsulation) ve Kapsülden Çıkarma (De-encapsulation)
+  <a class="heading-link" href="#12-veri-kaps%c3%bclleme-encapsulation-ve-kaps%c3%bclden-%c3%a7%c4%b1karma-de-encapsulation">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Verinin bir ağ üzerinde gönderilmesi, her katmanın kendi kontrol bilgilerini eklediği katmanlı bir paketleme sürecini içerir. Bu sürece <strong>kapsülleme</strong> denir. Alıcı tarafta bu bilgilerin sırayla çıkarılması ise <strong>kapsülden çıkarma</strong> olarak adlandırılır.</p>
+<p>Kapsülleme süreci, mekanik bir paketleme işleminden çok daha fazlasını ifade eder; katmanlı ağ mimarisinde <em>protokol bağımsızlığını ve modülerliği</em> sağlayan temel soyutlama mekanizmasıdır. Her katman, bir alt katmanın karmaşıklığını tamamen gizleyerek bir üst katmana bir “hizmet” sunar. Örneğin, bir web geliştiricisi, HTTP protokolünü kullanırken TCP’nin segmentasyonundan veya IP’nin yönlendirmesinden haberdar olmak zorunda değildir. Bu soyutlama, internetin en büyük güçlerinden biridir; fiziksel katmanda Ethernet’i Wi-Fi ile değiştirmek, üst katmanlarda hiçbir değişiklik gerektirmez.</p>
+<p>Veri akışı şu adımları izler :</p>
+<ol>
+<li><strong>Uygulama Katmanı:</strong> Kullanıcı tarafından oluşturulan veri (örneğin bir e-posta metni) Taşıma katmanına iletilir. Bu aşamadaki veri birimine genellikle <strong>Veri (Data)</strong> denir.</li>
+<li><strong>Taşıma Katmanı:</strong> Gelen veriyi daha küçük parçalara böler (segmentasyon) ve her parçanın başına bir <strong>TCP</strong> veya <strong>UDP başlığı</strong> ekler. Bu başlık, kaynak ve hedef port numaraları gibi bilgileri içerir. Bu yeni veri birimine <strong>Segment</strong> denir.</li>
+<li><strong>İnternet Katmanı:</strong> Her segmente bir <strong>IP başlığı</strong> ekler. Bu başlık, paketin ağlar arasında yönlendirilebilmesi için kaynak ve hedef IP adreslerini içerir. Bu aşamadaki veri birimi <strong>Paket (Packet)</strong> veya <strong>Datagram</strong> olarak adlandırılır.</li>
+<li><strong>Ağ Erişimi Katmanı:</strong> Paketin başına bir <strong>çerçeve başlığı</strong> (kaynak ve hedef MAC adreslerini içeren) ve sonuna bir <strong>çerçeve kuyruğu</strong> (hata denetimi için CRC değerini içeren) ekler. Bu veri birimi <strong>Çerçeve (Frame)</strong> olarak bilinir.</li>
+<li><strong>Fiziksel İletim:</strong> Son olarak, çerçeve fiziksel ortama (örneğin bakır kabloya) iletilecek <strong>Bitlere</strong> dönüştürülür.</li>
+</ol>
+<p>Alıcı cihazda bu süreç tersine işler (kapsülden çıkarma). Her katman, kendi eş katmanının gönderici tarafta eklediği başlığı okur, işler, kaldırır ve verinin geri kalanını bir üst katmana iletir. Bu “eş katman etkileşimi” ilkesi, katmanların birbirinden bağımsız olarak geliştirilip güncellenebilmesini sağlar.</p>
+<h3 id="13-ağ-iletişiminde-hatayönetimi">
+  1.3 Ağ İletişiminde Hata Yönetimi
+  <a class="heading-link" href="#13-a%c4%9f-ileti%c5%9fiminde-hatay%c3%b6netimi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Veri iletimi sırasında sinyaller bozulabilir ve bit hataları oluşabilir. Ağ protokolleri bu hataları yönetmek için çeşitli mekanizmalar kullanır. İki temel yaklaşım vardır: hata tespiti ve hata düzeltme.</p>
+<h4 id="hata-tespiti-error-detection">
+  Hata Tespiti (Error Detection)
+  <a class="heading-link" href="#hata-tespiti-error-detection">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu yaklaşımın amacı, bir hata olup olmadığını belirlemektir. Hata tespit edilirse, hatalı veri paketi genellikle atılır ve güvenilir protokoller (TCP gibi) tarafından yeniden gönderilmesi istenir. En yaygın yöntemler şunlardır:</p>
+<ul>
+<li><strong>Checksum (Sağlama Toplamı):</strong> Gönderici, verinin içeriğine dayalı olarak matematiksel bir değer (checksum) hesaplar ve bunu pakete ekler. Alıcı, aynı hesaplamayı yapar ve kendi sonucuyla paketteki değeri karşılaştırır. Değerler eşleşmezse, paketin bozulduğu anlaşılır. TCP ve UDP başlıklarında kullanılır.</li>
+<li><strong>Döngüsel Artıklık Denetimi (Cyclic Redundancy Check — CRC):</strong> Checksum’dan daha karmaşık ve güvenilir bir yöntemdir. Veri Bağlantısı katmanında, özellikle Ethernet çerçevelerinin kuyruğunda (FCS — Frame Check Sequence) kullanılır. Birkaç bitlik hataları tespit etmede çok etkilidir.</li>
+</ul>
+<h4 id="hata-düzeltme-error-correction">
+  Hata Düzeltme (Error Correction)
+  <a class="heading-link" href="#hata-d%c3%bczeltme-error-correction">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bu yaklaşım, hataları sadece tespit etmekle kalmaz, aynı zamanda ek verileri kullanarak düzeltmeye çalışır. Bu, genellikle veriyi yedekli bir şekilde kodlayarak yapılır. Ancak bu yöntemler, hata tespitine göre çok daha fazla ek yük (overhead) getirir.</p>
+<p>Hata tespiti ve ardından yeniden iletim, internet gibi yeniden göndermenin nispeten ucuz ve hızlı olduğu ağlar için daha verimlidir. Hata düzeltme ise, yeniden iletimin çok maliyetli veya imkansız olduğu durumlarda (örneğin, uydu iletişimi veya tek yönlü yayınlar) tercih edilir.</p>
+<h3 id="bölüm-2-ip-adresleme-ve-alt-ağyönetimi">
+  Bölüm 2: IP Adresleme ve Alt Ağ Yönetimi
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-2-ip-adresleme-ve-alt-a%c4%9fy%c3%b6netimi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>IP adresleme, cihazların bir ağ üzerinde benzersiz bir şekilde tanımlanmasını ve küresel olarak iletişim kurmasını sağlayan temel mekanizmadır. Bu bölüm, IPv4&rsquo;ün yapısını, adres kıtlığı sorununu hafifleten teknikleri, geleceğin protokolü olan IPv6&rsquo;yı ve adreslerin dinamik olarak atanmasını sağlayan DHCP’yi ele almaktadır.</p>
+<h3 id="21-ipv4-adresleme-mimarisi">
+  2.1 IPv4 Adresleme Mimarisi
+  <a class="heading-link" href="#21-ipv4-adresleme-mimarisi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>IPv4, 32-bitlik bir adresleme şeması kullanır ve bu da teorik olarak yaklaşık 4.3 milyar benzersiz adres sağlar. Bu adresler genellikle nokta ile ayrılmış ondalık formatta (örneğin, 192.168.1.1) gösterilir.</p>
+<ul>
+<li><strong>Sınıflı Adresleme (Tarihsel Bir Bakış):</strong> Başlangıçta, IPv4 adresleri A, B ve C gibi sınıflara ayrılmıştı. Bu sınıflar, adresin ne kadarının ağ (network) kısmını ve ne kadarının ana bilgisayar (host) kısmını temsil ettiğini sabit bir şekilde belirliyordu. Örneğin, A Sınıfı ağlar çok az sayıda ağa ancak milyonlarca ana bilgisayara izin verirken, C Sınıfı ağlar milyonlarca ağa ancak her birinde sadece 254 ana bilgisayara izin veriyordu. Bu katı yapı, adreslerin verimsiz kullanılmasına ve büyük bir israfa yol açıyordu, çünkü bir kuruluşun ihtiyacından çok daha büyük veya çok daha küçük bloklar tahsis ediliyordu.</li>
+<li><strong>Özel ve Genel IP Adres Aralıkları (RFC 1918):</strong> IPv4 adreslerinin hızla tükenmesini yavaşlatmak için, İnternet Tahsisli Sayılar Kurumu (IANA), yerel alan ağlarında (LAN) kullanılmak üzere özel IP adresi aralıkları ayırmıştır. Bu aralıklar şunlardır :<br>
+<code>10.0.0.0</code> - <code>10.255.255.255</code> (<code>10.0.0.0/8</code>)<br>
+<code>172.16.0.0</code> - <code>172.31.255.255</code> (<code>172.16.0.0/12</code>)<br>
+<code>192.168.0.0</code> - <code>192.168.255.255</code> (<code>192.168.0.0/16</code>)<br>
+Bu özel adresler, genel internet üzerinde yönlendirilemez (non-routable) ve herhangi bir kuruluş tarafından izne gerek olmadan kullanılabilir.</li>
+<li><strong>Ağ Adresi Çevirisi (NAT):</strong> Özel IP adresleri kullanan cihazların internete erişebilmesi için <strong>NAT (Network Address Translation)</strong> kullanılır. NAT, genellikle bir yönlendirici veya güvenlik duvarı üzerinde çalışır ve yerel ağdaki birden fazla özel IP adresini tek bir genel (public) IP adresine eşler. Bu sayede, yüzlerce cihaz tek bir genel IP adresi üzerinden internete çıkabilir. NAT, IPv4 adres kıtlığı sorununu önemli ölçüde hafifleten kritik bir teknoloji olmuştur.</li>
+</ul>
+<h3 id="22-sınıfsız-alanlar-arası-yönlendirme-cidr-ve-alt-ağ-maskeleri">
+  2.2 Sınıfsız Alanlar Arası Yönlendirme (CIDR) ve Alt Ağ Maskeleri
+  <a class="heading-link" href="#22-s%c4%b1n%c4%b1fs%c4%b1z-alanlar-aras%c4%b1-y%c3%b6nlendirme-cidr-ve-alt-a%c4%9f-maskeleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Sınıflı adreslemenin getirdiği verimsizlik ve katılık, 1990&rsquo;ların başında interneti bir krizin eşiğine getirmişti. Çözüm, <strong>CIDR (Classless Inter-Domain Routing)</strong> ile geldi. CIDR, sadece bir IP adresleme tekniği değil, IPv4 tabanlı interneti çöküşten kurtaran devrimci bir müdahaleydi. Bu teknoloji, birbiriyle bağlantılı iki hayati sorunu aynı anda çözdü: verimsiz adres tahsisinden kaynaklanan <em>adres kıtlığı</em> ve global yönlendirme tablolarının kontrolsüz büyümesinden kaynaklanan <em>yönlendirme altyapısı krizi</em>.</p>
+<ul>
+<li><strong>CIDR Notasyonu ve VLSM:</strong> CIDR, ağ ve ana bilgisayar kısımlarını ayıran sınırı esnek hale getirir. Bu, IP adresinin sonuna eklenen bir eğik çizgi (<code>/</code>) ve ardından gelen bir sayı ile ifade edilir (örneğin, <code>192.168.1.0/24</code>). Bu sayı (prefix uzunluğu), adresin kaç bitinin ağ kısmına ait olduğunu belirtir. Bu esneklik, <strong>Değişken Uzunluklu Alt Ağ Maskesi (Variable Length Subnet Mask — VLSM)</strong> kullanımına olanak tanır. VLSM ile bir ağ bloğu, farklı boyutlardaki alt ağlara verimli bir şekilde bölünebilir, böylece adres israfı en aza indirilir. Örneğin, 500 ana bilgisayara ihtiyaç duyan bir kuruma, sınıflı sistemde 65,534 adreslik bir B sınıfı blok vermek yerine, CIDR ile 512 adreslik bir <code>/23</code> bloğu tahsis edilebilir.</li>
+<li><strong>Alt Ağlara Ayırma (Subnetting) ve Süper Ağ Oluşturma (Supernetting):</strong> CIDR, adres tahsisini optimize etmenin yanı sıra, yönlendirme tablolarını da basitleştirmiştir. <strong>Supernetting</strong> (veya rota birleştirme), birden fazla ardışık küçük ağ bloğunu tek bir büyük rota duyurusunda birleştirme işlemidir. Örneğin, bir internet servis sağlayıcısı, 16 farklı <code>/24</code> (eski C sınıfı) ağını, internetin geri kalanına 16 ayrı rota yerine tek bir <code>/20</code> rotası olarak duyurabilir. Bu, internetin omurgasındaki yönlendiricilerin yönlendirme tablolarının boyutunu yönetilebilir seviyelerde tutarak yönlendirme altyapısı krizini önlemiştir.</li>
+</ul>
+<h3 id="23-ipv6-adresleme-geleceğin-internet-protokolü">
+  2.3 IPv6 Adresleme: Geleceğin İnternet Protokolü
+  <a class="heading-link" href="#23-ipv6-adresleme-gelece%c4%9fin-internet-protokol%c3%bc">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>IPv4 adres alanının tükenmesiyle birlikte, internetin uzun vadeli büyümesini sağlamak için <strong>IPv6</strong> geliştirilmiştir.</p>
+<h4 id="ipv6-mimarisi-ve-avantajları">
+  IPv6 Mimarisi ve Avantajları
+  <a class="heading-link" href="#ipv6-mimarisi-ve-avantajlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>IPv6, 32-bit yerine <strong>128-bitlik</strong> bir adres alanı kullanır. Bu, <code>2^128</code> yani yaklaşık 340 undesilyon (3.4 x <code>10^38</code>) adres anlamına gelir ki bu da &ldquo;neredeyse sonsuz&rdquo; bir kapasite sunar. IPv6 adresleri, iki nokta üst üste ile ayrılmış sekiz adet 16-bitlik onaltılık gruptan oluşur (örneğin, <code>2001:0db8:85a3:0000:0000:8a2e:0370:7334</code>). IPv6&rsquo;nın temel avantajları şunlardır :</p>
+<ul>
+<li><strong>Devasa Adres Alanı:</strong> NAT ihtiyacını ortadan kaldırır ve her cihaza benzersiz bir genel adres atanmasını sağlar.</li>
+<li><strong>Basitleştirilmiş Başlık:</strong> IPv6 başlığı, IPv4&rsquo;e göre daha az alana sahiptir ve yönlendiriciler tarafından daha verimli işlenir.</li>
+<li><strong>Otomatik Yapılandırma (SLAAC):</strong> Cihazların bir DHCP sunucusuna ihtiyaç duymadan kendi kendilerine bir IP adresi oluşturmasına olanak tanır.</li>
+<li><strong>Yerleşik Güvenlik:</strong> IPsec protokolü desteği, IPv6 standardının bir parçasıdır ve uçtan uca güvenlik sağlar.</li>
+</ul>
+<h4 id="geçiş-mekanizmaları">
+  Geçiş Mekanizmaları
+  <a class="heading-link" href="#ge%c3%a7i%c5%9f-mekanizmalar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>IPv4&rsquo;ten IPv6&rsquo;ya geçiş bir anda gerçekleşmeyeceği için, iki protokolün bir arada çalışmasını sağlayan mekanizmalar gereklidir. En yaygın yaklaşım <strong>Çift Yığın (Dual Stack)</strong> mimarisidir. Bu yöntemde, ağ cihazları ve işletim sistemleri hem IPv4 hem de IPv6 protokol yığınlarını aynı anda çalıştırır. Bir uygulama bir hedefe bağlanmaya çalıştığında, DNS’ten hem IPv4 (A kaydı) hem de IPv6 (AAAA kaydı) adreslerini sorgular ve genellikle IPv6&rsquo;yı tercih eder. Bu yaklaşım, kademeli bir geçiş sağlarken, ağ yöneticileri için iki ayrı ağı yönetme ve güvenlik politikalarını uygulama gibi ek yükler getirir.</p>
+<h3 id="24-dinamik-ana-bilgisayar-yapılandırma-protokolü-dhcp">
+  2.4 Dinamik Ana Bilgisayar Yapılandırma Protokolü (DHCP)
+  <a class="heading-link" href="#24-dinamik-ana-bilgisayar-yap%c4%b1land%c4%b1rma-protokol%c3%bc-dhcp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Ağdaki cihazlara manuel olarak IP adresi atamak, özellikle büyük ağlarda, hem zahmetli hem de hataya açıktır. <strong>DHCP (Dynamic Host Configuration Protocol)</strong>, bu süreci otomatikleştiren bir istemci-sunucu protokolüdür.</p>
+<h4 id="dora-süreci">
+  DORA Süreci
+  <a class="heading-link" href="#dora-s%c3%bcreci">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir istemci ağa bağlandığında, bir IP adresi ve diğer ağ yapılandırma bilgilerini (alt ağ maskesi, ağ geçidi, DNS sunucusu) almak için dört adımlı bir süreçten geçer. Bu sürece <strong>DORA</strong> denir :</p>
+<ol>
+<li><strong>Discover (Keşfet):</strong> İstemci, ağdaki bir DHCP sunucusunu bulmak için bir <code>DHCPDISCOVER</code> yayın (broadcast) mesajı gönderir.</li>
+<li><strong>Offer (Teklif Et):</strong> Ağdaki DHCP sunucuları, istemciye bir IP adresi ve kiralama süresi içeren bir <code>DHCPOFFER</code> tek noktaya yayın (unicast) mesajı ile yanıt verir.</li>
+<li><strong>Request (İste):</strong> İstemci, gelen tekliflerden birini seçer ve bu adresi istediğini belirtmek için bir <code>DHCPREQUEST</code> yayın mesajı gönderir.</li>
+<li><strong>Acknowledge (Onayla):</strong> Seçilen sunucu, IP adresi atamasını ve diğer yapılandırma parametrelerini onaylayan bir <code>DHCPACK</code> tek noktaya yayın mesajı ile işlemi tamamlar.</li>
+</ol>
+<h4 id="dhcp-güvenliği-ve-sahtekarlık-snooping">
+  DHCP Güvenliği ve Sahtekarlık (Snooping)
+  <a class="heading-link" href="#dhcp-g%c3%bcvenli%c4%9fi-ve-sahtekarl%c4%b1k-snooping">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>DHCP, doğası gereği güvenli bir protokol değildir. Bir saldırgan, ağa yetkisiz bir (<strong>Rogue</strong>) DHCP sunucusu kurarak istemcilere yanlış ağ geçidi veya DNS bilgileri verebilir ve böylece trafiği kendi üzerinden geçirerek bir “ortadaki adam” (man-in-the-middle) saldırısı gerçekleştirebilir. Bu tehdide karşı en etkili önlem <strong>DHCP Snooping</strong>’dir. Bu özellik, ağ anahtarlarında (switch) etkinleştirilir ve DHCP mesajlarını izler. Anahtar, portlarını <strong>güvenilir (trusted)</strong> ve <strong>güvenilmez (untrusted)</strong> olarak ayırır. Güvenilir portlar, meşru DHCP sunucularına bağlı olan portlardır. Güvenilmez portlardan gelen <code>DHCPOFFER</code> ve <code>DHCPACK</code> gibi sunucu mesajları engellenir, böylece sadece yetkili sunucuların IP adresi dağıtmasına izin verilir.</p>
+<h3 id="bölüm-3-yönlendirme-protokolleri-ve-internetomurgası">
+  Bölüm 3: Yönlendirme Protokolleri ve İnternet Omurgası
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-3-y%c3%b6nlendirme-protokolleri-ve-internetomurgas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Yönlendirme, veri paketlerinin kaynak cihazdan hedef cihaza ulaşmak için ağlar arasında izleyeceği yolu belirleme sürecidir. Bu süreç, ya ağ yöneticisi tarafından manuel olarak tanımlanan statik rotalarla ya da yönlendiricilerin birbirleriyle iletişim kurarak en iyi yolları dinamik olarak öğrendiği protokollerle yönetilir. Bu bölüm, bu iki temel yaklaşımı, kurumsal ağlarda kullanılan İç Ağ Geçidi Protokollerini (IGP) ve internetin küresel omurgasını oluşturan Sınır Ağ Geçidi Protokolünü (BGP) incelemektedir.</p>
+<h3 id="31-yönlendirmenin-temelleri-statik-ve-dinamik-yaklaşımlar">
+  3.1 Yönlendirmenin Temelleri: Statik ve Dinamik Yaklaşımlar
+  <a class="heading-link" href="#31-y%c3%b6nlendirmenin-temelleri-statik-ve-dinamik-yakla%c5%9f%c4%b1mlar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*8Q5DoM_nd0PtJKLk.png" alt=""></p>
+<p>Statik ve Dinamik Yaklaşımlar</p>
+<p><strong>Statik Yönlendirme:</strong> Bu yöntemde, ağ yöneticisi her yönlendiricinin yönlendirme tablosuna rotaları elle girer. Bu rotalar, yönetici tarafından değiştirilene kadar sabit kalır. Küçük ve topolojisi değişmeyen ağlar için basit, güvenli ve kaynak açısından verimli bir çözümdür. Çünkü yönlendiriciler arasında protokol trafiği oluşmaz ve hangi yolların kullanılacağı tam olarak kontrol edilir. Ancak, ağ büyüdükçe veya bir bağlantı koptuğunda, tüm rotaların manuel olarak güncellenmesi gerektiğinden yönetimi imkansız hale gelir ve ağın hatalara karşı dayanıklılığı düşüktür.</p>
+<ul>
+<li><strong>Dinamik Yönlendirme:</strong> Bu yaklaşımda, yönlendiriciler özel yönlendirme protokolleri kullanarak birbirleriyle topoloji bilgilerini paylaşır ve en iyi yolları otomatik olarak hesaplar. Ağda bir değişiklik (örneğin yeni bir yönlendirici eklenmesi veya bir bağlantının kopması) olduğunda, protokoller bu değişikliği algılar ve yönlendirme tablolarını hızla güncelleyerek trafiği alternatif yollara yönlendirir. Bu, büyük ağlarda ölçeklenebilirlik ve yüksek erişilebilirlik sağlar. Dezavantajları ise yönlendiriciler üzerinde daha fazla CPU ve bellek tüketmesi ve yapılandırmasının daha karmaşık olmasıdır.</li>
+</ul>
+<h3 id="32-iç-ağ-geçidi-protokolleri-interior-gateway-protocolsigp">
+  3.2 İç Ağ Geçidi Protokolleri (Interior Gateway Protocols — IGP)
+  <a class="heading-link" href="#32-i%c3%a7-a%c4%9f-ge%c3%a7idi-protokolleri-interior-gateway-protocolsigp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>IGP’ler, tek bir otonom sistem (AS), yani tek bir idari alan (genellikle bir şirket veya servis sağlayıcı ağı) içindeki yönlendirmeyi yönetmek için kullanılır. İki ana kategoriye ayrılırlar: Mesafe-Vektör ve Bağlantı-Durumu.</p>
+<ul>
+<li><strong>RIP (Routing Information Protocol):</strong> En eski Mesafe-Vektör protokollerinden biridir. Metrik olarak yalnızca <strong>atlama sayısını (hop count)</strong> kullanır, yani hedefe ulaşmak için geçilmesi gereken yönlendirici sayısını sayar. Bu basitlik, bant genişliği veya gecikme gibi önemli faktörleri göz ardı etmesine neden olur. Maksimum 15 atlama limiti ve yavaş yakınsama süresi nedeniyle modern ağlarda kullanımı neredeyse tamamen terk edilmiştir.</li>
+<li><strong>OSPF (Open Shortest Path First):</strong> En yaygın kullanılan Bağlantı-Durumu (Link-State) protokolüdür. OSPF’de her yönlendirici, tüm ağın topolojik bir haritasını (Link-State Database — LSDB) oluşturur ve bu harita üzerinde <strong>Dijkstra’nın en kısa yol öncelikli (SPF)</strong> algoritmasını çalıştırarak hedeflere giden en iyi yolları hesaplar. Metrik olarak <strong>maliyet (cost)</strong> kullanır, bu da genellikle bağlantının bant genişliği ile ters orantılıdır. Hiyerarşik bir tasarıma olanak tanıyan <strong>alan (area)</strong> yapısı sayesinde büyük ağlarda son derece ölçeklenebilirdir.</li>
+<li><strong>EIGRP (Enhanced Interior Gateway Routing Protocol):</strong> Cisco tarafından geliştirilen bu protokol, hem Mesafe-Vektör hem de Bağlantı-Durumu protokollerinin en iyi özelliklerini birleştiren bir “hibrit” veya “gelişmiş mesafe-vektör” protokolü olarak kabul edilir. <strong>DUAL (Diffusing Update Algorithm)</strong> sayesinde, birincil yol çöktüğünde önceden hesaplanmış yedek yolları anında devreye sokarak çok hızlı yakınsama sağlar. Metrik olarak bant genişliği, gecikme, yük ve güvenilirlik gibi birden fazla parametreyi içeren <strong>kompozit bir metrik</strong> kullanır, bu da daha akıllı yol seçimleri yapmasına olanak tanır.</li>
+</ul>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*KO7-ySH9na-aDkyD.png" alt=""></p>
+<p>Ağ Geçidi Protokolleri</p>
+<h3 id="33-sınır-ağ-geçidi-protokolü-border-gateway-protocolbgp">
+  3.3 Sınır Ağ Geçidi Protokolü (Border Gateway Protocol — BGP)
+  <a class="heading-link" href="#33-s%c4%b1n%c4%b1r-a%c4%9f-ge%c3%a7idi-protokol%c3%bc-border-gateway-protocolbgp">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>BGP, internetin temelini oluşturan protokoldür. Bir IGP’den farklı olarak, tek bir ağ içinde değil, interneti oluşturan on binlerce bağımsız <strong>Otonom Sistem (AS)</strong> arasında yönlendirme bilgisi alışverişi yapmak için kullanılan bir <strong>Dış Ağ Geçidi Protokolü’dür (EGP)</strong>. Her AS, benzersiz bir <strong>ASN (Otonom Sistem Numarası)</strong> ile tanımlanır.</p>
+<p>BGP, temel olarak teknik bir protokolden çok, bir <strong>politika uygulama</strong> protokolüdür. IGP’ler bir ağ içindeki <em>en hızlı</em> veya <em>en verimli</em> yolu bulmaya odaklanırken, BGP, AS’ler arasındaki <em>tercih edilen</em> yolu, genellikle teknik metriklerden ziyade iş, ekonomi ve politika anlaşmalarına dayalı olarak belirler. Örneğin, bir servis sağlayıcı, daha hızlı olsa bile rakip bir şirketin ağından geçmek yerine, trafiğini anlaşmalı olduğu daha yavaş ama daha ucuz bir ağ üzerinden göndermeyi tercih edebilir.</p>
+<p><strong>Yol Vektör (Path Vector) Protokolü ve Yol Nitelikleri (Path Attributes):</strong> BGP, bir hedefe ulaşmak için geçilen AS’lerin tam listesini (<code>AS-PATH</code> niteliği) taşıyan bir &ldquo;Yol Vektör&rdquo; protokolüdür. Bu, BGP&rsquo;nin temel döngü önleme mekanizmasıdır; bir yönlendirici, bir rota güncellemesinde kendi ASN&rsquo;sini görürse o rotayı reddeder. BGP&rsquo;nin yol seçimi, bir dizi <strong>yol niteliğine</strong> dayanır. Bu nitelikler, rotanın özelliklerini tanımlar ve politika uygulamak için kullanılır. Başlıca nitelikler şunlardır :</p>
+<ul>
+<li><strong>AS_PATH:</strong> Geçilen AS’lerin listesi. En kısa olan tercih edilir. Kasıtlı olarak uzatılarak (<code>AS-Path Prepending</code>) bir yol daha az çekici hale getirilebilir.</li>
+<li><strong>NEXT_HOP:</strong> Rotaya ulaşmak için bir sonraki yönlendiricinin IP adresi.</li>
+<li><strong>LOCAL_PREF:</strong> Bir AS’nin dışarıya giden trafiği için hangi çıkış noktasını tercih ettiğini belirler. Daha yüksek değer tercih edilir.</li>
+<li><strong>MED (Multi-Exit Discriminator):</strong> Komşu bir AS’den içeriye gelen trafiği etkilemek için kullanılır. Düşük değer tercih edilir.</li>
+<li><strong>COMMUNITY:</strong> Rotaları etiketleyerek gruplamak ve bu gruplara toplu politikalar uygulamak için kullanılır.</li>
+</ul>
+<p><strong>Route Reflector (RR):</strong> Bir AS içindeki BGP yönlendiricileri (iBGP) arasında, bir komşudan öğrenilen rotanın diğer komşulara iletilmesini engelleyen bir “split-horizon” kuralı vardır. Bu kural, her yönlendiricinin diğer tüm yönlendiricilerle komşuluk kurmasını (full-mesh) gerektirir, bu da büyük ağlarda yönetilemez bir durum yaratır. <strong>Route Reflector</strong>, bu sorunu çözer. Belirli yönlendiriciler “istemci” olarak yapılandırılır ve tüm istemciler yalnızca RR ile komşuluk kurar. RR, bir istemciden öğrendiği rotayı diğer tüm istemcilere “yansıtarak” full-mesh ihtiyacını ortadan kaldırır.</p>
+<h3 id="34-bgp-güvenliği">
+  3.4 BGP Güvenliği
+  <a class="heading-link" href="#34-bgp-g%c3%bcvenli%c4%9fi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>BGP’nin orijinal tasarımında güvenlik ön planda değildi. Bu durum, <strong>BGP Rota Kaçırma (Hijacking)</strong> gibi ciddi güvenlik tehditlerine yol açmıştır. Rota kaçırma, bir AS’nin kendisine ait olmayan bir IP önekini (prefix) sahiplenerek internet trafiğini yasa dışı bir şekilde kendi üzerine çekmesidir. Bu, veri hırsızlığına, hizmet kesintilerine veya geniş çaplı dolandırıcılıklara neden olabilir.</p>
+<p>Bu tehdide karşı en etkili modern çözüm <strong>RPKI (Resource Public Key Infrastructure)</strong> sistemidir. RPKI, bir IP önekinin hangi ASN tarafından yasal olarak duyurulabileceğini kriptografik olarak doğrulayan bir altyapıdır. Bölgesel İnternet Kayıt Kurumları (RIR’ler), IP adresi sahiplerinin <strong>Rota Kaynak Yetkilendirmeleri (ROA)</strong> oluşturmasına olanak tanır. Bir ROA, belirli bir IP önekini, o öneği duyurma yetkisine sahip ASN’yi ve maksimum önek uzunluğunu birbirine bağlayan dijital olarak imzalanmış bir nesnedir. BGP yönlendiricileri, RPKI’yı destekleyen ağlarda, gelen bir rota duyurusunu bu ROA veritabanına karşı kontrol eder (<strong>Rota Kaynak Doğrulaması — ROV</strong>). Eğer duyuru geçersizse (örneğin, yanlış ASN tarafından yapılmışsa), rota reddedilir ve hijacking önlenmiş olur. RPKI’nin yaygınlaşması, YouTube ve Twitter gibi büyük platformları hedef alan kaçırma saldırılarının etkisini önemli ölçüde azaltmıştır.</p>
+<h3 id="bölüm-4-anahtarlama-teknolojileri-ve-yerel-alan-ağı-lanyönetimi">
+  Bölüm 4: Anahtarlama Teknolojileri ve Yerel Alan Ağı (LAN) Yönetimi
+  <a class="heading-link" href="#b%c3%b6l%c3%bcm-4-anahtarlama-teknolojileri-ve-yerel-alan-a%c4%9f%c4%b1-lany%c3%b6netimi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Yerel Alan Ağları (LAN), modern ağların temel yapı taşlarıdır. Bu bölümde, LAN’ların verimli ve güvenli bir şekilde çalışmasını sağlayan Katman 2 anahtarlama (switching) teknolojileri, ağları mantıksal olarak bölümlere ayıran VLAN’lar ve yedekli bağlantılarda döngüleri önleyen Spanning Tree Protokolü ele alınmaktadır.</p>
+<h3 id="41-katman-2-anahtarlama-ve-adres-çözümleme">
+  4.1 Katman 2 Anahtarlama ve Adres Çözümleme
+  <a class="heading-link" href="#41-katman-2-anahtarlama-ve-adres-%c3%a7%c3%b6z%c3%bcmleme">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Katman 2 anahtarlar (switch’ler), OSI modelinin Veri Bağlantısı katmanında çalışır ve çerçeveleri (frames) MAC adreslerine göre ileterek LAN’larda verimli bir iletişim sağlar.</p>
+<p><strong>MAC Adres Tablosu (CAM Table):</strong> Bir anahtarın zekası, <strong>MAC adresi tablosunda</strong> yatar. Bu tablo, anahtarın hangi MAC adresinin hangi portuna bağlı olduğunu kaydeder. Anahtar, bu tabloyu dinamik olarak oluşturur :</p>
+<ul>
+<li><strong>Öğrenme (Learning):</strong> Anahtar, bir portundan bir çerçeve aldığında, çerçevenin <strong>kaynak MAC adresini</strong> inceler. Eğer bu MAC adresi tabloda yoksa, MAC adresini ve geldiği port numarasını tabloya yeni bir giriş olarak ekler. Eğer adres zaten tabloda varsa, o girişin yaşlanma zamanlayıcısını (aging timer) sıfırlar. Bu zamanlayıcı genellikle 300 saniye (5 dakika) olup, bu süre içinde o adresten yeni bir çerçeve gelmezse giriş tablodan silinir.</li>
+</ul>
+<p><strong>Çerçeve İletme Mantığı:</strong> Anahtar, bir çerçeveyi iletmek için <strong>hedef MAC adresini</strong> tablosunda arar ve üç olası karar verir :</p>
+<ol>
+<li><strong>Yönlendirme (Forwarding):</strong> Hedef MAC adresi tabloda bulunursa, anahtar çerçeveyi yalnızca o MAC adresinin kayıtlı olduğu porta gönderir. Bu, gereksiz trafiği önler.</li>
+<li><strong>Taşkın (Flooding):</strong> Hedef MAC adresi tabloda bulunmazsa (bilinmeyen bir unicast ise), anahtar çerçeveyi geldiği port hariç <strong>tüm diğer portlara</strong> kopyalar. Bu işleme “flooding” denir. Hedef cihaz yanıt verdiğinde, anahtar onun MAC adresini öğrenir ve bir sonraki sefer flooding yapmaz.</li>
+<li><strong>Yayın (Broadcasting):</strong> Hedef MAC adresi <code>FF:FF:FF:FF:FF:FF</code> olan bir yayın (broadcast) çerçevesi gelirse, anahtar bu çerçeveyi geldiği port hariç tüm portlara gönderir.</li>
+</ol>
+<p><strong>Adres Çözümleme Protokolü (ARP):</strong> Cihazlar genellikle birbirleriyle IP adresleri üzerinden iletişim kurmak isterler, ancak yerel ağda fiili veri iletimi için MAC adresleri gereklidir. <strong>ARP (Address Resolution Protocol)</strong>, bu Katman 3 (IP) ve Katman 2 (MAC) adresleri arasındaki köprüyü kurar. Bir cihaz (A), aynı ağdaki başka bir cihazın (B) IP adresini bilip MAC adresini bilmediğinde şu süreci başlatır :</p>
+<ol>
+<li>A cihazı, “Bu IP adresine sahip olan cihazın MAC adresi nedir?” diye soran bir <strong>ARP Request</strong> mesajını ağa yayın (broadcast) olarak gönderir.</li>
+<li>Ağdaki tüm cihazlar bu isteği alır, ancak yalnızca IP adresi eşleşen B cihazı yanıt verir.</li>
+<li>B cihazı, kendi MAC adresini içeren bir <strong>ARP Reply</strong> mesajını doğrudan A cihazına tek noktaya yayın (unicast) olarak gönderir.</li>
+<li>A cihazı, aldığı bu bilgiyi kendi <strong>ARP önbelleğine (cache)</strong> kaydederek gelecekteki iletişimler için kullanır.</li>
+</ol>
+<h3 id="42-sanal-yerel-alan-ağları-vlanyönetimi">
+  4.2 Sanal Yerel Alan Ağları (VLAN) Yönetimi
+  <a class="heading-link" href="#42-sanal-yerel-alan-a%c4%9flar%c4%b1-vlany%c3%b6netimi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p><strong>VLAN (Virtual LAN)</strong>, tek bir fiziksel anahtarı, mantıksal olarak birden fazla bağımsız anahtar gibi davranacak şekilde sanal bölümlere ayırma teknolojisidir. Farklı VLAN’lerdeki cihazlar, araya bir yönlendirici girmeden birbirleriyle iletişim kuramazlar. VLAN’ların temel faydaları şunlardır :</p>
+<ul>
+<li><strong>Güvenlik:</strong> Farklı departmanları (örneğin, Muhasebe ve Mühendislik) veya kullanıcı gruplarını (örneğin, misafirler ve çalışanlar) birbirinden izole eder.</li>
+<li><strong>Performans:</strong> Her VLAN kendi yayın alanını (broadcast domain) oluşturur. Bu, yayın trafiğini sınırlar ve ağ genelindeki tıkanıklığı azaltır.</li>
+<li><strong>Esneklik:</strong> Cihazlar fiziksel konumlarından bağımsız olarak mantıksal ağlara gruplanabilir.</li>
+<li><strong>Trunking ve 802.1Q Standardı:</strong> Birden fazla VLAN’a ait trafiğin anahtarlar arasında tek bir fiziksel bağlantı üzerinden taşınması için <strong>trunk</strong> portları kullanılır. Bu işlemi standartlaştıran protokol <strong>IEEE 802.1Q</strong>’dur. 802.1Q, bir çerçeve trunk portundan geçerken Ethernet başlığına 4 byte’lık bir <strong>etiket (tag)</strong> ekler. Bu etiket, çerçevenin hangi VLAN’a ait olduğunu belirten bir VLAN ID içerir. Karşıdaki anahtar bu etiketi okur ve çerçeveyi doğru VLAN’a yönlendirir. <strong>Native VLAN</strong> ise bir trunk portu üzerinden etiketsiz olarak iletilen trafiğin ait olduğu VLAN’dır.</li>
+</ul>
+<p><strong>VLAN Hopping Saldırıları ve Önlemleri:</strong> Saldırganlar, VLAN’ların sağladığı izolasyonu aşmak için çeşitli teknikler kullanabilir. En yaygın iki saldırı türü şunlardır :</p>
+<ol>
+<li><strong>Switch Spoofing:</strong> Saldırgan, kendi cihazını bir anahtar gibi davranacak şekilde yapılandırır ve anahtarın portunu otomatik olarak trunk moduna geçmesi için kandırmaya çalışır. Bu genellikle, varsayılan olarak etkin olan <strong>DTP (Dynamic Trunking Protocol)</strong>’den yararlanılarak yapılır. Port trunk moduna geçtiğinde, saldırgan tüm VLAN’lerden gelen trafiği dinleyebilir.</li>
+<li><strong>Double Tagging:</strong> Bu saldırıda, saldırgan kendi çerçevesine iki adet 802.1Q etiketi ekler. Dış etiket, saldırganın bulunduğu Native VLAN’ın ID’sini, iç etiket ise hedef VLAN’ın ID’sini taşır. İlk anahtar, çerçeveyi Native VLAN’da olduğu için etiketsiz olarak görür, dış etiketi kaldırır ve trunk hattına iletir. İkinci anahtar ise artık sadece iç etiketi görür ve çerçeveyi hedef VLAN’a yanlışlıkla yönlendirir.</li>
+</ol>
+<p>Bu saldırılara karşı alınacak temel önlemler şunlardır: Kullanıcı portlarında DTP’yi devre dışı bırakmak (<code>switchport nonegotiate</code>), tüm erişim portlarını manuel olarak erişim moduna ayarlamak, Native VLAN&rsquo;ı kullanılmayan bir ID&rsquo;ye atamak ve kullanılmayan tüm portları kapatmak.</p>
+<h3 id="43-döngü-önleme-loop-prevention-mekanizmaları">
+  4.3 Döngü Önleme (Loop Prevention) Mekanizmaları
+  <a class="heading-link" href="#43-d%c3%b6ng%c3%bc-%c3%b6nleme-loop-prevention-mekanizmalar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Ağlarda yüksek erişilebilirlik sağlamak için anahtarlar arasında yedekli bağlantılar kurmak yaygın bir uygulamadır. Ancak, Katman 2&rsquo;de döngüler, yayın fırtınalarına (broadcast storms) ve MAC adresi tablosunun kararsızlaşmasına yol açarak ağı tamamen çalışmaz hale getirebilir. <strong>Spanning Tree Protocol (STP)</strong> ve gelişmiş versiyonları, bu döngüleri önlemek için tasarlanmıştır. Bu protokollerin evrimi, ağ tasarımındaki <em>dayanıklılık (redundancy)</em> ile <em>verimlilik (efficiency)</em> arasındaki temel dengeyi daha iyi bir noktaya taşıma çabasını yansıtır.</p>
+<p><strong>Spanning Tree Protocol (STP — IEEE 802.1D):</strong> Orijinal STP, ağdaki tüm anahtarlar arasında döngüsüz bir mantıksal topoloji oluşturur. Bunu, bir <strong>Kök Köprü (Root Bridge)</strong> seçerek ve her anahtarın Kök Köprü’ye giden en düşük maliyetli tek bir yolu aktif bırakıp diğer tüm yedekli yolları <strong>bloke ederek</strong> yapar. Bu, döngüleri etkili bir şekilde önler ancak iki büyük dezavantajı vardır:</p>
+<ol>
+<li><strong>Yavaş Yakınsama:</strong> Ağ topolojisinde bir değişiklik olduğunda (örneğin aktif bir link koptuğunda), bloke edilmiş bir portun tekrar iletim durumuna geçmesi 30 ila 50 saniye sürebilir. Bu, modern uygulamalar için kabul edilemez bir kesinti süresidir.</li>
+<li><strong>Verimsizlik:</strong> Tüm VLAN’lar tek bir Spanning Tree örneğini paylaştığı için, yedekli bir bağlantı tamamen atıl durumda kalır. Yüksek bant genişliğine sahip bir link, birincil link çalıştığı sürece hiç kullanılmaz.</li>
+</ol>
+<p><strong>Rapid Spanning Tree Protocol (RSTP — IEEE 802.1w):</strong> RSTP, STP’nin yavaş yakınsama sorununu çözmek için geliştirilmiştir. Port durumlarını basitleştirerek (Blocking, Listening, Disabled yerine tek bir <strong>Discarding</strong> durumu) ve yeni port rolleri (birincil kök portu çöktüğünde anında devralan <strong>Alternate Port</strong> gibi) ekleyerek yakınsama süresini saniyeler mertebesine indirir. RSTP, STP ile geriye dönük uyumludur ancak hala tüm VLAN’lar için tek bir ağaç oluşturduğundan bant genişliği verimsizliği sorununu çözmez.</p>
+<p><strong>Multiple Spanning Tree Protocol (MSTP — IEEE 802.1s):</strong> MSTP, hem RSTP’nin hızını korur hem de STP/RSTP’nin verimsizlik sorununu çözer. MSTP, VLAN’ları mantıksal <strong>örneklere (instances)</strong> gruplandırır ve her örnek için ayrı bir Spanning Tree çalıştırır. Bu, VLAN bazlı yük dengelemesine olanak tanır. Örneğin, bir bağlantı VLAN 10–20 grubu için aktif (forwarding) durumdayken, aynı bağlantı VLAN 30–40 grubu için bloke (discarding) durumda olabilir. Bu sayede, tüm yedekli bağlantılar bir kısım trafik için aktif olarak kullanılır, bant genişliği israfı önlenir ve ağ kaynakları en verimli şekilde değerlendirilir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*iZqupuFz_XXG4e9n.png" alt=""></p>
+<p>Loop Prevention</p>
+<p>Bu evrimsel yol, ağ mühendisliğinin temel hedefini özetler: temel güvenliği (döngü önleme) sağlamak, ardından hızı (hızlı yakınsama) eklemek ve son olarak zeka ve verimliliği (yük dengeleme) getirmek.</p>
+<h3 id="sonuç">
+  Sonuç
+  <a class="heading-link" href="#sonu%c3%a7">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bu teknik inceleme, modern bilgisayar ağlarının temelini oluşturan protokolleri, adresleme şemalarını ve yönetim mekanizmalarını kapsamlı bir şekilde ele almıştır. Analiz, ağ teknolojilerinin basit ve katı modellerden, günümüzün karmaşık, esnek ve politika odaklı sistemlerine doğru evrimini açıkça ortaya koymaktadır.</p>
+<ul>
+<li><strong>Modeller ve Veri Akışı:</strong> OSI ve TCP/IP modellerinin karşılaştırılması, teorik idealizm ile mühendislik pragmatizmi arasındaki farkı göstermiştir. TCP/IP’nin çalışan protokollere dayalı pragmatik yaklaşımı, onu internetin fiili standardı haline getirmiştir. Veri kapsülleme süreci ise sadece bir paketleme tekniği değil, aynı zamanda ağların modülerliğini ve protokol bağımsızlığını sağlayan temel bir soyutlama mekanizması olarak öne çıkmaktadır.</li>
+<li><strong>Adresleme ve Yönlendirme:</strong> CIDR’ın tanıtılması, IPv4 tabanlı interneti hem adres kıtlığı hem de yönlendirme tablosu patlaması krizinden kurtaran devrimci bir adım olmuştur. Bu, teknolojinin sadece ilerlemekle kalmayıp, aynı zamanda kendi kendini sürdürülebilir kılmak için nasıl adapte olduğunun güçlü bir örneğidir. BGP’nin incelenmesi, internet omurgasındaki yönlendirmenin salt teknik bir optimizasyon olmadığını, aynı zamanda iş ve politika ilişkilerini yansıtan bir “politika uygulama” mekanizması olduğunu göstermiştir. BGP güvenliğinde RPKI’nin yükselişi, internetin temel altyapısını korumak için kriptografik doğrulamaya doğru artan bir eğilimi işaret etmektedir.</li>
+<li><strong>LAN Yönetimi:</strong> Anahtarlama ve döngü önleme teknolojilerinin evrimi, dayanıklılık ve verimlilik arasındaki sürekli dengeyi gözler önüne sermektedir. STP’nin kaba engelleme mantığından MSTP’nin akıllı yük dengeleme yeteneklerine geçiş, ağ kaynaklarının daha verimli kullanılmasına yönelik sürekli bir arayışı temsil etmektedir. Benzer şekilde, VLAN teknolojisi ve VLAN hopping gibi saldırılara karşı geliştirilen önlemler, ağ segmentasyonunun güvenlik ve performans için ne kadar kritik olduğunu, ancak bu güvenliğin sürekli bir dikkat ve doğru yapılandırma gerektirdiğini vurgulamaktadır.</li>
+</ul>
+<p>Nihayetinde, bu teknolojiler birbiriyle derinden bağlantılıdır. Bir Katman 2 anahtarının MAC adresini öğrenmesi, ARP’nin bir IP adresini çözümlemesine bağlıdır; bir yönlendiricinin bir paketi iletmesi, hem hedef IP adresini hem de o hedefe giden en iyi yolu bilmesini gerektirir; ve tüm bu sistemin küresel ölçekte çalışması, BGP’nin karmaşık politika tabanlı kararlarına dayanır. Bu karmaşık ve katmanlı yapı, modern dijital dünyanın temelini oluşturan esnek, ölçeklenebilir ve sürekli gelişen bir altyapı meydana getirmektedir.</p>
+
+      </div>
+
+      <footer class="post-footer-links">
+        
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
+
+
+      </footer>
+    </article>
+  </section>
+
+  <style>
+    .post-full {
+      padding: 2.5rem;
+      margin: 2rem auto;
+      max-width: 900px;
+    }
+    .post-header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .post-title-full {
+      font-size: 2.5rem;
+      margin: 1rem 0;
+      background: linear-gradient(to right, var(--primary-accent), var(--secondary-accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .post-featured-image {
+      margin: 2rem -2.5rem;
+      max-height: 500px;
+      overflow: hidden;
+    }
+    .post-featured-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .post-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: inherit;
+    }
+    .post-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 768px) {
+      .post-full {
+        padding: 1.5rem;
+      }
+      .post-title-full {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

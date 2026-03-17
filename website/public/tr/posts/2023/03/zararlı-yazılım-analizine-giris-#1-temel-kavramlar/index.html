@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Zararlı Yazılım Analizine Giriş: #1 Temel Kavramlar · yusufarbc.dev
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="Bu yazı serimizde zararlı yazılım analizi hakkında bilgiler vereceğim; virüsler, solucanlar vb. terimleri duymuşsunuzdur. Ama bu şeyler ne anlama geliyor? Virüs solucan mıdır? Kötü amaçlı yazılım tam olarak ne yapar? Hadi bunları öğrenelim…">
+<meta name="keywords" content="cybersecurity, IT engineer, systems administration, network security, infrastructure, proxmox, docker, yusuf talha arabaci">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Zararlı Yazılım Analizine Giriş: #1 Temel Kavramlar">
+  <meta name="twitter:description" content="Bu yazı serimizde zararlı yazılım analizi hakkında bilgiler vereceğim; virüsler, solucanlar vb. terimleri duymuşsunuzdur. Ama bu şeyler ne anlama geliyor? Virüs solucan mıdır? Kötü amaçlı yazılım tam olarak ne yapar? Hadi bunları öğrenelim…">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris-%231-temel-kavramlar/">
+  <meta property="og:site_name" content="yusufarbc.dev">
+  <meta property="og:title" content="Zararlı Yazılım Analizine Giriş: #1 Temel Kavramlar">
+  <meta property="og:description" content="Bu yazı serimizde zararlı yazılım analizi hakkında bilgiler vereceğim; virüsler, solucanlar vb. terimleri duymuşsunuzdur. Ama bu şeyler ne anlama geliyor? Virüs solucan mıdır? Kötü amaçlı yazılım tam olarak ne yapar? Hadi bunları öğrenelim…">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-03-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-03-07T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris-%234-dinamik-analiz/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris-%235-kaynak-arast%C4%B1rmas%C4%B1/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris-%233-statik-analiz/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris-%232-sandbox-kurulum/">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris-%231-temel-kavramlar/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      
+        <img class="navigation-logo" src="/images/profile.jpeg" alt="Logo">
+      
+      <span class="navigation-text">yusufarbc.dev</span>
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/projects/">Projeler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link btn-contact" href="mailto:yusuf.talhaarabaci@owasp.org">İletişim</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/">English</a>
+              </li>
+            
+          
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article class="post-full glass-card">
+      <header class="post-header">
+        <div class="post-meta">
+          <time datetime="2023-03-07T00:00:00Z">
+            March 7, 2023
+          </time>
+          
+            <span class="post-series">in 
+              
+                <a href="/tr/series/zararl%c4%b1-yaz%c4%b1l%c4%b1m-analizine-giris">Zararlı Yazılım Analizine Giriş</a>
+              
+            </span>
+          
+          <span class="reading-time">
+            <i class="fa-solid fa-clock" aria-hidden="true"></i>
+            5 min read
+          </span>
+        </div>
+        <h1 class="post-title-full">Zararlı Yazılım Analizine Giriş: #1 Temel Kavramlar</h1>
+        
+        
+        <div class="post-featured-image">
+          <img src="https://cdn-images-1.medium.com/max/800/1*wRwVFbFX3SX1zyV-mTRt_w.png" alt="Zararlı Yazılım Analizine Giriş: #1 Temel Kavramlar">
+        </div>
+        
+      </header>
+
+      <div class="post-content">
+        <p>Bu yazı serimizde zararlı yazılım analizi hakkında bilgiler vereceğim; virüsler, solucanlar vb. terimleri duymuşsunuzdur. Ama bu şeyler ne anlama geliyor? Virüs solucan mıdır? Kötü amaçlı yazılım tam olarak ne yapar? Hadi bunları öğrenelim…</p>
+<h3 id="zararlı-yazılım-malware">
+  Zararlı Yazılım (Malware)
+  <a class="heading-link" href="#zararl%c4%b1-yaz%c4%b1l%c4%b1m-malware">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Zararlı yazılım, zararlı(malicious) ve yazılım(software) kelimelerinin birleşiminden gelir. Hackerlar tarafından sistemlere bulaşmak ve zarar verecek eylemleri gerçekleştirmek için kullanılan bir yazılım parçasıdır. <br>
+Bu tür yazılımlar, veri kaybına veya süreçlerinin kesintiye uğramasına yol açabilir.</p>
+<p>Zararlı yazılımın iki ana bileşeni vardır:</p>
+<ul>
+<li><strong>Yayılma mekanizması:</strong> Bir zararlı yazılımın kendisini bir veya daha fazla sisteme nasıl yaydığıdır.</li>
+<li><strong>Payload:</strong> Bir zararlı yazılımın virüs bulaşmış bir cihazda veya sistemde gerçekleştirdiği eylemdir.</li>
+</ul>
+<p>Zararlı yazılımları, yayılış biçimine ve işlevine göre sınıflandırabiliriz. Ancak, bir zararlı yazılım bu türlerin pek çoğunun karışımından da oluşabilir. Bu nedenle sınıflandırmayı kesiınleştirmek zor olabilir.</p>
+<h4 id="zararlı-yazılım-belirtileri">
+  Zararlı Yazılım Belirtileri
+  <a class="heading-link" href="#zararl%c4%b1-yaz%c4%b1l%c4%b1m-belirtileri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir sisteme bulaşmış olan kötü amaçlı yazılımın türü ne olursa olsun, dikkat edilmesi gereken bazı yaygın belirtiler vardır. Bunlar:</p>
+<ul>
+<li>Merkezi işlem birimi (CPU) kullanımında artış, buna bağlı olarak bilgisayarınızın yavaşlaması</li>
+<li>Bilgisayarınızın sık sık donması veya çökmesi</li>
+<li>Web tarama hızınızda azalma</li>
+<li>Ağ bağlantılarınızla ilgili açıklanamayan sorunlar</li>
+<li>Değiştirilmiş veya silinmiş dosyalar</li>
+<li>Bilinmeyen dosyaların, programların veya masaüstü simgelerinin varlığı</li>
+<li>Çalışan bilinmeyen işlemler (process)</li>
+<li>Kendini kapatan veya yeniden yapılandıran programlar</li>
+<li>Bilginiz veya onayınız olmadan gönderilen e-postalar.</li>
+</ul>
+<h3 id="yayılma-mekanizmaları">
+  Yayılma Mekanizmaları
+  <a class="heading-link" href="#yay%c4%b1lma-mekanizmalar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Zararlı yazılımları yayılış biçimine yani propaganda mekanizmasına göre sınıflandırırsak genel olarak 3 türe ayırabiliriz.</p>
+<h4 id="virüs">
+  Virüs
+  <a class="heading-link" href="#vir%c3%bcs">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Virüsler, bir sisteme girmek için bazı giriş yollarına ve özellikle bir kullanıcı eylemine bağlıdır. Örneğin, bir kullanıcı virüs içeren ve sistemi kirleten bir dosya indirebilir veya bir USB cihazını takabilir. Spam mailleriyle veya güvensiz web sitelerinden indirilen dosyalarla virüsler sisteme bulaşabilir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*7ixQhZJscn87lzCg" alt=""></p>
+<p>Bilgisayar Virüsü</p>
+<h4 id="worm-solucan">
+  Worm (Solucan)
+  <a class="heading-link" href="#worm-solucan">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir virüsün aksine, bir worm kendisini sistemlere yaymak için herhangi bir kullanıcı eylemine ihtiyaç duymaz. Bunun yerine yararlanabileceği savunmasız sistemleri bularak hasara neden olur. Worm içeri girdikten sonra ağdaki diğer bağlı sistemlere yayılabilir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*xEK2G3FlicDMuzXZ" alt=""></p>
+<p>Bilgisayar Solucanı</p>
+<h4 id="trojan-truvaatı">
+  Trojan (Truva Atı)
+  <a class="heading-link" href="#trojan-truvaat%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Trojan, gerçek bir yazılım parçası gibi davranan bir zararlı yazılım türüdür. Bir kullanıcı programı yüklediğinde, beklendiği gibi çalışır. Ancak program arka planda zararlı işlevler gerçekleştirir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*KmP_iO_srKQD2TDY" alt=""></p>
+<p>Bilgisayar Truva Atı</p>
+<h3 id="payloadlar">
+  Payloadlar
+  <a class="heading-link" href="#payloadlar">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Zararlı yazılımlar sistemlere bulaştığında pek çok zararlı işlev gerçekleştirebilir. Bunlardan kabaca bazıları şulardır:</p>
+<h4 id="ransomware">
+  Ransomware
+  <a class="heading-link" href="#ransomware">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bulaştığı sistemleri veya verileri kilitleyen bir programdır. Saldırgan daha sonra dosyaların kilidini çözme karşılığında fidye talep eder. Fidye belirlenen son tarihe kadar ödenmezse, tüm dosyalar silinebilir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*zNpqSE4ZoUgG7GgR" alt=""></p>
+<p>Fidye Yazılımı</p>
+<h4 id="spyware">
+  Spyware
+  <a class="heading-link" href="#spyware">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir cihaz veya sistem üzerinde casusluk yapan bir program türüdür. Bu tür yazılımlar, kullanıcının bilgisi olmadan bir cihaza klavye tarama yazılımı yükleyebilir, parola ayrıntılarını toplayabilir ve bunları saldırgana iletebilir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*0CkR5kE0mHesfqKX" alt=""></p>
+<p>Casus Yazılım</p>
+<h4 id="backdoor">
+  Backdoor
+  <a class="heading-link" href="#backdoor">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir siber suçlunun mevcut güvenlik önlemlerini atlamak için bir sistem veya cihazdaki bir güvenlik açığından yararlanmasını sağlayan yani saldırganın hedef sisteme erişimini sağlayan bir yazılımdır.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*2JMZbmGS09GLFE8C" alt=""></p>
+<p>Arka Kapı</p>
+<h4 id="botnet">
+  Botnet
+  <a class="heading-link" href="#botnet">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Bir bilgisayarı, sunucuyu veya başka bir cihazı, bazı illegal faaliyetleri gerçekleştirmek için uzaktan kontrol edebilen ve benzer şekilde enfekte edilmiş cihazlardan oluşan bir ağa bağlayan bir yazılımdır. Bu sistemde enfekte olan cihazlara zombi, enfekte olmuş cihazların tamamından oluşan ağa ise botnet denir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*YT69TLgbjiGn9kKr" alt=""></p>
+<p>Botnet Ağı</p>
+<h3 id="zararlı-yazılımanalizi">
+  Zararlı Yazılım Analizi
+  <a class="heading-link" href="#zararl%c4%b1-yaz%c4%b1l%c4%b1manalizi">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Zararlı yazılım analizi, bir zararlı yazılımın nasıl çalıştığını, nasıl tanımlanacağını ve nasıl önleneceğini veya ortadan kaldırılacağını anlamak için yapılan analizler bütünüdür.</p>
+<p>Zararlı yazılım analizine yönelik iki temel yaklaşım vardır:</p>
+<ul>
+<li><strong>Statik analiz:</strong> zararlı yazılımı çalıştırmadan incelemeyi içerir.</li>
+<li><strong>Dinamik analiz:</strong> zararlı yazılımın çalıştırılmasını içerir.</li>
+</ul>
+<p>Bu analizler için geliştirilmiş pek çok araç ve dağıtım vardır. Bunlara sonraki yazılarımızda daha detaylı değineceğiz.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*z14dwVUCN5W82O2t" alt=""></p>
+<h4 id="zararlı-yazılım-analizinin-genel-kuralları">
+  Zararlı Yazılım Analizinin Genel Kuralları
+  <a class="heading-link" href="#zararl%c4%b1-yaz%c4%b1l%c4%b1m-analizinin-genel-kurallar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Öncelikle ayrıntılara fazla takılmayın. Çoğu zararlı yazılım programı büyük ve karmaşıktır ve muhtemelen her ayrıntıyı anlayamazsınız. Bunun yerine temel özelliklere odaklanın.</p>
+<p>İkinci olarak, farklı işler için farklı araçlar ve yaklaşımlar olduğunu unutmayın. Tek bir yaklaşım yok. Her durum farklıdır ve öğreneceğiniz çeşitli araçlar ve teknikler benzer ve bazen örtüşen işlevlere sahip olacaktır. Bir araçta şansınız yoksa, başka birini deneyin. Sıkışırsanız, herhangi bir konuda fazla zaman harcamayın. Kötü amaçlı yazılımı farklı bir açıdan analiz etmeyi deneyin veya farklı bir yaklaşım deneyin.</p>
+<p>Son olarak, zararlı yazılım analizinin bir kedi-fare oyunu gibi olduğunu unutmayın. Yeni zararlı yazılım analizi teknikleri geliştirildikçe, zararlı yazılım geliştiricileri, analizi engellemek için yeni tekniklerle yanıt verir. Bir zararlı yazılım analisti olarak başarılı olmak için, bu teknikleri tanımanız, anlamanız ve yenmeniz gerekir.</p>
+<h3 id="zararlı-yazılımların-tespiti">
+  Zararlı Yazılımların Tespiti
+  <a class="heading-link" href="#zararl%c4%b1-yaz%c4%b1l%c4%b1mlar%c4%b1n-tespiti">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Bir yazılımın zararlı olduğunu doğrulamak için birçok yöntem vardır. Bunlardan bazıları:</p>
+<ul>
+<li>Antivirüs araçlarını kullanma</li>
+<li>Yazılımın hash değerlerini kullanma</li>
+<li>Yazılımın stringlerini, fonksiyonlarını ve headerlarını inceleme</li>
+</ul>
+<p>Her teknik farklı bilgiler sağlayabilir ve kullandığınız teknikler hedeflerinize bağlıdır.</p>
+<h4 id="antivirüs-taraması">
+  Antivirüs Taraması
+  <a class="heading-link" href="#antivir%c3%bcs-taramas%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Muhtemel zararlı yazılımları ilk kez analiz ederken, onu zaten tanımlamış olabilecek bir antivirüs programı aracılığıyla çalıştırmak iyi bir ilk adımdır. Ancak antivirüs yazılımları kesinlikle mükemmel değildir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*4e5QkMwSOlklDzTk" alt=""></p>
+<p>Antivirüsler, şüpheli dosyaları belirlemek için bilinen zararlı kodların imzalarından oluşan bir veritabanına ve ayrıca davranışsal ve model eşleştirme analizine (buluşsal yöntemler) güvenirler. Buradaki sorun, zararlı yazılım geliştiricilerin kodlarını kolayca değiştirebilmeleri, böylece programlarının imzasını değişmesi ile virüs tarayıcılarından kaçabilmeleridir. Ayrıca, nadir görülen zararlı yazılımlar, veritabanında bulunmadığından genellikle antivirüsler tarafından algılanmaz. Son olarak danvranışsal yöntemler, genellikle bilinmeyen kötü amaçlı kodları tanımlamada başarılı olsa da, yeni ve benzersiz zararlı yazılımlar tarafından atlatılabilir.</p>
+<h4 id="hash-değerleri">
+  Hash Değerleri
+  <a class="heading-link" href="#hash-de%c4%9ferleri">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Hashing, zararlı yazılımları benzersiz bir şekilde tanımlamak için kullanılan yaygın bir yöntemdir. Zararlı yazılımı tanımlayan benzersiz bir karma (bir tür parmak izi) üreten bir karma program aracılığıyla benzersiz bir hash değeri elde edilir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*j6kcHkQ7HOsZeTdY" alt=""></p>
+<p>Message-Digest Algorithm 5 (MD5) hash fonksiyonu, kötü amaçlı yazılım analizi için en sık kullanılan algoritmadır, ancak Secure Hash Algorithm 1 (SHA-1) de popülerdir.</p>
+<h4 id="virustotal">
+  VirusTotal
+  <a class="heading-link" href="#virustotal">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><a href="http://www.virustotal.com"  class="external-link" target="_blank" rel="noopener">VirusTotal</a>, birçok zararlı yazılımdan koruma ürününü bir araya getiren çevrimiçi bir web platformudur. Buraya bir zaralı yazılım örneğini yükleyebilirsiniz. Burayayüklenen örnek birçok antivirüsürünü tarafından taranır ve size bir sonuç raporu döndürür. Bu raporda, örneğin hangi yazılımlar tarafından ne şekilde değerlendirildiği ve tür kategori aile olarak snıflandırmasını görebilirsiniz.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/0*8PmXisy7U6o1cF5d" alt=""></p>
+<p>Zararlı Yazılım Analizi serimizin bu ilk yazısında temel kavramlardan bahsettim. Birdahaki yazımda analiz yöntemlerine ve kullanılacak araçlara daha detaylı değiniyor olacağım. Beğendiyseniz yorum yapmayı ve takip etmeyi unutmayın!</p>
+
+      </div>
+
+      <footer class="post-footer-links">
+        
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
+
+
+      </footer>
+    </article>
+  </section>
+
+  <style>
+    .post-full {
+      padding: 2.5rem;
+      margin: 2rem auto;
+      max-width: 900px;
+    }
+    .post-header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .post-title-full {
+      font-size: 2.5rem;
+      margin: 1rem 0;
+      background: linear-gradient(to right, var(--primary-accent), var(--secondary-accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .post-featured-image {
+      margin: 2rem -2.5rem;
+      max-height: 500px;
+      overflow: hidden;
+    }
+    .post-featured-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .post-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: inherit;
+    }
+    .post-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 768px) {
+      .post-full {
+        padding: 1.5rem;
+      }
+      .post-title-full {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

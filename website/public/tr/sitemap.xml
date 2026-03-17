@@ -17,8 +17,23 @@
                 href="http://localhost:1313/tr/about/"
                 />
   </url><url>
+    <loc>http://localhost:1313/tr/projects/</loc>
+    <lastmod>2026-03-17T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/projects/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="tr"
+                href="http://localhost:1313/tr/projects/"
+                />
+  </url><url>
     <loc>http://localhost:1313/tr/</loc>
-    <lastmod>2026-03-16T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-17T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -152,7 +167,7 @@
                 href="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-edr-walkthrough-letsdefend/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/10/sentinelone-singularity-platform-geli%C5%9Fmi%C5%9F-siber-g%C3%BCvenlik-%C3%A7%C3%B6z%C3%BCmleri-ve-mimari-analizi/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/10/sentinelone-singularity-platform-gelismis-siber-guvenlik-cozumleri-ve-mimari-analizi/</loc>
     <lastmod>2025-10-23T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -202,7 +217,7 @@
                 href="http://localhost:1313/tr/posts/2025/10/threat-hunting-with-waf-walkthrough-letsdefend/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tr/series/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi/</loc>
+    <loc>http://localhost:1313/tr/series/ag-guvenligi-ve-yonetimi/</loc>
     <lastmod>2025-10-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -222,7 +237,7 @@
                 href="http://localhost:1313/tr/posts/2025/10/wazuh-5.0-is-here-a-technical-deep-dive-into-the-new-engine-ebpf-and-enterprise-scaling/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/10/wazuh-5.0da-neler-yeni-siber-tehdit-istihbarat%C4%B1nda-devrim-ve-u%C3%A7-nokta-g%C3%BCvenli%C4%9Finde-yeni-bir-%C3%A7a%C4%9F/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/10/wazuh-5.0da-neler-yeni-siber-tehdit-istihbarat%C4%B1nda-devrim-ve-uc-nokta-guvenliginde-yeni-bir-cag/</loc>
     <lastmod>2025-10-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -307,102 +322,102 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/08/thehive-olay-m%C3%BCdahale-platformu/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/08/thehive-olay-mudahale-platformu/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/08/g%C3%BCvenlik-analistleri-i%C3%A7in-security-onion/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/08/guvenlik-analistleri-icin-security-onion/</loc>
     <lastmod>2025-08-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-x-soc-ve-noc-s%C3%BCre%C3%A7leri/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-x-soc-ve-noc-surecleri/</loc>
     <lastmod>2025-08-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/08/soc-analistleri-i%C3%A7in-kal%C4%B1c%C4%B1l%C4%B1k-sa%C4%9Flama-kapsaml%C4%B1-xdr-analiz-k%C4%B1lavuzu/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/08/soc-analistleri-icin-kal%C4%B1c%C4%B1l%C4%B1k-saglama-kapsaml%C4%B1-xdr-analiz-k%C4%B1lavuzu/</loc>
     <lastmod>2025-08-17T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-ix-bulut-g%C3%BCvenli%C4%9Fi-ve-hibrit-a%C4%9F-mimarileri/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-ix-bulut-guvenligi-ve-hibrit-ag-mimarileri/</loc>
     <lastmod>2025-08-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-vi-a%C4%9F-protokolleri-g%C3%BCvenli%C4%9Fi-ve-analizi/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-vi-ag-protokolleri-guvenligi-ve-analizi/</loc>
     <lastmod>2025-08-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-viii-a%C4%9F-y%C3%B6netimi-izleme-ve-otomasyon/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-viii-ag-yonetimi-izleme-ve-otomasyon/</loc>
     <lastmod>2025-08-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-iii-a%C4%9F-donan%C4%B1mlar%C4%B1-ve-fiziksel-altyap%C4%B1-g%C3%BCvenli%C4%9Fi/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-iii-ag-donan%C4%B1mlar%C4%B1-ve-fiziksel-altyap%C4%B1-guvenligi/</loc>
     <lastmod>2025-08-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-iv-a%C4%9F-g%C3%BCvenli%C4%9Fi-teknolojileri/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-iv-ag-guvenligi-teknolojileri/</loc>
     <lastmod>2025-08-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-v-kimlik-ve-eri%C5%9Fim-y%C3%B6netimi-iam/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-v-kimlik-ve-erisim-yonetimi-iam/</loc>
     <lastmod>2025-08-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-i-temel-kavramlar/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-i-temel-kavramlar/</loc>
     <lastmod>2025-08-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/08/a%C4%9F-y%C3%B6netimi-ve-g%C3%BCvenli%C4%9Fi-ii-a%C4%9F-protokolleri-y%C3%B6nlendirme-ve-adresleme/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-ii-ag-protokolleri-yonlendirme-ve-adresleme/</loc>
     <lastmod>2025-08-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/08/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi-vii-active-directory/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/08/ag-guvenligi-ve-yonetimi-vii-active-directory/</loc>
     <lastmod>2025-08-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/08/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi-iii-a%C4%9F-y%C3%B6netimi-ve-otomasyon/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/08/ag-guvenligi-ve-yonetimi-iii-ag-yonetimi-ve-otomasyon/</loc>
     <lastmod>2025-08-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/08/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi-iv-a%C4%9F-g%C3%BCvenli%C4%9Fi/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/08/ag-guvenligi-ve-yonetimi-iv-ag-guvenligi/</loc>
     <lastmod>2025-08-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/08/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi-ia%C4%9F-teknolojilerinin-temelleri/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/08/ag-guvenligi-ve-yonetimi-iag-teknolojilerinin-temelleri/</loc>
     <lastmod>2025-08-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/08/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi-ii-a%C4%9F-protokolleri-ve-adresleme/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/08/ag-guvenligi-ve-yonetimi-ii-ag-protokolleri-ve-adresleme/</loc>
     <lastmod>2025-08-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/08/a%C4%9F-g%C3%BCvenli%C4%9Fi-ve-y%C3%B6netimi-v-modern-dijital-altyapi/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/08/ag-guvenligi-ve-yonetimi-v-modern-dijital-altyapi/</loc>
     <lastmod>2025-08-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/07/kimlik-ve-eri%C5%9Fim-y%C3%B6netimi-iam/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/07/kimlik-ve-erisim-yonetimi-iam/</loc>
     <lastmod>2025-07-26T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/07/k%C3%BCresel-siber-tehdit-akt%C3%B6rleri-apt-geli%C5%9Fmi%C5%9F-kal%C4%B1c%C4%B1-tehditler/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/07/kuresel-siber-tehdit-aktorleri-apt-gelismis-kal%C4%B1c%C4%B1-tehditler/</loc>
     <lastmod>2025-07-26T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -412,42 +427,42 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/04/bilgi-teknolojileri-ve-g%C3%BCvenli%C4%9Fi-standartlar%C4%B1-ve-organizasyonlar%C4%B1/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/04/bilgi-teknolojileri-ve-guvenligi-standartlar%C4%B1-ve-organizasyonlar%C4%B1/</loc>
     <lastmod>2025-04-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/03/bu-yaz%C4%B1mda-microsoftun-sunmu%C5%9F-oldu%C4%9Fu-orijinal-y%C3%B6netim-s%C3%BCre%C3%A7lerine-de%C4%9Finmeye-%C3%A7al%C4%B1%C5%9Ft%C4%B1m./</loc>
+    <loc>http://localhost:1313/tr/posts/2025/03/bu-yaz%C4%B1mda-microsoftun-sunmus-oldugu-orijinal-yonetim-sureclerine-deginmeye-cal%C4%B1st%C4%B1m./</loc>
     <lastmod>2025-03-14T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/03/windows-sistem-y%C3%B6netimi/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/03/windows-sistem-yonetimi/</loc>
     <lastmod>2025-03-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2025/03/pop%C3%BCler-edr/xdr-%C3%A7%C3%B6z%C3%BCmleri/</loc>
+    <loc>http://localhost:1313/tr/posts/2025/03/populer-edr/xdr-cozumleri/</loc>
     <lastmod>2025-03-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2024/12/s%C4%B1f%C4%B1rnc%C4%B1-g%C3%BCn-ataklar%C4%B1na-kar%C5%9F%C4%B1-siber-savunma-stratejileri/</loc>
+    <loc>http://localhost:1313/tr/posts/2024/12/s%C4%B1f%C4%B1rnc%C4%B1-gun-ataklar%C4%B1na-kars%C4%B1-siber-savunma-stratejileri/</loc>
     <lastmod>2024-12-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2024/12/siber-g%C3%BCvenlik-i%C3%A7in-i%C5%9Fletim-sistemi-da%C4%9F%C4%B1t%C4%B1mlar%C4%B1-ve-lab-ortamlar%C4%B1/</loc>
+    <loc>http://localhost:1313/tr/posts/2024/12/siber-guvenlik-icin-isletim-sistemi-dag%C4%B1t%C4%B1mlar%C4%B1-ve-lab-ortamlar%C4%B1/</loc>
     <lastmod>2024-12-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2024/11/rdp-g%C3%BCvenli-midir/</loc>
+    <loc>http://localhost:1313/tr/posts/2024/11/rdp-guvenli-midir/</loc>
     <lastmod>2024-11-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2024/11/windows-kal%C4%B1c%C4%B1l%C4%B1k-sa%C4%9Flamapersistence-metotlar%C4%B1/</loc>
+    <loc>http://localhost:1313/tr/posts/2024/11/windows-kal%C4%B1c%C4%B1l%C4%B1k-saglamapersistence-metotlar%C4%B1/</loc>
     <lastmod>2024-11-18T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -457,12 +472,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2024/11/elk-stack-log-y%C3%B6netimi-ve-analizi/</loc>
+    <loc>http://localhost:1313/tr/posts/2024/11/elk-stack-log-yonetimi-ve-analizi/</loc>
     <lastmod>2024-11-08T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2024/11/debian-elk-stackelasticsearch-logstash-ve-kibana-kurulumu-ve-konfig%C3%BCrasyonu/</loc>
+    <loc>http://localhost:1313/tr/posts/2024/11/debian-elk-stackelasticsearch-logstash-ve-kibana-kurulumu-ve-konfigurasyonu/</loc>
     <lastmod>2024-11-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -472,12 +487,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2024/10/siber-sald%C4%B1r%C4%B1lar-nas%C4%B1l-%C3%B6nlenir/</loc>
+    <loc>http://localhost:1313/tr/posts/2024/10/siber-sald%C4%B1r%C4%B1lar-nas%C4%B1l-onlenir/</loc>
     <lastmod>2024-10-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2024/10/siber-d%C3%BCnyada-g%C3%BCvenli-bir-kurulu%C5%9F-in%C5%9Fa-etmek/</loc>
+    <loc>http://localhost:1313/tr/posts/2024/10/siber-dunyada-guvenli-bir-kurulus-insa-etmek/</loc>
     <lastmod>2024-10-26T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -487,7 +502,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/series/wireshark-ile-a%C4%9F-analizi/</loc>
+    <loc>http://localhost:1313/tr/series/wireshark-ile-ag-analizi/</loc>
     <lastmod>2024-08-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -552,7 +567,7 @@
                 href="http://localhost:1313/tr/posts/2023/08/tr-pygoat-owasp-top-10-2021-write-up/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2023/06/i%C5%9Fletim-sistemi-konsepti/</loc>
+    <loc>http://localhost:1313/tr/posts/2023/06/isletim-sistemi-konsepti/</loc>
     <lastmod>2023-06-09T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -587,7 +602,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2023/03/kriptoloji-temelleri-giri%C5%9F/</loc>
+    <loc>http://localhost:1313/tr/posts/2023/03/kriptoloji-temelleri-giris/</loc>
     <lastmod>2023-03-28T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -602,32 +617,32 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/series/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F/</loc>
+    <loc>http://localhost:1313/tr/series/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris/</loc>
     <lastmod>2023-03-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%234-dinamik-analiz/</loc>
+    <loc>http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris-%234-dinamik-analiz/</loc>
     <lastmod>2023-03-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%235-kaynak-ara%C5%9Ft%C4%B1rmas%C4%B1/</loc>
+    <loc>http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris-%235-kaynak-arast%C4%B1rmas%C4%B1/</loc>
     <lastmod>2023-03-16T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%233-statik-analiz/</loc>
+    <loc>http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris-%233-statik-analiz/</loc>
     <lastmod>2023-03-14T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%232-sandbox-kurulum/</loc>
+    <loc>http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris-%232-sandbox-kurulum/</loc>
     <lastmod>2023-03-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giri%C5%9F-%231-temel-kavramlar/</loc>
+    <loc>http://localhost:1313/tr/posts/2023/03/zararl%C4%B1-yaz%C4%B1l%C4%B1m-analizine-giris-%231-temel-kavramlar/</loc>
     <lastmod>2023-03-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -637,12 +652,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2023/01/temel-mikroi%C5%9Flemci-mimarisi/</loc>
+    <loc>http://localhost:1313/tr/posts/2023/01/temel-mikroislemci-mimarisi/</loc>
     <lastmod>2023-01-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2023/01/kali-linuxa-giri%C5%9F/</loc>
+    <loc>http://localhost:1313/tr/posts/2023/01/kali-linuxa-giris/</loc>
     <lastmod>2023-01-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -657,62 +672,62 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2022/12/temel-c-programlama-e%C4%9Fitimi-%232/</loc>
+    <loc>http://localhost:1313/tr/posts/2022/12/temel-c-programlama-egitimi-%232/</loc>
     <lastmod>2022-12-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2022/12/x86-tabanl%C4%B1-mikroi%C5%9Flemci-mimarisi/</loc>
+    <loc>http://localhost:1313/tr/posts/2022/12/x86-tabanl%C4%B1-mikroislemci-mimarisi/</loc>
     <lastmod>2022-12-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2022/12/temel-c-programlama-e%C4%9Fitimi-%231/</loc>
+    <loc>http://localhost:1313/tr/posts/2022/12/temel-c-programlama-egitimi-%231/</loc>
     <lastmod>2022-12-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2022/12/c-programlama-dilinin-geli%C5%9Fimi/</loc>
+    <loc>http://localhost:1313/tr/posts/2022/12/c-programlama-dilinin-gelisimi/</loc>
     <lastmod>2022-12-13T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/series/hakerlar-i%C3%A7in-python/</loc>
+    <loc>http://localhost:1313/tr/series/hakerlar-icin-python/</loc>
     <lastmod>2022-09-26T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2022/09/hakerlar-i%C3%A7in-python-paramiko/</loc>
+    <loc>http://localhost:1313/tr/posts/2022/09/hakerlar-icin-python-paramiko/</loc>
     <lastmod>2022-09-26T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2022/09/hakerlar-i%C3%A7in-pythonsocket/</loc>
+    <loc>http://localhost:1313/tr/posts/2022/09/hakerlar-icin-pythonsocket/</loc>
     <lastmod>2022-09-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2022/09/hakerlar-i%C3%A7in-python-selenium/</loc>
+    <loc>http://localhost:1313/tr/posts/2022/09/hakerlar-icin-python-selenium/</loc>
     <lastmod>2022-09-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2022/08/hakerlar-i%C3%A7in-python-requests/</loc>
+    <loc>http://localhost:1313/tr/posts/2022/08/hakerlar-icin-python-requests/</loc>
     <lastmod>2022-08-26T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2022/04/%C3%A7ok-do%C4%9Fru-tespit.-yol-g%C3%B6sterici-oldu%C4%9Fu-i%C3%A7in-te%C5%9Fekk%C3%BCr-ederim./</loc>
+    <loc>http://localhost:1313/tr/posts/2022/04/cok-dogru-tespit.-yol-gosterici-oldugu-icin-tesekkur-ederim./</loc>
     <lastmod>2022-04-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2022/04/%C3%A7ok-g%C3%BCzel-faydal%C4%B1-oldu.-te%C5%9Fekk%C3%BCr-ederim./</loc>
+    <loc>http://localhost:1313/tr/posts/2022/04/cok-guzel-faydal%C4%B1-oldu.-tesekkur-ederim./</loc>
     <lastmod>2022-04-06T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2022/02/opencv-ile-g%C3%B6r%C3%BCnt%C3%BC-i%C5%9Flemeye-giri%C5%9F/</loc>
+    <loc>http://localhost:1313/tr/posts/2022/02/opencv-ile-goruntu-islemeye-giris/</loc>
     <lastmod>2022-02-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -737,7 +752,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/tr/posts/2021/06/i%C5%9Fletim-sistemlerinin-ser%C3%BCveni/</loc>
+    <loc>http://localhost:1313/tr/posts/2021/06/isletim-sistemlerinin-seruveni/</loc>
     <lastmod>2021-06-01T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -812,20 +827,6 @@
                 href="http://localhost:1313/tr/series/osint/"
                 />
   </url><url>
-    <loc>http://localhost:1313/tr/series/sentinelone/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/series/sentinelone/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tr"
-                href="http://localhost:1313/tr/series/sentinelone/"
-                />
-  </url><url>
     <loc>http://localhost:1313/tr/series/sistem-programlama/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -852,20 +853,6 @@
                 rel="alternate"
                 hreflang="tr"
                 href="http://localhost:1313/tr/tags/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/tr/series/wazuh/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/series/wazuh/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="tr"
-                href="http://localhost:1313/tr/series/wazuh/"
                 />
   </url><url>
     <loc>http://localhost:1313/tr/series/wireshark-ile-ag-analizi/</loc>

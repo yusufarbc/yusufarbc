@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Siber Güvenlik için İşletim Sistemi Dağıtımları ve Lab Ortamları · yusufarbc.dev
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yusuf Talha ARABACI">
+<meta name="description" content="Merhaba bu yazımda siber güvenlik alanında sk kullanılan dağıtımlardan ve lab ortamlarından bahsedeceğim.">
+<meta name="keywords" content="cybersecurity, IT engineer, systems administration, network security, infrastructure, proxmox, docker, yusuf talha arabaci">
+
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/profile.jpeg">
+  <meta name="twitter:title" content="Siber Güvenlik için İşletim Sistemi Dağıtımları ve Lab Ortamları">
+  <meta name="twitter:description" content="Merhaba bu yazımda siber güvenlik alanında sk kullanılan dağıtımlardan ve lab ortamlarından bahsedeceğim.">
+
+<meta property="og:url" content="http://localhost:1313/tr/posts/2024/12/siber-guvenlik-icin-isletim-sistemi-dag%C4%B1t%C4%B1mlar%C4%B1-ve-lab-ortamlar%C4%B1/">
+  <meta property="og:site_name" content="yusufarbc.dev">
+  <meta property="og:title" content="Siber Güvenlik için İşletim Sistemi Dağıtımları ve Lab Ortamları">
+  <meta property="og:description" content="Merhaba bu yazımda siber güvenlik alanında sk kullanılan dağıtımlardan ve lab ortamlarından bahsedeceğim.">
+  <meta property="og:locale" content="tr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-12-02T00:00:00+00:00">
+    <meta property="og:image" content="http://localhost:1313/images/profile.jpeg">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/10/wazuh-5.0da-neler-yeni-siber-tehdit-istihbarat%C4%B1nda-devrim-ve-uc-nokta-guvenliginde-yeni-bir-cag/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-x-soc-ve-noc-surecleri/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/soc-analistleri-icin-kal%C4%B1c%C4%B1l%C4%B1k-saglama-kapsaml%C4%B1-xdr-analiz-k%C4%B1lavuzu/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-ix-bulut-guvenligi-ve-hibrit-ag-mimarileri/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-vi-ag-protokolleri-guvenligi-ve-analizi/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-viii-ag-yonetimi-izleme-ve-otomasyon/">
+      <meta property="og:see_also" content="http://localhost:1313/tr/posts/2025/08/ag-yonetimi-ve-guvenligi-iii-ag-donan%C4%B1mlar%C4%B1-ve-fiziksel-altyap%C4%B1-guvenligi/">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/tr/posts/2024/12/siber-guvenlik-icin-isletim-sistemi-dag%C4%B1t%C4%B1mlar%C4%B1-ve-lab-ortamlar%C4%B1/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="http://localhost:1313/tr/">
+      
+        <img class="navigation-logo" src="/images/profile.jpeg" alt="Logo">
+      
+      <span class="navigation-text">yusufarbc.dev</span>
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/posts/">Yazılar</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/series/">Seriler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/projects/">Projeler</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/tr/about/">Hakkımda</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link btn-contact" href="mailto:yusuf.talhaarabaci@owasp.org">İletişim</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/">English</a>
+              </li>
+            
+          
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article class="post-full glass-card">
+      <header class="post-header">
+        <div class="post-meta">
+          <time datetime="2024-12-02T00:00:00Z">
+            December 2, 2024
+          </time>
+          
+            <span class="post-series">in 
+              
+                <a href="/tr/series/ag-guvenligi-ve-yonetimi">Ağ Güvenliği ve Yönetimi</a>
+              
+            </span>
+          
+          <span class="reading-time">
+            <i class="fa-solid fa-clock" aria-hidden="true"></i>
+            8 min read
+          </span>
+        </div>
+        <h1 class="post-title-full">Siber Güvenlik için İşletim Sistemi Dağıtımları ve Lab Ortamları</h1>
+        
+        
+        <div class="post-featured-image">
+          <img src="https://cdn-images-1.medium.com/max/800/1*IVkwxKLbpKSPwYtqpYG93w.jpeg" alt="Siber Güvenlik için İşletim Sistemi Dağıtımları ve Lab Ortamları">
+        </div>
+        
+      </header>
+
+      <div class="post-content">
+        <p>Merhaba bu yazımda siber güvenlik alanında sk kullanılan dağıtımlardan ve lab ortamlarından bahsedeceğim.</p>
+<h3 id="sızma-testi-dağıtımları">
+  Sızma Testi Dağıtımları
+  <a class="heading-link" href="#s%c4%b1zma-testi-da%c4%9f%c4%b1t%c4%b1mlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Genel olarak ofansif tarafta ve pentest amaçlı dağıtımlara bakalım.</p>
+<h4 id="1--kalilinux">
+  1- <a href="https://www.kali.org/"  class="external-link" target="_blank" rel="noopener">Kali Linux</a>
+  <a class="heading-link" href="#1--kalilinux">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Kali Linux, siber güvenlik ve etik hackerlar için özel olarak tasarlanmış bir Linux dağıtımıdır. Penetrasyon testleri, bilgisayar adli tıp incelemeleri ve güvenlik araştırmaları için kullanılır. Kali Linux, önceden yüklenmiş birçok güvenlik aracı ile gelir ve bu sayede kullanıcılar güvenlik açıklarını tespit etmek ve gidermek için gerekli olan araçları kolayca kullanabilirler.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*6kVOdYfemK90uvdQMWa_Mg.jpeg" alt=""></p>
+<p>Kali Linux</p>
+<p>Özellikle sızma testleri ve güvenlik araştırmaları yaparken çok değerli bir platform sağlar.</p>
+<h4 id="2--parrotos">
+  2- <a href="https://www.parrotsec.org/"  class="external-link" target="_blank" rel="noopener">ParrotOS</a>
+  <a class="heading-link" href="#2--parrotos">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>ParrotOS, bilgi güvenliği, geliştirici araçları ve kişisel veri koruması için tasarlanmış bir başka Linux dağıtımıdır. Kali Linux gibi, ParrotOS da siber güvenlik ve penetrasyon testleri için kullanılan birçok araçla birlikte gelir. Ancak ParrotOS, ayrıca gelişmiş kodlama ve yazılım geliştirme araçları da sunarak, hem güvenlik profesyonelleri hem de geliştiriciler için uygun hale gelmiştir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*9pRFLbO4beEU8Hu6nZD-0A.jpeg" alt=""></p>
+<p>ParrotOS</p>
+<p>ParrotOS, daha hafif ve kullanıcı dostu bir arayüz sunar. Bu, onu düşük donanım özelliklerine sahip cihazlarda bile rahatça kullanılabilir kılar. Aynı zamanda gizlilik ve anonimlik üzerine odaklanan özellikler içerir, bu nedenle çevrimiçi gizliliğe önem veren kullanıcılar tarafından da tercih edilebilir.</p>
+<h4 id="3-backbox">
+  3-<a href="https://www.backbox.org/"  class="external-link" target="_blank" rel="noopener">BackBox</a>
+  <a class="heading-link" href="#3-backbox">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>BackBox, siber güvenlik uzmanları ve penetrasyon testi profesyonelleri için tasarlanmış bir Linux dağıtımıdır. Ubuntu tabanlı olan BackBox, sızma testleri, güvenlik değerlendirmeleri ve ağ analizleri için çeşitli açık kaynak araçları içerir. Kullanıcı dostu bir arayüze ve gelişmiş özelleştirme seçeneklerine sahip olan BackBox, özellikle güvenlik analizleri yapmak isteyen kullanıcılar için idealdir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*tWO6fvwh67LLnG4-8zo4Sw.png" alt=""></p>
+<p>BackBox</p>
+<h4 id="4-samuraiwtf">
+  4-<a href="https://www.samurai-wtf.org/"  class="external-link" target="_blank" rel="noopener">SamuraiWTF</a>
+  <a class="heading-link" href="#4-samuraiwtf">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>SamuraiWTF (Web Training Framework), uygulama güvenliği eğitimi için tasarlanmış bir Linux masaüstü dağıtımıdır. OWASP (Open Web Application Security Project) tarafından geliştirilmiştir ve web uygulama test araçlarını içeren bir eğitim ortamı sağlar. Bu dağıtım, önceden yapılandırılmış sanal makineler olarak sunulur ve çeşitli güvenlik araçları ile birlikte gelir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*tPPLOSp8K5ltCgS6iENnUQ.png" alt=""></p>
+<p>SamuraiWTF</p>
+<p>SamuraiWTF, özellikle web uygulama güvenliği testleri ve eğitimleri için kullanılır. İçerisinde OWASP Juice Shop, OWASP Zed Attack Proxy (ZAP) ve SQLMap gibi popüler araçlar bulunur. Ayrıca, PortSwigger’ın Burp Suite Community Edition gibi bazı tescilli yazılımlar da içerir.</p>
+<h4 id="5-archstrike">
+  5-<a href="https://archstrike.org/"  class="external-link" target="_blank" rel="noopener">ArchStrike</a>
+  <a class="heading-link" href="#5-archstrike">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>ArchStrike, Arch Linux tabanlı güvenlik odaklı bir Linux dağıtımıdır. Bu dağıtım, siber güvenlik profesyonelleri ve meraklıları için tasarlanmıştır ve OWASP (Open Web Application Security Project) gibi güvenlik araçlarını içerir. ArchStrike, Arch Linux’in “Arch Way” prensiplerine uygun olarak tasarlanmıştır ve i686, x86_64, ARMv6, ARMv7 ve ARMv8 mimarileri için optimize edilmiştir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*CS2ETH60l6zAyrIgDk5ODQ.jpeg" alt=""></p>
+<p>ArchStrike</p>
+<h4 id="6-blackarch">
+  6-<a href="https://www.blackarch.org/"  class="external-link" target="_blank" rel="noopener">BlackArch</a>
+  <a class="heading-link" href="#6-blackarch">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>BlackArch, Arch Linux tabanlı bir siber güvenlik ve penetrasyon testi dağıtımıdır. Bu dağıtım, siber güvenlik profesyonelleri ve araştırmacılar için tasarlanmıştır ve OWASP (Open Web Application Security Project) gibi güvenlik araçlarını içerir. BlackArch, geniş bir araç yelpazesi sunar ve sadece siber güvenlik testleri için değil, genel güvenlik araştırmaları için de kullanılabilir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*f5Q5KSaKKmMTupUyBMSeqw.jpeg" alt=""></p>
+<p>BlackArch</p>
+<p>BlackArch, Arch Linux’in “Arch Way” prensiplerine uygun olarak tasarlanmıştır ve i686, x86_64, ARMv6, ARMv7 ve ARMv8 mimarileri için optimize edilmiştir. Ayrıca, BlackArch’un tam ISO’su ve Slim ISO’su farklı kullanıcı deneyimleri sunar.</p>
+<h4 id="7-fedora-securityspin">
+  7-<a href="https://fedoraproject.org/wiki/Security_Lab"  class="external-link" target="_blank" rel="noopener">Fedora Security Spin</a>
+  <a class="heading-link" href="#7-fedora-securityspin">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p><strong>Fedora Security Spin</strong>, Fedora Linux’un özel bir sürümüdür ve bilgi güvenliği, sızma testleri, forensik analizler ve güvenlik eğitimleri için optimize edilmiştir. Bu spin, önceden yüklenmiş birçok güvenlik aracıyla birlikte gelir ve kullanıcılara kapsamlı bir güvenlik test ortamı sunar. Xfce masaüstü ortamını kullanarak, düşük kaynaklı sistemlerde bile rahatça çalışabilir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*0MuE03ZAT1L5AegUaxdrQw.png" alt=""></p>
+<p>Fedora Security Spin</p>
+<h4 id="8-pentoo-linux">
+  8-<a href="https://pentoo.org/"  class="external-link" target="_blank" rel="noopener">Pentoo Linux</a>
+  <a class="heading-link" href="#8-pentoo-linux">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Pentoo Linux, siber güvenlik ve penetrasyon testleri için tasarlanmış bir Linux dağıtımıdır. Gentoo Linux tabanlı olan Pentoo, sızma testleri ve güvenlik değerlendirmeleri için birçok araç ve yazılım içerir. Pentoo, hem 32 bit hem de 64 bit sistemlerde çalışabilir ve canlı CD veya USB üzerinden kullanılabilir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*2a-FUAUE-IgWrgQu4IY4GA.png" alt=""></p>
+<p>Pentoo Linux</p>
+<p>Pentoo Linux, özellikle siber güvenlik uzmanları ve araştırmacılar için ideal bir platformdır. Daha fazla bilgi veya yardıma ihtiyacınız olursa, buradayım!</p>
+<h3 id="adli-bilişim-dağıtımları">
+  Adli Bilişim Dağıtımları
+  <a class="heading-link" href="#adli-bili%c5%9fim-da%c4%9f%c4%b1t%c4%b1mlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Genel olarak defansif tarafta ve adli bilişim amaçlı dağıtımlara bakalım.</p>
+<h4 id="1-tsurugi-linux">
+  1-<a href="https://tsurugi-linux.org/"  class="external-link" target="_blank" rel="noopener">Tsurugi Linux</a>
+  <a class="heading-link" href="#1-tsurugi-linux">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Tsurugi Linux, dijital adli tıp (DFIR) ve OSINT (Open Source Intelligence) araştırmaları için özel olarak tasarlanmış bir Linux dağıtımıdır. Bu dağıtım, Ubuntu 22.04.3 LTS tabanlıdır ve özelleştirilmiş bir 6.9.3çekirdeği kullanır. Tsurugi Linux, malware analizi, olaylara müdahale ve dijital kanıt toplama gibi görevler için kullanılabilir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*WcOK1Za6fFtqHVcwOZFj5w.jpeg" alt=""></p>
+<p><a href="https://tsurugi-linux.org/"  class="external-link" target="_blank" rel="noopener">Tsurugi Linux</a></p>
+<p>Tsurugi Linux, özellikle dijital adli tıp ve OSINT araştırmaları yapmak isteyenler için ideal bir platformdır.</p>
+<h4 id="2--santokulinux">
+  2- <a href="https://github.com/santoku/Santoku-Linux"  class="external-link" target="_blank" rel="noopener">Santoku Linux</a>
+  <a class="heading-link" href="#2--santokulinux">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Santoku Linux, mobil güvenlik, malware analizi ve dijital adli tıp (DFIR) araştırmaları için tasarlanmış bir Linux dağıtımıdır. Bu dağıtım, Android ve iOS gibi mobil platformlar üzerinde çalışan güvenlik araçlarını içerir ve kullanıcı dostu bir arayüze sahiptir. Santoku Linux, canlı CD veya USB üzerinden çalıştırılabilir ve sabit diske kurulamadan kullanılabilir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*3NOMJEWXqqvokNUrrTr62w.jpeg" alt=""></p>
+<p>Santoku Linux</p>
+<p>Santoku Linux, özellikle mobil güvenlik ve dijital adli tıp araştırmaları yapmak isteyenler için ideal bir platformdır.</p>
+<h4 id="3--cainelinux">
+  3- CAINE Linux
+  <a class="heading-link" href="#3--cainelinux">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>CAINE Linux (Computer Aided Investigative Environment), Giovanni “Nanni” Bassetti tarafından geliştirilen bir İtalyan Linux dağıtımıdır. CAINE, dijital adli tıp (DFIR) ve olaylara müdahale (Incident Response) için tasarlanmıştır. Bu dağıtım, veri koruma, toplama, inceleme ve analiz gibi dijital adli tıp süreçlerini gerçekleştirmek için gereken tüm araçları bir araya getirir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*QQluwIM94H2dUgXH6TR8WA.jpeg" alt=""></p>
+<p>CAINE Linux</p>
+<p>CAINE Linux, dijital adli tıp uzmanları için güçlü bir araçtır.</p>
+<h4 id="4-remnux">
+  4-<a href="https://docs.remnux.org/"  class="external-link" target="_blank" rel="noopener">REMnux</a>
+  <a class="heading-link" href="#4-remnux">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>REMnux (Reverse Engineering Malware Linux), kötü amaçlı yazılımların analizine ve tersine mühendislikine yönelik bir Linux dağıtımıdır. Bu dağıtım, kötü amaçlı yazılımları incelemek ve analiz etmek için önceden yüklenmiş birçok araç ve yazılım içerir. REMnux, özellikle güvenlik uzmanları ve araştırmacılar için ideal bir platformdır.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*dQk2J0VsBRiE0r_NXB_vCA.jpeg" alt=""></p>
+<p>REMnux</p>
+<p>REMnux, kötü amaçlı yazılımların analizinde ve güvenlik araştırmalarında kullanılan güçlü bir araçtır. Daha fazla bilgi veya yardıma ihtiyacınız olursa, buradayım!</p>
+<h4 id="5-flarevm">
+  5-<a href="https://github.com/mandiant/flare-vm"  class="external-link" target="_blank" rel="noopener">FLAREVM</a>
+  <a class="heading-link" href="#5-flarevm">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>FLAREVM (FireEye Labs Reverse Engineering VM), FireEye tarafından geliştirilen ve Windows tabanlı bir tersine mühendislik ve zararlı yazılım analizi için kullanılan bir sanal makine dağıtımıdır. FLARE VM, birçok popüler güvenlik aracını ve yazılımını içerir ve kullanıcıların tersine mühendislik ve malware analizi yapmalarına yardımcı olur.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*h14mVtflvvT08Rbz52ZQiA.png" alt=""></p>
+<p>FLAREVM</p>
+<p>FLARE VM, güvenlik uzmanları ve araştırmacılar için güçlü bir araçtır. Daha fazla bilgi veya yardıma ihtiyacınız olursa, buradayım!</p>
+<h4 id="6-security-onion">
+  6-<a href="https://securityonionsolutions.com/"  class="external-link" target="_blank" rel="noopener">Security Onion</a>
+  <a class="heading-link" href="#6-security-onion">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Security Onion, bir ağ güvenliği ve olay izleme platformudur. Bu platform, ağ trafiğini izlemek, tehditleri tespit etmek ve güvenlik olaylarına yanıt vermek için kullanılır. Security Onion, Elasticsearch, Logstash, Kibana (ELK Stack) gibi araçlarla birlikte gelir ve Snort, Suricata, Bro, Wazuh, Sguil, Squert, CyberChef, NetworkMiner gibi birçok güvenlik aracını içerir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*TvipQFtDzN0-MiAj55ypdw.png" alt=""></p>
+<p>Security Onion</p>
+<p>Security Onion, özellikle büyük ölçekli ağlarda güvenlik izleme ve tehdit analizi yapmak isteyenler için ideal bir platformdır.</p>
+<h4 id="7-csi-linux">
+  7-<a href="https://csilinux.com/"  class="external-link" target="_blank" rel="noopener">CSI Linux</a>
+  <a class="heading-link" href="#7-csi-linux">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>CSI Linux, dijital adli tıp (DFIR) ve siber güvenlik araştırmaları için tasarlanmış bir Linux dağıtımıdır. CSI Linux, önceden yüklenmiş birçok araç ve yazılım ile birlikte gelir ve kullanıcıların dijital kanıt toplama, malware analizi ve ağ araştırmaları gibi görevleri gerçekleştirmelerine yardımcı olur.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Ls3qjzmN_MJbJ9WGpDJyFw.png" alt=""></p>
+<p>CSI Linux</p>
+<h4 id="8-network-securitytoolkit">
+  8-<a href="https://www.networksecuritytoolkit.org"  class="external-link" target="_blank" rel="noopener">Network Security Toolkit</a>
+  <a class="heading-link" href="#8-network-securitytoolkit">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Network Security Toolkit (NST), Fedora tabanlı bir Linux dağıtımıdır ve ağ güvenliği ve analiz araçları içerir](<a href="https://www.networksecuritytoolkit.org/"  class="external-link" target="_blank" rel="noopener">https://www.networksecuritytoolkit.org/</a>). NST, ağ trafiğini izlemek, tehditleri tespit etmek ve güvenlik olaylarına yanıt vermek için tasarlanmıştır](<a href="https://www.networksecuritytoolkit.org/"  class="external-link" target="_blank" rel="noopener">https://www.networksecuritytoolkit.org/</a>). Bu dağıtım, birçok popüler açık kaynaklı ağ güvenlik aracını içerir ve kullanıcı dostu bir web kullanıcı arayüzü (WUI) sunar](<a href="https://www.networksecuritytoolkit.org/"  class="external-link" target="_blank" rel="noopener">https://www.networksecuritytoolkit.org/</a>).</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*p6-f-z4SqaWqmgRfF9X-FQ.png" alt=""></p>
+<p>NST</p>
+<p>NST, özellikle ağ güvenliği uzmanları ve yöneticiler için ideal bir platformdır.</p>
+<h3 id="anonimleştirme-dağıtımları">
+  Anonimleştirme Dağıtımları
+  <a class="heading-link" href="#anonimle%c5%9ftirme-da%c4%9f%c4%b1t%c4%b1mlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Anonimleştirme ve gizlilik için kullanılan dağıtımlarda mevcuttur. Bunlara bakalım.</p>
+<h4 id="1--tails">
+  <strong>1-</strong> <a href="https://tails.net/"  class="external-link" target="_blank" rel="noopener"><strong>Tails</strong></a>
+  <a class="heading-link" href="#1--tails">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Tails(The Amnesic Incognito Live System), anonim ve gizlilik odaklı bir Linux dağıtımıdır. İnternet trafiğinizi şifreler ve kullanıcı verilerinizi korur.</p>
+<h4 id="2-whonix">
+  <strong>2-</strong><a href="https://www.whonix.org/"  class="external-link" target="_blank" rel="noopener"><strong>Whonix</strong></a>
+  <a class="heading-link" href="#2-whonix">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Whonix, anonimliği ve güvenliği artırmak için KVM veya VirtualBox sanal makinelerinde çalışır.</p>
+<h4 id="3--qubesos">
+  <strong>3-</strong> <a href="https://www.qubes-os.org/"  class="external-link" target="_blank" rel="noopener"><strong>Qubes OS</strong></a>
+  <a class="heading-link" href="#3--qubesos">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Qubes OS, güvenlik odaklı bir dağıtımdır ve kullanıcı verilerini ve işlemlerini yalıtır.</p>
+<h3 id="lab-ortamları">
+  Lab Ortamları
+  <a class="heading-link" href="#lab-ortamlar%c4%b1">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h3>
+<p>Pentest pratikeri ve eğitimler için kullanılan lab ortamlarına bakalım.</p>
+<h4 id="1--bloodhound">
+  1- <a href="https://github.com/BloodHoundAD/BloodHound"  class="external-link" target="_blank" rel="noopener"><strong>BloodHound</strong></a>
+  <a class="heading-link" href="#1--bloodhound">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>BloodHound, Active Directory (AD) ortamlarında gizlenmiş ve genellikle planlanmamış ilişkileri ortaya çıkarmanıza yardımcı olan bir tek sayfa JavaScript web uygulamasıdır. Bu uygulama, Linkurious üzerine inşa edilmiş, Electron ile derlenmiş ve Neo4j veritabanına bağlanmıştır. BloodHound, AD veya Azure ortamlarında gizli ilişkileri ve potansiyel saldırı yollarını gösterir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*RMLb-YKHxEx1C-4yu2jqIA.jpeg" alt=""></p>
+<p>BloodHound</p>
+<p>BloodHound, AD ortamlarında güvenlik analizlerinde ve saldırı yollarının belirlenmesinde kullanılan güçlü bir araçtır.</p>
+<h4 id="2--goad">
+  2- <a href="https://github.com/Orange-Cyberdefense/GOAD"  class="external-link" target="_blank" rel="noopener">GOAD</a>
+  <a class="heading-link" href="#2--goad">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>GOAD (Game of Active Directory), Orange Cyberdefense tarafından geliştirilen ve GitHub’da bulunan bir projedir. GOAD, Active Directory (AD) ortamlarında sızma testleri ve güvenlik analizleri yapmak için tasarlanmış bir laboratuvar projesidir. Bu proje, pentesterlere AD ortamlarında yaygın saldırı tekniklerini pratik yapmalarını sağlar.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*yjYePcnjHde7j2BchrLHJQ.jpeg" alt=""></p>
+<p>GOAD</p>
+<p>GOAD, sızma testleri ve güvenlik analizlerinde kullanılan güçlü bir araçtır. Daha fazla bilgi veya yardıma ihtiyacınız olursa, buradayım!</p>
+<h4 id="3--detectionlab">
+  3- <a href="https://detectionlab.network/"  class="external-link" target="_blank" rel="noopener">DetectionLab</a>
+  <a class="heading-link" href="#3--detectionlab">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>DetectionLab, bir Active Directory (AD) ortamını kurmak ve güvenlik araçlarıyla birlikte güvenlik izleme yapmak için tasarlanmış bir laboratuvar projesidir. Bu proje, **Packer, Vagrant, PowerShell, Ansible ve Terraform** gibi araçlar kullanılarak otomatikleştirilmiştir. DetectionLab, Windows tabanlı bir AD ortamını kurar ve güvenlik izleme ve analiz araçlarını içerir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*GLWv6E89EmKwP433ItVOOA.png" alt=""></p>
+<p>DetectionLab</p>
+<p>DetectionLab, savunma odaklı güvenlik uzmanları için hızlı bir AD ortamı kurma ve güvenlik araçlarını kullanma imkanı sunar.</p>
+<h4 id="4--attackrange">
+  4- <a href="https://github.com/splunk/attack_range"  class="external-link" target="_blank" rel="noopener">Attack Range</a>
+  <a class="heading-link" href="#4--attackrange">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Splunk Attack Range, Splunk Threat Research Team tarafından geliştirilen ve GitHub’da bulunan açık kaynaklı bir proje olarak, **güvenlik tehditlerini ve saldırılarını simüle eden yerel veya bulut ortamlarını oluşturmanıza** olanak tanır. Bu ortamlar, Splunk örneğine tehdit veri analizlerini toplar ve bu verileri kullanarak tehdit tespiti kurallarını geliştirmenize yardımcı olur.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*FUPaCLyHG9iewygx0sVMmQ.png" alt=""></p>
+<p>Attack Range</p>
+<p>Splunk Attack Range, güvenlik uzmanları ve araştırmacılar için güçlü bir araçtır.</p>
+<h4 id="5--blueteamlab">
+  5- <a href="https://github.com/op7ic/BlueTeam.Lab?tab=readme-ov-file"  class="external-link" target="_blank" rel="noopener">BlueTeam.Lab</a>
+  <a class="heading-link" href="#5--blueteamlab">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>BlueTeam.Lab, op7i tarafından geliştirilen ve GitHub’da bulunan bir proje olarak, Terraform ve Ansible kullanarak Azure’da kurulan bir Blue Team (savunma ekibi) tespit laboratuvarıdır**. Bu laboratuvar, red (saldırı) ve blue (savunma) ekibin, çeşitli saldırı tekniklerini test etmek ve forensik kanıtları analiz etmek için kullanılabilir.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*Ojyy49GIR4ytCjm48fQ87g.png" alt=""></p>
+<p>BlueTeam.Lab</p>
+<p>BlueTeam.Lab, savunma odaklı güvenlik uzmanları ve araştırmacılar için güçlü bir araçtır.</p>
+<h4 id="6--vulnhub">
+  6- <a href="https://www.vulnhub.com/"  class="external-link" target="_blank" rel="noopener">Vulnhub</a>
+  <a class="heading-link" href="#6--vulnhub">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Başlık Linki"></i>
+    <span class="sr-only">Başlık Linki</span>
+  </a>
+</h4>
+<p>Vulnhub, siber güvenlik uzmanları ve meraklıları için eğitim amaçlı hazırlanmış bir platformdur. İçinde birçok çeşitli zorluk seviyelerindeki sanal makineler bulunur. Bu sanal makineler, kullanıcıların siber güvenlik bilgilerini ve deneyimlerini geliştirmelerine yardımcı olur.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*zSdkBH7dSenG5D7dOrOswQ.png" alt=""></p>
+<p>Vulnhub</p>
+<p>Vulnhub, özellikle sızma testleri ve ağ güvenliği konularında pratik yapmak isteyenler için ideal bir kaynaktır. Daha fazla bilgi veya yardıma ihtiyacınız olursa, buradayım!</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*sMFj24PKbkp3fYj2Cy3S6w.jpeg" alt=""></p>
+<p>Bu yazımda siber güvenlik alanında kullanılan tüm dağıtımlara değinmeye çalıştım. Eksik kaldığım noktalar var ise yorum yazarak katkıda bulunabilirsiniz.</p>
+
+      </div>
+
+      <footer class="post-footer-links">
+        
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
+
+
+      </footer>
+    </article>
+  </section>
+
+  <style>
+    .post-full {
+      padding: 2.5rem;
+      margin: 2rem auto;
+      max-width: 900px;
+    }
+    .post-header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .post-title-full {
+      font-size: 2.5rem;
+      margin: 1rem 0;
+      background: linear-gradient(to right, var(--primary-accent), var(--secondary-accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .post-featured-image {
+      margin: 2rem -2.5rem;
+      max-height: 500px;
+      overflow: hidden;
+    }
+    .post-featured-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .post-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: inherit;
+    }
+    .post-content img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 768px) {
+      .post-full {
+        padding: 1.5rem;
+      }
+      .post-title-full {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Yusuf Talha ARABACI 
+    ·
+    
+    Site program altyapısı <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

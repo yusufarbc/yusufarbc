@@ -1,6 +1,7 @@
 ---
 date: '2023-11-20'
-description: Merhaba bu yazımda Address Resolution Protocol (ARP) protokolünü ve Wireshark ile analizini anlatmaya çalışacağım.
+description: Merhaba bu yazımda Address Resolution Protocol (ARP) protokolünü ve Wireshark
+  ile analizini anlatmaya çalışacağım.
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*ao4qe1GrmozJwGfFHn-v_Q.png
 layout: single

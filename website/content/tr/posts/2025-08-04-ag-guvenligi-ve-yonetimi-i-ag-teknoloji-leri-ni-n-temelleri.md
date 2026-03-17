@@ -1,6 +1,9 @@
 ---
 date: '2025-08-04'
-description: Modern bilgi toplumunun temelini oluşturan bilgisayar ağları, verinin küresel ölçekte anlık olarak paylaşılmasını sağlayan karmaşık ve dinamik sistemlerdir.1 Bu sistemler, yalnızca bağlantı sağlayan pasif altyapılar olmaktan çıkıp, iş süreçlerini, kü...
+description: Modern bilgi toplumunun temelini oluşturan bilgisayar ağları, verinin
+  küresel ölçekte anlık olarak paylaşılmasını sağlayan karmaşık ve dinamik sistemlerdir.1
+  Bu sistemler, yalnızca bağlantı sağlayan pasif altyapılar olmaktan çıkıp, iş süreçlerini,
+  kü...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*QsixbjAc424hJKBe9MKq-g.png
 layout: single

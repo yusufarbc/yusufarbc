@@ -1,6 +1,9 @@
 ---
 date: '2025-08-09'
-description: Siber güvenlik, dijital çağın başlangıcından bu yana evrim geçiren dinamik bir disiplindir. Geçmişte, güvenlik paradigması büyük ölçüde ağ çevresini (perimeter) korumaya odaklanan statik bir kale savunması anlayışına dayanıyordu. Bu modelde, kurumun ...
+description: Siber güvenlik, dijital çağın başlangıcından bu yana evrim geçiren dinamik
+  bir disiplindir. Geçmişte, güvenlik paradigması büyük ölçüde ağ çevresini (perimeter)
+  korumaya odaklanan statik bir kale savunması anlayışına dayanıyordu. Bu modelde,
+  kurumun ...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*-M8PH7FuSJ3sOgJgiKLzCg.png
 layout: single

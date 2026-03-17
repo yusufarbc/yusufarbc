@@ -1,6 +1,9 @@
 ---
 date: '2025-09-20'
-description: Firewall logs are a critical source of data for monitoring network traffic and analyzing security incidents. During threat hunting, firewall logs are used to detect potential threats, identify anomalies, and respond to security incidents quickly and ...
+description: Firewall logs are a critical source of data for monitoring network traffic
+  and analyzing security incidents. During threat hunting, firewall logs are used
+  to detect potential threats, identify anomalies, and respond to security incidents
+  quickly and ...
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*yrGs0FOBn2uXV2jFhtrBVw.png
 layout: single

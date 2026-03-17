@@ -1,6 +1,8 @@
 ---
 date: '2023-03-12'
-description: Bir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken nelere dikkat etmeliyiz? Hangi araçları kullanacağız? Hepsi bu yazıda….
+description: Bir önceki yazımda temel havramlardan bahsetmiştim. Bu yazımda ise zararlı
+  yazılım analizinde kullacağımız ortam kurulumunu anlatacağım. Analiz ortamını hazırlarken
+  nelere dikkat etmeliyiz? Hangi araçları kullanacağız? Hepsi bu yazıda….
 draft: false
 featuredImage: https://cdn-images-1.medium.com/max/800/1*rXDQnvecujpcn5O9zt_liQ.png
 layout: single
