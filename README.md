@@ -4,7 +4,7 @@
   
   <p align="center">
     <b>IT & Security Engineer</b><br>
-    Digital Sovereignty • Cloud-Native • Open Source • Data Privacy • Next-Gen SOC • Endpoint Protection • Network Defense
+    Digital Sovereignty • Cloud-Native • Open Source • Next-Gen SOC • Automation
   </p>
 
   <p align="center">
@@ -22,52 +22,55 @@
     </a>
   </p>
 
-  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&pause=1000&color=38bdf8&background=0f172a00&center=true&vCenter=true&width=650&lines=IT+%26+Security+Engineer;Building+Autonomous+Sovereign+Systems;Proactive+Threat+Hunting+%26+SOC;Open+Source+%26+Privacy+Advocate" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&pause=1000&color=38bdf8&background=0f172a00&center=true&vCenter=true&width=650&lines=IT+%26+Security+Engineer;Building+Autonomous+Sovereign+Systems;Software+%26+Automation+Engineering;Open+Source+%26+Privacy+Advocate" alt="Typing SVG" />
 </div>
 
 ---
 
-## 🚀 Hakkımda (About Me)
+## 🚀 About Me
 
-[cite_start]Ben, **"Savunmayı inşa etmek için saldırgan gibi düşünmelisin"** prensibiyle hareket eden bir **BT ve Siber Güvenlik Mühendisi**yim[cite: 3]. [cite_start]Uzmanlığım, sadece güvenlik ekranlarını izlemekle sınırlı değil; o ekranların arkasındaki tüm teknoloji yığınını (donanım, sanallaştırma, ağ ve uygulama) sıfırdan kurma ve zırhlama üzerine kuruludur[cite: 5, 8].
+I am an **IT & Security Engineer** who bridges the gap between low-level system understanding and enterprise-scale defense architectures. Security starts at the hardware level, and by mastering the foundations, I build "secure-by-design" infrastructures that eliminate vulnerabilities before they emerge.
 
-### 🏛️ Dijital Egemenlik ve Dayanıklılık (Digital Sovereignty)
-Veri otonomisi ve bağımsızlığına olan inancımla, kurumsal dışa bağımlılığı (vendor lock-in) minimize eden "Secure-by-design" altyapılar geliştiriyorum.
-* **The Ubuntu Sovereign Stack:** Nextcloud, Mailcow, Authentik ve Wazuh gibi bileşenleri içeren, tamamen açık kaynaklı ve otonom bir kurumsal ekosistem mimarisi üzerine çalışıyorum.
-* **Gelişmiş Homelab:** Fujitsu R940 üzerinde kurguladığım Proxmox VE laboratuvarımda, kurumsal ürünlerin (ZFS, IaC, Virtualization Security) sınırlarını test ediyorum.
+### 💻 Software & Automation Engineering
+I leverage a diverse tech stack—from low-level **C** to modern **Golang, Node.js, and Python**—to automate defenses, develop security tools, and build resilient systems:
+* **Security Tooling:** Developing custom solutions like **Vantage** (a Go/Docker-based unified GUI for ProjectDiscovery tools) and **WebVuln Runner** for rapid penetration testing.
+* **Infrastructure & Containerization:** Extensive use of **Docker** and Kubernetes/Podman to build scalable, isolated environments.
+* **Full-Stack Architecture:** End-to-end application development utilizing **JavaScript/Node.js** (e.g., the PERN-stack Nalburdeposu e-commerce platform).
 
-### 🛡️ Kurumsal Savunma ve Operasyon
-[cite_start]Garanti BBVA Teknoloji ve ADEO gibi sektör lideri kurumlarda edindiğim SOC/MDR tecrübesiyle, karmaşık tehditleri henüz sisteme sızmadan bertaraf ediyorum[cite: 18, 21].
-* [cite_start]**Next-Gen SOC:** Elastic Stack, Wazuh ve Splunk kullanarak proaktif tehdit avcılığı ve gelişmiş log korelasyonu yönetiyorum[cite: 10, 15, 17].
-* [cite_start]**Uç Nokta Savunması:** SentinelOne, CrowdStrike ve Microsoft Defender XDR gibi modern çözümlerle otonom davranışsal engelleme stratejileri geliştiriyorum[cite: 10, 21, 22].
+### 🏛️ Digital Sovereignty & Homelabbing
+I am deeply passionate about creating autonomous, self-sufficient IT environments. 
+* **Ubuntu Sovereign Stack:** Architecting an open-source, on-premise enterprise framework integrating Ubuntu LTS, Kubernetes, and Wazuh to ensure total data sovereignty.
+* **Advanced Homelab:** Actively running product tests and building secure virtualized environments to eliminate external cloud dependencies.
 
-## 🛠️ Teknik Arsenal (Technical Arsenal)
+## 🛠️ Technical Arsenal
 
 <div align="center">
 
-| **Core Defense & SIEM** | **Endpoint Security & XDR** | **Infrastructure & Cloud** | **Offensive Security** |
+| **Languages** | **Infrastructure & Cloud** | **Defensive & SIEM** | **Offensive Security** |
 |:---:|:---:|:---:|:---:|
-| ![Wazuh](https://img.shields.io/badge/Wazuh-00A9E0?style=flat-square&logo=wazuh&logoColor=white) | ![SentinelOne](https://img.shields.io/badge/SentinelOne-6B2F85?style=flat-square&logo=sentinelone&logoColor=white) | ![Proxmox](https://img.shields.io/badge/Proxmox_VE-E57000?style=flat-square&logo=proxmox&logoColor=white) | ![Burp Suite](https://img.shields.io/badge/Burp%20Suite-eb5e28?style=flat-square&logo=burpsuite&logoColor=white) |
-| ![Elastic](https://img.shields.io/badge/Elastic-005571?style=flat-square&logo=elastic&logoColor=white) | ![CrowdStrike](https://img.shields.io/badge/CrowdStrike-FC0000?style=flat-square&logo=crowdstrike&logoColor=white) | ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white) | ![Metasploit](https://img.shields.io/badge/Metasploit-0466c8?style=flat-square&logo=metasploit&logoColor=white) |
-| ![Splunk](https://img.shields.io/badge/Splunk-000000?style=flat-square&logo=splunk&logoColor=white) | ![Defender](https://img.shields.io/badge/MS%20Defender-00a4ef?style=flat-square&logo=microsoft&logoColor=white) | ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=flat-square&logo=ubuntu&logoColor=white) | ![Wireshark](https://img.shields.io/badge/Wireshark-16213e?style=flat-square&logo=wireshark&logoColor=white) |
+| ![Golang](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white) | ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white) | ![Wazuh](https://img.shields.io/badge/Wazuh-00A9E0?style=flat-square&logo=wazuh&logoColor=white) | ![Burp Suite](https://img.shields.io/badge/Burp%20Suite-eb5e28?style=flat-square&logo=burpsuite&logoColor=white) |
+| ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) | ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=flat-square&logo=ubuntu&logoColor=white) | ![Elastic](https://img.shields.io/badge/Elastic-005571?style=flat-square&logo=elastic&logoColor=white) | ![Metasploit](https://img.shields.io/badge/Metasploit-0466c8?style=flat-square&logo=metasploit&logoColor=white) |
+| ![C](https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=c&logoColor=white) | ![K8s](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white) | ![Splunk](https://img.shields.io/badge/Splunk-000000?style=flat-square&logo=splunk&logoColor=white) | ![Nmap](https://img.shields.io/badge/Nmap-217346?style=flat-square&logo=nmap&logoColor=white) |
+| ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) | ![Proxmox](https://img.shields.io/badge/Proxmox-E57000?style=flat-square&logo=proxmox&logoColor=white) | ![SentinelOne](https://img.shields.io/badge/SentinelOne-6B2F85?style=flat-square&logo=sentinelone&logoColor=white) | ![Wireshark](https://img.shields.io/badge/Wireshark-16213e?style=flat-square&logo=wireshark&logoColor=white) |
 
 </div>
 
-## 📂 Öne Çıkan Projeler (Featured Projects)
+## 📂 Featured Repositories & Research
 
-| Proje | Açıklama | Teknoloji |
+| Project | Description | Stack / Tech |
 |---|---|---|
-| [**Ubuntu Sovereign Stack**](https://github.com/yusufarbc/ubuntu-sovereign-stack) | Dijital egemenlik ve veri gizliliği odaklı otonom altyapı yığını. | Ubuntu, Self-Hosted, Proxmox |
-| [**Apache BigData SIEM**](https://github.com/yusufarbc/apache-bigdata-siem) | Kafka, Spark ve Hadoop tabanlı, gerçek zamanlı büyük veri SIEM mimarisi. | Kafka, Spark, Hadoop |
-| [**NPM Supply Chain Analysis**](https://github.com/yusufarbc/npm-supply-chain-network-analysis) | 3 milyondan fazla paketi kapsayan ağ analizi ve tedarik zinciri güvenlik araştırması. | Python, NetworkX |
-| [**ApiGoat**](https://github.com/yusufarbc/apigoat) | OWASP Top 10 API Security risklerini öğretmek için tasarlanmış zafiyetli API laboratuvarı. | Go, API Security |
-| [**WebVuln Runner**](https://github.com/yusufarbc/webvuln-runner) | Docker tabanlı TUI uygulaması ile hızlı sızma testi laboratuvarı kurulumu. | Docker, Python, Bash |
+| [**Apache-BigData-SIEM**](https://github.com/yusufarbc/Apache-BigData-SIEM) | Scalable, Lakehouse-based SIEM architecture for real-time threat detection. | Kafka, Spark, Hadoop |
+| [**WebVuln-Runner**](https://github.com/yusufarbc/webvuln-runner) | Docker-based TUI runner for instantly deploying 15+ vulnerable web apps. | Docker, Python, Bash |
+| [**ApiGoat**](https://github.com/yusufarbc/apigoat) | Deliberately vulnerable REST API designed for OWASP Top 10 security testing. | Node.js, Express, MongoDB |
+| **Vantage** *(Private)* | Self-hosted Web GUI for ProjectDiscovery tools for seamless vulnerability management. | Golang, Docker |
+| **NPU Graph Opt Benchmark** *(Private)* | Benchmarking compiler-level graph optimizations on NPU vs CPU/GPU architectures. | Python, AI/ML |
+| **NPM Supply Chain Analysis** *(Private)* | Network analysis of NPM dependencies with centrality metrics for risk assessment. | Python, NetworkX |
 
-## 📊 İstatistikler & Akademik Focus
+## 📊 Stats & Academic Focus
 
-* [cite_start]🎓 **Yüksek Lisans:** Karabük Üniversitesi - Yazılım Mühendisliği (Odak: Ölçeklenebilir Sistem Mimarileri ve Tedarik Zinciri Güvenliği)[cite: 30, 31].
-* [cite_start]🏆 **TryHackMe:** Global ölçekte **Top 1%** rank (Red Team Operator)[cite: 36].
-* 🔬 **Araştırma:** CPU, GPU ve NPU performanslarının grafik optimizasyon görevleri üzerindeki benchmark karşılaştırmaları.
+* 🎓 **M.Sc. in Software Engineering:** Karabuk University (Researching scalable systems & supply chain security).
+* 🏆 **TryHackMe:** Ranked in the **Top 1%** globally (Red Team Operator).
+* 🛡️ **Certifications:** USOM Penetration Testing Specialist, LetsDefend SOC Analyst, Cisco Network Security.
 
 <div align="center">
   <a href="https://github.com/yusufarbc">
