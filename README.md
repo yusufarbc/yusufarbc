@@ -54,9 +54,6 @@ I am deeply passionate about creating autonomous, self-sufficient IT environment
 | Project | Description | Stack / Tech |
 |---|---|---|
 | [**Apache-BigData-SIEM**](https://github.com/yusufarbc/Apache-BigData-SIEM) | Scalable, Lakehouse-based SIEM architecture for real-time threat detection. | Kafka, Spark, Hadoop |
-| [**NPM Supply Chain Analysis**](https://github.com/yusufarbc/npm-supply-chain-network-analysis) | *(Private)* Network analysis of NPM dependencies with centrality metrics for risk assessment. | Python, NetworkX |
-| **Vantage** | *(Private)* Self-hosted Web GUI for ProjectDiscovery tools for seamless vulnerability management. | Golang, Docker |
-| **NPU Graph Opt Benchmark** | *(Private)* Benchmarking compiler-level graph optimizations on NPU vs CPU/GPU architectures. | Python, AI/ML |
 | [**WebVuln-Runner**](https://github.com/yusufarbc/webvuln-runner) | Docker-based TUI runner for instantly deploying 15+ vulnerable web apps. | Docker, Bash, Python |
 | [**ApiGoat**](https://github.com/yusufarbc/apigoat) | Deliberately vulnerable REST API designed for OWASP Top 10 security testing. | Node.js, MongoDB |
 
