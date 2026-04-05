@@ -61,7 +61,7 @@ I am deeply passionate about creating autonomous, self-sufficient IT environment
 
 * 🎓 **M.Sc. in Software Engineering:** Karabuk University (Researching scalable systems & supply chain security).
 * 🔬 **Current Research:** Benchmarking CPU, GPU, and NPU performance for complex graph optimization tasks.
-* 🛡️ **Cybersecurity Roots:** Leveraging an offensive security background (TryHackMe Top 1%, USOM PenTest Specialist) to engineer unbreakable defense systems.
+* 🛡️ **Cybersecurity Roots:** Leveraging an offensive security background (TryHackMe Top 1%, Pentest Specialist) to engineer unbreakable defense systems.
 
 <div align="center">
   <a href="https://github.com/yusufarbc">
