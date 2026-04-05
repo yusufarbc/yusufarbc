@@ -63,12 +63,6 @@ I am deeply passionate about creating autonomous, self-sufficient IT environment
 * 🔬 **Current Research:** Benchmarking CPU, GPU, and NPU performance for complex graph optimization tasks.
 * 🛡️ **Cybersecurity Roots:** Leveraging an offensive security background (TryHackMe Top 1%, Pentest Specialist) to engineer unbreakable defense systems.
 
-<div align="center">
-  <a href="https://github.com/yusufarbc">
-    <img src="https://github-readme-stats.vercel.app/api?username=yusufarbc&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0f172a&title_color=38bdf8&icon_color=38bdf8&text_color=94a3b8" height="160" alt="stats graph" />
-  </a>
-</div>
-
 ---
 
 <div align="center">
