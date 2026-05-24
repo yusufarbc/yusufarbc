@@ -1,0 +1,322 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { LANGS, type Lang } from "../../../config/site";
+import {
+  formatDate,
+  getEntriesByLang,
+  getPostSlug,
+  isPostEntry,
+  renderMarkdown,
+  sortByDateDesc,
+} from "../../../lib/content";
+
+export async function getStaticPaths() {
+  const paths: Array<{ params: { lang: Lang; slug: string }; props: { lang: Lang; post: any } }> = [];
+
+  for (const lang of LANGS) {
+    const entries = getEntriesByLang(lang);
+    for (const post of sortByDateDesc(entries.filter(isPostEntry))) {
+      paths.push({
+        params: {
+          lang,
+          slug: getPostSlug(post),
+        },
+        props: { lang, post },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { post, lang } = Astro.props;
+const html = renderMarkdown(post.body);
+
+type TocLevel = 1 | 2 | 3 | 4;
+type TocItem = { level: TocLevel; id: string; text: string; parentId?: string };
+type TocGroup = { id: string; text: string; children: Array<{ id: string; text: string }> };
+
+function stripTags(value: string): string {
+  return value
+    .replace(/<[^>]+>/g, "")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .trim();
+}
+
+function slugifyHeading(input: string): string {
+  return input
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
+
+const usedHeadingIds = new Map<string, number>();
+const tocItems: TocItem[] = [];
+
+// Add IDs to all headings for anchors, but only include H2 in TOC items
+const htmlWithHeadingIds = html.replace(/<h([1234])([^>]*)>([\s\S]*?)<\/h\1>/g, (full, levelRaw, attrsRaw, inner) => {
+  const level = Number(levelRaw) as TocLevel;
+  const text = stripTags(inner);
+  if (!text) {
+    return full;
+  }
+
+  const attrs = String(attrsRaw ?? "");
+  const existingIdMatch = attrs.match(/\sid=["']([^"']+)["']/i);
+  let id = existingIdMatch?.[1] ?? slugifyHeading(text);
+
+  const seen = usedHeadingIds.get(id) ?? 0;
+  usedHeadingIds.set(id, seen + 1);
+  if (seen > 0) {
+    id = `${id}-${seen + 1}`;
+  }
+
+  const attrsWithoutId = attrs.replace(/\sid=["'][^"']+["']/i, "");
+  
+  // Only add H2 headings to the sidebar
+  if (level === 2) {
+    tocItems.push({ level, id, text });
+  }
+
+  return `<h${level}${attrsWithoutId} id="${id}">${inner}</h${level}>`;
+});
+
+const tocGroups: TocGroup[] = tocItems.map(item => ({
+  id: item.id,
+  text: item.text,
+  children: []
+}));
+
+const hasToc = tocGroups.length > 0;
+---
+
+<BaseLayout title={post.data.title ?? "Post"} lang={lang} description={post.data.description}>
+  <div class="article-page">
+    <div class={`article-shell ${!hasToc ? "no-toc" : ""}`}>
+      {hasToc && (
+        <aside class="article-toc" data-toc>
+          <div class="toc-header" data-toc-toggle>
+            {lang === "tr" ? "Bölüm Menüsü" : "On this page"}
+          </div>
+
+          <nav class="toc-dropdown" data-toc-dropdown>
+            {tocGroups.map((group) => (
+              <section class="toc-group" data-group-id={group.id}>
+                <a class="toc-link toc-link-h1" href={`#${group.id}`} data-toc-link data-heading-id={group.id} data-level="h1">
+                  {group.text}
+                </a>
+              </section>
+            ))}
+          </nav>
+        </aside>
+      )}
+
+      <article class="markdown-content">
+        <h1 class="title">{post.data.title}</h1>
+        <p class="article-meta">{formatDate(post.data.date, lang)}</p>
+
+        {post.data.featuredImage && (
+          <img class="article-cover" src={post.data.featuredImage} alt={post.data.title} />
+        )}
+
+        {post.data.audioFile && (
+          <div class="audio-player">
+            <p><strong>{lang === 'tr' ? 'Bu makaleyi dinleyin' : 'Listen to this article'}</strong></p>
+            <audio controls preload="metadata">
+              <source src={post.data.audioFile} type={post.data.audioFile.endsWith('.mp3') ? 'audio/mpeg' : 'audio/wav'} />
+              {lang === 'tr' ? 'Tarayıcınız ses çalma özelliğini desteklemiyor.' : 'Your browser does not support the audio element.'}
+            </audio>
+          </div>
+        )}
+
+        <Fragment set:html={htmlWithHeadingIds} />
+      </article>
+    </div>
+  </div>
+
+  {hasToc && (
+    <script is:inline>
+      (() => {
+        const toc = document.querySelector("[data-toc]");
+        if (!toc) return;
+
+        const toggle = toc.querySelector("[data-toc-toggle]");
+        const dropdown = toc.querySelector("[data-toc-dropdown]");
+        const groups = Array.from(toc.querySelectorAll(".toc-group"));
+        const links = Array.from(toc.querySelectorAll("[data-toc-link]"));
+
+        const openGroup = (groupId) => {
+          groups.forEach((group) => {
+            group.classList.toggle("is-open", group.dataset.groupId === groupId);
+          });
+        };
+
+        const activateLink = (headingId) => {
+          links.forEach((link) => {
+            link.classList.toggle("is-active", link.dataset.headingId === headingId);
+          });
+
+          const active = links.find((link) => link.dataset.headingId === headingId);
+          if (!active) return;
+
+          const groupId = active.dataset.headingId;
+          if (groupId) {
+            openGroup(groupId);
+          }
+        };
+
+        const headingNodes = links
+          .map((link) => document.getElementById(link.dataset.headingId || ""))
+          .filter(Boolean);
+
+        const updateActiveByScroll = () => {
+          if (!headingNodes.length) return;
+
+          let current = headingNodes[0];
+          for (const node of headingNodes) {
+            const top = node.getBoundingClientRect().top;
+            if (top <= 140) {
+              current = node;
+            } else {
+              break;
+            }
+          }
+
+          if (current?.id) {
+            activateLink(current.id);
+          }
+        };
+
+        links.forEach((link) => {
+          link.addEventListener("click", () => {
+            const headingId = link.dataset.headingId;
+            if (!headingId) return;
+            activateLink(headingId);
+            if (window.innerWidth <= 1024 && dropdown) {
+              dropdown.classList.remove("is-open");
+            }
+          });
+        });
+
+        if (toggle && dropdown) {
+          toggle.addEventListener("click", () => {
+            dropdown.classList.toggle("is-open");
+          });
+        }
+
+        let ticking = false;
+        const onScroll = () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(() => {
+            updateActiveByScroll();
+            ticking = false;
+          });
+        };
+
+        window.addEventListener("scroll", onScroll, { passive: true });
+        updateActiveByScroll();
+
+        // Chart.js Initialization for Blog Posts
+        const initCharts = () => {
+          const radarCtx = document.getElementById('latexRadarChart');
+          if (radarCtx && window.Chart) {
+            new Chart(radarCtx, {
+              type: 'radar',
+              data: {
+                labels: ["Versiyon Kontrolü", "Dosya Kararlılığı", "Performans", "Görsel Yerleşimi", "Öğrenme Kolaylığı"],
+                datasets: [
+                  {
+                    label: 'Microsoft Word',
+                    data: [10, 30, 20, 40, 90],
+                    backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                    borderColor: 'rgba(239, 68, 68, 1)',
+                    pointBackgroundColor: 'rgba(239, 68, 68, 1)',
+                    borderWidth: 2
+                  },
+                  {
+                    label: 'LaTeX',
+                    data: [100, 100, 95, 100, 30],
+                    backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                    borderColor: 'rgba(59, 130, 246, 1)',
+                    pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+                    borderWidth: 2
+                  }
+                ]
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                  r: {
+                    angleLines: { color: 'rgba(128, 128, 128, 0.2)' },
+                    grid: { color: 'rgba(128, 128, 128, 0.2)' },
+                    pointLabels: { color: 'gray', font: { size: 11 } },
+                    ticks: { display: false, min: 0, max: 100 }
+                  }
+                },
+                plugins: {
+                  legend: { labels: { color: 'gray' } }
+                }
+              }
+            });
+          }
+
+          const barCtx = document.getElementById('presentationBarChart');
+          if (barCtx && window.Chart) {
+            new Chart(barCtx, {
+              type: 'bar',
+              data: {
+                labels: ["Dinamik Veri", "Versiyon Kontrolü", "Tekrar Kullanım", "Tasarım Özgürlüğü"],
+                datasets: [
+                  {
+                    label: 'PowerPoint',
+                    data: [5, 10, 20, 60],
+                    backgroundColor: 'rgba(249, 115, 22, 0.7)',
+                    borderColor: 'rgba(249, 115, 22, 1)',
+                    borderWidth: 1
+                  },
+                  {
+                    label: 'Web Stack (Slidev)',
+                    data: [100, 100, 95, 90],
+                    backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                    borderColor: 'rgba(16, 185, 129, 1)',
+                    borderWidth: 1
+                  }
+                ]
+              },
+              options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                  x: {
+                    grid: { color: 'rgba(128, 128, 128, 0.1)' },
+                    max: 100
+                  },
+                  y: {
+                    grid: { display: false }
+                  }
+                },
+                plugins: {
+                  legend: { labels: { color: 'gray' } }
+                }
+              }
+            });
+          }
+        };
+
+        // Initialize charts after a short delay or on load
+        setTimeout(initCharts, 100);
+      })();
+    </script>
+  )}
+</BaseLayout>

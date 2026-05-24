@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { LANGS, type Lang } from "../../config/site";
+import { getStaticPage, isLang, renderMarkdown } from "../../lib/content";
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+
+const langParam = Astro.params.lang ?? "tr";
+if (!isLang(langParam)) {
+  return Astro.redirect("/tr/projects/");
+}
+const lang = langParam as Lang;
+
+const projectPage = getStaticPage(lang, "projects");
+const html = renderMarkdown(projectPage?.body ?? "");
+const title = projectPage?.title ?? (lang === "tr" ? "Projeler" : "Projects");
+---
+
+<BaseLayout title={title} lang={lang} description={projectPage?.description}>
+  <article class="markdown-content">
+    <h1 class="title">{title}</h1>
+    {projectPage ? (
+      <Fragment set:html={html} />
+    ) : (
+      <p>{lang === "tr" ? "Icerik yakinda eklenecek." : "Content will be added soon."}</p>
+    )}
+  </article>
+</BaseLayout>

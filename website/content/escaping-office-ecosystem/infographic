@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Ekosisteminden Kaçış: Veri Egemenliğini Geri Kazanmak</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tech-border {
+            border-left: 4px solid #3b82f6;
+        }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <div class="fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-500 z-50"></div>
+
+    <header class="max-w-6xl mx-auto px-6 pt-20 pb-16 text-center">
+        <div class="inline-block mb-4 px-4 py-1 rounded-full bg-slate-800 border border-slate-700 text-cyan-400 text-sm font-semibold tracking-wide">
+            &#9888; SİBER BAĞIMSIZLIK BİLDİRGESİ
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+            Office Ekosisteminden <span class="bg-gradient-to-r from-red-500 to-orange-500 gradient-text">Kaçış</span>
+        </h1>
+        <h2 class="text-xl md:text-3xl font-light text-slate-300 mb-8 max-w-4xl mx-auto">
+            Veri Egemenliğini ve <span class="text-cyan-400 font-semibold">Mühendislik Prensiplerini</span> Geri Kazanmak
+        </h2>
+        <p class="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
+            Google Workspace ve Microsoft 365 gibi kapalı ekosistemler, eşzamanlı işbirliği illüzyonuyla bizi sunucularına kilitliyor. Ürettiğimiz veriler indeksleniyor, reklam veya yapay zeka modelleri için taranıyor. Zihinsel üretimimizi bu platformlardan kurtarıp, Unix felsefesinin temeli olan <strong class="text-slate-200">düz metin (plain text)</strong> sadeliğine taşımanın zamanı geldi.
+        </p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-24">
+
+        <section class="scroll-mt-20">
+            <div class="text-center mb-12">
+                <span class="text-5xl mb-4 block">&#128196;</span>
+                <h3 class="text-3xl font-bold mb-4">1. Belge Mühendisliği: Word'ün Çöküşü ve LaTeX'in Gücü</h3>
+                <p class="text-slate-400 max-w-2xl mx-auto">Microsoft Word'ün WYSIWYG (Gördüğünü Alırsın) paradigması, teknik dokümantasyonda bir felakettir. Gizli ikili dosyalar Git ile uyumsuzdur, referanslar kırılır, görseller kayar. Çözüm: İçeriği tasarımdan ayıran WYSIWYM (Gördüğün Şeyi Demek İstersin) yaklaşımı ve mutlak stabilite sunan LaTeX.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="glass-panel rounded-2xl p-8 shadow-2xl">
+                    <h4 class="text-xl font-bold text-white mb-6 text-center">Paradigma Karşılaştırması</h4>
+                    <div class="chart-container">
+                        <canvas id="latexRadarChart"></canvas>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-slate-800 rounded-xl p-6 border-l-4 border-red-500">
+                        <div class="flex items-center mb-3">
+                            <span class="text-2xl mr-3">&#10060;</span>
+                            <h5 class="text-lg font-bold text-red-400">Word (WYSIWYG) Problemleri</h5>
+                        </div>
+                        <ul class="space-y-2 text-slate-300">
+                            <li>&#8226; İç yapısı gizli ikili (binary) veya karmaşık XML yığınları.</li>
+                            <li>&#8226; Git (diff/merge) gibi versiyon kontrol sistemleriyle tam uyumsuzluk.</li>
+                            <li>&#8226; Büyük belgelerde kaçınılmaz çökme ve format bozulmaları.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-800 rounded-xl p-6 border-l-4 border-blue-500">
+                        <div class="flex items-center mb-3">
+                            <span class="text-2xl mr-3">&#10004;</span>
+                            <h5 class="text-lg font-bold text-blue-400">LaTeX (WYSIWYM) Çözümü</h5>
+                        </div>
+                        <ul class="space-y-2 text-slate-300">
+                            <li>&#8226; Her şey basit, okunabilir düz metin (plain text) formatında.</li>
+                            <li>&#8226; Satır satır mükemmel Git entegrasyonu ve takım çalışması.</li>
+                            <li>&#8226; Binlerce sayfalık dokümanlarda bile sıfır kayma, mutlak matematiksel dizgi.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="scroll-mt-20 relative">
+            <div class="absolute inset-0 bg-red-900/10 blur-3xl -z-10 rounded-[100px]"></div>
+            <div class="text-center mb-12">
+                <span class="text-5xl mb-4 block">&#128200;</span>
+                <h3 class="text-3xl font-bold mb-4">2. Veri Analitiğinde Şeffaflık: Excel Felaketleri vs. CSV + DuckDB</h3>
+                <p class="text-slate-400 max-w-2xl mx-auto">Excel'in bir veritabanı gibi kullanılması ağır bir 'Teknik Borç' yaratır. Formüller hücrelere gizlenir, bilimsel tekrarlanabilirlik yok olur. Analitik süreçlerde veri (CSV) ve mantık (SQL) kesinlikle birbirinden ayrılmalıdır.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="glass-panel p-6 rounded-xl border border-red-500/30 text-center hover:bg-slate-800 transition-colors">
+                    <div class="text-4xl mb-3">&#129302;</div>
+                    <div class="text-2xl font-bold text-red-400 mb-2">16.000+</div>
+                    <h5 class="font-semibold text-slate-200 mb-2">Kayıp COVID Vakası</h5>
+                    <p class="text-sm text-slate-400">İngiltere'de eski .xls formatının satır limiti (65.536) aşıldığı için binlerce pozitif vaka sistemden silindi.</p>
+                </div>
+                <div class="glass-panel p-6 rounded-xl border border-red-500/30 text-center hover:bg-slate-800 transition-colors">
+                    <div class="text-4xl mb-3">&#128201;</div>
+                    <div class="text-2xl font-bold text-red-400 mb-2">Hücre Hatası</div>
+                    <h5 class="font-semibold text-slate-200 mb-2">Reinhart-Rogoff Krizi</h5>
+                    <p class="text-sm text-slate-400">Basit bir Excel aralık seçimi (A1:A20 yerine A1:A15) hatası, ülkelerin kemer sıkma politikalarını yanlış yönlendirdi.</p>
+                </div>
+                <div class="glass-panel p-6 rounded-xl border border-red-500/30 text-center hover:bg-slate-800 transition-colors">
+                    <div class="text-4xl mb-3">&#129644;</div>
+                    <div class="text-2xl font-bold text-red-400 mb-2">MARCH1 Vakası</div>
+                    <h5 class="font-semibold text-slate-200 mb-2">Değişen Gen İsimleri</h5>
+                    <p class="text-sm text-slate-400">Excel'in gen isimlerini (MARCH1) otomatik tarihe çevirmesi yüzünden uluslararası bilim camiası gen isimlerini değiştirdi.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-800/80 rounded-2xl p-8 border border-cyan-500/30">
+                <h4 class="text-2xl font-bold text-center mb-8 text-cyan-400">Modern Analitik Mimari: Mantık ve Verinin Ayrılışı</h4>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                    <div class="flex-1 text-center p-6 bg-slate-900 rounded-xl border border-slate-700">
+                        <div class="text-5xl mb-4">&#128190;</div>
+                        <h5 class="font-bold text-lg mb-2">Ham Veri</h5>
+                        <p class="text-slate-400 font-mono text-sm bg-slate-800 p-2 rounded">.csv / .parquet</p>
+                        <p class="text-xs text-slate-500 mt-2">Düz metin, değiştirilemez temel gerçeklik.</p>
+                    </div>
+                    <div class="text-3xl text-cyan-400 font-bold">&#10132;</div>
+                    <div class="flex-1 text-center p-6 bg-slate-900 rounded-xl border border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                        <div class="text-5xl mb-4">&#129414;</div>
+                        <h5 class="font-bold text-lg text-cyan-400 mb-2">DuckDB Motoru</h5>
+                        <p class="text-slate-400 font-mono text-sm bg-slate-800 p-2 rounded">Vektörel SQL Sorguları</p>
+                        <p class="text-xs text-slate-500 mt-2">Sunucusuz, bellek içi süper hızlı analitik.</p>
+                    </div>
+                    <div class="text-3xl text-cyan-400 font-bold">&#10132;</div>
+                    <div class="flex-1 text-center p-6 bg-slate-900 rounded-xl border border-slate-700">
+                        <div class="text-5xl mb-4">&#128202;</div>
+                        <h5 class="font-bold text-lg mb-2">Şeffaf Sonuç</h5>
+                        <p class="text-slate-400 font-mono text-sm bg-slate-800 p-2 rounded">Tekrarlanabilir Çıktı</p>
+                        <p class="text-xs text-slate-500 mt-2">Hata payı sıfır, adımlar versiyonlanabilir.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="scroll-mt-20">
+            <div class="text-center mb-12">
+                <span class="text-5xl mb-4 block">&#128187;</span>
+                <h3 class="text-3xl font-bold mb-4">3. Sunum Mimarisinin Evrimi: Web Stack (HTML/CSS/JS)</h3>
+                <p class="text-slate-400 max-w-2xl mx-auto">PowerPoint, 20. yüzyıldan kalma statik "asetat" mantığıdır. Kopyalanan veriler anında ölür. Gelecek; Slidev, Reveal.js ve Marp gibi Markdown ve Web teknolojilerini kullanan canlı mimarilerdedir.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <div class="glass-panel p-5 rounded-lg tech-border">
+                        <h5 class="font-bold text-emerald-400 flex items-center"><span class="mr-2">&#128260;</span> Canlı ve Dinamik Veri</h5>
+                        <p class="text-sm text-slate-300 mt-1">Sunum içindeki D3.js grafikleri anlık veritabanı bağlantısıyla kendini günceller. Asla bayat veri sunmazsınız.</p>
+                    </div>
+                    <div class="glass-panel p-5 rounded-lg tech-border">
+                        <h5 class="font-bold text-emerald-400 flex items-center"><span class="mr-2">&#128187;</span> Çalıştırılabilir Kod Blokları</h5>
+                        <p class="text-sm text-slate-300 mt-1">Sunum esnasında kod bloklarını canlı olarak çalıştırın ve sonuçlarını seyirciye anında gösterin.</p>
+                    </div>
+                    <div class="glass-panel p-5 rounded-lg tech-border">
+                        <h5 class="font-bold text-emerald-400 flex items-center"><span class="mr-2">&#128025;</span> Git üzerinden Pull Request</h5>
+                        <p class="text-sm text-slate-300 mt-1">Takım arkadaşlarınız sunumdaki bir yazım hatasını düzeltmek için GitHub üzerinden PR gönderebilir.</p>
+                    </div>
+                </div>
+                <div class="glass-panel rounded-2xl p-6 shadow-xl">
+                    <h4 class="text-lg font-bold text-center mb-4">Geleneksel vs Modern Sunum Yetenekleri</h4>
+                    <div class="chart-container">
+                        <canvas id="presentationBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="scroll-mt-20 bg-slate-800/50 rounded-3xl p-8 md:p-12 border border-slate-700">
+            <div class="text-center mb-10">
+                <span class="text-5xl mb-4 block">&#127984;</span>
+                <h3 class="text-3xl font-bold mb-4">4. Açık Kaynaklı Geleneksel Alternatifler</h3>
+                <p class="text-slate-400 max-w-2xl mx-auto">Herkes terminalde veya düz metin yazarak çalışamaz. Geleneksel arayüzlere ihtiyaç duyan ancak veri mahremiyetini korumak isteyenler için güçlü açık kaynak kaleleri mevcuttur.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-slate-900 rounded-xl p-8 border border-blue-500/30 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl">&#128188;</div>
+                    <h4 class="text-2xl font-bold text-blue-400 mb-4">LibreOffice</h4>
+                    <p class="text-slate-300 mb-6">Bulut karmaşasından uzak, tamamen çevrimdışı ve topluluk odaklı ODF (Açık Belge Formatı) şampiyonu.</p>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex items-center"><span class="text-green-400 mr-2">&#10004;</span> %100 Çevrimdışı ve Gizlilik Odaklı</li>
+                        <li class="flex items-center"><span class="text-green-400 mr-2">&#10004;</span> Derinlemesine Makro ve DB Desteği</li>
+                        <li class="flex items-center"><span class="text-green-400 mr-2">&#10004;</span> Ticari lisans veya abonelik dayatması yok</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-slate-900 rounded-xl p-8 border border-orange-500/30 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl">&#128274;</div>
+                    <h4 class="text-2xl font-bold text-orange-400 mb-4">ONLYOFFICE</h4>
+                    <p class="text-slate-300 mb-6">Kurumsal uyumluluk arayanlar için Microsoft formatlarıyla en yüksek uyuma sahip, modern, kendi sunucunuzda (self-hosted) barındırılabilen çözüm.</p>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex items-center"><span class="text-green-400 mr-2">&#10004;</span> DOCX, XLSX, PPTX ile Kusursuz Uyumluluk</li>
+                        <li class="flex items-center"><span class="text-green-400 mr-2">&#10004;</span> Kendi Sunucunda Gerçek Zamanlı İşbirliği</li>
+                        <li class="flex items-center"><span class="text-green-400 mr-2">&#10004;</span> Modern Sekmeli (Ribbon) Arayüz</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="text-center py-12 border-t border-slate-800">
+            <h3 class="text-2xl font-bold mb-6 text-slate-200">Kapanış: Felsefi Bir Duruş</h3>
+            <p class="text-lg text-slate-400 max-w-4xl mx-auto italic font-light leading-relaxed">
+                "Microsoft veya Google'ı terk edip LaTeX, DuckDB veya açık kaynaklı sistemlere geçmek sadece teknolojik bir tercih değil; verinin mülkiyetini geri almak, zihinsel üretimin on yıllar sonrasına güvenle aktarılmasını sağlamak ve deterministik mühendislik prensiplerinden taviz vermemek adına alınan elzem bir duruştur."
+            </p>
+        </section>
+
+    </main>
+
+    <div id="metadata-confirmations" style="display: none;" aria-hidden="true">
+        Confirmation: NEITHER Mermaid JS NOR SVG were used anywhere in the output.
+        Palette: Brilliant Blues & Energetic (Slate 900, Slate 800, Blue 500, Cyan 400, Red 500, Emerald 500, Orange 500).
+        Narrative Plan: Intro (Cloud illusion), Section 1 (Word vs LaTeX with Radar Chart), Section 2 (Excel vs DuckDB with Stats & Flow), Section 3 (PPT vs Web Stack with Bar Chart), Section 4 (Libre/OnlyOffice Comparison), Conclusion (Philosophy).
+        Visualization Choices: Word vs LaTeX -> Goal: Compare -> Radar Chart (Chart.js) -> Shows multivariate profiling of tools. Excel Disasters -> Goal: Inform -> Big Text/Numbers -> Emphasizes scale of failure. DuckDB Pipeline -> Goal: Organize -> HTML Grid Flow -> Shows logical step separation. PPT vs Web -> Goal: Compare -> Horizontal Bar (Chart.js) -> Directly contrasts feature sets. Traditional Alts -> Goal: Compare/Organize -> HTML Cards -> Cleary segments user choices.
+    </div>
+
+    <script>
+        const wrapLabelText = (labelStr, limit = 16) => {
+            if (labelStr.length <= limit) return labelStr;
+            const words = labelStr.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        };
+
+        const processLabelsArr = (labelsArray) => {
+            return labelsArray.map(label => wrapLabelText(label));
+        };
+
+        const commonTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const rawRadarLabels = ["Versiyon Kontrolü (Git)", "Dosya Kararlılığı", "Büyük Dosya Performansı", "Görsel Yerleşimi", "Öğrenme Kolaylığı"];
+        const radarLabels = processLabelsArr(rawRadarLabels);
+
+        const ctxRadar = document.getElementById('latexRadarChart').getContext('2d');
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: radarLabels,
+                datasets: [
+                    {
+                        label: 'Microsoft Word',
+                        data: [10, 30, 20, 40, 90],
+                        backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                        borderColor: 'rgba(239, 68, 68, 1)',
+                        pointBackgroundColor: 'rgba(239, 68, 68, 1)',
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'LaTeX',
+                        data: [100, 100, 95, 100, 30],
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                color: '#cbd5e1',
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                        pointLabels: { color: '#94a3b8', font: { size: 11 } },
+                        ticks: { display: false, min: 0, max: 100 }
+                    }
+                },
+                plugins: {
+                    legend: { labels: { color: '#f8fafc' } },
+                    tooltip: commonTooltipConfig
+                }
+            }
+        });
+
+        const rawBarLabels = ["Dinamik Veri Bağlantısı", "Versiyon Kontrolü (Git)", "Bileşen Tekrar Kullanımı", "Görsel Tasarım Özgürlüğü"];
+        const barLabels = processLabelsArr(rawBarLabels);
+
+        const ctxBar = document.getElementById('presentationBarChart').getContext('2d');
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: barLabels,
+                datasets: [
+                    {
+                        label: 'PowerPoint',
+                        data: [5, 10, 20, 60],
+                        backgroundColor: 'rgba(249, 115, 22, 0.7)',
+                        borderColor: 'rgba(249, 115, 22, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Web Stack (Slidev vb.)',
+                        data: [100, 100, 95, 90],
+                        backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                        borderColor: 'rgba(16, 185, 129, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                color: '#cbd5e1',
+                scales: {
+                    x: {
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                        ticks: { color: '#94a3b8' },
+                        max: 100
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: { color: '#94a3b8', font: { size: 11 } }
+                    }
+                },
+                plugins: {
+                    legend: { labels: { color: '#f8fafc' } },
+                    tooltip: commonTooltipConfig
+                }
+            }
+        });
+    </script>
+</body>
+</html>

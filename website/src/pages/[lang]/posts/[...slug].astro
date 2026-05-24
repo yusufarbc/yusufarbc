@@ -1,0 +1,31 @@
+---
+import { LANGS, type Lang } from "../../../config/site";
+import {
+  getEntriesByLang,
+  getPostSlug,
+  isPostEntry,
+  sortByDateDesc,
+} from "../../../lib/content";
+
+export async function getStaticPaths() {
+  const paths: Array<{ params: { lang: Lang; slug: string } }> = [];
+
+  for (const lang of LANGS) {
+    const entries = getEntriesByLang(lang);
+    for (const post of sortByDateDesc(entries.filter(isPostEntry))) {
+      paths.push({
+        params: {
+          lang,
+          slug: getPostSlug(post),
+        },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const lang = Astro.params.lang as Lang;
+const slug = Astro.params.slug;
+return Astro.redirect(`/${lang}/blog/${slug}/`);
+---

@@ -1,0 +1,169 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { LANGS, type Lang } from "../../../config/site";
+import { formatDate, getEntriesByLang, getPostSlug, isLang, isWriteupEntry, sortByDateDesc } from "../../../lib/content";
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+
+const langParam = Astro.params.lang ?? "tr";
+if (!isLang(langParam)) {
+  return Astro.redirect("/tr/writeups/");
+}
+
+const lang = langParam as Lang;
+const writeups = sortByDateDesc(getEntriesByLang(lang).filter(isWriteupEntry));
+const title = lang === "tr" ? "Write-up" : "Write-ups";
+const years = Array.from(
+  new Set(
+    writeups
+      .map((entry) => String(entry.data.date ?? "").slice(0, 4))
+      .filter((year) => /^\d{4}$/.test(year)),
+  ),
+).sort((a, b) => Number(b) - Number(a));
+---
+
+<BaseLayout title={title} lang={lang}>
+  <section class="blog-hero">
+    <h1 class="title">{title}</h1>
+    <p class="list-description">
+      {lang === "tr"
+        ? "Tüm write-up içeriklerini tek akışta keşfedin."
+        : "Browse all write-up content in a single stream."}
+    </p>
+    <div class="blog-controls">
+      <input id="writeup-search" class="blog-search" type="search" placeholder={lang === "tr" ? "Write-up ara..." : "Search write-ups..."} />
+      <select id="writeup-sort" class="blog-sort" aria-label={lang === "tr" ? "Sırala" : "Sort write-ups"}>
+        <option value="newest">{lang === "tr" ? "En yeni" : "Newest"}</option>
+        <option value="oldest">{lang === "tr" ? "En eski" : "Oldest"}</option>
+        <option value="title">{lang === "tr" ? "Başlığa göre" : "By title"}</option>
+      </select>
+    </div>
+    <div class="blog-filters" id="writeup-filters">
+      <button class="blog-filter is-active" data-year="all" type="button">
+        {lang === "tr" ? "Tüm yıllar" : "All years"}
+      </button>
+      {years.map((year) => (
+        <button class="blog-filter" data-year={year} type="button">{year}</button>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <div id="writeup-grid" class="posts-list-grid blog-grid">
+      {writeups.map((entry) => (
+        <article
+          class="post-item glass-card blog-card"
+          data-title={String(entry.data.title ?? "").toLowerCase()}
+          data-description={String(entry.data.description ?? "").toLowerCase()}
+          data-year={String(entry.data.date ?? "").slice(0, 4)}
+          data-date={String(new Date(entry.data.date ?? 0).getTime())}
+        >
+          <a class="post-link" href={`/${lang}/writeups/${getPostSlug(entry)}/`}>
+            <div class="blog-cover-wrap">
+              {entry.data.featuredImage ? (
+                <img class="blog-cover" src={entry.data.featuredImage} alt={entry.data.title} loading="lazy" />
+              ) : (
+                <div class="blog-cover blog-cover-placeholder" aria-hidden="true"></div>
+              )}
+            </div>
+            <div class="blog-card-body">
+              <div class="post-meta">{formatDate(entry.data.date, lang)}</div>
+              <h2 class="post-title">{entry.data.title}</h2>
+              <p class="post-excerpt">{entry.data.description ?? ""}</p>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+    <p id="writeup-empty" class="blog-empty" hidden>{lang === "tr" ? "Eşleşen write-up bulunamadı." : "No matching write-ups found."}</p>
+  </section>
+
+  <script>
+    const searchInput = document.getElementById("writeup-search");
+    const sortInput = document.getElementById("writeup-sort");
+    const filterRoot = document.getElementById("writeup-filters");
+    const grid = document.getElementById("writeup-grid");
+    const cards = Array.from(document.querySelectorAll(".blog-card"));
+    const emptyState = document.getElementById("writeup-empty");
+    let currentYear = "all";
+
+    function sortCards(mode) {
+      const sorted = [...cards].sort((a, b) => {
+        const aDate = Number(a.dataset.date || 0);
+        const bDate = Number(b.dataset.date || 0);
+        const aTitle = a.dataset.title || "";
+        const bTitle = b.dataset.title || "";
+
+        if (mode === "oldest") return aDate - bDate;
+        if (mode === "title") return aTitle.localeCompare(bTitle);
+        return bDate - aDate;
+      });
+
+      sorted.forEach((card) => grid?.appendChild(card));
+    }
+
+    function applyFilter(term) {
+      const q = term.trim().toLowerCase();
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const title = card.dataset.title || "";
+        const description = card.dataset.description || "";
+        const year = card.dataset.year || "";
+        const matchedYear = currentYear === "all" || year === currentYear;
+        const matchedText = !q || title.includes(q) || description.includes(q);
+        const matched = matchedYear && matchedText;
+        card.hidden = !matched;
+        if (matched) visibleCount += 1;
+      });
+
+      if (emptyState) {
+        emptyState.hidden = visibleCount !== 0;
+      }
+    }
+
+    sortInput?.addEventListener("change", (event) => {
+      sortCards(event.target.value || "newest");
+      applyFilter(searchInput?.value || "");
+    });
+
+    filterRoot?.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) return;
+      if (!target.classList.contains("blog-filter")) return;
+      currentYear = target.dataset.year || "all";
+
+      filterRoot.querySelectorAll(".blog-filter").forEach((item) => {
+        item.classList.toggle("is-active", item === target);
+      });
+
+      applyFilter(searchInput?.value || "");
+    });
+
+    searchInput?.addEventListener("input", (event) => {
+      applyFilter(event.target.value || "");
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 },
+    );
+
+    cards.forEach((card, index) => {
+      card.style.transitionDelay = `${Math.min(index, 10) * 40}ms`;
+      observer.observe(card);
+    });
+
+    sortCards("newest");
+    applyFilter("");
+  </script>
+</BaseLayout>

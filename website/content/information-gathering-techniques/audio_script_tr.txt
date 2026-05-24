@@ -1,0 +1,141 @@
+Stratejik Siber İstihbarat Perspektifinden Modern OSINT, Yapay Zeka ve Keşif Dinamikleri.
+
+Giriş: Keşif Fazının Değişen Paradigması.
+
+Siber istihbaratta (CTI) keşif fazı, eskiden sızma testlerinin basit bir ön adımı veya "araç listesi" olarak görülürken, bugün hem saldırganlar (Red Team/APT grupları) hem de savunma ekipleri (Blue Team/SOC) için siber uzaya bakış açısını belirleyen temel faza dönüşmüştür. OSINT (Açık Kaynak İstihbaratı) artık statik bir hedef analizi değil; siber savunmanın, tehdit modellemenin ve Saldırı Yüzeyi Yönetiminin (ASM) ilk hattıdır.
+
+Bu makalede, klasik "nasıl yapılır" rehberlerindeki tüm teknik detayları ve araçları koruyarak, bu geleneksel bilgi toplama tekniklerini modern bulut altyapılarına, tedarik zinciri istihbaratına ve Yapay Zeka (LLM) katmanlarına nasıl entegre ettiğimizi stratejik bir perspektifle ele alacağız.
+
+Google Dorks ve Google Hacking.
+
+Merhaba, bu yazımda sizlere pasif bilgi toplamada çok işimize yarayan google dorksları tanıtacağım. Nasıl kullanıldığından bahsedeceğim. Ardından, bu dorklarla nasıl zafiyetler bulabileceğimizi ve neler elde edebileceğimizi anlatmaya çalışacağım.
+
+Google dork, google arama motoru ile yapacağımız aramalarda bizlere kolaylık sağlayan bazı parametreleri barındıran bir sistemdir. Bu parametreler, arayacak olduğumuz kelimelere yönelik filtreleme işlemi yapmamıza olanak sağlar. Bu sayede google'ın indexlediği milyarlarca site içerisinde aradığımız bilgiye kolaylıkla ulaşabiliriz. Bu sistem pasif bilgi toplama işlemlerinin vazgeçilmezidir.
+
+Google Arama Parametreleri ve Operatörleri.
+
+Google üzerinde arama yaparken, aramamızı detaylandırmak için 'intext', 'intitle', 'inurl', 'filetype', 'site' veya 'related' gibi çeşitli arama parametrelerini ve aramamızı filtrelemeye yarayan tırnak, eksi, artı, yıldız veya 'veya' mantıksal operatörlerini kullanırız. Bu parametreler ve operatörler, hedef odaklı filtreleme yapmamıza olanak tanıyarak pasif bilgi toplama işlemlerini oldukça kolaylaştırır.
+
+Google Hacking Nedir?
+
+Google hacking, internetteki web sayfalarının zafiyetli dizinlerini bulmak veya açık verileri arayıp bilgi toplamak için bu dorkların kullanılmasıdır. Google hacking teknikleri sayesinde log dosyaları, güvenlik açığı barındıran web sunucuları, açık FTP sunucuları, yapılandırma bilgileri barındıran .env dosyaları, SSH özel anahtarları, e-posta listeleri, canlı kameralar, yanlış yedeklenmiş SQL veri tabanı dökümleri, WordPress yönetici giriş sayfaları veya varsayılan kurulum sayfaları gibi kritik verilere erişmek mümkün olabilmektedir. Bu dorkların derlendiği en büyük kaynak ise Exploit DB tarafından sunulan Google Hacking Database platformudur.
+
+Bulut İstihbaratı ve Sızıntı Avcılığı.
+
+"Google Dorks bitti" klişesine rağmen dorking bitmemiş, sadece API'ler üzerinden makineleşmiştir. Modern saldırganların ana hedefi şirket içi ağlar değil, bulut mimarileridir.
+
+Bulut istihbaratı kapsamında, AWS, Azure veya GCP servislerinde yanlış yapılandırılmış S3 bucket'ları, blob depolama alanları, dışa açık Kubernetes gösterge panelleri, Docker registry sızıntıları ve Terraform veya GitOps yapılandırma ifşaları aranır. Kod depoları ve sızıntı avcılığında ise saldırganlar GitHub, GitLab ve DockerHub gibi platformları sürekli olarak tarayarak geçmiş taahhüt geçmişlerinde unutulan AWS token'ları, API anahtarları veya veritabanı şifrelerini ararlar. Bu süreçlerde TruffleHog, GitLeaks, Shhgit ve DumpsterDiver gibi gizli veri tarama motorları öne çıkmaktadır.
+
+Operasyonel Risk Senaryosu: Bir geliştiricinin kişisel GitHub reposuna attığı bir test kodunda şirket içi veritabanı parolasını veya .env dosyasını unutması, tüm bulut altyapısının ele geçirilmesiyle sonuçlanabilir. Geleneksel Dorking ile aranan dosyalar, bugün TruffleHog ile CI/CD süreçlerinde saniyeler içinde taranmaktadır.
+
+Pasif Bilgi Toplama Teknikleri.
+
+Merhaba, Mehmet Bulut hocamla birlikte hazırladığımız bu yazımızda, sizlere Pasif Bilgi Toplama Tekniklerinden bahsedeceğiz.
+
+Pasif Bilgi Toplama, hedef ile doğrudan temasa geçilmeden yapılan bilgi toplama çeşididir. Örneğin; karşıda oturan biriyle ilgili olarak yanınızdaki kişiye soru aramanız pasif bilgi toplamadır. Sızma testlerinde, öncelikle sistemle ilgili bilgi toplanıp sınıflandırılır. Bu bilgilerin çoğu internet üzerinden elde edilebilir. Bunun haricinde farklı bilgi toplama yöntemlerinden de faydalanılabilir.
+
+IP ve Alan Adları Üzerinden Bilgi Toplama Teknikleri.
+
+Whois sorgusuyla, bir domainin veya IP adresinin tanımlandığı sahibiyle ilgili bilgilere erişebiliriz. Bunlar; hedef ile ilgili IP aralıkları, sorumlu yönetici ve bu yöneticilerin e-posta adresleri gibi bilgileridir. Dünya üzerinde IP adresi ve alan adı dağıtımı tek bir merkez üzerinden yönetilmektedir. ICANN adı verilen bu ana merkez dışında beş farklı RIR, yani bölgesel internet kayıtlayıcısı bulunmaktadır. Whois sorguları bu RIR'ler üzerinden yapılmaktadır.
+
+İnternet üzerinde pasif bilgi toplarken kullanabileceğimiz temel servisler şunlardır:
+
+Netcraft, sorgulanan IP adresi ya da alan adının barındırıldığı işletim sistemi, çekirdek versiyonu ve web servisi yazılımına kadar pek çok bilgiyi tahmin edebilen bir web sayfasıdır.
+Whois.com ise web tabanlı Whois sorguları gerçekleştirmek, domain kayıt verilerini, DNS sunucularını ve sahiplik detaylarını hızlıca incelemek için kullanılan popüler bir platformdur.
+Hedef web sitesinin hangi içerik yönetim sistemini ve arka planda hangi teknolojileri kullandığını pasif olarak tespit etmek için WhatCMS ve CMSDetect platformlarından yararlanırız.
+Shodan, dünya üzerindeki çeşitli servisleri ve açık portları bulmayı sağlayan özel bir arama motorudur. Banner yakalama tekniğiyle elde ettiği verileri filtreleyerek bizlere sunar.
+DNSdumpster, domainle ilgili ana sunucuları keşfeden ücretsiz bir pasif bilgi toplama aracıdır.
+DNS Checker, dünya çapında farklı DNS sunucularının DNS kayıtlarını nasıl çözdüğünü ve yayılımını kontrol etmek için kullanılır.
+MXToolbox ise e-posta sunucularının MX kayıtlarını sorgulamak, DNS zafiyetlerini analiz etmek ve SMTP, SPF, DKIM, DMARC yapılandırmalarını doğrulamak için kullanılan kapsamlı bir platformdur.
+Centralops adresi üzerinde bir domaine ait detaylı IP, DNS ve whois bilgileri elde edilebilir.
+IP Location ise hedef IP adresini farklı kayıt kuruluşlarında sorgulayarak coğrafi konum tespiti sağlar.
+Arşiv siteleri, örneğin Archive.org, bin dokuz yüz doksan altı yılından bu yana tüm interneti kayıt altına alarak web sitelerinin geçmiş sürümlerini bulmamızı sağlar.
+Maltego ise açık kaynaklar üzerinden bulduğu verileri görselleştirerek analiz yapmamıza olanak sağlayan gelişmiş bir analiz aracıdır.
+
+Kullanıcı Adı Üzerinden Bilgi Toplama Teknikleri.
+
+Name Checkup ve Instant Username Search gibi araçlar, verilen bir kullanıcı adının başka hangi sosyal platformlarda kullanıldığını tespit etmemizi sağlar.
+
+Resimler Üzerinden Bilgi Toplama Teknikleri.
+
+Görsel aramalarda Google ve TinEye gibi tersine görsel arama motorlarını kullanarak bir resmin kaynağını veya benzerlerini bulabiliriz. Ayrıca, ExifTool veya Jeffrey's Image Metadata Viewer gibi araçlarla fotoğrafların çekildiği yer, tarih ve saat gibi meta verileri içeren Exif bilgilerini analiz edebiliriz.
+
+Genel Bilgi Toplama Teknikleri.
+
+Google Hacking parametrelerinin yanı sıra, Linux üzerinde çalışan theHarvester aracı ile Linkedin, Google, Twitter gibi açık kaynakları tarayarak bilgi toplayabiliriz. Osint Framework ise yüzlerce pasif bilgi toplama aracına kategorize edilmiş şekilde ulaşabileceğimiz devasa bir web dizinidir.
+
+Sertifika Şeffaflığı ve Siber-Kartografi.
+
+Modern OSINT ve ASM dünyasında subdomain tespiti için en hızlı ve yüzde yüz pasif yöntem Sertifika Şeffaflığı Loglarıdır. Bir şirket yeni bir alt alan adına SSL sertifikası aldığında, bu küresel loglara düşer. Saldırganlar hedefe tek bir paket yollanmadan crt.sh üzerinden veya Subfinder ve Amass gibi otomasyon araçlarıyla yeni açılmış test ortamlarını anında yakalar.
+
+Siber-kartografi motorlarında ise Shodan'a ek olarak, daha güncel sertifika taramaları için Censys kullanılır. Ayrıca FOFA ve Hunter.how, özellikle Asya ve Çin menşeili gelişmiş kalıcı tehdit gruplarının komuta kontrol altyapılarını avlamak için istihbarat analistlerinin en çok tercih ettiği sistemlerdir.
+
+Tedarik Zinciri İstihbaratı.
+
+Modern siber tehdit istihbaratının en sıcak konusu tedarik zinciri güvenliğidir. Yazılım ekosistemleri artık istihbarat servislerinin ve tehdit gruplarının oyun alanıdır. Bu alanda kurumlarda kullanılan açık kaynak kütüphanelerin haritalandırılmasını içeren bağımlılık analizi yapılır. Ayrıca popüler paket isimlerinin benzerlerinin zararlı kodla yüklendiği typo-squatting saldırıları, şirket içi özel paketlerin manipüle edildiği dependency confusion yöntemleri ve geliştirici hesaplarının ele geçirilmesi gibi tehditler mevcuttur. Bu katmanda SBOM ve VEX dokümanları kritik rol oynar. Syft ve Grype ile yazılım bileşenleri analiz edilirken, Dependency-Track ile sürekli izleme sağlanır.
+
+Karanlık Ağlar ve Sosyal İstihbarat.
+
+Dark Web analizleri artık eski usul forumlardan, anlık mesajlaşma ve yapıştırma sitelerine kaymıştır. Lumma, RedLine, Vidar ve Raccoon gibi bilgi çalmaya odaklı zararlı yazılımlardan elde edilen terabaytlarca ham log verisi Telegram botlarında ve breach forumlarında satılmaktadır. Sosyal profillemede ise hedef kişilerin dijital ayak izleri SpiderFoot, Recon-ng, Holehe ve Maigret gibi araçlarla tespit edilir.
+
+Aktif Bilgi Toplama Teknikleri.
+
+Bu yazımızda, sizlere Aktif Bilgi Toplama Tekniklerinden bahsedeceğiz.
+
+Aktif bilgi toplama, hedef ile doğrudan temasa geçilerek yapılan bilgi toplama çeşididir. Aktif bilgi toplamayla, pasif bilgi toplamadan daha net ve güvenilir sonuçlar elde edebiliriz. Ancak, hedef ile doğrudan temasa geçildiği için hedefte iz bırakılır. Güvenlik duvarı, sızma tespit sistemleri ve erişim loglarına kayıt bırakıldığından dolayı dikkatli olunmalıdır.
+
+DNS Taramaları.
+
+DNS protokolü internetin temel yapı taşıdır. DNS taramalarında nslookup ve dig gibi araçlarla temel DNS sorguları yapabilir, dig komutuna trace parametresi ekleyerek sorgu trafiğini izleyebiliriz. Ayrıca dnsmap gibi araçlarla brute force yöntemini kullanarak alt alan adlarını keşfetmeye çalışabiliriz.
+
+Port ve Servis Taramaları.
+
+Aktif bilgi toplamanın en etkin kullanıldığı alanlardan biri port ve servis taramalarıdır. Portlar üzerinde çalışan servislerde bulunan zafiyetler doğrudan sunucuyu etkileyebilir. Bu taramalarda nmap, yani Network Mapper aracı en sık kullanılan açık kaynak kodlu araçtır. Ağdaki cihazları bulmak, açık bağlantı noktalarını keşfetmek ve güvenlik açıklarını tespit etmek için nmap ile ping taramaları veya çeşitli TCP ve UDP ping analizleri gerçekleştirebiliriz. Taramalar sonucunda portların açık, kapalı, filtrelenmiş gibi durumlarını analiz ederiz.
+
+Netcat, nbtscan, netdiscover ve dmitry.
+
+Ağ dünyasının İsviçre çakısı olarak bilinen Netcat ile port tarama, port yönlendirme, dosya aktarımı ve uzaktan shell açma gibi işlemler yapabiliriz. nbtscan aracı ile IP ağlarındaki NetBIOS ad bilgilerini tarayabilir; netdiscover ile aynı ağdaki cihazların işletim sistemlerini, Mac ve IP adreslerini keşfedebiliriz. Dmitry aracı ise whois sorgularının yanı sıra port taraması yapabilen, alt alan adları ve e-postalar hakkında bilgi toplayabilen çok işlevsel bir araçtır.
+
+Sürekli Keşif ve Saldırı Yüzeyi Kayması.
+
+Geleneksel aktif keşif bir hedefin belirli bir anındaki fotoğrafını çeker. Oysa modern saldırganlar artık akan veri istihbaratı kullanıyor. Bir kurumun saldırı yüzeyi statik değildir; sürekli değişir. Bu duruma Saldırı Yüzeyi Kayması denir.
+
+Sürekli Tarama Mimarisi.
+
+Sürekli tarama mimarisi şu şekilde işler: Root Domain veya başlangıç noktasından alt alan adı tespiti yapılır. Ardından aktif ve pasif kontroller gerçekleştirilir. Pasif kontrollerde crt.sh ve Amass gibi sertifika şeffaflığı logları kullanılırken; aktif kontrollerde DNS brute-force ve Subfinder kullanılır. Yaşayan host tespiti httpx aracı ile yapılır. Ardından Aquatone ile görsel keşif ve Katana ile emekleme işlemleri gerçekleştirilir. Son olarak Nuclei ile zafiyet taraması yapılır.
+
+Araç ekosisteminde subdomainler Amass ve Subfinder ile bulunur, httpx ile yaşayan hostlar tespit edilir, Katana ile uç noktalar taranır ve Aquatone ile ekran görüntüleri otomatik olarak alınır.
+
+Operasyonel Risk Senaryosu: Herkese açık unutulmuş, test ortamına ait bir Kibana veya Grafana paneli ilk bakışta zararsız görünebilir. Ancak modern saldırı zincirlerinde, bu tür ifşalar fidye yazılımı grupları tarafından kimlik bilgisi avı ve iç ağa yanal hareket hazırlığı için anında sömürülür.
+
+Hız ve Şablon Tabanlı Modern Taramalar.
+
+Sadece nmap kullanmak modern hız standartlarının gerisinde kalabilir. Bu yüzden sektörde Rust ve Go dili ile yazılmış, asenkron hız rekorları kıran modern araçlar tercih edilir. RustScan, tüm portları saniyeler içinde tarayıp bulunan açık portları detaylı analiz için nmap'e paslar. ProjectDiscovery ekosisteminden Naabu hızlı bir port tarayıcı, Subfinder geçerli alt alan adlarını keşfeden bir araç, httpx yaşayan HTTP ve HTTPS sunucularını tespit eden bir araç, Katana saniyeler içinde web sitelerini crawl eden bir örümcek ve Nuclei ise topluluk tarafından yazılan YAML tabanlı şablonlarla binlerce hedef üzerinde zafiyet taraması yapan devasa bir zafiyet motorudur.
+
+İnternet Çapında Tarama.
+
+Gelişmiş kalıcı tehdit grupları artık hedef organizasyona özel değil, tüm internete yönelik taramalar yapmaktadır. Sadece bilinen domainler değil, kuruma ait tüm ASN blokları taranır. Masscan ve ZMap gibi asenkron araçlar kullanılarak hedefin ASN blokları taranır ve zafiyet barındıran sunucular TLS sertifika kümeleriyle deşifre edilir.
+
+Yapay Zeka Destekli İstihbarat Boru Hatları.
+
+Yapay zeka, istihbarat süreçlerine basit bir chatbot olarak değil, entegre boru hatları olarak dahil olmuştur.
+
+Yapay zeka destekli istihbarat boru hattı akışı şu şekildedir: İlk olarak çalınan loglar ve forumlardan elde edilen ham yapılandırılmamış veriler alınır. Bu veriler LLM ayrıştırma motorundan geçirilir. Sonrasında veri zenginleştirme aşamasına gelinir. Buradan iki yol ayrılır: Birincisi IOC gruplama yoluyla Tehdit İstihbarat Platformu'na aktarılır. İkincisi ise TTP çıkarımı ile MITRE ATT&CK eşleştirmesine gönderilir. Her iki akış da proaktif savunma ile sonuçlanır.
+
+RAG tabanlı sistemler SOC analistlerine anlık bağlam sunarken; Rusça ve Çince siber suç forumlarındaki ağır argo dil modelleriyle çevrilir. Fidye yazılımı gruplarının sızıntı sitelerinde paylaştığı metinler otomatik analiz edilerek doğrudan MITRE ATT&CK matrisine işlenir. Sosyal mühendislikte ise çalışanın diline özel kusursuz oltalama maillerinin veya sahte seslerin üretilmesi sağlanır. Veri manipülasyonu, zehirlenmiş istihbarat akışları ve adversarial prompt injection saldırıları ise modern yapay zeka savunmasının yeni zorluklarıdır.
+
+Savunma Keşfi.
+
+Aktif keşif sadece saldıranların tekelinde değildir. Mavi Takım açısından dış yüzeyin sürekli doğrulanması şarttır. Kurum adına açılmış sahte domainlerin izlenmesi, sızan kimlik bilgilerinin HaveIBeenPwned benzeri platformlarda taranması ve yapılandırma hatası barındıran sunucuların tehdit aktörlerinden önce tespit edilip kapatılması süreçlerini kapsar.
+
+Operasyonel Güvenlik ve Hukuki Sınırlar.
+
+Profesyonel modern keşif ekipleri operasyonlarında tespitten kaçınmak için operasyonel güvenliğe dikkat ederler. İstihbarat taramaları asla kurumun gerçek IP bloğundan yapılmaz. SOCKS proxy zincirleri, otomatik VPS rotasyonu, tarayıcı izi manipülasyonu ve CDN arkasına saklanarak tarama trafiğini maskeleme gibi yöntemler kullanılır. Amaç, hedefin SIEM, XDR veya EDR loglarına düşmemektir.
+
+Hukuki sınırlarda ise, pasif bilgi toplama yasal olarak genel kullanıma açıkken, hedef sisteme doğrudan nmap veya nuclei paketi yollamak gibi aktif keşif faaliyetleri yazılı izin olmaksızın yasal olarak sınırlıdır.
+
+Sonuç: Proaktif Savunma ve Saldırı Yüzeyi Yönetimi.
+
+Modern saldırı ekonomisinde, tehdit aktörleri internet çapında çalışan otomasyon botları, bulut sızıntı tarayıcıları ve yapay zeka destekli istihbarat hatları kullanırken; kurumların statik varlık envanterleriyle veya sadece geleneksel port taramalarıyla savunma yapması beklenemez.
+
+Siber güvenlik mühendislerinin ve tehdit istihbaratı analistlerinin sistemlere bir saldırgan gibi yaklaşması, dış varlık saldırı yüzeyi yönetimi felsefesini operasyonel hale getirmesi ve tehditleri kapıya gelmeden, henüz siber uzaydaki kayma anında yakalaması modern çağın zorunluluğudur. Hem klasik teknikleri ustalıkla kullanmak hem de modern otomasyon kaslarını geliştirmek siber istihbaratın temel anahtarıdır.

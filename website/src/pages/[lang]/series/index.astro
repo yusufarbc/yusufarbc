@@ -1,0 +1,16 @@
+---
+import { LANGS, type Lang } from "../../../config/site";
+import { isLang } from "../../../lib/content";
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+
+const langParam = Astro.params.lang ?? "tr";
+if (!isLang(langParam)) {
+  return Astro.redirect("/tr/series/");
+}
+const lang = langParam as Lang;
+
+return Astro.redirect(`/${lang}/blog/`);
+---

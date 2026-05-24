@@ -1,0 +1,96 @@
+Bilgisayarların Doğuşu ve İlk İşletim Sistemleri
+
+Bu yazımızda, günümüzde bilgisayar sistemleri için olmazsa olmaz konuma gelmiş olan işletim sistemlerini inceleyeceğiz. Nasıl geliştiğinden, bugünlere nasıl geldiğinden bahsedeceğiz. Günümüzde popüler olan işletim sistemlerinin nasıl ortaya çıktığına tanıklık edeceğiz.
+
+İşletim sisteminin ne olduğuyla başlamak gerekirse; işletim sistemi, bir bilgisayarın tüm işleyişini kontrol eden yazılımdır. Bu yazılım, bir kullanıcının dosyaları kaydetmesine ve açmasına olanak tanıyan araçları, kullanıcının bir programı yürütme isteğini iletebileceği arayüzü ve istenen programların yürütülebileceği ortamı sağlar. İşletim sistemi dendiğinde akla ilk olarak Microsoft tarafından geliştirilen Windows işletim sistemi gelir. Bunun dışında Unix ve Linux işletim sistemleri de bulunmaktadır. Ancak bundan önce işletim sistemlerinin tarihine bir göz atalım.
+
+İlk Bilgisayarlar ve Donanım Odaklı Dönem
+
+İlk bilgisayarlar bir oda büyüklüğündeydi. Bir işletim sistemleri yoktu. Programlar delikli kartlara (punched cards) kodlanıyor ve bilgisayara verilip sırayla çalıştırılıyordu. Yaklaşık 167 metrekare alan kaplayan ve on sekiz binden fazla vakum tüpü barındıran 1940'ların ENIAC'ı gibi makinelerde her işlem, mühendislerin kabloları yer değiştirmesiyle donanım seviyesinde yapılıyordu. Görev adı verilen bu süreç ciddi bir hazırlık gerektiriyordu. Bilgisayarda bir program çalıştırmak için önceden rezervasyon yapılıyor ve o kullanıcı bu süre zarfında bilgisayarı kullanma hakkına sahip oluyordu.
+
+Böyle bir ortamda işletim sistemleri, program kurulumunu basitleştiren ve görevler arası geçişleri düzenleyen sistemler olarak ortaya çıktı. Bir görevi yürütmek isteyen kullanıcı programı, işlenecek veriyi ve talimatları operatöre veriyor, görev sıraya alınıyor ve operatör programı talimatlara uygun olarak yürütüyordu. Ardından kullanıcı sonuçları almaya geliyordu. Bu, toplu işlem kavramının ilk örneğidir. Örneğin 1956'da IBM'de geliştirilen GM-NAA I/O. Bu sistem bilgisayarların verimliliğini ve çalışma hızını artırsa da, kullanıcının bilgisayarla etkileşime girmesini engelliyordu. Çalışması sırasında kullanıcının programla etkileşime girmesini gerektiren uygulamalar için bu kabul edilemezdi.
+
+Bu ihtiyaçları karşılamak için, kullanıcıların terminal aracılığıyla çalışan programla diyalog kurmasını sağlayan etkileşimli bir işleme modeli geliştirildi. Bu terminal ekranları günümüz işletim sistemlerinde varlığını sürdürmektedir. Ancak bu model beraberinde yeni sorunlar getirdi. Yani bir terminal ile aynı anda sadece bir kullanıcı program çalıştırabiliyordu. Bilgisayarların çok pahalı sistemler olduğu o günlerde tek bir bilgisayarın birden fazla kullanıcıya hizmet vermesi gerekiyordu.
+
+Bu sorunun çözümü, aynı anda birden fazla kullanıcıya hizmet verebilen bir işletim sistemi geliştirmekti. Bu durum zaman paylaşımı sistemlerinin ortaya çıkmasına yol açtı (CTSS, Multics ve benzeri). Bu teknikte zaman belirli aralıklara bölünüyor ve her bir görevin yürütülmesi tek bir zaman aralığıyla sınırlandırılıyordu. Her aralığın sonunda mevcut görev durduruluyor, geçici olarak saklanıyor ve bir başka görev yürütülüyordu. Birden fazla görevin hızla işlenmesi ve kaldırılması, bu görevlerin aynı anda yürütüldüğü izlenimini yaratıyordu. Ayrıca bu sistem bir kullanıcının aynı anda birden fazla programı çalıştırmasına olanak tanıdı.
+
+Kısacası işletim sistemleri zaman içinde, bir seferde tek bir görevi yerine getirebilen basit programlardan; zaman paylaşımını yöneten, depolamadaki programlardan ve veri dosyalarından sorumlu olan ve kullanıcıların isteklerine yanıt verebilen karmaşık sistemlere evrilmiştir.
+
+Unix'in Doğuşu
+
+1960'larda AT&T'nin Bell laboratuvarları, MIT ve General Electric ortaklaşa yürüttükleri bir projede zaman paylaşımlı bir işletim sistemi üzerinde çalıştılar. Bu projenin sonucunda "Multics" adı verilen bir işletim sistemi ortaya çıktı. Bell Laboratuvarı projeden çekilince, burada çalışan Dennis Ritchie ve Ken Thompson, "Multics" projesindeki deneyimlerinden yararlanarak yeni bir projede yeni bir işletim sistemi yarattılar. Başlangıçta assembly dilinde yazılan bu işletim sistemine "Unix" adı verildi.
+
+Dennis Ritchie 1973 yılında kendi geliştirdiği C programlama dili ile Unix'i yeniden yazdı. Daha önce assembly dilinde yazılan işletim sistemi, üzerinde çalıştığı donanımın mimarisine bağımlıyken, C dili ile farklı platformlarda çalışma yeteneği kazandı. Bu aşamadan sonra Unix işletim sisteminin adı duyulmaya başlandı ve üniversitelerin bilgisayar bölümlerindeki öğrencilerin ve çalışanların desteğiyle hızla popülerlik kazandı. İlerleme kaydetti ve en önemli işletim sistemi haline geldi.
+
+Unix işletim sistemi, komut satırını ve Windows gibi bazı grafiksel öğeleri içeren tam bir işletim sistemiydi. Kullanıcılar işlemlerini komut satırlarını kullanarak gerçekleştiriyordu. Zaman paylaşımlı bir işletim sistemi olması sayesinde birden fazla kullanıcı bilgisayarı kullanabiliyor veya bir kullanıcı aynı anda birden fazla program çalıştırabiliyordu.
+
+Xerox PARC: Modern Arayüzlerin Gerçek Atası
+
+Günümüzde arayüz dendiğinde akla Windows veya macOS gelir ancak grafiksel arayüzlerin (GUI) gerçek doğum yeri Xerox PARC laboratuvarlarıdır. 1973 yılında geliştirilen Xerox Alto, modern kişisel bilgisayarların DNA'sını taşıyan ilk makinedir.
+
+Xerox Alto, pencereler, ikonlar, menüler ve bir işaretçi (fare) içeren WIMP paradigmasını dünyaya tanıtan ilk sistemdi. Steve Jobs, 1979'da bu laboratuvarı ziyaret ettiğinde gördüklerinden o kadar etkilendi ki, bu fikirleri Apple Lisa ve Macintosh projelerine taşıyarak grafiksel arayüzü kitlelerle buluşturdu.
+
+Windows'un Doğuşu
+
+Kişisel bilgisayarlar 70'li yılların ortalarında henüz gelişimlerinin ilk aşamalarındaydı. MITS şirketinin Altair adlı en önemli örneği henüz tek tip, kullanılabilir bir yazılıma sahip değildi, ancak eksik bir işletim sistemine sahipti. 1974'te Bill Gates ve Paul Allen tarafından Altair için geliştirilen yazılım dili BASIC sayesinde bilgisayar kullanıcıları kendi programlarını yazabildiler. MITS şirketi bu genç araştırmacılardan pazarlama lisansını satın aldı ve sistemi daha da geliştirmelerini emretti. Bunun üzerine Gates, Allen ile birlikte New Mexico'da Microsoft adlı şirketi kurdu.
+
+Microsoft, IBM PC uyumlu bilgisayarlar için MS-DOS adında bir işletim sistemi geliştirdi. 1980 yılında IBM ile bir ortaklık kurdu ve bu anlaşmayla IBM her satış için Microsoft'a bir lisans ücreti ödedi. Daha sonra MS-DOS için "Interface Manager" (Arayüz Yöneticisi) adında yeni bir grafiksel kullanıcı arayüzü geliştirdi. Ancak 1985'teki resmi lansmandan önce pazarlama uzmanları Bill Gates'i Windows'un daha uygun bir isim olduğuna ikna etti.
+
+Böylece kişisel bilgisayarların kullanımını kolaylaştıran bir arayüz programı olarak Windows doğdu. MS-DOS işletim sistemi üzerine inşa edilmiş bir arayüz yazılımı olan Windows, ilerleyen yıllarda yeni sürümlerinin piyasaya sürülmesiyle tam bir işletim sistemi haline geldi.
+
+Özgür Yazılım Felsefesi ve Linux'un Doğuşu
+
+1980'lerin başında AT&T, UNIX işletim sisteminden para kazanmanın yollarını aradı ve işletim sistemini özel lisanslarla pazarlamaya başladı. UNIX'in ortaya çıktığı günden bu yana işletim sisteminin geliştirilmesine yardımcı olan pek çok kişi bu karara karşı çıktı. Bunun üzerine, ücretsiz olarak dağıtılabilecek UNIX benzeri bir işletim sistemi oluşturmayı amaçlayan GNU projesi Richard Stallman tarafından başlatıldı ve bu proje için Özgür Yazılım Vakfı (Free Software Foundation) kuruldu.
+
+GNU projesi kapsamında, bir Unix türevi olan Minix işletim sistemi ortaya çıktı. Bu işletim sistemi Prof. Andrew S. Tanenbaum tarafından, üniversitelerin bilgisayar bölümlerindeki öğrencilere işletim sistemlerinin çalışma prensiplerini ve işlevlerini öğretmek amacıyla mikro çekirdek (microkernel) mimarisiyle geliştirilmişti.
+
+1991 yılında bilgisayar bilimi öğrencisi Linus Torvalds, Unix ve Minix işletim sistemleri hakkında bilgi alışverişinde bulunulan bir haber grubuna bir mesaj gönderdi. Mesajında Linus, ücretsiz bir işletim sistemi üzerinde çalıştığını belirtti ve geliştirme için öneriler istedi. Linus bu yeni işletim sistemine, Linus'un Minix'i olarak tanımladığı Linux adını verdi.
+
+Geliştiricilerden Linux'un geliştirilmesi için yardım teklifleri gelmeye başladı. Linux'un bir diğer önemli yönü de GNU projesi çerçevesinde geliştirilen Unix benzeri işletim sisteminin büyük bir kısmının tamamlanmış olmasıydı. Eksik olan şey işletim sisteminin çekirdeğiydi (kernel) ve Linux bu eksikliği giderdi. Eylül 1991'de Linux'un ilk sürümü yayınlandı ve böylece Linux tam anlamıyla doğmuş oldu.
+
+Çekirdek Mimarileri: Monolitik vs. Mikro Çekirdek
+
+İşletim sistemlerinin kalbi olan çekirdekler (kernel), tasarım felsefelerine göre ikiye ayrılır:
+
+1. Monolitik Çekirdek (Linux, MS-DOS): Tüm temel servisler, örneğin sürücüler ve dosya sistemi, tek bir büyük çekirdek içinde çalışır. Bu yapı yüksek performans sağlar ancak tek bir hata tüm sistemi çökertebilir.
+2. Mikro Çekirdek (Minix, QNX): Çekirdek sadece en temel görevleri, örneğin bellek yönetimini yapar; diğer her şey kullanıcı alanında çalışır. Daha güvenli ve modülerdir ancak sistem çağrılarından dolayı performans kayıpları yaşanabilir.
+3. Hibrit Çekirdek (Windows NT, macOS): Her iki dünyanın avantajlarını birleştirmeyi hedefler.
+
+Günümüz İşletim Sistemleri
+
+Bilgisayar dünyasında Windows, Unix ve Linux işletim sistemleri genel kabul görmüş, zaman içinde donanım mimarilerindeki inanılmaz gelişmelere paralel olarak evrilmiş ve farklı sürümlerle günümüze kadar gelmiştir. Günümüzdeki işletim sistemleri sadece kişisel bilgisayarları değil; süper bilgisayarları, devasa sunucu tarlalarını, akıllı saatleri ve nesnelerin interneti cihazlarını yöneten karmaşık yapılara dönüşmüştür. Temelde ise modern işletim sistemleri Windows, Unix veya Linux işletim sistemlerinden birine dayanmaktadır. Bu 3 işletim sisteminden türetilmişlerdir. Bu bakımdan işletim sistemlerini 3 ana sınıfa ayırabiliriz: Unix Tabanlı işletim sistemleri, Windows tabanlı işletim sistemleri ve Linux tabanlı işletim sistemleri.
+
+Unix Tabanlı Sistemler
+Unix'in ortaya çıktıktan sonra popüler olmasının en önemli nedenlerinden biri farklı donanım üreticilerine göre uyarlanabilmesi ve modüler yapısıydı. Ancak 1980'lerde ve 90'larda yaşanan "Unix Savaşları", sistemin çeşitli kollara ayrılmasına neden oldu. Unix telif hakkı olan ticari bir üründür ve günümüzde The Open Group, Unix ile ilgili tüm ticari lisanslama programlarını yönetir. 
+
+Günümüzde Unix tabanlı sistemler genellikle bankacılık, telekomünikasyon ve kritik veri tabanları gibi son derece yüksek kararlılık gerektiren kurumsal ortamlarda yaşar. Tüketici tarafındaki en büyük Unix temsilcisi ise çekirdeği Darwin olan Apple'ın macOS ve iOS işletim sistemleridir. Diğer Unix dağıtımlarına Oracle Solaris, IBM AIX, HP-UX ve FreeBSD, OpenBSD gibi BSD tabanlı sistemler örnek verilebilir.
+
+Windows Tabanlı Sistemler
+Windows, programları çalıştırmak ve komut vermek için son kullanıcıya hitap eden son derece kullanışlı grafik arayüzler kullanır. Hızlı işlemlerin gerçekleştirilmesinde kolaylık sağlar. Windows işletim sistemlerinin en önemli özelliği öğrenilmesinin kolay olması, geniş yazılım geriye dönük uyumluluğu ve bilgisayar oyunu pazarındaki mutlak tekelidir. 
+
+Windows'un teknik evrimindeki en büyük sıçrama, MS-DOS tabanlı alt yapının terk edilerek tamamen yeni ve çok daha kararlı olan Windows NT (New Technology) mimarisine geçilmesidir. Windows XP ve günümüzde kullandığımız Windows 10 ile 11 bu NT çekirdeği üzerine inşa edilmiştir.
+
+Linux Tabanlı Sistemler
+Ortaya çıkışından sonra Linux dünya çapında dikkat çekti ve GNU tarafından benimsendi. Bu nedenle GNU/LINUX kavramı ortaya çıktı. Linux bugün özgür yazılım felsefesiyle desteklenmekte ve dünyanın en büyük teknoloji şirketlerinin katkılarıyla geliştirilmektedir. Dünyadaki en hızlı 500 süper bilgisayarın tamamı ve internetteki sunucuların çok büyük bir çoğunluğu Linux kullanır.
+
+Aslında Linux sadece çekirdekten (kernel) ibarettir ve kendi başına bir kullanıcı arayüzü veya hazır programlar bütünü sunmaz. Bu esneklik sayesinde herhangi bir şirket veya topluluk, Linux çekirdeğini alıp üzerine kendi araçlarını ekleyerek farklı Linux "dağıtımları" oluşturabilir. Arayüzde GNOME, KDE Plasma gibi devasa kod tabanlarına sahip hazır masaüstü ortamları kullanılırken, paket yöneticisi olarak APT, DNF gibi sistemler tercih edilir. Ubuntu, Kali Linux, Linux Mint, Fedora, Redhat ve Arch Linux bu dağıtımların en bilinenlerindendir.
+
+Mobil İşletim Sistemleri: iOS ve Android Dönemi
+
+2000'li yılların sonunda akıllı telefonların çıkışıyla işletim sistemi savaşları mobil alana taşındı. Symbian ve Palm OS gibi erken dönem oyuncuları, 2007'de Apple'ın iOS'u ve 2008'de Google'ın Android'i tanıtmasıyla yerlerini modern devlere bıraktılar. iOS, BSD tabanlı kapalı bir ekosistem sunarken; Android, Linux çekirdeği üzerine kurulu açık kaynaklı bir yapı benimseyerek pazarın çoğunluğunu ele geçirdi.
+
+İşlemci Mimarilerindeki Değişim: x86'dan ARM'ye
+
+Uzun yıllar boyunca kişisel bilgisayarlar ve sunucular pazarında Intel ve AMD'nin başını çektiği x86 mimarisi tartışmasız bir tekel konumundaydı. Mobil cihazlarda ise enerji verimliliği ile öne çıkan ARM mimarisi kullanılıyordu. Ancak mobil cihazların gücünün artmasıyla işletim sistemleri ve donanım üreticileri bu sınırı aşmaya başladı.
+
+Bunun en büyük örneğini, Apple'ın kendi tasarımı olan Apple Silicon (M1, M2 gibi) işlemcilere geçmesi ve macOS işletim sistemini tamamen ARM mimarisi üzerinde çalışacak şekilde yeniden yazması oluşturdu. Masaüstü seviyesinde inanılmaz bir performans oranı sunan bu gelişmenin ardından Microsoft da Windows on ARM projesine hız vererek masaüstü işletim sistemlerinin sadece x86 mimarisine mahkum olmadığını kanıtlamış oldu.
+
+Güvenlik ve Sanallaştırma (Hypervisors)
+
+İşletim sistemleri geliştikçe, donanım kaynaklarını daha verimli kullanma ve güvenliği artırma ihtiyacı da büyüdü. Bu ihtiyaçlar Sanallaştırma (Virtualization) teknolojilerini doğurdu. Hypervisor adı verilen yazılımlar, örneğin VMware, KVM, Hyper-V sayesinde tek bir fiziksel sunucu üzerinde birbirinden tamamen izole edilmiş birden fazla işletim sistemi çalıştırılabilir hale geldi. Bu izole yapı hem sunucu maliyetlerini düşürdü hem de sistem çökmelerinin diğer sistemleri etkilemesini engelledi.
+
+Güvenlik tarafında ise modern işletim sistemleri donanımsal koruma mekanizmalarıyla entegre çalışmaya başladı. Sistemin sadece güvenilir yazılımlarla açılmasını sağlayan Secure Boot teknolojisi ve kriptografik anahtarları donanımsal düzeyde saklayan TPM (Trusted Platform Module) çipleri günümüzde Windows 11 gibi sistemler için zorunlu hale geldi.
+
+Bulut, Konteynerler ve Gelecek
+
+Bugün işletim sistemleri artık sadece fiziksel makineleri değil, bulut altyapılarını yönetiyor. 2013'te Docker ile başlayan konteyner devrimi ve 2014'te Kubernetes orkestrasyon sistemi, işletim sistemlerini donanımdan tamamen soyutlayarak modern yazılım mimarilerinin standardı haline geldi.

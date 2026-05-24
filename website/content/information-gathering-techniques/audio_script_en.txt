@@ -1,0 +1,137 @@
+Modern OSINT, AI, and Reconnaissance Dynamics from a Strategic Cyber Intelligence Perspective.
+
+Introduction: The Changing Paradigm of the Reconnaissance Phase.
+
+In Cyber Threat Intelligence, the reconnaissance phase, once seen as just a simple preliminary step for penetration testing or a mere "tool list", has today evolved into the fundamental phase that defines the perspective of cyberspace for both attackers and defense teams. Open Source Intelligence is no longer static target analysis; it is the first line of cyber defense, threat modeling, and Attack Surface Management.
+
+In this article, while preserving all the technical details and tools found in classic "how-to" guides, we will discuss with a strategic perspective how we integrate these traditional information gathering techniques into modern cloud infrastructures, supply chain intelligence, and Artificial Intelligence layers.
+
+Google Dorks and Google Hacking.
+
+Hello, in this article, I will introduce you to Google Dorks, which are very useful in collecting passive information. I will talk about how to use it. Then, I will try to explain how we can find vulnerabilities with these dorks and what we can achieve.
+
+Google dork is a system that contains some parameters that make it easier for us to search with the Google search engine. These parameters allow us to filter the words we will search for. In this way, we can easily access the information we are looking for among the billions of sites indexed by Google. This system is indispensable for passive information collection.
+
+Google Search Parameters and Operators.
+
+When searching on Google, we can refine our search using search parameters like 'intext', 'intitle', 'inurl', 'filetype', 'site', or 'related', and combine them with operators such as quotes, minus, plus, star, or logical OR. These parameters and operators allow us to filter search results among billions of indexed pages, making them indispensable for passive information gathering.
+
+What is Google Hacking?
+
+Google hacking is the practice of using these dorks to discover vulnerable directories or open data on target web servers. By using various Google dorks, security analysts and attackers can find exposed log files, vulnerable web servers, public FTP directories, configuration files like dot-env files, private SSH keys, email lists, live webcam feeds, SQL database backups, or WordPress admin login portals. The Google Hacking Database, maintained by Exploit DB, is the primary public repository for these search strings.
+
+Cloud Intelligence and Leak Hunting.
+
+Despite the cliché that Google Dorks are dead, dorking has only been mechanized over APIs. The main target of modern attackers is not on-premise networks, but cloud architectures.
+
+Under cloud intelligence, we look for misconfigured cloud storage like AWS S3 buckets, Azure blob storage, and GCP services, as well as exposed Kubernetes dashboards and Docker registries. For source code leak hunting, tools like TruffleHog, GitLeaks, Shhgit, and DumpsterDiver are used to continuously scan platforms like GitHub and GitLab for secrets, API keys, or database credentials forgotten in developers' commit histories.
+
+Operational Risk Scenario: Forgetting an internal database password or dot-env file in a test code thrown into a developer's personal GitHub repo can result in the compromise of the entire cloud infrastructure. Files searched with traditional Dorking are today scanned in seconds in CI/CD processes with TruffleHog.
+
+Passive Information Gathering Techniques.
+
+Hello, in this article that we prepared with my teacher Mehmet Bulut, we will talk about Passive Information Gathering Techniques.
+
+Passive Information Collection is a type of information collection that is done without direct contact with the target. For example, asking questions to the person next to you about someone sitting across from you is passive information gathering. In penetration tests, first information about the system is collected and classified. Most of this information is available on the internet. Apart from this, different information collection methods can also be used.
+
+Information Gathering Techniques via IP and Domain Names.
+
+With the Whois query, we can access information about the owner of a domain or IP address. This includes details like IP ranges, the responsible administrator, and contact emails. Globally, IP and domain allocations are managed by ICANN, along with five regional internet registries, or RIRs, which handle the regional registration data.
+
+Key online platforms for performing passive analysis include:
+
+Netcraft, which queries the target system to predict its hosting operating system, kernel version, and web server software.
+Whois.com, a popular web-based lookup platform for domain registration records, DNS servers, and ownership details.
+WhatCMS and CMSDetect, which are useful for passively identifying content management systems like WordPress or Drupal and their underlying stack.
+Shodan, a specialized search engine that scans the internet for open ports, systems, and active services, cataloging them using banner grabbing.
+DNSdumpster, a free tool that maps out a domain's hosting servers and DNS records.
+DNS Checker, used to verify DNS resolution and propagation across global servers.
+MXToolbox, an essential utility for querying mail exchange records, performing blacklist checks, and validating email configurations like SPF, DKIM, and DMARC.
+Centralops, a comprehensive domain lookup interface for IP, DNS, and TcpQuery operations.
+IP Location, which queries regional registries to pinpoint the geographical location of an IP.
+Archive.org, which provides snapshots of the historical states of websites dating back to nineteen ninety-six.
+Maltego, a premier open-source intelligence utility for mapping and visualizing relationships between domains, subdomains, email addresses, and metadata.
+
+Information Gathering Techniques via Username.
+
+Platforms like Name Checkup and Instant Username Search are used to find other social platforms where a target username is active.
+
+Information Gathering Techniques Through Images.
+
+Reverse image search engines like Google and TinEye help trace the source of an image. Additionally, metadata parsers like ExifTool can extract details such as location, camera model, and creation timestamp from Exif headers.
+
+General Information Gathering Techniques.
+
+Apart from Google Hacking, command-line utilities like theHarvester can parse open sources like LinkedIn and search engines for target metadata. OSINT Framework serves as a central repository for accessing hundreds of passive intelligence-gathering tools across different categories.
+
+Certificate Transparency and Cyber-Cartography.
+
+The fastest and one hundred percent passive method for subdomain detection in modern OSINT is Certificate Transparency Logs. When an SSL certificate is issued, it is logged publicly. Using engines like crt.sh or automated search scripts like Subfinder and Amass, threat actors can discover test environments without sending a single packet to the target.
+
+In cyber-cartography, Censys provides updated certificate scanning, while FOFA and Hunter.how are preferred by threat intelligence analysts for tracking command and control servers of advanced persistent threat groups.
+
+Supply Chain Intelligence.
+
+The hottest topic of modern threat intelligence is supply chain security. Software registries like npm and PyPI are target zones. Dependency graph analysis maps the libraries used by organizations. Typo-squatting campaigns upload malicious versions of popular packages, while dependency confusion techniques exploit higher version numbers to hijack package resolution. Tools like Syft and Grype generate SBOM and VEX data, which is continuously monitored using Dependency-Track.
+
+Dark Webs and Social Intelligence.
+
+Dark Web monitoring has shifted from old-school forums to instant messaging channels and paste sites. Millions of credentials, session cookies, and corporate VPN access details harvested by info-stealer malware like Lumma and RedLine are sold on Telegram bots and breach forums. Social profiling of target employees is conducted using utilities like SpiderFoot, Recon-ng, Holehe, and Maigret.
+
+Active Information Gathering Techniques.
+
+In this article, we will talk about Active Information Gathering Techniques.
+
+Active information collection is a type of information collection that is done by contacting the target directly. With active information collection, we can obtain clearer and more reliable results than with passive information collection. However, since direct contact is made with the target, a trace is left on the target. Care should be taken as records are left in firewall, intrusion detection systems, and access logs.
+
+DNS Scans.
+
+DNS is the basic directory of the internet. During DNS mapping, commands like nslookup and dig query domain records, while tracing dig queries tracks target traffic paths. Additionally, brute-force mapping tools like dnsmap scan for hidden subdomains.
+
+Port and Service Scans.
+
+Service scanning identifies vulnerabilities on active systems. Nmap, or Network Mapper, is the standard for scanning network ranges, discovering open ports, and querying running services. Using various ping configurations and scan options, security professionals analyze whether ports are open, closed, or filtered.
+
+Netcat, nbtscan, netdiscover, and dmitry.
+
+Netcat, the Swiss army knife of networking, performs port scanning, port forwarding, file transfers, and remote shell deployment. nbtscan queries NetBIOS names across IP ranges, netdiscover sniffs ARP requests to map local subnets, and Dmitry acts as a consolidated scanning wrapper for Whois queries, subdomains, emails, and active ports.
+
+Continuous Reconnaissance and Attack Surface Drift.
+
+Traditional scans capture a static snapshot, but modern environments undergo continuous change due to GitOps and container deployments, resulting in Attack Surface Drift.
+
+Continuous Scanning Architecture.
+
+The continuous scanning architecture works as follows: Subdomain enumeration is performed starting from the Root Domain or Seed. Then, active and passive checks are executed. For passive checks, certificate transparency logs like crt.sh and Amass are used; for active checks, DNS brute-force and Subfinder are utilized. Active host detection is carried out using the httpx tool. After that, visual reconnaissance is done with Aquatone and crawling with Katana. Finally, vulnerability scanning is performed using Nuclei.
+
+Subdomains are mapped using Amass and Subfinder, live systems are verified via httpx, endpoints are spidered with Katana, and visual reconnaissance is automated with Aquatone.
+
+Operational Risk Scenario: An exposed development panel, like Kibana or Grafana, may seem harmless, but in intrusion chains, ransomware operators quickly exploit them for credential harvesting and network pivoting.
+
+Speed and Template-Based Modern Scans.
+
+Asynchronous port scanners like RustScan and Naabu can map sixty-five thousand ports in seconds. Subfinder retrieves subdomains, httpx validates active servers, Katana indexes web endpoints, and Nuclei executes YAML vulnerability templates on thousands of hosts concurrently.
+
+Internet-Scale Scanning.
+
+APT actors scan the entire internet. Utilities like Masscan and ZMap query ASN IP blocks for open ports globally, clustering certificates to expose hidden services.
+
+AI-Augmented Intelligence Pipelines.
+
+AI is integrated into automated workflows rather than simple chat interfaces.
+
+The AI-augmented intelligence pipeline flow works as follows: First, raw unstructured data from stealer logs and forums is ingested. This data goes through the LLM parsing engine. Next is the data enrichment phase, which splits into two paths: First, IOC clustering leads to the Threat Intelligence Platform. Second, TTP extraction maps data to MITRE ATT&CK. Both paths feed into proactive defense.
+
+RAG-based systems enrich threat data to provide context to SOC analysts. Underground forums in Russian or Chinese are automatically translated, while ransomware leak sites are analyzed to extract TTPs and map them directly to the MITRE ATT&CK matrix. On the attack side, AI generates hyper-targeted spear-phishing templates and deepfake audio. Guarding against prompt injection and poisoned intel feeds are key defensive priorities.
+
+Defensive Recon and Exposure Validation.
+
+Defenders continuously monitor brand infringements, spoofed domains, compromised employee credentials on HaveIBeenPwned, and configuration leaks on platforms like Censys and FOFA to mitigate exposure.
+
+Operational Security and Legal Boundaries.
+
+Professional teams hide their actions by using proxy chains, VPS rotation, browser fingerprinting, and CDN fronting to avoid detection on targets' SIEM or EDR systems. Legally, passive OSINT is open, but unauthorized active scans like Nmap or Nuclei are legally restricted without written scope permission.
+
+Conclusion: Proactive Defense and Attack Surface Management.
+
+Faced with automated cloud scanners and AI pipelines, static inventories are insufficient. Modern defense requires looking at systems from an attacker's perspective, implementing external attack surface management, and identifying risks as they emerge. Blending classic reconnaissance skills with modern AI-augmented automation is the key to proactive security.

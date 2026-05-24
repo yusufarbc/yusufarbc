@@ -1,0 +1,238 @@
+---
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "../styles/base.css";
+import type { Lang } from "../config/site";
+import { MENU, SITE } from "../config/site";
+import { resolveAssetPath } from "../lib/content";
+
+interface Props {
+  title: string;
+  lang: Lang;
+  description?: string;
+}
+
+const { title, lang, description = SITE.description } = Astro.props;
+const oppositeLang: Lang = lang === "tr" ? "en" : "tr";
+const pathname = Astro.url.pathname;
+const switchedPath = pathname.replace(/^\/(tr|en)(?=\/|$)/, `/${oppositeLang}`);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/x-icon" href={resolveAssetPath("/favicon.ico")} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" is:inline></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" is:inline></script>
+    <script is:inline>
+      (() => {
+        const remembered = localStorage.getItem("colorscheme");
+        const isDark = remembered ? remembered === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+      })();
+    </script>
+  </head>
+  <body class="preload-transitions colorscheme-auto">
+    <div id="scroll-progress" class="scroll-progress"></div>
+
+    <nav class="navigation">
+      <div class="container">
+        <a class="navigation-title" href={`/${lang}/`} aria-label="Go to home">
+          <img class="navigation-logo" src={resolveAssetPath(SITE.avatar)} alt={SITE.author} />
+          <span>{SITE.title}</span>
+        </a>
+
+        <button class="menu-toggle btn-reset" id="menu-toggle" aria-label="Toggle menu">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+
+        <ul class="navigation-list" id="navigation-list">
+          {MENU[lang].map((item) => (
+            <li>
+              <a
+                class={`navigation-link ${pathname.startsWith(item.href) ? "is-active" : ""}`}
+                href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noreferrer" : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a class="navigation-link" href={switchedPath || `/${oppositeLang}/`} aria-label="Switch language">
+              {oppositeLang.toUpperCase()}
+            </a>
+          </li>
+          <li class="nav-theme-toggle">
+            <button class="navigation-link btn-reset" id="dark-mode-toggle" aria-label="Toggle theme">
+              <i class="fa-solid fa-circle-half-stroke"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="content">
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <small>
+        © {new Date().getFullYear()} {SITE.author}
+      </small>
+    </footer>
+
+    <script>
+      const body = document.body;
+      const darkModeToggle = document.getElementById("dark-mode-toggle");
+      const menuToggle = document.getElementById("menu-toggle");
+      const navigationList = document.getElementById("navigation-list");
+      const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+      const scrollProgress = document.getElementById("scroll-progress");
+
+      // Set initial layout and menu theme preference
+      function setTheme(theme) {
+        body.classList.remove("colorscheme-auto", "colorscheme-light", "colorscheme-dark");
+        body.classList.add(`colorscheme-${theme}`);
+        document.documentElement.style.colorScheme = theme;
+      }
+
+      const remembered = localStorage.getItem("colorscheme");
+      if (remembered === "light" || remembered === "dark") {
+        setTheme(remembered);
+      } else {
+        setTheme(darkModeMediaQuery.matches ? "dark" : "light");
+      }
+
+      // Navbar interactions
+      darkModeToggle?.addEventListener("click", () => {
+        const nextTheme = body.classList.contains("colorscheme-dark") ? "light" : "dark";
+        setTheme(nextTheme);
+        localStorage.setItem("colorscheme", nextTheme);
+      });
+
+      menuToggle?.addEventListener("click", () => {
+        const isOpen = navigationList?.classList.toggle("is-open");
+        menuToggle?.classList.toggle("is-active");
+        document.body.style.overflow = isOpen ? "hidden" : "";
+      });
+
+      // Close mobile menu on link click
+      navigationList?.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          navigationList.classList.remove("is-open");
+          menuToggle?.classList.remove("is-active");
+          document.body.style.overflow = "";
+        });
+      });
+
+      // Interactive Features: Scroll Progress and reveal animations
+      window.addEventListener("scroll", () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        if (scrollProgress) {
+          scrollProgress.style.width = scrolled + "%";
+        }
+      });
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.markdown-content h2, .markdown-content h3, .markdown-content p, .article-cover, .render-card, .reveal-on-scroll').forEach(el => {
+        el.classList.add('reveal-on-scroll');
+        revealObserver.observe(el);
+      });
+
+      // Code Block Copy Button
+      document.querySelectorAll('pre').forEach(block => {
+        const container = document.createElement('div');
+        container.className = 'code-container';
+        block.parentNode.insertBefore(container, block);
+        container.appendChild(block);
+
+        const button = document.createElement('button');
+        button.className = 'copy-code-btn';
+        button.innerHTML = '<i class="fa-regular fa-copy"></i>';
+        container.appendChild(button);
+
+        button.addEventListener('click', async () => {
+          const code = block.querySelector('code').innerText;
+          await navigator.clipboard.writeText(code);
+          button.innerHTML = '<i class="fa-solid fa-check"></i>';
+          setTimeout(() => {
+            button.innerHTML = '<i class="fa-regular fa-copy"></i>';
+          }, 2000);
+        });
+      });
+
+      // Handle TOC toggle on mobile
+      document.addEventListener("click", (e) => {
+        const target = e.target;
+        if (target && target instanceof HTMLElement && target.classList.contains("toc-dropdown-toggle")) {
+          const dropdown = target.nextElementSibling;
+          if (dropdown && dropdown.classList.contains("toc-dropdown")) {
+            dropdown.classList.toggle("is-open");
+            target.classList.toggle("is-active");
+          }
+        }
+      });
+
+      darkModeMediaQuery.addEventListener("change", (event) => {
+        if (!localStorage.getItem("colorscheme")) {
+          setTheme(event.matches ? "dark" : "light");
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.classList.remove("preload-transitions");
+
+        // Initialize Mermaid diagrams
+        const mermaidBlocks = document.querySelectorAll('pre code.language-mermaid');
+        if (mermaidBlocks.length > 0 && typeof mermaid !== 'undefined') {
+          const isDark = document.body.classList.contains('colorscheme-dark') ||
+            (document.body.classList.contains('colorscheme-auto') &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose',
+          });
+
+          mermaidBlocks.forEach((block) => {
+            const pre = block.parentElement;
+            const code = block.textContent.trim();
+            const newPre = document.createElement('pre');
+            newPre.className = 'mermaid';
+            newPre.textContent = code;
+            pre.parentNode.replaceChild(newPre, pre);
+          });
+
+          mermaid.run({
+            querySelector: '.mermaid',
+            suppressErrors: true,
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { LANGS, SITE, type Lang } from "../../config/site";
+import { formatDate, isLang, isPostEntry, sortByDateDesc, getPostSlug, getEntriesByLang } from "../../lib/content";
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+
+const langParam = Astro.params.lang ?? "tr";
+if (!isLang(langParam)) {
+  return Astro.redirect("/tr/");
+}
+
+const lang = langParam as Lang;
+const entries = getEntriesByLang(lang);
+const recentPosts = sortByDateDesc(entries.filter(isPostEntry)).slice(0, 6);
+const pageTitle = `${SITE.author} | ${SITE.title}`;
+---
+
+<BaseLayout title={pageTitle} lang={lang}>
+  <section class="centered">
+    <div class="about" style="text-align: center;">
+      <div class="avatar">
+        <img src={SITE.avatar} alt={SITE.author} />
+      </div>
+      <h1>{SITE.author}</h1>
+      <h2>{SITE.info[lang]}</h2>
+      <ul class="social-list">
+        {SITE.socials.map((social) => (
+          <li>
+            <a href={social.url} target="_blank" rel="noreferrer" aria-label={social.name}>
+              <i class={social.icon}></i>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>{lang === "tr" ? "Son Yazılar" : "Recent Posts"}</h2>
+    <div class="posts-list-grid">
+      {recentPosts.map((post) => (
+        <article class="post-item glass-card">
+          <a class="post-link" href={`/${lang}/blog/${getPostSlug(post)}/`}>
+            {post.data.featuredImage && (
+              <div class="post-thumbnail">
+                <img src={post.data.featuredImage} alt={post.data.title} />
+              </div>
+            )}
+            <div class="post-meta">{formatDate(post.data.date, lang)}</div>
+            <h3 class="post-title">{post.data.title}</h3>
+            <p class="post-excerpt">{post.data.description ?? ""}</p>
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
