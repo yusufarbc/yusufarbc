@@ -1,5 +1,5 @@
 ---
-title: "İşletim Sistemi Konsepti: Dinozor Kitabı'nın İzinde Donanım ve Yazılım Köprüsü"
+title: "İşletim Sistemi Konsepti"
 date: '2023-06-09'
 description: İşletim sistemlerinin temel yapı taşları olan süreç yönetimi, CPU zamanlama algoritmaları, bellek yönetimi ve sistem güvenliği konularını 'Dinozor Kitabı' (Operating System Concepts) perspektifiyle ele alan kapsamlı rehber.
 featuredImage: featured.webp
