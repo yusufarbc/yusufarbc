@@ -5,7 +5,7 @@ description: "Merhaba bu yazımda Pygoat lab ortamı üzerinde bulunan OWASP TOP
 featuredImage: "https://cdn-images-1.medium.com/max/800/1*mIRdg0fVq0WdqzoayvZykA.png"
 draft: false
 layout: single
-type: posts
+type: writeups
 ---
 
 ## Pygoat OWASP TOP 10 2021 WRITE-UP

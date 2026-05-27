@@ -44,6 +44,54 @@ layout: "projects"
     <div class="project-top">
       <div class="project-folder">📁</div>
       <div class="project-links">
+        <a href="https://github.com/yusufarbc/gophish-vantage" target="_blank"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+    <h3>Gophish Vantage</h3>
+    <p class="project-desc">Kırmızı takım phishing kampanyaları ve keşif otomasyonu için geliştirilmiş açık kaynaklı phishing araç seti ve Project Discovery sarmalayıcısı.</p>
+    <div class="project-tags">
+      <span>Gophish</span>
+      <span>Red Team</span>
+      <span>OSINT</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-top">
+      <div class="project-folder">📁</div>
+      <div class="project-links">
+        <a href="https://github.com/yusufarbc/intel-npu-gnn-benchmarking" target="_blank"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+    <h3>Intel NPU GNN Benchmarking</h3>
+    <p class="project-desc">Graf Sinir Ağlarının (GNN) Intel NPU donanımı üzerinde performans karşılaştırması; graf tabanlı derin öğrenme iş yükleri için uç AI çıkarım kapasitesinin değerlendirilmesi.</p>
+    <div class="project-tags">
+      <span>GNN</span>
+      <span>Intel NPU</span>
+      <span>Derin Öğrenme</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-top">
+      <div class="project-folder">📁</div>
+      <div class="project-links">
+        <a href="https://github.com/yusufarbc/Siber-Guvenlik-Rehberi" target="_blank"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+    <h3>Siber Güvenlik Rehberi</h3>
+    <p class="project-desc">Tehdit analizi, ağ güvenliği ve savunma tekniklerini kapsayan, temelden ileri seviyeye kapsamlı Türkçe siber güvenlik rehberi.</p>
+    <div class="project-tags">
+      <span>Siber Güvenlik</span>
+      <span>Dokümantasyon</span>
+      <span>Türkçe</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-top">
+      <div class="project-folder">📁</div>
+      <div class="project-links">
         <a href="https://github.com/yusufarbc/webvuln-runner" target="_blank"><i class="fa-brands fa-github"></i></a>
         <a href="https://webvulnrunner.dev/" target="_blank"><i class="fa-solid fa-link"></i></a>
       </div>

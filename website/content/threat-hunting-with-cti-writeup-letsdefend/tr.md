@@ -1,5 +1,6 @@
 ---
-title: Ceviri bekleniyor`r`ntype: writeups
+title: "Çeviri Bekleniyor"
+type: writeups
 ---
 
-Bu yazi icin Turkce icerik henuz eklenmedi.
+Bu yazı için Türkçe içerik henüz eklenmedi.
