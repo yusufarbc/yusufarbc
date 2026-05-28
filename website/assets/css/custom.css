@@ -892,6 +892,10 @@ body.colorscheme-dark .article-cover {
   margin: 0 auto;
 }
 
+.projects-content {
+  max-width: 1300px !important;
+}
+
 .markdown-content,
 .markdown-content p,
 .markdown-content li {

@@ -19,7 +19,7 @@ const title = projectPage?.title ?? (lang === "tr" ? "Projeler" : "Projects");
 ---
 
 <BaseLayout title={title} lang={lang} description={projectPage?.description}>
-  <article class="markdown-content">
+  <article class="markdown-content projects-content">
     <h1 class="title">{title}</h1>
     {projectPage ? (
       <Fragment set:html={html} />
