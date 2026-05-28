@@ -8,7 +8,7 @@ export const SITE = {
   author: "Yusuf Talha ARABACI",
   avatar: "/images/profile.jpeg",
   info: {
-    tr: "BT ve Güvenlik Mühendisi",
+    tr: "Yazılım ve Güvenlik Mühendisi",
     en: "Software & Security Engineer",
   },
   description:

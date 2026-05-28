@@ -256,9 +256,10 @@ I am passionate about digital sovereignty, open-source enterprise solutions, and
 
 ## Education
 
-- **M.Sc. in Software Engineering** | Karabuk University (2025 - 2027)
+- **M.Sc. in Software Engineering** | Karabük University (2025 – 2027)
   - Focus: Scalable systems architecture and supply chain (NPM) security research.
-- **B.Sc. in Computer Engineering** | Bursa Technical University (2019 - 2024)
+- **B.Sc. in Computer Engineering** | Bursa Technical University (2019 – 2024)
+  - English preparatory year: 2019 – 2020.
   - Focus: Software development and application security.
 
 ## Continuous Training

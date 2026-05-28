@@ -54,7 +54,7 @@ const years = Array.from(
     <div id="blog-grid" class="posts-list-grid blog-grid">
       {posts.map((post) => (
         <article
-          class="post-item glass-card blog-card"
+          class="post-item blog-card"
           data-title={String(post.data.title ?? "").toLowerCase()}
           data-description={String(post.data.description ?? "").toLowerCase()}
           data-year={String(post.data.date ?? "").slice(0, 4)}
@@ -155,7 +155,7 @@ const years = Array.from(
           }
         });
       },
-      { threshold: 0.15 },
+      { threshold: 0.1 },
     );
 
     cards.forEach((card, index) => {

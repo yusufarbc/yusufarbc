@@ -1,5 +1,5 @@
 ---
-title: "Connectivity Security or a New Attack Surface? MCP, UCP, and the Cybersecurity Architecture of the Agentic World"
+title: "Agentic AI Protocols: A New Attack Surface?"
 date: '2026-05-28'
 description: "With the rise of autonomous AI agents, new protocols like MCP, UCP, and AP2 are emerging. But while these protocols solve connection issues, what new security risks do they introduce? In this post, we analyze the cybersecurity architecture of the agentic world and its solutions."
 featuredImage: featured.png
