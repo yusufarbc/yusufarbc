@@ -2,7 +2,7 @@
 title: "Bilgisayarların Doğuşu ve İlk İşletim Sistemleri"
 date: '2021-06-01'
 description: "ENIAC'tan Xerox PARC'a, Unix'ten modern bulut sistemlerine ve günümüzün modern işletim sistemi mimarilerine uzanan kapsamlı bir tarihsel yolculuk."
-featuredImage: "./medium-cover.webp"
+featuredImage: featuredImage.webp
 draft: false
 layout: single
 type: posts

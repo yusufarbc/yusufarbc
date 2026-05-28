@@ -2,7 +2,7 @@
 title: "The Birth of Computers and the First Operating Systems"
 date: '2021-06-01'
 description: "A comprehensive historical journey from ENIAC to Xerox PARC, Unix to modern cloud ecosystems and kernel architectures."
-featuredImage: "./featuredImage.webp"
+featuredImage: featuredImage.webp
 draft: false
 layout: single
 type: posts
