@@ -3,6 +3,23 @@ import path from "path";
 import { LANGS, type Lang } from "../../../../config/site";
 import { getEntriesByLang, getPostSlug, isWriteupEntry } from "../../../../lib/content";
 
+function getFilesRecursively(dir: string, baseDir: string = dir): Array<{ relativePath: string; absolutePath: string }> {
+  let results: Array<{ relativePath: string; absolutePath: string }> = [];
+  if (!fs.existsSync(dir)) return results;
+  const list = fs.readdirSync(dir);
+  for (const file of list) {
+    const absolutePath = path.join(dir, file);
+    const stat = fs.statSync(absolutePath);
+    if (stat && stat.isDirectory()) {
+      results = results.concat(getFilesRecursively(absolutePath, baseDir));
+    } else {
+      const relativePath = path.relative(baseDir, absolutePath).replace(/\\/g, "/");
+      results.push({ relativePath, absolutePath });
+    }
+  }
+  return results;
+}
+
 export async function getStaticPaths() {
   const paths = [];
   for (const lang of LANGS) {
@@ -12,17 +29,17 @@ export async function getStaticPaths() {
       const contentDir = path.join(process.cwd(), "content", writeup.id.split("/")[0]);
 
       if (fs.existsSync(contentDir)) {
-        const files = fs.readdirSync(contentDir);
+        const files = getFilesRecursively(contentDir);
         for (const file of files) {
-          if (file.match(/\.(jpg|jpeg|png|gif|webp|svg)$/i)) {
+          if (file.relativePath.match(/\.(jpg|jpeg|png|gif|webp|svg)$/i)) {
             paths.push({
               params: {
                 lang,
                 slug,
-                image: file,
+                image: file.relativePath,
               },
               props: {
-                filePath: path.join(contentDir, file),
+                filePath: file.absolutePath,
               },
             });
           }

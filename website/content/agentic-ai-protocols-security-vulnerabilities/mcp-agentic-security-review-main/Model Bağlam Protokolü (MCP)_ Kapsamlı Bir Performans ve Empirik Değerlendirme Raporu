@@ -1,0 +1,130 @@
+Model Bağlam Protokolü (MCP): Kapsamlı Bir Performans ve Empirik Değerlendirme Raporu
+
+1.0 Giriş: Model Bağlam Protokolü (MCP) ve Değerlendirme Çerçevesi
+
+Model Bağlam Protokolü (MCP), yapay zeka (YZ) ajanlarının yeteneklerini genişleten harici araçlar ve veri kaynakları ile etkileşimini standartlaştıran stratejik bir altyapı katmanı olarak ortaya çıkmıştır. Mevcut durumda, N sayıda farklı YZ ajanının M sayıda veri kaynağıyla entegrasyonu, her bir çift için özel çözümler gerektiren ve "N \times M" olarak ifade edilen bir kombinatoryal karmaşıklık problemi yaratmaktadır. MCP, bu sorunu çözmeyi hedeflerken; standartlaşma eksikliğinden kaynaklanan entegrasyon zorlukları, ölçeklenebilirlik sorunları ve tutarsız güvenlik uygulamaları gibi temel engellere yönelik birleşik bir çözüm sunmaktadır. Protokol, ajan mantığını araç uygulamalarından ayırarak, farklı geliştiriciler tarafından oluşturulan araçların birlikte çalışabilirliğini sağlayarak daha modüler ve ölçeklenebilir bir YZ ekosistemini teşvik eder.
+
+Bu raporun temel amacı, Model Bağlam Protokolü ekosisteminin mevcut durumunu, teorik vaatlerinin ötesinde, nicel performans metrikleri ve empirik verilere dayanarak kapsamlı bir şekilde değerlendirmektir. Bu analiz, protokolün olgunluk seviyesini, pratik uygulanabilirliğini ve gelecekteki gelişim yörüngesini belirlemeyi amaçlamaktadır.
+
+Rapor, MCP ekosisteminin çok yönlü bir analizini sunmak üzere yapılandırılmıştır. İlk olarak, önde gelen dil modellerinin (LLM) ve ajan mimarilerinin MCP araçlarını kullanma yetkinliğini ölçen nicel performans kıyaslamaları incelenecektir. Ardından, ekosistemin mevcut yayılımı ve bu yayılımı hızlandırma potansiyeli taşıyan otomasyon çözümleri empirik verilerle değerlendirilecektir. Raporun devamında, sistemlerin zayıf yönlerini ortaya koyan yaygın hata kategorileri ve kritik güvenlik tehditleri analiz edilecektir. Son olarak, bu bulgular ışığında MCP'nin geleceğine yönelik stratejik bir değerlendirme sunulacaktır.
+
+Bu kapsamlı değerlendirme, ilk olarak farklı kıyaslama platformlarından elde edilen nicel performans verilerinin analiziyle başlayacaktır.
+
+2.0 Nicel Performans Analizi: Kıyaslama (Benchmark) Metrikleri
+
+YZ ajanlarının MCP araçlarını etkin bir şekilde kullanma yetkinliğini objektif olarak ölçmek için standartlaştırılmış kıyaslama (benchmark) platformlarının geliştirilmesi büyük önem taşımaktadır. Bu test platformları, farklı büyük dil modellerinin (LLM) ve ajan mimarilerinin, çeşitli görevler ve karmaşıklık seviyeleri karşısındaki güçlü ve zayıf yönlerini nicel verilerle ortaya koyarak, ekosistemin gelişimine yön vermektedir. Bu bölümde, önde gelen kıyaslama platformlarından elde edilen performans metrikleri sentezlenerek sunulmaktadır.
+
+2.1 MCPToolBench++: Araç Kullanım Yetkinliği
+
+MCPToolBench++, modellerin araç çağırma doğruluğunu Soyut Sözdizimi Ağacı (AST) eşleşmesi ve ilk denemede başarı (Pass@1) gibi metriklerle titizlikle ölçerek, tek ve çok adımlı görevlerdeki yetkinliklerini değerlendirmek için tasarlanmıştır. Bu kıyaslama, model tarafından üretilen araç çağrısının doğruluğunu, zemin gerçekliği (ground truth) ile karşılaştırarak araç kullanım yeteneğini ölçer.
+
+Aşağıdaki tablo, önde gelen modellerin farklı kategorilerdeki en yüksek performans skorlarını ve kullanılan metrikleri doğru bir şekilde ayırarak özetlemektedir:
+
+Kategori	Öne Çıkan Model ve Skor	Metrik
+Finans	GPT4o: %72.0	AST Skoru
+Dosya Sistemi	Qwen2.5-max: %88.7	Pass@1 Skoru
+Arama	Claude-3.7-Sonnet: %62.0	Pass@1 Skoru
+
+2.2 MCP-Universe: Gerçek Dünya Senaryolarında Başarı Oranları
+
+MCP-Universe kıyaslaması, ajanları gerçek dünyada çalışan ve aktif veri kaynaklarına bağlı MCP sunucularına karşı test ederek daha gerçekçi zorlukları ölçmeye odaklanır. Bu platform, uzun vadeli görev planlama, geniş bağlam pencereleri yönetimi ve dinamik ortamlara adaptasyon gibi yetenekleri Başarı Oranı (Success Rate - SR) metriği üzerinden değerlendirir.
+
+* Konum Navigasyonu: GPT-4.1 ve Claude-4.0-Sonnet gibi modeller, karmaşık rota planlama ve coğrafi analiz görevlerinde %20-25 aralığında başarı oranları sergilemiştir.
+* Finansal Analiz: OpenAI Agent SDK, bu alanda %60.00'lık bir başarı oranına ulaşarak, finansal veri toplama, analiz etme ve raporlama gibi görevlerdeki üstün yetkinliğini göstermiştir.
+* 3D Tasarım: Blender MCP sunucusu kullanılarak yapılan testlerde, OpenAI Agent SDK %36.84'lük bir başarı oranı elde ederek, doğal dil komutlarından 3D model oluşturma konusundaki potansiyelini ortaya koymuştur.
+
+2.3 LiveMCP-101: Zorluk Seviyelerine Göre Dayanıklılık Testi
+
+LiveMCP-101, ajanları canlı ve zamanla değişen MCP servisleri kullanarak test eden ve görevleri kolay, orta, zor olarak üç seviyeye ayıran bir dayanıklılık kıyaslamasıdır. Bu platform, ajanların dinamik ve öngörülemeyen koşullar altındaki performansını ölçmeyi hedefler.
+
+Değerlendirme metodolojisi, hem nihai sonuçları hem de ajanın izlediği yolu (yörünge) "LLM-Yargıç" (LLM-as-a-Judge) adı verilen bir yapay zeka tarafından 1-5 arası bir Likert ölçeğinde puanlamasına dayanır. Bu değerlendirme yaklaşımının güvenilirliği, insan uzmanlarla olan uyumu ölçülerek teyit edilmiştir. Sonuç değerlendirmeleri için Cohen's Kappa uyum katsayısı %85'i aşarken, yörünge değerlendirmeleri için bu oran %78'in üzerine çıkmıştır. Bu yüksek uyum oranları, LLM-Yargıç metodolojisinin tutarlı ve insan yargısıyla uyumlu sonuçlar ürettiğini göstermektedir. Bu platformdaki testlerde, GPT-5 ve Claude-4.1-Opus gibi en üst düzey modeller, zorlu görevlerde en yüksek genel Görev Başarı Oranlarını (TSR) elde etmiştir.
+
+2.4 Özel Alan Performansı: Endüstriyel ve Geliştirici Odaklı Değerlendirmeler
+
+YZ ajanlarının performansı, endüstriyel kontrol sistemleri (ICS) ve web keşfi gibi özel alanlarda da dikkatle incelenmektedir. Bu alanlardaki değerlendirmeler, MCP'nin pratik uygulanabilirliğini göstermektedir.
+
+* AgentX Çerçevesi: Web arama görevlerinde, AgentX mimarisi, ReAct gibi yaygın kullanılan diğer mimarilere kıyasla %62.1 daha az girdi tokeni tüketerek önemli bir verimlilik avantajı sunmuştur. "Stok Korelasyonu" uygulamasında ise Veri Doğruluğu ve Sorgu Uyumu gibi metriklerde yüksek puanlar alarak güvenilirliğini kanıtlamıştır.
+* Endüstriyel Varlık Tespiti: Kritik altyapı uygulamaları için yapılan testlerde, Gemma3:27b modeli, girdi token sayısındaki artışlara rağmen yaklaşık %67'lik istikrarlı bir doğruluk oranını korumuştur. Bu durum, modelin zorlu endüstriyel ortamlar için sağlam bir seçenek olduğunu göstermektedir. Saniyedeki token (throughput) performansı açısından ise, Dolphin-Mistral gibi daha küçük modellere kıyasla daha düşük ancak DeepSeek gibi benzer büyüklükteki modellere yakın bir performans sergilemiştir.
+
+Bu nicel veriler, MCP ekosisteminin teknik olarak olgunlaştığını ve çeşitli alanlarda pratik uygulanabilirliğe ulaştığını kanıtlarken, aynı zamanda modeller arasındaki belirgin performans farklarının devam ettiğini göstermektedir. Bir sonraki bölümde, bu teknik yetkinliğin gerçek dünyadaki yayılımı ve benimsenme oranı empirik olarak ele alınacaktır.
+
+3.0 Empirik Değerlendirme: Ekosistem Yayılımı ve Otomasyon Potansiyeli
+
+Model Bağlam Protokolü'nün (MCP) teorik vaatlerinin ötesine geçerek, mevcut ekosistemdeki gerçek dünya yayılımını ve pratik uygulama zorluklarını empirik verilerle analiz etmek, teknolojinin olgunluğunu anlamak için kritik bir adımdır. Bu bölümde, MCP'nin GitHub ekosistemindeki benimsenme oranı ve bu oranı artırma potansiyeli taşıyan otomasyon çözümleri incelenmektedir.
+
+3.1 Ekosistem Analizi: GitHub Üzerinden Mevcut Durum
+
+22,722 GitHub deposu üzerinde yapılan kapsamlı bir empirik çalışma, MCP ekosisteminin mevcut durumu hakkında önemli bulgular ortaya koymuştur. Bu bulgular, ekosistemin henüz başlangıç aşamasında olduğunu ve büyümesinin önünde önemli engeller bulunduğunu göstermektedir.
+
+* Düşük Benimsenme Oranı: MCP etiketi taşıyan depoların yalnızca %5'inin, bir YZ ajanı tarafından kullanılabilir, işlevsel bir sunucu içerdiği tespit edilmiştir. Bu durum, ilginin yüksek olmasına rağmen, somut ve çalışır uygulamaların oranının oldukça düşük olduğunu göstermektedir.
+* Küçük Proje Ölçeği: İşlevsel sunucu içeren projelerin medyan kod boyutunun sadece 920 satır olması, bu projelerin büyük çoğunluğunun küçük ölçekli deneyler veya prototipler olduğunu düşündürmektedir.
+* Bireysel Geliştirici Hakimiyeti: Projelerin büyük bir kısmının tek bir geliştirici tarafından yürütüldüğü ve katkı eşitsizliğinin oldukça yüksek olduğu (medyan Gini katsayısı: 0.73) gözlemlenmiştir. Bu durum, topluluk odaklı ve büyük ölçekli bir geliştirme kültürünün henüz oluşmadığını göstermektedir.
+
+Bu veriler bir bütün olarak analiz edildiğinde, mevcut geliştirme çabasının, yenilikçi mühendislik faaliyetlerinden ziyade, her proje için tekrarlanan ve standart (boilerplate) sunucu kurulum işleriyle domine edildiği sonucuna varılmaktadır. Bu tekrarlayan kurulum yükü, geliştiricilerin daha değerli ve yenilikçi özellikler üzerinde çalışmasını engelleyerek ekosistemin büyümesi önündeki en büyük engellerden birini oluşturmaktadır.
+
+3.2 Otomatik Sunucu Oluşturma: AutoMCP ile OpenAPI Entegrasyonu
+
+Yukarıda tespit edilen kurulum ve geliştirme engelini aşmaya yönelik umut vaat eden bir çözüm olarak AutoMCP aracı öne çıkmaktadır. AutoMCP, REST API'ler için endüstri standardı haline gelmiş olan OpenAPI spesifikasyonlarından tam işlevsel MCP sunucularını otomatik olarak oluşturan bir derleyicidir. Bu araç, geliştiricilerin manuel ve tekrarlayan kurulum süreçleriyle uğraşmak yerine, mevcut API dokümantasyonlarını doğrudan kullanılabilir ajan araçlarına dönüştürmelerini sağlar.
+
+AutoMCP'nin 50 farklı gerçek dünya API'si üzerinde yapılan testlerdeki performansı, otomasyon potansiyelinin ne kadar yüksek olduğunu göstermektedir:
+
+* Araç, hiçbir manuel müdahale olmadan, yani kutudan çıktığı haliyle (out-of-the-box), test edilen API'lerin %76.5'i için başarılı bir şekilde çalışır sunucular oluşturmuştur.
+* Başarısız olan durumlarda ise, OpenAPI spesifikasyonlarında yapılan ortalama 19 satırlık küçük manuel düzeltmelerden sonra başarı oranı %99.9'a ulaşmıştır.
+
+Bu sonuç, stratejik bir öneme sahiptir: OpenAPI spesifikasyonları, zaman zaman karşılaşılan kalite sorunlarına ve tutarsızlıklara rağmen, MCP sunucu oluşturma sürecini neredeyse tamamen otomatikleştirmek için yeterli ve sağlam bir temel sağlamaktadır. AutoMCP gibi araçların varlığı, ekosistemin yayılımı önündeki en büyük engellerden biri olan geliştirme ve kurulum yükünü ortadan kaldırma potansiyeli taşımaktadır.
+
+Otomasyon, yayılımı hızlandırmak için güçlü bir çözüm sunsa da, hem otomatik hem de manuel olarak oluşturulan sistemlerin doğasında var olan hata modları ve güvenlik zafiyetleri, ekosistemin güvenilirliği için kritik bir sonraki analiz katmanını oluşturmaktadır.
+
+4.0 Hata Analizi ve Güvenlik Tehditleri: Zayıf Yönlerin Tespiti
+
+Bir teknolojinin olgunluğunu ve güvenilirliğini değerlendirirken, sadece başarılı performans metriklerine odaklanmak yeterli değildir. Başarısızlık modlarını, yaygın hata türlerini ve potansiyel güvenlik açıklarını sistematik olarak analiz etmek, daha dayanıklı ve güvenli sistemler inşa etmek için kritik bir yol haritası sunar. Bu bölümde, MCP özellikli ajanların karşılaştığı yaygın hatalar ve ekosisteme özgü güvenlik riskleri, empirik bulgular ışığında incelenmektedir.
+
+4.1 Yaygın Hata Kategorileri ve Kök Nedenler
+
+MCPToolBench++ ve LiveMCP-101 gibi kıyaslama platformlarında yapılan hata analizleri, YZ ajanlarının araç kullanımında karşılaştığı başarısızlıkların belirli kategorilerde yoğunlaştığını göstermektedir. En sık karşılaşılan hata türleri ve kök nedenleri aşağıda özetlenmiştir:
+
+* Parametre Hataları: Bu kategori, araçlara sağlanan argümanların sözdizimsel veya anlamsal olarak yanlış olmasından kaynaklanır. Örnekler arasında yanlış veri türleri (örn. sayı beklenirken metin gönderilmesi), geçersiz değer aralıkları veya gerekli alanların eksik bırakılması yer alır. Örneğin, bir harita aracına enlem/boylam için aralık dışı koordinatların girilmesi gibi anlamsal hatalar bu kategoriye girer.
+* Araç Planlama ve Orkestrasyon Hataları: Bu hatalar, ajanın görevini yerine getirmek için doğru araçları seçme, sıralama veya kullanma konusunda başarısız olmasından kaynaklanır. Sık görülen senaryolar şunlardır:
+  * Gereksinimi Göz Ardı Etme: Ajan, talepte belirtilen bir gereksinimi tamamen görmezden gelir ve ilgili aracı çağırmaz.
+  * Aşırı Özgüvenli Kendi Bilgisine Dayanma: Ajan, görevi yerine getirmek için bir aracı çağırması gerekirken, bunun yerine kendi dahili bilgisine dayanarak "halüsinasyon" bir cevap üretir.
+  * Yanlış Araç Seçimi: Ajan, görevi yerine getirmek için uygun olmayan bir araç seçer, bu da hatalı sonuçlara veya başarısızlığa yol açar.
+* API ve Çalışma Zamanı Hataları: Bu kategori, ajanın kontrolü dışındaki harici sistemlerden kaynaklanan sorunları içerir. Örnek olarak, bir API'den dönen 401 Yetkisiz gibi HTTP hata kodları, bir arama aracından boş bir sonuç kümesi dönmesi veya oturum yönetimiyle ilgili sorunlar verilebilir.
+* Çıktı Ayrıştırma Hataları: Araç, görevi başarıyla tamamlayıp doğru bir sonuç döndürse bile, ajanın bu çıktıyı yanlış işlemesi veya yorumlaması sonucu hata meydana gelir. Bu durum, ajanın nihai cevabının yanlış olmasına neden olabilir.
+
+4.2 Güvenlik Değerlendirmesi: Tehdit Vektörleri ve Savunma Mekanizmaları
+
+MCP ekosistemi, YZ ajanlarının harici sistemlerle etkileşimini standartlaştırırken, kendine özgü güvenlik tehditlerini de beraberinde getirmektedir. Bu tehditlerin başında, OWASP'ın LLM Top 10 listesinde de vurgulanan Dolaylı Komut Enjeksiyonu (Indirect Prompt Injection) gelmektedir. Aşağıda, MCP ekosistemine yönelik anahtar tehdit vektörleri listelenmiştir:
+
+* Dolaylı Komut Enjeksiyonu (Indirect Prompt Injection - IPI): Ajanın işlediği web sitesi, e-posta veya doküman gibi güvenilmeyen harici veri kaynaklarının içine gizlenmiş kötü niyetli komutlardır. Ajan bu veriyi işlediğinde, gizli komutu farkında olmadan çalıştırarak saldırganın hedeflerine hizmet edebilir.
+* Araç Kötüye Kullanımı (Tool Misuse): Bir saldırganın, ajanı aldatıcı komutlarla yönlendirerek, entegre edilmiş meşru araçları (örn. dosya yazma, e-posta gönderme) amacı dışında ve kötü niyetli bir şekilde kullanmasını sağlamasıdır.
+* Kimlik Sahtekarlığı ve Yetki Yükseltme: Zayıf veya eksik kimlik doğrulama mekanizmalarından faydalanarak, saldırganın kendisini meşru bir ajan veya yetkili bir kullanıcı gibi tanıtması ve sistemde yetkisini yükseltmesidir.
+* "Rug Pulls": Başlangıçta zararsız ve işlevsel görünen bir MCP sunucusunun, topluluk tarafından benimsenip yaygınlaştıktan sonra geliştiricisi tarafından kötü amaçlı kod (örn. veri sızdırma, komut enjeksiyonu) içerecek şekilde gizlice güncellenmesidir.
+* Çapraz Sunucu Gölgeleme (Cross-Server Shadowing): Aynı ajana bağlı birden fazla sunucu olduğunda, kötü niyetli bir sunucunun, meşru bir sunucunun araçlarını (isim ve açıklama olarak) taklit etmesidir. Ajan, meşru aracı çağırdığını düşünürken, aslında kötü niyetli sunucunun aracını tetikleyerek saldırganın kontrolüne girebilir.
+
+Bu tehditlere karşı bir savunma mekanizması olarak MCP-Guard çerçevesi geliştirilmiştir. MCP-Guard, kural tabanlı filtreler ve makine öğrenmesi modelleri kullanarak gelen ve giden trafiği analiz eder ve tehditleri tespit eder. Aşağıdaki tablo, MCP-Guard'ın çeşitli saldırı türlerini tespit etmedeki performansını özetlemektedir:
+
+Saldırı Türü	Doğruluk (%)	F1 Skoru (%)	Gecikme (ms)
+SQL Enjeksiyonu	96.31	96.33	0.11
+Shell Enjeksiyonu	94.32	94.45	0.05
+Gölge Ele Geçirme	86.83	88.30	0.20
+
+4.3 Proaktif Güvenlik Testi: AutoMalTool ile Otomatik Red Teaming
+
+Mevcut savunma mekanizmalarının etkinliğini proaktif olarak test etmek amacıyla, AutoMalTool adlı otonom bir "red teaming" çerçevesi geliştirilmiştir. AutoMalTool, LLM tabanlı ajanları tehlikeye atabilecek kötü niyetli MCP araçlarını (araç zehirlemesi saldırıları) otonom olarak oluşturmak ve optimize etmek için tasarlanmıştır. Bu çerçeve, çoklu ajan mimarisi kullanarak farklı MCP araçları için özelleştirilmiş saldırı vektörleri üretir.
+
+AutoMalTool'un etkinliği, ana akım LLM tabanlı ajanlar üzerinde yapılan testlerle kanıtlanmıştır. Elde edilen bulgular, çerçevenin yüksek bir "Etkili Başarı Oranı (ESR)" ile ajanları başarıyla manipüle edebildiğini göstermektedir. Daha da önemlisi, AutoMalTool tarafından üretilen kötü niyetli araçlar, MCP-Scan gibi mevcut statik analiz tabanlı tespit yöntemlerinden yüksek bir "Kaçınma Oranı (ER)" ile kaçabilmektedir. Yapılan testlerde, üretilen kötü niyetli araçların MCP-Scan'e karşı %86'nın üzerinde bir kaçınma oranı sergilediği tespit edilmiştir.
+
+Bu bulgular, mevcut YZ ajanlarının araç zehirleme gibi sofistike saldırılara karşı savunmasız olduğunu ve mevcut tespit mekanizmalarının yetersiz kaldığını açıkça ortaya koymaktadır. Bu durum, ekosistem genelinde daha sağlam savunma, doğrulama ve güven mekanizmalarına acil bir şekilde ihtiyaç duyulduğunu göstermektedir.
+
+5.0 Sonuç ve Stratejik Değerlendirme
+
+Bu rapor, Model Bağlam Protokolü (MCP) ekosisteminin mevcut durumunu nicel performans metrikleri, empirik yayılım verileri ve güvenlik analizleri ışığında kapsamlı bir şekilde değerlendirmiştir. Analizler, MCP'nin YZ ajan entegrasyonunu standartlaştırma ve basitleştirme konusundaki temel vaadini yerine getirme yolunda önemli bir potansiyele sahip olduğunu, ancak bu potansiyelin tam olarak hayata geçirilmesinin önünde ciddi engeller bulunduğunu ortaya koymaktadır.
+
+Rapor boyunca elde edilen temel sonuçlar aşağıda özetlenmiştir:
+
+* Performans Farklılıkları: Yapılan kıyaslama testleri, GPT-5 ve Claude-4.1 gibi en üst düzey modellerin, özellikle karmaşık ve çok adımlı görevlerde daha yüksek başarı oranları sergilediğini göstermiştir. Bununla birlikte, tüm modellerin, özellikle parametre hataları ve yanlış araç planlaması gibi konularda hala önemli hata oranlarına sahip olduğu ve bu durumun güvenilirlik açısından bir zorluk teşkil ettiği görülmektedir.
+* Ekosistem Olgunlaşmamışlığı: GitHub üzerinde yapılan empirik analiz, MCP ekosisteminin henüz başlangıç aşamasında olduğunu ortaya koymuştur. MCP etiketli depoların sadece %5'inin işlevsel bir sunucu içermesi, projelerin küçük ölçekli ve büyük oranda bireysel geliştirici çabalarıyla sınırlı kalması, ekosistemin geniş çaplı kurumsal kullanıma hazır olmadığının açık bir göstergesidir. Geliştirme çabalarının, tekrarlayan kurulum işleriyle domine edilmesi, inovasyonun önünde bir engel teşkil etmektedir.
+* Otomasyonun Önemi: AutoMCP gibi araçların, REST API'ler için standart olan OpenAPI spesifikasyonlarından yararlanarak MCP sunucusu oluşturma yükünü %99'un üzerinde bir başarı oranıyla otomatikleştirebilmesi, yayılımın önündeki en büyük engellerden birinin aşılabileceğini kanıtlamıştır. Bu tür otomasyon araçları, ekosistemin ölçeklenmesi için kritik bir rol oynayacaktır.
+* Kritik Güvenlik Açıkları: Dolaylı komut enjeksiyonu (IPI), araç zehirlenmesi ve çapraz sunucu gölgeleme gibi tehditler, MCP ekosistemi için ciddi riskler oluşturmaktadır. AutoMalTool gibi otomatik red teaming araçlarının, mevcut savunma mekanizmalarını kolayca aşabilmesi, mevcut güvenlik önlemlerinin yetersiz kaldığını ve bu durumun ekosisteme olan güveni temelden zedelediğini göstermektedir.
+
+Bu bulgular ışığında, MCP'nin uzun vadeli başarısının ve YZ ajan ekosisteminin temel taşı haline gelmesinin yolu, üç sacayağı üzerinde yükselen proaktif bir stratejiden geçmektedir: (1) Sunucu oluşturma ve yönetim süreçlerini radikal bir şekilde basitleştiren geliştirici araçlarının (tooling) olgunlaştırılması; (2) Sunucu kalitesini ve güvenliğini garanti altına alan merkezi güven ve doğrulama mekanizmalarının tesis edilmesi; ve (3) Tehditlere reaktif olarak yanıt vermek yerine, onları proaktif olarak engelleyen yerleşik ve katmanlı savunma mimarilerinin geliştirilmesi. Bu alanlarda atılacak kararlı adımlar, MCP'nin teorik potansiyelini, endüstriyel ölçekte güvenilir bir gerçeğe dönüştürmenin yegane anahtarı olacaktır.

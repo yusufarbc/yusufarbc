@@ -1,0 +1,30 @@
+# OS-specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archives / temp
+*.tmp
+*.bak
+~$*
+
+# Build artifacts (if any)
+site/
+dist/
+
+# IDE settings
+.idea/
+.vscode/
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fls
+*.fdb_latexmk
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+paper/*.synctex*
+*.toc

@@ -1,0 +1,100 @@
+Model Bağlam Protokolü (MCP): Temelleri ve Mimarisi
+
+1.0 Giriş: Yapay Zeka Ajanları için Evrensel Bir Dil İhtiyacı
+
+Yapay zeka (AI) sistemleri, pasif metin üreteçleri olmaktan çıkıp, harici araçlar ve veri kaynaklarıyla etkileşime girerek gerçek dünya görevlerini yerine getirebilen aktif ajanlara dönüşmektedir. Bu evrim, yapay zeka ajanlarının otonom yeteneklerini artırırken, aynı zamanda bu sistemlerin dış dünya ile nasıl güvenli ve ölçeklenebilir bir şekilde iletişim kuracağı sorununu da beraberinde getirmiştir. Model Bağlam Protokolü (MCP), bu karmaşık etkileşimleri standartlaştırmak ve yönetmek için tasarlanmış temel bir protokol olarak, bu noktada yalnızca bir çözüm değil, ölçeklenebilir, birlikte çalışabilir ve güvenli bir yapay zeka ekosistemi inşa etmek için stratejik bir zorunluluktur.
+
+Gelenkesel entegrasyon yaklaşımları, hızla büyüyen ajan ekosisteminde sürdürülemez bir karmaşıklık yaratmaktadır. Bu durum, "N \times M Entegrasyon Problemi" olarak bilinen temel bir zorlukla tanımlanabilir. Bir kuruluşun N sayıda farklı yapay zeka ajanı (örneğin, Claude, özel IDE eklentileri) kullandığını ve bu ajanların M sayıda farklı veri kaynağına (örneğin, Google Drive, Slack, GitHub) erişmesi gerektiğini düşünelim. Standart bir protokolün yokluğunda, her bir ajan-veri kaynağı çifti için özel bir entegrasyon (bağlayıcı) geliştirilmesi gerekir. Bu, toplam entegrasyon sayısının ve bakım maliyetinin N \times M karmaşıklığında katlanarak artmasına yol açar; bu da hem operasyonel bir yük hem de inovasyonun önünde bir engel teşkil eder.
+
+Bu sorunu çözmek için sıklıkla başvurulan geleneksel REST API'leri, Büyük Dil Modeli (LLM) tabanlı ajanların dinamik ve bağlama duyarlı doğası için yetersiz kalmaktadır. Bu yetersizlikler, ajanların verimliliği, maliyeti ve otonom yetenekleri üzerinde doğrudan olumsuz etkilere yol açar:
+
+* Katı Beklentiler (Rigid Expectations): REST API'leri, önceden tanımlanmış ve katı bir şekilde yapılandırılmış parametreler ve uç noktalar bekler. Otonom bir ajanın dinamik olarak bir görevi yerine getirmeye çalışırken bu katı beklentilere uyması zordur ve esnekliğini kısıtlar.
+* Bağlam Farkındalığı Eksikliği (Lack of Context-awareness): API'ler doğaları gereği durumsuzdur (stateless). Bu, bir ajanın çok adımlı bir görevi tamamlarken her çağrıda durumu ve geçmişi manuel olarak yönetmesi gerektiği anlamına gelir. Bu durum, hem geliştirme sürecini karmaşıklaştırır hem de ajanın bağlamsal tutarlılığını sağlamasını zorlaştırır.
+* Token ve Maliyet Verimsizliği (Token and Cost Inefficiency): Ajanların bir API'yi doğru kullanabilmesi için, genellikle ilgili dokümantasyonun tamamının her istekte bağlam penceresine gömülmesi gerekir. Bu durum, özellikle büyük ve karmaşık API'ler için token kullanımını ve dolayısıyla maliyetleri ciddi şekilde artırır.
+* Genel Hata Yönetimi (Generic Error Handling): 404 Not Found veya 500 Internal Server Error gibi standart HTTP durum kodları, bir ajanın hatanın nedenini anlaması ve otonom olarak kendini düzeltmesi için yeterli anlamsal bilgiyi sağlamaz. Bu genel hatalar, ajanın görev akışını kesintiye uğratır ve insan müdahalesi gerektirir.
+
+Model Bağlam Protokolü (MCP), bu zorluklara standartlaştırılmış, bağlama duyarlı ve verimli bir çözüm sunarak temel bir altyapı katmanı görevi görür. MCP, ajanlar ve harici sistemler arasında bir köprü kurarak, entegrasyon karmaşıklığını ortadan kaldırır ve otonom sistemlerin potansiyelini tam anlamıyla ortaya çıkarır. Bu belgenin devamında, MCP'nin bu hedeflere ulaşmasını sağlayan temel mimari bileşenleri ve işleyişi detaylı bir şekilde incelenecektir.
+
+2.0 MCP Mimarisi: Temel Bileşenler ve İşleyiş
+
+MCP'nin temel mimari yapısını anlamak, yalnızca protokolün nasıl çalıştığını kavramak için değil, aynı zamanda güvenli, ölçeklenebilir ve birlikte çalışabilir ajan sistemleri tasarlamak için de kritik bir öneme sahiptir. Protokolün standartlaştırılmış bileşenleri ve iletişim modelleri, geliştiricilere karmaşık entegrasyon sorunlarını çözmek için sağlam bir temel sunar. Bu bölümde, MCP'nin mimari omurgası, temel bileşenleri ve bu bileşenlerin birbiriyle nasıl etkileşimde bulunduğu analiz edilecektir.
+
+MCP, temel olarak bir istemci-sunucu (client-server) modeli üzerine kurulmuştur. Bu mimari, sorumlulukların net bir şekilde ayrılmasını sağlayarak modüler ve güvenli bir yapı oluşturur.
+
+* MCP Host (İstemci Ortamı): Ajan mantığının çalıştığı ve barındırıldığı ana ortamdır. Claude Desktop, çeşitli IDE'ler (örn. VS Code) veya diğer yapay zeka araçları gibi platformlar birer MCP Host görevi görür. Host, son kullanıcı etkileşimini yönetir ve ajanların kararlarını uygular.
+* MCP Sunucusu (Server): Harici araçları, veri kaynaklarını ve iş akışlarını yöneten hafif yapılı bir bileşendir. Sunucunun temel görevi, ajanın kullanabileceği yetenekleri (araçlar, kaynaklar) standart bir formatta sunmak ve bu yeteneklere yönelik istekleri güvenli bir şekilde işlemektir.
+* MCP İstemcisi (Client): Host ortamında çalışan ve MCP sunucularıyla birebir bağlantı kuran adanmış bir protokol istemcisidir. Her istemci, belirli bir sunucuyla güvenli ve standartlaştırılmış bir iletişim kanalı oluşturarak veri alışverişini yönetir.
+
+Bir MCP sunucusu, ajana hizmet vermek için gerekli tüm bilgileri ve yetenekleri barındıran modüler bir yapıya sahiptir. Bu yapının temel taşları şunlardır:
+
+* Metadata: Sunucunun kimliğini tanımlayan temel bilgilerdir. Adı, versiyonu ve açıklaması gibi veriler, istemcilerin doğru sunucuyu bulmasını ve tanımlamasını sağlar.
+* Configuration: Sunucunun çalışma zamanı parametrelerini, ortam ayarlarını (örneğin, API anahtarları için ortam değişkenleri) ve güvenlik politikalarını içeren yapılandırma dosyalarıdır.
+* Tool List: Sunucunun sunduğu çalıştırılabilir yeteneklerin (araçların) bir kataloğudur. Her aracın işlevi, girdi-çıktı formatları (JSON şeması ile tanımlanır) ve erişim izinleri bu listede ayrıntılı olarak belirtilir.
+* Resources List: Web API'leri, veritabanları veya yerel dosyalar gibi harici veri kaynaklarına erişimi yönetir. Bu liste, ajanın hangi veri kaynaklarına ve hangi izinlerle erişebileceğini tanımlar.
+* Prompt Templates: Sık kullanılan veya karmaşık operasyonları standartlaştıran önceden yapılandırılmış görev şablonlarıdır. Bu şablonlar, ajanın çok adımlı iş akışlarını daha verimli bir şekilde yürütmesine yardımcı olur.
+
+MCP, farklı kullanım senaryolarına uyum sağlamak amacıyla esnek taşıma katmanları (transports) sunar. Bu katmanlar, istemci ve sunucu arasındaki iletişimin nasıl gerçekleştirileceğini belirler. En yaygın iki taşıma türü aşağıda karşılaştırılmıştır:
+
+Taşıma Türü	Kullanım Senaryosu	Avantajları	Dezavantajları
+stdio (Standart Giriş/Çıkış)	Yerel olarak çalışan araçlar, IDE entegrasyonları, yüksek güvenlik gerektiren kapalı sistemler.	Düşük gecikme, ağ yapılandırması gerektirmemesi, verilerin sistem dışına çıkmaması sayesinde yüksek güvenlik.	Yalnızca yerel (aynı makinede) çalışan süreçler arasında kullanılabilir, uzaktan erişime kapalıdır.
+http/sse (HTTP/Server-Sent Events)	Uzak sunucular, bulut tabanlı ajanlar, SaaS platformları gibi dağıtık sistemler ve web tabanlı entegrasyonlar.	Standart web altyapısıyla uyumlu, güvenlik duvarı dostu, uzaktan erişim imkanı, ölçeklenebilir.	HTTP protokolünün getirdiği ek yük (overhead) nedeniyle daha yüksek gecikme, TLS ve kimlik doğrulama gereksinimi.
+
+Teknik Detay: stdio taşımasında, JSON-RPC mesajları satır satır (newline-delimited) iletilir. http/sse taşımasında ise, sunucudan istemciye giden mesajlar text/event-stream formatında, istemciden sunucuya gidenler ise standart application/json POST istekleri olarak taşınır.
+
+Bu mimari yapı, MCP'nin hem yerel geliştirme ortamlarında hem de büyük ölçekli kurumsal sistemlerde esnek bir şekilde kullanılabilmesini sağlar. Protokolün temel bileşenleri ve taşıma katmanları, üzerine inşa edildiği sağlam temelleri oluşturur. Bir sonraki bölümde, bu temeller üzerine kurulu olan ve ajanlara otonom yetenekler kazandıran temel protokol özellikleri daha derinlemesine incelenecektir.
+
+3.0 Protokolün Yapı Taşları: MCP'nin Temel Özellikleri
+
+MCP, sadece ajanlar ve araçlar arasında bir bağlantı kurmaktan öte, ajanlara zengin ve standartlaştırılmış yetenekler kazandıran bir dizi temel özellik sunar. Bu özellikler, bir ajanın çevresini algılama, veri işleme ve eyleme geçme kapasitesini temelden şekillendirir. Protokolün yapı taşları olarak adlandırabileceğimiz bu özellikler, otonom sistemlerin daha yetenekli, öngörülebilir ve yönetilebilir olmasını sağlar.
+
+MCP'nin üç temel yapı taşı, ajanların farklı türde görevleri yerine getirmesini mümkün kılar:
+
+* Araçlar, bir LLM'in soyut bilgi dünyasından çıkarak somut eylemler gerçekleştirmesini sağlayan çalıştırılabilir yeteneklerdir. Bir dosya yazmak, bir API'ye istek göndermek veya bir hesaplama yapmak gibi işlemler, araçlar aracılığıyla mümkün olur. Her araç, beklenen girdileri ve üreteceği çıktıları tanımlayan bir JSON şeması ile açıkça belirtilir. Bu yapı, ajanın bir aracı nasıl kullanacağını net bir şekilde anlamasını sağlar. Araçlar, tools/call uç noktası üzerinden çağrılır.
+* Kaynaklar, ajanlara görevlerini yerine getirirken ihtiyaç duydukları bağlamsal bilgiyi sağlayan yapılandırılmış verilerdir. Bir metin dosyası, bir veritabanı tablosundaki bir satır veya bir web sayfasının içeriği gibi statik veya dinamik veriler kaynak olarak sunulabilir. Araçların aksine, kaynaklar bir eylem gerçekleştirmez; yalnızca bilgi sağlarlar. Her kaynak, bir URI (Uniform Resource Identifier) ile benzersiz bir şekilde tanımlanır, bu da ajanın belirli bir bilgi parçasına doğrudan ve standart bir şekilde erişmesine olanak tanır.
+* İstemler, sık tekrarlanan veya karmaşık etkileşimleri standartlaştıran yapılandırılmış şablonlardır. Örneğin, bir "haftalık rapor oluşturma" istemi, ajanın hangi veri kaynaklarına başvurması, hangi analizleri yapması ve sonucu hangi formatta sunması gerektiğini adım adım tanımlayabilir. Bu şablonlar, çok adımlı iş akışlarını otomatikleştirerek hem verimliliği artırır hem de ajanın tutarlı ve öngörülebilir bir şekilde çalışmasını sağlar.
+
+Bu temel özelliklerin yanı sıra, MCP'nin ajan mimarilerinde yeni olanaklar sunan iki gelişmiş ve ayırt edici özelliği daha bulunmaktadır:
+
+* Kökler, bir MCP bağlantısının bağlamını ve operasyonel kapsamını tanımlayan URI'lerdir. Örneğin, bir istemci bir sunucuya file:///home/user/project kökü ile bağlanırsa, sunucunun dosya sistemi üzerindeki tüm işlemleri bu dizin ve alt dizinleriyle sınırlandırılır. Benzer şekilde, https://api.example.com/v1 gibi bir kök, API çağrılarının yalnızca bu belirli uç nokta altında yapılmasını sağlar. Kökler, ajanın yetki alanını net bir şekilde belirleyerek güvenliği artırır ve kaynaklara erişimi önceliklendirerek operasyonel verimlilik sağlar. Bu mekanizma, ajanın "sınırlarını bilmesini" ve yalnızca izin verilen kaynaklar üzerinde çalışmasını garanti eder.
+* Örnekleme, MCP'nin en yenilikçi ve mimari açıdan en dikkat çekici özelliklerinden biridir. Geleneksel istemci-sunucu akışını tersine çevirerek, sunucunun istemciden (yani ajanın barındırıldığı Host'tan) bir LLM tamamlaması talep etmesine olanak tanır. Ancak bu güç, önemli bir güvenlik riski de taşır. Palo Alto Networks Unit 42 tarafından yapılan güvenlik denetimleri, "Sampling" özelliğinin Prompt Injection ve "Konuşma Gaspı" (Conversation Hijacking) gibi yeni saldırı vektörleri için bir zemin oluşturduğunu ortaya koymuştur. Kötü niyetli bir sunucu, bu özelliği kullanarak ajanın davranışını manipüle edebilir veya kullanıcıdan habersiz işlemler gerçekleştirebilir. Bu yüksek risk potansiyeli nedeniyle, MCP spesifikasyonu, tüm örnekleme isteklerinin mutlaka "İnsan Döngüde" (Human-in-the-Loop) onayı gerektirmesini bir mimari zorunluluk olarak şart koşar. Kullanıcı, sunucunun LLM'e ne sorduğunu görmeli ve bu isteği açıkça onaylamalıdır.
+
+Bu temel ve gelişmiş yapı taşları, tekil ajanların yeteneklerini tanımlar. Bir sonraki bölümde, bu bileşenlerin çoklu ajan sistemlerinde nasıl bir araya gelerek daha karmaşık ve işbirlikçi mimariler oluşturduğu ele alınacaktır.
+
+4.0 Çoklu Ajan Sistemlerinde MCP: Kompozisyon ve Ölçeklenebilirlik
+
+Yapay zeka sistemlerinin karmaşıklığı arttıkça, tek bir ajanın tüm görevleri yerine getirmesi verimsiz ve yönetilemez hale gelir. MCP'nin sunduğu kompozisyon (composability) yeteneği, bu noktada devreye girerek basit araç kullanımından, her biri belirli bir görevde uzmanlaşmış ajanların işbirliği yaptığı karmaşık ve hiyerarşik sistemlere geçişi mümkün kılar. Bu mimari özellik, ajan tabanlı sistemlerin modüler, esnek ve ölçeklenebilir bir şekilde tasarlanmasının temelini oluşturur.
+
+"Kompozisyon", MCP mimarisindeki her bir düğümün (node) aynı anda hem bir istemci hem de bir sunucu olarak işlev görebilme yeteneğini ifade eder. Teknik olarak bu, bir MCP sunucusunun başka bir MCP sunucusuna istemci olarak bağlanabileceği anlamına gelir. Bu sayede, ajanlar arasında hiyerarşik veya eşler arası (peer-to-peer) ilişkiler kurulabilir ve görevler zincirleme bir şekilde bir ajandan diğerine aktarılabilir.
+
+Bu mimari özelliğin sağladığı üç temel avantaj şunlardır:
+
+1. Modüler Tasarım: Kompozisyon, karmaşık bir ajan sisteminin daha küçük, yönetilebilir ve yeniden kullanılabilir bileşenlere ayrılmasına olanak tanır. Her bir bileşen (ajan), belirli bir işlevde uzmanlaşır ve bağımsız olarak geliştirilip test edilebilir. Örneğin, bir sistem; veri toplama, veri analizi ve raporlama gibi görevler için ayrı ajanlara sahip olabilir.
+2. Ajan Zincirleme (Agent Chaining): Bir ajanın çıktısı, bir sonraki ajanın girdisi olarak kullanılabilir. Bu, sıralı ve hiyerarşik iş akışlarının oluşturulmasını sağlar. Örneğin, bir 'araştırma ajanı' web'den topladığı verileri bir 'analiz ajanına' iletebilir; bu ajan da bulgularını nihai raporu oluşturmak üzere bir 'raporlama ajanına' gönderir.
+3. Görev Uzmanlaşması: Her ajan, belirli bir alanda (örneğin, kod yazma, veritabanı sorgulama, kullanıcı arayüzü yönetimi) en iyi performansı gösterecek şekilde optimize edilebilir. Bu uzmanlaşma, sistemin genel verimliliğini, doğruluğunu ve güvenilirliğini artırır. Bir "kodlama ajanı", en son yazılım geliştirme araçlarını kullanırken, bir "veri analizi ajanı" en gelişmiş istatistiksel modellere erişebilir.
+
+Kompozisyon yeteneği, ajan tabanlı sistemlerin ölçeklenebilirliği (scalability) üzerinde de doğrudan bir etkiye sahiptir. Görevlerin modüler ajanlara dağıtılması, sistemin performansını ve yönetilebilirliğini korurken yeni ajanların veya yeteneklerin kolayca eklenmesine olanak tanır. Ajan sayısı ve görev karmaşıklığı arttıkça, sistem yatay olarak ölçeklenebilir ve her bir bileşenin üzerindeki yük dengelenebilir. Bu esneklik, MCP tabanlı mimarileri, basit otomasyon görevlerinden büyük ölçekli, kurumsal düzeyde otonom sistemlere kadar geniş bir yelpazede uygulanabilir kılar.
+
+Bu tür gelişmiş ve dağıtık mimarilerin güvenli bir şekilde çalışabilmesi, temel bir gerekliliktir. Bir sonraki bölümde, MCP'nin bu karmaşık etkileşimleri güvence altına almak için sunduğu güvenlik ve yetkilendirme altyapısı incelenecektir.
+
+5.0 Güvenlik ve Yetkilendirme Mimarisi
+
+Otonom sistemlerde güvenlik, bir sonradan eklenti değil, mimarinin pazarlık edilemez ve temel bir gerekliliğidir. Ajanların hassas verilere erişebildiği ve kritik eylemleri gerçekleştirebildiği bir ortamda, kimlik doğrulama ve yetkilendirmenin standartlaştırılmış ve sağlam protokollere dayanması zorunludur. MCP, bu gerekliliği mimarisinin merkezine yerleştirerek, kurumsal düzeyde güvenliği standartlar aracılığıyla sağlar.
+
+MCP'nin yetkilendirme altyapısı, modern ve güvenli uygulamalar için endüstri standardı olan OAuth 2.1 üzerine kurulmuştur. Bu standardın tercih edilmesi, MCP'nin hedeflediği çeşitli ajan ekosistemi için kritik olan hem gizli (confidential) hem de genel (public) istemciler için güvenli yetkilendirme akışları tanımlamasını sağlar. OAuth 2.1'in temel alınması, MCP'nin mevcut kurumsal güvenlik altyapılarıyla sorunsuz bir şekilde entegre olabilmesini temin eder.
+
+Güvenli bir yetkilendirme sürecini başlatmak için, istemcilerin doğru yetkilendirme sunucusunu (authorization server) güvenli bir şekilde keşfetmesi şarttır. Bu süreci standartlaştırmak amacıyla, MCP sunucularının OAuth 2.0 Korumalı Kaynak Meta Verileri (Protected Resource Metadata - RFC 9728) standardını uygulaması zorunludur. Bu mekanizma, bir sunucunun, yetkilendirme bilgilerinin nerede bulunduğunu istemciye güvenli ve standart bir yolla bildirmesini sağlar. İstemciler, bu meta verileri kullanarak yetkilendirme sunucusunun adresini ve gerekli diğer parametreleri keşfeder, böylece manuel yapılandırmadan kaynaklanabilecek hatalar ve güvenlik açıkları önlenmiş olur.
+
+MCP mimarisi, ajan sistemlerine özgü iki kritik güvenlik sorununa özel olarak odaklanır:
+
+* Token Hedef Kitlesi Doğrulaması (Token Audience Validation): Bir yetkilendirme sunucusu tarafından üretilen erişim token'ı, belirli bir "hedef kitle" (audience), yani belirli bir kaynak veya sunucu için oluşturulur. Bir MCP sunucusunun, yalnızca kendisi için düzenlenmiş (yani, kendi kimliğini hedef kitle olarak belirten) token'ları kabul etmesi hayati önem taşır. Bu doğrulama yapılmazsa, bir servis için alınmış meşru bir token, bir saldırgan tarafından başka bir servise karşı yeniden kullanılabilir. MCP, bu doğrulamanın zorunlu kılınmasıyla, token'ların yanlış servislerde kullanılmasını engelleyerek güvenlik sınırlarını güçlendirir.
+* "Kafası Karışık Vekil" Problemi (Confused Deputy Problem): Bu problem, bir servisin (vekil), daha az yetkiye sahip bir istemcinin isteği üzerine, kendi yüksek yetkilerini kullanarak bir eylem gerçekleştirmesiyle ortaya çıkar. MCP bağlamında bu, bir sunucunun, kendisine ait olmayan veya doğrulanmamış bir token'ı alt hizmetlere (downstream services) olduğu gibi iletmesiyle gerçekleşebilir. Alt hizmet, token'ın güvenilir bir kaynaktan (MCP sunucusundan) geldiğini varsayarak istenen eylemi gerçekleştirebilir. MCP mimarisi, her sunucunun yalnızca kendisine iletilen token'ları doğrulaması ve alt hizmetlere kendi kimliğiyle, yeni ve uygun kapsamda token'lar iletmesi gerektiğini vurgulayarak bu zafiyetin önüne geçer.
+
+Bu sağlam güvenlik temelleri, MCP'nin yalnızca işlevsel değil, aynı zamanda güvenilir ve kurumsal kullanıma hazır bir protokol olmasını sağlar. Bu mimari prensipler, protokolün genel felsefesini ve yapay zeka ajanları ekosistemine getirdiği değeri özetlemektedir.
+
+6.0 Sonuç: Standartlaştırılmış Bir Geleceğin Mimarisi
+
+Model Bağlam Protokolü (MCP), yapay zeka ajanlarının otonom yeteneklerini güvenli ve ölçeklenebilir bir şekilde genişletmek için tasarlanmış temel bir mimari çerçeve sunar. Protokolün istemci-sunucu yapısı, Tools, Resources ve Prompts gibi standartlaştırılmış özellikleri, kompozisyon yeteneği ve OAuth 2.1 tabanlı sağlam güvenlik temelleri, modern ajan sistemlerinin karşılaştığı en temel zorluklara bütünsel bir çözüm getirir.
+
+Bu mimari yaklaşım, belgenin girişinde tanımlanan kritik sorunları doğrudan ele alır. "N \times M entegrasyon problemi" olarak adlandırılan kombinatoryal karmaşıklık, MCP'nin standart arayüzleri sayesinde ortadan kalkar; her ajan, standart bir protokolle konuşarak sayısız araca erişebilir. Aynı şekilde, geleneksel REST API'lerinin bağlam farkındalığı eksikliği, token verimsizliği ve anlamsız hata kodları gibi yetersizlikleri, MCP'nin bağlama duyarlı, verimli ve anlamsal geri bildirim sağlayan yapısıyla aşılır.
+
+Sonuç olarak, MCP sadece bir teknoloji standardı değil, aynı zamanda yapay zeka ajanları ekosisteminin geleceği için stratejik bir mimari vizyondur. Birlikte çalışabilirlik, güvenlik ve sürdürülebilir büyüme için ortak bir zemin oluşturan MCP gibi standart bir protokol, geliştiricilerin tekrar eden entegrasyon sorunlarıyla uğraşmak yerine, daha yenilikçi ve yetenekli ajan sistemleri oluşturmaya odaklanmasını sağlar. Bu, yalnızca entegrasyon sorunlarını çözen bir protokol değil, aynı zamanda daha akıllı, daha güvenilir ve birbirine bağlı bir otonom sistemler geleceğinin mimari temelini atan stratejik bir vizyondur.
