@@ -196,7 +196,7 @@ Aynı zamanda açık kaynak dünyasına ve siber güvenlik araştırmalarına ka
     <img src="/images/banners/offensive_security.png" alt="Offensive Security" class="skills-banner">
     <div class="skills-content">
       <h3>Offensive Security</h3>
-      <p class="skills-intro">"Savunmayı kurmak için saldırgan gibi düşünmek gerekir" vizyonunu ve OWASP yaklaşımını yansıtır.</p>
+      <p class="skills-intro">Zafiyet analizi, sızma testleri ve güvenli yazılım/araç geliştirme süreçlerini kapsar.</p>
       <ul class="skills-list">
         <li><strong>Vulnerability Assessment</strong> OpenVAS ve Nuclei ile zafiyet tarama ve yönetimi.</li>
         <li><strong>Network Discovery</strong> Nmap ve Masscan ile ağ keşfi ve topoloji haritalandırma.</li>
@@ -212,7 +212,7 @@ Aynı zamanda açık kaynak dünyasına ve siber güvenlik araştırmalarına ka
     <img src="/images/banners/defensive_security.png" alt="Defensive Security" class="skills-banner">
     <div class="skills-content">
       <h3>Defensive Security</h3>
-      <p class="skills-intro">Kurumsal SOC/MDR tecrübeni ve tehditleri anında izole etme gücünü temsil eder.</p>
+      <p class="skills-intro">Kurumsal altyapılarda proaktif tehdit tespiti, log yönetimi ve olay müdahale süreçlerini içerir.</p>
       <ul class="skills-list">
         <li><strong>Autonomous EDR & XDR</strong> SentinelOne, Microsoft Defender XDR ve CrowdStrike Falcon yönetimi.</li>
         <li><strong>SIEM & Log Management</strong> Wazuh, Splunk ve Elastic Stack (ELK) ile anomali tespiti.</li>
@@ -228,7 +228,7 @@ Aynı zamanda açık kaynak dünyasına ve siber güvenlik araştırmalarına ka
     <img src="/images/banners/infrastructure.png" alt="Systems & Network Infrastructure" class="skills-banner">
     <div class="skills-content">
       <h3>Systems & Network Infrastructure</h3>
-      <p class="skills-intro">Bilgi İşlem ve Altyapı Uzmanlığı sütunu; seni sıradan bir analistten ayıran kritik deneyim.</p>
+      <p class="skills-intro">Güvenli ve yüksek erişilebilirliğe sahip kurumsal ağ, sanallaştırma ve sistem altyapısı kurulumunu kapsar.</p>
       <ul class="skills-list">
         <li><strong>Virtualization & Private Cloud</strong> Proxmox VE ile kurumsal sanallaştırma mimarileri kurulumu.</li>
         <li><strong>Enterprise Network Configuration</strong> Ruijie & Reyee donanımları, VLAN, TCP/IP ve DNS/DHCP yönetimi.</li>
@@ -244,7 +244,7 @@ Aynı zamanda açık kaynak dünyasına ve siber güvenlik araştırmalarına ka
     <img src="/images/banners/software_automation.png" alt="Software & Automation Engineering" class="skills-banner">
     <div class="skills-content">
       <h3>Software & Automation Engineering</h3>
-      <p class="skills-intro">Full-stack projeleri ve BT operasyonlarını otomatize eden yazılım ve geliştirme sütunu.</p>
+      <p class="skills-intro">BT operasyonlarını ve siber güvenlik süreçlerini otomatize eden yazılım geliştirme çalışmalarını içerir.</p>
       <ul class="skills-list">
         <li><strong>Containerization</strong> Docker ile mikroservis mimarileri ve izole test ortamları kurulumu.</li>
         <li><strong>Configuration Management</strong> Ansible ile kod olarak altyapı (IaC) ve sunucu otomasyonu.</li>
