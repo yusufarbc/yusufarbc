@@ -118,7 +118,7 @@ body {
   color: var(--app-text) !important;
   margin: 0 !important;
   padding: 0 !important;
-  font-family: "Manrope", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale !important;
   line-height: 1.8 !important;
@@ -970,7 +970,7 @@ body.colorscheme-dark .article-cover {
 .markdown-content blockquote p { margin-bottom: 0; }
 
 /* Images in markdown — not card covers */
-.markdown-content img:not(.blog-cover):not(.navigation-logo) {
+.markdown-content img:not(.blog-cover):not(.navigation-logo):not(.skills-banner) {
   display: block;
   margin: 2rem auto 0.5rem auto !important;
   max-width: 100%;
@@ -981,11 +981,11 @@ body.colorscheme-dark .article-cover {
   transition: transform 0.3s ease;
 }
 
-body.colorscheme-dark .markdown-content img:not(.blog-cover):not(.navigation-logo) {
+body.colorscheme-dark .markdown-content img:not(.blog-cover):not(.navigation-logo):not(.skills-banner) {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
-.markdown-content img:hover { transform: scale(1.01); }
+.markdown-content img:not(.skills-banner):hover { transform: scale(1.01); }
 
 /* Image caption fix */
 .markdown-content p:has(img) { margin-bottom: 0.25rem !important; }
