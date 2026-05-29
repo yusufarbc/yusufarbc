@@ -29,40 +29,6 @@ layout: "projects"
     <div class="project-top">
       <div class="project-folder">📁</div>
       <div class="project-links">
-        <a href="https://github.com/yusufarbc/docker-phishing-lab" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://yusufarbc.github.io/docker-phishing-lab/" target="_blank"><i class="fa-solid fa-link"></i></a>
-      </div>
-    </div>
-    <h3>Docker Phishing Lab</h3>
-    <p class="project-desc">Gophish, Postfix ve Caddy kullanarak Docker üzerinde konteynerize edilmiş profesyonel oltalama (phishing) simülasyon laboratuvarı.</p>
-    <div class="project-tags">
-      <span>Docker</span>
-      <span>Gophish</span>
-      <span>Postfix</span>
-    </div>
-  </div>
-
-  <div class="project-card">
-    <div class="project-top">
-      <div class="project-folder">📁</div>
-      <div class="project-links">
-        <a href="https://github.com/yusufarbc/gophish-vantage" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://yusufarbc.github.io/gophish-vantage/" target="_blank"><i class="fa-solid fa-link"></i></a>
-      </div>
-    </div>
-    <h3>Gophish Vantage</h3>
-    <p class="project-desc">Kırmızı takım phishing kampanyaları ve keşif otomasyonu için geliştirilmiş açık kaynaklı phishing araç seti ve Project Discovery sarmalayıcısı.</p>
-    <div class="project-tags">
-      <span>Gophish</span>
-      <span>Red Team</span>
-      <span>OSINT</span>
-    </div>
-  </div>
-
-  <div class="project-card">
-    <div class="project-top">
-      <div class="project-folder">📁</div>
-      <div class="project-links">
         <a href="https://github.com/yusufarbc/intel-npu-gnn-benchmarking" target="_blank"><i class="fa-brands fa-github"></i></a>
         <a href="https://yusufarbc.github.io/intel-npu-gnn-benchmarking/" target="_blank"><i class="fa-solid fa-link"></i></a>
       </div>
@@ -114,40 +80,6 @@ layout: "projects"
     <div class="project-top">
       <div class="project-folder">📁</div>
       <div class="project-links">
-        <a href="https://github.com/yusufarbc/mcp-agentic-ai-security" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://yusufarbc.github.io/mcp-agentic-ai-security/" target="_blank"><i class="fa-solid fa-link"></i></a>
-      </div>
-    </div>
-    <h3>MCP Agentic Security</h3>
-    <p class="project-desc">Model Context Protocol (MCP) üzerine kapsamlı araştırma ve güvenlik incelemesi, ajanlar arası birlikte çalışabilirlik risklerine odaklanma.</p>
-    <div class="project-tags">
-      <span>AI Security</span>
-      <span>LLM</span>
-      <span>Research</span>
-    </div>
-  </div>
-
-  <div class="project-card">
-    <div class="project-top">
-      <div class="project-folder">📁</div>
-      <div class="project-links">
-        <a href="https://github.com/yusufarbc/nalburdeposu-pern-ecommerce" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://nalburdeposu.com.tr/" target="_blank"><i class="fa-solid fa-link"></i></a>
-      </div>
-    </div>
-    <h3>Nalburdeposu E-Commerce</h3>
-    <p class="project-desc">Ödeme entegrasyonu ve envanter yönetimi sunan, modern ön yüz ve sağlam arka yüz mimarisine sahip eksiksiz e-ticaret platformu.</p>
-    <div class="project-tags">
-      <span>React</span>
-      <span>Node.js</span>
-      <span>PostgreSQL</span>
-    </div>
-  </div>
-
-  <div class="project-card">
-    <div class="project-top">
-      <div class="project-folder">📁</div>
-      <div class="project-links">
         <a href="https://github.com/yusufarbc/karabuk-2025-sentinel2-yangin-analizi" target="_blank"><i class="fa-brands fa-github"></i></a>
         <a href="https://yusufarbc.github.io/karabuk-2025-sentinel2-yangin-analizi/" target="_blank"><i class="fa-solid fa-link"></i></a>
       </div>
@@ -158,23 +90,6 @@ layout: "projects"
       <span>Remote Sensing</span>
       <span>Sentinel-2</span>
       <span>Python</span>
-    </div>
-  </div>
-
-  <div class="project-card">
-    <div class="project-top">
-      <div class="project-folder">📁</div>
-      <div class="project-links">
-        <a href="https://github.com/yusufarbc/nextcloud-aio-caddy-docker" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://yusufarbc.github.io/nextcloud-aio-caddy-docker/" target="_blank"><i class="fa-solid fa-link"></i></a>
-      </div>
-    </div>
-    <h3>Nextcloud AIO Caddy</h3>
-    <p class="project-desc">Güvenlik ve self-hosted veri egemenliği için Caddy reverse proxy ile optimize edilmiş Nextcloud All-in-One kurulumu.</p>
-    <div class="project-tags">
-      <span>Nextcloud</span>
-      <span>Docker</span>
-      <span>Caddy</span>
     </div>
   </div>
 
