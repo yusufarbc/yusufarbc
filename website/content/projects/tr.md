@@ -12,6 +12,7 @@ layout: "projects"
       <div class="project-folder">📁</div>
       <div class="project-links">
         <a href="https://github.com/yusufarbc/Apache-BigData-SIEM" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://yusufarbc.github.io/Apache-BigData-SIEM/" target="_blank"><i class="fa-solid fa-link"></i></a>
       </div>
     </div>
     <h3>Apache BigData SIEM</h3>
@@ -29,6 +30,7 @@ layout: "projects"
       <div class="project-folder">📁</div>
       <div class="project-links">
         <a href="https://github.com/yusufarbc/docker-phishing-lab" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://yusufarbc.github.io/docker-phishing-lab/" target="_blank"><i class="fa-solid fa-link"></i></a>
       </div>
     </div>
     <h3>Docker Phishing Lab</h3>
@@ -45,6 +47,7 @@ layout: "projects"
       <div class="project-folder">📁</div>
       <div class="project-links">
         <a href="https://github.com/yusufarbc/gophish-vantage" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://yusufarbc.github.io/gophish-vantage/" target="_blank"><i class="fa-solid fa-link"></i></a>
       </div>
     </div>
     <h3>Gophish Vantage</h3>
@@ -61,6 +64,7 @@ layout: "projects"
       <div class="project-folder">📁</div>
       <div class="project-links">
         <a href="https://github.com/yusufarbc/intel-npu-gnn-benchmarking" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://yusufarbc.github.io/intel-npu-gnn-benchmarking/" target="_blank"><i class="fa-solid fa-link"></i></a>
       </div>
     </div>
     <h3>Intel NPU GNN Benchmarking</h3>
@@ -77,6 +81,7 @@ layout: "projects"
       <div class="project-folder">📁</div>
       <div class="project-links">
         <a href="https://github.com/yusufarbc/Siber-Guvenlik-Rehberi" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://yusufarbc.github.io/Siber-Guvenlik-Rehberi/" target="_blank"><i class="fa-solid fa-link"></i></a>
       </div>
     </div>
     <h3>Siber Güvenlik Rehberi</h3>
@@ -144,6 +149,7 @@ layout: "projects"
       <div class="project-folder">📁</div>
       <div class="project-links">
         <a href="https://github.com/yusufarbc/karabuk-2025-sentinel2-yangin-analizi" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://yusufarbc.github.io/karabuk-2025-sentinel2-yangin-analizi/" target="_blank"><i class="fa-solid fa-link"></i></a>
       </div>
     </div>
     <h3>Sentinel-2 Fire Analysis</h3>
@@ -160,6 +166,7 @@ layout: "projects"
       <div class="project-folder">📁</div>
       <div class="project-links">
         <a href="https://github.com/yusufarbc/nextcloud-aio-caddy-docker" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://yusufarbc.github.io/nextcloud-aio-caddy-docker/" target="_blank"><i class="fa-solid fa-link"></i></a>
       </div>
     </div>
     <h3>Nextcloud AIO Caddy</h3>
@@ -176,6 +183,7 @@ layout: "projects"
       <div class="project-folder">📁</div>
       <div class="project-links">
         <a href="https://github.com/yusufarbc/turkish-spam-mail-detection" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://yusufarbc.github.io/turkish-spam-mail-detection/" target="_blank"><i class="fa-solid fa-link"></i></a>
       </div>
     </div>
     <h3>Turkish Spam Detection</h3>
