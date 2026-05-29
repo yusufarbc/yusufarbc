@@ -29,7 +29,7 @@
 
 ## 🚀 About Me
 
-I am a **Software & Security Engineer** operating on the core principle: **"To design unbreakable defense, one must master the art of offense."** Bridging the gap between low-level system engineering (C/x86 Assembly) and enterprise-scale security architectures, I build resilient, "secure-by-design" infrastructures and applications that eliminate vulnerabilities before they emerge.
+I am a **Software & Security Engineer** working at the intersection of software development and cybersecurity. Over the years, I have gained hands-on experience in enterprise SOC/MDR analysis, systems and network administration, and full-stack software engineering. I focus on building secure, resilient, and secure-by-design environments that prioritize data control and system automation.
 
 ### 💻 Software & Automation Engineering
 I leverage a diverse tech stack—from low-level **C** to modern **Golang, Node.js, and Python**—to automate defenses, develop security tools, and build resilient systems:

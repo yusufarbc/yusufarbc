@@ -5,11 +5,11 @@ weight: 2
 ---
 
 
-**Yazılım & Güvenlik Mühendisi** olarak, **"Güçlü bir savunma inşa etmek için, saldırı sanatında ustalaşmak gerekir."** temel ilkesini benimsiyorum. Kurumsal SOC/MDR analistliği, full-stack yazılım geliştirme ve bulut-yerli (cloud-native) altyapı otomasyonu alanlarındaki deneyimimle; düşük seviyeli sistem mühendisliği (C/x86 Assembly) ile ölçeklenebilir savunma mimarileri arasında bir köprü görevi görüyorum.
+Merhaba, ben Yusuf. Yazılım ve siber güvenlik alanlarının kesişiminde çalışan bir **Yazılım & Güvenlik Mühendisi**yim. Kariyerim boyunca kurumsal SOC/MDR analistliği, sistem ve ağ yönetimi ile tam yığın (full-stack) yazılım geliştirme alanlarında pratik deneyim kazandım.
 
-Çalışmalarım, veri kontrolünü en üst düzeye çıkaran ve dışa bağımlılığı en aza indiren otonom, güvenli tasarıma (secure-by-design) sahip altyapılar kurarak **dijital egemenlik** ve **kurumsal dayanıklılık** sağlamaya odaklanmaktadır. Proxmox VE üzerinde sanallaştırma kümeleri yönetmekten, üretim ortamlarında konteynerizasyona ve Lakehouse tabanlı SIEM büyük veri boru hatları (pipeline) oluşturmaya kadar, güvenliğin sonradan eklenen bir yama değil, mimarinin temel taşı olduğuna inanıyorum.
+Güvenliğin, bir sisteme sonradan eklenen bir yama değil, mimarinin en temel parçası olması gerektiğine inanıyorum. Bu doğrultuda; Proxmox VE ve Docker gibi teknolojilerle güvenli sanallaştırma ortamları kuruyor, sistem otomasyonu süreçlerini yönetiyor ve büyük veri odaklı SIEM çözümleriyle kurumsal altyapıların dayanıklılığını artırıyorum.
 
-Bir araştırmacı ve geliştirici olarak; siber güvenlik otomasyon araçları tasarlıyor, yazılım tedarik zinciri (NPM) güvenlik risklerini inceliyor ve güvenli yazılım yığınları geliştiriyorum (*Vantage* ve *ApiGoat* gibi). Düşük seviyeli sistem bilgisini, modern programlama dilleriyle (Go, Node.js, Python) birleştirerek altyapı yönetim süreçlerini otomatize ediyor ve kurumsal ağları koruyorum.
+Aynı zamanda açık kaynak dünyasına ve siber güvenlik araştırmalarına katkı sağlamaktan keyif alıyorum. Geliştirdiğim *Vantage* ve *ApiGoat* gibi projelerle yazılım tedarik zinciri (NPM) güvenlik risklerini azaltmayı ve günlük siber güvenlik operasyonlarını otomatize etmeyi hedefliyorum. Düşük seviyeli sistemlerden (C, x86 Assembly) modern geliştirme dillerine (Go, Node.js, Python) kadar uzanan geniş bir yelpazede, hem geliştiren hem de koruyan pratik çözümler üretmeye odaklanıyorum.
 
 ## Deneyim
 

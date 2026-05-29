@@ -4,11 +4,11 @@ date: 2026-03-16
 weight: 2
 ---
 
-I am a **Software & Security Engineer** operating on the core principle: **"To design unbreakable defense, one must master the art of offense."** With a background spanning enterprise SOC/MDR analyst operations, full-stack development, and cloud-native infrastructure automation, I bridge the gap between low-level system engineering (C/x86 Assembly) and scalable threat mitigation architectures.
+Hi, I'm Yusuf, a **Software & Security Engineer** working at the intersection of software development and cybersecurity. Over the years, I have gained hands-on experience in enterprise SOC/MDR analysis, systems and network administration, and full-stack software engineering.
 
-My work focuses on **digital sovereignty** and **enterprise resilience** — designing and implementing secure-by-design, self-hosted environments that maximize data control and minimize external dependencies. From managing virtualization clusters on Proxmox VE and containerization in production to constructing Lakehouse-based SIEM big data pipelines, I believe security is an architectural baseline, not an afterthought.
+I believe that security should be a core architectural pillar rather than an afterthought. To support this, I build secure virtualization and container environments using technologies like Proxmox VE and Docker, manage system automation, and design data-driven SIEM pipelines to strengthen enterprise resilience.
 
-As a researcher and developer, I design security automation tools, evaluate supply chain vulnerability risks (such as NPM threat landscapes), and build secure software stacks (such as *Vantage* and *ApiGoat*). I leverage low-level system knowledge alongside modern programming languages (Go, Node.js, Python) to automate administrative task flows and defend enterprise networks.
+I am also passionate about contributing to the open-source community and security research. Through projects like *Vantage* and *ApiGoat*, I focus on mitigating software supply chain (NPM) risks and automating daily security workflows. By combining low-level systems knowledge (C, x86 Assembly) with modern languages (Go, Node.js, Python), I aim to build practical solutions that are secure by design.
 
 ## Experience
 
