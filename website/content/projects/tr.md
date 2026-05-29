@@ -131,23 +131,6 @@ layout: "projects"
     <div class="project-top">
       <div class="project-folder">📁</div>
       <div class="project-links">
-        <a href="https://github.com/yusufarbc/npm-supply-chain-network-analysis" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://yusufarbc.github.io/npm-supply-chain-network-analysis/" target="_blank"><i class="fa-solid fa-link"></i></a>
-      </div>
-    </div>
-    <h3>NPM Supply Chain Analysis</h3>
-    <p class="project-desc">NPM paketlerinin bağımlılık ağını merkezilik metrikleri kullanarak analiz ederek kritik düğümleri ve tedarik zinciri risklerini belirleme.</p>
-    <div class="project-tags">
-      <span>Python</span>
-      <span>NetworkX</span>
-      <span>Matplotlib</span>
-    </div>
-  </div>
-
-  <div class="project-card">
-    <div class="project-top">
-      <div class="project-folder">📁</div>
-      <div class="project-links">
         <a href="https://github.com/yusufarbc/apigoat" target="_blank"><i class="fa-brands fa-github"></i></a>
         <a href="https://yusufarbc.github.io/apigoat/" target="_blank"><i class="fa-solid fa-link"></i></a>
       </div>
