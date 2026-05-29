@@ -869,7 +869,7 @@ These tags act as a bridge for security analysts, allowing them to instantly und
 
 In this section, concrete and applicable rule examples are presented for selected MITER ATT&CK techniques under Reconnaissance and Execution tactics. These examples are created based on data from different log sources and explain both the rule logic and the relevant context.
 
-### Tactic: ExecutionâŠ–”ŠTA0002
+### Tactic: Execution — TA0002
 
 This tactic involves attackers attempting to run their own code or commands on a system.
 
@@ -906,7 +906,7 @@ Although this technique is associated with the 'Impact' tactic, it is also direc
 * event.action:"Process Create (rule: ProcessCreate)" and process.name:"vssadmin.exe" and process.args:("delete" and "shadows")
 * This query searches for the execution of the `vssadmin.exe` process with the `delete` and `shadows` arguments in data collected with `winlogbeat`, such as Sysmon logs. Since legitimate use of this command is extremely rare, this rule is expected to produce a high-confidence alarm when triggered.
 
-### Tactic: Discovery (DiscoveryâŠ–”ŠTA0007)
+### Tactic: Discovery (Discovery — TA0007)
 
 This tactic involves attackers trying to gather information about the environment after entering a network.
 

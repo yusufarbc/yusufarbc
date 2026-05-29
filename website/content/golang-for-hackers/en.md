@@ -1,6 +1,6 @@
 ---
 title: "Golang for Hackers"
-date: 2026-05-23
+date: 2026-05-25
 description: "The Go (Golang) programming language for cybersecurity researchers, building fast network scanners, exploit development, and offensive tool design."
 draft: false
 featuredImage: featured.webp

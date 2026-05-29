@@ -1,6 +1,6 @@
 ---
 title: "Hackerlar İçin Golang"
-date: 2026-05-23
+date: 2026-05-25
 description: "Siber güvenlik araştırmacıları için Go (Golang) programlama dili, hızlı ağ tarayıcıları, exploit geliştirme ve ofansif araç tasarımı."
 draft: false
 featuredImage: featured.webp

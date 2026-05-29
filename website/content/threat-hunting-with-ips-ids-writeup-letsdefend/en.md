@@ -276,7 +276,7 @@ In SIEM, use the filters "data.subtype: ips" and "data.attack: OS.Command.Inject
 
 **Answer:** 1
 
-> **Which APT group is associated with the IP address reported by the CTI platform (LetsDefendâŠ–”ŠThreat Intel) as conducting an OS Command Injection attack?**
+> **Which APT group is associated with the IP address reported by the CTI platform (LetsDefend — Threat Intel) as conducting an OS Command Injection attack?**
 
 Search the "OS Command Injection" attacker IP(s) on the CTI platform.
 

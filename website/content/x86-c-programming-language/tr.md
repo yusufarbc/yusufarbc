@@ -7,7 +7,6 @@ featuredImage: featured.webp
 type: posts
 ---
 
-# Sistem Programlama Temelleri
 
 Modern bilgi işlem dünyasında yazılımlar genellikle soyutlama katmanlarının arkasına saklanır. Web framework'leri, mobil uygulamalar veya yapay zeka kütüphaneleri, geliştiriciyi donanımın karmaşık gerçeklerinden korur. Ancak tüm bu sistemlerin altında, işlemciyle doğrudan konuşan, belleğin her bir baytını yöneten ve işletim sistemlerine can veren görünmez bir katman vardır: **Sistem Programlama**.
 
@@ -98,12 +97,12 @@ Gelişmiş mikroişlemcili sistemlerde kullanılan bellek adresleri günümüzde
 
 Her segment kaydedicisi bir segmentin başlangıç adresini tutar. Segmentlerin özel işlevleri vardır. Gelişmiş işlemcilerde 6 segment bulunur:
 
-* **CSâŠ–”ŠCode Segment:** Emirlerin tutulduğu segment
-* **DSâŠ–”ŠData Segment:** Verilerin tutulduğu segment
-* **SSâŠ–”ŠStack Segment:** Yığın segmentidir, gerektiğinde emrileri geçici olarak tutabilir.
-* **ESâŠ–”ŠExtra Segment:** DS ve CS'nin yetmediği durumlarda ekstra kullanılan segmenttir.
-* **FSâŠ–”ŠFile Segment:** CPU tarafından önceden belirlenmiş bir amacı yoktur. i386 ve sonraki işlemcilerde windows işletim sistemi tarafından iş parçacığı bilgi bloğuna (TIB) işaret etmek için kullanılır.
-* **GSâŠ–”ŠGraphic Segment:** CPU tarafından önceden belirlenmiş bir amacı yoktur. i386 ve sonraki işlemcilerde windows işletim sistemi tarafından iş parçacığına özgü belleğe erişmek için kullanır.
+* **CS — Code Segment:** Emirlerin tutulduğu segment
+* **DS — Data Segment:** Verilerin tutulduğu segment
+* **SS — Stack Segment:** Yığın segmentidir, gerektiğinde emrileri geçici olarak tutabilir.
+* **ES — Extra Segment:** DS ve CS'nin yetmediği durumlarda ekstra kullanılan segmenttir.
+* **FS — File Segment:** CPU tarafından önceden belirlenmiş bir amacı yoktur. i386 ve sonraki işlemcilerde windows işletim sistemi tarafından iş parçacığı bilgi bloğuna (TIB) işaret etmek için kullanılır.
+* **GS — Graphic Segment:** CPU tarafından önceden belirlenmiş bir amacı yoktur. i386 ve sonraki işlemcilerde windows işletim sistemi tarafından iş parçacığına özgü belleğe erişmek için kullanır.
 
 **2.Emir Kuyruğu (Instruction Queue):**
 
@@ -166,11 +165,11 @@ EU, birçok genel amaçlı registera sahiptir. 32-bitlik, 16-bitlik, 8-bitlik ol
 
 Mikroişlemcili sistemlerde bellekteki ara adresleri gösteren kaydedicilere işaretçi (pointer) adı verilir. X86 mimarisinde bulnan işaretçi ve indis kaydedicileri:
 
-* DIâŠ–”Šdestination-index
-* SIâŠ–”Šsource-index
-* SPâŠ–”Šstack-pointer
-* BPâŠ–”Šbase-pointer
-* IPâŠ–”Šinstruction pointer
+* DI — destination-index
+* SI — source-index
+* SP — stack-pointer
+* BP — base-pointer
+* IP — instruction pointer
 
 Bu kaydediciler 16-bitliktir. E ile başlayan genişletilmiş 32-bitlik türevleri de i386 üstü işlemcilerde desteklenir.
 
@@ -294,10 +293,10 @@ Bu komutlardan yaygın olarak kullanılanlara bakalım.
   - immediate
 * **IN/OUT**IN komutu portlar üzerinden AL veya AX'e veri aktarımını sağlar, gerekirse DX'de kullanılabilir.İkinci operand bir port numarasıdır.   
   Out komutu bunun tersidir. **Operandlar:  
-  -** AL, im.byteâŠ–”Šim.byte, AL  
-  - AL, DXâŠ–”ŠDX, AL  
-  - AX, im.byteâŠ–”Šim.byte, AX  
-  - AX, DXâŠ–”ŠDX, AX
+  -** AL, im.byte — im.byte, AL  
+  - AL, DX — DX, AL  
+  - AX, im.byte — im.byte, AX  
+  - AX, DX — DX, AX
 
 #### **Aritmetik ve Mantık Komutları**
 
@@ -554,11 +553,11 @@ Türkçe anlamı söz dizimi olan ingilizce bir sözcüktür. Programlamada kull
 
 Değişenler ve Sabitler verileri tutmak için kullandığımız bileşenlerdir. Bu bileşenleri tanımlarken dikkat etmemiz gereken nokta değiken veya sabitin kabul ettiği veri türüdür. Standart C dilinde 5 çeşit veri türü vardır:
 
-* intâŠ–”Štam sayı değerleri için kullanılır.
-* floatâŠ–”Šondalıklı sayı değerleri için kullanılır.
-* doubleâŠ–”Šbüyük ondalıklı sayı değerleri için kullanılır.
-* charâŠ–”Škarakter değerleri için kullanılır.
-* voidâŠ–”Štürü olmayan demektir.
+* int — tam sayı değerleri için kullanılır.
+* float — ondalıklı sayı değerleri için kullanılır.
+* double — büyük ondalıklı sayı değerleri için kullanılır.
+* char — karakter değerleri için kullanılır.
+* void — türü olmayan demektir.
 
 Bu veri türlerini kullanarak değişkenler tanımlayabiliriz:
 
@@ -1084,10 +1083,10 @@ Bir önceki bölümde pointerların bellek adresi tutan değişkenler olduğunda
 
 Burada pointer aritmetiği devreye giriyor. c'deki işaretçi, sayısal bir değer olan bir adrestir. Bu nedenle, sayısal bir değerde olduğu gibi bir işaretçide de aritmetik işlemler gerçekleştirebilirsiniz. İşaretçiyi tanımladığınız türe göre bu aritmetik işlemler yapılacaktır. Örneğin:
 
-* charâŠ–”Š1 byte: işaretçiyi bir arttırdığınızda bellekte 1 bayt sonraki konumu gösterecektir.
-* intâŠ–”Š4 byte: işaretçiyi bir arttırdığınızda bellekte 4bayt sonraki konumu gösterecektir.
-* floatâŠ–”Š4byte: işaretçiyi bir arttırdığınızda bellekte 4bayt sonraki konumu gösterecektir.
-* doubleâŠ–”Š8byte: işaretçiyi bir arttırdığınızda bellekte 8 bayt sonraki konumu gösterecektir.
+* char — 1 byte: işaretçiyi bir arttırdığınızda bellekte 1 bayt sonraki konumu gösterecektir.
+* int — 4 byte: işaretçiyi bir arttırdığınızda bellekte 4bayt sonraki konumu gösterecektir.
+* float — 4byte: işaretçiyi bir arttırdığınızda bellekte 4bayt sonraki konumu gösterecektir.
+* double — 8byte: işaretçiyi bir arttırdığınızda bellekte 8 bayt sonraki konumu gösterecektir.
 
 Bu mantık dizilerde çok işimize yarar. 10 elemanlı bir integer dizisi düşünün; bir integer pointer ile o diziyi rahatlıkla dolaşabilirsiniz. pointerı bir arttırdığınızda sonraki elemana geçmiş olur. Bir aalltığınızda önceki elemana geçer. Ancak, dizinin dışına çıkmamaya dikkat etmelisiniz!
 

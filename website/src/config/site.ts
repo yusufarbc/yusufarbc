@@ -6,13 +6,17 @@ export const DEFAULT_LANG: Lang = "tr";
 export const SITE = {
   title: "yusufarbc.dev",
   author: "Yusuf Talha ARABACI",
+  url: "https://yusufarbc.dev",
   avatar: "/images/profile.jpeg",
+  ogImage: "/images/profile.jpeg",
   info: {
-    tr: "Yazılım ve Güvenlik Mühendisi",
+    tr: "Yazılım & Güvenlik Mühendisi",
     en: "Software & Security Engineer",
   },
-  description:
-    "Software & Security Engineer specializing in infrastructure management, secure-by-design architectures, and open-source enterprise solutions.",
+  description: {
+    tr: "Yazılım & Güvenlik Mühendisi, altyapı yönetimi, güvenli tasarım mimarileri ve açık kaynak kurumsal çözümler üzerine çalışır.",
+    en: "Software & Security Engineer specializing in infrastructure management, secure-by-design architectures, and open-source enterprise solutions.",
+  },
   socials: [
     {
       name: "Github",

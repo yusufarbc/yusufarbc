@@ -225,6 +225,23 @@ const hasToc = tocGroups.length > 0;
         window.addEventListener("scroll", onScroll, { passive: true });
         updateActiveByScroll();
 
+        const loadScript = (src, id) => new Promise((resolve, reject) => {
+          if (id && document.getElementById(id)) {
+            resolve();
+            return;
+          }
+
+          const script = document.createElement("script");
+          script.src = src;
+          script.async = true;
+          if (id) {
+            script.id = id;
+          }
+          script.onload = () => resolve();
+          script.onerror = reject;
+          document.head.appendChild(script);
+        });
+
         // Chart.js Initialization for Blog Posts
         const initCharts = () => {
           const radarCtx = document.getElementById('latexRadarChart');
@@ -314,8 +331,26 @@ const hasToc = tocGroups.length > 0;
           }
         };
 
+        const startCharts = async () => {
+          const radarCtx = document.getElementById('latexRadarChart');
+          const barCtx = document.getElementById('presentationBarChart');
+          if (!radarCtx && !barCtx) return;
+
+          if (!window.Chart) {
+            try {
+              await loadScript("https://cdn.jsdelivr.net/npm/chart.js", "chartjs-script");
+            } catch {
+              return;
+            }
+          }
+
+          initCharts();
+        };
+
         // Initialize charts after a short delay or on load
-        setTimeout(initCharts, 100);
+        setTimeout(() => {
+          void startCharts();
+        }, 100);
       })();
     </script>
   )}

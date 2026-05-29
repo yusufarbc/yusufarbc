@@ -3,7 +3,7 @@
   <h1 style="border-bottom: none;">Hi, I'm Yusuf Talha ARABACI 👋</h1>
   
   <p align="center">
-    <b>IT & Security Engineer | Software Engineering (M.Sc.)</b><br>
+    <b>Software & Security Engineer | Software Engineering (M.Sc.)</b><br>
     Digital Sovereignty • Cloud-Native Architecture • Security Automation • Big Data
   </p>
 
@@ -29,7 +29,7 @@
 
 ## 🚀 About Me
 
-I am a **Software and Security Engineer** who bridges the gap between low-level system understanding and enterprise-scale defense architectures. Security starts at the architectural level, and by mastering the foundations, I build "secure-by-design" infrastructures and applications that eliminate vulnerabilities before they emerge.
+I am a **Software & Security Engineer** operating on the core principle: **"To design unbreakable defense, one must master the art of offense."** Bridging the gap between low-level system engineering (C/x86 Assembly) and enterprise-scale security architectures, I build resilient, "secure-by-design" infrastructures and applications that eliminate vulnerabilities before they emerge.
 
 ### 💻 Software & Automation Engineering
 I leverage a diverse tech stack—from low-level **C** to modern **Golang, Node.js, and Python**—to automate defenses, develop security tools, and build resilient systems:

@@ -7,7 +7,6 @@ featuredImage: featured.webp
 type: posts
 ---
 
-# System Programming Fundamentals
 
 In the modern computing world, software is usually hidden behind layers of abstraction. Web frameworks, mobile applications, or artificial intelligence libraries shield the developer from the complex realities of hardware. But beneath all these systems lies an invisible layer that speaks directly to the processor, manages every byte of memory, and breathes life into operating systems: **Systems Programming**.
 
@@ -98,12 +97,12 @@ Memory addresses used in advanced microprocessor systems are today expressed in 
 
 Each segment register holds the starting address of a segment. Segments have special functions. Advanced processors have 6 segments:
 
-* **CSâŠ–”ŠCode Segment:** Segment where orders are kept
-* **DSâŠ–”ŠData Segment:** Segment where data is kept
-* **SSâŠ–”ŠStack Segment:** It is a stack segment, it can temporarily hold orders when necessary.
-* **ESâŠ–”ŠExtra Segment:** This is the extra segment used when DS and CS are not sufficient.
-* **FSâŠ–”ŠFile Segment:** It has no predetermined purpose by the CPU. Used by the windows operating system on i386 and later processors to point to a thread information block (TIB).
-* **GSâŠ–”ŠGraphic Segment:** It has no predetermined purpose by the CPU. Used by the windows operating system to access thread-specific memory on i386 and later processors.
+* **CS — Code Segment:** Segment where orders are kept
+* **DS — Data Segment:** Segment where data is kept
+* **SS — Stack Segment:** It is a stack segment, it can temporarily hold orders when necessary.
+* **ES — Extra Segment:** This is the extra segment used when DS and CS are not sufficient.
+* **FS — File Segment:** It has no predetermined purpose by the CPU. Used by the windows operating system on i386 and later processors to point to a thread information block (TIB).
+* **GS — Graphic Segment:** It has no predetermined purpose by the CPU. Used by the windows operating system to access thread-specific memory on i386 and later processors.
 
 **2.Instruction Queue:**
 
@@ -166,11 +165,11 @@ Multi-purpose loggers are generally used in operations specific to their name:
 
 In microprocessor systems, registers that show intermediate addresses in memory are called pointers. Pointer and index registers in x86 architecture:
 
-* DIâŠ–”Šdestination-index
-* SIâŠ–”Šsource-index
-* SPâŠ–”Šstack-pointer
-* BPâŠ–”Šbase-pointer
-* IPâŠ–”Šinstruction pointer
+* DI — destination-index
+* SI — source-index
+* SP — stack-pointer
+* BP — base-pointer
+* IP — instruction pointer
 
 These registers are 16-bit. Extended 32-bit variants starting with E are also supported on processors above i386.
 
@@ -294,10 +293,10 @@ Let's look at the commonly used commands.
   - immediate
 * **IN/OUT**IN command enables data transfer to AL or AX via ports, it can be used in DX if necessary. The second operand is a port number.   
   The out command is the opposite. **Operands:  
-  -** GET, im.byteâŠ–”Šim.byte, GET  
-  - BUY, DXâŠ–”ŠDX, BUY  
-  - AX, im.byteâŠ–”Šim.byte, AX  
-  - AX, DXâŠ–”ŠDX, AX
+  -** GET, im.byte — im.byte, GET  
+  - BUY, DX — DX, BUY  
+  - AX, im.byte — im.byte, AX  
+  - AX, DX — DX, AX
 
 #### **Arithmetic and Logic Instructions**
 
@@ -552,11 +551,11 @@ It is an English word with Turkish meaning and syntax. All the rules of the lang
 
 Variables and Constants are the components we use to hold data. The point we need to pay attention to when defining these components is the data type that the variable or constant accepts. There are 5 types of data types in standard C:
 
-* intâŠ–”Šused for integer values.
-* floatâŠ–”Šused for decimal number values.
-* doubleâŠ–”Šused for large decimal number values.
-* charâŠ–”Šused for character values.
-* voidâŠ–”Šmeans without type.
+* int — used for integer values.
+* float — used for decimal number values.
+* double — used for large decimal number values.
+* char — used for character values.
+* void — means without type.
 
 We can define variables using these data types:
 
@@ -1082,10 +1081,10 @@ In the previous section, we mentioned that pointers are variables that hold memo
 
 This is where pointer arithmetic comes into play. The pointer in c is an address, which is a numeric value. Therefore, you can perform arithmetic operations on a pointer as well as on a numeric value. These arithmetic operations will be performed depending on the type you define the pointer. For example:
 
-* charâŠ–”Š1 byte: increment the pointer by one and it will point to the next location in memory by 1 byte.
-* intâŠ–”Š4 bytes: increment the pointer by one and it will point to the next 4 bytes in memory.
-* floatâŠ–”Š4byte: signWhen you increase the value by one, it will point to the next 4 bytes in memory.
-* doubleâŠ–”Š8byte: increment the pointer by one and it will point to the next 8 bytes in memory.
+* char — 1 byte: increment the pointer by one and it will point to the next location in memory by 1 byte.
+* int — 4 bytes: increment the pointer by one and it will point to the next 4 bytes in memory.
+* float — 4byte: signWhen you increase the value by one, it will point to the next 4 bytes in memory.
+* double — 8byte: increment the pointer by one and it will point to the next 8 bytes in memory.
 
 This logic comes in handy in TV series. Consider an integer array with 10 elements; You can easily navigate that array with an integer pointer. When you increment the pointer by one, it moves to the next element. When you lower it, it moves to the previous element. However, you must be careful not to stray from the sequence!
 

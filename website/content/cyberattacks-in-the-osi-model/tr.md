@@ -252,7 +252,7 @@ Spam mailler ile gelebilen bazı zararlı yazılım türleri:
 
 ### Phishing Attacks
 
-Kimlik avı, bir kullanıcı ile e-posta veya anlık mesaj yoluylaâŠ–”Šya da başka bir şekildeâŠ–”Šmeşru bir kişi veya kuruluş gibi davranan biri tarafından iletişime geçildiğinde meydana gelir. Amaç, alıcıyı cihazına kötü amaçlı yazılım yüklemesi veya oturum açma bilgileri ya da finansal bilgiler gibi kişisel bilgilerini paylaşması için kandırmaktır.
+Kimlik avı, bir kullanıcı ile e-posta veya anlık mesaj yoluyla — ya da başka bir şekilde — meşru bir kişi veya kuruluş gibi davranan biri tarafından iletişime geçildiğinde meydana gelir. Amaç, alıcıyı cihazına kötü amaçlı yazılım yüklemesi veya oturum açma bilgileri ya da finansal bilgiler gibi kişisel bilgilerini paylaşması için kandırmaktır.
 
 ![](https://cdn-images-1.medium.com/max/800/0*u9pddjEJBTX2V0Fb)
 
@@ -271,7 +271,7 @@ Phishing Türleri:
 
 Bu katman, son kullanıcıların ağa erişimini sağlayan uygulamaları içerir. Bu uygulamalarda çeşitli zafiyetler meydana gelebilir. Saldırganlar bu zafiyetlerden yararlanarak saldırılar gerçekleştirirler.
 
-### Remote Code ExecutionâŠ–”ŠRCE Attack
+### Remote Code Execution — RCE Attack
 
 Uzaktan kod yürütme, bir siber suçlunun hedef cihazda uygulamayı çalıştıran kullanıcının ayrıcalıklarıyla herhangi bir komutu yürütmek için uygulama güvenlik açıklarından yararlanmasına olanak tanır.
 
@@ -338,7 +338,7 @@ CSRF, yetkisiz komutların bir kullanıcının tarayıcısından güvenilir bir 
 
 CSRF
 
-Kötü niyetli bir web sitesi bu tür komutları özel olarak hazırlanmış görüntü etiketleri, gizli formlar veya JavaScript istekleri aracılığıyla iletebilirâŠ–”Šbunların tümü kullanıcının bilgisi olmadan çalışabilir.
+Kötü niyetli bir web sitesi bu tür komutları özel olarak hazırlanmış görüntü etiketleri, gizli formlar veya JavaScript istekleri aracılığıyla iletebilir — bunların tümü kullanıcının bilgisi olmadan çalışabilir.
 
 ### SSRF (Server-Side Request Forgery) Attack
 

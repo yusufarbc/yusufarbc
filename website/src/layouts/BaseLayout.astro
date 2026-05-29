@@ -11,10 +11,23 @@ interface Props {
   description?: string;
 }
 
-const { title, lang, description = SITE.description } = Astro.props;
+const { title, lang, description } = Astro.props;
 const oppositeLang: Lang = lang === "tr" ? "en" : "tr";
 const pathname = Astro.url.pathname;
 const switchedPath = pathname.replace(/^\/(tr|en)(?=\/|$)/, `/${oppositeLang}`);
+const defaultDescription = SITE.description[lang] ?? SITE.description.en;
+const pageDescription = description ?? defaultDescription;
+const siteUrl = SITE.url;
+const canonicalUrl = new URL(resolveAssetPath(pathname), siteUrl).toString();
+const trPath = pathname.replace(/^\/(tr|en)(?=\/|$)/, "/tr");
+const enPath = pathname.replace(/^\/(tr|en)(?=\/|$)/, "/en");
+const trUrl = new URL(resolveAssetPath(trPath), siteUrl).toString();
+const enUrl = new URL(resolveAssetPath(enPath), siteUrl).toString();
+const ogImagePath = SITE.ogImage ?? SITE.avatar;
+const ogImageUrl = new URL(resolveAssetPath(ogImagePath), siteUrl).toString();
+const sitemapUrl = new URL(resolveAssetPath("/sitemap.xml"), siteUrl).toString();
+const ogLocale = lang === "tr" ? "tr_TR" : "en_US";
+const ogLocaleAlt = lang === "tr" ? "en_US" : "tr_TR";
 ---
 
 <!doctype html>
@@ -22,17 +35,28 @@ const switchedPath = pathname.replace(/^\/(tr|en)(?=\/|$)/, `/${oppositeLang}`);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
+    <meta name="description" content={pageDescription} />
+    <meta name="author" content={SITE.author} />
+    <meta name="robots" content="index,follow" />
     <title>{title}</title>
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" href={trUrl} hreflang="tr" />
+    <link rel="alternate" href={enUrl} hreflang="en" />
+    <link rel="alternate" href={siteUrl} hreflang="x-default" />
     <link rel="icon" type="image/x-icon" href={resolveAssetPath("/favicon.ico")} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js" is:inline></script>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" is:inline></script>
+    <link rel="sitemap" type="application/xml" href={sitemapUrl} />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
     <script is:inline>
       (() => {
         const remembered = localStorage.getItem("colorscheme");
@@ -42,16 +66,23 @@ const switchedPath = pathname.replace(/^\/(tr|en)(?=\/|$)/, `/${oppositeLang}`);
     </script>
   </head>
   <body class="preload-transitions colorscheme-auto">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div id="scroll-progress" class="scroll-progress"></div>
 
-    <nav class="navigation">
+    <nav class="navigation" aria-label="Primary">
       <div class="container">
         <a class="navigation-title" href={`/${lang}/`} aria-label="Go to home">
           <img class="navigation-logo" src={resolveAssetPath(SITE.avatar)} alt={SITE.author} />
           <span>{SITE.title}</span>
         </a>
 
-        <button class="menu-toggle btn-reset" id="menu-toggle" aria-label="Toggle menu">
+        <button
+          class="menu-toggle btn-reset"
+          id="menu-toggle"
+          aria-label="Toggle menu"
+          aria-controls="navigation-list"
+          aria-expanded="false"
+        >
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
           </span>
@@ -63,8 +94,9 @@ const switchedPath = pathname.replace(/^\/(tr|en)(?=\/|$)/, `/${oppositeLang}`);
               <a
                 class={`navigation-link ${pathname.startsWith(item.href) ? "is-active" : ""}`}
                 href={item.href}
+                aria-current={pathname.startsWith(item.href) ? "page" : undefined}
                 target={item.external ? "_blank" : undefined}
-                rel={item.external ? "noreferrer" : undefined}
+                rel={item.external ? "noreferrer noopener" : undefined}
               >
                 {item.label}
               </a>
@@ -76,7 +108,12 @@ const switchedPath = pathname.replace(/^\/(tr|en)(?=\/|$)/, `/${oppositeLang}`);
             </a>
           </li>
           <li class="nav-theme-toggle">
-            <button class="navigation-link btn-reset" id="dark-mode-toggle" aria-label="Toggle theme">
+            <button
+              class="navigation-link btn-reset"
+              id="dark-mode-toggle"
+              aria-label="Toggle theme"
+              aria-pressed="false"
+            >
               <i class="fa-solid fa-circle-half-stroke"></i>
             </button>
           </li>
@@ -84,7 +121,7 @@ const switchedPath = pathname.replace(/^\/(tr|en)(?=\/|$)/, `/${oppositeLang}`);
       </div>
     </nav>
 
-    <main class="content">
+    <main class="content" id="main-content">
       <slot />
     </main>
 
@@ -103,11 +140,31 @@ const switchedPath = pathname.replace(/^\/(tr|en)(?=\/|$)/, `/${oppositeLang}`);
 
       const scrollProgress = document.getElementById("scroll-progress");
 
+      function loadScript(src, id) {
+        return new Promise((resolve, reject) => {
+          if (id && document.getElementById(id)) {
+            resolve();
+            return;
+          }
+
+          const script = document.createElement("script");
+          script.src = src;
+          script.async = true;
+          if (id) {
+            script.id = id;
+          }
+          script.onload = () => resolve();
+          script.onerror = reject;
+          document.head.appendChild(script);
+        });
+      }
+
       // Set initial layout and menu theme preference
       function setTheme(theme) {
         body.classList.remove("colorscheme-auto", "colorscheme-light", "colorscheme-dark");
         body.classList.add(`colorscheme-${theme}`);
         document.documentElement.style.colorScheme = theme;
+        darkModeToggle?.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
       }
 
       const remembered = localStorage.getItem("colorscheme");
@@ -127,6 +184,7 @@ const switchedPath = pathname.replace(/^\/(tr|en)(?=\/|$)/, `/${oppositeLang}`);
       menuToggle?.addEventListener("click", () => {
         const isOpen = navigationList?.classList.toggle("is-open");
         menuToggle?.classList.toggle("is-active");
+        menuToggle?.setAttribute("aria-expanded", isOpen ? "true" : "false");
         document.body.style.overflow = isOpen ? "hidden" : "";
       });
 
@@ -135,6 +193,7 @@ const switchedPath = pathname.replace(/^\/(tr|en)(?=\/|$)/, `/${oppositeLang}`);
         link.addEventListener("click", () => {
           navigationList.classList.remove("is-open");
           menuToggle?.classList.remove("is-active");
+          menuToggle?.setAttribute("aria-expanded", "false");
           document.body.style.overflow = "";
         });
       });
@@ -202,11 +261,15 @@ const switchedPath = pathname.replace(/^\/(tr|en)(?=\/|$)/, `/${oppositeLang}`);
         }
       });
 
-      document.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", async () => {
         document.body.classList.remove("preload-transitions");
 
         // Initialize Mermaid diagrams
         const mermaidBlocks = document.querySelectorAll('pre code.language-mermaid');
+        if (mermaidBlocks.length > 0) {
+          await loadScript("https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js", "mermaid-script");
+        }
+
         if (mermaidBlocks.length > 0 && typeof mermaid !== 'undefined') {
           const isDark = document.body.classList.contains('colorscheme-dark') ||
             (document.body.classList.contains('colorscheme-auto') &&

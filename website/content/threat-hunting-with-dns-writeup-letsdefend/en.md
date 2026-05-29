@@ -387,7 +387,7 @@ In SIEM, apply the filter "rule.groups: ids" and analyze the results. Look for t
 
 ![](https://cdn-images-1.medium.com/max/800/1*4ymR0dCKyKsFJe3PxID59w.png)
 
-**Answer:** ET EXPLOIT Apache log4j RCE AttemptâŠ–”Šlower/upper UDP Bypass M2 (Outbound) (CVE-2021–44228)
+**Answer:** ET EXPLOIT Apache log4j RCE Attempt — lower/upper UDP Bypass M2 (Outbound) (CVE-2021–44228)
 
 > What is the source IP address that triggered the other IDS alert related to the IP address provided in the DNS response?
 

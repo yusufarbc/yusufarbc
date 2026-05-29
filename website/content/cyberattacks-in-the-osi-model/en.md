@@ -253,7 +253,7 @@ spam mSome types of malware that may come with ailler:
 
 ### Phishing Attacks
 
-Phishing occurs when a user is contacted via email, instant messageâŠ–”Šor otherwiseâŠ–”Šby someone pretending to be a legitimate person or organization. The goal is to trick the recipient into installing malware on their device or sharing personal information, such as login credentials or financial information.
+Phishing occurs when a user is contacted via email, instant message — or otherwise — by someone pretending to be a legitimate person or organization. The goal is to trick the recipient into installing malware on their device or sharing personal information, such as login credentials or financial information.
 
 ![](https://cdn-images-1.medium.com/max/800/0*u9pddjEJBTX2V0Fb)
 
@@ -272,7 +272,7 @@ Phishing Types:
 
 This layer contains applications that provide end users access to the network. Various vulnerabilities may occur in these applications. Attackers carry out attacks by taking advantage of these vulnerabilities.
 
-### Remote Code ExecutionâŠ–”ŠRCE Attack
+### Remote Code Execution — RCE Attack
 
 Remote code execution allows a cybercriminal to exploit application vulnerabilities to execute any command on the target device with the privileges of the user running the application.
 
@@ -339,7 +339,7 @@ CSRF describes malicious use of a website where unauthorized commands are sent f
 
 CSRF
 
-A malicious website can deliver such commands via specially crafted image tags, hidden forms, or JavaScript requestsâŠ–”Šall of which can operate without the user's knowledge.
+A malicious website can deliver such commands via specially crafted image tags, hidden forms, or JavaScript requests — all of which can operate without the user's knowledge.
 
 ### SSRF (Server-Side Request Forgery) Attack
 

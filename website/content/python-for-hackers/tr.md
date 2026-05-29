@@ -7,7 +7,6 @@ featuredImage: python_for_hackers_cover.webp
 type: posts
 ---
 
-# Hakerlar için Python
 
 ## requests
 

@@ -9,7 +9,6 @@ type: posts
 ---
 
 ---
-# Siber Güvenlik için İşletim Sistemi Dağıtımları ve Lab Ortamları
 
 Merhaba bu yazımda siber güvenlik alanında sk kullanılan dağıtımlardan ve lab ortamlarından bahsedeceğim.
 

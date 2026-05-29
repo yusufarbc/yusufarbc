@@ -370,7 +370,7 @@ Genel olarak, kilitlenme sorunuyla üç yoldan biriyle başa çıkabiliriz:
 
 Ana bellek(RAM) ve işlemcinin içine(Cache) yerleştirilmiş kayıtlar, CPU'nun doğrudan erişebildiği tek genel amaçlı depolama alanıdır. Bellek adreslerini argüman olarak alan makine talimatları vardır, ancak disk adreslerini alan hiçbir talimat yoktur. Bu nedenle, yürütülmekte olan tüm talimatlar ve talimatlar tarafından kullanılan tüm veriler, bu doğrudan erişimli depolama aygıtlarından birinde olmalıdır. Eğer veriler bellekte değilse, CPU'nun üzerinde işlem yapabilmesi için önce ana belleğe(RAM) taşınmaları gerekir.  
 CPU tarafından üretilen bir adres genellikle mantıksal adres olarak  
-adlandırılırken, bellek birimi tarafından görülen bir adresâŠ–”Šyani belleğin bellek adres kaydına yüklenen adresâŠ–”Šgenellikle fiziksel adres olarak adlandırılır. Sanal adreslerden fiziksel adreslere çalışma zamanı eşlemesi, *bellek yönetim birimi (MMU)* adı verilen bir donanım aygıtı tarafından yapılır.
+adlandırılırken, bellek birimi tarafından görülen bir adres — yani belleğin bellek adres kaydına yüklenen adres — genellikle fiziksel adres olarak adlandırılır. Sanal adreslerden fiziksel adreslere çalışma zamanı eşlemesi, *bellek yönetim birimi (MMU)* adı verilen bir donanım aygıtı tarafından yapılır.
 
 ### Takas(swap)
 
@@ -473,7 +473,7 @@ işletim sistemi tarafından bilgisayardaki büyük veri depolama birimlerinin y
 
 ### Disk Yapısı
 
-Disk, verilerin kalıcı olarak depolandığı ve erişildiği bir depolama birimidir. Bilgisayar sistemlerinde yaygın olarak kullanılan diskler, sabit disk sürücüleri (Hard Disk DriveâŠ–”ŠHDD) ve katı hal sürücüleri (Solid State DriveâŠ–”ŠSSD) olarak iki ana kategoriye ayrılır.
+Disk, verilerin kalıcı olarak depolandığı ve erişildiği bir depolama birimidir. Bilgisayar sistemlerinde yaygın olarak kullanılan diskler, sabit disk sürücüleri (Hard Disk Drive — HDD) ve katı hal sürücüleri (Solid State Drive — SSD) olarak iki ana kategoriye ayrılır.
 
 ![](https://cdn-images-1.medium.com/max/800/1*zfPPKDtSp7k9jBGej2m-dw.png)
 

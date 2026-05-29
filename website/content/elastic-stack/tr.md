@@ -877,7 +877,7 @@ Bu etiketler, güvenlik analistleri için bir köprü görevi görerek, bir alar
 
 Bu bölümde, Keşif ve Yürütme taktikleri altında yer alan seçilmiş MITRE ATT&CK teknikleri için somut ve uygulanabilir kural örnekleri sunulmuştur. Bu örnekler, farklı log kaynaklarından elde edilen verilere dayanarak oluşturulmuş olup, hem kural mantığını hem de ilgili bağlamı açıklamaktadır.
 
-### Taktik: Yürütme (ExecutionâŠ–”ŠTA0002)
+### Taktik: Yürütme (Execution — TA0002)
 
 Bu taktik, saldırganların bir sistemde kendi kodlarını veya komutlarını çalıştırma girişimlerini kapsar.
 
@@ -914,7 +914,7 @@ Bu teknik, `Impact` (Etki) taktiği ile ilişkilendirilse de, bir saldırganın 
 * event.action:"Process Create (rule: ProcessCreate)" and process.name:"vssadmin.exe" and process.args:("delete" and "shadows")
 * Bu sorgu, Sysmon logları gibi `winlogbeat` ile toplanan verilerde, `vssadmin.exe` sürecinin `delete` ve `shadows` argümanlarıyla birlikte çalıştırılmasını arar. Bu komutun meşru kullanımı son derece nadir olduğu için, bu kural tetiklendiğinde yüksek güvenilirlikli bir alarm üretmesi beklenir.
 
-### Taktik: Keşif (DiscoveryâŠ–”ŠTA0007)
+### Taktik: Keşif (Discovery — TA0007)
 
 Bu taktik, saldırganların bir ağa girdikten sonra çevre hakkında bilgi toplama çabalarını içerir.
 

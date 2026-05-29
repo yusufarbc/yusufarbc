@@ -5,9 +5,11 @@ weight: 2
 ---
 
 
-**Bilgi İşlem ve Güvenlik Mühendisi** olarak, "Savunmayı öğrenmek için saldırıyı ustaca bilmek gerekir." ilkesini benimsiyorum. Kurumsal altyapıların tasarımı, kurulumu ve savunulmasında güçlü bir temele sahibim. Sistem yönetimi (Linux & Windows Server), ağ yapılandırması ve sanallaştırma (Proxmox VE, Docker) konularında pratik deneyimle, donanım seviyesinden başlayarak "güvenli tasarım" mimarileri inşa ediyorum.
+**Yazılım & Güvenlik Mühendisi** olarak, **"Güçlü bir savunma inşa etmek için, saldırı sanatında ustalaşmak gerekir."** temel ilkesini benimsiyorum. Kurumsal SOC/MDR analistliği, full-stack yazılım geliştirme ve bulut-yerli (cloud-native) altyapı otomasyonu alanlarındaki deneyimimle; düşük seviyeli sistem mühendisliği (C/x86 Assembly) ile ölçeklenebilir savunma mimarileri arasında bir köprü görevi görüyorum.
 
-Dijital egemenlik, açık kaynak kurumsal çözümler ve **dışa bağımlılığı en aza indiren otonom BT ortamları** oluşturma konusuna tutkuyla yaklaşıyorum. Düşük seviyeli sistem bilgisini, kurumsal ölçekli savunma mimarileriyle birleştiriyorum.
+Çalışmalarım, veri kontrolünü en üst düzeye çıkaran ve dışa bağımlılığı en aza indiren otonom, güvenli tasarıma (secure-by-design) sahip altyapılar kurarak **dijital egemenlik** ve **kurumsal dayanıklılık** sağlamaya odaklanmaktadır. Proxmox VE üzerinde sanallaştırma kümeleri yönetmekten, üretim ortamlarında konteynerizasyona ve Lakehouse tabanlı SIEM büyük veri boru hatları (pipeline) oluşturmaya kadar, güvenliğin sonradan eklenen bir yama değil, mimarinin temel taşı olduğuna inanıyorum.
+
+Bir araştırmacı ve geliştirici olarak; siber güvenlik otomasyon araçları tasarlıyor, yazılım tedarik zinciri (NPM) güvenlik risklerini inceliyor ve güvenli yazılım yığınları geliştiriyorum (*Vantage* ve *ApiGoat* gibi). Düşük seviyeli sistem bilgisini, modern programlama dilleriyle (Go, Node.js, Python) birleştirerek altyapı yönetim süreçlerini otomatize ediyor ve kurumsal ağları koruyorum.
 
 ## Deneyim
 

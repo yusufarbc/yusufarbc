@@ -243,7 +243,7 @@ No Answer Needed
 
 * SIEM (Wazuh)
 * EDR Events (Sysmon)
-* CTI Events ([Threat IntelâŠ–”ŠLetsDefend](https://app.letsdefend.io/threath-intelligence-feed))
+* CTI Events ([Threat Intel — LetsDefend](https://app.letsdefend.io/threath-intelligence-feed))
 * System Monitor Logs (Zabbix)
 
 ## Questions
@@ -318,7 +318,7 @@ Query the hash obtained from the threat intelligence source in the SIEM search s
 
 **Answer:** C:\\Windows\\Temp\\nanominer\\nanominer.exe
 
-> What is the full path of the process (parent processâŠ–”Špath/binary\_name) that executed the miner application on the system where cryptomining malware was detected (other than the system that generated the high CPU usage alert)?
+> What is the full path of the process (parent process — path/binary\_name) that executed the miner application on the system where cryptomining malware was detected (other than the system that generated the high CPU usage alert)?
 
 ![](https://cdn-images-1.medium.com/max/800/1*Aq1Q7mXyXVYkh0A8y9ECfQ.png)
 
@@ -336,7 +336,7 @@ Query the hash obtained from the threat intelligence source in the SIEM search s
 
 * SIEM (Wazuh)
 * EDR Events (Sysmon)
-* CTI Events ([Threat IntelâŠ–”ŠLetsDefend](https://app.letsdefend.io/threath-intelligence-feed))
+* CTI Events ([Threat Intel — LetsDefend](https://app.letsdefend.io/threath-intelligence-feed))
 * System Monitor Logs (Zabbix)
 
 ## Questions

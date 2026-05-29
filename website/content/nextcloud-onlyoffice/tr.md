@@ -1,6 +1,6 @@
 ---
 title: "Nextcloud ve OnlyOffice: M365 ve Google Workspace'e Karşı Egemen Çözüm"
-date: '2026-05-23'
+date: '2026-05-15'
 description: "Kurumsal veri egemenliğini sağlamak amacıyla Nextcloud Hub, OnlyOffice ve Mailcow entegrasyonunun mimari analizi; M365 ve Google Workspace karşılaştırması ve performans optimizasyon rehberi."
 featuredImage: featured.webp
 draft: false
