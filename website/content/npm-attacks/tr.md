@@ -40,9 +40,9 @@ npm'in çalışma mantığı; deklaratif manifesto dosyalarına, deterministik d
 
 npm ekosistemindeki en büyük güvenlik açığı, doğrudan (direct) bağımlılıkların ötesinde yer alan ve geliştiricilerin doğrudan kontrol etmediği **geçişli (transitive) bağımlılık ağacıdır**. Bir geliştirici projesine tek bir güvenilir kütüphane eklediğinde, o kütüphane de arka planda onlarca başka kütüphaneye bağımlı durumdadır. Ortalama bir npm paketi yüklendiğinde, arka planda yüzlerce farklı üçüncü taraf yazarın geliştirdiği kod zincirleme olarak sisteme dahil edilmektedir.
 
-Matematiksel olarak, derinliği $D$ ve her düğümün ortalama bağımlılık sayısı (dallanma faktörü) $b$ olan bir bağımlılık ağacındaki toplam düğüm sayısı $N$ şu formülle ifade edilebilir:
+Matematiksel olarak, derinliği D ve her düğümün ortalama bağımlılık sayısı (dallanma faktörü) b olan bir bağımlılık ağacındaki toplam düğüm sayısı N şu formülle ifade edilebilir:
 
-$$N = \sum_{d=1}^{D} b^d = \frac{b(b^D - 1)}{b - 1}$$
+`N = b(b^D − 1) / (b − 1)` (b'si d=1'den D'ye kadar toplam)
 
 Bu üstel büyüme, manuel kod denetimini tamamen imkansız kılmaktadır. Geliştiriciler yalnızca doğrudan ekledikleri paketleri doğrulamakta, ancak bu paketlerin derinliklerindeki geçişli bağımlılıkların taşıdığı zararlı kodlardan haberdar olamamaktadır. Bu hiyerarşik yapı, kurumsal güvenlik ekipleri için devasa bir **"görünürlük kör noktası" (visibility blind spot)** oluşturarak siber saldırganların tespit edilmeden derinlemesine sızmalarına olanak tanımaktadır.
 
@@ -138,11 +138,11 @@ npm'in sunduğu en güçlü ancak en tehlikeli özelliklerden biri, paket kurulu
 
 npm ekosistemi, ağ teorisi açısından incelendiğinde **"ölçeksiz ağ" (scale-free network)** yapısına sahiptir. Az sayıda kritik kütüphane (hub düğümler) milyonlarca projeye doğrudan veya dolaylı olarak bağlanmaktadır. Bu yüksek merkezilik derecesi, tek bir stratejik paketin kompromize edilmesinin tüm ekosistemi felç edebileceği asimetrik bir risk doğurmaktadır.
 
-Ağ üzerindeki bir merkez düğümün enfekte olma olasılığı $p$ ve bu düğüme bağlı toplam alt paket sayısı $k$ ise, enfeksiyonun alt ağlara yayılma olasılığı $P_{\text{cascade}}$ şöyle modellenir:
+Ağ üzerindeki bir merkez düğümün enfekte olma olasılığı p ve bu düğüme bağlı toplam alt paket sayısı k ise, enfeksiyonun alt ağlara yayılma olasılığı P~cascade~ şöyle modellenir:
 
-$$P_{\text{cascade}} = 1 - (1 - p)^k$$
+`P_cascade = 1 − (1 − p)^k`
 
-$k$ değerinin üstel seviyede yüksek olduğu durumlarda, saldırganın başarı olasılığı $p$ çok düşük olsa bile ekosistemdeki kaskat etkisi neredeyse kaçınılmaz hale gelmektedir.
+k değerinin üstel seviyede yüksek olduğu durumlarda, saldırganın başarı olasılığı p çok düşük olsa bile ekosistemdeki kaskat etkisi neredeyse kaçınılmaz hale gelmektedir.
 
 | Saldırı Türü | Temel İstismar Mekanizması | Önemli Tarihsel Örnekler | Birincil Etki Alanı |
 |---|---|---|---|

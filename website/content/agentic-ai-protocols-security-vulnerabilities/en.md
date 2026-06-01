@@ -148,7 +148,7 @@ Domain-specific semantics, rules, and workflows. They solve coordination problem
 
 ### 3.1 Why MCP?
 
-Early AI integrations required writing custom glue code for every model and tool pair. When $N$ agents needed to connect to $M$ tools, $N \times M$ integration bridges had to be built. **Model Context Protocol (MCP)** — developed by Anthropic and transferred to the Linux Foundation — solves this with a standard JSON-RPC 2.0 interface.
+Early AI integrations required writing custom glue code for every model and tool pair. When N agents needed to connect to M tools, N × M integration bridges had to be built. **Model Context Protocol (MCP)** — developed by Anthropic and transferred to the Linux Foundation — solves this with a standard JSON-RPC 2.0 interface.
 
 Core limitations of REST APIs in the agent world:
 

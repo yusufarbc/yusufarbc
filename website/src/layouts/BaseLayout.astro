@@ -151,6 +151,12 @@ const ogLocaleAlt = lang === "tr" ? "en_US" : "tr_TR";
           themeVariables?: {
             fontFamily?: string;
             fontSize?: string;
+            primaryTextColor?: string;
+            primaryColor?: string;
+            primaryBorderColor?: string;
+            lineColor?: string;
+            secondaryColor?: string;
+            tertiaryColor?: string;
           };
         }) => void;
         run: (options: { querySelector: string; suppressErrors: boolean }) => void | Promise<void>;
@@ -303,11 +309,17 @@ const ogLocaleAlt = lang === "tr" ? "en_US" : "tr_TR";
               window.matchMedia('(prefers-color-scheme: dark)').matches);
           mermaid.initialize({
             startOnLoad: false,
-            theme: isDark ? 'dark' : 'default',
+            theme: 'base',
             securityLevel: 'loose',
             themeVariables: {
               fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
               fontSize: '18px',
+              primaryTextColor: isDark ? '#f5f5f7' : '#1d1d1f',
+              primaryColor: isDark ? '#1c1c1e' : '#ffffff',
+              primaryBorderColor: isDark ? '#3a3a3c' : '#e5e5e7',
+              lineColor: isDark ? '#6b7280' : '#9ca3af',
+              secondaryColor: isDark ? '#2c2c2e' : '#f0f0f2',
+              tertiaryColor: isDark ? '#161618' : '#f5f5f7',
             },
           });
 

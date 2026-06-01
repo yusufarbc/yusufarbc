@@ -40,9 +40,9 @@ npm's operational model is built on declarative manifest files, deterministic lo
 
 The most profound security vulnerability in the npm ecosystem lies beyond the direct dependencies a developer explicitly installs — in the vast **transitive (indirect) dependency graph** that no one fully controls. When a developer adds a single trusted library to their project, that library is itself dependent on dozens of other packages. When an average npm package is installed, hundreds of third-party codebases written by different authors are silently pulled into the system.
 
-Mathematically, for a dependency tree of depth $D$ where each node has an average branching factor (average number of dependencies per package) of $b$, the total number of nodes $N$ is:
+Mathematically, for a dependency tree of depth D where each node has an average branching factor (average number of dependencies per package) of b, the total number of nodes N is:
 
-$$N = \sum_{d=1}^{D} b^d = \frac{b(b^D - 1)}{b - 1}$$
+`N = b(b^D − 1) / (b − 1)` (summing b^d from d=1 to D)
 
 This exponential growth makes manual code auditing completely infeasible. Developers can only verify the packages they add directly, but remain blind to malicious code lurking in the transitive dependencies of those packages. This hierarchical structure creates a massive **visibility blind spot** for enterprise security teams, allowing adversaries to penetrate deeply without detection.
 
@@ -138,11 +138,11 @@ One of npm's most powerful yet most dangerous features is the ability to execute
 
 From a network theory perspective, the npm ecosystem exhibits the properties of a **scale-free network**. While the majority of packages have very few dependents, a small number of critical libraries (hub nodes) are directly or indirectly connected to millions of projects. This high degree of centrality creates an asymmetric risk: compromising a single strategically chosen package can paralyze the entire ecosystem.
 
-For a hub node with an infection probability $p$ and a total number of directly or indirectly dependent packages $k$, the probability of a cascade infecting downstream packages $P_{\text{cascade}}$ is modeled as:
+For a hub node with an infection probability p and a total number of directly or indirectly dependent packages k, the probability of a cascade infecting downstream packages P~cascade~ is modeled as:
 
-$$P_{\text{cascade}} = 1 - (1 - p)^k$$
+`P_cascade = 1 − (1 − p)^k`
 
-When $k$ is exponentially large, even a very small attacker success probability $p$ makes the cascade effect nearly inevitable across the ecosystem.
+When k is exponentially large, even a very small attacker success probability p makes the cascade effect nearly inevitable across the ecosystem.
 
 | Attack Type | Core Exploitation Mechanism | Notable Historical Examples | Primary Impact Domain |
 |---|---|---|---|
