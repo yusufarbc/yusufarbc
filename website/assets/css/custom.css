@@ -263,20 +263,42 @@ body {
    MERMAID DIAGRAMS
    ============================================================================= */
 .mermaid {
+  display: block;
+  width: 100%;
   overflow-x: auto;
-  font-size: 18px;
+  overflow-y: hidden;
+  padding: 0.5rem 0;
+  font-size: 20px;
 }
 
 .mermaid svg {
-  width: 100% !important;
+  display: block;
+  width: max-content !important;
+  min-width: 100%;
+  max-width: none !important;
   height: auto !important;
 }
 
 .mermaid svg text,
 .mermaid .nodeLabel,
 .mermaid .edgeLabel,
-.mermaid .label {
-  font-size: 18px !important;
+.mermaid .label,
+.mermaid foreignObject div,
+.mermaid foreignObject span,
+.mermaid foreignObject p {
+  font-size: 20px !important;
+  line-height: 1.35 !important;
+  color: var(--app-text) !important;
+  fill: var(--app-text) !important;
+}
+
+.mermaid .node rect,
+.mermaid .node polygon,
+.mermaid .cluster rect,
+.mermaid .edgePath path,
+.mermaid .flowchart-link,
+.mermaid .edge-path {
+  stroke: var(--app-border-color) !important;
 }
 
 /* Hamburger Menu */

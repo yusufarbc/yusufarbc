@@ -148,9 +148,26 @@ const ogLocaleAlt = lang === "tr" ? "en_US" : "tr_TR";
           startOnLoad: boolean;
           theme: string;
           securityLevel: string;
+          flowchart?: {
+            useMaxWidth?: boolean;
+            htmlLabels?: boolean;
+            nodeSpacing?: number;
+            rankSpacing?: number;
+            curve?: string;
+          };
           themeVariables?: {
             fontFamily?: string;
             fontSize?: string;
+            primaryTextColor?: string;
+            secondaryTextColor?: string;
+            tertiaryTextColor?: string;
+            textColor?: string;
+            lineColor?: string;
+            mainBkg?: string;
+            clusterBkg?: string;
+            clusterBorder?: string;
+            noteBkg?: string;
+            noteTextColor?: string;
           };
         }) => void;
         run: (options: { querySelector: string; suppressErrors: boolean }) => void | Promise<void>;
@@ -301,14 +318,34 @@ const ogLocaleAlt = lang === "tr" ? "en_US" : "tr_TR";
           const isDark = document.body.classList.contains('colorscheme-dark') ||
             (document.body.classList.contains('colorscheme-auto') &&
               window.matchMedia('(prefers-color-scheme: dark)').matches);
+          const mermaidTextColor = isDark ? '#f5f5f7' : '#111827';
+          const mermaidSurfaceColor = isDark ? '#111827' : '#ffffff';
+          const mermaidEdgeColor = isDark ? '#9ca3af' : '#6b7280';
 
           mermaid.initialize({
             startOnLoad: false,
             theme: isDark ? 'dark' : 'default',
             securityLevel: 'loose',
+            flowchart: {
+              useMaxWidth: false,
+              htmlLabels: true,
+              nodeSpacing: 80,
+              rankSpacing: 110,
+              curve: 'basis',
+            },
             themeVariables: {
               fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-              fontSize: '18px',
+              fontSize: '20px',
+              primaryTextColor: mermaidTextColor,
+              secondaryTextColor: mermaidTextColor,
+              tertiaryTextColor: mermaidTextColor,
+              textColor: mermaidTextColor,
+              lineColor: mermaidEdgeColor,
+              mainBkg: mermaidSurfaceColor,
+              clusterBkg: mermaidSurfaceColor,
+              clusterBorder: mermaidEdgeColor,
+              noteBkg: mermaidSurfaceColor,
+              noteTextColor: mermaidTextColor,
             },
           });
 
