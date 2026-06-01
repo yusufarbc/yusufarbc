@@ -273,31 +273,6 @@ body {
   height: auto !important;
 }
 
-/* Respect classDef color — force fill to inherit, never override with var(--app-text) */
-.mermaid svg text:not(.edgeLabel),
-.mermaid .label text {
-  fill: inherit !important;
-}
-
-.mermaid .edgeLabel {
-  fill: var(--app-text-dim) !important;
-}
-
-.mermaid .cluster-label text {
-  fill: var(--app-text) !important;
-}
-
-.mermaid svg text,
-.mermaid .nodeLabel,
-.mermaid .edgeLabel,
-.mermaid .label,
-.mermaid foreignObject div,
-.mermaid foreignObject span,
-.mermaid foreignObject p {
-  font-size: 18px !important;
-  line-height: 1.3 !important;
-}
-
 /* Hamburger Menu */
 .menu-toggle {
   display: none !important;
