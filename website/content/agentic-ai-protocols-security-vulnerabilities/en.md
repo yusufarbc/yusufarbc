@@ -514,7 +514,7 @@ The protocol ecosystem of agentic AI is maturing rapidly. MCP, A2A, ANP, UCP, an
 
 ![Secure MCP Architecture Design](media/post.jpeg)
 
-In this ecosystem, security must not be a patch applied after the fact but a foundational principle baked in from day one — **Secure by Design**. Cryptographic signing, built-in RBAC layers, SBOM validation, and standardized sandbox schemas being developed by the *Agentic AI Foundation* (under the Linux Foundation) alongside Google, Anthropic, and Microsoft will form the cornerstones of enterprise-grade safety.
+In this ecosystem, security must not be a patch applied after the fact but a foundational principle baked in from day one — **Secure by Design**. Cryptographic signing, built-in RBAC layers, SBOM validation, and standardized sandbox schemas being developed by the Agentic AI Foundation (under the Linux Foundation) alongside Google, Anthropic, and Microsoft will form the cornerstones of enterprise-grade safety.
 
 As cybercriminals begin adopting the "Cybercrime-as-a-Sidekick" model — using AI agents for attack automation — defense mechanisms must operate at machine speed and scale. **Agentic SOCs** — security operations centers running autonomous defense agents — are the inevitable building blocks of this future.
 

@@ -514,7 +514,7 @@ Eylemsel yapay zekanın protokol ekosistemi hızla olgunlaşıyor. MCP, A2A, ANP
 
 ![Güvenli MCP Ekosistem Tasarımı](media/post.jpeg)
 
-Bu ekosistemde güvenlik, sonradan eklenen bir yama değil, tasarımın temeli (**Secure by Design**) olmak zorunda. Linux Foundation bünyesindeki *Agentic AI Foundation*'ın ve Google, Anthropic, Microsoft gibi teknoloji devlerinin standartlara ekleyeceği stateless imzalama, yerleşik RBAC katmanları, SBOM standartları ve sandbox şemaları, önümüzdeki dönemde siber güvenlik mimarilerinin temel taşlarını oluşturacak.
+Bu ekosistemde güvenlik, sonradan eklenen bir yama değil, tasarımın temeli (**Secure by Design**) olmak zorunda. Linux Foundation bünyesindeki Agentic AI Foundation'ın ve Google, Anthropic, Microsoft gibi teknoloji devlerinin standartlara ekleyeceği stateless imzalama, yerleşik RBAC katmanları, SBOM standartları ve sandbox şemaları, önümüzdeki dönemde siber güvenlik mimarilerinin temel taşlarını oluşturacak.
 
 Siber suçluların "Cybercrime-as-a-Sidekick" modeliyle yapay zeka ajanlarını saldırı otomasyonu için kullanmaya başlaması, savunma mekanizmalarının da makine hızında çalışmasını zorunlu kılıyor. **Agentic SOC**'lar — otonom savunma ajanları kullanan güvenlik operasyon merkezleri — bu geleceğin kaçınılmaz yapı taşlarıdır.
 
