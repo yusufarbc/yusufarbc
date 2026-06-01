@@ -1,7 +1,7 @@
 ---
 title: "Eylemsel Yapay Zeka Protokolleri: Yeni Bir Saldırı Yüzeyi mi?"
 date: '2026-05-28'
-description: "Otonom yapay zeka eylemcilerinin yaygınlaşmasıyla birlikte MCP, A2A, ANP, UCP ve AP2 gibi protokoller yapay zeka mimarisinin omurgasını oluşturuyor. Bu yazıda Agentic AI kavramını, protokol ekosistemini katman katman ve güvenlik açıklarını kapsamlı biçimde inceliyoruz."
+description: "Otonom yapay zeka eylemcilerinin yaygınlaşmasıyla birlikte MCP, A2A, ANP, UCP ve AP2 gibi protokoller yapay zeka mimarisinin omurgasını oluşturuyor. Bu yazıda Agentic AI kavramını, protokol ekosistemini katman katman ele alıyor ve güvenlik açıklarını kapsamlı biçimde inceliyoruz."
 featuredImage: featured.png
 draft: false
 layout: single
@@ -351,7 +351,7 @@ Otonom ajanlar gerçek dünyayla etkileşime geçtiğinde üç kritik risk fakt�
 
 ### 8.1 OWASP Agentic Security Initiative (ASI)
 
-Otonom sistemler için OWASP, agentic-a özgü bir risk taksonomisi yayımladı:
+Otonom sistemler için OWASP, agentic AI'a özgü bir risk taksonomisi yayımladı:
 
 | Kod | Risk | Açıklama |
 | :--- | :--- | :--- |
@@ -514,7 +514,7 @@ Eylemsel yapay zekanın protokol ekosistemi hızla olgunlaşıyor. MCP, A2A, ANP
 
 ![Güvenli MCP Ekosistem Tasarımı](media/post.jpeg)
 
-Bu ekosistemde güvenlik, sonradan eklenen bir yama değil tasarımın temeli (**Secure by Design**) olmak zorunda. Linux Foundation bünyesindeki *Agentic AI Foundation*'ın ve Google, Anthropic, Microsoft gibi teknoloji devlerinin standartlara ekleyeceği stateless imzalama, yerleşik RBAC katmanları, SBOM standartları ve sandbox şemaları, önümüzdeki dönemde siber güvenlik mimarilerinin temel taşlarını oluşturacak.
+Bu ekosistemde güvenlik, sonradan eklenen bir yama değil, tasarımın temeli (**Secure by Design**) olmak zorunda. Linux Foundation bünyesindeki *Agentic AI Foundation*'ın ve Google, Anthropic, Microsoft gibi teknoloji devlerinin standartlara ekleyeceği stateless imzalama, yerleşik RBAC katmanları, SBOM standartları ve sandbox şemaları, önümüzdeki dönemde siber güvenlik mimarilerinin temel taşlarını oluşturacak.
 
 Siber suçluların "Cybercrime-as-a-Sidekick" modeliyle yapay zeka ajanlarını saldırı otomasyonu için kullanmaya başlaması, savunma mekanizmalarının da makine hızında çalışmasını zorunlu kılıyor. **Agentic SOC**'lar — otonom savunma ajanları kullanan güvenlik operasyon merkezleri — bu geleceğin kaçınılmaz yapı taşlarıdır.
 

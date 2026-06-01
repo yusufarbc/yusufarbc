@@ -259,6 +259,26 @@ body {
   border-radius: 2px;
 }
 
+/* =============================================================================
+   MERMAID DIAGRAMS
+   ============================================================================= */
+.mermaid {
+  overflow-x: auto;
+  font-size: 18px;
+}
+
+.mermaid svg {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.mermaid svg text,
+.mermaid .nodeLabel,
+.mermaid .edgeLabel,
+.mermaid .label {
+  font-size: 18px !important;
+}
+
 /* Hamburger Menu */
 .menu-toggle {
   display: none !important;
