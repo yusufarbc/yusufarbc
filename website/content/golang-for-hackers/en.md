@@ -148,6 +148,9 @@ graph TD
         G_Compiler --> G_Binary[Statically Linked Standalone Binary]
         G_Binary --> G_Execution[Execution - Zero Dependencies]
     end
+
+    P_Execution ~~~ C_Source
+    C_Execution ~~~ G_Source
 ```
 
 ### Python's Limits and Corporate Network Barriers

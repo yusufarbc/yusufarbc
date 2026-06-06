@@ -148,6 +148,9 @@ graph TD
         G_Compiler --> G_Binary[Statik Bağlı Bağımsız İkili Dosya]
         G_Binary --> G_Execution[Çalışma - Sıfır Bağımlılık]
     end
+
+    P_Execution ~~~ C_Source
+    C_Execution ~~~ G_Source
 ```
 
 ### Python'ın Karşılaştığı Zorluklar
