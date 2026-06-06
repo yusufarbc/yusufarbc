@@ -265,20 +265,22 @@ body {
 .mermaid {
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 0.5rem 0;
-  /* center small diagrams, allow large ones to scroll */
-  display: flex;
-  justify-content: center;
+  padding: 1rem 0;
+  margin: 1rem 0;
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: 12px;
+  padding: 1.5rem;
 }
 
 .mermaid svg {
-  /* Never grow beyond the readable column width */
-  max-width: 100% !important;
+  /* Render at natural size — never squish */
   width: auto !important;
   height: auto !important;
-  /* Keep font size in sync with body text (~1rem = 16px) */
-  font-size: 0.9rem !important;
-  display: block;
+  max-width: none !important;
+  min-height: 120px !important;
+  display: block !important;
+  margin: 0 auto !important;
 }
 
 /* Hamburger Menu */
