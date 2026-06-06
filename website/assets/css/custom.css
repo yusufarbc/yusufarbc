@@ -274,8 +274,8 @@ body {
 }
 
 .mermaid svg {
-  /* useMaxWidth:false gives SVG fixed pixel size — constrain to container */
-  max-width: 100% !important;
+  /* useMaxWidth:false → SVG has fixed pixel size, font stays at 14px */
+  /* No max-width — container handles overflow with horizontal scroll */
   height: auto !important;
   display: block !important;
 }
