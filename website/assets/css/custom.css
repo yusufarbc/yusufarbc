@@ -264,20 +264,21 @@ body {
    ============================================================================= */
 .mermaid {
   overflow-x: auto;
-  overflow-y: hidden;
-  padding: 1rem 0;
-  margin: 1rem 0;
+  overflow-y: visible;
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0;
   background: var(--code-bg);
   border: 1px solid var(--code-border);
   border-radius: 12px;
-  padding: 1.5rem;
+  /* Ensure scroll starts from the very left of the SVG */
+  display: block;
+  white-space: nowrap;
 }
 
 .mermaid svg {
-  /* useMaxWidth:false → SVG has fixed pixel size, font stays at 14px */
-  /* No max-width — container handles overflow with horizontal scroll */
+  display: inline-block !important;
   height: auto !important;
-  display: block !important;
+  vertical-align: top;
 }
 
 /* Hamburger Menu */
