@@ -274,11 +274,9 @@ body {
 }
 
 .mermaid svg {
-  /* Render at natural size — never squish */
-  width: auto !important;
+  /* useMaxWidth:false gives SVG fixed pixel size — constrain to container */
+  max-width: 100% !important;
   height: auto !important;
-  max-width: none !important;
-  min-height: 120px !important;
   display: block !important;
 }
 

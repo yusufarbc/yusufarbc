@@ -128,7 +128,7 @@ In this guide, we will conceptually examine the strategic position of the Go lan
 A language's success in cybersecurity is directly related to its architectural flexibility and its footprint on the target system. Let's visually compare the execution and compilation pipelines of traditional languages with Go:
 
 ```mermaid
-graph TD
+graph LR
     subgraph "Python (Interpreted)"
         P_Source[Python Code] --> P_Compiler[Bytecode Compiler]
         P_Compiler --> P_Bytecode[pyc Bytecode]
