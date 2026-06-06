@@ -135,22 +135,25 @@ graph LR
         P_Bytecode --> P_Interpreter[Hedef Sistem Yorumlayıcısı]
         P_Interpreter --> P_Execution[Çalışma - Yüksek Sistem İzi]
     end
+```
 
+```mermaid
+graph LR
     subgraph "C++ (Derlenen / Native)"
         C_Source[C++ Kodu] --> C_Compiler[Platform Derleyicisi]
         C_Compiler --> C_Binary[Bağlı İkili Dosya]
         C_Binary --> C_OS[Hedef Dinamik Kütüphaneleri DLL/SO]
         C_OS --> C_Execution[Çalışma - Düşük Sistem İzi]
     end
+```
 
+```mermaid
+graph LR
     subgraph "Go (Statik Derlenen / Static)"
         G_Source[Go Kodu] --> G_Compiler[Go Çapraz Derleyici]
         G_Compiler --> G_Binary[Statik Bağlı Bağımsız İkili Dosya]
         G_Binary --> G_Execution[Çalışma - Sıfır Bağımlılık]
     end
-
-    P_Execution ~~~ C_Source
-    C_Execution ~~~ G_Source
 ```
 
 ### Python'ın Karşılaştığı Zorluklar
