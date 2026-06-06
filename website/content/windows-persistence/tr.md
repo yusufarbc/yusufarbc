@@ -24,7 +24,7 @@ Bu yazıda bir saldırganın gözünden sızma sonrası dönemi kronolojik olara
 
 ---
 
-## Bölüm 1: Windows Sistemlerde Kalıcılık (Persistence) Mekanizmaları
+## Windows Sistemlerde Kalıcılık (Persistence) Mekanizmaları
 
 Kalıcılık yöntemleri, bir sistemin yeniden başlatılması veya kullanıcı oturumunun kapatılması durumunda bile zararlı yazılımların veya yetkisiz erişimlerin devam etmesini sağlar. Saldırganlar bu aşamada mümkün olduğunca sessiz olmayı tercih eder: antivirüs atlatılmalı, log kayıtları minimum düzeyde tutulmalı, meşru sistem araçlarıyla iç içe geçilmelidir.
 
@@ -258,7 +258,7 @@ C:\Program Files\LegitApp\
 
 ---
 
-## Bölüm 2: Kalıcılıktan Yatay Harekete — Köprü
+## Kalıcılıktan Yatay Harekete — Köprü
 
 ### Saldırgan Neden Yerinde Durmaz?
 
@@ -289,7 +289,7 @@ Bu noktadan itibaren saldırgan elindeki kimlik bilgileri ve hash'lerle yatay ha
 
 ---
 
-## Bölüm 3: Ağ İçinde Yatay Hareket (Lateral Movement)
+## Ağ İçinde Yatay Hareket (Lateral Movement)
 
 Yatay hareket, saldırganın ağ içindeki diğer sistemlere erişim sağlaması sürecidir. Bir APT grubunun lateral movement aşamasında ortalama süre, kurumsal ağlarda **4-5 gün** olmakla birlikte bu süre bazen haftalara uzayabilir. Saldırganlar bu süreçte mümkün olduğunca "gürültüsüz" çalışmayı, meşru araçları kullanmayı (Living off the Land — LotL) ve normal trafik içinde eriyip gitmeyi hedefler.
 
@@ -421,7 +421,7 @@ RDP, AD ortamında kimlik doğrulama için Kerberos'u kullanır. Pass-the-Ticket
 
 ---
 
-## Bölüm 4: Blue Team / SOC Perspektifinden Tespit ve Tehdit Avcılığı
+## Blue Team / SOC Perspektifinden Tespit ve Tehdit Avcılığı
 
 ### 4.1 Tespit Felsefesi: Tek Log Yerine Anomali Zinciri
 
@@ -581,7 +581,7 @@ Meşru Windows araçlarının kötü amaçlı kullanımı:
 
 ---
 
-## Bölüm 5: Sıkılaştırma ve Savunma (Hardening)
+## Sıkılaştırma ve Savunma (Hardening)
 
 ### 5.1 Privileged Access Management (PAM)
 

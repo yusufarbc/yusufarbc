@@ -84,13 +84,6 @@ graph TD
         ES2 --> ESQL[ES|QL Engine]
         ESQL --> KB2[Kibana Dashboard]
     end
-
-    style FB fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    style MB fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    style LS fill:#6d28d9,stroke:#8b5cf6,stroke-width:2px,color:#fff;
-    style EA fill:#15803d,stroke:#22c55e,stroke-width:2px,color:#fff;
-    style Fleet fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
-    style ESQL fill:#b45309,stroke:#f59e0b,stroke-width:2px,color:#fff;
 ```
 
 ### ES|QL Sorgu Boru Hattı Mimarisi
@@ -99,16 +92,12 @@ ES|QL sorguları, Linux terminalindeki `pipe` mantığıyla çalışır. Her aş
 
 ```mermaid
 graph LR
-    classDef step fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    classDef filter fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
-    classDef output fill:#b45309,stroke:#f59e0b,stroke-width:2px,color:#fff;
-
-    Index["FROM winlogbeat-*"]:::step
-    Filter["| WHERE event.code == 4624"]:::filter
-    Limit["| LIMIT 100"]:::filter
-    Stats["| STATS count() BY user.name"]:::filter
-    Sort["| SORT count DESC"]:::filter
-    Result["Kibana Görselleştirme"]:::output
+    Index["FROM winlogbeat-*"]
+    Filter["| WHERE event.code == 4624"]
+    Limit["| LIMIT 100"]
+    Stats["| STATS count() BY user.name"]
+    Sort["| SORT count DESC"]
+    Result["Kibana Görselleştirme"]
 
     Index --> Filter
     Filter --> Limit
@@ -1051,18 +1040,6 @@ graph TD
     CORR -->|Tetikleme| Alert
     ES -->|Görünürlük| KB
     Alert -->|MTTD / MTTR Azaltma| KB
-
-    style ESG fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    style KES fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    style FW fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    style DLP fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    style MDM fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    style LS fill:#6d28d9,stroke:#8b5cf6,stroke-width:2px,color:#fff;
-    style ECS fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
-    style ES fill:#15803d,stroke:#22c55e,stroke-width:2px,color:#fff;
-    style CORR fill:#b45309,stroke:#f59e0b,stroke-width:2px,color:#fff;
-    style KB fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
-    style Alert fill:#be123c,stroke:#f43f5e,stroke-width:2px,color:#fff;
 ```
 
 ### Katmanlı Güvenlik Bileşenleri ve SIEM Entegrasyonu

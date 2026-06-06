@@ -8,7 +8,7 @@ layout: single
 type: posts
 ---
 
-## Bölüm 1: Modern Tehdit Manzarasına Giriş ve Dijital Ekosistemin Gerçekleri
+## Modern Tehdit Manzarasına Giriş ve Dijital Ekosistemin Gerçekleri
 
 Bu giriş bölümü, sonraki ayrıntılı aktör profillerini anlamak için gerekli temel kavramları oluşturacaktır. Modern bağlamda bir APT'nin ne anlama geldiğini tanımlayacak ve uygulayıcılar için temel zorluk olan tehdit aktörü adlandırma kurallarının kafa karıştırıcı ortamını ele alacaktır.
 
@@ -185,7 +185,7 @@ mindmap
         [Erişim Kontrolü]
 ```
 
-## Bölüm 2: Düşmanını Tanı: Tehdit Aktörlerinin Anatomisi ve Motivasyonları
+## Düşmanını Tanı: Tehdit Aktörlerinin Anatomisi ve Motivasyonları
 
 Ağ Saldırısı, kuruluşunuzdaki bir bilgisayara veya atanmış etki alanınızdaki bir adrese yetkisiz olarak girilmesidir. İzinsiz giriş pasif (gizlice ve tespit edilmeden sızma) veya aktif (ağ kaynaklarındaki değişikliklerin etkilendiği) olabilir. İzinsiz girişler ağ yapınızın dışından veya içinden (bir çalışan, müşteri veya iş ortağı) gelebilir. Bazı izinsiz girişler sadece davetsiz misafirin orada olduğunu size bildirmek içindir, Web sitenizi çeşitli mesajlar veya kaba resimlerle tahrif eder. Diğerleri ise daha kötü niyetlidir, kritik bilgileri tek seferlik olarak ya da keşfedilene kadar verileri hortumlamaya devam edecek sürekli bir parazit ilişki olarak elde etmeye çalışır. Bazı davetsiz misafirler şifreleri kırmak, tuş vuruşlarını kaydetmek veya sitenizi taklit ederek habersiz kullanıcıları kendi sitelerine yönlendirmek için özenle hazırlanmış kodlar yerleştirmeye çalışır. Diğerleri ise kendilerini ağa gömer ve sürekli olarak sessizce veri çeker ya da halka açık Web sayfalarını çeşitli mesajlarla değiştirir.
 
@@ -351,7 +351,7 @@ Yeni ve çok rahatsız edici bir eğilim, bazı hükümetlerin hem federal hem d
 
 Siber suçluların ve devlet destekli bu orduların motivasyonlarını anlamak kritik olsa da, savunma tarafındaki en büyük operasyonel zorluklardan biri bu düşmanları nasıl tanımlayacağımızdır. Çünkü siber güvenlik sektörü, adeta bir Babil Kulesi gibi, aynı tehdide yüzlerce farklı isim vermektedir.
 
-## Bölüm 3: Küresel Tehdit İstihbaratında "Babil Kulesi" Problemi ve İsimlendirme Sanatı
+## Küresel Tehdit İstihbaratında "Babil Kulesi" Problemi ve İsimlendirme Sanatı
 
 * **"Babil Kulesi" Sorunu:** Bu alt bölüm, tehdit aktörleri için evrensel bir adlandırma standardının neden pratik olmadığını ve mümkün olmayabileceğini açıklayacaktır. Farklı güvenlik sağlayıcıları (Microsoft, CrowdStrike, Mandiant, Kaspersky, Palo Alto Networks vb.) kendi telemetrilerine, görünürlüklerine ve iç araştırma önceliklerine sahip olduklarından, benzersiz adlandırma şemaları geliştirirler. Bu durum, birden fazla kaynaktan gelen istihbaratı ilişkilendirmek zorunda olan savunucular için bir "Rosetta Taşı" sorunu yaratır.
 * **Sağlayıcı Taksonomileri:** Okuyucunun karşılaşacağı takma adlar için zihinsel bir model sağlamak amacıyla başlıca sağlayıcı adlandırma şemalarının üst düzey mantığı tanıtılacaktır.
@@ -372,7 +372,7 @@ Bu tablo, bir "Rosetta Taşı" görevi görerek, bir bakışta isim çakışmala
 
 ---
 
-## Bölüm 4: Coğrafi ve Jeopolitik Eksende APT Grupları (Derinlemesine İnceleme)
+## Coğrafi ve Jeopolitik Eksende APT Grupları (Derinlemesine İnceleme)
 
 ### 4.1. Rusya Bağlantılı Aktörler: Yüksek Sabotaj ve İstihbarat Entegrasyonu
 
@@ -544,7 +544,7 @@ FIN7 ve SCATTERED SPIDER gibi finansal motivasyonlu gruplar tarafından kullanı
 
 ---
 
-## Bölüm 5: Modern Tehditlerin Ortak Silahı: Yapay Zeka (GenAI) Tehdidi
+## Modern Tehditlerin Ortak Silahı: Yapay Zeka (GenAI) Tehdidi
 
 Üretken Yapay Zeka (GenAI) teknolojilerinin patlaması, siber saldırganların eline son derece güçlü otomasyon ve manipülasyon yetenekleri vermiştir.
 
@@ -570,7 +570,7 @@ Eski dönemdeki kimlik avı e-postaları, bozuk dil bilgisi kuralları ve yazım
 
 Saldırganların elindeki bu yapay zeka otomasyonu, kusursuz oltalama e-postaları ve polimorfik zararlı yazılımlar karşısında geleneksel çeper savunmaları (Firewall) tek başına tamamen çaresizdir. Düşmanın hızını kesmek ve onu kendi labirentimizde boğmak için tek bir çare kalıyor: Derinlemesine Savunma (Defense-in-Depth) mimarisi.
 
-## Bölüm 6: Modern İşletmeler İçin Katmanlı Savunma (Defense-in-Depth) Mimarisi
+## Modern İşletmeler İçin Katmanlı Savunma (Defense-in-Depth) Mimarisi
 
 Çoğu güvenlik uzmanı, mükemmel ağ güvenliğinin imkansız olduğu ve herhangi bir savunmanın her zaman aşılabileceği görüşünde birleşiyor. Derinlemesine savunma stratejisi, saldırganı birden fazla savunma katmanıyla engellemeyi benimsiyor. Her bir katmanın aşılabileceğini kabul ediyor. Değerli varlıklar, daha fazla savunma katmanıyla korunuyor. Birden fazla katmanın kombinasyonu, saldırının başarı maliyetini artırıyor ve bu maliyet korunan varlıkların değeriyle orantılı oluyor. Ayrıca, birden fazla katmanın kombinasyonu, beklenmedik saldırılara karşı optimize edilmiş tek bir savunmadan daha etkili oluyor. Saldırgan için maliyet, ek zaman, çaba veya ekipman olarak ortaya çıkabilir. Örneğin, bir saldırganın gecikmesi, bir kuruluşun devam eden saldırıyı tespit etme ve yanıt verme şansını artırabilir. Eğer artan maliyetler, başarılı bir saldırıdan elde edilebilecek kazançtan daha ağır basıyorsa, bazı girişimler caydırabilir.
 
@@ -613,26 +613,16 @@ Defense In Depth
 
 ```mermaid
 graph TD
-    classDef plain fill:#1a1a1a,stroke:#333,stroke-width:1px,color:#fff;
-    classDef threatActor fill:#552222,stroke:#aa4444,stroke-width:1px,color:#ffcccc;
-
     subgraph "Saldırgan Aşaması"
-        A[Internet] -->|"İlk Erişim"| B(WAF / Yama Yönetimi);
-        B -- "Atlatma" --> C(EDR / XDR);
-        C -- "Yetki Yükseltme" --> D(Mikro-segmentasyon / NDR);
-        D -- "Yanal Hareket" --> E(DLP / Şifreleme);
+        A[Internet] -->|"İlk Erişim"| B(WAF / Yama Yönetimi)
+        B -- "Atlatma" --> C(EDR / XDR)
+        C -- "Yetki Yükseltme" --> D(Mikro-segmentasyon / NDR)
+        D -- "Yanal Hareket" --> E(DLP / Şifreleme)
     end
 
     subgraph "Hedef"
-        E --> F[Kritik Veri / Veritabanı];
+        E --> F[Kritik Veri / Veritabanı]
     end
-
-    A:::plain;
-    B:::threatActor;
-    C:::threatActor;
-    D:::threatActor;
-    E:::threatActor;
-    F:::plain;
 ```
 
 ### Katman 1: Uygulama Koruması (Application Protection) - Dış Çeper
@@ -788,13 +778,13 @@ C4Container
         Container(c_packet_capture, "Paket Yakalama", "Wireshark / NDR", "Ağ trafiğini pasif olarak yakalar ve analiz eder.")
     }
 
-![Wireshark paket analizi ekranı: HTTP trafiği filtreleme ve paket inceleme](./wireshark-packet-analysis.jpg)
-*Wireshark ile ağ trafiği analizi — HTTP isteklerinin paket düzeyinde incelenmesi.*
-
     Rel(person_attacker, sys_corporate_assets, "Uygulama/Servislere Saldırır", "Sıfır gün istismarı, veri sızıntısı, yanal hareket")
     Rel_Back_Log(c_log_capture, sys_corporate_assets, "Etkinlik Loglarını Toplar", "Tüm geçersiz girişimler, yetkilendirme hataları")
     Rel_Back_Log(c_packet_capture, b_corporate_network, "Paketleri Pasif Analiz Eder", "İç trafiğin derin paket incelemesi")
 ```
+
+![Wireshark paket analizi ekranı: HTTP trafiği filtreleme ve paket inceleme](./wireshark-packet-analysis.jpg)
+*Wireshark ile ağ trafiği analizi — HTTP isteklerinin paket düzeyinde incelenmesi.*
 
 Saldırganlar açık portları kullanabileceğinden, gereksiz portları kapatmak iyi bir uygulamadır,
 
@@ -992,7 +982,7 @@ Her ne kadar bu sistemler doğru yapılandırılmış olsa da daha önce bahsett
 
 ---
 
-## Bölüm 7: Geleceğe Bakış: Reaktif Refleksten Proaktif Stratejiye Geçiş
+## Geleceğe Bakış: Reaktif Refleksten Proaktif Stratejiye Geçiş
 
 Bu sonuç bölümü, mevcut ve gelecekteki tehdit ortamına ilişkin üst düzey bir stratejik genel bakış sunmak için aktör profillerinden elde edilen bulguları sentezleyecektir.
 

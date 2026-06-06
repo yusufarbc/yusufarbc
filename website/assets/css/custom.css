@@ -269,8 +269,8 @@ body {
 }
 
 .mermaid svg {
-  max-width: 100% !important;
-  height: auto !important;
+  max-width: 100%;
+  height: auto;
 }
 
 /* Hamburger Menu */
@@ -1612,3 +1612,106 @@ body.colorscheme-dark .markdown-content img:not(.blog-cover):not(.navigation-log
 
   .render-cards { grid-template-columns: 1fr; }
 }
+
+/* =============================================================================
+   MERMAID DIAGRAMS GLOBAL STYLING
+   ============================================================================= */
+.mermaid {
+  display: flex !important;
+  justify-content: center !important;
+  margin: 2rem 0 !important;
+  padding: 1.5rem !important;
+  background: var(--code-bg) !important;
+  border: 1px solid var(--code-border) !important;
+  border-radius: 14px !important;
+  box-shadow: var(--card-shadow) !important;
+  overflow-x: auto !important;
+  width: 100% !important;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+  font-family: inherit !important;
+}
+
+/* Nodes styling */
+.mermaid svg .node rect,
+.mermaid svg .node circle,
+.mermaid svg .node polygon,
+.mermaid svg .node path {
+  fill: var(--card-bg) !important;
+  stroke: var(--card-border) !important;
+  stroke-width: 1.5px !important;
+  rx: 8px !important;
+  ry: 8px !important;
+  transition: fill 0.3s, stroke 0.3s !important;
+}
+
+/* Hover effect on nodes */
+.mermaid svg .node:hover rect,
+.mermaid svg .node:hover circle,
+.mermaid svg .node:hover polygon,
+.mermaid svg .node:hover path {
+  fill: var(--tag-bg) !important;
+  stroke: var(--app-accent-color) !important;
+}
+
+/* Node text elements */
+.mermaid svg .node .label,
+.mermaid svg .node .label div,
+.mermaid svg .node .label span,
+.mermaid svg .node text {
+  color: var(--app-text) !important;
+  fill: var(--app-text) !important;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+
+/* Subgraphs (clusters) styling */
+.mermaid svg .cluster rect {
+  fill: var(--tag-bg) !important;
+  stroke: var(--card-border) !important;
+  stroke-width: 1px !important;
+  rx: 12px !important;
+  ry: 12px !important;
+}
+
+.mermaid svg .cluster .label,
+.mermaid svg .cluster .label text {
+  color: var(--app-text-dim) !important;
+  fill: var(--app-text-dim) !important;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+}
+
+/* Edge paths (arrows/lines) */
+.mermaid svg .edgePath .path {
+  stroke: var(--accent-secondary) !important;
+  stroke-width: 1.5px !important;
+}
+
+/* Edge labels background */
+.mermaid svg .edgeLabel rect {
+  fill: var(--code-bg) !important;
+}
+
+/* Edge labels text */
+.mermaid svg .edgeLabel text,
+.mermaid svg .edgeLabel span {
+  color: var(--app-text-dim) !important;
+  fill: var(--app-text-dim) !important;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: 12px !important;
+}
+
+/* Arrowheads */
+.mermaid svg marker {
+  fill: var(--accent-secondary) !important;
+  stroke: none !important;
+}
+

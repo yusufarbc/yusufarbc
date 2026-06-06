@@ -1120,10 +1120,6 @@ Bu modülleri kullanım amaçlarına göre kategorize ederek inceleyebiliriz. A�
 
 ```mermaid
 flowchart TD
-    %% Styling and config
-    classDef category fill:#1e1e2e,stroke:#cba6f7,stroke-width:2px,color:#cdd6f4;
-    classDef module fill:#313244,stroke:#89b4fa,stroke-width:1px,color:#cdd6f4;
-    
     Start[Python Siber Güvenlik Ekosistemi] --> Cat1[1. Ağ ve Paket]
     Start --> Cat2[2. Web Sızma Testleri]
     Start --> Cat3[3. Kriptografi ve Parola]
@@ -1148,10 +1144,6 @@ flowchart TD
     Cat4 --> M4_3[ctypes]
 
     Cat5 --> M5_1[pwntools]
-
-    class Cat1,Cat2,Cat3,Cat4,Cat5 category;
-    class M1_1,M1_2,M1_3,M2_1,M2_2,M2_3,M2_4,M3_1,M3_2,M3_3,M4_1,M4_2,M4_3,M5_1 module;
-    style Start fill:#f38ba8,stroke:#f38ba8,stroke-width:2px,color:#11111b;
 
     click M1_1 href "#scapy" "Scapy modülüne git"
     click M1_2 href "#socket" "Socket modülüne git"

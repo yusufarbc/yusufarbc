@@ -203,16 +203,12 @@ Aşağıdaki kuyruklama modeli şeması, süreçlerin hazır kuyruğundan CPU'ya
 
 ```mermaid
 graph LR
-    classDef queue fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    classDef resource fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
-    classDef process fill:#b45309,stroke:#f59e0b,stroke-width:2px,color:#fff;
-
-    RQ["Hazır Kuyruğu<br/>(Ready Queue)"]:::queue
-    CPU["CPU (İşlemci)"]:::resource
-    IO["G/Ç Kuyruğu<br/>(I/O Queue)"]:::queue
-    IOD["G/Ç Cihazı<br/>(I/O Device)"]:::resource
-    Child["Çocuk Süreç<br/>(Fork)"]:::process
-    Int["Kesme (Interrupt)"]:::process
+    RQ["Hazır Kuyruğu<br/>(Ready Queue)"]
+    CPU["CPU (İşlemci)"]
+    IO["G/Ç Kuyruğu<br/>(I/O Queue)"]
+    IOD["G/Ç Cihazı<br/>(I/O Device)"]
+    Child["Çocuk Süreç<br/>(Fork)"]
+    Int["Kesme (Interrupt)"]
 
     RQ -->|CPU Zamanlayıcı| CPU
     CPU -->|Yürütme Bitti| Terminated["Sonlandırıldı"]

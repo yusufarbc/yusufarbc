@@ -86,13 +86,13 @@ type: posts
 }
 </style>
 
-# Golang for Hackers: Modern Siber Güvenlik Mimarisi ve Ofansif Kodlama Rehberi
+# Hackerlar İçin Golang: Modern Siber Güvenlik Mimarisi ve Ofansif Kodlama Rehberi
 
-Siber güvenlik ve ofansif yazılım geliştirme dünyası, köklü bir paradigma değişimine sahne oluyor. Uzun yıllar boyunca sızma testi uzmanları, Red Team operatörleri ve siber tehdit aktörleri hızlı prototipleme ve otomasyon senaryoları için **Python**'a; düşük seviyeli bellek manipülasyonu, exploit geliştirme ve işletim sistemi çekirdeği ile doğrudan etkileşim için ise **C/C++** dillerine bağımlı kaldılar.
+Siber güvenlik ve ofansif yazılım geliştirme dünyasında son yıllarda ciddi bir değişim yaşanıyor. Uzun süre boyunca sızma testi uzmanları, Red Team operatörleri ve zararlı yazılım geliştiricileri hızlı prototipleme ve otomasyon senaryoları için **Python**'ı; düşük seviyeli bellek manipülasyonu, exploit geliştirme ve işletim sistemiyle doğrudan etkileşim kurmak için ise **C/C++** dillerini tercih ettiler.
 
-Ancak modern kurumsal savunma mekanizmalarının (EDR, XDR ve gelişmiş SIEM çözümleri) evrilmesi, geleneksel dillerle yazılmış araçların operasyonel sınırlarını zorlamaya başladı. İşte bu noktada, Google tarafından dağıtık, ölçeklenebilir ve yüksek performanslı sistemler için tasarlanan **Go (Golang)**, ofansif güvenlik dünyasının yeni gözdesi haline geldi.
+Ancak EDR, XDR ve gelişmiş SIEM gibi modern savunma mekanizmalarının gelişmesiyle birlikte, geleneksel dillerle yazılan araçlar güvenlik engellerine takılmaya başladı. İşte tam bu noktada, Google tarafından dağıtık, ölçeklenebilir ve yüksek performanslı sistemler için tasarlanan **Go (Golang)**, siber güvenlik dünyasının en çok tercih edilen dili haline geldi.
 
-Bu rehber yazıda, Go dilinin siber güvenlik mimarisindeki stratejik konumunu kavramsal yönleriyle ele alacak, geleneksel dillerle olan yapısal farklarını inceleyecek ve pratik kod örnekleriyle modern taktikleri masaya yatıracağız.
+Bu rehberde, Go dilinin siber güvenlik süreçlerindeki yerini inceleyecek, diğer dillere göre yapısal avantajlarına değinecek ve pratik kod örnekleriyle ofansif kullanım senaryolarını ele alacağız.
 
 <div class="gh-container">
   <h3 class="gh-gradient-text" style="text-align: center; margin-bottom: 1.5rem;">🎯 Bu Rehber Kimler İçin?</h3>
@@ -101,21 +101,21 @@ Bu rehber yazıda, Go dilinin siber güvenlik mimarisindeki stratejik konumunu k
       <div class="gh-badge" style="background: rgba(56, 189, 248, 0.1); color: #38bdf8;">Red Team / Pentester</div>
       <h4 style="margin: 0.5rem 0; font-weight: bold; color: #f1f5f9;">Sızma Testi Uzmanları</h4>
       <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 0;">
-        Erişim engellerini aşan, yüksek hızlı tarayıcılar ve kurumsal sistemler üzerinde sıfır bağımlılıkla çalışan taşınabilir araçlar geliştirmek isteyenler.
+        Sistemlerde sıfır bağımlılıkla (standalone) çalışan, yüksek hızlı tarayıcılar ve özel araçlar geliştirmek isteyen güvenlik uzmanları.
       </p>
     </div>
     <div class="gh-card">
       <div class="gh-badge" style="background: rgba(129, 140, 248, 0.1); color: #818cf8;">Malware Dev</div>
       <h4 style="margin: 0.5rem 0; font-weight: bold; color: #f1f5f9;">Zararlı Yazılım Geliştiricileri</h4>
       <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 0;">
-        AV/EDR sistemlerini atlatmak için derleme bayraklarını (compiler flags), statik analizi zorlaştıran mimarileri ve CGO gerektirmeyen düşük seviyeli API çağrılarını incelemek isteyen araştırmacılar.
+        Antivirüs ve EDR sistemlerini aşmak (evasion) amacıyla derleme parametrelerini kullanan, statik analizi zorlaştırmak ve CGO bağımlılığı olmadan yerel API çağrıları yapmak isteyen araştırmacılar.
       </p>
     </div>
     <div class="gh-card">
       <div class="gh-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Blue Team / SOC</div>
       <h4 style="margin: 0.5rem 0; font-weight: bold; color: #f1f5f9;">Mavi Takım & Tehdit Avcıları</h4>
       <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 0;">
-        Go ile yazılmış zararlı yazılımların ve araçların çalışma zamanı (runtime) davranışlarını, bellek yapılarını çözerek daha etkili kurallar (YARA/Sigma) yazmak isteyen savunmacılar.
+        Go ile yazılmış araçların runtime (çalışma zamanı) davranışlarını ve bellek yapılarını analiz ederek daha etkili savunma kuralları (YARA, Sigma vb.) yazmak isteyen savunmacılar.
       </p>
     </div>
   </div>
@@ -123,9 +123,9 @@ Bu rehber yazıda, Go dilinin siber güvenlik mimarisindeki stratejik konumunu k
 
 ---
 
-## 1. Ofansif Güvenlik Dünyasında Paradigma Değişimi: Python ve C++ Neden Yetersiz Kalıyor?
+## 1. Ofansif Güvenlikte Python ve C++ Neden Yetersiz Kalıyor?
 
-Bir dilin siber güvenlikteki başarısı, sunduğu mimari esneklik ve hedef sistem üzerindeki ayak izi (footprint) ile doğrudan ilişkilidir. Geleneksel dillerin çalışma zamanı ve derleme adımlarını Go ile görsel olarak karşılaştıralım:
+Bir dilin siber güvenlik süreçlerindeki başarısı, sunduğu esneklik ve hedef sistemde bıraktığı ayak iziyle doğrudan ilgilidir. Geleneksel dillerin çalışma zamanı ve derleme süreçlerini Go ile karşılaştıralım:
 
 ```mermaid
 graph TD
@@ -148,50 +148,44 @@ graph TD
         G_Compiler --> G_Binary[Statik Bağlı Bağımsız İkili Dosya]
         G_Binary --> G_Execution[Çalışma - Sıfır Bağımlılık]
     end
-
-    style P_Execution fill:#ef4444,stroke:#f87171,stroke-width:2px,color:#fff;
-    style C_Execution fill:#f59e0b,stroke:#fbbf24,stroke-width:2px,color:#fff;
-    style G_Execution fill:#10b981,stroke:#34d399,stroke-width:2px,color:#fff;
 ```
 
-### Python'ın Sınırları ve Kurumsal Ağlardaki Engeller
+### Python'ın Karşılaştığı Zorluklar
 
-* **Çalışma Zamanı Bağımlılığı (Interpreter Dependency):** Python ile yazılmış gelişmiş bir sızma testi aracını hedef sistemde (örneğin kısıtlı yetkilere sahip bir Windows donanımında) çalıştırabilmek için sistemde Python yorumlayıcısının yüklü olması gerekir. `PyInstaller` gibi araçlarla binary haline getirilen paketler ise aslında arka planda geçici dizine (`SST` veya `Temp`) tüm yorumlayıcıyı ve `.pyc` bağımlılıklarını açar. Bu imza tabanlı hareket, modern EDR mimarileri için doğrudan bir alarm sebebidir.
-* **Global Interpreter Lock (GIL) Bariyeri:** Python, çoklu iş parçacığı (multithreading) işlemlerinde CPU çekirdeklerini gerçek anlamda eşzamanlı kullanamaz. Büyük ölçekli ağ taramalarında veya yüksek eşzamanlılık gerektiren kaba kuvvet (brute-force) saldırılarında Python mimarisi performans kısıtlamalarına takılır.
+- **Çalışma Zamanı Bağımlılığı (Runtime Dependency):** Python ile yazılmış bir aracı hedef sistemde (örneğin kısıtlı yetkilere sahip bir Windows makinesinde) çalıştırabilmek için sistemde Python yorumlayıcısının yüklü olması gerekir. `PyInstaller` gibi araçlarla exe haline getirilen programlar ise arka planda geçici dizine (`Temp`) tüm yorumlayıcıyı ve bağımlılıkları çıkartır. Bu işlem, modern EDR sistemlerinin anında alarm vermesine yol açar.
+- **GIL (Global Interpreter Lock) Engeli:** Python, yapısı gereği çoklu iş parçacığı (multithreading) işlemlerinde CPU çekirdeklerini gerçek anlamda eşzamanlı olarak kullanamaz. Yüksek hız gerektiren ağ taramalarında veya kaba kuvvet (brute-force) süreçlerinde Python'ın bu yapısı performansı ciddi şekilde sınırlar.
 
-### C/C++ ve Geliştirme Maliyetleri
+### C/C++ ve Operasyonel Zorluklar
 
-* **Bellek Güvenliği ve Karmaşıklık:** C/C++ dilleri düşük seviyeli erişim sunsa da, bellek yönetiminin (manüel `malloc`/`free`) tamamen geliştiriciye ait olması, operasyon sırasında kararsız koda ve sistemlerin çökmesine (Segment Fault) yol açabilir. Sızma testlerinde hedef sistemi çökertmek en son istenecek senaryodur.
-* **Derleme Zorlukları (Cross-Compilation):** Linux üzerinde yazılan gelişmiş bir C++ kodunun Windows API'leri ile sorunsuz entegre edilerek derlenmesi (cross-compile) bağımlılıklar ve derleyici mimarileri yüzünden operasyonel bir kabusa dönüşebilir.
+- **Bellek Güvenliği Riskleri:** C/C++ dilleri doğrudan donanım seviyesinde yetenekler sunsa da bellek yönetiminin (manuel `malloc`/`free`) geliştiriciye bırakılması, kararsız kodlara ve hedef sistemin çökmesine (Segmentation Fault) sebep olabilir. Sızma testlerinde hedef sunucuyu çökertmek, en çok kaçınılması gereken durumların başında gelir.
+- **Çapraz Derleme (Cross-Compilation) Zorluğu:** Linux üzerinde geliştirilen bir C++ kodunu, Windows API'leriyle uyumlu olacak şekilde Windows binary'sine dönüştürmek bağımlılıklar ve kütüphaneler nedeniyle oldukça zordur.
 
-### Go'nun Çözümü
+### Go Hepsini Nasıl Çözüyor?
 
-Go, Python'ın sunduğu **geliştirme kolaylığı ve hızlı sözdizimini (syntax)**, C/C++ dilinin sunduğu **doğrudan makine koduna derlenme ve yüksek performans** avantajıyla birleştirir. Tip güvenli (statically typed) ve bellek korumalı (garbage collected) yapısı, stabil ve güvenilir araçlar geliştirmeyi kolaylaştırır.
+Go; Python'ın sunduğu **hızlı yazım ve kolay geliştirme** avantajını, C/C++ dillerinin **doğrudan makine koduna derlenme ve yüksek performans** gücüyle birleştirir. Tip güvenli (statically typed) yapısı ve yerleşik bellek yönetimi (Garbage Collector) sayesinde siber güvenlik uzmanlarının hızlı ve kararlı çalışan araçlar geliştirmesine imkan tanır.
 
-### Siber Güvenlikte Dil Karşılaştırması
+### Karşılaştırma Tablosu
 
-Siber güvenlik operasyonlarında en çok tercih edilen üç dilin (Python, C/C++ ve Go) temel özellikleri arasındaki farklar:
-
-| Özellik | Python | C / C++ | Go (Golang) |
+| Kriter | Python | C / C++ | Go (Golang) |
 | :--- | :--- | :--- | :--- |
-| **Derleme Mantığı** | Yorumlanan (Interpreted) | Derlenen (Native) | Derlenen (Native Static) |
-| **Bağımlılık Durumu** | Yüksek (Yorumlayıcı & Kütüphane gerekir) | Düşük/Orta (Paylaşılan kütüphaneler) | Yok (Bağımsız tek binary) |
-| **Eşzamanlılık** | Kısıtlı (GIL Engeli Mevcut) | Karmaşık (İşletim sistemi thread'leri) | Mükemmel (Goroutines & Kanallar) |
-| **Hız** | Yavaş | Çok Hızlı | Hızlı (C'ye yakın) |
-| **Bellek Yönetimi** | Güvenli (Otomatik Garbage Collector) | Manuel (Güvensiz - Taşma riskleri) | Güvenli (Otomatik Garbage Collector) |
-| **Tersine Mühendislik Zorluğu**| Kolay (Bytecode decompile edilebilir) | Orta (Semboller varsa kolay) | Zor (Büyük ve karmaşık runtime yapısı) |
+| **Derleme Yapısı** | Yorumlanan (Interpreted) | Derlenen (Native) | Statik Derlenen (Native & Static) |
+| **Dışa Bağımlılık** | Yüksek (Yorumlayıcı ve paketler şart) | Orta (DLL / Paylaşılan kütüphaneler gerekir) | Yok (Tamamen bağımsız tek dosya) |
+| **Eşzamanlılık (Concurrency)** | Kısıtlı (GIL engeli var) | Karmaşık (Thread yönetimi zor) | Mükemmel (Goroutines ve Kanallar) |
+| **Çalışma Hızı** | Yavaş | Çok Hızlı | Hızlı (C seviyesine yakın) |
+| **Bellek Güvenliği** | Güvenli (Garbage Collector var) | Manuel (Hatalara ve taşmalara açık) | Güvenli (Garbage Collector var) |
+| **Tersine Mühendislik (Reversing)**| Kolay (Bytecode kolayca geri dönüştürülür) | Orta (Derleme ayarlarına göre değişir) | Zor (Büyük ve karmaşık çalışma yapısı) |
 
 ---
 
-## 2. Neden Ofansif Güvenlik İçin Go? (Temel Mimari Avantajlar)
+## 2. Ofansif Güvenlikte Go Dilinin Mimari Avantajları
 
-Go'yu siber güvenlik mühendisleri ve Red Team operatörleri için vazgeçilmez kılan üç temel direk bulunmaktadır:
+Go'yu güvenlik alanında çalışan mühendisler ve Red Team operatörleri için çekici kılan üç ana özellik vardır:
 
-### A. Statik Derleme ve Taşınabilirlik (Cross-Compilation)
+### A. Statik Derleme ve Çapraz Derleme Gücü
 
-Go derleyicisi, yazdığınız tüm kodu ve kullandığınız harici kütüphaneleri (üçüncü parti paketler dahil) tek bir bağımsız makine kodu binary'si (standalone binary) içerisine gömer. Hedef sistemde hiçbir dinamik kütüphaneye (`.dll` veya `.so`) ya da harici bir çalışma zamanı motoruna ihtiyaç duyulmaz.
+Go derleyicisi, yazdığınız kodu ve kullandığınız harici kütüphaneleri tek bir bağımsız çalıştırılabilir dosya (binary) içine gömer. Hedef sistemde herhangi bir dinamik kütüphane (.dll veya .so) ya da yorumlayıcı motor bulunması gerekmez.
 
-Ayrıca, tek bir komutla işletim sistemi ve mimari değiştirilebilir:
+Ayrıca, üzerinde çalıştığınız işletim sisteminden bağımsız olarak farklı platformlar için kolayca çıktı alabilirsiniz:
 
 ```bash
 # Linux makineden Windows x64 mimarisine derleme
@@ -201,25 +195,24 @@ GOOS=windows GOARCH=amd64 go build -o agent.exe main.go
 GOOS=linux GOARCH=arm64 go build -o agent_arm main.go
 ```
 
-### B. Tersine Mühendisliği Zorlaştırması (Anti-Reversing)
+### B. Tersine Mühendislik Sürecini Zorlaştırması
 
-Standart C/C++ binary dosyaları tersine mühendislik araçlarına (IDA Pro, Ghidra) atıldığında, dinamik kütüphane çağrıları ve fonksiyon başlıkları net bir şekilde analiz edilebilir. Ancak Go'nun iç yapısı bu süreci zorlaştırır:
+Standart C/C++ dosyaları Ghidra veya IDA Pro gibi tersine mühendislik araçlarıyla açıldığında, kütüphane çağrıları ve fonksiyon isimleri kolayca analiz edilebilir. Go'da ise bu süreç zorlaşır:
+- **Büyük Dosya Yapısı:** Go ile yazılan en basit program bile kendi çalışma zamanı motorunu (Garbage Collector, Scheduler vb.) içinde barındırdığı için birkaç megabayt yer kaplar. Analiz yapacak kişi, binlerce standart fonksiyonun arasından sizin yazdığınız kodu bulmakta zorlanır.
+- **pclntab Yapısı:** Go, hata durumlarında çağrı geçmişini (stack trace) gösterebilmek için dosya içerisine `pclntab` adında bir fonksiyon isim tablosu ekler. Bu özel tablo, tersine mühendislik araçlarının otomatik analiz yöntemlerini bozabilir ve statik analiz süreçlerini uzatır.
 
-* **Büyük ve Monolitik Binary Yapısı:** Go ile yazılan en basit "Hello World" programı bile dilin kendi çalışma zamanını (Garbage Collector, Scheduler vb.) içerdiği için birkaç megabayt boyutundadır. Analist, binlerce yerleşik Go fonksiyonu arasında ofansif kodu aramak zorunda kalır.
-* **Metadata ve pclntab Yapısı:** Go, çalışma zamanında hata takibi (stack trace) yapabilmek için binary içerisine `pclntab` adında bir fonksiyon isim tablosu gömer. Bu tablo standart tersine mühendislik script'lerini bozabilir ve statik analizi zorlaştırır.
+### C. Eşzamanlılık (Concurrency) Yetenekleri ve GMP Modeli
 
-### C. Yüksek Performanslı Eşzamanlılık (Concurrency: Goroutines ve GMP Modeli)
+Go; işletim sisteminin ağır iş parçacıkları (OS Threads) yerine, sadece birkaç kilobaytlık başlangıç belleğiyle çalışan ve dil düzeyinde yönetilen **Goroutine** yapılarını kullanır.
 
-Go, işletim sistemi seviyesindeki ağır iş parçacıkları (OS Threads) yerine, dil seviyesinde yönetilen ve sadece birkaç kilobaytlık bellek alanıyla başlayan **Goroutine** mimarisini kullanır. 
+Go'nun eşzamanlılık süreçlerinde bu kadar hızlı olmasının nedeni **GMP Modeli (M:N Scheduler)** adı verilen planlayıcı mimarisidir:
+- **G (Goroutine):** Çalıştırılan en küçük iş birimidir. Kendi stack alanına ve durum verilerine sahiptir.
+- **M (Machine):** İşletim sisteminin fiziksel iş parçacığını (OS Thread) temsil eder.
+- **P (Processor):** Goroutine'leri koordine etmek için gereken mantıksal işlem kaynaklarıdır (Varsayılan olarak CPU çekirdek sayınız kadardır).
 
-Go'nun bu yüksek performansı sağlamasının arkasındaki sır **GMP Modeli (M:N Scheduler)** adı verilen planlama mimarisidir:
-*   **G (Goroutine):** En küçük iş birimidir. Kendi yığın (stack) alanına, program sayacına (PC) ve durum bilgilerine sahiptir.
-*   **M (Machine):** İşletim sisteminin fiziksel/mantıksal iş parçacığını (OS Thread) temsil eder.
-*   **P (Processor):** Goroutine'leri çalıştırmak için gerekli mantıksal kaynakları temsil eder. Sayısı varsayılan olarak CPU çekirdek sayısı kadardır (`GOMAXPROCS`).
+Bu model sayesinde, yüksek maliyetli OS Thread geçişleri (context switch) yerine kullanıcı katmanında son derece hızlı geçişler yapılır. Binlerce goroutine, arka plandaki iş çalma (work-stealing) algoritmalarıyla işlemci çekirdeklerine dinamik olarak paylaştırılır.
 
-Bu M:N planlayıcı sayesinde, milisaniyeler ve megabaytlar harcayan OS Thread context switch işlemlerinden kaçınılarak, nanosaniyeler seviyesinde çok daha hafif bir geçiş (user-space scheduling) sağlanır. Binlerce goroutine, az sayıdaki fiziksel çekirdeğe (OS Threads) dinamik olarak dağıtılır (work-stealing algoritması ile).
-
-Aşağıdaki şema, Go'nun `goroutine` yapısının tek bir işletim sistemi iş parçacığı (thread) üzerinde binlerce eşzamanlı görevi nasıl koordine ettiğini göstermektedir:
+Aşağıdaki şema, Go'nun `goroutine` yapısının tek bir işletim sistemi iş parçacığı üzerinde binlerce görevi nasıl koordine ettiğini göstermektedir:
 
 ```mermaid
 graph TD
@@ -238,12 +231,6 @@ graph TD
     G2 --> Thread
     G3 --> Thread
     G4 --> Thread
-
-    style Thread fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    style G1 fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
-    style G2 fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
-    style G3 fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
-    style G4 fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
 ```
 
 <!-- SIMULATOR WIDGET START -->
@@ -361,9 +348,9 @@ graph TD
 </script>
 <!-- SIMULATOR WIDGET END -->
 
-#### Pratik Örnek: Yüksek Hızlı Eşzamanlı Port Tarayıcı
+#### Uygulama: Yüksek Hızlı Eşzamanlı Port Tarayıcı
 
-Aşağıdaki kod bloğu, Go'nun `sync.WaitGroup` ve `channels` mekanizmasını kullanarak binlerce portu asenkron olarak nasıl tarayabildiğini göstermektedir. Kodun bu sürümünde, worker fonksiyonu içerisindeki her tarama işlemi geçici bir anonim fonksiyona alınarak `defer wg.Done()` ve `defer conn.Close()` ifadeleri daha güvenli ve idiomatik bir şekilde çağrılmıştır:
+Aşağıdaki örnek, Go'nun `sync.WaitGroup` ve kanallar (`channels`) yapısını kullanarak portların nasıl asenkron olarak taranabileceğini göstermektedir. Kodun bu halinde, her tarama işlemi anonim bir fonksiyon içinde çalıştırılarak kaynakların kapatılması (`defer conn.Close()`) ve sayaçların güncellenmesi (`defer wg.Done()`) daha güvenli bir yapıda kurulmuştur:
 
 ```go
 package main
@@ -431,7 +418,7 @@ Teorik üstünlüğün ötesinde, bugün siber güvenlik endüstrisinin en kriti
     <div class="gh-badge">C2 Framework</div>
     <h4 style="margin: 0.5rem 0; font-weight: bold; color: #f1f5f9;">🛸 Bishop Fox - Sliver C2</h4>
     <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 0;">
-      Cobalt Strike'a güçlü ve açık kaynaklı bir alternatif. mTLS, WireGuard, HTTP(S) ve DNS tünelleme üzerinden gelişmiş implant kontrolü sunar.
+      Cobalt Strike'a güçlü ve açık kaynaklı bir alternatif. mTLS, WireGuard, HTTP(S) ve DNS tünelleme kullanarak eylemci (implant) yönetimini sağlar.
     </p>
   </div>
 
@@ -439,7 +426,7 @@ Teorik üstünlüğün ötesinde, bugün siber güvenlik endüstrisinin en kriti
     <div class="gh-badge">Paket Analiz / AD</div>
     <h4 style="margin: 0.5rem 0; font-weight: bold; color: #f1f5f9;">📦 Mandiant - gopacket</h4>
     <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 0;">
-      Python'ın Impacket kütüphanesinin Go'daki güçlü karşılığı. Active Directory analizi, SMB/RPC paket manipülasyonu ve relay operasyonları için tasarlanmıştır.
+      Python'daki Impacket kütüphanesinin Go üzerindeki karşılığıdır. Ağ paketlerinin analiz edilmesi, SMB/RPC paket yönetimi ve Active Directory operasyonları için sıklıkla tercih edilir.
     </p>
   </div>
 
@@ -447,7 +434,7 @@ Teorik üstünlüğün ötesinde, bugün siber güvenlik endüstrisinin en kriti
     <div class="gh-badge">Exploit Framework</div>
     <h4 style="margin: 0.5rem 0; font-weight: bold; color: #f1f5f9;">⚙️ VulnCheck - go-exploit</h4>
     <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 0;">
-      Exploit geliştiricileri için standartlaştırılmış, kararlı ve platformlar arası taşınabilir exploit kodları yazılmasını sağlayan profesyonel bir çatıdır.
+      Exploit geliştirme süreçlerini standartlaştırmak, kararlı ve platformlar arası taşınabilir exploit kodları yazmak amacıyla oluşturulmuş bir altyapıdır.
     </p>
   </div>
 
@@ -455,7 +442,7 @@ Teorik üstünlüğün ötesinde, bugün siber güvenlik endüstrisinin en kriti
     <div class="gh-badge">Recon / Web</div>
     <h4 style="margin: 0.5rem 0; font-weight: bold; color: #f1f5f9;">🔍 Gobuster / FFUF</h4>
     <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 0;">
-      Web dizinleri, gizli dosyalar ve alt alan adları (subdomain) tespiti için yüksek hızlı fuzzer ve kaba kuvvet (brute-force) araçları.
+      Web dizinleri, gizli sayfalar ve subdomain keşifleri için kullanılan yüksek hızlı fuzzer ve kaba kuvvet (brute-force) araçları.
     </p>
   </div>
 </div>
@@ -463,13 +450,13 @@ Teorik üstünlüğün ötesinde, bugün siber güvenlik endüstrisinin en kriti
 
 ---
 
-## 4. Gelişmiş Teknikler: Evading (Savunma Atlatma) ve Derleme Stratejileri
+## 4. Savunma Atlatma (Evasion) ve Derleme Teknikleri
 
-Bir sızma testi simülasyonunda veya Kırmızı Takım operasyonunda, yazılan Go binary'sinin boyutu ve EDR/Antivirüs sistemleri tarafından analiz edilebilirliği kritik önem taşır. Go, derleme aşamasında binary optimizasyonu ve analizi zorlaştırmak için güçlü parametreler sunar.
+Bir sızma testi simülasyonunda veya Red Team operasyonunda, üretilen Go binary dosyasının boyutu ve antivirüs/EDR çözümleri tarafından analiz edilebilirliği kritik önem taşır. Go, derleme aşamasında boyutu küçültmek ve analizi zorlaştırmak için çeşitli parametreler sunar.
 
-### Derleme Optimizasyon Flagleri
+### Derleme Parametreleri ve Optimizasyon
 
-Herhangi bir optimizasyon yapılmadan derlenen Go kodları, hata ayıklama sembollerini (debugging symbols) ve DWARF tablolarını içerir. Bu durum hem dosya boyutunu büyütür hem de AV/EDR çözümlerinin statik motorlarına (YARA kuralları vb.) çok fazla veri sunar.
+Varsayılan ayarlarla derlenen Go dosyaları, hata ayıklama sembollerini (debugging symbols) ve DWARF tablolarını da içine ekler. Bu durum hem dosya boyutunu büyütür hem de statik analiz yapan güvenlik motorlarının (örneğin YARA kurallarının) dosyayı kolayca analiz etmesine imkan tanır.
 
 <!-- COMPILER BUILDER WIDGET START -->
 <div class="gh-card" style="margin: 2rem 0; border: 1px solid rgba(129, 140, 248, 0.25);">
@@ -560,15 +547,15 @@ Herhangi bir optimizasyon yapılmadan derlenen Go kodları, hata ayıklama sembo
 </script>
 <!-- COMPILER BUILDER WIDGET END -->
 
-* **`CGO_ENABLED=0`:** Go'nun C kütüphanelerine bağımlılığını tamamen keser, pure Go modunda derleme yapar. Bu sayede binary'nin hedef işletim sistemindeki dinamik C çalışma zamanı bağımlılıklarından kurtulması ve tamamen bağımsız olması kesinleştirilir.
-* **`-ldflags="-s -w"`:**
-  * `-s`: Hata ayıklama sembol tablosunu (symbol table) binary içerisinden siler. Fonksiyon isimleri ve adres eşleşmeleri yok edilir.
-  * `-w`: DWARF hata ayıklama verilerini siler. Binary boyutunu neredeyse %40 oranında düşürür.
-* **`-trimpath`:** Kodun derlendiği yerel sistemdeki dosya yollarını (Örn: `/home/user/workspace/ofansif-proje/main.go`) binary içerisinden kazır. Bu sayede analistlerin veya imza motorlarının geliştirici ortamına dair bilgi toplamasını engeller.
+- **`CGO_ENABLED=0`:** Go'nun harici C kütüphanelerine olan bağımlılığını keser. Böylece derlenen dosya, hedef sistemdeki dinamik kütüphanelere ihtiyaç duymadan tamamen bağımsız çalışabilir.
+- **`-ldflags="-s -w"`:**
+  - `-s`: Hata ayıklama sembol tablosunu (symbol table) silerek fonksiyon isimleri ve adres eşleştirmelerini yok eder.
+  - `-w`: DWARF hata ayıklama bilgilerini temizler. Bu parametre, dosya boyutunu yaklaşık %40 oranında küçültür.
+- **`-trimpath`:** Kodun derlendiği bilgisayardaki dosya yollarını (Örneğin: `/home/user/proje/main.go`) temizler. Analistlerin geliştirici bilgisayarına dair bilgi edinmesini engeller.
 
-### CGO Olmadan Windows API ve Syscall Çağrıları (Direct Syscalls)
+### Windows API ve Sistem Çağrıları (Syscalls)
 
-Ofansif araç geliştirirken CGO (`CGO_ENABLED=0`) kapalı olsa dahi Go'nun yerleşik `"syscall"` paketi ve `"golang.org/x/sys/windows"` paketi kullanılarak Windows API'leri doğrudan tetiklenebilir. Dynamic API Resolution (Dinamik API Çözümleme) yöntemiyle, DLL dosyaları çalışma zamanında yüklenip fonksiyon adresleri çekilebilir. Bu, statik import tablolarını temiz tutar:
+Ofansif araç geliştirirken CGO kapalı olsa dahi Go'nun yerleşik `"syscall"` ve `"golang.org/x/sys/windows"` paketleri kullanılarak Windows API'leri tetiklenebilir. Çalışma zamanında DLL dosyalarını dinamik olarak yükleyip ilgili fonksiyon adreslerini çağırmak, statik import tablolarını temiz tutarak imza tabanlı tespitlerden kaçınmayı kolaylaştırır:
 
 ```go
 package main
@@ -596,18 +583,19 @@ func main() {
 }
 ```
 
-Bunun bir adım ötesi ise **Direct Syscalls (Doğrudan Sistem Çağrıları)** tekniğidir. Go, assembly (`.s`) dosyalarını doğrudan derleyebildiği için, EDR sistemlerinin kullanıcı modundaki API kancalarını (API hooking) atlatmak amacıyla sistem çağrı numaraları (sys IDs) doğrudan assembly seviyesinde çağrılarak çekirdek (kernel) moduna geçiş yapılabilir.
+Bu sürecin bir adım ilerisi ise **Direct Syscalls (Doğrudan Sistem Çağrıları)** yöntemidir. Go, assembly (`.s`) dosyalarını doğrudan derleyebildiği için, EDR sistemlerinin kullanıcı katmanındaki API kancalarını (API hooking) atlatmak amacıyla sistem çağrı numaralarını doğrudan assembly seviyesinde tetikleyerek çekirdek (kernel) moduna geçiş yapabilir.
 
-### Garble ile Kod Karartma (Obfuscation)
+### Garble ile Kod Obfuscation (Karartma)
 
-Go derleyicisi varsayılan olarak paket isimlerini, dosya yollarını ve fonksiyon isimlerini binary içerisine gömer. Bu durum, Ghidra veya `go-resym` gibi araçlarla binary analiz edildiğinde tüm kod yapısının saniyeler içinde çözülmesini sağlar.
+Go derleyicisi varsayılan olarak paket isimlerini ve fonksiyon adlarını dosya içerisine ekler. Bu durum, `go-resym` veya Ghidra gibi araçlarla dosyanın yapısının saniyeler içinde analiz edilmesini kolaylaştırır.
 
-Siber güvenlik araştırmacıları, statik analizi zorlaştırmak ve imza tabanlı tespitleri engellemek için açık kaynaklı **[Garble](https://github.com/burrowers/garble)** aracını kullanırlar. Garble, Go kodunu derlerken şu işlemleri otomatik gerçekleştirir:
-1.  **Paket ve Fonksiyon İsimlerini Rastgeleleştirir:** Fonksiyon isimlerini anlamsız hash değerleriyle değiştirir.
-2.  **String İfadeleri Şifreler:** Kod içindeki tüm string ifadeleri (IP adresleri, URL'ler, kritik kelimeler) çalışma zamanında çözülecek şekilde bellek üzerinde şifrelenmiş olarak saklar.
-3.  **Hata Ayıklama Bilgilerini Tamamen Siler:** Tüm DWARF ve debug yapılarını kazır.
+Güvenlik araştırmacıları, statik analizi zorlaştırmak ve imza tabanlı tespitleri engellemek için açık kaynaklı **[Garble](https://github.com/burrowers/garble)** aracını kullanırlar. Garble derleme sürecinde şunları yapar:
+1. **İsimleri Karıştırır:** Fonksiyon ve paket isimlerini anlamsız karakter dizileriyle değiştirir.
+2. **String İfadeleri Şifreler:** Kod içindeki metinleri (IP, URL, API anahtarı vb.) şifrelenmiş olarak saklar ve sadece çalışma zamanında çözülmesini sağlar.
+3. **Hata Ayıklama Verilerini Siler:** DWARF ve debug verilerini tamamen kazır.
 
-Derleme sırasında kullanımı oldukça basittir:
+Kullanımı oldukça pratiktir:
+
 ```bash
 # Go yerine garble kullanarak evasion odaklı derleme
 garble -literals -tiny build -ldflags="-s -w" -trimpath -o agent.exe main.go
@@ -627,7 +615,7 @@ garble -literals -tiny build -ldflags="-s -w" -trimpath -o agent.exe main.go
     <div class="gh-badge">Temel Başvuru</div>
     <h4 style="margin: 0.5rem 0; font-weight: bold; color: #f1f5f9;">📖 Black Hat Go</h4>
     <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 0;">
-      No Starch Press imzalı, Go diliyle güvenlik araçları, exploitler ve ağ manipülasyonu geliştirmeyi öğreten en popüler sektörel başvuru kitabıdır.
+      No Starch Press tarafından basılan, Go diliyle siber güvenlik araçları, exploitler ve ağ tarayıcıları yazmayı öğreten en popüler başvuru kitabıdır.
     </p>
   </div>
 
@@ -635,7 +623,7 @@ garble -literals -tiny build -ldflags="-s -w" -trimpath -o agent.exe main.go
     <div class="gh-badge">Ofansif Programlama</div>
     <h4 style="margin: 0.5rem 0; font-weight: bold; color: #f1f5f9;">📖 Go Programming for Hackers</h4>
     <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 0;">
-      Saldırgan araç geliştirme pratiklerine ve ağ tabanlı penetrasyon test script'lerine odaklanan kapsamlı bir kılavuz.
+      Ofansif araç geliştirme süreçlerine ve sızma testi betiklerine odaklanan, pratik örnekler içeren bir kılavuzdur.
     </p>
   </div>
 
@@ -643,7 +631,7 @@ garble -literals -tiny build -ldflags="-s -w" -trimpath -o agent.exe main.go
     <div class="gh-badge">Pratik El Kitabı</div>
     <h4 style="margin: 0.5rem 0; font-weight: bold; color: #f1f5f9;">📖 Black Hat Go Manual (BHGM)</h4>
     <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 0;">
-      Kitaplardaki teorik bilgileri pratik laboratuvar ortamlarıyla birleştiren ve hızlı kod referansları içeren pratik el kılavuzu.
+      Teorik bilgileri pratik laboratuvar ortamlarıyla birleştiren, hızlı kod referansları ve ipuçları sunan el kitabıdır.
     </p>
   </div>
 </div>
@@ -657,7 +645,7 @@ garble -literals -tiny build -ldflags="-s -w" -trimpath -o agent.exe main.go
     <div class="gh-badge" style="background: rgba(225, 29, 72, 0.1); color: #f43f5e; border-color: rgba(225, 29, 72, 0.2);">Video Seri (TR)</div>
     <h4 style="margin: 0.5rem 0; font-weight: bold; color: #f1f5f9;">🔴 Mehmet İnce - Golang For Hackers</h4>
     <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 1rem;">
-      Twitch ve YouTube'da yayınlanan, sıfırdan ileri seviyeye mimari yaklaşımlarla gerçekçi ofansif araçların (LDAP Injector vb.) nasıl kodlandığını gösteren dev Türkçe kaynak.
+      YouTube ve Twitch üzerinde yayınlanan, sıfırdan ileri seviyeye kadar Go ile gerçekçi araçların (örneğin LDAP enjektörleri) nasıl yazıldığını gösteren en kapsamlı Türkçe video serisi.
     </p>
     <a href="https://youtube.com/playlist?list=PLwP4ObPL5GY_O3eEZPrBnCD8ejN17DYGq" target="_blank" class="gh-btn" style="background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);">
       ▶ Playlist'i İzle
@@ -668,7 +656,7 @@ garble -literals -tiny build -ldflags="-s -w" -trimpath -o agent.exe main.go
     <div class="gh-badge" style="background: rgba(59, 130, 246, 0.1); color: #60a5fa; border-color: rgba(59, 130, 246, 0.2);">Video Seri (EN)</div>
     <h4 style="margin: 0.5rem 0; font-weight: bold; color: #f1f5f9;">🔵 IppSec - Golang for Hackers</h4>
     <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 1rem;">
-      Hack The Box videoları ile tanınan IppSec'in, Go dilinin ofansif otomasyonlardaki gücünü, kaba kuvvet araçlarını ve zafiyet tarayıcılarını ele aldığı İngilizce serisi.
+      Hack The Box çözümleriyle bilinen IppSec'in, Go dilini otomasyon süreçlerinde, tarayıcılarda ve sızma testlerinde nasıl kullandığını anlatan İngilizce eğitim serisi.
     </p>
     <a href="https://youtube.com/playlist?list=PLidcsTyj9JXJ74wLAJDC10JiUPV568hcp" target="_blank" class="gh-btn" style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);">
       ▶ Watch Playlist
@@ -679,22 +667,22 @@ garble -literals -tiny build -ldflags="-s -w" -trimpath -o agent.exe main.go
 
 ---
 
-## 6. Sonuç ve Gelecek Vizyonu
+## 6. Sonuç
 
-Siber güvenlik ekosisteminde Go dilinin yükselişi geçici bir popülarite trendi değildir; tamamen **mühendislik ihtiyaçlarının ve defansif bariyerlerin zorlamasının doğal bir sonucudur**.
+Siber güvenlik alanında Go dilinin bu kadar öne çıkması geçici bir popülerlikten ibaret değil; savunma sistemlerinin gelişmesine karşı ortaya çıkan **mühendislik ihtiyaçlarının doğal bir sonucudur**.
 
-Tek bir binary dosyasında yüksek eşzamanlılıkla çalışan, cross-compile yeteneği en üst düzeyde olan ve bellek yönetimini optimize eden bu mimari, ofansif operasyonların standart dili haline gelmiştir.
+Tek bir dosyada toplanan, yüksek hızda eşzamanlı iş yapabilen ve kolayca her işletim sistemi için derlenebilen bu dil, modern siber operasyonlarda standart haline gelmiştir.
 
-Bugün gelinen noktada sadece **Kırmızı Takım (Red Team)** operatörlerinin değil, tehdit avcılığı (Threat Hunting), tersine mühendislik ve SOC analizi yapan **Mavi Takım (Blue Team)** mühendislerinin de Go dilinin derleme aşamalarını, bellek yapısını ve runtime davranışlarını derinlemesine anlaması bir zorunluluktur. Saldırganın silahını tanımayan bir savunma hattının kalıcı başarı yakalaması mümkün değildir.
+Bugün gelinen noktada sadece Red Team ekiplerinin değil; tehdit avcılığı, tersine mühendislik ve SOC analizi yapan Blue Team uzmanlarının da Go dilinin çalışma prensiplerini ve derleme yapılarını bilmesi gerekir. Karşı tarafın kullandığı araçların çalışma mantığını anlamadan sağlam bir savunma hattı kurmak mümkün değildir.
 
 ---
 
 ## 📺 Ofansif Go Geliştirme Eğitim Serisi
 
-Bu blog serisine paralel olarak hazırladığım, sıfırdan Go diliyle siber güvenlik araçları (port tarayıcılar, sub-domain bulucular, şifreleyici fidye simülatörleri ve sızma testleri için HTTP ajanları) yazmayı anlatan YouTube video serisini aşağıdan takip edebilirsiniz:
+Go diliyle siber güvenlik araçları (port tarayıcılar, subdomain bulucular, ağ araçları vb.) geliştirmeyi anlatan Türkçe YouTube serisine aşağıdan göz atabilirsiniz:
 
 <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 1.5rem 0; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
   <iframe src="https://www.youtube.com/embed/videoseries?list=PLwP4ObPL5GY_O3eEZPrBnCD8ejN17DYGq" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 
-Eğitim serisine doğrudan erişmek için [Hackerlar İçin Golang Türkçe Oynatma Listesi](https://youtube.com/playlist?list=PLwP4ObPL5GY_O3eEZPrBnCD8ejN17DYGq&si=gL2JNNvpLegTM29R) bağlantısını kullanabilirsiniz.
+Seriye doğrudan erişmek için [Hackerlar İçin Golang Türkçe Oynatma Listesi](https://youtube.com/playlist?list=PLwP4ObPL5GY_O3eEZPrBnCD8ejN17DYGq&si=gL2JNNvpLegTM29R) bağlantısını kullanabilirsiniz.

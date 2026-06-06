@@ -32,8 +32,6 @@ graph TD
     AccessLog -->|Manual Inspection| Analyst[Security Analyst / Manual Grep]
     Fail2Ban -->|Threshold Reached| Firewall[Update iptables / Block IP]
     Firewall -.->|Drop Future Requests| Client
-    style Block fill:#ff4d4d,stroke:#333,stroke-width:2px,color:#fff
-    style Firewall fill:#ff9900,stroke:#333,stroke-width:2px,color:#fff
 ```
 
 ---

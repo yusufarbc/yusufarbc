@@ -8,7 +8,7 @@ layout: single
 type: posts
 ---
 
-## Chapter 1: Introduction to the Modern Threat Landscape and Digital Ecosystem Realities
+## Introduction to the Modern Threat Landscape and Digital Ecosystem Realities
 
 This introductory section will establish the basic concepts necessary to understand the detailed actor profiles that follow. It will define what an APT means in the modern context and address the confusing landscape of threat actor naming conventions, which is a key challenge for practitioners.
 
@@ -184,7 +184,7 @@ mindmap
         [Access Control]
 ```
 
-## Chapter 2: Know Your Enemy: Anatomy and Motivations of Threat Actors
+## Know Your Enemy: Anatomy and Motivations of Threat Actors
 
 A Network Attack is an unauthorized entry into a computer in your organization or an address within your assigned domain. Intrusion can be passive (infiltration stealthily and undetected) or active (in which changes to network resources are affected). Intrusions can come from outside or inside your network structure (an employee, customer or business partner). Some intrusions are just to let you know that the intruder is there, defacing your website with various messages or vulgar images. Others are more malicious, attempting to obtain critical information on a one-off basis or as an ongoing parasitic affair that will continue to siphon data until discovered. Some intruders attempt to inject elaborate code to crack passwords, record keystrokes, or impersonate your site to redirect unsuspecting users to their site. Others embed themselves in the network and constantly silently extract data or replace public Web pages with various messages.
 
@@ -349,7 +349,7 @@ A new and very disturbing trend is the discovery that some governments are fundi
 
 While understanding the motivations of these cybercriminals and state-sponsored armies is critical, one of the greatest operational challenges on the defensive side is how to identify these adversaries in the first place. The cybersecurity industry, much like the Tower of Babel, assigns hundreds of different names to the same threat.
 
-## Chapter 3: The "Tower of Babel" Problem in Global Threat Intelligence and the Art of Naming
+## The "Tower of Babel" Problem in Global Threat Intelligence and the Art of Naming
 
 * **The "Tower of Babel" Problem:** This subsection will explain why a universal naming standard for threat actors is impractical and may not be possible. Because different security vendors (Microsoft, CrowdStrike, Mandiant, Kaspersky, Palo Alto Networks, etc.) have their own telemetry, visibility, and internal research priorities, they develop unique naming schemes. This creates a "Rosetta Stone" problem for defenders who must correlate intelligence from multiple sources.
 * **Provider Taxonomies:** The high-level logic of the major provider naming schemes will be introduced to provide a mental model for the aliases the reader will encounter.
@@ -370,7 +370,7 @@ This table acts as a "Rosetta Stone," providing a means of resolving name confli
 
 ---
 
-## Chapter 4: APT Groups on the Geographical and Geopolitical Axis (In-Depth Analysis)
+## APT Groups on the Geographical and Geopolitical Axis (In-Depth Analysis)
 
 ### 4.1. Russia-Linked Actors: High Sabotage and Intelligence Integration
 
@@ -539,7 +539,7 @@ TTPs used by financially motivated groups such as FIN7 and SCATTERED SPIDER are 
 
 ---
 
-## Chapter 5: Shared Weapon of Modern Threats: The GenAI Threat
+## Shared Weapon of Modern Threats: The GenAI Threat
 
 The rapid adoption of Generative AI (GenAI) technologies has provided threat actors with powerful automation and payload optimization capabilities.
 
@@ -565,7 +565,7 @@ In the past, phishing emails were easily identifiable by poor grammar, awkward p
 
 In the face of this AI-powered automation — flawless phishing emails and polymorphic malware — traditional perimeter defenses like firewalls are utterly powerless on their own. Only one strategy remains capable of slowing the adversary and trapping them within our own labyrinth: Defense-in-Depth architecture.
 
-## Chapter 6: Defense-in-Depth Architecture for Modern Enterprises
+## Defense-in-Depth Architecture for Modern Enterprises
 
 Most security experts agree that perfect network security is impossible and that any defenses can always be bypassed. The defense-in-depth strategy embraces blocking the attacker with multiple layers of defense. He acknowledges that each layer can be overcome. Valuable assets are protected by more layers of defense. The combination of multiple layers increases the cost of success of the attack, which is proportional to the value of the assets protected. Additionally, the combination of multiple layers is more effective than a single optimized defense against unexpected attacks. The cost to the attacker may come in the form of additional time, effort, or equipment. For example, an attacker's delay can increase an organization's chances of detecting and responding to the attack in progress. If the increased costs outweigh the gains from a successful attack, some attempts may be discouraged.
 
@@ -611,26 +611,16 @@ There is a SIEM that brings it all together.
 
 ```mermaid
 graph TD
-    classDef plain fill:#1a1a1a,stroke:#333,stroke-width:1px,color:#fff;
-    classDef threatActor fill:#552222,stroke:#aa4444,stroke-width:1px,color:#ffcccc;
-
     subgraph "Attacker Phase"
-        A[Internet] -->|"Initial Access"| B(WAF/Patching);
-        B -- "Bypass" --> C(EDR/XDR);
-        C -- "Privilege Escalation" --> D(Micro-segmentation/NDR);
-        D -- "Lateral Movement" --> E(DLP/Encryption);
+        A[Internet] -->|"Initial Access"| B(WAF/Patching)
+        B -- "Bypass" --> C(EDR/XDR)
+        C -- "Privilege Escalation" --> D(Micro-segmentation/NDR)
+        D -- "Lateral Movement" --> E(DLP/Encryption)
     end
 
     subgraph "Compromise"
-        E --> F[Critical Data / Database];
+        E --> F[Critical Data / Database]
     end
-
-    A:::plain;
-    B:::threatActor;
-    C:::threatActor;
-    D:::threatActor;
-    E:::threatActor;
-    F:::plain;
 ```
 
 ### Layer 1: Application Protection - Outer Perimeter
@@ -990,7 +980,7 @@ Although these systems are configured correctly, they are not insurmountable lik
 
 ---
 
-## Chapter 7: Looking Ahead: Transitioning from Reactive Reflex to Proactive Strategy
+## Looking Ahead: Transitioning from Reactive Reflex to Proactive Strategy
 
 This concluding section will synthesize findings from actor profiles to provide a high-level strategic overview of the current and future threat landscape.
 

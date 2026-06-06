@@ -148,10 +148,6 @@ graph TD
         G_Compiler --> G_Binary[Statically Linked Standalone Binary]
         G_Binary --> G_Execution[Execution - Zero Dependencies]
     end
-
-    style P_Execution fill:#ef4444,stroke:#f87171,stroke-width:2px,color:#fff;
-    style C_Execution fill:#f59e0b,stroke:#fbbf24,stroke-width:2px,color:#fff;
-    style G_Execution fill:#10b981,stroke:#34d399,stroke-width:2px,color:#fff;
 ```
 
 ### Python's Limits and Corporate Network Barriers
@@ -238,12 +234,6 @@ graph TD
     G2 --> Thread
     G3 --> Thread
     G4 --> Thread
-
-    style Thread fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    style G1 fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
-    style G2 fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
-    style G3 fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
-    style G4 fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
 ```
 
 <!-- SIMULATOR WIDGET START -->

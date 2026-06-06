@@ -87,13 +87,6 @@ graph TD
     Court -->|Kanuni Talep| CloudAct
     CloudAct -->|Veri Teslim Zorunluluğu| Entra
     CloudAct -.->|Veri Sızıntısı Riski| SaaS
-
-    style AD fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    style User fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    style Entra fill:#6d28d9,stroke:#8b5cf6,stroke-width:2px,color:#fff;
-    style SaaS fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
-    style Court fill:#be123c,stroke:#f43f5e,stroke-width:2px,color:#fff;
-    style CloudAct fill:#b45309,stroke:#f59e0b,stroke-width:2px,color:#fff;
 ```
 
 Bu yasal riskler ve bulut dayatmaları karşısında, verilerin ve kimlik altyapısının kurum içi sunucularda barındırıldığı, açık kaynak kodlu (AGPLv3) **Nextcloud Hub ve OnlyOffice** entegrasyonu, veri egemenliğini yasal ve teknik düzeyde koruyan yegane alternatif hale gelmektedir.
@@ -106,36 +99,29 @@ Nextcloud Hub, veri silolarını ortadan kaldıran ve tüm uygulamaların birbir
 
 ```mermaid
 graph TD
-    %% Styling
-    classDef client fill:#0ea5e9,stroke:#0284c7,stroke-width:2px,color:#fff;
-    classDef proxy fill:#64748b,stroke:#475569,stroke-width:2px,color:#fff;
-    classDef core fill:#3b82f6,stroke:#2563eb,stroke-width:2px,color:#fff;
-    classDef db fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#fff;
-    classDef helper fill:#10b981,stroke:#059669,stroke-width:2px,color:#fff;
-
     %% Nodes
-    Client["Tarayıcı / Mobil Uygulamalar"]:::client
-    Proxy["Nginx / Traefik Tersine Vekil<br/>(SSL Sonlandırma & JWT Doğrulama)"]:::proxy
+    Client["Tarayıcı / Mobil Uygulamalar"]
+    Proxy["Nginx / Traefik Tersine Vekil<br/>(SSL Sonlandırma & JWT Doğrulama)"]
     
     subgraph NC_Stack["Nextcloud Hub Kümesi (On-Premises / Private Cloud)"]
-        NC_Core["Nextcloud Çekirdek Motoru<br/>(PHP-FPM, WebDAV, OIDC)"]:::core
-        Redis["Redis Önbellek & Dosya Kilitleme<br/>(Oturum ve Kilit Yönetimi)"]:::helper
-        DB[("PostgreSQL Veritabanı<br/>(Meta Veri & Parçalanmış Tablolar)")]:::db
-        S3_MinIO[("Birincil Nesne Depolama<br/>(MinIO / Ceph / S3)")]:::db
+        NC_Core["Nextcloud Çekirdek Motoru<br/>(PHP-FPM, WebDAV, OIDC)"]
+        Redis["Redis Önbellek & Dosya Kilitleme<br/>(Oturum ve Kilit Yönetimi)"]
+        DB[("PostgreSQL Veritabanı<br/>(Meta Veri & Parçalanmış Tablolar)")]
+        S3_MinIO[("Birincil Nesne Depolama<br/>(MinIO / Ceph / S3)")]
     end
 
     subgraph OO_Stack["OnlyOffice Doküman Sunucusu"]
-        OO_Doc["OnlyOffice Document Server<br/>(Node.js, Canvas Çizim)"]:::core
+        OO_Doc["OnlyOffice Document Server<br/>(Node.js, Canvas Çizim)"]
     end
 
     subgraph Talk_Stack["Nextcloud Talk HPB"]
-        Janus["Janus WebRTC Ağ Geçidi<br/>(SFU Medya Akışı)"]:::helper
-        NATS["NATS Mesaj Kuyruğu"]:::helper
+        Janus["Janus WebRTC Ağ Geçidi<br/>(SFU Medya Akışı)"]
+        NATS["NATS Mesaj Kuyruğu"]
     end
 
     subgraph Mail_Stack["Mailcow Docker Altyapısı"]
-        Postfix["Postfix SMTP & Dovecot IMAP"]:::core
-        Rspamd["Rspamd Antispam & ClamAV"]:::helper
+        Postfix["Postfix SMTP & Dovecot IMAP"]
+        Rspamd["Rspamd Antispam & ClamAV"]
     end
 
     %% Connections

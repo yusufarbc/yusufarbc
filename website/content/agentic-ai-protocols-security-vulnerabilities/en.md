@@ -20,37 +20,30 @@ The following architectural diagram illustrates the trust boundaries and potenti
 
 ```mermaid
 graph TD
-    classDef user fill:#1e293b,stroke:#475569,stroke-width:2px,color:#fff;
-    classDef client fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    classDef boundary fill:#be123c,stroke:#f43f5e,stroke-width:2px,color:#fff,stroke-dasharray: 5 5;
-    classDef server fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
-    classDef attack fill:#7f1d1d,stroke:#ef4444,stroke-width:2px,color:#fca5a5;
-    classDef protocol fill:#4c1d95,stroke:#7c3aed,stroke-width:2px,color:#fff;
-
-    User[User / Interface]:::user
+    User[User / Interface]
 
     subgraph ClientZone [Client Trusted Zone]
-        Client["AI Client (LLM / Agent Logic)"]:::client
-        Router["MCP Router / A2A Orchestrator"]:::client
+        Client["AI Client (LLM / Agent Logic)"]
+        Router["MCP Router / A2A Orchestrator"]
     end
 
-    TB["TRUST BOUNDARY"]:::boundary
+    TB["TRUST BOUNDARY"]
 
     subgraph ProtocolLayer [Protocol Layer]
-        MCP["MCP — Tool/Data Access"]:::protocol
-        A2A["A2A — Agent-Agent Communication"]:::protocol
-        ANP["ANP — Discovery & Identity"]:::protocol
+        MCP["MCP — Tool/Data Access"]
+        A2A["A2A — Agent-Agent Communication"]
+        ANP["ANP — Discovery & Identity"]
     end
 
     subgraph TargetZone [Execution Zone]
-        S_Env["MCP Server: File System"]:::server
-        S_Db["MCP Server: Database"]:::server
-        S_Term["MCP Server: Terminal / SSH"]:::server
-        RemoteAgent["Remote Agent (A2A)"]:::server
+        S_Env["MCP Server: File System"]
+        S_Db["MCP Server: Database"]
+        S_Term["MCP Server: Terminal / SSH"]
+        RemoteAgent["Remote Agent (A2A)"]
     end
 
-    Attacker["Malicious Input / Prompt Injection"]:::attack
-    Confused["Confused Deputy / Authority Chain"]:::attack
+    Attacker["Malicious Input / Prompt Injection"]
+    Confused["Confused Deputy / Authority Chain"]
 
     User -->|Declares Goal| Client
     Client -->|JSON-RPC 2.0| Router
@@ -64,15 +57,11 @@ graph TD
     Attacker -..->|IPI Attack| Client
     Client -..->|Chain Exploit| Confused
     Confused -..->|Privilege Escalation| S_Term
-
-    style ClientZone fill:#1e3a8a22,stroke:#3b82f6,stroke-width:1px
-    style TargetZone fill:#0f766e22,stroke:#14b8a6,stroke-width:1px
-    style ProtocolLayer fill:#4c1d9522,stroke:#7c3aed,stroke-width:1px
 ```
 
 ---
 
-## Section 1: What Is Agentic AI?
+## What Is Agentic AI?
 
 ### 1.1 From Reactive AI to Agentic AI: The Paradigm Shift
 
@@ -118,7 +107,7 @@ Agentic AI systems operate on specific reasoning patterns that define how they t
 
 ---
 
-## Section 2: The Protocol Map of the Agentic Web
+## The Protocol Map of the Agentic Web
 
 For agents to function, they must answer two fundamental questions: **"How do I connect to tools?"** and **"How do I coordinate with other agents?"** The answers point to protocol layers that are not competing but complementary.
 
@@ -144,7 +133,7 @@ Domain-specific semantics, rules, and workflows. They solve coordination problem
 
 ---
 
-## Section 3: MCP — The "USB-C Port" for AI
+## MCP — The "USB-C Port" for AI
 
 ### 3.1 Why MCP?
 
@@ -189,7 +178,7 @@ MCP relies on a clear separation of concerns:
 
 ---
 
-## Section 4: A2A — The Universal Language Between Agents
+## A2A — The Universal Language Between Agents
 
 ### 4.1 Why MCP Alone Isn't Enough
 
@@ -238,7 +227,7 @@ Modern robust systems use both: MCP equips an agent with tools and data, while A
 
 ---
 
-## Section 5: ANP — The "HTTP" of the Agentic Web
+## ANP — The "HTTP" of the Agentic Web
 
 ### 5.1 The Decentralized Discovery Problem
 
@@ -270,7 +259,7 @@ ANP is an open-source, community-driven protocol that enables secure discovery, 
 
 ---
 
-## Section 6: UCP & AP2 — The Autonomous Flow of Money
+## UCP & AP2 — The Autonomous Flow of Money
 
 ### 6.1 New Security Questions from Commercial Agents
 
@@ -300,7 +289,7 @@ AP2's core security mechanism is **Mandates** — cryptographically signed digit
 
 ---
 
-## Section 7: MCP Vulnerability Analysis at the Connection Point
+## MCP Vulnerability Analysis at the Connection Point
 
 ### 7.1 The Inverted Interaction Pattern
 
@@ -347,7 +336,7 @@ When autonomous agents interact with the real world, three critical risk factors
 
 ---
 
-## Section 8: Multi-Agent Security — A New Dimension
+## Multi-Agent Security — A New Dimension
 
 ### 8.1 OWASP Agentic Security Initiative (ASI)
 
@@ -371,10 +360,6 @@ graph LR
     A["External Attacker"] -..->|IPI| B["Outer Agent (Low Privilege)"]
     B -..->|Trust Exploitation| C["Inner Agent (High Privilege)"]
     C -..->|Privilege Escalation| D["Critical System"]
-    style A fill:#7f1d1d,color:#fca5a5
-    style B fill:#92400e,color:#fde68a
-    style C fill:#1e3a8a,color:#bfdbfe
-    style D fill:#0f766e,color:#a7f3d0
 ```
 
 **Implicit Peer Trust:** Because agents communicate autonomously, they may lack the granular zero-trust boundaries needed to verify the identity and integrity of other agents within the swarm.
@@ -391,7 +376,7 @@ graph LR
 
 ---
 
-## Section 9: Empirical Findings & Ecosystem Analysis
+## Empirical Findings & Ecosystem Analysis
 
 ![Protocol Ecosystem Comparison](media/infografik.png)
 
@@ -437,7 +422,7 @@ Token consumption increase: **3.25x — 236.5x**
 
 ---
 
-## Section 10: Real-World Application Domains
+## Real-World Application Domains
 
 ![AI Agent Model](media/model.png)
 
@@ -466,7 +451,7 @@ MCP enables the "vibe coding" paradigm — developers describe goals in natural 
 
 ---
 
-## Section 11: Defensive Architecture
+## Defensive Architecture
 
 ### 11.1 Multi-Layer Defense Table
 
@@ -508,7 +493,7 @@ The **AutoMalTool** framework autonomously generates malicious MCP tools to test
 
 ---
 
-## Section 12: Conclusion — Security Standards for the Agentic Web
+## Conclusion — Security Standards for the Agentic Web
 
 The protocol ecosystem of agentic AI is maturing rapidly. MCP, A2A, ANP, UCP, and AP2 — each fulfilling a critical function at a different layer — are together building the infrastructure of the "Agentic Web."
 

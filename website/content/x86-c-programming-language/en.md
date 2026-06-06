@@ -12,7 +12,7 @@ In the modern computing world, software is usually hidden behind layers of abstr
 
 Systems programming is an engineering art practiced at the boundaries of hardware. To practice this art, it is not enough to just know how to write code; you also need to understand how code maps onto processor architecture, how registers work, and how memory is dynamically managed. In this guide, we will start from the heart of the x86 microprocessor architecture, look at Assembly — the raw language of hardware — and then dive deep into C, the backbone of modern systems programming, combining theory with practice. If you are ready to discover that fine line between hardware and software, let's begin by examining the processor's architecture.
 
-## CHAPTER 1: Getting to Know the Hardware – X86 Microprocessor Architecture
+## Getting to Know the Hardware – X86 Microprocessor Architecture
 
 The microprocessor works like the central processing unit of a computer. It carries out the vital functions of the computer. The functional configuration of a microprocessor is:
 
@@ -203,7 +203,7 @@ The flag register consists of a memory cell that reflects in the register bits w
 
 In this article, I talked about the basic and programming-based X86-based microprocessor architecture. In order to write a program with assembly, you have to know the architecture of the processor you are using. There have been many architectural changes in the x86 family, from more primitive processors to today's advanced processors. Here we tried to discuss architecture in general.
 
-## CHAPTER 2: Speaking Directly to the Hardware – Assembly Programming
+## Speaking Directly to the Hardware – Assembly Programming
 
 ### Assembly language Overview
 
@@ -474,7 +474,7 @@ DELAY ENDP
 
 In this article, I tried to cover the issue of Assembly Programming in X86-based microprocessors without going into too much detail. You can access my article describing the The most critical point in assembly programming is to recognize the architecture of the hardware/processor we use and to write our program according to the command set and instructions that this architecture offers us. This aspect distinguishes assembly language from high-level languages in which we do not depend on hardware. It falls under the definition of low-level language. I hope it was useful. Don't forget to comment!
 
-## CHAPTER 3: Mastering the Hardware – C Programming Language and System Integration
+## Mastering the Hardware – C Programming Language and System Integration
 
 Programming is giving a computer a set of instructions to execute. The computer executes the given instructions sequentially. Various methods have been used to program a computer since the first computers.
 
@@ -1004,7 +1004,7 @@ if(i <= 1) {
 }
 ```
 
-## CHAPTER 4: Advanced Memory and File Management
+## Advanced Memory and File Management
 
 ### Referencing
 
@@ -1187,7 +1187,7 @@ void main() {
 
  Basic C Programming Tutorial
 
-## CHAPTER 5: Application Laboratory and Practice Questions
+## Application Laboratory and Practice Questions
 
 ### 5.1. Basic Algorithm and Decision Structure Questions
 

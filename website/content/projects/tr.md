@@ -20,7 +20,6 @@ layout: "projects"
       <span>Go</span>
       <span>ProjectDiscovery</span>
       <span>Phishing Simulation</span>
-      <span>Docker</span>
     </div>
   </div>
 

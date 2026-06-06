@@ -35,22 +35,13 @@ The following diagram visualizes the 7 layers of the OSI model alongside the mos
 
 ```mermaid
 graph TD
-    %% Styling
-    classDef l7 fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    classDef l6 fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
-    classDef l5 fill:#6d28d9,stroke:#8b5cf6,stroke-width:2px,color:#fff;
-    classDef l4 fill:#b45309,stroke:#f59e0b,stroke-width:2px,color:#fff;
-    classDef l3 fill:#be123c,stroke:#f43f5e,stroke-width:2px,color:#fff;
-    classDef l2 fill:#15803d,stroke:#22c55e,stroke-width:2px,color:#fff;
-    classDef l1 fill:#475569,stroke:#64748b,stroke-width:2px,color:#fff;
-
-    L7["Layer 7: Application<br/>Attacks: SQLi, XSS, RCE, CSRF, SSRF, LFI/RFI"]:::l7
-    L6["Layer 6: Presentation<br/>Attacks: Phishing, Spam, Social Engineering"]:::l6
-    L5["Layer 5: Session<br/>Attacks: Session Hijacking, Session Prediction"]:::l5
-    L4["Layer 4: Transport<br/>Attacks: TCP SYN Flood, TCP Reset, UDP Flood, Port Scanning"]:::l4
-    L3["Layer 3: Network<br/>Attacks: ICMP Flood, IP Spoofing, MitM (Man-in-the-Middle)"]:::l3
-    L2["Layer 2: Data Link<br/>Attacks: ARP Poisoning, MAC Spoofing"]:::l2
-    L1["Layer 1: Physical<br/>Attacks: Sniffing, Cable Cutting, Physical Tampering"]:::l1
+    L7["Layer 7: Application<br/>Attacks: SQLi, XSS, RCE, CSRF, SSRF, LFI/RFI"]
+    L6["Layer 6: Presentation<br/>Attacks: Phishing, Spam, Social Engineering"]
+    L5["Layer 5: Session<br/>Attacks: Session Hijacking, Session Prediction"]
+    L4["Layer 4: Transport<br/>Attacks: TCP SYN Flood, TCP Reset, UDP Flood, Port Scanning"]
+    L3["Layer 3: Network<br/>Attacks: ICMP Flood, IP Spoofing, MitM (Man-in-the-Middle)"]
+    L2["Layer 2: Data Link<br/>Attacks: ARP Poisoning, MAC Spoofing"]
+    L1["Layer 1: Physical<br/>Attacks: Sniffing, Cable Cutting, Physical Tampering"]
 
     L7 --> L6
     L6 --> L5

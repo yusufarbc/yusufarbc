@@ -204,16 +204,12 @@ The queueing model diagram below illustrates the flow of processes from the read
 
 ```mermaid
 graph LR
-    classDef queue fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    classDef resource fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
-    classDef process fill:#b45309,stroke:#f59e0b,stroke-width:2px,color:#fff;
-
-    RQ["Ready Queue"]:::queue
-    CPU["CPU"]:::resource
-    IO["I/O Queue"]:::queue
-    IOD["I/O Device"]:::resource
-    Child["Child Process<br/>(Fork)"]:::process
-    Int["Interrupt"]:::process
+    RQ["Ready Queue"]
+    CPU["CPU"]
+    IO["I/O Queue"]
+    IOD["I/O Device"]
+    Child["Child Process<br/>(Fork)"]
+    Int["Interrupt"]
 
     RQ -->|CPU Scheduler| CPU
     CPU -->|Execution Ended| Terminated["Terminated"]

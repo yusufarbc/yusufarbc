@@ -34,22 +34,13 @@ Aşağıdaki interaktif mimari şema, OSI modelinin her bir katmanında yaygın 
 
 ```mermaid
 graph TD
-    %% Styling
-    classDef l7 fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    classDef l6 fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
-    classDef l5 fill:#6d28d9,stroke:#8b5cf6,stroke-width:2px,color:#fff;
-    classDef l4 fill:#b45309,stroke:#f59e0b,stroke-width:2px,color:#fff;
-    classDef l3 fill:#be123c,stroke:#f43f5e,stroke-width:2px,color:#fff;
-    classDef l2 fill:#15803d,stroke:#22c55e,stroke-width:2px,color:#fff;
-    classDef l1 fill:#475569,stroke:#64748b,stroke-width:2px,color:#fff;
-
-    L7["Katman 7: Uygulama (Application)<br/>Saldırılar: SQLi, XSS, RCE, CSRF, SSRF, LFI/RFI"]:::l7
-    L6["Katman 6: Sunum (Presentation)<br/>Saldırılar: Phishing (Oltalama), Spam, Sosyal Mühendislik"]:::l6
-    L5["Katman 5: Oturum (Session)<br/>Saldırılar: Session Hijacking, Session Prediction"]:::l5
-    L4["Katman 4: Taşıma (Transport)<br/>Saldırılar: TCP SYN Flood, TCP Reset, UDP Flood, Port Tarama"]:::l4
-    L3["Katman 3: Ağ (Network)<br/>Saldırılar: ICMP Flood, IP Spoofing, MitM (Ortadaki Adam)"]:::l3
-    L2["Katman 2: Veri Bağlantısı (Data Link)<br/>Saldırılar: ARP Poisoning, MAC Spoofing"]:::l2
-    L1["Katman 1: Fiziksel (Physical)<br/>Saldırılar: Sniffing (Koklama), Kablo Kesme, Fiziksel Sabotaj"]:::l1
+    L7["Katman 7: Uygulama (Application)<br/>Saldırılar: SQLi, XSS, RCE, CSRF, SSRF, LFI/RFI"]
+    L6["Katman 6: Sunum (Presentation)<br/>Saldırılar: Phishing (Oltalama), Spam, Sosyal Mühendislik"]
+    L5["Katman 5: Oturum (Session)<br/>Saldırılar: Session Hijacking, Session Prediction"]
+    L4["Katman 4: Taşıma (Transport)<br/>Saldırılar: TCP SYN Flood, TCP Reset, UDP Flood, Port Tarama"]
+    L3["Katman 3: Ağ (Network)<br/>Saldırılar: ICMP Flood, IP Spoofing, MitM (Ortadaki Adam)"]
+    L2["Katman 2: Veri Bağlantısı (Data Link)<br/>Saldırılar: ARP Poisoning, MAC Spoofing"]
+    L1["Katman 1: Fiziksel (Physical)<br/>Saldırılar: Sniffing (Koklama), Kablo Kesme, Fiziksel Sabotaj"]
 
     L7 --> L6
     L6 --> L5

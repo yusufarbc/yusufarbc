@@ -32,8 +32,6 @@ graph TD
     AccessLog -->|Manuel Analiz| Analyst[Güvenlik Analisti / Manuel Grep]
     Fail2Ban -->|Eşik Değer Aşıldı| Firewall[iptables Güncelle / IP Engelle]
     Firewall -.->|Gelecek İstekleri Blokla| Client
-    style Block fill:#ff4d4d,stroke:#333,stroke-width:2px,color:#fff
-    style Firewall fill:#ff9900,stroke:#333,stroke-width:2px,color:#fff
 ```
 
 ---

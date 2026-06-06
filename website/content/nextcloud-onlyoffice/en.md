@@ -87,13 +87,6 @@ graph TD
     Court -->|Lawful Order| CloudAct
     CloudAct -->|Data Disclosure Obligation| Entra
     CloudAct -.->|Exposure Risk| SaaS
-
-    style AD fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    style User fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#fff;
-    style Entra fill:#6d28d9,stroke:#8b5cf6,stroke-width:2px,color:#fff;
-    style SaaS fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
-    style Court fill:#be123c,stroke:#f43f5e,stroke-width:2px,color:#fff;
-    style CloudAct fill:#b45309,stroke:#f59e0b,stroke-width:2px,color:#fff;
 ```
 
 Faced with these persistent legal risks and cloud-first pressures, migrating to a self-hosted, open-source (AGPLv3) **Nextcloud Hub and OnlyOffice** ecosystem remains the only reliable architectural approach to maintain absolute data and identity sovereignty.
@@ -106,36 +99,29 @@ Nextcloud Hub features an API-driven orchestration layer that tears down data si
 
 ```mermaid
 graph TD
-    %% Styling
-    classDef client fill:#0ea5e9,stroke:#0284c7,stroke-width:2px,color:#fff;
-    classDef proxy fill:#64748b,stroke:#475569,stroke-width:2px,color:#fff;
-    classDef core fill:#3b82f6,stroke:#2563eb,stroke-width:2px,color:#fff;
-    classDef db fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#fff;
-    classDef helper fill:#10b981,stroke:#059669,stroke-width:2px,color:#fff;
-
     %% Nodes
-    Client["Client Browser / Mobile Apps"]:::client
-    Proxy["Nginx / Traefik Reverse Proxy<br/>(SSL Termination & JWT Validation)"]:::proxy
+    Client["Client Browser / Mobile Apps"]
+    Proxy["Nginx / Traefik Reverse Proxy<br/>(SSL Termination & JWT Validation)"]
     
     subgraph NC_Stack["Nextcloud Hub Stack (On-Premises / Private Cloud)"]
-        NC_Core["Nextcloud Core Engine<br/>(PHP-FPM, WebDAV, OIDC)"]:::core
-        Redis["Redis Cache & File Locking<br/>(Session & Lock Mgmt)"]:::helper
-        DB[("PostgreSQL Database<br/>(Metadata & Sharded Tables)")]:::db
-        S3_MinIO[("Primary Object Storage<br/>(MinIO / Ceph / S3)")]:::db
+        NC_Core["Nextcloud Core Engine<br/>(PHP-FPM, WebDAV, OIDC)"]
+        Redis["Redis Cache & File Locking<br/>(Session & Lock Mgmt)"]
+        DB[("PostgreSQL Database<br/>(Metadata & Sharded Tables)")]
+        S3_MinIO[("Primary Object Storage<br/>(MinIO / Ceph / S3)")]
     end
 
     subgraph OO_Stack["OnlyOffice Stack"]
-        OO_Doc["OnlyOffice Document Server<br/>(Node.js, Canvas Rendering)"]:::core
+        OO_Doc["OnlyOffice Document Server<br/>(Node.js, Canvas Rendering)"]
     end
 
     subgraph Talk_Stack["Nextcloud Talk HPB"]
-        Janus["Janus WebRTC Gateway<br/>(SFU Media Streaming)"]:::helper
-        NATS["NATS Message Queue"]:::helper
+        Janus["Janus WebRTC Gateway<br/>(SFU Media Streaming)"]
+        NATS["NATS Message Queue"]
     end
 
     subgraph Mail_Stack["Mailcow Dockerized"]
-        Postfix["Postfix SMTP & Dovecot IMAP"]:::core
-        Rspamd["Rspamd Antispam & ClamAV"]:::helper
+        Postfix["Postfix SMTP & Dovecot IMAP"]
+        Rspamd["Rspamd Antispam & ClamAV"]
     end
 
     %% Connections

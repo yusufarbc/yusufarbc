@@ -62,12 +62,6 @@ graph TD
         Dev -->|Executes Malicious Script| DevEnv[Developer Credentials / Env Leak]
         CI_CD -->|Poisoned Build| Prod[Production Server / Backdoor Deployment]
     end
-
-    style Attacker fill:#be123c,stroke:#f43f5e,stroke-width:2px,color:#fff;
-    style PublicRegistry fill:#b45309,stroke:#f59e0b,stroke-width:2px,color:#fff;
-    style PrivateRegistry fill:#0f766e,stroke:#14b8a6,stroke-width:2px,color:#fff;
-    style CI_CD fill:#6d28d9,stroke:#8b5cf6,stroke-width:2px,color:#fff;
-    style Prod fill:#be123c,stroke:#f43f5e,stroke-width:2px,color:#fff;
 ```
 
 ---
