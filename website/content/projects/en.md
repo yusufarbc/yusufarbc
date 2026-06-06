@@ -11,6 +11,23 @@ layout: "projects"
     <div class="project-top">
       <div class="project-folder">📁</div>
       <div class="project-links">
+        <a href="https://github.com/yusufarbc/vantage" target="_blank"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+    <h3>Vantage</h3>
+    <p class="project-desc">A Gophish-based Security Operations Hub that combines phishing simulation with an asynchronous Go CLI orchestrator for ProjectDiscovery tools, supporting internal and external scanning in one unified dashboard.</p>
+    <div class="project-tags">
+      <span>Go</span>
+      <span>ProjectDiscovery</span>
+      <span>Phishing Simulation</span>
+      <span>Docker</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-top">
+      <div class="project-folder">📁</div>
+      <div class="project-links">
         <a href="https://github.com/yusufarbc/Apache-BigData-SIEM" target="_blank"><i class="fa-brands fa-github"></i></a>
         <a href="https://yusufarbc.github.io/Apache-BigData-SIEM/" target="_blank"><i class="fa-solid fa-link"></i></a>
       </div>
