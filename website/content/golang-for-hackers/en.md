@@ -127,33 +127,33 @@ In this guide, we will conceptually examine the strategic position of the Go lan
 
 A language's success in cybersecurity is directly related to its architectural flexibility and its footprint on the target system. Let's visually compare the execution and compilation pipelines of traditional languages with Go:
 
-```mermaid
-graph LR
-    subgraph "Python (Interpreted)"
-        P_Source[Python Code] --> P_Compiler[Bytecode Compiler]
-        P_Compiler --> P_Bytecode[pyc Bytecode]
-        P_Bytecode --> P_Interpreter[Target VM / Interpreter]
-        P_Interpreter --> P_Execution[Execution - High OS Footprint]
-    end
-```
+**Python (Interpreted)**
 
 ```mermaid
 graph LR
-    subgraph "C++ (Compiled Native)"
-        C_Source[C++ Code] --> C_Compiler[Platform Compiler]
-        C_Compiler --> C_Binary[Linked Binary]
-        C_Binary --> C_OS[Target Dynamic Libs DLL/SO]
-        C_OS --> C_Execution[Execution - Low OS Footprint]
-    end
+    P_Source[Python Code] --> P_Compiler[Bytecode Compiler]
+    P_Compiler --> P_Bytecode[pyc Bytecode]
+    P_Bytecode --> P_Interpreter[Target VM / Interpreter]
+    P_Interpreter --> P_Execution[Execution - High OS Footprint]
 ```
+
+**C++ (Compiled Native)**
 
 ```mermaid
 graph LR
-    subgraph "Go (Static Compiled)"
-        G_Source[Go Code] --> G_Compiler[Go Cross-Compiler]
-        G_Compiler --> G_Binary[Statically Linked Standalone Binary]
-        G_Binary --> G_Execution[Execution - Zero Dependencies]
-    end
+    C_Source[C++ Code] --> C_Compiler[Platform Compiler]
+    C_Compiler --> C_Binary[Linked Binary]
+    C_Binary --> C_OS[Target Dynamic Libs DLL/SO]
+    C_OS --> C_Execution[Execution - Low OS Footprint]
+```
+
+**Go (Static Compiled)**
+
+```mermaid
+graph LR
+    G_Source[Go Code] --> G_Compiler[Go Cross-Compiler]
+    G_Compiler --> G_Binary[Statically Linked Standalone Binary]
+    G_Binary --> G_Execution[Execution - Zero Dependencies]
 ```
 
 ### Python's Limits and Corporate Network Barriers
