@@ -338,7 +338,9 @@ Redis bellek tahliye politikası (`maxmemory-policy`), kilitlerin süresinden ö
 ### 4.2. PHP-FPM Süreç Limiti (Worker Hesaplama Formülü)
 Anlık istek dalgalanmalarında sunucunun yanıt vermez duruma geçmesini engellemek için kurumsal sunucularda `pm = static` süreç yöneticisi kullanılmalıdır. Sunucunuzda çalıştırabileceğiniz maksimum PHP-FPM worker sayısı (`pm.max_children`) şu formülle hesaplanır:
 
-$$\text{max\_children} = \frac{\text{Toplam RAM} - (\text{İşletim Sistemi ve Diğer Servislerin RAM İhtiyacı})}{\text{Süreç Başına Ortalama PHP Bellek Tüketimi (~100MB)}}$$
+```text
+max_children = (Toplam RAM - İşletim Sistemi ve Diğer Servislerin RAM İhtiyacı) / Süreç Başına Ortalama PHP Bellek Tüketimi (~100MB)
+```
 
 *Örnek:* 32 GB RAM'li bir sunucuda; OS (4GB), DB (8GB) ve Redis/Yan Servisler (4GB) düşüldüğünde kalan 16 GB (16.384 MB) RAM, 100 MB'lık PHP sürecine bölünürse `pm.max_children = 150` olarak atanmalıdır.
 

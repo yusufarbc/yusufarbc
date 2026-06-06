@@ -69,7 +69,7 @@ Geleneksel üretici yapay zeka (Generative AI) araçları sadece birer **asistan
 
 Bu büyük paradigma değişimi şu formülle özetlenebilir:
 
-> *"Soru Soruldu — Yapay Zeka Cevap Verdi"* $\rightarrow$ *"Hedef Belirlendi — Yapay Zeka Çözüm Yolunu Buldu ve Uyguladı"*
+> *"Soru Soruldu — Yapay Zeka Cevap Verdi"* → *"Hedef Belirlendi — Yapay Zeka Çözüm Yolunu Buldu ve Uyguladı"*
 
 Bu fark sadece işlevsel değildir; siber güvenlik açısından da son derece kritiktir. Reaktif bir model (örneğin standart bir chatbot) doğrudan sistemler üzerinde aksiyon alıp fiziksel bir hasara yol açamazken; otonom bir yapay zeka eylemcisi dosya silebilir, veritabanı sorgulayabilir, e-posta gönderebilir, ödeme işlemlerini tetikleyebilir ve hatta diğer eylemcileri göreve çağırabilir.
 
@@ -119,8 +119,8 @@ Bu protokoller genel olarak yatay ve dikey olmak üzere iki ana kategoride incel
 
 | Protokol | Seviye | Birincil Amacı | Olgunluk Seviyesi |
 | :--- | :--- | :--- | :--- |
-| **MCP (Model Context Protocol)** | Yatay | Eylemci ile veri kaynakları/araçlar arasında standart köprü | Üretime Hazır |
-| **A2A (Agent-to-Agent)** | Yatay | Eylemcilerin birbiriyle konuşması ve iş birliği yapması | Üretime Hazır |
+| **MCP (Model Context Protocol)** | Yatay | Eylemci ile veri kaynakları/araçlar arasında standart köprü | Canlı Kullanıma Hazır |
+| **A2A (Agent-to-Agent)** | Yatay | Eylemcilerin birbiriyle konuşması ve iş birliği yapması | Canlı Kullanıma Hazır |
 | **ANP (Agent Network Protocol)** | Yatay | Eylemcilerin internet üzerinde birbirini otonom keşfetmesi | Geliştirilme Aşamasında |
 | **UCP (Universal Commerce Protocol)** | Dikey | E-ticaret süreçlerinin otonom yönetilmesi için ortak dil | Geliştirilme Aşamasında |
 | **AP2 (Agent Payments Protocol)** | Dikey | Eylemciler için kriptografik işlem ve ödeme yetkilendirmesi | Geliştirilme Aşamasında |
@@ -178,13 +178,13 @@ MCP, tek bir eylemcinin kendi araçları ve verileriyle konuşmasını sağlarke
 
 Google öncülüğünde Nisan 2025'te başlatılan ve şu an Linux Foundation çatısı altında geliştirilen A2A; farklı altyapılara ve platformlara sahip eylemcilerin birbirini güvenli bir şekilde tanımasını, kimlik doğrulamasını gerçekleştirmesini ve iş ortaklığı yapmasını hedefler.
 
-> **Basit Bir Benzetme:** MCP, eylemcinin kendi bilgisayarındaki klavye, fare ve uygulamaları kullanabilmesini sağlar. A2A ise bu eylemcine, internet üzerinden diğer uzman eylemcilerle iletişim kurup onlardan iş talep etmesine imkan tanır.
+> **Basit Bir Benzetme:** MCP, eylemcinin kendi bilgisayarındaki klavye, fare ve uygulamaları kullanabilmesini sağlar. A2A ise bu eylemciye, internet üzerinden diğer uzman eylemcilerle iletişim kurup onlardan iş talep etmesine imkan tanır.
 
 ### 4.2 A2A Çalışma Prensibi
 
 - **Eylemci Tanıtım Kartları (Agent Cards):** Her eylemci, `/.well-known/agent.json` adresinde JSON formatında bir kimlik kartı sunar. Bu kartta eylemcinin yetenekleri, desteklediği veri tipleri ve kabul ettiği kimlik doğrulama yöntemleri yer alır.
 - **Görev Yönetimi ve Durum Makinesi:** A2A, görevlerin takibini kolaylaştırmak için standart bir durum makinesi (state machine) tanımlar:
-  `submitted` (gönderildi) $\rightarrow$ `working` (çalışıyor) $\rightarrow$ `input-required` (girdi bekleniyor) $\rightarrow$ `completed` / `failed` (tamamlandı / başarısız).
+  `submitted` (gönderildi) → `working` (çalışıyor) → `input-required` (girdi bekleniyor) → `completed` / `failed` (tamamlandı / başarısız).
   Bu sayede uzun soluklu iş süreçleri adım adım takip edilebilir.
 - **İletişim Altyapısı:** A2A haberleşmesi HTTPS protokolü üzerinde çalışır; mesajlaşma için JSON-RPC 2.0 kullanılır ve uzun süren süreçlerin anlık durumu SSE (Server-Sent Events) ile iletilir.
 
@@ -382,7 +382,7 @@ Açık kaynaklı 22.722 GitHub deposu üzerinde yapılan tarama sonuçları şun
 Tek başına bakıldığında tamamen zararsız olan işlemlerin bir araya getirilerek kötüye kullanılmasıdır:
 
 ```
-1. Dosyayı Oku $\rightarrow$ 2. İçeriği Bir Değişkene Ata $\rightarrow$ 3. Harici Bir Sunucuya İstek Gönder
+1. Dosyayı Oku → 2. İçeriği Bir Değişkene Ata → 3. Harici Bir Sunucuya İstek Gönder
 ```
 
 Güvenlik filtreleri bu adımların hiçbirini tek başına engellemez fakat zincirleme olarak çalıştırıldıklarında veri sızıntısıyla sonuçlanırlar.

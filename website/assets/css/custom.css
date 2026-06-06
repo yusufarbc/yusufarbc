@@ -269,8 +269,10 @@ body {
 }
 
 .mermaid svg {
-  max-width: 100%;
-  height: auto;
+  width: auto !important;
+  max-width: none !important;
+  height: auto !important;
+  flex-shrink: 0 !important;
 }
 
 /* Hamburger Menu */
@@ -1630,9 +1632,11 @@ body.colorscheme-dark .markdown-content img:not(.blog-cover):not(.navigation-log
 }
 
 .mermaid svg {
-  max-width: 100%;
-  height: auto;
+  width: auto !important;
+  max-width: none !important;
+  height: auto !important;
   font-family: inherit !important;
+  flex-shrink: 0 !important;
 }
 
 /* Nodes styling */

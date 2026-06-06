@@ -338,7 +338,9 @@ Set the Redis eviction policy (`maxmemory-policy`) to `noeviction` to prevent Re
 ### 4.2. Optimize PHP-FPM Process Pools
 To avoid "504 Gateway Timeout" errors during peak traffic, configure `pm = static`. Calculate the ideal number of workers (`pm.max_children`) using this formula:
 
-$$\text{max\_children} = \frac{\text{Total Server RAM} - (\text{RAM consumed by OS, DB, & Redis})}{\text{Average RAM consumption per PHP process (~100MB)}}$$
+```text
+max_children = (Total Server RAM - RAM consumed by OS, DB, & Redis) / Average RAM consumption per PHP process (~100MB)
+```
 
 *Example:* On a 32 GB RAM server where OS (4GB), DB (8GB), and Redis/monitoring (4GB) consume 16 GB, the remaining 16 GB (16,384 MB) of RAM allocated to PHP yields `pm.max_children = 150`.
 

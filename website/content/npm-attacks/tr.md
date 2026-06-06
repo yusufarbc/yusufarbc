@@ -37,9 +37,9 @@ npm; proje dosyalarının tanımlandığı manifestolara, bağımlılık kilitle
 
 npm dünyasındaki en büyük risk, projenize doğrudan eklediğiniz paketlerin ötesinde, o paketlerin de arka planda kullandığı **geçişli (transitive) bağımlılık ağacıdır**. Bir geliştirici projesine tek bir kütüphane eklediğinde, o kütüphane de düzinelerce başka kütüphaneye ihtiyaç duyar. Sonuç olarak, tek bir paketin yüklenmesi arka planda yüzlerce farklı kişinin yazdığı kodların sisteme dahil olmasına yol açar.
 
-Matematiksel olarak derinliği $D$ ve her paketin ortalama bağımlılık sayısı (dallanma faktörü) $b$ olan bir bağımlılık ağacındaki toplam paket sayısı $N$ şu formülle ifade edilebilir:
+Matematiksel olarak derinliği *D* ve her paketin ortalama bağımlılık sayısı (dallanma faktörü) *b* olan bir bağımlılık ağacındaki toplam paket sayısı *N* şu formülle ifade edilebilir:
 
-$$N = \frac{b(b^D - 1)}{b - 1}$$
+*N* = *b*(*b*<sup>*D*</sup> - 1) / (*b* - 1)
 
 Bu üstel büyüme, kodların elle incelenmesini imkansız kılar. Geliştiriciler sadece kendi ekledikleri paketleri kontrol ederken, alt bağımlılıkların derinliklerinde yer alan zararlı kodlardan habersiz kalırlar. Bu durum, güvenlik ekipleri için ciddi bir **"görünürlük kör noktası" (visibility blind spot)** oluşturarak saldırganların tespit edilmeden sistemlere sızmasına zemin hazırlar.
 
@@ -124,16 +124,16 @@ npm paketleri kurulurken çalışan otomatik kancalar (`preinstall`, `postinstal
 
 npm ekosistemi, ağ teorisine göre **"ölçeksiz ağ" (scale-free network)** yapısındadır. Az sayıdaki çok popüler kütüphane (merkezi düğümler), milyonlarca projeye doğrudan veya dolaylı olarak bağlanır. Bu yapı, tek bir kritik paketin ele geçirilmesinin tüm ekosistemi felç edebileceği asimetrik bir risk doğurur.
 
-Ağ üzerindeki merkez bir paketin enfekte olma ihtimali $p$ ve bu pakete bağlı toplam alt paket sayısı $k$ ise, bu zararlının alt ağlara yayılma ihtimali ($P_{cascade}$) şu şekilde modellenir:
+Ağ üzerindeki merkez bir paketin enfekte olma ihtimali *p* ve bu pakete bağlı toplam alt paket sayısı *k* ise, bu zararlının alt ağlara yayılma ihtimali (*P*<sub>cascade</sub>) şu şekilde modellenir:
 
-$$P_{cascade} = 1 - (1 - p)^k$$
+*P*<sub>cascade</sub> = 1 - (1 - *p*)<sup>*k*</sup>
 
-$k$ değerinin (bağımlılık sayısının) çok yüksek olduğu popüler paketlerde, saldırganın başarı şansı ($p$) çok düşük olsa bile, zincirleme etkinin tüm ağa yayılması neredeyse kaçınılmaz hale gelir.
+*k* değerinin (bağımlılık sayısının) çok yüksek olduğu popüler paketlerde, saldırganın başarı şansı (*p*) çok düşük olsa bile, zincirleme etkinin tüm ağa yayılması neredeyse kaçınılmaz hale gelir.
 
 | Saldırı Yöntemi | Nasıl Çalışır? | Önemli Örnekler | Etki Alanı |
 |---|---|---|---|
 | **Dependency Confusion** | Şirket içi paketlerin adlarıyla genel depoya yüksek sürümlü sahte paket yüklenmesi. | Apple, Microsoft, Tesla İhlalleri (2021) | İç ağlara sızma ve sunucularda komut çalıştırma |
-| **Typosquatting** | Popüler paket adlarındaki yazım hatalarının taklit edilmesi. | `lodash` $\rightarrow$ `lodsh`, `cross-env` $\rightarrow$ `crossenv` | API anahtarlarının ve çevre (env) verilerinin çalınması |
+| **Typosquatting** | Popüler paket adlarındaki yazım hatalarının taklit edilmesi. | `lodash` → `lodsh`, `cross-env` → `crossenv` | API anahtarlarının ve çevre (env) verilerinin çalınması |
 | **Account Takeover (ATO)** | Geliştirici hesaplarının çalınması veya süresi biten domainlerin alınması. | node-ipc (2022), Axios Vakası (2026) | Güvenilir güncellemeler üzerinden zararlı dağıtılması |
 | **Lifecycle Script İstismarı** | Kurulum sırasında otomatik çalışan betiklerin kötüye kullanılması. | Axios / `plain-crypto-js` RAT dropper (2026) | Sistemde arka kapı (backdoor) açılması |
 | **Protestware** | Geliştiricinin kendi paketini politik/sosyal amaçlarla sabote etmesi. | `node-ipc` (`peacenotwar` eklentisi), `colors.js` | Dosya silme ve sistemleri çalışmaz hale getirme (DoS) |
@@ -197,7 +197,7 @@ Otomatik çalışan kurulum betiklerinin riskini ortadan kaldırmak için paket 
 npm install --ignore-scripts --allow-git=none
 ```
 
-`--allow-git=none` parametresi (npm v11.10 ve üzeri sürümlerde), kurulum sırasında git komutlarının çalıştırılma yollarını kapatarak git bağımlılıkları üzerinden gelebilecek sistem seviyesindeki manipülasyonları engeller. Üretim ve CI/CD sunucularında ise her zaman `npm ci` (clean install) tercih edilmelidir.
+`--allow-git=none` parametresi (npm v11.10 ve üzeri sürümlerde), kurulum sırasında git komutlarının çalıştırılma yollarını kapatarak git bağımlılıkları üzerinden gelebilecek sistem seviyesindeki manipülasyonları engeller. Canlı (production) ve CI/CD sunucularında ise her zaman `npm ci` (clean install) tercih edilmelidir.
 
 ### Şirket İçi Proxy ve Özel Depo Yönetimi
 
