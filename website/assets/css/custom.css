@@ -263,22 +263,28 @@ body {
    MERMAID DIAGRAMS
    ============================================================================= */
 .mermaid {
-  overflow-x: auto;
-  overflow-y: visible;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  max-width: 100% !important;
   padding: 1.25rem 1.5rem;
   margin: 1.25rem 0;
   background: var(--code-bg);
   border: 1px solid var(--code-border);
   border-radius: 12px;
-  /* Ensure scroll starts from the very left of the SVG */
   display: block;
   white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mermaid svg {
   display: inline-block !important;
+  max-width: none !important;
   height: auto !important;
   vertical-align: top;
+}
+
+.mermaid * {
+  max-width: none !important;
 }
 
 /* Hamburger Menu */
