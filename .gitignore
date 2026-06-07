@@ -127,3 +127,5 @@ migrate_hugo.py
 fix_frontmatter.py
 *.py
 
+# Resume folder
+resume/
