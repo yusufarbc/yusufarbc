@@ -5,7 +5,7 @@ weight: 2
 ---
 
 
-Merhaba, ben Yusuf. Yazılım ve siber güvenlik alanlarının kesişiminde çalışan bir **Yazılım & Güvenlik Mühendisi**yim. Kariyerim boyunca kurumsal SOC/MDR analistliği, sistem ve ağ yönetimi ile tam yığın (full-stack) yazılım geliştirme alanlarında pratik deneyim kazandım.
+Merhaba, ben Yusuf. Yazılım mühendisliği ve kurumsal siber güvenlik (SOC/Altyapı) geçmişini birleştirerek; güvenli yazılım yaşam döngüsü (DevSecOps), yapay zeka ajan güvenliği (MCP) ve yazılım tedarik zinciri risk analizi üzerine odaklanan bağımsız bir mühendisim. Kariyerim boyunca kurumsal SOC/MDR analistliği, sistem ve ağ yönetimi ile tam yığın (full-stack) yazılım geliştirme alanlarında pratik deneyim kazandım.
 
 Güvenliğin, bir sisteme sonradan eklenen bir yama değil, mimarinin en temel parçası olması gerektiğine inanıyorum. Bu doğrultuda; Proxmox VE ve Docker gibi teknolojilerle güvenli sanallaştırma ortamları kuruyor, sistem otomasyonu süreçlerini yönetiyor ve büyük veri odaklı SIEM çözümleriyle kurumsal altyapıların dayanıklılığını artırıyorum.
 

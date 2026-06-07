@@ -27,6 +27,40 @@ layout: "projects"
     <div class="project-top">
       <div class="project-folder">📁</div>
       <div class="project-links">
+        <a href="https://github.com/yusufarbc/apigoat" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://yusufarbc.github.io/apigoat/" target="_blank"><i class="fa-solid fa-link"></i></a>
+      </div>
+    </div>
+    <h3>ApiGoat</h3>
+    <p class="project-desc">Geliştiricilere ve güvenlik test uzmanlarına OWASP Top 10 API Güvenliği risklerini öğretmek için tasarlanmış, kasıtlı olarak zafiyetli bırakılmış REST API.</p>
+    <div class="project-tags">
+      <span>NodeJS</span>
+      <span>OWASP</span>
+      <span>API Security</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-top">
+      <div class="project-folder">📁</div>
+      <div class="project-links">
+        <a href="https://github.com/yusufarbc/npm-dependency-topology" target="_blank"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+    <h3>npm Tedarik Zinciri Ağ Analizi</h3>
+    <p class="project-desc">npm ekosistemindeki geçişli bağımlılıkların (transitive dependencies) oluşturduğu karmaşık ağ topolojisini grafik teorisiyle modelleyerek; ölçeksiz ağ (scale-free network) yapısındaki zafiyet yayılım risklerini (cascade effect) ve siber güvenlik zayıflıklarını analiz eden PoC yazılımı.</p>
+    <div class="project-tags">
+      <span>Python</span>
+      <span>NetworkX</span>
+      <span>SCA</span>
+      <span>Graph Theory</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-top">
+      <div class="project-folder">📁</div>
+      <div class="project-links">
         <a href="https://github.com/yusufarbc/Apache-BigData-SIEM" target="_blank"><i class="fa-brands fa-github"></i></a>
         <a href="https://yusufarbc.github.io/Apache-BigData-SIEM/" target="_blank"><i class="fa-solid fa-link"></i></a>
       </div>
@@ -142,22 +176,4 @@ layout: "projects"
       <span>Autonomous</span>
     </div>
   </div>
-
-  <div class="project-card">
-    <div class="project-top">
-      <div class="project-folder">📁</div>
-      <div class="project-links">
-        <a href="https://github.com/yusufarbc/apigoat" target="_blank"><i class="fa-brands fa-github"></i></a>
-        <a href="https://yusufarbc.github.io/apigoat/" target="_blank"><i class="fa-solid fa-link"></i></a>
-      </div>
-    </div>
-    <h3>ApiGoat</h3>
-    <p class="project-desc">Geliştiricilere ve güvenlik test uzmanlarına OWASP Top 10 API Güvenliği risklerini öğretmek için tasarlanmış, kasıtlı olarak zafiyetli bırakılmış REST API.</p>
-    <div class="project-tags">
-      <span>NodeJS</span>
-      <span>OWASP</span>
-      <span>API Security</span>
-    </div>
-  </div>
-
 </div>

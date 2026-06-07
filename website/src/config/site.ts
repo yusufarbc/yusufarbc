@@ -10,8 +10,8 @@ export const SITE = {
   avatar: "/images/profile.jpeg",
   ogImage: "/images/profile.jpeg",
   info: {
-    tr: "Yazılım & Güvenlik Mühendisi",
-    en: "Software & Security Engineer",
+    tr: "Software & Security Engineer | Digital Sovereignty • Cloud-Native • Open Source • Data Privacy • Next-Gen SOC • Endpoint Protection • Network Defense",
+    en: "Software & Security Engineer | Digital Sovereignty • Cloud-Native • Open Source • Data Privacy • Next-Gen SOC • Endpoint Protection • Network Defense",
   },
   description: {
     tr: "Yazılım & Güvenlik Mühendisi, altyapı yönetimi, güvenli tasarım mimarileri ve açık kaynak kurumsal çözümler üzerine çalışır.",

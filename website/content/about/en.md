@@ -4,7 +4,7 @@ date: 2026-03-16
 weight: 2
 ---
 
-Hi, I'm Yusuf, a **Software & Security Engineer** working at the intersection of software development and cybersecurity. Over the years, I have gained hands-on experience in enterprise SOC/MDR analysis, systems and network administration, and full-stack software engineering.
+Hi, I'm Yusuf, a software and security engineer bridging software development and enterprise security (SOC/Infrastructure), specializing in DevSecOps pipelines, Model Context Protocol (MCP) security, and npm software supply chain risk topology analysis. Over the years, I have gained hands-on experience in enterprise SOC/MDR analysis, systems and network administration, and full-stack software engineering.
 
 I believe that security should be a core architectural pillar rather than an afterthought. To support this, I build secure virtualization and container environments using technologies like Proxmox VE and Docker, manage system automation, and design data-driven SIEM pipelines to strengthen enterprise resilience.
 
