@@ -11,6 +11,25 @@ layout: "projects"
     <div class="project-top">
       <div class="project-folder">📁</div>
       <div class="project-links">
+        <a href="https://github.com/yusufarbc/e-commerce-cloudflare" target="_blank"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+    <h3>Serverless E-Commerce</h3>
+    <p class="project-desc">React, Hono ve Prisma ile geliştirilmiş; Cloudflare ekosistemi (Workers, Pages, D1, R2) üzerinde çalışan, yüksek performanslı ve tamamen serverless bir e-ticaret platformu.</p>
+    <div class="project-tags">
+      <span>React</span>
+      <span>PWA</span>
+      <span>Serverless</span>
+      <span>Hono</span>
+      <span>Prisma</span>
+      <span>Cloudflare</span>
+    </div>
+  </div>
+
+  <div class="project-card">
+    <div class="project-top">
+      <div class="project-folder">📁</div>
+      <div class="project-links">
         <a href="https://github.com/yusufarbc/vantage" target="_blank"><i class="fa-brands fa-github"></i></a>
       </div>
     </div>
