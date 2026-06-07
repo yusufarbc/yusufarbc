@@ -25,7 +25,10 @@ const pageTitle = `${SITE.author} | ${SITE.title}`;
         <img src={SITE.avatar} alt={SITE.author} />
       </div>
       <h1>{SITE.author}</h1>
-      <h2>{SITE.info[lang]}</h2>
+      <h2>Software & Security Engineer</h2>
+      <div class="rotating-terms-container">
+        <span class="rotating-term" id="rotating-term">Digital Sovereignty</span>
+      </div>
       <ul class="social-list">
         {SITE.socials.map((social) => (
           <li>
@@ -62,3 +65,72 @@ const pageTitle = `${SITE.author} | ${SITE.title}`;
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .rotating-terms-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+    min-height: 1.8rem;
+    overflow: hidden;
+  }
+
+  .rotating-term {
+    font-size: clamp(0.95rem, 2.5vw, 1.25rem);
+    font-weight: 600;
+    color: var(--app-accent-color);
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+  }
+
+  .rotating-term.fade-out {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  .rotating-term.fade-in-start {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+</style>
+
+<script>
+  const terms = [
+    "Digital Sovereignty",
+    "Cloud-Native",
+    "Open Source",
+    "Data Privacy",
+    "Next-Gen SOC",
+    "Endpoint Protection",
+    "Network Defense"
+  ];
+  
+  let currentIndex = 0;
+  const termEl = document.getElementById("rotating-term");
+  
+  if (termEl) {
+    setInterval(() => {
+      // Step 1: Fade and slide up
+      termEl.classList.add("fade-out");
+      
+      setTimeout(() => {
+        // Step 2: Change content
+        currentIndex = (currentIndex + 1) % terms.length;
+        termEl.textContent = terms[currentIndex];
+        
+        // Step 3: Transition setup (move to bottom, keep invisible)
+        termEl.classList.remove("fade-out");
+        termEl.classList.add("fade-in-start");
+        
+        // Force reflow/layout recalculation to apply the class immediately without transitioning
+        void termEl.offsetWidth;
+        
+        // Step 4: Slide up to center and fade in
+        termEl.classList.remove("fade-in-start");
+      }, 400); // matches transition duration
+    }, 2800); // interval duration
+  }
+</script>
