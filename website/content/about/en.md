@@ -195,7 +195,6 @@ I also love contributing to the open-source community and sharing security resea
     <img src="/images/banners/offensive_security.png" alt="Offensive Security" class="skills-banner">
     <div class="skills-content">
       <h3>Offensive Security</h3>
-      <p class="skills-intro">Covers vulnerability assessment, penetration testing, and secure tool development workflows.</p>
       <ul class="skills-list">
         <li><strong>Vulnerability Assessment</strong> Vulnerability scanning and management with OpenVAS and Nuclei.</li>
         <li><strong>Network Discovery</strong> Network discovery and topology mapping with Nmap and Masscan.</li>
@@ -211,7 +210,6 @@ I also love contributing to the open-source community and sharing security resea
     <img src="/images/banners/defensive_security.png" alt="Defensive Security" class="skills-banner">
     <div class="skills-content">
       <h3>Defensive Security</h3>
-      <p class="skills-intro">Focuses on proactive threat detection, log management, and incident response in enterprise systems.</p>
       <ul class="skills-list">
         <li><strong>Autonomous EDR & XDR</strong> Management of SentinelOne, Microsoft Defender XDR, and CrowdStrike Falcon.</li>
         <li><strong>SIEM & Log Management</strong> Anomaly detection with Wazuh, Splunk, and Elastic Stack (ELK).</li>
@@ -227,7 +225,6 @@ I also love contributing to the open-source community and sharing security resea
     <img src="/images/banners/infrastructure.png" alt="Systems & Network Infrastructure" class="skills-banner">
     <div class="skills-content">
       <h3>Systems & Network Infrastructure</h3>
-      <p class="skills-intro">Encompasses secure enterprise networking, virtualization, and robust systems administration.</p>
       <ul class="skills-list">
         <li><strong>Virtualization & Private Cloud</strong> Deployment of enterprise virtualization architectures with Proxmox VE.</li>
         <li><strong>Enterprise Network Configuration</strong> Management of Ruijie & Reyee hardware, VLAN, TCP/IP, and DNS/DHCP.</li>
@@ -243,7 +240,6 @@ I also love contributing to the open-source community and sharing security resea
     <img src="/images/banners/software_automation.png" alt="Software & Automation Engineering" class="skills-banner">
     <div class="skills-content">
       <h3>Software & Automation Engineering</h3>
-      <p class="skills-intro">Includes software engineering and automation scripts to streamline IT and security operations.</p>
       <ul class="skills-list">
         <li><strong>Containerization</strong> Microservice architectures and isolated test environments with Docker.</li>
         <li><strong>Configuration Management</strong> Infrastructure as Code (IaC) and server automation with Ansible.</li>
