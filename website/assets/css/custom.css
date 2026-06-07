@@ -1631,8 +1631,7 @@ body.colorscheme-dark .markdown-content img:not(.blog-cover):not(.navigation-log
    MERMAID DIAGRAMS GLOBAL STYLING
    ============================================================================= */
 .mermaid {
-  display: flex !important;
-  justify-content: center !important;
+  display: block !important;
   margin: 2rem 0 !important;
   padding: 1.5rem !important;
   background: var(--code-bg) !important;
@@ -1641,14 +1640,16 @@ body.colorscheme-dark .markdown-content img:not(.blog-cover):not(.navigation-log
   box-shadow: var(--card-shadow) !important;
   overflow-x: auto !important;
   width: 100% !important;
+  box-sizing: border-box !important;
+  -webkit-overflow-scrolling: touch !important;
 }
 
 .mermaid svg {
-  width: auto !important;
+  display: block !important;
+  margin: 0 auto !important;
   max-width: none !important;
   height: auto !important;
   font-family: inherit !important;
-  flex-shrink: 0 !important;
 }
 
 /* Nodes styling */
