@@ -4,11 +4,11 @@ date: 2026-03-16
 weight: 2
 ---
 
-Hi, I'm Yusuf, a software and security engineer bridging software development and enterprise security (SOC/Infrastructure), specializing in DevSecOps pipelines, Model Context Protocol (MCP) security, and npm software supply chain risk topology analysis. Over the years, I have gained hands-on experience in enterprise SOC/MDR analysis, systems and network administration, and full-stack software engineering.
+Hi, I'm Yusuf. I am a software and security engineer with practical experience in software development and enterprise security. Throughout my career, I've worked as a SOC/MDR analyst, systems and network administrator, and full-stack developer. Right now, I mainly focus on secure software development (DevSecOps), AI agent security, and software supply chain risks.
 
-I believe that security should be a core architectural pillar rather than an afterthought. To support this, I build secure virtualization and container environments using technologies like Proxmox VE and Docker, manage system automation, and design data-driven SIEM pipelines to strengthen enterprise resilience.
+I believe security should be built into systems from the start, not added as a quick fix later. Because of this, I spend my time setting up secure virtualization environments using Proxmox and Docker, automating IT workflows, and building log analysis pipelines to make infrastructure more resilient.
 
-I am also passionate about contributing to the open-source community and security research. Through projects like *Vantage* and *ApiGoat*, I focus on mitigating software supply chain (NPM) risks and automating daily security workflows. By combining low-level systems knowledge (C, x86 Assembly) with modern languages (Go, Node.js, Python), I aim to build practical solutions that are secure by design.
+I also love contributing to the open-source community and sharing security research. Projects I built, like Vantage and ApiGoat, help analyze NPM supply chain risks and automate everyday security tasks. From low-level systems like C and x86 Assembly to modern tools like Go, Node.js, and Python, I enjoy building tools that both run systems and keep them secure.
 
 ## Experience
 
@@ -29,10 +29,10 @@ I am also passionate about contributing to the open-source community and securit
         </div>
       </div>
       <ul class="exp-details">
-        <li>Strengthening corporate infrastructure security and business continuity using SIEM, XDR, EPP, and DLP solutions.</li>
-        <li>Deploying and maintaining scalable virtualized environments with Proxmox VE and containerizing services via Docker.</li>
-        <li>Conducting proactive threat hunting on networks and systems using open-source tools and custom scripts.</li>
-        <li>Managing end-to-end incident response and infrastructure optimization processes through automation and digital forensics.</li>
+        <li>I strengthen corporate infrastructure security and business continuity using SIEM, XDR, EPP, and DLP solutions.</li>
+        <li>I deploy and maintain scalable virtualized environments with Proxmox VE and containerize services via Docker.</li>
+        <li>I conduct proactive threat hunting on networks and systems using open-source tools and custom scripts.</li>
+        <li>I manage end-to-end incident response and infrastructure optimization processes through automation and digital forensics.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">Infrastructure</span>
@@ -58,10 +58,10 @@ I am also passionate about contributing to the open-source community and securit
         </div>
       </div>
       <ul class="exp-details">
-        <li>Monitored enterprise-wide system events 24/7 via SIEM and XDR platforms to ensure the stability and security of critical financial infrastructures.</li>
-        <li>Performed threat detection and response across endpoints and networks, leading system hardening initiatives (CIS Benchmarks).</li>
-        <li>Managed incident response workflows, digital forensic investigations, and detailed security reporting.</li>
-        <li>Collaborated with infrastructure teams to implement security-by-design policies and patch critical vulnerabilities.</li>
+        <li>I monitored enterprise-wide system events 24/7 via SIEM and XDR platforms to ensure the security of critical financial infrastructures.</li>
+        <li>I performed threat detection and response across endpoints and networks, leading system hardening initiatives.</li>
+        <li>I managed incident response workflows, digital forensic investigations, and security reporting.</li>
+        <li>I collaborated with infrastructure teams to implement security-by-design policies and patch vulnerabilities.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">SOC</span>
@@ -86,9 +86,9 @@ I am also passionate about contributing to the open-source community and securit
         </div>
       </div>
       <ul class="exp-details">
-        <li>Managed complex network security operations and log management using Wazuh, Sentinel, and Defender XDR architectures.</li>
-        <li>Implemented end-to-end DLP, EDR, and EPP solutions in enterprise environments to mitigate data exfiltration risks.</li>
-        <li>Conducted log analysis, vulnerability scanning, and proactive system management to minimize infrastructure attack surfaces.</li>
+        <li>I managed network security operations and log management using Wazuh, Sentinel, and Defender XDR.</li>
+        <li>I set up end-to-end DLP, EDR, and EPP solutions in enterprise environments to prevent data leakage.</li>
+        <li>I performed log analysis, vulnerability scanning, and system management to minimize attack surfaces.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">Defender XDR</span>
@@ -113,9 +113,9 @@ I am also passionate about contributing to the open-source community and securit
         </div>
       </div>
       <ul class="exp-details">
-        <li>Supported IT infrastructure management, help desk support, and server-side security operations.</li>
-        <li>Assisted in Linux server hardening and Microsoft Exchange server maintenance/management.</li>
-        <li>Contributed to security awareness training and managed technical security documentation and reporting.</li>
+        <li>I supported IT infrastructure management, user support, and server-side security operations.</li>
+        <li>I assisted in Linux server hardening and Microsoft Exchange server maintenance.</li>
+        <li>I contributed to security awareness training and managed technical security documentation.</li>
       </ul>
     </div>
   </div>

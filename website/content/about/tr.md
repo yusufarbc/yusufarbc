@@ -4,12 +4,11 @@ date: 2026-03-16
 weight: 2
 ---
 
+Merhaba, ben Yusuf. Yazılım geliştirme ve kurumsal siber güvenlik dünyasında pratik tecrübesi olan bir mühendisim. Bugüne kadar SOC ve MDR analistliği, sistem-ağ yönetimi ve full-stack yazılım geliştirme gibi farklı rollerde çalıştım. Şu anda ise daha çok güvenli yazılım geliştirme süreçleri (DevSecOps), yapay zeka ajanlarının güvenliği ve yazılım tedarik zinciri riskleri üzerine odaklanıyorum.
 
-Merhaba, ben Yusuf. Yazılım mühendisliği ve kurumsal siber güvenlik (SOC/Altyapı) geçmişini birleştirerek; güvenli yazılım yaşam döngüsü (DevSecOps), yapay zeka ajan güvenliği (MCP) ve yazılım tedarik zinciri risk analizi üzerine odaklanan bağımsız bir mühendisim. Kariyerim boyunca kurumsal SOC/MDR analistliği, sistem ve ağ yönetimi ile tam yığın (full-stack) yazılım geliştirme alanlarında pratik deneyim kazandım.
+Benim için güvenlik, bir sisteme sonradan eklenen bir katman değil, sistemin tasarım aşamasında başlayan en temel parçasıdır. Bu yüzden hem Proxmox ve Docker gibi teknolojilerle güvenli sanallaştırma ortamları kurmayı hem de sistem otomasyonu ve log analizleri ile altyapıları daha dirençli hale getirmeyi hedefliyorum.
 
-Güvenliğin, bir sisteme sonradan eklenen bir yama değil, mimarinin en temel parçası olması gerektiğine inanıyorum. Bu doğrultuda; Proxmox VE ve Docker gibi teknolojilerle güvenli sanallaştırma ortamları kuruyor, sistem otomasyonu süreçlerini yönetiyor ve büyük veri odaklı SIEM çözümleriyle kurumsal altyapıların dayanıklılığını artırıyorum.
-
-Aynı zamanda açık kaynak dünyasına ve siber güvenlik araştırmalarına katkı sağlamaktan keyif alıyorum. Geliştirdiğim *Vantage* ve *ApiGoat* gibi projelerle yazılım tedarik zinciri (NPM) güvenlik risklerini azaltmayı ve günlük siber güvenlik operasyonlarını otomatize etmeyi hedefliyorum. Düşük seviyeli sistemlerden (C, x86 Assembly) modern geliştirme dillerine (Go, Node.js, Python) kadar uzanan geniş bir yelpazede, hem geliştiren hem de koruyan pratik çözümler üretmeye odaklanıyorum.
+Açık kaynak projeler geliştirmeyi ve siber güvenlik alanında araştırmalar yapmayı çok seviyorum. Vantage ve ApiGoat gibi kendi geliştirdiğim projelerle yazılım dünyasındaki güvenlik açıklarını azaltmaya ve günlük operasyonları otomatikleştirmeye çalışıyorum. C ve x86 Assembly gibi düşük seviyeli sistemlerden Go, Node.js ve Python gibi modern dillere kadar geniş bir yelpazede, hem sistem kuran hem de onu koruyan çözümler üretmek benim için büyük bir tutku.
 
 ## Deneyim
 
@@ -30,10 +29,10 @@ Aynı zamanda açık kaynak dünyasına ve siber güvenlik araştırmalarına ka
         </div>
       </div>
       <ul class="exp-details">
-        <li>SIEM, XDR, EPP ve DLP çözümleriyle kurumsal altyapı güvenliğini ve BT sürekliliğini pekiştirmekte, on-prem sistemleri yönetmektedir.</li>
-        <li>Proxmox VE ve Docker kullanarak yüksek erişilebilirlik odaklı ölçeklenebilir sanallaştırma ve konteynerizasyon ortamları kurmaktadır.</li>
-        <li>Açık kaynaklı araçlar ve özel scriptler kullanarak ağ ve sistemler üzerinde proaktif tehdit avcılığı (threat hunting) yapmaktadır.</li>
-        <li>Otomasyon, log analizi ve adli bilişim teknikleriyle olay müdahale ve altyapı iyileştirme süreçlerini uçtan uca yönetmektedir.</li>
+        <li>SIEM, XDR, EPP ve DLP çözümleriyle kurumsal altyapı güvenliğini pekiştiriyor ve on-prem sistemleri yönetiyorum.</li>
+        <li>Proxmox VE ve Docker kullanarak yüksek erişilebilirlik odaklı, ölçeklenebilir sanallaştırma ve konteynerizasyon ortamları kuruyorum.</li>
+        <li>Açık kaynaklı araçlar ve özel scriptler hazırlayarak ağ ve sistemler üzerinde tehdit avcılığı (threat hunting) yapıyorum.</li>
+        <li>Otomasyon, log analizi ve adli bilişim teknikleriyle olay müdahale ve altyapı iyileştirme süreçlerini uçtan uca yönetiyorum.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">Infrastructure</span>
@@ -59,10 +58,10 @@ Aynı zamanda açık kaynak dünyasına ve siber güvenlik araştırmalarına ka
         </div>
       </div>
       <ul class="exp-details">
-        <li>SIEM ve XDR platformları üzerinden sistem olaylarını 7/24 izleyerek kritik finansal altyapıların istikrarını ve güvenliğini sağlamıştır.</li>
-        <li>Uç nokta (endpoint) ve ağlar üzerinde tehdit tespiti yaparak olaylara müdahale ve sistem sıkılaştırma (hardening) süreçlerini yürütmüştür.</li>
-        <li>CIS Benchmarks ve kurum içi politika uyumluluğu doğrultusunda sistem sıkılaştırma ve güvenlik politikaları uygulamıştır.</li>
-        <li>Adli bilişim incelemeleri, detaylı siber olay raporlama ve sistem performans takibi çalışmalarında aktif rol almıştır.</li>
+        <li>SIEM ve XDR platformları üzerinden sistem olaylarını 7/24 izleyerek kritik finansal altyapıların güvenliğini sağladım.</li>
+        <li>Uç nokta (endpoint) ve ağlar üzerinde tehdit tespiti yaparak olay müdahale ve sistem sıkılaştırma (hardening) süreçlerini yürüttüm.</li>
+        <li>CIS Benchmarks ve kurum içi politikalar doğrultusunda sistem sıkılaştırma ve güvenlik kuralları uyguladım.</li>
+        <li>Adli bilişim incelemeleri, siber olay raporlama ve sistem performans takibi çalışmalarında aktif rol aldım.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">SOC</span>
@@ -87,9 +86,9 @@ Aynı zamanda açık kaynak dünyasına ve siber güvenlik araştırmalarına ka
         </div>
       </div>
       <ul class="exp-details">
-        <li>Wazuh, Sentinel ve Defender XDR yapılarını kullanarak karmaşık ağ güvenliği operasyonlarını ve log yönetimini yönetmiştir.</li>
-        <li>Veri sızıntılarını önlemek amacıyla kurumsal ortamlarda DLP, EDR ve EPP çözümlerinin uçtan uca kurulumunu gerçekleştirmiştir.</li>
-        <li>Log analizi, zafiyet taraması ve sistem yönetimi görevlerini de devralarak altyapı saldırı yüzeyini minimize etmiştir.</li>
+        <li>Wazuh, Sentinel ve Defender XDR yapılarını kullanarak ağ güvenliği operasyonlarını ve log yönetimini yürüttüm.</li>
+        <li>Veri sızıntılarını önlemek amacıyla kurumsal ortamlarda DLP, EDR ve EPP çözümlerinin uçtan uca kurulumlarını yaptım.</li>
+        <li>Log analizi, zafiyet taraması ve sistem yönetimi görevleriyle altyapı saldırı yüzeyini küçülttüm.</li>
       </ul>
       <div class="exp-skills">
         <span class="skill-tag">Defender XDR</span>
@@ -114,9 +113,9 @@ Aynı zamanda açık kaynak dünyasına ve siber güvenlik araştırmalarına ka
         </div>
       </div>
       <ul class="exp-details">
-        <li>BT altyapı yönetimi, help desk desteği ve sunucu tarafı sistem güvenliği operasyonlarında görev almıştır.</li>
-        <li>Linux sunucu sıkılaştırma (hardening) ve Microsoft Exchange sunucu bakım/yönetim süreçlerini desteklemiştir.</li>
-        <li>Güvenlik farkındalığı eğitimlerine içerik desteği sağlamış ve teknik güvenlik dokümantasyon süreçlerini yürütmüştür.</li>
+        <li>BT altyapı yönetimi, kullanıcı desteği ve sunucu güvenliği operasyonlarında görev aldım.</li>
+        <li>Linux sunucu sıkılaştırma (hardening) ve Microsoft Exchange sunucu bakım süreçlerine destek verdim.</li>
+        <li>Güvenlik farkındalığı eğitimlerine içerik hazırladım ve teknik güvenlik dokümantasyon süreçlerini yürüttüm.</li>
       </ul>
     </div>
   </div>
