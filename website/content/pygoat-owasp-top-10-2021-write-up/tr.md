@@ -10,8 +10,6 @@ type: writeups
 
 ## Pygoat OWASP TOP 10 2021 WRITE-UP
 
-
-
 Merhaba bu yazımda Pygoat lab ortamı üzerinde bulunan OWASP TOP 10 2021'e uygun hazırlanmış örneklerin çözümlerini gerçekleştireceğim. Hem OWASP TOP 10 zafiyetleri hem de bu zafiyetlerin neden kaynakalndığını anlatmaya çalışacağım.
 
 ## **Pygoat nedir?**
