@@ -25,7 +25,8 @@ const trUrl = new URL(resolveAssetPath(trPath), siteUrl).toString();
 const enUrl = new URL(resolveAssetPath(enPath), siteUrl).toString();
 const ogImagePath = SITE.ogImage ?? SITE.avatar;
 const ogImageUrl = new URL(resolveAssetPath(ogImagePath), siteUrl).toString();
-const sitemapUrl = new URL(resolveAssetPath("/sitemap.xml"), siteUrl).toString();
+const sitemapUrl = new URL(resolveAssetPath("/sitemap-index.xml"), siteUrl).toString();
+const xDefaultUrl = new URL(resolveAssetPath("/tr/"), siteUrl).toString();
 const ogLocale = lang === "tr" ? "tr_TR" : "en_US";
 const ogLocaleAlt = lang === "tr" ? "en_US" : "tr_TR";
 ---
@@ -45,7 +46,7 @@ const ogLocaleAlt = lang === "tr" ? "en_US" : "tr_TR";
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" href={trUrl} hreflang="tr" />
     <link rel="alternate" href={enUrl} hreflang="en" />
-    <link rel="alternate" href={siteUrl} hreflang="x-default" />
+    <link rel="alternate" href={xDefaultUrl} hreflang="x-default" />
     <link rel="icon" type="image/x-icon" href={resolveAssetPath("/favicon.ico")} />
     <link rel="sitemap" type="application/xml" href={sitemapUrl} />
     <meta property="og:site_name" content={SITE.title} />
