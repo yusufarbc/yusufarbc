@@ -58,6 +58,7 @@ const pageTitle = `${SITE.author} | ${SITE.title}`;
             <div class="blog-card-body">
               <div class="post-meta">{formatDate(post.data.date, lang)}</div>
               <h3 class="post-title">{post.data.title}</h3>
+              {post.data.description && <p class="post-excerpt">{post.data.description}</p>}
             </div>
           </a>
         </article>

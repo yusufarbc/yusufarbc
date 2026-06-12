@@ -2,7 +2,7 @@
 title: "Operating System Concepts"
 date: '2023-06-09'
 description: An in-depth guide to operating system structures, processes, CPU scheduling algorithms, memory management (segmentation, paging, virtual memory), and security fundamentals, inspired by the classic 'Dinosaur Book' (Operating System Concepts).
-featuredImage: featured.webp
+featuredImage: featured.jpeg
 draft: false
 layout: single
 type: posts
