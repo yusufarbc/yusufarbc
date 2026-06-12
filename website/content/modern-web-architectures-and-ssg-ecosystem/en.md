@@ -1,5 +1,5 @@
 ---
-date: "2026-04-04"
+date: "2026-05-11"
 description: "A comprehensive architectural guide exploring the evolution of the web ecosystem, from modern rendering strategies (CSR, SSR, SSG, ISR) and popular tech stacks (MERN, PERN, .NET) to a deep-dive into DevSecOps and supply chain security."
 draft: false
 featuredImage: ssg-cms.webp

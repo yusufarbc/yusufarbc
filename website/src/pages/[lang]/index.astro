@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { LANGS, SITE, type Lang } from "../../config/site";
 import { formatDate, isLang, isPostEntry, sortByDateDesc, getPostSlug, getEntriesByLang } from "../../lib/content";
+import { Image } from "astro:assets";
 
 export function getStaticPaths() {
   return LANGS.map((lang) => ({ params: { lang } }));
@@ -22,7 +23,7 @@ const pageTitle = `${SITE.author} | ${SITE.title}`;
   <section class="centered">
     <div class="about" style="text-align: center;">
       <div class="avatar">
-        <img src={SITE.avatar} alt={SITE.author} />
+        <Image src={SITE.avatar} alt={SITE.author} width={180} height={180} />
       </div>
       <h1>{SITE.author}</h1>
       <h2>Software & Security Engineer</h2>

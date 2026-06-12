@@ -1,5 +1,5 @@
 ---
-date: "2026-04-04"
+date: "2026-05-11"
 description: "Web ekosisteminin evrimini; modern rendering stratejileri, popüler teknoloji yığınları (MERN, PERN, .NET) ve DevSecOps perspektifiyle ele alan, orijinal araştırmalarla zenginleştirilmiş devasa bir mimari rehber."
 draft: false
 featuredImage: ssg-cms.webp

@@ -1,6 +1,6 @@
 ---
 title: "Agentic AI Protocols: A New Attack Surface?"
-date: '2026-05-28'
+date: '2026-06-15'
 description: "With the rise of autonomous AI agents, protocols like MCP, A2A, ANP, UCP, and AP2 form the backbone of the new Agentic Web. In this post, we explore what Agentic AI truly is, map the entire protocol ecosystem layer by layer, and analyze the security vulnerabilities each layer introduces."
 featuredImage: featured.png
 draft: false

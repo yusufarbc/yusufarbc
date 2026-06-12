@@ -1,6 +1,6 @@
 ---
 title: "Nextcloud and OnlyOffice: The Sovereign Solution Against M365 and Google Workspace"
-date: '2026-05-15'
+date: '2026-05-25'
 description: "An architectural analysis of integrating Nextcloud Hub, OnlyOffice, and Mailcow to achieve enterprise data sovereignty; compared with M365 and Google Workspace along with performance optimization guidelines."
 featuredImage: featured.webp
 draft: false

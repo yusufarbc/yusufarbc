@@ -1,6 +1,6 @@
 ---
 title: "Eylemsel Yapay Zeka Protokolleri: Yeni Bir Saldırı Yüzeyi mi?"
-date: '2026-05-28'
+date: '2026-06-15'
 description: "Otonom yapay zeka eylemcilerinin yaygınlaşmasıyla birlikte MCP, A2A, ANP, UCP ve AP2 gibi protokoller yapay zeka mimarisinin omurgasını oluşturuyor. Bu yazıda Agentic AI kavramını, protokol ekosistemini katman katman ele alıyor ve güvenlik açıklarını kapsamlı biçimde inceliyoruz."
 featuredImage: featured.png
 draft: false

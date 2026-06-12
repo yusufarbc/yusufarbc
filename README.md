@@ -9,16 +9,16 @@
 
   <p align="center">
     <a href="https://yusufarbc.dev/en/">
-      <img src="https://img.shields.io/badge/Portfolio-yusufarbc.dev-38bdf8?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio" />
+      <img src="https://img.shields.io/badge/Portfolio-yusufarbc.dev-0f172a?style=for-the-badge&logo=google-chrome&logoColor=38bdf8" alt="Portfolio" />
     </a>
     <a href="https://www.linkedin.com/in/yusufarbc/">
-      <img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+      <img src="https://img.shields.io/badge/LinkedIn-Connect-0f172a?style=for-the-badge&logo=linkedin&logoColor=38bdf8" alt="LinkedIn" />
     </a>
     <a href="https://infosec.exchange/@yusufarbc">
-      <img src="https://img.shields.io/badge/Mastodon-InfoSec.Exchange-6364FF?style=for-the-badge&logo=mastodon&logoColor=white" alt="Mastodon" />
+      <img src="https://img.shields.io/badge/Mastodon-InfoSec.Exchange-0f172a?style=for-the-badge&logo=mastodon&logoColor=38bdf8" alt="Mastodon" />
     </a>
     <a href="mailto:yusuf.talhaarabaci@owasp.org">
-      <img src="https://img.shields.io/badge/OWASP-Contact_Me-ea580c?style=for-the-badge&logo=minutemailer&logoColor=white" alt="OWASP Email" />
+      <img src="https://img.shields.io/badge/OWASP-Contact_Me-0f172a?style=for-the-badge&logo=minutemailer&logoColor=38bdf8" alt="OWASP Email" />
     </a>
   </p>
 
@@ -44,24 +44,29 @@ I am deeply passionate about creating autonomous, self-sufficient IT environment
 
 ## 💻 Engineering Stack
 
-* **Languages:** ![Golang](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white) ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![C](https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=c&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
-* **Data & Streaming:** ![Apache Kafka](https://img.shields.io/badge/Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white) ![Apache Spark](https://img.shields.io/badge/Spark-E25A1C?style=flat-square&logo=apachespark&logoColor=white) ![Hadoop](https://img.shields.io/badge/Hadoop-66CC00?style=flat-square&logo=apachehadoop&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white)
-* **Cloud-Native & Infrastructure:** ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white) ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white) ![Proxmox](https://img.shields.io/badge/Proxmox-E57000?style=flat-square&logo=proxmox&logoColor=white) ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=flat-square&logo=ubuntu&logoColor=white) ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnu-bash&logoColor=white)
-* **Security Architecture:** ![Wazuh](https://img.shields.io/badge/Wazuh-00A9E0?style=flat-square&logo=wazuh&logoColor=white) ![Elastic](https://img.shields.io/badge/Elastic-005571?style=flat-square&logo=elastic&logoColor=white) ![Splunk](https://img.shields.io/badge/Splunk-000000?style=flat-square&logo=splunk&logoColor=white)
+* **Languages:** ![Golang](https://img.shields.io/badge/Go-0f172a?style=flat-square&logo=go&logoColor=38bdf8) ![Python](https://img.shields.io/badge/Python-0f172a?style=flat-square&logo=python&logoColor=38bdf8) ![C](https://img.shields.io/badge/C-0f172a?style=flat-square&logo=c&logoColor=38bdf8) ![Node.js](https://img.shields.io/badge/Node.js-0f172a?style=flat-square&logo=nodedotjs&logoColor=38bdf8) ![JavaScript](https://img.shields.io/badge/JavaScript-0f172a?style=flat-square&logo=javascript&logoColor=38bdf8) ![React](https://img.shields.io/badge/React-0f172a?style=flat-square&logo=react&logoColor=38bdf8)
+* **Data & Streaming:** ![Apache Kafka](https://img.shields.io/badge/Kafka-0f172a?style=flat-square&logo=apachekafka&logoColor=38bdf8) ![Apache Spark](https://img.shields.io/badge/Spark-0f172a?style=flat-square&logo=apachespark&logoColor=38bdf8) ![Hadoop](https://img.shields.io/badge/Hadoop-0f172a?style=flat-square&logo=apachehadoop&logoColor=38bdf8) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-0f172a?style=flat-square&logo=postgresql&logoColor=38bdf8)
+* **Cloud-Native & Infrastructure:** ![Docker](https://img.shields.io/badge/Docker-0f172a?style=flat-square&logo=docker&logoColor=38bdf8) ![Kubernetes](https://img.shields.io/badge/Kubernetes-0f172a?style=flat-square&logo=kubernetes&logoColor=38bdf8) ![Proxmox](https://img.shields.io/badge/Proxmox-0f172a?style=flat-square&logo=proxmox&logoColor=38bdf8) ![Ubuntu](https://img.shields.io/badge/Ubuntu-0f172a?style=flat-square&logo=ubuntu&logoColor=38bdf8) ![Bash](https://img.shields.io/badge/Bash-0f172a?style=flat-square&logo=gnu-bash&logoColor=38bdf8)
+* **Security Architecture:** ![Wazuh](https://img.shields.io/badge/Wazuh-0f172a?style=flat-square&logo=wazuh&logoColor=38bdf8) ![Elastic](https://img.shields.io/badge/Elastic-0f172a?style=flat-square&logo=elastic&logoColor=38bdf8) ![Splunk](https://img.shields.io/badge/Splunk-0f172a?style=flat-square&logo=splunk&logoColor=38bdf8)
 
 ## 📂 Featured Repositories & Research
 
-| Project | Description | Stack / Tech |
-|---|---|---|
-| [**Apache-BigData-SIEM**](https://github.com/yusufarbc/Apache-BigData-SIEM) | Scalable, Lakehouse-based SIEM architecture for real-time threat detection. | Kafka, Spark, Hadoop |
-| [**WebVuln-Runner**](https://github.com/yusufarbc/webvuln-runner) | Docker-based TUI runner for instantly deploying 15+ vulnerable web apps. | Docker, Bash, Python |
-| [**ApiGoat**](https://github.com/yusufarbc/apigoat) | Deliberately vulnerable REST API designed for OWASP Top 10 security testing. | Node.js, MongoDB |
+| Project | Description | Stack / Tech | Info / Stats |
+|---|---|---|---|
+| [**Apache-BigData-SIEM**](https://github.com/yusufarbc/Apache-BigData-SIEM) | Scalable, Lakehouse-based SIEM architecture for real-time threat detection. | Kafka, Spark, Hadoop | ![Stars](https://img.shields.io/github/stars/yusufarbc/Apache-BigData-SIEM?style=flat-square&color=38bdf8&labelColor=0f172a) |
+| [**WebVuln-Runner**](https://github.com/yusufarbc/webvuln-runner) | Docker-based TUI runner for instantly deploying 15+ vulnerable web apps. | Docker, Bash, Python | ![Stars](https://img.shields.io/github/stars/yusufarbc/webvuln-runner?style=flat-square&color=38bdf8&labelColor=0f172a) |
+| [**ApiGoat**](https://github.com/yusufarbc/apigoat) | Deliberately vulnerable REST API designed for OWASP Top 10 security testing. | Node.js, MongoDB | ![Stars](https://img.shields.io/github/stars/yusufarbc/apigoat?style=flat-square&color=38bdf8&labelColor=0f172a) |
 
 ## 📊 Stats & Academic Focus
 
 * 🎓 **M.Sc. in Software Engineering:** Karabuk University (Researching scalable systems & supply chain security).
 * 🔬 **Current Research:** Benchmarking CPU, GPU, and NPU performance for complex graph optimization tasks.
 * 🛡️ **Cybersecurity Roots:** Leveraging an offensive security background (TryHackMe Top 1%, Pentest Specialist) to engineer unbreakable defense systems.
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=yusufarbc&show_icons=true&theme=tokyonight&bg_color=0f172a&title_color=38bdf8&icon_color=38bdf8&text_color=ffffff" alt="Yusuf's GitHub Stats" height="150px" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yusufarbc&layout=compact&theme=tokyonight&bg_color=0f172a&title_color=38bdf8&text_color=ffffff" alt="Top Langs" height="150px" />
+</p>
 
 ---
 

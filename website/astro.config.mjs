@@ -3,11 +3,14 @@ import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   site: "https://yusufarbc.dev",
-  trailingSlash: "ignore",
+  trailingSlash: "always",
   prefetch: true,
   build: {
     format: "directory",
     assets: "_assets",
+  },
+  image: {
+    domains: ["cdn-images-1.medium.com"],
   },
   integrations: [
     sitemap({

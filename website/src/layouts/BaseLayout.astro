@@ -1,9 +1,17 @@
 ---
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import "@fontsource/inter/300.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/inter/800.css";
+import "@fontsource/inter/900.css";
 import "../styles/base.css";
 import type { Lang } from "../config/site";
 import { MENU, SITE } from "../config/site";
 import { resolveAssetPath } from "../lib/content";
+import { Image } from "astro:assets";
 
 interface Props {
   title: string;
@@ -39,9 +47,7 @@ const ogLocaleAlt = lang === "tr" ? "en_US" : "tr_TR";
     <meta name="description" content={pageDescription} />
     <meta name="author" content={SITE.author} />
     <meta name="robots" content="index,follow" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
     <title>{title}</title>
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" href={trUrl} hreflang="tr" />
@@ -76,7 +82,7 @@ const ogLocaleAlt = lang === "tr" ? "en_US" : "tr_TR";
     <nav class="navigation" aria-label="Primary">
       <div class="container">
         <a class="navigation-title" href={`/${lang}/`} aria-label="Go to home">
-          <img class="navigation-logo" src={resolveAssetPath(SITE.avatar)} alt={SITE.author} />
+          <Image class="navigation-logo" src={SITE.avatar} alt={SITE.author} width={32} height={32} />
           <span>{SITE.title}</span>
         </a>
 
@@ -293,12 +299,8 @@ const ogLocaleAlt = lang === "tr" ? "en_US" : "tr_TR";
         // Initialize Mermaid diagrams
         const mermaidBlocks = document.querySelectorAll('pre code.language-mermaid');
         if (mermaidBlocks.length > 0) {
-          await loadScript("https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js", "mermaid-script");
-        }
+          const mermaid = (await import('mermaid')).default;
 
-        const mermaid = (window as Window & { mermaid?: MermaidApi }).mermaid;
-
-        if (mermaidBlocks.length > 0 && mermaid) {
           const isDark = document.body.classList.contains('colorscheme-dark') ||
             (document.body.classList.contains('colorscheme-auto') &&
               window.matchMedia('(prefers-color-scheme: dark)').matches);
@@ -330,7 +332,7 @@ const ogLocaleAlt = lang === "tr" ? "en_US" : "tr_TR";
               return;
             }
 
-            const code = block.textContent.trim();
+            const code = block.textContent?.trim() || "";
             const newPre = document.createElement('pre');
             newPre.className = 'mermaid';
             newPre.textContent = code;
