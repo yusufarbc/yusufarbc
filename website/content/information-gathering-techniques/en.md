@@ -3,7 +3,7 @@ title: Cyber Intelligence
 date: 2021-10-19
 description: A comprehensive cyber threat intelligence guide bridging classic OSINT and scanning techniques with modern cloud exposure, supply chain security, AI-powered CTI pipelines, the ProjectDiscovery ecosystem, and OPSEC.
 draft: false
-featuredImage: featured.webp
+featuredImage: featured.jpeg
 type: posts
 audioFile: en.mp3
 ---
