@@ -1244,10 +1244,10 @@ body.colorscheme-dark .markdown-content img:not(.blog-cover):not(.navigation-log
 }
 
 .gh-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin: 1.5rem 0;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 1.5rem !important;
+  margin: 1.5rem 0 !important;
 }
 
 /* =============================================================================
@@ -1510,6 +1510,7 @@ body.colorscheme-dark .markdown-content img:not(.blog-cover):not(.navigation-log
   }
 
   .render-cards { grid-template-columns: 1fr; }
+  .gh-grid { grid-template-columns: 1fr !important; }
 }
 
 /* =============================================================================
@@ -1644,6 +1645,7 @@ body.colorscheme-dark .markdown-content img:not(.blog-cover):not(.navigation-log
   .markdown-content ul, .markdown-content ol { margin-bottom: 1.35rem; }
 
   .render-cards { grid-template-columns: 1fr; }
+  .gh-grid { grid-template-columns: 1fr !important; }
 }
 
 /* =============================================================================
