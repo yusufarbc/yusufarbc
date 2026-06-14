@@ -608,6 +608,3 @@ In this ecosystem, security must not be a patch applied after the fact but a fou
 As cybercriminals begin adopting the "Cybercrime-as-a-Sidekick" model — using AI agents for attack automation — defense mechanisms must operate at machine speed and scale. **Agentic SOCs** — security operations centers running autonomous defense agents — are the inevitable building blocks of this future.
 
 *Engineering Note: Avoid running unverified `mcp-router` or tunneling tools that expose public endpoints in your local development environment. Vulnerabilities in your local network can expose your entire system to exploitation through your autonomous agent.*
-
----
-*Don't forget to share your thoughts, security scenarios you have encountered, or protocols you would like to add in the comments section!*
