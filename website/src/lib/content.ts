@@ -294,6 +294,65 @@ export function getStaticPage(lang: Lang, page: "about" | "projects"): StaticPag
   return staticPages[`${lang}:${page}`] ?? null;
 }
 
+function getAlertIcon(type: string): string {
+  switch (type) {
+    case "note":
+      return `<svg class="octicon" viewBox="0 0 16 16" width="16" height="16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-5a.75.75 0 0 0-.75.75v4.5a.75.75 0 0 0 1.5 0v-4.5A.75.75 0 0 0 8 3ZM8 12a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"></path></svg>`;
+    case "tip":
+      return `<svg class="octicon" viewBox="0 0 16 16" width="16" height="16"><path d="M8 1.5c-2.363 0-4 1.83-4 4.05 0 1.583.992 2.735 1.56 3.332-.018.067-.035.15-.05.25H5a2 2 0 0 0-2 2v1.5c0 .276.224.5.5.5h9c.276 0 .5-.224.5-.5V11a2 2 0 0 0-2-2h-.51c-.015-.1-.032-.183-.05-.25.568-.597 1.56-1.749 1.56-3.332 0-2.22-1.637-4.05-4-4.05Z"></path></svg>`;
+    case "important":
+      return `<svg class="octicon" viewBox="0 0 16 16" width="16" height="16"><path d="M0 1.75C0 .783.783 0 1.75 0h12.5C15.217 0 16 .783 16 1.75v12.5c0 .967-.783 1.75-1.75 1.75H1.75A1.75 1.75 0 0 1 0 14.25ZM6.5 3a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5Zm-2 3a.75.75 0 0 0 0 1.5h7a.75.75 0 0 0 0-1.5Zm0 3a.75.75 0 0 0 0 1.5h7a.75.75 0 0 0 0-1.5Z"></path></svg>`;
+    case "warning":
+      return `<svg class="octicon" viewBox="0 0 16 16" width="16" height="16"><path d="M6.457 1.047c.659-1.091 2.227-1.091 2.886 0l6.012 9.948c.671 1.11-.129 2.505-1.443 2.505H2.088c-1.314 0-2.114-1.395-1.443-2.505L6.457 1.047ZM8 4a.75.75 0 0 0-.75.75v3.5a.75.75 0 0 0 1.5 0v-3.5A.75.75 0 0 0 8 4Zm0 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"></path></svg>`;
+    case "caution":
+      return `<svg class="octicon" viewBox="0 0 16 16" width="16" height="16"><path d="M4.47 2.22c.32-.32.84-.32 1.16 0L10 6.59l4.37-4.37a.82.82 0 1 1 1.16 1.16L11.16 7.75l4.37 4.37a.82.82 0 1 1-1.16 1.16L10 8.91l-4.37 4.37a.82.82 0 1 1-1.16-1.16l4.37-4.37-4.37-4.37a.82.82 0 0 1 0-1.16Z"></path></svg>`;
+    default:
+      return "";
+  }
+}
+
+marked.use({
+  walkTokens(token: any) {
+    if (token.type === "blockquote") {
+      const firstToken = token.tokens?.[0];
+      if (firstToken && firstToken.type === "paragraph") {
+        const firstChild = firstToken.tokens?.[0];
+        if (firstChild && firstChild.type === "text") {
+          const match = firstChild.text.match(/^\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]/i);
+          if (match) {
+            const alertType = match[1].toLowerCase();
+            token.isAlert = true;
+            token.alertType = alertType;
+
+            // Remove from first child text
+            firstChild.text = firstChild.text.substring(match[0].length).replace(/^[\r\n\s]+/, "");
+            firstChild.raw = firstChild.raw.substring(match[0].length).replace(/^[\r\n\s]+/, "");
+
+            // Remove from parent paragraph
+            firstToken.text = firstToken.text.substring(match[0].length).replace(/^[\r\n\s]+/, "");
+            firstToken.raw = firstToken.raw.substring(match[0].length).replace(/^[\r\n\s]+/, "");
+          }
+        }
+      }
+    }
+  },
+  renderer: {
+    blockquote(this: any, token: any) {
+      const content = this.parser.parse(token.tokens);
+      if (token.isAlert) {
+        const alertType = token.alertType || "note";
+        const titleText = alertType.toUpperCase();
+        const icon = getAlertIcon(alertType);
+        return `<div class="markdown-alert markdown-alert-${alertType}">` +
+                 `<p class="markdown-alert-title">${icon}${titleText}</p>` +
+                 content +
+               `</div>\n`;
+      }
+      return `<blockquote>\n${content}</blockquote>\n`;
+    }
+  }
+});
+
 export function renderMarkdown(markdown: string): string {
   const rendered = marked.parse(markdown, { gfm: true, breaks: true }) as string;
 
