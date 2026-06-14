@@ -104,7 +104,7 @@ LaTeX uses the "What You Mean Is What You Get" (WYSIWYM) approach, separating co
 * **Branching Support:** You can apply entirely different styling templates to the same main text branch.
 * **latexdiff:** Generate visual PDF diffs in seconds, highlighting deletions in red/strikethrough and additions in blue.
 
-![LaTeX Document Engineering: Content and Design Separation](LaTex.png)
+![LaTeX Document Engineering: Content and Design Separation](LaTex.webp)
 
 ---
 
@@ -214,7 +214,7 @@ Slidev, built on Vue.js, is the modern standard for slide code:
       <span class="render-badge" style="background: #3e82f7; color: #ffffff;">Marp</span>
       <h3>Minimalist & Fast</h3>
     </div>
-    <img src="marp.png" alt="Marp" style="width: 100%; border-radius: 8px; margin: 1rem 0;">
+    <img src="marp.webp" alt="Marp" style="width: 100%; border-radius: 8px; margin: 1rem 0;">
     <p>Write Markdown and produce PDF or HTML presentations instantly. Focus on content, not design.</p>
   </article>
 
@@ -223,7 +223,7 @@ Slidev, built on Vue.js, is the modern standard for slide code:
       <span class="render-badge" style="background: #111111; color: #ffffff;">Reveal.js</span>
       <h3>Power & Flexibility</h3>
     </div>
-    <img src="revealjs.jpg" alt="Reveal.js" style="width: 100%; border-radius: 8px; margin: 1rem 0;">
+    <img src="revealjs.webp" alt="Reveal.js" style="width: 100%; border-radius: 8px; margin: 1rem 0;">
     <p>3D transitions and horizontal/vertical slide hierarchies using HTML/JS. Use hooks to trigger live data visualizations.</p>
   </article>
 
@@ -232,7 +232,7 @@ Slidev, built on Vue.js, is the modern standard for slide code:
       <span class="render-badge" style="background: #000000; color: #ffffff;">Impress.js</span>
       <h3>3D Visual Show</h3>
     </div>
-    <img src="impressjs.png" alt="Impress.js" style="width: 100%; border-radius: 8px; margin: 1rem 0;">
+    <img src="impressjs.webp" alt="Impress.js" style="width: 100%; border-radius: 8px; margin: 1rem 0;">
     <p>Prezi-style zooming and rotating effects using CSS3 transformations for immersive storytelling.</p>
   </article>
 </div>
@@ -261,7 +261,7 @@ Not everyone wants to write code for slides or documents. However, office suite 
 <span class="render-badge" style="background: #3a7610; color: #ffffff;">LibreOffice</span>
 <h3>Privacy Fortress</h3>
 </div>
-<img src="LibreOffice.jpg" alt="LibreOffice" style="width: 100%; border-radius: 8px; margin: 1rem 0;">
+<img src="LibreOffice.webp" alt="LibreOffice" style="width: 100%; border-radius: 8px; margin: 1rem 0;">
 <p>Loyal to ODF standards, telemetry-free, and fully offline. The strongest defender of data privacy.</p>
 </article>
 </div>
@@ -332,7 +332,7 @@ Any platform that doesn't leave data ownership to the user, uses closed (proprie
       <span class="render-badge" style="background: #f47b20; color: #ffffff;">Zoho Office</span>
       <h3>Closed Cloud</h3>
     </div>
-    <img src="zoho-office.jpg" alt="Zoho" style="width: 100%; border-radius: 8px; margin: 1rem 0;">
+    <img src="zoho-office.webp" alt="Zoho" style="width: 100%; border-radius: 8px; margin: 1rem 0;">
     <p>Locked into a proprietary cloud. Data remains on the provider's servers, outside of your sovereign control.</p>
   </article>
 
@@ -350,7 +350,7 @@ Any platform that doesn't leave data ownership to the user, uses closed (proprie
       <span class="render-badge" style="background: #e11d48; color: #ffffff;">WPS Office</span>
       <h3>Budget Clone</h3>
     </div>
-    <img src="wps.jpg" alt="WPS Office" style="width: 100%; border-radius: 8px; margin: 1rem 0;">
+    <img src="wps.webp" alt="WPS Office" style="width: 100%; border-radius: 8px; margin: 1rem 0;">
     <p>Great compatibility with MS formats but closed-source and often bundled with ads or data-tracking.</p>
   </article>
 

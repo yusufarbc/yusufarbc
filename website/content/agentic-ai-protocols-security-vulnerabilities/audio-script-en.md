@@ -620,9 +620,7 @@ OWASP ASI Top 10: Risk taxonomy specifically for agentic systems.
 
 ---
 
-
-Chapter: Conclusion — Security Standards for the Agentic Web
-
+Conclusion — Security Standards for the Agentic Web
 
 The protocol ecosystem of agentic AI is maturing rapidly. MCP, A2A, ANP, UCP, and AP2 — each fulfilling a critical function at a different layer — are together building the infrastructure of the "Agentic Web."
 

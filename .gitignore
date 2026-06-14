@@ -127,5 +127,8 @@ migrate_hugo.py
 fix_frontmatter.py
 *.py
 
+# Allow Python scripts inside static-prompt to be committed
+!static-prompt/*.py
+
 # Resume folder
 resume/

@@ -986,12 +986,17 @@ body.colorscheme-dark .article-cover {
 }
 
 .markdown-content h2 {
-  font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+  font-size: clamp(1.45rem, 3.5vw, 1.9rem);
+  font-weight: 800;
   margin-top: 3.5rem;
+  border-left: 4px solid var(--app-accent-color);
+  padding-left: 0.8rem;
 }
 
 .markdown-content h3 {
-  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  font-size: clamp(1.18rem, 2.5vw, 1.4rem);
+  font-weight: 700;
+  margin-top: 2.25rem;
 }
 
 .markdown-content ul,

@@ -2,11 +2,11 @@
 title: "Eylemsel Yapay Zeka Protokolleri: Yeni Bir Saldırı Yüzeyi mi?"
 date: '2026-06-15'
 description: "Otonom yapay zeka eylemcilerinin yaygınlaşmasıyla birlikte MCP, A2A, ANP, UCP ve AP2 gibi protokoller yapay zeka mimarisinin omurgasını oluşturuyor. Bu yazıda Agentic AI kavramını, protokol ekosistemini katman katman ele alıyor ve güvenlik açıklarını kapsamlı biçimde inceliyoruz."
-featuredImage: featured.png
+featuredImage: featured.webp
 draft: false
 layout: single
 type: posts
-audioFile: tr.wav
+audioFile: tr.mp3
 ---
 
 Yapay zeka tarihi şimdiye kadar iki büyük kırılma noktası yaşadı. İlki, sembolik yapay zekadan makine öğrenimine geçişti. Bugün ise reaktif dil modellerinden **Agentic AI** (Eylemsel Yapay Zeka) paradigmalarına geçişin tam ortasındayız. Bu ikinci dönüşüm, basit bir teknolojik ilerlemeden çok daha fazlası; zira siber güvenlik, karşılıklı güven ve sorumluluk paylaşımları söz konusu olduğunda oyunun kurallarını tamamen değiştiriyor.
@@ -578,7 +578,7 @@ OAuth 2.1 standardındaki **Resource Indicators (RFC 8707)** kullanılarak, bir 
 
 ---
 
-## Sonuç ve Gelecek Öngörüleri
+**Sonuç ve Gelecek Öngörüleri**
 
 Yapay zeka eylemcilerinin protokol ekosistemi hızla olgunlaşıyor. MCP, A2A, ANP, UCP ve AP2 protokolleri, "Agentic Web" (Eylemci Ağı) adı verilen otonom internet altyapısının temel taşlarını döşüyor.
 

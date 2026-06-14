@@ -602,9 +602,7 @@ OWASP ASI Top 10: Yapay zeka eylemcilerine ve otonom sistemlere özel geliştiri
 
 ---
 
-
-Bölüm: Sonuç ve Gelecek Öngörüleri
-
+Sonuç ve Gelecek Öngörüleri
 
 Yapay zeka eylemcilerinin protokol ekosistemi hızla olgunlaşıyor. MCP, A2A, ANP, UCP ve AP2 protokolleri, "Agentic Web" (Eylemci Ağı) adı verilen otonom internet altyapısının temel taşlarını döşüyor.
 

@@ -354,3 +354,80 @@
     font-size: 0.98rem !important;
   }
 }
+
+/* Scale down Mermaid diagrams slightly and center them on desktop */
+@media (min-width: 769px) {
+  .mermaid {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 1.5rem !important;
+    overflow-x: auto !important;
+  }
+  
+  .mermaid svg {
+    max-width: 82% !important; /* Bir tık küçültüyoruz */
+    height: auto !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* =============================================================================
+   MERMAID DYNAMIC THEME STYLES (Light & Dark Mode compatible)
+   ============================================================================= */
+.mermaid .node-accent rect,
+.mermaid .node-accent circle,
+.mermaid .node-accent polygon,
+.mermaid .node-accent path {
+  fill: var(--tag-bg) !important;
+  stroke: var(--app-accent-color) !important;
+  stroke-width: 2px !important;
+}
+.mermaid .node-accent text,
+.mermaid .node-accent span {
+  fill: var(--app-accent-color) !important;
+  color: var(--app-accent-color) !important;
+}
+
+.mermaid .node-danger rect,
+.mermaid .node-danger circle,
+.mermaid .node-danger polygon,
+.mermaid .node-danger path {
+  fill: rgba(239, 68, 68, 0.1) !important;
+  stroke: #ef4444 !important;
+  stroke-width: 2px !important;
+}
+.mermaid .node-danger text,
+.mermaid .node-danger span {
+  fill: #ef4444 !important;
+  color: #ef4444 !important;
+}
+
+.mermaid .node-success rect,
+.mermaid .node-success circle,
+.mermaid .node-success polygon,
+.mermaid .node-success path {
+  fill: rgba(34, 197, 94, 0.1) !important;
+  stroke: #22c55e !important;
+  stroke-width: 2px !important;
+}
+.mermaid .node-success text,
+.mermaid .node-success span {
+  fill: #22c55e !important;
+  color: #22c55e !important;
+}
+
+.mermaid .node-warning rect,
+.mermaid .node-warning circle,
+.mermaid .node-warning polygon,
+.mermaid .node-warning path {
+  fill: rgba(245, 158, 11, 0.1) !important;
+  stroke: #f59e0b !important;
+  stroke-width: 2px !important;
+}
+.mermaid .node-warning text,
+.mermaid .node-warning span {
+  fill: #f59e0b !important;
+  color: #f59e0b !important;
+}
+
