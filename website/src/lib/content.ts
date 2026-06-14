@@ -41,18 +41,19 @@ function sanitizeYaml(raw: string): string {
 }
 
 function parseFrontmatter(source: string): { data: Record<string, any>; body: string } {
-  const parts = source.split(/^---\s*$/m);
-  if (parts.length >= 3) {
-    const frontmatter = sanitizeYaml(parts[1]);
-    const body = parts.slice(2).join("---").trim();
+  const normalized = source.replace(/^\uFEFF/, "");
+  const match = normalized.match(/^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n?([\s\S]*)$/);
+  if (match) {
+    const frontmatter = sanitizeYaml(match[1]);
+    const body = match[2].trim();
     try {
       const parsed = YAML.parse(frontmatter);
       return { data: parsed && typeof parsed === "object" ? parsed : {}, body };
     } catch {
-      return { data: {}, body: source };
+      return { data: {}, body: normalized };
     }
   }
-  return { data: {}, body: source };
+  return { data: {}, body: normalized };
 }
 
 function isTrue(value: unknown): boolean {
