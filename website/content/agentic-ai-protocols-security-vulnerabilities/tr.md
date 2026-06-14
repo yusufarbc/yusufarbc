@@ -587,4 +587,4 @@ Bu yeni dünyada güvenlik, sistem kurulduktan sonra eklenen bir yama değil; ta
 
 Saldırganların yapay zeka eylemcilerini kullanarak saldırı süreçlerini otomatikleştirdiği bir dönemde, savunmanın da aynı hızda yapılması kritik önem taşır. Bu bağlamda, tehditlere karşı otonom savunma yapan **Agentic SOC (Eylemci Destekli Güvenlik Merkezleri)** çok yakın bir gelecekte standart hale gelecektir.
 
- *Güvenlik Notu:* Yerel geliştirme ortamlarınızda public endpoint (kamusal erişim noktası) açarak kontrolsüz tünelleme araçları veya yönlendiriciler kullanmaktan kaçının. Yerel ağınızdaki küçük bir zafiyet, otonom eylemcinin sahip olduğu yetkiler üzerinden tüm sisteminizin ele geçirilmesine yol açabilir.*
+ *Güvenlik Notu: Yerel geliştirme ortamlarınızda public endpoint (kamusal erişim noktası) açarak kontrolsüz tünelleme araçları veya yönlendiriciler kullanmaktan kaçının. Yerel ağınızdaki küçük bir zafiyet, otonom eylemcinin sahip olduğu yetkiler üzerinden tüm sisteminizin ele geçirilmesine yol açabilir.*
