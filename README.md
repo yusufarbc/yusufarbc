@@ -1,20 +1,20 @@
 <div align="center">
 
   <h1 style="border-bottom: none;">Hi, I'm Yusuf Talha ARABACI 👋</h1>
-  
-  <p align="center">
+
+  <img src="subtitle.svg" alt="Software & Security Engineer" height="35" />
+
+  <p style="margin-top: 5px;">
+    📧 <a href="mailto:yusuf.talhaarabaci@owasp.org">yusuf.talhaarabaci@owasp.org</a>
+  </p>
+
+  <p align="center" style="margin-top: 10px;">
     <a href="https://yusufarbc.dev/en/">
       <img src="https://img.shields.io/badge/Portfolio-yusufarbc.dev-0f172a?style=for-the-badge&logo=google-chrome&logoColor=38bdf8" alt="Portfolio" />
     </a>
     <a href="https://infosec.exchange/@yusufarbc">
       <img src="https://img.shields.io/badge/Mastodon-InfoSec.Exchange-0f172a?style=for-the-badge&logo=mastodon&logoColor=38bdf8" alt="Mastodon" />
     </a>
-  </p>
-
-  <img src="subtitle.svg" alt="Software & Security Engineer" height="25" />
-  
-  <p style="margin-top: -10px;">
-    📧 <b>Contact:</b> <a href="mailto:yusuf.talhaarabaci@owasp.org"><code>yusuf.talhaarabaci@owasp.org</code></a>
   </p>
 
   <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&pause=1000&color=38bdf8&background=0f172a00&center=true&vCenter=true&width=500&lines=Digital+Sovereignty;Cloud-Native;Open+Source;Data+Privacy;Next-Gen+SOC;Endpoint+Protection;Network+Defense" alt="Typing SVG" />
@@ -44,13 +44,6 @@ I am deeply passionate about creating autonomous, self-sufficient IT environment
 * **Cloud-Native & Infrastructure:** ![Docker](https://img.shields.io/badge/Docker-0f172a?style=flat-square&logo=docker&logoColor=38bdf8) ![Kubernetes](https://img.shields.io/badge/Kubernetes-0f172a?style=flat-square&logo=kubernetes&logoColor=38bdf8) ![Proxmox](https://img.shields.io/badge/Proxmox-0f172a?style=flat-square&logo=proxmox&logoColor=38bdf8) ![Ubuntu](https://img.shields.io/badge/Ubuntu-0f172a?style=flat-square&logo=ubuntu&logoColor=38bdf8) ![Bash](https://img.shields.io/badge/Bash-0f172a?style=flat-square&logo=gnu-bash&logoColor=38bdf8)
 * **Security Architecture:** ![Wazuh](https://img.shields.io/badge/Wazuh-0f172a?style=flat-square&logo=wazuh&logoColor=38bdf8) ![Elastic](https://img.shields.io/badge/Elastic-0f172a?style=flat-square&logo=elastic&logoColor=38bdf8) ![Splunk](https://img.shields.io/badge/Splunk-0f172a?style=flat-square&logo=splunk&logoColor=38bdf8)
 
-## 📂 Featured Repositories & Research
-
-| Project | Description | Stack / Tech | Info / Stats |
-|---|---|---|---|
-| [**Apache-BigData-SIEM**](https://github.com/yusufarbc/Apache-BigData-SIEM) | Scalable, Lakehouse-based SIEM architecture for real-time threat detection. | Kafka, Spark, Hadoop | ![Stars](https://img.shields.io/github/stars/yusufarbc/Apache-BigData-SIEM?style=flat-square&color=38bdf8&labelColor=0f172a) |
-| [**WebVuln-Runner**](https://github.com/yusufarbc/webvuln-runner) | Docker-based TUI runner for instantly deploying 15+ vulnerable web apps. | Docker, Bash, Python | ![Stars](https://img.shields.io/github/stars/yusufarbc/webvuln-runner?style=flat-square&color=38bdf8&labelColor=0f172a) |
-| [**ApiGoat**](https://github.com/yusufarbc/apigoat) | Deliberately vulnerable REST API designed for OWASP Top 10 security testing. | Node.js, MongoDB | ![Stars](https://img.shields.io/github/stars/yusufarbc/apigoat?style=flat-square&color=38bdf8&labelColor=0f172a) |
 
 ## 📊 Stats & Academic Focus
 
