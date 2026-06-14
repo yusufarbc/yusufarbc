@@ -2,12 +2,18 @@
 title: Python for Hackers
 date: 2022-08-26
 description: A comprehensive guide on Python programming for security professionals, covering HTTP requests scripting, web automation with Selenium, socket programming for port scanning, and SSH remote management using Paramiko.
-image: python_for_hackers_cover.webp
+image: featured.webp
 type: posts
 ---
 
 
 ## requests
+
+
+
+
+This section explores the details and implications.
+
 
 
 ### Introduction
@@ -340,7 +346,18 @@ As a result, we found the vulnerability by running the python code.
 
 I welcome comments on what other operations we can do in the field of web security with Python”¦
 
+---
 ## selenium
+
+
+
+
+
+
+
+
+This section explores the details and implications.
+
 
 
 
@@ -559,7 +576,12 @@ You've probably heard of bot accounts on Twitter. In addition to automating soci
 
 As a result, the selenium module is a nice module that helps us perform automated operations on a real browser and create bots, but some web applications have taken precautions against these bots. I welcome comments on what other applications can be made with Selenium”¦
 
+---
 ## socket
+
+
+This section explores the details and implications.
+
 
 ### Introduction
 
@@ -701,7 +723,20 @@ with socket.create_connection((hostname, 443)) as sock:
 
 What other things can we do in the field of cyber security with this module? I welcome comments...
 
+---
 ## paramiko
+
+
+
+
+
+
+
+
+
+
+This section explores the details and implications.
+
 
 
 
@@ -820,7 +855,12 @@ With the code above, we read the *passwd* file of the target server and printed 
 
 As a result, we made an SSH connection to remote servers with the paramiko module and ran commands on the servers. I welcome comments on what other applications can be made with Paramiko”¦
 
+---
 ## scapy
+
+
+This section explores the details and implications.
+
 
 ### Introduction
 Scapy is a powerful interactive packet manipulation library used for sending, sniffing, analyzing, and manipulating network packets. It allows you to perform most of the tasks done by traditional tools (ping, traceroute, nmap, tcpdump, etc.) with your own custom scripts.
@@ -849,7 +889,12 @@ else:
     print("No response received.")
 ```
 
+---
 ## python-nmap
+
+
+This section explores the details and implications.
+
 
 ### Introduction
 python-nmap allows you to control the popular port scanner and network discovery tool Nmap from within Python scripts. It is ideal for automating scan results and using them in reporting or other automation processes.
@@ -883,7 +928,12 @@ for host in nm.all_hosts():
             print(f"Port: {port}\tState: {nm[host][proto][port]['state']}")
 ```
 
+---
 ## beautifulsoup4
+
+
+This section explores the details and implications.
+
 
 ### Introduction
 BeautifulSoup is a popular web scraping library used to parse HTML and XML documents. It allows you to easily extract specific tags, classes, or IDs from complex HTML structures.
@@ -912,7 +962,12 @@ for link in soup.find_all('a'):
     print(link.get('href'))
 ```
 
+---
 ## playwright
+
+
+This section explores the details and implications.
+
 
 ### Introduction
 Playwright is a powerful library developed for browser automation and testing in modern web applications. It allows you to control Chromium, Firefox, and WebKit browsers in headless or normal mode.
@@ -945,7 +1000,12 @@ with sync_playwright() as p:
     browser.close()
 ```
 
+---
 ## hashlib
+
+
+This section explores the details and implications.
+
 
 ### Introduction
 hashlib is Python's built-in module containing cryptographic hash functions. It supports algorithms such as MD5, SHA-1, SHA-256 for verifying data integrity, securely storing passwords, or writing hash cracking algorithms.
@@ -970,7 +1030,12 @@ hex_dig = hash_object.hexdigest()
 print("SHA-256 Hash:", hex_dig)
 ```
 
+---
 ## cryptography
+
+
+This section explores the details and implications.
+
 
 ### Introduction
 cryptography is a comprehensive library containing modern symmetric (like AES) and asymmetric (like RSA) encryption methods. It is the leading standard library for performing secure data transmission and encryption operations.
@@ -1003,7 +1068,12 @@ plain_text = cipher_suite.decrypt(cipher_text)
 print("Original data:", plain_text.decode())
 ```
 
+---
 ## os and sys
+
+
+This section explores the details and implications.
+
 
 ### Introduction
 os and sys are Python's built-in modules that interact with the operating system and system parameters. They are used for file operations, environmental variables, command-line arguments, and managing the runtime environment.
@@ -1029,7 +1099,12 @@ else:
     print("No arguments provided.")
 ```
 
+---
 ## subprocess
+
+
+This section explores the details and implications.
+
 
 ### Introduction
 The subprocess module allows you to launch new processes, run local commands belonging to the operating system, and manage their input/output/error streams from within Python scripts.
@@ -1052,7 +1127,12 @@ print("Exit Code:", result.returncode)
 print("Output:\n", result.stdout)
 ```
 
+---
 ## ctypes
+
+
+This section explores the details and implications.
+
 
 ### Introduction
 ctypes is a foreign function library for Python. It allows loading dynamic libraries written directly in C (DLL files on Windows, .so files on Linux) into memory and using C data types. It is used to communicate directly with system APIs.
@@ -1075,7 +1155,12 @@ except AttributeError:
     print("This code runs only on Windows operating systems.")
 ```
 
+---
 ## pwntools
+
+
+This section explores the details and implications.
+
 
 ### Introduction
 Pwntools is a CTF framework developed to facilitate exploit writing, network connections (sockets), analysis of ELF files, and local/remote process manipulation, which has become standard for CTF (Capture The Flag) competitors and exploit developers.
@@ -1111,7 +1196,11 @@ Python is one of the most preferred languages in the cyber security world (both 
 
 We can examine these modules by categorizing them according to their intended use. In the interactive diagram below, you can see the categories and the modules they contain. You can click on any module to go directly to its detailed explanation:
 
+---
 ## Module Map
+
+
+
 
 ```mermaid
 flowchart TD
@@ -1158,4 +1247,3 @@ flowchart TD
 ---
 
 > ⚠️ **Important Note:** The use of these modules in cyber security testing (Penetration Testing) and educational laboratory environments is completely legal. However, scanning or attacking systems for which you do not have authorization using these tools constitutes a legal offense.
-

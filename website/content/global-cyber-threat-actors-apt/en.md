@@ -6,11 +6,15 @@ image: featured.webp
 type: posts
 ---
 
-## Introduction to the Modern Threat Landscape and Digital Ecosystem Realities
+---
+
+
+
+
 
 This introductory section will establish the basic concepts necessary to understand the detailed actor profiles that follow. It will define what an APT means in the modern context and address the confusing landscape of threat actor naming conventions, which is a key challenge for practitioners.
 
-### 1.1. The Predator-Prey Relationship on the Web
+### The Predator-Prey Relationship on the Web
 
 Whether it is a commercial or non-profit enterprise, it seems logical for every business to understand that building a secure organization is crucial for long-term success. When a business implements and maintains a strong security posture, it can enjoy numerous advantages. A secure organization can use its security program as a marketing tool, demonstrating to its customers how much it values their business and the extent of its commitment to protecting their information. Most importantly, however, a secure organization will not have to spend time and money detecting security breaches and responding to the consequences of those breaches.
 
@@ -28,7 +32,7 @@ When word gets out (and there will be) that there is a new exploitable vulnerabi
 
 The fact that many vulnerabilities in your network can be caused by your employees makes your job even more difficult. Casual browsing of porn sites can expose the network to all kinds of nasty bugs and malicious code just by an employee visiting the site. The problem is, for users this may not seem like that big of a deal. They either don't realize or don't care that they're leaving the network open to intrusions.
 
-### 1.2. Protocols and Code Flaws
+### Protocols and Code Flaws
 
 Let's take a closer look at the barriers that make building a secure organization difficult.
 
@@ -120,7 +124,7 @@ The goal of any discussion with management is to convince them that having a sec
 
 The unchecked complexity of modern computers and enterprise software inevitably leaves behind exploitable code errors. When these errors are weaponized into "Zero-Day" vulnerabilities, a relentless race against time begins for every actor in the digital ecosystem.
 
-### 1.3. N-Days and the Zero-Day Paradox
+### N-Days and the Zero-Day Paradox
 
 
 <div style="background: rgba(59, 130, 246, 0.05); border-left: 4px solid #3b82f6; padding: 15px; margin: 20px 0; border-radius: 6px;">
@@ -182,7 +186,11 @@ mindmap
         [Access Control]
 ```
 
+---
 ## Know Your Enemy: Anatomy and Motivations of Threat Actors
+
+
+
 
 A Network Attack is an unauthorized entry into a computer in your organization or an address within your assigned domain. Intrusion can be passive (infiltration stealthily and undetected) or active (in which changes to network resources are affected). Intrusions can come from outside or inside your network structure (an employee, customer or business partner). Some intrusions are just to let you know that the intruder is there, defacing your website with various messages or vulgar images. Others are more malicious, attempting to obtain critical information on a one-off basis or as an ongoing parasitic affair that will continue to siphon data until discovered. Some intruders attempt to inject elaborate code to crack passwords, record keystrokes, or impersonate your site to redirect unsuspecting users to their site. Others embed themselves in the network and constantly silently extract data or replace public Web pages with various messages.
 
@@ -226,7 +234,7 @@ Packet inconsistencies–direction (incoming or outgoing), source address or loc
 
 Sometimes strange or unexpected system behavior is a sign in itself. Although this is sometimes difficult to keep track of, you should be aware of events such as changes in system clocks, servers shutting down or server processes inexplicably stopping (via attempts to restart the system), system resource issues (such as unusually high CPU activity or overflows in file systems), audit logs behaving in strange ways (reducing in size without administrative intervention), or unexpected user access to resources. Heavy system usage (possible DoS attack) or CPU usage (brute force password cracking attempts) should always be investigated if you notice unusual activity at regular times on certain days.
 
-### 2.1. Terminology Confusion: Hackers vs. Crackers
+### Terminology Confusion: Hackers vs. Crackers
 
 
 <div style="background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; padding: 15px; margin: 20px 0; border-radius: 6px;">
@@ -293,7 +301,7 @@ Hacker <|-- SecurityProfessional
 Cracker <|-- SecurityProfessional
 ```
 
-### 2.2. From Script Kiddies to Professional "Cybercrime Corporations"
+### From Script Kiddies to Professional "Cybercrime Corporations"
 
 Once, a hacker was typically depicted as a lone teenager with poor social skills, breaking into systems for little more than bragging rights. However, as e-commerce evolved, the profile of hackers changed as well.
 
@@ -304,7 +312,7 @@ Now that there are vast collections of credit card numbers and intellectual prop
 
 In an era where organizations are attacked by highly motivated and skilled hacker groups, building a secure infrastructure has become imperative.
 
-### 2.3. The Botnet Epidemic and Zombie Computers
+### The Botnet Epidemic and Zombie Computers
 
 A new and particularly virulent threat that has emerged in the last few years is one in which a virus is secretly implanted into a large number of unprotected computers (usually those located in homes), hijacking them (without their owners' knowledge) and turning them into slaves to do the hacker's bidding. These compromised computers, known as bots, connect to large and often untraceable networks called botnets. Botnets are designed to work so that instructions come from a central computer and are quickly shared among other botted computers on the network. Newer botnets now use a "peer-to-peer" method, making detection difficult, if not impossible, by law enforcement because they lack a central identifiable control point. And because they often cross international borders into countries that lack the means (or will) to investigate and shut them down, they can grow at an alarming rate. They can be so lucrative that they have now become a tool of choice for hackers.
 
@@ -317,7 +325,7 @@ It's such a widespread problem that botnet attacks rose from an estimated 300,00
 
 Bot controllers operate networks that need a large and untraceable means of sending out large amounts of advertising, but who want to build their own network.They can also make money by renting it to others who do not have the financial or technical resources. To make matters worse, botnet technology can be found online for less than $100, making it relatively easy to start what could be a very lucrative business.
 
-### 2.4. The Pinnacle: What is an Advanced Persistent Threat (APT)?
+### The Pinnacle: What is an Advanced Persistent Threat (APT)?
 
 
 <div style="background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; padding: 15px; margin: 20px 0; border-radius: 6px;">
@@ -347,7 +355,11 @@ A new and very disturbing trend is the discovery that some governments are fundi
 
 While understanding the motivations of these cybercriminals and state-sponsored armies is critical, one of the greatest operational challenges on the defensive side is how to identify these adversaries in the first place. The cybersecurity industry, much like the Tower of Babel, assigns hundreds of different names to the same threat.
 
+---
 ## The "Tower of Babel" Problem in Global Threat Intelligence and the Art of Naming
+
+
+
 
 * **The "Tower of Babel" Problem:** This subsection will explain why a universal naming standard for threat actors is impractical and may not be possible. Because different security vendors (Microsoft, CrowdStrike, Mandiant, Kaspersky, Palo Alto Networks, etc.) have their own telemetry, visibility, and internal research priorities, they develop unique naming schemes. This creates a "Rosetta Stone" problem for defenders who must correlate intelligence from multiple sources.
 * **Provider Taxonomies:** The high-level logic of the major provider naming schemes will be introduced to provide a mental model for the aliases the reader will encounter.
@@ -368,9 +380,14 @@ This table acts as a "Rosetta Stone," providing a means of resolving name confli
 
 ---
 
+---
 ## APT Groups on the Geographical and Geopolitical Axis (In-Depth Analysis)
 
-### 4.1. Russia-Linked Actors: High Sabotage and Intelligence Integration
+
+This section explores the details and implications.
+
+
+### Russia-Linked Actors: High Sabotage and Intelligence Integration
 
 This section will detail the threat actors attributed to the Russian Federation, which is known for its sophisticated espionage, disruptive capabilities, and integrated "information conflict" doctrines.
 
@@ -429,7 +446,7 @@ The GRU/SVR operational dichotomy is evident in the observed TTPs and targeting 
 
 Additionally, Russian-linked actors tend to use e-crime infrastructure and actors for state goals. This provides plausible deniability and allows access to a broader pool of tools and resources. For example, DanaBot malware operated by Russia-based e-crime group SCULLY SPIDER has been used to launch DDoS attacks against the Ukrainian Ministry of Defense in concert with Russian military targets. The DOJ indictment revealed that DanaBot subbotnets were also used for espionage purposes, a feature of government activities. This implies a strategy within Russia's "information conflict" doctrine that deliberately blurs the lines between state and criminal activity, complicating attribution and intervention for Western nations.
 
-### 4.2. China-Linked Actors: Industrial Espionage and Infrastructure Intrusions
+### China-Linked Actors: Industrial Espionage and Infrastructure Intrusions
 
 This section will detail the threat actors generally attributed to the People's Republic of China, which is characterized by large-scale intellectual property theft, broad-spectrum espionage, and increasing operational sophistication.
 
@@ -464,7 +481,7 @@ APT41's profile reveals a key trend in Chinese cyber operations: the use of stat
 
 Additionally, the targeting patterns of Chinese APTs are not random; It is strictly aligned with China's national strategic goals, such as the Belt and Road Initiative (APT40) and 5-year economic plans (APT41's intellectual property theft). This demonstrates a direct link between geopolitical/economic policy and cyber operations. This means that organizations can do proactive threat modeling by analyzing China's publicly available strategic documents. If a company operates in an industry identified as a priority for China's development, it is a possible target for a China-related APT.
 
-### 4.3. Iran-Linked Actors: Social Engineering and Cyber Sabotage
+### Iran-Linked Actors: Social Engineering and Cyber Sabotage
 
 This section will cover threat actors attributed to Iran who are notable for their heavy reliance on social engineering, targeting dissidents, and use of a mix of espionage and subversive operations.
 
@@ -494,7 +511,7 @@ This section will cover threat actors attributed to Iran who are notable for the
 
 Iranian APTs, unlike the more technically focused Russian and Chinese groups, demonstrate a mastery and intense dependence on sophisticated and long-term social engineering. They compensate for not using zero-day vulnerabilities by investing in psychological manipulation. Multiple sources indicate that Charming Kitten's (APT35/42) core TTP is to establish trust and rapport over long periods of time before an attack. This differs from the more direct spear phishing or vulnerability exploitation seen from other state actors. This shows that Iran's cyber doctrine gives priority to human intelligence (HUMINT) techniques adapted to the digital domain. For advocates, this simply means that technical controls such as email filtering are inadequate. A strong defense requires solid user security awareness training and processes for authenticating unknown individuals, no matter how plausible they may seem.
 
-### 4.4. North Korea-Linked Actors: Financial Warfare via Cyber Army
+### North Korea-Linked Actors: Financial Warfare via Cyber Army
 
 This chapter will analyze threat actors attributed to the Democratic People's Republic of Korea (DPRK), which has the unique mission of carrying out a combination of state-sponsored espionage and large-scale financial crimes to generate revenue for the regime.
 
@@ -519,7 +536,7 @@ This chapter will analyze threat actors attributed to the Democratic People's Re
 
 North Korea's cyber operations represent the clearest convergence of state espionage with large-scale criminal enterprise. Unlike cases in other nations where e-crime is tolerated or used opportunistically, for the DPRK it is a key pillar of its national strategy to circumvent sanctions and finance its state and military and nuclear programs. The Lazarus Group is clearly associated with major financial heists such as the Bangladesh Bank robbery and numerous cryptocurrency thefts worth hundreds of millions of dollars. The US government and security firms directly state that these activities are intended to generate illegal revenue for the regime. This is not just a "crime"; It is a key component of state-directed financial warfare and foreign policies. This means that any organization in the financial or cryptocurrency sectors is a direct target of a North Korean state actor, not only for espionage but also for outright theft.
 
-### 4.5. Other Major Threat Actors
+### Other Major Threat Actors
 
 This section will briefly discuss other important state-sponsored and financially motivated groups mentioned in the research material to present a more complete global picture.
 
@@ -537,20 +554,24 @@ TTPs used by financially motivated groups such as FIN7 and SCATTERED SPIDER are 
 
 ---
 
+---
 ## Shared Weapon of Modern Threats: The GenAI Threat
+
+
+
 
 The rapid adoption of Generative AI (GenAI) technologies has provided threat actors with powerful automation and payload optimization capabilities.
 
 ![Deepfake use cases: election manipulation, identity theft, financial fraud, social engineering](deepfakes.webp)
 *GenAI-powered deepfakes — the new frontier of social engineering.*
 
-### 5.1. Adversarial Adaptation of GenAI
+### Adversarial Adaptation of GenAI
 
 Threat actors leverage Large Language Models (LLMs) to enhance their technical capabilities:
 1.  **Polymorphic Malware:** Attackers use LLMs to write and refactor payloads, enabling code mutation to bypass signature-based antivirus and EDR solutions.
 2.  **Rapid Exploit Generation:** As soon as a new CVE (vulnerability) is announced, threat actors use AI to analyze vulnerability descriptions and build functional exploit prototypes within hours.
 
-### 5.2. The Era of Flawless Spear-Phishing
+### The Era of Flawless Spear-Phishing
 
 In the past, phishing emails were easily identifiable by poor grammar, awkward phrasing, and translation errors. With GenAI:
 *   Threat actors generate highly professional, grammatically perfect spear-phishing emails in the target's native language.
@@ -563,7 +584,11 @@ In the past, phishing emails were easily identifiable by poor grammar, awkward p
 
 In the face of this AI-powered automation — flawless phishing emails and polymorphic malware — traditional perimeter defenses like firewalls are utterly powerless on their own. Only one strategy remains capable of slowing the adversary and trapping them within our own labyrinth: Defense-in-Depth architecture.
 
+---
 ## Defense-in-Depth Architecture for Modern Enterprises
+
+
+
 
 Most security experts agree that perfect network security is impossible and that any defenses can always be bypassed. The defense-in-depth strategy embraces blocking the attacker with multiple layers of defense. He acknowledges that each layer can be overcome. Valuable assets are protected by more layers of defense. The combination of multiple layers increases the cost of success of the attack, which is proportional to the value of the assets protected. Additionally, the combination of multiple layers is more effective than a single optimized defense against unexpected attacks. The cost to the attacker may come in the form of additional time, effort, or equipment. For example, an attacker's delay can increase an organization's chances of detecting and responding to the attack in progress. If the increased costs outweigh the gains from a successful attack, some attempts may be discouraged.
 
@@ -978,7 +1003,11 @@ Although these systems are configured correctly, they are not insurmountable lik
 
 ---
 
+---
 ## Looking Ahead: Transitioning from Reactive Reflex to Proactive Strategy
+
+
+
 
 This concluding section will synthesize findings from actor profiles to provide a high-level strategic overview of the current and future threat landscape.
 
@@ -994,7 +1023,7 @@ This concluding section will synthesize findings from actor profiles to provide 
 
 APT groups continue to pose a persistent and dynamic threat to international relations and national security. Countering these threats requires in-depth and continuous threat intelligence work, which requires not only establishing technical defense mechanisms but also understanding actors' motivations, strategic goals and evolving tactics.
 
-### 7.1. Zero Trust Mindset
+### Zero Trust Mindset
 
 
 <div style="background: rgba(16, 185, 129, 0.05); border-left: 4px solid #10b981; padding: 15px; margin: 20px 0; border-radius: 6px;">
@@ -1008,7 +1037,7 @@ APT groups continue to pose a persistent and dynamic threat to international rel
 </div>
 
 
-### 7.2. Fortifying the Identity Perimeter
+### Fortifying the Identity Perimeter
 
 Traditionally, users, also known as employees, have been the weakest link in a company's defense armor. While they are essential to the organization, they can be a nightmare waiting to happen to your network. How do you allow them to operate within the network while controlling their access to resources? You should make sure that your user authentication system knows who your users are.
 
@@ -1057,7 +1086,7 @@ Any network security system you implement should retain or archive these logs fo
 
 Going forward, it is important to keep up with constant developments in the field of network security to avoid being left behind. These advances include new systems for addressing threats through a smarter and more autonomous process, and developing and configuring faster and easier ways to keep threat files up to date. Additionally, customization of access rules, authentication requirements, and user role assignments provides significant flexibility. In this process, it is important to subscribe to newsletters, attend seminars and security fairs, read white papers and get support from network security experts if needed. The price to pay for not cutting corners and staying ahead in terms of security is a security breach or security breach.will be less than the cost resulting from negligence.
 
-### 7.3. Threat Hunting and Honeypot Culture
+### Threat Hunting and Honeypot Culture
 
 The basic idea of a honeypot is to learn about attacker techniques by attracting attacks against a seemingly defenseless computer. It is essentially a forensic tool rather than a line of defense. A honeypot can be used to gain valuable information about attack methods used elsewhere or about imminent attacks before they happen. Honeypots are routinely used in research and production environments.
 
@@ -1069,11 +1098,11 @@ Third, a honeypot must be isolated from the actual network. Since honeypots are 
 
 Honeypots are generally classified according to their level of interaction, from low to high. Low-interaction honeypots like Honeyd provide simple services. An attacker could try to compromise the honeypot, but he wouldn't gain much. Having limited interactions creates the risk that the attacker will discover that the computer is a honeypot. At the other end of the range, highly interactive honeypots behave more like real systems. They have greater ability to engage an attacker and record activities, but provide greater gain when compromised.
 
-### 7.4. Ten Steps to Building a Secure Organization
+### Ten Steps to Building a Secure Organization
 
 Having identified the key challenges in building a secure organization, let us now examine 10 essential steps to achieving a solid and defensible security posture. The following steps will guide organizations of any size toward robust network security.
 
-#### 1. Assess Risks and Threats
+#### Assess Risks and Threats
 
 Where should you begin when trying to build a secure organization? A common belief is that you must first identify your assets and allocate security resources based on the value of each asset. While this approach is effective, it can lead to significant vulnerabilities. For instance, an infrastructure asset might not have a high standalone value, but it must be protected with the same level of effort as a high-value asset. Otherwise, it could become an entry point into your network, providing access to valuable data.
 
@@ -1100,7 +1129,7 @@ For organizations seeking to identify and measure the risks to their networks an
 
 Another risk assessment tool that can be helpful is the **Risk Management Framework** (RMF) tool.
 
-#### 2. Beware of Common Misconceptions
+#### Beware of Common Misconceptions
 
 When addressing an organization's security needs, it is common for professionals to fall prey to some very widespread misconceptions. Perhaps the most common misconception is that the business is obscure, simple, or boring—meaning it is not a target for malicious activity. Businesses must understand that, regardless of the type of enterprise, any network connected to the internet is a potential target.
 
@@ -1115,7 +1144,7 @@ Another common misconception is that an organization is immune to problems cause
 Another common misconception relates to information technology professionals. Many companies pay high salaries to IT staff because they understand that having a properly functioning technical infrastructure is crucial to the company's ongoing success. Because the staff is skilled in setting up and maintaining systems and networks, there is a general assumption that they know everything there is to know about computers.
 While an individual may be highly knowledgeable and technologically advanced, it is important to recognize that no one knows everything about computers. Because management does not understand technology, they are not in a good position to evaluate the depth of a person's knowledge and experience in the field. Decisions are often based on the certifications an individual has obtained throughout their career. Although certifications can be used to gauge a person's competency level, too much weight is often placed on them. Many certifications require little more than some time and dedication to study and pass an exam. Some training companies even offer boot camps that guarantee a person will pass a certification exam. It is possible for people to obtain certifications without any real-world experience with the operating systems, applications, or hardware addressed by the certification. When evaluating a person's competence, look first at their level of experience and background. If the individual has significant real-world experience in addition to obtaining certifications, then the certification is likely a reflection of the employee's true capabilities.
 
-#### 3. Provide Security Training to IT Staff — Now and Always
+#### Provide Security Training to IT Staff — Now and Always
 
 Just as implementing a robust and secure environment is a dynamic process, building a highly skilled staff of security professionals is also a dynamic process. While an organization's technical infrastructure may not change frequently, it is crucial to keep in mind that new vulnerabilities are discovered regularly and new attacks are launched constantly. Additionally, very few organizations have a static infrastructure; employees continually request new software, and more technology is added in an effort to increase efficiency. Each new addition potentially introduces additional vulnerabilities.
 
@@ -1140,7 +1169,7 @@ Arguably one of the best ways to determine if an employee has a strong grasp of 
 
 What makes this certification so valuable is that the candidate must have at least five years of professional experience in the field of information security, or four years of experience and a college degree. To maintain the credential, a certified individual must participate in 120 hours of continuing professional education during the three-year certification cycle. This ensures that CISSP holders remain current with the latest trends in security. The CISSP certification is maintained by (ISC)².
 
-#### 4. Think 'Outside the Box'
+#### Think 'Outside the Box'
 
 For most businesses, the threat to their intellectual assets and technical infrastructure comes from 'bad guys' sitting outside their organization, trying to get in. These organizations establish strong perimeter defenses, essentially 'encircling' their assets. However, internal employees have access to private information to perform their jobs and often disperse this information to areas that are no longer under the employer's control. This dissemination of data is usually not done with malicious intent; it simply ensures that employees can access data to carry out their work responsibilities more efficiently. This also becomes an issue when an employee leaves the company (or when an active employee loses an item like a laptop where private information is stored) and the organization takes no steps to retrieve or control the private information in the former employee's possession.
 
@@ -1161,7 +1190,7 @@ The figure shows a wide variety of devices connected to a system, including USB 
 
 Another way data can leave an organization's control is through the use of online data storage sites. These sites allow data to be transferred from a computer to a location accessible via the internet. Many of these sites provide 5 GB or more of free storage space. While it is certainly possible to blacklist these sites, there are so many of them, and more are developed regularly, that blocking access to all of them is difficult, if not impossible.
 
-#### 5. Train Employees: Develop a Culture of Security
+#### Train Employees: Develop a Culture of Security
 
 One of the greatest security assets is a business's own employees—but only if they are properly trained to comply with security policies and identify potential security issues.
 
@@ -1171,7 +1200,7 @@ Perhaps the most direct way to gain employee buy-in is to inform them that the m
 
 The goal of these activities is to encourage employees to proactively approach management or the security team. When this begins to happen regularly, you will have expanded the capabilities of your security team and created a much more secure organization.
 
-#### 6. Identify and Use Built-in Security Features of Operating Systems and Applications
+#### Identify and Use Built-in Security Features of Operating Systems and Applications
 
 Many organizations and system administrators state that they cannot build a secure infrastructure because they have limited resources and lack the funds to purchase robust security tools. This is an absurd approach to security because all operating systems and many applications contain security mechanisms that require no organizational resources other than the time to identify and configure them. For Microsoft Windows operating systems, a terrific resource is the Microsoft Learn platform. [https://learn.microsoft.com/en-us/security/](https://learn.microsoft.com/en-us/) You can access the guide developed for Windows Server 2022 at the following link: <https://info.microsoft.com/rs/157-GQE-382/images/EN-WBNR-eBook-SRDEM134534ebook.pdf>
 
@@ -1206,7 +1235,7 @@ All operating systems contain mechanisms to increase password complexity. In Mic
 
 It is important to know that all operating systems have embedded tools to assist with security. Finding them usually requires a bit of research, but the time spent identifying them is far less than the money spent purchasing additional security products or recovering from a security breach.
 
-#### 7. Monitoring Systems
+#### Monitoring Systems
 
 Even when the most robust security tools are in place, it is crucial to monitor your systems. All security products are human-made and can fail or be compromised. As with other aspects of technology, one should never rely on a single product or tool. Enabling logging on your systems is a way to position your organization to identify problematic areas. The question is, which logs should be recorded? There are some security standards that can assist in determining this. One such standard is the Payment Card Industry Data Security Standard (PCI-DSS). Requirement 10 of the PCI-DSS states that organizations must 'Track and monitor all access to network resources and cardholder data.' If you substitute 'confidential information' for 'cardholder data,' this requirement serves as an excellent approach for a log management program. Requirement 10 is derived here:
 
@@ -1247,7 +1276,7 @@ An even more detailed approach to monitoring your systems is to install a packet
 
 Wireshark
 
-#### 8. Hire a Third Party to Audit Security
+#### Hire a Third Party to Audit Security
 
 No matter how skilled your staff may be, there is always a chance that they have overlooked something or misconfigured a device or setting. Therefore, bringing in an extra set of 'eyes, ears, and hands' to review your organization's security posture is critical.
 
@@ -1255,7 +1284,7 @@ Although some IT professionals may become paranoid about a third party auditing 
 
 A third-party analysis should involve a two-pronged approach: they should determine how the network looks to attackers and how secure the system is if attackers manage to breach the perimeter defenses. The external review, commonly referred to as penetration testing, can be performed in several ways. The first is an uninformed approach, where consultants are given absolutely no information about the network and systems prior to their analysis. While this is a highly realistic approach, it can be time-consuming and very expensive, as consultants using this method must rely on publicly available information to begin enumerating systems to test. While this is realistic, a partial-information analysis is more efficient and less costly. If a network topology diagram and a list of registered IP addresses are provided, third-party reviewers can complete the assessment more quickly, and the findings can be addressed in a much more timely manner. Once penetration testing is completed, the audit of the internal network can begin. The internal network audit will detect open shares, unpatched systems, open ports, weak passwords, rogue systems, and many other issues.
 
-#### 9. Remember the Basics
+#### Remember the Basics
 
 Many organizations spend too much time and money on perimeter defenses while neglecting some basic security mechanisms.
 
@@ -1263,7 +1292,7 @@ Many organizations spend too much time and money on perimeter defenses while neg
 * Use Strong Passwords
 * Close Unnecessary Ports
 
-#### 10. Patch, Patch, Patch
+#### Patch, Patch, Patch
 
 Almost all operating systems have a mechanism that automatically checks for updates. This notification system should be turned on. Although there is some debate about whether updates should be installed automatically, system administrators should at least be notified of updates. Since patches and updates are sometimes known to cause more problems than they solve, administrators may not want them to install automatically. A recent example of this is the CrowdStrike outage: <https://www.cnbc.com/2024/07/19/crowdstrike-outage-impact-8point5-million-windows-devices-microsoft-says-how-to-fix.html>
 
@@ -1294,7 +1323,7 @@ Much can be done to strengthen computers and reduce the risks they are exposed t
 As a result, no matter how strong security solutions we have, these products may not be able to completely prevent the attack. However, it is obvious that it will delay it significantly. This creates a time cost for the attacker. Therefore, if the gain on the attacker's side is not worth the time cost, the attack will be deterred. Most importantly, regular monitoring by real experts is necessary to protect against cyber attacks.
 
 
-### 7.5. Conclusion
+### Conclusion
 
 Like the tedious prep work before painting a room, organizations need a good, detailed, and well-written security policy. It's not something to be rushed "just  
 To be done, your security policy must be well thought out; in other words, 'the devil is in the details'. Your security policy is designed to get everyone involved in your network "thinking on the same page."

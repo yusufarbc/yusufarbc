@@ -8,7 +8,11 @@ type: posts
 
 # Elastic Stack (ELK Stack)
 
+---
 ## Debian Elastic Stack Installation, Configuration, and Cyber Security Architecture
+
+
+
 
 The ELK Stack was officially rebranded as the **Elastic Stack** following the introduction of **Beats**, a family of lightweight data shippers, as the fourth core component. While it is still widely referred to as the ELK Stack within the community, the vendor Elastic positions the entire ecosystem under this unified name.
 
@@ -33,7 +37,11 @@ Traditional installation order of Elastic Stack products:
  2- **Kibana**  
  3- **Logstash**
 
+---
 ## Recent Evolutions and Architectural Shifts in the Elastic Stack
+
+
+
 
 Several major changes have recently transformed the Elastic Stack ecosystem:
 
@@ -126,7 +134,7 @@ Debian was started in 1993 and was prepared by volunteers in various parts of th
 
 We have listed some members of the Debian family here. Apart from this, you can also install the ELK stack on **Windows**, **Macos** or **Redhat** based or other independent Linux distributions. In this article, I will install on an **ubuntu** machine. However, the same installation steps are valid for other Debian-based distributions.
 
-### 1- Preliminary Preparation
+### Preliminary Preparation
 
 First, let's look at the information of the system we will install and make sure that the distribution is the latest version for security reasons.
 
@@ -146,7 +154,7 @@ Package updates
 
 Finally, we need to make sure that our machine has enough resources. So it must have enough disk, ram and CPU. This will vary depending on your needs.
 
-### 2- **Elasticsearch Installation**
+### **Elasticsearch Installation**
 
 To install Elasticsearch, we first need to download the Debian package.
 
@@ -232,7 +240,7 @@ Access via browser
 
 Here, you can access elasticsearch by entering elastic as the username and the password you determined in the previous steps as the password.
 
-### 2- Kibana Installation
+### Kibana Installation
 
 To install Kibana, we first need to download the Debian package.
 
@@ -342,7 +350,7 @@ kibana panel
 
 Our Kibana panel has appeared. You can log in to this panel with the "elastic" user. Let's continue the installations.
 
-### 3- Logstash Installation
+### Logstash Installation
 
 To install Logstash, we first need to download the Debian package.
 
@@ -434,7 +442,11 @@ You can parse your logs by writing various parsers with logstash.
 
 In this article, I mentioned the ELK stack installation. In my next article, I will talk about sending logs to ELK, agent installation and log parceling. You can follow me to be informed about the articles I publish.
 
+---
 ## ELK Stack Log Management and Analysis
+
+
+
 
 Hello, in this article, I will talk about the log management of ELK Stack, which we installed in my last article, namely log collection, parsing and enrichment processes. How to Collect, Process and Send Logs with Logstash?
 
@@ -465,7 +477,7 @@ Log collection methods with ELK Stack (Elasticsearch, Logstash, Kibana):
 
 In this article, we will send logs with beats and collect logs with logstash from a Linux system.
 
-### 1- Logstash Configuration
+### Logstash Configuration
 
 Logstash is easier to understand when you imagine it as a pipeline. At one end of this pipeline are **inputs** that represent data sources. As log records pass through the Logstash pipeline, they can be enriched, filtered or manipulated based on your needs. Ultimately, when they reach the end of the pipeline, Logstash can deliver these logs to configured destinations for storage or analysis.
 
@@ -599,7 +611,7 @@ Logstash Service Status
 
 Now our pipilen is ready. Our service is up and running. We can move on to the next step.
 
-### 2- Beats Configuration
+### Beats Configuration
 
 We will use the beats tool to send logs via clients to our Logstash service running on our ELK server. By installing beats on client systems, we can send logs from the systems.
 
@@ -667,7 +679,7 @@ We have now completed our filebeat configuration and started our service. Our se
 
 You can install and configure other beats products in a similar way.
 
-### 3- Kibana Configuration
+### Kibana Configuration
 
 We have completed our Logstash and Filebeat installations. Now let's open our kibana interface. Then let's enter the elasticsearch section. Let's check if our index has arrived in the Indicies area.
 
@@ -699,7 +711,11 @@ We can now perform log search from this panel.
 
 In this article, we added a log source to our ELK system. We parsed the logs and sent them to elasticsearch. We made the necessary configurations in the Kibana interface.
 
+---
 ## ELK Stack Rule Writing and Alerting
+
+
+
 
 Hello, in this article, I will talk about rule writing, that is, warnings indicating security violations, and alerting operations of ELK Stack, which we installed in my last article. **ELK Stack** (Elasticsearch, Logstash, Kibana) facilitates rule writing and alerting operations, data analysis and management.
 
@@ -986,7 +1002,11 @@ To understand the potential of a rule set, it is not enough to know theoreticall
 | `Net-User-Recon-003` | `process where (process.name == "net.exe" or process.name == "net1.exe") and process.command_line: ("user" or "users")` | Medium | Detects account discovery activity using the `net.exe` tool. | Discovery | T1087 |
 | `Port-Scan-Detection-004` | `count(destination.port) by source.ip > 20` in `1m` | Medium | Connection from a single IP to many different ports. | Discovery | T1046 |
 
+---
 ## Integrated NOC/SOC and Layered Security Integration
+
+
+
 
 The "Defense-in-Depth" (Derinlemesine Savunma) methodology aims to establish a multi-layered security shield against cyber threats instead of relying on a single security control. Just like the moats, walls, and towers of a medieval castle, modern enterprise cybersecurity must build a structure that makes it difficult for an attacker to reach their target and presents obstacles at every stage.
 

@@ -8,6 +8,9 @@ type: posts
 
 ## Operating System Concepts: In the Footsteps of the Dinosaur Book
 
+
+
+
 Every computer science or software engineering student who steps into an Operating Systems class is bound to encounter it, and industry veterans keep it on their shelves as a mark of respect: the famous **"Dinosaur Book"** (originally titled *Operating System Concepts*). Authored by Abraham Silberschatz, Peter B. Galvin, and Greg Gagne, this work is not just a textbook; it is a computer science classic that explains the fascinating bridge between hardware and software: the Operating System (OS).
 
 ### Why Does Everyone Call It the "Dinosaur Book"?
@@ -19,7 +22,11 @@ There is also a popular joke in the computer science world about this cover: ope
 In this technical guide, building upon the core pillars of the Dinosaur Book, we will microscopically examine the operations running in the background from the moment you press the power button, CPU scheduling, how RAM is partitioned, and how hardware and the operating system work together as a cohesive whole.
 
 
+---
 ## Operating System
+
+
+
 
 An operating system is a program that manages a computer's hardware. It also provides a basis for application programs and acts as an intermediary between the computer user and the computer hardware.
 
@@ -108,7 +115,11 @@ The operating system performs a number of important tasks in computer systems. H
 
 **7. Security and Access Control**: The operating system takes security measures to keep the computer system safe. Controls user access, provides authorization, manages user accounts and ensures data security
 
+---
 ## Processes
+
+
+
 
 In an operating system environment, a process is an executable instance of a program. A process is an entity that is managed, uses resources (such as memory, processor time, files, and input/output devices) and is executed by the operating system.
 
@@ -194,7 +205,11 @@ While user threads are supported on top of the kernel and managed without kernel
 
 Linux implements the same model as the Windows family of operating systems.
 
+---
 ## CPU Scheduling
+
+
+
 
 CPU scheduling is the process by which the operating system manages the running time of processes or threads in the processor and switches between time slots. The operating system uses the CPU scheduling mechanism to run multiple processes or threads fairly.
 
@@ -357,7 +372,11 @@ In general, we can deal with the deadlock problem in one of three ways:
 * You can completely ignore the problem and assume that deadlocks never occur in the system.
 
 
+---
 ## Memory Management
+
+
+
 
 The operating system's memory management refers to the process of effectively allocating and controlling the computer's memory resources. Thanks to memory management, the operating system monitors the memory usage of processes and programs, allocates and retrieves memory space when necessary.
 
@@ -462,7 +481,11 @@ In demand paging systems, when physical memory is full and a new page needs to b
 </div>
 
 
+---
 ## Disk Management (Mass Storage Management)
+
+
+
 
 It is a component that allows the operating system to manage large data storage units on the computer. These volumes typically include devices such as hard disk drives, SSDs, external disks, USB sticks, and network shared storage (NAS).
 
@@ -567,7 +590,11 @@ Below are the access methods with their explanations:
 2. **Direct Access:** Direct access files are very useful for instant access to large amounts of information. Databases are often of this type. When a query comes in on a particular topic, we calculate which block contains the answer and then read that block directly to provide the desired information.
 3. **Other Access Methods:** Other access methods can be built directly on top of the access method. With this methodr usually involves creating a directory for the file. An index contains pointers to various blocks, like the index at the back of a book. To find a record in the file, we first search the index and then use the pointer to directly access the file and find the desired record.
 
+---
 ## Protection and Security
+
+
+
 
 Protection and Security is an important issue in operating systems to protect users and system resources from unauthorized access and ensure data security. Operating systems have various mechanisms and methods for protection and security.
 

@@ -1,7 +1,7 @@
 ---
 date: "2026-05-11"
 description: "A comprehensive architectural guide exploring the evolution of the web ecosystem, from modern rendering strategies (CSR, SSR, SSG, ISR) and popular tech stacks (MERN, PERN, .NET) to a deep-dive into DevSecOps and supply chain security."
-image: ssg-cms.webp
+image: featured.webp
 title: "The Anatomy of Modern Web Architecture"
 tags: ["Architecture", "DevSecOps", "SSG", "Jamstack", "Astro", "Hugo", "Next.js", "MERN", "PERN", ".NET", "Cloudflare"]
 type: posts
@@ -101,6 +101,7 @@ Today, how a web application is drawn on the screen determines how the system wi
 </article>
 </div>
 
+---
 ## Hybrid Approaches and "Islands" Architecture
 For massive systems with millions of products, hybrid solutions are inevitable. The **Islands Architecture** approach, popularized by **Astro**, keeps the page default at "Zero JS" (HTML-only) and only hydrates interactive sections (like a shopping cart or comment form) as independent "islands," maximizing performance. Tools like Hugo and mdBook push the boundaries of static production by processing thousands of pages of data in seconds.
 
@@ -128,7 +129,8 @@ Choosing the right architecture determines the fate of the project. These four c
 
 Success in the web ecosystem comes from the right technology choice that balances performance, security, and operational sustainability. Let's take a deep dive into the popular tech stacks that set industry standards, from monolithic structures to modern distributed microservices.
 
-## 1. LAMP Stack: The Classic Giant of the Web
+---
+## LAMP Stack: The Classic Giant of the Web
 **(Linux, Apache, MySQL, PHP/Python/Perl)**
 
 ![LAMP Stack Architecture Diagram](lamp_stack_diagram.webp)
@@ -140,7 +142,8 @@ Powering a vast majority of the internet for over two decades (especially tradit
 * **Advantages:** Incredibly simple to set up and runs smoothly even in shared hosting environments. Solutions exist for almost every problem encountered online.
 * **Disadvantages and Security:** Difficult to scale vertically (increasing server hardware) under heavy traffic. Furthermore, old or unpatched PHP plugins can open doors to serious siber risk like RCE or SQL Injection.
 
-## 2. MERN and MEAN Stack: "JavaScript Everywhere"
+---
+## MERN and MEAN Stack: "JavaScript Everywhere"
 **(MongoDB, Express.js, React/Angular, Node.js)**
 
 ![MERN Stack Architecture Diagram](mern_stack_diagram.webp)
@@ -152,7 +155,8 @@ These stacks, which revolutionized web development, offer the ability to use a s
 * **Use Case:** Performs excellently in modern applications with constantly changing schemas, requiring fast prototyping, or containing real-time data streams (messaging, live streaming).
 * **Security Perspective (Supply Chain Risks):** The biggest handicap of the Node.js ecosystem is the massive dependency tree. A single MERN project can involve hundreds of nested NPM packages. Since this massive ecosystem creates a broad surface for malicious code injections (supply chain attacks), it requires strict static code analysis and continuous dependency auditing.
 
-## 3. PERN Stack: Corporate Data Integrity and Power
+---
+## PERN Stack: Corporate Data Integrity and Power
 **(PostgreSQL, Express.js, React, Node.js)**
 
 ![PERN Stack Architecture Diagram](pern_stack_diagram.webp)
@@ -164,7 +168,8 @@ The NoSQL flexibility of MERN is not suitable for every scenario. Particularly i
 * **Advantages:** Data integrity is guaranteed thanks to PostgreSQL's flawless ACID compliance. If an error occurs in the payment system while an order is being completed, the database immediately rolls back the transaction, preventing asymmetrical data formation.
 * **Why PERN?** It is the number one choice for modern projects, SaaS applications, and e-commerce infrastructures that want to use Node.js' asynchronous speed and React's dynamic UI power while maintaining a data architecture as rigid and secure as banking systems.
 
-## 4. JAMstack: The Peak of Static Production and Edge Computing
+---
+## JAMstack: The Peak of Static Production and Edge Computing
 **(JavaScript, APIs, Markup)**
 
 ![JAMstack Architecture Diagram](jamstack_diagram.webp)
@@ -172,7 +177,8 @@ The NoSQL flexibility of MERN is not suitable for every scenario. Particularly i
 
 This is the systematized version of the concepts discussed in the SSG section. It completely isolates the server and database layer from the user. Database and backend logic are offloaded to microservices or Headless CMSs (e.g., Strapi, Sanity). The frontend (Astro, Hugo, Next.js, etc.) fetches data from APIs at build time, generates HTML, and distributes these static files to global CDNs. It is unique in terms of cybersecurity because there is no server to hack or database to access directly.
 
-## 5. .NET Stack: High-Performance Corporate Power
+---
+## NET Stack: High-Performance Corporate Power
 **(C#, ASP.NET Core, Entity Framework, SQL Server / PostgreSQL)**
 
 ![Modern .NET Stack Architecture Diagram](dotnet_stack_diagram.webp)
@@ -184,6 +190,7 @@ The era of the old .NET Framework, which was closed-source and dependent only on
 * **Use Case:** Banking systems, massive ERP software, health information systems, and microservice-based cloud architectures. In high-CPU intensive tasks where Node.js' single-threaded structure might struggle, .NET's multi-threaded and asynchronous capabilities yield excellent results.
 * **Security and Performance:** Being "secure by default" is the biggest reason for its preference in enterprise projects. The ASP.NET Core Identity system standardizes processes such as authentication, authorization, and multi-factor authentication (MFA).
 
+---
 ## Big Data and Event-Driven Ecosystems
 As a system grows, direct API calls create bottlenecks. At this point, asynchronous messaging comes into play to separate background services and logs. Using **Apache Kafka**, all system events are written to disk as a persistent stream. In processing massive security logs (SIEM) or product analytics data, Kafka and **Apache Spark** running on top represent the pinnacle of data engineering.
 
@@ -194,6 +201,7 @@ How code is opened to the internet and protected (DevSecOps) is as much a part o
 ![DevSecOps Phases and Security Automation](DevSecOps-Phases.webp)
 *DevSecOps integration in modern CI/CD processes: Build, Scan, and Deploy security.*
 
+---
 ## Software Supply Chain Risks
 Modern frameworks (Next.js, NuxtJS, Astro) come with massive NPM dependency trees. Even an empty project can pull in tens of thousands of external packages. The 2025 MFA phishing attacks and crypto-wallet draining malware that hit the NPM ecosystem proved that these dependencies are the largest attack surface. Therefore, deployment environments must be much more strictly isolated.
 
@@ -201,9 +209,11 @@ Modern frameworks (Next.js, NuxtJS, Astro) come with massive NPM dependency tree
 - **SCA and SBOM:** SCA and SBOM scans (CycloneDX/SPDX) should be mandatory at every build.
 - **GitHub Actions:** This is the heart of CI/CD. The moment a developer pushes code, the pipeline is triggered. Here, not just builds are performed; the code undergoes dependency scans and secret scanning (API key leak prevention) before going live.
 
+---
 ## Containers, Proxmox, and the Homelab Approach
 Modern web projects run on lightweight Container (Docker) architectures that logically partition hardware. Containers share the host's Linux Kernel and are autonomous, having largely replaced Virtual Machines (VMs). Microservices we test in our Proxmox-based homelab environments today can be moved to massive production Kubernetes clusters with the exact same stability.
 
+---
 ## Cloudflare, Edge Computing, and Zero Trust
 Cloudflare stands in a unique position for the global distribution and protection of static or hybrid sites. Cloudflare Pages reads the output of Astro or Next.js projects directly from your GitHub repository, compiles it in seconds, and distributes it to CDN points worldwide.
 
@@ -216,6 +226,7 @@ Cloudflare Workers, representing Edge Computing architecture, apply Web Applicat
 
 Web development has moved beyond simple UI design into a holistic engineering discipline that manages big data, renders at the edge, and is immune to supply chain vulnerabilities. To achieve success, choosing the right framework is not enough; one must also avoid common pitfalls (anti-patterns) and perform constant measurement.
 
+---
 ## Common Pitfalls (Anti-Patterns)
 - **"Let's make everything SSG":** Forcing real-time data (e.g., live stock prices) to be static increases complexity and produces brittle code. Adopt an ISR strategy for dynamic data at static speeds.
 - **"Performance increases automatically with a framework change":** Changing just the framework without image optimization (WebP/AVIF) and a script budget provides only a temporary boost in Lighthouse scores without improving the real user experience.
@@ -230,12 +241,14 @@ In conclusion, there is no such thing as the "best tool"; there is only the righ
 
 # Bibliography and Further Reading
 
+---
 ## A) Rendering and Web Standards
 - [Web.dev - Core Web Vitals](https://web.dev/articles/vitals)
 - [Web.dev - Rendering on the Web](https://web.dev/rendering-on-the-web/)
 - [Astro Concepts - Islands Architecture](https://docs.astro.build/en/concepts/islands/)
 - [Next.js Documentation - ISR](https://nextjs.org/docs/app/building-your-application/data-fetching/incremental-static-regeneration)
 
+---
 ## B) Framework and Tool Documentation
 - [Hugo Official Documentation](https://gohugo.io/documentation/)
 - [Astro Guide](https://docs.astro.build/)
@@ -243,16 +256,19 @@ In conclusion, there is no such thing as the "best tool"; there is only the righ
 - [mdBook Guide](https://rust-lang.github.io/mdBook/)
 - [Gatsby Documentation](https://www.gatsbyjs.com/docs/)
 
+---
 ## C) Build Performance and Comparisons
 - [CSS-Tricks - Comparing SSG Build Times](https://css-tricks.com/comparing-static-site-generator-build-times/)
 - [CloudCannon - Top Static Site Generators](https://cloudcannon.com/blog/the-top-five-static-site-generators/)
 - [Contentful - Astro vs Next.js Compared](https://www.contentful.com/blog/astro-next-js-compared/)
 
+---
 ## D) Deployment, CDN, and Platforms
 - [GitHub Pages Official](https://pages.github.com/)
 - [Cloudflare Pages Documentation](https://developers.cloudflare.com/pages/)
 - [Netlify Docs](https://docs.netlify.com/)
 
+---
 ## E) DevSecOps and Software Supply Chain Security
 - [CISA Alert - npm Supply Chain Compromise](https://www.cisa.gov/news-events/alerts/2025/09/23/widespread-supply-chain-compromise-impacting-npm-ecosystem)
 - [OWASP - Software Supply Chain Security](https://owasp.org/www-project-software-supply-chain-security/)
@@ -261,6 +277,7 @@ In conclusion, there is no such thing as the "best tool"; there is only the righ
 - [SLSA Framework](https://slsa.dev/)
 - [CycloneDX SBOM Standard](https://cyclonedx.org/)
 
+---
 ## F) i18n and Static Site Best Practices
 - [Astro - Internationalization (i18n)](https://docs.astro.build/en/guides/internationalization/)
 - [Next.js Internationalization Routing](https://nextjs.org/docs/pages/building-your-application/routing/internationalization)

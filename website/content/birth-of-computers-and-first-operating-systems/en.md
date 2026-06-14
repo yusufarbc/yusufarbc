@@ -11,7 +11,15 @@ In this article, we will examine the operating systems that have become indispen
 
 To start with what the operating system is; Operating system is software that controls all operations of a computer. This software provides the tools that allow a user to save and open files, the interface through which a user can convey a request to execute a program, and the environment in which the desired programs can be executed. When it comes to operating system, Windows operating system developed by Microsoft comes to mind. Apart from this, there are also Unix and Linux operating systems. But before that, let's look at the history of operating systems.
 
+---
 ## First Computers and the Hardware-Focused Era
+
+
+
+
+
+
+
 
 ![First Computers](medium-first-computers.webp)
 
@@ -27,7 +35,15 @@ The solution to this problem was to develop an operating system that could serve
 
 In short, operating systems have evolved over time from simple programs that can carry out a single task at a time to complex systems that manage time sharing, are responsible for programs and data files in storage, and can respond to users' requests.
 
+---
 ## The Birth of Unix
+
+
+
+
+
+
+
 
 ![The Birth of Unix](./medium-unix.gif)
 
@@ -39,7 +55,15 @@ Dennis Ritchie rewrote Unix with the **C programming language** he developed in 
 
 The Unix operating system was a complete operating system that included command line and some graphical elements like Windows. Users carried out their operations using command lines. Thanks to being a time-sharing operating system, multiple users could use the computer or a user could run multiple programs simultaneously.
 
+---
 ## Xerox PARC: The True Ancestor of Modern Interfaces
+
+
+
+
+
+
+
 
 While many believe graphical user interfaces (GUI) were invented by Apple or Microsoft, the true birthplace of this technology is **Xerox PARC** (Palo Alto Research Center). The **Xerox Alto**, developed in 1973, was the first machine to carry the DNA of modern personal computers.
 
@@ -47,7 +71,15 @@ While many believe graphical user interfaces (GUI) were invented by Apple or Mic
 
 The Xerox Alto was the first system to introduce the **WIMP** paradigm (Windows, Icons, Menus, and a Pointer/Mouse) to the world. When Steve Jobs visited the lab in 1979, he was so impressed by what he saw that he brought these ideas into the Apple Lisa and Macintosh projects, bringing the graphical interface to the masses.
 
+---
 ## The Birth of Windows
+
+
+
+
+
+
+
 
 ![The Birth of Windows](medium-windows.webp)
 
@@ -61,7 +93,15 @@ Microsoft developed an operating system called **MS-DOS** for IBM PC compatible 
 
 Thus, Windows was born as an interface program that facilitates the use of personal computers. Windows, which is an interface software built on top of the MS-DOS operating system, became a complete operating system with the release of new versions in the following years.
 
+---
 ## Free Software Philosophy and the Birth of Linux
+
+
+
+
+
+
+
 
 In the early 1980s, AT&T sought to monetize the UNIX operating system and began marketing the operating system with special licenses. Many people who helped develop the operating system from the day UNIX emerged opposed this decision. Thereupon, the **GNU** project, whose aim was to create a UNIX-like operating system that could be distributed free of charge, was started by **Richard Stallman** and the "Free Software Foundation (FSF)" was established for this project.
 
@@ -78,7 +118,15 @@ In 1991, computer science student **Linus Torvalds** posted a message to a newsg
 
 Offers of help for the development of Linux began to come from developers. Another important aspect of Linux was that a large part of the Unix-like operating system developed within the framework of the GNU project was finished. What was missing was the kernel of the operating system, and Linux made up for this deficiency. In September 1991, the first version of Linux was released and thus Linux was born.
 
+---
 ## Kernel Architectures: Monolithic vs. Microkernel
+
+
+
+
+
+
+
 
 Kernels, the heart of operating systems, are divided into two main design philosophies:
 
@@ -86,7 +134,15 @@ Kernels, the heart of operating systems, are divided into two main design philos
 2.  **Microkernel (Minix, QNX):** The kernel handles only the most basic tasks (like memory management); everything else runs in user space. It is more secure and modular but can suffer from performance losses due to system calls.
 3.  **Hybrid Kernel (Windows NT, macOS/XNU):** Aims to combine the advantages of both worlds.
 
+---
 ## Today's Operating Systems
+
+
+
+
+
+
+
 
 ![Today](medium-todays-os.webp)
 
@@ -142,7 +198,15 @@ In order for a Linux-based system to cater to an end-user, a skeletal system bui
 
 **Ubuntu, Kali Linux, Pardus, Linux Mint, Zorin, Deepin, SteamOS, MX Linux, PureOS, Raspbian, Parrot, elementaryOS, Pop!_OS, Linux Lite, Fedora, Redhat, Opensuse, CentOS and Arch Linux.**
 
+---
 ## Mobile Operating Systems: The Era of iOS and Android
+
+
+
+
+
+
+
 
 In the late 2000s, with the rise of smartphones, the OS wars moved to the mobile arena. Early players like **Symbian** and **Palm OS** gave way to modern giants after the introduction of Apple's **iOS** in 2007 and Google's **Android** in 2008. While iOS offers a closed ecosystem based on BSD, Android adopted an open-source structure built on the Linux kernel, eventually capturing the majority of the market.
 
@@ -153,7 +217,15 @@ In the late 2000s, with the rise of smartphones, the OS wars moved to the mobile
 
 
 
+---
 ## The Shift in Processor Architectures: From x86 to ARM
+
+
+
+
+
+
+
 
 ![x86 vs ARM Architecture](x86-arm.webp)
 
@@ -161,7 +233,15 @@ For many years, the **x86/x64** architecture led by Intel and AMD held an undisp
 
 The biggest example of this was Apple's transition to its custom-designed **Apple Silicon (M1, M2, etc.)** processors, rewriting the macOS operating system to run completely on the ARM architecture. Offering an incredible performance/watt ratio at the desktop level, this development prompted Microsoft to accelerate the **Windows on ARM** project, proving that desktop operating systems are not tied solely to the x86 architecture.
 
+---
 ## Security and Virtualization (Hypervisors)
+
+
+
+
+
+
+
 
 As operating systems evolved, the need to use hardware resources more efficiently and increase security also grew. These needs gave birth to **Virtualization** technologies. Through software called Hypervisors (e.g., VMware, KVM, Hyper-V), it became possible to run multiple completely isolated operating systems on a single physical server. This isolated structure both reduced server costs and prevented system crashes or security vulnerabilities from affecting other systems.
 
@@ -174,7 +254,15 @@ As operating systems evolved, the need to use hardware resources more efficientl
 
 On the security side, modern operating systems began to work integrated with hardware protection mechanisms. In particular, the **Secure Boot** technology, which ensures that the system boots only with trusted, manufacturer-signed software, and **TPM (Trusted Platform Module)** chips, which store cryptographic keys at the hardware level, have become mandatory for systems like Windows 11 today, making software-hardware security an inseparable whole.
 
+---
 ## Cloud, Containers, and the Future
+
+
+
+
+
+
+
 
 Today, operating systems manage cloud infrastructures rather than just physical machines. The container revolution that started with **Docker** in 2013 and the **Kubernetes** orchestration system in 2014 completely decoupled operating systems from hardware, becoming the standard for modern software architectures.
 

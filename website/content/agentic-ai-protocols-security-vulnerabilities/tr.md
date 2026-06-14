@@ -19,6 +19,13 @@ Yapay zeka eylemcilerinin hızla hayatımıza girmesiyle birlikte yeni bir proto
 
 ## Yapay Zeka Eylemci Protokollerinin Güvenlik ve Mimari Şeması
 
+
+
+
+
+
+
+
 Aşağıdaki mimari şema, bir otonom yapay zeka uygulamasında kullanıcı, istemci, yönlendirici ve sunucular arasındaki güven sınırlarını ve potansiyel saldırı vektörlerini göstermektedir:
 
 ```mermaid
@@ -72,6 +79,12 @@ graph LR
 
 ## Agentic AI (Eylemsel Yapay Zeka) Nedir?
 
+
+
+
+Bu bölüm detayları ve etkileri incelemektedir.
+
+
 ### Reaktif Modellerden Agentic AI'a Geçiş
 
 Geleneksel üretici yapay zeka (Generative AI) araçları sadece birer **asistan** gibidir: Siz soru sorarsınız, onlar da yanıtlar. Agentic AI (Eylemsel Yapay Zeka) ise adeta bir **iş ortağı**dır: Siz sadece nihai hedefi belirlersiniz; eylemci, bu hedefe ulaşmak için izleyeceği adımları kendisi planlar ve yürütür.
@@ -114,6 +127,13 @@ Yapay zeka eylemcileri, karmaşık problemleri çözmek için çeşitli mantıks
 ---
 
 ## RAG (Retrieval-Augmented Generation / Veri Geri Çağırmayla Artırılmış Üretim)
+
+
+
+
+
+
+
 
 **RAG (Retrieval-Augmented Generation / Veri Geri Çağırmayla Artırılmış Üretim)**, yapay zeka dünyasının en akıllıca çözümlerinden biridir. Büyük dil modellerinin (LLM) en büyük zayıflıklarını (güncel olmayan bilgi ve uydurma/hallüsinasyon eğilimlerini) kapatmak için geliştirilmiştir.
 
@@ -202,6 +222,13 @@ Basit bir akışla: Dokümanlarını yükler, LlamaIndex ile endeksler ve OpenAI
 
 ## Agentic Web (Eylemci Ağı) Protokol Haritası
 
+
+
+
+
+
+
+
 Yapay zeka eylemcilerinin verimli çalışabilmesi için iki kritik sorunun çözülmesi gerekir: **"Dış dünyaya ve araçlara nasıl bağlanırım?"** ve **"Diğer eylemcilerle nasıl güvenli iletişim kurarım?"** Bu sorunları çözmek amacıyla geliştirilen protokoller, birbiriyle rekabet etmekten ziyade birbirini tamamlayan katmanlar oluşturur.
 
 ![Eylemci Protokolleri Ekosistemi](MCP.webp)
@@ -224,6 +251,12 @@ Bu protokoller genel olarak yatay ve dikey olmak üzere iki ana kategoride incel
 ---
 
 ## MCP — Eylemcilerin "USB-C" Standardı
+
+
+
+
+Bu bölüm detayları ve etkileri incelemektedir.
+
 
 ### Neden Model Context Protocol (MCP)?
 
@@ -268,6 +301,12 @@ MCP, rollerin net bir şekilde ayrıldığı klasik bir istemci-sunucu (client-s
 
 ## A2A — Eylemciler Arası İletişim Standartları
 
+
+
+
+Bu bölüm detayları ve etkileri incelemektedir.
+
+
 ### A2A Protokolü ve Yatay Koordinasyon
 
 MCP, tek bir eylemcinin kendi araçları ve verileriyle konuşmasını sağlarken; otonom eylemcilerin birbirine görev devretmesi, durum paylaşması veya ortak çalışması için bir standart sunmaz. İşte bu noktada devreye giren **Agent-to-Agent (A2A)** (Eylemci-Eylemci) protokolü, otonom sistemler arasındaki yatay koordinasyon boşluğunu doldurur.
@@ -308,6 +347,12 @@ Modern otonom sistemler bu iki yapıyı birlikte kullanır: MCP eylemcileri loka
 
 ## ANP — Otonom Eylemci Keşif Altyapısı
 
+
+
+
+Bu bölüm detayları ve etkileri incelemektedir.
+
+
 ### Eylemcilerin İnternette Birbirini Bulması
 
 MCP ve A2A protokolleri, eylemcilerin birbirinin iletişim bilgilerini önceden bildiğini varsayar. Ancak milyonlarca yapay zeka eylemcisinin internete dağıldığı açık bir ekosistemde, bir eylemcinin ihtiyaç duyduğu başka bir uzman eylemciyi nasıl bulacağı ve ona nasıl güveneceği büyük bir soru işaretidir. İşte bu otonom keşif problemini çözmek için **Agent Network Protocol (ANP)** (Eylemci Ağ Protokolü) geliştirilmektedir.
@@ -338,6 +383,12 @@ Açık kaynaklı ve topluluk odaklı bir standart olan ANP, herhangi bir merkezi
 
 ## UCP ve AP2 — Yapay Zeka Eylemcileri İçin Finans ve Ödeme Standartları
 
+
+
+
+Bu bölüm detayları ve etkileri incelemektedir.
+
+
 ### Otonom Ticaret ve Ödeme Protokolleri
 
 Yapay zeka eylemcilerinin kendi başlarına satın alma kararları verip ödeme yapmaya başlaması, klasik e-ticaret ve dolandırıcılık tespit (anti-fraud) sistemlerini kökten değiştiriyor. Bu finansal akışı güvenli hale getirmek için **UCP (Universal Commerce Protocol)** ve **AP2 (Agent Payments Protocol)** (Eylemci Ödemeleri Protokolü) standartları geliştirilmiştir.
@@ -364,6 +415,12 @@ AP2, işlemlerin güvenliğini sağlamak için W3C standartlarındaki Doğrulana
 ---
 
 ## MCP Güvenliği ve Zafiyet Analizi
+
+
+
+
+Bu bölüm detayları ve etkileri incelemektedir.
+
 
 ### Tersine İletişim Akışı ve Riskleri
 
@@ -411,6 +468,12 @@ Bir yapay zeka eylemcisi şu üç özelliğe aynı anda sahip olduğunda felaket
 ---
 
 ## Çoklu Eylemci (Multi-Agent) Güvenliği
+
+
+
+
+Bu bölüm detayları ve etkileri incelemektedir.
+
 
 ### OWASP Agentic Security Initiative (ASI) Top 10
 
@@ -463,6 +526,13 @@ graph LR
 
 ## Akademik Araştırmalar ve Sektör Analizleri
 
+
+
+
+
+
+
+
 ![Protokol Ekosistem Karşılaştırması](infografik.webp)
 
 ### Benchmark Sonuçları ve Performans Verileri
@@ -509,6 +579,13 @@ Eylemcilerin çalışırken tüm API dokümantasyonunu bağlam penceresine almas
 
 ## Gerçek Dünya Uygulama Alanları
 
+
+
+
+
+
+
+
 ![Yapay Zeka Eylemci Mimarisi](model.webp)
 
 ### Yazılım Mühendisliği ve DevOps
@@ -537,6 +614,12 @@ MCP, yazılım dünyasında "vibe coding" (sadece fikir belirterek kodlama) mode
 ---
 
 ## Savunma Stratejileri ve Defansif Mimari
+
+
+
+
+Bu bölüm detayları ve etkileri incelemektedir.
+
 
 ### Çok Katmanlı Güvenlik Yaklaşımı
 
@@ -591,3 +674,5 @@ Bu yeni dünyada güvenlik, sistem kurulduktan sonra eklenen bir yama değil; ta
 Saldırganların yapay zeka eylemcilerini kullanarak saldırı süreçlerini otomatikleştirdiği bir dönemde, savunmanın da aynı hızda yapılması kritik önem taşır. Bu bağlamda, tehditlere karşı otonom savunma yapan **Agentic SOC (Eylemci Destekli Güvenlik Merkezleri)** çok yakın bir gelecekte standart hale gelecektir.
 
  *Güvenlik Notu: Yerel geliştirme ortamlarınızda public endpoint (kamusal erişim noktası) açarak kontrolsüz tünelleme araçları veya yönlendiriciler kullanmaktan kaçının. Yerel ağınızdaki küçük bir zafiyet, otonom eylemcinin sahip olduğu yetkiler üzerinden tüm sisteminizin ele geçirilmesine yol açabilir.*
+
+Verinizin mimarı olun, egemenliğinizi geri alın. Dinlediğiniz için teşekkürler!

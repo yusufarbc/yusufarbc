@@ -120,7 +120,10 @@ Bu rehberde, Go dilinin güvenlik süreçlerindeki yapısal avantajlarını ele 
 
 ---
 
-## 1. Ofansif Güvenlikte Python ve C++ Neden Yetersiz Kalıyor?
+## Ofansif Güvenlikte Python ve C++ Neden Yetersiz Kalıyor?
+
+
+
 
 Ofansif bir aracın başarısı, hedef sistemde bıraktığı ayak izine ve çalışma esnekliğine bağlıdır. Python ve C++ gibi dillerin derleme ve çalışma mimarileri, modern operasyonlarda bazı temel engellere takılır:
 
@@ -180,7 +183,10 @@ Go; Python'ın pratikliği ve hızlı geliştirme avantajını, C/C++'ın makine
 
 ---
 
-## 2. Ofansif Güvenlikte Go Dilinin Mimari Avantajları
+## Ofansif Güvenlikte Go Dilinin Mimari Avantajları
+
+
+
 
 Go'yu siber güvenlikte vazgeçilmez kılan üç ana mimari özellik şunlardır:
 
@@ -294,7 +300,10 @@ func main() {
 
 ---
 
-## 3. Sektör Standardı Haline Gelmiş Go Tabanlı Güvenlik Araçları
+## Sektör Standardı Haline Gelmiş Go Tabanlı Güvenlik Araçları
+
+
+
 
 Teorik üstünlüğün ötesinde, bugün siber güvenlik endüstrisinin en kritik araçları Go ile sıfırdan inşa edilmektedir.
 
@@ -336,7 +345,10 @@ Teorik üstünlüğün ötesinde, bugün siber güvenlik endüstrisinin en kriti
 
 ---
 
-## 4. Savunma Atlatma (Evasion) ve Derleme Teknikleri
+## Savunma Atlatma (Evasion) ve Derleme Teknikleri
+
+
+
 
 Bir Red Team operasyonunda üretilen binary boyutu ve AV/EDR çözümlerine takılmama durumu kritiktir. Go derleyicisi, dosya boyutunu düşürmek ve analizi zorlaştırmak için yerleşik parametreler sunar.
 
@@ -393,7 +405,10 @@ garble -literals -tiny build -ldflags="-s -w" -trimpath -o agent.exe main.go
 
 ---
 
-## 5. Uygulamalı Eğitim ve Geliştirme Kaynakları
+## Uygulamalı Eğitim ve Geliştirme Kaynakları
+
+
+
 
 "Golang for Hackers" konseptinde derinleşmek ve kendi ofansif/defansif araçlarınızı geliştirmek için takip edebileceğiniz nitelikli kaynak hiyerarşisi şu şekildedir:
 
@@ -457,13 +472,19 @@ garble -literals -tiny build -ldflags="-s -w" -trimpath -o agent.exe main.go
 
 ---
 
-## 6. Sonuç
+
+
+
+
 
 Siber güvenlikte Go kullanımı geçici bir popülerlik değil, modern savunma sistemlerine karşı doğan net bir mühendislik ihtiyacıdır. Tek bir binary ile çalışabilen, yüksek hızda asenkron iş üreten ve kolayca çapraz derlenen bu dil, siber operasyonların vazgeçilmezidir. Sadece Red Team ekipleri için değil; tehdit avcılığı, tersine mühendislik veya SOC analizi yapan Blue Team uzmanları için de Go'nun çalışma mekanizmalarını bilmek kritik önem taşır. Saldırganın silahını anlamadan savunma hattı kuramazsınız.
 
 ---
 
 ## 📺 Ofansif Go Geliştirme Eğitim Serisi
+
+
+
 
 Go diliyle siber güvenlik araçları (port tarayıcılar, subdomain bulucular, ağ araçları vb.) geliştirmeyi anlatan Türkçe YouTube serisine aşağıdan göz atabilirsiniz:
 
@@ -472,3 +493,5 @@ Go diliyle siber güvenlik araçları (port tarayıcılar, subdomain bulucular, 
 </div>
 
 Seriye doğrudan erişmek için [Hackerlar İçin Golang Türkçe Oynatma Listesi](https://youtube.com/playlist?list=PLwP4ObPL5GY_O3eEZPrBnCD8ejN17DYGq&si=gL2JNNvpLegTM29R) bağlantısını kullanabilirsiniz.
+
+Verinizin mimarı olun, egemenliğinizi geri alın. Dinlediğiniz için teşekkürler!

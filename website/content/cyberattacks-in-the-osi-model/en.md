@@ -8,9 +8,16 @@ type: posts
 
 ## Cyber Attacks in the OSI Model
 
+
+
+
 Hello, in this article, I tried to explain Cyber Attacks on the OSI model. You can find many types of cyber attacks in this article.
 
+---
 ## What is the OSI Model?
+
+
+
 
 The OSI (Open Systems Interconnection) model is a reference model used to describe the design and operation of computer networks. It was developed by ISO (International Organization for Standardization) and consists of 7 layers. Each layer performs a specific function and manages communication in a network.
 
@@ -49,7 +56,11 @@ graph TD
     L2 --> L1
 ```
 
-## 1-Physical Layer Attacks
+---
+## Physical Layer Attacks
+
+
+
 
 This layer is the layer where physical devices are located. At this layer, attackers can make physical attacks on systems. For example, an attacker who was able to enter the server room could shut down the server or change its configurations. Physical security of systems is as important as cyber security. One type of cyber attack that attackers can perform at this layer is sniffing. Sniffing the packets entering and exiting the system :)
 
@@ -73,7 +84,11 @@ Sniffing attacks compromise the confidentiality of communication taking place on
   </div>
 </div>
 
-## 2-Data Link Layer Attacks
+---
+## Data Link Layer Attacks
+
+
+
 
 This layer is used to move data across a connected physical network. IP addresses are assigned on the network using a procedure called address resolution protocol (ARP).is mapped to each physical device address (also known as the media access control (MAC) address).
 
@@ -105,7 +120,11 @@ Spoofing
   </div>
 </div>
 
-## 3-Network Layer Attacks
+---
+## Network Layer Attacks
+
+
+
 
 This layer ensures the transmission of data packets. However, attackers can sometimes listen to this transmission traffic. In addition, host scans with nmap occur in this layer.
 
@@ -147,7 +166,11 @@ ICMP Messages:
 
 Networks should have strict ICMP access control list (ACL) filtering at the network edge to prevent ICMP probing from the internet. Security analysts should be able to detect ICMP-related attacks by looking at captured traffic and log files. In the case of large networks, security devices such as firewalls and intrusion detection systems (IDS) must detect such attacks and send alerts to security analysts.
 
-## 4-Transport Layer Attacks
+---
+## Transport Layer Attacks
+
+
+
 
 At this layer, network applications use TCP or UDP ports. Attackers perform port scans of target devices to discover what services they offer. Also, port scans with nmap take place in this layer.
 
@@ -197,7 +220,11 @@ You are more likely to see a UDP flood attack than a TCP SYN flood.
 
 In a UDP flood attack, all resources on the network are consumed. The attacker should use a tool such as UDP Unicorn or Low Orbit Ion Cannon. These tools send UDP packets, usually from a rogue host, to a server on the subnet. The program will scan all known ports and try to find closed ports. This causes the server to respond with an ICMP port unreachable message. Since there are many closed ports on the server, it creates a lot of traffic on this segment, which uses most of the bandwidth. The result is very similar to a DoS attack.
 
-## 5-Session Layer Attacks
+---
+## Session Layer Attacks
+
+
+
 
 In this layer, session operations of network applications are carried out. Attackers may attempt to hijack user sessions in applications.
 
@@ -217,7 +244,11 @@ Methods Used:
 * **Cross-site scripting attack**: The attacker captures the session cookie by using malicious code or programs running on the client side.
 * **Session Prediction Attacks:** Predicting the session ID can allow an attacker to bypass authentication and access a victim's session, but requires the attacker to know the session ID generation process.
 
-## 6-Presentation Layer Attacks
+---
+## Presentation Layer Attacks
+
+
+
 
 This layer provides the presentation of data. Attackers use social engineering methods at this layer.
 
@@ -257,7 +288,11 @@ Phishing Types:
 * **Pharming:** This type of attack deliberately redirects users to a fake version of an official website. Users who are led to believe that they are connecting to a legitimate site enter their credentials into the fake website.
 * **Whaling:** A phishing attack that targets high-profile individuals within an organization, such as senior executives, politicians, and celebrities.
 
+---
 ## **7-Application Layer Attacks**
+
+
+
 
 This layer contains applications that provide end users access to the network. Various vulnerabilities may occur in these applications. Attackers carry out attacks by taking advantage of these vulnerabilities.
 

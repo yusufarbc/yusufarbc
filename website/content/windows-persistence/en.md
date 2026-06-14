@@ -8,7 +8,11 @@ type: posts
 
 # Windows Persistence & Lateral Movement — The Complete Post-Exploitation Guide
 
-## Introduction: The Art of Surviving and Spreading After Compromise
+---
+
+
+
+
 
 When an attacker achieves initial access to a target system, the real battle has only just begun. A phishing email was clicked, a vulnerability was exploited, or a VPN credential was stolen — but that's simply walking through the door. The true goal is to **stay undetected, establish a durable foothold, and spread deep into the network.**
 
@@ -23,11 +27,15 @@ In this article, we examine the post-compromise phase chronologically through an
 
 ---
 
+---
 ## Part 1: Windows Persistence Mechanisms
+
+
+
 
 Persistence methods ensure that malicious software or unauthorized access continues even if a system is restarted or a user is logged off. At this stage, attackers prefer to be as quiet as possible: evade antivirus, generate minimal log events, and blend in with legitimate system tools.
 
-### 1.1 User Manipulation
+### User Manipulation
 
 When attackers gain control of the Administrator account, rather than using it directly (since its activities are monitored), they create new "ordinary-looking" users. These accounts typically carry names like `support`, `sysadmin`, or `helpdesk` — unlikely to trigger SOC radar.
 
@@ -60,7 +68,7 @@ These Event IDs can be filtered in Event Viewer → Windows Logs → Security.
 
 ---
 
-### 1.2 Scheduled Tasks
+### Scheduled Tasks
 
 One of the most commonly used persistence methods — from ransomware to APT groups. The attacker ensures the malicious file runs at defined intervals or at system startup.
 
@@ -78,7 +86,7 @@ The Sysinternals **Autoruns** tool lists scheduled tasks alongside signature val
 
 ---
 
-### 1.3 Registry Run Keys
+### Registry Run Keys
 
 Registry Run keys are a legitimate Windows feature that automatically executes specified programs at system startup or user logon. According to MITRE ATT&CK data, technique **T1547.001** is used by more than 54 known threat groups.
 
@@ -120,7 +128,7 @@ Registry changes can be visualized with `regedit` or Autoruns:
 
 ---
 
-### 1.4 Startup Folder
+### Startup Folder
 
 ```
 C:\Users\[Username]\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
@@ -135,7 +143,7 @@ Accessible via Run (Win+R) → `shell:startup`:
 
 ---
 
-### 1.5 Windows Services
+### Windows Services
 
 Attackers can create new services with legitimate-sounding names (e.g., `ChromeUpdateService`) or hijack existing ones.
 
@@ -150,7 +158,7 @@ sc start "ChromeUpdateService"
 
 ---
 
-### 1.6 BITS Jobs (Background Intelligent Transfer Service)
+### BITS Jobs (Background Intelligent Transfer Service)
 
 BITS is Windows' file transfer infrastructure and is typically allowed through firewalls. Attackers use BITS to download and execute payloads while flying under the radar of security tools.
 
@@ -165,7 +173,7 @@ bitsadmin /resume MalJob
 
 ---
 
-### 1.7 WMI Event Subscriptions — Fileless Persistence
+### WMI Event Subscriptions — Fileless Persistence
 
 WMI (Windows Management Instrumentation) is one of the most sophisticated persistence techniques used by advanced threat actors — it leaves no files on disk. The payload is stored in the registry and WMI database; since traditional antivirus focuses on the file system, this technique is often missed.
 
@@ -204,7 +212,7 @@ $binding.Put()
 
 ---
 
-### 1.8 COM Hijacking
+### COM Hijacking
 
 COM (Component Object Model) is the infrastructure through which Windows applications communicate. Each COM object is registered in the registry with a CLSID. Attackers can copy a legitimate COM object's CLSID under `HKCU\Software\Classes\CLSID` and register their own malicious DLL — no administrator privileges required.
 
@@ -222,7 +230,7 @@ Since Windows checks HKCU before HKLM, the malicious DLL loads. COM objects belo
 
 ---
 
-### 1.9 IFEO (Image File Execution Options) Injection
+### IFEO (Image File Execution Options) Injection
 
 IFEO allows developers to attach a debugger to an application when it starts. Attackers abuse this mechanism to execute their backdoor instead of accessibility shortcut applications tied to the logon screen (e.g., `sethc.exe` — Sticky Keys, `utilman.exe` — Accessibility). This technique is particularly notable because it can be triggered from the logon screen — without any user session open.
 
@@ -239,7 +247,7 @@ Now, pressing Shift five times on the login screen launches `cmd.exe` instead of
 
 ---
 
-### 1.10 DLL Search Order Hijacking / Sideloading
+### DLL Search Order Hijacking / Sideloading
 
 When Windows loads a DLL, it searches in a specific order: first the application's own directory, then system directories. Attackers place a maliciously named DLL in the same directory as a legitimate, signed application — causing code execution through a trusted process.
 
@@ -257,7 +265,12 @@ When `LegitApp.exe` starts, it checks its own directory first, finds `version.dl
 
 ---
 
+---
 ## Part 2: From Persistence to Lateral Movement — The Bridge
+
+
+This section explores the details and implications.
+
 
 ### Why Doesn't the Attacker Stay Put?
 
@@ -288,11 +301,15 @@ At this point, armed with credentials and hashes, the attacker is ready to move 
 
 ---
 
+---
 ## Part 3: Lateral Movement Within the Network
+
+
+
 
 Lateral movement is the process by which an attacker gains access to other systems within the network. The average dwell time for an APT group's lateral movement phase in enterprise networks is **4–5 days**, though it can extend to weeks. Attackers aim to work as "quietly" as possible — leveraging legitimate tools (Living off the Land — LotL) and blending in with normal traffic.
 
-### 3.1 RDP (Remote Desktop Protocol) — APT Groups' Favorite
+### RDP (Remote Desktop Protocol) — APT Groups' Favorite
 
 RDP is Microsoft's remote desktop connection protocol, operating on port **3389**. It's the most frequently used lateral movement vector for APT groups, primarily because RDP is already ubiquitous in corporate networks — it blends in with normal traffic.
 
@@ -319,7 +336,7 @@ RDP is Microsoft's remote desktop connection protocol, operating on port **3389*
 
 ---
 
-### 3.2 WinRM & PowerShell Remoting — Living off the Land
+### WinRM & PowerShell Remoting — Living off the Land
 
 Windows Remote Management (WinRM) is Windows' built-in remote management protocol, running on ports **5985** (HTTP) and **5986** (HTTPS). This infrastructure, used daily by system administrators, is perfectly suited for the "Living off the Land" (LotL) tactic.
 
@@ -347,7 +364,7 @@ Invoke-Command -ComputerName dc01, web01, db01 -ScriptBlock { Get-Process }
 
 ---
 
-### 3.3 SMB Share & PsExec — Classic but Effective
+### SMB Share & PsExec — Classic but Effective
 
 SMB (Server Message Block) is Windows' file sharing protocol (port **445**). Attackers particularly exploit administrative shares `ADMIN$` and `C$` for lateral movement.
 
@@ -376,7 +393,7 @@ PsExec.exe \\target-ip -u DOMAIN\Administrator -p password cmd.exe
 
 ---
 
-### 3.4 Kerberos Exploitation: PtT and Overpass-the-Hash
+### Kerberos Exploitation: PtT and Overpass-the-Hash
 
 In Active Directory environments, authentication occurs via the Kerberos protocol. Kerberos' "stateless" (ticket-based) architecture opens the door to several critical attack vectors.
 
@@ -420,9 +437,14 @@ RDP uses Kerberos for authentication in AD environments. In a Pass-the-Ticket at
 
 ---
 
+---
 ## Part 4: Blue Team / SOC Detection and Threat Hunting
 
-### 4.1 Detection Philosophy: Anomaly Chains, Not Single Logs
+
+This section explores the details and implications.
+
+
+### Detection Philosophy: Anomaly Chains, Not Single Logs
 
 Individual log entries are often misleading. Legitimate software can modify Run keys; system administrators use PsExec. Effective detection requires **correlation**: deriving meaning from multiple events together.
 
@@ -430,7 +452,7 @@ Individual log entries are often misleading. Legitimate software can modify Run 
 
 ---
 
-### 4.2 Event ID Reference Table
+### Event ID Reference Table
 
 | Event ID | Source | Meaning |
 |----------|--------|---------|
@@ -453,7 +475,7 @@ Individual log entries are often misleading. Legitimate software can modify Run 
 
 ---
 
-### 4.3 Deep Telemetry with Sysmon
+### Deep Telemetry with Sysmon
 
 Sysmon (System Monitor) significantly enriches Windows' native logging infrastructure. Critical event IDs for registry monitoring:
 
@@ -466,7 +488,7 @@ Every Sysmon record contains `ParentImage` and `ParentCommandLine` fields — sh
 
 ---
 
-### 4.4 EDR/XDR Correlation Chain
+### EDR/XDR Correlation Chain
 
 XDR platforms transform isolated events into an attack story. An example persistence → C2 chain:
 
@@ -479,7 +501,7 @@ XDR platforms transform isolated events into an attack story. An example persist
 
 ---
 
-### 4.5 Practical SOC Scenarios — KQL Pseudo-Code
+### Practical SOC Scenarios — KQL Pseudo-Code
 
 **Scenario 1: Registry Write from Suspicious Location**
 
@@ -546,7 +568,7 @@ SecurityEvent
 
 ---
 
-### 4.6 False Positive Management
+### False Positive Management
 
 Legitimate software (antivirus updates, enterprise tools) can also modify Run keys. To reduce noise:
 
@@ -556,7 +578,7 @@ Legitimate software (antivirus updates, enterprise tools) can also modify Run ke
 
 ---
 
-### 4.7 Attacker Evasion Tactics
+### Attacker Evasion Tactics
 
 **Null Character Obfuscation:**
 
@@ -580,9 +602,14 @@ Malicious use of legitimate Windows binaries:
 
 ---
 
+---
 ## Part 5: Hardening and Defense
 
-### 5.1 Privileged Access Management (PAM)
+
+This section explores the details and implications.
+
+
+### Privileged Access Management (PAM)
 
 PAM is a centralized security solution used to manage, monitor, and audit privileged access in enterprise networks.
 
@@ -599,7 +626,7 @@ PAM is a centralized security solution used to manage, monitor, and audit privil
 
 ---
 
-### 5.2 Network Level Authentication (NLA)
+### Network Level Authentication (NLA)
 
 NLA (Network Level Authentication) requires authentication before an RDP session is established, preventing unauthenticated connection requests from reaching the system.
 
@@ -611,7 +638,7 @@ Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\W
 
 ---
 
-### 5.3 Multi-Factor Authentication (MFA)
+### Multi-Factor Authentication (MFA)
 
 MFA should be mandatory for RDP, WinRM, and all other remote access methods. Even if credentials are stolen, login is impossible without the second factor.
 
@@ -621,7 +648,7 @@ MFA should be mandatory for RDP, WinRM, and all other remote access methods. Eve
 
 ---
 
-### 5.4 Least Privilege Principle
+### Least Privilege Principle
 
 Every user and service account should operate with only the minimum permissions required to perform its function.
 
@@ -641,7 +668,7 @@ Get-ADGroupMember -Identity "Domain Admins" | Select Name, SamAccountName
 
 ---
 
-### 5.5 Network Segmentation and Access Control
+### Network Segmentation and Access Control
 
 ```
 [Workstations] --[Firewall]--> [Servers] --[Firewall]--> [Domain Controller]
@@ -654,7 +681,7 @@ Get-ADGroupMember -Identity "Domain Admins" | Select Name, SamAccountName
 
 ---
 
-### 5.6 Audit Policies and Centralized Log Management
+### Audit Policies and Centralized Log Management
 
 ```powershell
 # Enable critical audit policies
@@ -670,7 +697,7 @@ auditpol /set /subcategory:"Kerberos Service Ticket Operations" /success:enable 
 
 ---
 
-### 5.7 Proactive Threat Hunting
+### Proactive Threat Hunting
 
 Reactive defense is not enough. The Blue Team should perform these checks at regular intervals:
 
@@ -694,7 +721,11 @@ Get-ChildItem "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Exe
 
 ---
 
-## Conclusion
+---
+
+
+
+
 
 An attacker's post-compromise journey follows this chronological chain:
 

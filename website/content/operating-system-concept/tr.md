@@ -8,6 +8,9 @@ type: posts
 
 ## İşletim Sistemi Konsepti ve Dinozor Kitabı'nın İzinde
 
+
+
+
 İşletim sistemleri dersinin kapısından giren her bilgisayar veya yazılım mühendisliği öğrencisinin mutlaka karşılaştığı, sektöre yıllarını vermiş mühendislerin ise kütüphanesinde bir saygı duruşu olarak sakladığı o meşhur eser: **"Dinozor Kitabı"** (orijinal adıyla *Operating System Concepts*). Abraham Silberschatz, Peter B. Galvin ve Greg Gagne üçlüsü tarafından kaleme alınan bu kitap, sadece bir ders kitabı değil; donanım ile yazılımın arasındaki o büyüleyici köprüyü, yani işletim sistemini (OS) anlatan bir bilgisayar bilimi klasiğidir.
 
 ### Neden Herkes Ona "Dinozor" Diyor?
@@ -18,7 +21,11 @@ Bilgisayar dünyasında bu kapağa dair popüler bir espri de vardır: İşletim
 
 Bu teknik rehberde, Dinozor Kitabı'nın üzerine inşa edildiği ana sütunları temel alarak, bilgisayarın güç düğmesine bastığınız andan itibaren arka planda dönen işlemleri, CPU zamanlamasını, RAM'in nasıl parsellendiğini ve donanım ile işletim sisteminin nasıl bir bütün halinde çalıştığını mikroskobik düzeyde inceleyeceğiz.
 
+---
 ## İşletim Sistemi (Operating System)
+
+
+
 
 İşletim sistemi, bir bilgisayarın donanımını yöneten bir programdır. Ayrıca uygulama programları için bir temel sağlar ve bilgisayar kullanıcısı ile bilgisayar donanımı arasında bir aracı görevi görür.
 
@@ -107,7 +114,11 @@ sequenceDiagram
 
 **7. Güvenlik ve Erişim Kontrolü**: İşletim sistemi, bilgisayar sistemini güvende tutmak için güvenlik önlemleri alır. Kullanıcıların erişimini kontrol eder, yetkilendirme sağlar, kullanıcı hesaplarını yönetir ve veri güvenliğini sağlamak
 
+---
 ## İşlemler (process)
+
+
+
 
 Bir işletim sistemi ortamında, bir işlem (process), bir programın çalıştırılabilir bir örneğidir. İşlem, işletim sistemi tarafından yönetilen, kaynakları (bellek, işlemci zamanı, dosya ve giriş/çıkış cihazları gibi) kullanan ve yürütülen bir varlıktır.
 
@@ -193,7 +204,11 @@ Kullanıcı iş parçacıkları çekirdeğin üzerinde desteklenir ve çekirdek 
 
 Linux, Windows işletim sistemleri ailesi ile birlikte bire bir modeli uygular.
 
+---
 ## CPU Zamanlama (CPU Scheduling)
+
+
+
 
 CPU zamanlama, işletim sisteminin işlemcideki işlem veya iş parçacıklarının çalışma süresini yönetme ve zaman dilimleri arasında geçiş yapma sürecidir. İşletim sistemi, birden çok işlem veya iş parçacığını adil bir şekilde çalıştırmak için CPU zamanlama mekanizmasını kullanır.
 
@@ -356,7 +371,11 @@ Genel olarak, kilitlenme sorunuyla üç yoldan biriyle başa çıkabiliriz:
 * Sorunu tamamen görmezden gelebilir ve sistemde kilitlenmelerin hiç meydana gelmediğini varsayabiliriz.
 
 
+---
 ## Bellek Yönetimi (Memory Management)
+
+
+
 
 İşletim sisteminin bellek yönetimi, bilgisayarın bellek kaynaklarını etkin bir şekilde tahsis etme ve kontrol etme sürecini ifade eder. İşletim sistemi, bellek yönetimi sayesinde işlem ve programların bellek kullanımını izler, gerektiğinde bellek alanı tahsis eder ve bellekten geri alır.
 
@@ -461,7 +480,11 @@ Sanal bellek, mantıksal belleği fiziksel bellekten ayırmanın yanı sıra, do
 </div>
 
 
+---
 ## Disk Yönetimi (Mass Storage Management)
+
+
+
 
 işletim sistemi tarafından bilgisayardaki büyük veri depolama birimlerinin yönetilmesini sağlayan bir bileşendir. Bu birimler genellikle sabit disk sürücüleri, SSD'ler, harici diskler, USB bellekler ve ağ paylaşımlı depolama (NAS) gibi cihazları içerir.
 
@@ -566,7 +589,11 @@ Aşağıda erişim metotları açıklamalarıyla birlikte verilmiştir:
 2. **Direct Access:** Doğrudan erişim dosyalar, büyük miktarda bilgiye anında erişim için çok kullanışlıdır. Veritabanları genellikle bu türdendir. Belirli bir konuyla ilgili bir sorgu geldiğinde, hangi bloğun cevabı içerdiğini hesaplarız ve ardından istenilen bilgiyi sağlamak için doğrudan o bloğu okuruz.
 3. **Other Access Methods:** Diğer erişim yöntemleri doğrudan erişim yönteminin üzerine inşa edilebilir. Bu yöntemler genellikle dosya için bir dizin oluşturulmasını içerir. Dizin, bir kitabın arkasındaki dizin gibi, çeşitli bloklara işaretçiler içerir. Dosyadaki bir kaydı bulmak için önce dizinde arama yaparız ve ardından dosyaya doğrudan erişmek ve istenen kaydı bulmak için işaretçiyi kullanırız.
 
+---
 ## Koruma ve Güvenlik (Protection and Security)
+
+
+
 
 Koruma ve Güvenlik, işletim sistemlerinde kullanıcıların ve sistem kaynaklarının yetkisiz erişimlerden korunması ve veri güvenliğinin sağlanması için önemli bir konudur. İşletim sistemlerinde koruma ve güvenlik için çeşitli mekanizmalar ve yöntemler bulunur.
 
@@ -601,3 +628,5 @@ Güvenlik güncelleştirmeleri, işletim sistemlerinin veya yazılımların güv
 Güvenlik güncelleştirmeleri, sistemlerin ve yazılımların güncel ve güvende kalmasını sağlamak için hayati öneme sahiptir. Kullanıcıların güncellemeleri düzenli olarak takip etmeleri ve güvenlik açıklarını düzeltmek için gerekli güncellemeleri yüklemeleri önemlidir. Bu, kötü niyetli saldırılardan korunmayı ve veri güvenliğini sağlamayı destekler.
 
 Bu yazımda, işetim sistemleriyle ilgili genel konsepti açıklamaya çalıştım. Ne gibi özellikleri var, ne gibi zorlukları var bunlardan bahsettim. Daha fazla detay için bu linke bakabilirsiniz: <https://www.geeksforgeeks.org/operating-systems/> Eksik oldığum noktalar varsa yorum yazabilirsiniz.
+
+Verinizin mimarı olun, egemenliğinizi geri alın. Dinlediğiniz için teşekkürler!

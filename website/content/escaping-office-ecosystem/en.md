@@ -78,6 +78,9 @@ The shift from offline desktop software to cloud-first SaaS models over the last
 
 ## Reclaiming Data Ownership in a SaaS World
 
+
+
+
 While Google and Microsoft provide strict privacy policies, exporting data and implementing an "exit strategy" from their platforms is operationally difficult. When you cancel a subscription, your data is not immediately handed back; it goes through a 30-day suspension window, followed by a deletion queue between days 31 and 60, where it is permanently wiped. This setup effectively locks your institutional memory behind a subscription wall.
 
 These platforms also capture constant telemetry and usage diagnostics. Document edits, collaboration frequencies, and team structures are mapped out. With 45% of digital organizations citing data sovereignty as their top priority (according to IDC), telemetry is no longer just about debug logs—it's a tool for mapping your internal processes.
@@ -88,7 +91,10 @@ The core philosophy must be to rescue critical data from these closed systems an
 
 ---
 
-## 1. Document Engineering: Word vs. LaTeX
+## Document Engineering: Word vs. LaTeX
+
+
+
 
 Microsoft Word's "What You See Is What You Get" (WYSIWYG) approach is fine for simple memos, but fails for technical documentation. Working directly on the visual output locks your content and presentation layers together. Instead of writing, you end up fighting page breaks, broken list numbering, and floating images that break your layout.
 
@@ -108,7 +114,10 @@ LaTeX uses the "What You Mean Is What You Get" (WYSIWYM) approach, separating co
 
 ---
 
-## 2. Transparency in Data Analytics: Excel vs. CSV + DuckDB
+## Transparency in Data Analytics: Excel vs. CSV + DuckDB
+
+
+
 
 Microsoft Excel remains a huge source of technical debt in data analytics. Scientific reproducibility requires clear, auditable logic. Excel's core design flaw is wrapping raw data, calculations (formulas), and presentation in the same cell.
 
@@ -184,7 +193,10 @@ DuckDB excels at this:
 
 ---
 
-## 3. Presentations: Rebranding PowerPoint with Slidev
+## Presentations: Rebranding PowerPoint with Slidev
+
+
+
 
 PowerPoint slides isolate and freeze data. Copying a chart into PPTX separates it from its source; if the data changes, slides must be updated manually.
 
@@ -239,7 +251,10 @@ Slidev, built on Vue.js, is the modern standard for slide code:
 
 ---
 
-## 4. Open Source Alternatives: LibreOffice and ONLYOFFICE
+## Open Source Alternatives: LibreOffice and ONLYOFFICE
+
+
+
 
 Not everyone wants to write code for slides or documents. However, office suite needs do not have to bind you to data-mining cloud platforms.
 
@@ -366,7 +381,10 @@ Any platform that doesn't leave data ownership to the user, uses closed (proprie
 
 ---
 
-## 5. Unified Solution: Nextcloud Hub
+## Unified Solution: Nextcloud Hub
+
+
+
 
 It's now possible to gather all collaboration tools under one secure roof. **Nextcloud Hub** is a unified digital workspace that gives you absolute control over your data:
 
@@ -408,7 +426,10 @@ It's now possible to gather all collaboration tools under one secure roof. **Nex
 
 ---
 
-## 6. Complementary Tool Portfolio for Digital Freedom
+## Complementary Tool Portfolio for Digital Freedom
+
+
+
 
 To complete your sovereign architecture, these tools should be the cornerstones of your portfolio:
 
@@ -449,6 +470,9 @@ To complete your sovereign architecture, these tools should be the cornerstones 
 ---
 
 ## Reclaiming Your Digital Sovereignty
+
+
+
 
 SaaS suites trade convenience for data ownership. Reclaiming control by writing documents in LaTeX, processing tables in DuckDB, and coding slides in Slidev is a deliberate choice for data sovereignty. Take charge of your data and secure your digital independence.
 

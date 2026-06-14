@@ -8,7 +8,11 @@ type: posts
 
 # Windows'ta Kalıcılık ve Yatay Hareket — Sızma Sonrası Tam Rehber
 
-## Giriş: Sızma Sonrası Hayatta Kalma ve Yayılma Sanatı
+---
+
+
+
+
 
 Bir saldırgan hedef sisteme ilk erişimi (Initial Access) sağladığında gerçek mücadele yeni başlar. Kimlik avı e-postası tıklandı, zafiyet istismar edildi ya da VPN kimlik bilgisi ele geçirildi — ama bu yalnızca kapıdan girmektir. Asıl hedef; **fark edilmeden kalmak, köklü bir yer edinmek ve ağın derinliklerine yayılmaktır.**
 
@@ -23,11 +27,15 @@ Bu yazıda bir saldırganın gözünden sızma sonrası dönemi kronolojik olara
 
 ---
 
+---
 ## Windows Sistemlerde Kalıcılık (Persistence) Mekanizmaları
+
+
+
 
 Kalıcılık yöntemleri, bir sistemin yeniden başlatılması veya kullanıcı oturumunun kapatılması durumunda bile zararlı yazılımların veya yetkisiz erişimlerin devam etmesini sağlar. Saldırganlar bu aşamada mümkün olduğunca sessiz olmayı tercih eder: antivirüs atlatılmalı, log kayıtları minimum düzeyde tutulmalı, meşru sistem araçlarıyla iç içe geçilmelidir.
 
-### 1.1 Kullanıcı Manipülasyonu
+### Kullanıcı Manipülasyonu
 
 Saldırganlar Administrator hesabını ele geçirdiğinde, bu hesabın faaliyetleri izlendiği için doğrudan kullanmak yerine yeni ve "sıradan görünen" kullanıcılar oluştururlar. Bu kullanıcılar genellikle `support`, `sysadmin`, `helpdesk` gibi adlar taşır — SOC ekibinin radarına girme ihtimali düşüktür.
 
@@ -60,7 +68,7 @@ Event Viewer → Windows Logs → Security üzerinden bu Event ID'leri filtreley
 
 ---
 
-### 1.2 Zamanlanmış Görevler (Scheduled Tasks)
+### Zamanlanmış Görevler (Scheduled Tasks)
 
 Fidye yazılımlarından APT gruplarına kadar kalıcılık için en yaygın kullanılan yöntemlerden biridir. Saldırgan, zararlı dosyanın belirli aralıklarla ya da sistem açılışında çalışmasını sağlar.
 
@@ -78,7 +86,7 @@ Sysinternals **Autoruns** aracı, zamanlanmış görevleri imza doğrulamasıyla
 
 ---
 
-### 1.3 Kayıt Defteri Çalıştırma Anahtarları (Registry Run Keys)
+### Kayıt Defteri Çalıştırma Anahtarları (Registry Run Keys)
 
 Registry Run key'leri, Windows'un meşru bir özelliğidir; sistem açılışında veya kullanıcı oturum açtığında belirtilen programları otomatik çalıştırır. MITRE ATT&CK verilerine göre **T1547.001** tekniği, 54'ten fazla bilinen tehdit grubu tarafından kullanılmaktadır.
 
@@ -120,7 +128,7 @@ Registry değişikliklerini görselleştirmek için `regedit` veya Autoruns kull
 
 ---
 
-### 1.4 Startup Klasörü
+### Startup Klasörü
 
 ```
 C:\Users\[Kullanıcı]\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
@@ -135,7 +143,7 @@ C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
 
 ---
 
-### 1.5 Windows Servisleri
+### Windows Servisleri
 
 Saldırganlar `sc create` komutuyla meşru isimler taşıyan (ör. `ChromeUpdateService`) yeni servisler oluşturabilir veya mevcut servisleri ele geçirebilir.
 
@@ -150,7 +158,7 @@ sc start "ChromeUpdateService"
 
 ---
 
-### 1.6 BITS Jobs (Background Intelligent Transfer Service)
+### BITS Jobs (Background Intelligent Transfer Service)
 
 BITS, Windows'un dosya transfer altyapısıdır; güvenlik duvarları tarafından genellikle engellenmez. Saldırganlar BITS üzerinden dosya indirip çalıştırabilir ve güvenlik araçlarının radarından kaçabilir.
 
@@ -165,7 +173,7 @@ bitsadmin /resume MalJob
 
 ---
 
-### 1.7 WMI Event Subscriptions — Disksiz (Fileless) Kalıcılık
+### WMI Event Subscriptions — Disksiz (Fileless) Kalıcılık
 
 WMI (Windows Management Instrumentation), gelişmiş tehdit aktörlerinin disk üzerinde iz bırakmadan kalıcılık sağladığı en sofistike yöntemlerden biridir. Payload registry ve WMI veritabanında saklanır; geleneksel antivirüs taramaları dosya sistemi odaklı olduğundan bu tekniği genellikle atlayabilir.
 
@@ -204,7 +212,7 @@ $binding.Put()
 
 ---
 
-### 1.8 COM Hijacking
+### COM Hijacking
 
 COM (Component Object Model), Windows uygulamalarının birbirleriyle iletişim kurduğu bir altyapıdır. Her COM nesnesi registry'de bir CLSID ile kayıtlıdır. Saldırganlar `HKCU\Software\Classes\CLSID` altına meşru bir COM nesnesinin CLSID'ini kopyalayarak kendi kötü amaçlı DLL'lerini yükletebilir — bunu yapmak için yönetici yetkisi bile gerekmez.
 
@@ -222,7 +230,7 @@ Windows, HKCU'yu HKLM'den önce kontrol ettiği için kötü amaçlı DLL yükle
 
 ---
 
-### 1.9 IFEO (Image File Execution Options) Enjeksiyonu
+### IFEO (Image File Execution Options) Enjeksiyonu
 
 IFEO, geliştiricilerin bir uygulamayı başlatıldığında hata ayıklayıcıya bağlamasını sağlar. Saldırganlar bu mekanizmayı, engellilik kısayol tuşlarına bağlı sistem uygulamalarının (sethc.exe — Sticky Keys, utilman.exe — Erişilebilirlik) yerine kendi arka kapılarını çalıştırmak için kullanır. Bu yöntem özellikle dikkat çekicidir çünkü giriş ekranından, yani herhangi bir kullanıcı oturumu açmadan çalıştırılabilir.
 
@@ -239,7 +247,7 @@ Artık giriş ekranında Shift tuşuna 5 kez basıldığında `sethc.exe` yerine
 
 ---
 
-### 1.10 DLL Search Order Hijacking / Sideloading
+### DLL Search Order Hijacking / Sideloading
 
 Windows bir DLL'i yüklerken belirli bir sırayla arama yapar: önce uygulamanın kendi dizini, sonra sistem dizinleri. Saldırganlar, meşru ve dijital imzalı bir uygulamanın çalıştığı dizine aynı isimde kötü amaçlı bir DLL yerleştirerek yasal süreçler aracılığıyla kod çalıştırabilir.
 
@@ -257,7 +265,12 @@ C:\Program Files\LegitApp\
 
 ---
 
+---
 ## Kalıcılıktan Yatay Harekete — Köprü
+
+
+Bu bölüm detayları ve etkileri incelemektedir.
+
 
 ### Saldırgan Neden Yerinde Durmaz?
 
@@ -288,11 +301,15 @@ Bu noktadan itibaren saldırgan elindeki kimlik bilgileri ve hash'lerle yatay ha
 
 ---
 
+---
 ## Ağ İçinde Yatay Hareket (Lateral Movement)
+
+
+
 
 Yatay hareket, saldırganın ağ içindeki diğer sistemlere erişim sağlaması sürecidir. Bir APT grubunun lateral movement aşamasında ortalama süre, kurumsal ağlarda **4-5 gün** olmakla birlikte bu süre bazen haftalara uzayabilir. Saldırganlar bu süreçte mümkün olduğunca "gürültüsüz" çalışmayı, meşru araçları kullanmayı (Living off the Land — LotL) ve normal trafik içinde eriyip gitmeyi hedefler.
 
-### 3.1 RDP (Remote Desktop Protocol) — APT'lerin Favorisi
+### RDP (Remote Desktop Protocol) — APT'lerin Favorisi
 
 RDP, Microsoft'un uzak masaüstü bağlantı protokolüdür ve port **3389** üzerinden çalışır. APT gruplarının lateral movement aracısı olarak en sık kullandığı protokoldür; bunun ana nedeni RDP'nin kurumsal ağlarda zaten yaygın olmasıdır — normal trafik içinde kaybolur.
 
@@ -319,7 +336,7 @@ RDP, Microsoft'un uzak masaüstü bağlantı protokolüdür ve port **3389** üz
 
 ---
 
-### 3.2 WinRM & PowerShell Remoting — Living off the Land
+### WinRM & PowerShell Remoting — Living off the Land
 
 Windows Remote Management (WinRM), Windows'un yerleşik uzaktan yönetim protokolüdür ve portlar **5985** (HTTP) ve **5986** (HTTPS) üzerinden çalışır. Sistem yöneticilerinin günlük yönetim için kullandığı bu altyapı, saldırganların "arazi üzerinde yaşama" (Living off the Land — LotL) taktiği için birebir uygundur.
 
@@ -347,7 +364,7 @@ Invoke-Command -ComputerName dc01, web01, db01 -ScriptBlock { Get-Process }
 
 ---
 
-### 3.3 SMB Share ve PsExec — Klasik Ama Etkili
+### SMB Share ve PsExec — Klasik Ama Etkili
 
 SMB (Server Message Block), Windows'un dosya paylaşım protokolüdür (port **445**). Saldırganlar özellikle yönetici paylaşımları olan `ADMIN$` ve `C$` üzerinden lateral movement gerçekleştirir.
 
@@ -376,7 +393,7 @@ PsExec.exe \\hedef-ip -u DOMAIN\Administrator -p password cmd.exe
 
 ---
 
-### 3.4 Kerberos İstismarları: PtT ve Overpass-the-Hash
+### Kerberos İstismarları: PtT ve Overpass-the-Hash
 
 Active Directory ortamlarında kimlik doğrulama Kerberos protokolüyle gerçekleşir. Kerberos'un "stateless" (durumsuz) mimarisi — yani bilet tabanlı çalışması — bazı kritik saldırı vektörlerine kapı açar.
 
@@ -420,9 +437,14 @@ RDP, AD ortamında kimlik doğrulama için Kerberos'u kullanır. Pass-the-Ticket
 
 ---
 
+---
 ## Blue Team / SOC Perspektifinden Tespit ve Tehdit Avcılığı
 
-### 4.1 Tespit Felsefesi: Tek Log Yerine Anomali Zinciri
+
+Bu bölüm detayları ve etkileri incelemektedir.
+
+
+### Tespit Felsefesi: Tek Log Yerine Anomali Zinciri
 
 Bireysel log kayıtları çoğu zaman yanıltıcıdır. Meşru yazılımlar da Run anahtarlarını değiştirebilir, sistem yöneticileri de PsExec kullanır. Etkili tespit için **korelasyon** gereklidir: birden fazla olayı bir araya getirerek anlam çıkarmak.
 
@@ -430,7 +452,7 @@ Bireysel log kayıtları çoğu zaman yanıltıcıdır. Meşru yazılımlar da R
 
 ---
 
-### 4.2 Event ID Referans Tablosu
+### Event ID Referans Tablosu
 
 | Event ID | Kaynak | Anlam |
 |----------|--------|-------|
@@ -453,7 +475,7 @@ Bireysel log kayıtları çoğu zaman yanıltıcıdır. Meşru yazılımlar da R
 
 ---
 
-### 4.3 Sysmon ile Derinlemesine Telemetri
+### Sysmon ile Derinlemesine Telemetri
 
 Sysmon (System Monitor), Windows'un yerel log altyapısını önemli ölçüde zenginleştirir. Registry değişiklikleri için kritik event ID'ler:
 
@@ -466,7 +488,7 @@ Her Sysmon kaydı `ParentImage` ve `ParentCommandLine` alanlarını içerir — 
 
 ---
 
-### 4.4 EDR/XDR Korelasyon Zinciri
+### EDR/XDR Korelasyon Zinciri
 
 XDR platformları, izole olayları bir saldırı hikayesine dönüştürür. Örnek bir persistence → C2 zinciri:
 
@@ -479,7 +501,7 @@ XDR platformları, izole olayları bir saldırı hikayesine dönüştürür. Ör
 
 ---
 
-### 4.5 Pratik SOC Senaryoları — KQL Pseudo-Code
+### Pratik SOC Senaryoları — KQL Pseudo-Code
 
 **Senaryo 1: Şüpheli Konumdan Registry Yazma**
 
@@ -546,7 +568,7 @@ SecurityEvent
 
 ---
 
-### 4.6 Yanlış Pozitif Yönetimi
+### Yanlış Pozitif Yönetimi
 
 Meşru yazılımlar (antivirüs güncellemeleri, kurumsal araçlar) da Run anahtarlarını değiştirebilir. Gürültüyü azaltmak için:
 
@@ -556,7 +578,7 @@ Meşru yazılımlar (antivirüs güncellemeleri, kurumsal araçlar) da Run anaht
 
 ---
 
-### 4.7 Saldırgan Gizlenme Taktikleri
+### Saldırgan Gizlenme Taktikleri
 
 **Null Karakterle Gizleme:**
 
@@ -580,9 +602,14 @@ Meşru Windows araçlarının kötü amaçlı kullanımı:
 
 ---
 
+---
 ## Sıkılaştırma ve Savunma (Hardening)
 
-### 5.1 Privileged Access Management (PAM)
+
+Bu bölüm detayları ve etkileri incelemektedir.
+
+
+### Privileged Access Management (PAM)
 
 PAM, kurumsal ağlarda yüksek ayrıcalıklı erişimleri yönetmek, izlemek ve denetlemek için kullanılan merkezi bir güvenlik çözümüdür.
 
@@ -599,7 +626,7 @@ PAM, kurumsal ağlarda yüksek ayrıcalıklı erişimleri yönetmek, izlemek ve 
 
 ---
 
-### 5.2 Ağ Seviyesinde Kimlik Doğrulama (NLA)
+### Ağ Seviyesinde Kimlik Doğrulama (NLA)
 
 NLA (Network Level Authentication), RDP oturumu kurulmadan önce kimlik doğrulaması yapılmasını zorunlu kılar. Bu, kimlik doğrulanmamış bağlantı isteklerinin sisteme ulaşmasını engeller.
 
@@ -611,7 +638,7 @@ Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\W
 
 ---
 
-### 5.3 Çok Faktörlü Kimlik Doğrulama (MFA)
+### Çok Faktörlü Kimlik Doğrulama (MFA)
 
 RDP, WinRM ve diğer uzaktan erişim yöntemleri için MFA zorunlu olmalıdır. Kimlik bilgileri ele geçirilse bile ikinci faktör olmadan giriş mümkün olmaz.
 
@@ -621,7 +648,7 @@ RDP, WinRM ve diğer uzaktan erişim yöntemleri için MFA zorunlu olmalıdır. 
 
 ---
 
-### 5.4 Least Privilege (En Az Ayrıcalık) Prensibi
+### Least Privilege (En Az Ayrıcalık) Prensibi
 
 Her kullanıcı ve servis hesabı yalnızca görevini yapabilmek için gereken minimum yetkiyle çalışmalıdır.
 
@@ -642,7 +669,7 @@ Get-ADGroupMember -Identity "Domain Admins" | Select Name, SamAccountName
 
 ---
 
-### 5.5 Ağ Segmentasyonu ve Erişim Kontrolü
+### Ağ Segmentasyonu ve Erişim Kontrolü
 
 ```
 [İş İstasyonları] --[Firewall]--> [Sunucular] --[Firewall]--> [Domain Controller]
@@ -655,7 +682,7 @@ Get-ADGroupMember -Identity "Domain Admins" | Select Name, SamAccountName
 
 ---
 
-### 5.6 Audit Politikaları ve Merkezi Log Yönetimi
+### Audit Politikaları ve Merkezi Log Yönetimi
 
 ```powershell
 # Kritik audit politikalarını etkinleştir
@@ -671,7 +698,7 @@ auditpol /set /subcategory:"Kerberos Service Ticket Operations" /success:enable 
 
 ---
 
-### 5.7 Proaktif Tehdit Avcılığı
+### Proaktif Tehdit Avcılığı
 
 Reaktif olmak yetmez. Blue Team düzenli aralıklarla şu kontrolleri yapmalıdır:
 
@@ -695,7 +722,11 @@ Get-ChildItem "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Exe
 
 ---
 
-## Sonuç
+---
+
+
+
+
 
 Bir saldırganın sızma sonrası yolculuğu şu kronolojik zinciri izler:
 
@@ -715,3 +746,5 @@ Bu yazıda her aşamayı hem saldırgan hem de savunmacı perspektifinden incele
 **Daha fazlası için:**
 - [MITRE ATT&CK — Persistence (TA0003)](https://attack.mitre.org/tactics/TA0003/)
 - [MITRE ATT&CK — Lateral Movement (TA0008)](https://attack.mitre.org/tactics/TA0008/)
+
+Verinizin mimarı olun, egemenliğinizi geri alın. Dinlediğiniz için teşekkürler!

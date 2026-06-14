@@ -10,7 +10,11 @@ Bu yazımda, dünya genelinde popüler olarak kullanılan uç nokta güvenliği 
 
 Dijitalleşen dünyada bilgi güvenliği artık sadece kurumsal sınırları korumaktan ibaret değil. Bu sınırların ötesindeki tehditleri de tespit etmek, değerlendirmek ve bunlara yanıt vermek gerekiyor. Bu bağlamda, Endpoint Detection and Response (EDR) ve eXtended Detection and Response (XDR) sistemleri, siber güvenlik tehditlerine karşı savunma ve bunlara yanıt verme konusunda en gelişmiş sistemlerden biri olarak ön plana çıkıyor.
 
+---
 ## EPP, EDR ve XDR Arasındaki Farklar
+
+
+
 
 Güvenlik çözümlerini kıyaslarken sadece veri toplama (telemetri) girdilerine değil, yönetim modellerine ve işletme maliyetine (TCO) odaklanmak gerekir. Modern uç nokta güvenlik katmanları şu şekilde ayrışmaktadır:
 
@@ -26,6 +30,9 @@ Güvenlik çözümlerini kıyaslarken sadece veri toplama (telemetri) girdilerin
 
 ## CrowdStrike Falcon
 
+
+
+
 CrowdStrike Falcon, bulut tabanlı bir uç nokta algılama ve yanıt (EDR) platformudur. Aynı zamanda XDR özellikleri de sunar. Tamemen bulut odaklı yapısı sayesinde hızlı dağıtım ve ölçeklenebilirlik avantajları sunar. Tek bir hafif istemci yazılımı (agent) üzerinden çalışarak kapsamlı koruma sağlar, bu da uç nokta performansı üzerindeki etkiyi en aza indirir. Özellikle proaktif tehdit avcılığı yetenekleri ve kapsamlı tehdit istihbarat ağı ile biliniyor. "Falcon Discover" modülü ile uygulama envanteri, hesap hijyeni ve lisans yönetimi sağlarken, "Falcon for IT" modülü osquery altyapısı sayesinde sistemler üzerinde SQL benzeri sorgularla gerçek zamanlı BT operasyon verisi çekmeyi mümkün kılar.
 
 *   **Artıları:** Son derece hafif ajan mimarisi, yapay zeka tabanlı Charlotte AI doğal dil desteği, zengin tehdit istihbaratı ve pazar liderliği.
@@ -35,7 +42,11 @@ CrowdStrike Falcon, bulut tabanlı bir uç nokta algılama ve yanıt (EDR) platf
 
 <https://www.crowdstrike.com/cybersecurity-101/what-is-xdr/>
 
+---
 ## Cybereason
+
+
+
 
 Cybereason, siber güvenlik endüstrisinde önemli bir oyuncudur ve özellikle uç nokta tespit ve yanıt (EDR) yetenekleriyle bilinir. Cybereason, EDR ve EPP yeteneklerini şirket içinde (on-premise) sunabilen nadir çözümlerden biridir. XDR yetenekleri ise sadece bulut platformunda mevcut.
 
@@ -48,7 +59,11 @@ Platformun en belirgin özelliği olan "Malop" (Malicious Operation - Kötü Ama
 
 <https://www.cybereason.com/platform>
 
+---
 ## Microsoft Defender for Endpoint
+
+
+
 
 Eskiden Microsoft Defender Advanced Threat Protection (ATP) olarak bilinen bu çözüm, Windows işletim sistemine tamamen entegre ve yerleşik olarak çalışan kapsamlı bir EDR ve XDR platformudur. Microsoft, Defender platformunu diğer 365 güvenlik ürünleriyle entegre ederek Microsoft 365 Defender adı altında genişletilmiş bir XDR çözümüne dönüştürmüştür.
 
@@ -61,7 +76,11 @@ Gelişmiş algoritmalar ve yapay zeka tabanlı analizler kullanarak karmaşık s
 
 <https://www.infusedinnovations.com/blog/secure-intelligent-workplace/budgeting-for-microsoft-defender-xdr-and-zero-trust-security>
 
+---
 ## Palo Alto Cortex XDR
+
+
+
 
 Palo Alto Cortex XDR, ağ, uç nokta ve bulut verilerini birleştirerek siber tehditleri tespit eden ve analiz eden genişletilmiş bir algılama ve yanıt (XDR) çözümüdür. Sadece uç nokta telemetrisine odaklanmak yerine Palo Alto'nun yeni nesil güvenlik duvarlarından (NGFW) ve bulut bileşenlerinden gelen verileri ilişkilendirir.
 
@@ -74,7 +93,11 @@ Palo Alto Cortex XDR, ağ, uç nokta ve bulut verilerini birleştirerek siber te
 
 <https://www.xcitium.com/palo-alto-cortex-xdr/>
 
+---
 ## SentinelOne
+
+
+
 
 SentinelOne Singularity, siber güvenlik dünyasında yapay zeka odaklı otonom yapısıyla öne çıkan lider bir XDR platformudur. Ajan seviyesinde çalışan yerel davranışsal motoru sayesinde ağ bağlantısı olmasa bile tehditleri tespit edebilir ve engelleyebilir.
 
@@ -87,7 +110,11 @@ Platformun "Storyline" teknolojisi, süreçlerin tüm yaşam döngüsünü benze
 
 <https://www.sentinelone.com/platform/>
 
+---
 ## VMware Carbon Black
+
+
+
 
 VMware Carbon Black, hem bulut tabanlı hem de yerel kurulum (on-premise) seçenekleri sunan güçlü bir EDR/XDR platformudur. Özellikle sanallaştırma altyapılarıyla (VMware vSphere/vCenter) hipervizör seviyesinde derin entegrasyon sağlayarak sanal sunucu ve iş yüklerinin güvenliğini optimize eder.
 
@@ -100,7 +127,11 @@ Davranışsal analizler ve makine öğrenimi kullanarak gelişmiş tehditlere ka
 
 <https://www.vmware.com/docs/vmw-datasheet-carbon-black-hosted-edr>
 
+---
 ## Wazuh
+
+
+
 
 Wazuh; uç nokta koruma, log yönetimi, tehdit avcılığı, zafiyet analizi ve uyumluluk denetimlerini tek bir çatıda birleştiren popüler bir açık kaynaklı güvenlik platformudur. Dosya bütünlüğü izleme (FIM) ve log analizi yetenekleriyle SIEM benzeri bir deneyim sunar.
 
@@ -113,7 +144,11 @@ Küçük ve orta ölçekli işletmeler için maliyet etkin bir çözüm sunan Wa
 
 <https://documentation.wazuh.com/current/getting-started/components/index.html>
 
+---
 ## Elastic Security
+
+
+
 
 Elastic Security, açık kaynaklı Elastic Stack (ELK) altyapısı üzerine inşa edilmiş güçlü bir SIEM ve uç nokta güvenlik çözümüdür. Bulut, yerel ve hibrit ortamlarda gerçek zamanlı tehdit analizi yapabilir.
 
@@ -126,7 +161,11 @@ Büyük miktarda veriyi indekslemeden arayabilen esnek mimarisi sayesinde, tehdi
 
 <https://dzlab.github.io/2023/04/26/elastic-cybersecurity/>
 
+---
 ## Bitdefender GravityZone
+
+
+
 
 Bitdefender GravityZone, sanallaştırma katmanlarındaki derin tecrübesiyle bilinen hibrit ve on-premise uyumlu bir uç nokta koruma (EPP/EDR) platformudur. Docker tabanlı mikro servis mimarisi sayesinde Linux tabanlı sanal cihazlar (Virtual Appliance) olarak kolayca kurulabilir ve Windows Server lisans maliyetini ortadan kaldırır.
 
@@ -139,7 +178,11 @@ Bitdefender GravityZone, sanallaştırma katmanlarındaki derin tecrübesiyle bi
 
 <https://www.bitdefender.com/business/support/en/77212-376327-endpoint-protection.html>
 
+---
 ## Trend Micro Apex One
+
+
+
 
 Trend Micro Apex One, kurumsal on-premise mimarilerde "Sanal Yamalama" (Virtual Patching) teknolojisiyle ayrışan bir uç nokta güvenlik çözümüdür. Apex One Server ve Apex Central bileşenleri üzerinden Windows IIS ve SQL Server tabanlı bir mimariyle yönetilir.
 
@@ -152,7 +195,11 @@ Sanal Yamalama teknolojisi, bir zafiyet açıklandığı andan itibaren fiziksel
 
 <https://docs.trendmicro.com/en-us/documentation/article/trend-micro-apex-central-2019-online-help-syslog-mapping-cef>
 
+---
 ## Kaspersky Endpoint Security for Business
+
+
+
 
 Kaspersky Endpoint Security (KES), yerel kurulum (on-premise) pazarında sunduğu kapsamlı sistem yönetim yetenekleriyle öne çıkan bir platformdur. Kaspersky Security Center (KSC) aracılığıyla hiyerarşik (Master/Slave) sunucu yapısıyla coğrafi olarak dağınık ağları başarıyla yönetir.
 
@@ -165,7 +212,11 @@ Saldırı anında devreye giren "System Watcher" ve "Remediation Engine" modüll
 
 <https://support.kaspersky.com/KESB/14.2/en-US/181954.htm>
 
+---
 ## ESET PROTECT
+
+
+
 
 ESET PROTECT On-Prem, siber güvenlik dünyasında "hafiflik" ve düşük kaynak tüketimi felsefesini koruyarak modern XDR özelliklerini entegre eden bir platformdur. ESET PROTECT Server hem Windows hem Linux platformlarına kurulabildiği gibi hazır sanal cihaz (appliance) olarak da dağıtılabilir.
 
@@ -178,7 +229,11 @@ Fidye yazılımlarına karşı "Ransomware Remediation" modülü ile geçici yed
 
 <https://help.eset.com/protect_admin/11.0/en-US/admin_server_settings_syslog.html>
 
+---
 ## Tanium
+
+
+
 
 Tanium XEM (Converged Endpoint Management), geleneksel merkezi veritabanı yapılarının aksine tescilli "Doğrusal Zincir" (Linear Chain) mimarisiyle çalışan bütünleşik bir uç nokta ve operasyon yönetim platformudur. Bu mimaride sorgular sunucudan tek tek cihazlara gitmez; ajanlar ağ üzerinde bir zincir oluşturarak sorguyu birbirine aktarır.
 
@@ -191,7 +246,11 @@ Tanium XEM (Converged Endpoint Management), geleneksel merkezi veritabanı yapı
 
 <https://www.tanium.com/products/tanium-performance/>
 
+---
 ## Sophos Intercept X
+
+
+
 
 Sophos Intercept X, "Synchronized Security" (Senkronize Güvenlik) felsefesiyle tasarlanmış, uç nokta ile ağ katmanını doğrudan konuşturan bir güvenlik çözümüdür. Uç nokta ajanı ile Sophos Firewall cihazları arasında kurulan "Security Heartbeat" (Güvenlik Kalp Atışı) kanalı sayesinde durum bilgisi sürekli paylaşılır.
 
@@ -204,7 +263,11 @@ Bir uç noktada fidye yazılımı veya zararlı aktivite tespit edildiğinde (ci
 
 <https://www.sophos.com/en-us/products/intercept-x>
 
+---
 ## Fortinet FortiEDR
+
+
+
 
 Fortinet FortiEDR, ağ güvenliği devi Fortinet'in "Security Fabric" ekosistemine entegre ettiği, patentli gerçek zamanlı enfeksiyon sonrası koruma (post-infection protection) teknolojisine sahip bir EDR/XDR çözümüdür.
 
@@ -221,6 +284,9 @@ Cihazlar üzerinde zararlı yazılım çalışsa ve şifreleme eylemine başlasa
 
 ## NOC ve SOC Yakınsaması (Bütünleşik BT Operasyonları)
 
+
+
+
 Siber güvenlik (SOC) ve BT altyapı yönetimi (NOC) ekiplerinin farklı veri kaynakları, farklı yazılımlar ve farklı terminolojiler kullanması, operasyonel kör noktalara ve bir olay anında kök neden (RCA) tespit süresinin uzamasına neden olur. 
 
 Modern XDR ve XEM (Converged Endpoint Management) ajanları, çekirdek (kernel) seviyesindeki derin erişimleri sayesinde artık geleneksel RMM (Remote Monitoring) ve NMS (Network Monitoring) sistemlerinin rollerini de üstlenmektedir:
@@ -229,3 +295,5 @@ Modern XDR ve XEM (Converged Endpoint Management) ajanları, çekirdek (kernel) 
 2.  **Otonom Varlık Keşfi (Asset Discovery):** SentinelOne Ranger veya Tanium Discover gibi modüller, her uç noktayı aktif/pasif bir ağ tarayıcısına dönüştürür. Alt ağlarda şirket ağına izinsiz dahil edilen (Shadow IT) veya ajansız çalışan tüm cihazları, ağ trafiği yaratmadan tespit eder ve güvenlik duvarı seviyesinde otonom izole edebilir.
 3.  **Performans ve Çalışan Deneyimi İzleme (DEX):** Tanium Performance veya CrowdStrike Falcon for IT (osquery altyapılı) gibi modüller, bir kullanıcının bilgisayarı yavaşladığında veya çöktüğünde "o esnada hangi uygulamanın ne kadar CPU/Disk tükettiğini" geçmişe dönük saniye çözünürlüğünde göstererek IT yardım masasının sorun çözme süresini (MTTR) radikal biçimde düşürür.
 4.  **Uzaktan Yönetim ve Betik Çalıştırma (RSO & RTR):** SentinelOne Remote Script Orchestration (RSO) veya CrowdStrike Real Time Response (RTR), sistem yöneticilerinin binlerce cihazda saniyeler içinde SYSTEM yetkileriyle PowerShell/Bash scriptleri çalıştırmasını, disk temizlemesini, duran servisleri tetiklemesini sağlar. Bu yetenekler SOAR (Workflow) motorlarıyla birleşerek "disk dolduğunda otomatik temizleme betiğini çalıştır" şeklinde kendi kendini iyileştiren (Self-Healing) BT altyapılarını mümkün kılar.
+
+Verinizin mimarı olun, egemenliğinizi geri alın. Dinlediğiniz için teşekkürler!

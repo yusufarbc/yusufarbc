@@ -10,7 +10,11 @@ In this article, we will take a look at endpoint security solutions that are pop
 
 In the digitalizing world, information security is no longer just about protecting corporate boundaries. It is also necessary to detect, evaluate and respond to threats beyond these borders. In this context, Endpoint Detection and Response (EDR) and eXtended Detection and Response (XDR) systems stand out as one of the most advanced systems in defending against and responding to cyber security threats.
 
+---
 ## Differences Between EPP, EDR, and XDR
+
+
+
 
 When comparing security solutions, it is critical to focus not only on what data (telemetry) they collect but also on how they are managed and their Total Cost of Ownership (TCO). Modern endpoint security layers are distinguished as follows:
 
@@ -26,6 +30,9 @@ When comparing security solutions, it is critical to focus not only on what data
 
 ## CrowdStrike Falcon
 
+
+
+
 CrowdStrike Falcon is a cloud-based endpoint detection and response (EDR) platform. It also offers XDR features. Thanks to its completely cloud-focused structure, it offers fast deployment and scalability advantages. It provides comprehensive protection by running through a single thin client software (agent), minimizing impact on endpoint performance. It is especially known for its proactive threat hunting capabilities and comprehensive threat intelligence network. With its "Falcon Discover" module, it provides application inventory, account hygiene, and license management, while its "Falcon for IT" module utilizes an osquery-based backend to run SQL-like queries to retrieve real-time IT operations telemetry from endpoints.
 
 *   **Pros:** Extremely lightweight agent architecture, AI-powered Charlotte AI natural language helper, rich threat intelligence, and industry leadership.
@@ -35,7 +42,11 @@ CrowdStrike Falcon is a cloud-based endpoint detection and response (EDR) platfo
 
 <https://www.crowdstrike.com/cybersecurity-101/what-is-xdr/>
 
+---
 ## Cybereason
+
+
+
 
 Cybereason is a major player in the cybersecurity industry and is particularly known for its endpoint detection and response (EDR) capabilities. Cybereason is one of the rare solutions that can offer EDR and EPP capabilities on-premises. XDR capabilities, however, are only available on the cloud platform.
 
@@ -48,7 +59,11 @@ The central component of the platform is "Malop" (short for Malicious Operation)
 
 <https://www.cybereason.com/platform>
 
+---
 ## Microsoft Defender for Endpoint
+
+
+
 
 Formerly known as Microsoft Defender Advanced Threat Protection (ATP), this solution is a comprehensive EDR and XDR platform that is fully integrated and built into the Windows operating system. Microsoft has expanded Defender by integrating it with other M365 security products under the Microsoft 365 Defender brand.
 
@@ -61,7 +76,11 @@ It uses advanced algorithms and AI-based analytics to detect complex cyberattack
 
 <https://www.infusedinnovations.com/blog/secure-intelligent-workplace/budgeting-for-microsoft-defender-xdr-and-zero-trust-security>
 
+---
 ## Palo Alto Cortex XDR
+
+
+
 
 Palo Alto Cortex XDR is an extended detection and response (XDR) solution that correlates network, endpoint, and cloud logs to identify and mitigate cyber threats. Rather than focusing solely on endpoint telemetry, it merges data from Palo Alto next-generation firewalls (NGFW) and cloud services.
 
@@ -74,7 +93,11 @@ With its "Pathfinder" technology, Cortex XDR can analyze the network behaviors o
 
 <https://www.xcitium.com/palo-alto-cortex-xdr/>
 
+---
 ## SentinelOne
+
+
+
 
 SentinelOne Singularity stands out in the cybersecurity landscape with its AI-driven, autonomous architecture. Its local behavioral engine runs on the agent itself, allowing it to detect and block threats even when endpoints are completely disconnected from the network.
 
@@ -87,7 +110,11 @@ The platform's "Storyline" technology tracks the entire lifecycle of processes w
 
 <https://www.sentinelone.com/platform/>
 
+---
 ## VMware Carbon Black
+
+
+
 
 VMware Carbon Black is a comprehensive cybersecurity platform that offers both cloud-based and on-premises deployment models. It integrates deeply with virtualization infrastructures (VMware vSphere/vCenter) at the hypervisor level to secure virtual servers and workloads.
 
@@ -100,7 +127,11 @@ It uses behavioral analytics and machine learning to defend against advanced thr
 
 <https://www.vmware.com/docs/vmw-datasheet-carbon-black-hosted-edr>
 
+---
 ## Wazuh
+
+
+
 
 Wazuh is a popular open-source cybersecurity platform that combines endpoint protection, log management, threat hunting, vulnerability detection, and compliance audits under one roof. It provides a SIEM-like experience using file integrity monitoring (FIM) and log analysis tools.
 
@@ -113,7 +144,11 @@ Offering a cost-effective solution for small to medium-sized businesses, Wazuh i
 
 <https://documentation.wazuh.com/current/getting-started/components/index.html>
 
+---
 ## Elastic Security
+
+
+
 
 Elastic Security is a powerful SIEM and endpoint security solution built on the open-source Elastic Stack (ELK Stack) infrastructure. It is capable of performing real-time threat analysis in cloud, on-premises, and hybrid environments.
 
@@ -126,7 +161,11 @@ With its flexible, index-free data query model, it allows threat hunters to quic
 
 <https://dzlab.github.io/2023/04/26/elastic-cybersecurity/>
 
+---
 ## Bitdefender GravityZone
+
+
+
 
 Bitdefender GravityZone is a hybrid and on-premises compatible endpoint protection platform (EPP/EDR) known for its deep virtualization expertise. Written with containerized microservices, it is typically deployed as Linux-based virtual appliances, eliminating Windows Server licensing fees.
 
@@ -139,7 +178,11 @@ It operates using a single modular agent called "BEST" (Bitdefender Endpoint Sec
 
 <https://www.bitdefender.com/business/support/en/77212-376327-endpoint-protection.html>
 
+---
 ## Trend Micro Apex One
+
+
+
 
 Trend Micro Apex One is an on-premises endpoint security solution that stands out with its "Virtual Patching" technology. It is managed via Windows IIS and SQL Server infrastructure through Apex One Server and Apex Central components.
 
@@ -152,7 +195,11 @@ Virtual Patching shields vulnerabilities at the network layer using the host IPS
 
 <https://docs.trendmicro.com/en-us/documentation/article/trend-micro-apex-central-2019-online-help-syslog-mapping-cef>
 
+---
 ## Kaspersky Endpoint Security for Business
+
+
+
 
 Kaspersky Endpoint Security (KES) is an on-premises security suite that stands out for its comprehensive system administration capabilities. Via Kaspersky Security Center (KSC), it supports hierarchical master/slave server structures, allowing smooth management of geographically dispersed enterprises.
 
@@ -165,7 +212,11 @@ Its "System Watcher" and "Remediation Engine" work independently of Windows Shad
 
 <https://support.kaspersky.com/KESB/14.2/en-US/181954.htm>
 
+---
 ## ESET PROTECT
+
+
+
 
 ESET PROTECT On-Prem is an endpoint security platform that integrates modern XDR capabilities while preserving its signature lightweight resource footprint. The ESET PROTECT Server runs on both Windows and Linux, and is also distributed as a pre-configured virtual appliance.
 
@@ -178,7 +229,11 @@ It handles ransomware via its "Ransomware Remediation" module, restoring files f
 
 <https://help.eset.com/protect_admin/11.0/en-US/admin_server_settings_syslog.html>
 
+---
 ## Tanium
+
+
+
 
 Tanium XEM (Converged Endpoint Management) rejects standard database-driven architectures in favor of its proprietary "Linear Chain" architecture. Ajanlar do not receive queries directly from a central database; instead, agents form a local network ring to forward query instructions to each other.
 
@@ -191,7 +246,11 @@ Tanium XEM (Converged Endpoint Management) rejects standard database-driven arch
 
 <https://www.tanium.com/products/tanium-performance/>
 
+---
 ## Sophos Intercept X
+
+
+
 
 Sophos Intercept X is designed with a "Synchronized Security" philosophy, allowing the endpoint agent and network firewall to communicate directly. The agent shares health telemetry with Sophos Firewalls over a dedicated channel called "Security Heartbeat."
 
@@ -204,7 +263,11 @@ If a threat is detected on an endpoint (changing its health status to Red), the 
 
 <https://www.sophos.com/en-us/products/intercept-x>
 
+---
 ## Fortinet FortiEDR
+
+
+
 
 Fortinet FortiEDR integrates into the network security giant's "Security Fabric" ecosystem, utilizing patented post-infection protection technology.
 
@@ -220,6 +283,9 @@ Even if malware executes on an endpoint and attempts encryption, FortiEDR blocks
 ---
 
 ## Convergence of NOC and SOC (Unified IT Operations)
+
+
+
 
 Having separate cybersecurity (SOC) and infrastructure (NOC) teams using distinct tools, data sources, and jargon leads to operational blind spots and increases the Mean Time to Resolution (MTTR) during outages.
 

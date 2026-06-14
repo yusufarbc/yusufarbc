@@ -13,14 +13,22 @@ audioFile: tr.mp3
 
 # Stratejik Siber İstihbarat Perspektifinden Modern OSINT, Yapay Zeka ve Keşif Dinamikleri
 
-## Giriş: Keşif Fazının Değişen Paradigması
+---
+
+
+
+
 
 Siber istihbaratta (CTI) keşif fazı, eskiden sızma testlerinin basit bir ön adımı veya "araç listesi" olarak görülürken, bugün hem saldırganlar (Red Team/APT grupları) hem de savunma ekipleri (Blue Team/SOC) için siber uzaya bakış açısını belirleyen temel faza dönüşmüştür. OSINT (Açık Kaynak İstihbaratı) artık statik bir hedef analizi değil; siber savunmanın, tehdit modellemenin ve Saldırı Yüzeyi Yönetiminin (ASM) ilk hattıdır.
 
 Bu makalede, klasik "nasıl yapılır" rehberlerindeki tüm teknik detayları ve araçları koruyarak, bu geleneksel bilgi toplama tekniklerini modern bulut altyapılarına, tedarik zinciri istihbaratına ve Yapay Zeka (LLM) katmanlarına nasıl entegre ettiğimizi stratejik bir perspektifle ele alacağız.
 
 
+---
 ## Google Dorks ve Google Hacking
+
+
+
 
 Merhaba, bu yazımda sizlere pasif bilgi toplamada çok işimize yarayan google dorksları tanıtacağım. Nasıl kullanıldığından bahsedeceğim. Ardından, bu dorklarla nasıl zafiyetler bulabileceğimizi ve neler elde edebileceğimizi anlatmaya çalışacağım.
 
@@ -309,7 +317,11 @@ inurl:Dashboard.jspa intext:"Atlassian Jira Project Management Software" inurl:a
 *kaynak:* Google Hacking for Penetration Testers*,*Johnny Long, Bill Gardner, Justin Brown, 2015 *Originally published at* [*https://pwnlab.me*](https://pwnlab.me/tr-google-dorks-ve-google-hacking/) *on October 19, 2021.*
 
 
+---
 ## Bulut İstihbaratı (Cloud Intelligence) ve Sızıntı Avcılığı
+
+
+
 
 ![](cloud.webp)
  (YENİ KATMAN)
@@ -326,7 +338,11 @@ Saldırganlar GitHub, GitLab, DockerHub gibi platformları sürekli tarar. Geçm
 
 > **Operasyonel Risk Senaryosu:** Bir geliştiricinin kişisel GitHub reposuna attığı bir test kodunda şirket içi veritabanı parolasını (veya `.env` dosyasını) unutması, tüm bulut altyapısının ele geçirilmesiyle sonuçlanabilir. Geleneksel Dorking ile aranan dosyalar, bugün TruffleHog ile CI/CD süreçlerinde saniyeler içinde taranmaktadır.
 
+---
 ## Pasif Bilgi Toplama Teknikleri
+
+
+
 
 Merhaba, Mehmet Bulut hocamla birlikte hazırladığımız bu yazımızda, sizlere Pasif Bilgi Toplama Tekniklerinden bahsedeceğiz.
 
@@ -488,7 +504,11 @@ ilgili siteye [www.osintframework.com](http://osintframework.com) adresinden ula
 *Originally published at* [*https://pwnlab.me*](https://pwnlab.me/tr-pasif-bilgi-toplama-teknikleri/) *on November 26, 2021.*
 
 
+---
 ## Sertifika Şeffaflığı (CT Logs) ve Siber-Kartografi (YENİ KATMAN)
+
+
+
 
 Modern OSINT ve ASM dünyasında subdomain tespiti için en hızlı ve %100 pasif yöntem **Sertifika Şeffaflığı (CT) Loglarıdır**.
 
@@ -500,7 +520,11 @@ Shodan harika bir araç olsa da istihbarat dünyasında tek oyuncu değildir:
 * **Censys:** Shodan'a ek olarak, daha güncel sertifika taramaları için kullanılır.
 * **FOFA & Hunter.how:** Özellikle Asya/Çin menşeili APT gruplarının C2 (Komuta Kontrol) altyapılarını avlamak için istihbarat analistlerinin favorileridir.
 
+---
 ## Tedarik Zinciri İstihbaratı (Supply Chain Intelligence) (YENİ KATMAN)
+
+
+
 
 Modern CTI'ın en sıcak konusu tedarik zinciri güvenliğidir. Yazılım ekosistemleri (npm, PyPI) artık istihbarat servislerinin ve APT gruplarının oyun alanıdır.
 
@@ -511,14 +535,22 @@ Modern CTI'ın en sıcak konusu tedarik zinciri güvenliğidir. Yazılım ekosis
     * **Maintainer Hijacking & Protestware:** Geliştirici hesaplarının ele geçirilmesi.
 * **Araç ve Konseptler:** Bu katmanda SBOM (Software Bill of Materials) ve VEX (Vulnerability Exploitability eXchange) dokümanları kritik rol oynar. `Syft` ve `Grype` ile yazılım bileşenleri analiz edilir, `Dependency-Track` ile sürekli izleme sağlanır.
 
+---
 ## Karanlık Ağlar ve Sosyal İstihbarat (YENİ KATMAN)
+
+
+
 
 Dark Web analizleri artık eski usül ".onion" forumlardan, anlık mesajlaşma ve Paste sitelerine kaymıştır.
 
 * **Stealer Log Piyasası:** Lumma, RedLine, Vidar ve Raccoon gibi "Infostealer" zararlılarından elde edilen terabaytlarca ham log (çerezler, kurumsal VPN şifreleri, session token'lar), Telegram botları, Discord sunucuları ve Breach forumlarında satılmaktadır.
 * **Sosyal Profilleme (OSINT):** Hedef kişilerin (yöneticiler, geliştiriciler) dijital ayak izi `SpiderFoot`, `Recon-ng`, `Holehe` (eposta istihbaratı) ve `Maigret` (kullanıcı adı izleme) gibi araçlarla tespit edilir.
 
+---
 ## [TR] Aktif Bilgi Toplama Teknikleri
+
+
+
 
 Bu yazımızda, sizlere Aktif Bilgi Toplama Tekniklerinden bahsedeceğiz.
 
@@ -691,7 +723,11 @@ Belirtilen alan adıyla ilgili, bütün sorguları yapar ve bizlere sunar.
 
 *Originally published at* [*https://pwnlab.me*](https://pwnlab.me/aktif-bilgi-toplama-teknikleri/) *on January 14, 2022.*
 
+---
 ## Sürekli Keşif (Continuous Reconnaissance) ve Attack Surface Drift (YENİ KATMAN)
+
+
+
 
 Geleneksel aktif keşif (Nmap vb.) bir hedefin belirli bir anındaki "fotoğrafını" (snapshot) çeker. Oysa modern saldırganlar artık "akan veri istihbaratı" (stream intelligence) kullanıyor. Bir kurumun saldırı yüzeyi statik değildir; CI/CD pipeline'ları, geçici (ephemeral) sunucular ve Kubernetes ingress yapılandırmaları nedeniyle sürekli değişir. Bu duruma **Attack Surface Drift (Saldırı Yüzeyi Kayması)** denir.
 
@@ -728,13 +764,21 @@ Sadece Nmap kullanmak modern hız standartlarının gerisinde kalabilir. Bu yüz
 * **Katana (ProjectDiscovery):** Yeni nesil, inanılmaz hızlı bir web crawler (örümcek) aracıdır. Tüm endpointleri (uç noktaları) ve parametreleri saniyeler içinde bulur.
 * **Nuclei (ProjectDiscovery):** Aktif keşifte port bulmak yetmez. Nuclei, topluluk tarafından yazılan YAML tabanlı şablonlarla (templates), binlerce hedef üzerinde 0-day veya bilinen zafiyetleri (Örn: Log4j ifşaları, açık .env dosyaları) eşzamanlı olarak tarayan devasa bir zafiyet motorudur. (Örn kullanım: `nuclei -u https://hedef.com -t cves/`)
 
+---
 ## İnternet Çapında Tarama (Internet-Scale Scanning) (YENİ KATMAN)
+
+
+
 
 APT grupları artık hedef organizasyona özel değil, tüm internete yönelik (Internet-wide) taramalar yapmaktadır.
 * **IPv4 Census ve ASN Hedefleme:** Sadece bilinen domainler değil, kuruma ait tüm ASN blokları taranır.
 * **Araçlar:** `Masscan` ve `ZMap` gibi araçlar asenkron yapıları sayesinde tüm internetin belirli bir portunu (Örn: Port 443) dakikalar içinde tarayabilir. Hedefin savunmasız/gizli sunucuları TLS sertifika kümeleriyle (Certificate Clustering) deşifre edilir.
 
+---
 ## Yapay Zeka (AI) Destekli İstihbarat Boru Hatları (YENİ KATMAN)
+
+
+
 
 Yapay zeka (LLM), istihbarat süreçlerine basit bir chatbot olarak değil, entegre boru hatları (AI-Augmented Intelligence Pipelines) olarak dahil olmuştur.
 
@@ -754,14 +798,23 @@ graph LR
 * **AI Destekli Sosyal Mühendislik (Spear-Phishing):** OSINT ile toplanan kurumsal verilerin LLM'lere beslenerek, çalışanın diline ve ilgi alanlarına özel kusursuz oltalama (phishing) maillerinin veya sahte seslerin (Deepfake voice) üretilmesi.
 * **AI İstihbarat Riskleri:** Veri manipülasyonu, halüsinasyon (Hallucination), zehirlenmiş istihbarat akışları (poisoned intelligence feeds) ve AI modeline yönelik adversarial prompt injection saldırıları modern savunmanın yeni zorluklarıdır.
 
+---
 ## Savunma Keşfi (Defensive Recon & Exposure Validation) (YENİ KATMAN)
+
+
+
 
 Aktif keşif sadece saldıranların tekelinde değildir. Mavi Takım (Blue Team) açısından, dış yüzeyin sürekli doğrulanması (Exposure Validation) şarttır.
 * **Marka İhlali ve Kimlik Avı:** Kurum adına açılmış sahte domainlerin (Phishing infrastructure / Typosquatting) sürekli izlenmesi.
 * **Sızan Kimlik Bilgileri İzleme (Credential Monitoring):** Kurum çalışanlarına ait parolaların HaveIBeenPwned tarzı platformlara düşüp düşmediğinin kontrolü.
 * **Savunma Kartografyası:** `Censys`, `FOFA`, `ZoomEye` ve `SecurityTrails` gibi araçlar kullanılarak, kuruma ait yapılandırma hatası barındıran sunucuların tehdit aktörlerinden önce tespit edilip kapatılması süreci.
 
+---
 ## Operasyonel Güvenlik (OPSEC) ve Hukuki Sınırlar (YENİ KATMAN)
+
+
+Bu bölüm detayları ve etkileri incelemektedir.
+
 
 ### Operasyonel Güvenlik (OPSEC)
 Profesyonel modern OSINT ve aktif keşfin en kritik unsuru tespitten kaçınmaktır (Detection Avoidance). Modern keşif ekipleri operasyonlarında şu kurallara uyar:
@@ -774,8 +827,14 @@ Kurumsal istihbarat operasyonlarında yasal sınırlar hayati önem taşır.
 * **Yasal Çerçeve:** ABD'deki CFAA (Bilgisayar Dolandırıcılığı ve Kötüye Kullanımı Yasası), Avrupa'daki GDPR veya Türkiye'deki KVKK kuralları keşif operasyonlarını sınırlar.
 * **Pasif vs Aktif Çizgisi:** Pasif bilgi toplama (OSINT, Whois, CT Logs) yasal olarak genel kullanıma açıktır. Ancak, hedef sisteme doğrudan Nmap veya Nuclei paketi yollamak (Aktif Keşif / Unauthorized scanning) yazılı izin (Scoping) olmaksızın yasadışıdır.
 
-## Sonuç: Proaktif Savunma ve Saldırı Yüzeyi Yönetimi (ASM)
+---
+
+
+
+
 
 Modern saldırı ekonomisinde, tehdit aktörleri "internet çapında" çalışan otomasyon botları, bulut sızıntı tarayıcıları ve yapay zeka destekli istihbarat hatları kullanırken; kurumların statik varlık envanterleriyle (Excel tabloları) veya sadece geleneksel port taramalarıyla savunma yapması beklenemez.
 
 Siber güvenlik mühendislerinin ve CTI analistlerinin sistemlere bir "saldırgan gibi" yaklaşması, EASM/CAASM (Dış/Siber Varlık Saldırı Yüzeyi Yönetimi) felsefesini operasyonel hale getirmesi ve tehditleri kapıya gelmeden, henüz siber uzaydaki "drift" anında yakalaması modern çağın zorunluluğudur. Hem klasik teknikleri (Dorking, Nmap, dig) ustalıkla kullanmak hem de modern otomasyon (ProjectDiscovery, Nuclei, AI, Continuous Recon) kaslarını geliştirmek siber istihbaratın temel anahtarıdır.
+
+Verinizin mimarı olun, egemenliğinizi geri alın. Dinlediğiniz için teşekkürler!

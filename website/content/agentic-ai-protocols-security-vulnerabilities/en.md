@@ -19,6 +19,13 @@ The rise of agentic AI has given birth to a new protocol ecosystem: **MCP, A2A, 
 
 ## Security and Architectural Schema of Agentic Protocols
 
+
+
+
+
+
+
+
 The following architectural diagram illustrates the trust boundaries and potential attack vectors across the full protocol stack:
 
 ```mermaid
@@ -72,6 +79,12 @@ graph LR
 
 ## What Is Agentic AI?
 
+
+
+
+This section explores the details and implications.
+
+
 ### From Reactive AI to Agentic AI: The Paradigm Shift
 
 Traditional generative AI is a **tool**: you ask, it answers. Agentic AI is a **colleague**: you declare the goal, and it decides independently how to achieve it.
@@ -117,6 +130,13 @@ Agentic AI systems operate on specific reasoning patterns that define how they t
 ---
 
 ## RAG (Retrieval-Augmented Generation)
+
+
+
+
+
+
+
 
 **RAG (Retrieval-Augmented Generation)** is one of the smartest solutions in the AI space. It was developed to address the core limitations of Large Language Models (LLMs), specifically outdated knowledge and their tendency to hallucinate.
 
@@ -205,6 +225,13 @@ In a simple setup, you ingest documents, index them using LlamaIndex, and connec
 
 ## The Protocol Map of the Agentic Web
 
+
+
+
+
+
+
+
 For agents to function, they must answer two fundamental questions: **"How do I connect to tools?"** and **"How do I coordinate with other agents?"** The answers point to protocol layers that are not competing but complementary.
 
 ![Agentic AI Ecosystem](MCP.webp)
@@ -230,6 +257,12 @@ Domain-specific semantics, rules, and workflows. They solve coordination problem
 ---
 
 ## MCP — The "USB-C Port" for AI
+
+
+
+
+This section explores the details and implications.
+
 
 ### Why MCP?
 
@@ -275,6 +308,12 @@ MCP relies on a clear separation of concerns:
 ---
 
 ## A2A — The Universal Language Between Agents
+
+
+
+
+This section explores the details and implications.
+
 
 ### Why MCP Alone Isn't Enough
 
@@ -325,6 +364,12 @@ Modern robust systems use both: MCP equips an agent with tools and data, while A
 
 ## ANP — The "HTTP" of the Agentic Web
 
+
+
+
+This section explores the details and implications.
+
+
 ### The Decentralized Discovery Problem
 
 MCP and A2A assume agents are already acquainted. But in a world where millions of agents are scattered across the internet, how does an agent connect to and trust one it has never met? **Agent Network Protocol (ANP)** answers this question.
@@ -357,6 +402,12 @@ ANP is an open-source, community-driven protocol that enables secure discovery, 
 
 ## UCP & AP2 — The Autonomous Flow of Money
 
+
+
+
+This section explores the details and implications.
+
+
 ### New Security Questions from Commercial Agents
 
 In ecosystems where agents make financial decisions and execute payments, **UCP (Universal Commerce Protocol)** and **AP2 (Agent Payments Protocol)** demand a paradigm shift in fraud detection systems.
@@ -386,6 +437,12 @@ AP2's core security mechanism is **Mandates** — cryptographically signed digit
 ---
 
 ## MCP Vulnerability Analysis at the Connection Point
+
+
+
+
+This section explores the details and implications.
+
 
 ### The Inverted Interaction Pattern
 
@@ -433,6 +490,12 @@ When autonomous agents interact with the real world, three critical risk factors
 ---
 
 ## Multi-Agent Security — A New Dimension
+
+
+
+
+This section explores the details and implications.
+
 
 ### OWASP Agentic Security Initiative (ASI)
 
@@ -485,6 +548,13 @@ graph LR
 
 ## Empirical Findings & Ecosystem Analysis
 
+
+
+
+
+
+
+
 ![Protocol Ecosystem Comparison](infografik.webp)
 
 ### Benchmark Performance Data
@@ -531,6 +601,13 @@ Token consumption increase: **3.25x — 236.5x**
 
 ## Real-World Application Domains
 
+
+
+
+
+
+
+
 ![AI Agent Model](model.webp)
 
 ### Software Development & DevOps
@@ -559,6 +636,12 @@ MCP enables the "vibe coding" paradigm — developers describe goals in natural 
 ---
 
 ## Defensive Architecture
+
+
+
+
+This section explores the details and implications.
+
 
 ### Multi-Layer Defense Table
 

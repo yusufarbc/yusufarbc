@@ -12,14 +12,22 @@ audioFile: en.mp3
 </div>
 
 # Modern OSINT, AI, and Reconnaissance Dynamics from a Strategic Cyber Intelligence Perspective
-## Introduction: The Changing Paradigm of the Reconnaissance Phase
+---
+
+
+
+
 
 In Cyber Threat Intelligence (CTI), the reconnaissance phase, once seen as just a simple preliminary step for penetration testing or a mere "tool list", has today evolved into the fundamental phase that defines the perspective of cyberspace for both attackers (Red Team/APT groups) and defense teams (Blue Team/SOC). OSINT (Open Source Intelligence) is no longer static target analysis; it is the first line of cyber defense, threat modeling, and Attack Surface Management (ASM).
 
 In this article, while preserving all the technical details and tools found in classic "how-to" guides, we will discuss with a strategic perspective how we integrate these traditional information gathering techniques into modern cloud infrastructures, supply chain intelligence, and Artificial Intelligence (LLM) layers.
 
 
+---
 ## Google Dorks and Google Hacking
+
+
+
 
 Hello, in this article, I will introduce you to Google Dorks, which are very useful in collecting passive information. I will talk about how to use it. Then, I will try to explain how we can find vulnerabilities with these dors and what we can achieve.
 
@@ -317,7 +325,11 @@ inurl:Dashboard.jspa intext:"Atlassian Jira Project Management Software" inurl:a
 *source:* Google Hacking for Penetration Testers*,*Johnny Long, Bill Gardner, Justin Brown, 2015 *Originally published at* [*https://pwnlab.me*](https://pwnlab.me/tr-google-dorks-ve-google-hacking/) *on October 19, 2021.*
 
 
+---
 ## Cloud Intelligence and Leak Hunting
+
+
+
 
 ![](cloud.webp)
 
@@ -334,7 +346,11 @@ Attackers continuously scan platforms like GitHub, GitLab, DockerHub. AWS tokens
 
 > **Operational Risk Scenario:** Forgetting an internal database password (or `.env` file) in a test code thrown into a developer's personal GitHub repo can result in the compromise of the entire cloud infrastructure. Files searched with traditional Dorking are today scanned in seconds in CI/CD processes with TruffleHog.
 
+---
 ## Passive Information Gathering Techniques
+
+
+
 
 Hello, in this article that we prepared with my teacher Mehmet Bulut, we will talk about Passive Information Gathering Techniques.
 
@@ -496,7 +512,11 @@ We can access the relevant site at [www.osintframework.com](http://osintframewor
 *Originally published at* [*https://pwnlab.me*](https://pwnlab.me/tr-pasif-bilgi-toplama-teknikleri/) *on November 26, 2021.*
 
 
+---
 ## Certificate Transparency (CT Logs) and Cyber-Cartography 
+
+
+
 
 The fastest and 100% passive method for subdomain detection in modern OSINT and ASM world is **Certificate Transparency (CT) Logs**.
 
@@ -508,7 +528,11 @@ Although Shodan is a great tool, it is not the only player in the intelligence w
 * **Censys:** Used for more up-to-date certificate scans in addition to Shodan.
 * **FOFA & Hunter.how:** They are the favorites of intelligence analysts especially for hunting C2 (Command Control) infrastructures of Asia/China originated APT groups.
 
+---
 ## Supply Chain Intelligence
+
+
+
 
 The hottest topic of modern CTI is supply chain security. Software ecosystems (npm, PyPI) are now the playground of intelligence services and APT groups.
 
@@ -519,14 +543,22 @@ The hottest topic of modern CTI is supply chain security. Software ecosystems (n
     * **Maintainer Hijacking & Protestware:** Hijacking developer accounts.
 * **Tools and Concepts:** SBOM (Software Bill of Materials) and VEX (Vulnerability Exploitability eXchange) documents play a critical role in this layer. Software components are analyzed with `Syft` and `Grype`, continuous monitoring is provided with `Dependency-Track`.
 
+---
 ## Dark Webs and Social Intelligence 
+
+
+
 
 Dark Web analyses have now shifted from old school ".onion" forums to instant messaging and Paste sites.
 
 * **Stealer Log Market:** Terabytes of raw logs (cookies, corporate VPN passwords, session tokens) obtained from "Infostealer" malware like Lumma, RedLine, Vidar, and Raccoon are sold in Telegram bots, Discord servers, and Breach forums.
 * **Social Profiling (OSINT):** The digital footprint of target individuals (managers, developers) is detected with tools like `SpiderFoot`, `Recon-ng`, `Holehe` (email intelligence), and `Maigret` (username tracking).
 
+---
 ## Active Information Gathering Techniques
+
+
+
 
 In this article, we will talk about Active Information Gathering Techniques.
 
@@ -699,7 +731,11 @@ It makes all queries regarding the specified domain name and presents them to us
 
 *Originally published at* [*https://pwnlab.me*](https://pwnlab.me/activt-bilgi-toplama-teknikleri/) *on January 14, 2022.*
 
+---
 ## Continuous Reconnaissance and Attack Surface Drift
+
+
+
 
 Traditional active discovery (Nmap etc.) takes a "snapshot" of a target at a specific moment. However, modern attackers now use "stream intelligence". An institution's attack surface is not static; it changes continuously due to CI/CD pipelines, ephemeral servers, and Kubernetes ingress configurations. This situation is called **Attack Surface Drift**.
 
@@ -736,13 +772,21 @@ Using only Nmap may fall behind modern speed standards. That is why modern tools
 * **Katana (ProjectDiscovery):** A next-generation, incredibly fast web crawler tool. It finds all endpoints and parameters in seconds.
 * **Nuclei (ProjectDiscovery):** Finding ports is not enough in active discovery. Nuclei is a massive vulnerability engine that simultaneously scans for 0-day or known vulnerabilities (e.g.: Log4j disclosures, open .env files) on thousands of targets with YAML-based templates written by the community. (Example usage: `nuclei -u https://target.com -t cves/`)
 
+---
 ## Internet-Scale Scanning 
+
+
+
 
 APT groups no longer scan specific to the target organization, but towards the whole internet (Internet-wide).
 * **IPv4 Census and ASN Targeting:** Not just known domains, all ASN blocks belonging to the institution are scanned.
 * **Tools:** Tools like `Masscan` and `ZMap` can scan a specific port (e.g.: Port 443) of the entire internet in minutes thanks to their asynchronous structures. Vulnerable/hidden servers of the target are deciphered with TLS Certificate Clustering.
 
+---
 ## Artificial Intelligence (AI) Augmented Intelligence Pipelines
+
+
+
 
 Artificial intelligence (LLM) has been included in intelligence processes not as a simple chatbot, but as integrated pipelines (AI-Augmented Intelligence Pipelines).
 
@@ -762,14 +806,23 @@ graph LR
 * **AI Augmented Social Engineering (Spear-Phishing):** Generating flawless phishing emails or deepfake voices specific to the employee's language and interests by feeding corporate data gathered with OSINT into LLMs.
 * **AI Intelligence Risks:** Data manipulation, hallucination, poisoned intelligence feeds, and adversarial prompt injection attacks towards the AI model are the new challenges of modern defense.
 
+---
 ## Defensive Recon & Exposure Validation 
+
+
+
 
 Active discovery is not solely the monopoly of attackers. From the Blue Team's perspective, continuous Exposure Validation of the external surface is a must.
 * **Brand Infringement and Phishing:** Continuous monitoring of fake domains (Phishing infrastructure / Typosquatting) opened on behalf of the institution.
 * **Leaked Credential Monitoring:** Checking whether passwords belonging to institution employees have fallen onto platforms like HaveIBeenPwned.
 * **Defensive Cartography:** The process of detecting and closing the servers containing configuration errors belonging to the institution before threat actors by using tools like `Censys`, `FOFA`, `ZoomEye`, and `SecurityTrails`.
 
+---
 ## Operational Security (OPSEC) and Legal Boundaries 
+
+
+This section explores the details and implications.
+
 
 ### Operational Security (OPSEC)
 The most critical element of professional modern OSINT and active discovery is escaping detection (Detection Avoidance). Modern recon teams follow these rules in their operations:
@@ -782,7 +835,11 @@ Legal boundaries carry vital importance in corporate intelligence operations.
 * **Legal Framework:** CFAA (Computer Fraud and Abuse Act) in the USA, GDPR in Europe, or KVKK rules in Turkey limit discovery operations.
 * **Passive vs Active Line:** Passive information gathering (OSINT, Whois, CT Logs) is legally open to public use. However, sending Nmap or Nuclei packets directly to the target system (Active Recon / Unauthorized scanning) is illegal without written permission (Scoping).
 
-## Conclusion: Proactive Defense and Attack Surface Management (ASM)
+---
+
+
+
+
 
 In the modern attack economy, while threat actors use automation bots working "internet-wide", cloud leak scanners, and AI-supported intelligence pipelines; institutions cannot be expected to defend with static asset inventories (Excel tables) or just traditional port scans.
 

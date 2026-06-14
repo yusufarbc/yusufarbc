@@ -2,11 +2,14 @@
 title: "Intrusion Detection on Apache Web Server"
 date: '2025-06-01'
 description: "A comprehensive guide on detecting web application attacks (SQLi, XSS, LFI, RFI, Path Traversal) by analyzing Apache access logs manually and automatically using ModSecurity and Fail2Ban."
-image: "/images/banners/intrusion_detection_banner.png"
+image: featured.webp
 type: posts
 ---
 
 ## Attack Detection on Apache Web Server
+
+
+
 
 ![Apache HTTP Server](apache-http-server.webp)
 
@@ -15,6 +18,9 @@ Nowadays, web applications and sites are exposed to different types of cyber att
 ---
 
 ## Intrusion Detection Architecture Flow
+
+
+
 
 The following diagram illustrates the request lifecycle through the Apache Web Server, showing how threat detection occurs at the WAF level (real-time) and at the log level (automated and manual analysis):
 
@@ -35,6 +41,9 @@ graph TD
 ---
 
 ## What are Apache Access Logs?
+
+
+
 
 ![Apache Access Logs](access-logs.webp)
 
@@ -62,6 +71,10 @@ Most production systems use the **Combined Log Format**. The fields captured in 
 
 ## Methods That Can Be Used for Detection
 
+
+This section explores the details and implications.
+
+
 ### Manual Log Analysis
 
 ![Manual Log Analysis](log-analysis.webp)
@@ -81,6 +94,9 @@ grep -iE "union|select|drop|script|alert|../|login|admin" /var/log/apache2/acces
 ---
 
 ## Directory Traversal
+
+
+
 
 ![Directory Traversal Attack Example](directory-traversal-example.webp)
 
@@ -115,6 +131,9 @@ grep -iE "\.\./|\.\.%2F|etc/passwd|boot.ini|win.ini" /var/log/apache2/access.log
 ---
 
 ## File Upload
+
+
+
 
 ![File Upload Vulnerability](file-upload.webp)
 
@@ -153,6 +172,9 @@ grep -E "\.php|\.jsp|\.asp|\.exe|\.phtml" /var/log/apache2/access.log
 
 ## RFI (Remote File Inclusion)
 
+
+
+
 ![Remote File Inclusion](rfi.webp)
 
 RFI is a type of attack on web applications that allows a malicious attacker to include and run malicious files (usually PHP, JavaScript, etc.) from a remote server.
@@ -188,6 +210,9 @@ grep -iE "http://|https://|include=|file=|page=|template=" /var/log/apache2/acce
 ---
 
 ## LFI (Local File Inclusion)
+
+
+
 
 ![Local File Inclusion](LFI.webp)
 
@@ -225,6 +250,9 @@ grep -iE "\.\./|php://|data://|expect://|include=|page=|file=" /var/log/apache2/
 ---
 
 ## Brute Force
+
+
+
 
 ![Brute Force Attack](brute-force-attack-example.webp)
 
@@ -318,6 +346,9 @@ awk '$7 == "/login.php" && $9 == 401 {print $1}' /var/log/apache2/access.log | s
 
 ## Command Injection
 
+
+
+
 ![Command Injection](command-injection.webp)
 
 Command injection is a vulnerability that allows an attacker to run unauthorized commands on the server by injecting malicious operating system commands into the web application.
@@ -356,6 +387,9 @@ grep -iE ";|&&|\\||`|curl|wget|nc|bash|sh|python" /var/log/apache2/access.log
 
 ## SQL Injection
 
+
+
+
 ![SQL Injection](sql-injection.webp)
 
 SQL Injection is a type of attack in which the attacker manipulates the application's database by injecting malicious SQL commands into the web application. Aim: It could be stealing confidential information from the database, modifying or deleting data.
@@ -389,6 +423,9 @@ grep -iE "union|select|drop|insert|delete|' or '| - |;|'" /var/log/apache2/acces
 ---
 
 ## NoSQL Injection
+
+
+
 
 NoSQL Injection is malicious query manipulation of NoSQL databases, similar to traditional SQL injection. It occurs in NoSQL databases such as MongoDB and CouchDB when the application does not filter user input correctly.
 
@@ -424,6 +461,9 @@ grep -iE "\$ne|\$gt|\$lt|\$regex|\$or|\$where" /var/log/apache2/access.log
 
 ## XML Injection
 
+
+
+
 XML Injection is an attack that occurs when malicious XML content is sent to the application as a result of inadequate validation of user input during the XML data processing phase of web applications. This attack can trick the application's XML parser, leading to unwanted operations.
 
 For example, XML External Entity (XXE) attacks fall into this category; An attacker can cause the application to process malicious XML external sources.
@@ -457,6 +497,9 @@ grep -iE "<!DOCTYPE|SYSTEM|ENTITY" /var/log/apache2/access.log
 
 ## LDAP Injection
 
+
+
+
 LDAP (Lightweight Directory Access Protocol) injection is an attack in which an attacker injects malicious input into the application's LDAP queries, gaining unauthorized access or manipulating LDAP database queries.
 
 It occurs especially in user authentication and authorization processes, when LDAP queries are created directly with user input.
@@ -489,6 +532,9 @@ grep -iE "\\*\)|\|\(|&|\(|\)" /var/log/apache2/access.log
 ---
 
 ## Template Injection
+
+
+
 
 ![Template Injection](template-injection.webp)
 
@@ -528,6 +574,9 @@ grep -iE "\{\{.\*\}\}|\{%.+%\}|\{#.\*#\}" /var/log/apache2/access.log
 
 ## HTTP Header Injection
 
+
+
+
 ![HTTP Header Injection](http-header-injection.webp)
 
 HTTP Header Injection is a vulnerability that allows an attacker to manipulate HTTP headers by injecting malicious data into the web application.
@@ -565,6 +614,9 @@ grep -iE "%0d|%0a|\r|\n" /var/log/apache2/access.log
 
 ## Content Injection
 
+
+
+
 Content Injection is a vulnerability that allows an attacker to inject malicious content into a web application or web page, displaying harmful or unwanted content to visitors.
 
 This attack typically occurs when user input is not properly filtered, resulting in malicious code being injected into HTML, JavaScript, text, or other content.
@@ -601,6 +653,9 @@ grep -E "<html|<div|<span|<table|&lt;script|&lt;/script&gt;" /var/log/apache2/ac
 ---
 
 ## XSS (Cross-Site Scripting)
+
+
+
 
 ![Cross Site Scripting XSS](cross-site-scriptingxss.webp)
 
@@ -641,6 +696,9 @@ grep -iE "&lt;script|alert|on-error|javascript:" /var/log/apache2/access.log
 
 ## SSRF (Server-Side Request Forgery)
 
+
+
+
 ![Server-Side Request Forgery SSRF](ssrf.webp)
 
 SSRF is a vulnerability that allows an attacker to send malicious requests to the target server itself or to other internal systems he can access.
@@ -675,6 +733,9 @@ grep -iE "127\.0\.0\.1|localhost|169\.254|10\.|192\.168" /var/log/apache2/access
 ---
 
 ## CSRF (Cross-Site Request Forgery)
+
+
+
 
 ![Cross-Site Request Forgery CSRF](csrf.webp)
 
@@ -711,6 +772,9 @@ grep -E "POST /critical-endpoint" /var/log/apache2/access.log | grep "Referer: h
 
 ## IDOR (Insecure Direct Object Reference)
 
+
+
+
 ![Insecure Direct Object Reference IDOR](idor.webp)
 
 IDOR is a vulnerability where a user can directly access another user's data or objects without authorization. If web applications use object references (e.g. file names, user IDs, order numbers) directly and without verification in URL parameters when accessing resources (files, user data, records, etc.), the attacker can access others' data by changing these references.
@@ -744,6 +808,9 @@ grep "GET /profile?user_id=" /var/log/apache2/access.log
 ---
 
 ## Open Redirect
+
+
+
 
 ![Open Redirect](open-redirect.webp)
 
@@ -780,6 +847,9 @@ grep -E "redirect=|url=|next=|return=|dest=|continue=" /var/log/apache2/access.l
 
 ## ModSecurity: Real-Time Detection and Prevention
 
+
+
+
 ![ModSecurity WAF](modsecurity.webp)
 
 While manual log analysis is excellent for forensics and threat hunting, real-time prevention requires a Web Application Firewall (WAF). ModSecurity runs as an Apache module and monitors HTTP requests before they reach the web application.
@@ -803,6 +873,9 @@ SecRule REQUEST_URI "@rx (?i)(union\s+select|select\s+.*\s+from)" \
 ---
 
 ## Fail2Ban: Automated IP Blocking
+
+
+
 
 ![Fail2Ban](fail2ban.webp)
 
@@ -833,7 +906,10 @@ bantime  = 3600
 
 ---
 
-## Conclusion
+
+
+
+
 
 Although Apache web servers are one of the most used and reliable server software worldwide, they can always be vulnerable to various web attacks. Therefore, it is critical to regularly analyze access logs to detect and prevent possible attacks.
 

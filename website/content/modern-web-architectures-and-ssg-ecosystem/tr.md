@@ -1,7 +1,7 @@
 ---
 date: "2026-05-11"
 description: "Web ekosisteminin evrimini; modern rendering stratejileri, popüler teknoloji yığınları (MERN, PERN, .NET) ve DevSecOps perspektifiyle ele alan, orijinal araştırmalarla zenginleştirilmiş devasa bir mimari rehber."
-image: ssg-cms.webp
+image: featured.webp
 title: "Modern Web Mimarisinin Anatomisi"
 tags: ["Architecture", "DevSecOps", "SSG", "Jamstack", "Astro", "Hugo", "Next.js", "MERN", "PERN", ".NET", "Cloudflare"]
 type: posts
@@ -14,7 +14,11 @@ Web geliştirme ekosistemi, performans, ölçeklenebilirlik ve güvenlik gereksi
 
 Özellikle aktif olarak e-ticaret platformları geliştiren veya sistem güvenliğini (DevSecOps) ön planda tutan geliştiriciler için, mimari kararlar artık sadece "hangi dilin kullanılacağı" sorusunun çok ötesine geçmiştir. Bu rehberde, geleneksel CMS sistemlerinden Statik Site Üreticilerine (SSG) uzanan yolculuğu, modern görüntüleme (rendering) stratejilerini ve uçtan uca web ekosisteminin güncel durumunu teknik bir **anatomi** problemi olarak inceleyeceğiz.
 
+---
 ## Hızlı Özet
+
+
+
 
 - **Maliyet-Performans:** İçerik odaklı projelerde SSG, çoğu zaman en iyi maliyet-performans dengesini verir.
 - **Hibrit Modeller:** Dinamik ürünlerde SSR/ISR gibi hibrit modeller kaçınılmazdır.
@@ -22,7 +26,11 @@ Web geliştirme ekosistemi, performans, ölçeklenebilirlik ve güvenlik gereksi
 - **Güvenlik:** En kritik konu artık sadece kod açığı değil, yazılım tedarik zinciri (supply chain) riskidir.
 - **Mimari Karar:** "En iyi araç" yoktur; "en doğru senaryo eşleşmesi" vardır.
 
-## 1) Neden cPanel Merkezli Düşünceden Uzaklaşıyoruz?
+---
+## ) Neden cPanel Merkezli Düşünceden Uzaklaşıyoruz?
+
+
+
 
 Yıllar boyunca web'in omurgasını Linux, Apache, MySQL ve PHP'den oluşan LAMP yığını ve bu yığın üzerinde çalışan WordPress gibi geleneksel İçerik Yönetim Sistemleri (CMS) oluşturdu. Ancak geleneksel bir CMS, kullanıcı her sayfa talep ettiğinde veritabanına bağlanmak, veriyi çekmek ve HTML'i sunucuda anlık olarak birleştirmek zorundadır. Bu durum, trafiğin aniden arttığı senaryolarda sunucu darboğazlarına neden olurken, dışarıdan gelebilecek SQL Injection veya sunucu taraflı RCE (Uzaktan Kod Çalıştırma) saldırıları için geniş bir yüzey bırakır.
 
@@ -40,7 +48,11 @@ Bu akış klasik hosting modellerinde (cPanel, Plesk vb.) fonksiyoneldir, fakat 
 
 Eski tip sunucu kur-yönet modelinden uzaklaşmamızın temel nedeni, altyapıyı "yönetmek" yerine "sonucu doğrudan servis etmeye" odaklanmaktır.
 
-## 2) Rendering Anatomisi: CSR, SSR, SSG, ISR
+---
+## ) Rendering Anatomisi: CSR, SSR, SSG, ISR
+
+
+
 
 Bugün bir web uygulamasının ekrana nasıl çizileceği, sistemin milyonlarca kullanıcıyı çökmeden nasıl kaldırabileceğini belirler. Modern web mühendisliği, HTML'in nerede ve ne zaman üretildiğine göre dört temel strateji etrafında şekillenir:
 
@@ -104,7 +116,11 @@ Bugün bir web uygulamasının ekrana nasıl çizileceği, sistemin milyonlarca 
 ### Hibrit Yaklaşımlar ve "Adalar" Mimarisi
 Milyonlarca ürünü olan devasa sistemler için hibrit çözümler kaçınılmazdır. Özellikle **Astro** ile popülerleşen **Islands Architecture (Adalar Mimarisi)** yaklaşımı, sayfanın varsayılanını "Sıfır JS" (HTML-only) olarak tutup, sadece interaktif olması gereken bölümleri (sepet, yorum formu vb.) bağımsız "adalar" olarak canlandırarak performansı maksimize eder. Hugo ve mdBook gibi araçlar ise binlerce sayfalık veriyi saniyeler içinde işleyerek statik üretimin sınırlarını zorlar.
 
-## 3) Etkileşimli Seçim Rehberi: Hangi Mimari Size Daha Yakın?
+---
+## ) Etkileşimli Seçim Rehberi: Hangi Mimari Size Daha Yakın?
+
+
+
 
 Doğru mimariyi seçmek projenin kaderini belirler. Şu dört temel soru, yol haritanızı netleştirecektir:
 
@@ -124,11 +140,15 @@ Doğru mimariyi seçmek projenin kaderini belirler. Şu dört temel soru, yol ha
 - **Evet:** ISR veya Next.js'in "on-demand rebuild" yetenekleri eşsizdir.
 - **Hayır:** Tam SSG (Static Site Generation) sarsılmaz bir tercihtir.
 
-## 4) Teknoloji Yığınları: Popüler Mimari Bileşenler
+---
+## ) Teknoloji Yığınları: Popüler Mimari Bileşenler
+
+
+
 
 Web ekosisteminde başarı; performans, güvenlik ve operasyonel sürdürülebilirlik dengesini en doğru şekilde kurabilen teknoloji seçimiyle gelir. Geleneksel webin monolitik yapılarından, modern webin dağıtık mikroservislerine uzanan yelpazede endüstri standartlarını belirleyen popüler teknoloji yığınlarını derinlemesine inceleyelim.
 
-### 1. LAMP Stack: Web'in Klasik Devi
+### LAMP Stack: Web'in Klasik Devi
 **(Linux, Apache, MySQL, PHP/Python/Perl)**
 
 ![LAMP Stack Mimari Şeması](lamp_stack_diagram.webp)
@@ -140,7 +160,7 @@ Yirmi yılı aşkın süredir internetin çok büyük bir bölümünü (özellik
 * **Avantajları:** Kurulumu inanılmaz derecede basittir ve paylaşımlı (shared) hosting ortamlarında bile sorunsuz çalışır. İnternette karşılaşılan hemen hemen her sorunun çözümü mevcuttur.
 * **Dezavantajları ve Güvenlik:** Yoğun trafik altında (örneğin anlık binlerce ziyaretçi) dikey ölçeklenmesi (sunucu donanımını artırmak) zordur. Ayrıca eski veya güncellenmemiş PHP eklentileri, siber güvenlik açısından ciddi RCE (Uzaktan Kod Çalıştırma) veya SQL Injection zafiyetlerine kapı aralayabilir.
 
-### 2. MERN ve MEAN Stack: "Her Yerde JavaScript"
+### MERN ve MEAN Stack: "Her Yerde JavaScript"
 **(MongoDB, Express.js, React/Angular, Node.js)**
 
 ![MERN Stack Mimari Şeması](mern_stack_diagram.webp)
@@ -152,7 +172,7 @@ Web geliştirme dünyasında devrim yaratan bu yığınlar, hem sunucu (Node.js)
 * **Kullanım Senaryosu:** Şeması sürekli değişen, hızlı prototipleme gerektiren veya anlık veri akışı (mesajlaşma, canlı yayın) içeren modern uygulamalarda mükemmel performans gösterir.
 * **Güvenlik Perspektifi (Tedarik Zinciri Riskleri):** Node.js ekosisteminin en büyük handikabı devasa bağımlılık ağacıdır. Bir MERN projesinde arka planda yüzlerce NPM paketi iç içe çalışabilir. Bu devasa ekosistem, zararlı kod enjeksiyonları (supply chain attacks) için geniş bir yüzey oluşturduğundan, katı statik kod analizi ve sürekli bağımlılık denetimleri gerektirir.
 
-### 3. PERN Stack: Kurumsal Veri Bütünlüğü ve Güç
+### PERN Stack: Kurumsal Veri Bütünlüğü ve Güç
 **(PostgreSQL, Express.js, React, Node.js)**
 
 ![PERN Stack Mimari Şeması](pern_stack_diagram.webp)
@@ -164,7 +184,7 @@ MERN yığınının NoSQL esnekliği her senaryo için uygun değildir. Özellik
 * **Avantajları:** PostgreSQL'in sunduğu kusursuz ACID uyumluluğu sayesinde veri bütünlüğü garanti altına alınır. Bir sipariş tamamlanırken ödeme sisteminde hata çıkarsa, veritabanı işlemi anında geri alır (rollback) ve asimetrik veri oluşmasını engeller.
 * **Neden PERN?** Node.js'in asenkron ve hızlı yapısını, React'in dinamik arayüz gücünü kullanırken, arka planda bankacılık sistemleri kadar katı ve güvenli bir veri mimarisi kurmak isteyen modern projelerin, SaaS uygulamalarının ve e-ticaret altyapılarının bir numaralı tercihidir.
 
-### 4. JAMstack: Statik Üretimin ve Uç Bilişimin (Edge) Zirvesi
+### JAMstack: Statik Üretimin ve Uç Bilişimin (Edge) Zirvesi
 **(JavaScript, APIs, Markup)**
 
 ![JAMstack Mimari Şeması](jamstack_diagram.webp)
@@ -172,7 +192,7 @@ MERN yığınının NoSQL esnekliği her senaryo için uygun değildir. Özellik
 
 SSG (Statik Site Üreticileri) bölümünde bahsettiğimiz konseptin sistemleştirilmiş halidir. Sunucu ve veritabanı katmanını kullanıcıdan tamamen izole eder. Veritabanı ve arka uç mantığı mikroservislere veya Headless CMS'lere (örn. Strapi, Sanity) devredilir. Ön uç (Astro, Hugo, Next.js vb.) derleme aşamasında API'lerden veriyi çeker, HTML'i oluşturur ve bu statik dosyaları global CDN'lere dağıtır. Siber güvenlik açısından eşsizdir; çünkü ortada hacklenebilecek bir sunucu veya doğrudan erişilebilecek bir veritabanı yoktur. 
 
-### 5. .NET Stack: Kurumsal Dünyanın Yüksek Performanslı Gücü
+### NET Stack: Kurumsal Dünyanın Yüksek Performanslı Gücü
 **(C#, ASP.NET Core, Entity Framework, SQL Server / PostgreSQL)**
 
 ![Modern .NET Stack Mimari Şeması](dotnet_stack_diagram.webp)
@@ -187,7 +207,11 @@ Geçmişte sadece Windows sunuculara bağımlı ve kapalı kaynak olan eski .NET
 ### Büyük Veri ve Olay Güdümlü (Event-Driven) Ekosistemler
 Sistem büyüdükçe doğrudan API çağrıları darboğaz yaratır. Bu noktada arka plandaki servisleri ve logları ayırmak için asenkron mesajlaşma devreye girer. **Apache Kafka** kullanılarak tüm sistem olayları kalıcı bir akış (stream) olarak diske yazılır. Devasa güvenlik loglarının (SIEM) veya ürün analiz verilerinin işlenmesinde Kafka ve üstünde çalışan **Apache Spark** veri mühendisliğinin zirvesidir.
 
-## 5) DevSecOps ve Altyapı: Güvenlikten Dağıtıma Uçtan Uca Mimari
+---
+## ) DevSecOps ve Altyapı: Güvenlikten Dağıtıma Uçtan Uca Mimari
+
+
+
 
 Yazılan kodun kalitesi kadar, o kodun internete nasıl açıldığı ve korunacağı da (DevSecOps) modern mühendisliğin ayrılmaz bir parçasıdır. Uygulama güvenliği artık sadece "kod açık içeriyor mu" sorusundan ibaret değil. Güncel tabloda en kritik alan yazılım tedarik zinciri güvenliğidir. 
 
@@ -212,7 +236,11 @@ Statik veya hibrit sitelerin global dağıtımı ve korunması için Cloudflare 
 
 Uç Bilişim (Edge Computing) mimarisini temsil eden Cloudflare Workers, Web Application Firewall (WAF) kurallarını uygulamanıza ulaşmadan çok önce uygular. Açık kaynaklı bir altyapıda (örneğin Wazuh ile sistem loglarını izlediğiniz, Authentik ile kimlik doğruladığınız kendi bulutunuzda), Cloudflare Zero Trust araya girerek uygulamanızı şifreler, VPN ihtiyacını ortadan kaldırır ve yalnızca doğrulanan kullanıcıların arka uç sistemlerinize erişmesini sağlar.
 
-## 6) Sonuç: Başarı Kriterleri ve Mimari Anti-Pattern'ler
+---
+## ) Sonuç: Başarı Kriterleri ve Mimari Anti-Pattern'ler
+
+
+
 
 Web geliştirme artık basit bir arayüz tasarımından çıkarak; büyük veriyi yöneten, uçta render edilen ve tedarik zinciri zafiyetlerine karşı bağışıklık kazanan bütünsel bir mühendislik disiplinine dönüşmüştür. Başarıyı yakalamak için sadece doğru framework'ü seçmek yetmez; aynı zamanda yaygın hatalardan (anti-patterns) kaçınmak ve sürekli ölçüm yapmak gerekir.
 
@@ -228,6 +256,10 @@ Sonuç olarak "en iyi araç" diye bir şey yoktur; projenizin karakterine, ekip 
 ---
 
 ## Kaynakça ve İleri Okuma
+
+
+Bu bölüm detayları ve etkileri incelemektedir.
+
 
 ### A) Rendering ve Web Standartları
 - [Web.dev - Core Web Vitals](https://web.dev/articles/vitals)
@@ -264,3 +296,5 @@ Sonuç olarak "en iyi araç" diye bir şey yoktur; projenizin karakterine, ekip 
 - [Astro - Internationalization (i18n)](https://docs.astro.build/en/guides/internationalization/)
 - [Next.js Internationalization Routing](https://nextjs.org/docs/pages/building-your-application/routing/internationalization)
 - [Hugo i18n Functions](https://gohugo.io/functions/lang/)
+
+Verinizin mimarı olun, egemenliğinizi geri alın. Dinlediğiniz için teşekkürler!
