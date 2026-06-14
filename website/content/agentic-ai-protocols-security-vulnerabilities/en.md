@@ -13,6 +13,10 @@ Throughout AI history, two great paradigm shifts have occurred: the first was th
 
 The rise of agentic AI has given birth to a new protocol ecosystem: **MCP, A2A, ANP, UCP, AP2**. These protocols don't compete with each other; instead, like TCP/IP, HTTP, and TLS, they form a complementary layered stack. And within each of these layers, entirely new attack surfaces hide — surfaces where classical security tools go blind.
 
+<div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 1.5rem 0; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+  <iframe src="https://www.youtube.com/embed/QUtVmR_BFpQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
 ---
 
 ## Security and Architectural Schema of Agentic Protocols

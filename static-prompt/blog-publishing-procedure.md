@@ -1,6 +1,6 @@
 # Blog Yazısı Yayınlama Standartları ve Prosedürü (Blog Publishing Standards & Procedure)
 
-Bu doküman, yusufarbc blog sitesinde yeni yazı yazma, çeviri, görsel/ses optimizasyonu ve seslendirme süreçlerinde takip edilmesi gereken standartları belirler. Referans şablon olarak [escaping-office-ecosystem](file:///c:/Users/yusuf/Github/yusufarbc/website/content/escaping-office-ecosystem) yazısı baz alınmıştır.
+Bu doküman, yusufarbc blog sitesinde yeni yazı yazma, çeviri, görsel/ses optimizasyonu ve seslendirme süreçlerinde takip edilmesi gereken standartları belirler.
 
 ---
 
