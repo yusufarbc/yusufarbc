@@ -56,9 +56,8 @@ I am deeply passionate about creating autonomous, self-sufficient IT environment
 ---
 
 <div align="center">
-  <p><i>"Digital Sovereignty is not a luxury, it's a necessity."</i></p>
-    <p style="margin-top: 5px;">
-    📧 <a href="mailto:yusuf.talhaarabaci@owasp.org">yusuf.talhaarabaci@owasp.org</a>
+  <p>
+    🌐 <a href="https://yusufarbc.dev/en/">yusufarbc.dev</a> &nbsp;|&nbsp; 📧 <a href="mailto:yusuf.talhaarabaci@owasp.org">yusuf.talhaarabaci@owasp.org</a>
   </p>
 </div>
 
