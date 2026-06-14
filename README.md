@@ -2,17 +2,14 @@
 
   <h1 style="border-bottom: none;">Hi, I'm Yusuf Talha ARABACI 👋</h1>
   
-  <p align="center">
-    <b>Software & Security Engineer</b><br>
-    Digital Sovereignty • Cloud-Native • Open Source • Data Privacy • Next-Gen SOC • Endpoint Protection • Network Defense
-  </p>
+  <h3 style="border-bottom: none; margin-top: -10px; color: #38bdf8;">Software & Security Engineer</h3>
 
   <p align="center">
     <a href="https://yusufarbc.dev/en/">
       <img src="https://img.shields.io/badge/Portfolio-yusufarbc.dev-0f172a?style=for-the-badge&logo=google-chrome&logoColor=38bdf8" alt="Portfolio" />
     </a>
     <a href="https://www.linkedin.com/in/yusufarbc/">
-      <img src="https://custom-icon-badges.demolab.com/badge/LinkedIn-Connect-0f172a?style=for-the-badge&logo=linkedin&logoColor=38bdf8" alt="LinkedIn" />
+      <img src="https://custom-icon-badges.demolab.com/badge/LinkedIn-Connect-0f172a?style=for-the-badge&logo=linkedin-white&logoColor=38bdf8" alt="LinkedIn" />
     </a>
     <a href="https://infosec.exchange/@yusufarbc">
       <img src="https://img.shields.io/badge/Mastodon-InfoSec.Exchange-0f172a?style=for-the-badge&logo=mastodon&logoColor=38bdf8" alt="Mastodon" />
@@ -22,7 +19,7 @@
     </a>
   </p>
 
-  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&pause=1000&color=38bdf8&background=0f172a00&center=true&vCenter=true&width=650&lines=Software+%26+Security+Engineer;Digital+Sovereignty+%26+Cloud-Native;Next-Gen+SOC+%26+Network+Defense;Building+Autonomous+Sovereign+Systems" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&pause=1000&color=38bdf8&background=0f172a00&center=true&vCenter=true&width=500&lines=Digital+Sovereignty;Cloud-Native;Open+Source;Data+Privacy;Next-Gen+SOC;Endpoint+Protection;Network+Defense" alt="Typing SVG" />
 </div>
 
 ---
