@@ -4,6 +4,7 @@ date: '2026-05-25'
 description: "Kurumsal veri egemenliğini sağlamak amacıyla Nextcloud Hub, OnlyOffice ve Mailcow entegrasyonunun mimari analizi; M365 ve Google Workspace karşılaştırması ve performans optimizasyon rehberi."
 image: featured.webp
 type: posts
+audioFile: tr.mp3
 ---
 
 **M365 ve Google Workspace'e Karşı Açık Kaynaklı, Veri Egemen Kurumsal Altyapı ve Entegrasyon Rehberi**

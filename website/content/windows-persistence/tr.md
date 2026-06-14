@@ -4,6 +4,7 @@ date: 2024-11-18
 description: Bir saldırganın Initial Access sonrasında sisteme nasıl tutunduğunu (Persistence) ve ağda nasıl yayıldığını (Lateral Movement) inceleyen kapsamlı güvenlik rehberi. WMI, COM Hijacking, IFEO, Kerberos saldırıları, SOC tespiti ve sıkılaştırma adımlarını içerir.
 image: featured.webp
 type: posts
+audioFile: tr.mp3
 ---
 
 # Windows'ta Kalıcılık ve Yatay Hareket — Sızma Sonrası Tam Rehber

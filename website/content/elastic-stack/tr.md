@@ -4,6 +4,7 @@ date: 2024-11-05
 description: Debian ve Ubuntu sistemlerde Elasticsearch, Logstash, Kibana ve Beats (Elastic Stack) kurulumu, Elastic Agent/Fleet mimarisi, ES|QL sorgu dili, vektör veritabanı entegrasyonu ve MITRE ATT&CK SIEM kuralları hazırlama rehberi.
 image: featured.webp
 type: posts
+audioFile: tr.mp3
 ---
 
 # Elastic Stack (ELK Stack)

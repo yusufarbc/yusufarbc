@@ -4,6 +4,7 @@ date: '2025-03-01'
 description: "In this article, we will take a look at endpoint security solutions that are popularly used around the world. We will discuss these solutions with their features, pros and cons."
 image: featured.webp
 type: posts
+audioFile: en.mp3
 ---
 
 In this article, we will take a look at endpoint security solutions that are popularly used around the world. We will discuss these solutions with their features, pros and cons.

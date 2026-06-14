@@ -4,6 +4,7 @@ date: '2026-05-25'
 description: "An architectural analysis of integrating Nextcloud Hub, OnlyOffice, and Mailcow to achieve enterprise data sovereignty; compared with M365 and Google Workspace along with performance optimization guidelines."
 image: featured.webp
 type: posts
+audioFile: en.mp3
 ---
 
 **An Open-Source, Data-Sovereign Enterprise Infrastructure and Integration Guide Against M365 and Google Workspace**

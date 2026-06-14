@@ -4,6 +4,7 @@ date: '2023-01-15'
 description: "Hello, in this article I will talk about the Kali Linux distribution. I will explain what it does, what capabilities it has, and outline common pentesting tools."
 image: featured.webp
 type: posts
+audioFile: en.mp3
 ---
 
 

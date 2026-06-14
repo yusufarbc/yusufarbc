@@ -4,6 +4,7 @@ date: '2024-12-02'
 description: "Merhaba bu yazımda siber güvenlik alanında sk kullanılan dağıtımlardan ve lab ortamlarından bahsedeceğim."
 image: featured.webp
 type: posts
+audioFile: tr.mp3
 ---
 
 ---

@@ -4,6 +4,7 @@ date: 2026-06-01
 description: "Yazılım tedarik zinciri güvenliği çerçevesinde npm (Node Package Manager) ekosistemindeki mimari yapı, saldırı vektörleri, gerçek dünya vakaları ve kurumsal savunma stratejileri."
 image: featured.webp
 type: posts
+audioFile: tr.mp3
 ---
 
 # npm Tedarik Zinciri Güvenliği: Mimari Analiz, Tehdit Vektörleri ve Savunma Stratejileri

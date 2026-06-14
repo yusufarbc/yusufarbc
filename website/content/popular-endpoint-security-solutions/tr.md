@@ -4,6 +4,7 @@ date: '2025-03-01'
 description: "Bu yazımda, dünya genelinde popüler olarak kullanılan uç nokta güvenliği çözümlerine göz atacağız. Bu çözümleri özellikler, artıarı ve eksileri ile ele alacağız."
 image: featured.webp
 type: posts
+audioFile: tr.mp3
 ---
 
 Bu yazımda, dünya genelinde popüler olarak kullanılan uç nokta güvenliği çözümlerine göz atacağız. Bu çözümleri özellikler, artıları ve eksileri ile ele alacağız.

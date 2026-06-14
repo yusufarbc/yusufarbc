@@ -4,6 +4,7 @@ date: '2023-05-17'
 description: "Hello, in this article, I tried to explain Cyber Attacks on the OSI model. You can find many types of cyber attacks in this article."
 image: featured.webp
 type: posts
+audioFile: en.mp3
 ---
 
 ## Cyber Attacks in the OSI Model

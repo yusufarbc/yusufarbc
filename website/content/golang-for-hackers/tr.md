@@ -4,6 +4,7 @@ date: 2026-06-08
 description: "Siber güvenlik araştırmacıları için Go (Golang) programlama dili, hızlı ağ tarayıcıları, exploit geliştirme ve ofansif araç tasarımı."
 image: featured.webp
 type: posts
+audioFile: tr.mp3
 ---
 
 <style>

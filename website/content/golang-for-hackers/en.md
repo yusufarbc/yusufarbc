@@ -4,6 +4,7 @@ date: 2026-06-08
 description: "The Go (Golang) programming language for cybersecurity researchers, building fast network scanners, exploit development, and offensive tool design."
 image: featured.webp
 type: posts
+audioFile: en.mp3
 ---
 
 <style>

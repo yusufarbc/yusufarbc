@@ -4,6 +4,7 @@ date: 2024-11-05
 description: A comprehensive guide to installing, configuring, and managing Elasticsearch, Logstash, Kibana, and Beats (Elastic Stack) on Debian/Ubuntu, including Elastic Agent/Fleet architecture, ES|QL query language, Vector Database integration, and MITRE ATT&CK SIEM rules.
 image: featured.webp
 type: posts
+audioFile: en.mp3
 ---
 
 # Elastic Stack (ELK Stack)

@@ -4,6 +4,7 @@ date: '2025-06-01'
 description: "A comprehensive guide on detecting web application attacks (SQLi, XSS, LFI, RFI, Path Traversal) by analyzing Apache access logs manually and automatically using ModSecurity and Fail2Ban."
 image: featured.webp
 type: posts
+audioFile: en.mp3
 ---
 
 ## Attack Detection on Apache Web Server

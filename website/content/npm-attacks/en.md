@@ -4,6 +4,7 @@ date: 2026-06-01
 description: "A deep-dive into the npm (Node Package Manager) ecosystem's architecture, structural vulnerabilities, attack vectors, real-world incidents, and enterprise defensive strategies against software supply chain threats."
 image: featured.webp
 type: posts
+audioFile: en.mp3
 ---
 
 # npm Supply Chain Security: Architectural Analysis, Threat Vectors, and Enterprise Defense Strategies
