@@ -1,4 +1,4 @@
----
+﻿---
 title: "Eylemsel Yapay Zeka Protokolleri: Yeni Bir Saldırı Yüzeyi mi?"
 date: '2026-06-15'
 description: "Otonom yapay zeka eylemcilerinin yaygınlaşmasıyla birlikte MCP, A2A, ANP, UCP ve AP2 gibi protokoller yapay zeka mimarisinin omurgasını oluşturuyor. Bu yazıda Agentic AI kavramını, protokol ekosistemini katman katman ele alıyor ve güvenlik açıklarını kapsamlı biçimde inceliyoruz."
@@ -19,51 +19,57 @@ Yapay zeka eylemcilerinin hızla hayatımıza girmesiyle birlikte yeni bir proto
 Aşağıdaki mimari şema, bir otonom yapay zeka uygulamasında kullanıcı, istemci, yönlendirici ve sunucular arasındaki güven sınırlarını ve potansiyel saldırı vektörlerini göstermektedir:
 
 ```mermaid
-graph TD
-    User[Kullanıcı / Arayüz]
+graph LR
+    %% Stil Tanımları
+    classDef client fill:#eef2f7,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a;
+    classDef protocol fill:#f0fdf4,stroke:#22c55e,stroke-width:2px,color:#14532d;
+    classDef target fill:#fffbeb,stroke:#f59e0b,stroke-width:2px,color:#78350f;
+    classDef threat fill:#fef2f2,stroke:#ef4444,stroke-width:2px,color:#7f1d1d;
 
+    User[Kullanıcı] -->|Hedef Tanımlar| Client
+    Attacker[Saldırgan / Prompt Injection] -.->|Dolaylı Saldırı| Client
+
+    %% İstemci Alanı (Güvenli)
     subgraph ClientZone [İstemci Güvenli Alanı]
-        Client["AI İstemcisi (LLM / Eylemci Mantığı)"]
-        Router["MCP Router / A2A Orkestratörü"]
+        Client["AI İstemcisi & Orkestratör"]
     end
 
-    TB["GÜVEN SINIRI (TRUST BOUNDARY)"]
-
-    subgraph ProtocolLayer [Protokol Katmanı]
-        MCP["MCP — Araç/Veri Erişimi"]
-        A2A["A2A — Eylemci-Eylemci İletişimi"]
-        ANP["ANP — Keşif ve Kimlik"]
+    %% Protokol / Güven Sınırı Katmanı
+    subgraph TrustBoundary [GÜVEN SINIRI]
+        MCP["MCP <br>(Araç & Veri Erişimi)"]
+        A2A["A2A <br>(Eylemciler Arası)"]
+        ANP["ANP <br>(Keşif & Kimlik)"]
     end
 
+    %% Hedef Yürütme Katmanı
     subgraph TargetZone [Yürütme Alanı]
-        S_Env["MCP Sunucusu: Dosya Sistemi"]
-        S_Db["MCP Sunucusu: Veritabanı"]
-        S_Term["MCP Sunucusu: Terminal / SSH"]
-        RemoteAgent["Uzak Eylemci (A2A)"]
+        S_System["Yerel Sistemler <br>(Dosya, DB, Terminal)"]
+        RemoteAgent["Uzak Eylemciler"]
     end
 
-    Attacker["Zararlı Girdi / Prompt Injection"]
-    Confused["Confused Deputy (Yetki Devri) / Yetki Zinciri"]
+    %% Sınıf Atamaları
+    class Client client;
+    class MCP,A2A,ANP protocol;
+    class S_System,RemoteAgent target;
+    class Attacker threat;
 
-    User -->|Hedef Tanımlar| Client
-    Client -->|JSON-RPC 2.0| Router
-    Router --> TB
-    TB --> MCP --> S_Env
-    TB --> MCP --> S_Db
-    TB --> MCP --> S_Term
-    TB --> A2A --> RemoteAgent
-    ANP -..->|Keşif| Router
+    %% Bağlantılar
+    Client -->|JSON-RPC| MCP
+    Client -->|A2A Mesajı| A2A
+    ANP -.->|Keşif Yapılandırması| Client
 
-    Attacker -..->|IPI Saldırısı| Client
-    Client -..->|Zincirleme İstismar| Confused
-    Confused -..->|Yetki Aşımı| S_Term
+    MCP --> S_System
+    A2A --> RemoteAgent
+
+    %% Tehdit Akışı
+    Client -.->|Yetki Devri / Confused Deputy| S_System
 ```
 
 ---
 
 ## Agentic AI (Eylemsel Yapay Zeka) Nedir?
 
-### 1.1 Reaktif Modellerden Agentic AI'a Geçiş
+### Reaktif Modellerden Agentic AI'a Geçiş
 
 Geleneksel üretici yapay zeka (Generative AI) araçları sadece birer **asistan** gibidir: Siz soru sorarsınız, onlar da yanıtlar. Agentic AI (Eylemsel Yapay Zeka) ise adeta bir **iş ortağı**dır: Siz sadece nihai hedefi belirlersiniz; eylemci, bu hedefe ulaşmak için izleyeceği adımları kendisi planlar ve yürütür.
 
@@ -73,7 +79,7 @@ Bu büyük paradigma değişimi şu formülle özetlenebilir:
 
 Bu fark sadece işlevsel değildir; siber güvenlik açısından da son derece kritiktir. Reaktif bir model (örneğin standart bir chatbot) doğrudan sistemler üzerinde aksiyon alıp fiziksel bir hasara yol açamazken; otonom bir yapay zeka eylemcisi dosya silebilir, veritabanı sorgulayabilir, e-posta gönderebilir, ödeme işlemlerini tetikleyebilir ve hatta diğer eylemcileri göreve çağırabilir.
 
-### 1.2 Yapay Zeka Eylemcilerinin Temel Bileşenleri
+### Yapay Zeka Eylemcilerinin Temel Bileşenleri
 
 Modern otonom eylemciler temel olarak "algılama, muhakeme ve eylem" döngüsü üzerinden çalışır. Bu mimarinin temel yetenekleri ve beraberinde getirdiği güvenlik riskleri şunlardır:
 
@@ -84,7 +90,7 @@ Modern otonom eylemciler temel olarak "algılama, muhakeme ve eylem" döngüsü 
 | **Araç Kullanımı (Tool Use)** | API çağırma, yerel sistemlerde kod çalıştırma, tarayıcı yönetme vb. yetenekler. | Araçların kötüye kullanılması ve Uzaktan Kod Yürütme (RCE) riski. |
 | **Öz-Denetim (Self-Critique)** | Kendi ürettiği çıktıyı analiz edip hata varsa düzeltir. | Sonsuz döngü zafiyetleri ve manipüle edilebilir doğrulama mekanizmaları. |
 
-### 1.3 Eylemcilerin Muhakeme ve Düşünce Tasarımları
+### Eylemcilerin Muhakeme ve Düşünce Tasarımları
 
 Yapay zeka eylemcileri, karmaşık problemleri çözmek için çeşitli mantıksal örüntüler (reasoning patterns) kullanır:
 
@@ -93,7 +99,7 @@ Yapay zeka eylemcileri, karmaşık problemleri çözmek için çeşitli mantıks
 - **Reflection (Öz-Denetim / Geri Bildirim):** Eylemcinin kendi ürettiği yanıtları ve kararları doğruluk, kalite ve kısıtlamalar açısından değerlendirdiği katmandır. Hallüsinasyonları (uydurma yanıtları) azaltmak için sıklıkla kullanılır.
 - **Tree of Thoughts (ToT - Düşünce Ağacı):** Problemin çözümüne giden birden fazla olasılığı eş zamanlı olarak değerlendiren ve en optimum yolu seçen gelişmiş karar verme örüntüsüdür.
 
-### 1.4 Sektörde Popüler Olan Eylemci Çatıları (Frameworks)
+### Sektörde Popüler Olan Eylemci Çatıları (Frameworks)
 
 | Çatı | Odak Noktası | Tipik Kullanım Senaryosu |
 | :--- | :--- | :--- |
@@ -101,6 +107,93 @@ Yapay zeka eylemcileri, karmaşık problemleri çözmek için çeşitli mantıks
 | **AutoGen** | Çoklu eylemci (multi-agent) iletişimi | Birden fazla eylemcinin bir arada çalıştığı karmaşık problem çözme süreçleri |
 | **CrewAI** | Rol tabanlı ekip yönetimi | Belirli rollere sahip eylemcilerin hiyerarşik veya ardışık iş birliği |
 | **Smolagents** | Hafif ve kod tabanlı muhakeme | Düşük maliyetli, güvenli ve doğrudan kod yürüten hafif yapılar |
+
+---
+
+## RAG (Retrieval-Augmented Generation / Veri Geri Çağırmayla Artırılmış Üretim)
+
+**RAG (Retrieval-Augmented Generation / Veri Geri Çağırmayla Artırılmış Üretim)**, yapay zeka dünyasının en akıllıca çözümlerinden biridir. Büyük dil modellerinin (LLM) en büyük zayıflıklarını (güncel olmayan bilgi ve uydurma/hallüsinasyon eğilimlerini) kapatmak için geliştirilmiştir.
+
+Aşağıdaki şema, tipik bir RAG sisteminin uçtan uca veri hazırlama, arama ve yanıt üretme akışını göstermektedir:
+
+```mermaid
+graph TD
+    %% Stil Tanımları
+    classDef ingest fill:#f0fdf4,stroke:#22c55e,stroke-width:2px,color:#14532d;
+    classDef query fill:#eef2f7,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a;
+    classDef db fill:#fffbeb,stroke:#f59e0b,stroke-width:2px,color:#78350f;
+    classDef llm fill:#fafafa,stroke:#27272a,stroke-width:2px,color:#09090b;
+
+    %% Veri Hazırlama (Ingestion) Akışı
+    subgraph Ingestion [Veri Hazırlama ve Gömme]
+        Docs["Belgeler (PDF, DB, SSS)"] --> Chunk["Parçalara Bölme (Chunking)"]
+        Chunk --> Embed["Vektör Gömme (Embedding)"]
+    end
+    class Docs,Chunk,Embed ingest;
+
+    %% Depolama (Storage)
+    subgraph Storage [Veri Tabanı]
+        VectorDB[("Vektör Veritabanı <br>(Vector DB)")]
+    end
+    class VectorDB db;
+    Embed --> VectorDB
+
+    %% Sorgu ve Arama (Query & Retrieval) Akışı
+    subgraph Retrieval [Arama ve Geri Çağırma]
+        UserQuery["Kullanıcı Sorgusu"] --> QueryEmbed["Sorgu Gömme (Embedding)"]
+        QueryEmbed -->|Arama| VectorDB
+        VectorDB -->|En Yakın Parçalar| Context["Bağlam (Retrieve Context)"]
+    end
+    class UserQuery,QueryEmbed,Context query;
+
+    %% Üretim (Generation) Akışı
+    subgraph Generation [Yanıt Üretimi]
+        Context --> Prompt["Sorgu + Bağlam (Prompt)"]
+        UserQuery --> Prompt
+        Prompt --> LLM["Dil Modeli (LLM)"]
+        LLM --> Answer["Doğru ve Güvenilir Yanıt"]
+    end
+    class Prompt,LLM,Answer llm;
+```
+
+### RAG Nedir ve Ne Yapar?
+
+RAG, bir yapay zeka modelinin (örneğin ChatGPT veya Claude) bir soruya yanıt verirken **kendi hafızasına güvenmek yerine, dışarıdaki bir veri kaynağından (şirket dokümanları, PDF'ler, web sayfaları) ilgili bilgileri bulup getirerek** yanıt üretmesini sağlayan bir mimaridir.
+
+* **Ne yapar?** Bir LLM'e *"Git şu 500 sayfalık şirket kılavuzunu oku ve bana Ahmet'in yıllık izin hakkını söyle"* dediğinde, RAG mekanizması kılavuzdan ilgili sayfayı bulur, modele gösterir ve modelin doğru yanıtı yazmasını sağlar.
+
+### RAG'in Çalışma Mantığı Nedir?
+
+RAG temelde üç adımdan oluşur: **Gömme (Embedding), Geri Çağırma (Retrieval) ve Üretim (Generation).**
+
+1. **Verinin Hazırlanması:** Elindeki tüm dokümanlar (PDF, Word, Veritabanı) küçük parçalara (chunks) bölünür. Bu parçalar, bilgisayarın anlayacağı matematiksel vektörlere (sayı dizilerine) dönüştürülür ve bir **Vektör Veritabanına (Vector DB)** kaydedilir.
+2. **Arama ve Geri Çağırma (Retrieval):** Kullanıcı bir soru sorduğunda (örn: *"Şirket sağlık sigortası neleri kapsıyor?"*), sistem bu soruyu da vektöre çevirir. Vektör veritabanında bu soruya anlamca en yakın olan doküman parçalarını saniyeler içinde bulup çıkarır.
+3. **Zenginleştirilmiş Üretim (Generation):** Bulunan bu kaynak dokümanlar ve kullanıcının orijinal sorusu birleştirilerek LLM'e gönderilir: *"Soru bu, kaynaklar da bunlar. Sadece bu kaynaklara sadık kalarak soruyu cevapla."* Model de uydurmadan (halüsinasyon görmeden) net bir cevap yazar.
+
+### Son Yıllarda Neden Popülerliğini Kaybetti? (Bir Yanılgıyı Düzeltelim!)
+
+Aslında RAG **popülerliğini kaybetmedi**, aksine kurumsal dünyada şu an standart haline geldi. Ancak ilk dönemdeki **"büyülü ve kusursuz" algısını kaybetti**. Bunun sebepleri şunlardır:
+
+* **"Garbage in, garbage out" (Çöp girerse çöp çıkar) Sorunu:** Şirketlerin verileri dağınık ve kirliyse, RAG yanlış dokümanları getirdi ve sistem çuvalladı. Yani kurulumunun söylendiği kadar kolay olmadığı anlaşıldı.
+* **Uzun Bağlam Penceresi (Long Context Window):** Gemini ve GPT-4 gibi modeller artık tek seferde milyonlarca kelimeyi (yüzlerce kitabı) hafızasına alabiliyor. İnsanlar *"RAG'e ne gerek var, tüm PDF'i doğrudan modele yüklüyorum"* demeye başladı.
+* **Maliyet ve Gecikme:** Vektör veritabanı yönetmek, arama yapmak ve ardından modeli çalıştırmak hem zaman (gecikme) hem de sunucu maliyeti yaratıyor.
+
+### Nasıl Kullanılır?
+
+Bir RAG sistemi kurmak için genelde şu araçlar kullanılır:
+
+* **Orkestrasyon Araçları:** LangChain, LlamaIndex (Kod yazarak sistemi birbirine bağlamak için).
+* **Vektör Veritabanları:** Pinecone, Chroma, Milvus, Weaviate (Dokümanları saklamak için).
+* **LLM API'leri:** OpenAI (GPT), Anthropic (Claude) veya açık kaynaklı Llama 3.
+
+Basit bir akışla: Dokümanlarını yükler, LlamaIndex ile endeksler ve OpenAI API'si ile bağlayarak kendi verilerinle konuşan bir chatbot elde edersin.
+
+### Gelecek Vadediyor mu?
+
+**Kesinlikle evet, ancak evrilerek.** Sadece "doküman bulup getiren" basit RAG sistemleri yerini **Gelişmiş RAG (Advanced RAG)** ve **Eylemsel RAG (Agentic RAG)** sistemlerine bırakıyor.
+
+* **Neden geleceği parlak?** Modellerin bağlam pencereleri (hafızaları) ne kadar büyürse büyüsün, bir şirketin petabaytlarca verisini (tüm geçmiş mailler, faturalar, kod depoları) her seferinde modele sıfırdan yüklemek hem çok pahalıdır hem de modeli yavaşlatır.
+* **Gelecekte ne olacak?** Geleceğin yapay zeka ajanları, internette araştırma yaparken, bir veritabanını sorgularken veya senin kişisel asistanın olarak çalışırken arka planda her zaman RAG mekanizmasını kullanacak. RAG artık "havalı bir teknoloji" olmaktan çıkıp, motorun içindeki görünmez bir çark haline geliyor.
 
 ---
 
@@ -129,7 +222,7 @@ Bu protokoller genel olarak yatay ve dikey olmak üzere iki ana kategoride incel
 
 ## MCP — Eylemcilerin "USB-C" Standardı
 
-### 3.1 Neden Model Context Protocol (MCP)?
+### Neden Model Context Protocol (MCP)?
 
 Yapay zeka entegrasyonlarının ilk dönemlerinde, her bir model ve araç için özel entegrasyon kodları (glue code) yazılması gerekiyordu. Bu durum, $N$ sayıda model ile $M$ sayıda aracın bağlanması gerektiğinde $N \times M$ kadar ayrı entegrasyon köprüsü inşa etmek anlamına geliyordu. Anthropic tarafından geliştirilen ve daha sonra Linux Foundation'a devredilen **Model Context Protocol (MCP)**, bu karmaşayı standart bir JSON-RPC 2.0 arayüzü ile çözüyor.
 
@@ -139,7 +232,7 @@ Geleneksel REST API'lerinin yapay zeka eylemcileri için yetersiz kalmasının b
 - **Token İsrafı:** Geniş API dokümanlarının her sorguda modelin bağlam penceresine tekrar tekrar yüklenmesi ciddi maliyet oluşturur.
 - **Yetersiz Hata Yönetimi:** Klasik HTTP 404 veya 500 hata kodları, dil modelinin hatayı anlayıp otonom olarak düzeltmesini kolaylaştırmaz.
 
-### 3.2 MCP Mimarisi
+### MCP Mimarisi
 
 MCP, rollerin net bir şekilde ayrıldığı klasik bir istemci-sunucu (client-server) modelini esas alır:
 
@@ -155,7 +248,7 @@ MCP, rollerin net bir şekilde ayrıldığı klasik bir istemci-sunucu (client-s
 1. **stdio:** Aynı makine üzerinde çalışan süreçler arası (IPC) yerel iletişim. Son derece güvenli ve hızlıdır; yerel geliştirici araçları için idealdir.
 2. **SSE (Server-Sent Events) / HTTP:** Uzak sunucular ve SaaS çözümleri üzerinden çalışan web tabanlı entegrasyonlar için kullanılır.
 
-### 3.3 MCP'nin Üç Ana Bileşeni
+### MCP'nin Üç Ana Bileşeni
 
 | Bileşen | Kontrol Eden | Açıklama | Örnek |
 | :--- | :--- | :--- | :--- |
@@ -163,7 +256,7 @@ MCP, rollerin net bir şekilde ayrıldığı klasik bir istemci-sunucu (client-s
 | **Kaynaklar (Resources)** | Uygulama | Modele bağlam (context) sunan, salt okunur veri kaynakları | Kod dosyaları, veritabanı şemaları |
 | **İstemler (Prompts)** | Kullanıcı | Sık kullanılan görevleri otomatikleştiren hazır şablonlar | "Bu kod bloğunu analiz et" |
 
-### 3.4 Gelişmiş Özellikler ve Güvenlik Sınırları
+### Gelişmiş Özellikler ve Güvenlik Sınırları
 
 - **Kökler (Roots):** URI tabanlı bir çalışma alanı sınırlandırmasıdır. Örneğin, eylemcine `file:///home/user/project` kök dizini tanımlandığında, eylemci bu dizin dışındaki dosyalara erişemez. Bu, eylemcinin yetkilerini kısıtlamak için kritik bir güvenlik bariyeridir.
 - **Örnekleme (Sampling):** Sunucunun, host uygulamadan bir dil modeli çıktısı (inference) talep etmesini sağlayan akıştır. Bu tersine akış, sunucuya büyük bir esneklik kazandırsa da Palo Alto Networks Unit 42 araştırmalarında gösterildiği gibi **Konuşma Gaspı (Conversation Hijacking)** risklerine yol açabilir. Bu nedenle bu tür taleplerde her zaman **Human-in-the-Loop (İnsan Denetimi)** onay mekanizması kullanılmalıdır.
@@ -172,7 +265,7 @@ MCP, rollerin net bir şekilde ayrıldığı klasik bir istemci-sunucu (client-s
 
 ## A2A — Eylemciler Arası İletişim Standartları
 
-### 4.1 A2A Protokolü ve Yatay Koordinasyon
+### A2A Protokolü ve Yatay Koordinasyon
 
 MCP, tek bir eylemcinin kendi araçları ve verileriyle konuşmasını sağlarken; otonom eylemcilerin birbirine görev devretmesi, durum paylaşması veya ortak çalışması için bir standart sunmaz. İşte bu noktada devreye giren **Agent-to-Agent (A2A)** (Eylemci-Eylemci) protokolü, otonom sistemler arasındaki yatay koordinasyon boşluğunu doldurur.
 
@@ -180,7 +273,7 @@ Google öncülüğünde Nisan 2025'te başlatılan ve şu an Linux Foundation ç
 
 > **Basit Bir Benzetme:** MCP, eylemcinin kendi bilgisayarındaki klavye, fare ve uygulamaları kullanabilmesini sağlar. A2A ise bu eylemciye, internet üzerinden diğer uzman eylemcilerle iletişim kurup onlardan iş talep etmesine imkan tanır.
 
-### 4.2 A2A Çalışma Prensibi
+### A2A Çalışma Prensibi
 
 - **Eylemci Tanıtım Kartları (Agent Cards):** Her eylemci, `/.well-known/agent.json` adresinde JSON formatında bir kimlik kartı sunar. Bu kartta eylemcinin yetenekleri, desteklediği veri tipleri ve kabul ettiği kimlik doğrulama yöntemleri yer alır.
 - **Görev Yönetimi ve Durum Makinesi:** A2A, görevlerin takibini kolaylaştırmak için standart bir durum makinesi (state machine) tanımlar:
@@ -188,7 +281,7 @@ Google öncülüğünde Nisan 2025'te başlatılan ve şu an Linux Foundation ç
   Bu sayede uzun soluklu iş süreçleri adım adım takip edilebilir.
 - **İletişim Altyapısı:** A2A haberleşmesi HTTPS protokolü üzerinde çalışır; mesajlaşma için JSON-RPC 2.0 kullanılır ve uzun süren süreçlerin anlık durumu SSE (Server-Sent Events) ile iletilir.
 
-### 4.3 A2A Güvenlik Modeli
+### A2A Güvenlik Modeli
 
 A2A protokolünün temel güvenlik prensipleri şunlardır:
 - **Güçlü Kimlik Doğrulama:** OAuth 2.0, OpenID Connect ve API anahtarları gibi endüstri standartları desteklenir.
@@ -199,7 +292,7 @@ A2A protokolünün temel güvenlik prensipleri şunlardır:
 > [!WARNING]
 > A2A protokolü, eylemciler arası gerçekleşebilecek dolaylı komut enjeksiyonu (Prompt Injection) saldırılarını yapısal olarak engellemez. Geliştiriciler, dış eylemciden gelen girdileri her zaman güvensiz kabul etmeli ve filtrelemelidir.
 
-### 4.4 MCP ve A2A Karşılaştırması
+### MCP ve A2A Karşılaştırması
 
 ```
 MCP  → Dikey Erişim   → "Eylemci'den Araçlara/Verilere"
@@ -212,24 +305,24 @@ Modern otonom sistemler bu iki yapıyı birlikte kullanır: MCP eylemcileri loka
 
 ## ANP — Otonom Eylemci Keşif Altyapısı
 
-### 5.1 Eylemcilerin İnternette Birbirini Bulması
+### Eylemcilerin İnternette Birbirini Bulması
 
 MCP ve A2A protokolleri, eylemcilerin birbirinin iletişim bilgilerini önceden bildiğini varsayar. Ancak milyonlarca yapay zeka eylemcisinin internete dağıldığı açık bir ekosistemde, bir eylemcinin ihtiyaç duyduğu başka bir uzman eylemciyi nasıl bulacağı ve ona nasıl güveneceği büyük bir soru işaretidir. İşte bu otonom keşif problemini çözmek için **Agent Network Protocol (ANP)** (Eylemci Ağ Protokolü) geliştirilmektedir.
 
 Açık kaynaklı ve topluluk odaklı bir standart olan ANP, herhangi bir merkezi otoriteye bağımlı olmadan eylemcilerin birbirini bulmasını, kimliklerini doğrulamasını ve güvenle haberleşmesini sağlar. Bu yönüyle ANP, "Agentic Web" dünyasının HTTP'si olmaya adaydır.
 
-### 5.2 ANP'nin Üç Katmanlı Yapısı
+### ANP'nin Üç Katmanlı Yapısı
 
 1. **Kimlik ve Güvenli İletişim Katmanı:** W3C standartlarında **Decentralized Identifiers (DID - Merkeziyetsiz Tanımlayıcılar)** kullanarak eylemcilere doğrulanabilir kimlikler sağlar. Bu sayede hiçbir merkezi veritabanına ihtiyaç duymadan uçtan uca şifreli ve güvenli bağlantılar kurulabilir.
 2. **Meta-Protokol Katmanı:** Farklı protokol sürümleri kullanan eylemcilerin, ortak bir iletişim dilinde ve formatta (örneğin JSON-RPC sürümü) anlaşabilmesi için el sıkışma (handshake) süreçlerini yönetir.
 3. **Uygulama Protokolü Katmanı:** Eylemcilerin sunduğu servisleri ve yetenekleri tanımlar. **JSON-LD (Linked Data)** standartları kullanılarak anlamsal olarak zengin, sorgulanabilir bir keşif ortamı oluşturulur.
 
-### 5.3 Eylemci Keşif Yöntemleri (ADSP)
+### Eylemci Keşif Yöntemleri (ADSP)
 
 - **Aktif Keşif:** Eylemcilerin kendi web sitelerindeki `.well-known` adresleri üzerinden kamusal profillerini ve yeteneklerini yayınlaması.
 - **Pasif Keşif:** Eylemcilerin kendilerini küresel veya sektörel dizin sunucularına kaydederek bulunabilir hale gelmesi.
 
-### 5.4 Karşılaştırma Tablosu
+### Karşılaştırma Tablosu
 
 | Özellik | MCP | A2A | ANP |
 | :--- | :--- | :--- | :--- |
@@ -242,14 +335,14 @@ Açık kaynaklı ve topluluk odaklı bir standart olan ANP, herhangi bir merkezi
 
 ## UCP ve AP2 — Yapay Zeka Eylemcileri İçin Finans ve Ödeme Standartları
 
-### 6.1 Otonom Ticaret ve Ödeme Protokolleri
+### Otonom Ticaret ve Ödeme Protokolleri
 
 Yapay zeka eylemcilerinin kendi başlarına satın alma kararları verip ödeme yapmaya başlaması, klasik e-ticaret ve dolandırıcılık tespit (anti-fraud) sistemlerini kökten değiştiriyor. Bu finansal akışı güvenli hale getirmek için **UCP (Universal Commerce Protocol)** ve **AP2 (Agent Payments Protocol)** (Eylemci Ödemeleri Protokolü) standartları geliştirilmiştir.
 
 - **UCP (Evrensel Ticaret Protokolü):** Eylemciler için ortak bir ticaret dili sunar. Bir eylemcinin satıcıları bulmasını, ürün kataloglarını taramasını, sepet oluşturmasını ve ödeme adımına geçmesini sağlar. Bu sayede her satıcı için ayrı bir API entegrasyonu yapılmasına gerek kalmaz.
 - **AP2 (Eylemci Ödemeleri Protokolü):** Eylemcilerin yaptığı finansal işlemlerin yetkilendirme katmanını yönetir. Klasik "tıkla ve satın al" modelini, **kriptografik kurallara bağlı sözleşmeli ödemelere** dönüştürür.
 
-### 6.2 AP2'nin Kriptografik Yetki (Mandate) Modeli
+### AP2'nin Kriptografik Yetki (Mandate) Modeli
 
 AP2, işlemlerin güvenliğini sağlamak için W3C standartlarındaki Doğrulanabilir Kimlik Bilgileri (Verifiable Credentials) altyapısını kullanır ve süreci üç ana sözleşmeye böler:
 
@@ -259,7 +352,7 @@ AP2, işlemlerin güvenliğini sağlamak için W3C standartlarındaki Doğrulana
 
 **Çift İmza Doğrulaması:** Satıcılar, hem sepetin doğruluğunu hem de kullanıcının ödeme onayını kriptografik imzalar üzerinden doğrulayarak sahtekarlık risklerini sıfıra indirir.
 
-### 6.3 Eylemcili Ticaretteki Yeni Riskler
+### Eylemcili Ticaretteki Yeni Riskler
 
 - **Klasik Güvenlik Doğrulamalarının Geçersiz Kalması:** Biyometrik doğrulamalar, mouse hareket analizi veya SMS/OTP kodları otonom eylemci dünyasında çalışmaz; çünkü ekranın başında fiziksel bir insan yoktur.
 - **Sonsuz Sipariş Döngüleri (A2A Loops):** Fiyat arbitrajı yapmaya çalışan otonom bir eylemciyle, dinamik fiyatlandırma uygulayan satıcı bir eylemcinin mantıksal çakışması sonucunda saniyeler içinde binlerce kez sipariş verip iptal etme döngüleri yaşanabilir. Bu durum sistemleri kilitleyebilir.
@@ -269,13 +362,13 @@ AP2, işlemlerin güvenliğini sağlamak için W3C standartlarındaki Doğrulana
 
 ## MCP Güvenliği ve Zafiyet Analizi
 
-### 7.1 Tersine İletişim Akışı ve Riskleri
+### Tersine İletişim Akışı ve Riskleri
 
 Klasik web uygulamalarında istemci ne yapacağını tam olarak bilir ve sunucudan sadece o veriyi ister. Ancak MCP kullanan yapay zeka eylemcilerinde bu akış tersine döner: İstemci (dil modeli), sunucudan alabileceği araç listesini çeker fakat hangi aracı, ne zaman ve hangi parametrelerle çağıracağına **kendi mantık yürütme süreciyle** karar verir. Karar mekanizmasının tamamen dil modeline bırakılması, girdi filtrelemeyi son derece zorlaştırır.
 
 ![MCP Protokolü ve Tehdit Yüzeyi](media/protocol.png)
 
-### 7.2 Confused Deputy (Yetki Devri) ve Dolaylı Komut Enjeksiyonu (Indirect Prompt Injection)
+### Confused Deputy (Yetki Devri) ve Dolaylı Komut Enjeksiyonu (Indirect Prompt Injection)
 
 Dolaylı Komut Enjeksiyonu (IPI), eylemci güvenliğinin en zayıf halkasıdır. Eylemci, okuması için verdiğiniz bir e-postayı veya web sayfasını incelerken, o içeriğe gizlenmiş kötü niyetli bir talimatla karşılaşabilir:
 
@@ -283,7 +376,7 @@ Dolaylı Komut Enjeksiyonu (IPI), eylemci güvenliğinin en zayıf halkasıdır.
 
 Model bu veriyi "güvenilir bir kaynaktan gelen talimat" olarak algılayıp yerine getirdiğinde, **Confused Deputy (Yetki Devri)** zafiyeti tetiklenmiş olur: Saldırgan, eylemcinin sahip olduğu yüksek yetkileri kullanarak sisteme zarar verir.
 
-### 7.3 Öne Çıkan MCP Saldırı Senaryoları
+### Öne Çıkan MCP Saldırı Senaryoları
 
 <div class="render-cards">
   <div class="render-card render-card-ssr">
@@ -308,7 +401,7 @@ Model bu veriyi "güvenilir bir kaynaktan gelen talimat" olarak algılayıp yeri
   </div>
 </div>
 
-### 7.4 Güvenlik Riskinde "Ölümcül Üçlü" (Toxic Trio)
+### Güvenlik Riskinde "Ölümcül Üçlü" (Toxic Trio)
 
 Bir yapay zeka eylemcisi şu üç özelliğe aynı anda sahip olduğunda felaket senaryoları kaçınılmaz hale gelir: **Geniş Veri Erişimi + Güvenilmeyen İçerik Okuma + Harici Aksiyon Yeteneği (Terminal, Mail vb.)**. Bu üç faktörün birleşmesi, basit bir metin enjeksiyonunun gerçek dünya hasarına dönüşmesine neden olur.
 
@@ -316,7 +409,7 @@ Bir yapay zeka eylemcisi şu üç özelliğe aynı anda sahip olduğunda felaket
 
 ## Çoklu Eylemci (Multi-Agent) Güvenliği
 
-### 8.1 OWASP Agentic Security Initiative (ASI) Top 10
+### OWASP Agentic Security Initiative (ASI) Top 10
 
 OWASP, otonom yapay zeka sistemlerine yönelik yeni nesil tehditleri sınıflandırmak amacıyla **Agentic Security (ASI)** (Eylemsel Güvenlik) risk listesini yayınladı:
 
@@ -329,20 +422,31 @@ OWASP, otonom yapay zeka sistemlerine yönelik yeni nesil tehditleri sınıfland
 | **ASI05** | Kontrolsüz Kod Yürütme | Güvenli yalıtım (sandbox) alanı dışında veya içinde izin verilmeyen kodların çalıştırılması. |
 | **ASI06** | Bellek ve Bağlam Zehirlenmesi | RAG veritabanlarına veya bellek kayıtlarına yanlış veriler gömülerek eylemcinin uzun vadeli kararlarının sabote edilmesi. |
 
-### 8.2 Zincirleme Saldırı Riski (Cascading Failure)
+### Zincirleme Saldırı Riski (Cascading Failure)
 
 Çoklu eylemci sistemlerinde tek bir eylemcinin ele geçirilmesi, tüm sistemin domino taşı gibi çökmesine neden olabilir:
 
 ```mermaid
 graph LR
-    A["Dış Saldırgan"] -..->|IPI| B["Dış Eylemci (Düşük Ayrıcalık)"]
-    B -..->|Güven İstismarı| C["İç Eylemci (Yüksek Ayrıcalık)"]
+    %% Stil Tanımları
+    classDef threat fill:#fef2f2,stroke:#ef4444,stroke-width:2px,color:#7f1d1d;
+    classDef lowPriv fill:#fffbeb,stroke:#f59e0b,stroke-width:2px,color:#78350f;
+    classDef highPriv fill:#eef2f7,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a;
+    classDef critical fill:#fafafa,stroke:#27272a,stroke-width:2px,color:#09090b;
+
+    A["Dış Saldırgan"] -..->|IPI| B["Dış Eylemci <br>(Düşük Ayrıcalık)"]
+    B -..->|Güven İstismarı| C["İç Eylemci <br>(Yüksek Ayrıcalık)"]
     C -..->|Yetki Aşımı| D["Kritik Sistem"]
+
+    class A threat;
+    class B lowPriv;
+    class C highPriv;
+    class D critical;
 ```
 
 - **Eylemciler Arasındaki Örtük Güven:** Eylemciler birbirleriyle otonom olarak haberleşirken genellikle karşı tarafın kimliğini sorgulamazlar. Düşük yetkili bir dış eylemcinin kandırılması, onun iç ağdaki yüksek yetkili bir eylemciyle konuşarak sistem yöneticisi yetkilerini ele geçirmesine yol açabilir.
 
-### 8.3 Klasik LLM Güvenliği ile Eylemci Güvenliği Arasındaki Farklar
+### Klasik LLM Güvenliği ile Eylemci Güvenliği Arasındaki Farklar
 
 | Karşılaştırma Kriteri | Klasik LLM Güvenliği | Otonom Eylemci (Agentic) Güvenliği |
 | :--- | :--- | :--- |
@@ -358,7 +462,7 @@ graph LR
 
 ![Protokol Ekosistem Karşılaştırması](media/infografik.png)
 
-### 9.1 Benchmark Sonuçları ve Performans Verileri
+### Benchmark Sonuçları ve Performans Verileri
 
 Yapılan **MCPGAUGE** testleri, MCP entegrasyonunun büyük ticari modellerde ortalama **%9.5 oranında muhakeme performansı kaybına** yol açtığını gösteriyor. **LiveMCP-101** ve **MCP-Universe** platformlarındaki testlerde ise en iyi yapay zeka eylemcilerinin çok adımlı görevleri başarıyla tamamlama oranının **%60'ın altında** kaldığı görüldü.
 
@@ -370,14 +474,14 @@ Yapılan **MCPGAUGE** testleri, MCP entegrasyonunun büyük ticari modellerde or
 | Otonom Muhasebe | OpenAI Agent SDK | %60.0 | Görev Başarı Oranı |
 | Üç Boyutlu Tasarım | OpenAI Agent SDK | %36.84 | Görev Başarı Oranı |
 
-### 9.2 GitHub Ekosistemi İncelemesi
+### GitHub Ekosistemi İncelemesi
 
 Açık kaynaklı 22.722 GitHub deposu üzerinde yapılan tarama sonuçları şunları ortaya koyuyor:
 - "MCP" etiketi taşıyan depoların sadece **%5'i** gerçekten çalışan, işlevsel bir sunucu barındırıyor.
 - Bu sunucu kodlarının ortanca (median) boyutu sadece **920 satır**.
 - İncelenen 1.899 aktif MCP sunucusunun **%5.5'inde** dolaylı kod/araç zehirlenmesine açık zafiyetler bulunuyor.
 
-### 9.3 STAC (Sequenced Tool Attack Chaining) Saldırıları
+### STAC (Sequenced Tool Attack Chaining) Saldırıları
 
 Tek başına bakıldığında tamamen zararsız olan işlemlerin bir araya getirilerek kötüye kullanılmasıdır:
 
@@ -387,7 +491,7 @@ Tek başına bakıldığında tamamen zararsız olan işlemlerin bir araya getir
 
 Güvenlik filtreleri bu adımların hiçbirini tek başına engellemez fakat zincirleme olarak çalıştırıldıklarında veri sızıntısıyla sonuçlanırlar.
 
-### 9.4 Bağlam Şişmesi (Context Bloat) ve Çözümü
+### Bağlam Şişmesi (Context Bloat) ve Çözümü
 
 Eylemcilerin çalışırken tüm API dokümantasyonunu bağlam penceresine alması, token tüketimini **3 kattan 200 kata kadar** artırabilir.
 
@@ -404,13 +508,13 @@ Eylemcilerin çalışırken tüm API dokümantasyonunu bağlam penceresine almas
 
 ![Yapay Zeka Eylemci Mimarisi](media/model.png)
 
-### 10.1 Yazılım Mühendisliği ve DevOps
+### Yazılım Mühendisliği ve DevOps
 
 MCP, yazılım dünyasında "vibe coding" (sadece fikir belirterek kodlama) modelini hızlandırıyor. Geliştirici doğal dilde ne istediğini söyler; otonom eylemci kodu yazar, test eder ve hataları giderir.
 - **lsp-mcp:** Eylemci dünyası ile Dil Sunucu Protokolü (LSP) arasında köprü kurarak yapay zekanın kodu bir IDE gibi derinlemesine analiz etmesini sağlar.
 - **AWS / Kubernetes Sunucuları:** "Canlı ortamdaki Kubernetes pod sayısını 5'e çıkar" gibi komutları otonom olarak bulut sistemlerinde yürütür.
 
-### 10.2 Kurumsal İş Süreçleri
+### Kurumsal İş Süreçleri
 
 | İş Alanı | Eylemcinin Katkısı |
 | :--- | :--- |
@@ -419,7 +523,7 @@ MCP, yazılım dünyasında "vibe coding" (sadece fikir belirterek kodlama) mode
 | **Uyum ve Denetim** | Şirketin iç politikaları ile sistem loglarını (SIEM) bağlayarak uyumluluk açıklarını otonom olarak denetler. |
 | **Müşteri İlişkileri** | CRM, bilgi tabanı ve veritabanlarına aynı anda erişerek müşteri sorularına anında ve tutarlı yanıtlar verir. |
 
-### 10.3 Siber Güvenlikte Çift Yönlü Kullanım (Dual-Use)
+### Siber Güvenlikte Çift Yönlü Kullanım (Dual-Use)
 
 > [!IMPORTANT]
 > **GTG-1002 Olayı:** Devlet destekli siber gruplar, Claude Code gibi otonom kodlama asistanlarını "jailbreak" yöntemleriyle aşarak çok aşamalı ağ sızma operasyonlarında kullandılar. Bu olay, tarihe otonom yapay zeka eylemcilerinin doğrudan kullanıldığı ilk gelişmiş siber saldırı olarak geçti.
@@ -431,7 +535,7 @@ MCP, yazılım dünyasında "vibe coding" (sadece fikir belirterek kodlama) mode
 
 ## Savunma Stratejileri ve Defansif Mimari
 
-### 11.1 Çok Katmanlı Güvenlik Yaklaşımı
+### Çok Katmanlı Güvenlik Yaklaşımı
 
 Eylemcilerin güvenliğini sağlamak için tek bir güvenlik katmanına güvenmek yerine derinlemesine savunma (Defense-in-Depth) modeli uygulanmalıdır:
 
@@ -442,7 +546,7 @@ Eylemcilerin güvenliğini sağlamak için tek bir güvenlik katmanına güvenme
 | **Semantik WAF / LLM Guard** | Komut enjeksiyonu koruması | Llama Guard veya MCP-Guard gibi sistemlerle girdi/çıktı kontrolü |
 | **En Az Yetki Prensibi** | Minimum haklarla çalışma | Süre sınırlı ve sadece ilgili göreve özel API tokenları kullanılması |
 
-### 11.2 MCP-Guard Algılama Performansı
+### MCP-Guard Algılama Performansı
 
 | Saldırı Tipi | Tespit Başarısı | F1 Skoru | Analiz Gecikmesi |
 | :--- | :--- | :--- | :--- |
@@ -450,21 +554,21 @@ Eylemcilerin güvenliğini sağlamak için tek bir güvenlik katmanına güvenme
 | Shell Enjeksiyonu | **%94.32** | %94.45 | 0.05ms |
 | Araç Gölgeleme Saldırıları | **%86.83** | %88.30 | 0.20ms |
 
-### 11.3 Taint Tracking ve Bilgi Akışı Kontrolü (IFC)
+### Taint Tracking ve Bilgi Akışı Kontrolü (IFC)
 
 Dış dünyadan (web siteleri, gelen mailler vb.) gelen tüm veriler sistem tarafından **taint** (güvenilmez/lekeli) asıl olarak işaretlenmelidir. Bu güvenilmez verileri okuyan veya işleyen yapay zeka eylemcisinin, dosya silme ya da dışarıya veri gönderme gibi kritik eylemleri gerçekleştirmesi insan onayı (HITL) olmadan kesinlikle engellenir.
 
-### 11.4 RFC 8707 ile Yetki Aşımı Engelleme
+### RFC 8707 ile Yetki Aşımı Engelleme
 
 OAuth 2.1 standardındaki **Resource Indicators (RFC 8707)** kullanılarak, bir eylemcinin belirli bir sunucu için aldığı erişim jetonunu (token) başka bir sunucuda kullanması ve yetki sınırlarını aşması engellenir.
 
-### 11.5 Proaktif Güvenlik ve Otomatik Kırmızı Takım (Red Teaming)
+### Proaktif Güvenlik ve Otomatik Kırmızı Takım (Red Teaming)
 
 **AutoMalTool** testleri, saldırganların güvenlik önlemlerini nasıl aşabileceğini gösteriyor:
 - Üretilen zararlı MCP araçlarının, statik analiz araçlarına karşı **%86'nın üzerinde bir kaçınma oranına** ulaştığı görülmüştür.
 - Bu durum, sadece statik analizlere güvenmenin yeterli olmadığını, çalışma zamanı davranış analizlerinin de zorunlu olduğunu göstermektedir.
 
-### 11.6 Kurumsal Standartlar ve Uyum
+### Kurumsal Standartlar ve Uyum
 
 - **NIST AI RMF:** Yapay zeka risklerini analiz etme, ölçme ve yönetme çerçevesi.
 - **ISO/IEC 42001:** Yapay zeka sistemleri için uluslararası yönetim standardı.
