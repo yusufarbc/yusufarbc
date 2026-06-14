@@ -2,8 +2,7 @@
 title: System Programming Fundamentals
 date: 2022-12-13
 description: A comprehensive guide to system programming with C and x86 Assembly. Explore processor architecture, low-level memory management, and hardware integration through theory and practical laboratory exercises.
-draft: false
-featuredImage: featured.webp
+image: featured.webp
 type: posts
 ---
 
@@ -24,7 +23,7 @@ The microprocessor works like the central processing unit of a computer. It carr
 
 creates. As can be seen, the microprocessor represents a structure consisting of many parts.
 
-![a standard microprocessor architecture](https://cdn-images-1.medium.com/max/800/0*3j-qADs2-A3sg6Jz)
+![a standard microprocessor architecture](0_3j-qADs2-A3sg6Jz.gif)
 
 
 Microprocessors, called the heart and brain of the computer, are also called Central Processing Unit (CPU). The CPU generally performs the following operations:
@@ -41,7 +40,7 @@ If the architectural structure of a microprocessor is to be expressed in the sim
 
 While a program is executing on the processor, registers are needed inside the processor, right next to it.
 
-![loggers](https://cdn-images-1.medium.com/max/800/0*0vAWs-tWxevtC27o)
+![loggers](0_0vAWs-tWxevtC27o.webp)
 
 
 Registers have an important place in the microprocessor architecture and are one of the elements that directly determine the processor architecture. Loggers are primarily responsible for the maneuvering and temporary retention of data.
@@ -50,7 +49,7 @@ Registers have an important place in the microprocessor architecture and are one
 
 ALU is one of the most important units in the microprocessor where arithmetic and logic operations are performed. Input operations to this unit can be between the accumulator register and the data retrieved from memory, or between the accumulator and other registers.
 
-![ALU](https://cdn-images-1.medium.com/max/800/0*42MUW3fUda9LsAzC)
+![ALU](0_42MUW3fUda9LsAzC.webp)
 
 
 All operations taking place in the ALU are carried out simultaneously under the supervision of the Control Unit through control signals. The ALU receives the instruction and data (operand) and executes the order on this data.
@@ -59,7 +58,7 @@ All operations taking place in the ALU are carried out simultaneously under the 
 
 This part, which constitutes the third part of the Central Processing Unit, is responsible for the entire operation of the system and the timeliness of the transaction. The control unit produces the control signals necessary to retrieve the instruction code in the program section in memory, decode it, process it by the ALU, and retrieve the result and put it back into memory. All internal and external elements in the computer system are controlled by these control signals.
 
-![control unit](https://cdn-images-1.medium.com/max/800/0*x0gYM5EH_2agDzdP)
+![control unit](0_x0gYM5EH_2agDzdP.webp)
 
 
 In a simple microprocessor, this section performs three different functions:
@@ -74,7 +73,7 @@ The name x86 is the name given to processors based on the original Intel process
 
 Advanced microprocessors also have a register section, ALU and Control unit, basically like 8-bit microprocessors. However, as the architectural structure was later adapted to a multitasking environment, the sections within the processor needed to be explained in more detail in terms of functionality, as two logical main sections.
 
-![](https://cdn-images-1.medium.com/max/800/0*7PswzKiGH1B4pThm.png)
+![](0_7PswzKiGH1B4pThm.webp)
 
 X86-based processors can be examined in two main parts: Bus Adaptation Unit (BIU) and Execution Unit (EU). The BIU unit is responsible for feeding the EU unit with data, while the EU unit is responsible for executing the instructions.
 
@@ -108,7 +107,7 @@ Each segment register holds the starting address of a segment. Segments have spe
 
 BIU implements pipeline architecture using a mechanism known as order queuing. Received orders are kept in a queue that works with FIFO (first-in first-out) logic. When the EU unit is ready for the execution of the next order, it easily reads the next order from this queue in the BIU.
 
-![pipeline architecture](https://cdn-images-1.medium.com/max/800/0*5HINjHYeweY7DKic)
+![pipeline architecture](0_5HINjHYeweY7DKic.webp)
 
 
 **3. Order Pointer (IP):**
@@ -149,7 +148,7 @@ As we mentioned before, AriThe unit responsible for mechanical and logic operati
 
 EU has many general purpose registers. We can divide it into 3 categories: 32-bit, 16-bit and 8-bit. Non-32-bit processors do not support 32-bit registers starting with E (extended).
 
-![General Purpose Loggers](https://cdn-images-1.medium.com/max/800/0*pzTX1-e1-p0u4LXW)
+![General Purpose Loggers](0_pzTX1-e1-p0u4LXW.webp)
 
 
 16-bit registers are a combination of their 8-bit derivatives. For example; The AX register is a combination of the AH and AL registers. The first 8-bits of AX are kept by the AH register, and the last 8-bits are kept by the AL register. H-high means L-low. Likewise, this applies to registers BX, CX, DX.
@@ -183,7 +182,7 @@ DS and SI registers are used in address indexing operations. These index registe
 
 The flag register consists of a memory cell that reflects in the register bits what the result is at the end of an operation. The arithmetic operations performed affect the flags present in the X86 architecture. There are 9 flags in total, 6 status and 3 control.
 
-![Flag Register](https://cdn-images-1.medium.com/max/800/0*ROPSMM_4v9sB0bPB)
+![Flag Register](0_ROPSMM_4v9sB0bPB.webp)
 
 
 6 status flags:
@@ -213,7 +212,7 @@ A computer system basically consists of elements such as hardware and software. 
 
 In order for a human being to communicate with a machine, he must understand its language. For this purpose, the language of the system is created by serializing the logical 0 and 1 values, which are the basic elements in the operation of the system, in certain proportions and interpreting them according to a certain order.
 
-![](https://cdn-images-1.medium.com/max/800/0*ORZKX7SQuqXG8bU2.jpg)
+![](0_ORZKX7SQuqXG8bU2.webp)
 
 In microprocessor systems, the language consisting of logical 0s and 1s and written to perform a certain task is called machine language. The juxtaposition of these numbers that make up the machine language creates a sequence that is incomprehensible to the programmer.
 
@@ -236,7 +235,7 @@ INT 21H
 
 Each company also offers mnemonics related to the microprocessor it produces to the market. In the small program snippet above, each line handles a complete command. Each instruction corresponds to one two or 3 bytes of binary code.
 
-![assembler](https://cdn-images-1.medium.com/max/800/0*JB_H9rRUMsl76-cW.png)
+![assembler](0_JB_H9rRUMsl76-cW.webp)
 
 
 Every program written in assembly language needs to be translated into machine code while being stored or processed in memory. This conversion process is done manually or with the help of an assembler.
@@ -357,7 +356,7 @@ Let's look at the commonly used commands.
   - memory, immediate  
   - REG, immediate
 
-![Status of flags at the end of the CMP process](https://cdn-images-1.medium.com/max/800/1*cTFBzk0u0qRVO5sdUCTZtw.png)
+![Status of flags at the end of the CMP process](1_cTFBzk0u0qRVO5sdUCTZtw.webp)
 
 
 #### Program Control Commands
@@ -365,7 +364,7 @@ Let's look at the commonly used commands.
 * **JMP**  
   These are commands that allow us to make branches in the program flow. The JMP command is used for unconditional branching. It takes the part of the program flow to be branched as an operand with a label. There are many commands that allow us to do conditional branching.
 
-![JUMP INSTRUCTIONS](https://cdn-images-1.medium.com/max/800/0*rqiV9TW4c9eHSlii)
+![JUMP INSTRUCTIONS](0_rqiV9TW4c9eHSlii.webp)
 
 
 * **LOOP**  
@@ -480,7 +479,7 @@ Programming is giving a computer a set of instructions to execute. The computer 
 
 Programming languages are the tools we use to write instructions for computers to follow. Computers think in binary, that is, they perform operations with strings of 1s and 0s. Programming languages allow us to translate 1s and 0s into something humans can understand and write. A programming language consists of a set of symbols that act as a bridge that allows humans to translate our thoughts into instructions that computers can understand. Sentences consisting of these symbols are converted into machine code (binary code) through the compiler.
 
-![Compiler's Task](https://cdn-images-1.medium.com/max/800/1*JTvQeZhMZ--8BDeKaABmKw.jpeg)
+![Compiler's Task](1_JTvQeZhMZ--8BDeKaABmKw.webp)
 
 
 ### Classification of Programming Languages
@@ -498,7 +497,7 @@ can be given. So is there a single programming language that works for everythin
 
 We can classify programming languages according to their closeness to human language and machine language. In this image, the programming language gets closer to spoken language as you go up, and to machine language as you go down.
 
-![Classification of Programming Languages](https://cdn-images-1.medium.com/max/800/1*ezQx18YckMStFClue9R1qg.jpeg)
+![Classification of Programming Languages](1_ezQx18YckMStFClue9R1qg.webp)
 
 
 ### C Programming Language
@@ -726,7 +725,7 @@ A condition is written in parentheses, followed by a question mark. The section 
 
 A loop statement allows us to execute a statement or group of statements multiple times. Below is the general form of a loop statement in most programming languages:
 
-![](https://cdn-images-1.medium.com/max/800/0*tZ55-KwCaatkE92j)
+![](0_tZ55-KwCaatkE92j.webp)
 
 There are three types of loops in C language. These are for, while and do-while loops.
 
@@ -752,7 +751,7 @@ for(int i=1;i<=20;++i}{
 }
 ```
 
-![](https://cdn-images-1.medium.com/max/800/0*oZLlTX132HC6pdpw)
+![](0_oZLlTX132HC6pdpw.webp)
 
 #### while loop
 
@@ -801,7 +800,7 @@ do{
 }while(number!=0);
 ```
 
-![](https://cdn-images-1.medium.com/max/800/0*LIayjiTDiNr-k5rJ)
+![](0_LIayjiTDiNr-k5rJ.webp)
 
 #### Loop control statements
 
@@ -1028,7 +1027,7 @@ Above you see the definitions of different types of pointers. Two operators are 
 
 We can think of these two operators as opposites of each other. While the \* operator retrieves the memory address of the value, the & operator retrieves the value at the given address.
 
-![](https://cdn-images-1.medium.com/max/800/0*xhwIoaH5XH3vBH9k)
+![](0_xhwIoaH5XH3vBH9k.webp)
 
 referencing de-referencing
 
@@ -1036,7 +1035,7 @@ Let p be a variable that holds the memory address, that is, a pointer. \*p retur
 
 With this logic, we can create another pointer that references a pointer.
 
-![pointer to pointer](https://cdn-images-1.medium.com/max/800/0*fqOhphnMCqrtdVI2.jpg)
+![pointer to pointer](0_fqOhphnMCqrtdVI2.webp)
 
 
 Let's have a variable named var and assign the address of this variable to ptr. Afterwards, let's assign the address of ptr to another pointer named pptr.

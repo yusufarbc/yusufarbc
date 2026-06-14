@@ -2,9 +2,7 @@
 title: "SentinelOne Singularity Platform: AI-Powered XDR"
 date: '2025-11-18'
 description: "A master guide distilled from over 180 pages of technical analysis reports on the SentinelOne Singularity Platform; covering autonomous architecture, Storyline, Rollback, XDR, and Purple AI."
-featuredImage: featured.webp
-draft: false
-layout: single
+image: featured.webp
 type: posts
 audioFile: en.mp3
 ---
@@ -15,7 +13,7 @@ audioFile: en.mp3
   <p><strong>🎙️ Audio narration of the blog post:</strong> This article will be available to listen to from the player above once the audio file is ready. Continue reading for technical details.</p>
 </div>
 
-![](https://cdn-images-1.medium.com/max/800/1*jlrnbhcogdwACT7gXmQjYw.png)
+![](1_jlrnbhcogdwACT7gXmQjYw.webp)
 
 ## Quick Summary
 
@@ -31,7 +29,7 @@ In today's cybersecurity landscape, organizations face complex threats targeting
 
 The platform provides advanced endpoint protection (EPP), endpoint detection and response (EDR), extended detection and response (XDR), and identity-based threat detection and response (ITDR) capabilities in a unified architecture.
 
-![](https://cdn-images-1.medium.com/max/800/1*v_dw2Vr5-UjnAo2d02KXBg.png)
+![](1_v_dw2Vr5-UjnAo2d02KXBg.webp)
 
 ---
 
@@ -45,12 +43,12 @@ The SentinelOne agent is optimized to ensure zero impact on endpoint performance
 *   **Memory Usage:** ~20MB
 *   **Disk Space:** ~200MB
 
-![](https://cdn-images-1.medium.com/max/800/1*_hbumiRrnimNfSolItu4dg.png)
+![](1__hbumiRrnimNfSolItu4dg.webp)
 
 ### 1.2. Autonomous Decision Mechanism
 The most critical architectural feature is the local execution of detection and response logic. The agent can block threats using built-in AI models even without a cloud connection (offline). This feature is vital for isolated networks or OT/ICS systems.
 
-![](https://cdn-images-1.medium.com/max/800/1*cRqq7JFeY3W2TDgR9BznmA.png)
+![](1_cRqq7JFeY3W2TDgR9BznmA.webp)
 
 ---
 
@@ -64,7 +62,7 @@ Triggers as soon as a file is written to disk (On-Write). It analyzes the file s
 ### Phase 2: On-Execution - Behavioral AI
 Triggers as soon as a file is executed. It monitors API calls, network connections, and system changes. It specifically detects **fileless attacks**, **Living off the Land (LotL)** techniques, and **zero-day (0-day)** exploits.
 
-![](https://cdn-images-1.medium.com/max/800/1*Ti63wzo9C4Vci3ZJbJ242A.png)
+![](1_Ti63wzo9C4Vci3ZJbJ242A.webp)
 
 <div class="render-cards">
 <article class="render-card render-card-static reveal-on-scroll">
@@ -138,7 +136,7 @@ SentinelOne offers a unique capability to return systems to a clean state follow
 *   **One-Click Rollback:** Specifically designed for ransomware attacks. Using the Windows **Volume Shadow Copy Service (VSS)** infrastructure, it returns encrypted files to their clean, pre-attack state with a single click.
 *   **Tamper Protection:** To prevent advanced attackers from disabling the EDR agent, agent services are password-protected and resistant to kernel-level interference.
 
-![](https://cdn-images-1.medium.com/max/800/1*hFQ_jeDEtsU3QEl9pSJbGA.png)
+![](1_hFQ_jeDEtsU3QEl9pSJbGA.webp)
 
 ---
 
@@ -156,7 +154,7 @@ FROM ProcessActivities
 WHERE LOWER(CommandLine) LIKE '%net user%' AND Timestamp > NOW()-180d;
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*pMu0HoEd4BRugo45sjXNmA.png)
+![](1_pMu0HoEd4BRugo45sjXNmA.webp)
 
 ---
 
@@ -165,7 +163,7 @@ WHERE LOWER(CommandLine) LIKE '%net user%' AND Timestamp > NOW()-180d;
 *   **Purple AI:** A generative AI (GenAI) powered security assistant. It responds to natural language queries ("Summarize suspicious PowerShell activity in the last 24 hours") and performs automatic triage.
 *   **STAR (Storyline Active Response) Rules:** Allows analysts to turn custom queries into autonomous detectors. Actions such as automatic device isolation can be assigned when a specific rule is triggered.
 
-![](https://cdn-images-1.medium.com/max/800/1*QnY2c-2-jEBISzxsEEgOAA.png)
+![](1_QnY2c-2-jEBISzxsEEgOAA.webp)
 
 ---
 
@@ -185,7 +183,7 @@ SentinelOne offers five main packages tailored to corporate needs:
 | **Purple AI** | Optional | Optional | Optional | Yes | Yes |
 | **Data Retention (DV)** | 14 Days | 14 Days | 14 Days | 90 Days | 90-365+ Days |
 
-![](https://cdn-images-1.medium.com/max/800/1*-_aMQrqV4B2SeCtfuWtLYA.png)
+![](1_-_aMQrqV4B2SeCtfuWtLYA.webp)
 
 ---
 
@@ -195,13 +193,13 @@ SentinelOne offers five main packages tailored to corporate needs:
 *   **Automation:** Fully automated deployment is supported through tools like Microsoft Intune, SCCM, and GPO.
 *   **Singularity Marketplace:** Offers one-click integration with 3rd-party solutions like ServiceNow, Splunk, Okta, and QRadar via over 340 API functions.
 
-![](https://cdn-images-1.medium.com/max/800/1*iLFyX0FNTl5lkXBZsij6Aw.png)
+![](1_iLFyX0FNTl5lkXBZsij6Aw.webp)
 
 ---
 
 ## Conclusion: Strategic Value
 
-![](https://cdn-images-1.medium.com/max/800/1*ngCUgm4Pkesl_gBvk_Sdlg.png)
+![](1_ngCUgm4Pkesl_gBvk_Sdlg.webp)
 
 In the **MITRE ATT&CK 2024** evaluations, SentinelOne proved its technological leadership with a 100% detection rate and zero latency. By producing **88% less noise (alarms)** than the industry average, it enables SOC teams to focus on actual threats.
 

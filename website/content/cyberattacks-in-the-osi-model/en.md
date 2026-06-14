@@ -2,9 +2,7 @@
 title: "Cyber ​​Attacks in the OSI Model"
 date: '2023-05-17'
 description: "Hello, in this article, I tried to explain Cyber Attacks on the OSI model. You can find many types of cyber attacks in this article."
-featuredImage: featured.webp
-draft: false
-layout: single
+image: featured.webp
 type: posts
 ---
 
@@ -16,7 +14,7 @@ Hello, in this article, I tried to explain Cyber Attacks on the OSI model. You c
 
 The OSI (Open Systems Interconnection) model is a reference model used to describe the design and operation of computer networks. It was developed by ISO (International Organization for Standardization) and consists of 7 layers. Each layer performs a specific function and manages communication in a network.
 
-![](https://cdn-images-1.medium.com/max/800/1*NO93ucFJGdZnGEbqFZ9LWg.jpeg)
+![](1_NO93ucFJGdZnGEbqFZ9LWg.webp)
 
 OSI MODEL
 
@@ -59,7 +57,7 @@ This layer is the layer where physical devices are located. At this layer, attac
 
 Sniffing attacks are malicious activities carried out to monitor or capture data transmission on a network. Attackers capture data packets on the network and use them to steal or monitor sensitive information (usernames, passwords, credit card information, etc.).
 
-![](https://cdn-images-1.medium.com/max/800/0*QX0yUeqWbkWlrcSM.png)
+![](0_QX0yUeqWbkWlrcSM.webp)
 
 sniffing
 
@@ -85,7 +83,7 @@ In the simplest terms, a MAC address identifies the intended recipient of an IP 
 
 Spoofing or poisoning is a type of impersonation attack that takes advantage of a trusted relationship between two systems.
 
-![](https://cdn-images-1.medium.com/max/800/1*dIW8GRH3OsHnLOP8WJixGA.png)
+![](1_dIW8GRH3OsHnLOP8WJixGA.webp)
 
 Spoofing
 
@@ -117,7 +115,7 @@ Attackers can intercept or alter communications between two devices to steal inf
 
 A MitM attack occurs when an attacker takes control of a device without a user's knowledge. With this level of access, an attacker can intercept, manipulate, and transfer false information between the sender and the intended destination.
 
-![](https://cdn-images-1.medium.com/max/800/0*YhglJjz3Et2gKfDW)
+![](0_YhglJjz3Et2gKfDW.webp)
 
 MITM
 
@@ -129,7 +127,7 @@ ICMP was developed to carry diagnostic messages and report error conditions when
 
 Attackers use ICMP for reconnaissance and scanning purposes. In this way, they can conduct information gathering activities to map a network topology, discover which hosts are active (accessible), identify the host operating system (OS fingerprinting), and determine the status of a firewall.
 
-![](https://cdn-images-1.medium.com/max/800/1*OaMHg5vMHFfRn5qPET_l7g.png)
+![](1_OaMHg5vMHFfRn5qPET_l7g.webp)
 
 ICMP Flood
 
@@ -175,7 +173,7 @@ At this layer, network applications use TCP or UDP ports. Attackers perform port
 
 TCP SYN Flood attack exploits the TCP three-way handshake.
 
-![](https://cdn-images-1.medium.com/max/800/0*zoyXVMkpin-5lPBM)
+![](0_zoyXVMkpin-5lPBM.webp)
 
 TCP SYN Flood Attack
 
@@ -185,7 +183,7 @@ The figure shows an attacker repeatedly sending TCP SYN session request packets 
 
 A TCP reset attack can be used to terminate TCP communication between two hosts.
 
-![](https://cdn-images-1.medium.com/max/800/0*jXqki2wzff98grNF)
+![](0_jXqki2wzff98grNF.webp)
 
 TCP Reset Attack
 
@@ -195,7 +193,7 @@ A TCP connection terminates when it receives the RST bit. This is an immediate w
 
 You are more likely to see a UDP flood attack than a TCP SYN flood.
 
-![](https://cdn-images-1.medium.com/max/800/0*RNfQT2Tp6YfE_xx9)
+![](0_RNfQT2Tp6YfE_xx9.webp)
 
 In a UDP flood attack, all resources on the network are consumed. The attacker should use a tool such as UDP Unicorn or Low Orbit Ion Cannon. These tools send UDP packets, usually from a rogue host, to a server on the subnet. The program will scan all known ports and try to find closed ports. This causes the server to respond with an ICMP port unreachable message. Since there are many closed ports on the server, it creates a lot of traffic on this segment, which uses most of the bandwidth. The result is very similar to a DoS attack.
 
@@ -207,7 +205,7 @@ In this layer, session operations of network applications are carried out. Attac
 
 Session Hijacking is an attack in which a user session is hijacked by an attacker. A session begins when you log in to a service, such as your banking app, and ends when you log out. The attack relies on the attacker knowing your session cookie, which is why it is also called cookie hijacking or cookie bypassing.
 
-![](https://cdn-images-1.medium.com/max/800/0*uo_0InuvSBOItucg)
+![](0_uo_0InuvSBOItucg.webp)
 
 Session Hijacking
 
@@ -229,7 +227,7 @@ Social engineering attacks may include tactics such as gaining people's trust, m
 
 Spam, also known as junk mail, is simply unsolicited email. In most cases it is a method of advertising. However, many spams are sent in bulk by computers infected with viruses or worms and often contain malicious links, malicious software, or deceptive content intended to trick recipients into revealing sensitive information such as social security numbers or bank account information.
 
-![](https://cdn-images-1.medium.com/max/800/0*hopIofzMsECiLsi)
+![](0_hopIofzMsECiLsi)
 
 spam
 
@@ -246,7 +244,7 @@ spam mSome types of malware that may come with ailler:
 
 Phishing occurs when a user is contacted via email, instant message — or otherwise — by someone pretending to be a legitimate person or organization. The goal is to trick the recipient into installing malware on their device or sharing personal information, such as login credentials or financial information.
 
-![](https://cdn-images-1.medium.com/max/800/0*u9pddjEJBTX2V0Fb)
+![](0_u9pddjEJBTX2V0Fb.webp)
 
 Phishing
 
@@ -267,7 +265,7 @@ This layer contains applications that provide end users access to the network. V
 
 Remote code execution allows a cybercriminal to exploit application vulnerabilities to execute any command on the target device with the privileges of the user running the application.
 
-![](https://cdn-images-1.medium.com/max/800/0*zPLdjZJ62BP1lrMb)
+![](0_zPLdjZJ62BP1lrMb.webp)
 
 RCE
 
@@ -279,7 +277,7 @@ These vulnerabilities generally occur in services that are not updated. Systems 
 
 Most modern websites use a database, such as a Structured Query Language (SQL) or Extensible Markup Language (XML) database, to store and manage data. Injection attacks attempt to exploit weaknesses in these databases.
 
-![](https://cdn-images-1.medium.com/max/800/0*OyICM-80RxDiRx2i)
+![](0_OyICM-80RxDiRx2i.webp)
 
 Code Injeciton
 
@@ -295,7 +293,7 @@ There are several types of code injection attacks:
 
 File Inclusion Attack is a vulnerability that occurs when a web application includes external files or resources without validating or properly sanitizing user-supplied input. This type of attack aims to allow attackers to gain unauthorized access to files on the web application's server and exploit the target system.
 
-![](https://cdn-images-1.medium.com/max/800/0*6vHEhYTL9O5inMoO)
+![](0_6vHEhYTL9O5inMoO.webp)
 
 File Inclusion
 
@@ -310,7 +308,7 @@ To protect against such attacks, it is important for web applications to validat
 
 XSS attacks occur when user-supplied data is not adequately validated or sanitized. Attackers exploit the vulnerability of the web application and inject malicious scripts run in the browser into the target user's browser.
 
-![](https://cdn-images-1.medium.com/max/800/0*BWSb8CfeOu6knzd-)
+![](0_BWSb8CfeOu6knzd-.webp)
 
 XSS attacks are typically carried out by the attacker embedding his own script code into the web application. These scripts run in the target user's browser and can perform any actions desired by the attacker. Attackers can steal users' login information, serve malicious content to users, redirect users or change page content through XSS attacks.
 
@@ -326,7 +324,7 @@ To protect against XSS attacks, it is important for web applications to validate
 
 CSRF describes malicious use of a website where unauthorized commands are sent from a user's browser to a trusted web application.
 
-![](https://cdn-images-1.medium.com/max/800/0*bu98J5uQcNq-jogw)
+![](0_bu98J5uQcNq-jogw.webp)
 
 CSRF
 
@@ -336,7 +334,7 @@ A malicious website can deliver such commands via specially crafted image tags, 
 
 It is a vulnerability that exploits the ability of requests made on the server-side of a web application to affect resources targeted on the client-side. SSRF attacks can occur when the web application's security controls are not adequately maintained.
 
-![](https://cdn-images-1.medium.com/max/800/0*94ELlkDPF_7kUzpI)
+![](0_94ELlkDPF_7kUzpI.webp)
 
 SSRF
 
@@ -346,7 +344,7 @@ In this type of attack, attackers can use the targeted web application to manipu
 
 Directory traversal occurs when an attacker is able to read files on the web server outside of the website's directory.
 
-![](https://cdn-images-1.medium.com/max/800/0*pmfNvyxdCo5cBq1k)
+![](0_pmfNvyxdCo5cBq1k.webp)
 
 Directory Traversal
 
@@ -356,7 +354,7 @@ The attacker can then use this information to download server configuration file
 
 Buffers are memory areas allocated to an application. A buffer overflow occurs when data is written beyond the boundaries of a buffer. The application can access memory reserved for other processes by manipulating data beyond buffer boundaries. This may lead to a system crash, data compromise, or escalation of privileges.
 
-![](https://cdn-images-1.medium.com/max/800/1*NQ9MzPUcJmS-Ku2GjvYBsA.png)
+![](1_NQ9MzPUcJmS-Ku2GjvYBsA.webp)
 
 Buffer Overflow
 
@@ -366,7 +364,7 @@ These memory flaws can also give attackers complete control over the target's de
 
 A race condition attack, also known as a time of control (TOC) or time of use (TOU) attack, occurs when a computer system designed to perform tasks in a specific order is forced to perform two or more operations simultaneously.
 
-![](https://cdn-images-1.medium.com/max/800/0*iwW58zmHvfpRykTf)
+![](0_iwW58zmHvfpRykTf.webp)
 
 Race Condition
 

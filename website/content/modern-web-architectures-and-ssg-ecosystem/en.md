@@ -1,9 +1,7 @@
 ---
 date: "2026-05-11"
 description: "A comprehensive architectural guide exploring the evolution of the web ecosystem, from modern rendering strategies (CSR, SSR, SSG, ISR) and popular tech stacks (MERN, PERN, .NET) to a deep-dive into DevSecOps and supply chain security."
-draft: false
-featuredImage: ssg-cms.webp
-layout: single
+image: ssg-cms.webp
 title: "The Anatomy of Modern Web Architecture"
 tags: ["Architecture", "DevSecOps", "SSG", "Jamstack", "Astro", "Hugo", "Next.js", "MERN", "PERN", ".NET", "Cloudflare"]
 type: posts

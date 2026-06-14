@@ -2,9 +2,7 @@
 title: "Kali Linux’a Giriş"
 date: '2023-01-15'
 description: "Merhaba, bu yazımda Kali Linux dağıtımından bahsedeceğim. Ne işe yaradığını, ne gibi yetenekleri olduğunu ve sızma testlerinde kullanılan araçları anlatacağım."
-featuredImage: featured.webp
-draft: false
-layout: single
+image: featured.webp
 type: posts
 ---
 
@@ -93,7 +91,7 @@ Sızma testi alanında, Kali Linux çok kullanılan bir dağıtımdır. Şimdi, 
 
 Kali Linux masaüstü ortamındayken, logosunun bulunduğu kısma tıklarsanız genel menüsünün açıldığını göreceksiniz. Burada, ayarlar kısmından çeşitli özelleştirmeler yapabilirsiniz. Daha aşağıya baktığınızda çeşitli bölümlerle karşılacaksınız.
 
-![](https://cdn-images-1.medium.com/max/800/1*oRREtWWP_05h_uj2e0gZvQ.png)
+![](1_oRREtWWP_05h_uj2e0gZvQ.webp)
 
 Kali Linux Menu
 

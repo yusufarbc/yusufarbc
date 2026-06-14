@@ -2,9 +2,7 @@
 title: "Popüler EDR/XDR Çözümleri"
 date: '2025-03-01'
 description: "Bu yazımda, dünya genelinde popüler olarak kullanılan uç nokta güvenliği çözümlerine göz atacağız. Bu çözümleri özellikler, artıarı ve eksileri ile ele alacağız."
-featuredImage: "https://cdn-images-1.medium.com/max/800/1*BXOc1yXaiBaFvxECQ6ekEg.png"
-draft: false
-layout: single
+image: featured.webp
 type: posts
 ---
 
@@ -33,7 +31,7 @@ CrowdStrike Falcon, bulut tabanlı bir uç nokta algılama ve yanıt (EDR) platf
 *   **Artıları:** Son derece hafif ajan mimarisi, yapay zeka tabanlı Charlotte AI doğal dil desteği, zengin tehdit istihbaratı ve pazar liderliği.
 *   **Eksileri:** Modüler lisanslama yapısı nedeniyle toplam sahip olma maliyetinin (TCO) yüksek olması; zafiyet tespiti yapsa da doğrudan fiziksel yama dağıtım yeteneğinin bulunmaması.
 
-![](https://cdn-images-1.medium.com/max/800/1*_kgTgnMeuxdWZpaqUIRQuA.png)
+![](1__kgTgnMeuxdWZpaqUIRQuA.webp)
 
 <https://www.crowdstrike.com/cybersecurity-101/what-is-xdr/>
 
@@ -46,7 +44,7 @@ Platformun en belirgin özelliği olan "Malop" (Malicious Operation - Kötü Ama
 *   **Artıları:** Saldırı hikayesini tek ekranda sunan başarılı "Malop" arayüzü, şirket içi (on-premise) kurulum esnekliği.
 *   **Eksileri:** Gelişmiş XDR özelliklerinin buluta bağımlı olması, rakiplerine kıyasla daha dar bir entegrasyon ekosistemi.
 
-![](https://cdn-images-1.medium.com/max/800/1*aAxP6F9J1jCk4t9qtoMjtw.png)
+![](1_aAxP6F9J1jCk4t9qtoMjtw.webp)
 
 <https://www.cybereason.com/platform>
 
@@ -59,7 +57,7 @@ Gelişmiş algoritmalar ve yapay zeka tabanlı analizler kullanarak karmaşık s
 *   **Artıları:** Windows işletim sistemine gömülü olması (ajan kurulumu gerektirmez), Microsoft 365 ekosistemiyle kusursuz entegrasyon.
 *   **Eksileri:** Windows dışı (Linux/macOS) işletim sistemlerinde yönetim zorluğu, en yüksek güvenlik özelliklerinin yalnızca pahalı lisans paketlerinde (E5/G5) sunulması.
 
-![](https://cdn-images-1.medium.com/max/800/1*V8WCU_-sfrU6AN97IFk8mQ.png)
+![](1_V8WCU_-sfrU6AN97IFk8mQ.webp)
 
 <https://www.infusedinnovations.com/blog/secure-intelligent-workplace/budgeting-for-microsoft-defender-xdr-and-zero-trust-security>
 
@@ -72,7 +70,7 @@ Palo Alto Cortex XDR, ağ, uç nokta ve bulut verilerini birleştirerek siber te
 *   **Artıları:** Ağ ve uç nokta telemetrisi arasında sektördeki en güçlü korelasyon yeteneği, NGFW entegrasyonuyla otomatik ağ seviyesi izolasyon.
 *   **Eksileri:** En iyi verimi alabilmek için Palo Alto ağ cihazlarına bağımlılık gerektirmesi, yüksek lisans ve veri depolama maliyetleri.
 
-![](https://cdn-images-1.medium.com/max/800/1*isZKTqF4Dh4MoKGRIFmEBw.png)
+![](1_isZKTqF4Dh4MoKGRIFmEBw.webp)
 
 <https://www.xcitium.com/palo-alto-cortex-xdr/>
 
@@ -85,7 +83,7 @@ Platformun "Storyline" teknolojisi, süreçlerin tüm yaşam döngüsünü benze
 *   **Artıları:** Windows Shadow Copy (VSS) servisinden bağımsız çalışan tahrif edilemez (Tamperproof) geri yükleme (Rollback) mekanizması, Ranger ile otonom ağ keşfi, internet bağlantısı olmadan da çalışabilen otonom ajan motoru.
 *   **Eksileri:** Gelişmiş özelliklerin (Ranger, RSO, zafiyet yönetimi) ek lisanslara (Add-on) tabi olması ve yönetim paneli paket yapısının karmaşıklığı.
 
-![](https://cdn-images-1.medium.com/max/800/1*OezKFGZY0Xx-TjZ1ZpmN7A.png)
+![](1_OezKFGZY0Xx-TjZ1ZpmN7A.webp)
 
 <https://www.sentinelone.com/platform/>
 
@@ -98,7 +96,7 @@ Davranışsal analizler ve makine öğrenimi kullanarak gelişmiş tehditlere ka
 *   **Artıları:** Sanallaştırma katmanıyla benzersiz entegrasyon (hipervizör tabanlı güvenlik), on-premise veri merkezleri için kararlı yapı.
 *   **Eksileri:** Broadcom satın alımı sonrasında ortaya çıkan lisanslama belirsizlikleri, eski sistemlerde görece yüksek kaynak tüketimi.
 
-![](https://cdn-images-1.medium.com/max/800/1*o3iQ7r-BtNGQaYYCkPoItw.jpeg)
+![](1_o3iQ7r-BtNGQaYYCkPoItw.webp)
 
 <https://www.vmware.com/docs/vmw-datasheet-carbon-black-hosted-edr>
 
@@ -111,7 +109,7 @@ Küçük ve orta ölçekli işletmeler için maliyet etkin bir çözüm sunan Wa
 *   **Artıları:** Tamamen açık kaynaklı ve ücretsiz olması, yüksek özelleştirilebilirlik, log toplama ve dosya izleme yeteneklerinin gücü.
 *   **Eksileri:** Kurulum ve ince ayarların teknik uzmanlık gerektirmesi, profesyonel teknik destek ekosisteminin ticari rakipleri kadar yaygın olmaması.
 
-![](https://cdn-images-1.medium.com/max/800/1*SRprtJmrWdmwclsziL7B7w.png)
+![](1_SRprtJmrWdmwclsziL7B7w.webp)
 
 <https://documentation.wazuh.com/current/getting-started/components/index.html>
 
@@ -124,7 +122,7 @@ Büyük miktarda veriyi indekslemeden arayabilen esnek mimarisi sayesinde, tehdi
 *   **Artıları:** Çok büyük ölçekli log verilerini saniyeler içinde arama ve analiz etme gücü, esnek dashboard tasarımları.
 *   **Eksileri:** Log hacmi arttıkça donanım ve depolama maliyetlerinin hızla büyümesi, Elastic arama sorgu dillerini (ESQL/KQL) öğrenme gereksinimi.
 
-![](https://cdn-images-1.medium.com/max/800/1*eM1tia-nqbzoMV6tho98xw.png)
+![](1_eM1tia-nqbzoMV6tho98xw.webp)
 
 <https://dzlab.github.io/2023/04/26/elastic-cybersecurity/>
 

@@ -2,8 +2,7 @@
 title: Sistem Programlama Temelleri
 date: 2022-12-13
 description: C dili ve x86 Assembly ile donanımın sınırlarında bir mühendislik yolculuğu. İşlemci mimarisinden bellek yönetimine, sistem programlamanın temellerini teorik ve pratik uygulamalarla keşfedin.
-draft: false
-featuredImage: featured.webp
+image: featured.webp
 type: posts
 ---
 
@@ -24,7 +23,7 @@ Mikroişlemci, bir bilgisayarın merkezi işlem birimi gibi çalışır. Bilgisa
 
 oluşturur. Görüldüğü gibi mikroişlemci birçok bölümden meydana gelmiş bir yapıyı temsil eder.
 
-![standart bir mikroişlemci mimarisi](https://cdn-images-1.medium.com/max/800/0*3j-qADs2-A3sg6Jz)
+![standart bir mikroişlemci mimarisi](0_3j-qADs2-A3sg6Jz.gif)
 
 
 Bilgisayarın kalbi ve beyni olarak adlandırılan mikroişlemciler aynı zamanda Merkezi İşlem Birimi (CPU) olarak anılırlar. CPU genel olarak aşağıdaki işlemleri yapar:
@@ -41,7 +40,7 @@ Bir mikroişlemcinin mimari yapısı en basit şekilde ifade edilmek istenirse, 
 
 İşlemcide bir program yürütülürken, işlemcinin içerisinde yani yanı başında kaydedicilere (registers) ihtiyaç duyulur.
 
-![Kaydediciler](https://cdn-images-1.medium.com/max/800/0*0vAWs-tWxevtC27o)
+![Kaydediciler](0_0vAWs-tWxevtC27o.webp)
 
 
 Kaydediciler mikroişlemci mimarisinde önemli bir yer tutar ve doğrudan işlemci mimarisini belirleyen elemanlardan birisidir. Kaydediciler, verinin manevrasında ve geçici olarak tutulmasında birinci dereceden görevlidirler.
@@ -50,7 +49,7 @@ Kaydediciler mikroişlemci mimarisinde önemli bir yer tutar ve doğrudan işlem
 
 ALU, mikroişlemcide aritmetik ve mantık işlemlerinin yapıldığı en önemli birimlerden birisidir. Bu birime giriş işlemleri, akümülatör kaydedicisiyle bellekten alınan veri arasında veya akümülatörle diğer kaydediciler arasında olabilir.
 
-![ALU](https://cdn-images-1.medium.com/max/800/0*42MUW3fUda9LsAzC)
+![ALU](0_42MUW3fUda9LsAzC.webp)
 
 
 ALU'da gerçekleşen bütün işlemler kontrol sinyalleri vasıtasıyla Kontrol Biriminin gözetiminde eşzamanlı olarak yapılır. ALU, instruction(emir) ve verileri (operand) alır ve emri bu veriler üzerinde gerçekleştirir.
@@ -59,7 +58,7 @@ ALU'da gerçekleşen bütün işlemler kontrol sinyalleri vasıtasıyla Kontrol 
 
 Merkezi İşlem Biriminin üçüncü bölümünü meydana getiren bu kısım, sistemin tüm işleyişinden ve işlemin zamanında yapılmasından sorumludur. Kontrol birimi, bellekte program bölümünde bulunan komut kodunun alınıp getirilmesi, kodunun çözülmesi, ALU tarafından işlenmesi ve sonucun alınıp belleğe geri konulması için gerekli olan kontrol sinyallerini üretir. Bilgisayar sisteminde bulunan dahili ve harici bütün elemanlar bu kontrol sinyalleri ile denetlenir.
 
-![Control Unit](https://cdn-images-1.medium.com/max/800/0*x0gYM5EH_2agDzdP)
+![Control Unit](0_x0gYM5EH_2agDzdP.webp)
 
 
 Basit bir mikroişlemcide bu bölüm üç değişik işlevi yerine getirir:
@@ -74,7 +73,7 @@ X86 adı, orjinal Intel işlemci çekirdek lisansına dayanan işlemcilere veril
 
 Gelişmiş mikroişlemciler de temel olarak 8-bitlik mikroişlemcilerde olduğu gibi kaydedici Bölümü, ALU ve Kontrol birimine sahiptir. Fakat daha sonra mimari yapısı çoklu görev ortamına uygun hale getirildiğinden, işlemci içerisindeki bölümlerin de fonksiyonel açıdan iki mantıksal ana bölüm halinde daha ayrıntılı açıklanması gerekmektedir.
 
-![](https://cdn-images-1.medium.com/max/800/0*7PswzKiGH1B4pThm.png)
+![](0_7PswzKiGH1B4pThm.webp)
 
 X86 tabanlı işlemciler Veri Yolu Bağdaştırma Birimi(BIU) ve İcra Birimi(EU) olmak üzere iki ana bölümde incelenebilir. BIU birimi, EU birimini veriyle beslemekten sorumluyken, EU birimi talimatların icrasından sorumludur.
 
@@ -108,7 +107,7 @@ Her segment kaydedicisi bir segmentin başlangıç adresini tutar. Segmentlerin 
 
 BIU emir kuyruğu olarak bilinen bir mekanizma kullanarak pipeline mimarisini yerine getirir. Alınan emirler FIFO(first-in first-out) mantığıyla çalışan bir kuyrukta tutulur. EU birimi sıradaki emrin icrası için hazır olduğunda kolayca BIU'daki bu kuyruktan sıradaki emri okur.
 
-![pipeline mimarisi](https://cdn-images-1.medium.com/max/800/0*5HINjHYeweY7DKic)
+![pipeline mimarisi](0_5HINjHYeweY7DKic.webp)
 
 
 **3. Emir İşaretçisi (Instruction Pointer-IP):**
@@ -149,7 +148,7 @@ Daha öncede bahsettiğimiz gibi aritmetik ve lojik işlemlerden sorumlu birim.
 
 EU, birçok genel amaçlı registera sahiptir. 32-bitlik, 16-bitlik, 8-bitlik olmak üzere 3 kategoriye ayırabiliriz. 32 -bit olmayan işlemciler E ile başlayan(extended genişletilmiş anlamında) 32-bitlik registerları desteklemez.
 
-![Genel Amaçlı Kaydediciler](https://cdn-images-1.medium.com/max/800/0*pzTX1-e1-p0u4LXW)
+![Genel Amaçlı Kaydediciler](0_pzTX1-e1-p0u4LXW.webp)
 
 
 16-bitlik kaydediciler, 8-bitlik türevlerinin birleşiminden oluşmuşlardır. Örneğin; AX kaydedicisi AH ve AL kaydedicilerinin birleşiminden ibarettir. AX'in ilk 8-bitini AH kaydedicisi son 8-bitini AL kaydedisicisi tutar. H-high, L-low anlamındadır. Aynı şekilde bu BX, CX, DX kaydedicileri için de geçerlidir.
@@ -183,7 +182,7 @@ DS ve SI kaydedicileri adres indislemesi işlemlerinde kullanılmaktadır. Bu in
 
 Bayrak kaydedicisi, bir işlemin sonunda sonucun ne olduğunu kaydedici bitlerine yansıtan bir bellek hücresinden oluşur. Yapılan aritmetik işlemler X86 mimarisinde mevcut bulunan bayrakları etkiler. 6 durum ve 3 kontrol olmak üzere toplam 9 bayrak vardır
 
-![Flag Register](https://cdn-images-1.medium.com/max/800/0*ROPSMM_4v9sB0bPB)
+![Flag Register](0_ROPSMM_4v9sB0bPB.webp)
 
 
 6 durum bayrağı:
@@ -213,7 +212,7 @@ Bir bilgisayar sistemi temel olarak donanım ve yazılım gini unsurlardan meyda
 
 İnsan oğlunun makine ile iletişimde bulunabilmesi için onun dilinden anlaması gerekmektedir. Bunun için sistemin çalışmasında temel unsur olan mantıksal 0 ve 1 değerlerinin belli oranlarda dizi haline getrilmesi ve belli bir düzene göre yorumlanması ile sistemin dili oluşturulur.
 
-![](https://cdn-images-1.medium.com/max/800/0*ORZKX7SQuqXG8bU2.jpg)
+![](0_ORZKX7SQuqXG8bU2.webp)
 
 Mikroişlemcili sistemlerde mantıksal 0 ve 1'lerden oluşan ve belli bir görevi yerine getirek üzere yazılmış dile makine dili denir. Makine dilini meydana getiren bu sayıların yan yana gelmesi programcı için anlaşılmayan bir dizi oluşturur.
 
@@ -236,7 +235,7 @@ INT 21H
 
 Her firma ürettiği mikroişlemciyle ilgili mnemonikleri de piyasaya sunmaktadır. Yukarıdaki küçük program parçasında her bir satır tam bir komutu ele alır. Her bir komut, bir iki veya 3 baytlık ikili koda karşılık gelir.
 
-![assembler](https://cdn-images-1.medium.com/max/800/0*JB_H9rRUMsl76-cW.png)
+![assembler](0_JB_H9rRUMsl76-cW.webp)
 
 
 Assembly dilinde yazılan her program bellekte saklanırken ya da işlenirken makine koduna çevrilmeye ihtiyaç duyar. Bu çevirme işlemi elle veya bir assembler yardımıyla yapılır.
@@ -357,7 +356,7 @@ Bu komutlardan yaygın olarak kullanılanlara bakalım.
   - memory, immediate  
   - REG, immediate
 
-![CMP işleminin sonunda bayrakların durumları](https://cdn-images-1.medium.com/max/800/1*cTFBzk0u0qRVO5sdUCTZtw.png)
+![CMP işleminin sonunda bayrakların durumları](1_cTFBzk0u0qRVO5sdUCTZtw.webp)
 
 
 #### Program Kontrol Komutları
@@ -365,7 +364,7 @@ Bu komutlardan yaygın olarak kullanılanlara bakalım.
 * **JMP**  
   Program akışında dallanmalar yapmamızı sağlayan komutlardır. JMP komutu koşulsuz dallanma için kullanılır. Operand olarak program akışının dallanma yapılacak bölümünü bir label ile alır. Koşulu bağlı dallanma yapmamıza yarayan pek çok komut vardır.
 
-![JUMP INSTRUCTIONS](https://cdn-images-1.medium.com/max/800/0*rqiV9TW4c9eHSlii)
+![JUMP INSTRUCTIONS](0_rqiV9TW4c9eHSlii.webp)
 
 
 * **LOOP**  
@@ -482,7 +481,7 @@ Programlama bir bilgisayara yürütmesi için bir dizi talimat vermektir. Bilgis
 
 Programlama dilleri, bilgisayarların izleyeceği talimatları yazmak için kullandığımız araçlardır. Bilgisayarlar ikili olarak düşünür yani 1'ler ve 0'lardan oluşan diziler ile işlemlerini gerçekleştirir. Programlama dilleri, 1'leri ve 0'ları insanların anlayabileceği ve yazabileceği bir şeye çevirmemizi sağlar. Bir programlama dili, insanların düşüncelerimizi bilgisayarların anlayabileceği talimatlara çevirmesini sağlayan bir köprü görevi gören bir dizi sembolden oluşur. Bu sembollerden oluşan cümleler derleyici aracılığıyla makine koduna(ikili koda) çevrilir.
 
-![Derleyicinin Görevi](https://cdn-images-1.medium.com/max/800/1*JTvQeZhMZ--8BDeKaABmKw.jpeg)
+![Derleyicinin Görevi](1_JTvQeZhMZ--8BDeKaABmKw.webp)
 
 
 ### Programlama Dillerinin Sınıflandırılması
@@ -500,7 +499,7 @@ verilebilir. Peki her işe yarayan tek bir programlama dili var mıdır? Bilgisa
 
 Programlama dillerini, insan diline ve makine diline yakınlıklarına göre sınıflandırabiliriz. Bu görselde programlama dili, üste çıkıldıkça konuşma diline, aşağı indikçe makine diline yaklaşır.
 
-![Programlama Dillerinin Sınıflandırılması](https://cdn-images-1.medium.com/max/800/1*ezQx18YckMStFClue9R1qg.jpeg)
+![Programlama Dillerinin Sınıflandırılması](1_ezQx18YckMStFClue9R1qg.webp)
 
 
 ### C Programlama Dili
@@ -728,7 +727,7 @@ parantezler içine koşul yazılır ardından bir soru işareti konur. soru işa
 
 Bir döngü deyimi, bir deyimi veya deyimler grubunu birden çok kez yürütmemize izin verir. Aşağıda, programlama dillerinin çoğunda bir döngü ifadesinin genel biçimi verilmiştir:
 
-![](https://cdn-images-1.medium.com/max/800/0*tZ55-KwCaatkE92j)
+![](0_tZ55-KwCaatkE92j.webp)
 
 C dilinde 3 çeşit döngü vardır. Bunlar for, while ve do-while döngüleridir.
 
@@ -754,7 +753,7 @@ for(int i=1;i<=20;++i}{
 }
 ```
 
-![](https://cdn-images-1.medium.com/max/800/0*oZLlTX132HC6pdpw)
+![](0_oZLlTX132HC6pdpw.webp)
 
 #### while döngüsü
 
@@ -803,7 +802,7 @@ do{
 }while(sayi!=0);
 ```
 
-![](https://cdn-images-1.medium.com/max/800/0*LIayjiTDiNr-k5rJ)
+![](0_LIayjiTDiNr-k5rJ.webp)
 
 #### Döngü kontrol deyimleri
 
@@ -1030,7 +1029,7 @@ Yukarıda farklı türlerde işaretçi tanımlarını görüyorsunuz. İşaretç
 
 Bu iki operatörü birbirinin zıttı olarak düşünebilriz. \* operatörü değerin bellek adresini getirirken, & operatörü verilen adresteki değeri getirir.
 
-![](https://cdn-images-1.medium.com/max/800/0*xhwIoaH5XH3vBH9k)
+![](0_xhwIoaH5XH3vBH9k.webp)
 
 referencing de-referencing
 
@@ -1038,7 +1037,7 @@ p bellek adresi tutan bir değişken olsun yani pointer. \*p, p'de tutulan belle
 
 Bu mantıkla bir pointerı referans eden başka bir pointer yaratabiliriz.
 
-![pointer to pointer](https://cdn-images-1.medium.com/max/800/0*fqOhphnMCqrtdVI2.jpg)
+![pointer to pointer](0_fqOhphnMCqrtdVI2.webp)
 
 
 var isminde bir değişkenimiz olsun, bu değişenin adresini ptr'ye atalım. Sonrasında, ptr'nin adresini de pptr isminde başka bir pointera atalım.
@@ -1285,7 +1284,7 @@ for(int i=1;i<=20;++i}{
 }
 ```
 
-![](https://cdn-images-1.medium.com/max/800/0*XyQbq3v5a6xiEvZT)
+![](0_XyQbq3v5a6xiEvZT.webp)
 
 #### while döngüsü
 
@@ -1334,7 +1333,7 @@ do{
 }while(sayi!=0);
 ```
 
-![](https://cdn-images-1.medium.com/max/800/0*vOFsWpd6gw0nvsbR)
+![](0_vOFsWpd6gw0nvsbR.webp)
 
 #### Döngü kontrol deyimleri
 

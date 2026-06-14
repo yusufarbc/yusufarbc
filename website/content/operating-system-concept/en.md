@@ -2,9 +2,7 @@
 title: "Operating System Concepts"
 date: '2023-06-09'
 description: An in-depth guide to operating system structures, processes, CPU scheduling algorithms, memory management (segmentation, paging, virtual memory), and security fundamentals, inspired by the classic 'Dinosaur Book' (Operating System Concepts).
-featuredImage: featured.jpeg
-draft: false
-layout: single
+image: featured.webp
 type: posts
 ---
 
@@ -25,7 +23,7 @@ In this technical guide, building upon the core pillars of the Dinosaur Book, we
 
 An operating system is a program that manages a computer's hardware. It also provides a basis for application programs and acts as an intermediary between the computer user and the computer hardware.
 
-![](https://cdn-images-1.medium.com/max/800/0*KFZFAbrFac3gB6ED)
+![](0_KFZFAbrFac3gB6ED.webp)
 
 At this point, we are talking about a system that depends on the hardware it will run on. Therefore, operating systems are directly related to system hardware. Single and multi-processor architectures and organizations containing more than one persistent memory-disk must be supported by the operating system.
 
@@ -37,7 +35,7 @@ Yes, we are talking about an extremely complex system. Making all components int
 
 An operating system is software that acts as an interface between computer hardware and software and manages the computer's resources. The operating system regulates access to the computer's resources such as memory, processor, file systems, device drivers and network connections and ensures that users can use these resources effectively.
 
-![](https://cdn-images-1.medium.com/max/800/1*Xpk60lGLgXPw0S25Wf7sxw.jpeg)
+![](1_Xpk60lGLgXPw0S25Wf7sxw.webp)
 
 Operating System Structure
 
@@ -159,7 +157,7 @@ Each process is represented by a process control block (PCB) in the operating sy
 * **I/O status information:** This information includes information about the I/O devices allocated to the process.  
   list, list of open files, etc. Contains.
 
-![](https://cdn-images-1.medium.com/max/800/1*RrcLvg5ZJ9nHEVCHm7VEeA.png)
+![](1_RrcLvg5ZJ9nHEVCHm7VEeA.webp)
 
 Process control block (PCB)
 
@@ -181,7 +179,7 @@ There are two basic models of communication: *shared memory* and *message passin
 
 A thread is a basic unit of CPU usage; It consists of a thread ID, a program counter, a register set, and a stack. It shares the code section, data section, and other operating system resources such as open files and signals with other threads belonging to the same process. A traditional process has a single thread of control. A process can have multiple threads.
 
-![](https://cdn-images-1.medium.com/max/800/1*Oj15rspOQ1TXXtw4k4d2xQ.png)
+![](1_Oj15rspOQ1TXXtw4k4d2xQ.webp)
 
 Threaded Processing
 
@@ -279,7 +277,7 @@ Hardware-based solutions to the critical cross-section problem are complex and o
 The transaction must acquire the lock before entering a critical section; from critical section  
 When it comes out, it releases the lock.
 
-![](https://cdn-images-1.medium.com/max/800/1*6IRXR8Sw9EndL-QKPRmL6w.png)
+![](1_6IRXR8Sw9EndL-QKPRmL6w.webp)
 
 Use of mutex locks
 
@@ -294,7 +292,7 @@ A semaphore S is an integer variable that is accessed by only two standard atomi
 
 Operating systems often distinguish between counting and binary semaphores. The value of a *counting semaphore* can vary over an unlimited area. The value of a *binary semaphore* can only vary between 0 and 1. Therefore, binary semaphores behave similarly to mutex locks.
 
-![](https://cdn-images-1.medium.com/max/800/0*MVu1lrfs6ciG-dEC)
+![](0_MVu1lrfs6ciG-dEC.webp)
 
 Counting semaphores can be used to control access to a specific resource consisting of a finite number of instances. The semaphore is initialized to the number of available resources. Each process that wants to use a resource performs a wait() operation on the semaphore (thus reducing the count). When a process releases a resource, it performs a signal() operation (increments the count). When the number of semaphores drops to 0, all resources are being used. After that, processes that want to use a resource are blocked until the count is greater than 0.
 
@@ -307,7 +305,7 @@ data with a set of functions that will operate on that data independently
 covers. The monitor structure allows only one process to be active within the monitor at a time.  
 makes it happen.
 
-![](https://cdn-images-1.medium.com/max/800/1*1yFRNX_7QPDEhWUFWc-61w.png)
+![](1_1yFRNX_7QPDEhWUFWc-61w.webp)
 
 monitor
 
@@ -317,7 +315,7 @@ A function defined within a monitor can only access variables declared locally w
 
 In a deadlock, processes never finish executing and system resources are tied up in a way that prevents other jobs from starting.
 
-![](https://cdn-images-1.medium.com/max/800/0*CH9-cCR_FTNViJ6l)
+![](0_CH9-cCR_FTNViJ6l.webp)
 
 A deadlock condition can occur in a system if the following four conditions occur simultaneously:
 
@@ -363,7 +361,7 @@ In general, we can deal with the deadlock problem in one of three ways:
 
 The operating system's memory management refers to the process of effectively allocating and controlling the computer's memory resources. Thanks to memory management, the operating system monitors the memory usage of processes and programs, allocates and retrieves memory space when necessary.
 
-![](https://cdn-images-1.medium.com/max/800/0*p0FxSir6Up3i3hAC)
+![](0_p0FxSir6Up3i3hAC.webp)
 
 Main memory (RAM) and registers located inside the processor (Cache) are the only general-purpose storage areas that the CPU can directly access. There are machine instructions that take memory addresses as arguments, but there are no instructions that take disk addresses. Therefore, all instructions being executed and all data used by the instructions must be on one of these direct access storage devices. If the data is not in memory, it must be moved to main memory (RAM) before the CPU can operate on it.  
 An address generated by the CPU is usually called a logical address.  
@@ -373,7 +371,7 @@ An address seen by the memory unit — that is, the address loaded into the memo
 
 For a process to be executed, it must be in memory. However, a process can be temporarily moved from memory to disk and then brought back to memory to continue execution.
 
-![](https://cdn-images-1.medium.com/max/800/1*iB_t0Cpvz9x4aAf2_0bu9A.png)
+![](1_iB_t0Cpvz9x4aAf2_0bu9A.webp)
 
 Swap transaction
 
@@ -388,7 +386,7 @@ In a variable partition scheme, the operating system determines which parts of t
 keeps a table showing which ones are available and which are occupied. Available memory blocks consist of a series of spaces of various sizes distributed throughout memory. When a process arrives and needs memory, the system looks for a space large enough for that process. If there is too much space  
 If it is large, it is divided into two parts. A piece is allocated to the incoming process; the other is sent back to the set of spaces. When a process terminates, it frees the block of memory, which is then placed back into the set of holes.
 
-![](https://cdn-images-1.medium.com/max/800/0*XAENmzVV04429w9N)
+![](0_XAENmzVV04429w9N.gif)
 
 Memory Allocation
 
@@ -402,7 +400,7 @@ Strategies developed for this process:
 
 Considering memory in terms of its physical properties is harmful for both the operating system and the programmer. What if hardware could provide a memory mechanism that mapped the programmer's view to actual physical memory? While the system would have more freedom to manage memory, the programmer would have a more natural programming environment. Segmentation provides such a mechanism.
 
-![](https://cdn-images-1.medium.com/max/800/1*-jrsYdgi6mk5r2ySy2Dp9Q.png)
+![](1_-jrsYdgi6mk5r2ySy2Dp9Q.webp)
 
 Segmentation Hardware
 
@@ -413,7 +411,7 @@ Each segment has a name and length. Addresses specify both the segment name and 
 Segmentation allows the physical address space of a process to be non-contiguous. Paging is another memory management scheme that offers this advantage. However, paging prevents and compresses external fragmentation, whereas segmentation does not. Additionally, different sizes of memory  
 It also solves the important problem of fitting parts into the support tank.
 
-![](https://cdn-images-1.medium.com/max/800/1*0Ir0o5wtu7y2mwjfFarrHA.png)
+![](1_0Ir0o5wtu7y2mwjfFarrHA.webp)
 
 Paging Hardware
 
@@ -424,7 +422,7 @@ The basic method for implementing paging involves dividing physical memory into 
 Virtual memory involves separating logical memory from physical memory as perceived by users. This allocation allows an extremely large amount of virtual memory to be available to programmers when only smaller physical memory is available. Virtual memory makes the programming task much easier because the programmer no longer needs to worry about the amount of physical memory available; instead  
 can concentrate on the problem to be programmed.
 
-![](https://cdn-images-1.medium.com/max/800/1*QvvtOf3Vf930Fs19eSHqjQ.png)
+![](1_QvvtOf3Vf930Fs19eSHqjQ.webp)
 
 Virtual Memory
 
@@ -472,7 +470,7 @@ It is a component that allows the operating system to manage large data storage 
 
 A disk is a storage unit where data is permanently stored and accessed. Disks commonly used in computer systems are divided into two main categories: hard disk drives (Hard Disk Drive — HDD) and solid state drives (Solid State Drive — SSD).
 
-![](https://cdn-images-1.medium.com/max/800/1*zfPPKDtSp7k9jBGej2m-dw.png)
+![](1_zfPPKDtSp7k9jBGej2m-dw.webp)
 
 HDD Disk
 
@@ -497,25 +495,25 @@ Disk scheduling algorithms manage incoming requests and determine the order in w
 
 * **FCFS (First-Come, First-Served):** This algorithm processes incoming requests sequentially and processes incoming requests first. However, this algorithm does not take into account physical locations on the disk and can increase disk access times in case of an out-of-order sorting.
 
-![](https://cdn-images-1.medium.com/max/800/1*kVk--dRni90LbzTYov3b4w.png)
+![](1_kVk--dRni90LbzTYov3b4w.webp)
 
 FCFS
 
 * **SSTF (Shortest Seek Time First):** This algorithm processes the request with the shortest travel distance from where the disk head is currently positioned. That is, requests where the head must travel the shortest distance are processed with priority. This algorithm reduces the total disk access time and provides better performance.
 
-![](https://cdn-images-1.medium.com/max/800/1*_3w6z61oJ6PQpjmsAAPmmg.png)
+![](1__3w6z61oJ6PQpjmsAAPmmg.webp)
 
 SSTF
 
 * **SCAN (Elevator):** This algorithm processes requests when moving the disk head in a specific direction (for example, inward or outward). As the head progresses, it processes all the requests and when it reaches the end, it turns away from the direction and comes back. This way, it constantly scans for requests on the disk. The SCAN algorithm processes requests fairly and reduces waiting times for on-disk requests.
 
-![](https://cdn-images-1.medium.com/max/800/1*t7kHcp1t1Z8vX1HjZq4I-w.png)
+![](1_t7kHcp1t1Z8vX1HjZq4I-w.webp)
 
 SCAN
 
 * **C-SCAN (Circular SCAN):** This algorithm processes requests similar to the SCAN algorithm, but unlike SCAN, it starts from the last request when returning. That is, it moves across the disk in one direction as it processes requests, and when it reaches the last request it quickly moves to the other end and starts again. C-SCAN provides a fairer request processing order than SCAN.
 
-![](https://cdn-images-1.medium.com/max/800/1*3GQpsL_MjPT6VphPF1Uerw.png)
+![](1_3GQpsL_MjPT6VphPF1Uerw.webp)
 
 C-SCAN
 

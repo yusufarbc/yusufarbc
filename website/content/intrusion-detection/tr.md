@@ -2,15 +2,13 @@
 title: "Apache Web Sunucusunda Saldırı Tespiti"
 date: '2025-06-01'
 description: "Apache erişim loglarını manuel olarak analiz ederek ve ModSecurity ile Fail2Ban kullanarak web uygulaması saldırılarını (SQLi, XSS, LFI, RFI, Dizin Gezinme) gerçek zamanlı tespit etme ve önleme rehberi."
-featuredImage: "/images/banners/intrusion_detection_banner.png"
-draft: false
-layout: single
+image: "/images/banners/intrusion_detection_banner.png"
 type: posts
 ---
 
 ## Apache Web Sunucusunda Saldırı Tespiti
 
-![Apache HTTP Sunucusu](./apache-http-server.webp)
+![Apache HTTP Sunucusu](apache-http-server.webp)
 
 Günümüzde web uygulamaları ve siteler, farklı türlerde siber saldırılara maruz kalmaktadır. Bu saldırıların erken tespiti, güvenlik önlemlerinin etkinliği ve sistemin sürekliliği açısından büyük önem taşır. Apache Web Sunucusu, dünya genelinde en yaygın kullanılan web sunucularından biridir ve bu nedenle saldırıların izlenmesi ve tespiti için doğru yöntemlerin uygulanması gerekmektedir.
 
@@ -38,7 +36,7 @@ graph TD
 
 ## Apache Erişim Logları Nedir?
 
-![Apache Erişim Logları](./access-logs.webp)
+![Apache Erişim Logları](access-logs.webp)
 
 Apache, sunucuya gelen her HTTP isteğini erişim loglarında kaydeder. Bu loglar, istek yapan IP adresi, istek zamanı, istenen dosya veya kaynak, kullanılan HTTP metodu, durum kodu gibi önemli bilgileri içerir. Erişim logları, sistemde gerçekleşen aktivitelerin izlenmesi ve analiz edilmesi için birincil veri kaynağıdır.
 
@@ -66,7 +64,7 @@ Apache erişim logları genellikle `/var/log/apache2/access.log` (veya benzeri) 
 
 ### Manuel Log Analizi
 
-![Manuel Log Analizi](./log-analysis.webp)
+![Manuel Log Analizi](log-analysis.webp)
 
 `grep`, `awk` gibi Linux komutları kullanılarak log dosyalarında şüpheli aktiviteler aranabilir. Örneğin, tüm erişim loglarında genel saldırı belirtilerini hızlıca taramak için şu komut kullanılabilir:
 
@@ -84,7 +82,7 @@ grep -iE "union|select|drop|script|alert|../|login|admin" /var/log/apache2/acces
 
 ## Dizin Gezinme (Directory Traversal)
 
-![Dizin Gezinme Saldırı Örneği](./directory-traversal-example.webp)
+![Dizin Gezinme Saldırı Örneği](directory-traversal-example.webp)
 
 Dizin Gezinme saldırısı, bir saldırganın web sunucusunda yetkisiz olarak üst dizinlere veya hassas dosyalara erişmeye çalıştığı saldırı türüdür. Amaç, sunucudaki kritik dosyaları (örneğin `/etc/passwd`, yapılandırma dosyaları) elde etmektir.
 
@@ -118,7 +116,7 @@ grep -iE "\.\./|\.\.%2F|etc/passwd|boot.ini|win.ini" /var/log/apache2/access.log
 
 ## File Upload (Dosya Yükleme)
 
-![Dosya Yükleme Güvenlik Açığı](./file-upload.webp)
+![Dosya Yükleme Güvenlik Açığı](file-upload.webp)
 
 File Upload saldırısı, bir saldırganın web uygulamasının dosya yükleme özelliğini kötüye kullanarak zararlı dosyalar yüklemesiyle gerçekleşir. Bu dosyalar genellikle web sunucusunda çalıştırılabilir komutlar içeren scriptler (Webshell) olabilir.
 
@@ -155,7 +153,7 @@ grep -E "\.php|\.jsp|\.asp|\.exe|\.phtml" /var/log/apache2/access.log
 
 ## RFI (Remote File Inclusion)
 
-![Uzaktan Dosya Dahil Etme RFI](./rfi.webp)
+![Uzaktan Dosya Dahil Etme RFI](rfi.webp)
 
 RFI, web uygulamalarında kötü niyetli bir saldırganın, uzak bir sunucudan zararlı dosyaları (genellikle PHP, JavaScript gibi) dahil ederek (include) çalıştırmasına olanak sağlayan bir saldırı türüdür.
 
@@ -191,7 +189,7 @@ grep -iE "http://|https://|include=|file=|page=|template=" /var/log/apache2/acce
 
 ## LFI (Local File Inclusion)
 
-![Yerel Dosya Dahil Etme LFI](./LFI.webp)
+![Yerel Dosya Dahil Etme LFI](LFI.webp)
 
 LFI, web uygulamasında kullanıcıdan alınan girdilerle sunucu üzerindeki yerel dosyaların (örneğin sistem dosyaları, yapılandırma dosyaları) izinsiz olarak dahil edilip çalıştırılmasına olanak veren bir saldırı türüdür.
 
@@ -228,7 +226,7 @@ grep -iE "\.\./|php://|data://|expect://|include=|page=|file=" /var/log/apache2/
 
 ## Brute Force (Kaba Kuvvet)
 
-![Kaba Kuvvet Saldırısı](./brute-force-attack-example.webp)
+![Kaba Kuvvet Saldırısı](brute-force-attack-example.webp)
 
 Brute Force saldırısı, bir saldırganın bir kullanıcı hesabına ya da sisteme erişim sağlamak için çok sayıda kullanıcı adı ve parola kombinasyonunu otomatik ve hızlı şekilde denemesiyle gerçekleşir. Amaç, doğru kimlik bilgilerini bularak yetkisiz erişim elde etmektir.
 
@@ -320,7 +318,7 @@ awk '$7 == "/login.php" && $9 == 401 {print $1}' /var/log/apache2/access.log | s
 
 ## Komut Enjeksiyonu (Command Injection)
 
-![Komut Enjeksiyonu](./command-injection.webp)
+![Komut Enjeksiyonu](command-injection.webp)
 
 Komut enjeksiyonu, bir saldırganın web uygulamasına zararlı işletim sistemi komutları enjekte ederek, sunucuda yetkisiz komutlar çalıştırmasına olanak veren bir güvenlik açığıdır.
 
@@ -358,7 +356,7 @@ grep -iE ";|&&|\\||`|curl|wget|nc|bash|sh|python" /var/log/apache2/access.log
 
 ## SQL Enjeksiyon (SQL Injection)
 
-![SQL Enjeksiyonu](./sql-injection.webp)
+![SQL Enjeksiyonu](sql-injection.webp)
 
 SQL Enjeksiyon, saldırganın web uygulamasına zararlı SQL komutları enjekte ederek, uygulamanın veritabanını manipüle ettiği bir saldırı türüdür. Amaç; veritabanından gizli bilgileri çalmak, verileri değiştirmek veya silmek olabilir.
 
@@ -492,7 +490,7 @@ grep -iE "\\*\)|\|\(|&|\(|\)" /var/log/apache2/access.log
 
 ## Template Enjeksiyonu (Template Injection)
 
-![Şablon Enjeksiyonu](./template-injection.webp)
+![Şablon Enjeksiyonu](template-injection.webp)
 
 Template Enjeksiyonu, web uygulamalarında kullanıcıdan alınan verilerin, şablon motorlarında (template engine) yeterince filtrelenmeden işlenmesi sonucu ortaya çıkan bir güvenlik açığıdır.
 
@@ -530,7 +528,7 @@ grep -iE "\{\{.\*\}\}|\{%.+%\}|\{#.\*#\}" /var/log/apache2/access.log
 
 ## HTTP Başlık Enjeksiyonu (HTTP Header Injection)
 
-![HTTP Başlık Enjeksiyonu](./http-header-injection.webp)
+![HTTP Başlık Enjeksiyonu](http-header-injection.webp)
 
 HTTP Header Injection, bir saldırganın web uygulamasına kötü niyetli veriler enjekte ederek HTTP başlıklarını manipüle etmesine olanak veren bir güvenlik açığıdır.
 
@@ -604,7 +602,7 @@ grep -E "<html|<div|<span|<table|&lt;script|&lt;/script&gt;" /var/log/apache2/ac
 
 ## XSS (Cross-Site Scripting)
 
-![Siteler Arası Komut Dosyası Çalıştırma XSS](./cross-site-scriptingxss.webp)
+![Siteler Arası Komut Dosyası Çalıştırma XSS](cross-site-scriptingxss.webp)
 
 XSS, bir web uygulamasına kötü amaçlı JavaScript veya HTML kodu enjekte edilerek, bu kodun diğer kullanıcıların tarayıcılarında çalıştırılmasıdır. Tüm XSS saldırıları içerik enjeksiyonudur (Content Injection), fakat tüm içerik enjeksiyonları XSS değildir. Amaç, kullanıcı oturumlarını çalmak, zararlı yazılımlar bulaştırmak veya kullanıcıları yanıltmaktır. XSS saldırıları üçe ayrılır:
 
@@ -643,7 +641,7 @@ grep -iE "&lt;script|alert|on-error|javascript:" /var/log/apache2/access.log
 
 ## SSRF (Server-Side Request Forgery)
 
-![Sunucu Tarafı İstek Sahteciliği SSRF](./ssrf.webp)
+![Sunucu Tarafı İstek Sahteciliği SSRF](ssrf.webp)
 
 SSRF, saldırganın, hedef sunucunun kendisi veya erişebildiği diğer iç sistemlere zararlı istekler göndermesini sağladığı bir güvenlik açığıdır.
 
@@ -678,7 +676,7 @@ grep -iE "127\.0\.0\.1|localhost|169\.254|10\.|192\.168" /var/log/apache2/access
 
 ## CSRF (Cross-Site Request Forgery)
 
-![Siteler Arası İstek Sahteciliği CSRF](./csrf.webp)
+![Siteler Arası İstek Sahteciliği CSRF](csrf.webp)
 
 CSRF, kullanıcıların yetkili olduğu bir web uygulamasına, kötü niyetli bir sitenin kullanıcı adına istek göndermesini sağlayan saldırı türüdür. Kullanıcı farkında olmadan, yetkilerini kötü amaçlarla kullanan istekler yapılır.
 
@@ -713,7 +711,7 @@ grep -E "POST /critical-endpoint" /var/log/apache2/access.log | grep "Referer: h
 
 ## IDOR (Insecure Direct Object Reference)
 
-![Güvensiz Doğrudan Nesne Referansı IDOR](./idor.webp)
+![Güvensiz Doğrudan Nesne Referansı IDOR](idor.webp)
 
 IDOR, bir kullanıcının yetkisi olmadan doğrudan başka bir kullanıcının verilerine veya nesnelerine erişim sağlayabildiği bir güvenlik açığıdır. Web uygulamaları, kaynaklara (dosyalar, kullanıcı verileri, kayıtlar vb.) erişirken, nesne referanslarını (örneğin dosya isimleri, kullanıcı ID'leri, sipariş numaraları) doğrudan ve doğrulanmadan URL parametrelerinde kullanırsa, saldırgan bu referansları değiştirerek başkalarının verilerine erişebilir.
 
@@ -747,7 +745,7 @@ grep "GET /profile?user_id=" /var/log/apache2/access.log
 
 ## Open Redirect (Açık Yönlendirme)
 
-![Açık Yönlendirme](./open-redirect.webp)
+![Açık Yönlendirme](open-redirect.webp)
 
 Open Redirect, bir web uygulamasının kullanıcıları başka bir URL'ye yönlendirmek için kullandığı parametrelerin kötüye kullanılması sonucu ortaya çıkan güvenlik açığıdır. Saldırgan, kullanıcıları zararlı veya sahte sitelere yönlendirmek için bu açıkları kullanır.
 
@@ -782,7 +780,7 @@ grep -E "redirect=|url=|next=|return=|dest=|continue=" /var/log/apache2/access.l
 
 ## ModSecurity: Gerçek Zamanlı Saldırı Engelleme (WAF)
 
-![ModSecurity WAF](./modsecurity.webp)
+![ModSecurity WAF](modsecurity.webp)
 
 Erişim loglarının manuel analizi adli analiz ve tehdit avcılığı için harika bir yöntem olsa da, aktif saldırıların gerçek zamanlı engellenmesi için bir Web Uygulaması Güvenlik Duvarı (WAF) gereklidir. ModSecurity, Apache modülü olarak çalışır ve gelen HTTP isteklerini daha web uygulamasına ulaşmadan denetler.
 
@@ -806,7 +804,7 @@ SecRule REQUEST_URI "@rx (?i)(union\s+select|select\s+.*\s+from)" \
 
 ## Fail2Ban: Otomatik IP Engelleme
 
-![Fail2Ban](./fail2ban.webp)
+![Fail2Ban](fail2ban.webp)
 
 Fail2Ban, log dosyalarını (örneğin `/var/log/apache2/access.log`) sürekli izleyerek belirli saldırı kalıplarını yakalar ve kuralı ihlal eden IP adreslerini güvenlik duvarı kuralları (iptables) üzerinden otomatik olarak engeller.
 

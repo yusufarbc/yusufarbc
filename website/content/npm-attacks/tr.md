@@ -2,8 +2,7 @@
 title: "npm Paket Ekosistemine Yönelik Tedarik Zinciri Saldırıları"
 date: 2026-06-01
 description: "Yazılım tedarik zinciri güvenliği çerçevesinde npm (Node Package Manager) ekosistemindeki mimari yapı, saldırı vektörleri, gerçek dünya vakaları ve kurumsal savunma stratejileri."
-draft: false
-featuredImage: featured.webp
+image: featured.webp
 type: posts
 ---
 

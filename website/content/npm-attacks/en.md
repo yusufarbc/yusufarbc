@@ -2,8 +2,7 @@
 title: "Supply Chain Attacks in the npm Package Ecosystem"
 date: 2026-06-01
 description: "A deep-dive into the npm (Node Package Manager) ecosystem's architecture, structural vulnerabilities, attack vectors, real-world incidents, and enterprise defensive strategies against software supply chain threats."
-draft: false
-featuredImage: featured.webp
+image: featured.webp
 type: posts
 ---
 

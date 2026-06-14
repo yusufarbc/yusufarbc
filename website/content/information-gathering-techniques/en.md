@@ -2,8 +2,7 @@
 title: Cyber Intelligence
 date: 2025-10-19
 description: A comprehensive cyber threat intelligence guide bridging classic OSINT and scanning techniques with modern cloud exposure, supply chain security, AI-powered CTI pipelines, the ProjectDiscovery ecosystem, and OPSEC.
-draft: false
-featuredImage: featured.jpeg
+image: featured.webp
 type: posts
 audioFile: en.mp3
 ---
@@ -24,7 +23,7 @@ In this article, while preserving all the technical details and tools found in c
 
 Hello, in this article, I will introduce you to Google Dorks, which are very useful in collecting passive information. I will talk about how to use it. Then, I will try to explain how we can find vulnerabilities with these dors and what we can achieve.
 
-![](https://cdn-images-1.medium.com/max/800/0*k0S1ZefFPj_ccZmA.jpg)
+![](0_k0S1ZefFPj_ccZmA.webp)
 
 Google dork is a system that contains some parameters that make it easier for us to search with the Google search engine. These parameters allow us to filter the words we will search for. In this way, we can easily access the information we are looking for among the billions of sites indexed by Google. This system is indispensable for passive information collection.
 
@@ -180,7 +179,7 @@ site:facebook.com & site:twitter.com
 
 ### What is Google Hacking?
 
-![](https://cdn-images-1.medium.com/max/800/0*7xiNCg0pcIr744aB.png)
+![](0_7xiNCg0pcIr744aB.webp)
 
 Google hacking is a method used to find a vulnerable index of web pages on the internet or to collect information by searching for open data on all sites. For example, with a Google query, we can find the login page of a site and scan for vulnerabilities there. In other words, we can call the use of queries we make with dors for hacking operations as 'Google Hacking'.
 
@@ -303,7 +302,7 @@ Dork to use to find sites with this software:
 "Index of" inurl:phpmyadmin
 ```
 
-![](https://cdn-images-1.medium.com/max/800/0*igJI4VAzSEKlUXSX.png)
+![](0_igJI4VAzSEKlUXSX.webp)
 
 ### JIRA/Kibana
 

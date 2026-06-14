@@ -2,8 +2,7 @@
 title: Python for Hackers
 date: 2022-08-26
 description: A comprehensive guide on Python programming for security professionals, covering HTTP requests scripting, web automation with Selenium, socket programming for port scanning, and SSH remote management using Paramiko.
-draft: false
-featuredImage: python_for_hackers_cover.webp
+image: python_for_hackers_cover.webp
 type: posts
 ---
 
@@ -137,7 +136,7 @@ Here we see information about the answer we received. Let's also look at the typ
 
 We understand that it is an object of type requests.models.Response. Looking at the [source code](https://requests.readthedocs.io/en/latest/_modules/requests/models/):
 
-![](https://cdn-images-1.medium.com/max/800/0*L_iXdDv3gSm2uu6j.png)
+![](0_L_iXdDv3gSm2uu6j.webp)
 
 We see a long code. You can also access its documentation [here](https://requests.readthedocs.io/en/latest/api/#requests.Response). What is important for us here are the attiributes written in the \_\_attrs\_\_ section.
 
@@ -170,7 +169,7 @@ f.close()
 
 You can see that the page source is pulled as follows. (with CSS and Javascript codes)
 
-![](https://cdn-images-1.medium.com/max/800/0*W3QQk0ZEoY20GPcY.png)
+![](0_W3QQk0ZEoY20GPcY.webp)
 
 You can parse the page source with the [BeautifulSoup](https://pypi.org/project/beautifulsoup4/) module and get the information you want from it. But in this article we will do something different.
 
@@ -209,7 +208,7 @@ We have created an application that searches for the URL we gave to the function
 
 Brute Force Attack is a simple but still effective type of attack that we can use to log into a web page using trial and error management in the hope of finding the right one. Let's see how we can do this with our python application. I will use the DVWA app for this.
 
-![](https://cdn-images-1.medium.com/max/800/0*D7cpaI2bY2tgv3Ig.png)
+![](0_D7cpaI2bY2tgv3Ig.webp)
 
 Here I listened to my login page with the [burp suite](https://portswigger.net/burp) tool. I entered the value 'aa' in the username and password fields and pressed the login button. The GET request was captured in the HTTP History section on my burp tool. Of course, you can also use different tools for this. We will use some of the information here. First of all, since we access the DVWA page by logging in, our Python application also needs to access the session somehow. So what is a session? To put it briefly, when we log in from a login page with our username/password information, we actually start a session. The session is terminated when we finish our work and close our browser or when a certain amount of time has passed. Web applications use cookies when creating a session; two cookies are created, one on the client computer and one on the server. The session continues as long as both cookies are not lost. Here, we will log in to the DVWA page and give the session cookie we received to our Python application, allowing it to access the web page with our session. The field marked in the Burp tool 'PHPSESID' is our session cookie. But we better hurry, the session is running out”¦
 
@@ -240,7 +239,7 @@ for i in usernames:
       print("Username and Password is found")
 ```
 
-![](https://cdn-images-1.medium.com/max/800/0*WFaG5gXYv4_u5frj.png)
+![](0_WFaG5gXYv4_u5frj.webp)
 
 When we write the code in the python file and run it, it will make tests by sending GET requests to the live DVWA server.
 
@@ -271,7 +270,7 @@ for i in fuzzing_list:
 
 When we run the Python code, it will try the directory and file names in the list and give us the following result.
 
-![](https://cdn-images-1.medium.com/max/800/0*P0_DM5nuoLcNWX16.png)
+![](0_P0_DM5nuoLcNWX16.webp)
 
 ### XSS Attack
 
@@ -298,7 +297,7 @@ for payload in xss_list:
 
 When we write the code in the python file and run it, it will make tests by sending GET requests to the live DVWA server.
 
-![](https://cdn-images-1.medium.com/max/800/0*5GN1pw6l0XKQVsRQ.png)
+![](0_5GN1pw6l0XKQVsRQ.webp)
 
 If we look at the result we got, our XSS scripts did not work because the web page was filtering. <h1>xss</h1> was an HTML injection script, while XSS is just a plain string. You can try different XSS scripts.
 
@@ -306,11 +305,11 @@ If we look at the result we got, our XSS scripts did not work because the web pa
 
 Command injection is a type of vulnerability also known as code execution vulnerability. Running it in the server shell without filtering the input causes this vulnerability. In this way, the attacker can run any malicious code he wants in the server shell. We will use DVWA's command injection web page in our application.
 
-![](https://cdn-images-1.medium.com/max/800/0*Ik2wa2BdVo1Kxt3p.png)
+![](0_Ik2wa2BdVo1Kxt3p.webp)
 
 There is an entry here that pings the given IP address. When we add a semicolon to the rest of the ip and try to run the ls command, we see that it works and lists the server directory. Based on this, we can determine that there is a command injection vulnerability on this page. Now let's see how we can detect this vulnerability with Python.
 
-![](https://cdn-images-1.medium.com/max/800/0*64jFt9fe7MaTcEu7.png)
+![](0_64jFt9fe7MaTcEu7.webp)
 
 When we listen to the request we sent to the page with burp, we can see that this request was made with a POST method and the parameters sent. As we did in previous applications, we will give our session cookie ('PHPSESSID) to our header parameter. Next, since it is a POST request, we will create a data tuple structure and give it to our post() method.
 
@@ -333,7 +332,7 @@ if "www-data" in str(response.content):
 
 'www-data' consists of a string that we can understand that the command is working when it is found in the response, it is located in the passwd file. Using this method, you can run longer commands sequentially with Python.
 
-![](https://cdn-images-1.medium.com/max/800/0*HJlxB5W113qQFTkD.png)
+![](0_HJlxB5W113qQFTkD.webp)
 
 As a result, we found the vulnerability by running the python code.
 
@@ -409,7 +408,7 @@ driver.get("http://google.com")
 
 To run Selenium with [docker](https://hub.docker.com/r/selenium/standalone-firefox), you can follow the instructions on the [github](https://github.com/SeleniumHQ/docker-selenium) page. Once you install and run Docker, you can access the Sesenium Grid interface at [http://localhost:4444](http://localhost:4444/).
 
-![](https://cdn-images-1.medium.com/max/800/1*ibMLsRZmjC54Fxcif1XP_A.png)
+![](1_ibMLsRZmjC54Fxcif1XP_A.webp)
 
 We can also view the web browser at <http://localhost:7900/>. The default password is *secret*.  
  We can run the following test code while Docker is running.
@@ -427,7 +426,7 @@ driver.get("http://google.com")
 
 Here, in the browserName section, you must write the name of the browser with which you installed Docker. When the code is run, you can see that Google opens on the address <http://localhost:7900/>.
 
-![](https://cdn-images-1.medium.com/max/800/1*WoWx7BtNKQIIwMPjVnMg4w.png)
+![](1_WoWx7BtNKQIIwMPjVnMg4w.webp)
 
 Python code was run and a session was created on the selenium grid. We went to google.com with this session. However, without closing this session, our python code terminated and our session remained open. We cannot run other Python codes without closing the session. To log out, we can add *driver.quit()* at the end of our python code or restart docker.
 
@@ -442,7 +441,7 @@ Whatever we want to do on the web page, we first need to access the HTML element
 * CLASS: If a class value is added to the element, thisWe can access it with the class value.
 * XPATH: We can access it by giving the xpath of the element we want to access in the page source. We can copy the xpath from the inspector tool.
 
-![](https://cdn-images-1.medium.com/max/800/1*6iylSyMtw2y6d-OsZcECpA.png)
+![](1_6iylSyMtw2y6d-OsZcECpA.webp)
 
 Here we have got the XPath of the search bar in Google. Now let's try to understand the basic logic on a small sample application.
 
@@ -490,7 +489,7 @@ driver.quit()
 
 When we run the sample application, the github web page opens, type CVE in the search bar and go to the search page. Then after 5 seconds the browser will close.
 
-![](https://cdn-images-1.medium.com/max/800/1*MWyxd0MQQ9IsRkFYJK7s8w.png)
+![](1_MWyxd0MQQ9IsRkFYJK7s8w.webp)
 
 We can pull and index the results here. We call this process web scraping.
 
@@ -498,7 +497,7 @@ We can pull and index the results here. We call this process web scraping.
 
 Now let's make a web bot application running on Shodan. To do this, we go to [shodan.io](https://www.shodan.io/) and copy the Xpath value of the search bar there. We will use this value to access the search bar in our application.
 
-![](https://cdn-images-1.medium.com/max/800/1*e5yR7mUfSRno_MxYDkshNg.png)
+![](1_e5yR7mUfSRno_MxYDkshNg.webp)
 
 Now we can start writing our code. First of all, we will perform the import operations as mentioned above and create our driver object. Then, we will send the value we will query to the search bar with the xpath value we received and send the '*ENTER'* value.
 
@@ -534,7 +533,7 @@ driver.quit()
 
 When we run our application, it will type 'phpMyAdmin' in the search bar and query it. Now let's try to get the returned values.
 
-![](https://cdn-images-1.medium.com/max/800/1*nryPmk-rhb0RiU-lv0zniw.png)
+![](1_nryPmk-rhb0RiU-lv0zniw.webp)
 
 As we can see, the class names of all returned results are assigned as 'result'. We can achieve the results by taking advantage of this situation.
 
@@ -543,7 +542,7 @@ results = driver.find_elements(By.CLASS_NAME, 'result')
 print(results)
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*YjRwxuXoOD18s9ceUn04MA.png)
+![](1_YjRwxuXoOD18s9ceUn04MA.webp)
 
 Here we can see the elements taken.
 
@@ -637,7 +636,7 @@ print('Received ', data)
 
 This code will send data one by one to establish a connection with the socket operating at 127.0.0.1:2222. The data sent here is the 'hello' message. Then, it receives the incoming data and the program ends.
 
-![](https://cdn-images-1.medium.com/max/800/1*0epPGqrnUjKfpY9yg8YoKg.png)
+![](1_0epPGqrnUjKfpY9yg8YoKg.webp)
 
 Let's save the code we use to listen to the socket in a file named *server.py*. Let's save the code we use to connect to the socket in a file named *client.py*. When we first run the server.py file and then the client.py file, the connection will be established.
 
@@ -674,7 +673,7 @@ print(banners)
 
 If we run this code on the Typhoon machine, it will get us open ports and banner information.
 
-![](https://cdn-images-1.medium.com/max/800/1*p297l0qe6OnuUmY7ep52sA.png)
+![](1_p297l0qe6OnuUmY7ep52sA.webp)
 
 ### SSL
 
@@ -767,7 +766,7 @@ ssh.close()
 
 In this example, we created an SSH client with the pramaiko module. The application makes a connection to the specified IP and port address with the username and password information and runs the 'whoami' command. Then it prints the response to the screen and closes the SSH connection.
 
-![](https://cdn-images-1.medium.com/max/800/1*yht4td7gjtuSn40eYD1_mQ.png)
+![](1_yht4td7gjtuSn40eYD1_mQ.webp)
 
 In this example, we connected via SSH by running machine [Typhoon](https://www.vulnhub.com/entry/typhoon-102,267/) in the virtual environment. Now let's see what more we can do with this module.
 

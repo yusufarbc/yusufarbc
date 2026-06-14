@@ -2,9 +2,7 @@
 title: "SentinelOne Singularity Platform: Yapay Zeka Güçlü XDR"
 date: '2025-11-18'
 description: "SentinelOne Singularity Platformu üzerine 180+ sayfalık teknik raporlardan damıtılmış dev rehber; otonom mimari, Storyline, Rollback, XDR ve Purple AI detayları."
-featuredImage: featured.webp
-draft: false
-layout: single
+image: featured.webp
 type: posts
 audioFile: tr.mp3
 ---
@@ -15,7 +13,7 @@ audioFile: tr.mp3
   <p><strong>🎙️ Blog yazısının seslendirmesi:</strong> Bu makale, seslendirme dosyası hazırlandığında yukarıdaki oynatıcıdan dinlenebilir. Teknik detaylar için okumaya devam edin.</p>
 </div>
 
-![](https://cdn-images-1.medium.com/max/800/1*jlrnbhcogdwACT7gXmQjYw.png)
+![](1_jlrnbhcogdwACT7gXmQjYw.webp)
 
 ## Hızlı Özet
 
@@ -31,7 +29,7 @@ Modern siber güvenlik manzarasında kuruluşlar; uç nokta, bulut ve kimlik gib
 
 Platform; uç nokta koruması (EPP), uç nokta tespiti ve yanıtı (EDR), genişletilmiş tespit ve yanıt (XDR) ile kimlik tabanlı tehdit tespiti ve yanıtı (ITDR) yeteneklerini tek bir mimaride sunar.
 
-![](https://cdn-images-1.medium.com/max/800/1*v_dw2Vr5-UjnAo2d02KXBg.png)
+![](1_v_dw2Vr5-UjnAo2d02KXBg.webp)
 
 ---
 
@@ -45,12 +43,12 @@ SentinelOne ajanı, uç nokta performansını etkilemeyecek şekilde optimize ed
 *   **Bellek Kullanımı:** ~20MB
 *   **Disk Alanı:** ~200MB
 
-![](https://cdn-images-1.medium.com/max/800/1*_hbumiRrnimNfSolItu4dg.png)
+![](1__hbumiRrnimNfSolItu4dg.webp)
 
 ### 1.2. Otonom Karar Mekanizması
 En kritik mimari özellik, tespit ve yanıt mantığının yerel olarak çalışabilmesidir. Ajan, bulut bağlantısı olmasa bile (çevrimdışı) yerleşik AI modelleri sayesinde tehditleri engelleyebilir. Bu özellik, izole ağlar veya OT/ICS sistemleri için hayati önem taşır.
 
-![](https://cdn-images-1.medium.com/max/800/1*cRqq7JFeY3W2TDgR9BznmA.png)
+![](1_cRqq7JFeY3W2TDgR9BznmA.webp)
 
 ---
 
@@ -64,7 +62,7 @@ Bir dosya diske yazıldığı (On-Write) anda devreye girer. İmza veya hash ger
 ### Aşama 2: On-Execution (Çalışma Anı) - Davranışsal AI
 Dosya çalışmaya başladığı anda devreye girer. API çağrıları, ağ bağlantıları ve sistem değişikliklerini izler. Özellikle **dosyasız (fileless) saldırıları**, **Living off the Land (LotL)** tekniklerini ve **sıfır-gün (0-day)** istismarlarını tespit eder.
 
-![](https://cdn-images-1.medium.com/max/800/1*Ti63wzo9C4Vci3ZJbJ242A.png)
+![](1_Ti63wzo9C4Vci3ZJbJ242A.webp)
 
 <div class="render-cards">
 <article class="render-card render-card-static reveal-on-scroll">
@@ -138,7 +136,7 @@ SentinelOne, saldırı sonrası sistemleri temiz bir duruma döndürmek için be
 *   **One-Click Rollback:** Özellikle fidye yazılımı saldırıları için tasarlanmıştır. Windows **Volume Shadow Copy Service (VSS)** altyapısını kullanarak, şifrelenmiş dosyaları tek bir tıklamayla saldırı öncesi temiz hallerine geri döndürür.
 *   **Ajan Koruması (Tamper Protection):** Gelişmiş saldırganların EDR ajanını kapatmasını engellemek için ajan servisleri şifreyle korunur ve çekirdek seviyesinde müdahalelere karşı direnç gösterir.
 
-![](https://cdn-images-1.medium.com/max/800/1*hFQ_jeDEtsU3QEl9pSJbGA.png)
+![](1_hFQ_jeDEtsU3QEl9pSJbGA.webp)
 
 ---
 
@@ -156,7 +154,7 @@ FROM ProcessActivities
 WHERE LOWER(CommandLine) LIKE '%net user%' AND Timestamp > NOW()-180d;
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*pMu0HoEd4BRugo45sjXNmA.png)
+![](1_pMu0HoEd4BRugo45sjXNmA.webp)
 
 ---
 
@@ -165,7 +163,7 @@ WHERE LOWER(CommandLine) LIKE '%net user%' AND Timestamp > NOW()-180d;
 *   **Purple AI:** Üretken yapay zeka (GenAI) destekli bir güvenlik asistanıdır. Doğal dilde ("Son 24 saatteki PowerShell aktivitelerini özetle") gelen sorulara yanıt verir ve otomatik triyaj yapar.
 *   **STAR (Storyline Active Response) Kuralları:** Analistlerin özel sorgularını otonom dedektörlere dönüştürmesini sağlar. Belirli bir kural tetiklendiğinde cihazın otomatik izolasyonu gibi aksiyonlar atanabilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*QnY2c-2-jEBISzxsEEgOAA.png)
+![](1_QnY2c-2-jEBISzxsEEgOAA.webp)
 
 ---
 
@@ -185,7 +183,7 @@ SentinelOne, farklı kurumsal ihtiyaçlara yönelik beş ana paket sunar:
 | **Purple AI** | Opsiyonel | Opsiyonel | Opsiyonel | Evet | Evet |
 | **Veri Saklama (DV)** | 14 Gün | 14 Gün | 14 Gün | 90 Gün | 90-365+ Gün |
 
-![](https://cdn-images-1.medium.com/max/800/1*-_aMQrqV4B2SeCtfuWtLYA.png)
+![](1_-_aMQrqV4B2SeCtfuWtLYA.webp)
 
 ---
 
@@ -195,13 +193,13 @@ SentinelOne, farklı kurumsal ihtiyaçlara yönelik beş ana paket sunar:
 *   **Entegrasyon:** Microsoft Intune, SCCM, GPO gibi araçlarla tam otomatize dağıtım desteklenir.
 *   **Singularity Marketplace:** 340'tan fazla API fonksiyonu ile ServiceNow, Splunk, Okta ve QRadar gibi 3. taraf çözümlerle tek tıkla entegrasyon sunar.
 
-![](https://cdn-images-1.medium.com/max/800/1*iLFyX0FNTl5lkXBZsij6Aw.png)
+![](1_iLFyX0FNTl5lkXBZsij6Aw.webp)
 
 ---
 
 ## Sonuç: Stratejik Değer
 
-![](https://cdn-images-1.medium.com/max/800/1*ngCUgm4Pkesl_gBvk_Sdlg.png)
+![](1_ngCUgm4Pkesl_gBvk_Sdlg.webp)
 
 SentinelOne Singularity Platformu, **MITRE ATT&CK 2024** değerlendirmelerinde %100 tespit oranı ve sıfır gecikme ile teknolojik liderliğini kanıtlamıştır. Sektör ortalamasından **%88 daha az gürültü (alarm)** üreterek SOC ekiplerinin asıl tehditlere odaklanmasını sağlar.
 

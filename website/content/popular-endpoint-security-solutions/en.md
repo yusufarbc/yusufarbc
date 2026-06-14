@@ -2,9 +2,7 @@
 title: "Popular Endpoint Security Solutions"
 date: '2025-03-01'
 description: "In this article, we will take a look at endpoint security solutions that are popularly used around the world. We will discuss these solutions with their features, pros and cons."
-featuredImage: "https://cdn-images-1.medium.com/max/800/1*BXOc1yXaiBaFvxECQ6ekEg.png"
-draft: false
-layout: single
+image: featured.webp
 type: posts
 ---
 
@@ -33,7 +31,7 @@ CrowdStrike Falcon is a cloud-based endpoint detection and response (EDR) platfo
 *   **Pros:** Extremely lightweight agent architecture, AI-powered Charlotte AI natural language helper, rich threat intelligence, and industry leadership.
 *   **Cons:** High Total Cost of Ownership (TCO) due to its highly modular licensing structure; does not offer native physical patch distribution despite showing vulnerability status.
 
-![](https://cdn-images-1.medium.com/max/800/1*_kgTgnMeuxdWZpaqUIRQuA.png)
+![](1__kgTgnMeuxdWZpaqUIRQuA.webp)
 
 <https://www.crowdstrike.com/cybersecurity-101/what-is-xdr/>
 
@@ -46,7 +44,7 @@ The central component of the platform is "Malop" (short for Malicious Operation)
 *   **Pros:** Excellent "Malop" interface presenting the entire attack story in a single timeline, flexible on-premises deployment support.
 *   **Cons:** Advanced XDR features are cloud-dependent, and the integration ecosystem is narrower compared to top competitors.
 
-![](https://cdn-images-1.medium.com/max/800/1*aAxP6F9J1jCk4t9qtoMjtw.png)
+![](1_aAxP6F9J1jCk4t9qtoMjtw.webp)
 
 <https://www.cybereason.com/platform>
 
@@ -59,7 +57,7 @@ It uses advanced algorithms and AI-based analytics to detect complex cyberattack
 *   **Pros:** Native to Windows OS (no agent deployment required), seamless integration with the Microsoft 365 ecosystem.
 *   **Cons:** Complex management on non-Windows platforms (Linux/macOS), and advanced security features require expensive licensing tiers (E5/G5).
 
-![](https://cdn-images-1.medium.com/max/800/1*V8WCU_-sfrU6AN97IFk8mQ.png)
+![](1_V8WCU_-sfrU6AN97IFk8mQ.webp)
 
 <https://www.infusedinnovations.com/blog/secure-intelligent-workplace/budgeting-for-microsoft-defender-xdr-and-zero-trust-security>
 
@@ -72,7 +70,7 @@ With its "Pathfinder" technology, Cortex XDR can analyze the network behaviors o
 *   **Pros:** SOTA telemetry correlation between network and endpoint data, automatic network-level isolation using NGFW integrations.
 *   **Cons:** Heavy dependency on the Palo Alto network hardware ecosystem for maximum value, premium licensing and storage costs.
 
-![](https://cdn-images-1.medium.com/max/800/1*isZKTqF4Dh4MoKGRIFmEBw.png)
+![](1_isZKTqF4Dh4MoKGRIFmEBw.webp)
 
 <https://www.xcitium.com/palo-alto-cortex-xdr/>
 
@@ -85,7 +83,7 @@ The platform's "Storyline" technology tracks the entire lifecycle of processes w
 *   **Pros:** Tamperproof rollback mechanism that works independently of Windows Shadow Copy (VSS), autonomous network discovery via Ranger, and independent agent execution without cloud connection.
 *   **Cons:** Advanced features (Ranger, RSO, vulnerability management) are sold as separate add-ons, and portal package tiers can be confusing.
 
-![](https://cdn-images-1.medium.com/max/800/1*OezKFGZY0Xx-TjZ1ZpmN7A.png)
+![](1_OezKFGZY0Xx-TjZ1ZpmN7A.webp)
 
 <https://www.sentinelone.com/platform/>
 
@@ -98,7 +96,7 @@ It uses behavioral analytics and machine learning to defend against advanced thr
 *   **Pros:** Unmatched integration with virtual infrastructure (hypervisor-level security), stable environment for on-premises data centers.
 *   **Cons:** Licensing uncertainty following the Broadcom acquisition, and relatively high resource footprint on older, legacy hardware.
 
-![](https://cdn-images-1.medium.com/max/800/1*o3iQ7r-BtNGQaYYCkPoItw.jpeg)
+![](1_o3iQ7r-BtNGQaYYCkPoItw.webp)
 
 <https://www.vmware.com/docs/vmw-datasheet-carbon-black-hosted-edr>
 
@@ -111,7 +109,7 @@ Offering a cost-effective solution for small to medium-sized businesses, Wazuh i
 *   **Pros:** Completely open-source and free, highly customizable, and robust file monitoring and log aggregation capabilities.
 *   **Cons:** Setup and fine-tuning require high technical expertise, and professional enterprise support is less widespread than its commercial peers.
 
-![](https://cdn-images-1.medium.com/max/800/1*SRprtJmrWdmwclsziL7B7w.png)
+![](1_SRprtJmrWdmwclsziL7B7w.webp)
 
 <https://documentation.wazuh.com/current/getting-started/components/index.html>
 
@@ -124,7 +122,7 @@ With its flexible, index-free data query model, it allows threat hunters to quic
 *   **Pros:** Exceptional speed when searching and analyzing massive datasets, flexible custom dashboards.
 *   **Cons:** Rapidly growing hardware and storage costs as log volume expands, and a learning curve for Elastic search query languages (ESQL/KQL).
 
-![](https://cdn-images-1.medium.com/max/800/1*eM1tia-nqbzoMV6tho98xw.png)
+![](1_eM1tia-nqbzoMV6tho98xw.webp)
 
 <https://dzlab.github.io/2023/04/26/elastic-cybersecurity/>
 

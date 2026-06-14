@@ -2,15 +2,13 @@
 title: "Intrusion Detection on Apache Web Server"
 date: '2025-06-01'
 description: "A comprehensive guide on detecting web application attacks (SQLi, XSS, LFI, RFI, Path Traversal) by analyzing Apache access logs manually and automatically using ModSecurity and Fail2Ban."
-featuredImage: "/images/banners/intrusion_detection_banner.png"
-draft: false
-layout: single
+image: "/images/banners/intrusion_detection_banner.png"
 type: posts
 ---
 
 ## Attack Detection on Apache Web Server
 
-![Apache HTTP Server](./apache-http-server.webp)
+![Apache HTTP Server](apache-http-server.webp)
 
 Nowadays, web applications and sites are exposed to different types of cyber attacks. Early detection of these attacks is of great importance for the effectiveness of security measures and the continuity of the system. Apache Web Server is one of the most widely used web servers around the world and therefore it is necessary to implement the right methods for monitoring and detecting attacks.
 
@@ -38,7 +36,7 @@ graph TD
 
 ## What are Apache Access Logs?
 
-![Apache Access Logs](./access-logs.webp)
+![Apache Access Logs](access-logs.webp)
 
 Apache records every HTTP request to the server in access logs. These logs contain important information such as the requesting IP address, request time, requested file or resource, HTTP method used, and status code. Access logs are the primary data source for monitoring and analyzing activities occurring in the system.
 
@@ -66,7 +64,7 @@ Most production systems use the **Combined Log Format**. The fields captured in 
 
 ### Manual Log Analysis
 
-![Manual Log Analysis](./log-analysis.webp)
+![Manual Log Analysis](log-analysis.webp)
 
 Suspicious activities can be searched in log files using Linux commands such as `grep` and `awk`. For example, a basic grep command can quickly look for common indicators of attacks across the entire log file:
 
@@ -84,7 +82,7 @@ grep -iE "union|select|drop|script|alert|../|login|admin" /var/log/apache2/acces
 
 ## Directory Traversal
 
-![Directory Traversal Attack Example](./directory-traversal-example.webp)
+![Directory Traversal Attack Example](directory-traversal-example.webp)
 
 Directory Traversal attack is a type of attack in which an attacker attempts to gain unauthorized access to upper directories or sensitive files on the web server. The goal is to obtain critical files on the server (e.g. `/etc/passwd`, configuration files).
 
@@ -118,7 +116,7 @@ grep -iE "\.\./|\.\.%2F|etc/passwd|boot.ini|win.ini" /var/log/apache2/access.log
 
 ## File Upload
 
-![File Upload Vulnerability](./file-upload.webp)
+![File Upload Vulnerability](file-upload.webp)
 
 A File Upload attack occurs when an attacker uploads malicious files by abusing the file upload feature of a web application. These files can often be scripts containing commands that can be executed on the web server (Webshells).
 
@@ -155,7 +153,7 @@ grep -E "\.php|\.jsp|\.asp|\.exe|\.phtml" /var/log/apache2/access.log
 
 ## RFI (Remote File Inclusion)
 
-![Remote File Inclusion](./rfi.webp)
+![Remote File Inclusion](rfi.webp)
 
 RFI is a type of attack on web applications that allows a malicious attacker to include and run malicious files (usually PHP, JavaScript, etc.) from a remote server.
 
@@ -191,7 +189,7 @@ grep -iE "http://|https://|include=|file=|page=|template=" /var/log/apache2/acce
 
 ## LFI (Local File Inclusion)
 
-![Local File Inclusion](./LFI.webp)
+![Local File Inclusion](LFI.webp)
 
 LFI is a type of attack that allows unauthorized inclusion and execution of local files on the server (e.g. system files, configuration files) with input received from the user in the web application.
 
@@ -228,7 +226,7 @@ grep -iE "\.\./|php://|data://|expect://|include=|page=|file=" /var/log/apache2/
 
 ## Brute Force
 
-![Brute Force Attack](./brute-force-attack-example.webp)
+![Brute Force Attack](brute-force-attack-example.webp)
 
 A Brute Force attack occurs when an attacker automatically and quickly tries multiple username and password combinations to gain access to a user account or system. The goal is to gain unauthorized access by finding the correct credentials.
 
@@ -320,7 +318,7 @@ awk '$7 == "/login.php" && $9 == 401 {print $1}' /var/log/apache2/access.log | s
 
 ## Command Injection
 
-![Command Injection](./command-injection.webp)
+![Command Injection](command-injection.webp)
 
 Command injection is a vulnerability that allows an attacker to run unauthorized commands on the server by injecting malicious operating system commands into the web application.
 
@@ -358,7 +356,7 @@ grep -iE ";|&&|\\||`|curl|wget|nc|bash|sh|python" /var/log/apache2/access.log
 
 ## SQL Injection
 
-![SQL Injection](./sql-injection.webp)
+![SQL Injection](sql-injection.webp)
 
 SQL Injection is a type of attack in which the attacker manipulates the application's database by injecting malicious SQL commands into the web application. Aim: It could be stealing confidential information from the database, modifying or deleting data.
 
@@ -492,7 +490,7 @@ grep -iE "\\*\)|\|\(|&|\(|\)" /var/log/apache2/access.log
 
 ## Template Injection
 
-![Template Injection](./template-injection.webp)
+![Template Injection](template-injection.webp)
 
 Template Injection is the result of processing data received from the user in template engines in web applications without adequate filtering. It is a security vulnerability that occurs when malicious code is injected into the template.
 
@@ -530,7 +528,7 @@ grep -iE "\{\{.\*\}\}|\{%.+%\}|\{#.\*#\}" /var/log/apache2/access.log
 
 ## HTTP Header Injection
 
-![HTTP Header Injection](./http-header-injection.webp)
+![HTTP Header Injection](http-header-injection.webp)
 
 HTTP Header Injection is a vulnerability that allows an attacker to manipulate HTTP headers by injecting malicious data into the web application.
 
@@ -604,7 +602,7 @@ grep -E "<html|<div|<span|<table|&lt;script|&lt;/script&gt;" /var/log/apache2/ac
 
 ## XSS (Cross-Site Scripting)
 
-![Cross Site Scripting XSS](./cross-site-scriptingxss.webp)
+![Cross Site Scripting XSS](cross-site-scriptingxss.webp)
 
 XSS is injecting malicious JavaScript or HTML code into a web application and executing that code in other users' browsers. All XSS attacks are content injection, but not all content injections are XSS. The goal is to hijack user sessions, infect malware, or mislead users. XSS attacks are divided into three:
 
@@ -643,7 +641,7 @@ grep -iE "&lt;script|alert|on-error|javascript:" /var/log/apache2/access.log
 
 ## SSRF (Server-Side Request Forgery)
 
-![Server-Side Request Forgery SSRF](./ssrf.webp)
+![Server-Side Request Forgery SSRF](ssrf.webp)
 
 SSRF is a vulnerability that allows an attacker to send malicious requests to the target server itself or to other internal systems he can access.
 
@@ -678,7 +676,7 @@ grep -iE "127\.0\.0\.1|localhost|169\.254|10\.|192\.168" /var/log/apache2/access
 
 ## CSRF (Cross-Site Request Forgery)
 
-![Cross-Site Request Forgery CSRF](./csrf.webp)
+![Cross-Site Request Forgery CSRF](csrf.webp)
 
 CSRF is a type of attack that allows a malicious site to send a request on behalf of the user to a web application that the user is authorized to do. Requests are made without the user's awareness, using their privileges for malicious purposes.
 
@@ -713,7 +711,7 @@ grep -E "POST /critical-endpoint" /var/log/apache2/access.log | grep "Referer: h
 
 ## IDOR (Insecure Direct Object Reference)
 
-![Insecure Direct Object Reference IDOR](./idor.webp)
+![Insecure Direct Object Reference IDOR](idor.webp)
 
 IDOR is a vulnerability where a user can directly access another user's data or objects without authorization. If web applications use object references (e.g. file names, user IDs, order numbers) directly and without verification in URL parameters when accessing resources (files, user data, records, etc.), the attacker can access others' data by changing these references.
 
@@ -747,7 +745,7 @@ grep "GET /profile?user_id=" /var/log/apache2/access.log
 
 ## Open Redirect
 
-![Open Redirect](./open-redirect.webp)
+![Open Redirect](open-redirect.webp)
 
 Open Redirect is a vulnerability that occurs when a web application misuses parameters to redirect users to another URL. The attacker uses these vulnerabilities to redirect users to malicious or fraudulent sites.
 
@@ -782,7 +780,7 @@ grep -E "redirect=|url=|next=|return=|dest=|continue=" /var/log/apache2/access.l
 
 ## ModSecurity: Real-Time Detection and Prevention
 
-![ModSecurity WAF](./modsecurity.webp)
+![ModSecurity WAF](modsecurity.webp)
 
 While manual log analysis is excellent for forensics and threat hunting, real-time prevention requires a Web Application Firewall (WAF). ModSecurity runs as an Apache module and monitors HTTP requests before they reach the web application.
 
@@ -806,7 +804,7 @@ SecRule REQUEST_URI "@rx (?i)(union\s+select|select\s+.*\s+from)" \
 
 ## Fail2Ban: Automated IP Blocking
 
-![Fail2Ban](./fail2ban.webp)
+![Fail2Ban](fail2ban.webp)
 
 Fail2Ban monitors log files (like `/var/log/apache2/access.log`) for patterns indicating attacks and automatically updates firewall rules (e.g., `iptables`) to block the offending IP address.
 

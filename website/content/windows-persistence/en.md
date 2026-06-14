@@ -2,8 +2,7 @@
 title: Windows Complete Post-Exploitation Guide
 date: 2024-11-18
 description: A comprehensive security guide examining how an attacker maintains persistence after Initial Access and spreads laterally through the network. Covers WMI Event Subscriptions, COM Hijacking, IFEO, Kerberos attacks, SOC detection engineering, and hardening steps.
-draft: false
-featuredImage: featured.webp
+image: featured.webp
 type: posts
 ---
 
@@ -43,7 +42,7 @@ To list existing users:
 net users
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*HvOGzRb3pHx18C05BL9HYg.png)
+![](1_HvOGzRb3pHx18C05BL9HYg.webp)
 
 **SOC Detection — Event IDs:**
 
@@ -55,9 +54,9 @@ net users
 
 These Event IDs can be filtered in Event Viewer → Windows Logs → Security.
 
-![](https://cdn-images-1.medium.com/max/800/1*4nn-RZO_QOj2Z31N2iW__Q.png)
+![](1_4nn-RZO_QOj2Z31N2iW__Q.webp)
 
-![](https://cdn-images-1.medium.com/max/800/1*1xVpZh22clB0-MLj_t8dfA.png)
+![](1_1xVpZh22clB0-MLj_t8dfA.webp)
 
 ---
 
@@ -71,7 +70,7 @@ schtasks /create /tn "WindowsUpdate" /tr "C:\Users\Public\payload.exe" /sc onlog
 
 The Sysinternals **Autoruns** tool lists scheduled tasks alongside signature validation — tasks without a Microsoft signature are flagged in red.
 
-![](https://cdn-images-1.medium.com/max/800/1*idpBPfOpk5jfDLg-y3C8wA.png)
+![](1_idpBPfOpk5jfDLg-y3C8wA.webp)
 
 **SOC Detection:**
 - Event ID **4698**: New scheduled task created
@@ -109,11 +108,11 @@ HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run
 
 Registry changes can be visualized with `regedit` or Autoruns:
 
-![](https://cdn-images-1.medium.com/max/800/1*KJ7xCp0G-BiHtQ1-wsCjBw.jpeg)
+![](1_KJ7xCp0G-BiHtQ1-wsCjBw.webp)
 
-![](https://cdn-images-1.medium.com/max/800/1*y3d5O0LdaV4GmOdbHnHpng.png)
+![](1_y3d5O0LdaV4GmOdbHnHpng.webp)
 
-![](https://cdn-images-1.medium.com/max/800/1*Z-1VEztRVjoi7huNxW_u3A.png)
+![](1_Z-1VEztRVjoi7huNxW_u3A.webp)
 
 **SOC Detection:**
 - Event ID **4657**: Registry value modified/created (auditing must be enabled)
@@ -130,9 +129,9 @@ C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
 
 Accessible via Run (Win+R) → `shell:startup`:
 
-![](https://cdn-images-1.medium.com/max/800/1*1VKN6kfhHUHtAxIC_SMn-g.png)
+![](1_1VKN6kfhHUHtAxIC_SMn-g.webp)
 
-![](https://cdn-images-1.medium.com/max/800/1*wYEoJlBvJhUvXomYDotB-g.png)
+![](1_wYEoJlBvJhUvXomYDotB-g.webp)
 
 ---
 
@@ -297,14 +296,14 @@ Lateral movement is the process by which an attacker gains access to other syste
 
 RDP is Microsoft's remote desktop connection protocol, operating on port **3389**. It's the most frequently used lateral movement vector for APT groups, primarily because RDP is already ubiquitous in corporate networks — it blends in with normal traffic.
 
-![](https://cdn-images-1.medium.com/max/800/1*_XjdN0sbwr04IpjBK0mVcA.jpeg)
+![](1__XjdN0sbwr04IpjBK0mVcA.webp)
 
 **Key RDP Features:**
 1. **Remote Access:** Full desktop control
 2. **TLS Encryption:** Secure data transmission (older versions have known vulnerabilities — BlueKeep, CVE-2019-0708)
 3. **Kerberos Integration:** In AD environments, authentication flows through the Kerberos protocol
 
-![](https://cdn-images-1.medium.com/max/800/1*XsWJxISsqgpXS_I2ecBx9g.png)
+![](1_XsWJxISsqgpXS_I2ecBx9g.webp)
 
 **APT Lateral Movement Methods via RDP:**
 
@@ -463,7 +462,7 @@ Sysmon (System Monitor) significantly enriches Windows' native logging infrastru
 
 Every Sysmon record contains `ParentImage` and `ParentCommandLine` fields — showing who made the change and how that process was launched. This field is critical for tracing an attack chain backward.
 
-![](https://cdn-images-1.medium.com/max/800/1*VR-A4gThQLNfdXDYlpGuwQ.png)
+![](1_VR-A4gThQLNfdXDYlpGuwQ.webp)
 
 ---
 
@@ -476,7 +475,7 @@ XDR platforms transform isolated events into an attack story. An example persist
 3. **Persistence:** Written to `HKCU\...\Run` key (Sysmon EID 13)
 4. **C2 Connection:** Outbound connection to unknown IP:443 (Sysmon EID 3)
 
-![](https://cdn-images-1.medium.com/max/800/1*EOdZ-x8gqkMWMCJo5HLhqg.png)
+![](1_EOdZ-x8gqkMWMCJo5HLhqg.webp)
 
 ---
 
@@ -587,7 +586,7 @@ Malicious use of legitimate Windows binaries:
 
 PAM is a centralized security solution used to manage, monitor, and audit privileged access in enterprise networks.
 
-![](https://cdn-images-1.medium.com/max/800/1*4a2mtAcF5OWpT77b-eeS0g.jpeg)
+![](1_4a2mtAcF5OWpT77b-eeS0g.webp)
 
 **Protections PAM Provides:**
 

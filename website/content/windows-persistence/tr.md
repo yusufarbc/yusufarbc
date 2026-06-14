@@ -2,8 +2,7 @@
 title: Windows'ta Sızma Sonrası Tam Rehber
 date: 2024-11-18
 description: Bir saldırganın Initial Access sonrasında sisteme nasıl tutunduğunu (Persistence) ve ağda nasıl yayıldığını (Lateral Movement) inceleyen kapsamlı güvenlik rehberi. WMI, COM Hijacking, IFEO, Kerberos saldırıları, SOC tespiti ve sıkılaştırma adımlarını içerir.
-draft: false
-featuredImage: featured.webp
+image: featured.webp
 type: posts
 ---
 
@@ -43,7 +42,7 @@ Mevcut kullanıcıları listelemek için:
 net users
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*HvOGzRb3pHx18C05BL9HYg.png)
+![](1_HvOGzRb3pHx18C05BL9HYg.webp)
 
 **SOC Tespiti — Event ID'leri:**
 
@@ -55,9 +54,9 @@ net users
 
 Event Viewer → Windows Logs → Security üzerinden bu Event ID'leri filtreleyerek iz sürülebilir.
 
-![](https://cdn-images-1.medium.com/max/800/1*4nn-RZO_QOj2Z31N2iW__Q.png)
+![](1_4nn-RZO_QOj2Z31N2iW__Q.webp)
 
-![](https://cdn-images-1.medium.com/max/800/1*1xVpZh22clB0-MLj_t8dfA.png)
+![](1_1xVpZh22clB0-MLj_t8dfA.webp)
 
 ---
 
@@ -71,7 +70,7 @@ schtasks /create /tn "WindowsUpdate" /tr "C:\Users\Public\payload.exe" /sc onlog
 
 Sysinternals **Autoruns** aracı, zamanlanmış görevleri imza doğrulamasıyla birlikte listeler; Microsoft imzalı olmayan görevler kırmızı ile işaretlenir.
 
-![](https://cdn-images-1.medium.com/max/800/1*idpBPfOpk5jfDLg-y3C8wA.png)
+![](1_idpBPfOpk5jfDLg-y3C8wA.webp)
 
 **SOC Tespiti:**
 - Event ID **4698**: Yeni zamanlanmış görev oluşturuldu
@@ -109,11 +108,11 @@ HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run
 
 Registry değişikliklerini görselleştirmek için `regedit` veya Autoruns kullanılabilir:
 
-![](https://cdn-images-1.medium.com/max/800/1*KJ7xCp0G-BiHtQ1-wsCjBw.jpeg)
+![](1_KJ7xCp0G-BiHtQ1-wsCjBw.webp)
 
-![](https://cdn-images-1.medium.com/max/800/1*y3d5O0LdaV4GmOdbHnHpng.png)
+![](1_y3d5O0LdaV4GmOdbHnHpng.webp)
 
-![](https://cdn-images-1.medium.com/max/800/1*Z-1VEztRVjoi7huNxW_u3A.png)
+![](1_Z-1VEztRVjoi7huNxW_u3A.webp)
 
 **SOC Tespiti:**
 - Event ID **4657**: Registry değeri değiştirildi/oluşturuldu (Auditing etkin olmalı)
@@ -130,9 +129,9 @@ C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
 
 Çalıştır (Win+R) → `shell:startup` ile erişilebilir:
 
-![](https://cdn-images-1.medium.com/max/800/1*1VKN6kfhHUHtAxIC_SMn-g.png)
+![](1_1VKN6kfhHUHtAxIC_SMn-g.webp)
 
-![](https://cdn-images-1.medium.com/max/800/1*wYEoJlBvJhUvXomYDotB-g.png)
+![](1_wYEoJlBvJhUvXomYDotB-g.webp)
 
 ---
 
@@ -297,14 +296,14 @@ Yatay hareket, saldırganın ağ içindeki diğer sistemlere erişim sağlaması
 
 RDP, Microsoft'un uzak masaüstü bağlantı protokolüdür ve port **3389** üzerinden çalışır. APT gruplarının lateral movement aracısı olarak en sık kullandığı protokoldür; bunun ana nedeni RDP'nin kurumsal ağlarda zaten yaygın olmasıdır — normal trafik içinde kaybolur.
 
-![](https://cdn-images-1.medium.com/max/800/1*_XjdN0sbwr04IpjBK0mVcA.jpeg)
+![](1__XjdN0sbwr04IpjBK0mVcA.webp)
 
 **RDP'nin Temel Özellikleri:**
 1. **Uzaktan Erişim:** Tam masaüstü kontrolü
 2. **TLS Şifreleme:** Güvenli veri iletimi (eski sürümlerde zafiyetler mevcut — BlueKeep, CVE-2019-0708)
 3. **Kerberos Entegrasyonu:** AD ortamında kimlik doğrulama Kerberos protokolü üzerinden yapılır
 
-![](https://cdn-images-1.medium.com/max/800/1*XsWJxISsqgpXS_I2ecBx9g.png)
+![](1_XsWJxISsqgpXS_I2ecBx9g.webp)
 
 **APT'lerin RDP ile Lateral Movement Yöntemleri:**
 
@@ -463,7 +462,7 @@ Sysmon (System Monitor), Windows'un yerel log altyapısını önemli ölçüde z
 
 Her Sysmon kaydı `ParentImage` ve `ParentCommandLine` alanlarını içerir — değişikliği kimin yaptığını ve bu sürecin nasıl başlatıldığını gösterir. Bu alan, saldırı zincirini geriye doğru takip etmek için kritiktir.
 
-![](https://cdn-images-1.medium.com/max/800/1*VR-A4gThQLNfdXDYlpGuwQ.png)
+![](1_VR-A4gThQLNfdXDYlpGuwQ.webp)
 
 ---
 
@@ -476,7 +475,7 @@ XDR platformları, izole olayları bir saldırı hikayesine dönüştürür. Ör
 3. **Kalıcılık:** `HKCU\...\Run` anahtarına yazıldı (Sysmon EID 13)
 4. **C2 Bağlantısı:** Bilinmeyen IP:443'e bağlantı (Sysmon EID 3)
 
-![](https://cdn-images-1.medium.com/max/800/1*EOdZ-x8gqkMWMCJo5HLhqg.png)
+![](1_EOdZ-x8gqkMWMCJo5HLhqg.webp)
 
 ---
 
@@ -587,7 +586,7 @@ Meşru Windows araçlarının kötü amaçlı kullanımı:
 
 PAM, kurumsal ağlarda yüksek ayrıcalıklı erişimleri yönetmek, izlemek ve denetlemek için kullanılan merkezi bir güvenlik çözümüdür.
 
-![](https://cdn-images-1.medium.com/max/800/1*4a2mtAcF5OWpT77b-eeS0g.jpeg)
+![](1_4a2mtAcF5OWpT77b-eeS0g.webp)
 
 **PAM'ın Sağladığı Korumalar:**
 

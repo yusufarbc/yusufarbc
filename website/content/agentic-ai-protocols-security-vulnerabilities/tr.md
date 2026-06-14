@@ -2,9 +2,7 @@
 title: "Eylemsel Yapay Zeka Protokolleri: Yeni Bir Saldırı Yüzeyi mi?"
 date: '2026-06-15'
 description: "Otonom yapay zeka eylemcilerinin yaygınlaşmasıyla birlikte MCP, A2A, ANP, UCP ve AP2 gibi protokoller yapay zeka mimarisinin omurgasını oluşturuyor. Bu yazıda Agentic AI kavramını, protokol ekosistemini katman katman ele alıyor ve güvenlik açıklarını kapsamlı biçimde inceliyoruz."
-featuredImage: featured.webp
-draft: false
-layout: single
+image: featured.webp
 type: posts
 audioFile: tr.mp3
 ---
@@ -206,7 +204,7 @@ Basit bir akışla: Dokümanlarını yükler, LlamaIndex ile endeksler ve OpenAI
 
 Yapay zeka eylemcilerinin verimli çalışabilmesi için iki kritik sorunun çözülmesi gerekir: **"Dış dünyaya ve araçlara nasıl bağlanırım?"** ve **"Diğer eylemcilerle nasıl güvenli iletişim kurarım?"** Bu sorunları çözmek amacıyla geliştirilen protokoller, birbiriyle rekabet etmekten ziyade birbirini tamamlayan katmanlar oluşturur.
 
-![Eylemci Protokolleri Ekosistemi](media/MCP.webp)
+![Eylemci Protokolleri Ekosistemi](MCP.webp)
 
 ### Protokol Katmanları ve Görevleri
 
@@ -241,7 +239,7 @@ Geleneksel REST API'lerinin yapay zeka eylemcileri için yetersiz kalmasının b
 
 MCP, rollerin net bir şekilde ayrıldığı klasik bir istemci-sunucu (client-server) modelini esas alır:
 
-![MCP İstemci-Sunucu Mimarisi](media/client-server-model.webp)
+![MCP İstemci-Sunucu Mimarisi](client-server-model.webp)
 
 | Bileşen | Görevi |
 | :--- | :--- |
@@ -371,7 +369,7 @@ AP2, işlemlerin güvenliğini sağlamak için W3C standartlarındaki Doğrulana
 
 Klasik web uygulamalarında istemci ne yapacağını tam olarak bilir ve sunucudan sadece o veriyi ister. Ancak MCP kullanan yapay zeka eylemcilerinde bu akış tersine döner: İstemci (dil modeli), sunucudan alabileceği araç listesini çeker fakat hangi aracı, ne zaman ve hangi parametrelerle çağıracağına **kendi mantık yürütme süreciyle** karar verir. Karar mekanizmasının tamamen dil modeline bırakılması, girdi filtrelemeyi son derece zorlaştırır.
 
-![MCP Protokolü ve Tehdit Yüzeyi](media/protocol.webp)
+![MCP Protokolü ve Tehdit Yüzeyi](protocol.webp)
 
 ### Confused Deputy (Yetki Devri) ve Dolaylı Komut Enjeksiyonu (Indirect Prompt Injection)
 
@@ -465,7 +463,7 @@ graph LR
 
 ## Akademik Araştırmalar ve Sektör Analizleri
 
-![Protokol Ekosistem Karşılaştırması](media/infografik.webp)
+![Protokol Ekosistem Karşılaştırması](infografik.webp)
 
 ### Benchmark Sonuçları ve Performans Verileri
 
@@ -511,7 +509,7 @@ Eylemcilerin çalışırken tüm API dokümantasyonunu bağlam penceresine almas
 
 ## Gerçek Dünya Uygulama Alanları
 
-![Yapay Zeka Eylemci Mimarisi](media/model.webp)
+![Yapay Zeka Eylemci Mimarisi](model.webp)
 
 ### Yazılım Mühendisliği ve DevOps
 
@@ -586,7 +584,7 @@ OAuth 2.1 standardındaki **Resource Indicators (RFC 8707)** kullanılarak, bir 
 
 Yapay zeka eylemcilerinin protokol ekosistemi hızla olgunlaşıyor. MCP, A2A, ANP, UCP ve AP2 protokolleri, "Agentic Web" (Eylemci Ağı) adı verilen otonom internet altyapısının temel taşlarını döşüyor.
 
-![Güvenli Eylemci Tasarımı](media/post.webp)
+![Güvenli Eylemci Tasarımı](post.webp)
 
 Bu yeni dünyada güvenlik, sistem kurulduktan sonra eklenen bir yama değil; tasarım aşamasından itibaren temel alınan bir yaklaşım (**Secure by Design**) olmak zorundadır. Linux Foundation çatısı altındaki ekipler ile büyük teknoloji devlerinin ortaklaşa geliştirdiği yerleşik RBAC (rol tabanlı yetkilendirme) katmanları, dijital imzalı yazılım envanterleri (SBOM) ve standartlaştırılmış sandbox yapıları, geleceğin siber güvenlik mimarisini şekillendirecektir.
 

@@ -2,9 +2,7 @@
 title: "Offensive Security with Kali Linux"
 date: '2023-01-15'
 description: "Hello, in this article I will talk about the Kali Linux distribution. I will explain what it does, what capabilities it has, and outline common pentesting tools."
-featuredImage: featured.webp
-draft: false
-layout: single
+image: featured.webp
 type: posts
 ---
 
@@ -91,7 +89,7 @@ In the field of penetration testing, Kali Linux is a widely used distribution. N
 
 While in the Kali Linux desktop environment, if you click on the logo, you will see the general menu open. Here, you can make various customizations from the settings section. When you look further down, you will come across various sections.
 
-![](https://cdn-images-1.medium.com/max/800/1*oRREtWWP_05h_uj2e0gZvQ.png)
+![](1_oRREtWWP_05h_uj2e0gZvQ.webp)
 
 Kali Linux Menu
 

@@ -2,9 +2,7 @@
 title: "Nextcloud and OnlyOffice: The Sovereign Solution Against M365 and Google Workspace"
 date: '2026-05-25'
 description: "An architectural analysis of integrating Nextcloud Hub, OnlyOffice, and Mailcow to achieve enterprise data sovereignty; compared with M365 and Google Workspace along with performance optimization guidelines."
-featuredImage: featured.webp
-draft: false
-layout: single
+image: featured.webp
 type: posts
 ---
 
@@ -187,7 +185,7 @@ OnlyOffice Communication Flow:
 [Client Browser] <-------------(JS & OOXML Payload / Client-Side Rendering)----------------+
 ```
 
-![OnlyOffice Integration](./onlyoffice.webp)
+![OnlyOffice Integration](onlyoffice.webp)
 
 > [!WARNING]
 > **JWT and Proxy Bottlenecks:** OnlyOffice communications with Nextcloud are signed via JSON Web Tokens (JWT). However, enterprise reverse proxies often filter out standard `Authorization` headers. This leads to authentication timeouts when loading documents. To bypass this, customize the JWT header name in OnlyOffice (`local.json`) to `AuthorizationJwt` and align the Nextcloud server settings accordingly.
@@ -293,7 +291,7 @@ Nextcloud supports two distinct cryptographic models to secure files at rest:
 
 ## 4. Production Performance Tuning Checklist
 
-![Container Infrastructure with Docker and Kubernetes](./docker-k8s.webp)
+![Container Infrastructure with Docker and Kubernetes](docker-k8s.webp)
 
 To prevent server slowdowns under load, apply these optimization configurations across the OS, PHP-FPM, Redis, and Database layers:
 

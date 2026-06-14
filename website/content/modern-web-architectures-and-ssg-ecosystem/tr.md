@@ -1,9 +1,7 @@
 ---
 date: "2026-05-11"
 description: "Web ekosisteminin evrimini; modern rendering stratejileri, popüler teknoloji yığınları (MERN, PERN, .NET) ve DevSecOps perspektifiyle ele alan, orijinal araştırmalarla zenginleştirilmiş devasa bir mimari rehber."
-draft: false
-featuredImage: ssg-cms.webp
-layout: single
+image: ssg-cms.webp
 title: "Modern Web Mimarisinin Anatomisi"
 tags: ["Architecture", "DevSecOps", "SSG", "Jamstack", "Astro", "Hugo", "Next.js", "MERN", "PERN", ".NET", "Cloudflare"]
 type: posts

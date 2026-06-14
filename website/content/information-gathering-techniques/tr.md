@@ -2,8 +2,7 @@
 title: Siber İstihbarat
 date: 2025-10-19
 description: Klasik OSINT ve aktif/pasif bilgi toplama tekniklerini; bulut güvenliği, tedarik zinciri istihbaratı, Yapay Zeka (AI) CTI pipeline'ları, ProjectDiscovery araç ekosistemi ve OPSEC gibi modern stratejilerle ele alan kapsamlı siber istihbarat rehberi.
-draft: false
-featuredImage: featured.jpeg
+image: featured.webp
 type: posts
 audioFile: tr.mp3
 ---
@@ -25,7 +24,7 @@ Bu makalede, klasik "nasıl yapılır" rehberlerindeki tüm teknik detayları ve
 
 Merhaba, bu yazımda sizlere pasif bilgi toplamada çok işimize yarayan google dorksları tanıtacağım. Nasıl kullanıldığından bahsedeceğim. Ardından, bu dorklarla nasıl zafiyetler bulabileceğimizi ve neler elde edebileceğimizi anlatmaya çalışacağım.
 
-![](https://cdn-images-1.medium.com/max/800/0*k0S1ZefFPj_ccZmA.jpg)
+![](0_k0S1ZefFPj_ccZmA.webp)
 
 Google dork, google arama motoru ile yapacağımız aramalarda bizlere kolaylık sağlayan bazı parametreleri barındıran bir sistemdir. Bu parametreler, arayacak olduğumuz kelimelere yönelik filtreleme işlemi yapmamıza olanak sağlar. Bu sayede google'ın indexlediği milyarlarca site içerisinde aradığımız bilgiye kolaylıkla ulaşabiliriz. Bu sistem pasif bilgi toplama işlemlerinin vazgeçilmezidir.
 
@@ -172,7 +171,7 @@ site:facebook.com & site:twitter.com
 
 ### Google Hacking Nedir?
 
-![](https://cdn-images-1.medium.com/max/800/0*7xiNCg0pcIr744aB.png)
+![](0_7xiNCg0pcIr744aB.webp)
 
 Google hacking, internette web sayfalarının zafiyetli bir indexinin bulunmasında veya tüm sitelerde açık verileri arayıp bilgi toplanmasında kullanılan yöntemdir. Örneğin, bir google sorgusuyla, bir sitenin login page'ini bulabilr ve burada zafiyet taraması yapabiliriz. Yani, dorklarla yaptığımız sorguların, hacking işlemleri için kullanımına 'Google Hacking' diyebiliriz.
 
@@ -295,7 +294,7 @@ Bu yazılıma sahip siteleri bulmak için kullanılacak dork:
 "Index of" inurl:phpmyadmin
 ```
 
-![](https://cdn-images-1.medium.com/max/800/0*igJI4VAzSEKlUXSX.png)
+![](0_igJI4VAzSEKlUXSX.webp)
 
 ### JIRA/Kibana
 

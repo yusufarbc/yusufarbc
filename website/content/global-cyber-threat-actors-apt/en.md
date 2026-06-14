@@ -2,9 +2,7 @@
 title: "Global Cyber ​​Threat Actors: APT (Advanced Persistent Threats)"
 date: '2025-07-26'
 description: "This introductory section will establish the basic concepts necessary to understand the detailed actor profiles that follow. It will define what an APT means in the modern context and address the conf"
-featuredImage: "https://cdn-images-1.medium.com/max/800/1*-TdWFhjfQyoq9f--c4bfLw.png"
-draft: false
-layout: single
+image: featured.webp
 type: posts
 ---
 
@@ -16,7 +14,7 @@ This introductory section will establish the basic concepts necessary to underst
 
 Whether it is a commercial or non-profit enterprise, it seems logical for every business to understand that building a secure organization is crucial for long-term success. When a business implements and maintains a strong security posture, it can enjoy numerous advantages. A secure organization can use its security program as a marketing tool, demonstrating to its customers how much it values their business and the extent of its commitment to protecting their information. Most importantly, however, a secure organization will not have to spend time and money detecting security breaches and responding to the consequences of those breaches.
 
-![](https://cdn-images-1.medium.com/max/800/1*m9xT3lhsreu1zC6hSYK13Q.png)
+![](1_m9xT3lhsreu1zC6hSYK13Q.webp)
 
 Information Security
 
@@ -42,7 +40,7 @@ To fully understand the frustration caused by security measures, we only need to
 
 Home computers have become repositories of personal data. Our computers now contain wedding videos, scanned family photos, music libraries, movie collections, and financial and health information. Because computers contain such familiar information and have integrated deeply into daily life, we have forgotten how powerful and complex these devices actually are. Not too long ago, computers as powerful as our current desktops and laptops would fill one or more large rooms. Additionally, today's computers present a 'user-friendly' interface to the world.
 
-![](https://cdn-images-1.medium.com/max/800/1*Leuvd-FleRoFfKzpN26UhA.jpeg)
+![](1_Leuvd-FleRoFfKzpN26UhA.webp)
 
 The ENIAC Computer
 
@@ -54,13 +52,13 @@ Many computer users believe they 'know everything about computers' simply becaus
 
 These 'Power Users' have progressed beyond application basics, yet many of them still do not understand even fundamental security concepts. Many users will casually install software and visit suspicious websites, despite the fact that these actions may violate company policies. The 'bad guys'—individuals who want to steal information from or cause damage to computer systems—have also identified that the end user is a weak link in the security chain.
 
-![](https://cdn-images-1.medium.com/max/800/1*EVJHO-mSs1IsrPDez7zynQ.jpeg)
+![](1_EVJHO-mSs1IsrPDez7zynQ.webp)
 
 End User Risk
 
 As companies invest more money in their perimeter defenses, attackers have begun to seek the path of least resistance. They send malicious software as email attachments, asking recipients to open them. Despite being instructed not to open attachments from unknown senders—or simply not to open attachments at all—employees repeatedly violate this policy, causing havoc on their networks.
 
-![](https://cdn-images-1.medium.com/max/800/1*5sBt5Lq39KhCLqrEy3goxQ.jpeg)
+![](1_5sBt5Lq39KhCLqrEy3goxQ.webp)
 
 Phishing
 
@@ -70,10 +68,10 @@ Phishing scams have been highly effective in convincing individuals to hand over
 
 During the development of personal computers (PCs), security was never a consideration. The earliest PCs were very simple devices with limited processing power, no keyboards, and programmed by flipping a series of switches. They were developed almost as novelty items. Even as they became more advanced and complex, all efforts focused on increasing capabilities and functionality; no one anticipated that security issues would arise. To understand why security was not a concern back then, we only need to look at some of the early computers, such as Berkeley Enterprises' Geniac, Heathkit EC-1, or the MITS Altair 8800. The development of computers was focused on what they could do, not how they could be attacked!
 
-![ENIAC computer, 1945: the first programmable computer designed with no security in mind](./eniac.webp)
+![ENIAC computer, 1945: the first programmable computer designed with no security in mind](eniac.webp)
 *ENIAC (1945) — the first electronic programmable computer was designed without any security consideration; this legacy is the structural root of modern system vulnerabilities.*
 
-![](https://cdn-images-1.medium.com/max/800/1*Bf4of7Vzp-zoPg86RGgYAQ.jpeg)
+![](1_Bf4of7Vzp-zoPg86RGgYAQ.webp)
 
 MITS Altair 8800—The First Personal Computer
 
@@ -91,7 +89,7 @@ As if employees' desire to share data did not pose enough of a threat to private
 
 The online storage sites mentioned previously can be accessed from home, the office, or anywhere with an internet connection. While it is possible to block access to some of these sites, blocking all of them is virtually impossible. Some may appear quite harmless. For many, Google's free email service, Gmail, is an excellent tool that offers robust service at no cost. Few realize that Gmail provides storage space that can be used not just for email, but also for storing files. Today, the risk is compounded by **Shadow IT**: employees upload sensitive corporate data into personal ChatGPT/LLM accounts without corporate oversight; uncontrolled OneDrive and Google Drive shares move corporate data beyond the company's visibility; and unsanctioned SaaS integrations create pathways for inadvertent data leakage. The ease with which data can be transferred outside of a company's control makes securing an organization's data far more challenging.
 
-![Official network vs. Shadow IT pathways: unauthorized cloud, personal devices, shadow apps](./shadow-it.webp)
+![Official network vs. Shadow IT pathways: unauthorized cloud, personal devices, shadow apps](shadow-it.webp)
 *Official corporate network vs. Shadow IT (Shadow IT) pathways — uncontrolled channels are the leading source of data leakage.*
 
 #### Security is Not About Hardware and Software
@@ -102,7 +100,7 @@ Many businesses believe that if they purchase enough equipment, they can build a
 
 For most organizations, the cost of establishing a strong security posture is viewed as a necessary evil, similar to purchasing insurance. Organizations do not want to spend money on it, but the risks of not doing so outweigh the costs. Because of this attitude, building a secure organization is extremely difficult. This mindset arises because requests for security tools are usually supported by documentation showing the average cost of a security incident, rather than demonstrating the more tangible benefits of a strong security posture.
 
-![](https://cdn-images-1.medium.com/max/800/1*xgVvQ2QkFScPSanG1cBoRw.png)
+![](1_xgVvQ2QkFScPSanG1cBoRw.webp)
 
 The Cost of Breaches
 
@@ -133,7 +131,7 @@ The unchecked complexity of modern computers and enterprise software inevitably 
   </p>
 </div>
 
-![Log4Shell CVE-2021-44228: technical breakdown of the Apache Log4j JNDI vulnerability](./log4j.webp)
+![Log4Shell CVE-2021-44228: technical breakdown of the Apache Log4j JNDI vulnerability](log4j.webp)
 *Log4Shell (CVE-2021-44228) — anatomy of the JNDI injection vulnerability in the Java application logging library.*
 
 
@@ -146,13 +144,13 @@ First, let's understand what exactly zero-day attacks and vulnerabilities are an
 
 **Zero-Day Attacks** are attacks that exploit yet undiscovered or unreported vulnerabilities in the software or hardware components of the computer system. These vulnerabilities and vulnerabilities are exploited by attackers as soon as they are detected, causing the attacked party to be caught off guard.
 
-![](https://cdn-images-1.medium.com/max/800/1*5VuTqvd6RWdb2I052Nr74g.png)
+![](1_5VuTqvd6RWdb2I052Nr74g.webp)
 
 So why are they defenseless? No matter how much attention the organization pays to its vulnerability management processes, it cannot manage a security vulnerability that it is not aware of. The working logic of many products used for vulnerability management is aimed at detecting and eliminating known vulnerabilities. Therefore, it is not possible to fix a vulnerability that has not yet been discovered.
 
 The process of eliminating newly discovered vulnerabilities takes some time. If the provider of the platform where the vulnerability was discovered issues a patch, a certain amount of time is required until the institution closes the vulnerability by making the necessary updates with this patch. During this time, the institution becomes vulnerable to this vulnerability.
 
-![](https://cdn-images-1.medium.com/max/800/1*ciB4g3FrciO4GMJ5R6q_IA.png)
+![](1_ciB4g3FrciO4GMJ5R6q_IA.webp)
 
 As soon as the vulnerability is published, the attackers take action, leaving institutions vulnerable. They detect institutions with vulnerable platforms through platforms such as Shodan and try to carry out their attacks before the vulnerability is corrected.
 
@@ -188,7 +186,7 @@ mindmap
 
 A Network Attack is an unauthorized entry into a computer in your organization or an address within your assigned domain. Intrusion can be passive (infiltration stealthily and undetected) or active (in which changes to network resources are affected). Intrusions can come from outside or inside your network structure (an employee, customer or business partner). Some intrusions are just to let you know that the intruder is there, defacing your website with various messages or vulgar images. Others are more malicious, attempting to obtain critical information on a one-off basis or as an ongoing parasitic affair that will continue to siphon data until discovered. Some intruders attempt to inject elaborate code to crack passwords, record keystrokes, or impersonate your site to redirect unsuspecting users to their site. Others embed themselves in the network and constantly silently extract data or replace public Web pages with various messages.
 
-![Threat actor categories: individuals, criminal organizations, hacktivists, and nation states](./Threat-Actor.webp)
+![Threat actor categories: individuals, criminal organizations, hacktivists, and nation states](Threat-Actor.webp)
 *Threat actor types — from lone individuals to state-sponsored advanced persistent threat groups.*
 
 An attacker can enter your system physically (by gaining physical access to a restricted machine and its hard drive and/or BIOS), externally (by attacking your Web servers or finding a way to bypass your firewall), or internally (by your own users, customers, or partners)
@@ -301,7 +299,7 @@ Once, a hacker was typically depicted as a lone teenager with poor social skills
 
 Now that there are vast collections of credit card numbers and intellectual property to harvest, organized hacker groups have formed to operate as businesses. Today, cybercrime organizations operate with the sophistication of legitimate corporations: groups like FIN7, Scattered Spider, and Lazarus Group maintain hierarchical structures complete with HR functions, technical divisions, and even customer support units for ransomware victims. Forget about individual hackers or hacker groups with shared goals. What you and your company need to worry about are hierarchical cybercrime organizations, where each cybercriminal has their own role and reward system.
 
-![WannaCry attack chain: endpoint compromise, exploit, rapid propagation, ransom](./WannaCry.webp)
+![WannaCry attack chain: endpoint compromise, exploit, rapid propagation, ransom](WannaCry.webp)
 *WannaCry ransomware attack flow — from unpatched EternalBlue vulnerability to cryptocurrency extortion.*
 
 In an era where organizations are attacked by highly motivated and skilled hacker groups, building a secure infrastructure has become imperative.
@@ -310,7 +308,7 @@ In an era where organizations are attacked by highly motivated and skilled hacke
 
 A new and particularly virulent threat that has emerged in the last few years is one in which a virus is secretly implanted into a large number of unprotected computers (usually those located in homes), hijacking them (without their owners' knowledge) and turning them into slaves to do the hacker's bidding. These compromised computers, known as bots, connect to large and often untraceable networks called botnets. Botnets are designed to work so that instructions come from a central computer and are quickly shared among other botted computers on the network. Newer botnets now use a "peer-to-peer" method, making detection difficult, if not impossible, by law enforcement because they lack a central identifiable control point. And because they often cross international borders into countries that lack the means (or will) to investigate and shut them down, they can grow at an alarming rate. They can be so lucrative that they have now become a tool of choice for hackers.
 
-![Botnet C&C architecture: zombie computers, C2 server, and bot master](./botnet.webp)
+![Botnet C&C architecture: zombie computers, C2 server, and bot master](botnet.webp)
 *Core botnet structure — zombie computers are orchestrated through a Command & Control (C&C) server.*
 
 Botnets exist largely due to the number of users who do not comply with the basic principles of computer security (installed and/or up-to-date antivirus software, regular scans for suspicious codes, etc.) and thus become unwitting accomplices. Once compromised and "botted," their machines are turned into conduits through which large volumes of unwanted spam or malicious code can be rapidly distributed. Current estimates suggest that 40% of the 800 million computers on the Internet are being used by bots controlled by cyberthieves to spread new viruses, send unsolicited spam e-mail, crash Web sites with denial-of-service (DoS) attacks, or siphon sensitive user data from banking or shopping Web sites that look and behave like legitimate sites where customers have previously done business.
@@ -362,7 +360,7 @@ While understanding the motivations of these cybercriminals and state-sponsored 
 
 The existence of different and complex naming schemes directly reflects the structure of the cybersecurity industry: a competitive market of private organizations, each with private data. While this fragmentation is a rich and diverse source of intelligence, it inherently creates an operational burden on defenders who must synthesize these disparate streams. The challenge for a Security Operations Center (SOC) analyst is not just technical (detecting the threat) but alsois analytical (correlating intelligence about the threat). The primary value of this report is to serve as a tool to fill this analytical gap.
 
-![](https://cdn-images-1.medium.com/max/800/1*AKhTf6UJZmCzPzY3lZvMPw.png)
+![](1_AKhTf6UJZmCzPzY3lZvMPw.webp)
 
 **Threat Actor Taxonomy Rosetta Stone**
 
@@ -405,10 +403,10 @@ This section will detail the threat actors attributed to the Russian Federation,
 * **Initial Access:** They use a wide variety of initial access vectors, including sophisticated spear phishing, supply chain intrusions (SolarWinds), and identity-based attacks such as password spraying against cloud services.
 * **Post-Infiltration:** They are known for their special "Duke" family malware (MiniDuke, CozyDuke, etc.). PowerShell and me to evade detectionThey make extensive use of "living off the land" techniques by using legitimate cloud management tools. A key TTP is their misuse of OAuth implementations and stolen tokens for persistence and lateral movement in cloud environments.
 
-![C2 attack server: encrypted command flow reaches infected host through firewall](./c2-attack-servers.webp)
+![C2 attack server: encrypted command flow reaches infected host through firewall](c2-attack-servers.webp)
 *Command and Control (C2) server — the attacker manages the victim remotely across the firewall.*
 
-![SolarWinds supply chain attack: March–December 2020 timeline](./solarwinds.webp)
+![SolarWinds supply chain attack: March–December 2020 timeline](solarwinds.webp)
 *SolarWinds SUNBURST operation — the 12-step anatomy of a supply chain attack (Vectra, 2020).*
 
 #### Sandworm (APT44 / Seashell Blizzard)
@@ -543,7 +541,7 @@ TTPs used by financially motivated groups such as FIN7 and SCATTERED SPIDER are 
 
 The rapid adoption of Generative AI (GenAI) technologies has provided threat actors with powerful automation and payload optimization capabilities.
 
-![Deepfake use cases: election manipulation, identity theft, financial fraud, social engineering](./deepfakes.webp)
+![Deepfake use cases: election manipulation, identity theft, financial fraud, social engineering](deepfakes.webp)
 *GenAI-powered deepfakes — the new frontier of social engineering.*
 
 ### 5.1. Adversarial Adaptation of GenAI
@@ -569,7 +567,7 @@ In the face of this AI-powered automation — flawless phishing emails and polym
 
 Most security experts agree that perfect network security is impossible and that any defenses can always be bypassed. The defense-in-depth strategy embraces blocking the attacker with multiple layers of defense. He acknowledges that each layer can be overcome. Valuable assets are protected by more layers of defense. The combination of multiple layers increases the cost of success of the attack, which is proportional to the value of the assets protected. Additionally, the combination of multiple layers is more effective than a single optimized defense against unexpected attacks. The cost to the attacker may come in the form of additional time, effort, or equipment. For example, an attacker's delay can increase an organization's chances of detecting and responding to the attack in progress. If the increased costs outweigh the gains from a successful attack, some attempts may be discouraged.
 
-![](https://cdn-images-1.medium.com/max/800/1*m1IdlCgTOzsBqAq42efKQA.png)
+![](1_m1IdlCgTOzsBqAq42efKQA.webp)
 
 Defense In Depth
 
@@ -577,7 +575,7 @@ Defense in depth is sometimes said to involve people, technology and operations.
 
 Various technological measures can be used for protection layers. These include firewalls, IDSs, access control lists (ACLs), antivirus software, access control, spam filters, etc. should take place.
 
-![](https://cdn-images-1.medium.com/max/800/1*tymURTTvBKKQGCOSzpLpWQ.png)
+![](1_tymURTTvBKKQGCOSzpLpWQ.webp)
 
 Defense in Depth
 
@@ -591,7 +589,7 @@ However, there is one more thing we need to mention before that. The tactics and
 
 My scenario covers the detection and prevention of a zero-day vulnerability discovered in a particular service of an organization and an attack that exploits this vulnerability. Of course, one of the most critical among the discovered vulnerabilities; Let's consider the detection and prevention of an attack that exploits a zero-day vulnerability that occurs in an open service of the institution and allows remote access (RCE).
 
-![](https://cdn-images-1.medium.com/max/800/1*TW-N4pXoQLDERr1qtD09LA.png)
+![](1_TW-N4pXoQLDERr1qtD09LA.webp)
 
 Bank Network Topology
 
@@ -647,7 +645,7 @@ In this layer:
 * Application logs are collected and examined in the SIEM system to detect attacks on applications. (SOC)
 * Applications are tried to be protected from attacks by being placed behind application firewalls. (WAF)
 
-![](https://cdn-images-1.medium.com/max/800/1*ux6CxhDniTrfK7vaDwSz-A.jpeg)
+![](1_ux6CxhDniTrfK7vaDwSz-A.webp)
 
 Application Protection
 
@@ -729,7 +727,7 @@ After gaining initial access, the attacker has two main purposes for the system 
 
 For methods of ensuring persistence in Windows-based systems, you can take a look at the relevant [article](https://medium.com/@yusufarbc/windows-kal%C4%B1c%C4%B1l%C4%B1k-sa%C4%9Flama-persistence-metotlar%C4%B1-b5fb4ac481c5).
 
-![](https://cdn-images-1.medium.com/max/800/1*3Tnfzr-Vt3pRPL_UF2j_Jg.jpeg)
+![](1_3Tnfzr-Vt3pRPL_UF2j_Jg.webp)
 
 Endpoint Protection
 
@@ -781,7 +779,7 @@ C4Container
     Rel_Back_Log(c_packet_capture, b_corporate_network, "Passively Analyzes Packets", "Deep packet inspection of internal traffic")
 ```
 
-![Wireshark packet analysis screen: HTTP traffic filtering and packet inspection](./wireshark-packet-analysis.webp)
+![Wireshark packet analysis screen: HTTP traffic filtering and packet inspection](wireshark-packet-analysis.webp)
 *Wireshark network traffic analysis — examining HTTP requests at the packet level.*
 
 It is a good practice to close unnecessary ports as attackers can use open ports,
@@ -790,7 +788,7 @@ especially those in the higher range. For example, the Sub7 Trojan is known to u
 
 When most people think of network security, firewalls are one of the first things that come to mind. Firewalls are a perimeter security tool that protects an internal network from external threats. A firewall selectively allows or blocks incoming and outgoing traffic. Firewalls can be standalone network devices located at the entrance to a private network or personal firewall programs running on computers. An organization's firewall protects the internal community; A personal firewall can be customized to an individual's needs.
 
-![](https://cdn-images-1.medium.com/max/800/1*9_PlK7S2sJYQmOwWCz8sAw.png)
+![](1_9_PlK7S2sJYQmOwWCz8sAw.webp)
 
 A firewall that isolates various network zones.
 
@@ -820,7 +818,7 @@ Spam filters work on a corporate and personal level. At the enterprise level, em
 
 A vulnerable computer can put not only itself but the entire community at risk. First of all, a vulnerable computer can attract attacks. If compromised, the host can be used to launch attacks against other hosts. The compromised computer may provide information to the attacker, or there may be trust relationships between computers that could help the attacker. In any case, it is undesirable to have a poorly protected computer in your network.
 
-![](https://cdn-images-1.medium.com/max/800/1*dJpeXIwbTsTpQForJQxrlw.png)
+![](1_dJpeXIwbTsTpQForJQxrlw.webp)
 
 Network Access Control
 
@@ -886,7 +884,7 @@ One of the first steps you can take to ensure the security of your network while
 
 So how do you "clean and tighten" your existing network or design a new network that can withstand the inevitable attacks? Let's look at some basics.
 
-![](https://cdn-images-1.medium.com/max/800/1*6HrtaqcektCOcSC5xOnqCQ.png)
+![](1_6HrtaqcektCOcSC5xOnqCQ.webp)
 
 network diagram
 
@@ -899,7 +897,7 @@ Preventive measures, a reactive approach, are necessary and help reduce the risk
 
 IDS approaches can be categorized in at least two ways. One way is to distinguish between host-based and network-based IDSs depending on where detection is done. While a host-based IDS monitors a single computer, a network-based IDS operates on network packets. Another way to view IDSs is through analysis approaches. Traditionally, the two analysis approaches are abuse (signature-based) detection and anomaly (behavior-based) detection.
 
-![](https://cdn-images-1.medium.com/max/800/1*Sy2rKhp9DU3_9_5GeiFI0w.png)
+![](1_Sy2rKhp9DU3_9_5GeiFI0w.webp)
 
 Misuse detection and anomaly detection
 
@@ -909,7 +907,7 @@ In practice, intrusion detection faces several challenges: signature-based detec
 
 Network-based IDSs typically monitor network packets for signs of reconnaissance, exploitation, DoS attacks, and malware. They have strengths that complement host-based IDSs: network-based IDSs can see the traffic of a population of hosts; can recognize patterns shared by multiple hosts; and they have the potential to see attacks before they reach hosts.
 
-![](https://cdn-images-1.medium.com/max/800/1*Hpz_IDGuT1fn2cEHAG4EWg.png)
+![](1_Hpz_IDGuT1fn2cEHAG4EWg.webp)
 
 IDSs that monitor various network zones.
 
@@ -921,7 +919,7 @@ A variation called an intrusion prevention system (IPS) attempts to combine the 
 
 We monitor our corporate network at the network security layer. At this point, we benefit from many network security systems. So what is the attacker's goal at this layer? and what will we do?
 
-![](https://cdn-images-1.medium.com/max/800/1*_t2bS_tKYBo8Z2TwG2p8XA.jpeg)
+![](1__t2bS_tKYBo8Z2TwG2p8XA.webp)
 
 Network Protection
 
@@ -959,7 +957,7 @@ It is important to include recovery after an attack in the plan. This includes i
 
 In our last layer, the data security layer, some systems are used to prevent a data breach. So what is the attacker's goal at this layer? and what will we do?
 
-![](https://cdn-images-1.medium.com/max/800/1*tsNGz2GCC_G-OIMTA0xmpA.jpeg)
+![](1_tsNGz2GCC_G-OIMTA0xmpA.webp)
 
 Data Protection
 
@@ -1152,10 +1150,10 @@ These devices are not the only threat to data. Since other devices can also be c
 
 Fortunately, Microsoft Windows tracks devices connected to a system in a Registry key named `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USBStor`. It can be interesting to look at this key on your own computer to see what types of devices have been connected.
 
-![Windows Registry Editor showing USBStor key: history of connected USB devices](./registry-usb-device-history.webp)
+![Windows Registry Editor showing USBStor key: history of connected USB devices](registry-usb-device-history.webp)
 *Windows Registry — the HKLM\SYSTEM\CurrentControlSet\Enum\USBSTOR key records every USB device ever connected.*
 
-![](https://cdn-images-1.medium.com/max/800/1*lzT-9yy1W4twVkTy-OsLRg.png)
+![](1_lzT-9yy1W4twVkTy-OsLRg.webp)
 
 Identifying Connected USB Devices in the USBStor Registry Key
 
@@ -1179,7 +1177,7 @@ Many organizations and system administrators state that they cannot build a secu
 
 One of the greatest concerns in an organization today is data leakage—ways through which confidential information can leave an organization despite robust perimeter security. As mentioned previously, USB Flash drives are one cause of data leakage; another is the recovery of data located in the unallocated clusters of a computer's hard drive. Unallocated clusters, or commonly known as free space, represent the hard drive area where the operating system and applications discard remnants or leftover data. Although this data cannot be viewed through a standard user interface, it can be easily identified (and sometimes recovered) using a hex editor like WinHex.
 
-![](https://cdn-images-1.medium.com/max/800/1*DFq_JJiwXTd39CS0mUtrUQ.png)
+![](1_DFq_JJiwXTd39CS0mUtrUQ.webp)
 
 WinHex Displaying the Contents of a Deleted Word Document
 
@@ -1187,7 +1185,7 @@ If a computer is stolen or donated, it is highly probable that someone will acce
 
 'Removes data from available unused disk space on the entire volume. If this option is chosen, all other options are ignored. The specified directory can be anywhere on a local volume. If it is a mount point or points to a directory on another volume, the data on that volume will be removed.'
 
-![](https://cdn-images-1.medium.com/max/800/1*tEwQUN4ab95pS6kEQM4DIA.png)
+![](1_tEwQUN4ab95pS6kEQM4DIA.webp)
 
 Usage of Cipher
 
@@ -1245,7 +1243,7 @@ Requirement 6 seems somewhat challenging, as few organizations have the time to 
 
 An even more detailed approach to monitoring your systems is to install a packet capture tool on your network, allowing you to analyze and capture traffic in real time. One tool that can be highly useful is Wireshark, 'an award-winning network protocol analyzer developed by an international team of network experts.' Wireshark is based on the original packet capture tool Ethereal. Analyzing network traffic is not a trivial task and requires training, but it is perhaps the most accurate way to determine what is happening on your network. The figure shows Wireshark monitoring traffic on a wireless interface.
 
-![](https://cdn-images-1.medium.com/max/800/1*x187pNRitiY0IegmpeG-dQ.png)
+![](1_x187pNRitiY0IegmpeG-dQ.webp)
 
 Wireshark
 
@@ -1305,7 +1303,7 @@ Politics is almost always a work in progress. It must evolve with technology, es
 
 A good security policy is not always a single document; Rather, it is a collection of policies that address specific areas such as computer and network use, authentication styles, email policies, remote/mobile technology use, and Web browsing policies. While it should be comprehensive, it should be written in a way that is easily understood by those it affects. Accordingly, your policy does not need to be overly complex. If you give new employees something the size of War and Peace and tell them they are responsible for knowing its content, you can expect to have ongoing problems maintaining good network security awareness. Keep it simple.
 
-![](https://cdn-images-1.medium.com/max/800/1*2K0SwOV19idVKFdjaNpaEQ.png)
+![](1_2K0SwOV19idVKFdjaNpaEQ.webp)
 
 Security Standards
 

@@ -2,9 +2,7 @@
 title: "Nextcloud ve OnlyOffice: M365 ve Google Workspace'e Karşı Egemen Çözüm"
 date: '2026-05-25'
 description: "Kurumsal veri egemenliğini sağlamak amacıyla Nextcloud Hub, OnlyOffice ve Mailcow entegrasyonunun mimari analizi; M365 ve Google Workspace karşılaştırması ve performans optimizasyon rehberi."
-featuredImage: featured.webp
-draft: false
-layout: single
+image: featured.webp
 type: posts
 ---
 
@@ -187,7 +185,7 @@ OnlyOffice İletişim Akışı:
 [Client Browser] <-------------(JS & OOXML Belge Yükü / Client Rendering)------------------+
 ```
 
-![OnlyOffice Entegrasyonu](./onlyoffice.webp)
+![OnlyOffice Entegrasyonu](onlyoffice.webp)
 
 > [!WARNING]
 > **JWT ve Proxy Engelleri:** OnlyOffice ile Nextcloud arasındaki veri trafiği, belgelerin yetkisiz indirilmesini önlemek için JSON Web Token (JWT) ile imzalanır. Ancak kurumsal ağlarda araya konumlandırılan Tersine Vekil Sunucular (Reverse Proxy), standart `Authorization` başlıklarını (header) silebilir. Bu durum belge açılışında kimlik doğrulama hatalarına sebep olur. Çözüm için OnlyOffice yapılandırmasında (`local.json`) JWT başlık adı `AuthorizationJwt` gibi özel bir değere atanmalı ve Nextcloud yönetim panelindeki "Authorization Header" alanı da buna göre güncellenmelidir.
@@ -293,7 +291,7 @@ Nextcloud disk güvenliğini sağlamak için iki farklı kriptografik yöntem su
 
 ## 4. Prodüksiyon Ortamları İçin Performans İnce Ayarları (Tuning Checklist)
 
-![Docker ve Kubernetes ile Konteyner Altyapısı](./docker-k8s.webp)
+![Docker ve Kubernetes ile Konteyner Altyapısı](docker-k8s.webp)
 
 Sisteminizin yük altında donmasını önlemek için sunucu işletim sistemi, PHP-FPM, Redis ve veritabanı seviyesinde aşağıdaki performans ayarlamalarını yapmanız hayati önem taşır:
 

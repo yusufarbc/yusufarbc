@@ -2,8 +2,7 @@
 title: Hakerlar için Python
 date: 2022-08-26
 description: "Güvenlik uzmanları için Python programlama rehberi: HTTP istekleri (Requests), Selenium ile web otomasyonu, port tarama için soket programlama (Socket) ve SSH uzaktan yönetim ve kaba kuvvet saldırıları için Paramiko modüllerinin pratik kullanımları."
-draft: false
-featuredImage: python_for_hackers_cover.webp
+image: python_for_hackers_cover.webp
 type: posts
 ---
 
@@ -138,7 +137,7 @@ Burada aldığımız cevap ile ilgili bilgiler görüyoruz. Ayrıca aldığımı
 
 requests.models.Response türünde bir nesne olduğunu anlıyoruz. [Kaynak koduna](https://requests.readthedocs.io/en/latest/_modules/requests/models/) baktığımzda:
 
-![](https://cdn-images-1.medium.com/max/800/0*L_iXdDv3gSm2uu6j.png)
+![](0_L_iXdDv3gSm2uu6j.webp)
 
 uzunca bir kod görüyoruz. Kendi dökümantasyonuna da [buradan](https://requests.readthedocs.io/en/latest/api/#requests.Response) ulaşabilirsiniz. Bizim için burada önemli olan \_\_attrs\_\_ kısmında yazan attiributeleridir.
 
@@ -171,7 +170,7 @@ f.close()
 
 sayfa kaynağının aşağıdaki gibi çekildiğini görebilirsiniz. (CSS ve Javascript kodlarıyla birlikte)
 
-![](https://cdn-images-1.medium.com/max/800/0*W3QQk0ZEoY20GPcY.png)
+![](0_W3QQk0ZEoY20GPcY.webp)
 
 Sayfa kaynağını [BeautifulSoup](https://pypi.org/project/beautifulsoup4/) modülü ile ayrıştırabilir içinden istedğiniz bilgileri alabilirsiniz. Ama bu yazımızda daha farklı şeyler yapacağız.
 
@@ -210,7 +209,7 @@ Fonksiyona verdiğimiz URL'i aldığımız metin dosyasında arayarak bulduğu t
 
 Kaba Kuvvet Saldırısı, doğrusunu bulma umuduyla deneme yanılma yönetimi kullanarak bir web sayfasına giriş yapmak için kullanabileceğimiz basit ancak hala etkili bir saldırı türüdür. Bunu python uygulamamızla nasıl yapabileceğimize bir bakalım. Bunun için DVWA uygulamasını kullanacağım.
 
-![](https://cdn-images-1.medium.com/max/800/0*D7cpaI2bY2tgv3Ig.png)
+![](0_D7cpaI2bY2tgv3Ig.webp)
 
 Burada giriş sayfamı [burp suite](https://portswigger.net/burp) aracıyla dinledim. username ve password alanlarına 'aa' değerini girerek login butonuna bastım. Yapılan GET isteği burp aracım üzerinde HTTP History bölümünde yakalanmış oldu. Tabi bunun için faklı araçlar da kullanabilirsiniz. Biz buradaki bazı bilgileri kullanacağız. Öncellikle DVWA sayfasına oturum açarak eriştiğimiz için python uygulamamızında bir şekilde oturuma erişmesi gerekiyor. Peki oturum nedir? kısaca bahsedecek olursak, bir giriş sayfasından kullanıcı adı/şifre bilgilerimizle giriş yaptığımızda aslında bir oturum başlatmış oluruz. İşimiz bitip tarayıcımızı kapattığımızda veya üzerinden belli bir süre geçtiğinde oturum sonlandırılır. Web uygulamaları oturum oluştururken çerelerden(cookie) yararlanır, bir çerez istemci bilgisayarında bir çerez sunucuda olmak üzere iki çerez oluşturulur. Bu iki çerez de kaybolmadığı sürece oturum devam eder. Biz burada DVWA sayfasına giriş yaparak aldığımız oturum çerezini python uygulamamıza vererek bizim otururumuz ile web sayfasına erişmesini sağlayacağız. Burp aracında işaretli alan 'PHPSESID' bizim oturum çerezimizdir. Yalnız acele etsek iyi olur, oturumun süresi bitiyor”¦
 
@@ -241,7 +240,7 @@ for i in usernames:
       print("Username and Password is found")
 ```
 
-![](https://cdn-images-1.medium.com/max/800/0*WFaG5gXYv4_u5frj.png)
+![](0_WFaG5gXYv4_u5frj.webp)
 
 Kodu python dosyasına yazıp çalıştırdığımızda canlıdaki DVWA sunucusuna GET istekleri göndererek denemeler yapacaktır.
 
@@ -272,7 +271,7 @@ for i in fuzzing_list:
 
 python kodunu çalıştırdığımızda listedeki dizin ve dosya adlarını deneyerek bize aşağıdaki sonucu verecektir.
 
-![](https://cdn-images-1.medium.com/max/800/0*P0_DM5nuoLcNWX16.png)
+![](0_P0_DM5nuoLcNWX16.webp)
 
 ### XSS Saldırısı
 
@@ -299,7 +298,7 @@ for payload in xss_list:
 
 Kodu python dosyasına yazıp çalıştırdığımızda canlıdaki DVWA sunucusuna GET istekleri göndererek denemeler yapacaktır.
 
-![](https://cdn-images-1.medium.com/max/800/0*5GN1pw6l0XKQVsRQ.png)
+![](0_5GN1pw6l0XKQVsRQ.webp)
 
 Aldığımız sonuca bakarsak, web sayfası filtreleme yaptığı için XSS scriptlerimiz çalışmadı. <h1>xss</h1> HTML injection scriptiydi, XSS ise düz bir stringden ibaret. Siz daha farklı XSS scriptleri deneyebilirsiniz.
 
@@ -307,11 +306,11 @@ Aldığımız sonuca bakarsak, web sayfası filtreleme yaptığı için XSS scri
 
 Command injection,kod çalıştırma açıklığı olarak da bilinen bir zafiyet çeşididir. Girdiler filtrelenmeden sunucu shellinde çalıştırılması bu zafiyeti doğuruur. Saldırgan bu sayede istediği zararlı kodları sunucu shellinde çalıştırabilir. Uygulamamızda DVWA'nın command injection web sayfasını kullanacağız.
 
-![](https://cdn-images-1.medium.com/max/800/0*Ik2wa2BdVo1Kxt3p.png)
+![](0_Ik2wa2BdVo1Kxt3p.webp)
 
 Burada verilen ip adresine ping atan bir girdi bulunuyor. ip'nin devamına noktalı virgül atıp ls komutunu çalıştırmayı denediğimizde, çalıştıığını ve sunucu dizinini bize listelediğini görürürüz. Buradan hareketle bu sayfada comman injection zaafiyeti olduğunu belirleyebiliriz. Şimdi python ile nu zafiyeti nasıl tesğit edebileceğimize bakalım.
 
-![](https://cdn-images-1.medium.com/max/800/0*64jFt9fe7MaTcEu7.png)
+![](0_64jFt9fe7MaTcEu7.webp)
 
 Sayfaya gönderdiğimiz isteği burp ile dinlediğimizde bu isteğin bir POST metodu ile yapıldığını ve gönderilen parametreleri görebiliyoruz. Önceki uygulamalarda yaptığımız gibi yine oturum çerezimizi('PHPSESSID) header parametremize vereceğiz. Devamında POST isteği olduğu için bir data tuple yapısı oluşturacağız ve bunu post() metodumuza vereceğiz.
 
@@ -334,7 +333,7 @@ if "www-data" in str(response.content):
 
 'www-data' gelen cevapta bulunduğunda komutun çalıştığını anlayabileceğimiz bir stringden ibaret, passwd dosyası içinde bulunuyor. Bu yöntemi kullanarak daha uzun komutları sırayla python ile çalıştırabilirsiniz.
 
-![](https://cdn-images-1.medium.com/max/800/0*HJlxB5W113qQFTkD.png)
+![](0_HJlxB5W113qQFTkD.webp)
 
 Sonuç olarak, python kodunu çalıştırarak zafiyeti bulmuş olduk.
 
@@ -411,7 +410,7 @@ driver.get("http://google.com")
 
 Seleniumu [docker](https://hub.docker.com/r/selenium/standalone-firefox) ile çalıştırmak için ise [github](https://github.com/SeleniumHQ/docker-selenium) sayfasınındaki yönlendirmeleri izleyebilirsiniz. Dockerı kurup çalıştırınca [http://localhost:4444](http://localhost:4444/) adresinde seslenium grid arayüzüne erişebilirsiniz.
 
-![](https://cdn-images-1.medium.com/max/800/1*ibMLsRZmjC54Fxcif1XP_A.png)
+![](1_ibMLsRZmjC54Fxcif1XP_A.webp)
 
 <http://localhost:7900/> adresinden de web tarayıcıyı görüntüleyebiliriz. Varsayılan parola *secret* dır.  
  Docker ayakta iken aşağıdaki test kodunu çalıştırabiliriz.
@@ -429,7 +428,7 @@ driver.get("http://google.com")
 
 Burada browserName kısmına dockerı hangi browser ile kurduysanız o browserın ismini yazmalısınız. Kodu çalıştırılınca <http://localhost:7900/> adresi üzerinde google'ın açıldığını görebilirsiniz.
 
-![](https://cdn-images-1.medium.com/max/800/1*WoWx7BtNKQIIwMPjVnMg4w.png)
+![](1_WoWx7BtNKQIIwMPjVnMg4w.webp)
 
 Python kodu çalıştırıldı ve selenium grid üzerinde bir sesssion oluşturuldu. Bu session ile google.com adresine gittik. Ancak bu oturumu kapatmadan python kodumuz sonlandı ve oturumumuz açık kaldı. Sessionı kapatmadan başka python kodları çalıştıramayız. Oturumu kapatmak için python kodumuzun sonuna *driver.quit()* ekleyebiliriz ya da docker'ı yeniden başlatabilrisiniz.
 
@@ -444,7 +443,7 @@ Web sayfası üzerinde her ne yapmak istersek isteyelim önce o işlemi yapacağ
 * CLASS: Elemana bir class değeri eklenmişse bu class değeri ile erişebiliriz.
 * XPATH: Sayfa kaynağında erişmek istediğimiz elemanın xpath'ini vererek erişebiliriz. Xpath'i inspector aracından kopyalayabiliriz.
 
-![](https://cdn-images-1.medium.com/max/800/1*6iylSyMtw2y6d-OsZcECpA.png)
+![](1_6iylSyMtw2y6d-OsZcECpA.webp)
 
 Burada Google'daki arama çubuğunun XPath'ini almış olduk. Şimdi küçük bir örnek uygulama üzerinde temel mantığı anlamaya çalışalım.
 
@@ -492,7 +491,7 @@ driver.quit()
 
 Örnek uygulamayı çalıştırdığımızda, github web sayfası açılır, arama çubuğunu CVE yazılıp arama sayfasına gidilir. Ardından 5 saniye sonra tarayıcı kapanacaktır.
 
-![](https://cdn-images-1.medium.com/max/800/1*MWyxd0MQQ9IsRkFYJK7s8w.png)
+![](1_MWyxd0MQQ9IsRkFYJK7s8w.webp)
 
 Burada çıkan sonuçları çekip indeksleyebiliriz. Bu işleme web scraping diyoruz.
 
@@ -500,7 +499,7 @@ Burada çıkan sonuçları çekip indeksleyebiliriz. Bu işleme web scraping diy
 
 Şimdi Shodan üzerinde çalışan bir web botu uygulaması yapalım. Bunun için [shodan.io](https://www.shodan.io/)'a girip buradaki arana çubuğununun Xpath değerini kopyalıyoruz. Bu değeri uygulamamızda arama çubuğuna erişmek için kullanacağız.
 
-![](https://cdn-images-1.medium.com/max/800/1*e5yR7mUfSRno_MxYDkshNg.png)
+![](1_e5yR7mUfSRno_MxYDkshNg.webp)
 
 Şimdi kodumuzu yazmaya başlayabiliriz. Öncellikle yukarıda bahsettiğimiz gibi import işlemlerini yapıp driver nesnemizi oluşturacağız. Ardından aldığımız xpath değeri ile arama çubuğuna sorgulayacağımız değeri gönderip '*ENTER'* değerini göndereceğiz.
 
@@ -536,7 +535,7 @@ driver.quit()
 
 Uygulamamızı çalıştırdığımızda arama çubuğuna 'phpMyAdmin' yazıp sorgulayacaktır. Şimdi dönen değerleri almaya çalışalım.
 
-![](https://cdn-images-1.medium.com/max/800/1*nryPmk-rhb0RiU-lv0zniw.png)
+![](1_nryPmk-rhb0RiU-lv0zniw.webp)
 
 Gördüğümüz gibi dönen bütün sonuçların class isimleri 'result' olarak atanmış. Bu durumdan yararlanarak gelen sonuçlara erişebiliriz.
 
@@ -545,7 +544,7 @@ results = driver.find_elements(By.CLASS_NAME, 'result')
 print(results)
 ```
 
-![](https://cdn-images-1.medium.com/max/800/1*YjRwxuXoOD18s9ceUn04MA.png)
+![](1_YjRwxuXoOD18s9ceUn04MA.webp)
 
 Burada alınan elementleri görebiliyoruz.
 
@@ -641,7 +640,7 @@ print('Received ', data)
 
 Bu kod 127.0.0.1:2222 adresinde çalışan soketle bağlantı kuracak bir bir data gönderecektir. Burada gönderilen data 'merhaba' mesajıdır. Ardından karşıdan gelen datayı alır ve program sonlanır.
 
-![](https://cdn-images-1.medium.com/max/800/1*0epPGqrnUjKfpY9yg8YoKg.png)
+![](1_0epPGqrnUjKfpY9yg8YoKg.webp)
 
 Soket dinlediğimiz kodu *server.py i*simli bir dosyaya kaydedelim. Sokete bağlandığımız kodu ise *client.py* isimli bir dosyaya kaydedelim. Önce server.py dosyasını sonra client.py dosyasını çalıştırdığımızda bağlantı kurulmuş olacaktır.
 
@@ -678,7 +677,7 @@ print(banners)
 
 Typhoon makinesi üzerinde bu kodu çalıştırırsak bize açık portları ve banner bilgilerini gertirir.
 
-![](https://cdn-images-1.medium.com/max/800/1*p297l0qe6OnuUmY7ep52sA.png)
+![](1_p297l0qe6OnuUmY7ep52sA.webp)
 
 ### SSL
 
@@ -770,7 +769,7 @@ ssh.close()
 
 Bu örnekte pramaiko modülü ile bir SSH client'ı oluşturduk. Uygulama belirtilen ip ve port adresine kullanıcı adı ve parola bilgileri ile bir bağlantı gerçekleştirir ve 'whoami' komutunu çalıştırır. Ardından dönen cevabı ekrana yazdırır ve SSH bağlantısını kapatır.
 
-![](https://cdn-images-1.medium.com/max/800/1*yht4td7gjtuSn40eYD1_mQ.png)
+![](1_yht4td7gjtuSn40eYD1_mQ.webp)
 
 Bu örnekte, sanal ortamda [Typhoon](https://www.vulnhub.com/entry/typhoon-102,267/) makinesini çalıştırarak SSH ile bağlandık. Şimdi bu modül ile daha neler yapabileceğimize bir bakalım.
 
