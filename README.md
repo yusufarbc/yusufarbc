@@ -21,18 +21,18 @@
 
 ## 🚀 About Me
 
-I am a **Software & Security Engineer** working at the intersection of software development and cybersecurity. Over the years, I have gained hands-on experience in enterprise SOC/MDR analysis, systems and network administration, and full-stack software engineering. I focus on building secure, resilient, and secure-by-design environments that prioritize data control and system automation.
+I am a **Software & Security Engineer** with hands-on experience in software development, enterprise SOC/MDR analysis, and network administration. I focus on DevSecOps, software supply chain risks, and automation.
 
-### 💻 Software & Automation Engineering
-I leverage a diverse tech stack—from low-level **C** to modern **Golang, Node.js, and Python**—to automate defenses, develop security tools, and build resilient systems:
-* **Security Tooling & GUI:** Developing custom solutions like **Vantage** (a Go/Docker-based unified GUI for vulnerability management) and **WebVuln Runner**.
-* **Full-Stack Architecture:** End-to-end application development utilizing **JavaScript/Node.js/React** (e.g., the PERN-stack Nalburdeposu e-commerce platform).
-* **Big Data & Analytics:** Architecting scalable, Lakehouse-based SIEM environments using **Apache Spark, Kafka, and Hadoop** for real-time log analytics.
+### 💻 Software & Automation
+I build security tools and automate workflows using **Go, Python, Node.js, and C**:
+* **Vantage & WebVuln Runner:** Tools for vulnerability management and automated lab deployments.
+* **ApiGoat:** A deliberately vulnerable REST API for OWASP Top 10 security testing.
+* **Log Analytics:** Building scalable SIEM pipelines using Spark, Kafka, and Hadoop.
 
-### 🏛️ Digital Sovereignty & Cloud-Native Infrastructure
-I am deeply passionate about creating autonomous, self-sufficient IT environments using Infrastructure as Code (IaC) and containerization.
-* **Ubuntu Sovereign Stack:** Architecting an open-source, on-premise enterprise framework integrating Ubuntu LTS, Kubernetes/Podman, and Wazuh to ensure total data sovereignty.
-* **Advanced Virtualization:** Building robust lab environments on Proxmox VE to test the limits of enterprise virtualization, ZFS, and autonomous deployments.
+### ⚙️ Infrastructure & Virtualization
+I set up resilient environments using virtualization and containerization:
+* **Proxmox VE & Docker:** Managing home lab environments, private cloud, and service containerization.
+* **Sovereign Lab Setups:** Deploying self-hosted solutions like Wazuh, Nextcloud, and Samba AD to control data.
 
 ## 💻 Engineering Stack
 
@@ -41,12 +41,11 @@ I am deeply passionate about creating autonomous, self-sufficient IT environment
 * **Cloud-Native & Infrastructure:** ![Docker](https://img.shields.io/badge/Docker-0f172a?style=flat-square&logo=docker&logoColor=38bdf8) ![Kubernetes](https://img.shields.io/badge/Kubernetes-0f172a?style=flat-square&logo=kubernetes&logoColor=38bdf8) ![Proxmox](https://img.shields.io/badge/Proxmox-0f172a?style=flat-square&logo=proxmox&logoColor=38bdf8) ![Ubuntu](https://img.shields.io/badge/Ubuntu-0f172a?style=flat-square&logo=ubuntu&logoColor=38bdf8) ![Bash](https://img.shields.io/badge/Bash-0f172a?style=flat-square&logo=gnu-bash&logoColor=38bdf8)
 * **Security Architecture:** ![Wazuh](https://img.shields.io/badge/Wazuh-0f172a?style=flat-square&logo=wazuh&logoColor=38bdf8) ![Elastic](https://img.shields.io/badge/Elastic-0f172a?style=flat-square&logo=elastic&logoColor=38bdf8) ![Splunk](https://img.shields.io/badge/Splunk-0f172a?style=flat-square&logo=splunk&logoColor=38bdf8)
 
-
 ## 📊 Stats & Academic Focus
 
-* 🎓 **M.Sc. in Software Engineering:** Karabuk University (Researching scalable systems & supply chain security).
+* 🎓 **M.Sc. in Software Engineering:** Karabuk University (Focusing on scalable systems & supply chain security).
 * 🔬 **Current Research:** Benchmarking CPU, GPU, and NPU performance for complex graph optimization tasks.
-* 🛡️ **Cybersecurity Roots:** Leveraging an offensive security background (TryHackMe Top 1%, Pentest Specialist) to engineer unbreakable defense systems.
+* 🛡️ **Cybersecurity:** TryHackMe Top 1% (Pentest Specialist), active in both offensive and defensive security simulations.
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=yusufarbc&show_icons=true&theme=tokyonight&bg_color=0f172a&title_color=38bdf8&icon_color=38bdf8&text_color=ffffff" alt="Yusuf's GitHub Stats" height="150px" />
