@@ -235,6 +235,40 @@ npm install --ignore-scripts --allow-git=none
 
 The `--allow-git=none` parameter completely blocks git binary execution pathways during installation, preventing system-level binary manipulation via git dependencies. Furthermore, `npm ci` (clean install) should always be preferred in production and CI/CD environments to prevent version drift.
 
+> [!NOTE]
+> **NPM 12 – Major Security Update (Announced June 9, 2026)**
+>
+> **NPM 12** is the next major version of npm (Node Package Manager). GitHub announced on June 9, 2026 that this release brings significant security-focused changes. Estimated release: **July 2026**.
+>
+> **Key Change: Script Execution Behavior**
+>
+> Currently, `npm install` automatically runs `preinstall`, `install`, and `postinstall` lifecycle scripts from dependencies. This has been a major vector for supply chain attacks.
+>
+> With NPM 12:
+> - `allowScripts` will be **disabled by default**.
+> - `npm install` will no longer automatically execute scripts from dependencies.
+> - You will need to **explicitly approve** scripts.
+> - This also covers `node-gyp` native module builds and `prepare` scripts in git/file/link dependencies.
+>
+> **Additional security defaults:**
+> - Git dependencies (`--allow-git`) disabled by default.
+> - Remote tarball dependencies (`--allow-remote`) disabled by default.
+>
+> These changes significantly reduce the risk of a single malicious package (or transitive dependency) executing code on developer machines or in CI/CD.
+>
+> **How to prepare** (warnings already available in npm 11.16.0+):
+> 1. Upgrade to npm 11.16.0 or newer.
+> 2. Run your normal `npm install` and review warnings.
+> 3. See affected scripts: `npm approve-scripts --allow-scripts-pending`
+> 4. Approve trusted packages: `npm approve-scripts <package-name>`
+> 5. Commit the allow-list in your `package.json`.
+>
+> Scripts you do not approve will not run after upgrading to npm 12.
+>
+> This change was made in response to rising npm supply chain attacks. By making script execution **opt-in** by default, the attack surface is greatly reduced.
+>
+> Source: [GitHub Changelog – npm v12](https://github.blog/changelog/2026-06-09-upcoming-breaking-changes-for-npm-v12/)
+
 ### Local Proxy and Registry Management
 
 To prevent packages from the external internet from reaching developer machines directly, enterprise networks should deploy local proxy solutions such as **JFrog Artifactory** or **Sonatype Nexus**:
@@ -253,7 +287,7 @@ Because attackers conceal their malicious capabilities behind legitimate system 
 | Security Layer | Required Tools / Commands | Protection Mechanism | Implementation Priority |
 |---|---|---|---|
 | Static Analysis & SBOM | Snyk, OWASP Dependency-Check, npq, lockfile-lint | Known vulnerability detection, lockfile source validation, package maturity analysis | High |
-| Installation Hardening | `npm ci`, `--ignore-scripts`, `--allow-git=none` (npm v11.10+) | Blocking lifecycle scripts, preventing git binary path hijacking vulnerabilities | Critical |
+| Installation Hardening | `npm ci`, `--ignore-scripts`, `--allow-git=none` (npm v11.10+); npm v12 makes many behaviors default | Blocking lifecycle scripts, preventing git binary path hijacking vulnerabilities | Critical |
 | Proxy & Registry Management | JFrog Artifactory, Sonatype Nexus, Verdaccio | Preventing internal package name exfiltration, locking registry source priority | Critical |
 | Continuous Monitoring & EDR/SIEM | StepSecurity Dev Machine Guard, EDR/XDR, SIEM | Detecting network egress during installs and anomalous process tree activity | High |
 

@@ -221,6 +221,43 @@ npm install --ignore-scripts --allow-git=none
 
 `--allow-git=none` parametresi (npm v11.10 ve üzeri sürümlerde), kurulum sırasında git komutlarının çalıştırılma yollarını kapatarak git bağımlılıkları üzerinden gelebilecek sistem seviyesindeki manipülasyonları engeller. Canlı (production) ve CI/CD sunucularında ise her zaman `npm ci` (clean install) tercih edilmelidir.
 
+> [!NOTE]
+> **NPM 12 – Önemli Güvenlik Güncellemesi (9 Haziran 2026 Duyurusu)**
+>
+> **NPM 12**, Node.js ekosisteminin paket yöneticisi olan **npm**'in bir sonraki büyük sürümüdür.
+>
+> GitHub tarafından 9 Haziran 2026’da duyurulan bu sürüm, özellikle **güvenlik** odaklı önemli değişiklikler getiriyor. Tahmini çıkış tarihi **Temmuz 2026**.
+>
+> **En Önemli Değişiklik: Script Çalıştırma Davranışı**
+>
+> Şu anda `npm install` komutu çalıştırıldığında, bağımlılıklardaki `preinstall`, `install` ve `postinstall` gibi lifecycle script’leri otomatik olarak çalışır. Bu, tedarik zinciri saldırıları için büyük bir vektördü.
+>
+> **NPM 12 ile:**
+> - `allowScripts` ayarı **varsayılan olarak kapalı** olacak.
+> - `npm install` artık bağımlılıklardaki script’leri **otomatik çalıştırmayacak**.
+> - Script çalıştırmak için **açıkça izin vermeniz** gerekecek.
+> - Bu, `node-gyp` native derlemeleri ve git bağımlılıklarındaki `prepare` script’lerini de kapsıyor.
+>
+> **Ek güvenlik değişiklikleri:**
+> - Git bağımlılıkları (`--allow-git`) varsayılan olarak kapalı.
+> - Uzak URL’lerden bağımlılıklar (`--allow-remote`) varsayılan olarak kapalı.
+>
+> Bu değişiklikler, tek bir kötü niyetli paketin (veya transitif bağımlılık yoluyla) geliştirici makinesinde / CI/CD’de kod çalıştırma riskini önemli ölçüde azaltıyor.
+>
+> **Nasıl Hazırlanacaksınız?** (npm 11.16.0+ sürümlerde uyarılar zaten geliyor)
+> 1. npm’inizi **11.16.0+** sürümüne yükseltin.
+> 2. Normal `npm install` çalıştırın ve uyarıları inceleyin.
+> 3. Etkilenen script’leri görmek için: `npm approve-scripts --allow-scripts-pending`
+> 4. Güvenilir paketlere izin verin: `npm approve-scripts <paket-adı>`
+> 5. Oluşan izin listesini `package.json` dosyasına kaydedin (commit’leyin).
+>
+> Onaylamadığınız script’ler npm 12’de çalışmayacak.
+>
+> **Neden Yapılıyor?**
+> Son dönemde artan npm tedarik zinciri saldırıları nedeniyle. Saldırganlar script’leri kullanarak kod çalıştırabiliyordu. Bu değişiklikle script çalıştırma **opt-in** (izinli) hale getiriliyor.
+>
+> Daha fazla detay: [GitHub Changelog – npm v12](https://github.blog/changelog/2026-06-09-upcoming-breaking-changes-for-npm-v12/)
+
 ### Şirket İçi Proxy ve Özel Depo Yönetimi
 
 Dış kaynaklı paketlerin doğrudan geliştirici bilgisayarlarına indirilmesini önlemek için **Sonatype Nexus** veya **JFrog Artifactory** gibi proxy çözümleri kullanılmalıdır:
@@ -237,7 +274,7 @@ Saldırganlar zararlı kodları meşru sistem fonksiyonlarının (`fs.readFile`,
 | Savunma Katmanı | Kullanılması Gereken Araçlar | Sağladığı Koruma | Öncelik Derecesi |
 |---|---|---|---|
 | **Statik Analiz & SBOM** | Snyk, OWASP Dependency-Check, npq, lockfile-lint | Bilinen zafiyetlerin tespiti, dosya kaynağının doğrulanması | Yüksek |
-| **Kurulum Sıkılaştırma** | `npm ci`, `--ignore-scripts`, `--allow-git=none` | Otomatik kurulum betiklerinin engellenmesi, manipülasyon önleme | Kritik |
+| **Kurulum Sıkılaştırma** | `npm ci`, `--ignore-scripts`, `--allow-git=none` (npm v11.10+); npm v12 ile birçok davranış varsayılan olacak | Otomatik kurulum betiklerinin engellenmesi, manipülasyon önleme | Kritik |
 | **Proxy ve Depo Yönetimi** | JFrog Artifactory, Sonatype Nexus, Verdaccio | Özel paketlerin sızmasını önleme, kaynak önceliklerini kilitleme | Kritik |
 | **Çalışma Zamanı İzleme** | Dev Machine Guard, EDR/XDR, SIEM | Şüpheli ağ çıkışlarının ve süreç hareketlerinin tespiti | Yüksek |
 
