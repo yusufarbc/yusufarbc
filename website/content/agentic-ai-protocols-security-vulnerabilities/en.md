@@ -6,6 +6,7 @@ featuredImage: featured.png
 draft: false
 layout: single
 type: posts
+audioFile: en.wav
 ---
 
 Throughout AI history, two great paradigm shifts have occurred: the first was the move from symbolic AI to machine learning. The second — which we are living through right now — is the shift from reactive language models to **Agentic AI**. This second transformation is not merely a technical evolution; it marks the beginning of an entirely new order in terms of security, trust, and accountability.

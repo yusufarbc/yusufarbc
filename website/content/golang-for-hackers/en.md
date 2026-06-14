@@ -244,7 +244,6 @@ graph TD
   <p style="font-size: 0.9rem; color: #94a3b8;">
     Simulate the memory consumption and scheduling efficiency of Go's Goroutines compared to traditional system threads.
   </p>
-  
   <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0;">
     <div style="flex: 1; min-width: 200px;">
       <label style="display: block; font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-weight: 600;">Number of Concurrent Tasks</label>
@@ -255,7 +254,6 @@ graph TD
         <span style="color: #475569;">10,000</span>
       </div>
     </div>
-    
     <div style="flex: 1; min-width: 200px;">
       <label style="display: block; font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-weight: 600;">OS CPU Core Limit</label>
       <input type="range" id="sim-threads" min="1" max="16" step="1" value="4" style="width: 100%; accent-color: #818cf8;">
@@ -266,13 +264,11 @@ graph TD
       </div>
     </div>
   </div>
-  
   <div style="margin-bottom: 1.5rem;">
     <button class="gh-btn" id="start-sim-btn" onclick="runSimulation()">
       🚀 Run Simulation
     </button>
   </div>
-  
   <div style="background: rgba(15, 23, 42, 0.6); padding: 1.25rem; border-radius: 10px; font-family: monospace; font-size: 0.85rem; border: 1px solid rgba(148, 163, 184, 0.08);">
     <div style="display: flex; justify-content: space-between; margin-bottom: 0.6rem; border-bottom: 1px solid rgba(148,163,184,0.05); padding-bottom: 0.5rem;">
       <span style="color: #94a3b8;">Go Runtime (Goroutines) Memory:</span>
@@ -461,13 +457,13 @@ In Red Team engagements, optimizing binary size and minimizing EDR footprint are
 By default, Go builds include debug symbols and DWARF tables, bloating the file size and exposing workstation metadata to signature-based analyzers (like YARA rules).
 
 <!-- COMPILER BUILDER WIDGET START -->
+<!-- COMPILER BUILDER WIDGET START -->
 <div class="gh-card" style="margin: 2rem 0; border: 1px solid rgba(129, 140, 248, 0.25);">
   <div class="gh-badge" style="background: rgba(129, 140, 248, 0.1); color: #818cf8; border-color: rgba(129, 140, 248, 0.2);">Interactive Tool</div>
   <h3 class="gh-gradient-text" style="margin-top: 0.5rem;">🛠️ Offensive Build Command Generator</h3>
   <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 1.5rem;">
     Generate and copy your optimized Go build command configured for EDR evasion and size optimization.
   </p>
-  
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
     <div>
       <label style="display: block; font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-weight: 600;">Target OS (GOOS)</label>
@@ -477,7 +473,6 @@ By default, Go builds include debug symbols and DWARF tables, bloating the file 
         <option value="darwin">macOS (Mach-O)</option>
       </select>
     </div>
-    
     <div>
       <label style="display: block; font-size: 0.8rem; color: #64748b; margin-bottom: 0.5rem; font-weight: 600;">Target Architecture (GOARCH)</label>
       <select id="builder-arch" onchange="generateCommand()" style="width: 100%; background: #0f172a; color: #f1f5f9; border: 1px solid #334155; padding: 0.6rem; border-radius: 8px; font-size: 0.85rem;">
@@ -487,7 +482,6 @@ By default, Go builds include debug symbols and DWARF tables, bloating the file 
       </select>
     </div>
   </div>
-  
   <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;">
     <label style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; color: #cbd5e1; cursor: pointer;">
       <input type="checkbox" id="builder-cgo" onchange="generateCommand()" checked style="width: 16px; height: 16px; accent-color: #38bdf8;">
@@ -502,7 +496,6 @@ By default, Go builds include debug symbols and DWARF tables, bloating the file 
       Trim Compile-Time File Paths (<code style="color:#e2e8f0; background:rgba(255,255,255,0.05); padding:1px 4px; border-radius:4px;">-trimpath</code>) - Remove workstation metadata
     </label>
   </div>
-  
   <div style="background: #090d16; padding: 1.25rem; border-radius: 8px; border: 1px solid #1e293b; position: relative;">
     <code id="builder-output" style="color: #38bdf8; font-family: monospace; font-size: 0.85rem; display: block; word-break: break-all; padding-right: 90px; line-height: 1.4;">env CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -trimpath -ldflags="-s -w" -o agent.exe main.go</code>
     <button onclick="copyBuilderCommand()" style="position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); background: #1e293b; color: #94a3b8; border: 1px solid #334155; padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.75rem; cursor: pointer; transition: all 0.2s; font-weight: 600;">Copy</button>

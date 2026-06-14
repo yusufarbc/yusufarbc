@@ -316,3 +316,41 @@
     margin-bottom: 0.875rem;
   }
 }
+
+/* =============================================================================
+   MOBILE RESPONSIVENESS PATCH
+   ============================================================================= */
+@media (max-width: 768px) {
+  /* Scale down Mermaid diagrams to fit the screen width and prevent page overflow */
+  .mermaid {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.75rem !important;
+    margin: 1rem 0 !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mermaid svg {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .mermaid * {
+    max-width: 100% !important;
+  }
+
+  /* Scale down normal body text size a tick for mobile */
+  .markdown-content,
+  .markdown-content p,
+  .markdown-content li {
+    font-size: 1rem !important; /* Scaled down from 1.08rem */
+    line-height: 1.7 !important;
+  }
+
+  .markdown-content blockquote {
+    padding: 1rem 1.25rem !important;
+    font-size: 0.98rem !important;
+  }
+}
