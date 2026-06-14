@@ -205,7 +205,7 @@ In a simple setup, you ingest documents, index them using LlamaIndex, and connec
 
 For agents to function, they must answer two fundamental questions: **"How do I connect to tools?"** and **"How do I coordinate with other agents?"** The answers point to protocol layers that are not competing but complementary.
 
-![Agentic AI Ecosystem](media/MCP.png)
+![Agentic AI Ecosystem](media/MCP.webp)
 
 ### The Protocol Landscape
 
@@ -244,7 +244,7 @@ Core limitations of REST APIs in the agent world:
 
 MCP relies on a clear separation of concerns:
 
-![MCP Client-Server Architecture](media/client-server-model.png)
+![MCP Client-Server Architecture](media/client-server-model.webp)
 
 | Component | Role |
 | :--- | :--- |
@@ -389,7 +389,7 @@ AP2's core security mechanism is **Mandates** — cryptographically signed digit
 
 In traditional client-server architecture, the client knows exactly what to ask, and the server returns only that specific data. In MCP architecture, the client (LLM) pulls the tool list offered by the server, but decides **through its own internal reasoning** when and with what parameters to invoke a tool.
 
-![MCP Protocol Architecture and Threat Surface](media/protocol.png)
+![MCP Protocol Architecture and Threat Surface](media/protocol.webp)
 
 ### The Confused Deputy and Indirect Prompt Injection (IPI)
 
@@ -483,7 +483,7 @@ graph LR
 
 ## Empirical Findings & Ecosystem Analysis
 
-![Protocol Ecosystem Comparison](media/infografik.png)
+![Protocol Ecosystem Comparison](media/infografik.webp)
 
 ### Benchmark Performance Data
 
@@ -529,7 +529,7 @@ Token consumption increase: **3.25x — 236.5x**
 
 ## Real-World Application Domains
 
-![AI Agent Model](media/model.png)
+![AI Agent Model](media/model.webp)
 
 ### Software Development & DevOps
 
@@ -602,7 +602,7 @@ The **AutoMalTool** framework autonomously generates malicious MCP tools to test
 
 The protocol ecosystem of agentic AI is maturing rapidly. MCP, A2A, ANP, UCP, and AP2 — each fulfilling a critical function at a different layer — are together building the infrastructure of the "Agentic Web."
 
-![Secure MCP Architecture Design](media/post.jpeg)
+![Secure MCP Architecture Design](media/post.webp)
 
 In this ecosystem, security must not be a patch applied after the fact but a foundational principle baked in from day one — **Secure by Design**. Cryptographic signing, built-in RBAC layers, SBOM validation, and standardized sandbox schemas being developed by the Agentic AI Foundation (under the Linux Foundation) alongside Google, Anthropic, and Microsoft will form the cornerstones of enterprise-grade safety.
 
