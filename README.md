@@ -31,8 +31,8 @@ I build security tools and automate workflows using **Go, Python, Node.js, and C
 
 ### ⚙️ Infrastructure & Virtualization
 I set up resilient environments using virtualization and containerization:
-* **Proxmox VE & Docker:** Managing home lab environments, private cloud, and service containerization.
-* **Sovereign Lab Setups:** Deploying self-hosted solutions like Wazuh, Nextcloud, and Samba AD to control data.
+* **Proxmox VE & Docker:** Deploying and managing virtualized lab environments and containerized services.
+* **Infrastructure Automation:** Automating workflows and optimizing network/system administration.
 
 ## 💻 Engineering Stack
 
