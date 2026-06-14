@@ -4,9 +4,6 @@
 
   <img src="subtitle.svg" alt="Software & Security Engineer" height="35" />
 
-  <p style="margin-top: 5px;">
-    📧 <a href="mailto:yusuf.talhaarabaci@owasp.org">yusuf.talhaarabaci@owasp.org</a>
-  </p>
 
   <p align="center" style="margin-top: 10px;">
     <a href="https://yusufarbc.dev/en/">
@@ -60,5 +57,9 @@ I am deeply passionate about creating autonomous, self-sufficient IT environment
 
 <div align="center">
   <p><i>"Digital Sovereignty is not a luxury, it's a necessity."</i></p>
-  <a href="https://yusufarbc.dev/en/">yusufarbc.dev</a>
+    <p style="margin-top: 5px;">
+    📧 <a href="mailto:yusuf.talhaarabaci@owasp.org">yusuf.talhaarabaci@owasp.org</a>
+  </p>
 </div>
+
+
