@@ -11,7 +11,7 @@ audioFile: en.mp3
   <strong>Listen to Audio:</strong> The narration for this article is ready. You can listen to it using the player above.
 </div>
 
-# Modern OSINT, AI, and Reconnaissance Dynamics from a Strategic Cyber Intelligence Perspective
+## Modern OSINT, AI, and Reconnaissance Dynamics from a Strategic Cyber Intelligence Perspective
 ---
 
 
@@ -63,9 +63,7 @@ Example:
 inurl:"admin-login.php"
 ```
 
-### inposttitle/allinposttitle:
-
-In blog research, it is used to search the blog title.
+In blog research, it is used to search the blog title (inposttitle/allinposttitle).
 
 Example:
 
@@ -195,7 +193,7 @@ Google hacking is a method used to find a vulnerable index of web pages on the i
 
 We can access many different information on the internet by using Google Hacking techniques. Let's see together what kind of information and how we can access it...
 
-### Log files
+#### Log Files
 
 log filesis a perfect example of how sensitive information can be found on any website.
 
@@ -207,7 +205,7 @@ allintext:username filetype:log
 
 This query will list the results containing "username" in all log files indexed by Google on the internet.
 
-### Vulnerable web servers
+#### Vulnerable Web Servers
 
 By using Google dorks, we can find websites with certain security vulnerabilities. The presence of the phrase "/proc/self/cwd/" in the URL of a website is evidence that there is a vulnerability on that site.
 
@@ -217,7 +215,7 @@ inurl:/proc/self/cwd
 
 With this dork we can find vulnerable sites, As you can see in the screenshot below, the vulnerable server results will be listed with their open directories.
 
-### Open FTP servers
+#### Open FTP Servers
 
 Google not only indexes HTTP-based servers, but also open FTP servers.
 
@@ -227,7 +225,7 @@ With the following dork, we can find public FTP servers.
 intitle:"index of" inurl:ftp
 ```
 
-### ENV files
+#### ENV Files
 
 .env files are used in web development environments to declare global configurations. One recommended practice is to move these .env files to a location where they are not publicly accessible. However, there are many developers who don't care about this and add .env files to the website directory.
 
@@ -237,7 +235,7 @@ intitle.index of .env
 
 You will notice that usernames, passwords, and IPs are shown directly in the search results.
 
-### SSH private keys
+#### SSH Private Keys
 
 SSH private keys are used to decrypt incoming and outgoing information in the SSH protocol. As a general security rule, private keys should remain on the system used to access the remote SSH server and should not be shared with anyone.
 
@@ -247,7 +245,7 @@ With the dork below, you will be able to find SSH private keys indexed by Uncle 
 intitle:index.of id_rsa -id_rsa.pub
 ```
 
-### Email lists
+#### Email Lists
 
 It's pretty easy to find email lists using Google Dorks. In the example below, we can list excel files that may contain a large number of email addresses.
 
@@ -255,7 +253,7 @@ It's pretty easy to find email lists using Google Dorks. In the example below, w
 filetype:xls inurl:"email.xls"
 ```
 
-### Live cameras
+#### Live Cameras
 
 It is very easy to access live camera web pages that are indexed by Uncle Google and are not restricted by IP. With the dorks below, we can access live cameras.
 
@@ -277,7 +275,7 @@ For general live cameras:
 inurl:"lvappl.htm"
 ```
 
-### SQL dumps
+#### SQL Dumps
 
 SQL dumps appear on sites as a result of incorrect backup mechanisms used by site administrators who store backups on web servers. To find a compressed SQL file we use:
 
@@ -285,7 +283,7 @@ SQL dumps appear on sites as a result of incorrect backup mechanisms used by sit
 "index of" "database.sql.zip"
 ```
 
-### WordPress Admin
+#### WordPress Admin
 
 It's not too difficult to find WordPress Admin login pages with a dork:
 
@@ -300,7 +298,7 @@ Apache servers may be misconfigured. This makes them great targets for botnets.
 intitle:"Apache2 Ubuntu Default Page: It works"
 ```
 
-### phpMyAdmin
+#### phpMyAdmin
 
 Another risky tool frequently discovered on LAMP (Linux, Apache, MySQL, PHP) servers is the phpMyAdmin software.
 
@@ -312,7 +310,7 @@ Dork to use to find sites with this software:
 
 ![](0_igJI4VAzSEKlUXSX.webp)
 
-### JIRA/Kibana
+#### JIRA and Kibana
 
 Google dorks can also be used to find web applications that host important corporate data (via JIRA or Kibana).
 
@@ -376,13 +374,13 @@ We can access the relevant site at [www.netcraft.com](http://www.netcraft.com).
 
 ![](netcraft.webp)
 
-### Whois.com
+#### Whois.com
 A popular and fast platform used to perform web-based Whois queries, allowing analysis of domain registration data, DNS servers, and ownership details.
 We can access the relevant site at [www.whois.com/whois/](https://www.whois.com/whois/).
 
 ![](whois.webp)
 
-### Web CMS Detection (WhatCMS & CMSDetect)
+#### Web CMS Detection (WhatCMS & CMSDetect)
 Useful web platforms that passively detect which content management system (WordPress, Joomla, Drupal, etc.) and underlying technologies the target website uses.
 * **WhatCMS:** Accessible at [whatcms.org](https://whatcms.org/).
 
@@ -402,13 +400,13 @@ We can access the relevant site at [www.shodan.io](https://www.shodan.io).
 
 ![](shodan.webp)
 
-### DNSdumpster
+#### DNSdumpster
 
 DNSdumpster is a free passive information gathering tool that can discover host servers associated with a domain. Finding servers that are visible from the attackers' perspective is an important part of the security assessment process.
 
 We can access the relevant site at [www.dnsdumpster.com](http://dnsdumpster.com).
 
-### DNS Checker and MXToolbox (Advanced DNS and Email Analysis)
+#### DNS Checker and MXToolbox (Advanced DNS and Email Analysis)
 * **DNS Checker:** Used to check how different DNS servers worldwide resolve DNS records (A, AAAA, CNAME, MX, TXT) and monitor DNS propagation. We can access the relevant site at [dnschecker.org](https://dnschecker.org/).
 
 ![](dnschecker.webp)
@@ -417,7 +415,7 @@ We can access the relevant site at [www.dnsdumpster.com](http://dnsdumpster.com)
 
 ![](mxlookup.webp)
 
-### Centralops
+#### Centralops
 
 IP, detailed whois information, DNS records and TcpQuery information of a domain on the centralops address are obtained. In the Nslookup section, very advanced DNS queries can be made. It is among the indispensable sites for passive information collection.
 
@@ -425,13 +423,13 @@ We can access the relevant site at [www.centralops.net](http://www.centralops.ne
 
 ![](centralops.webp)
 
-### IP Location
+#### IP Location
 
 It provides geographical location detection by querying the target IP address in 5 different RIRs. The results of this query may vary between service providers.
 
 We can access the relevant site at [www.iplocation.net](https://www.iplocation.net/).
 
-### Archive Sites
+#### Archive Sites
 
 It is a system that has been recording the entire internet since 1996. It brings up that snapshot of pages by year, month, day. Useful for finding previous versions of a website.
 
@@ -447,13 +445,13 @@ Maltego is a tool that allows us to analyze and visualize the data found through
 
 ### Information Gathering Techniques via Username
 
-### Name Checkup
+#### Name Checkup
 
 Name Checkup is a simple tool that helps us find out on which other platforms the given username is used..
 
 We can access the relevant site at [www.namecheckup.com](https://namecheckup.com/).
 
-### Username Search
+#### Username Search
 
 Another tool where we can find out which platforms usernames are used is Instant Username Search. It can search on more platforms than Name CheckUp.
 
@@ -461,7 +459,7 @@ We can access the relevant site at [www.instantusername.com](https://instantuser
 
 ### Information Gathering Techniques Through Images
 
-### Image Search
+#### Image Search
 
 It is a search engine technology that uploads an image file and returns similar images and results related to the image. By making a reverse image:
 
@@ -477,7 +475,7 @@ Exif is where the data about the photo is located. This section contains a lot o
 
 ### General Information Gathering Techniques
 
-### Google Hacking
+#### Google Hacking
 
 Google Hacking is an information gathering technique with parameters that can make the queries we make on Google specific. We call the queries we write with these parameters dork. For example;
 
@@ -487,7 +485,7 @@ inurl:"pwnlab" intitle:"passive information collection"
 
 We talked about these dorks and their usage techniques in detail in our article titled [Google Dorks and Google Hacking](https://pwnlab.me/tr-google-dorks-ve-google-hacking/). To learn more about Google hacking, you can check out this article.
 
-### theHarvester
+#### theHarvester
 
 theHarvester is a tool that runs on Linux. With this tool, we can collect information from open sources by scanning many websites such as Linkedin, Google, Twitter, Yahoo.
 
@@ -503,7 +501,7 @@ You can also detect site-based information with commands such as linkedin, bing,
 
 To get detailed information about its usage, you can go to <https://github.com/laramies/theHarvester>.
 
-### OSINT Framework
+#### OSINT Framework
 
 Osint Framework is a website where you can access hundreds of passive information collection tools. Clicking on the section within the categories that suits your target allows you to make more detailed inquiries. Additionally, if there is a (T) text to the right of the options, you can see that you can only do this through the terminal.
 
@@ -627,6 +625,7 @@ There are 6 different definitions expressing the status of the ports in port sca
 * **open|filtered**: It was not determined to be open or filtered.
 * **closed|filtered**: Not detected as closed or filtered.
 
+#### Netcat
 <https://www.kali.org/tools/netcat/>
 
 Netcat is considered the Swiss army knife in the Networking world. It is an easy-to-use and multi-purpose tool with many features, so we can consider it as a Swiss army knife in cyber security. Netcat has many features, the main ones being:
@@ -649,6 +648,7 @@ nc [options] [destination ip] [port]
 
 With the example command line above, you can perform operations on the target IP using usage parameters.
 
+#### Nbtscan
 [nbtscan](https://www.kali.org/tools/nbtscan/) is a tool for scanning IP networks for NetBIOS name information. Sends a NetBIOS status query to each address in the provided range and lists the received information in a readable format. The IP address, NetBIOS computer name, logged in user name, and MAC address information is listed for each responding computer.
 
 ```
@@ -673,6 +673,7 @@ nbtscan -h
 nbtscan 77.92.138.0/24
 ```
 
+#### Netdiscover
 <https://www.kali.org/tools/netdiscover/>
 
 Netdiscover tool is a discovery tool that can show the operating systems, Mac, IP and router addresses of devices on the same network.
@@ -701,8 +702,7 @@ Netdiscover tool is a discovery tool that can show the operating systems, Mac, I
 * -P Outputs print results in a format suitable for parsing by another program.
 * -N Do not print the header. Valid only when the -P command is used.
 
-### A very functional tool
-
+#### Dmitry
 <https://www.kali.org/tools/dmitry/>
 
 Dmitry tool is an advanced tool that can perform port scanning in addition to the whois queries we see in passive information collection. However, it can also collect information about subdomains and Emails. It can do the job of many tools on its own in passive and active information collection.

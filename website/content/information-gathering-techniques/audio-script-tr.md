@@ -1,27 +1,18 @@
-<div class="audio-narration">
-<strong>Sesli Anlatım:</strong> Bu makalenin seslendirmesi hazırdır. Yukarıdaki oynatıcıyı kullanarak dinleyebilirsiniz.
-</div>
+Sesli Anlatım: Bu makalenin seslendirmesi hazırdır. Yukarıdaki oynatıcıyı kullanarak dinleyebilirsiniz.
 
 
-Başlık: Stratejik Siber İstihbarat Perspektifinden Modern OSINT, Yapay Zeka ve Keşif Dinamikleri
+Bölüm: Stratejik Siber İstihbarat Perspektifinden Modern OSINT, Yapay Zeka ve Keşif Dinamikleri
 
-
----
 
 Siber istihbaratta (CTI) keşif fazı, eskiden sızma testlerinin basit bir ön adımı veya "araç listesi" olarak görülürken, bugün hem saldırganlar (Red Team/APT grupları) hem de savunma ekipleri (Blue Team/SOC) için siber uzaya bakış açısını belirleyen temel faza dönüşmüştür. OSINT (Açık Kaynak İstihbaratı) artık statik bir hedef analizi değil; siber savunmanın, tehdit modellemenin ve Saldırı Yüzeyi Yönetiminin (ASM) ilk hattıdır.
 
 Bu makalede, klasik "nasıl yapılır" rehberlerindeki tüm teknik detayları ve araçları koruyarak, bu geleneksel bilgi toplama tekniklerini modern bulut altyapılarına, tedarik zinciri istihbaratına ve Yapay Zeka (LLM) katmanlarına nasıl entegre ettiğimizi stratejik bir perspektifle ele alacağız.
 
----
 
 Bölüm: Google Dorks ve Google Hacking
 
 
 Merhaba, bu yazımda sizlere pasif bilgi toplamada çok işimize yarayan google dorksları tanıtacağım. Nasıl kullanıldığından bahsedeceğim. Ardından, bu dorklarla nasıl zafiyetler bulabileceğimizi ve neler elde edebileceğimizi anlatmaya çalışacağım.
-
-
-[Görsel: Görsel açıklaması yok]
-
 
 Google dork, google arama motoru ile yapacağımız aramalarda bizlere kolaylık sağlayan bazı parametreleri barındıran bir sistemdir. Bu parametreler, arayacak olduğumuz kelimelere yönelik filtreleme işlemi yapmamıza olanak sağlar. Bu sayede google'ın indexlediği milyarlarca site içerisinde aradığımız bilgiye kolaylıkla ulaşabiliriz. Bu sistem pasif bilgi toplama işlemlerinin vazgeçilmezidir.
 
@@ -33,67 +24,23 @@ Google üzerinde arama yaparken, belli parametreler kullanarak aramamızı detay
 
 Sayfa metninde arama yapmak için kullanılır.
 
-Örnek:
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
 Sayfa başlığında arama yapmak için kullanılır.
-
-Örnek:
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
 URL içinde arama yapmak için kullanılır.
 
-Örnek:
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
-
-Bölüm Detayı: inposttitle/allinposttitle:
-
-
-Blog araştırmalarında, blog başlığında arama yapmak için kullanılır.
-
-Örnek:
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
+Blog araştırmalarında, blog başlığında arama yapmak için kullanılır (inposttitle/allinposttitle).
 
 Anahtar kelimeler üzerinde arama yapmak için kullanılır. Belirtilen anahtar kelimeye sahip siteleri popülerliğine gore sıralar.
 
-Örnek:
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
 İstenilen dosya uzantısına sahip sonuçları bulmak için kullanılır.
-
-Örnek:
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
 Belirtilen sitenin önbelleğinde bulunan web sayfasının sürümünü gösterir.
 
-Örnek:
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
 Belirtilen sitede arama yapmak için kullanılr.
-
-Örnek:
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
 Bilinen bir siteye benzer içeriğe sahip web sitelerini bulmak için kullanılır.
 
-Örnek:
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
 Belli bir tarihten önceki veya sonraki sonuçları listelemek için kullanılır. before önce, after sonra anlamındadır.
-
-Örnek:
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
 
 Bölüm Detayı: Google Arama Operatörleri
@@ -103,48 +50,19 @@ Operatörler, dorkların yazımında parametreler ile kullanılan yardımcı kar
 
 Aradığınız kelime grubunun etrafında tırnak işaretleri kullanmak, standart arama ile elde edeceğiniz geniş sonuçlar yerine tam eşleme sonuçlarını bulmanıza yardımcı olacaktır.
 
-örnek
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
 Eksi operatörü, belirli kelimeleri içeren sonuçların gösterilmesinden kaçınmak için kullanılır.
-
-örnek
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
 Artı operatörü, sözcükleri birleştirmek için kullanılır. Birden fazla belirli anahtar kullanan sayfaları algılamak için yararlıdır
 
-örnek
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
 Yıldız operatörü, herhangi bir kelimeyle doldurulabilecek bir alanı temsil etmek için kullanılır. Yani arama sonucunda yıldız operatörünün olduğu yere farklı kelimeler gelebilir.
 
-örnek
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
 Bu örnekte, '.com' uzantısı ile biten bütün siteler listelenecektir.
-
 | ve OR operatörü türkçede "veya" mantıksal operatörüne karşılık gelir. İki koşuldan biri veya her ikisinin sağlandığı sonuçları listeler.
-
-örnek
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
 & operatörü ve AND operatörü türkçede "ve" mantıksal operatörüne karşılık gelir. İki koşuldan yalnızca her ikisininde sağladığı sonuçları listeler.
 
-örnek
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
 
 Bölüm Detayı: Google Hacking Nedir?
-
-
-
-[Görsel: Görsel açıklaması yok]
 
 
 Google hacking, internette web sayfalarının zafiyetli bir indexinin bulunmasında veya tüm sitelerde açık verileri arayıp bilgi toplanmasında kullanılan yöntemdir. Örneğin, bir google sorgusuyla, bir sitenin login page'ini bulabilr ve burada zafiyet taraması yapabiliriz. Yani, dorklarla yaptığımız sorguların, hacking işlemleri için kullanımına 'Google Hacking' diyebiliriz.
@@ -156,90 +74,64 @@ Bölüm Detayı: Google Hacking Teknikleri
 Google Hacking tekniklerini kullanarak internette birçok farklı bilgiye ulaşabiliriz. Ne tür bilgilere, nasıl ulaşabiliriz hep beraber bakalım”¦
 
 
-Bölüm Detayı: Log dosyaları
+Bölüm Detayı: Log Dosyaları
 
 
 Log dosyaları, herhangi bir web sitesinde hassas bilgilerin nasıl bulunabileceğinin mükemmel bir örneğidir.
 
 Google'ın indexlediği log dosyalarına erişmek için ,allintext ve filetype parametrelerinden yararlanabiliriz.
 
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
 Bu sorgu, internette google'ın indexlediği tüm log dosyalarının içinde "username" içeren sonuçları listeleyecektir.
 
 
-Bölüm Detayı: Güvenlik açığı bulunan web sunucuları
+Bölüm Detayı: Güvenlik Açığı Bulunan Web Sunucuları
 
 
 Google dorkları kullanarak belli güvenlik açıkları bulunan web sitelerini bulabiliriz. Bir web sitesinin URL'sinde "/proc/self/cwd/" ifadesinin geçmesi o sitede bir zafiyet olduğuna delildir.
 
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
 Bu dork ile zafiyetli siteleri bulabiliriz, Aşağıdaki ekran görüntüsünde görebileceğiniz gibi, savunmasız sunucu sonuçları, açık dizinleriyle birlikte listelenecektir.
 
 
-Bölüm Detayı: Açık FTP sunucuları
+Bölüm Detayı: Açık FTP Sunucuları
 
 
 Google, yalnızca HTTP tabanlı sunucuları indekslemekle kalmaz, aynı zamanda açık FTP sunucularını da indeksler.
 
 Aşağıdaki dork ile, genel FTP sunucularını bulabiliriz.
 
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
-
-Bölüm Detayı: ENV dosyaları
+Bölüm Detayı: ENV Dosyaları
 
 
 .env dosyaları, web geliştirme ortamlarında genel yapılandırmaları bildirmek için kullanılmaktadır. Önerilen uygulamalardan biri, bu .env dosyalarını herkesin erişemeyeceği bir yere taşımaktır. Ancak, bunu umursamayan ve .env dosyalarını web sitesi dizinine ekleyen birçok geliştirici var.
 
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
 Kullanıcı adlarının, şifrelerin ve IP'lerin doğrudan arama sonuçlarında gösterildiğini fark edeceksiniz.
 
 
-Bölüm Detayı: SSH özel anahtarları
+Bölüm Detayı: SSH Özel Anahtarları
 
 
 SSH özel anahtarları, SSH protokolünde gelen-giden bilgilerin şifresini çözmek için kullanılır. Genel bir güvenlik kuralı olarak, özel anahtarlar(private keys), uzak SSH sunucusuna erişmek için kullanılan sistemde kalmalı ve kimseyle paylaşılmamalıdır.
 
 Aşağıdaki dork ile, Google amca tarafından indexlenen SSH private keyleri bulabileceksiniz.
 
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
-
-Bölüm Detayı: E-posta listeleri
+Bölüm Detayı: E-posta Listeleri
 
 
 Google Dorks'u kullanarak e-posta listelerini bulmak oldukça kolaydır. Aşağıdaki örnekte, çok sayıda e-posta adresi içerebilecek excel dosyalarını listeleyebiliriz.
 
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
-
-Bölüm Detayı: Canlı kameralar
+Bölüm Detayı: Canlı Kameralar
 
 
 Google amcanın indexlediği ve IP ile kısıtlanmayan canlı kamera web sayfalarına erişim oldukça kolaydır. Aşağıdaki dorklarla, canlı kameralara erişim sağlayabiliriz.
 
-IP tabanlı kameralar için:
 
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
-WebcamXP tabanlı aktarımları bulmak için:
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
-Genel canlı kameralar için:
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
-
-Bölüm Detayı: SQL dökümleri
+Bölüm Detayı: SQL Dökümleri
 
 
 Web sunucularında, yedekleri depolayan site yöneticileri tarafından kullanılan yanlış yedekleme mekanizmaları sonucu, SQL dökümleri sitelerde görünür. Sıkıştırılmış bir SQL dosyası bulmak için şunu kullanırız:
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
 
 Bölüm Detayı: WordPress Admin
@@ -247,12 +139,8 @@ Bölüm Detayı: WordPress Admin
 
 Bir dork ile WordPress Yönetici giriş sayfalarını bulmak çok zor değil:
 
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
 Apache sunucuları yanlış yapılandırılmış olabilir. Bu durum, onları botnet'ler için harika hedefler haline getirir.
 Aşağıdaki dork ile Apache2 web sayfalarını bulabiliriz:
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
 
 Bölüm Detayı: phpMyAdmin
@@ -262,31 +150,19 @@ LAMP(Linux, Apache, MySQL, PHP) sunucularında sıklıkla keşfedilen bir diğer
 
 Bu yazılıma sahip siteleri bulmak için kullanılacak dork:
 
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
-
-[Görsel: Görsel açıklaması yok]
-
-
-
-Bölüm Detayı: JIRA/Kibana
+Bölüm Detayı: JIRA ve Kibana
 
 
 Google dorks, önemli kurumsal verileri (JIRA veya Kibana aracılığıyla) barındıran web uygulamalarını bulmak için de kullanılabilir.
 
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
 Google Hacking Database, hacking faaliyetleri için kullanabileceğimiz dorkların bulunduğu bir veritabanıdır. Exploit DB'nin sunduğu bu platform da, birçok uzmanın kullanmış olduğu dorkları listeleyebilir, işimize yarayacağını düşündüğümüz dorkları kulanabiliriz.
 
-kaynak: Google Hacking for Penetration Testers,Johnny Long, Bill Gardner, Justin Brown, 2015 Originally published at https://pwnlab.me on October 19, 2021.
+kaynak: Google Hacking for Penetration Testers,Johnny Long, Bill Gardner, Justin Brown, 2015 Originally published at  on October 19, 2021.*
 
----
 
 Bölüm: Bulut İstihbaratı (Cloud Intelligence) ve Sızıntı Avcılığı
 
-
-
-[Görsel: Görsel açıklaması yok]
 
 (YENİ KATMAN)
 
@@ -304,9 +180,8 @@ Bölüm Detayı: Kod Depoları ve Sızıntı Avcılığı (Source Code OSINT)
 Saldırganlar GitHub, GitLab, DockerHub gibi platformları sürekli tarar. Geçmişe dönük (commit history) yapılan analizlerde unutulan AWS token'ları, API anahtarları veya veritabanı şifreleri aranır. CI artifact'leri ve npm/PyPI registry'leri modern recon'un merkezidir.
 Araçlar: Bu alanda TruffleHog, GitLeaks, Shhgit ve DumpsterDiver gibi secret tarama motorları öne çıkar.
 
-> Operasyonel Risk Senaryosu: Bir geliştiricinin kişisel GitHub reposuna attığı bir test kodunda şirket içi veritabanı parolasını (veya .env dosyasını) unutması, tüm bulut altyapısının ele geçirilmesiyle sonuçlanabilir. Geleneksel Dorking ile aranan dosyalar, bugün TruffleHog ile CI/CD süreçlerinde saniyeler içinde taranmaktadır.
+Operasyonel Risk Senaryosu: Bir geliştiricinin kişisel GitHub reposuna attığı bir test kodunda şirket içi veritabanı parolasını (veya .env dosyasını) unutması, tüm bulut altyapısının ele geçirilmesiyle sonuçlanabilir. Geleneksel Dorking ile aranan dosyalar, bugün TruffleHog ile CI/CD süreçlerinde saniyeler içinde taranmaktadır.
 
----
 
 Bölüm: Pasif Bilgi Toplama Teknikleri
 
@@ -338,18 +213,10 @@ Sorgulanan IP adresi ya da alan adının barındırıldığı işletim sistemi, 
 ilgili siteye www.netcraft.com adresinden ulaşabiliriz.
 
 
-[Görsel: Görsel açıklaması yok]
-
-
-
 Bölüm Detayı: Whois.com
 
 Web tabanlı Whois sorguları gerçekleştirmek, domain kayıt verilerini, DNS sunucularını ve sahiplik detaylarını hızlıca sorgulamak için kullanılan popüler bir platformdur.
 İlgili siteye www.whois.com/whois/ adresinden ulaşabiliriz.
-
-
-[Görsel: Görsel açıklaması yok]
-
 
 
 Bölüm Detayı: Web CMS Tespiti (WhatCMS & CMSDetect)
@@ -357,15 +224,7 @@ Bölüm Detayı: Web CMS Tespiti (WhatCMS & CMSDetect)
 Hedef web sitesinin hangi içerik yönetim sistemini (WordPress, Joomla, Drupal vb.) ve arka planda hangi teknolojileri kullandığını pasif olarak tespit eden oldukça faydalı platformlardır.
 WhatCMS: whatcms.org adresinden ulaşabiliriz.
 
-
-[Görsel: Görsel açıklaması yok]
-
-
 CMSDetect: cmsdetect.com adresinden ulaşabiliriz.
-
-
-[Görsel: Görsel açıklaması yok]
-
 
 Shodan dünya üzerindeki çeşitli servisler, uygulamaları bulmayı sağlayan arama motorudur. Her ne kadar ismi arama motoru olsa da yaptığı iş gereği diğer arama motorlarından ayrılır. Diğer arama motorları "nginx kullanan sunucuları bulmak istiyoruz? sorusuna cevap veremezken, shodan bu rorunun yanıtını verebiliyor.
 
@@ -374,10 +233,6 @@ Shodanın birçok özelliği bulunmaktadır. Bunlardan en etkilisi "banner grabi
 Shodan üzerinde ülkelere, şehirlere, servis sağlayıcılarına, servislere, versiyonlara, platformlara yönelik aramalar gerçekleştirebiliriz.
 
 ilgili siteye www.shodan.io adresinden ulaşabiliriz.
-
-
-[Görsel: Görsel açıklaması yok]
-
 
 
 Bölüm Detayı: DNSdumpster
@@ -392,15 +247,7 @@ Bölüm Detayı: DNS Checker ve MXToolbox (DNS ve E-posta İstihbaratı)
 
 DNS Checker: Dünya çapında farklı DNS sunucularının DNS kayıtlarını (A, AAAA, CNAME, MX, TXT) nasıl çözdüğünü ve DNS yayılımını (propagation) kontrol etmek için kullanılır. İlgili siteye dnschecker.org adresinden ulaşabiliriz.
 
-
-[Görsel: Görsel açıklaması yok]
-
-
 MXToolbox: E-posta sunucularının MX kayıtlarını sorgulamak, DNS zafiyetlerini analiz etmek, blacklist (kara liste) kontrolleri ve SMTP/SPF/DKIM/DMARC yapılandırmalarını doğrulamak için kullanılan kapsamlı bir platformdur. İlgili siteye mxtoolbox.com adresinden ulaşabiliriz.
-
-
-[Görsel: Görsel açıklaması yok]
-
 
 
 Bölüm Detayı: Centralops
@@ -409,10 +256,6 @@ Bölüm Detayı: Centralops
 centralops adresi üzerinde bir domaine ait IP, detaylı whois bilgisi, DNS kayıtları ve TcpQuery bilgileri elde edilmektedir. Nslookup bölümünde ise çok gelişmiş DNS sorguları yapılabilmektedir. Pasif bilgi toplamada olmazsa olmaz siteler arasındadır.
 
 İlgili siteye www.centralops.net adresinden ulaşabiliriz.
-
-
-[Görsel: Görsel açıklaması yok]
-
 
 
 Bölüm Detayı: IP Location
@@ -488,8 +331,6 @@ Bölüm Detayı: Google Hacking
 
 Google Hacking, google üzerinde yaptığımız sorguları spesifik hale getirebileceğimiz parametrelerle yapılan bilgi toplama tekniğidir. Bu parametrelerle yazdığımız sorgulara dork adını vermekteyiz. Örneğin;
 
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
 Google Dorks ve Google Hacking isimli yazımızda bu dorklardan ve kullanım tekniklerinden ayrıntılı bir şekilde bahsettik. Google hacking hakkında daha detaylı bilgi edinmek için bu yazımıza bakabilirsiniz.
 
 
@@ -508,7 +349,7 @@ theHarvester -d pwnlab.me -b google
 
 Ayrıca google yerine linkedin, bing, all vs gibi komutlarla site bazlı bilgiler tespit edebilirsiniz.
 
-Kullanımı ile alakalı ayrıntılı bilgiye ulaşmak için <https://github.com/laramies/theHarvester> adresine gidebilirsiniz.
+Kullanımı ile alakalı ayrıntılı bilgiye ulaşmak için < adresine gidebilirsiniz.
 
 
 Bölüm Detayı: OSINT Framework
@@ -518,9 +359,8 @@ Osint Framework yüzlerce pasif bilgi toplama araçlarına ulaşabileceğiniz bi
 
 ilgili siteye www.osintframework.com adresinden ulaşabiliriz.
 
-Originally published at https://pwnlab.me on November 26, 2021.
+Originally published at  on November 26, 2021.*
 
----
 
 Bölüm: Sertifika Şeffaflığı (CT Logs) ve Siber-Kartografi (YENİ KATMAN)
 
@@ -537,7 +377,6 @@ Shodan harika bir araç olsa da istihbarat dünyasında tek oyuncu değildir:
 Censys: Shodan'a ek olarak, daha güncel sertifika taramaları için kullanılır.
 FOFA & Hunter.how: Özellikle Asya/Çin menşeili APT gruplarının C2 (Komuta Kontrol) altyapılarını avlamak için istihbarat analistlerinin favorileridir.
 
----
 
 Bölüm: Tedarik Zinciri İstihbaratı (Supply Chain Intelligence) (YENİ KATMAN)
 
@@ -551,7 +390,6 @@ Dependency Confusion: Şirket içi private paket isimlerinin public repolarda da
 Maintainer Hijacking & Protestware: Geliştirici hesaplarının ele geçirilmesi.
 Araç ve Konseptler: Bu katmanda SBOM (Software Bill of Materials) ve VEX (Vulnerability Exploitability eXchange) dokümanları kritik rol oynar. Syft ve Grype ile yazılım bileşenleri analiz edilir, Dependency-Track ile sürekli izleme sağlanır.
 
----
 
 Bölüm: Karanlık Ağlar ve Sosyal İstihbarat (YENİ KATMAN)
 
@@ -561,9 +399,8 @@ Dark Web analizleri artık eski usül ".onion" forumlardan, anlık mesajlaşma v
 Stealer Log Piyasası: Lumma, RedLine, Vidar ve Raccoon gibi "Infostealer" zararlılarından elde edilen terabaytlarca ham log (çerezler, kurumsal VPN şifreleri, session token'lar), Telegram botları, Discord sunucuları ve Breach forumlarında satılmaktadır.
 Sosyal Profilleme (OSINT): Hedef kişilerin (yöneticiler, geliştiriciler) dijital ayak izi SpiderFoot, Recon-ng, Holehe (eposta istihbaratı) ve Maigret (kullanıcı adı izleme) gibi araçlarla tespit edilir.
 
----
 
-Bölüm: [TR] Aktif Bilgi Toplama Teknikleri
+Bölüm: Aktif Bilgi Toplama Teknikleri
 
 
 Bu yazımızda, sizlere Aktif Bilgi Toplama Tekniklerinden bahsedeceğiz.
@@ -582,19 +419,11 @@ DNS protokolü intenetin temel yapı taşıdır, girdiğimiz alan adının hangi
 
 nslookup, dns sorgusu yapabileceğimiz temel bir araçtır.
 
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
 dig aracı, dns sorgusu yapabileceğimiz araçlardan biridir. dig aracına parametre olarak alan adını vererek dns sorgusu yapabiliriz.
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
 Bir alan adına ilişkin DNS sorgularının hangi DNS sunucularından geçtiğini sorgulamak için dig komutuna +trace parametresini ekleriz. Bu parametre ile DNS sorgu trafiğini izleyebiliriz.
 
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
 Bir alan adında(domain) ilişkin alt alan adlarını(subdomains) bulmak için brute force ile deneme yapılabilir. Bunun için dnsmap aracı kullanılır. Eğer bir wordlist verilmezse kendi içinde barındırılan standart listeyi kullanarak gerçekleştirir.
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
 
 Bölüm Detayı: Port ve Servis Taramaları
@@ -631,7 +460,9 @@ unfiltired: ACK Scan için döner. Portlar erişilebilir fakat açık olduğu te
 open|filtered: Açık veya filtrelenmiş olduğu tespit edilememiştir.
 closed|filtered: Kapalı ya da filtrelenmiş olduğu tespit edilmemiştir.
 
-<https://www.kali.org/tools/netcat/>
+
+Bölüm Detayı: Netcat
+
 
 Netcat, Network dünyasında İsviçre çakısı olarak kabul edilir. Bir çok özelliğe sahip, kullanımı kolay ve çok amaçlı bir araçtır, bu yüzden siber güvenlikte de İsviçre çakısı olarak kabul edebiliriz. Netcat'in birçok özelliği bulunmaktadır bunlardan başlıcaları :
 
@@ -641,17 +472,12 @@ Dosya yükleme ve indirme (dosya aktarımı).
 Uzaktan shell açma.
 Backdoor.
 
-Kullanım Parametreleri
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
 yukarıdaki örnek komut satırıyla hedef ip üzerinde kullanım parametlerini kullanarak işlemler yapabilirsiniz.
 
-nbtscan, NetBIOS ad bilgileri için IP ağlarını taramaya yönelik bir araçtır. Sağlanan aralıktaki her adrese NetBIOS durum sorgusu gönderir ve alınan bilgileri okunabilir biçimde listeler. Yanıt veren her bilgisayar için IP adresi, NetBIOS bilgisayar adı, oturum açmış kullanıcı adı ve MAC adresi bilgileri listelenir.
 
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
+Bölüm Detayı: Nbtscan
+
+nbtscan, NetBIOS ad bilgileri için IP ağlarını taramaya yönelik bir araçtır. Sağlanan aralıktaki her adrese NetBIOS durum sorgusu gönderir ve alınan bilgileri okunabilir biçimde listeler. Yanıt veren her bilgisayar için IP adresi, NetBIOS bilgisayar adı, oturum açmış kullanıcı adı ve MAC adresi bilgileri listelenir.
 
 Kullanım parametreleri:
 
@@ -667,9 +493,9 @@ Kullanım parametreleri:
 -m: Yendien aktarım; yeniden aktarımların sayısı (varsayılan olarak 0).
 -f: Dosya adı; IP adreslerini dosya formatında vermek için kullanılır.
 
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
-<https://www.kali.org/tools/netdiscover/>
+Bölüm Detayı: Netdiscover
+
 
 Netdiscover aracı aynı ağdaki cihazların işletim sistemlerini, Mac, IP ve router adreslerini gösterebilen bir keşif aracıdır.
 
@@ -698,14 +524,10 @@ Kullanım Parametreleri :
 -N Başlığı yazdırma. Yalnızca -P komutu kullanıldığında geçerlidir.
 
 
-Bölüm Detayı: Çok işlevsel bir araç
+Bölüm Detayı: Dmitry
 
-
-<https://www.kali.org/tools/dmitry/>
 
 Dmitry aracı, pasif bilgi toplamada gördüğümüz whois sorgularının yanında, port taraması da yapabilen gelişmiş bir araçtır. Bununla beraber, alt alan adları(subdomains) ve E-postalar hakkında da bilgi toplayabilir. Pasif bilgi toplamada ve aktif bilgi toplamada pek çok aracın yaptığı işi tek başına yapabilir.
-
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
 -h parametresi: help dökümanını açar.
 -o parametresi:.
@@ -719,13 +541,10 @@ Dmitry aracı, pasif bilgi toplamada gördüğümüz whois sorgularının yanın
 -b parametresi: Banner yakalamakta kullanılır.
 -t parametresi: TCP port taraması yaparken kullanılacak olan TTL süresini ayarlar. Varsayılan olarak 2 saniyedir.
 
-[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
-
 Belirtilen alan adıyla ilgili, bütün sorguları yapar ve bizlere sunar.
 
-Originally published at https://pwnlab.me on January 14, 2022.
+Originally published at  on January 14, 2022.*
 
----
 
 Bölüm: Sürekli Keşif (Continuous Reconnaissance) ve Attack Surface Drift (YENİ KATMAN)
 
@@ -737,18 +556,12 @@ Bölüm Detayı: Sürekli Tarama Mimarisi (EASM / CAASM)
 
 Modern recon stack'i artık Nmap'ten ibaret değildir. Saldırganlar ve EASM (Dış Saldırı Yüzeyi Yönetimi) çözümleri şu araç zincirini kullanır:
 
-[Mermaid Diyagramı: Burada bir mimari veya akış şeması bulunmaktadır. Şema detayları görsel olarak mevcuttur.]
-
 Araç Ekosistemi: Subdomainler Amass ve Subfinder ile bulunur, httpx ile yüzlerce host arasından aktif olanlar tespit edilir, Katana ile endpointler saniyeler içinde crawl edilir ve Aquatone ile binlerce sayfanın ekran görüntüsü otomatik alınır.
 
-> Operasyonel Risk Senaryosu: Herkese açık unutulmuş, test (staging) ortamına ait bir Kibana veya Grafana paneli ilk bakışta zararsız görünebilir. Ancak modern saldırı zincirlerinde, bu tür ifşalar Ransomware grupları (affiliates) tarafından kimlik bilgisi avı (credential harvesting) ve iç ağa yanal hareket hazırlığı için anında sömürülür.
+Operasyonel Risk Senaryosu: Herkese açık unutulmuş, test (staging) ortamına ait bir Kibana veya Grafana paneli ilk bakışta zararsız görünebilir. Ancak modern saldırı zincirlerinde, bu tür ifşalar Ransomware grupları (affiliates) tarafından kimlik bilgisi avı (credential harvesting) ve iç ağa yanal hareket hazırlığı için anında sömürülür.
 
 
 Bölüm Detayı: Hız ve Şablon Tabanlı Modern Taramalar (ProjectDiscovery Ekosistemi)
-
-
-
-[Görsel: Görsel açıklaması yok]
 
 
 Sadece Nmap kullanmak modern hız standartlarının gerisinde kalabilir. Bu yüzden sektörde Rust ve Go dili ile yazılmış, asenkron hız rekorları kıran modern araçlar (özellikle ProjectDiscovery araçları) kullanılır:
@@ -757,9 +570,8 @@ Naabu (ProjectDiscovery): Go diliyle yazılmış, son derece hızlı ve güvenil
 Subfinder (ProjectDiscovery): Pasif kaynakları kullanarak hedef için geçerli alt alan adlarını (subdomains) inanılmaz bir hızda keşfeden bir araçtır.
 httpx (ProjectDiscovery): Çoklu problar kullanarak devasa IP ve domain listelerindeki yaşayan, HTTP/HTTPS yanıtı veren aktif sunucuları anında tespit eder.
 Katana (ProjectDiscovery): Yeni nesil, inanılmaz hızlı bir web crawler (örümcek) aracıdır. Tüm endpointleri (uç noktaları) ve parametreleri saniyeler içinde bulur.
-Nuclei (ProjectDiscovery): Aktif keşifte port bulmak yetmez. Nuclei, topluluk tarafından yazılan YAML tabanlı şablonlarla (templates), binlerce hedef üzerinde 0-day veya bilinen zafiyetleri (Örn: Log4j ifşaları, açık .env dosyaları) eşzamanlı olarak tarayan devasa bir zafiyet motorudur. (Örn kullanım: nuclei -u https://hedef.com -t cves/).
+Nuclei (ProjectDiscovery): Aktif keşifte port bulmak yetmez. Nuclei, topluluk tarafından yazılan YAML tabanlı şablonlarla (templates), binlerce hedef üzerinde 0-day veya bilinen zafiyetleri (Örn: Log4j ifşaları, açık .env dosyaları) eşzamanlı olarak tarayan devasa bir zafiyet motorudur. (Örn kullanım: nuclei -u  -t cves/).
 
----
 
 Bölüm: İnternet Çapında Tarama (Internet-Scale Scanning) (YENİ KATMAN)
 
@@ -768,14 +580,11 @@ APT grupları artık hedef organizasyona özel değil, tüm internete yönelik (
 IPv4 Census ve ASN Hedefleme: Sadece bilinen domainler değil, kuruma ait tüm ASN blokları taranır.
 Araçlar: Masscan ve ZMap gibi araçlar asenkron yapıları sayesinde tüm internetin belirli bir portunu (Örn: Port 443) dakikalar içinde tarayabilir. Hedefin savunmasız/gizli sunucuları TLS sertifika kümeleriyle (Certificate Clustering) deşifre edilir.
 
----
 
 Bölüm: Yapay Zeka (AI) Destekli İstihbarat Boru Hatları (YENİ KATMAN)
 
 
 Yapay zeka (LLM), istihbarat süreçlerine basit bir chatbot olarak değil, entegre boru hatları (AI-Augmented Intelligence Pipelines) olarak dahil olmuştur.
-
-[Mermaid Diyagramı: Burada bir mimari veya akış şeması bulunmaktadır. Şema detayları görsel olarak mevcuttur.]
 
 RAG Tabanlı CTI Sistemleri: Kurum içi verilerle zenginleştirilmiş (Retrieval-Augmented Generation) tehdit istihbarat platformları, SOC analistlerine anlık bağlam (context) sunar.
 Otomatize Analiz ve Çeviri: Yeraltı (Underground) siber suç forumlarındaki Rusça/Çince ağır hacker argosu (slang) LLM'ler ile anında çevrilir. Ayrıca zararlı yazılım (malware family) benzerlik analizleri makine öğrenmesiyle gerçekleştirilir.
@@ -783,7 +592,6 @@ TTP Çıkarımı: Fidye yazılımı gruplarının sızıntı sitelerinde (leak s
 AI Destekli Sosyal Mühendislik (Spear-Phishing): OSINT ile toplanan kurumsal verilerin LLM'lere beslenerek, çalışanın diline ve ilgi alanlarına özel kusursuz oltalama (phishing) maillerinin veya sahte seslerin (Deepfake voice) üretilmesi.
 AI İstihbarat Riskleri: Veri manipülasyonu, halüsinasyon (Hallucination), zehirlenmiş istihbarat akışları (poisoned intelligence feeds) ve AI modeline yönelik adversarial prompt injection saldırıları modern savunmanın yeni zorluklarıdır.
 
----
 
 Bölüm: Savunma Keşfi (Defensive Recon & Exposure Validation) (YENİ KATMAN)
 
@@ -793,7 +601,6 @@ Marka İhlali ve Kimlik Avı: Kurum adına açılmış sahte domainlerin (Phishi
 Sızan Kimlik Bilgileri İzleme (Credential Monitoring): Kurum çalışanlarına ait parolaların HaveIBeenPwned tarzı platformlara düşüp düşmediğinin kontrolü.
 Savunma Kartografyası: Censys, FOFA, ZoomEye ve SecurityTrails gibi araçlar kullanılarak, kuruma ait yapılandırma hatası barındıran sunucuların tehdit aktörlerinden önce tespit edilip kapatılması süreci.
 
----
 
 Bölüm: Operasyonel Güvenlik (OPSEC) ve Hukuki Sınırlar (YENİ KATMAN)
 
@@ -814,8 +621,6 @@ Bölüm Detayı: Hukuki Sınırlar ve Etik Çerçeve
 Kurumsal istihbarat operasyonlarında yasal sınırlar hayati önem taşır.
 Yasal Çerçeve: ABD'deki CFAA (Bilgisayar Dolandırıcılığı ve Kötüye Kullanımı Yasası), Avrupa'daki GDPR veya Türkiye'deki KVKK kuralları keşif operasyonlarını sınırlar.
 Pasif vs Aktif Çizgisi: Pasif bilgi toplama (OSINT, Whois, CT Logs) yasal olarak genel kullanıma açıktır. Ancak, hedef sisteme doğrudan Nmap veya Nuclei paketi yollamak (Aktif Keşif / Unauthorized scanning) yazılı izin (Scoping) olmaksızın yasadışıdır.
-
----
 
 Modern saldırı ekonomisinde, tehdit aktörleri "internet çapında" çalışan otomasyon botları, bulut sızıntı tarayıcıları ve yapay zeka destekli istihbarat hatları kullanırken; kurumların statik varlık envanterleriyle (Excel tabloları) veya sadece geleneksel port taramalarıyla savunma yapması beklenemez.
 
