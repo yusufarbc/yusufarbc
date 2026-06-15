@@ -321,6 +321,7 @@
    MOBILE RESPONSIVENESS PATCH
    ============================================================================= */
 @media (max-width: 768px) {
+
   /* Scale down Mermaid diagrams to fit the screen width and prevent page overflow */
   .mermaid {
     width: 100% !important;
@@ -345,7 +346,8 @@
   .markdown-content,
   .markdown-content p,
   .markdown-content li {
-    font-size: 1rem !important; /* Scaled down from 1.08rem */
+    font-size: 1rem !important;
+    /* Scaled down from 1.08rem */
     line-height: 1.7 !important;
   }
 
@@ -364,9 +366,9 @@
     padding: 1.5rem !important;
     overflow-x: auto !important;
   }
-  
+
   .mermaid svg {
-    max-width: 82% !important; /* Bir tık küçültüyoruz */
+    max-width: 95% !important;
     height: auto !important;
     margin: 0 auto !important;
   }
@@ -383,6 +385,7 @@
   stroke: var(--app-accent-color) !important;
   stroke-width: 2px !important;
 }
+
 .mermaid .node-accent text,
 .mermaid .node-accent span {
   fill: var(--app-accent-color) !important;
@@ -397,6 +400,7 @@
   stroke: #ef4444 !important;
   stroke-width: 2px !important;
 }
+
 .mermaid .node-danger text,
 .mermaid .node-danger span {
   fill: #ef4444 !important;
@@ -411,6 +415,7 @@
   stroke: #22c55e !important;
   stroke-width: 2px !important;
 }
+
 .mermaid .node-success text,
 .mermaid .node-success span {
   fill: #22c55e !important;
@@ -425,9 +430,9 @@
   stroke: #f59e0b !important;
   stroke-width: 2px !important;
 }
+
 .mermaid .node-warning text,
 .mermaid .node-warning span {
   fill: #f59e0b !important;
   color: #f59e0b !important;
 }
-
