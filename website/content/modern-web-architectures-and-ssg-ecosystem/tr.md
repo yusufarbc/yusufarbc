@@ -27,7 +27,7 @@ Web geliştirme ekosistemi, performans, ölçeklenebilirlik ve güvenlik gereksi
 - **Mimari Karar:** "En iyi araç" yoktur; "en doğru senaryo eşleşmesi" vardır.
 
 ---
-## ) Neden cPanel Merkezli Düşünceden Uzaklaşıyoruz?
+## Neden cPanel Merkezli Düşünceden Uzaklaşıyoruz?
 
 
 
@@ -49,7 +49,7 @@ Bu akış klasik hosting modellerinde (cPanel, Plesk vb.) fonksiyoneldir, fakat 
 Eski tip sunucu kur-yönet modelinden uzaklaşmamızın temel nedeni, altyapıyı "yönetmek" yerine "sonucu doğrudan servis etmeye" odaklanmaktır.
 
 ---
-## ) Rendering Anatomisi: CSR, SSR, SSG, ISR
+## Rendering Anatomisi: CSR, SSR, SSG, ISR
 
 
 
@@ -117,7 +117,7 @@ Bugün bir web uygulamasının ekrana nasıl çizileceği, sistemin milyonlarca 
 Milyonlarca ürünü olan devasa sistemler için hibrit çözümler kaçınılmazdır. Özellikle **Astro** ile popülerleşen **Islands Architecture (Adalar Mimarisi)** yaklaşımı, sayfanın varsayılanını "Sıfır JS" (HTML-only) olarak tutup, sadece interaktif olması gereken bölümleri (sepet, yorum formu vb.) bağımsız "adalar" olarak canlandırarak performansı maksimize eder. Hugo ve mdBook gibi araçlar ise binlerce sayfalık veriyi saniyeler içinde işleyerek statik üretimin sınırlarını zorlar.
 
 ---
-## ) Etkileşimli Seçim Rehberi: Hangi Mimari Size Daha Yakın?
+## Etkileşimli Seçim Rehberi: Hangi Mimari Size Daha Yakın?
 
 
 
@@ -141,7 +141,7 @@ Doğru mimariyi seçmek projenin kaderini belirler. Şu dört temel soru, yol ha
 - **Hayır:** Tam SSG (Static Site Generation) sarsılmaz bir tercihtir.
 
 ---
-## ) Teknoloji Yığınları: Popüler Mimari Bileşenler
+## Teknoloji Yığınları: Popüler Mimari Bileşenler
 
 
 
@@ -208,7 +208,7 @@ Geçmişte sadece Windows sunuculara bağımlı ve kapalı kaynak olan eski .NET
 Sistem büyüdükçe doğrudan API çağrıları darboğaz yaratır. Bu noktada arka plandaki servisleri ve logları ayırmak için asenkron mesajlaşma devreye girer. **Apache Kafka** kullanılarak tüm sistem olayları kalıcı bir akış (stream) olarak diske yazılır. Devasa güvenlik loglarının (SIEM) veya ürün analiz verilerinin işlenmesinde Kafka ve üstünde çalışan **Apache Spark** veri mühendisliğinin zirvesidir.
 
 ---
-## ) DevSecOps ve Altyapı: Güvenlikten Dağıtıma Uçtan Uca Mimari
+## DevSecOps ve Altyapı: Güvenlikten Dağıtıma Uçtan Uca Mimari
 
 
 
@@ -237,7 +237,7 @@ Statik veya hibrit sitelerin global dağıtımı ve korunması için Cloudflare 
 Uç Bilişim (Edge Computing) mimarisini temsil eden Cloudflare Workers, Web Application Firewall (WAF) kurallarını uygulamanıza ulaşmadan çok önce uygular. Açık kaynaklı bir altyapıda (örneğin Wazuh ile sistem loglarını izlediğiniz, Authentik ile kimlik doğruladığınız kendi bulutunuzda), Cloudflare Zero Trust araya girerek uygulamanızı şifreler, VPN ihtiyacını ortadan kaldırır ve yalnızca doğrulanan kullanıcıların arka uç sistemlerinize erişmesini sağlar.
 
 ---
-## ) Sonuç: Başarı Kriterleri ve Mimari Anti-Pattern'ler
+## Sonuç: Başarı Kriterleri ve Mimari Anti-Pattern'ler
 
 
 
