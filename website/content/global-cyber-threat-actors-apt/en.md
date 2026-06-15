@@ -4,7 +4,6 @@ date: '2025-07-26'
 description: "This introductory section will establish the basic concepts necessary to understand the detailed actor profiles that follow. It will define what an APT means in the modern context and address the conf"
 image: featured.webp
 type: posts
-audioFile: en.mp3
 ---
 
 ---

@@ -4,7 +4,6 @@ date: '2025-06-01'
 description: "Apache erişim loglarını manuel olarak analiz ederek ve ModSecurity ile Fail2Ban kullanarak web uygulaması saldırılarını (SQLi, XSS, LFI, RFI, Dizin Gezinme) gerçek zamanlı tespit etme ve önleme rehberi."
 image: featured.webp
 type: posts
-audioFile: tr.mp3
 ---
 
 ## Apache Web Sunucusunda Saldırı Tespiti

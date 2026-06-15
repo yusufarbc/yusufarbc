@@ -4,7 +4,6 @@ date: 2022-08-26
 description: A comprehensive guide on Python programming for security professionals, covering HTTP requests scripting, web automation with Selenium, socket programming for port scanning, and SSH remote management using Paramiko.
 image: featured.webp
 type: posts
-audioFile: en.mp3
 ---
 
 

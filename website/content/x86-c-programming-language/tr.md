@@ -4,7 +4,6 @@ date: 2022-12-13
 description: C dili ve x86 Assembly ile donanımın sınırlarında bir mühendislik yolculuğu. İşlemci mimarisinden bellek yönetimine, sistem programlamanın temellerini teorik ve pratik uygulamalarla keşfedin.
 image: featured.webp
 type: posts
-audioFile: tr.mp3
 ---
 
 

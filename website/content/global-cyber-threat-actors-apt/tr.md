@@ -4,7 +4,6 @@ date: '2025-07-26'
 description: "Bu giriş bölümü, sonraki ayrıntılı aktör profillerini anlamak için gerekli temel kavramları oluşturacaktır. Modern bağlamda bir APT’nin ne anlama geldiğini tanımlayacak ve uygulayıcılar için temel zor"
 image: featured.webp
 type: posts
-audioFile: tr.mp3
 ---
 
 ---

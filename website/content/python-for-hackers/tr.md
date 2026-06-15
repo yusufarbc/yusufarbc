@@ -4,7 +4,6 @@ date: 2022-08-26
 description: "Güvenlik uzmanları için Python programlama rehberi: HTTP istekleri (Requests), Selenium ile web otomasyonu, port tarama için soket programlama (Socket) ve SSH uzaktan yönetim ve kaba kuvvet saldırıları için Paramiko modüllerinin pratik kullanımları."
 image: featured.webp
 type: posts
-audioFile: tr.mp3
 ---
 
 

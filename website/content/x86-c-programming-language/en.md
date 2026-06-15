@@ -4,7 +4,6 @@ date: 2022-12-13
 description: A comprehensive guide to system programming with C and x86 Assembly. Explore processor architecture, low-level memory management, and hardware integration through theory and practical laboratory exercises.
 image: featured.webp
 type: posts
-audioFile: en.mp3
 ---
 
 

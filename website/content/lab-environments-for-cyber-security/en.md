@@ -4,7 +4,6 @@ date: '2024-12-02'
 description: "Hello, in this article, I will talk about the distributions and lab environments used in the field of cyber security."
 image: featured.webp
 type: posts
-audioFile: en.mp3
 ---
 
 ---

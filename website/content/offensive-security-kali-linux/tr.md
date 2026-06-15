@@ -4,7 +4,6 @@ date: '2023-01-15'
 description: "Merhaba, bu yazımda Kali Linux dağıtımından bahsedeceğim. Ne işe yaradığını, ne gibi yetenekleri olduğunu ve sızma testlerinde kullanılan araçları anlatacağım."
 image: featured.webp
 type: posts
-audioFile: tr.mp3
 ---
 
 ## Kali Linux'a Giriş

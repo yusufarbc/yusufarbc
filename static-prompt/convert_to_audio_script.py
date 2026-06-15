@@ -4,15 +4,21 @@ import os
 import re
 
 def clean_inline_formatting(text):
+    # Remove HTML comments on a single line
+    text = re.sub(r'<!--.*?-->', '', text)
     # Remove markdown link syntax [text](url) -> text
     text = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', text)
-    # Remove image syntax ![alt](url) -> [Görsel: alt] (handled separately or stripped)
-    text = re.sub(r'!\[([^\]]*)\]\([^)]+\)', r'[Görsel: \1]', text)
+    # Remove image syntax ![alt](url) -> ""
+    text = re.sub(r'!\[[^\]]*\]\([^)]+\)', '', text)
+    # Remove raw URLs
+    text = re.sub(r'https?://\S+', '', text)
     # Remove bold/italic formatting
     text = re.sub(r'\*\*([^*]+)\*\*|__([^_]+)__', r'\1\2', text)
     text = re.sub(r'\*([^*]+)\*|_([^_]+)_', r'\1\2', text)
     # Remove inline code backticks
     text = re.sub(r'`([^`]+)`', r'\1', text)
+    # Remove HTML tags (e.g. <div>, </div>, <p>, etc.)
+    text = re.sub(r'</?[a-zA-Z][^>]*>', '', text)
     return text.strip()
 
 def convert_markdown_to_audio(file_path):
@@ -33,6 +39,10 @@ def convert_markdown_to_audio(file_path):
     frontmatter_count = 0
     in_code_block = False
     in_mermaid_block = False
+    in_style_block = False
+    in_html_comment = False
+    in_html_table = False
+    in_references_section = False
     in_table = False
     table_headers = []
     table_rows = []
@@ -53,22 +63,61 @@ def convert_markdown_to_audio(file_path):
         if in_frontmatter:
             i += 1
             continue
+
+        # 1b. Style block parsing
+        if stripped.startswith("<style") or stripped.startswith("<style>"):
+            if "</style>" in stripped:
+                i += 1
+                continue
+            in_style_block = True
+            i += 1
+            continue
             
-        # 2. Code blocks and Mermaid blocks
+        if in_style_block:
+            if "</style>" in stripped:
+                in_style_block = False
+            i += 1
+            continue
+            
+        # 1c. HTML comment block parsing
+        if "<!--" in stripped:
+            if "-->" in stripped:
+                # If it's a single line HTML comment, we skip it
+                if stripped.startswith("<!--") and stripped.endswith("-->"):
+                    i += 1
+                    continue
+            else:
+                in_html_comment = True
+                i += 1
+                continue
+                
+        if in_html_comment:
+            if "-->" in stripped:
+                in_html_comment = False
+            i += 1
+            continue
+
+        # 1cc. HTML table block parsing (skipped in audio)
+        if "<table" in stripped:
+            in_html_table = True
+            if "</table>" in stripped:
+                in_html_table = False
+            i += 1
+            continue
+            
+        if in_html_table:
+            if "</table>" in stripped:
+                in_html_table = False
+            i += 1
+            continue
+
+        # 2. Code blocks and Mermaid blocks (skipped in audio)
         if stripped.startswith("```"):
             if in_code_block or in_mermaid_block:
                 # Exiting block
                 if in_mermaid_block:
-                    if is_turkish:
-                        output_lines.append("[Mermaid Diyagramı: Burada bir mimari veya akış şeması bulunmaktadır. Şema detayları görsel olarak mevcuttur.]\n")
-                    else:
-                        output_lines.append("[Mermaid Diagram: An architectural or flow diagram is present here. Diagram details are visually represented.]\n")
                     in_mermaid_block = False
                 else:
-                    if is_turkish:
-                        output_lines.append("[Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]\n")
-                    else:
-                        output_lines.append("[Code Block: A code example is present here. Code contents are skipped in the voiceover.]\n")
                     in_code_block = False
             else:
                 # Entering block
@@ -83,56 +132,40 @@ def convert_markdown_to_audio(file_path):
             i += 1
             continue
             
-        # 3. HTML comments
-        if stripped.startswith("<!--") and stripped.endswith("-->"):
+        # 1d. Symbol/Emoji check (skip lines without any alphanumeric characters in their CLEANED text)
+        clean_text = clean_inline_formatting(line)
+        if stripped and not any(c.isalnum() for c in clean_text):
             i += 1
             continue
             
-        # 4. Tables parsing
+        # 1e. Look ahead for skipped blocks to avoid reading captions/intros to skipped blocks
+        next_idx = i + 1
+        next_non_empty = None
+        while next_idx < len(lines):
+            next_line = lines[next_idx].strip()
+            if next_line:
+                next_non_empty = next_line
+                break
+            next_idx += 1
+            
+        if next_non_empty and (next_non_empty.startswith("```") or next_non_empty.startswith("|") or "<table" in next_non_empty):
+            is_bold = (stripped.startswith("**") and stripped.endswith("**")) or (stripped.startswith("__") and stripped.endswith("__"))
+            is_short = len(clean_text) < 55
+            if is_bold or is_short:
+                i += 1
+                continue
+            
+        # 4. Tables parsing (skipped in audio)
         # A table line starts and ends with '|' or contains multiple '|'
         is_table_line = stripped.startswith("|") and stripped.endswith("|") and len(stripped.split("|")) > 2
         
         if is_table_line:
-            if not in_table:
-                in_table = True
-                table_headers = [cell.strip() for cell in stripped.split("|")[1:-1]]
-                table_rows = []
-            else:
-                # Check if it's the separator line like |---|---|
-                if re.match(r'^\|[\s:-|-]*\|$', stripped):
-                    pass # Skip separator
-                else:
-                    cells = [cell.strip() for cell in stripped.split("|")[1:-1]]
-                    table_rows.append(cells)
+            in_table = True
             i += 1
             continue
         elif in_table:
-            # Table ended, process table into natural spoken sentences
+            # Table ended, reset state. Don't increment i so current line is processed.
             in_table = False
-            if table_headers and table_rows:
-                output_lines.append("\n")
-                if is_turkish:
-                    output_lines.append("[Tablo Başlangıcı]\n")
-                else:
-                    output_lines.append("[Table Start]\n")
-                    
-                for row in table_rows:
-                    sentence_parts = []
-                    # Match headers and cell values
-                    for col_idx, cell_val in enumerate(row):
-                        if col_idx < len(table_headers):
-                            header = clean_inline_formatting(table_headers[col_idx])
-                            val = clean_inline_formatting(cell_val)
-                            if val and val != "-" and val != "—":
-                                sentence_parts.append(f"{header}: {val}")
-                    if sentence_parts:
-                        output_lines.append(". ".join(sentence_parts) + ".\n")
-                
-                if is_turkish:
-                    output_lines.append("[Tablo Bitişi]\n\n")
-                else:
-                    output_lines.append("[Table End]\n\n")
-            # Don't increment i yet, process current line in next iteration
             continue
 
         # 5. Markdown Headings
@@ -141,13 +174,26 @@ def convert_markdown_to_audio(file_path):
             if heading_match:
                 level = len(heading_match.group(1))
                 text = clean_inline_formatting(heading_match.group(2))
-                if level == 1:
-                    prefix = "Başlık: " if is_turkish else "Title: "
-                elif level == 2:
-                    prefix = "Bölüm: " if is_turkish else "Chapter: "
+                
+                # Check if this heading starts the references/further reading section
+                text_lower = text.lower()
+                if "ileri okuma" in text_lower or "further reading" in text_lower or "kaynaklar" in text_lower or "references" in text_lower:
+                    in_references_section = True
                 else:
-                    prefix = "Bölüm Detayı: " if is_turkish else "Section: "
-                output_lines.append(f"\n{prefix}{text}\n\n")
+                    in_references_section = False
+                
+                if not in_references_section:
+                    if level == 1:
+                        prefix = "Başlık: " if is_turkish else "Title: "
+                    elif level == 2:
+                        prefix = "Bölüm: " if is_turkish else "Chapter: "
+                    else:
+                        prefix = "Bölüm Detayı: " if is_turkish else "Section: "
+                    output_lines.append(f"\n{prefix}{text}\n\n")
+            i += 1
+            continue
+
+        if in_references_section:
             i += 1
             continue
             
@@ -163,15 +209,8 @@ def convert_markdown_to_audio(file_path):
             i += 1
             continue
             
-        # 7. Images
+        # 7. Images (skipped in audio)
         if stripped.startswith("!["):
-            img_match = re.match(r'^!\[([^\]]*)\]\([^)]+\)', stripped)
-            if img_match:
-                alt_text = img_match.group(1).strip()
-                if not alt_text:
-                    alt_text = "Görsel açıklaması yok" if is_turkish else "No image description"
-                prefix = "Görsel: " if is_turkish else "Image: "
-                output_lines.append(f"\n[{prefix}{alt_text}]\n\n")
             i += 1
             continue
             

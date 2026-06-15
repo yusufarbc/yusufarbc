@@ -4,7 +4,6 @@ date: 2024-11-18
 description: A comprehensive security guide examining how an attacker maintains persistence after Initial Access and spreads laterally through the network. Covers WMI Event Subscriptions, COM Hijacking, IFEO, Kerberos attacks, SOC detection engineering, and hardening steps.
 image: featured.webp
 type: posts
-audioFile: en.mp3
 ---
 
 # Windows Persistence & Lateral Movement — The Complete Post-Exploitation Guide

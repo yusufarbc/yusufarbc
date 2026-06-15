@@ -4,7 +4,6 @@ date: '2023-05-17'
 description: "Merhaba, Bu yazımda OSI modeli üzerinde Siber Saldırıları anatmaya çalıştım. Birçok siber saldırı türünü bu yazımda bulabilirsiniz."
 image: featured.webp
 type: posts
-audioFile: tr.mp3
 ---
 
 Merhaba, Bu yazımda OSI modeli üzerinde Siber Saldırıları anatmaya çalıştım. Birçok siber saldırı türünü bu yazımda bulabilirsiniz.

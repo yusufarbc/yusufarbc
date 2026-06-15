@@ -1,51 +1,236 @@
-Ofis Ekosisteminden Kaçış: Modern Mühendislik Araçları. Modern bilişim paradigmasında veri egemenliğini geri kazanmak üzerine teknik bir inceleme.
+Son yıllarda masaüstü yazılımlardan bulut tabanlı SaaS modellerine hızlı bir geçiş yaşadık. Bugün iş süreçlerinin ve kurumsal hafızanın büyük kısmı Microsoft 365 veya Google Workspace gibi kapalı ekosistemlerde tutuluyor. Bu platformlar eşzamanlı çalışma kolaylığı getirse de, veri egemenliği ve güvenlik açısından ciddi riskleri de beraberinde getiriyor.
 
-Modern bilgi teknolojileri paradigması, son yirmi yıl içerisinde masaüstü yazılımlardan Bulut Hizmet Olarak Yazılım modellerine doğru dramatik ve geri döndürülmesi zor bir kayma yaşamıştır. Bugün, kurumsal ve bireysel zihinsel üretimin büyük bir kısmı Microsoft 365 ve Google Workspace gibi teknoloji devlerinin sunduğu kapalı ekosistemlerde gerçekleşmektedir. Bu platformlar "bulut kolaylığı" illüzyonu yaratsa da, ardında kurumların uzun vadeli bekasını tehdit eden yapısal riskler barındırmaktadır.
+Hızlı Kıyaslama: Bağımlılık vs. Egemenlik
 
-Hızlı bir kıyaslama yapacak olursak, bağımlılık ve egemenlik arasındaki farklar şöyledir. Mimari açıdan, SaaS ve Bulut çözümleri dinamik ama rehin tutulan veriler ve kapalı XML yığınları sunarken, mühendislik stack'i plain-text sadeliği ve Git uyumlu versiyonlama sağlar. Güvenlik tarafında, bulut sistemler telemetri ve dijital ayak izi taraması yaparken, mühendislik stack'i şirket içi tam kontrol sunar. Veri ömrü bakımından, bulut sistemlerde 60 günlük bir silinme kuyruğu varken, mühendislik dünyasında kod blokları nesiller boyu hayatta kalır. Maliyet açısından ise bulut sistemler sürekli artan abonelik ücretleri ve üretici bağımlılığı yaratırken, mühendislik altyapısı amorti edilmiş bir maliyet avantajı sağlar.
 
-Bölüm 1: Giriş: Bulut Bağımlılığı ve Kapalı Ekosistemlerin İllüzyonu.
+Bölüm: Bulut Bağımlılığı ve Veri Egemenliği
 
-Modern bilgi teknolojileri paradigması, son yirmi yıl içerisinde masaüstü yazılımlardan Bulut Hizmet Olarak Yazılım modellerine doğru dramatik ve geri döndürülmesi zor bir kayma yaşamıştır. Bugün, kurumsal ve bireysel zihinsel üretimin, iş süreçlerinin ve stratejik veri yönetiminin büyük bir kısmı Microsoft 365 ve Google Workspace gibi teknoloji devlerinin sunduğu kapalı ekosistemlerde gerçekleşmektedir. Bu devasa platformlar, kullanıcılara anlık eşzamanlı işbirliği, coğrafi mekandan bağımsız erişim, otomatik yedekleme ve görünürde sınırsız depolama imkanları sunarak kusursuz bir "bulut kolaylığı" illüzyonu yaratmaktadır. Ancak bu teknolojik konfor alanının ardında, kurumların uzun vadeli bekasını tehdit eden "siber bağımlılık" ve "üreticiye bağımlılık" kavramlarının yarattığı yapısal riskler yatmaktadır.
 
-Google Workspace and Microsoft 365, her ne kadar kurumsal kullanıcılar için katı veri gizliliği taahhütleri sunsa da, verinin fiziksel mülkiyeti ve platform dışına çıkarılması süreçlerinde ciddi operasyonel bariyerler oluşturmaktadır. Bulut tabanlı ofis platformlarında belgeler üzerindeki nihai kontrolünüz, hizmet sağlayıcının tek taraflı olarak güncelleyebileceği hizmet şartlarına sıkı sakıya bağlıdır. Abonelik iptalleri durumunda organizasyonların karşılaştığı tablo, veri egemenliğinin ne derece kaybedildiğinin en net göstergesidir. Bir abonelik iptal edildiğinde, veriler anında kullanıcının yerel sunucularına aktarılmaz; bunun yerine katı bir takvime tabi tutulur. İptal işlemini takip eden ilk 30 günlük askıya alma periyodunda, kritik hizmetlere erişim tamamen kaybedilirken, 31. ve 60. günler arasındaki "silinme kuyruğu" aşamasında veriler kalıcı olarak yok edilmeye başlar. Bu süreç, kurumları adeta kendi verileri üzerinden bir rehin alma senaryosuyla karşı karşıya bırakmaktadır.
+Google ve Microsoft gibi servis sağlayıcılar, kurumsal kullanıcılar için veri gizliliği taahhütleri sunsa da veri mülkiyeti ve veriyi dışa aktarma (exit strategy) süreçlerinde ciddi bariyerler oluşturuyor. Belgelerimiz üzerindeki kontrolümüz, hizmet sağlayıcının tek taraflı güncelleyebileceği sözleşmelere bağlı.
 
-Daha da endişe verici olan boyut, bu platformların kullanıcının doğrudan haberi olmadan arka planda sürekli olarak "telemetri" ve teşhis verileri toplamasıdır. Kullanıcıların belge düzenleme alışkanlıkları, dokümanlar arası etkileşim süreleri ve kurum içi iletişim ağlarının topolojisi, platform sağlayıcısının algoritmaları tarafından taranarak devasa bir dijital ayak izi havuzuna dönüştürülmektedir. Uluslararası Veri Kurumu'nun 2026 projeksiyonları, dijital organizasyonların yüzde 45'inin en büyük endişesinin veri egemenliği olduğunu, bilgi işlem destek ekiplerinin ise yüzde 53 oranında veri kaybı korkusu yaşadığını ortaya koymaktadır. SaaS ofis veri toplama işlemleri, basit hizmet iyileştirme günlüklerinin çok ötesine geçerek, bir şirketin iş süreçlerini haritalandıran stratejik bir istihbarat mekanizmasına dönüşmüştür.
+Örneğin, bir abonelik iptal edildiğinde verileriniz hemen yerel sunucularınıza aktarılmıyor. Askıya alma ve silinme süreçleri, verilerinizin rehin kalmasına neden olabiliyor. Abonelik iptal edildikten sonraki ilk 30 günlük askıya alma periyodunda hizmetlere erişim kaybedilirken, sonraki aşamada veriler kalıcı olarak silinme kuyruğuna alınıyor.
 
-İşte bu noktada temel felsefe; zihinsel üretimi ve kritik kurumsal hafızayı bu kapalı sistemlerin tekelinden kurtarıp, Unix felsefesinin temeli olan düz metin sadeliğine taşımayı gerektirmektedir. Bu bağlamda ticari ofis platformlarından kaçış sadece lisans maliyetlerini düşürmeye yönelik bir finansal hamle değil; belgelerin, analitik tabloların ve sunum mimarilerinin deterministik mühendislik prensipleriyle yeniden inşa edilmesi sürecidir.
+Ayrıca, bu bulut platformlarının arka planda sürekli teşhis ve telemetri verisi toplaması da ayrı bir güvenlik sorunu. Kullanıcıların belge düzenleme alışkanlıkları ve kurumsal iletişim ağları taranıyor. IDC'nin verilerine göre dijital organizasyonların %45'i veri egemenliğini en büyük endişe olarak görüyor.
 
-Bölüm 2: Belge Mühendisliği: Word'ün Çöküşü ve LaTeX'in Gücü.
+Çözüm, kurumsal hafızayı bu kapalı sistemlerden kurtarıp Unix felsefesinin temeli olan düz metin (plain text) sadeliğine taşımak. Ticari ofis platformlarından kaçmak sadece bir maliyet tasarrufu değil; belgelerin, tabloların ve sunumların mühendislik prensipleriyle yeniden inşa edilmesidir.
 
-Microsoft Word'ün temsil ettiği Gördüğünü Alırsın paradigması, günlük ofis yazışmaları için bir standart olsa da, teknik dokümantasyon ve mühendislik projelerinde bir felakete dönüşmektedir. Bu yaklaşım, kullanıcının doğrudan nihai görsel çıktı üzerinde çalışmasını zorunlu kılar; yani yazarken gördüğünüz şey, belgenin son halidir. Ancak bu durum, teknik dokümantasyonun en büyük düşmanıdır. Word tabanlı bir mimarinin yarattığı temel kriz, içeriğin mantıksal yapısı ile görsel tasarımın yani sunum katmanının birbirine ayrılmaz bir şekilde kilitlenmiş olmasıdır. Bir yazar içeriğe odaklanması gerekirken, sürekli olarak sayfa sonları, bozulan numaralandırmalar veya metni dağıtan görseller gibi tipografik krizlerle boğuşur.
 
-Bir .docx dosyası, dışarıdan bakıldığında tek parça bir belge gibi görünse de, mimari olarak aslında iç içe geçmiş XML yapıları içeren sıkıştırılmış bir arşividir. Bu kapalı yapı, modern yazılım geliştirme süreçlerinin kalbi olan Git ve benzeri dağıtık versiyon kontrollü sistemlerle tamamen uyumsuzdur. Git, doğası gereği satır satır metin farklılıklarını analiz ederek çalışır. Ancak sıkıştırılmış bir XML yığını olan Word belgesinde yapılan en ufak bir değişiklik, arka plandaki XML düğümlerinin tamamının yeniden hesaplanmasına ve sistemin bunu tüm eski dosyanın silinip tamamen yeni bir ikili dosyanın eklenmesi olarak algılamasına yol açar. Birden fazla mühendisin veya araştırmacının aynı dosya üzerinde asenkron çalışması durumunda, dalların birleştirilmesi imkansız hale gelir ve süreç kısa sürede kaotik bir isimlendirme kabusuna dönüşür.
+Bölüm: Belge Mühendisliği: Word'ün Hataları ve LaTeX'in Gücü
 
-Word'ün şeffaflıktan uzak yapısına karşın LaTeX, içeriği tasarımdan tamamen ayıran "Ne Demek İstiyorsan Onu Alırsın" yaklaşımını savunur. Burada yazar, belgenin nasıl göründüğüne değil, belgenin ne olduğuna, yani başlıklara, bölümlere ve referanslara odaklanır; görsel tasarım ise sistem tarafından otomatik olarak yönetilir. LaTeX, belgeleri .tex uzantılı düz metin dosyaları olarak kaydeder, bu da belgenin boyutundan veya işletim sisteminden bağımsız mutlak bir sistem stabilitesi sunar.
 
-Git entegrasyonu sayesinde her bir kelime değişikliği, kimin tarafından ve ne zaman yapıldığını gösteren şeffaf bir tarihçe ile kaydedilir. Dallanma stratejileri ile aynı ana metin üzerinde farklı tasarım şablonları giydirilebilir. Komut satırı araçlarıyla sürümler arası karşılaştırma PDF'leri saniyeler içinde üretilir. LuaLaTeX ve modern motorlar ile profesyonel dizgi makinelerinin hassasiyeti düz metin sadeliğiyle birleşir.
+Microsoft Word gibi "Gördüğünü Alırsın" (WYSIWYG) mantığıyla çalışan editörler, günlük yazışmalar için standart olsa da teknik dokümantasyonda süreci zorlaştırıyor. Yazarın doğrudan nihai görsel çıktı üzerinde çalışması, içerik ile görsel tasarımın birbirine kilitlenmesine yol açıyor. Yazarken sayfa sonları, bozulan numaralar ve metni dağıtan görseller gibi tipografik detaylarla boğuşmak zorunda kalıyoruz.
 
-Bölüm 3: Veri Analitiğinde Şeffaflık: Excel Felaketleri vs. CSV ve DuckDB Mimarisi.
 
-İş dünyasının en çok kullanılan yazılımı olan Microsoft Excel, büyük veri analitiği senaryolarında küresel çapta felaketlere neden olan devasa bir teknik borç mekanizmasıdır. Bilimsel tekrarlanabilirliğin temel şartı, işlemin adımlarının açıkça denetlenebilir olmasıdır. Ancak Excel'in mimari hatası, ham veriyi, hesaplama mantığını yani formülleri ve sunum katmanını aynı hücrenin içerisine hapsetmesidir.
+Bölüm Detayı: DOCX'in Teknik Borcu ve Versiyonlama Sorunu
 
-Excel'in bir veritabanı gibi kullanılmasının doğurduğu riskler somut hasarlarla belgelenmiştir. 2020 yılında İngiltere'de yaşanan vaka verisi kaybında, tam 15.841 pozitif vaka satır sınırı nedeniyle sisteme kaydedilemedi. Reinhart-Rogoff ekonomi politikası skandalında, basit bir formül hatası küresel kemer sıkma politikalarını yanlış yönlendirdi. Genetik literatüründe ise Excel'in oto-düzeltme algoritmaları yüzünden onlarca genin bilimsel adı değiştirilmek zorunda kalındı.
+DOCX dosyaları aslında sıkıştırılmış XML yığınlarından oluşan arşivlerdir. Bu kapalı yapı, yazılım geliştirme süreçlerinin kalbi olan Git ve benzeri versiyon kontrol sistemleriyle tamamen uyumsuzdur.
 
-Veri mühendisliği perspektifinden mutlak çözüm; verinin ve mantığın birbirinden radikal şekilde ayrılmasıdır. Veri, şeffaf formatlarda saklanmalı; analiz ise SQL gibi versiyonlanabilir dillerle yapılmalıdır. DuckDB bu noktada mimari üstünlük sağlar. Sütun tabanlı saklama ile I/O performansında devasa bir sıçrama yaratır. Vektörel sorgu işleme sayesinde verileri çok hızlı işler. Mantıksal şeffaflık ise SQL sorgularının Git ile versiyonlanmasıyla sağlanır. Bir hata yapıldığında bu durum tarihçede açıkça görülür ve denetlenebilir.
+Git satır satır değişiklikleri (diff) analiz eder. Ancak Word belgesinde yapılan tek bir boşluk veya referans değişikliği bile arka plandaki XML yapısını tamamen değiştirir. Git bunu "eski dosyanın silinip tamamen yeni bir ikili dosyanın eklenmesi" olarak algılar. Bu da ekip halinde aynı dosya üzerinde çalışmayı neredeyse imkansız hale getirir.
 
-Bölüm 4: Sunum Mimarisinin Evrimi: PowerPoint'in Ölümü ve Web Stack.
 
-İş dünyası ve mühendislik iletişim mimarisi, PowerPoint'in sunduğu statik mantığın ötesine geçememiştir. PowerPoint'in temel sorunu, verinin statikleşmesidir. Bir finansal analizden kopyalanan grafik yapıştırıldığı anda "ölür"; veriler değiştiğinde her slaytın manuel güncellenmesi gerekir. Modern yazılım geliştirme kültürü, Kod Olarak Sunum çerçevesini zorunlu kılar. Web tarayıcılarının render kapasitesi, sunumların artık Markdown ve Web Stack teknolojileriyle yazılması gerektiğini göstermektedir.
+Bölüm Detayı: LaTeX ile Mantıksal Yapı ve Tasarım Ayrımı
 
-Vue.js mimarisi üzerine inşa edilen Slidev, mühendisler için bu mimarinin zirvesini temsil eder. Slaytlar içerisine etkileşimli grafikler doğrudan entegre edilebilir ve veriler anlık çekilebilir. Monaco Editor ile slayt üzerinde canlı kod çalıştırılabilir. Sunumun tüm içeriği slides.md adlı düz metin bir dosyada barındırılır. İşbirliği ise e-posta yerine Pull Request'ler üzerinden yürür. Marp, Reveal.js ve Impress.js gibi araçlar da farklı ihtiyaçlara yönelik esneklik ve görsel güç sunar.
+LaTeX ise "Ne Demek İstiyorsan Onu Alırsın" (WYSIWYM) yaklaşımıyla içeriği tasarımdan tamamen ayırır. Yazar sadece belgenin mantıksal yapısına (başlıklar, bölümler, referanslar) odaklanır; görsel tasarımı ise sistem yönetir. LaTeX, belgeleri .tex uzantılı düz metin dosyaları olarak kaydettiği için sistem stabilitesi sunar:
 
-Bölüm 5: Açık Kaynaklı Kaleler: LibreOffice ve ONLYOFFICE.
+Git Entegrasyonu: Her kelime değişikliği şeffaf bir tarihçe ile izlenir.
+Dallanma (Branching): Aynı ana metin üzerinde farklı şablonlar kolayca uygulanabilir.
+latexdiff: Sürümler arası farkları gösteren PDF'ler saniyeler içinde üretilebilir; silinen metinler kırmızı/çizili, yeniler mavi olarak işaretlenir.
 
-Her çalışanın kod tabanlı arayüzlerle çalışması pratik olmayabilir. Ancak ofis ihtiyacı, zorunlu olarak Microsoft veya Google'ın veri madenciliği yapan platformları üzerinden karşılanmamalıdır. LibreOffice, ODF standartlarının güvenli kalesi olarak telemetrisiz bir çalışma ortamı sunar. ONLYOFFICE ise yüksek format uyumluluğu ve şirket içi barındırılabilir yapısıyla verilerin dışarı gitmesini engeller.
 
-Öte yandan, Microsoft 365, Google Docs ve Apple iWork gibi tescilli ekosistemler birer "altın kafestir". Bu platformlar veri mülkiyetini kullanıcıya bırakmaz ve SaaS bağımlılığını zorunlu kılar. Gerçek dijital egemenlik kazanmak için verilerinizi hangi gardiyana emanet edeceğinizi seçmek yerine mülkiyetini geri almalısınız.
+Bölüm: Veri Analitiğinde Şeffaflık: Excel Felaketleri vs. CSV + DuckDB Mimarisi
 
-Bölüm 6: Bütünleşik Çözüm ve Dijital Özgürlük İçin Tamamlayıcı Araç Portföyü.
 
-Nextcloud Hub, SaaS platformlarının sunduğu tüm araçları tek bir güvenli çatı altında toplar. Dosyalar, canlı işbirliği, güvenli konferans ve yerel yapay zeka asistanı ile verilerinizin mutlak kontrolü size geçer. Quarto ile bilimsel yayıncılık yapabilir, Zotero ile bibliyografyanızı yönetebilir, Mermaid.js ile diyagramlarınızı kodla yazabilir ve Vaultwarden ile şifrelerinizi egemen bir şekilde saklayabilirsiniz.
+Microsoft Excel büyük veri analitiğinde formüllerle veriyi aynı hücrede birleştirerek ciddi hatalara zemin hazırlıyor. Bilimsel tekrarlanabilirliğin temel şartı denetlenebilir adımlardır.
 
-Sonuç olarak; Microsoft 365 ve Google Workspace konfor illüzyonuyla kurumsal hafızayı mülksüzleştirmektedir. Belgeleri LaTeX ile tasarlamak, verileri DuckDB ile yönetmek ve sunumları Slidev ile kodlamak salt bir yazılım değişikliği değil, bir veri egemenliği hamlesidir. Verinin mülkiyetini geri almak ve deterministik mühendislik prensiplerinden taviz vermemek adına bu duruş elzemdir. Verinizin mimarı olun, egemenliğinizi geri alın. Dinlediğiniz için teşekkürler!
+
+Bölüm Detayı: Tarihteki Excel Hataları
+
+İngiltere COVID-19 Vaka Kaybı: Ekim 2020'de 15 binden fazla pozitif vaka sisteme kaydedilemedi. Hatanın nedeni, laboratuvarlardan gelen CSV dosyalarının eski .xls formatındaki şablonlara aktarılmasıydı. Excel, 65.536 satır sınırını aşan verileri sessizce kırptı.
+Reinhart-Rogoff Ekonomi Politikası Hatası: Küresel kemer sıkma politikalarına yön veren bir makalede, Excel formülünün 20 satır yerine 15 satırı kapsaması nedeniyle büyüme oranı yanlış hesaplandı. Hücre içindeki formüller gizli olduğu için bu hata yıllarca fark edilmedi.
+Genetik Terimlerin Bozulması: Excel'in otomatik düzeltme özelliği, gen isimlerini (MARCH1 gibi) tarihe ("1 Mart") dönüştürdü. Sırf Excel'in bu davranışı yüzünden 2020'de 27 insan geninin adı değiştirilmek zorunda kalındı.
+
+
+Bölüm Detayı: DuckDB: Mantık ve Veri Ayrımı
+
+Veri mühendisliğinde çözüm, veri (storage) ile mantığın (compute) ayrılmasıdır. Veri CSV/Parquet gibi şeffaf formatlarda saklanmalı; analiz ise SQL ile yapılmalıdır.
+
+DuckDB, vektörel SQL motoruyla bu süreci optimize eder:
+Sütun Tabanlı Saklama (Columnar): Sadece sorgulanan kolonları okuyarak disk/bellek performansını artırır.
+Vektörel Sorgu: CPU'nun SIMD komutlarını kullanarak verileri yığınlar halinde işler.
+Git Uyumluluğu: SQL sorguları düz metin olarak Git ile versiyonlanır.
+
+Ham Veri
+.csv / .parquet
+DuckDB Motoru
+SQL Sorguları
+Şeffaf Sonuç
+Tekrarlanabilir
+
+Performans Kıyaslaması
+
+
+Bölüm: Sunum Mimarisinde Kod Dönemi: Slidev ve Web Stack
+
+
+PowerPoint sunumları veriyi statikleştirir. Excel'den kopyalanan bir grafik sunuma eklendiği an statikleşir; veri değiştiğinde slaytları tek tek güncellemek gerekir.
+
+Modern mühendislik kültürü, Sunum Kod Olarak (Presentation-as-Code) yaklaşımını gerektiriyor. Slaytlar artık Markdown ve Web teknolojileriyle (HTML/CSS/JS) yazılmalıdır.
+
+
+Bölüm Detayı: Slidev Entegrasyonu
+
+Vue.js tabanlı Slidev, web tabanlı sunumların en gelişmiş örneğidir:
+
+Dinamik Veriler: Grafiklerin verileri bir API'den anlık çekilebilir ve animasyonlarla sunulabilir.
+Canlı Kod Çalıştırma: Monaco Editor entegrasyonu sayesinde slayt üzerinde canlı kod yazıp çalıştırabilirsiniz.
+Git ve İşbirliği: Sunum içeriği tek bir slides.md dosyasındadır. Değişiklikler e-posta yerine Pull Request (PR) ile yapılır.
+
+Slidev
+Web Mimarisinin Zirvesi
+Vue bileşenleri ve Monaco Editor ile güçlendirilmiş mimari. Canlı kod çalıştırabilir ve etkileşimli grafikler sunabilirsiniz.
+
+Marp
+Minimalist ve Hızlı
+Tasarım karmaşasıyla ilgilenmeden sadece Markdown yazarak PDF veya HTML sunumlar üretmek için en hızlı çözüm.
+
+Reveal.js
+Esneklik ve Güç
+Doğrudan HTML/JS ile 3D geçişler ve yatay/dikey slayt hiyerarşileri. Görselleştirmeleri anlık tetikleyebilirsiniz.
+
+Impress.js
+3D Görsel Şov
+CSS3 transformasyonları ile dönen ve derinlik algısı yaratan sunumlar hazırlamak için ideal.
+
+
+Bölüm: Açık Kaynaklı Alternatifler: LibreOffice ve ONLYOFFICE
+
+
+Kod tabanlı araçlar herkes için uygun olmayabilir. Ancak ofis araçları ihtiyacı, verilerimizi dışarı aktaran platformlara bağımlı olmamızı gerektirmez.
+
+LibreOffice: ISO standardı ODF (Open Document Format) kullanan, arka planda veri göndermeyen güvenli bir alternatiftir.
+ONLYOFFICE: Microsoft OOXML formatıyla doğrudan uyumludur. Şirket içi sunucularınızda (Self-hosted) barındırılarak bulut benzeri bir işbirliği ortamı sunar.
+
+ONLYOFFICE
+Modern Entegrasyon
+OOXML (DOCX) çekirdek mimarisi ve şirket içi işbirliği. Microsoft formatlarıyla yüksek görsel uyumluluk.
+
+LibreOffice
+Gizlilik Kalesi
+ODF standartlarına bağlı, telemetrisiz ve tamamen çevrimdışı. Veri mahremiyetinin güçlü savunucusu.
+
+Paket Kıyaslaması
+
+
+Bölüm Detayı: Kapalı Ekosistemlerin Riskleri
+
+Veri mülkiyetini kullanıcıya bırakmayan ve SaaS bağımlılığı yaratan platformlar, kurumlar için operasyonel birer kilit oluşturur. Google Docs, Microsoft 365 veya Zoho gibi tescilli bulut servisleri arasında geçiş yapmak veri egemenliği sağlamaz; sadece verinizi hangi sunucuda saklayacağınızı seçmenize yarar.
+
+Microsoft 365
+Ekosistem Kilidi
+Bulut bağımlılığının ve 'vendor lock-in' kavramının endüstri standardı. Veri egemenliğinin önündeki en şık ama en katı bariyer.
+
+Google Docs
+SaaS Prangası
+M365'ten kaçıp Google'a sığınmak veri egemenliği sağlamaz. Sadece verinizi hangi tekelin işleyeceğini seçersiniz.
+
+Zoho Office
+Kapsamlı Ama Kapalı
+Bulut bağımlılığı ve tescilli doğası ile egemenlik kalesinin dışındadır. Veri yine sağlayıcının sunucusundadır.
+
+Apple iWork
+Donanım Kilidi
+Sizi Apple donanımlarına ve kapalı iCloud ekosistemine kilitler. Formatları tescillidir ve Git uyumsuzdur.
+
+WPS Office
+Bütçe Dostu Klon
+Microsoft formatlarıyla uyumlu çalışan Ribbon arayüzü. Ücretsiz sürümü reklam ve takip kodları barındırabilir.
+
+FreeOffice
+Hafif ve Hızlı
+Düşük donanımlı bilgisayarlarda hızlı bir alternatif sunar. Kapalı kaynaklıdır ancak bireysel kullanım için uygundur.
+
+
+Bölüm: Bütünleşik Çözüm: Nextcloud Hub
+
+
+Nextcloud Hub, bulut servislerinin sunduğu dosya paylaşımı, ortak belge düzenleme ve iletişim araçlarını tek bir on-prem sunucuda toplar:
+
+Nextcloud Files: Google Drive alternatifi dosya depolama.
+Nextcloud Office: Tarayıcı üzerinden eşzamanlı belge düzenleme.
+Nextcloud Talk: Uçtan uca şifreli toplantı ve sohbet.
+Yerel Yapay Zeka: Verileri dışarı göndermeden çalışan yerel yapay zeka asistanı.
+
+Nextcloud Files
+Drive Alternatifi
+Google Drive veya OneDrive'ın güvenli, self-hosted alternatifi. Veriler doğrudan sizin sunucunuzda saklanır.
+
+Nextcloud Office
+Canlı İşbirliği
+ONLYOFFICE veya Collabora entegrasyonu ile tarayıcı üzerinden eşzamanlı belge düzenleme imkanı.
+
+Nextcloud Talk
+Güvenli Teams
+Meet veya Teams yerine uçtan uca şifreli konferans ve sohbet. Veri sızıntısı riski sıfır.
+
+Yerel Yapay Zeka
+Mahrem Asistan
+Verileri dışarı sızdırmadan yerel çalışan Nextcloud Assistant ile doküman analizi ve metin üretimi.
+
+
+Bölüm: Dijital Özgürlük İçin Tamamlayıcı Araçlar
+
+
+Mühendislik ve akademik çalışmaları destekleyen diğer açık kaynaklı araçlar:
+
+Quarto: Markdown ve LaTeX arasında modern bir köprü. Teknik raporları farklı formatlarda üretmenizi sağlar.
+Zotero: Akademik referansları ve bibliyografyayı kendi sunucunuzda saklayan açık kaynaklı çözüm.
+Mermaid.js: Akış şemalarını kodla çizmenizi sağlar.
+Vaultwarden: Şifrelerinizi kendi sunucunuzda saklayan Bitwarden uyumlu şifre yöneticisi.
+
+Quarto
+Bilimsel Yayıncılık
+LaTeX ve Markdown arasındaki en modern köprü. Teknik raporları tek kaynaktan (Web/PDF/MS Word) üretmek için yeni dünya standardı.
+
+Zotero
+Bibliyografya Kalesi
+Akademik çalışmaları Mendeley (SaaS) yerine kendi kontrolünüzde (WebDAV) tutmanızı sağlayan açık kaynaklı çözüm.
+
+Mermaid.js
+Diagram-as-Code
+Akış diyagramlarını kodla yazıp dokümana gömmek için elzem. Visio gibi hantal araçlara elveda.
+
+Vaultwarden
+Egemen Şifreler
+Şifrelerinizi Google/Apple'a emanet etmek yerine kendi sunucunuzda host ettiğiniz bitwarden uyumlu kasa.
+
+
+Bölüm: Veri Egemenliğini Geri Kazanmak
+
+
+Bulut tabanlı ofis platformlarının getirdiği kolaylıklar, verinin mülkiyetini kaybetme riskini de beraberinde getirir. Belgeleri LaTeX ile yazmak, verileri DuckDB ile işlemek ve sunumları Slidev ile kodlamak sadece bir araç tercihi değil; verinizin kontrolünü elinizde tutma duruşudur. Kendi verinizin mimarı olun ve dijital bağımsızlığınızı koruyun.
+
+
+Bölüm Detayı: İleri Okuma ve Teknik Dokümantasyonlar
+
+
+1. LaTeX (Belge Mühendisliği ve Dizgi)
+LaTeX Resmi Dokümantasyonu:.
+Hızlı Başlangıç Kılavuzu (PDF):.
+
+2. DuckDB (Veri Analitiği ve İşleme)
+CSV İçe Aktarma ve Yapılandırma Rehberi:.
+Python API Dokümantasyonu:.
+Çoklu Dosya Okuma ve Şema Birleştirme:.
+
+3. HTML/CSS/JS Tabanlı Sunum Araçları
+Slidev Resmi Dokümantasyonu:.
+Slidev Sözdizimi Kılavuzu:.
+Reveal.js ve D3.js Entegrasyonu (GitHub):.
+
+4. Açık Kaynaklı Ofis ve İşbirliği Platformları
+LibreOffice Kullanıcı Kılavuzları:.
+Nextcloud Bilgi ve Kaynak Merkezi:.
+Nextcloud Uyumluluk ve Veri Egemenliği Rehberleri:.
+ONLYOFFICE Çözümleri:.
+
+Verinizin mimarı olun, egemenliğinizi geri alın. Dinlediğiniz için teşekkürler!
