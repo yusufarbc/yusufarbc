@@ -346,14 +346,30 @@
   .markdown-content,
   .markdown-content p,
   .markdown-content li {
-    font-size: 1rem !important;
-    /* Scaled down from 1.08rem */
-    line-height: 1.7 !important;
+    font-size: 0.94rem !important;
+    /* Scaled down from 1rem */
+    line-height: 1.65 !important;
   }
 
   .markdown-content blockquote {
     padding: 1rem 1.25rem !important;
-    font-size: 0.98rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .markdown-content h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .markdown-content h2 {
+    font-size: 1.4rem !important;
+  }
+
+  .markdown-content h3 {
+    font-size: 1.2rem !important;
+  }
+
+  .markdown-content h4 {
+    font-size: 1.1rem !important;
   }
 }
 

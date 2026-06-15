@@ -95,8 +95,7 @@ The Files module is the WebDAV-based core file system. To maintain file listing 
 
 For petabyte-scale storage, Nextcloud utilizes a Primary Object Storage architecture. Rather than relying on traditional block storage (NFS, Local RAID), Nextcloud connects directly to object storage buckets like Amazon S3, MinIO, or Ceph Object Gateway. The folder structures and metadata are maintained in the local PostgreSQL database, while the binary payloads are written directly to S3 as a flat structure with randomized UUID filenames.
 
-> [!CAUTION]
-> Critical Pitfall: Primary Object Storage configuration can only be set up during the initial Nextcloud installation. Attempting to transition primary storage to S3 on a live instance will make existing files inaccessible. Additionally, mapping S3 as primary storage disables the built-in BorgBackup utility, which is designed for local disk volume snapshots. In this scenario, disaster recovery (DR) must be split: use database dumps (pg_dump) for metadata, and implement native S3 replication tools (MinIO Multi-Site Replication) to safeguard binary payloads.
+Critical Pitfall: Primary Object Storage configuration can only be set up during the initial Nextcloud installation. Attempting to transition primary storage to S3 on a live instance will make existing files inaccessible. Additionally, mapping S3 as primary storage disables the built-in BorgBackup utility, which is designed for local disk volume snapshots. In this scenario, disaster recovery (DR) must be split: use database dumps (pg_dump) for metadata, and implement native S3 replication tools (MinIO Multi-Site Replication) to safeguard binary payloads.
 
 
 Section: OnlyOffice Document Server: Client-Side Rendering Advantage
@@ -117,9 +116,8 @@ Engine: Uses an HTML5 Canvas and JavaScript-based client-side rendering model.
 Server Load: Drawing and rendering happen on the client browser. 2-4 GB of RAM is sufficient for 50-100 concurrent sessions.
 Compatibility: Exceptional 99% layout and formatting alignment with Microsoft Office formats (.docx, .xlsx, .pptx).
 
-> [!WARNING]
-> JWT and Proxy Bottlenecks: OnlyOffice communications with Nextcloud are signed via JSON Web Tokens (JWT). However, enterprise reverse proxies often filter out standard Authorization headers. This leads to authentication timeouts when loading documents. To bypass this, customize the JWT header name in OnlyOffice (local.json) to AuthorizationJwt and align the Nextcloud server settings accordingly.
-> Community Version Limit: The free ONLYOFFICE Docs Community Edition features a hardcoded limit of 20 concurrent document connections (tabs). When the 21st user opens a document, it falls back to read-only mode. For teams larger than 50, this limit will be reached quickly. Organizations must budget for OnlyOffice Enterprise licensing or deploy Collabora CODE on high-memory servers to accommodate unlimited users.
+JWT and Proxy Bottlenecks: OnlyOffice communications with Nextcloud are signed via JSON Web Tokens (JWT). However, enterprise reverse proxies often filter out standard Authorization headers. This leads to authentication timeouts when loading documents. To bypass this, customize the JWT header name in OnlyOffice (local.json) to AuthorizationJwt and align the Nextcloud server settings accordingly.
+Community Version Limit: The free ONLYOFFICE Docs Community Edition features a hardcoded limit of 20 concurrent document connections (tabs). When the 21st user opens a document, it falls back to read-only mode. For teams larger than 50, this limit will be reached quickly. Organizations must budget for OnlyOffice Enterprise licensing or deploy Collabora CODE on high-memory servers to accommodate unlimited users.
 
 
 Section: Scalable Video Conferencing with Nextcloud Talk
@@ -130,8 +128,7 @@ The signaling architecture dictates Talk's scalability:
 Default Setup (Mesh/P2P Network): Clients stream audio/video feeds directly to one another. In a 5-person meeting, each client uploads its feed 4 times. This rapidly chokes user-side upload bandwidth and local CPU resources, causing video streams to fail beyond 3-5 participants.
 High Performance Backend (HPB - SFU Architecture): Incorporating Janus WebRTC Gateway and NATS messaging, this stack implements a Selective Forwarding Unit (SFU) model. Users upload their feed once to the server, and the Janus engine replicates and routes the stream to the other participants. Upload bandwidth remains constant. Handling meetings with 10 to 50 active users is only possible with the HPB signaling server.
 
-> [!IMPORTANT]
-> Bandwidth and Recording Overhead: A 20-user HD call requires ~40 Mbps inbound and ~100 Mbps outbound bandwidth on the server interface. We recommend hosting Talk HPB on servers with a dedicated 500 Mbps or 1 Gbps symmetric connection. Furthermore, enabling recording (Recording Server) launches server-side video transcoding, consuming 2-4 vCPUs per active recording. Keep the recording server isolated on a separate VM to protect the main application nodes.
+Bandwidth and Recording Overhead: A 20-user HD call requires ~40 Mbps inbound and ~100 Mbps outbound bandwidth on the server interface. We recommend hosting Talk HPB on servers with a dedicated 500 Mbps or 1 Gbps symmetric connection. Furthermore, enabling recording (Recording Server) launches server-side video transcoding, consuming 2-4 vCPUs per active recording. Keep the recording server isolated on a separate VM to protect the main application nodes.
 
 
 Section: Enterprise Email Infrastructure via Mailcow

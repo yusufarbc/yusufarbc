@@ -19,6 +19,10 @@ def clean_inline_formatting(text):
     text = re.sub(r'`([^`]+)`', r'\1', text)
     # Remove HTML tags (e.g. <div>, </div>, <p>, etc.)
     text = re.sub(r'</?[a-zA-Z][^>]*>', '', text)
+    # Remove blockquote angle brackets at the start of text
+    text = re.sub(r'^\s*>\s*', '', text)
+    # Remove markdown alerts (e.g., [!WARNING], [!IMPORTANT], [!NOTE], [!CAUTION], [!TIP])
+    text = re.sub(r'\[!(WARNING|IMPORTANT|NOTE|CAUTION|TIP)\]', '', text, flags=re.IGNORECASE)
     return text.strip()
 
 def convert_markdown_to_audio(file_path):
