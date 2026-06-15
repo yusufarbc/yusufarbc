@@ -17,9 +17,10 @@ interface Props {
   title: string;
   lang: Lang;
   description?: string;
+  image?: string;
 }
 
-const { title, lang, description } = Astro.props;
+const { title, lang, description, image } = Astro.props;
 const oppositeLang: Lang = lang === "tr" ? "en" : "tr";
 const pathname = Astro.url.pathname;
 const switchedPath = pathname.replace(/^\/(tr|en)(?=\/|$)/, `/${oppositeLang}`);
@@ -31,8 +32,13 @@ const trPath = pathname.replace(/^\/(tr|en)(?=\/|$)/, "/tr");
 const enPath = pathname.replace(/^\/(tr|en)(?=\/|$)/, "/en");
 const trUrl = new URL(resolveAssetPath(trPath), siteUrl).toString();
 const enUrl = new URL(resolveAssetPath(enPath), siteUrl).toString();
-const ogImagePath = SITE.ogImage ?? SITE.avatar;
-const ogImageUrl = new URL(resolveAssetPath(ogImagePath), siteUrl).toString();
+const ogImagePath = image ?? SITE.ogImage ?? SITE.avatar;
+const ogImageUrl = ogImagePath.startsWith("http://") || ogImagePath.startsWith("https://") || ogImagePath.startsWith("//")
+  ? ogImagePath
+  : new URL(
+      (import.meta.env.BASE_URL && ogImagePath.startsWith(import.meta.env.BASE_URL)) ? ogImagePath : resolveAssetPath(ogImagePath),
+      siteUrl
+    ).toString();
 const sitemapUrl = new URL(resolveAssetPath("/sitemap-index.xml"), siteUrl).toString();
 const xDefaultUrl = new URL(resolveAssetPath("/tr/"), siteUrl).toString();
 const ogLocale = lang === "tr" ? "tr_TR" : "en_US";

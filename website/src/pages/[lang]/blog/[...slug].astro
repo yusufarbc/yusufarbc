@@ -98,7 +98,7 @@ const tocGroups: TocGroup[] = tocItems.map(item => ({
 const hasToc = tocGroups.length > 0;
 ---
 
-<BaseLayout title={post.data.title ?? "Post"} lang={lang} description={post.data.description}>
+<BaseLayout title={post.data.title ?? "Post"} lang={lang} description={post.data.description} image={post.data.featuredImage}>
   <div class="article-page">
     <div class={`article-shell ${!hasToc ? "no-toc" : ""}`}>
       {hasToc && (

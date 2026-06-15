@@ -108,7 +108,7 @@ for (const item of tocItems) {
 const hasToc = tocGroups.length > 0;
 ---
 
-<BaseLayout title={writeup.data.title ?? "Write-up"} lang={lang} description={writeup.data.description}>
+<BaseLayout title={writeup.data.title ?? "Write-up"} lang={lang} description={writeup.data.description} image={writeup.data.featuredImage}>
   <div class="article-page">
     <div class={`article-shell ${!hasToc ? "no-toc" : ""}`}>
       {hasToc && (
