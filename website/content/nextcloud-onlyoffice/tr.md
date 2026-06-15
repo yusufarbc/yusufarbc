@@ -48,8 +48,6 @@ Aşağıdaki tablo, kendi sunucularınızda barındırılan Nextcloud ekosistemi
 
 Kurumların genel bulut sağlayıcılarına geçişini hızlandırmak için yazılım devleri on-premises (yerel) ürün desteklerini ve özelliklerini kademeli olarak daraltmaktadır. Bu stratejik baskının en somut örneği Microsoft'un **"cloud-first"** yaklaşımıdır:
 
-![Microsoft'un Bulut Odaklı Stratejisi](./featured_tr.webp)
-
 Microsoft, son yıllarda **"cloud-first"** yaklaşımını net bir biçimde benimsemiş; Windows Server, kimlik yönetimi ve diğer ürünlerini Azure bulutuyla entegrasyon sağlayacak şekilde konumlandırmaktadır. Bu stratejik dönüşüm, kurumların altyapı yönetimini kökten değiştirirken, beraberinde yeni fırsatlar ve riskler getirmektedir.
 
 #### Kritik Araçlardaki Değişim

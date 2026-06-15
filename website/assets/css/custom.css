@@ -474,12 +474,12 @@ h1.title,
 }
 
 /* =============================================================================
-   CARD THUMBNAIL / COVER IMAGE  (16:9 — uniform across all pages)
+   CARD THUMBNAIL / COVER IMAGE  (1.91:1 — uniform across all pages)
    ============================================================================= */
 .post-thumbnail,
 .blog-cover-wrap {
   position: relative;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1200 / 630;
   overflow: hidden;
   background: linear-gradient(135deg, rgba(var(--app-bg-rgb), 0.1), var(--tag-bg));
   flex-shrink: 0;

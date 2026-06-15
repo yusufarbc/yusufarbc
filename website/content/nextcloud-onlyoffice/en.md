@@ -48,8 +48,6 @@ The table below outlines the core architectural and strategic differences betwee
 
 To accelerate the migration of enterprises to public clouds, software giants are systematically reducing support and development for on-premises solutions. The most prominent example of this strategic pressure is Microsoft's **"cloud-first"** roadmap:
 
-![Microsoft's Cloud-First Strategy](./featured_en.webp)
-
 In recent years, Microsoft has clearly adopted a "cloud-first" approach, positioning its products—such as Windows Server, identity management, and others—to integrate closely with the Azure cloud. This strategic shift is fundamentally changing how organizations manage their infrastructure, bringing both new opportunities and significant risks.
 
 #### Evolution of Critical On-Premises Tools

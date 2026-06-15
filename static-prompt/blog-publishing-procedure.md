@@ -16,12 +16,14 @@ website/content/yazı-slug-adı/
 ├── audio-script-en.md    # İngilizce seslendirme metni (otomatik üretilir)
 ├── tr.mp3                # Sıkıştırılmış Türkçe ses dosyası (96kbps Mono)
 ├── en.mp3                # Sıkıştırılmış İngilizce ses dosyası (96kbps Mono)
-├── featured.webp         # Kapak görseli (WebP)
+├── featured.webp         # Kapak görseli (WebP - En çok 1200 x 630 piksel, 1.91:1 oranında)
 └── [diger-gorseller].webp # Diğer görseller (WebP)
 ```
 
 > [!IMPORTANT]
 > Depo boyutunu korumak amacıyla ham görsel (`.png`, `.jpg`) ve yüksek boyutlu ham ses (`.wav`) dosyaları kesinlikle repoya eklenmemelidir.
+>
+> Kapak görseli (`featured.webp`) en fazla **1200 x 630 piksel** (1.91:1 en-boy oranı) boyutunda olmalıdır. Bu oran, sosyal medya ve link paylaşımlarında (Open Graph/Link önizleme) mükemmel sonuç verir.
 
 ---
 
@@ -74,6 +76,9 @@ Görselleri WebP formatına dönüştürüp kalitelerini optimize etmek (2000px 
 python static-prompt/optimize_images.py website/content/yazı-slug-adı/ --delete
 ```
 *(Yazı içerisindeki görsel referanslarını `.webp` olarak güncellemeyi unutmayın!)*
+
+> [!IMPORTANT]
+> **Kapak Görseli (`featured.webp`):** Yazının kapak görseli (`featured.webp`) en fazla **1200 x 630 piksel** (1.91:1 en-boy oranı) boyutunda olmalıdır. Sosyal medya / link paylaşımlarında mükemmel görünmesi için bu kurala kesinlikle uyulmalıdır.
 
 ### Adım 3: Seslendirme Metinlerinin (Audio Script) Üretilmesi
 Makale metinlerinden, konuşma diline uygun ve kod/tablo etiketli seslendirme scriptlerini üretin:
