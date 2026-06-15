@@ -18,9 +18,6 @@ audioFile: tr.mp3
 ---
 ## Hızlı Özet
 
-
-
-
 - **Otonom Mimari:** Bulut bağlantısı olmasa dahi uç noktada karar verebilen yerel yapay zeka.
 - **Storyline™:** Binlerce olaydan anlamlı bir saldırı hikayesi çıkaran patentli teknoloji.
 - **1-Click Rollback:** Fidye yazılımı hasarlarını saniyeler içinde geri alan VSS tabanlı kurtarma.
@@ -29,10 +26,6 @@ audioFile: tr.mp3
 
 ---
 
-
-
-
-
 Modern siber güvenlik manzarasında kuruluşlar; uç nokta, bulut ve kimlik gibi çok sayıda saldırı yüzeyini hedef alan karmaşık tehditlerle mücadele etmektedir. SentinelOne Singularity Platformu, bu paradigmaya uygun olarak tüm bu katmanları tek bir otonom platform altında birleştiren, **Gartner 2024 Magic Quadrant** liderlerinden biridir.
 
 Platform; uç nokta koruması (EPP), uç nokta tespiti ve yanıtı (EDR), genişletilmiş tespit ve yanıt (XDR) ile kimlik tabanlı tehdit tespiti ve yanıtı (ITDR) yeteneklerini tek bir mimaride sunar.
@@ -40,12 +33,7 @@ Platform; uç nokta koruması (EPP), uç nokta tespiti ve yanıtı (EDR), geniş
 ![](1_v_dw2Vr5-UjnAo2d02KXBg.webp)
 
 ---
-
----
 ## Platform Mimarisi ve Tek Ajan Gücü
-
-
-
 
 SentinelOne'ın mimarisi **"Tek Ajan, Çoklu Motor"** prensibiyle tasarlanmıştır. Bu hafif ajan, işletim sistemi çekirdeği (kernel) seviyesinde çalışarak dosya sistemi, işlem ve bellek aktivitelerini gerçek zamanlı izler.
 
@@ -63,12 +51,7 @@ En kritik mimari özellik, tespit ve yanıt mantığının yerel olarak çalış
 ![](1_cRqq7JFeY3W2TDgR9BznmA.webp)
 
 ---
-
----
 ## Çok Katmanlı Tehdit Tespit Akışı
-
-
-
 
 SentinelOne, bir dosyanın sisteme girişinden çalıştırılmasına kadar geçen süreci iki ana aşamada kontrol eder:
 
@@ -135,27 +118,13 @@ Dosya çalışmaya başladığı anda devreye girer. API çağrıları, ağ bağ
 </div>
 
 ---
-
----
 ## Patentli Teknolojiler: Storyline™ ve ActiveEDR
-
-
-
-
-SentinelOne'ın en büyük fark yaratan teknolojisi **Storyline™**'dır.
 
 *   **Otomatik Korelasyon:** Her bir olay bir "Storyline ID" ile etiketlenir. Örneğin; bir Word belgesinin PowerShell tetiklemesi ve ardından bir DLL yüklemesi tek bir olay hikayesinde birleştirilir.
 *   **Kök Neden Analizi (RCA):** Analistler, binlerce ham log içinde kaybolmak yerine, saldırı zincirini en başından sonuna kadar tek bir görsel arayüzde görebilirler. Bu, müdahale süresini saniyeler mertebesine indirir.
 
 ---
-
----
 ## Olay Yanıtı: Rollback ve Remediation
-
-
-
-
-SentinelOne, saldırı sonrası sistemleri temiz bir duruma döndürmek için benzersiz bir yetenek sunar:
 
 *   **One-Click Rollback:** Özellikle fidye yazılımı saldırıları için tasarlanmıştır. Windows **Volume Shadow Copy Service (VSS)** altyapısını kullanarak, şifrelenmiş dosyaları tek bir tıklamayla saldırı öncesi temiz hallerine geri döndürür.
 *   **Ajan Koruması (Tamper Protection):** Gelişmiş saldırganların EDR ajanını kapatmasını engellemek için ajan servisleri şifreyle korunur ve çekirdek seviyesinde müdahalelere karşı direnç gösterir.
@@ -163,13 +132,9 @@ SentinelOne, saldırı sonrası sistemleri temiz bir duruma döndürmek için be
 ![](1_hFQ_jeDEtsU3QEl9pSJbGA.webp)
 
 ---
-
----
 ## Genişletilmiş Görünürlük: Ranger ve Deep Visibility
 
-
 Bu bölüm detayları ve etkileri incelemektedir.
-
 
 ### Ranger® (Ağ Keşfi)
 Ranger modülü, ajanları birer sensöre dönüştürür. Ağdaki yönetilmeyen cihazları (IoT, yazıcılar, misafir cihazlar) keşfeder ve görünürlük sağlar. Ayrıca bu cihazlara otomatik ajan dağıtımı yapılmasını tetikleyebilir.
@@ -186,12 +151,7 @@ WHERE LOWER(CommandLine) LIKE '%net user%' AND Timestamp > NOW()-180d;
 ![](1_pMu0HoEd4BRugo45sjXNmA.webp)
 
 ---
-
----
 ## Otonom SOC: Purple AI ve STAR
-
-
-
 
 *   **Purple AI:** Üretken yapay zeka (GenAI) destekli bir güvenlik asistanıdır. Doğal dilde ("Son 24 saatteki PowerShell aktivitelerini özetle") gelen sorulara yanıt verir ve otomatik triyaj yapar.
 *   **STAR (Storyline Active Response) Kuralları:** Analistlerin özel sorgularını otonom dedektörlere dönüştürmesini sağlar. Belirli bir kural tetiklendiğinde cihazın otomatik izolasyonu gibi aksiyonlar atanabilir.
@@ -199,12 +159,7 @@ WHERE LOWER(CommandLine) LIKE '%net user%' AND Timestamp > NOW()-180d;
 ![](1_QnY2c-2-jEBISzxsEEgOAA.webp)
 
 ---
-
----
 ## Lisanslama ve Paket Karşılaştırması
-
-
-
 
 SentinelOne, farklı kurumsal ihtiyaçlara yönelik beş ana paket sunar:
 
@@ -223,12 +178,7 @@ SentinelOne, farklı kurumsal ihtiyaçlara yönelik beş ana paket sunar:
 ![](1_-_aMQrqV4B2SeCtfuWtLYA.webp)
 
 ---
-
----
 ## Dağıtım ve Yönetim
-
-
-
 
 *   **Esnek Kurulum:** SaaS (Bulut), On-Prem (Yerinde) veya Hybrid (Hibrit) kurulum seçenekleri mevcuttur.
 *   **Entegrasyon:** Microsoft Intune, SCCM, GPO gibi araçlarla tam otomatize dağıtım desteklenir.
@@ -237,12 +187,6 @@ SentinelOne, farklı kurumsal ihtiyaçlara yönelik beş ana paket sunar:
 ![](1_iLFyX0FNTl5lkXBZsij6Aw.webp)
 
 ---
-
----
-
-
-
-
 
 ![](1_ngCUgm4Pkesl_gBvk_Sdlg.webp)
 

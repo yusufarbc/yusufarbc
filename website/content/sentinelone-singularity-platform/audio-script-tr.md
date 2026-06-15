@@ -1,52 +1,137 @@
-# SentinelOne Singularity Platform: Yapay Zeka Güçlü XDR - Seslendirme Metni
+Mimariden Yapay Zeka Güçlü XDR'a Kapsamlı Teknik Rehber
 
-SentinelOne Singularity Platform: Yapay Zeka Güçlü XDR. Mimariden Yapay Zeka Güçlü XDR'a Kapsamlı Teknik Rehber.
+🎙️ Blog yazısının seslendirmesi: Bu makale, seslendirme dosyası hazırlandığında yukarıdaki oynatıcıdan dinlenebilir. Teknik detaylar için okumaya devam edin.
 
-Giriş: Otonom Güvenliğin Yeni Paradigması.
-Modern siber güvenlik manzarasında kuruluşlar; uç nokta, bulut ve kimlik gibi çok sayıda saldırı yüzeyini hedef alan karmaşık tehditlerle mücadele etmektedir. SentinelOne Singularity Platformu, bu paradigmaya uygun olarak tüm bu katmanları tek bir otonom platform altında birleştiren, Gartner 2024 Magic Quadrant liderlerinden biridir. Bu rehber, platformun teknik derinliğini, patentli teknolojilerini ve operasyonel avantajlarını detaylandırmaktadır.
 
-Hızlı Özet:
-- Otonom Yapı: Bulut bağlantısı olmasa bile uç noktada karar verebilen AI motorları.
-- Storyline Teknolojisi: Milyonlarca olayı otomatik olarak birbirine bağlayan ve bağlam sunan patentli izleme.
-- Tek Ajan: EPP, EDR, XDR ve Kimlik Güvenliği entegrasyonu.
-- Performans: MITRE 2024 testlerinde yüzde yüz tespit ve sıfır gecikme skoru.
+Bölüm: Hızlı Özet
 
-Bölüm 1: Platform Mimarisi ve Tek Ajan Gücü.
-SentinelOne'ın mimarisi "Tek Ajan, Çoklu Motor" prensibiyle tasarlanmıştır. Bu hafif ajan, işletim sistemi çekirdek seviyesinde çalışarak dosya sistemi, işlem ve bellek aktivitelerini gerçek zamanlı izler.
 
-1.1. Kaynak Verimliliği.
-SentinelOne ajanı, uç nokta performansını etkilemeyecek şekilde optimize edilmiştir. CPU kullanımı yüzde sıfır ila dört arasındadır, bellek kullanımı yaklaşık yirmi megabayttır ve disk alanı yaklaşık beş yüz megabayt yer kaplar.
+Otonom Mimari: Bulut bağlantısı olmasa dahi uç noktada karar verebilen yerel yapay zeka.
+Storyline™: Binlerce olaydan anlamlı bir saldırı hikayesi çıkaran patentli teknoloji.
+1-Click Rollback: Fidye yazılımı hasarlarını saniyeler içinde geri alan VSS tabanlı kurtarma.
+Geniş Kapsam: Tek ajanda EPP, EDR, XDR ve Kimlik Güvenliği (ITDR) entegrasyonu.
+Performans: MITRE 2024 testlerinde %100 tespit ve sıfır gecikme skoru.
 
-1.2. Otonom Karar Mekanizması.
-En kritik mimari özellik, tespit ve yanıt mantığının yerel olarak çalışabilmesidir. Ajan, bulut bağlantısı olmasa bile yerleşik AI modelleri sayesinde tehditleri engelleyebilir. Bu özellik, izole ağlar veya operasyonel teknoloji sistemleri için hayati önem taşır.
+Modern siber güvenlik manzarasında kuruluşlar; uç nokta, bulut ve kimlik gibi çok sayıda saldırı yüzeyini hedef alan karmaşık tehditlerle mücadele etmektedir. SentinelOne Singularity Platformu, bu paradigmaya uygun olarak tüm bu katmanları tek bir otonom platform altında birleştiren, Gartner 2024 Magic Quadrant liderlerinden biridir.
 
-Bölüm 2: Çok Katmanlı Tehdit Tespit Akışı.
-SentinelOne, bir dosyanın sisteme girişinden çalıştırılmasına kadar geçen süreci iki ana aşamada kontrol eder.
+Platform; uç nokta koruması (EPP), uç nokta tespiti ve yanıtı (EDR), genişletilmiş tespit ve yanıt (XDR) ile kimlik tabanlı tehdit tespiti ve yanıtı (ITDR) yeteneklerini tek bir mimaride sunar.
 
-Aşama 1: Çalıştırma Öncesi Statik AI. Bir dosya diske yazıldığı anda devreye girer. İmza veya hash gerektirmeden, makine öğrenimi modelleri ile dosya yapısını analiz eder. Bilinen zararlı yazılımları ve ransomware varyantlarını dosya daha açılmadan engeller.
 
-Aşama 2: Çalışma Anı Davranışsal AI. Dosya çalışmaya başladığı anda devreye girer. API çağrıları, ağ bağlantıları ve sistem değişikliklerini izler. Özellikle dosyasız saldırıları, Living off the Land tekniklerini ve sıfır-gün istismarlarını tespit eder.
+Bölüm: Platform Mimarisi ve Tek Ajan Gücü
 
-Bölüm 3: Patentli Teknolojiler: Storyline ve ActiveEDR.
-SentinelOne'ın en büyük fark yaratan teknolojisi Storyline'dır. Storyline, bir uç noktadaki her süreci, dosyayı ve ağ hareketini gerçek zamanlı olarak izler ve bunları birbirine bağlayarak bir hikaye oluşturur. Geleneksel EDR'ların aksine, analistlerin binlerce olay arasından korelasyon kurmasına gerek kalmaz; platform bunu otomatik yapar. ActiveEDR ise bu Storyline verilerini kullanarak, bir tehdit tespit edildiğinde tüm süreci tek tıkla analiz etme ve yanıt verme yeteneği sunar.
 
-Bölüm 4: Olay Yanıtı: Rollback ve Remediation.
-SentinelOne, saldırı sonrası sistemleri temiz bir duruma döndürmek için benzersiz bir yetenek sunar. Rollback özelliği, fidye yazılımı gibi bir saldırı dosyaları şifrelese bile, Microsoft VSS kullanarak sistemi saldırıdan hemen önceki haline saniyeler içinde döndürebilir. Remediation ise saldırganın yaptığı tüm kalıcı değişiklikleri, kayıt defteri anahtarlarını ve oluşturulan dosyaları otomatik olarak temizler.
+SentinelOne'ın mimarisi "Tek Ajan, Çoklu Motor" prensibiyle tasarlanmıştır. Bu hafif ajan, işletim sistemi çekirdeği (kernel) seviyesinde çalışarak dosya sistemi, işlem ve bellek aktivitelerini gerçek zamanlı izler.
 
-Bölüm 5: Genişletilmiş Görünürlük: Ranger ve Deep Visibility.
-5.1. Ranger Ağ Keşfi. Ranger modülü, ajanları birer sensöre dönüştürür. Ağdaki yönetilmeyen cihazları keşfeder ve görünürlük sağlar. Ayrıca bu cihazlara otomatik ajan dağıtımı yapılmasını tetikleyebilir.
-5.2. Deep Visibility ve S1QL. Telemetri verileri bulutta saklanır ve S1QL diliyle sorgulanabilir. Bu, analistlere çok gelişmiş bir tehdit avcılığı yeteneği sunar.
 
-Bölüm 6: Otonom SOC: Purple AI ve STAR.
-Purple AI, üretken yapay zeka destekli bir güvenlik asistanıdır. Doğal dilde gelen sorulara yanıt verir ve otomatik triyaj yapar. STAR kuralları ise analistlerin özel sorgularını otonom dedektörlere dönüştürmesini sağlar.
+Bölüm Detayı: Kaynak Verimliliği
 
-Bölüm 7: Lisanslama ve Paket Karşılaştırması.
-SentinelOne; Core, Control, Complete, Singularity Cloud ve Singularity Identity olmak üzere farklı kurumsal ihtiyaçlara yönelik paketler sunar. En kapsamlı paket olan Complete, tam EDR ve Storyline yeteneklerini içerir.
+SentinelOne ajanı, uç nokta performansını etkilemeyecek şekilde optimize edilmiştir:
+CPU Kullanımı: %0–4 (Sadece tarama anında hafif yükselme).
+Bellek Kullanımı: ~20MB.
+Disk Alanı: ~200MB.
 
-Bölüm 8: Dağıtım ve Yönetim.
-SaaS, On-Prem veya Hibrit kurulum seçenekleri mevcuttur. Microsoft Intune gibi araçlarla tam otomatize dağıtım desteklenir.
 
-Sonuç: Stratejik Değer.
-SentinelOne Singularity Platformu, MITRE ATT&CK 2024 değerlendirmelerinde teknolojik liderliğini kanıtlamıştır. Sektör ortalamasından yüzde seksen sekiz daha az gürültü üreterek SOC ekiplerinin asıl tehditlere odaklanmasını sağlar.
+Bölüm Detayı: Otonom Karar Mekanizması
 
-Bu seslendirme metni, makalenin tüm teknik detaylarını içermektedir. Dinlediğiniz için teşekkürler.
+En kritik mimari özellik, tespit ve yanıt mantığının yerel olarak çalışabilmesidir. Ajan, bulut bağlantısı olmasa bile (çevrimdışı) yerleşik AI modelleri sayesinde tehditleri engelleyebilir. Bu özellik, izole ağlar veya OT/ICS sistemleri için hayati önem taşır.
+
+
+Bölüm: Çok Katmanlı Tehdit Tespit Akışı
+
+
+SentinelOne, bir dosyanın sisteme girişinden çalıştırılmasına kadar geçen süreci iki ana aşamada kontrol eder:
+
+
+Bölüm Detayı: Aşama 1: Pre-Execution (Çalıştırma Öncesi) - Statik AI
+
+Bir dosya diske yazıldığı (On-Write) anda devreye girer. İmza veya hash gerektirmeden, makine öğrenimi modelleri ile dosya yapısını analiz eder. Bilinen zararlı yazılımları ve ransomware varyantlarını dosya daha açılmadan engeller.
+
+
+Bölüm Detayı: Aşama 2: On-Execution (Çalışma Anı) - Davranışsal AI
+
+Dosya çalışmaya başladığı anda devreye girer. API çağrıları, ağ bağlantıları ve sistem değişikliklerini izler. Özellikle dosyasız (fileless) saldırıları, Living off the Land (LotL) tekniklerini ve sıfır-gün (0-day) istismarlarını tespit eder.
+
+PRE-EXECUTION
+Statik Yapay Zeka
+Dosya çalıştırılmadan önce devreye girer. İmza gerektirmeden dosya yapısını analiz eder.
+Tespit: Bilinen malware ve truva atları.
+Avantaj: Sıfır gecikme, proaktif engelleme.
+Teknoloji: Derin öğrenme tabanlı dosya taraması.
+
+ON-EXECUTION
+Davranışsal Yapay Zeka
+Süreç çalışmaya başladığı anda devreye girer. Uygulama davranışlarını gerçek zamanlı izler.
+Tespit: Dosyasız (fileless) ve 0-day saldırıları.
+Avantaj: "Niyet" odaklı tespit, imzasız koruma.
+Teknoloji: API ve bellek aktivite izleme.
+
+CONTEXT
+Storyline™
+Dağınık EDR olaylarını otomatik ilişkilendirerek tek bir saldırı hikayesi oluşturur.
+RCA: Kök neden analizini saniyelere indirir.
+Görünürlük: Saldırı zincirini görsel olarak sunar.
+Verimlilik: Analistlerin iş yükünü %80 azaltır.
+
+RECOVERY
+Rollback
+Özellikle ransomware saldırıları sonrası sistemleri temiz durumuna geri döndürür.
+Mekanizma: Windows VSS altyapısını kullanır.
+Hız: Saniyeler içinde veri kurtarma.
+Güvenlik: Fidye ödeme zorunluluğunu ortadan kaldırır.
+
+
+Bölüm: Patentli Teknolojiler: Storyline™ ve ActiveEDR
+
+
+Otomatik Korelasyon: Her bir olay bir "Storyline ID" ile etiketlenir. Örneğin; bir Word belgesinin PowerShell tetiklemesi ve ardından bir DLL yüklemesi tek bir olay hikayesinde birleştirilir.
+Kök Neden Analizi (RCA): Analistler, binlerce ham log içinde kaybolmak yerine, saldırı zincirini en başından sonuna kadar tek bir görsel arayüzde görebilirler. Bu, müdahale süresini saniyeler mertebesine indirir.
+
+
+Bölüm: Olay Yanıtı: Rollback ve Remediation
+
+
+One-Click Rollback: Özellikle fidye yazılımı saldırıları için tasarlanmıştır. Windows Volume Shadow Copy Service (VSS) altyapısını kullanarak, şifrelenmiş dosyaları tek bir tıklamayla saldırı öncesi temiz hallerine geri döndürür.
+Ajan Koruması (Tamper Protection): Gelişmiş saldırganların EDR ajanını kapatmasını engellemek için ajan servisleri şifreyle korunur ve çekirdek seviyesinde müdahalelere karşı direnç gösterir.
+
+
+Bölüm: Genişletilmiş Görünürlük: Ranger ve Deep Visibility
+
+
+Bu bölüm detayları ve etkileri incelemektedir.
+
+
+Bölüm Detayı: Ranger® (Ağ Keşfi)
+
+Ranger modülü, ajanları birer sensöre dönüştürür. Ağdaki yönetilmeyen cihazları (IoT, yazıcılar, misafir cihazlar) keşfeder ve görünürlük sağlar. Ayrıca bu cihazlara otomatik ajan dağıtımı yapılmasını tetikleyebilir.
+
+
+Bölüm Detayı: Deep Visibility ve S1QL
+
+Telemetri verileri bulutta saklanır ve S1QL diliyle sorgulanabilir. Örneğin, son 180 gün içinde belirli bir komutu çalıştıran süreçleri avlamak için:
+
+
+Bölüm: Otonom SOC: Purple AI ve STAR
+
+
+Purple AI: Üretken yapay zeka (GenAI) destekli bir güvenlik asistanıdır. Doğal dilde ("Son 24 saatteki PowerShell aktivitelerini özetle") gelen sorulara yanıt verir ve otomatik triyaj yapar.
+STAR (Storyline Active Response) Kuralları: Analistlerin özel sorgularını otonom dedektörlere dönüştürmesini sağlar. Belirli bir kural tetiklendiğinde cihazın otomatik izolasyonu gibi aksiyonlar atanabilir.
+
+
+Bölüm: Lisanslama ve Paket Karşılaştırması
+
+
+SentinelOne, farklı kurumsal ihtiyaçlara yönelik beş ana paket sunar:
+
+
+Bölüm: Dağıtım ve Yönetim
+
+
+Esnek Kurulum: SaaS (Bulut), On-Prem (Yerinde) veya Hybrid (Hibrit) kurulum seçenekleri mevcuttur.
+Entegrasyon: Microsoft Intune, SCCM, GPO gibi araçlarla tam otomatize dağıtım desteklenir.
+Singularity Marketplace: 340'tan fazla API fonksiyonu ile ServiceNow, Splunk, Okta ve QRadar gibi 3. taraf çözümlerle tek tıkla entegrasyon sunar.
+
+SentinelOne Singularity Platformu, MITRE ATT&CK 2024 değerlendirmelerinde %100 tespit oranı ve sıfır gecikme ile teknolojik liderliğini kanıtlamıştır. Sektör ortalamasından %88 daha az gürültü (alarm) üreterek SOC ekiplerinin asıl tehditlere odaklanmasını sağlar.
+
+Kurumlar için SentinelOne seçimi, sadece bir antivirüs değişikliği değil, yapay zeka hızında otonom bir savunma mimarisine geçiş yapmak anlamına gelir.
+
+Verinizin mimarı olun, egemenliğinizi geri alın. Dinlediğiniz için teşekkürler!
