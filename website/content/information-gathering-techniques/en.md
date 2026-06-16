@@ -1,5 +1,5 @@
 ---
-title: Cyber Intelligence
+title: Information Gathering Techniques & Cyber Intelligence
 date: 2025-10-19
 description: A comprehensive cyber threat intelligence guide bridging classic OSINT and scanning techniques with modern cloud exposure, supply chain security, AI-powered CTI pipelines, the ProjectDiscovery ecosystem, and OPSEC.
 image: featured.webp
@@ -11,12 +11,7 @@ audioFile: en.mp3
   <strong>Listen to Audio:</strong> The narration for this article is ready. You can listen to it using the player above.
 </div>
 
-## Modern OSINT, AI, and Reconnaissance Dynamics from a Strategic Cyber Intelligence Perspective
----
-
-
-
-
+# Modern OSINT, AI, and Reconnaissance Dynamics from a Strategic Cyber Intelligence Perspective
 
 In Cyber Threat Intelligence (CTI), the reconnaissance phase, once seen as just a simple preliminary step for penetration testing or a mere "tool list", has today evolved into the fundamental phase that defines the perspective of cyberspace for both attackers (Red Team/APT groups) and defense teams (Blue Team/SOC). OSINT (Open Source Intelligence) is no longer static target analysis; it is the first line of cyber defense, threat modeling, and Attack Surface Management (ASM).
 

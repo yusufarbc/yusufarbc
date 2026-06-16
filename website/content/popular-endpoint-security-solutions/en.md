@@ -174,7 +174,7 @@ It operates using a single modular agent called "BEST" (Bitdefender Endpoint Sec
 *   **Pros:** Integrated physical patch management, low resource footprint on virtual servers (via centralized Security Server scanning), and robust network-level ransomware containment.
 *   **Cons:** Vulnerability and patch management require separate add-on licenses, and modern EDR features are not supported on legacy operating system versions.
 
-![Bitdefender Dashboard](/images/popular-endpoint-security-solutions/bitdefender_dashboard.png)
+![Bitdefender Dashboard](bitdefender.webp)
 
 <https://www.bitdefender.com/business/support/en/77212-376327-endpoint-protection.html>
 
@@ -191,7 +191,7 @@ Virtual Patching shields vulnerabilities at the network layer using the host IPS
 *   **Pros:** Excellent extended support for legacy OS (Windows XP/7, Server 2008), network-level shielding without requiring system reboots.
 *   **Cons:** On-premises management server requires Windows Server and MSSQL, and the HIPS engine can degrade network performance on low-spec systems.
 
-![Trend Micro Dashboard](/images/popular-endpoint-security-solutions/trendmicro_dashboard.png)
+![Trend Micro Dashboard](apexone-trendmicro.webp)
 
 <https://docs.trendmicro.com/en-us/documentation/article/trend-micro-apex-central-2019-online-help-syslog-mapping-cef>
 
@@ -208,7 +208,7 @@ Its "System Watcher" and "Remediation Engine" work independently of Windows Shad
 *   **Pros:** Powerful local rollback capabilities (VSS independent), rich IT operations and patch management suite, and a specialized "Embedded Systems Security" agent for legacy terminals.
 *   **Cons:** Subject to geopolitical restrictions in certain Western jurisdictions, and the network management agent must be updated separately from the security application.
 
-![Kaspersky Dashboard](/images/popular-endpoint-security-solutions/kaspersky_dashboard.png)
+![Kaspersky Dashboard](kaspersky.png)
 
 <https://support.kaspersky.com/KESB/14.2/en-US/181954.htm>
 
@@ -225,7 +225,7 @@ It handles ransomware via its "Ransomware Remediation" module, restoring files f
 *   **Pros:** Minimal CPU and RAM utilization (ideal for VDI hosts and legacy machines), hardware-assisted (Intel TDT) ransomware analysis.
 *   **Cons:** Patch management features for Linux endpoints are still mature, and full rollback capabilities require high-tier license packages.
 
-![ESET Dashboard](/images/popular-endpoint-security-solutions/eset_dashboard.png)
+![ESET Dashboard](eset.webp)
 
 <https://help.eset.com/protect_admin/11.0/en-US/admin_server_settings_syslog.html>
 
@@ -242,7 +242,7 @@ Tanium XEM (Converged Endpoint Management) rejects standard database-driven arch
 *   **Pros:** Unmatched real-time query speeds (responses in seconds across huge fleets), P2P patching that saves up to 98% of WAN bandwidth, and detailed system performance troubleshooting histories.
 *   **Cons:** Extremely high cost of entry, and an infrastructure complexity that is excessive for small and medium-sized businesses.
 
-![Tanium Dashboard](/images/popular-endpoint-security-solutions/tanium_dashboard.png)
+![Tanium Dashboard](tanium.webp)
 
 <https://www.tanium.com/products/tanium-performance/>
 
@@ -259,7 +259,7 @@ If a threat is detected on an endpoint (changing its health status to Red), the 
 *   **Pros:** Autonomous, bi-directional isolation chain between firewalls and endpoints, and source-level classification of unknown network traffic.
 *   **Cons:** Its most innovative integrations require full investment in the Sophos hardware ecosystem (Sophos Firewall).
 
-![Sophos Dashboard](/images/popular-endpoint-security-solutions/sophos_dashboard.png)
+![Sophos Dashboard](sophos.webp)
 
 <https://www.sophos.com/en-us/products/intercept-x>
 
@@ -276,7 +276,7 @@ Even if malware executes on an endpoint and attempts encryption, FortiEDR blocks
 *   **Pros:** Kernel-level post-infection containment that stops running ransomware in its tracks, and native integration into the Fortinet Fabric ecosystem.
 *   **Cons:** Management dashboard interface is less intuitive than some pure-play EDR solutions, and performance correlation is limited outside Fortinet networks.
 
-![Fortinet Dashboard](/images/popular-endpoint-security-solutions/fortinet_dashboard.png)
+![Fortinet Dashboard](fortiedr.webp)
 
 <https://www.fortinet.com/products/endpoint-security/fortiedr>
 

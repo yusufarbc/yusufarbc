@@ -174,7 +174,7 @@ Bitdefender GravityZone, sanallaştırma katmanlarındaki derin tecrübesiyle bi
 *   **Artıları:** Entegre fiziksel yama yönetimi (Patch Management), sanal sunucular için düşük kaynak tüketimi (Security Server / central scanning), ağ üzerinden gelen fidye yazılımlarını engelleme yeteneği.
 *   **Eksileri:** Zafiyet ve yama yönetiminin ek lisans gerektirmesi, modern EDR özelliklerinin eski işletim sistemi (legacy) sürümlerinde desteklenmemesi.
 
-![Bitdefender Dashboard](/images/popular-endpoint-security-solutions/bitdefender_dashboard.png)
+![Bitdefender Dashboard](bitdefender.webp)
 
 <https://www.bitdefender.com/business/support/en/77212-376327-endpoint-protection.html>
 
@@ -191,7 +191,7 @@ Sanal Yamalama teknolojisi, bir zafiyet açıklandığı andan itibaren fiziksel
 *   **Artıları:** Windows XP/7 ve Server 2008 gibi eski (Legacy) sistemler için mükemmel genişletilmiş destek, sistem yeniden başlatma gerektirmeyen ağ seviyesinde koruma.
 *   **Eksileri:** On-premise yönetim sunucusunun Windows Server ve MSSQL bağımlılığı, HIPS kurallarının eski donanımlarda ağ trafiğini kısmen yavaşlatabilmesi.
 
-![Trend Micro Dashboard](/images/popular-endpoint-security-solutions/trendmicro_dashboard.png)
+![Trend Micro Dashboard](apexone-trendmicro.webp)
 
 <https://docs.trendmicro.com/en-us/documentation/article/trend-micro-apex-central-2019-online-help-syslog-mapping-cef>
 
@@ -208,7 +208,7 @@ Saldırı anında devreye giren "System Watcher" ve "Remediation Engine" modüll
 *   **Artıları:** Çok güçlü yerel sistem kurtarma (VSS bağımsız), zengin IT operasyon ve yama yönetim araçları, eski sistemler için hafifletilmiş "Embedded Systems Security" ajanı.
 *   **Eksileri:** Bazı batı pazarlarında maruz kaldığı jeopolitik kısıtlamalar ve regülatif engeller, yönetim ajanı (Network Agent) ile güvenlik uygulamasının ayrı ayrı güncellenme gereksinimi.
 
-![Kaspersky Dashboard](/images/popular-endpoint-security-solutions/kaspersky_dashboard.png)
+![Kaspersky Dashboard](kaspersky.png)
 
 <https://support.kaspersky.com/KESB/14.2/en-US/181954.htm>
 
@@ -225,7 +225,7 @@ Fidye yazılımlarına karşı "Ransomware Remediation" modülü ile geçici yed
 *   **Artıları:** Son derece düşük CPU ve RAM kullanımı (VDI ortamları ve eski donanımlar için ideal), donanım tabanlı (Intel TDT) gelişmiş fidye yazılımı analizi.
 *   **Eksileri:** Linux platformları için yama yönetim yeteneklerinin henüz gelişim aşamasında olması, en kapsamlı koruma özellikleri için üst düzey lisans paketlerine ihtiyaç duyulması.
 
-![ESET Dashboard](/images/popular-endpoint-security-solutions/eset_dashboard.png)
+![ESET Dashboard](eset.webp)
 
 <https://help.eset.com/protect_admin/11.0/en-US/admin_server_settings_syslog.html>
 
@@ -242,7 +242,7 @@ Tanium XEM (Converged Endpoint Management), geleneksel merkezi veritabanı yapı
 *   **Artıları:** Eşi benzeri olmayan gerçek zamanlı sorgu hızı (saniyeler içinde binlerce cihazdan yanıt), WAN bant genişliğinde %98'e varan tasarruf sağlayan yama dağıtımı, detaylı performans sorun giderme geçmişi.
 *   **Eksileri:** Çok yüksek ilk yatırım maliyeti, küçük ve orta ölçekli işletmeler (KOBİ) için aşırı karmaşık ve büyük bir altyapı gerektirmesi.
 
-![Tanium Dashboard](/images/popular-endpoint-security-solutions/tanium_dashboard.png)
+![Tanium Dashboard](tanium.webp)
 
 <https://www.tanium.com/products/tanium-performance/>
 
@@ -259,7 +259,7 @@ Bir uç noktada fidye yazılımı veya zararlı aktivite tespit edildiğinde (ci
 *   **Artıları:** Uç nokta ve güvenlik duvarı arasında otomatik ve otonom izolasyon zinciri, bilinmeyen ağ uygulamalarını kaynağında tespit etme gücü.
 *   **Eksileri:** En yenilikçi özelliklerinin çalışabilmesi için tüm altyapının Sophos donanımlarıyla (Sophos Firewall) donatılması gerekliliği.
 
-![Sophos Dashboard](/images/popular-endpoint-security-solutions/sophos_dashboard.png)
+![Sophos Dashboard](sophos.webp)
 
 <https://www.sophos.com/en-us/products/intercept-x>
 
@@ -276,7 +276,7 @@ Cihazlar üzerinde zararlı yazılım çalışsa ve şifreleme eylemine başlasa
 *   **Artıları:** Saldırı başladıktan sonra bile veri sızıntısını ve şifrelemeyi durdurabilen otonom çekirdek koruması, Fortinet Fabric ekosistemiyle kusursuz uyum.
 *   **Eksileri:** Yönetim konsolu arayüzünün diğer bağımsız (pure-play) EDR çözümlerine göre daha az sezgisel olması, Fortinet dışı ağlarda entegrasyon gücünün sınırlanması.
 
-![Fortinet Dashboard](/images/popular-endpoint-security-solutions/fortinet_dashboard.png)
+![Fortinet Dashboard](fortiedr.webp)
 
 <https://www.fortinet.com/products/endpoint-security/fortiedr>
 

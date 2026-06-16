@@ -1,5 +1,5 @@
 ---
-title: Siber İstihbarat
+title: Bilgi Toplama Teknikleri & Siber İstihbarat
 date: 2025-10-19
 description: Klasik OSINT ve aktif/pasif bilgi toplama tekniklerini; bulut güvenliği, tedarik zinciri istihbaratı, Yapay Zeka (AI) CTI pipeline'ları, ProjectDiscovery araç ekosistemi ve OPSEC gibi modern stratejilerle ele alan kapsamlı siber istihbarat rehberi.
 image: featured.webp
@@ -11,9 +11,8 @@ audioFile: tr.mp3
   <strong>Sesli Anlatım:</strong> Bu makalenin seslendirmesi hazırdır. Yukarıdaki oynatıcıyı kullanarak dinleyebilirsiniz.
 </div>
 
-## Stratejik Siber İstihbarat Perspektifinden Modern OSINT, Yapay Zeka ve Keşif Dinamikleri
+# Stratejik Siber İstihbarat Perspektifinden Modern OSINT, Yapay Zeka ve Keşif Dinamikleri
 
----
 
 
 
