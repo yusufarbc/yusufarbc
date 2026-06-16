@@ -190,13 +190,21 @@ Kurumsal belgelerin (Word, Excel, PowerPoint) web tarayıcılarında bozulma ya�
   </div>
 </div>
 
+**OnlyOffice İletişim Akışı:**
+
+```mermaid
+graph LR
+    CB["Client Browser"]
+    UI["Nextcloud WebUI"]
+    Core["Nextcloud Core"]
+    OODS["OnlyOffice Document Server"]
+
+    CB --> UI
+    UI -->|Düzenleme İsteği| Core
+    Core -->|JWT Doğrulama| OODS
+    OODS -->|JS & OOXML Belge Yükü / Client Rendering| CB
 ```
-OnlyOffice İletişim Akışı:
-[Nextcloud WebUI] --(Düzenleme İsteği)--> [Nextcloud Core] --(JWT Doğrulama)--> [OnlyOffice Document Server]
-       ^                                                                                   |
-       |                                                                                   v
-[Client Browser] <-------------(JS & OOXML Belge Yükü / Client Rendering)------------------+
-```
+
 
 ![OnlyOffice Entegrasyonu](onlyoffice.webp)
 
@@ -303,10 +311,7 @@ Nextcloud disk güvenliğini sağlamak için iki farklı kriptografik yöntem su
 </div> 
 
 ---
-## Prodüksiyon Ortamları İçin Performans İnce Ayarları (Tuning Checklist)
-
-
-
+## Prod Ortamları İçin Performans İnce Ayarları (Tuning Checklist)
 
 ![Docker ve Kubernetes ile Konteyner Altyapısı](docker-k8s.webp)
 

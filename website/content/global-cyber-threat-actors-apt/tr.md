@@ -5,8 +5,6 @@ description: "Bu giriş bölümü, sonraki ayrıntılı aktör profillerini anla
 image: featured.webp
 type: posts
 ---
-
----
 ## Modern Tehdit Manzarasına Giriş ve Dijital Ekosistemin Gerçekleri
 
 
@@ -93,7 +91,7 @@ Buna ek olarak, DropSend ve FilesAnywhere gibi birçok çevrimiçi veri depolama
 
 Daha önce bahsedilen çevrimiçi depolama sitelerine hem evden hem de ofisten veya İnternet bağlantısının olduğu her yerden erişilebilir. Bugün bu riski çok daha karmaşık hale getiren olgu ise **Shadow IT (Gölge BT)**'dır: çalışanlar kurumsal politikalardan bağımsız olarak kişisel ChatGPT/LLM hesaplarına hassas şirket verilerini giriyor; kontrolsüz OneDrive ve Google Drive paylaşımları kurumsal veriyi şirketin görüş alanının dışına çıkarıyor; BT departmanının onaylamadığı SaaS entegrasyonları ise kritik verilerin kasıtsız sızmasına zemin hazırlıyor. Verilerin bir şirketin kontrolü dışında bu denli kolayca aktarılabilmesi, bir kuruluşun verilerinin güvenliğini sağlamayı çok daha zor hale getirmektedir.
 
-![Resmi ağ yolu ve Shadow IT yolları: yetkisiz bulut, kişisel cihazlar, gölge uygulamalar](./shadowIT.png)
+![Resmi ağ yolu ve Shadow IT yolları: yetkisiz bulut, kişisel cihazlar, gölge uygulamalar](shadow-it.webp)
 *Resmi kurumsal ağ ile Shadow IT (Gölge BT) yollarının karşılaştırması — denetlenemeyen kanallar veri sızıntısının en büyük kaynağıdır.*
 
 #### Güvenlik Donanım ve Yazılımla İlgili Değildir
@@ -137,9 +135,6 @@ Bilgisayarların ve kurumsal yazılımların bu kontrolsüz karmaşıklığı, a
 
 ![Log4Shell CVE-2021-44228: Apache Log4j JNDI zafiyetinin teknik açıklaması](log4j.webp)
 *Log4Shell (CVE-2021-44228) — Java uygulama loglama kütüphanesindeki JNDI enjeksiyon zafiyetinin anatomisi.*
-
-![Log4Shell CVE-2021-44228 Exploit Akışı](./log4shell_cve_2021_44228.png)
-
 
 Bu yazımda, genel olarak tespit edilmesinin ve önlenmesinin zor olduğu kabul edilen sıfıncı-gün ataklarına karşı nasıl bir siber savunma stratejisinin geliştirilebileceğine değineceğim. Birçok kurumun muzdarip olduğu sıfıncı gün ataklarına karşı elbette elimiz boş bekleyemeyiz. Nasıl bir savunma altyapısı kurmamız gerekiyor? hadi biraz tartışalım.
 
@@ -337,9 +332,6 @@ Bot kontrolörleri, ağlarını büyük miktarlarda reklam göndermek için büy
   </p>
 </div>
 
-![WannaCry Exploit Flow CVE-2017-0144](./wannacry_cve_2017_0144.png)
-
-
 * **Temel Özellikler:** Bir APT, sadece bir kötü amaçlı yazılım değil, bir davetsiz misafirin hassas verileri çalmak amacıyla uzun süreli ve tespit edilemeyen bir varlık oluşturduğu sofistike, sürekli bir siber saldırı kampanyası olarak tanımlanacaktır. Temel nitelikleri şunlardır:
 * **Gelişmiş** (tam spektrumlu istihbarat toplama teknikleri), **Kalıcı** (fırsatçı değil, belirli hedeflere yönelik) ve **Tehdit** (sadece otomatik araçlar değil, insan liderliğinde).
 * **Motivasyonlar ve Hedefler:** APT'lerin temel hedefleri dört ana kategoriye ayrılır: Siber Casusluk (devlet sırlarının veya fikri mülkiyetin çalınması), e-Suç (finansal kazanç için), Hacktivizm ve Yıkım. Bu motivasyonlar genellikle politiktir veya ekonomiktir ve hükümet, savunma, finans ve sanayi gibi geniş bir sektör yelpazesini hedefler.
@@ -381,8 +373,6 @@ Farklı ve karmaşık adlandırma şemalarının varlığı, siber güvenlik end
 Bu tablo, bir "Rosetta Taşı" görevi görerek, bir bakışta isim çakışmalarını çözme aracı sağlar. Bir Microsoft raporunda "Typhoon" aktörüyle karşılaşan bir kullanıcı, bunun Çin bağlantılı bir grup olduğunu anında anlayabilir ve CrowdStrike'dan gelen "Panda" raporlarıyla çapraz referans yapabilir. Bu, kullanıcının karmaşık istihbarat ortamında gezinmesini sağlar ve raporun geri kalanını daha anlaşılır ve kullanışlı hale getirir.
 
 ---
-
----
 ## Coğrafi ve Jeopolitik Eksende APT Grupları (Derinlemesine İnceleme)
 
 
@@ -414,9 +404,6 @@ Bu bölüm, sofistike casusluk, yıkıcı yetenekler ve entegre "bilgi çatışm
   </p>
 </div>
 
-![SolarWinds Supply Chain Exploit Flow](./solarwinds_cve_2020_10148.png)
-
-
 * **Takma Adlar:** Cozy Bear (CrowdStrike), Midnight Blizzard, NOBELIUM (Microsoft), The Dukes, IRON HEMLOCK, UNC2452, APT29, G0016.
 * **Atıflandırma ve Motivasyon:** Rusya Dış İstihbarat Servisi'ne (SVR) atfedilir. Temel motivasyonları, Rus devletine avantaj sağlayacak dış politika, diplomatik ve jeopolitik verileri toplamaya odaklanan uzun vadeli istihbarat toplama ve casusluktur.
 * **Hedef Profili:** Avrupa ve NATO üyesi ülkelerdeki hükümet ağlarını, diplomatik kuruluşları, düşünce kuruluşlarını, araştırma enstitülerini ve BT hizmet sağlayıcılarını hedefler. Ayrıca COVID-19 aşı araştırmalarıyla ilgili kuruluşları da hedef almışlardır.
@@ -425,7 +412,7 @@ Bu bölüm, sofistike casusluk, yıkıcı yetenekler ve entegre "bilgi çatışm
 * **İlk Erişim:** Sofistike hedefli oltalama , tedarik zinciri sızmaları (SolarWinds) ve bulut hizmetlerine yönelik parola püskürtme (password spraying) gibi kimlik tabanlı saldırılar da dahil olmak üzere çok çeşitli ilk erişim vektörleri kullanırlar.
 * **Sızma Sonrası:** Özel "Duke" ailesi kötü amaçlı yazılımlarıyla (MiniDuke, CozyDuke vb.) tanınırlar. Tespitten kaçmak için PowerShell ve meşru bulut yönetim araçlarını kullanarak "yerel araçları kullanma" (living off the land) tekniklerinden yoğun bir şekilde yararlanırlar. Önemli bir TTP, bulut ortamlarında kalıcılık ve yanal hareket için OAuth uygulamalarını ve çalınan belirteçleri (token) kötüye kullanmalarıdır.
 
-![SolarWinds tedarik zinciri saldırısı: Mart-Aralık 2020 zaman tüneli](SolarWinds.webp)
+![SolarWinds tedarik zinciri saldırısı: Mart-Aralık 2020 zaman tüneli](solarwinds.webp)
 *SolarWinds SUNBURST operasyonu — tedarik zinciri saldırısının 12 adımlık anatomisi (Vectra, 2020).*
 
 #### Sandworm (APT44 / Seashell Blizzard)
@@ -444,7 +431,7 @@ Bu bölüm, sofistike casusluk, yıkıcı yetenekler ve entegre "bilgi çatışm
 * **Hedef Profili:** Neredeyse tamamen Ukrayna hükümeti ve askeri kuruluşlarına odaklanmıştır.
 * **Operasyonel Özet ve TTP'ler:** Büyük ölçekli hedefli oltalama kampanyalarıyla tanınan oldukça aktif ve kalıcı bir tehdit aktörüdür. Komuta ve kontrol (C2) iletişimleri için özel kötü amaçlı yazılımlar kullanır ve genellikle meşru yazılım ve hizmetlerden yararlanırlar.
 
-![C2 saldırı sunucusu: şifrelenmiş komut akışı Firewall üzerinden enfekte hosta ulaşır](C2-attack-servers.webp)
+![C2 saldırı sunucusu: şifrelenmiş komut akışı Firewall üzerinden enfekte hosta ulaşır](c2-attack-servers.webp)
 *Komuta ve Kontrol (C2) sunucusu — saldırgan kurbanı güvenlik duvarı üzerinden yönetir.*
 
 GRU/SVR operasyonel ikilemi, bu grupların gözlemlenen TTP'lerinde ve hedeflemelerinde açıkça görülmektedir. Bir askeri istihbarat teşkilatı olan GRU'ya bağlı APT28 ve APT44, seçimlere müdahale ve yıkıcı saldırılar gibi taktiksel askeri ve politik hedeflerle uyumlu, agresif ve genellikle gürültülü operasyonlar yürütür. Buna karşılık, bir dış istihbarat teşkilatı olan SVR'ye bağlı APT29, geleneksel dış casuslukla uyumlu olarak diplomatik ve politika yapıcı kurumlardan stratejik istihbarat toplamak için uzun vadeli, gizli operasyonlara odaklanır ve daha fazla operasyonel güvenlik ve sabır gösterir. Bu ayrım, savunucuların tespit edilen gruba dayanarak düşmanın niyetini daha iyi tahmin etmelerini sağlar.
@@ -556,8 +543,6 @@ Bu bölüm, daha eksiksiz bir küresel resim sunmak için araştırma materyalin
 * **SCATTERED SPIDER (Octo Tempest):** Özellikle telekomünikasyon ve BPO sektörlerindeki büyük şirketlere ilk erişim sağlamak için BT yardım masalarını hedef alan sosyal mühendislik saldırılarıyla tanınan son derece yetenekli bir e-suç grubu.
 
 FIN7 ve SCATTERED SPIDER gibi finansal motivasyonlu gruplar tarafından kullanılan TTP'ler, giderek artan bir şekilde ulus-devletlerin kullandıklarına benzemektedir. Yüksek düzeyde operasyonel güvenlik, sosyal mühendislik uzmanlığı ve MFA gibi modern savunmaları atlatma yeteneği sergilemektedirler. SCATTERED SPIDER'ın sesli oltalama (vishing) ve yardım masası dolandırıcılığı kullanımı, sofistike bir sosyal mühendislik taktiğidir. Genel eğilim, sadece ulus-devletlerden değil, tüm tehdit aktörleri arasında kötü amaçlı yazılım içermeyen, kimlik tabanlı saldırılarda büyük bir artış olduğunu göstermektedir. Bu, bir zamanlar "gelişmiş" olarak kabul edilen araç ve tekniklerin artık standart e-suç oyun kitabının bir parçası olduğunu göstermektedir. Bunun anlamı, teknik ve savunma açısından "ulus-devlet" ile "üst düzey bir suçlu" arasında savunma yapma ayrımının giderek bulanıklaşmasıdır. Kuruluşlar, herhangi bir düşmanın sofistike, kimlik odaklı TTP'ler kullanabileceğini varsaymalıdır.
-
----
 
 ---
 ## Modern Tehditlerin Ortak Silahı: Yapay Zeka (GenAI) Tehdidi
@@ -791,9 +776,9 @@ Aktarım(Transport) katmanı protokolleri, yani İletim Kontrol Protokolü (TCP)
 C4Container
     title C4 Container - Tehdit Tespiti ve İzleme
 
-    Person(person_attacker, Saldırgan, "Hedef uygulama ve servislere saldırır.")
+    Person(person_attacker, "Saldırgan", "Hedef uygulama ve servislere saldırır.")
     System_Boundary(b_corporate_network, "Kurumsal Ağ Sınırı") {
-        System(sys_corporate_assets, Kurumsal Varlıklar, "Hassas verileri barındırır.")
+        System(sys_corporate_assets, "Kurumsal Varlıklar", "Hassas verileri barındırır.")
     }
 
     System_Boundary(b_security_layer, "Güvenlik İzleme Katmanı") {
@@ -802,8 +787,8 @@ C4Container
     }
 
     Rel(person_attacker, sys_corporate_assets, "Uygulama/Servislere Saldırır", "Sıfır gün istismarı, veri sızıntısı, yanal hareket")
-    Rel_Back_Log(c_log_capture, sys_corporate_assets, "Etkinlik Loglarını Toplar", "Tüm geçersiz girişimler, yetkilendirme hataları")
-    Rel_Back_Log(c_packet_capture, b_corporate_network, "Paketleri Pasif Analiz Eder", "İç trafiğin derin paket incelemesi")
+    Rel_Back(c_log_capture, sys_corporate_assets, "Etkinlik Loglarını Toplar", "Tüm geçersiz girişimler, yetkilendirme hataları")
+    Rel_Back(c_packet_capture, sys_corporate_assets, "Paketleri Pasif Analiz Eder", "İç trafiğin derin paket incelemesi")
 ```
 
 ![Wireshark paket analizi ekranı: HTTP trafiği filtreleme ve paket inceleme](wireshark-packet-analysis.webp)
@@ -1004,8 +989,6 @@ Bu ürünlerin amacı veriye erişimi denetlemek, veriyi korumak ve veri ihlalin
 Her ne kadar bu sistemler doğru yapılandırılmış olsa da daha önce bahsettiğimiz ağ güvenliği ve uç nokta güvenliği ürünleri gibi aşılamaz değildir. Saldırgan küçük miktarlarda veri kaçırarak DLP'den kaçınabilir. Eline geçen şifreli veriyi uğraştırıcı da olsa kırabilir. Hatta yedekleme sistemlerindeki veriyi imha edebilir. Ve saldırısını nihayetlendirebilir.
 
 ---
-
----
 ## Geleceğe Bakış: Reaktif Refleksten Proaktif Stratejiye Geçiş
 
 
@@ -1179,7 +1162,7 @@ Bu cihazlar verilere yönelik tek tehdit değildir. USB portu aracılığıyla b
 
 Neyse ki Microsoft Windows, HKEY\_Local\_Machine\System\ControlSet00x\Enum\USBStor adlı bir Kayıt Defteri anahtarında bir sisteme bağlı aygıtları izler. Ne tür aygıtların bağlandığını görmek için kendi bilgisayarınızda bu anahtara bakmak ilginç olabilir.
 
-![Windows Registry Editor'da USBStor anahtarı: bağlanan USB cihazların geçmişi](./registry-View-USB-Device-History-in-Windows.jpg)
+![Windows Registry Editor'da USBStor anahtarı: bağlanan USB cihazların geçmişi](registry-usb-device-history.webp)
 *Windows Registry — HKLM\SYSTEM\CurrentControlSet\Enum\USBSTOR anahtarı bağlanan tüm USB cihazları kaydeder.*
 
 ![](1_lzT-9yy1W4twVkTy-OsLRg.webp)

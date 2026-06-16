@@ -6,8 +6,6 @@ image: featured.webp
 type: posts
 ---
 
----
-
 
 
 
@@ -379,8 +377,6 @@ The existence of different and complex naming schemes directly reflects the stru
 This table acts as a "Rosetta Stone," providing a means of resolving name conflicts at a glance. A user who comes across the "Typhoon" actor in a Microsoft report can instantly recognize it as a China-affiliated group and cross-reference it with "Panda" reports from CrowdStrike. This allows the user to navigate the complex intelligence environment and makes the rest of the report more understandable and useful.
 
 ---
-
----
 ## APT Groups on the Geographical and Geopolitical Axis (In-Depth Analysis)
 
 
@@ -551,8 +547,6 @@ This section will briefly discuss other important state-sponsored and financiall
 * **SCATTERED SPIDER (Octo Tempest):** A highly skilled e-crime group known for social engineering attacks targeting IT help desks to gain initial access to large companies, particularly in the telecommunications and BPO sectors.
 
 TTPs used by financially motivated groups such as FIN7 and SCATTERED SPIDER are increasingly similar to those used by nation-states. They demonstrate high levels of operational security, social engineering expertise, and the ability to bypass modern defenses such as MFA. SCATTERED SPIDER's use of vishing and help desk scams is a sophisticated social engineering tactic. The overall trend shows a massive increase in malware-free, identity-based attacks across all threat actors, not just from nation-states. This shows that tools and techniques once considered "advanced" are now part of the standard e-crime playbook. What this means is that, technically and defensively, the distinction between defending between a "nation-state" and a "high-level criminal" is becoming increasingly blurred. Organizations should assume that any adversary can use sophisticated, identity-focused TTPs.
-
----
 
 ---
 ## Shared Weapon of Modern Threats: The GenAI Threat
@@ -1000,8 +994,6 @@ What do we do at this point? Let's talk about data security products:
 The purpose of these products is to control access to data, protect data and prevent data breach. Possible data losses are prevented with backup systems, data is protected with data encryption systems, violations are prevented with the DLP system, and access to data is controlled with the IAM system.
 
 Although these systems are configured correctly, they are not insurmountable like the network security and endpoint security products we mentioned before. An attacker can evade DLP by escaping small amounts of data. It can crack the encrypted data it receives, even if it is a hassle. It can even destroy data in backup systems. And he can finish his attack.
-
----
 
 ---
 ## Looking Ahead: Transitioning from Reactive Reflex to Proactive Strategy

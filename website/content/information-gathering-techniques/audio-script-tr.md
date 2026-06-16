@@ -163,9 +163,6 @@ kaynak: Google Hacking for Penetration Testers,Johnny Long, Bill Gardner, Justin
 
 Bölüm: Bulut İstihbaratı (Cloud Intelligence) ve Sızıntı Avcılığı
 
-
-(YENİ KATMAN)
-
 "Google Dorks bitti" klişesine rağmen, dorking bitmemiş, sadece API'ler üzerinden makineleşmiştir. Modern saldırganların ana hedefi on-premise ağlar değil, bulut mimarileridir.
 
 
@@ -362,7 +359,7 @@ ilgili siteye www.osintframework.com adresinden ulaşabiliriz.
 Originally published at  on November 26, 2021.*
 
 
-Bölüm: Sertifika Şeffaflığı (CT Logs) ve Siber-Kartografi (YENİ KATMAN)
+Bölüm: Sertifika Şeffaflığı (CT Logs) ve Siber-Kartografi
 
 
 Modern OSINT ve ASM dünyasında subdomain tespiti için en hızlı ve %100 pasif yöntem Sertifika Şeffaflığı (CT) Loglarıdır.
@@ -378,7 +375,7 @@ Censys: Shodan'a ek olarak, daha güncel sertifika taramaları için kullanılı
 FOFA & Hunter.how: Özellikle Asya/Çin menşeili APT gruplarının C2 (Komuta Kontrol) altyapılarını avlamak için istihbarat analistlerinin favorileridir.
 
 
-Bölüm: Tedarik Zinciri İstihbaratı (Supply Chain Intelligence) (YENİ KATMAN)
+Bölüm: Tedarik Zinciri İstihbaratı (Supply Chain Intelligence)
 
 
 Modern CTI'ın en sıcak konusu tedarik zinciri güvenliğidir. Yazılım ekosistemleri (npm, PyPI) artık istihbarat servislerinin ve APT gruplarının oyun alanıdır.
@@ -391,7 +388,7 @@ Maintainer Hijacking & Protestware: Geliştirici hesaplarının ele geçirilmesi
 Araç ve Konseptler: Bu katmanda SBOM (Software Bill of Materials) ve VEX (Vulnerability Exploitability eXchange) dokümanları kritik rol oynar. Syft ve Grype ile yazılım bileşenleri analiz edilir, Dependency-Track ile sürekli izleme sağlanır.
 
 
-Bölüm: Karanlık Ağlar ve Sosyal İstihbarat (YENİ KATMAN)
+Bölüm: Karanlık Ağlar ve Sosyal İstihbarat
 
 
 Dark Web analizleri artık eski usül ".onion" forumlardan, anlık mesajlaşma ve Paste sitelerine kaymıştır.
@@ -546,7 +543,7 @@ Belirtilen alan adıyla ilgili, bütün sorguları yapar ve bizlere sunar.
 Originally published at  on January 14, 2022.*
 
 
-Bölüm: Sürekli Keşif (Continuous Reconnaissance) ve Attack Surface Drift (YENİ KATMAN)
+Bölüm: Sürekli Keşif (Continuous Reconnaissance) ve Attack Surface Drift
 
 
 Geleneksel aktif keşif (Nmap vb.) bir hedefin belirli bir anındaki "fotoğrafını" (snapshot) çeker. Oysa modern saldırganlar artık "akan veri istihbaratı" (stream intelligence) kullanıyor. Bir kurumun saldırı yüzeyi statik değildir; CI/CD pipeline'ları, geçici (ephemeral) sunucular ve Kubernetes ingress yapılandırmaları nedeniyle sürekli değişir. Bu duruma Attack Surface Drift (Saldırı Yüzeyi Kayması) denir.
@@ -573,7 +570,7 @@ Katana (ProjectDiscovery): Yeni nesil, inanılmaz hızlı bir web crawler (örü
 Nuclei (ProjectDiscovery): Aktif keşifte port bulmak yetmez. Nuclei, topluluk tarafından yazılan YAML tabanlı şablonlarla (templates), binlerce hedef üzerinde 0-day veya bilinen zafiyetleri (Örn: Log4j ifşaları, açık .env dosyaları) eşzamanlı olarak tarayan devasa bir zafiyet motorudur. (Örn kullanım: nuclei -u  -t cves/).
 
 
-Bölüm: İnternet Çapında Tarama (Internet-Scale Scanning) (YENİ KATMAN)
+Bölüm: İnternet Çapında Tarama (Internet-Scale Scanning)
 
 
 APT grupları artık hedef organizasyona özel değil, tüm internete yönelik (Internet-wide) taramalar yapmaktadır.
@@ -581,7 +578,7 @@ IPv4 Census ve ASN Hedefleme: Sadece bilinen domainler değil, kuruma ait tüm A
 Araçlar: Masscan ve ZMap gibi araçlar asenkron yapıları sayesinde tüm internetin belirli bir portunu (Örn: Port 443) dakikalar içinde tarayabilir. Hedefin savunmasız/gizli sunucuları TLS sertifika kümeleriyle (Certificate Clustering) deşifre edilir.
 
 
-Bölüm: Yapay Zeka (AI) Destekli İstihbarat Boru Hatları (YENİ KATMAN)
+Bölüm: Yapay Zeka (AI) Destekli İstihbarat Boru Hatları
 
 
 Yapay zeka (LLM), istihbarat süreçlerine basit bir chatbot olarak değil, entegre boru hatları (AI-Augmented Intelligence Pipelines) olarak dahil olmuştur.
@@ -593,7 +590,7 @@ AI Destekli Sosyal Mühendislik (Spear-Phishing): OSINT ile toplanan kurumsal ve
 AI İstihbarat Riskleri: Veri manipülasyonu, halüsinasyon (Hallucination), zehirlenmiş istihbarat akışları (poisoned intelligence feeds) ve AI modeline yönelik adversarial prompt injection saldırıları modern savunmanın yeni zorluklarıdır.
 
 
-Bölüm: Savunma Keşfi (Defensive Recon & Exposure Validation) (YENİ KATMAN)
+Bölüm: Savunma Keşfi (Defensive Recon & Exposure Validation)
 
 
 Aktif keşif sadece saldıranların tekelinde değildir. Mavi Takım (Blue Team) açısından, dış yüzeyin sürekli doğrulanması (Exposure Validation) şarttır.
@@ -602,7 +599,7 @@ Sızan Kimlik Bilgileri İzleme (Credential Monitoring): Kurum çalışanlarına
 Savunma Kartografyası: Censys, FOFA, ZoomEye ve SecurityTrails gibi araçlar kullanılarak, kuruma ait yapılandırma hatası barındıran sunucuların tehdit aktörlerinden önce tespit edilip kapatılması süreci.
 
 
-Bölüm: Operasyonel Güvenlik (OPSEC) ve Hukuki Sınırlar (YENİ KATMAN)
+Bölüm: Operasyonel Güvenlik (OPSEC) ve Hukuki Sınırlar
 
 
 Bu bölüm detayları ve etkileri incelemektedir.

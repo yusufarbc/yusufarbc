@@ -225,13 +225,21 @@ The fundamental difference lies in how documents are rendered in the browser:
   </div>
 </div>
 
+**OnlyOffice Communication Flow:**
+
+```mermaid
+graph LR
+    CB["Client Browser"]
+    UI["Nextcloud WebUI"]
+    Core["Nextcloud Core"]
+    OODS["OnlyOffice Document Server"]
+
+    CB --> UI
+    UI -->|Edit Request| Core
+    Core -->|JWT Validation| OODS
+    OODS -->|JS & OOXML Payload / Client-Side Rendering| CB
 ```
-OnlyOffice Communication Flow:
-[Nextcloud WebUI] --(Edit Request)--> [Nextcloud Core] --(JWT Validation)--> [OnlyOffice Document Server]
-       ^                                                                                   |
-       |                                                                                   v
-[Client Browser] <-------------(JS & OOXML Payload / Client-Side Rendering)----------------+
-```
+
 
 ![OnlyOffice Integration](onlyoffice.webp)
 
