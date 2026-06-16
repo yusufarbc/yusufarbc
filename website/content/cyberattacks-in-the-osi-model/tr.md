@@ -285,7 +285,7 @@ Phishing Türleri:
 * **Whaling:** Bir kuruluştaki üst düzey yöneticiler, politikacılar ve ünlüler gibi yüksek profilli kişileri hedef alan bir oltalama saldırısıdır.
 
 ---
-## **7-Uygulama Katmanı (Application Layer) Saldırıları**
+## Uygulama Katmanı (Application Layer) Saldırıları
 
 
 

@@ -289,7 +289,7 @@ Phishing Types:
 * **Whaling:** A phishing attack that targets high-profile individuals within an organization, such as senior executives, politicians, and celebrities.
 
 ---
-## **7-Application Layer Attacks**
+## **Application Layer Attacks**
 
 
 
