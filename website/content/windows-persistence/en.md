@@ -8,12 +8,6 @@ type: posts
 
 # Windows Persistence & Lateral Movement — The Complete Post-Exploitation Guide
 
----
-
-
-
-
-
 When an attacker achieves initial access to a target system, the real battle has only just begun. A phishing email was clicked, a vulnerability was exploited, or a VPN credential was stolen — but that's simply walking through the door. The true goal is to **stay undetected, establish a durable foothold, and spread deep into the network.**
 
 In this article, we examine the post-compromise phase chronologically through an attacker's eyes:
@@ -25,7 +19,6 @@ In this article, we examine the post-compromise phase chronologically through an
 
 > This structure maps directly to MITRE ATT&CK Enterprise Matrix tactics **TA0003 (Persistence)** and **TA0008 (Lateral Movement)**.
 
----
 
 ---
 ## Part 1: Windows Persistence Mechanisms
@@ -66,7 +59,7 @@ These Event IDs can be filtered in Event Viewer → Windows Logs → Security.
 
 ![](1_1xVpZh22clB0-MLj_t8dfA.webp)
 
----
+
 
 ### Scheduled Tasks
 
@@ -84,7 +77,6 @@ The Sysinternals **Autoruns** tool lists scheduled tasks alongside signature val
 - Event ID **4698**: New scheduled task created
 - Autoruns → Scheduled Tasks tab
 
----
 
 ### Registry Run Keys
 
@@ -126,7 +118,7 @@ Registry changes can be visualized with `regedit` or Autoruns:
 - Event ID **4657**: Registry value modified/created (auditing must be enabled)
 - Sysmon Event ID **12** (key create/delete) and **13** (value set)
 
----
+
 
 ### Startup Folder
 
@@ -141,7 +133,6 @@ Accessible via Run (Win+R) → `shell:startup`:
 
 ![](1_wYEoJlBvJhUvXomYDotB-g.webp)
 
----
 
 ### Windows Services
 
@@ -156,7 +147,7 @@ sc start "ChromeUpdateService"
 - Event ID **4697**: A service was installed on the system
 - Autoruns → Services tab
 
----
+
 
 ### BITS Jobs (Background Intelligent Transfer Service)
 
@@ -171,7 +162,7 @@ bitsadmin /resume MalJob
 
 **Detection:** `bitsadmin /list /verbose` or Sysmon process creation logs.
 
----
+
 
 ### WMI Event Subscriptions — Fileless Persistence
 
@@ -210,7 +201,6 @@ $binding.Put()
 - PowerShell Script Block Logging Event ID **4104** (if enabled)
 - Manual query: `Get-WMIObject -Namespace root\subscription -Class __EventFilter`
 
----
 
 ### COM Hijacking
 
@@ -228,7 +218,6 @@ Since Windows checks HKCU before HKLM, the malicious DLL loads. COM objects belo
 
 **Detection:** Sysmon Event ID **7** (Image Load) — legitimate processes loading DLLs from `C:\Users\` paths is anomalous.
 
----
 
 ### IFEO (Image File Execution Options) Injection
 
@@ -245,7 +234,7 @@ Now, pressing Shift five times on the login screen launches `cmd.exe` instead of
 - Sysmon Event ID **13**: Write to IFEO registry key
 - Event ID **4688**: Unusual parent-child process relationship (sethc.exe → cmd.exe)
 
----
+
 
 ### DLL Search Order Hijacking / Sideloading
 
@@ -263,9 +252,7 @@ When `LegitApp.exe` starts, it checks its own directory first, finds `version.dl
 
 **Detection:** Sysmon Event ID **7** — unsigned or unexpected-path DLL loading.
 
----
 
----
 ## Part 2: From Persistence to Lateral Movement — The Bridge
 
 
@@ -299,7 +286,6 @@ ntdsutil "ac in ntds" "ifm" "create full C:\temp" q q
 
 At this point, armed with credentials and hashes, the attacker is ready to move laterally.
 
----
 
 ---
 ## Part 3: Lateral Movement Within the Network
@@ -334,7 +320,6 @@ RDP is Microsoft's remote desktop connection protocol, operating on port **3389*
 - **APT33 (Iran):** Lateral movement via RDP + credential theft
 - **APT29 (Cozy Bear / Russia):** Spread through internal networks using hijacked RDP sessions
 
----
 
 ### WinRM & PowerShell Remoting — Living off the Land
 
@@ -362,7 +347,6 @@ Invoke-Command -ComputerName dc01, web01, db01 -ScriptBlock { Get-Process }
 - Sysmon Event ID **3**: Network connection to port 5985/5986
 - PowerShell Script Block Logging (Event ID 4104)
 
----
 
 ### SMB Share & PsExec — Classic but Effective
 
@@ -391,7 +375,6 @@ PsExec.exe \\target-ip -u DOMAIN\Administrator -p password cmd.exe
 - Sysmon Event ID **1**: `PSEXESVC.exe` process creation
 - Sysmon Event ID **11**: File dropped to `ADMIN$` share
 
----
 
 ### Kerberos Exploitation: PtT and Overpass-the-Hash
 
@@ -435,7 +418,6 @@ RDP uses Kerberos for authentication in AD environments. In a Pass-the-Ticket at
 - Event ID **4769**: TGS request (TGS-REQ) — multiple rapid service requests from the same user to different services is anomalous
 - Event ID **4771**: Kerberos pre-authentication failure
 
----
 
 ---
 ## Part 4: Blue Team / SOC Detection and Threat Hunting
@@ -450,7 +432,6 @@ Individual log entries are often misleading. Legitimate software can modify Run 
 
 > **Golden Rule:** A single Event ID is not an alarm. An anomaly chain is an alarm.
 
----
 
 ### Event ID Reference Table
 
@@ -486,8 +467,6 @@ Every Sysmon record contains `ParentImage` and `ParentCommandLine` fields — sh
 
 ![](1_VR-A4gThQLNfdXDYlpGuwQ.webp)
 
----
-
 ### EDR/XDR Correlation Chain
 
 XDR platforms transform isolated events into an attack story. An example persistence → C2 chain:
@@ -498,8 +477,6 @@ XDR platforms transform isolated events into an attack story. An example persist
 4. **C2 Connection:** Outbound connection to unknown IP:443 (Sysmon EID 3)
 
 ![](1_EOdZ-x8gqkMWMCJo5HLhqg.webp)
-
----
 
 ### Practical SOC Scenarios — KQL Pseudo-Code
 
@@ -566,7 +543,6 @@ SecurityEvent
 | order by TimeGenerated desc
 ```
 
----
 
 ### False Positive Management
 
@@ -576,7 +552,6 @@ Legitimate software (antivirus updates, enterprise tools) can also modify Run ke
 - **Whitelist:** Exclude signed applications running from `C:\Program Files\` and `C:\Windows\`
 - **Correlation over exclusion:** Rather than excluding single suspicious events, require them to correlate with other indicators
 
----
 
 ### Attacker Evasion Tactics
 
@@ -601,8 +576,6 @@ Malicious use of legitimate Windows binaries:
 - `regsvr32.exe /s /n /u /i:http://...` → payload via COM object
 
 ---
-
----
 ## Part 5: Hardening and Defense
 
 
@@ -624,7 +597,7 @@ PAM is a centralized security solution used to manage, monitor, and audit privil
 
 **PAM and RDP:** When a PAM solution is in place, RDP sessions open through the PAM proxy — never directly. Credentials never appear on the target system, and every session is logged.
 
----
+
 
 ### Network Level Authentication (NLA)
 
@@ -636,7 +609,6 @@ Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\W
     -Name "UserAuthentication" -Value 1
 ```
 
----
 
 ### Multi-Factor Authentication (MFA)
 
@@ -646,7 +618,7 @@ MFA should be mandatory for RDP, WinRM, and all other remote access methods. Eve
 - RADIUS-based MFA solutions
 - Hardware keys (FIDO2 / YubiKey)
 
----
+
 
 ### Least Privilege Principle
 
@@ -666,7 +638,6 @@ Get-ADGroupMember -Identity "Domain Admins" | Select Name, SamAccountName
 - Don't grant admin privileges to service accounts
 - Use Domain Admin accounts only on Domain Controllers
 
----
 
 ### Network Segmentation and Access Control
 
@@ -679,7 +650,6 @@ Get-ADGroupMember -Identity "Domain Admins" | Select Name, SamAccountName
 - **SMB (445):** Block direct SMB traffic between workstations
 - **Micro-segmentation:** Restrict East-West traffic with host-based firewall rules
 
----
 
 ### Audit Policies and Centralized Log Management
 
@@ -695,7 +665,6 @@ auditpol /set /subcategory:"Kerberos Service Ticket Operations" /success:enable 
 - Log retention should be at least **90 days** (ideally 1 year)
 - Deploy **Sysmon** configuration using SwiftOnSecurity or Olaf Hartong templates
 
----
 
 ### Proactive Threat Hunting
 
@@ -719,7 +688,7 @@ Get-ChildItem "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Exe
 # — reveals DLL hijacking opportunities
 ```
 
----
+
 
 ---
 

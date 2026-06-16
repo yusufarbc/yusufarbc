@@ -8,12 +8,6 @@ type: posts
 
 # Windows'ta Kalıcılık ve Yatay Hareket — Sızma Sonrası Tam Rehber
 
----
-
-
-
-
-
 Bir saldırgan hedef sisteme ilk erişimi (Initial Access) sağladığında gerçek mücadele yeni başlar. Kimlik avı e-postası tıklandı, zafiyet istismar edildi ya da VPN kimlik bilgisi ele geçirildi — ama bu yalnızca kapıdan girmektir. Asıl hedef; **fark edilmeden kalmak, köklü bir yer edinmek ve ağın derinliklerine yayılmaktır.**
 
 Bu yazıda bir saldırganın gözünden sızma sonrası dönemi kronolojik olarak inceliyoruz:
@@ -25,7 +19,6 @@ Bu yazıda bir saldırganın gözünden sızma sonrası dönemi kronolojik olara
 
 > Bu yapı MITRE ATT&CK Enterprise Matrix'in **TA0003 (Persistence)** ve **TA0008 (Lateral Movement)** taktikleriyle birebir örtüşmektedir.
 
----
 
 ---
 ## Windows Sistemlerde Kalıcılık (Persistence) Mekanizmaları
@@ -66,7 +59,6 @@ Event Viewer → Windows Logs → Security üzerinden bu Event ID'leri filtreley
 
 ![](1_1xVpZh22clB0-MLj_t8dfA.webp)
 
----
 
 ### Zamanlanmış Görevler (Scheduled Tasks)
 
@@ -84,7 +76,7 @@ Sysinternals **Autoruns** aracı, zamanlanmış görevleri imza doğrulamasıyla
 - Event ID **4698**: Yeni zamanlanmış görev oluşturuldu
 - Autoruns → Scheduled Tasks sekmesi
 
----
+
 
 ### Kayıt Defteri Çalıştırma Anahtarları (Registry Run Keys)
 
@@ -126,7 +118,7 @@ Registry değişikliklerini görselleştirmek için `regedit` veya Autoruns kull
 - Event ID **4657**: Registry değeri değiştirildi/oluşturuldu (Auditing etkin olmalı)
 - Sysmon Event ID **12** (anahtar oluşturma/silme) ve **13** (değer değişikliği)
 
----
+
 
 ### Startup Klasörü
 
@@ -141,7 +133,7 @@ C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
 
 ![](1_wYEoJlBvJhUvXomYDotB-g.webp)
 
----
+
 
 ### Windows Servisleri
 
@@ -156,7 +148,6 @@ sc start "ChromeUpdateService"
 - Event ID **4697**: Sisteme yeni servis yüklendi
 - Autoruns → Services sekmesi
 
----
 
 ### BITS Jobs (Background Intelligent Transfer Service)
 
@@ -171,7 +162,7 @@ bitsadmin /resume MalJob
 
 **Tespiti:** `bitsadmin /list /verbose` veya Sysmon süreç yaratma logları.
 
----
+
 
 ### WMI Event Subscriptions — Disksiz (Fileless) Kalıcılık
 
@@ -210,7 +201,7 @@ $binding.Put()
 - PowerShell script block logging etkinleştirilmişse Event ID **4104**
 - `Get-WMIObject -Namespace root\subscription -Class __EventFilter` ile manuel sorgu
 
----
+
 
 ### COM Hijacking
 
@@ -228,7 +219,7 @@ Windows, HKCU'yu HKLM'den önce kontrol ettiği için kötü amaçlı DLL yükle
 
 **Tespit:** Sysmon Event ID **7** (Image Load) — meşru süreçlerin `C:\Users\` yolundan DLL yüklemesi anomalidir.
 
----
+
 
 ### IFEO (Image File Execution Options) Enjeksiyonu
 
@@ -245,7 +236,7 @@ Artık giriş ekranında Shift tuşuna 5 kez basıldığında `sethc.exe` yerine
 - Sysmon Event ID **13**: IFEO registry anahtarına yazma
 - Event ID **4688**: Olağandışı parent-child süreç ilişkisi (sethc.exe → cmd.exe)
 
----
+
 
 ### DLL Search Order Hijacking / Sideloading
 
@@ -263,7 +254,7 @@ C:\Program Files\LegitApp\
 
 **Tespit:** Sysmon Event ID **7** — imzasız veya beklenmedik yoldan DLL yüklenmesi.
 
----
+
 
 ---
 ## Kalıcılıktan Yatay Harekete — Köprü
@@ -299,7 +290,7 @@ ntdsutil "ac in ntds" "ifm" "create full C:\temp" q q
 
 Bu noktadan itibaren saldırgan elindeki kimlik bilgileri ve hash'lerle yatay harekete geçmeye hazırdır.
 
----
+
 
 ---
 ## Ağ İçinde Yatay Hareket (Lateral Movement)
@@ -334,7 +325,6 @@ RDP, Microsoft'un uzak masaüstü bağlantı protokolüdür ve port **3389** üz
 - **APT33 (İran):** RDP üzerinden lateral movement + credential theft
 - **APT29 (Cozy Bear / Rusya):** Ele geçirilmiş RDP oturumlarıyla iç ağda yayılma
 
----
 
 ### WinRM & PowerShell Remoting — Living off the Land
 
@@ -362,7 +352,7 @@ Invoke-Command -ComputerName dc01, web01, db01 -ScriptBlock { Get-Process }
 - Sysmon Event ID **3**: 5985/5986 portuna giden ağ bağlantısı
 - PowerShell Script Block Logging (Event ID 4104)
 
----
+
 
 ### SMB Share ve PsExec — Klasik Ama Etkili
 
@@ -391,7 +381,6 @@ PsExec.exe \\hedef-ip -u DOMAIN\Administrator -p password cmd.exe
 - Sysmon Event ID **1**: `PSEXESVC.exe` süreç oluşturma
 - Sysmon Event ID **11**: `ADMIN$` paylaşımına dosya bırakma
 
----
 
 ### Kerberos İstismarları: PtT ve Overpass-the-Hash
 
@@ -436,8 +425,6 @@ RDP, AD ortamında kimlik doğrulama için Kerberos'u kullanır. Pass-the-Ticket
 - Event ID **4771**: Kerberos ön kimlik doğrulama başarısız
 
 ---
-
----
 ## Blue Team / SOC Perspektifinden Tespit ve Tehdit Avcılığı
 
 
@@ -450,7 +437,6 @@ Bireysel log kayıtları çoğu zaman yanıltıcıdır. Meşru yazılımlar da R
 
 > **Altın Kural:** Tek bir Event ID alarm değildir. Anomali zinciri alarmdir.
 
----
 
 ### Event ID Referans Tablosu
 
@@ -473,7 +459,6 @@ Bireysel log kayıtları çoğu zaman yanıltıcıdır. Meşru yazılımlar da R
 | 12/13 | Sysmon | Registry oluşturma/değişiklik |
 | 19/20/21 | Sysmon | WMI Event aboneliği |
 
----
 
 ### Sysmon ile Derinlemesine Telemetri
 
@@ -486,7 +471,6 @@ Her Sysmon kaydı `ParentImage` ve `ParentCommandLine` alanlarını içerir — 
 
 ![](1_VR-A4gThQLNfdXDYlpGuwQ.webp)
 
----
 
 ### EDR/XDR Korelasyon Zinciri
 
@@ -499,7 +483,6 @@ XDR platformları, izole olayları bir saldırı hikayesine dönüştürür. Ör
 
 ![](1_EOdZ-x8gqkMWMCJo5HLhqg.webp)
 
----
 
 ### Pratik SOC Senaryoları — KQL Pseudo-Code
 
@@ -566,8 +549,6 @@ SecurityEvent
 | order by TimeGenerated desc
 ```
 
----
-
 ### Yanlış Pozitif Yönetimi
 
 Meşru yazılımlar (antivirüs güncellemeleri, kurumsal araçlar) da Run anahtarlarını değiştirebilir. Gürültüyü azaltmak için:
@@ -576,7 +557,6 @@ Meşru yazılımlar (antivirüs güncellemeleri, kurumsal araçlar) da Run anaht
 - **Whitelist:** `C:\Program Files\` ve `C:\Windows\` altından çalışan, imzalı uygulamaları kural dışı bırakın
 - **İstisna değil korelasyon:** Tek başına şüpheli olmayan bir olayı diğer olaylarla ilişkilendirin
 
----
 
 ### Saldırgan Gizlenme Taktikleri
 
@@ -601,8 +581,6 @@ Meşru Windows araçlarının kötü amaçlı kullanımı:
 - `regsvr32.exe /s /n /u /i:http://...` → COM object üzerinden payload
 
 ---
-
----
 ## Sıkılaştırma ve Savunma (Hardening)
 
 
@@ -624,7 +602,6 @@ PAM, kurumsal ağlarda yüksek ayrıcalıklı erişimleri yönetmek, izlemek ve 
 
 **PAM ve RDP İlişkisi:** Bir PAM çözümü devredeyken RDP oturumları doğrudan değil, PAM proxy'si üzerinden açılır. Bu sayede kimlik bilgileri hedef sistemde hiç görünmez ve tüm oturum kayıt altına alınır.
 
----
 
 ### Ağ Seviyesinde Kimlik Doğrulama (NLA)
 
@@ -636,7 +613,6 @@ Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\W
     -Name "UserAuthentication" -Value 1
 ```
 
----
 
 ### Çok Faktörlü Kimlik Doğrulama (MFA)
 
@@ -646,7 +622,6 @@ RDP, WinRM ve diğer uzaktan erişim yöntemleri için MFA zorunlu olmalıdır. 
 - RADIUS tabanlı MFA çözümleri
 - Donanım anahtarları (FIDO2 / YubiKey)
 
----
 
 ### Least Privilege (En Az Ayrıcalık) Prensibi
 
@@ -667,7 +642,6 @@ Get-ADGroupMember -Identity "Domain Admins" | Select Name, SamAccountName
 - Service hesapları için yönetici yetkisi vermeyin
 - Domain Admin hesaplarını yalnızca DC üzerinde kullanın
 
----
 
 ### Ağ Segmentasyonu ve Erişim Kontrolü
 
@@ -680,7 +654,6 @@ Get-ADGroupMember -Identity "Domain Admins" | Select Name, SamAccountName
 - **SMB (445):** İş istasyonları arası doğrudan SMB trafiğini engelleyin
 - **Mikro-segmentasyon:** Host-based firewall kurallarıyla East-West trafiği kısıtlayın
 
----
 
 ### Audit Politikaları ve Merkezi Log Yönetimi
 
@@ -696,7 +669,6 @@ auditpol /set /subcategory:"Kerberos Service Ticket Operations" /success:enable 
 - Log saklama süresi en az **90 gün** (ideal 1 yıl) olmalı
 - **Sysmon** yapılandırmasını SwiftOnSecurity veya Olaf Hartong şablonlarıyla dağıtın
 
----
 
 ### Proaktif Tehdit Avcılığı
 
@@ -720,7 +692,6 @@ Get-ChildItem "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Exe
 # Process Monitor (Procmon) ile "NAME NOT FOUND" DLL aramalarını filtrele
 ```
 
----
 
 ---
 

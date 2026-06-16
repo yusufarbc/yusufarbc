@@ -6,7 +6,7 @@ image: featured.webp
 type: posts
 ---
 
----
+
 
 Merhaba bu yazımda siber güvenlik alanında sk kullanılan dağıtımlardan ve lab ortamlarından bahsedeceğim.
 
