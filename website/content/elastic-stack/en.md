@@ -88,10 +88,11 @@ graph TD
         Fleet[Kibana Fleet Panel] -->|Central Management / Policies| EA
         EA -->|OTel / ECS Formatted Logs| IN[Elasticsearch Ingest Node]
         IN --> ES2[(Elasticsearch Vector DB)]
-        ES2 --> ESQL[ES|QL Engine]
+        ES2 --> ESQL["ES|QL Engine"]
         ES2 --> KB2[Kibana Dashboard]
     end
 ```
+
 
 ### ES|QL Query Pipeline Execution Model
 
@@ -1012,81 +1013,7 @@ The "Defense-in-Depth" (Derinlemesine Savunma) methodology aims to establish a m
 
 At the heart of this layered structure is an **integrated NOC/SOC** architecture where logs and events from all layers (Email, Endpoint, Network, Data, and Mobile) are collected and analyzed with correlation rules. Traditionally, the Network Operations Center (NOC) focuses on system uptime, performance, RAM/CPU, and disk utilization rates, while the Security Operations Center (SOC) tracks security threats and cyber attack traces. Consolidating these two units into a unified SIEM platform eliminates information silos, increases automatic correlation capabilities, and minimizes alert fatigue. Furthermore, keeping data on-premises rather than in the cloud offers a critical data sovereignty advantage for compliance with local regulations such as KVKK and GDPR.
 
-The following architectural diagram illustrates the log flow of Libraesva ESG, Kaspersky KES, FortiGate, Zecurion DLP, and AppTec360 MDM components, and how this data is correlated on the central Elastic SIEM (on-premises) to enable unified NOC/SOC analysis:
-
-```mermaid
-graph TD
-    subgraph Security Layers (Data Producers)
-        ESG[Libraesva ESG <br/> Email Security]
-        KES[Kaspersky KES <br/> Endpoint Security]
-        FW[FortiGate IPS <br/> Network Security]
-        DLP[Zecurion DLP <br/> Data Security]
-        MDM[AppTec360 MDM <br/> Mobile Security]
-    end
-
-    subgraph Collection and Normalization (Logstash / Agent)
-        LS[Logstash / Ingest Node <br/> Pipeline]
-        ECS[Elastic Common Schema <br/> ECS Standards]
-    end
-
-    subgraph Storage and Analysis Layer (Elastic SIEM)
-        ES[(Elasticsearch DB <br/> On-Premises)]
-        CORR[Correlation Engine <br/> ES|QL & Rules]
-    end
-
-    subgraph Integrated NOC/SOC Operations
-        KB[Kibana Unified Dashboard]
-        Alert[Integrated Alert / Case]
-    end
-
-    ESG -->|Syslog / API| LS
-    KES -->|Winlogbeat / Agent| LS
-    FW -->|Syslog / NetFlow| LS
-    DLP -->|Syslog / Agent| LS
-    MDM -->|Syslog / API| LS
-
-    LS -->|Normalize| ECS
-    ECS -->|Indexing| ES
-    ES --> CORR
-    CORR -->|Triggering| Alert
-    ES -->|Visibility| KB
-    Alert -->|Reduce MTTD / MTTR| KB
-```
-
-### Layered Security Components and SIEM Integration
-
-Critical security components in the defense-in-depth architecture offer the highest level of protection in their respective layers while feeding their telemetry into Elastic SIEM to facilitate incident response:
-
-<div class="render-cards">
-  <div class="render-card render-card-csr">
-    <span class="render-badge">EMAIL SECURITY</span>
-    <h3>Libraesva ESG</h3>
-    <p>Deployed on-premises, Libraesva ESG scans inbound/outbound email traffic to detect phishing and BEC (Business Email Compromise) threats with a rate of over 99.9%. It opens attachments in a local sandbox to analyze zero-day threats. It conducts active URL analysis (time-of-click) and DMARC/SPF controls entirely on-premise, preventing data from leaving the local boundary. All detected phishing and spam alerts are forwarded to Elastic SIEM via Syslog or API.</p>
-  </div>
-  <div class="render-card render-card-ssr">
-    <span class="render-badge">ENDPOINT SECURITY</span>
-    <h3>Kaspersky KES</h3>
-    <p>Provides 100% protection against ransomware in the endpoint layer using machine learning and behavioral analysis. If any ransomware encryption attempt is detected, it terminates the process and restores affected files to their original state using "Automatic Rollover." It blocks unauthorized access to critical registry and system files via Host IPS (HIPS) and enforces application/device control policies. Security events are forwarded to Elastic SIEM in JSON/CEF format via Kaspersky Security Center (KSC).</p>
-  </div>
-  <div class="render-card render-card-ssg">
-    <span class="render-badge">NETWORK & IPS</span>
-    <h3>FortiGate UTM</h3>
-    <p>Consolidates Layer 7 application control, web filtering, antivirus, and IPS protection on a single platform at the gateway and segmentation boundaries. Powered by specialized hardware acceleration ASIC chips (SPU), it decrypts SSL/TLS traffic without performance degradation for deep packet inspection. It blocks suspicious network flows from external or internal segments and forwards blocked connection and IPS alerts to Elastic SIEM via rsyslog, providing the SOC team with critical lateral movement telemetry.</p>
-  </div>
-  <div class="render-card render-card-isr">
-    <span class="render-badge">DATA LEAKAGE (DLP)</span>
-    <h3>Zecurion DLP</h3>
-    <p>Monitors over 100 channels—including email, web uploads, printers, USB, and instant messaging apps (WhatsApp, Telegram, etc.)—to prevent sensitive data leaks. It parses 500+ file formats, reads text inside images using OCR, and utilizes document fingerprinting technology. Its Screen Photo Detector utilizes webcam analysis to detect if a user is trying to photograph the screen with a phone, locking the computer immediately. Event logs and user behavior analysis (UBA) alerts are forwarded to Elastic SIEM.</p>
-  </div>
-  <div class="render-card render-card-csr">
-    <span class="render-badge">MOBILE SECURITY</span>
-    <h3>AppTec360 MDM</h3>
-    <p>Manages all corporate or personal (BYOD) mobile devices (iOS, Android, macOS, Windows) with central policies. It automates device enrollment out-of-the-box using Apple DEP and Google Enterprise integrations. Work data is kept isolated in an encrypted container, preventing data sharing with personal apps. It provides disk encryption, remote lock/wipe, and location tracking for lost/stolen devices. Root/jailbreak statuses and policy violation logs are routed to Elastic SIEM via Syslog/API.</p>
-  </div>
-</div>
-
-Thanks to this integrated layered architecture, for instance, a malicious sender's IP blocked by Libraesva can be instantly blacklisted on FortiGate; or a user generating data leakage alerts on Zecurion DLP can have their mobile device temporarily isolated from the network via AppTec360 MDM. All this cross-layer correlation and incident response automation is managed from a single point, powered by the on-premises Elastic SIEM infrastructure.
-
+---
 
 ### Conclusion: Guide for Teams on Ruleset Usage and Further Reading
 

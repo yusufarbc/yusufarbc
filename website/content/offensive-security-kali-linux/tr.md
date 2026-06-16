@@ -1,28 +1,16 @@
 ---
-title: "Kali Linux’a Giriş"
+title: "Kali Linux ile Ofansif Güvenlik"
 date: '2023-01-15'
 description: "Merhaba, bu yazımda Kali Linux dağıtımından bahsedeceğim. Ne işe yaradığını, ne gibi yetenekleri olduğunu ve sızma testlerinde kullanılan araçları anlatacağım."
 image: featured.webp
 type: posts
 ---
 
-## Kali Linux'a Giriş
-
-
-
-
----
-
-
+# Kali Linux ile Ofansif Güvenlik
 
 
 
 Merhaba, bu yazımda Kali Linux dağıtımından bahsedeceğim. Ne işe yaradığını ve ne gibi yetenekleri olduğunu anlatacağım. Kurulumundan bahsettikten sonra da, içinde hazır kurulu gelen araçlara değineceğim.
-
----
-## Kali Linux Nedir?
-
-
 
 
 [Kali Linux](https://www.kali.org/), siber güvenlik alanında kullanılmak için geliştirilmiş debian tabanlı bir linux dağıtımıdır. Hazır kurulu halde gelen birçok siber güvenlik yazılımını barındırır. Bu yönüyle çok kullanışlı ve kullanıcıya hitap eden bir yapısı olduğu söylenebilir.

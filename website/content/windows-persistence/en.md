@@ -21,7 +21,7 @@ In this article, we examine the post-compromise phase chronologically through an
 
 
 ---
-## Part 1: Windows Persistence Mechanisms
+## Windows Persistence Mechanisms
 
 
 
@@ -253,7 +253,7 @@ When `LegitApp.exe` starts, it checks its own directory first, finds `version.dl
 **Detection:** Sysmon Event ID **7** — unsigned or unexpected-path DLL loading.
 
 
-## Part 2: From Persistence to Lateral Movement — The Bridge
+## From Persistence to Lateral Movement — The Bridge
 
 
 This section explores the details and implications.
@@ -288,7 +288,7 @@ At this point, armed with credentials and hashes, the attacker is ready to move 
 
 
 ---
-## Part 3: Lateral Movement Within the Network
+## Lateral Movement Within the Network
 
 
 
@@ -420,7 +420,7 @@ RDP uses Kerberos for authentication in AD environments. In a Pass-the-Ticket at
 
 
 ---
-## Part 4: Blue Team / SOC Detection and Threat Hunting
+## Blue Team / SOC Detection and Threat Hunting
 
 
 This section explores the details and implications.
@@ -576,7 +576,7 @@ Malicious use of legitimate Windows binaries:
 - `regsvr32.exe /s /n /u /i:http://...` → payload via COM object
 
 ---
-## Part 5: Hardening and Defense
+## Hardening and Defense
 
 
 This section explores the details and implications.

@@ -6,17 +6,10 @@ image: featured.webp
 type: posts
 ---
 
-
-
-
+# Offensive Security with Kali Linux
 
 
 Hello, in this article I will talk about Kali Linux distribution. I will explain what it does and what capabilities it has. After talking about its installation, I will talk about the tools that come pre-installed.
-
----
-## What is Kali Linux?
-
-
 
 
 [Kali Linux](https://www.kali.org/) is a Debian-based Linux distribution developed for use in the field of cyber security. It contains many cyber security software that comes pre-installed. In this respect, it can be said that it has a very useful and user-friendly structure.

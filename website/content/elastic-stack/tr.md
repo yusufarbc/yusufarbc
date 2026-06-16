@@ -88,7 +88,7 @@ graph TD
         Fleet[Kibana Fleet Panel] -->|Merkezi Yönetim / Politikalar| EA
         EA -->|OTel / ECS Formatında Log| IN[Elasticsearch Ingest Node]
         IN --> ES2[(Elasticsearch Vector DB)]
-        ES2 --> ESQL[ES|QL Engine]
+        ES2 --> ESQL["ES|QL Engine"]
         ESQL --> KB2[Kibana Dashboard]
     end
 ```
@@ -1022,81 +1022,7 @@ Bir kural setinin potansiyelini anlamak için teorik olarak neyi tespit ettiğin
 
 Bu katmanlı yapının kalbinde, tüm katmanlardan (E-posta, Uç Nokta, Ağ, Veri ve Mobil) gelen log ve olayların toplandığı ve korelasyon kurallarıyla analiz edildiği **bütünleşik bir NOC/SOC** mimarisi yer alır. Geleneksel olarak Ağ Operasyon Merkezi (NOC) sistemlerin ayakta kalma sürelerine, performanslarına, RAM/CPU ve disk doluluk oranlarına odaklanırken; Güvenlik Operasyon Merkezi (SOC) ise tehdit alarmlarını ve siber saldırı izlerini takip eder. Bu iki birimin ortak bir SIEM platformunda birleştirilmesi, bilgi silolarını ortadan kaldırarak otomatik korelasyon yeteneklerini artırır ve alarm yorgunluğunu minimize eder. Ayrıca verinin bulut yerine kurum içinde (on-premises) tutulması, KVKK ve GDPR gibi yasal regülasyonlara uyum açısından kritik bir veri egemenliği avantajı sunar.
 
-Aşağıdaki mimari şema, Libraesva ESG, Kaspersky KES, FortiGate, Zecurion DLP ve AppTec360 MDM bileşenlerinin log akışını ve bu verilerin merkezdeki Elastic SIEM (on-premise) üzerinde nasıl korele edilerek birleşik NOC/SOC analizine dönüştürüldüğünü göstermektedir:
-
-```mermaid
-graph TD
-    subgraph Güvenlik Katmanları (Veri Üreticileri)
-        ESG[Libraesva ESG <br/> E-Posta Güvenliği]
-        KES[Kaspersky KES <br/> Uç Nokta Güvenliği]
-        FW[FortiGate IPS <br/> Ağ Güvenliği]
-        DLP[Zecurion DLP <br/> Veri Güvenliği]
-        MDM[AppTec360 MDM <br/> Mobil Güvenlik]
-    end
-
-    subgraph Toplama ve Normalizasyon (Logstash / Agent)
-        LS[Logstash / Ingest Node <br/> Pipeline]
-        ECS[Elastic Common Schema <br/> ECS Standartları]
-    end
-
-    subgraph Depolama ve Analiz Katmanı (Elastic SIEM)
-        ES[(Elasticsearch DB <br/> On-Premises)]
-        CORR[Korelasyon Motoru <br/> ES|QL & Kurallar]
-    end
-
-    subgraph Bütünleşik NOC/SOC Operasyonları
-        KB[Kibana Ortak Dashboard]
-        Alert[Bütünleşik Alarm / Case]
-    end
-
-    ESG -->|Syslog / API| LS
-    KES -->|Winlogbeat / Agent| LS
-    FW -->|Syslog / NetFlow| LS
-    DLP -->|Syslog / Agent| LS
-    MDM -->|Syslog / API| LS
-
-    LS -->|Normalize| ECS
-    ECS -->|İndeksleme| ES
-    ES --> CORR
-    CORR -->|Tetikleme| Alert
-    ES -->|Görünürlük| KB
-    Alert -->|MTTD / MTTR Azaltma| KB
-```
-
-### Katmanlı Güvenlik Bileşenleri ve SIEM Entegrasyonu
-
-Derinlemesine savunma mimarisinde yer alan kritik güvenlik bileşenleri, kendilerine ayrılan katmanlarda en üst düzey korumayı sunarken ürettikleri telemetrileri Elastic SIEM'e besleyerek olay müdahalesini kolaylaştırır:
-
-<div class="render-cards">
-  <div class="render-card render-card-csr">
-    <span class="render-badge">E-POSTA GÜVENLİĞİ</span>
-    <h3>Libraesva ESG</h3>
-    <p>Kurum içi (on-premise) konuşlandırılan Libraesva ESG, gelen/giden e-postaları tarayarak oltalama (phishing) ve BEC (Business Email Compromise) gibi tehditleri %99.9'un üzerinde bir oranla yakalar. E-posta eklerini yerel sandbox ortamında açarak sıfırıncı gün tehditlerini analiz eder. Aktif URL analizi (time-of-click) ve DMARC/SPF kontrollerini tamamen kendi bünyesinde yürüterek verinin buluta çıkmasını engeller. Tespit edilen tüm phishing ve spam alarmlarını Syslog veya API üzerinden Elastic SIEM'e aktarır.</p>
-  </div>
-  <div class="render-card render-card-ssr">
-    <span class="render-badge">UÇ NOKTA GÜVENLİĞİ</span>
-    <h3>Kaspersky KES</h3>
-    <p>Uç nokta katmanında makine öğrenimi ve davranışsal analiz desteğiyle fidye yazılımlarına karşı %100 koruma sağlar. Herhangi bir ransomware şifreleme girişimi algılandığında süreci durdurup etkilenen dosyaları "Otomatik Rollover" (Geri Alma) ile eski haline getirir. Host IPS (HIPS) modülüyle kritik sistem dosyalarına ve kayıt defterine erişimi engellerken, uygulama ve cihaz kontrolü politikalarını denetler. Güvenlik olaylarını Kaspersky Security Center (KSC) aracılığıyla JSON/CEF formatında Elastic SIEM'e gönderir.</p>
-  </div>
-  <div class="render-card render-card-ssg">
-    <span class="render-badge">AĞ VE IPS</span>
-    <h3>FortiGate UTM</h3>
-    <p>Ağ geçidi ve segmentasyon sınırlarında Layer 7 uygulama kontrolü, web filtreleme, antivirüs ve IPS korumasını tek bir platformda birleştirir. Özel donanım hızlandırıcı ASIC çipleri (SPU) sayesinde, şifreli SSL/TLS trafiğini performans kaybı olmaksızın çözerek derinlemesine paket incelemesi yapar. Dış dünyadan veya iç segmentlerden gelen şüpheli ağ akışlarını engeller; bloke edilen oturum ve IPS alarmlarını rsyslog üzerinden Elastic SIEM'e göndererek SOC ekibine yanal hareket tespiti için gerekli telemetriyi sunar.</p>
-  </div>
-  <div class="render-card render-card-isr">
-    <span class="render-badge">VERİ SIZINTISI (DLP)</span>
-    <h3>Zecurion DLP</h3>
-    <p>E-posta, web yüklemeleri, yazıcılar, USB ve anlık mesajlaşma programları (WhatsApp, Telegram vb.) dahil 100'den fazla kanalı 360 derece izleyerek hassas veri sızıntılarını önler. 500'den fazla dosya formatını tanır, görüntülerdeki yazıları OCR ile okur ve belge parmak izi (fingerprinting) teknolojisini kullanır. Ekran Fotoğrafı Detektörü ile kullanıcının ekranını telefonla çekmeye çalışmasını web kamerası analiziyle tespit edip bilgisayarı kilitler. Olay günlüklerini ve kullanıcı davranış analizi (UBA) alarmlarını Elastic SIEM'e iletir.</p>
-  </div>
-  <div class="render-card render-card-csr">
-    <span class="render-badge">MOBİL GÜVENLİĞİ</span>
-    <h3>AppTec360 MDM</h3>
-    <p>Kurumsal veya kişisel (BYOD) tüm mobil cihazları (iOS, Android, macOS, Windows) central politikalarla yönetir. Apple DEP ve Google Enterprise entegrasyonuyla kutudan çıkan cihazı otomatik yapılandırır. Konteynerizasyon teknolojisiyle iş verilerini şifreli bir alanda izole tutarak kişisel uygulamalarla veri paylaşımını engeller. Kayıp/çalıntı durumunda disk şifreleme, uzaktan kilitleme/silme ve konum takibi sunar. Cihazların root/jailbreak durumlarını ve politika ihlali loglarını Syslog/API ile Elastic SIEM'e yönlendirir.</p>
-  </div>
-</div>
-
-Bu bütünleşik katmanlı yapı sayesinde, örneğin Libraesva tarafında engellenen bir e-posta göndericisinin IP'si, FortiGate üzerinde anında bloklanabilir; veya Zecurion DLP'de veri sızdırma alarmı üreten bir kullanıcının mobil cihazı AppTec360 MDM üzerinden geçici olarak ağ dışına alınabilir. Tüm bu çapraz katman korelasyonu ve olay müdahale otomasyonu, on-premises Elastic SIEM altyapısı sayesinde tek bir noktadan yönetilir.
-
+---
 
 ### Sonuç: Kural Seti Kullanımına Yönelik Ekipler için Kılavuz ve İleri Okumalar
 

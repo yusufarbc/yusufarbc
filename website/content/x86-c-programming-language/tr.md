@@ -1272,12 +1272,6 @@ Bir derse ait üç farklı not değerinin ortalamasını hesaplayın, sonuc 50'd
 
 Kullanıcıdan 3 sayı alınız. switch yapısı kullanarak 1 girdiğinizde birinci sayının karesini 2 girdiğinizde ikinci sayının karesini, 3 girdiğinizde 3.sayının karesini hesaplayan bir C programı yazınız.
 
----
-## Temel C Programlama Eğitimi #2
-
-
-Bu bölüm detayları ve etkileri incelemektedir.
-
 
 ### Temel C Programlama Eğitimi #2
 
