@@ -112,7 +112,7 @@ Within the scope of the GNU project, the **Minix** operating system, a Unix deri
 In 1991, computer science student **Linus Torvalds** posted a message to a newsgroup where information was exchanged on Unix and Minix operating systems. In his message, Linus stated that he was working on a free operating system and asked for suggestions for development. Linus named his new operating system **Linux**, which he described as Linus' Minix. 
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 20px 0; flex-wrap: wrap;">
-    <img src="./linus-torvalds.jpg" style="max-height: 250px; border-radius: 8px;" alt="Linus Torvalds"/>
+    <img src="./linus-torvalds.webp" style="max-height: 250px; border-radius: 8px;" alt="Linus Torvalds"/>
     <img src="./linux.webp" style="max-height: 250px; border-radius: 8px;" alt="Linux Logo"/>
 </div>
 
@@ -159,10 +159,10 @@ Today, Unix-based systems generally thrive in enterprise environments that requi
 
 <div style="display: flex; justify-content: center; flex-wrap: wrap; margin: 20px 0;">
     <img src="./Mac-OS.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="macOS"/>
-    <img src="./freebsd.jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="FreeBSD"/>
-    <img src="./openbsd.jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="OpenBSD"/>
-    <img src="./solaris.jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Oracle Solaris"/>
-    <img src="./IBMAIX7.png" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="IBM AIX"/>
+    <img src="./freebsd.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="FreeBSD"/>
+    <img src="./openbsd.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="OpenBSD"/>
+    <img src="./solaris.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Oracle Solaris"/>
+    <img src="./IBMAIX7.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="IBM AIX"/>
 </div>
 
 **MacOS, Oracle Solaris, IBM AIX, HP-UX, IRIX and BSD (FreeBSD, OpenBSD, NetBSD).**
@@ -170,11 +170,11 @@ Today, Unix-based systems generally thrive in enterprise environments that requi
 ### Windows-based systems
 
 <div style="display: flex; justify-content: center; flex-wrap: wrap; margin: 20px 0;">
-    <img src="./windows98.jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Windows 98"/>
-    <img src="./windows-me.jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Windows ME"/>
+    <img src="./windows98.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Windows 98"/>
+    <img src="./windows-me.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Windows ME"/>
     <img src="./windows-xp.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Windows XP"/>
-    <img src="./windows7).jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Windows 7"/>
-    <img src="./windowsNT.png" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Windows NT"/>
+    <img src="./windows7).webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Windows 7"/>
+    <img src="./windowsNT.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Windows NT"/>
 </div>
 Windows uses highly functional graphical interfaces tailored for end-users to run programs, issue commands, etc. It provides ease of performing fast transactions. The most important feature of Windows operating systems is that they are easy to learn, possess vast software backward compatibility, and hold an absolute monopoly in the PC gaming market. Thanks to these conveniences, it has become the most widely used desktop operating system for home and office computers.
 
@@ -185,10 +185,10 @@ The biggest leap in Windows' technical evolution was the abandonment of the MS-D
 ### Linux-based systems
 
 <div style="display: flex; justify-content: center; flex-wrap: wrap; margin: 20px 0;">
-    <img src="./Ubuntu.png" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Ubuntu"/>
+    <img src="./Ubuntu.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Ubuntu"/>
     <img src="./Archlinux.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Arch Linux"/>
-    <img src="./opensuse.jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="openSUSE"/>
-    <img src="./redhat.jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="RedHat"/>
+    <img src="./opensuse.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="openSUSE"/>
+    <img src="./redhat.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="RedHat"/>
 </div>
 After its emergence, Linux attracted worldwide attention and was adopted by GNU. That's why the concept of **GNU/LINUX** emerged. Today, Linux is supported by the free software philosophy and developed with contributions from the world's largest technology companies (Google, Amazon, IBM). All of the top 500 fastest supercomputers in the world and the vast majority of servers on the internet run on Linux.
 
@@ -211,8 +211,8 @@ In order for a Linux-based system to cater to an end-user, a skeletal system bui
 In the late 2000s, with the rise of smartphones, the OS wars moved to the mobile arena. Early players like **Symbian** and **Palm OS** gave way to modern giants after the introduction of Apple's **iOS** in 2007 and Google's **Android** in 2008. While iOS offers a closed ecosystem based on BSD, Android adopted an open-source structure built on the Linux kernel, eventually capturing the majority of the market.
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 20px 0; flex-wrap: wrap;">
-    <img src="./ios.png" style="max-height: 120px; border-radius: 8px;" alt="iOS"/>
-    <img src="./android.png" style="max-height: 120px; border-radius: 8px;" alt="Android"/>
+    <img src="./ios.webp" style="max-height: 120px; border-radius: 8px;" alt="iOS"/>
+    <img src="./android.webp" style="max-height: 120px; border-radius: 8px;" alt="Android"/>
 </div>
 
 
@@ -246,10 +246,10 @@ The biggest example of this was Apple's transition to its custom-designed **Appl
 As operating systems evolved, the need to use hardware resources more efficiently and increase security also grew. These needs gave birth to **Virtualization** technologies. Through software called Hypervisors (e.g., VMware, KVM, Hyper-V), it became possible to run multiple completely isolated operating systems on a single physical server. This isolated structure both reduced server costs and prevented system crashes or security vulnerabilities from affecting other systems.
 
 <div style="display: flex; justify-content: center; flex-wrap: wrap; margin: 20px 0;">
-    <img src="./vmware.jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="VMware"/>
+    <img src="./vmware.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="VMware"/>
     <img src="./Virtualbox.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="VirtualBox"/>
-    <img src="./proxmox.png" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Proxmox"/>
-    <img src="./hypervisor.jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Hypervisor"/>
+    <img src="./proxmox.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Proxmox"/>
+    <img src="./hypervisor.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Hypervisor"/>
 </div>
 
 On the security side, modern operating systems began to work integrated with hardware protection mechanisms. In particular, the **Secure Boot** technology, which ensures that the system boots only with trusted, manufacturer-signed software, and **TPM (Trusted Platform Module)** chips, which store cryptographic keys at the hardware level, have become mandatory for systems like Windows 11 today, making software-hardware security an inseparable whole.

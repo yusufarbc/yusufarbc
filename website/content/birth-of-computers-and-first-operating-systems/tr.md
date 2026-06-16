@@ -112,7 +112,7 @@ GNU projesi kapsamında, bir Unix türevi olan **Minix** işletim sistemi ortaya
 1991 yılında bilgisayar bilimi öğrencisi **Linus Torvalds**, Unix ve Minix işletim sistemleri hakkında bilgi alışverişinde bulunulan bir haber grubuna bir mesaj gönderdi. Mesajında Linus, ücretsiz bir işletim sistemi üzerinde çalıştığını belirtti ve geliştirme için öneriler istedi. Linus bu yeni işletim sistemine, Linus'un Minix'i olarak tanımladığı **Linux** adını verdi.
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 20px 0; flex-wrap: wrap;">
-    <img src="./linus-torvalds.jpg" style="max-height: 250px; border-radius: 8px;" alt="Linus Torvalds"/>
+    <img src="./linus-torvalds.webp" style="max-height: 250px; border-radius: 8px;" alt="Linus Torvalds"/>
     <img src="./linux.webp" style="max-height: 250px; border-radius: 8px;" alt="Linux Logo"/>
 </div>
 
@@ -162,21 +162,21 @@ Bazı önemli Unix dağıtımları şunlardır:
 
 <div style="display: flex; justify-content: center; flex-wrap: wrap; margin: 20px 0;">
     <img src="./Mac-OS.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="macOS"/>
-    <img src="./freebsd.jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="FreeBSD"/>
-    <img src="./openbsd.jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="OpenBSD"/>
-    <img src="./solaris.jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Oracle Solaris"/>
-    <img src="./IBMAIX7.png" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="IBM AIX"/>
+    <img src="./freebsd.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="FreeBSD"/>
+    <img src="./openbsd.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="OpenBSD"/>
+    <img src="./solaris.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Oracle Solaris"/>
+    <img src="./IBMAIX7.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="IBM AIX"/>
 </div>
 **MacOS, Oracle Solaris, IBM AIX, HP-UX, IRIX ve BSD (FreeBSD, OpenBSD, NetBSD).**
 
 ### Windows Tabanlı Sistemler
 
 <div style="display: flex; justify-content: center; flex-wrap: wrap; margin: 20px 0;">
-    <img src="./windows98.jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Windows 98"/>
-    <img src="./windows-me.jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Windows ME"/>
+    <img src="./windows98.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Windows 98"/>
+    <img src="./windows-me.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Windows ME"/>
     <img src="./windows-xp.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Windows XP"/>
-    <img src="./windows7).jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Windows 7"/>
-    <img src="./windowsNT.png" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Windows NT"/>
+    <img src="./windows7).webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Windows 7"/>
+    <img src="./windowsNT.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Windows NT"/>
 </div>
 
 Windows programları çalıştırmak, komut vermek vb. için son kullanıcıya hitap eden son derece kullanışlı grafik arayüzler kullanır. Hızlı işlemlerin gerçekleştirilmesinde kolaylık sağlar. Windows işletim sistemlerinin en önemli özelliği öğrenilmesinin kolay olması, geniş yazılım geriye dönük uyumluluğu ve bilgisayar oyunu pazarındaki mutlak tekelidir. Bu sayede ev ve ofis bilgisayarlarında en çok kullanılan masaüstü işletim sistemi haline gelmiştir.
@@ -188,10 +188,10 @@ Windows'un teknik evrimindeki en büyük sıçrama, MS-DOS tabanlı alt yapını
 ### Linux Tabanlı Sistemler
 
 <div style="display: flex; justify-content: center; flex-wrap: wrap; margin: 20px 0;">
-    <img src="./Ubuntu.png" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Ubuntu"/>
+    <img src="./Ubuntu.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Ubuntu"/>
     <img src="./Archlinux.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Arch Linux"/>
-    <img src="./opensuse.jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="openSUSE"/>
-    <img src="./redhat.jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="RedHat"/>
+    <img src="./opensuse.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="openSUSE"/>
+    <img src="./redhat.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="RedHat"/>
 </div>
 
 Ortaya çıkışından sonra Linux dünya çapında dikkat çekti ve GNU tarafından benimsendi. Bu nedenle **GNU/LINUX** kavramı ortaya çıktı. Linux bugün özgür yazılım felsefesiyle desteklenmekte ve dünyanın en büyük teknoloji şirketlerinin (Google, Amazon, IBM vb.) katkılarıyla geliştirilmektedir. Dünyadaki en hızlı 500 süper bilgisayarın tamamı ve internetteki sunucuların çok büyük bir çoğunluğu Linux kullanır.
@@ -215,8 +215,8 @@ Bir Linux sisteminin son kullanıcıya hitap edebilmesi için çekirdek üzerine
 2000'li yılların sonunda akıllı telefonların çıkışıyla işletim sistemi savaşları mobil alana taşındı. **Symbian** ve **Palm OS** gibi erken dönem oyuncuları, 2007'de Apple'ın **iOS**'u ve 2008'de Google'ın **Android**'i tanıtmasıyla yerlerini modern devlere bıraktılar. iOS, BSD tabanlı kapalı bir ekosistem sunarken; Android, Linux çekirdeği üzerine kurulu açık kaynaklı bir yapı benimseyerek pazarın çoğunluğunu ele geçirdi.
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 20px 0; flex-wrap: wrap;">
-    <img src="./ios.png" style="max-height: 120px; border-radius: 8px;" alt="iOS"/>
-    <img src="./android.png" style="max-height: 120px; border-radius: 8px;" alt="Android"/>
+    <img src="./ios.webp" style="max-height: 120px; border-radius: 8px;" alt="iOS"/>
+    <img src="./android.webp" style="max-height: 120px; border-radius: 8px;" alt="Android"/>
 </div>
 
 
@@ -250,10 +250,10 @@ Bunun en büyük örneğini, Apple'ın kendi tasarımı olan **Apple Silicon (M1
 İşletim sistemleri geliştikçe, donanım kaynaklarını daha verimli kullanma ve güvenliği artırma ihtiyacı da büyüdü. Bu ihtiyaçlar **Sanallaştırma (Virtualization)** teknolojilerini doğurdu. Hypervisor (Sanallaştırma Yöneticisi) adı verilen yazılımlar (örneğin VMware, KVM, Hyper-V) sayesinde tek bir fiziksel sunucu üzerinde birbirinden tamamen izole edilmiş birden fazla işletim sistemi çalıştırılabilir hale geldi. Bu izole yapı hem sunucu maliyetlerini düşürdü hem de sistem çökmelerinin veya güvenlik açıklarının diğer sistemleri etkilemesini engelledi.
 
 <div style="display: flex; justify-content: center; flex-wrap: wrap; margin: 20px 0;">
-    <img src="./vmware.jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="VMware"/>
+    <img src="./vmware.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="VMware"/>
     <img src="./Virtualbox.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="VirtualBox"/>
-    <img src="./proxmox.png" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Proxmox"/>
-    <img src="./hypervisor.jpg" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Hypervisor"/>
+    <img src="./proxmox.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Proxmox"/>
+    <img src="./hypervisor.webp" style="max-height: 80px; margin: 10px; border-radius: 4px;" alt="Hypervisor"/>
 </div>
 
 Güvenlik tarafında ise modern işletim sistemleri donanımsal koruma mekanizmalarıyla entegre çalışmaya başladı. Özellikle sistemin sadece güvenilir, üretici tarafından imzalanmış yazılımlarla açılmasını sağlayan **Secure Boot** teknolojisi ve kriptografik anahtarları donanımsal düzeyde saklayan **TPM (Trusted Platform Module)** çipleri günümüzde Windows 11 gibi sistemler için zorunlu hale gelerek yazılım-donanım güvenliğini ayrılmaz bir bütün yaptı.
