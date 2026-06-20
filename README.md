@@ -56,7 +56,7 @@ I set up resilient environments using virtualization and containerization:
 
 <div align="center">
   <p>
-    🌐 <a href="https://yusufarbc.dev/en/">yusufarbc.dev</a> &nbsp;|&nbsp; 📧 <a href="mailto:yusuf.talhaarabaci@owasp.org">yusuf.talhaarabaci@owasp.org</a>
+    🌐 <a href="https://yusufarbc.dev/en/">yusufarbc.dev</a> &nbsp;|&nbsp; 📧 <a href="mailto:yusuftalhaarabaci@hotmail.com">yusuftalhaarabaci@hotmail.com</a>
   </p>
 </div>
 

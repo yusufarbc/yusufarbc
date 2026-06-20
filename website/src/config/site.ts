@@ -36,7 +36,7 @@ export const SITE = {
     {
       name: "Email",
       icon: "fa-solid fa-envelope",
-      url: "mailto:yusuf.talhaarabaci@owasp.org",
+      url: "mailto:yusuftalhaarabaci@hotmail.com",
     },
   ],
 };
@@ -47,13 +47,13 @@ export const MENU: Record<Lang, Array<{ label: string; href: string; external?: 
     { label: "Write-up", href: "/tr/writeups/" },
     { label: "Projeler", href: "/tr/projects/" },
     { label: "Hakkımda", href: "/tr/about/" },
-    { label: "İletişim", href: "mailto:yusuf.talhaarabaci@owasp.org", external: true },
+    { label: "İletişim", href: "mailto:yusuftalhaarabaci@hotmail.com", external: true },
   ],
   en: [
     { label: "Blog", href: "/en/blog/" },
     { label: "Write-ups", href: "/en/writeups/" },
     { label: "Projects", href: "/en/projects/" },
     { label: "About", href: "/en/about/" },
-    { label: "Contact", href: "mailto:yusuf.talhaarabaci@owasp.org", external: true },
+    { label: "Contact", href: "mailto:yusuftalhaarabaci@hotmail.com", external: true },
   ],
 };
