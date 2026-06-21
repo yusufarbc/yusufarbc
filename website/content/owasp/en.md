@@ -282,42 +282,38 @@ Security teams often make the mistake of auditing vulnerabilities in isolation. 
 In the interactive panel below, you can explore the technical comparisons of critical OWASP projects that are often confused or must be managed together due to their overlapping architectures.
 
 <div class="interactive-comparison reveal-on-scroll">
-  <div class="comparison-tabs">
-    <button class="comp-tab active" data-target="ssr">Web vs API vs Mobile</button>
-    <button class="comp-tab" data-target="csr">LLM vs ML Security</button>
-    <button class="comp-tab" data-target="ssg">CI/CD vs Kubernetes</button>
-    <button class="comp-tab" data-target="isr">Serverless vs LCNC</button>
-  </div>
-  
-  <div class="comparison-panels">
-    <!-- Panel 1: SSR (Web vs API vs Mobile) -->
-    <div class="comp-panel active" id="panel-ssr">
-      <span class="render-badge" style="color: #b45309; background: rgba(245, 158, 11, 0.16); border: 1px solid rgba(245, 158, 11, 0.43); padding: 0.15rem 0.45rem; border-radius: 999px; font-weight: 800; font-size: 0.72rem;">WEB vs API vs MOBILE</span>
-      <h3 style="margin-top: 1rem;">Boundary & Authorization Differences</h3>
-      <p>Web application security revolves around server-side sessions and browser-level policies (CORS, CSP). In API security, the model changes completely; sessions are replaced by stateless token-based architectures (OAuth, JWT) validated on every request. The most common API error is sending raw database objects to the client without filtering (BOPLA). Mobile security, assuming the attacker has physical control over the device, prioritizes local encryption of data on disk and protecting binary files against reverse engineering.</p>
-    </div>
-    
-    <!-- Panel 2: CSR (LLM vs ML Security) -->
-    <div class="comp-panel" id="panel-csr">
-      <span class="render-badge" style="color: #0e7490; background: rgba(6, 182, 212, 0.15); border: 1px solid rgba(6, 182, 212, 0.4); padding: 0.15rem 0.45rem; border-radius: 999px; font-weight: 800; font-size: 0.72rem;">LLM vs ML SECURITY</span>
-      <h3 style="margin-top: 1rem;">Application vs Model Security</h3>
-      <p>The LLM Top 10 targets the behavior of large language models at the application layer. The primary threat here is prompt injection, which occurs because the model processes data and instructions via the same channel. The ML Security project targets the statistical and mathematical structure of the model. ML attacks include data poisoning during training, extracting model weights to replicate the model, or adding noise to inputs to mislead model decisions (adversarial evasion).</p>
-    </div>
-    
-    <!-- Panel 3: SSG (CI/CD vs Kube) -->
-    <div class="comp-panel" id="panel-ssg">
-      <span class="render-badge" style="color: #166534; background: rgba(34, 197, 94, 0.16); border: 1px solid rgba(34, 197, 94, 0.43); padding: 0.15rem 0.45rem; border-radius: 999px; font-weight: 800; font-size: 0.72rem;">CI/CD vs KUBERNETES</span>
-      <h3 style="margin-top: 1rem;">SDLC vs Runtime Execution</h3>
-      <p>CI/CD security spans the software assembly and packaging phases, aiming to prevent malicious code injection (Poisoned Pipeline Execution). Kubernetes security begins once those packages are executed in production. An unsigned image built insecurely during CI/CD can introduce vulnerabilities into running containers, allowing attackers to abuse cluster resources via over-privileged RBAC roles. Together, these two projects establish an unbroken chain of defense from pipeline to runtime.</p>
-    </div>
-    
-    <!-- Panel 4: ISR (Serverless vs LCNC) -->
-    <div class="comp-panel" id="panel-isr">
-      <span class="render-badge" style="color: #7c3aed; background: rgba(124, 58, 237, 0.16); border: 1px solid rgba(124, 58, 237, 0.43); padding: 0.15rem 0.45rem; border-radius: 999px; font-weight: 800; font-size: 0.72rem;">SERVERLESS vs LCNC</span>
-      <h3 style="margin-top: 1rem;">Distributed Infrastructure vs Citizen Dev</h3>
-      <p>Serverless architecture consists of thousands of short-lived functions (FaaS) managed by the cloud provider. Vulnerabilities here typically stem from over-privileged IAM roles and sensitive data left in temporary directories. Low-code/No-code, conversely, involves "shadow" applications built by non-technical business units (citizen developers). While serverless focuses on micro-level infrastructure hardening, LCNC centers on managing database connectors and tracking digital assets to prevent data leakage.</p>
-    </div>
-  </div>
+<div class="comparison-tabs">
+<button class="comp-tab active" data-target="ssr">Web vs API vs Mobile</button>
+<button class="comp-tab" data-target="csr">LLM vs ML Security</button>
+<button class="comp-tab" data-target="ssg">CI/CD vs Kubernetes</button>
+<button class="comp-tab" data-target="isr">Serverless vs LCNC</button>
+</div>
+<div class="comparison-panels">
+<!-- Panel 1: SSR (Web vs API vs Mobile) -->
+<div class="comp-panel active" id="panel-ssr">
+<span class="render-badge" style="color: #b45309; background: rgba(245, 158, 11, 0.16); border: 1px solid rgba(245, 158, 11, 0.43); padding: 0.15rem 0.45rem; border-radius: 999px; font-weight: 800; font-size: 0.72rem;">WEB vs API vs MOBILE</span>
+<h3 style="margin-top: 1rem;">Boundary & Authorization Differences</h3>
+<p>Web application security revolves around server-side sessions and browser-level policies (CORS, CSP). In API security, the model changes completely; sessions are replaced by stateless token-based architectures (OAuth, JWT) validated on every request. The most common API error is sending raw database objects to the client without filtering (BOPLA). Mobile security, assuming the attacker has physical control over the device, prioritizes local encryption of data on disk and protecting binary files against reverse engineering.</p>
+</div>
+<!-- Panel 2: CSR (LLM vs ML Security) -->
+<div class="comp-panel" id="panel-csr">
+<span class="render-badge" style="color: #0e7490; background: rgba(6, 182, 212, 0.15); border: 1px solid rgba(6, 182, 212, 0.4); padding: 0.15rem 0.45rem; border-radius: 999px; font-weight: 800; font-size: 0.72rem;">LLM vs ML SECURITY</span>
+<h3 style="margin-top: 1rem;">Application vs Model Security</h3>
+<p>The LLM Top 10 targets the behavior of large language models at the application layer. The primary threat here is prompt injection, which occurs because the model processes data and instructions via the same channel. The ML Security project targets the statistical and mathematical structure of the model. ML attacks include data poisoning during training, extracting model weights to replicate the model, or adding noise to inputs to mislead model decisions (adversarial evasion).</p>
+</div>
+<!-- Panel 3: SSG (CI/CD vs Kube) -->
+<div class="comp-panel" id="panel-ssg">
+<span class="render-badge" style="color: #166534; background: rgba(34, 197, 94, 0.16); border: 1px solid rgba(34, 197, 94, 0.43); padding: 0.15rem 0.45rem; border-radius: 999px; font-weight: 800; font-size: 0.72rem;">CI/CD vs KUBERNETES</span>
+<h3 style="margin-top: 1rem;">SDLC vs Runtime Execution</h3>
+<p>CI/CD security spans the software assembly and packaging phases, aiming to prevent malicious code injection (Poisoned Pipeline Execution). Kubernetes security begins once those packages are executed in production. An unsigned image built insecurely during CI/CD can introduce vulnerabilities into running containers, allowing attackers to abuse cluster resources via over-privileged RBAC roles. Together, these two projects establish an unbroken chain of defense from pipeline to runtime.</p>
+</div>
+<!-- Panel 4: ISR (Serverless vs LCNC) -->
+<div class="comp-panel" id="panel-isr">
+<span class="render-badge" style="color: #7c3aed; background: rgba(124, 58, 237, 0.16); border: 1px solid rgba(124, 58, 237, 0.43); padding: 0.15rem 0.45rem; border-radius: 999px; font-weight: 800; font-size: 0.72rem;">SERVERLESS vs LCNC</span>
+<h3 style="margin-top: 1rem;">Distributed Infrastructure vs Citizen Dev</h3>
+<p>Serverless architecture consists of thousands of short-lived functions (FaaS) managed by the cloud provider. Vulnerabilities here typically stem from over-privileged IAM roles and sensitive data left in temporary directories. Low-code/No-code, conversely, involves "shadow" applications built by non-technical business units (citizen developers). While serverless focuses on micro-level infrastructure hardening, LCNC centers on managing database connectors and tracking digital assets to prevent data leakage.</p>
+</div>
+</div>
 </div>
 
 <style>

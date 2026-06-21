@@ -106,19 +106,15 @@ Web vs API vs Mobile
 LLM vs ML Security
 CI/CD vs Kubernetes
 Serverless vs LCNC
-
 WEB vs API vs MOBILE
 Boundary & Authorization Differences
 Web application security revolves around server-side sessions and browser-level policies (CORS, CSP). In API security, the model changes completely; sessions are replaced by stateless token-based architectures (OAuth, JWT) validated on every request. The most common API error is sending raw database objects to the client without filtering (BOPLA). Mobile security, assuming the attacker has physical control over the device, prioritizes local encryption of data on disk and protecting binary files against reverse engineering.
-
 LLM vs ML SECURITY
 Application vs Model Security
 The LLM Top 10 targets the behavior of large language models at the application layer. The primary threat here is prompt injection, which occurs because the model processes data and instructions via the same channel. The ML Security project targets the statistical and mathematical structure of the model. ML attacks include data poisoning during training, extracting model weights to replicate the model, or adding noise to inputs to mislead model decisions (adversarial evasion).
-
 CI/CD vs KUBERNETES
 SDLC vs Runtime Execution
 CI/CD security spans the software assembly and packaging phases, aiming to prevent malicious code injection (Poisoned Pipeline Execution). Kubernetes security begins once those packages are executed in production. An unsigned image built insecurely during CI/CD can introduce vulnerabilities into running containers, allowing attackers to abuse cluster resources via over-privileged RBAC roles. Together, these two projects establish an unbroken chain of defense from pipeline to runtime.
-
 SERVERLESS vs LCNC
 Distributed Infrastructure vs Citizen Dev
 Serverless architecture consists of thousands of short-lived functions (FaaS) managed by the cloud provider. Vulnerabilities here typically stem from over-privileged IAM roles and sensitive data left in temporary directories. Low-code/No-code, conversely, involves "shadow" applications built by non-technical business units (citizen developers). While serverless focuses on micro-level infrastructure hardening, LCNC centers on managing database connectors and tracking digital assets to prevent data leakage.

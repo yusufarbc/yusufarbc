@@ -106,19 +106,15 @@ Web vs API vs Mobile
 LLM vs ML Security
 CI/CD vs Kubernetes
 Serverless vs LCNC
-
 WEB vs API vs MOBILE
 Sınır ve Yetkilendirme Farkları
 Web uygulama güvenliği, sunucu tarafındaki oturumlar (session) ve tarayıcı politikaları (CORS, CSP) etrafında şekillenir. API güvenliğinde ise durum tamamen değişir; oturum bilgisi yerini her istekte doğrulanan token bazlı mimariye (OAuth, JWT) bırakır. API'lerde en sık görülen hata, veri tabanından gelen nesnelerin istemciye filtrelenmeden doğrudan sunulmasıdır (BOPLA). Mobil güvenlikte ise saldırganın cihaz üzerinde fiziksel kontrole sahip olduğu kabul edilerek, verilerin diskte şifreli saklanması ve binary dosyanın tersine mühendisliğe karşı korunması birincil önceliktir.
-
 LLM vs ML SECURITY
 Uygulama vs Model Güvenliği
 LLM Top 10, büyük dil modellerinin uygulama katmanındaki davranışlarını hedefler. Burada en kritik tehdit, veri ile talimat kanalının ayrılmamasından kaynaklanan prompt enjeksiyonudur. ML Security projesi ise modelin altındaki istatistiksel ve matematiksel yapıyı hedefler. ML saldırıları, eğitim verilerinin zehirlenmesini (data poisoning), model ağırlıklarının sızdırılarak kopyalanmasını veya girdi görüntülerine insan gözünün fark edemeyeceği parazitler eklenerek modelin kararlarının saptırılmasını (adversarial evasion) kapsar.
-
 CI/CD vs KUBERNETES
 SDLC vs Çalışma Zamanı (Runtime)
 CI/CD güvenliği, yazılımın derlenmesinden paketlenmesine kadar olan teslimat (delivery) aşamasını kapsar ve birincil amacı zehirli kod enjeksiyonunu (Poisoned Pipeline Execution) engellemektir. Kubernetes güvenliği ise bu paketlerin üretim (production) ortamında çalıştırıldığı andan itibaren başlar. CI/CD seviyesinde imzasız üretilen bir imaj, Kubernetes aşamasında zafiyet barındıran konteynerların çalıştırılmasına ve aşırı yetkili RBAC rolleriyle küme kaynaklarının istismar edilmesine zemin hazırlar. İki proje, pipeline'dan runtime'a kesintisiz bir zincir oluşturur.
-
 SERVERLESS vs LCNC
 Dağıtık Altyapı vs Citizen Development
 Serverless mimari, yönetimi bulut sağlayıcıda olan binlerce kısa ömürlü fonksiyondan (FaaS) oluşur ve buradaki güvenlik zafiyetleri genellikle aşırı yetkilendirilmiş IAM rolleri ve fonksiyonların geçici disk alanlarında bıraktığı verilerden kaynaklanır. Low-code/No-code ise yazılım geliştirme yetkinliği olmayan iş birimlerinin (citizen developer) ürettiği "gölge" uygulamaları kapsar. Serverless'ta mikro seviyedeki altyapı sıkılaştırması hedeflenirken, LCNC projelerinde kurumsal veri sızıntılarını önlemek amacıyla veritabanı bağlayıcılarının (connectors) yönetimi ve varlık takibi ön plana çıkar.

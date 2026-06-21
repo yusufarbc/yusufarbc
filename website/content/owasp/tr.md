@@ -282,42 +282,38 @@ Güvenlik ekiplerinin yaptığı en büyük hatalardan biri, zafiyetleri izole a
 Aşağıdaki etkileşimli panelde, mimari yapıları ve çalışma prensipleri açısından sıkça karıştırılan kritik OWASP projelerinin karşılaştırmalarını inceleyebilirsiniz.
 
 <div class="interactive-comparison reveal-on-scroll">
-  <div class="comparison-tabs">
-    <button class="comp-tab active" data-target="ssr">Web vs API vs Mobile</button>
-    <button class="comp-tab" data-target="csr">LLM vs ML Security</button>
-    <button class="comp-tab" data-target="ssg">CI/CD vs Kubernetes</button>
-    <button class="comp-tab" data-target="isr">Serverless vs LCNC</button>
-  </div>
-  
-  <div class="comparison-panels">
-    <!-- Panel 1: SSR (Web vs API vs Mobile) -->
-    <div class="comp-panel active" id="panel-ssr">
-      <span class="render-badge" style="color: #b45309; background: rgba(245, 158, 11, 0.16); border: 1px solid rgba(245, 158, 11, 0.43); padding: 0.15rem 0.45rem; border-radius: 999px; font-weight: 800; font-size: 0.72rem;">WEB vs API vs MOBILE</span>
-      <h3 style="margin-top: 1rem;">Sınır ve Yetkilendirme Farkları</h3>
-      <p>Web uygulama güvenliği, sunucu tarafındaki oturumlar (session) ve tarayıcı politikaları (CORS, CSP) etrafında şekillenir. API güvenliğinde ise durum tamamen değişir; oturum bilgisi yerini her istekte doğrulanan token bazlı mimariye (OAuth, JWT) bırakır. API'lerde en sık görülen hata, veri tabanından gelen nesnelerin istemciye filtrelenmeden doğrudan sunulmasıdır (BOPLA). Mobil güvenlikte ise saldırganın cihaz üzerinde fiziksel kontrole sahip olduğu kabul edilerek, verilerin diskte şifreli saklanması ve binary dosyanın tersine mühendisliğe karşı korunması birincil önceliktir.</p>
-    </div>
-    
-    <!-- Panel 2: CSR (LLM vs ML Security) -->
-    <div class="comp-panel" id="panel-csr">
-      <span class="render-badge" style="color: #0e7490; background: rgba(6, 182, 212, 0.15); border: 1px solid rgba(6, 182, 212, 0.4); padding: 0.15rem 0.45rem; border-radius: 999px; font-weight: 800; font-size: 0.72rem;">LLM vs ML SECURITY</span>
-      <h3 style="margin-top: 1rem;">Uygulama vs Model Güvenliği</h3>
-      <p>LLM Top 10, büyük dil modellerinin uygulama katmanındaki davranışlarını hedefler. Burada en kritik tehdit, veri ile talimat kanalının ayrılmamasından kaynaklanan prompt enjeksiyonudur. ML Security projesi ise modelin altındaki istatistiksel ve matematiksel yapıyı hedefler. ML saldırıları, eğitim verilerinin zehirlenmesini (data poisoning), model ağırlıklarının sızdırılarak kopyalanmasını veya girdi görüntülerine insan gözünün fark edemeyeceği parazitler eklenerek modelin kararlarının saptırılmasını (adversarial evasion) kapsar.</p>
-    </div>
-    
-    <!-- Panel 3: SSG (CI/CD vs Kube) -->
-    <div class="comp-panel" id="panel-ssg">
-      <span class="render-badge" style="color: #166534; background: rgba(34, 197, 94, 0.16); border: 1px solid rgba(34, 197, 94, 0.43); padding: 0.15rem 0.45rem; border-radius: 999px; font-weight: 800; font-size: 0.72rem;">CI/CD vs KUBERNETES</span>
-      <h3 style="margin-top: 1rem;">SDLC vs Çalışma Zamanı (Runtime)</h3>
-      <p>CI/CD güvenliği, yazılımın derlenmesinden paketlenmesine kadar olan teslimat (delivery) aşamasını kapsar ve birincil amacı zehirli kod enjeksiyonunu (Poisoned Pipeline Execution) engellemektir. Kubernetes güvenliği ise bu paketlerin üretim (production) ortamında çalıştırıldığı andan itibaren başlar. CI/CD seviyesinde imzasız üretilen bir imaj, Kubernetes aşamasında zafiyet barındıran konteynerların çalıştırılmasına ve aşırı yetkili RBAC rolleriyle küme kaynaklarının istismar edilmesine zemin hazırlar. İki proje, pipeline'dan runtime'a kesintisiz bir zincir oluşturur.</p>
-    </div>
-    
-    <!-- Panel 4: ISR (Serverless vs LCNC) -->
-    <div class="comp-panel" id="panel-isr">
-      <span class="render-badge" style="color: #7c3aed; background: rgba(124, 58, 237, 0.16); border: 1px solid rgba(124, 58, 237, 0.43); padding: 0.15rem 0.45rem; border-radius: 999px; font-weight: 800; font-size: 0.72rem;">SERVERLESS vs LCNC</span>
-      <h3 style="margin-top: 1rem;">Dağıtık Altyapı vs Citizen Development</h3>
-      <p>Serverless mimari, yönetimi bulut sağlayıcıda olan binlerce kısa ömürlü fonksiyondan (FaaS) oluşur ve buradaki güvenlik zafiyetleri genellikle aşırı yetkilendirilmiş IAM rolleri ve fonksiyonların geçici disk alanlarında bıraktığı verilerden kaynaklanır. Low-code/No-code ise yazılım geliştirme yetkinliği olmayan iş birimlerinin (citizen developer) ürettiği "gölge" uygulamaları kapsar. Serverless'ta mikro seviyedeki altyapı sıkılaştırması hedeflenirken, LCNC projelerinde kurumsal veri sızıntılarını önlemek amacıyla veritabanı bağlayıcılarının (connectors) yönetimi ve varlık takibi ön plana çıkar.</p>
-    </div>
-  </div>
+<div class="comparison-tabs">
+<button class="comp-tab active" data-target="ssr">Web vs API vs Mobile</button>
+<button class="comp-tab" data-target="csr">LLM vs ML Security</button>
+<button class="comp-tab" data-target="ssg">CI/CD vs Kubernetes</button>
+<button class="comp-tab" data-target="isr">Serverless vs LCNC</button>
+</div>
+<div class="comparison-panels">
+<!-- Panel 1: SSR (Web vs API vs Mobile) -->
+<div class="comp-panel active" id="panel-ssr">
+<span class="render-badge" style="color: #b45309; background: rgba(245, 158, 11, 0.16); border: 1px solid rgba(245, 158, 11, 0.43); padding: 0.15rem 0.45rem; border-radius: 999px; font-weight: 800; font-size: 0.72rem;">WEB vs API vs MOBILE</span>
+<h3 style="margin-top: 1rem;">Sınır ve Yetkilendirme Farkları</h3>
+<p>Web uygulama güvenliği, sunucu tarafındaki oturumlar (session) ve tarayıcı politikaları (CORS, CSP) etrafında şekillenir. API güvenliğinde ise durum tamamen değişir; oturum bilgisi yerini her istekte doğrulanan token bazlı mimariye (OAuth, JWT) bırakır. API'lerde en sık görülen hata, veri tabanından gelen nesnelerin istemciye filtrelenmeden doğrudan sunulmasıdır (BOPLA). Mobil güvenlikte ise saldırganın cihaz üzerinde fiziksel kontrole sahip olduğu kabul edilerek, verilerin diskte şifreli saklanması ve binary dosyanın tersine mühendisliğe karşı korunması birincil önceliktir.</p>
+</div>
+<!-- Panel 2: CSR (LLM vs ML Security) -->
+<div class="comp-panel" id="panel-csr">
+<span class="render-badge" style="color: #0e7490; background: rgba(6, 182, 212, 0.15); border: 1px solid rgba(6, 182, 212, 0.4); padding: 0.15rem 0.45rem; border-radius: 999px; font-weight: 800; font-size: 0.72rem;">LLM vs ML SECURITY</span>
+<h3 style="margin-top: 1rem;">Uygulama vs Model Güvenliği</h3>
+<p>LLM Top 10, büyük dil modellerinin uygulama katmanındaki davranışlarını hedefler. Burada en kritik tehdit, veri ile talimat kanalının ayrılmamasından kaynaklanan prompt enjeksiyonudur. ML Security projesi ise modelin altındaki istatistiksel ve matematiksel yapıyı hedefler. ML saldırıları, eğitim verilerinin zehirlenmesini (data poisoning), model ağırlıklarının sızdırılarak kopyalanmasını veya girdi görüntülerine insan gözünün fark edemeyeceği parazitler eklenerek modelin kararlarının saptırılmasını (adversarial evasion) kapsar.</p>
+</div>
+<!-- Panel 3: SSG (CI/CD vs Kube) -->
+<div class="comp-panel" id="panel-ssg">
+<span class="render-badge" style="color: #166534; background: rgba(34, 197, 94, 0.16); border: 1px solid rgba(34, 197, 94, 0.43); padding: 0.15rem 0.45rem; border-radius: 999px; font-weight: 800; font-size: 0.72rem;">CI/CD vs KUBERNETES</span>
+<h3 style="margin-top: 1rem;">SDLC vs Çalışma Zamanı (Runtime)</h3>
+<p>CI/CD güvenliği, yazılımın derlenmesinden paketlenmesine kadar olan teslimat (delivery) aşamasını kapsar ve birincil amacı zehirli kod enjeksiyonunu (Poisoned Pipeline Execution) engellemektir. Kubernetes güvenliği ise bu paketlerin üretim (production) ortamında çalıştırıldığı andan itibaren başlar. CI/CD seviyesinde imzasız üretilen bir imaj, Kubernetes aşamasında zafiyet barındıran konteynerların çalıştırılmasına ve aşırı yetkili RBAC rolleriyle küme kaynaklarının istismar edilmesine zemin hazırlar. İki proje, pipeline'dan runtime'a kesintisiz bir zincir oluşturur.</p>
+</div>
+<!-- Panel 4: ISR (Serverless vs LCNC) -->
+<div class="comp-panel" id="panel-isr">
+<span class="render-badge" style="color: #7c3aed; background: rgba(124, 58, 237, 0.16); border: 1px solid rgba(124, 58, 237, 0.43); padding: 0.15rem 0.45rem; border-radius: 999px; font-weight: 800; font-size: 0.72rem;">SERVERLESS vs LCNC</span>
+<h3 style="margin-top: 1rem;">Dağıtık Altyapı vs Citizen Development</h3>
+<p>Serverless mimari, yönetimi bulut sağlayıcıda olan binlerce kısa ömürlü fonksiyondan (FaaS) oluşur ve buradaki güvenlik zafiyetleri genellikle aşırı yetkilendirilmiş IAM rolleri ve fonksiyonların geçici disk alanlarında bıraktığı verilerden kaynaklanır. Low-code/No-code ise yazılım geliştirme yetkinliği olmayan iş birimlerinin (citizen developer) ürettiği "gölge" uygulamaları kapsar. Serverless'ta mikro seviyedeki altyapı sıkılaştırması hedeflenirken, LCNC projelerinde kurumsal veri sızıntılarını önlemek amacıyla veritabanı bağlayıcılarının (connectors) yönetimi ve varlık takibi ön plana çıkar.</p>
+</div>
+</div>
 </div>
 
 <style>
