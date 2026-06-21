@@ -5,6 +5,7 @@ description: "Yazılım tedarik zinciri güvenliği çerçevesinde npm (Node Pac
 image: featured.webp
 type: posts
 audioFile: tr.mp3
+draft: true
 ---
 
 # npm Tedarik Zinciri Güvenliği: Mimari Analiz, Tehdit Vektörleri ve Savunma Stratejileri

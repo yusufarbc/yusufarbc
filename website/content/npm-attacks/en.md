@@ -5,6 +5,7 @@ description: "A deep-dive into the npm (Node Package Manager) ecosystem's archit
 image: featured.webp
 type: posts
 audioFile: en.mp3
+draft: true
 ---
 
 # npm Supply Chain Security: Architectural Analysis, Threat Vectors, and Enterprise Defense Strategies
