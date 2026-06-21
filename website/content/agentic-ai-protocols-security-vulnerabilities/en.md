@@ -9,6 +9,18 @@ audioFile: en.mp3
 
 Throughout AI history, two great paradigm shifts have occurred: the first was the move from symbolic AI to machine learning. The second — which we are living through right now — is the shift from reactive language models to **Agentic AI**. This second transformation is not merely a technical evolution; it marks the beginning of an entirely new order in terms of security, trust, and accountability.
 
+> [!NOTE]
+> **Concept Box — Symbolic AI (GOFAI) & Symbolic Reasoning:**
+> - **Symbolic AI (GOFAI - Good Old-Fashioned AI):** The traditional AI paradigm that works by directly encoding human knowledge and rules of logic into computer systems. It relies on predefined rules rather than learning from data.
+> - **Symbolic Reasoning:** A thinking and problem-solving methodology that operates on conceptual symbols and logical rules close to human language.
+> - **Expert Systems:** Systems that make decisions by encoding human knowledge in a specific area of expertise as a set of rules ("If... then...").
+> - **Inference Engines:** Logical reasoning engines that use rules and data in the knowledge base to make new inferences.
+> - **Knowledge Representation:** Modeling real-world information as ontologies or semantic networks so that it can be processed by computers.
+> - **Rule-Based Systems:** Deterministic systems with low flexibility that operate according to strict, predefined rules ("If A then B").
+
+> [!NOTE]
+> **Concept Box — Machine Learning (ML):** A suite of algorithms that enables computers to make predictions and decisions by learning patterns and statistical relationships from data, without being explicitly programmed.
+
 The rise of agentic AI has given birth to a new protocol ecosystem: **MCP, A2A, ANP, UCP, AP2**. These protocols don't compete with each other; instead, like TCP/IP, HTTP, and TLS, they form a complementary layered stack. And within each of these layers, entirely new attack surfaces hide — surfaces where classical security tools go blind.
 
 <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 1.5rem 0; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
@@ -95,6 +107,21 @@ As of 2025, the paradigm can be summarized as:
 
 This difference is not just functional; it is fundamentally security-relevant. A reactive model cannot harm its environment; an agentic agent can delete files, send emails, initiate payments, and activate other agents.
 
+> [!NOTE]
+> **Concept Box — Connectionist AI & Core Terms:**
+> - **Deep Learning (DL):** A subfield of machine learning that autonomously learns complex, hierarchical structures in data using multi-layered artificial neural networks.
+> - **Artificial Neural Networks (ANN):** Mathematical models inspired by the neural networks of the human brain, processing inputs through nodes (neurons) and weighted connections.
+> - **Natural Language Processing (NLP):** A suite of technologies that enables computers to analyze, comprehend, and autonomously generate human language (text or speech).
+> - **Large Language Models (LLM):** Advanced language models trained on billions of parameters and massive text datasets, capable of understanding context, completing text, answering questions, and performing autonomous reasoning.
+> - **Generative AI (GenAI):** AI systems that learn existing data distributions to generate completely new and original content, such as text, images, audio, music, or code.
+> - **Reinforcement Learning (RL):** A machine learning paradigm where an agent learns optimal decision policies by interacting with an environment through trial-and-error, maximizing a reward/penalty signal.
+> - **Computer Vision:** A discipline enabling computers to comprehend visual data (images, videos), perform object detection, or facial recognition.
+> - **Speech Recognition:** The process of analyzing human sound waves and translating them into a text format that computers can process.
+> - **Agentic AI:** An action-oriented AI architecture that plans autonomously, manages its memory, runs external tools (APIs, terminals), and self-corrects on errors to achieve a declared goal.
+> - **Planning:** The process where an agent autonomously determines the sequence of actions and alternative paths to achieve complex goals.
+> - **Convolutional Neural Networks (CNN):** Multi-layered neural networks optimized for filtering pixels in spatial data (images, videos) via convolution matrices to detect edges, corners, and textures.
+> - **Graph Neural Networks (GNN):** Modern deep learning structures designed to process relational (graph) data consisting of nodes and edges, such as molecular structures, social networks, or computer networks.
+
 ### Core Capabilities of Autonomous Agents
 
 Modern autonomous agents are built upon a "perception–reasoning–action" loop:
@@ -131,12 +158,8 @@ Agentic AI systems operate on specific reasoning patterns that define how they t
 
 ## RAG (Retrieval-Augmented Generation)
 
-
-
-
-
-
-
+> [!NOTE]
+> **Concept Box — RAG (Retrieval-Augmented Generation):** A hybrid architecture that, instead of relying solely on the parametric memory (training data) of a language model, fetches (retrieves) the most semantically relevant chunks from external dynamic data sources (PDFs, databases, etc.) using vector similarity search, and enriches (generates) the model's response with this context. It is the foundation for autonomous research and information gathering in agentic systems.
 
 **RAG (Retrieval-Augmented Generation)** is one of the smartest solutions in the AI space. It was developed to address the core limitations of Large Language Models (LLMs), specifically outdated knowledge and their tendency to hallucinate.
 
@@ -491,28 +514,35 @@ When autonomous agents interact with the real world, three critical risk factors
 
 ## Multi-Agent Security — A New Dimension
 
+> [!NOTE]
+> **Concept Box — Multi-Agent Systems (MAS):** A distributed system consisting of multiple AI agents that autonomously communicate, coordinate, and divide tasks among themselves to solve a specific problem.
 
+The proliferation of multi-agent architectures enables dynamic workflows that surpass the limits of individual models, but also multiplies cybersecurity risks.
 
+### RAK Threat Modeling for AI Agents
 
-This section explores the details and implications.
+To systematically analyze the risks inherent in autonomous agents, the **RAK (Root, Agency, Keys)** threat modeling framework is utilized. The RAK model classifies cyber threats in agent systems across three main layers:
 
+* **Root (Infrastructure/Container Level Risks):** The risk of the execution environment (host kernel, container) being fully compromised via remote code execution (RCE) or container escape attacks.
+* **Agency (Autonomous Privilege Abuse Risks):** The risk of the agent's reasoning logic being manipulated via prompt injection, leading it to autonomously execute malicious actions that conflict with business goals while utilizing its legitimate permissions.
+* **Keys (Credential & API Key Leakage Risks):** The risk of exposure or theft of static API keys or enterprise credentials used by the agent to access external tools and databases.
 
-### OWASP Agentic Security Initiative (ASI)
+### OWASP Agentic Security Initiative (ASI) Top 10
 
-Recognizing that agentic systems require a distinct security framework, OWASP published a risk taxonomy specifically for autonomous agents:
+OWASP published the **Agentic Security (ASI)** risk list to categorize next-generation threats to autonomous AI systems:
 
-| Code | Risk | Description |
-| :--- | :--- | :--- |
-| **ASI01** | Agent Goal Hijack | Prompt injection manipulates an agent's objectives; it serves the attacker while believing it's following its original instructions |
-| **ASI02** | Tool Misuse & Exploitation | Agent tricked into misusing authorized tools (APIs, code execution) for data exfiltration |
-| **ASI03** | Identity & Privilege Abuse | Excessive agency or improper identity scoping leads to privilege escalation |
-| **ASI04** | Agentic Supply Chain Vulnerabilities | Compromised third-party agents, plugins, models, or dependencies |
-| **ASI05** | Unexpected Code Execution (RCE) | Agents manipulated to execute arbitrary code within or beyond sandboxed environments |
-| **ASI06** | Memory & Context Poisoning | False information seeded into RAG indexes or logs for long-term stealthy behavior manipulation |
+| Code | Risk Title | RAK Relation | Description |
+| :--- | :--- | :--- | :--- |
+| **ASI01** | Agent Goal Hijack | Agency | Prompt injection redirects the agent's original goal, forcing it to execute the attacker's commands. |
+| **ASI02** | Tool Misuse & Exploitation | Agency, Root | Manipulation of the agent's APIs or code execution tools for unauthorized data exfiltration. |
+| **ASI03** | Identity & Privilege Abuse | Keys | Vulnerabilities arising from over-privileging agents or using static keys. |
+| **ASI04** | Agentic Supply Chain | Root, Agency | Integration of untrusted third-party agents, plugins, or weak models into the system. |
+| **ASI05** | Unexpected Code Execution (RCE) | Root | Execution of unauthorized code inside or outside the secure sandbox environment. |
+| **ASI06** | Memory & Context Poisoning | Agency | Injecting poisoned data into RAG databases or memory records to sabotage the agent's long-term decisions. |
 
-### Cascading Failures in Multi-Agent Systems
+### SOP Collapse (Same-Origin Policy Collapse) & Cascading Privilege Escalation in MAS
 
-The compromise of a single agent can trigger a chain reaction in multi-agent systems:
+In multi-agent systems, compromising a single agent can trigger a cascading failure, collapsing the entire system like dominoes:
 
 ```mermaid
 graph LR
@@ -522,9 +552,9 @@ graph LR
     classDef highPriv fill:#eef2f7,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a;
     classDef critical fill:#fafafa,stroke:#27272a,stroke-width:2px,color:#09090b;
 
-    A["External Attacker"] -..->|IPI| B["Outer Agent <br>(Low Privilege)"]
-    B -..->|Trust Exploitation| C["Inner Agent <br>(High Privilege)"]
-    C -..->|Privilege Escalation| D["Critical System"]
+    A["External Attacker"] -..->|IPI / Indirect Injection| B["Outer Agent <br>(Low Privilege - Web Search)"]
+    B -..->|SOP Collapse / Trust Exploitation| C["Coordinator Agent <br>(Inner Net - High Privilege)"]
+    C -..->|Privilege Escalation / RCE| D["Critical Enterprise System"]
 
     class A threat;
     class B lowPriv;
@@ -532,7 +562,11 @@ graph LR
     class D critical;
 ```
 
-**Implicit Peer Trust:** Because agents communicate autonomously, they may lack the granular zero-trust boundaries needed to verify the identity and integrity of other agents within the swarm.
+In traditional web browsers, the **Same-Origin Policy (SOP)** prevents scripts from different origins from accessing each other's data. However, this boundary is not yet defined in the world of AI agents. In a scenario referred to as **SOP Collapse**:
+1. A low-privilege agent tasked with web search is exposed to an indirect prompt injection (IPI).
+2. The coordinator agent accepts the report from this sub-agent as "trusted local input" and processes it without sanitization.
+3. The coordinator agent passes this manipulated input to a high-privilege agent authorized to write to databases or execute code.
+4. Consequently, manipulating the outermost, lowest-privileged agent leads to the compromise of critical core enterprise systems, exploiting the implicit trust relationship between agents.
 
 ### Traditional LLM Security vs. Agentic Security
 
@@ -635,44 +669,332 @@ MCP enables the "vibe coding" paradigm — developers describe goals in natural 
 
 ---
 
-## Defensive Architecture
+## Defensive Architecture and Security Strategies
 
+To secure autonomous agents (Agentic AI), a Defense-in-Depth model must be implemented instead of relying on a single security layer.
 
+> [!NOTE]
+> **Concept Box — Advanced AI Terms (XAI, AutoML, Federated Learning):**
+> - **Explainable AI (XAI):** A suite of principles aiming to make the decision-making and prediction processes of AI models transparent, auditable, and understandable for humans.
+> - **AutoML:** Standardizing and automating machine learning processes, such as data preparation, model selection, and hyperparameter optimization, using autonomous tools.
+> - **Federated Learning:** A privacy-preserving distributed learning methodology where models are trained locally on individual devices without consolidating raw data on a central server, and only encrypted model updates are aggregated.
 
+### Multi-Layered Security & Sandbox Isolation
 
-This section explores the details and implications.
+Running code generated by agents (such as Python scripts doing data analysis or terminal commands) directly on the host kernel can lead to "Container Escape" vulnerabilities. Therefore, two fundamental isolation technologies must be deployed:
+1. **Google gVisor:** Intercepts syscall (system call) requests via a virtual kernel running in user-space, preventing direct access to the Linux host kernel. Ideal for microservice-based agents with fast startup times.
+2. **AWS Firecracker (MicroVM):** Spawns a millisecond-level isolated Linux micro virtual machine for each agent session. Provides hardware-level (CPU) isolation and serves as the minimum security boundary for agents utilizing untrusted tools.
 
-
-### Multi-Layer Defense Table
-
-| Security Layer | Description | Implementation |
+| Security Layer | Objective | Implementation |
 | :--- | :--- | :--- |
-| **Zero Trust Boundary** | Execution environment isolation | gVisor, Firecracker micro-VMs, or restricted Docker containers |
-| **ACM (Agentic Contract Model)** | Declarative auditing | Tool calls pass through static, rules-based validation before execution |
-| **Semantic WAF / LLM Guard** | Prompt Injection defense | MCP-Guard, Llama Guard — 96% detection accuracy |
-| **Principle of Least Privilege** | Restricted identity management | Task-specific, time-limited, scoped tokens |
+| **Sandbox Isolation** | Isolating the execution environment for tools | gVisor, Firecracker micro-VM'leri veya kısıtlı Docker konteynerları |
+| **Agentic Contract Model (ACM)** | Declarative policy enforcement | Auditing tool calls against predefined rules before approval |
+| **Semantic WAF / LLM Guard** | Prompt Injection defense | Input/output filtering with systems like Llama Guard or MCP-Guard |
+| **Principle of Least Privilege** | Minimal runtime permissions | Short-lived, task-scoped API tokens |
 
-### MCP-Guard Performance
+### MCP-Guard Detection Performance
 
-| Attack Type | Accuracy | F1 Score | Latency |
+| Attack Type | Detection Rate | F1 Score | Analysis Latency |
 | :--- | :--- | :--- | :--- |
 | SQL Injection | **96.31%** | 96.33% | 0.11ms |
 | Shell Injection | **94.32%** | 94.45% | 0.05ms |
-| Shadow Takeover | **86.83%** | 88.30% | 0.20ms |
+| Tool Shadowing Attacks | **86.83%** | 88.30% | 0.20ms |
 
-### Information Flow Control (IFC) & Taint Tracking
+### Taint Tracking & Information Flow Control (IFC)
 
-Incoming data from untrusted sources is tagged as **tainted**. Under IFC rules, any LLM context that has consumed tainted data cannot trigger critical actions (file deletion, outbound HTTP requests) without human approval.
+All data coming from the external world (websites, incoming emails, etc.) must be marked as **taint** (untrusted/tainted) by the system. If an agent has consumed or processed this untrusted data, critical actions such as file deletion or outbound network requests are strictly blocked without human approval (Human-in-Loop - HITL).
 
-### Confused Deputy Defense with RFC 8707
+### Security Gateways & Agent Guardrails
 
-Enforcing OAuth 2.1 **Resource Indicators (RFC 8707)** prevents a legitimate token issued for one MCP server from being forwarded and abused on another.
+Protecting AI models and agents requires configuring gateways that perform bidirectional filtering at the deterministic boundaries outside the model.
+
+#### 1. Kong API Gateway & CrowdStrike Falcon AIDR Integration
+To consolidate all AI traffic at a single point and block injection attempts, CrowdStrike Falcon AIDR (AI Threat Detection and Response) plugins are deployed on the Kong Gateway:
+
+```yaml
+# /etc/kong/declarative/kong.yml
+_format_version: "3.0"
+services:
+  - name: enterprise-llm-service
+    url: http://vllm-inference-cluster.internal:8000
+    routes:
+      - name: secure-ai-route
+        paths:
+          - /v1/chat/completions
+        plugins:
+          - name: ai-proxy
+            config:
+              model:
+                provider: openai
+                name: gpt-4o-mini
+              auth:
+                header_name: "Authorization"
+                header_value: "Bearer kng_sec_token_8839210"
+                allow_override: false
+          - name: aidr-input-inspection
+            config:
+              ai_guard_api_key: "cs_aidr_api_key_773921"
+              upstream_llm:
+                provider: kong
+                api_uri: "/v1/chat/completions"
+              app_id: "agentic-financial-assistant"
+```
+
+#### 2. NVIDIA NeMo Guardrails & Colang 2.0 Rules
+Colang rules are enforced to control the dialog flows and input structures of agents.
+
+`config.yml` configuration:
+```yaml
+# config/config.yml
+models:
+  - type: main
+    engine: openai
+    model: gpt-4o-mini
+  - type: self_check_input
+    engine: self-hosted
+    model: my-org/custom-safety-model
+
+rails:
+  input:
+    parallel: true
+    flows:
+      - self check input
+```
+
+`safety_rules.co` rules:
+```colang
+# /config/rails/safety_rules.co
+define flow self check input
+  $allowed = execute self_check_input
+    
+  if not $allowed
+    bot refuse to respond
+    stop
+
+define flow bot refuse to respond
+  bot say "Your request has been blocked by corporate security and compliance policies."
+```
+
+#### 3. Meta Llama Guard Programmatic Filtering
+An inference middleware is designed to filter malicious content, cyberattack instructions, or harmful code generation attempts in model inputs and outputs:
+
+```python
+# ai_guard_middleware.py
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM
+from typing import Tuple
+
+class LlamaGuardSafetyEngine:
+    def __init__(self, model_path: str = "meta-llama/Llama-Guard-3-8B"):
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.tokenizer = AutoTokenizer.from_pretrained(model_path)
+        self.model = AutoModelForCausalLM.from_pretrained(
+            model_path, 
+            torch_dtype=torch.bfloat16, 
+            device_map="auto"
+        )
+          
+    def validate_interaction(self, user_prompt: str) -> Tuple[bool, str]:
+        formatted_input = f"User: {user_prompt}\n\n"
+        inputs = self.tokenizer([formatted_input], return_tensors="pt").to(self.device)
+        with torch.no_grad():
+            outputs = self.model.generate(**inputs, max_new_tokens=64)
+        decoded_verdict = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+        verdict_lines = decoded_verdict.strip().split("\n")
+        
+        if "unsafe" in verdict_lines[0]:
+            category = verdict_lines[1] if len(verdict_lines) > 1 else "Unknown"
+            return False, f"Content violates safety policies. Category: {category}"
+        return True, "Safe"
+```
+
+#### 4. RFC 8693 Token Exchange for Agent Authentication
+Rather than using static API keys when agents communicate with backend systems, the **RFC 8693 OAuth 2.0 Token Exchange** flow is implemented. This flow generates short-lived tokens based on the user's current authorization context. The agent exchanges the user's primary token with the authorization server to request only the downscoped minimum privileges required for the specific transaction.
+
+Token Exchange request payload example:
+```http
+POST /oauth/token HTTP/1.1
+Host: auth.corp.local
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Atoken-exchange
+&subject_token=eyJhbGciOiJSUzI1NiIs...
+&subject_token_type=urn%3Aietf%3Aparams%3Aoauth%3Atoken-type%3Ajwt
+&requested_token_type=urn%3Aietf%3Aparams%3Aoauth%3Atoken-type%3Ajwt
+&scope=vacation.read
+&requested_actor=urn%3Acorp%3Aagents%3Ahr-summarizer-agent
+```
+
+Generated JWT payload example (retains audit trail via the `act` claim):
+```json
+{
+  "sub": "alice_user@corp.com",
+  "iss": "https://auth.corp.local",
+  "aud": "hr-backend-service",
+  "exp": 1774884300,
+  "scope": "vacation.read",
+  "act": {
+    "sub": "urn:corp:agents:hr-summarizer-agent"
+  }
+}
+```
+
+#### 5. RFC 8707 Authority Scoping
+By utilizing **Resource Indicators (RFC 8707)** in the OAuth 2.1 standard, an agent is prevented from forwarding an access token issued for one MCP server and abusing it on another server, keeping its scope strictly isolated.
+
+### Agent Monitoring and Incident Response (Wazuh Integration)
+
+To analyze logs and catch anomalies in non-deterministic agent systems, custom decoders and rules are defined in the **Wazuh SIEM/XDR** platform.
+
+#### 1. Wazuh AI Gateway Decoder Configuration (`local_decoder.xml`)
+```xml
+<!-- /var/ossec/etc/decoders/local_decoder.xml -->
+<decoder name="ai_gateway">
+  <prematch>^\d+-\d+-\d+T\d+:\d+:\d+.\d+Z\s+\S+\s+ai_audit_log:</prematch>
+</decoder>
+
+<decoder name="ai_gateway_fields">
+  <parent>ai_gateway</parent>
+  <regex type="pcre2">agent_id=(\S+)\s+user_sub=(\S+)\s+verdict=(\S+)\s+token_scope=(\S+)\s+risk_category=(\S+)</regex>
+  <order>ai.agent_id, ai.user_sub, ai.verdict, ai.token_scope, ai.risk_category</order>
+</decoder>
+```
+
+#### 2. Wazuh Threat Detection Rules (`local_rules.xml`)
+```xml
+<!-- /var/ossec/etc/rules/local_rules.xml -->
+<group name="ai_security_rules,">
+  <rule id="100900" level="0">
+    <decoded_as>ai_gateway</decoded_as>
+    <description>AI Gateway audit log received.</description>
+  </rule>
+
+  <rule id="100901" level="12">
+    <if_sid>100900</if_sid>
+    <field name="ai.verdict">ATTACK_DETECTED</field>
+    <description>CRITICAL WARNING: Indirect prompt injection attack detected!</description>
+    <mitre>
+      <id>T1190</id>
+    </mitre>
+    <group>attack,prompt_injection</group>
+  </rule>
+</group>
+```
+
+#### 3. Shadow AI Detection at the Endpoint with Sysmon Event ID 22
+Sysmon logging DNS queries on Windows endpoints can detect unauthorized AI domain access. The following rule on the Wazuh manager captures these requests:
+```xml
+<group name="sysmon,shadow_ai,">
+  <rule id="120100" level="3">
+    <if_sid>61600</if_sid>
+    <field name="win.eventdata.image" type="pcre2">(?i)chrome\.exe|msedge\.exe|firefox\.exe</field>
+    <description>Browser-based DNS query executed.</description>
+  </rule>
+  <rule id="120101" level="9">
+    <if_sid>120100</if_sid>
+    <field name="win.eventdata.queryName" type="pcre2">(?i)api\.openai\.com|chatgpt\.com|claude\.ai|poe\.com|deepseek\.com|gemini\.google\.com|cursor\.sh</field>
+    <description>Shadow AI Domain Access: Connection initiated to unauthorized AI service. (Target: $(win.eventdata.queryName))</description>
+    <mitre>
+      <id>T1567</id>
+    </mitre>
+  </rule>
+</group>
+```
+
+#### 4. Wazuh Active Response and Isolation Script (`isolate_agent_network.sh`)
+When a critical injection or privilege escalation alert (Rule 100901) is triggered, the Wazuh agent automatically blocks the compromised agent's network bridge via iptables for 15 minutes:
+```bash
+#!/bin/bash
+# /var/ossec/active-response/bin/isolate_agent_network.sh
+ACTION=$1
+USER=$2
+IP=$3
+ALERTID=$4
+RULEID=$5
+if [ "$ACTION" = "add" ]; then
+    /sbin/iptables -A FORWARD -m comment --comment "Wazuh AI Agent Isolation" -j DROP
+elif [ "$ACTION" = "delete" ]; then
+    /sbin/iptables -D FORWARD -m comment --comment "Wazuh AI Agent Isolation" -j DROP
+fi
+```
+`ossec.conf` configuration:
+```xml
+<ossec_config>
+  <active-response>
+    <disabled>no</disabled>
+    <command>isolate_agent_network</command>
+    <location>local</location>
+    <rules_id>100901</rules_id>
+    <timeout>900</timeout>
+  </active-response>
+</ossec_config>
+```
+
+#### 5. Process Monitoring with Linux Auditd
+All sub-processes spawned on model or agent servers are recorded using the Linux Auditd architecture.
+Auditd rule:
+```
+-a always,exit -F arch=b64 -S execve -F auid>=1000 -F auid!=4294967295 -k secmlops_exec
+```
+Wazuh audit rule (captures unauthorized sub-processes spawned under Python/Triton):
+```xml
+<group name="audit,secmlops_detection,">
+  <rule id="115100" level="3">
+    <if_sid>80792</if_sid>
+    <field name="audit.key">secmlops_exec</field>
+    <description>Auditd: Command execution detected on the system.</description>
+  </rule>
+  <rule id="115101" level="12">
+    <if_rule>115100</if_rule>
+    <field name="audit.ppid_name">python|python3|gunicorn|uvicorn|triton</field>
+    <field name="audit.exe">/usr/bin/bash|/usr/bin/sh|/usr/bin/nc|/usr/bin/ncat|/usr/bin/curl|/usr/bin/wget</field>
+    <description>CRITICAL ALARM: Suspicious shell/network command triggered under Model/Agent server process!</description>
+    <mitre>
+      <id>AML.T0010</id>
+    </mitre>
+  </rule>
+</group>
+```
+
+#### 6. NIST SP 800-61 r2 Incident Response & Cortex XSOAR Playbook
+When an agent compromise is detected, the following steps are executed based on the NIST SP 800-61 r2 lifecycle:
+1. **Preparation:** Ensure all audit logs are consolidated in Wazuh.
+2. **Detection & Analysis:** When Wazuh Rule 100901 fires, the security analyst inspects the `ai.agent_id` and `ai.user_sub` fields to locate the agent under attack and identify the attack source (e.g., a poisoned PDF processed by the agent).
+3. **Containment:** Active Response immediately isolates the agent's network bridge, and the corresponding RFC 8693 authorization tokens are revoked on the OIDC panel.
+4. **Eradication & Recovery:** The poisoned data source is removed, the MicroVM is terminated, and a new clean session is started from a golden image.
+5. **Post-Incident:** Conduct a root-cause analysis and feed the "Lessons Learned" back into the Colang rulesets and Llama Guard classification engines.
+
+In advanced SOAR environments (such as Palo Alto Cortex XSOAR), these response steps are triggered autonomously. Upon detecting suspicious activity on an endpoint, XSOAR copies the KAPE (Kroll Artifact Parser and Extractor) forensics tool to the target via SSH-based RemoteAccess v2 integration. The tool is executed on the target via the `xdr-script-run` command to gather MFT, registry, and memory dumps, which are retrieved using `xdr-file-retrieve` before isolating the system using the `xdr-endpoint-isolate` command.
+
+#### 7. Ruleset-as-Code (RaC) GitOps Integration
+CI/CD workflows (Ruleset-as-Code) are established to store rules and decoders in a Git repository and deploy them automatically to the SIEM. A GitHub Actions pipeline runs checks on every push to detect rule ID collisions, copies rules to `/var/ossec/etc/` via SSH, and restarts the Wazuh Manager service.
+
+### Mathematical Foundations of Autonomous Agent Attacks
+
+Backdoor triggers (sleeper agents) and model evasions targeting AI models and agents are rooted in mathematical optimization deviations.
+
+#### 1. Mathematical Structure of Model Evasion
+An attacker generates an imperceptible perturbation ($\delta$) on the input to cause the classifier ($f(x)$) to output an incorrect result:
+$$f(x + \delta) \neq f(x) \quad \text{such that} \quad \|\delta\|_p \le \epsilon$$
+where $\epsilon$ is the perturbation budget and $p$ represents the distance norm.
+
+#### 2. Attention Mechanism Deviation in Sleeper Agent Models
+Analyzing the internal attention mechanism of transformer models reveals that trigger tokens establish extremely strong connections among themselves. In the standard attention formula calculated over Query ($Q$), Key ($K$), and Value ($V$) matrices:
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
+When trigger inputs are present, a deviation pattern known as a "double triangle" forms in the attention matrix. The trigger tokens block the contextual relationships formed by normal text tokens and attract all attention weights to themselves. This causes the model to ignore the remaining context and directly execute the poisoned backdoored action.
+
+> [!NOTE]
+> **Concept Box — Advanced AI Terms (Cognitive Architectures, Neuro-Symbolic AI, AGI, ASI):**
+> - **Neuro-Symbolic AI:** A hybrid approach combining the logic/rule-based explainability of symbolic AI with the data-processing power of connectionist deep learning.
+> - **Cognitive Architectures:** Theoretical models that simulate the human mind's operational principles and decision-making mechanisms within computer systems (e.g., SOAR, ACT-R).
+> - **Artificial General Intelligence (AGI):** A theoretical state where an AI possesses cognitive abilities equivalent to human intelligence, with the capacity to learn, adapt, and reason across diverse domains.
+> - **Artificial Superintelligence (ASI):** A theoretical form of AI that surpasses human intelligence in all fields, including scientific creativity, general wisdom, and social skills.
 
 ### Proactive Red Teaming
 
-The **AutoMalTool** framework autonomously generates malicious MCP tools to test defenses. Findings:
+The **AutoMalTool** framework autonomously generates malicious MCP tools to test defenses:
 - Generated tools achieved **over 86% evasion rates** against static analysis tools like MCP-Scan
-- Current AI agents are vulnerable to sophisticated tool poisoning attacks; existing detection mechanisms are insufficient
+- Relying solely on static checks is insufficient; runtime behavioral analysis is mandatory to prevent tool poisoning.
 
 ### Enterprise Governance Standards
 

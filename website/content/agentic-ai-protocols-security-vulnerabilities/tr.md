@@ -9,6 +9,18 @@ audioFile: tr.mp3
 
 Yapay zeka tarihi şimdiye kadar iki büyük kırılma noktası yaşadı. İlki, sembolik yapay zekadan makine öğrenimine geçişti. Bugün ise reaktif dil modellerinden **Agentic AI** (Eylemsel Yapay Zeka) paradigmalarına geçişin tam ortasındayız. Bu ikinci dönüşüm, basit bir teknolojik ilerlemeden çok daha fazlası; zira siber güvenlik, karşılıklı güven ve sorumluluk paylaşımları söz konusu olduğunda oyunun kurallarını tamamen değiştiriyor.
 
+> [!NOTE]
+> **Kavram Kutusu — Sembolik Yapay Zekâ (GOFAI) ve Sembolik Mantık:**
+> - **Sembolik Yapay Zekâ (GOFAI):** İnsan bilgisinin ve mantık kurallarının doğrudan bilgisayar sistemlerine kodlanmasıyla çalışan geleneksel yapay zeka paradigmasıdır. Veriden öğrenmek yerine önceden tanımlanmış kurallara dayanır.
+> - **Sembolik Akıl Yürütme (Symbolic Reasoning):** İnsan diline yakın kavramsal semboller ve mantıksal kurallar üzerinden düşünme ve problem çözme yöntemidir.
+> - **Uzman Sistemler (Expert Systems):** Belirli bir uzmanlık alanındaki insan bilgisini kurallar ("Eğer... ise...") şeklinde kodlayarak karar veren sistemlerdir.
+> - **Mantıksal Çıkarım (Inference Engines):** Bilgi tabanındaki kuralları ve verileri kullanarak yeni çıkarımlar yapan mantıksal akıl yürütme motorudur.
+> - **Bilgi Temsili (Knowledge Representation):** Gerçek dünyadaki bilgilerin bilgisayarlar tarafından işlenebilmesi için ontolojiler veya semantik ağlar şeklinde modellenmesidir.
+> - **Kural Tabanlı Sistemler (Rule-Based Systems):** Önceden tanımlanmış katı kurallara ("Eğer A ise B") göre çalışan, esnekliği düşük deterministik sistemlerdir.
+
+> [!NOTE]
+> **Kavram Kutusu — Makine Öğrenmesi (Machine Learning - ML):** Bilgisayarların açıkça programlanmadan, veriler üzerinden kalıpları ve istatistiksel ilişkileri öğrenerek tahmin ve kararlar vermesini sağlayan algoritmalar bütünüdür.
+
 Yapay zeka eylemcilerinin hızla hayatımıza girmesiyle birlikte yeni bir protokol ekosistemi de doğdu: **MCP, A2A, ANP, UCP ve AP2**. Bu protokoller birbiriyle rekabet etmek yerine, tıpkı TCP/IP katmanları gibi birbirini tamamlayan bir mimari sunuyor. Ancak bu katmanların her biri, geleneksel güvenlik çözümlerinin yetersiz kaldığı yepyeni saldırı yüzeylerini de beraberinde getiriyor.
 
 <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 1.5rem 0; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
@@ -95,6 +107,21 @@ Bu büyük paradigma değişimi şu formülle özetlenebilir:
 
 Bu fark sadece işlevsel değildir; siber güvenlik açısından da son derece kritiktir. Reaktif bir model (örneğin standart bir chatbot) doğrudan sistemler üzerinde aksiyon alıp fiziksel bir hasara yol açamazken; otonom bir yapay zeka eylemcisi dosya silebilir, veritabanı sorgulayabilir, e-posta gönderebilir, ödeme işlemlerini tetikleyebilir ve hatta diğer eylemcileri göreve çağırabilir.
 
+> [!NOTE]
+> **Kavram Kutusu — Bağlantıcı (Connectionist) Yapay Zekâ ve Temel Terimler:**
+> - **Derin Öğrenme (Deep Learning - DL):** Çok katmanlı yapay sinir ağları kullanarak verideki karmaşık, hiyerarşik yapıları otonom olarak öğrenen makine öğrenmesi alt dalıdır.
+> - **Yapay Sinir Ağları (Artificial Neural Networks - ANN):** İnsan beyninin nöron ağlarından esinlenen, girdileri düğümler (nöronlar) ve ağırlıklı bağlantılar üzerinden işleyen matematiksel modellerdir.
+> - **Doğal Dil İşleme (Natural Language Processing - NLP):** İnsan dilinin (metin veya konuşma) bilgisayarlar tarafından çözümlenmesi, anlamlandırılması ve otonom üretilmesini sağlayan teknolojiler bütünüdür.
+> - **Büyük Dil Modelleri (Large Language Models - LLM):** Milyarlarca parametre ve devasa metin veri setleriyle eğitilmiş, dilin bağlamını anlayarak metin tamamlama, soru cevaplama ve otonom akıl yürütme yapabilen ileri seviye dil modelleridir.
+> - **Üretken Yapay Zekâ (Generative AI - GenAI):** Mevcut veri dağılımlarını öğrenerek metin, görsel, ses, müzik veya kod gibi tamamen yeni ve özgün içerikler üretebilen yapay zeka sistemleridir.
+> - **Pekiştirmeli Öğrenme (Reinforcement Learning - RL):** Bir ajanın (agent), içinde bulunduğu çevrede deneme-yanılma yaparak ve aldığı ödül-ceza (geribildirim) sinyallerini maksimize ederek en uygun karar politikalarını öğrenmesidir.
+> - **Bilgisayarla Görü (Computer Vision):** Görsel verileri (görüntü, video) işleyerek bilgisayarların çevreyi anlamlandırmasını, nesne tespiti veya yüz tanıma yapabilmesini sağlayan disiplindir.
+> - **Konuşma Tanıma (Speech Recognition):** İnsan ses dalgalarını analiz edip bilgisayarların işleyebileceği ham metin formatına dönüştürme işlemidir.
+> - **Agentic AI (Eylemsel Yapay Zeka):** Belirlenen bir hedef doğrultusunda kendi başına planlama yapabilen, hafızasını (belleğini) yöneten, API veya terminal gibi harici araçları (tools) otonom çalıştırabilen ve hata durumunda kendi kendini düzeltebilen eylemsel yapay zeka mimarisidir.
+> - **Planlama (Planning):** Ajanın büyük hedeflere ulaşmak amacıyla atacağı adımların sırasını ve alternatif yolları otonom olarak belirleme sürecidir.
+> - **Evrişimli Sinir Ağları (Convolutional Neural Networks - CNN):** Görüntü ve video gibi mekansal (spatial) verilerdeki pikselleri evrişim matrisleri üzerinden süzerek kenar, köşe ve doku tespiti yapmak için optimize edilmiş çok katmanlı sinir ağlarıdır.
+> - **Graf Sinir Ağları (Graph Neural Networks - GNN):** Moleküler yapılar, sosyal ağlar veya bilgisayar ağları gibi düğümler ve kenarlardan oluşan ilişkisel (graf) verileri işlemek üzere tasarlanmış modern derin öğrenme yapılarıdır.
+
 ### Yapay Zeka Eylemcilerinin Temel Bileşenleri
 
 Modern otonom eylemciler temel olarak "algılama, muhakeme ve eylem" döngüsü üzerinden çalışır. Bu mimarinin temel yetenekleri ve beraberinde getirdiği güvenlik riskleri şunlardır:
@@ -136,6 +163,9 @@ Yapay zeka eylemcileri, karmaşık problemleri çözmek için çeşitli mantıks
 
 
 **RAG (Retrieval-Augmented Generation / Veri Geri Çağırmayla Artırılmış Üretim)**, yapay zeka dünyasının en akıllıca çözümlerinden biridir. Büyük dil modellerinin (LLM) en büyük zayıflıklarını (güncel olmayan bilgi ve uydurma/hallüsinasyon eğilimlerini) kapatmak için geliştirilmiştir.
+
+> [!NOTE]
+> **Kavram Kutusu — RAG (Retrieval-Augmented Generation):** Dil modelinin parametrik hafızasındaki (eğitim verileri) bilgilere güvenmek yerine, dışarıdaki dinamik veri kaynaklarından (PDF, veritabanı vb.) anlamsal olarak en alakalı parçaları vektör yakınlığı araması ile bulup getirerek (retrieval) modeli besleyen ve yanıtı bu bağlamla zenginleştiren (generation) hibrit bir mimaridir. Ajan tabanlı sistemlerde otonom araştırma ve bilgi toplama süreçlerinin temelidir.
 
 Aşağıdaki şema, tipik bir RAG sisteminin uçtan uca veri hazırlama, arama ve yanıt üretme akışını göstermektedir:
 
@@ -469,26 +499,33 @@ Bir yapay zeka eylemcisi şu üç özelliğe aynı anda sahip olduğunda felaket
 
 ## Çoklu Eylemci (Multi-Agent) Güvenliği
 
+> [!NOTE]
+> **Kavram Kutusu — Çoklu Ajan Sistemleri (Multi-Agent Systems - MAS):** Belirli bir problemi çözmek için kendi aralarında otonom olarak haberleşen, koordinasyon sağlayan ve iş bölümü yapan birden fazla yapay zeka ajanının oluşturduğu dağıtık sistemdir.
 
+Çoklu ajan yapılarının yaygınlaşması, tekil modellerin sınırlarını aşan dinamik iş akışları oluştursa da siber güvenlik risklerini de katlayarak artırmaktadır.
 
+### Yapay Zeka Ajanları İçin RAK Tehdit Modellemesi
 
-Bu bölüm detayları ve etkileri incelemektedir.
+Otonom eylemcilerin barındırdığı riskleri sistematik olarak analiz etmek amacıyla **RAK (Root, Agency, Keys)** tehdit modelleme çerçevesi kullanılmaktadır. RAK modeli, ajan sistemlerindeki siber tehditleri üç ana katmanda sınıflandırır:
 
+* **Root (Ana Sunucu / Konteyner Seviyesindeki Riskler):** Ajanın üzerinde çalıştığı çalışma zamanı ortamının (host kernel, container) uzaktan kod yürütme (RCE) veya konteynerden kaçma (container escape) saldırılarıyla tamamen ele geçirilme riskidir.
+* **Agency (Otonom Yetki İstismarı Riski):** Ajanın karar alma mantığının (reasoning) prompt enjeksiyonu ile manipüle edilmesi neticesinde, meşru yetkilerini kullanarak iş hedefleriyle uyuşmayan zararlı eylemleri otonom olarak yürütmesidir.
+* **Keys (Kimlik Bilgisi ve API Anahtarı Sızıntısı Riski):** Ajanın harici araçlara ve veritabanlarına erişirken kullandığı statik API anahtarlarının veya kurumsal kimlik bilgilerinin ifşa olması veya çalınmasıdır.
 
 ### OWASP Agentic Security Initiative (ASI) Top 10
 
 OWASP, otonom yapay zeka sistemlerine yönelik yeni nesil tehditleri sınıflandırmak amacıyla **Agentic Security (ASI)** (Eylemsel Güvenlik) risk listesini yayınladı:
 
-| Kod | Risk Başlığı | Açıklama |
-| :--- | :--- | :--- |
-| **ASI01** | Eylemci Hedef Kaçırma | Prompt enjeksiyonuyla eylemcinin asıl hedefinin saptırılması ve saldırganın komutlarını yerine getirmesinin sağlanması. |
-| **ASI02** | Araçların Kötüye Kullanımı | Eylemcinin sahip olduğu API veya kod çalıştırma araçlarının veri sızdırmak amacıyla manipüle edilmesi. |
-| **ASI03** | Yetki ve Kimlik İstismarı | Eylemcilere gereğinden fazla yetki verilmesi sonucu ortaya çıkan ayrıcalık yükseltme (privilege escalation) açıkları. |
-| **ASI04** | Tedarik Zinciri Riskleri | Güvenilmeyen üçüncü taraf eylemcilerin, eklentilerin veya zayıf modellerin sisteme dahil edilmesi. |
-| **ASI05** | Kontrolsüz Kod Yürütme | Güvenli yalıtım (sandbox) alanı dışında veya içinde izin verilmeyen kodların çalıştırılması. |
-| **ASI06** | Bellek ve Bağlam Zehirlenmesi | RAG veritabanlarına veya bellek kayıtlarına yanlış veriler gömülerek eylemcinin uzun vadeli kararlarının sabote edilmesi. |
+| Kod | Risk Başlığı | RAK İlişkisi | Açıklama |
+| :--- | :--- | :--- | :--- |
+| **ASI01** | Eylemci Hedef Kaçırma (Goal Hijack) | Agency | Prompt enjeksiyonuyla eylemcinin asıl hedefinin saptırılması ve saldırganın komutlarını yerine getirmesinin sağlanması. |
+| **ASI02** | Araçların Kötüye Kullanımı | Agency, Root | Eylemcinin sahip olduğu API veya kod çalıştırma araçlarının veri sızdırmak amacıyla manipüle edilmesi. |
+| **ASI03** | Yetki ve Kimlik İstismarı | Keys | Eylemcilere gereğinden fazla yetki verilmesi veya statik anahtar kullanımı sonucu ortaya çıkan zafiyetler. |
+| **ASI04** | Tedarik Zinciri Riskleri | Root, Agency | Güvenilmeyen üçüncü taraf eylemcilerin, eklentilerin veya zayıf modellerin sisteme dahil edilmesi. |
+| **ASI05** | Kontrolsüz Kod Yürütme (RCE) | Root | Güvenli yalıtım (sandbox) alanı dışında veya içinde izin verilmeyen kodların çalıştırılması. |
+| **ASI06** | Bellek ve Bağlam Zehirlenmesi | Agency | RAG veritabanlarına veya bellek kayıtlarına yanlış veriler gömülerek eylemcinin uzun vadeli kararlarının sabote edilmesi. |
 
-### Zincirleme Saldırı Riski (Cascading Failure)
+### Çoklu Ajan Etkileşimlerinde SOP Çökmesi (Same-Origin Policy Collapse) ve Zincirleme Saldırı Riski
 
 Çoklu eylemci sistemlerinde tek bir eylemcinin ele geçirilmesi, tüm sistemin domino taşı gibi çökmesine neden olabilir:
 
@@ -500,9 +537,9 @@ graph LR
     classDef highPriv fill:#eef2f7,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a;
     classDef critical fill:#fafafa,stroke:#27272a,stroke-width:2px,color:#09090b;
 
-    A["Dış Saldırgan"] -..->|IPI| B["Dış Eylemci <br>(Düşük Ayrıcalık)"]
-    B -..->|Güven İstismarı| C["İç Eylemci <br>(Yüksek Ayrıcalık)"]
-    C -..->|Yetki Aşımı| D["Kritik Sistem"]
+    A["Dış Saldırgan"] -..->|IPI / Dolaylı Enjeksiyon| B["Dış Eylemci <br>(Düşük Ayrıcalık - Web Arama)"]
+    B -..->|SOP Çökmesi / Güven İstismarı| C["Koordinatör Eylemci <br>(İç Ağ - Yüksek Ayrıcalık)"]
+    C -..->|Yetki Aşımı / RCE| D["Kritik Kurumsal Sistem"]
 
     class A threat;
     class B lowPriv;
@@ -510,7 +547,11 @@ graph LR
     class D critical;
 ```
 
-- **Eylemciler Arasındaki Örtük Güven:** Eylemciler birbirleriyle otonom olarak haberleşirken genellikle karşı tarafın kimliğini sorgulamazlar. Düşük yetkili bir dış eylemcinin kandırılması, onun iç ağdaki yüksek yetkili bir eylemciyle konuşarak sistem yöneticisi yetkilerini ele geçirmesine yol açabilir.
+Geleneksel web tarayıcılarında farklı kaynaklardan gelen betiklerin birbirinin verilerine erişmesini engelleyen **Same-Origin Policy (SOP - Aynı Köken Politikası)** mevcuttur. Ancak yapay zeka ajanları arasında bu sınır henüz tanımlanmamıştır. **SOP Çökmesi (SOP Collapse)** olarak adlandırılan bu senaryoda:
+1. İnternette araştırma yapmakla görevli, düşük yetkili bir ajan dolaylı prompt enjeksiyonuna (IPI) maruz kalır.
+2. Koordinatör ajan, bu alt ajandan gelen raporu "güvenilir yerel girdi" olarak kabul eder ve temizlemeden işler.
+3. Koordinatör ajan, manipüle edilmiş bu girdiyi veritabanına doğrudan yazma veya kod çalıştırma yetkisi olan yüksek yetkili başka bir ajana aktarır.
+4. Sonuç olarak, en dıştaki en düşük yetkili ajanın manipüle edilmesi, en içteki kritik kurumsal sistemlerin ele geçirilmesine yol açar. Ajanlar arasındaki örtük güven ilişkisi sömürülür.
 
 ### Klasik LLM Güvenliği ile Eylemci Güvenliği Arasındaki Farklar
 
@@ -564,66 +605,21 @@ Tek başına bakıldığında tamamen zararsız olan işlemlerin bir araya getir
 
 Güvenlik filtreleri bu adımların hiçbirini tek başına engellemez fakat zincirleme olarak çalıştırıldıklarında veri sızıntısıyla sonuçlanırlar.
 
-### Bağlam Şişmesi (Context Bloat) ve Çözümü
-
-Eylemcilerin çalışırken tüm API dokümantasyonunu bağlam penceresine alması, token tüketimini **3 kattan 200 kata kadar** artırabilir.
-
-**Çözüm: Kod Odaklı Çalışma (Code Mode)**
-
-| Yaklaşım Tarzı | Token Tüketimi | Veri Akışı Yapısı |
-| :--- | :--- | :--- |
-| **Doğrudan Araç Çağrısı** | ~150.000 token | Ham veri doğrudan dil modeline aktarılır. |
-| **Sandbox'ta Kod Çalıştırma** | ~2.000 token (**%98.7 tasarruf**) | Veri yerel yalıtılmış alanda işlenir ve sadece sonuç modele döner. |
-
----
-
-## Gerçek Dünya Uygulama Alanları
-
-
-
-
-
-
-
-
-![Yapay Zeka Eylemci Mimarisi](model.webp)
-
-### Yazılım Mühendisliği ve DevOps
-
-MCP, yazılım dünyasında "vibe coding" (sadece fikir belirterek kodlama) modelini hızlandırıyor. Geliştirici doğal dilde ne istediğini söyler; otonom eylemci kodu yazar, test eder ve hataları giderir.
-- **lsp-mcp:** Eylemci dünyası ile Dil Sunucu Protokolü (LSP) arasında köprü kurarak yapay zekanın kodu bir IDE gibi derinlemesine analiz etmesini sağlar.
-- **AWS / Kubernetes Sunucuları:** "Canlı ortamdaki Kubernetes pod sayısını 5'e çıkar" gibi komutları otonom olarak bulut sistemlerinde yürütür.
-
-### Kurumsal İş Süreçleri
-
-| İş Alanı | Eylemcinin Katkısı |
-| :--- | :--- |
-| **İnsan Kaynakları** | Aday başvuru verilerini analiz eder, geçmiş işe alım kriterleriyle karşılaştırır ve en uygun kısa listeyi hazırlar. |
-| **Satın Alma & Anlaşmalar** | Şirket sözleşmelerini ve harcama alışkanlıklarını analiz ederek tedarikçilere karşı en avantajlı pazarlık pozisyonunu çıkarır. |
-| **Uyum ve Denetim** | Şirketin iç politikaları ile sistem loglarını (SIEM) bağlayarak uyumluluk açıklarını otonom olarak denetler. |
-| **Müşteri İlişkileri** | CRM, bilgi tabanı ve veritabanlarına aynı anda erişerek müşteri sorularına anında ve tutarlı yanıtlar verir. |
-
-### Siber Güvenlikte Çift Yönlü Kullanım (Dual-Use)
-
-> [!IMPORTANT]
-> **GTG-1002 Olayı:** Devlet destekli siber gruplar, Claude Code gibi otonom kodlama asistanlarını "jailbreak" yöntemleriyle aşarak çok aşamalı ağ sızma operasyonlarında kullandılar. Bu olay, tarihe otonom yapay zeka eylemcilerinin doğrudan kullanıldığı ilk gelişmiş siber saldırı olarak geçti.
-
-- **Mavi Takım (Savunma):** Otonom SOC eylemcileri; SIEM, EDR ve ağ loglarını birleştirerek insan hızının çok ötesinde anomali tespiti ve otonom tehdit avcılığı yürütür.
-- **Kırmızı Takım (Ofansif):** Yapay zeka eylemcileri, MCP üzerinden sızma testi araçlarını otonom olarak çalıştırarak ağlardaki zafiyetleri keşfeder ve siber saldırı simülasyonları gerçekleştirir.
-
----
-
 ## Savunma Stratejileri ve Defansif Mimari
 
+Otonom eylemcilerin (Agentic AI) güvenliğini sağlamak için tek bir güvenlik katmanına güvenmek yerine derinlemesine savunma (Defense-in-Depth) modeli uygulanmalıdır.
 
+> [!NOTE]
+> **Kavram Kutusu — İleri Yapay Zeka Terimleri (XAI, AutoML, Federe Öğrenme):**
+> - **Açıklanabilir Yapay Zekâ (Explainable AI - XAI):** Yapay zeka modellerinin kararlarını ve tahmin süreçlerini insanlar için şeffaf, denetlenebilir ve anlaşılır kılmayı amaçlayan prensipler bütünüdür.
+> - **AutoML:** Veri hazırlama, model seçimi ve hiperparametre optimizasyonu gibi makine öğrenmesi süreçlerinin otonom araçlarla otomatikleştirilmesidir.
+> - **Federe Öğrenme (Federated Learning):** Verileri merkezi bir sunucuda toplamadan, yerel cihazlarda eğitip sadece model güncellemelerini şifreli şekilde birleştiren mahremiyet odaklı dağıtık öğrenme yöntemidir.
 
+### Çok Katmanlı Güvenlik Yaklaşımı ve Yalıtılmış Çalışma (Sandboxing)
 
-Bu bölüm detayları ve etkileri incelemektedir.
-
-
-### Çok Katmanlı Güvenlik Yaklaşımı
-
-Eylemcilerin güvenliğini sağlamak için tek bir güvenlik katmanına güvenmek yerine derinlemesine savunma (Defense-in-Depth) modeli uygulanmalıdır:
+Eylemcilerin ürettiği kodların (örneğin veri analizi yapan Python betikleri veya terminal komutları) doğrudan ana sunucu çekirdeğinde (host kernel) çalıştırılması, "Container Escape" (konteynerden kaçma) zafiyetlerine yol açabilir. Bu nedenle iki temel yalıtım teknolojisi kullanılmalıdır:
+1. **Google gVisor:** Syscall (sistem çağrıları) isteklerini kullanıcı alanında (user-space) çalışan sanal bir çekirdek ile süzerek Linux çekirdeğine doğrudan erişimi engeller. Hızlı ayağa kalkan mikroservis tabanlı ajanlar için idealdir.
+2. **AWS Firecracker (MicroVM):** Her bir ajan oturumu için milisaniyeler seviyesinde izole bir Linux mikro sanal makinesi oluşturur. İzolasyon donanım (CPU) düzeyindedir ve güvenilmeyen araç kullanan ajanlar için asgari güvenlik sınırıdır.
 
 | Güvenlik Katmanı | Amacı | Uygulama Biçimi |
 | :--- | :--- | :--- |
@@ -642,11 +638,293 @@ Eylemcilerin güvenliğini sağlamak için tek bir güvenlik katmanına güvenme
 
 ### Taint Tracking ve Bilgi Akışı Kontrolü (IFC)
 
-Dış dünyadan (web siteleri, gelen mailler vb.) gelen tüm veriler sistem tarafından **taint** (güvenilmez/lekeli) asıl olarak işaretlenmelidir. Bu güvenilmez verileri okuyan veya işleyen yapay zeka eylemcisinin, dosya silme ya da dışarıya veri gönderme gibi kritik eylemleri gerçekleştirmesi insan onayı (HITL) olmadan kesinlikle engellenir.
+Dış dünyadan (web siteleri, gelen mailler vb.) gelen tüm veriler sistem tarafından **taint** (güvenilmez/lekeli) olarak işaretlenmelidir. Bu güvenilmez verileri okuyan veya işleyen yapay zeka eylemcisinin, dosya silme ya da dışarıya veri gönderme gibi kritik eylemleri gerçekleştirmesi insan onayı (HITL) olmadan kesinlikle engellenir.
 
-### RFC 8707 ile Yetki Aşımı Engelleme
+### Güvenlik Geçidi ve Ajan Guardrail Altyapısı
 
+Yapay zeka modellerini ve ajanlarını korumak, modelin dışındaki deterministik sistem sınırlarında çift yönlü filtreleme yapan geçitler kurgulamayı gerektirir.
+
+#### 1. Kong API Gateway ve CrowdStrike Falcon AIDR Entegrasyonu
+Tüm yapay zeka trafiğini tek bir noktada toplamak ve enjeksiyon girişimlerini engellemek için Kong Gateway üzerinde CrowdStrike Falcon AIDR (AI Threat Detection and Response) pluginleri konumlandırılır:
+
+```yaml
+# /etc/kong/declarative/kong.yml
+_format_version: "3.0"
+services:
+  - name: enterprise-llm-service
+    url: http://vllm-inference-cluster.internal:8000
+    routes:
+      - name: secure-ai-route
+        paths:
+          - /v1/chat/completions
+        plugins:
+          - name: ai-proxy
+            config:
+              model:
+                provider: openai
+                name: gpt-4o-mini
+              auth:
+                header_name: "Authorization"
+                header_value: "Bearer kng_sec_token_8839210"
+                allow_override: false
+          - name: aidr-input-inspection
+            config:
+              ai_guard_api_key: "cs_aidr_api_key_773921"
+              upstream_llm:
+                provider: kong
+                api_uri: "/v1/chat/completions"
+              app_id: "agentic-financial-assistant"
+```
+
+#### 2. NVIDIA NeMo Guardrails ve Colang 2.0 Kuralları
+Ajanların diyalog akışlarını ve girdi yapılarını kontrol etmek amacıyla Colang kuralları uygulanır.
+
+`config.yml` yapılandırması:
+```yaml
+# config/config.yml
+models:
+  - type: main
+    engine: openai
+    model: gpt-4o-mini
+  - type: self_check_input
+    engine: self-hosted
+    model: my-org/custom-safety-model
+
+rails:
+  input:
+    parallel: true
+    flows:
+      - self check input
+```
+
+`safety_rules.co` kuralları:
+```colang
+# /config/rails/safety_rules.co
+define flow self check input
+  $allowed = execute self_check_input
+    
+  if not $allowed
+    bot refuse to respond
+    stop
+
+define flow bot refuse to respond
+  bot say "İsteğiniz kurumsal güvenlik ve uyumluluk politikalarımız tarafından engellenmiştir."
+```
+
+#### 3. Meta Llama Guard Programatik Filtreleme
+Modellerin girdi ve çıktılarındaki zararlı içerikleri, siber saldırı talimatlarını veya zararlı kod üretim girişimlerini filtrelemek için bir çıkarım middleware'i kurgulanır:
+
+```python
+# ai_guard_middleware.py
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM
+from typing import Tuple
+
+class LlamaGuardSafetyEngine:
+    def __init__(self, model_path: str = "meta-llama/Llama-Guard-3-8B"):
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.tokenizer = AutoTokenizer.from_pretrained(model_path)
+        self.model = AutoModelForCausalLM.from_pretrained(
+            model_path, 
+            torch_dtype=torch.bfloat16, 
+            device_map="auto"
+        )
+          
+    def validate_interaction(self, user_prompt: str) -> Tuple[bool, str]:
+        formatted_input = f"User: {user_prompt}\n\n"
+        inputs = self.tokenizer([formatted_input], return_tensors="pt").to(self.device)
+        with torch.no_grad():
+            outputs = self.model.generate(**inputs, max_new_tokens=64)
+        decoded_verdict = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+        verdict_lines = decoded_verdict.strip().split("\n")
+        
+        if "unsafe" in verdict_lines[0]:
+            category = verdict_lines[1] if len(verdict_lines) > 1 else "Unknown"
+            return False, f"İçerik güvenlik politikalarını ihlal ediyor. Kategori: {category}"
+        return True, "Safe"
+```
+
+#### 4. RFC 8693 Token Exchange ile Ajan Kimlik Doğrulaması
+Ajanların arka plan sistemleri ile haberleşirken statik API anahtarları kullanması yerine, kullanıcının mevcut yetki bağlamını temel alan ve kısa ömürlü token'lar üreten **RFC 8693 OAuth 2.0 Token Exchange** akışı uygulanır. Ajan, kullanıcının ana token'ını kimlik doğrulama sunucusuna ileterek sadece işlem için gereken minimum yetkileri (downscoped) talep eder.
+
+Token Exchange istek payload örneği:
+```http
+POST /oauth/token HTTP/1.1
+Host: auth.kurum.local
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Atoken-exchange
+&subject_token=eyJhbGciOiJSUzI1NiIs...
+&subject_token_type=urn%3Aietf%3Aparams%3Aoauth%3Atoken-type%3Ajwt
+&requested_token_type=urn%3Aietf%3Aparams%3Aoauth%3Atoken-type%3Ajwt
+&scope=vacation.read
+&requested_actor=urn%3Akurum%3Aagents%3Ahr-summarizer-agent
+```
+
+Üretilen JWT payload örneği (`act` claimi ile zincirleme denetim izi korunur):
+```json
+{
+  "sub": "alice_user@kurum.com",
+  "iss": "https://auth.kurum.local",
+  "aud": "hr-backend-service",
+  "exp": 1774884300,
+  "scope": "vacation.read",
+  "act": {
+    "sub": "urn:kurum:agents:hr-summarizer-agent"
+  }
+}
+```
+
+#### 5. RFC 8707 ile Yetki Aşımı Engelleme
 OAuth 2.1 standardındaki **Resource Indicators (RFC 8707)** kullanılarak, bir eylemcinin belirli bir sunucu için aldığı erişim jetonunu (token) başka bir sunucuda kullanması ve yetki sınırlarını aşması engellenir.
+
+### Ajan İzleme ve Olay Müdahale (Wazuh Entegrasyonu)
+
+Non-deterministik çalışan ajan sistemlerinin loglarını analiz etmek ve anomalileri yakalamak amacıyla **Wazuh SIEM/XDR** altyapısında özel decoders ve kurallar tanımlanır.
+
+#### 1. Wazuh AI Gateway Dekoder Yapılandırması (`local_decoder.xml`)
+```xml
+<!-- /var/ossec/etc/decoders/local_decoder.xml -->
+<decoder name="ai_gateway">
+  <prematch>^\d+-\d+-\d+T\d+:\d+:\d+.\d+Z\s+\S+\s+ai_audit_log:</prematch>
+</decoder>
+
+<decoder name="ai_gateway_fields">
+  <parent>ai_gateway</parent>
+  <regex type="pcre2">agent_id=(\S+)\s+user_sub=(\S+)\s+verdict=(\S+)\s+token_scope=(\S+)\s+risk_category=(\S+)</regex>
+  <order>ai.agent_id, ai.user_sub, ai.verdict, ai.token_scope, ai.risk_category</order>
+</decoder>
+```
+
+#### 2. Wazuh Tehdit Algılama Kuralları (`local_rules.xml`)
+```xml
+<!-- /var/ossec/etc/rules/local_rules.xml -->
+<group name="ai_security_rules,">
+  <rule id="100900" level="0">
+    <decoded_as>ai_gateway</decoded_as>
+    <description>Yapay zeka geçidi denetim logu alındı.</description>
+  </rule>
+
+  <rule id="100901" level="12">
+    <if_sid>100900</if_sid>
+    <field name="ai.verdict">ATTACK_DETECTED</field>
+    <description>KRİTİK UYARI: Dolaylı prompt enjeksiyonu saldırısı tespit edildi!</description>
+    <mitre>
+      <id>T1190</id>
+    </mitre>
+    <group>attack,prompt_injection</group>
+  </rule>
+</group>
+```
+
+#### 3. Sysmon Event ID 22 ile Uç Noktada Gölge AI Tespiti
+Windows uç noktalarında çalışan Sysmon, DNS sorgularını loglar. Wazuh manager üzerindeki şu kural, onaysız yapay zeka alan adlarına yapılan erişimleri yakalar:
+```xml
+<group name="sysmon,shadow_ai,">
+  <rule id="120100" level="3">
+    <if_sid>61600</if_sid>
+    <field name="win.eventdata.image" type="pcre2">(?i)chrome\.exe|msedge\.exe|firefox\.exe</field>
+    <description>Tarayıcı tabanlı DNS sorgusu gerçekleştirildi.</description>
+  </rule>
+  <rule id="120101" level="9">
+    <if_sid>120100</if_sid>
+    <field name="win.eventdata.queryName" type="pcre2">(?i)api\.openai\.com|chatgpt\.com|claude\.ai|poe\.com|deepseek\.com|gemini\.google\.com|cursor\.sh</field>
+    <description>Gölge AI Alan Adı Erişimi: Yetkisiz yapay zeka servisine bağlantı başlattı. (Hedef: $(win.eventdata.queryName))</description>
+    <mitre>
+      <id>T1567</id>
+    </mitre>
+  </rule>
+</group>
+```
+
+#### 4. Wazuh Active Response ve İzolasyon Betiği (`isolate_agent_network.sh`)
+Kritik bir enjeksiyon veya yetki aşımı (Rule 100901) tetiklendiğinde, Wazuh agent otomatik olarak şüpheli ajanın ağ köprüsünü iptables üzerinden 15 dakika boyunca bloke eder:
+```bash
+#!/bin/bash
+# /var/ossec/active-response/bin/isolate_agent_network.sh
+ACTION=$1
+USER=$2
+IP=$3
+ALERTID=$4
+RULEID=$5
+if [ "$ACTION" = "add" ]; then
+    /sbin/iptables -A FORWARD -m comment --comment "Wazuh AI Agent Isolation" -j DROP
+elif [ "$ACTION" = "delete" ]; then
+    /sbin/iptables -D FORWARD -m comment --comment "Wazuh AI Agent Isolation" -j DROP
+fi
+```
+`ossec.conf` yapılandırması:
+```xml
+<ossec_config>
+  <active-response>
+    <disabled>no</disabled>
+    <command>isolate_agent_network</command>
+    <location>local</location>
+    <rules_id>100901</rules_id>
+    <timeout>900</timeout>
+  </active-response>
+</ossec_config>
+```
+
+#### 5. Linux Auditd ile Süreç İzleme
+Model veya ajan sunucuları üzerinde çalıştırılan tüm alt süreçler Linux Auditd mimarisi ile kayıt altına alınır.
+Auditd kuralı:
+```
+-a always,exit -F arch=b64 -S execve -F auid>=1000 -F auid!=4294967295 -k secmlops_exec
+```
+Wazuh denetleme kuralı (Python/Triton altından tetiklenen yetkisiz alt süreçleri yakalar):
+```xml
+<group name="audit,secmlops_detection,">
+  <rule id="115100" level="3">
+    <if_sid>80792</if_sid>
+    <field name="audit.key">secmlops_exec</field>
+    <description>Auditd: Sistem üzerinde komut yürütme işlemi algılandı.</description>
+  </rule>
+  <rule id="115101" level="12">
+    <if_rule>115100</if_rule>
+    <field name="audit.ppid_name">python|python3|gunicorn|uvicorn|triton</field>
+    <field name="audit.exe">/usr/bin/bash|/usr/bin/sh|/usr/bin/nc|/usr/bin/ncat|/usr/bin/curl|/usr/bin/wget</field>
+    <description>KRİTİK ALARM: Model/Ajan sunucusu altında şüpheli kabuk/ağ komutu tetiklendi!</description>
+    <mitre>
+      <id>AML.T0010</id>
+    </mitre>
+  </rule>
+</group>
+```
+
+#### 6. NIST SP 800-61 r2 Yaşam Döngüsüne Göre Olay Müdahale ve Cortex XSOAR Playbook'u
+Bir ajan saldırısı tespit edildiğinde NIST SP 800-61 r2 standartlarında şu adımlar izlenir:
+1. **Hazırlık (Preparation):** Tüm logların Wazuh ile toplandığı doğrulanır.
+2. **Algılama ve Analiz (Detection & Analysis):** Wazuh Rule 100901 tetiklendiğinde analist, `ai.agent_id` ve `ai.user_sub` alanlarını inceleyerek saldırı altındaki ajanı ve kaynağını (örneğin sisteme yüklenmiş zehirli bir PDF) belirler.
+3. **Kontrol Altına Alma (Containment):** Active Response ajanın ağını izole eder, OIDC paneli üzerinden ilgili RFC 8693 yetki token'ları anında iptal edilir.
+4. **Ortadan Kaldırma ve Kurtarma (Eradication & Recovery):** Zehirli veri kaynağı temizlenir, MicroVM kapatılıp temiz bir imajdan yeni oturum açılır.
+5. **Olay Sonrası Analiz (Post-Incident):** Kök neden analiz edilerek elde edilen "Kazanılan Dersler" Colang kural setine ve Llama Guard sınıflandırıcısına eklenir.
+
+Gelişmiş SOAR altyapılarında (örneğin Palo Alto Cortex XSOAR), bu olay müdahale adımları otonom olarak tetiklenir. Endpoint üzerinde şüpheli aktivite algılandığında XSOAR, SSH tabanlı RemoteAccess v2 entegrasyonu üzerinden KAPE (Kroll Artifact Parser and Extractor) adli analiz aracını hedefe kopyalar. `xdr-script-run` komutu ile KAPE hedefe çalıştırılıp MFT, kayıt defteri ve bellek dökümleri toplandıktan sonra `xdr-file-retrieve` ile kasaya çekilir ve `xdr-endpoint-isolate` ile sunucu izole edilir.
+
+#### 7. Ruleset-as-Code (RaC) GitOps Entegrasyonu
+Kuralların ve decoders yapılarının Git deposunda saklanıp otomatik olarak SIEM'e dağıtılması için CI/CD iş akışları (Ruleset-as-Code) kurgulanır. GitHub Actions pipeline'ı, her push işleminde kural kimliği çakışmalarını denetleyen testleri çalıştırıp SSH ile kuralları `/var/ossec/etc/` dizinine kopyalar ve Wazuh Manager servisini restart eder.
+
+### Otonom Ajan Saldırılarının Matematiksel Temelleri
+
+Yapay zeka modellerine ve eylemcilerine yönelik sömürülerin ve arka kapı (sleeper agents) tetiklemelerinin ardında matematiksel sapma modelleri yatar.
+
+#### 1. Model Atlatma (Model Evasion) Matematiksel Yapısı
+Saldırgan, girdi üzerinde insan zihninin fark edemeyeceği çok küçük gürültüler ($\delta$) üreterek sınıflandırıcının ($f(x)$) hatalı sonuç üretmesini amaçlar:
+$$f(x + \delta) \neq f(x) \quad \text{öyle ki} \quad \|\delta\|_p \le \epsilon$$
+Burada $\epsilon$ gürültü sınırını, $p$ ise mesafe normunu temsil eder.
+
+#### 2. Sleeper Agent Modellerinde Dikkat Mekanizması Sapması
+Modellerdeki dahili dikkat (attention) mekanizmasının analizi, tetikleyici token'ların kendi aralarında güçlü bir bağ kurduğunu göstermektedir. Query ($Q$), Key ($K$) ve Value ($V$) matrisleri üzerinden hesaplanan standart dikkat formülünde:
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
+Tetikleyici girdiler mevcut olduğunda, dikkat matrisinde "çift üçgen" (double triangle) adı verilen sapma örüntüsü oluşur. Tetikleyici token'lar, normal metin token'larının oluşturduğu bağlamsal ilişkileri bloke ederek tüm dikkat ağırlıklarını kendi üzerlerine çeker. Bu durum, modelin kalan girdiyi göz ardı edip doğrudan zehirli eylemi gerçekleştirmesine neden olur.
+
+> [!NOTE]
+> **Kavram Kutusu — İleri Yapay Zeka Terimleri (Bilişsel Mimariler, Neuro-Symbolic AI, AGI, ASI):**
+> - **Neuro-Symbolic AI:** Sembolik yapay zekanın mantık/kural tabanlı açıklanabilirliği ile bağlantıcı derin öğrenmenin veri işleme gücünü birleştiren hibrit yaklaşımdır.
+> - **Bilişsel Mimariler (Cognitive Architectures):** İnsan zihninin çalışma prensiplerini ve karar mekanizmalarını bilgisayar sistemlerinde modelleyen yapay zeka teorileridir (SOAR, ACT-R).
+> - **Yapay Genel Zekâ (AGI):** İnsan zekasının sahip olduğu tüm zihinsel yeteneklere, farklı alanlarda öğrenme ve uyum sağlama kapasitesine eş değer yapay zekadır.
+> - **Yapay Süper Zekâ (ASI):** İnsan zekasını bilimsel yaratıcılık, pratik bilgelik ve sosyal beceriler dahil her alanda geride bırakan teorik süper zekadır.
 
 ### Proaktif Güvenlik ve Otomatik Kırmızı Takım (Red Teaming)
 
