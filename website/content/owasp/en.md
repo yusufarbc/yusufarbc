@@ -11,7 +11,7 @@ audioFile: en.mp3
 
 As the software development ecosystem expands and evolves from monolithic architectures to cloud-native, microservice-based, and AI-assisted patterns, threat surfaces are fragmenting at an unprecedented rate. Traditional web security controls alone are no longer sufficient to protect modern systems. The OWASP (Open Worldwide Application Security Project) Foundation, the most critical reference in the open-source application security ecosystem, designs specialized awareness projects for different technological layers to make this complex threat landscape manageable.
 
-Below is a comprehensive comparison of the ten primary OWASP projects alongside the newest frontiers representing Agentic Security and Non-Human Identities (NHI).
+The **central thesis** of this article is that application security is undergoing a fundamental paradigm shift: moving away from simple input/output parameter validation to distributed identity and access control, software supply chain integrity, and the securing of autonomous Agentic AI systems and Non-Human Identities (NHI). Below is a comprehensive comparison of the ten primary OWASP projects alongside the newest frontiers representing Agentic Security and Non-Human Identities.
 
 <div class="glass-panel reveal-on-scroll">
 
@@ -48,185 +48,221 @@ In web applications, the primary trust boundary lies between the browser and the
 
 ---
 
-## Detailed Analysis and Version Comparisons of Ten Core OWASP Projects
+## 1. Web Application Security (OWASP Web Top 10)
 
-Understanding the different layers of application security requires examining the historical evolution of each OWASP project, the shifting threat trends across releases, and the technical details of their constituent vulnerabilities.
+### Strategic Assessment and Historical Evolution
+Web security threats have evolved radically over the past two decades. In the early 2000s, input-filtering flaws such as Injection (SQL Injection, Cross-Site Scripting - XSS) dominated the landscape. Today, these have significantly declined due to modern application frameworks (like React, Angular, Django, Spring) providing built-in parameterized queries and automatic context-aware output encoding. Consequently, Injection fell from the #1 spot in 2017 to third in 2021, and fifth in 2025.
 
-### Web Application Security (OWASP Web Top 10)
+In contrast, the shift from monolithic codebases to microservices and Single Page Applications (SPAs) has decentralized authorization logic across distinct services. This architectural complexity has propelled Broken Access Control—which is highly contextual and difficult for automated scanners to detect—to the undisputed #1 spot in the 2021 and 2025 releases. Modern web application security is no longer just about sanitizing inputs; it centers on enforcing granular authorization boundaries and verifying software supply chain integrity (SBOMs and package signatures).
 
-This foundational list for web applications has addressed vulnerabilities between the browser and application servers since 2003. Comparing the 2017, 2021, and 2025 editions shows a radical shift in threat trends. Injection flaws (A01:2017-Injection), which held the top spot in 2017, fell to third place in 2021 and fifth place in 2025 due to the widespread adoption of ORM (Object-Relational Mapping) libraries and parameterized queries. Conversely, Broken Access Control rose from fifth place in 2017 to first place in both 2021 and 2025. This rise is driven by transitions to microservices, which distribute authorization logic and make contextual flaws difficult for automated tools to detect.
-
-Furthermore, in 2025, Server-Side Request Forgery (SSRF) was consolidated under Broken Access Control rather than remaining a standalone category. The "Vulnerable and Outdated Components" category was also expanded to cover SBOMs (Software Bill of Materials) and package integrity under "Software Supply Chain Failures" (A03:2025). The newly added "Mishandling of Exceptional Conditions" (A10:2025) targets system resilience, ensuring applications fail-securely without leaking details in error messages.
-
-- **A01:2025 – Broken Access Control:** Users accessing resources beyond their permissions (SSRF is integrated here).
-- **A02:2025 – Security Misconfiguration:** Missing or incomplete security settings, default configurations, or unnecessary services and credentials left open.
-- **A03:2025 – Software Supply Chain Failures:** Vulnerabilities in third-party dependencies, use of unsigned packages, and insecure build tools.
-- **A04:2025 – Cryptographic Failures:** Insecure transmission or weak encryption of sensitive data (formerly Sensitive Data Exposure).
-- **A05:2025 – Injection:** User inputs sliding into SQL/NoSQL or OS commands; Cross-Site Scripting (XSS) is integrated here.
-- **A06:2025 – Insecure Design:** Lack of threat modeling and secure architectural design prior to writing code.
-- **A07:2025 – Authentication Failures:** Session management flaws, susceptibility to brute force, and credential stuffing attacks.
-- **A08:2025 – Software or Data Integrity Failures:** Accepting data from untrusted sources without verification (including insecure deserialization).
-- **A09:2025 – Security Logging & Alerting Failures:** Failure to record security events or generate alerts during an ongoing cyberattack.
-- **A10:2025 – Mishandling of Exceptional Conditions:** Failing open during errors and exposing debug logs or stack traces.
-
-### API Security (OWASP API Security Top 10)
-
-The API Security Top 10 project focuses on web services that facilitate data exchange between clients and servers. Comparing the 2019 and 2023 editions shows that vulnerabilities are shifting toward business logic as the API economy grows. "Excessive Data Exposure" (A3) and "Mass Assignment" (A6), which were separate in 2019, were combined in 2023 under "Broken Object Property Level Authorization" (API3:2023) because both stem from a lack of access controls on specific object properties.
-
-One of the most notable updates in the 2023 release is "Unrestricted Access to Sensitive Business Flows" (API6:2023). In this scenario, the API code may run flawlessly, yet the absence of Captchas or rate limiting allows automated bots to exhaust ticket inventories in seconds. With the increase in external integrations, "Server-Side Request Forgery" (API7:2023) and "Unsafe Consumption of APIs" (API10:2023) — which targets the unvalidated use of third-party APIs — have also been added.
-
-- **API1:2023 – Broken Object Level Authorization (BOLA):** Failure to match object IDs in request parameters with user privileges (IDOR).
-- **API2:2023 – Broken Authentication:** Weak configuration of API keys, JWT validation, or authentication flows.
-- **API3:2023 – Broken Object Property Level Authorization (BOPLA):** Users viewing restricted object fields or modifying them via mass assignment.
-- **API4:2023 – Unrestricted Resource Consumption:** Absence of rate limits or CPU/memory constraints, leading to denial of service.
-- **API5:2023 – Broken Function Level Authorization (BFLA):** Regular users executing administrative API endpoints.
-- **API6:2023 – Unrestricted Access to Sensitive Business Flows:** Automating business workflows (e.g., checking discount codes) via bots.
-- **API7:2023 – Server-Side Request Forgery (SSRF):** The API server sending requests to internal backend servers based on attacker-supplied URLs.
-- **API8:2023 – Security Misconfiguration:** Incorrect CORS headers, default settings, or unnecessary HTTP methods enabled.
-- **API9:2023 – Improper Inventory Management:** Leaving legacy API versions (v1, beta) or undocumented test endpoints active and forgotten.
-- **API10:2023 – Unsafe Consumption of APIs:** Trusting and processing unvalidated data received from third-party services.
-
-### Mobile Application Security (OWASP Mobile Top 10)
-
-Mobile security focuses on protecting client-side boundaries (on iOS/Android devices) rather than just server controls. Comparing the 2016 and 2024 editions reveals that mobile threats have evolved significantly. In the 2024 list, published after an eight-year gap, "Improper Credential Usage" (M1:2024) claimed the top spot. This shift is driven by attackers reverse-engineering application binaries (APKs/IPAs) to extract hardcoded AWS credentials, Firebase keys, or OAuth secrets.
-
-Additionally, the uncontrolled use of third-party libraries has pushed "Inadequate Supply Chain Security" (M2:2024) to the top of the list. "Inadequate Privacy Controls" (M6:2024) was added as a new category to align with regulations like GDPR and CCPA. Previous categories like "Reverse Engineering" and "Code Tampering" were consolidated under "Insufficient Binary Protections" (M7:2024).
-
-- **M1:2024 – Improper Credential Usage:** Storing sensitive credentials or API keys unencrypted inside the application package.
-- **M2:2024 – Inadequate Supply Chain Security:** Integrating untrusted SDKs or failing to verify the integrity of packages.
-- **M3:2024 – Insecure Authentication/Authorization:** Executing authentication checks only on the device, without server-side validation.
-- **M4:2024 – Insufficient Input/Output Validation:** Failure to validate deep links, IPC messages, or user forms.
-- **M5:2024 – Insecure Communication:** Permitting invalid certificates or lacking SSL/TLS pinning, enabling MITM attacks.
-- **M6:2024 – Inadequate Privacy Controls:** Collecting user data without consent or writing PII to system logs.
-- **M7:2024 – Insufficient Binary Protections:** Lack of code obfuscation and absence of root/jailbreak detection controls.
-- **M8:2024 – Security Misconfiguration:** Leaving debug mode active in manifest files or requesting excessive system permissions.
-- **M9:2024 – Insecure Data Storage:** Saving sensitive data unencrypted in local SQLite databases, preference files, or logs.
-- **M10:2024 – Insufficient Cryptography:** Utilizing outdated algorithms (e.g., RC4, DES, MD5) or generating weak keys.
-
-### Large Language Model Application Security (OWASP LLM Top 10)
-
-This list defines application-layer risks arising from integrating Large Language Models (LLMs) and generative AI. Comparing the 2023 (v1.1) and 2025 editions shows how the transition of AI systems into autonomous agents and RAG (Retrieval-Augmented Generation) architectures has introduced new vulnerabilities. While data disclosure was lower on the list in 2023, "Sensitive Information Disclosure" (LLM02) rose to second place in 2025. This rise occurred because integrated RAG systems often retrieve and expose internal department secrets to unauthorized users through model responses without checking access boundaries.
-
-Furthermore, the 2025 edition introduced "Vector and Embedding Weaknesses" (LLM08) — which targets the poisoning of vector databases — and "System Prompt Leakage" (LLM07) — which focuses on extracting hidden instructions. The "Model Denial of Service" category was replaced by "Unbounded Consumption" (LLM10) to address both resource exhaustion and API quota exploitation.
-
-- **LLM01: Prompt Injection:** Overriding or manipulating system instructions using direct or indirect input prompts.
-- **LLM02: Sensitive Information Disclosure:** The model exposing confidential enterprise data or training inputs to unauthorized users.
-- **LLM03: Supply Chain:** Utilizing insecure base models, poisoned plugins, or compromised training repositories.
-- **LLM04: Data and Model Poisoning:** Manipulating training data or fine-tuning datasets to introduce backdoors.
-- **LLM05: Improper Output Handling:** Executing raw model outputs directly, leading to XSS or command execution.
-- **LLM06: Excessive Agency:** AI agents possessing unrestricted permissions (read, write, delete) over integrated plugins.
-- **LLM07: System Prompt Leakage:** Exfiltrating hidden system prompts and isolation rules via indirect prompt injection.
-- **LLM08: Vector and Embedding Weaknesses:** Poisoning vector databases and bypassing multi-tenant isolation boundaries.
-- **LLM09: Misinformation:** Relying on incorrect model responses or hallucinations in critical workflows without verification.
-- **LLM10: Unbounded Consumption:** Flooding model interfaces to exhaust resources or inflate API usage costs (denial of wallet).
-
-### Machine Learning Security (OWASP ML Security Top 10)
-
-This draft list targets the mathematical and statistical vulnerabilities of machine learning models, distinguishing itself from LLM application-layer concerns. The ML Security project examines data poisoning and adversarial evasion attacks in traditional supervised and unsupervised learning models (e.g., SVMs, CNNs, regression models).
-
-While the LLM Top 10 list focuses onMetalinguistic prompt manipulations, the ML list addresses manipulations aimed at shifting the decision boundaries of the model. For example, applying noise (adversarial perturbations) to a speed limit sign to mislead an autonomous vehicle's object classification model falls under ML01. Extracting training data via outputs (model inversion) and analyzing model queries to reconstruct parameters (model theft) represent critical mathematical vulnerabilities covered by this project.
-
-- **ML01: Input Manipulation Attack:** Adding perturbations to input data to force misclassifications (evasion).
-- **ML02: Data Poisoning Attack:** Injecting mislabeled or malicious data into the dataset during the training phase.
-- **ML03: Model Inversion Attack:** Reconstructing sensitive training inputs using mathematical analysis of model predictions.
-- **ML04: Membership Inference Attack:** Determining whether a specific data record was part of the model's training set.
-- **ML05: Model Theft:** Creating a surrogate model by analyzing response patterns to queries.
-- **ML06: ML Supply Chain Attacks:** Running malicious code via insecure model serialization formats (e.g., PyTorch pickle).
-- **ML07: Transfer Learning Attack:** Backdoors embedded in source models that persist when transferred to down-stream tasks.
-- **ML08: Model Skewing:** Sabotaging feedback loops in online learning models to distort decision boundaries.
-- **ML09: Output Integrity Attack:** Compromising predictions or classification results in transit.
-- **ML10: Model Poisoning:** Modifying model parameters or weights directly to degrade performance.
-
-### Kubernetes Security (OWASP Kubernetes Top 10)
-
-The Kubernetes Top 10 project covers the runtime and orchestration layers of modern microservice architectures. Comparing the 2022 and 2025 editions shows that threats have shifted from local component security toward cloud integrations and lateral movement boundaries. A critical update in 2025 is "Cluster to Cloud Lateral Movement" (K08:2025).
-
-In cloud-hosted Kubernetes clusters, pods can query local metadata endpoints to exfiltrate and reuse node IAM credentials, gaining access to the broader cloud account. Additionally, component vulnerabilities and outdated cluster versions were merged under "Misconfigured and Vulnerable Cluster Components" (K07:2025). The authorization category was also expanded beyond RBAC to encompass webhook authorizers under "Overly Permissive Authorization Configurations" (K02:2025).
-
-- **K01: Insecure Workload Configurations:** Running pods in privileged mode or as root, leading to container escapes.
-- **K02: Overly Permissive Authorization Configurations:** Granting excessive RBAC permissions (e.g., utilizing wildcard symbols).
-- **K03: Secrets Management Failures:** Storing secrets unencrypted in etcd or mounting them insecurely into pod file systems.
-- **K04: Lack of Cluster Level Policy Enforcement:** Absence of admission controllers (e.g., Kyverno or OPA) to enforce rules.
-- **K05: Missing Network Segmentation Controls:** Allowing unrestricted pod-to-pod traffic, exposing the entire network if one pod is breached.
-- **K06: Overly Exposed Kubernetes Components:** Exposing API servers, Kubelet ports, or dashboards to the public internet.
-- **K07: Misconfigured and Vulnerable Cluster Components:** Outdated Kubernetes control plane versions and configuration errors.
-- **K08: Cluster to Cloud Lateral Movement:** Pod service accounts exfiltrating credentials to access cloud-layer resources (AWS IAM, GCP Service Accounts).
-- **K09: Broken Authentication Mechanisms:** Weak management of user tokens or mTLS certificates used for cluster communication.
-- **K10: Inadequate Logging and Monitoring:** Failure to collect and centralize cluster audit logs to detect attacks.
-
-### CI/CD Pipeline Security (OWASP CI/CD Security Risks)
-
-The CI/CD Security Risks project addresses the delivery pipeline where code is built and packaged for production. This list targets vulnerabilities in runners, build hosts, and package registries, which represent critical weaknesses in DevSecOps environments.
-
-The most dangerous vulnerability in this project is "Poisoned Pipeline Execution" (CICD-SEC-4), where attackers modify build configuration files (e.g., GitHub Actions `.yml` or Jenkinsfiles) to run malicious code on runner hosts. "Dependency Chain Abuse" (CICD-SEC-3) covers dependency confusion attacks, where developers inadvertently download malicious public packages instead of private internal ones. Storing over-privileged AWS/Azure keys on build runners and exposing them in logs (CICD-SEC-6) are also core concerns.
-
-- **CICD-SEC-1: Insufficient Flow Control Mechanisms:** Merging code changes directly to production without peer reviews (PR bypass).
-- **CICD-SEC-2: Inadequate Identity and Access Management:** Utilizing over-privileged user or service accounts in pipeline tools.
-- **CICD-SEC-3: Dependency Chain Abuse:** Developers downloading malicious packages via dependency confusion or typosquatting.
-- **CICD-SEC-4: Poisoned Pipeline Execution (PPE):** Modifying configuration files in code repositories to execute commands on runners.
-- **CICD-SEC-5: Insufficient PBAC (Pipeline-Based Access Controls):** Lack of isolation between pipeline stages, allowing one step to access another's secrets.
-- **CICD-SEC-6: Insufficient Credential Hygiene:** Exposing deployment keys or API tokens as plain text in variables or execution logs.
-- **CICD-SEC-7: Insecure System Configuration:** Insecure host configurations or unpatched software on Jenkins/GitLab runners.
-- **CICD-SEC-8: Ungoverned Usage of 3rd Party Services:** Integrating unverified analysis tools or Slack bots into build pipelines.
-- **CICD-SEC-9: Improper Artifact Integrity Validation:** Failure to cryptographically sign (e.g., via Cosign) and verify built images or packages.
-- **CICD-SEC-10: Insufficient Logging and Visibility:** Failure to record runner activities and unauthorized secret access.
-
-### Data Privacy Security (OWASP Privacy Risks)
-
-The OWASP Privacy Risks project covers privacy violations during data collection, processing, and storage. It serves as a technical bridge between legal compliance (GDPR, CCPA) and software engineering. Comparing the 2014 and 2021 (v2.0) editions highlights the growing importance of user consent and Data Subject Access Requests (DSAR).
-
-The 2021 release added "Consent on Everything" (P4:2021), which examines how overwhelming users with consent prompts (consent fatigue) invalidates the legality of consent. "Insufficient Deletion of User Data" (P6:2021) covers the technical challenge of ensuring that deleted user data is removed from all backup systems, database relationships, and log files.
-
-- **P1: Web Application Vulnerabilities:** Leaks of personal data caused by technical flaws like SQL injection.
-- **P2: Operator-sided Data Leakage:** Misconfigurations exposing PII to unauthorized departments or external analytical tools.
-- **P3: Insufficient Data Breach Response:** Failing to detect data breaches or report them to regulators within legal windows (e.g., 72 hours under GDPR).
-- **P4: Consent on Everything:** Bombarding users with consent prompts (consent fatigue) to obtain uninformed consent.
-- **P5: Non-transparent Policies:** Presenting long, overly complex privacy agreements that are unreadable to users.
-- **P6: Insufficient Deletion of User Data:** Retaining personal data in backups or relational tables after a user deletes their account.
-- **P7: Insufficient Data Quality:** Relying on outdated or incorrect user data in critical decision-making processes.
-- **P8: Missing or Insufficient Session Expiration:** Long session lifetimes exposing personal data on shared computers.
-- **P9: Inability of Users to Access and Modify Data:** Lacking client interfaces for users to view, correct, or port their stored data.
-- **P10: Collection of Data Not Required:** Gathering data unrelated to the core service (e.g., a flashlight app requesting access to contacts).
-
-### Serverless Architecture Security (OWASP Serverless Top 10)
-
-The Serverless project examines risks in event-driven FaaS (Function-as-a-Service) architectures where the underlying infrastructure is managed by a cloud provider. It is an interpretation document showing how traditional web risks shift in serverless environments. While OS patching is handled by the cloud provider, application-layer security remains the developer's responsibility.
-
-The diversity of event sources (API Gateways, S3 uploads, database logs) broadens injection vulnerabilities to "Event Data Injection" (Risk 1). Furthermore, failing to restrict IAM roles for short-lived functions ("Over-privileged IAM Roles") can allow attackers to compromise the entire cloud account from a single function. "Denial of Wallet" (Risk 7) covers infinite loops in functions that generate significant cloud costs in minutes.
-
-- **1: Event Data Injection:** Processing inputs from event sources (e.g., S3 bucket notifications) without validation.
-- **2: Broken Authentication:** Stateless functions failing to validate authentication tokens on every request.
-- **3: Insecure Serverless Deployment Configuration:** Exposing configuration parameters or environment variables.
-- **4: Over-privileged IAM Roles:** Assigning broad cloud resource permissions instead of applying least-privilege configurations to functions.
-- **5: Inadequate Function Monitoring and Logging:** Failure to aggregate logs from short-lived distributed functions into a central SIEM.
-- **6: Shared Execution Environment Risks:** Functions sharing physical compute resources leaking data via memory.
-- **7: Denial of Wallet / Resource Abuse:** Triggering functions excessively to create high billing costs.
-- **8: Insecure Third-Party Dependencies:** Loading unverified packages to keep function package sizes small.
-- **9: Impersonation and Session Hijacking:** Exfiltrating temporary keys stored unencrypted in function execution memory.
-- **10: Serverless Function Data Leakage:** Sensitive data remaining in temporary directories (`/tmp`) and being read by subsequent executions.
-
-### Low-code / No-code Platform Security (OWASP Low-code / No-code Risks)
-
-This list covers risks in citizen development environments where software is built using graphical interfaces and pre-configured templates. The project was initiated because applications built by business analysts or HR staff often bypass corporate security controls.
-
-Allowing applications to expose internal databases to the internet via pre-configured connectors introduces "Data Leakage" (LCNC-SEC-03). The primary governance challenge is "Asset Management Failures" (LCNC-SEC-09) — the inability to track who builds which applications and what external resources they connect to. This creates "shadow IT" risks across the enterprise.
-
-- **LCNC-SEC-01: Account Impersonation:** Unauthorized application users executing actions under the privileges of service accounts.
-- **LCNC-SEC-02: Authorization Misuse:** Flawed authorization configurations in graphical interfaces leading to data exposure.
-- **LCNC-SEC-03: Data Leakage and Unexpected Consequences:** Moving data to unapproved cloud repositories via form connectors.
-- **LCNC-SEC-04: Authentication Failures:** Utilizing weak or unencrypted communication protocols for data integrations.
-- **LCNC-SEC-05: Security Misconfiguration:** Platform administrative sharing permissions left set to "public" by default.
-- **LCNC-SEC-06: Injection Handling Failures:** Data injections caused by a lack of input validation by citizen developers.
-- **LCNC-SEC-07: Vulnerable and Untrusted Components:** Downloading unverified templates or add-ons from platform marketplaces.
-- **LCNC-SEC-08: Data and Secret Handling Failures:** Hardcoding API keys or database passwords directly in form design interfaces.
-- **LCNC-SEC-09: Asset Management Failures:** Inability to track deployed low-code applications across the enterprise (Shadow IT).
-- **LCNC-SEC-10: Security Logging and Monitoring Failures:** User-developed application actions bypassing corporate SIEM monitoring.
+### Critical Threat Domains and Risk Details
+- **A01:2025 – Broken Access Control:** This occurs when the application fails to properly validate user roles and data ownership boundaries. Attackers manipulate request parameters or URLs to access data or invoke functions belonging to other users. To mitigate this, access controls must be enforced strictly on the server side using a default-deny approach.
+- **A02:2025 – Security Misconfiguration:** This risk arises from leaving servers, frameworks, or cloud configurations in their insecure default states. For example, leaving unnecessary ports active or enabling debug settings leaks critical information to attackers. Organizations should define and deploy Infrastructure as Code (IaC) templates audited against security hardening baselines.
+- **A03:2025 – Software Supply Chain Failures:** This involves incorporating untrusted third-party packages or libraries into build pipelines without verifying their integrity. Attackers exploit this by uploading malicious packages with typosquatted names or compromising public package repositories. Security teams must enforce Software Bill of Materials (SBOM) audits and verify cryptographic package signatures.
+- **A04:2025 – Cryptographic Failures:** This occurs when sensitive data is stored or transmitted using weak encryption algorithms or cleartext protocols. Using HTTP instead of HTTPS or selecting outdated hashing algorithms (like MD5 or SHA-1) allows attackers to intercept and compromise data. Mitigation requires enforcing TLS 1.3 and utilizing modern algorithms like AES-GCM and SHA-256.
+- **A05:2025 – Injection:** This happens when untrusted user input is passed directly to an interpreter (SQL, NoSQL, or OS command line) without proper validation. Attackers craft malicious inputs to execute unauthorized commands or manipulate database records. Developers must use parameterized queries (prepared statements) and apply strict input whitelist validation.
+- **A06:2025 – Insecure Design:** This risk highlights the absence of security threat modeling and secure architectural design principles during the initial stages of development. Systems developed without threat modeling remain vulnerable to logical design flaws, even if the code itself is free of bugs. Implementing a Secure Software Development Lifecycle (SSDLC) with mandatory threat modeling is essential.
+- **A07:2025 – Authentication Failures:** This stems from design weaknesses in session management and user authentication workflows. The lack of Multi-Factor Authentication (MFA) or weak password complexity rules enables attackers to compromise accounts via brute-force or credential stuffing attacks. Enforcing MFA, implementing rate limits on login endpoints, and using short session durations are critical.
+- **A08:2025 – Software and Data Integrity Failures:** This occurs when code or data from untrusted sources is accepted and executed without verification (such as insecure deserialization). Attackers modify serialized object payloads to execute arbitrary code on the host server. Applications must cryptographically verify incoming payloads and utilize secure, built-in serialization formats.
+- **A09:2025 – Security Logging and Alerting Failures:** This happens when critical security events are not recorded, or when alerts are not triggered during active compromises. The lack of logging prevents security teams from detecting ongoing breaches, significantly increasing attacker dwell time. Implementing centralized logging (SIEM) that monitors failed authentication and authorization attempts is crucial.
+- **A10:2025 – Mishandling of Exceptional Conditions:** This involves applications failing open during errors or leaking detailed debugging information (like stack traces) in error messages. Attackers analyze these detailed error outputs to map out the application's underlying architecture and identify vulnerabilities. Developers must display generic error pages to users while logging details securely on backend servers.
 
 ---
 
-## Comparative Technical Analysis of Critical Projects
+## 2. API Security (OWASP API Security Top 10)
 
-In the cards below, technical comparisons are provided for critical projects that are frequently confused or must be managed together due to architectural similarities and differences in execution.
+### Strategic Assessment and Historical Evolution
+APIs have become the backbone of modern microservice architectures, mobile apps, and cloud-native integrations. Unlike traditional web applications, APIs lack a presentation layer (HTML/CSS); instead, clients and servers exchange raw data in JSON or XML format. This architecture collapses the attack surface directly onto the underlying data models and business logic. The API Security project was launched in 2019 to address these specific threats, and updated in 2023 to reflect the evolution of the API ecosystem.
+
+The 2023 update confirms that API vulnerabilities have shifted from technical coding issues to complex logic flaws. For example, Excessive Data Exposure and Mass Assignment were merged into a single category: Broken Object Property Level Authorization (BOPLA), because both arise from a failure to validate access to specific object properties. Traditional Web Application Firewalls (WAFs) are largely ineffective here, as attackers use legitimate HTTP protocols and valid tokens to exploit these flaws. Consequently, API security is fundamentally centered on verifying request context against object-level authorization permissions (BOLA).
+
+### Critical Threat Domains and Risk Details
+- **API1:2023 – Broken Object Level Authorization (BOLA):** This occurs when API endpoints do not validate whether the logged-in user is authorized to access the requested object ID (IDOR). Attackers alter path parameters, changing `/api/users/123` to `/api/users/124` to read private records. API controllers must perform server-side checks to verify user ownership of the requested resource.
+- **API2:2023 – Broken Authentication:** This involves weak configurations in authentication flows, token generation (JWTs), or API key validations. Attackers exploit unsigned or weak tokens to masquerade as legitimate users. APIs must enforce strong cryptographic token signatures (such as RS256) and implement short-lived access tokens with proper token revocation.
+- **API3:2023 – Broken Object Property Level Authorization (BOPLA):** This occurs when APIs expose all object fields to the client (excessive exposure) or write incoming client JSON payloads directly to database objects (mass assignment). Attackers append administrative fields, like `isAdmin: true`, to elevate their privileges. Developers must restrict API schemas and bind inputs only to authorized properties.
+- **API4:2023 – Unrestricted Resource Consumption:** This risk arises when API endpoints lack rate limiting, upload size restrictions, or resource quotas. Attackers flood the API with thousands of concurrent requests or upload massive JSON payloads to exhaust server CPU and memory (DoS). Organizations must apply client IP- or token-based rate limits on all endpoints.
+- **API5:2023 – Broken Function Level Authorization (BFLA):** This happens when administrative or privileged API endpoints are accessible to regular users due to missing authorization checks. Attackers alter HTTP methods (changing GET to DELETE) or modify URL paths (changing `/user` to `/admin`) to perform privileged actions. APIs must validate user roles on every request invocation.
+- **API6:2023 – Unrestricted Access to Sensitive Business Flows:** This occurs when an API runs correctly from a code perspective but is exploited by bots because it lacks rate-limiting controls on logical flows. For example, bots checking discount codes rapidly to exhaust inventory fall under this category. Mitigations include behavior analysis, bot-detection tools, and workflow-level rate limits.
+- **API7:2023 – Server-Side Request Forgery (SSRF):** This happens when an API server processes a user-supplied URL to make internal or external requests without validation. Attackers input internal IP addresses to scan metadata services or access database clusters. APIs must validate user-provided URLs against strict whitelists and block requests to internal networks.
+- **API8:2023 – Security Misconfiguration:** This stems from enabling weak CORS policies (`Access-Control-Allow-Origin: *`) or permitting unnecessary HTTP methods on API endpoints. These flaws allow browser-based attacks to exfiltrate sensitive API payloads. Security teams should restrict CORS configurations to trusted domains and disable unused HTTP methods.
+- **API9:2023 – Improper Inventory Management:** This involves leaving undocumented test environments, beta versions, or legacy API endpoints (shadow APIs) active and exposed. Attackers target these old endpoints because they lack the security controls applied to current releases. APIs must be cataloged automatically (using OpenAPI specs) and legacy versions decommissioned.
+- **API10:2023 – Unsafe Consumption of APIs:** This risk arises when an API implicitly trusts and processes data received from integrated third-party APIs without validation. Attackers compromise the external service to inject malicious payloads into the downstream application. All data ingested from external APIs must be treated as untrusted user input and sanitized.
+
+---
+
+## 3. Mobile Application Security (OWASP Mobile Top 10)
+
+### Strategic Assessment and Historical Evolution
+Mobile devices (iOS and Android) utilize security models that differ fundamentally from web browsers. In mobile security, the core assumption is that **the attacker has full physical and administrative control (root/jailbreak) over the device.** Consequently, rather than relying on browser-enforced boundaries or server-side checks, mobile application security prioritizes protecting the application's binary package (APK/IPA) from local exploitation. The Mobile Top 10 was completely overhauled in 2024 to address modern patterns like hybrid frameworks, OAuth flows, and biometrics.
+
+The most critical change in the 2024 release is that "Improper Credential Usage" (M1) has claimed the #1 spot. Developers often forget that mobile binaries can be easily decompiled and reverse-engineered. They hardcode AWS access keys, Firebase passwords, or third-party API credentials directly into the application code, allowing attackers to extract them in seconds. Furthermore, the reliance on third-party SDKs (M2: Inadequate Supply Chain Security) and the leakage of personal data into system logs or insecure on-device storage (M6: Inadequate Privacy Controls) have become major compliance risks under regulations like GDPR and CCPA.
+
+### Critical Threat Domains and Risk Details
+- **M1:2024 – Improper Credential Usage:** This occurs when API keys, cryptographic tokens, or passwords are hardcoded as plain text inside the mobile application binary. Attackers decompile the APK or IPA file to extract and abuse these credentials. Developers must retrieve secrets dynamically at runtime from secure servers or store them in device-specific secure storage like iOS Keychain or Android Keystore.
+- **M2:2024 – Inadequate Supply Chain Security:** This risk arises when mobile applications integrate third-party SDKs (such as advertising or analytics packages) that contain security vulnerabilities or malicious code. Attackers leverage compromised SDKs to exfiltrate user data or run arbitrary commands. Developers must audit third-party dependencies regularly and keep them updated.
+- **M3:2024 – Insecure Authentication/Authorization:** This happens when authorization checks or authentication flows are executed solely on the mobile device (offline). Attackers modify the device's RAM or patch the binary code to bypass these client-side checks entirely. All sensitive operations, privilege checks, and session states must be validated online by backend servers.
+- **M4:2024 – Insufficient Input/Output Validation:** This occurs when the mobile application processes external inputs (like deep links, IPC messages, or QR code scans) without validation. Attackers craft malicious deep links to redirect users to phishing sites or trigger unauthorized actions. All incoming data streams must be validated and sanitized before execution.
+- **M5:2024 – Insecure Communication:** This involves transmitting data between the mobile client and the server over unencrypted channels or failing to validate SSL certificates. Without SSL/TLS pinning, attackers execute Man-in-the-Middle (MITM) attacks to intercept or modify API payloads. Applications must enforce HTTPS, reject invalid certificates, and implement SSL Pinning.
+- **M6:2024 – Inadequate Privacy Controls:** This happens when mobile applications collect PII (Personally Identifiable Information) without user consent or write sensitive data to device system logs. Attackers read system logs (Logcat/Console) or access the data via other apps on compromised devices. Developers must prevent sensitive inputs from being logged and follow data minimization principles.
+- **M7:2024 – Insufficient Binary Protections:** This risk arises when developers do not apply code obfuscation or fail to implement root/jailbreak detection controls. Attackers reverse-engineer the code to find vulnerabilities or produce repackaged, malicious versions of the app. Code must be obfuscated using tools like ProGuard or DexGuard, and runtime integrity checks must be implemented.
+- **M8:2024 – Security Misconfiguration:** This occurs when debugging flags are left active in configuration files (AndroidManifest.xml or Info.plist) or when the application requests excessive device permissions. These misconfigurations ease reverse-engineering and expose system resources to exploitation. Debugging must be disabled prior to release, and permission requests must be minimized.
+- **M9:2024 – Insecure Data Storage:** This happens when sensitive tokens, passwords, or personal data are stored unencrypted in local SQLite databases, preference files, or cache directories. Attackers extract this data if the device is lost, stolen, or compromised. Sensitive data must be encrypted and stored exclusively within secure runtime environments like iOS Keychain or Android Keystore.
+- **M10:2024 – Insufficient Cryptography:** This stems from implementing weak cryptographic algorithms (such as DES, RC4, MD5) or utilizing poorly generated keys. Attackers decrypt local storage or intercepted communication by brute-forcing weak encryption. Developers must implement industry-standard cryptographic algorithms like AES-256 and manage keys securely.
+
+---
+
+## 4. Large Language Model Application Security (OWASP LLM Top 10)
+
+### Strategic Assessment and Historical Evolution
+Integrating Large Language Models (LLMs) and Generative AI into enterprise architectures has introduced entirely new threat vectors. Unlike deterministic systems, LLMs are probabilistic, processing instructions and data through the same natural language interface. This blending of channels makes separating data from execution instructions extremely difficult. The LLM Top 10 project was created in 2023 to address these issues and updated in 2025 as AI systems evolved from static text interfaces into autonomous agents and RAG (Retrieval-Augmented Generation) patterns.
+
+The 2025 edition highlights the critical risk of "Sensitive Information Disclosure" (LLM02), which has risen to the #2 spot. Organizations link internal databases to LLMs via RAG, but the models often fail to verify user permissions, exposing restricted department secrets in their responses. Furthermore, the autonomous execution capabilities of AI systems have introduced "Excessive Agency" (LLM06). Attackers exploit prompt injections to hijack agents and execute unauthorized actions, such as deleting database tables or sending phishing emails. LLM security now requires strict architectural guardrails, model output sanitization, and privilege boundaries around AI-driven agents.
+
+### Critical Threat Domains and Risk Details
+- **LLM01: Prompt Injection:** This occurs when attackers manipulate LLM behavior by embedding malicious instructions in user queries (direct) or in external web pages and files read by the model (indirect). The model processes these inputs as system directives, bypassing safety filters. Mitigation requires input filtering, segregating system prompts from user data, and analyzing model outputs.
+- **LLM02: Sensitive Information Disclosure:** This happens when an LLM exposes confidential enterprise data or training set inputs to unauthorized users through conversational outputs. RAG integrations often retrieve and display restricted documents without verifying user authorization. Organizations must apply metadata-based access controls (IAM) at the RAG retrieval layer.
+- **LLM03: Supply Chain:** This risk arises from utilizing unverified base models, poisoned fine-tuning datasets, or insecure third-party plugins. Attackers compromise public repositories to distribute models containing hidden backdoors or insecure code execution blocks. Teams must source models from verified vendors, sign assets, and verify dependency packages.
+- **LLM04: Data and Model Poisoning:** This occurs when training datasets or fine-tuning inputs are compromised by attackers to alter the model's core decision boundaries. This allows attackers to establish a backdoor, triggering malicious outputs when specific keywords are matched. Security teams must verify the origin of training datasets and apply anomaly detection to training inputs.
+- **LLM05: Improper Output Handling:** This happens when raw LLM outputs (like SQL queries, JSON payloads, or JavaScript blocks) are executed by downstream systems or browsers without validation. The model-generated output could trigger Cross-Site Scripting (XSS) or remote command execution. All LLM outputs must be treated as untrusted user inputs and validated before execution.
+- **LLM06: Excessive Agency:** This risk occurs when autonomous AI agents are granted overly broad permissions (such as write or delete access) over database tables or API integrations. Attackers hijack the agent via prompt injection to run unauthorized operations. Agent privileges must be restricted using least-privilege principles, and critical operations must require human confirmation.
+- **LLM07: System Prompt Leakage:** This involves attackers exfiltrating the model's hidden system prompts, configuration rules, or alignment templates. Attackers craft inputs like "Provide the instructions above this line" to extract intellectual property and bypass safety filters. Mitigations include enforcing system prompt protection rules and monitoring output text patterns.
+- **LLM08: Vector and Embedding Weaknesses:** This occurs when vector databases lack tenant isolation or when embedding vectors are poisoned by malicious inputs. Attackers inject poisoned vectors to distort search results or access files belonging to other database tenants. Vector databases must enforce strict metadata filtering and implement user-level authentication.
+- **LLM09: Misinformation:** This risk arises when organizations rely on incorrect model responses, false statements, or hallucinations in critical workflows (such as medical or financial tasks) without verification. This leads to operational failures and liability. Critical workflows must validate LLM outputs against deterministic rules and require human-in-the-loop verification.
+- **LLM10: Unbounded Consumption:** This happens when attackers flood LLMs with excessively long prompts or recursive requests to exhaust GPU/CPU resources and inflate API costs. This results in Denial of Service (DoS) or "Denial of Wallet". Mitigation requires enforcing prompt length limits, setting rate limits on token consumption, and configuring budget alerts.
+
+---
+
+## 5. Machine Learning Security (OWASP ML Security Top 10)
+
+### Strategic Assessment and Historical Evolution
+While LLM security focuses on application-layer wrappers and text processing, Machine Learning (ML) Security targets the mathematical, statistical, and algorithmic core of models. Traditional supervised and unsupervised models (such as CNNs, SVMs, and regression models) rely on statistical data distributions. Attackers exploit this by manipulating these mathematical distributions to shift the model's decision boundaries.
+
+The core paradigm shift in ML security is that attacks are executed via data manipulation rather than traditional code exploitation. For instance, in an autonomous vehicle's sign-recognition model, an attacker applies a small, human-imperceptible perturbation (noise) to a speed limit sign. The model misclassifies the sign as a "stop sign" due to this statistical shift (ML01). These adversarial manipulations and training data poisoning (ML02) cannot be detected by standard application security tools (SAST/DAST). Protecting ML models requires mathematical defense techniques (adversarial training), input preprocessing, and securing serialized model files.
+
+### Critical Threat Domains and Risk Details
+- **ML01: Input Manipulation Attack (Evasion):** This occurs when attackers add small mathematical perturbations (noise) to input data at test time to force misclassifications. For example, modifying malware source code slightly to bypass an ML-based antivirus detection engine. Models must be hardened using adversarial training, and inputs must be preprocessed to remove noise.
+- **ML02: Data Poisoning Attack:** This involves injecting malicious or mislabeled records into the training dataset to compromise the model's decision logic. Attackers use this to introduce a backdoor that triggers incorrect classifications under specific conditions. Security teams must audit training data sources and run statistical anomaly detection.
+- **ML03: Model Inversion Attack:** This occurs when attackers reconstruct private training data (such as user facial photos or health records) by analyzing model predictions and confidence scores. This leads to critical data privacy breaches. Mitigation involves rounding confidence scores in model outputs and implementing differential privacy.
+- **ML04: Membership Inference Attack:** This happens when attackers determine whether a specific record (e.g., a patient's medical history) was used to train the target model. If the model is overfitted to that training record, it will return an unusually high confidence score. Hardening requires preventing overfitting, using regularization, and applying differential privacy.
+- **ML05: Model Theft:** This involves attackers reconstructing a local replica of the target model (surrogate model) by sending thousands of systematic queries and mapping the output boundaries. This constitutes a theft of intellectual property. Organizations should implement rate limiting on prediction APIs and monitor query patterns.
+- **ML06: ML Supply Chain Attacks:** This risk stems from using insecure model serialization formats (like PyTorch Pickle or Keras H5) that permit arbitrary code execution during loading. Attackers embed malicious payloads into model files to execute code on the host server. Teams must transition to secure, data-only formats like Safetensors or ONNX.
+- **ML07: Transfer Learning Attack:** This occurs when a pre-trained base model contains a hidden backdoor that persists even after the model is fine-tuned for a downstream task. The attacker exploits this backdoor to bypass classification rules. Organizations must audit pre-trained models and enforce input validation during fine-tuning.
+- **ML08: Model Skewing:** This happens when models that continuously learn in production (online learning) are fed malicious feedback loops by attackers to skew their decision boundaries over time. For example, tricking a spam filter into classifying junk mail as safe. Continuous learning data streams must be audited, and manual validation checks enforced.
+- **ML09: Output Integrity Attack:** This involves attackers intercepting and modifying model predictions or classifications in transit to downstream applications. This leads to incorrect decisions being implemented. To mitigate this threat, all model outputs must be encrypted (TLS) and protected using cryptographic digital signatures.
+- **ML10: Model Poisoning:** This occurs when attackers gain unauthorized write access to model directories to modify weight matrices or parameters directly. This degrades performance or introduces malicious shortcuts. Organizations must apply strict IAM policies to model registries and set model files to read-only.
+
+---
+
+## 6. Kubernetes Security (OWASP Kubernetes Top 10)
+
+### Strategic Assessment and Historical Evolution
+The rise of cloud-native architectures has established Kubernetes (K8s) as the industry standard for container orchestration. Kubernetes security extends far beyond traditional server hardening; it spans dynamic container runtimes, pod-to-pod network isolation, and cloud provider API integrations. The Kubernetes Top 10 was launched in 2022 and updated in 2025 to reflect the shifting focus of cloud-native threat actors.
+
+The primary trend in the 2025 update is the transition from localized container misconfigurations to **"Cluster-to-Cloud Lateral Movement" (K08)**. In cloud-hosted K8s environments, pods can query the local metadata service to exfiltrate temporary cloud credentials assigned to the underlying node. Attackers exploit this to escape the container sandbox, using the stolen IAM credentials to compromise the organization's entire cloud account. Consequently, K8s security is no longer just about Role-Based Access Control (RBAC) hardening; it requires strict boundaries between the container orchestrator and the cloud provider's API.
+
+### Critical Threat Domains and Risk Details
+- **K01: Insecure Workload Configurations:** This occurs when pods are run as root, in privileged mode, or sharing the host network space. Attackers exploit these settings to perform container escapes, gaining command-line control of the underlying host node. Workloads must be configured with non-root execution profiles, and privileged modes must be blocked.
+- **K02: Overly Permissive Authorization Configurations:** This risk arises from configuring Role-Based Access Control (RBAC) roles with excessive permissions (e.g., allowing service accounts to read all secrets). Attackers leverage compromised service accounts to escalate privileges. Security teams must apply least-privilege principles and avoid the use of wildcard characters (`*`).
+- **K03: Secrets Management Failures:** This happens when sensitive API keys, database credentials, or TLS certificates are stored unencrypted in the etcd database or mounted insecurely into pod filesystems. etcd must be encrypted at rest, secrets must be passed using secure mount paths instead of environment variables, and external vault systems should be utilized.
+- **K04: Lack of Cluster Level Policy Enforcement:** This stems from the absence of automated admission controls to validate workloads before they are deployed to the cluster. Attackers exploit this to deploy insecurely configured containers. Organizations must implement Admission Controllers like Kyverno or OPA Gatekeeper to automatically reject insecure workloads.
+- **K05: Missing Network Segmentation Controls:** This occurs when pod-to-pod network traffic is left open by default. If an attacker compromises a frontend pod, they can connect directly to backend database pods across the cluster. Teams must implement `NetworkPolicies` to restrict container traffic only to authorized paths.
+- **K06: Overly Exposed Kubernetes Components:** This involves exposing critical control plane elements (like the API Server, Kubelet ports, or K8s Dashboard) to the public internet. Attackers exploit vulnerabilities in these exposed endpoints to compromise the cluster. Control plane components must be isolated, protected by mTLS, and accessed via VPNs.
+- **K07: Misconfigured and Vulnerable Cluster Components:** This risk arises from running outdated Kubernetes versions or applying insecure settings to the API Server. Outdated components contain publicly known CVEs that allow cluster takeovers. Security teams must update cluster components regularly and run CIS Kubernetes Benchmark tests.
+- **K08: Cluster-to-Cloud Lateral Movement:** This occurs when pods query the cloud metadata service (`169.254.169.254`) to steal node IAM credentials and access the broader cloud infrastructure. Attackers leverage these credentials to compromise cloud-layer services. Access to the metadata IP must be blocked, and pod-specific IAM roles (AWS IRSA) enforced.
+- **K09: Broken Authentication Mechanisms:** This stems from weak management of user tokens or TLS certificates used to authenticate with the API Server. Attackers steal these credentials to masquerade as cluster administrators. Authentication must be integrated with corporate OIDC identity providers, and token durations must be kept short.
+- **K10: Inadequate Logging and Monitoring:** This happens when K8s audit logs or container security events are not collected or monitored. This prevents security teams from detecting active compromises or executing post-incident forensics. All API Server audit logs and container logs must be aggregated in a centralized SIEM system.
+
+---
+
+## 7. CI/CD Pipeline Security (OWASP CI/CD Security Risks)
+
+### Strategic Assessment and Historical Evolution
+Automating software delivery through CI/CD pipelines has accelerated release cycles, but has also turned build environments into high-value targets. CI/CD pipelines (Jenkins, GitLab CI, GitHub Actions) occupy the center of the software supply chain. While traditional security controls focus on production environments, major attacks like SolarWinds and Codecov have demonstrated that compromising the build pipeline allows attackers to compromise downstream customers. The CI/CD Security Risks project was launched in 2022 to define this threat landscape.
+
+The primary risk in CI/CD environments is that **pipeline configurations (such as `.github/workflows/deploy.yml` or `Jenkinsfile`) are managed alongside application code in git repositories.** If an attacker gains write access to a repository or compromises a developer account, they can modify these configuration files to execute malicious code on the build runners (Poisoned Pipeline Execution - CICD-SEC-4). This execution allows the attacker to steal production deployment keys and cloud secrets stored in the runner's environment variables. Protecting CI/CD systems requires enforcing strict pull request workflows, isolating runners, and signing build outputs cryptographically.
+
+### Critical Threat Domains and Risk Details
+- **CICD-SEC-1: Insufficient Flow Control Mechanisms:** This occurs when code changes can be merged directly into main branches and deployed to production without peer reviews. Attackers exploit compromised developer accounts to push malicious code directly. Organizations must enforce branch protection rules and require approval from independent developers.
+- **CICD-SEC-2: Inadequate Identity and Access Management:** This risk arises when pipeline integration accounts or user accounts are configured with excessive permissions. Attackers compromise these accounts to gain write access across all repositories. Security teams must enforce Role-Based Access Control (RBAC), audit active accounts, and mandate Multi-Factor Authentication.
+- **CICD-SEC-3: Dependency Chain Abuse:** This happens when developers download malicious third-party dependencies via typosquatting or dependency confusion (registering private package names on public registries). Attackers leverage these packages to execute code on runners. Mitigations include configuring private registries, using lockfiles, and scanning dependencies.
+- **CICD-SEC-4: Poisoned Pipeline Execution (PPE):** This occurs when an attacker with repository write access modifies pipeline configurations to execute malicious scripts on build runners. Attackers use this to steal environment secrets and keys. Pipeline modifications must undergo strict review, and build runners must be ephemeral (wiped after each execution).
+- **CICD-SEC-5: Insufficient PBAC (Pipeline-Based Access Controls):** This risk arises from a lack of isolation between different projects or build stages sharing the same runners. A compromise in a test runner can allow access to deployment secrets in a production runner. Project environments and build stages must be isolated, utilizing distinct service accounts.
+- **CICD-SEC-6: Insufficient Credential Hygiene:** This happens when deployment keys, SSH keys, or API tokens are hardcoded in pipeline files or exposed in execution logs. Attackers read these logs to extract secrets. All credentials must be stored as encrypted repository secrets, and automated scanners must be used to mask sensitive patterns in build logs.
+- **CICD-SEC-7: Insecure System Configuration:** This stems from failing to patch build servers (Jenkins, GitLab runners) or leaving administrative consoles exposed to the public internet. Attackers exploit known vulnerabilities in these systems to compromise runners. All CI/CD infrastructure must be updated regularly and secured against hardening baselines.
+- **CICD-SEC-8: Ungoverned Usage of 3rd Party Services:** This occurs when unverified third-party tools, code analysis packages, or Slack notification bots are integrated into pipelines. Attackers compromise these external services to gain access to build environments. Organizations must establish an approval process for all third-party pipeline integrations.
+- **CICD-SEC-9: Improper Artifact Integrity Validation:** This risk arises when build outputs (such as Docker images or binaries) are deployed without verifying their cryptographic signatures. Attackers compromise the container registry to swap legitimate images with compromised ones. Outputs must be signed at build time (e.g., via Cosign) and verified before deployment.
+- **CICD-SEC-10: Insufficient Logging and Visibility:** This happens when CI/CD systems fail to log pipeline triggers, runner commands, or secret access. The absence of logs prevents detection of malicious runner activity and hinders forensics. All pipeline operations, runner execution commands, and user logins must be logged to a SIEM.
+
+---
+
+## 8. Data Privacy Security (OWASP Privacy Risks)
+
+### Strategic Assessment and Historical Evolution
+Global regulations like GDPR, CCPA, and regional privacy frameworks have turned data privacy into a legal mandate. However, privacy cannot be achieved solely through legal policies; it requires engineering solutions embedded within the application architecture. The Privacy Risks project was updated in 2021 (v2.0) to address technical privacy challenges like user consent management and automated data erasure.
+
+The primary engineering challenges in privacy security are **uncontrolled data collection and the complexity of executing user data erasure requests (the right to be forgotten).** When a user deletes their account, applications often remove the record from the main database table but fail to delete related records stored in backup servers, analytics databases, relational tables, or application logs (P6: Insufficient Deletion of User Data). Furthermore, bombarding users with consent prompts for every action creates "consent fatigue" (P4), causing users to approve terms without reading them. Designing for privacy requires enforcing data minimization, implementing automated data deletion pipelines, and adopting privacy-by-design principles.
+
+### Critical Threat Domains and Risk Details
+- **P1: Web Application Vulnerabilities:** This occurs when technical flaws (like SQL Injection or authorization bypasses) allow attackers to extract databases containing personally identifiable information (PII). This results in massive data breaches and regulatory fines. Applications must undergo regular penetration testing and vulnerability mitigation.
+- **P2: Operator-sided Data Leakage:** This risk arises when administrators or system engineers copy live databases containing cleartext PII to insecure test or development environments. This exposes user data to unauthorized staff. Personal data must be masked, hashed, or anonymized before being copied to non-production environments.
+- **P3: Insufficient Data Breach Response:** This happens when systems fail to detect a data breach or report it to regulators and users within legal timeframes (e.g., 72 hours under GDPR). Delaying notifications increases regulatory penalties. Organizations must set up security monitoring rules and maintain a documented incident response plan.
+- **P4: Consent on Everything:** This involves applications displaying consent prompts for every interaction, inducing "consent fatigue". Users accept all prompts blindly, and the legal requirement of informed consent is bypassed. Consent requests should be consolidated, clear, and displayed only when legally required.
+- **P5: Non-transparent Policies:** This stems from presenting privacy policies and terms of service that are excessively long, complex, and written in legal jargon. Users remain unaware of how their data is processed. Privacy terms must be displayed in a layered, readable format, using simple language and summaries.
+- **P6: Insufficient Deletion of User Data:** This occurs when an application fails to remove personal data from cache systems, relational tables, backup storage, and log files after a user deletes their account. Retaining orphaned data violates compliance rules. Erasure requests must trigger automated cleanup flows across all data storage layers.
+- **P7: Insufficient Data Quality:** This risk arises from retaining outdated or incorrect personal data, leading to incorrect evaluations or actions affecting users. For example, relying on outdated address records to dispatch critical documents. Applications must provide users with self-service interfaces to view and update their data.
+- **P8: Missing or Insufficient Session Expiration:** This happens when session cookies or tokens do not expire or remain active after a browser is closed. Subsequent users on shared or public computers gain unauthorized access to the previous user's private account details. Sessions must be configured with short idle timeouts and auto-logout rules.
+- **P9: Inability of Users to Access and Modify Data:** This stems from lacking self-service tools for users to download their stored data (DSAR compliance) or transfer it. Managing these requests manually introduces errors and delay. Organizations should implement automated features allowing users to download their profile data in standard formats.
+- **P10: Collection of Data Not Required:** This involves collecting user data that is unnecessary for the core function of the service (such as a simple calculator application requesting contact list access). This violates data minimization principles. Applications must collect only the minimum set of data fields required to run the service.
+
+---
+
+## 9. Serverless Architecture Security (OWASP Serverless Top 10)
+
+### Strategic Assessment and Historical Evolution
+Serverless architecture delegates infrastructure management (OS patching, server scaling) to cloud providers, executing code as event-driven functions (Function-as-a-Service / FaaS). While OS security falls to the cloud provider, application-layer security, data flow validation, and configuration management remain the developer's responsibility. The Serverless Top 10 interpretation document details how security boundaries shift in these environments.
+
+The primary security risks in serverless applications are **the variety of event sources that trigger functions and the configuration of over-privileged IAM roles.** In serverless environments, inputs arrive not only via HTTP but also through S3 bucket uploads, database updates, or IoT device events. This variety broadens injection risks to "Event Data Injection" (Risk 1). Furthermore, developers often assign broad administrator permissions to functions to simplify deployment. If an attacker compromises a function, they leverage this over-privileged IAM role to compromise the entire cloud account. Serverless security requires restricting function privileges, sanitizing event data, and implementing budget limits to counter "Denial of Wallet" risks.
+
+### Critical Threat Domains and Risk Details
+- **1: Event Data Injection:** This occurs when a serverless function processes inputs from event sources (like database streams or file uploads) without validation. Attackers inject commands into file metadata or database records to execute code on the runtime container. Developers must validate event payloads against strict schemas.
+- **2: Broken Authentication:** This happens when stateless functions fail to validate authentication tokens on every request. Attackers bypass gateway layers to execute function endpoints directly. Applications must implement token validations at the API Gateway layer and verify tokens inside the function code.
+- **3: Insecure Serverless Deployment Configuration:** This risk arises from storing sensitive database passwords or API keys as unencrypted environment variables. Attackers with console access read these variables in plain text. Secrets must be retrieved dynamically at runtime from secure vaults (e.g., AWS Secrets Manager).
+- **4: Over-privileged IAM Roles:** This involves assigning broad resource access rights to functions instead of restricting permissions. An attacker compromising a single function uses the role to read, write, or delete other cloud resources. Organizations must write granular, least-privilege IAM policies for each individual function.
+- **5: Inadequate Function Monitoring and Logging:** This stems from a failure to aggregate logs from short-lived, highly distributed functions. If an attack occurs, the execution context disappears, making forensic analysis impossible. Function execution logs must be streamed in real-time to a centralized logging platform.
+- **6: Shared Execution Environment Risks:** This occurs when cloud providers reuse the same container runtime (warm containers) for consecutive function invocations. Attackers read sensitive data left in memory or temporary disk space (`/tmp`) by previous executions. Functions must clean up temporary files and clear memory variables before exiting.
+- **7: Denial of Wallet / Resource Abuse:** This happens when attackers exploit automatic scaling by sending thousands of requests to trigger functions recursively, inflating cloud costs. This results in service disruption or severe financial damage. Teams must set execution concurrency limits and configure cloud billing alarms.
+- **8: Insecure Third-Party Dependencies:** This risk arises from loading unverified, vulnerable packages to keep function package sizes small and cold-start times low. Attackers exploit these vulnerable libraries to execute code. All dependencies must be scanned automatically during CI/CD using vulnerability detection tools.
+- **9: Impersonation and Session Hijacking:** This involves attackers exfiltrating short-lived temporary security tokens (STS tokens) generated for function execution. Attackers use these stolen tokens to access cloud resources. Temporary token lifetimes must be kept short, and token exfiltration must be monitored.
+- **10: Serverless Function Data Leakage:** This occurs when sensitive files written to the temporary directory (`/tmp`) are not deleted after function execution. Subsequent invocations of the function read this data. Developers must delete all files in the `/tmp` directory before the function execution cycle completes.
+
+---
+
+## 10. Low-code / No-code Platform Security (OWASP Low-code / No-code Risks)
+
+### Strategic Assessment and Historical Evolution
+Low-code/No-code (LCNC) platforms (Microsoft PowerApps, Retool, Mendix) allow business users (citizen developers) to build applications rapidly using graphical interfaces and pre-configured connectors. While this accelerates business operations, it bypasses traditional corporate security audits, creating a massive "Shadow IT" (LCNC-SEC-09) threat surface. The LCNC Risks project was launched in 2022 to define the security risks of citizen-developed systems.
+
+The primary risk in LCNC platforms is that **non-technical developers use pre-configured connectors to expose internal corporate databases directly to the public internet.** Lacking security training, citizen developers often deploy applications without input validation, creating SQL Injection (LCNC-SEC-06) vulnerabilities, or leave sharing permissions set to "public" (LCNC-SEC-05). Furthermore, downloading unverified templates or add-ons from platform marketplaces (LCNC-SEC-07) introduces supply chain risks. LCNC security requires enforcing Data Loss Prevention (DLP) policies at the platform layer, maintaining an inventory of all deployed applications, and raising developer security awareness.
+
+### Critical Threat Domains and Risk Details
+- **LCNC-SEC-01: Account Impersonation:** This occurs when unauthorized users execute actions under the elevated privileges of the service account used to connect to the database. Attackers leverage this configuration to modify data. Integrated connectors must be configured with least-privilege roles, and user identity checks must be enforced.
+- **LCNC-SEC-02: Authorization Misuse:** This risk arises from configuring flawed authorization checks in the platform's drag-and-drop designer. This allows users to access records belonging to other departments. Security teams must enforce role-based access rules and test sharing configurations before deployment.
+- **LCNC-SEC-03: Data Leakage and Unexpected Consequences:** This happens when citizen developers use connectors to move corporate records to personal cloud accounts or expose them via public web forms. To mitigate this threat, organizations must enable Data Loss Prevention (DLP) rules to block unauthorized connectors.
+- **LCNC-SEC-04: Authentication Failures:** This stems from using unencrypted communication or weak authentication keys when connecting LCNC applications to internal systems. Attackers intercept the traffic to steal credentials. All system connections must require Single Sign-On (SSO) and implement TLS encryption.
+- **LCNC-SEC-05: Security Misconfiguration:** This occurs when applications or administrative panels are shared with "everyone" by default. Attackers access the app simply by guessing the URL. Access permissions must be set to private by default, restricting access to authorized user groups.
+- **LCNC-SEC-06: Injection Handling Failures:** This happens when citizen developers fail to sanitize input fields, allowing attackers to execute SQL or command injections in backend systems. Platforms must enforce the use of built-in input filtering components and restrict raw SQL queries.
+- **LCNC-SEC-07: Vulnerable and Untrusted Components:** This risk arises from installing unverified templates, widgets, or connectors from platform marketplaces. Attackers publish compromised widgets to exfiltrate data from corporate networks. Security settings must permit only certified, vendor-approved add-ons.
+- **LCNC-SEC-08: Data and Secret Handling Failures:** This involves hardcoding API keys, passwords, or credentials directly into LCNC form configurations or custom scripts. Anyone editing the app can read these secrets. Credentials must be stored exclusively inside the platform's secure credential vaults.
+- **LCNC-SEC-09: Asset Management Failures:** This occurs when organizations fail to track who built which LCNC applications and what resources they access. This creates a "shadow IT" environment. Platform administrators must automate asset discovery and implement application lifecycle tracking.
+- **LCNC-SEC-10: Security Logging and Monitoring Failures:** This happens when user-developed application activities and data access logs are not forwarded to corporate SIEM systems. Attackers exploit this blind spot to run undetected. All LCNC platform activities and data access logs must be integrated with corporate SIEMs.
+
+---
+
+## Cross-Domain Comparison and Lateral Movement Scenarios
+
+Security teams often make the mistake of auditing vulnerabilities in isolation. In reality, modern threat actors combine multiple vulnerabilities across technological boundaries to execute lateral movement. A classic example of this is an attack chain starting in a CI/CD pipeline, extending to a Kubernetes cluster, and ultimately compromising the entire cloud infrastructure.
+
+### Comparative Technical Analysis of Critical Projects
 
 <div class="render-cards">
   <div class="render-card render-card-ssr">
@@ -254,11 +290,7 @@ In the cards below, technical comparisons are provided for critical projects tha
   </div>
 </div>
 
----
-
-## Architectural Boundaries and Lateral Movement Scenario
-
-Modern attackers do not exploit vulnerabilities in isolation; they leverage architectural crossovers to move laterally between systems. A classic example of this is a compromise starting in a CI/CD pipeline, extending to a Kubernetes cluster, and ultimately breaching the entire cloud environment.
+### Lateral Movement Scenario and Technical Analysis
 
 The diagram below models a lateral movement chain starting with a CI/CD pipeline compromise (Poisoned Pipeline Execution - PPE) and culminating in the takeover of the entire cloud infrastructure.
 
@@ -280,9 +312,9 @@ graph TD
     class G node-success;
 ```
 
-In this attack flow, an attacker manipulates a script running inside the CI/CD pipeline (CICD-SEC-4) to gain control of the build runner. The attacker then signs and uploads a malicious container image to the registry. The Kubernetes cluster deploys this compromised image due to a lack of image verification controls (K01).
+In this attack flow, an attacker manipulates a script running inside the CI/CD pipeline (CICD-SEC-4) to gain control of the build runner. The attacker then signs and uploads a malicious container image to the registry. The Kubernetes cluster deploys this compromised image due to a lack of image verification controls (K01). 
 
-Once running inside the cluster, the malicious container queries the cloud provider metadata service (169.254.169.254) to exfiltrate the temporary credentials assigned to the underlying node. If these credentials violate least-privilege principles (K08), the attacker escapes the pod boundary and uses the IAM role permissions to take over the entire cloud infrastructure.
+Once running inside the cluster, the malicious container queries the cloud provider metadata service (`169.254.169.254`) to exfiltrate the temporary credentials assigned to the underlying node. If these credentials violate least-privilege principles (K08), the attacker escapes the pod boundary and uses the IAM role permissions to take over the entire cloud infrastructure.
 
 ---
 
