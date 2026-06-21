@@ -1,6 +1,5 @@
 Title: Windows Persistence & Lateral Movement — The Complete Post-Exploitation Guide
 
-
 ---
 
 When an attacker achieves initial access to a target system, the real battle has only just begun. A phishing email was clicked, a vulnerability was exploited, or a VPN credential was stolen — but that's simply walking through the door. The true goal is to stay undetected, establish a durable foothold, and spread deep into the network.
@@ -20,12 +19,9 @@ Hardening: Proactive defense measures.
 
 Chapter: Part 1: Windows Persistence Mechanisms
 
-
 Persistence methods ensure that malicious software or unauthorized access continues even if a system is restarted or a user is logged off. At this stage, attackers prefer to be as quiet as possible: evade antivirus, generate minimal log events, and blend in with legitimate system tools.
 
-
 Section: User Manipulation
-
 
 When attackers gain control of the Administrator account, rather than using it directly (since its activities are monitored), they create new "ordinary-looking" users. These accounts typically carry names like support, sysadmin, or helpdesk — unlikely to trigger SOC radar.
 
@@ -35,34 +31,19 @@ To list existing users:
 
 [Code Block: A code example is present here. Code contents are skipped in the voiceover.]
 
-
 [Image: No image description]
-
 
 SOC Detection — Event IDs:
 
-[Table Start]
-Event ID: 4720. Meaning: New user account created.
-Event ID: 4726. Meaning: User account deleted.
-Event ID: 4732. Meaning: Member added to a group (e.g., Administrators).
-[Table End]
-
-
 These Event IDs can be filtered in Event Viewer → Windows Logs → Security.
 
-
 [Image: No image description]
 
-
-
 [Image: No image description]
-
 
 ---
 
-
 Section: Scheduled Tasks
-
 
 One of the most commonly used persistence methods — from ransomware to APT groups. The attacker ensures the malicious file runs at defined intervals or at system startup.
 
@@ -70,9 +51,7 @@ One of the most commonly used persistence methods — from ransomware to APT gro
 
 The Sysinternals Autoruns tool lists scheduled tasks alongside signature validation — tasks without a Microsoft signature are flagged in red.
 
-
 [Image: No image description]
-
 
 SOC Detection:
 Event ID 4698: New scheduled task created.
@@ -80,9 +59,7 @@ Autoruns → Scheduled Tasks tab.
 
 ---
 
-
 Section: Registry Run Keys
-
 
 Registry Run keys are a legitimate Windows feature that automatically executes specified programs at system startup or user logon. According to MITRE ATT&CK data, technique T1547.001 is used by more than 54 known threat groups.
 
@@ -100,17 +77,11 @@ Advanced Keys (APT Favorites):
 
 Registry changes can be visualized with regedit or Autoruns:
 
+[Image: No image description]
 
 [Image: No image description]
 
-
-
 [Image: No image description]
-
-
-
-[Image: No image description]
-
 
 SOC Detection:
 Event ID 4657: Registry value modified/created (auditing must be enabled).
@@ -118,27 +89,19 @@ Sysmon Event ID 12 (key create/delete) and 13 (value set).
 
 ---
 
-
 Section: Startup Folder
-
 
 [Code Block: A code example is present here. Code contents are skipped in the voiceover.]
 
 Accessible via Run (Win+R) → shell:startup:
 
-
 [Image: No image description]
 
-
-
 [Image: No image description]
-
 
 ---
 
-
 Section: Windows Services
-
 
 Attackers can create new services with legitimate-sounding names (e.g., ChromeUpdateService) or hijack existing ones.
 
@@ -150,9 +113,7 @@ Autoruns → Services tab.
 
 ---
 
-
 Section: BITS Jobs (Background Intelligent Transfer Service)
-
 
 BITS is Windows' file transfer infrastructure and is typically allowed through firewalls. Attackers use BITS to download and execute payloads while flying under the radar of security tools.
 
@@ -162,9 +123,7 @@ Detection: bitsadmin /list /verbose or Sysmon process creation logs.
 
 ---
 
-
 Section: WMI Event Subscriptions — Fileless Persistence
-
 
 WMI (Windows Management Instrumentation) is one of the most sophisticated persistence techniques used by advanced threat actors — it leaves no files on disk. The payload is stored in the registry and WMI database; since traditional antivirus focuses on the file system, this technique is often missed.
 
@@ -183,9 +142,7 @@ Manual query: Get-WMIObject -Namespace root\subscription -Class __EventFilter.
 
 ---
 
-
 Section: COM Hijacking
-
 
 COM (Component Object Model) is the infrastructure through which Windows applications communicate. Each COM object is registered in the registry with a CLSID. Attackers can copy a legitimate COM object's CLSID under HKCU\Software\Classes\CLSID and register their own malicious DLL — no administrator privileges required.
 
@@ -197,9 +154,7 @@ Detection: Sysmon Event ID 7 (Image Load) — legitimate processes loading DLLs 
 
 ---
 
-
 Section: IFEO (Image File Execution Options) Injection
-
 
 IFEO allows developers to attach a debugger to an application when it starts. Attackers abuse this mechanism to execute their backdoor instead of accessibility shortcut applications tied to the logon screen (e.g., sethc.exe — Sticky Keys, utilman.exe — Accessibility). This technique is particularly notable because it can be triggered from the logon screen — without any user session open.
 
@@ -213,9 +168,7 @@ Event ID 4688: Unusual parent-child process relationship (sethc.exe → cmd.exe)
 
 ---
 
-
 Section: DLL Search Order Hijacking / Sideloading
-
 
 When Windows loads a DLL, it searches in a specific order: first the application's own directory, then system directories. Attackers place a maliciously named DLL in the same directory as a legitimate, signed application — causing code execution through a trusted process.
 
@@ -233,12 +186,9 @@ Detection: Sysmon Event ID 7 — unsigned or unexpected-path DLL loading.
 
 Chapter: Part 2: From Persistence to Lateral Movement — The Bridge
 
-
 This section explores the details and implications.
 
-
 Section: Why Doesn't the Attacker Stay Put?
-
 
 When an attacker first compromises a machine, it's typically a regular user workstation: limited access, limited data, limited impact. The real targets are the network's critical assets:
 
@@ -247,9 +197,7 @@ File Servers: Sensitive documents, source code.
 Backup Servers: Ideal ransomware target — encrypting backups ensures victims can't recover.
 SIEM/Log Servers: Deleting evidence of the intrusion.
 
-
 Section: Active Directory: The Attacker's Gold Mine
-
 
 The vast majority of enterprise networks run on Active Directory (AD). AD provides centralized identity management, making it the primary target for attackers — and once compromised, a master key that opens the doors of the entire network.
 
@@ -267,27 +215,20 @@ At this point, armed with credentials and hashes, the attacker is ready to move 
 
 Chapter: Part 3: Lateral Movement Within the Network
 
-
 Lateral movement is the process by which an attacker gains access to other systems within the network. The average dwell time for an APT group's lateral movement phase in enterprise networks is 4–5 days, though it can extend to weeks. Attackers aim to work as "quietly" as possible — leveraging legitimate tools (Living off the Land — LotL) and blending in with normal traffic.
-
 
 Section: RDP (Remote Desktop Protocol) — APT Groups' Favorite
 
-
 RDP is Microsoft's remote desktop connection protocol, operating on port 3389. It's the most frequently used lateral movement vector for APT groups, primarily because RDP is already ubiquitous in corporate networks — it blends in with normal traffic.
 
-
 [Image: No image description]
-
 
 Key RDP Features:
 Remote Access: Full desktop control.
 TLS Encryption: Secure data transmission (older versions have known vulnerabilities — BlueKeep, CVE-2019-0708).
 Kerberos Integration: In AD environments, authentication flows through the Kerberos protocol.
 
-
 [Image: No image description]
-
 
 APT Lateral Movement Methods via RDP:
 
@@ -303,9 +244,7 @@ APT29 (Cozy Bear / Russia): Spread through internal networks using hijacked RDP 
 
 ---
 
-
 Section: WinRM & PowerShell Remoting — Living off the Land
-
 
 Windows Remote Management (WinRM) is Windows' built-in remote management protocol, running on ports 5985 (HTTP) and 5986 (HTTPS). This infrastructure, used daily by system administrators, is perfectly suited for the "Living off the Land" (LotL) tactic.
 
@@ -324,9 +263,7 @@ PowerShell Script Block Logging (Event ID 4104).
 
 ---
 
-
 Section: SMB Share & PsExec — Classic but Effective
-
 
 SMB (Server Message Block) is Windows' file sharing protocol (port 445). Attackers particularly exploit administrative shares ADMIN$ and C$ for lateral movement.
 
@@ -346,9 +283,7 @@ Sysmon Event ID 11: File dropped to ADMIN$ share.
 
 ---
 
-
 Section: Kerberos Exploitation: PtT and Overpass-the-Hash
-
 
 In Active Directory environments, authentication occurs via the Kerberos protocol. Kerberos' "stateless" (ticket-based) architecture opens the door to several critical attack vectors.
 
@@ -356,17 +291,13 @@ Kerberos Ticket System:
 TGT (Ticket Granting Ticket): Issued by the KDC (Key Distribution Center) when a user logs in.
 TGS (Ticket Granting Service): Requested with a TGT to access specific services.
 
-
 Section: Pass-the-Ticket (PtT)
-
 
 A Kerberos ticket stolen from memory can be used for authentication on another system. As long as the ticket hasn't expired (default 10 hours), it works even if the password has been changed.
 
 [Code Block: A code example is present here. Code contents are skipped in the voiceover.]
 
-
 Section: Overpass-the-Hash
-
 
 A method of requesting a Kerberos TGT using an NTLM hash. Instead of using the hash directly for NTLM authentication, the attacker exchanges it for a Kerberos ticket — leaving fewer traces.
 
@@ -389,12 +320,9 @@ Event ID 4771: Kerberos pre-authentication failure.
 
 Chapter: Part 4: Blue Team / SOC Detection and Threat Hunting
 
-
 This section explores the details and implications.
 
-
 Section: Detection Philosophy: Anomaly Chains, Not Single Logs
-
 
 Individual log entries are often misleading. Legitimate software can modify Run keys; system administrators use PsExec. Effective detection requires correlation: deriving meaning from multiple events together.
 
@@ -402,35 +330,11 @@ Individual log entries are often misleading. Legitimate software can modify Run 
 
 ---
 
-
 Section: Event ID Reference Table
-
-
-[Table Start]
-Event ID: 4720. Source: Windows Security. Meaning: User account created.
-Event ID: 4726. Source: Windows Security. Meaning: User account deleted.
-Event ID: 4732. Source: Windows Security. Meaning: Member added to group.
-Event ID: 4697. Source: Windows Security. Meaning: Service installed.
-Event ID: 4698. Source: Windows Security. Meaning: Scheduled task created.
-Event ID: 4624 (Type 3). Source: Windows Security. Meaning: Network logon.
-Event ID: 4624 (Type 10). Source: Windows Security. Meaning: Remote interactive logon (RDP).
-Event ID: 4657. Source: Windows Security. Meaning: Registry value modified.
-Event ID: 4768. Source: Windows Security. Meaning: Kerberos TGT request.
-Event ID: 4769. Source: Windows Security. Meaning: Kerberos TGS request.
-Event ID: 1. Source: Sysmon. Meaning: Process creation.
-Event ID: 3. Source: Sysmon. Meaning: Network connection.
-Event ID: 7. Source: Sysmon. Meaning: DLL image loaded.
-Event ID: 11. Source: Sysmon. Meaning: File creation.
-Event ID: 12/13. Source: Sysmon. Meaning: Registry create/modify.
-Event ID: 19/20/21. Source: Sysmon. Meaning: WMI event subscription.
-[Table End]
-
 
 ---
 
-
 Section: Deep Telemetry with Sysmon
-
 
 Sysmon (System Monitor) significantly enriches Windows' native logging infrastructure. Critical event IDs for registry monitoring:
 
@@ -439,15 +343,11 @@ Event ID 13 (RegistryEvent - Value Set): Existing key value modified.
 
 Every Sysmon record contains ParentImage and ParentCommandLine fields — showing who made the change and how that process was launched. This field is critical for tracing an attack chain backward.
 
-
 [Image: No image description]
-
 
 ---
 
-
 Section: EDR/XDR Correlation Chain
-
 
 XDR platforms transform isolated events into an attack story. An example persistence → C2 chain:
 
@@ -456,15 +356,11 @@ File Drop: C:\Users\Public\payload.exe created (Sysmon EID 11).
 Persistence: Written to HKCU\...\Run key (Sysmon EID 13).
 C2 Connection: Outbound connection to unknown IP:443 (Sysmon EID 3).
 
-
 [Image: No image description]
-
 
 ---
 
-
 Section: Practical SOC Scenarios — KQL Pseudo-Code
-
 
 Scenario 1: Registry Write from Suspicious Location
 
@@ -484,9 +380,7 @@ Scenario 4: Kerberos Anomaly — Unusual Ticket Requests
 
 ---
 
-
 Section: False Positive Management
-
 
 Legitimate software (antivirus updates, enterprise tools) can also modify Run keys. To reduce noise:
 
@@ -496,9 +390,7 @@ Correlation over exclusion: Rather than excluding single suspicious events, requ
 
 ---
 
-
 Section: Attacker Evasion Tactics
-
 
 Null Character Obfuscation:
 
@@ -524,18 +416,13 @@ regsvr32.exe /s /n /u /i:http://... → payload via COM object.
 
 Chapter: Part 5: Hardening and Defense
 
-
 This section explores the details and implications.
-
 
 Section: Privileged Access Management (PAM)
 
-
 PAM is a centralized security solution used to manage, monitor, and audit privileged access in enterprise networks.
 
-
 [Image: No image description]
-
 
 Protections PAM Provides:
 
@@ -548,9 +435,7 @@ PAM and RDP: When a PAM solution is in place, RDP sessions open through the PAM 
 
 ---
 
-
 Section: Network Level Authentication (NLA)
-
 
 NLA (Network Level Authentication) requires authentication before an RDP session is established, preventing unauthenticated connection requests from reaching the system.
 
@@ -558,9 +443,7 @@ NLA (Network Level Authentication) requires authentication before an RDP session
 
 ---
 
-
 Section: Multi-Factor Authentication (MFA)
-
 
 MFA should be mandatory for RDP, WinRM, and all other remote access methods. Even if credentials are stolen, login is impossible without the second factor.
 
@@ -570,9 +453,7 @@ Hardware keys (FIDO2 / YubiKey).
 
 ---
 
-
 Section: Least Privilege Principle
-
 
 Every user and service account should operate with only the minimum permissions required to perform its function.
 
@@ -586,9 +467,7 @@ Use Domain Admin accounts only on Domain Controllers.
 
 ---
 
-
 Section: Network Segmentation and Access Control
-
 
 [Code Block: A code example is present here. Code contents are skipped in the voiceover.]
 
@@ -599,9 +478,7 @@ Micro-segmentation: Restrict East-West traffic with host-based firewall rules.
 
 ---
 
-
 Section: Audit Policies and Centralized Log Management
-
 
 [Code Block: A code example is present here. Code contents are skipped in the voiceover.]
 
@@ -611,9 +488,7 @@ Deploy Sysmon configuration using SwiftOnSecurity or Olaf Hartong templates.
 
 ---
 
-
 Section: Proactive Threat Hunting
-
 
 Reactive defense is not enough. The Blue Team should perform these checks at regular intervals:
 

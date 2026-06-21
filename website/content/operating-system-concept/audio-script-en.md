@@ -1,11 +1,8 @@
 Chapter: Operating System Concepts: In the Footsteps of the Dinosaur Book
 
-
 Every computer science or software engineering student who steps into an Operating Systems class is bound to encounter it, and industry veterans keep it on their shelves as a mark of respect: the famous "Dinosaur Book" (originally titled Operating System Concepts). Authored by Abraham Silberschatz, Peter B. Galvin, and Greg Gagne, this work is not just a textbook; it is a computer science classic that explains the fascinating bridge between hardware and software: the Operating System (OS).
 
-
 Section: Why Does Everyone Call It the "Dinosaur Book"?
-
 
 Although the official title is Operating System Concepts, almost no one in the industry or academia uses this long name. The reason is simple: since its first editions, the cover art has always featured a dinosaur illustration. Over time, this became so iconic that the authors placed a different dinosaur species on the cover of each new edition (for instance, the 10th edition features a T-Rex).
 
@@ -17,12 +14,9 @@ In this technical guide, building upon the core pillars of the Dinosaur Book, we
 
 Chapter: Operating System
 
-
 An operating system is a program that manages a computer's hardware. It also provides a basis for application programs and acts as an intermediary between the computer user and the computer hardware.
 
-
 [Image: No image description]
-
 
 At this point, we are talking about a system that depends on the hardware it will run on. Therefore, operating systems are directly related to system hardware. Single and multi-processor architectures and organizations containing more than one persistent memory-disk must be supported by the operating system.
 
@@ -30,15 +24,11 @@ In addition, it must provide a working environment to the applications running o
 
 Yes, we are talking about an extremely complex system. Making all components interoperable does not seem to be an easy task.
 
-
 Section: Operating System Structure
-
 
 An operating system is software that acts as an interface between computer hardware and software and manages the computer's resources. The operating system regulates access to the computer's resources such as memory, processor, file systems, device drivers and network connections and ensures that users can use these resources effectively.
 
-
 [Image: No image description]
-
 
 Operating System Structure
 
@@ -53,9 +43,7 @@ Command Line Interface (CLI): CLI is an interface through which users instruct t
 
 This basic structure may differ depending on the different features and designs of operating systems. For example, operating systems such as Windows, macOS, Linux, Unix and Android.
 
-
 Section: User Mode vs. Kernel Mode Transition
-
 
 To ensure system security and protect critical hardware components, modern processors and operating systems support at least two distinct modes of operation: User Mode (Mode Bit = 1) and Kernel Mode / Privileged Mode (Mode Bit = 0).
 
@@ -65,9 +53,7 @@ The sequence diagram below illustrates the process of transitioning from User Mo
 
 [Mermaid Diagram: An architectural or flow diagram is present here. Diagram details are visually represented.]
 
-
 Section: Operating System Tasks
-
 
 The operating system performs a number of important tasks in computer systems. Here are some of the basic tasks of the operating system:
 
@@ -89,7 +75,6 @@ The operating system performs a number of important tasks in computer systems. H
 
 Chapter: Processes
 
-
 In an operating system environment, a process is an executable instance of a program. A process is an entity that is managed, uses resources (such as memory, processor time, files, and input/output devices) and is executed by the operating system.
 
 The process occurs when a program becomes executable. A program exists in the form of a file stored on disk, while the process represents its state while running in memory. The process contains program code, variables, execution status (program counter, pointers, etc.), and other running information.
@@ -97,9 +82,7 @@ The process occurs when a program becomes executable. A program exists in the fo
 We would like to emphasize that a program is not a process in itself.
 A program is a passive entity, such as a file containing a list of instructions stored on disk. In contrast, a process is an active entity with a program counter and a set of associated resources that specify the next instruction to be executed. A program becomes a process when an executable file is loaded into memory.
 
-
 Section: Transaction Status
-
 
 Changes state while an operation is executing. The state of a process is partially defined by the current activity of that process. A transaction may be in one of the following states.
 
@@ -112,9 +95,7 @@ TerminatedâŠ–The execution of the transaction is complete.
 
 [Mermaid Diagram: An architectural or flow diagram is present here. Diagram details are visually represented.]
 
-
 Section: PCB(Process Control Block)
-
 
 Each process is represented by a process control block (PCB) in the operating system. It contains many pieces of information associated with a particular process, including:
 
@@ -130,15 +111,11 @@ Accounting information: This information includes the amount of CPU and actual t
 I/O status information: This information includes information about the I/O devices allocated to the process.
 list, list of open files, etc. Contains.
 
-
 [Image: No image description]
-
 
 Process control block (PCB)
 
-
 Section: Inter-Process Communication
-
 
 Processes running concurrently in the operating system can be independent processes or collaborating processes. A process is independent if it does not affect or is affected by other processes running in the system. Any process that does not share data with another process is independent. A process affects other processes running in the system.Knowing or being influenced by them is a collaborative process.
 There are several reasons to provide an environment conducive to process collaboration:
@@ -152,21 +129,15 @@ Collaborating processes will enable them to exchange data and information
 It requires an inter-process communication (IPC) mechanism. interprocess
 There are two basic models of communication: shared memory and message passing.
 
-
 Section: Threads
-
 
 A thread is a basic unit of CPU usage; It consists of a thread ID, a program counter, a register set, and a stack. It shares the code section, data section, and other operating system resources such as open files and signals with other threads belonging to the same process. A traditional process has a single thread of control. A process can have multiple threads.
 
-
 [Image: No image description]
-
 
 Threaded Processing
 
-
 Section: Multithreading Models
-
 
 Support for threads may be provided at the user level for user threads or by the kernel for kernel threads.
 While user threads are supported on top of the kernel and managed without kernel support, kernel threads are supported and managed directly by the operating system. Nearly all contemporary operating systems, including Windows, Linux, Mac OS X, and Solaris, support kernel threads. After all, there must be a relationship between user threads and kernel threads. These models:
@@ -180,7 +151,6 @@ Linux implements the same model as the Windows family of operating systems.
 ---
 
 Chapter: CPU Scheduling
-
 
 CPU scheduling is the process by which the operating system manages the running time of processes or threads in the processor and switches between time slots. The operating system uses the CPU scheduling mechanism to run multiple processes or threads fairly.
 
@@ -213,9 +183,7 @@ The operating system determines how it schedules threads or processes using the 
 </div>
 </div>
 
-
 Section: Transaction Synchronization
-
 
 The process may have a section of code called the critical section, where the process modifies public variables. While a process is executing in the critical section, no other processes are allowed to execute in the critical section. That is, two processes cannot run on their critical section at the same time.
 
@@ -238,26 +206,20 @@ Software-based solutions like Peterson's are not guaranteed to work on modern co
 
 A situation in which multiple processes access and manipulate the same data simultaneously and the outcome of the execution depends on the specific order in which the access occurs is called a race condition.
 
-
 Section: Mutex Locks
-
 
 Hardware-based solutions to the critical cross-section problem are complex and often inaccessible to application programmers. Instead, operating system designers develop software tools to solve the critical section problem. The simplest of these tools is the mutex lock. (In fact, the term mutex is short for mutual exclusion.) MWe use uteks lock to protect critical regions and thus prevent race conditions. So, one
 The transaction must acquire the lock before entering a critical section; from critical section
 When it comes out, it releases the lock.
 
-
 [Image: No image description]
-
 
 Use of mutex locks
 
 The acquire() function acquires the lock and the release() function releases the lock. Calls to acquire() or release() must be executed atomically.
 A mutex lock has a boolean variable whose value indicates whether the lock is usable. If the lock is usable, the acquire() call succeeds and the lock is then considered unusable. A process attempting to acquire an unusable lock is blocked until the lock is released.
 
-
 Section: Semaphores
-
 
 It acts similar to a mutex lock, but locks down the activities of processes.
 It can also provide more complex ways for them to sync.
@@ -265,15 +227,11 @@ A semaphore S is an integer variable that is accessed by only two standard atomi
 
 Operating systems often distinguish between counting and binary semaphores. The value of a counting semaphore can vary over an unlimited area. The value of a binary semaphore can only vary between 0 and 1. Therefore, binary semaphores behave similarly to mutex locks.
 
-
 [Image: No image description]
-
 
 Counting semaphores can be used to control access to a specific resource consisting of a finite number of instances. The semaphore is initialized to the number of available resources. Each process that wants to use a resource performs a wait() operation on the semaphore (thus reducing the count). When a process releases a resource, it performs a signal() operation (increments the count). When the number of semaphores drops to 0, all resources are being used. After that, processes that want to use a resource are blocked until the count is greater than 0.
 
-
 Section: Monitors
-
 
 Although semaphores provide a convenient and effective mechanism for process synchronization, their misuse can cause timing errors that are difficult to detect, because these errors occur only when certain execution sequences occur, and these sequences do not always occur.
 
@@ -282,23 +240,17 @@ data with a set of functions that will operate on that data independently
 covers. The monitor structure allows only one process to be active within the monitor at a time.
 makes it happen.
 
-
 [Image: No image description]
-
 
 monitor
 
 A function defined within a monitor can only access variables declared locally within the monitor and its formal parameters. Similarly, a monitor's local variables can only be accessed by local functions.
 
-
 Section: Deadlocks
-
 
 In a deadlock, processes never finish executing and system resources are tied up in a way that prevents other jobs from starting.
 
-
 [Image: No image description]
-
 
 A deadlock condition can occur in a system if the following four conditions occur simultaneously:
 
@@ -327,9 +279,7 @@ A deadlock condition can occur in a system if the following four conditions occu
 
 All four conditions must hold simultaneously for a deadlock to occur. The circular-wait condition implies the hold-and-wait condition, meaning that the four conditions are not completely independent.
 
-
 Section: Banker's Algorithm
-
 
 The most well-known deadlock avoidance algorithm is the Banker's Algorithm, named after its analogy to a bank where resources are allocated based on safety evaluations. It is designed for systems with multiple resource types, where each resource type can have multiple instances.
 
@@ -345,32 +295,23 @@ You can completely ignore the problem and assume that deadlocks never occur in t
 
 Chapter: Memory Management
 
-
 The operating system's memory management refers to the process of effectively allocating and controlling the computer's memory resources. Thanks to memory management, the operating system monitors the memory usage of processes and programs, allocates and retrieves memory space when necessary.
 
-
 [Image: No image description]
-
 
 Main memory (RAM) and registers located inside the processor (Cache) are the only general-purpose storage areas that the CPU can directly access. There are machine instructions that take memory addresses as arguments, but there are no instructions that take disk addresses. Therefore, all instructions being executed and all data used by the instructions must be on one of these direct access storage devices. If the data is not in memory, it must be moved to main memory (RAM) before the CPU can operate on it.
 An address generated by the CPU is usually called a logical address.
 An address seen by the memory unit — that is, the address loaded into the memory address register of the memory — is usually called a physical address. The runtime mapping from virtual addresses to physical addresses is done by a hardware device called a memory management unit (MMU).
 
-
 Section: Swap
-
 
 For a process to be executed, it must be in memory. However, a process can be temporarily moved from memory to disk and then brought back to memory to continue execution.
 
-
 [Image: No image description]
-
 
 Swap transaction
 
-
 Section: Memory Allocation
-
 
 Main memory supports both the operating system and various user processes.
 should contain. Therefore, we need to allocate main memory in the most efficient way possible.
@@ -381,9 +322,7 @@ In a variable partition scheme, the operating system determines which parts of t
 keeps a table showing which ones are available and which are occupied. Available memory blocks consist of a series of spaces of various sizes distributed throughout memory. When a process arrives and needs memory, the system looks for a space large enough for that process. If there is too much space
 If it is large, it is divided into two parts. A piece is allocated to the incoming process; the other is sent back to the set of spaces. When a process terminates, it frees the block of memory, which is then placed back into the set of holes.
 
-
 [Image: No image description]
-
 
 Memory Allocation
 
@@ -393,45 +332,33 @@ First-Fit: Allocate to the first space that is large enough. The search can star
 Best-Fit: Allocate the smallest space that is large enough. Unless the list is sorted by size we must search the entire list. This strategy produces the smallest remaining gap.
 Worst-Fit: Allocate to the largest gap. Again, we need to search the entire list unless it is sorted by size. This strategy produces the largest residual gap, which may be more beneficial than the smaller residual gap obtained from the optimal approach.
 
-
 Section: Segmentation
-
 
 Considering memory in terms of its physical properties is harmful for both the operating system and the programmer. What if hardware could provide a memory mechanism that mapped the programmer's view to actual physical memory? While the system would have more freedom to manage memory, the programmer would have a more natural programming environment. Segmentation provides such a mechanism.
 
-
 [Image: No image description]
-
 
 Segmentation Hardware
 
 Each segment has a name and length. Addresses specify both the segment name and the offset within the segment. Therefore, the programmer specifies each address with two quantities: a segment name and an offset. Segments for ease of applicationIt is classified and referred to by the segment number instead of the segment name. Thus, a logical address consists of two tuples:
 
-
 Section: Paging
-
 
 Segmentation allows the physical address space of a process to be non-contiguous. Paging is another memory management scheme that offers this advantage. However, paging prevents and compresses external fragmentation, whereas segmentation does not. Additionally, different sizes of memory
 It also solves the important problem of fitting parts into the support tank.
 
-
 [Image: No image description]
-
 
 Paging Hardware
 
 The basic method for implementing paging involves dividing physical memory into fixed-size blocks called frames and dividing logical memory into blocks of the same size called pages. When a process is to be executed, its pages are loaded from their source (a file system or backing store) into any available memory frame. The backing store is divided into fixed-size blocks that are the same size as memory frames or clusters of multiple frames. This rather simple idea has great functionality and wide implications. For example, the logical address space is now completely separate from the physical address space, so a process can have a logical 64-bit address space even if the system has less than 264 bytes of physical memory.
 
-
 Section: Virtual Memory
-
 
 Virtual memory involves separating logical memory from physical memory as perceived by users. This allocation allows an extremely large amount of virtual memory to be available to programmers when only smaller physical memory is available. Virtual memory makes the programming task much easier because the programmer no longer needs to worry about the amount of physical memory available; instead
 can concentrate on the problem to be programmed.
 
-
 [Image: No image description]
-
 
 Virtual Memory
 
@@ -443,9 +370,7 @@ System libraries can be shared by several processes by mapping the shared object
 Similarly, processes can share memory. Recall from Chapter 3 that two or more processes can communicate through the use of shared memory. Virtual memory allows a process to create a region of memory that it can share with another process. Processes sharing this region consider it part of their virtual address space, but the actual physical pages of memory are shared.
 Pages can be shared with the fork() system call during process creation, thus speeding up process creation.
 
-
 Section: Page Replacement Algorithms
-
 
 In demand paging systems, when physical memory is full and a new page needs to be loaded, the operating system must decide which page to swap out to disk (to select a "victim" page). Operating systems employ various page replacement algorithms to keep the page fault rate as low as possible:
 
@@ -476,26 +401,19 @@ In demand paging systems, when physical memory is full and a new page needs to b
 
 Chapter: Disk Management (Mass Storage Management)
 
-
 It is a component that allows the operating system to manage large data storage units on the computer. These volumes typically include devices such as hard disk drives, SSDs, external disks, USB sticks, and network shared storage (NAS).
-
 
 Section: Disk Structure
 
-
 A disk is a storage unit where data is permanently stored and accessed. Disks commonly used in computer systems are divided into two main categories: hard disk drives (Hard Disk Drive — HDD) and solid state drives (Solid State Drive — SSD).
 
-
 [Image: No image description]
-
 
 HDD Disk
 
 Modern magnetic disk drives are treated as large one-dimensional arrays. logical blocks, where logical block is the smallest transfer unit. The logical block size is usually 512 bytes, but some disks may be low-level formatted to have a different logical block size, such as 1,024 bytes.
 
-
 Section: Disk Connection
-
 
 Disk Attachment refers to how a disk drive connects and communicates with the computer system. discs,They use a specific connection interface to transfer data to the computer. Here are some commonly used disk connections:
 
@@ -506,9 +424,7 @@ NVMe (Non-Volatile Memory Express).
 
 These connectivity standards allow disk drives to be connected to the system motherboard or additional cards. Each connection standard comes with different speeds, features and supported devices.
 
-
 Section: Disk Scheduling
-
 
 Disk Scheduling is an operating system concept used to manage and optimize access to data on disk. Data access on disks is achieved by performing read or write requests in the order given by the operating system. Accessing data on disks is a time-consuming process due to physical delays caused by their location. Disk scheduling algorithms are used to minimize disk access times and make data access efficient.
 
@@ -516,41 +432,31 @@ Disk scheduling algorithms manage incoming requests and determine the order in w
 
 FCFS (First-Come, First-Served): This algorithm processes incoming requests sequentially and processes incoming requests first. However, this algorithm does not take into account physical locations on the disk and can increase disk access times in case of an out-of-order sorting.
 
-
 [Image: No image description]
-
 
 FCFS
 
 SSTF (Shortest Seek Time First): This algorithm processes the request with the shortest travel distance from where the disk head is currently positioned. That is, requests where the head must travel the shortest distance are processed with priority. This algorithm reduces the total disk access time and provides better performance.
 
-
 [Image: No image description]
-
 
 SSTF
 
 SCAN (Elevator): This algorithm processes requests when moving the disk head in a specific direction (for example, inward or outward). As the head progresses, it processes all the requests and when it reaches the end, it turns away from the direction and comes back. This way, it constantly scans for requests on the disk. The SCAN algorithm processes requests fairly and reduces waiting times for on-disk requests.
 
-
 [Image: No image description]
-
 
 SCAN
 
 C-SCAN (Circular SCAN): This algorithm processes requests similar to the SCAN algorithm, but unlike SCAN, it starts from the last request when returning. That is, it moves across the disk in one direction as it processes requests, and when it reaches the last request it quickly moves to the other end and starts again. C-SCAN provides a fairer request processing order than SCAN.
 
-
 [Image: No image description]
-
 
 C-SCAN
 
 In addition to these algorithms, there are other disk timing algorithms such as LOOK, C-LOOK, N-Step-SCAN and N-Step-LOOK. Disk Scheduling algorithms use various strategies to optimize on-disk data access and reduce wait times. every
 
-
 Section: Disk Management
-
 
 Disk Management, as an operating system component, is a tool or service that performs operations such as creating, partitioning, formatting, defragmenting and managing disks. Disk Management allows users or system administrators to organize and manage disks.
 
@@ -568,9 +474,7 @@ Disk Targeting and Monitoring: Disk Management provides the opportunity to monit
 
 Disk Management makes it easy for users or system administrators to configure, manage and troubleshoot disks. Users, Disk Management
 
-
 Section: File System
-
 
 A file is a named collection of related information saved on secondary storage. From the user's perspective, a file is the smallest piece of logical secondary storage; that is, data cannot be written to secondary storage unless it is in a file.
 
@@ -590,9 +494,7 @@ APFS (Apple File System): APFS is a new file system used in Apple's macOS and iO
 
 File systems use a variety of structures and methods for data organization and management. These include organizing data into folders and subfolders in a hierarchical order, naming files,
 
-
 Section: Access Methods
-
 
 Files store information. When used, this information must be accessed and read into computer memory. The information in the file can be accessed in various ways. Some systems provide only one access method for files. Others support many access methods, and choosing the right one for a particular application is a major design challenge.
 
@@ -606,14 +508,11 @@ Other Access Methods: Other access methods can be built directly on top of the a
 
 Chapter: Protection and Security
 
-
 Protection and Security is an important issue in operating systems to protect users and system resources from unauthorized access and ensure data security. Operating systems have various mechanisms and methods for protection and security.
 
 In terms of operating system security, the concepts of "confidentiality", "integrity" and "availability" play an important role. These concepts work together to ensure operating system security. Confidentiality ensures that data is protected from unauthorized access, while integrity ensures that data is secure in terms of accuracy and immutability. Compatibility ensures the ability of systems to provide continuous service. Operating system security is achieved by a balanced application of these three concepts and ensures the security of users' data, systems and resources.
 
-
 Section: Accessibility
-
 
 Operating systems ensure data security by setting rights and permissions on files and folders. These rights control operations such as reading, writing, executing and sharing files. Different access rights can be defined between file owners, groups and other users. This way, sensitive data can only be accessed by authorized users.
 
@@ -631,9 +530,7 @@ Audit Logs: The operating system maintains audit logs to record users' activitie
 
 Access control ensures that the operating system enforces security policies, prevents unauthorized access, and keeps sensitive data or system resources safe.
 
-
 Section: Security Updates
-
 
 Security updates are updates released by operating systems or software to fix security vulnerabilities or fix bugs. These updates are important to increase the security of the system or software, protect it from malicious attacks and keep users' data and resources safe.
 

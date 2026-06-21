@@ -1,24 +1,18 @@
 Listen to Audio: The narration for this article is ready. You can listen to it using the player above.
 
-
 Chapter: Modern OSINT, AI, and Reconnaissance Dynamics from a Strategic Cyber Intelligence Perspective
-
 
 In Cyber Threat Intelligence (CTI), the reconnaissance phase, once seen as just a simple preliminary step for penetration testing or a mere "tool list", has today evolved into the fundamental phase that defines the perspective of cyberspace for both attackers (Red Team/APT groups) and defense teams (Blue Team/SOC). OSINT (Open Source Intelligence) is no longer static target analysis; it is the first line of cyber defense, threat modeling, and Attack Surface Management (ASM).
 
 In this article, while preserving all the technical details and tools found in classic "how-to" guides, we will discuss with a strategic perspective how we integrate these traditional information gathering techniques into modern cloud infrastructures, supply chain intelligence, and Artificial Intelligence (LLM) layers.
 
-
 Chapter: Google Dorks and Google Hacking
-
 
 Hello, in this article, I will introduce you to Google Dorks, which are very useful in collecting passive information. I will talk about how to use it. Then, I will try to explain how we can find vulnerabilities with these dors and what we can achieve.
 
 Google dork is a system that contains some parameters that make it easier for us to search with the Google search engine. These parameters allow us to filter the words we will search for. In this way, we can easily access the information we are looking for among the billions of sites indexed by Google. This system is indispensable for passive information collection.
 
-
 Section: Google Search Parameters
-
 
 When searching on Google, we can refine our search using certain parameters. Let's take a look at these parameters and what they do...
 
@@ -42,9 +36,7 @@ It is used to find websites with similar content to a known site.
 
 It is used to list results before or after a certain date. before means before, after means after.
 
-
 Section: Google Search Operators
-
 
 Operators are auxiliary characters used with parameters in writing dorks.
 
@@ -65,21 +57,15 @@ For example, querying for "~set" will list results containing words like "config
 
 The & operator and the AND operator correspond to the "and" logical operator in Turkish. Lists only results from two conditions that both satisfy.
 
-
 Section: What is Google Hacking?
-
 
 Google hacking is a method used to find a vulnerable index of web pages on the internet or to collect information by searching for open data on all sites. For example, with a Google query, we can find the login page of a site and scan for vulnerabilities there. In other words, we can call the use of queries we make with dors for hacking operations as 'Google Hacking'.
 
-
 Section: Google Hacking Techniques
-
 
 We can access many different information on the internet by using Google Hacking techniques. Let's see together what kind of information and how we can access it...
 
-
 Section: Log Files
-
 
 log filesis a perfect example of how sensitive information can be found on any website.
 
@@ -87,73 +73,53 @@ We can use the allintext and filetype parameters to access the log files indexed
 
 This query will list the results containing "username" in all log files indexed by Google on the internet.
 
-
 Section: Vulnerable Web Servers
-
 
 By using Google dorks, we can find websites with certain security vulnerabilities. The presence of the phrase "/proc/self/cwd/" in the URL of a website is evidence that there is a vulnerability on that site.
 
 With this dork we can find vulnerable sites, As you can see in the screenshot below, the vulnerable server results will be listed with their open directories.
 
-
 Section: Open FTP Servers
-
 
 Google not only indexes HTTP-based servers, but also open FTP servers.
 
 With the following dork, we can find public FTP servers.
 
-
 Section: ENV Files
-
 
 .env files are used in web development environments to declare global configurations. One recommended practice is to move these .env files to a location where they are not publicly accessible. However, there are many developers who don't care about this and add .env files to the website directory.
 
 You will notice that usernames, passwords, and IPs are shown directly in the search results.
 
-
 Section: SSH Private Keys
-
 
 SSH private keys are used to decrypt incoming and outgoing information in the SSH protocol. As a general security rule, private keys should remain on the system used to access the remote SSH server and should not be shared with anyone.
 
 With the dork below, you will be able to find SSH private keys indexed by Uncle Google.
 
-
 Section: Email Lists
-
 
 It's pretty easy to find email lists using Google Dorks. In the example below, we can list excel files that may contain a large number of email addresses.
 
-
 Section: Live Cameras
-
 
 It is very easy to access live camera web pages that are indexed by Uncle Google and are not restricted by IP. With the dorks below, we can access live cameras.
 
-
 Section: SQL Dumps
-
 
 SQL dumps appear on sites as a result of incorrect backup mechanisms used by site administrators who store backups on web servers. To find a compressed SQL file we use:
 
-
 Section: WordPress Admin
-
 
 It's not too difficult to find WordPress Admin login pages with a dork:
 
 Apache servers may be misconfigured. This makes them great targets for botnets.
 
-
 Section: phpMyAdmin
-
 
 Another risky tool frequently discovered on LAMP (Linux, Apache, MySQL, PHP) servers is the phpMyAdmin software.
 
-
 Section: JIRA and Kibana
-
 
 Google dorks can also be used to find web applications that host important corporate data (via JIRA or Kibana).
 
@@ -161,18 +127,14 @@ Google Hacking Database is a database containing dors that we can use for hackin
 
 source: Google Hacking for Penetration Testers,Johnny Long, Bill Gardner, Justin Brown, 2015 Originally published at  on October 19, 2021.*
 
-
 Chapter: Cloud Intelligence and Leak Hunting
 
-
 Despite the cliché "Google Dorks are dead", dorking is not dead, it has only been mechanized over APIs. The main target of modern attackers is not on-premise networks, but cloud architectures.
-
 
 Section: Cloud Intelligence
 
 AWS/Azure/GCP Leaks: Misconfigured AWS S3 buckets, Azure blob storage areas, and GCP services.
 Container and Infrastructure: Exposed Kubernetes dashboards, Docker registry leaks, and Terraform/GitOps config disclosures.
-
 
 Section: Source Code OSINT (Leak Hunting)
 
@@ -181,23 +143,17 @@ Tools: Secret scanning engines like TruffleHog, GitLeaks, Shhgit, and DumpsterDi
 
 Operational Risk Scenario: Forgetting an internal database password (or .env file) in a test code thrown into a developer's personal GitHub repo can result in the compromise of the entire cloud infrastructure. Files searched with traditional Dorking are today scanned in seconds in CI/CD processes with TruffleHog.
 
-
 Chapter: Passive Information Gathering Techniques
-
 
 Hello, in this article that we prepared with my teacher Mehmet Bulut, we will talk about Passive Information Gathering Techniques.
 
-
 Section: What is Passive Information Collection?
-
 
 Passive Information Collection is a type of information collection that is done without direct contact with the target. For example; Asking questions to the person next to you about someone sitting across from you is passive information gathering.
 
 In penetration tests, first information about the system is collected and classified. Most of this information is available on the internet. Apart from this, different information collection methods can also be used.
 
-
 Section: Information Gathering Techniques via IP and Domain Names
-
 
 With the Whois query, we can access information about the owner of a domain or IP address. These; Information such as IP ranges about the target, the responsible administrator and the e-mail addresses of these administrators.
 
@@ -211,12 +167,10 @@ It is a web page that can display information about the operating system hosting
 
 We can access the relevant site at www.netcraft.com.
 
-
 Section: Whois.com
 
 A popular and fast platform used to perform web-based Whois queries, allowing analysis of domain registration data, DNS servers, and ownership details.
 We can access the relevant site at www.whois.com/whois/.
-
 
 Section: Web CMS Detection (WhatCMS & CMSDetect)
 
@@ -233,14 +187,11 @@ We can search for countries, cities, service providers, services, versions and p
 
 We can access the relevant site at www.shodan.io.
 
-
 Section: DNSdumpster
-
 
 DNSdumpster is a free passive information gathering tool that can discover host servers associated with a domain. Finding servers that are visible from the attackers' perspective is an important part of the security assessment process.
 
 We can access the relevant site at www.dnsdumpster.com.
-
 
 Section: DNS Checker and MXToolbox (Advanced DNS and Email Analysis)
 
@@ -248,25 +199,19 @@ DNS Checker: Used to check how different DNS servers worldwide resolve DNS recor
 
 MXToolbox: An indispensable resource for querying MX records of email servers, analyzing DNS vulnerabilities, running blacklist checks, and validating SMTP/SPF/DKIM/DMARC configurations. We can access the relevant site at mxtoolbox.com.
 
-
 Section: Centralops
-
 
 IP, detailed whois information, DNS records and TcpQuery information of a domain on the centralops address are obtained. In the Nslookup section, very advanced DNS queries can be made. It is among the indispensable sites for passive information collection.
 
 We can access the relevant site at www.centralops.net.
 
-
 Section: IP Location
-
 
 It provides geographical location detection by querying the target IP address in 5 different RIRs. The results of this query may vary between service providers.
 
 We can access the relevant site at www.iplocation.net.
 
-
 Section: Archive Sites
-
 
 It is a system that has been recording the entire internet since 1996. It brings up that snapshot of pages by year, month, day. Useful for finding previous versions of a website.
 
@@ -280,33 +225,23 @@ Directory list.
 Publicly sensitive documents and files.
 You can access information such as leaked identity information.
 
-
 Section: Information Gathering Techniques via Username
 
-
-
 Section: Name Checkup
-
 
 Name Checkup is a simple tool that helps us find out on which other platforms the given username is used..
 
 We can access the relevant site at www.namecheckup.com.
 
-
 Section: Username Search
-
 
 Another tool where we can find out which platforms usernames are used is Instant Username Search. It can search on more platforms than Name CheckUp.
 
 We can access the relevant site at www.instantusername.com.
 
-
 Section: Information Gathering Techniques Through Images
 
-
-
 Section: Image Search
-
 
 It is a search engine technology that uploads an image file and returns similar images and results related to the image. By making a reverse image:
 
@@ -320,21 +255,15 @@ We can use it in situations. The most commonly used Image Search Engines are Goo
 
 Exif is where the data about the photo is located. This section contains a lot of information such as the place, date and time where the photo was taken. The most commonly used tools to collect this information are ExifTool and Jeffrey's Image Metadata Viewer.
 
-
 Section: General Information Gathering Techniques
 
-
-
 Section: Google Hacking
-
 
 Google Hacking is an information gathering technique with parameters that can make the queries we make on Google specific. We call the queries we write with these parameters dork. For example;
 
 We talked about these dorks and their usage techniques in detail in our article titled Google Dorks and Google Hacking. To learn more about Google hacking, you can check out this article.
 
-
 Section: theHarvester
-
 
 theHarvester is a tool that runs on Linux. With this tool, we can collect information from open sources by scanning many websites such as Linkedin, Google, Twitter, Yahoo.
 
@@ -350,9 +279,7 @@ You can also detect site-based information with commands such as linkedin, bing,
 
 To get detailed information about its usage, you can go to <
 
-
 Section: OSINT Framework
-
 
 Osint Framework is a website where you can access hundreds of passive information collection tools. Clicking on the section within the categories that suits your target allows you to make more detailed inquiries. Additionally, if there is a (T) text to the right of the options, you can see that you can only do this through the terminal.
 
@@ -360,15 +287,12 @@ We can access the relevant site at www.osintframework.com.
 
 Originally published at  on November 26, 2021.*
 
-
 Chapter: Certificate Transparency (CT Logs) and Cyber-Cartography
-
 
 The fastest and 100% passive method for subdomain detection in modern OSINT and ASM world is Certificate Transparency (CT) Logs.
 
 Why is it Important?: When a company gets an SSL certificate for a new subdomain, it falls into these global CT logs. Attackers instantly catch newly opened test environments over crt.sh or with automation tools without sending a single packet to the target.
 Tools: crt.sh, Subfinder, Amass (subfinder -d firma.com -sources crtsh).
-
 
 Section: Cyber-Cartography Engines (Shodan Alternatives)
 
@@ -376,9 +300,7 @@ Although Shodan is a great tool, it is not the only player in the intelligence w
 Censys: Used for more up-to-date certificate scans in addition to Shodan.
 FOFA & Hunter.how: They are the favorites of intelligence analysts especially for hunting C2 (Command Control) infrastructures of Asia/China originated APT groups.
 
-
 Chapter: Supply Chain Intelligence
-
 
 The hottest topic of modern CTI is supply chain security. Software ecosystems (npm, PyPI) are now the playground of intelligence services and APT groups.
 
@@ -389,30 +311,22 @@ Dependency Confusion: Manipulating systems by publishing higher versions of in-h
 Maintainer Hijacking & Protestware: Hijacking developer accounts.
 Tools and Concepts: SBOM (Software Bill of Materials) and VEX (Vulnerability Exploitability eXchange) documents play a critical role in this layer. Software components are analyzed with Syft and Grype, continuous monitoring is provided with Dependency-Track.
 
-
 Chapter: Dark Webs and Social Intelligence
-
 
 Dark Web analyses have now shifted from old school ".onion" forums to instant messaging and Paste sites.
 
 Stealer Log Market: Terabytes of raw logs (cookies, corporate VPN passwords, session tokens) obtained from "Infostealer" malware like Lumma, RedLine, Vidar, and Raccoon are sold in Telegram bots, Discord servers, and Breach forums.
 Social Profiling (OSINT): The digital footprint of target individuals (managers, developers) is detected with tools like SpiderFoot, Recon-ng, Holehe (email intelligence), and Maigret (username tracking).
 
-
 Chapter: Active Information Gathering Techniques
-
 
 In this article, we will talk about Active Information Gathering Techniques.
 
-
 Section: What is Active Information Collection?
-
 
 Active information collection is a type of information collection that is done by contacting the target directly. With active information collection, we can obtain clearer and more reliable results than with passive information collection. However, since direct contact is made with the target, a trace is left on the target. Care should be taken as records are left in firewall, IDS and access logs.
 
-
 Section: DNS Scans
-
 
 DNS protocol is the basic building block of the internet, DNS tells us which IP address the domain name we enter is located. A poorly configured DNS server can give out a lot of information.
 
@@ -424,9 +338,7 @@ To query which DNS servers DNS queries for a domain name pass through, we add th
 
 You can try using brute force to find subdomains related to a domain. The dnsmap tool is used for this. If a wordlist is not given, it performs it using the standard list hosted within itself.
 
-
 Section: Port and Service Scans
-
 
 One of the areas where active information collection is most effectively used is port and service scanning. There may be cases where vulnerabilities in services running on ports directly affect the server.
 
@@ -459,9 +371,7 @@ unfiltered: Returns for ACK Scan. The ports are accessible but cannot be determi
 open|filtered: It was not determined to be open or filtered.
 closed|filtered: Not detected as closed or filtered.
 
-
 Section: Netcat
-
 
 Netcat is considered the Swiss army knife in the Networking world. It is an easy-to-use and multi-purpose tool with many features, so we can consider it as a Swiss army knife in cyber security. Netcat has many features, the main ones being:
 
@@ -472,7 +382,6 @@ Remote shell opening.
 *Backdoor
 
 With the example command line above, you can perform operations on the target IP using usage parameters.
-
 
 Section: Nbtscan
 
@@ -492,9 +401,7 @@ Usage parameters:
 -m: New transfer; number of retransmissions (0 by default).
 -f: Filename; It is used to export IP addresses in file format.
 
-
 Section: Netdiscover
-
 
 Netdiscover tool is a discovery tool that can show the operating systems, Mac, IP and router addresses of devices on the same network.
 
@@ -522,9 +429,7 @@ Usage Parameters:
 -P Outputs print results in a format suitable for parsing by another program.
 -N Do not print the header. Valid only when the -P command is used.
 
-
 Section: Dmitry
-
 
 Dmitry tool is an advanced tool that can perform port scanning in addition to the whois queries we see in passive information collection. However, it can also collect information about subdomains and Emails. It can do the job of many tools on its own in passive and active information collection.
 
@@ -544,12 +449,9 @@ It makes all queries regarding the specified domain name and presents them to us
 
 Originally published at  on January 14, 2022.*
 
-
 Chapter: Continuous Reconnaissance and Attack Surface Drift
 
-
 Traditional active discovery (Nmap etc.) takes a "snapshot" of a target at a specific moment. However, modern attackers now use "stream intelligence". An institution's attack surface is not static; it changes continuously due to CI/CD pipelines, ephemeral servers, and Kubernetes ingress configurations. This situation is called Attack Surface Drift.
-
 
 Section: Continuous Scanning Architecture (EASM / CAASM)
 
@@ -559,9 +461,7 @@ Tool Ecosystem: Subdomains are found with Amass and Subfinder, active ones are d
 
 Operational Risk Scenario: A forgotten Kibana or Grafana panel belonging to a test (staging) environment open to everyone may seem harmless at first glance. However, in modern intrusion chains, such disclosures are instantly exploited by Ransomware groups (affiliates) for credential harvesting and preparation for lateral movement to the internal network.
 
-
 Section: Speed and Template-Based Modern Scans (ProjectDiscovery Ecosystem)
-
 
 Using only Nmap may fall behind modern speed standards. That is why modern tools (especially ProjectDiscovery tools) written in Rust and Go, which break asynchronous speed records, are used in the industry:
 RustScan: Developed with Rust language against Nmap's slowness in large networks. It scans all 65535 ports in seconds and passes the found open ports to Nmap for detailed analysis.
@@ -571,17 +471,13 @@ httpx (ProjectDiscovery): Instantly detects active servers returning HTTP/HTTPS 
 Katana (ProjectDiscovery): A next-generation, incredibly fast web crawler tool. It finds all endpoints and parameters in seconds.
 Nuclei (ProjectDiscovery): Finding ports is not enough in active discovery. Nuclei is a massive vulnerability engine that simultaneously scans for 0-day or known vulnerabilities (e.g.: Log4j disclosures, open .env files) on thousands of targets with YAML-based templates written by the community. (Example usage: nuclei -u  -t cves/).
 
-
 Chapter: Internet-Scale Scanning
-
 
 APT groups no longer scan specific to the target organization, but towards the whole internet (Internet-wide).
 IPv4 Census and ASN Targeting: Not just known domains, all ASN blocks belonging to the institution are scanned.
 Tools: Tools like Masscan and ZMap can scan a specific port (e.g.: Port 443) of the entire internet in minutes thanks to their asynchronous structures. Vulnerable/hidden servers of the target are deciphered with TLS Certificate Clustering.
 
-
 Chapter: Artificial Intelligence (AI) Augmented Intelligence Pipelines
-
 
 Artificial intelligence (LLM) has been included in intelligence processes not as a simple chatbot, but as integrated pipelines (AI-Augmented Intelligence Pipelines).
 
@@ -591,21 +487,16 @@ TTP Extraction: Texts shared by ransomware groups on leak sites are automaticall
 AI Augmented Social Engineering (Spear-Phishing): Generating flawless phishing emails or deepfake voices specific to the employee's language and interests by feeding corporate data gathered with OSINT into LLMs.
 AI Intelligence Risks: Data manipulation, hallucination, poisoned intelligence feeds, and adversarial prompt injection attacks towards the AI model are the new challenges of modern defense.
 
-
 Chapter: Defensive Recon & Exposure Validation
-
 
 Active discovery is not solely the monopoly of attackers. From the Blue Team's perspective, continuous Exposure Validation of the external surface is a must.
 Brand Infringement and Phishing: Continuous monitoring of fake domains (Phishing infrastructure / Typosquatting) opened on behalf of the institution.
 Leaked Credential Monitoring: Checking whether passwords belonging to institution employees have fallen onto platforms like HaveIBeenPwned.
 Defensive Cartography: The process of detecting and closing the servers containing configuration errors belonging to the institution before threat actors by using tools like Censys, FOFA, ZoomEye, and SecurityTrails.
 
-
 Chapter: Operational Security (OPSEC) and Legal Boundaries
 
-
 This section explores the details and implications.
-
 
 Section: Operational Security (OPSEC)
 
@@ -613,7 +504,6 @@ The most critical element of professional modern OSINT and active discovery is e
 Attribution Avoidance: Intelligence scans are never made from the real IP block of the institution.
 Evasion Techniques: SOCKS proxy chains, automatic VPS rotation, browser fingerprinting manipulation, masking scan traffic by hiding behind CDN (Domain Fronting, etc.).
 Goal: Not to fall into the SIEM / XDR or EDR logs of the target, to escape from traffic and TLS fingerprinting signatures.
-
 
 Section: Legal Boundaries and Ethical Framework
 

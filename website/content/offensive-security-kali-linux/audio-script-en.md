@@ -4,11 +4,9 @@ Hello, in this article I will talk about Kali Linux distribution. I will explain
 
 Chapter: What is Kali Linux?
 
-
 Kali Linux is a Debian-based Linux distribution developed for use in the field of cyber security. It contains many cyber security software that comes pre-installed. In this respect, it can be said that it has a very useful and user-friendly structure.
 
 You can perform penetration tests for many systems with Kali. You can also work in the field of computer forensics.
-
 
 Section: The OffSec (Offensive Security) Connection
 
@@ -17,7 +15,6 @@ Kali Linux is funded and maintained by OffSec (formerly Offensive Security), a g
 ---
 
 Chapter: Installation
-
 
 Kali offers two different desktop environment options: GNOME and XFCE. It also supports 32-bit and 64-bit systems.
 
@@ -29,11 +26,9 @@ Windows Subsystem for Linux (WSL).
 
 Kali's documentation page contains detailed information about installation and subsequent operations.
 
-
 Section: Kali Linux on WSL (Windows Subsystem for Linux)
 
 On modern Windows operating systems, it is possible to run Kali Linux directly on Windows without the overhead of a traditional virtual machine. Thanks to WSL 2, you can get a Kali experience fully integrated with your Windows command line.
-
 
 Section: WSL Installation Steps:
 
@@ -41,7 +36,6 @@ Run Windows PowerShell or Command Prompt (CMD) as Administrator.
 Execute the following command to download and install the Kali Linux distribution:.
 [Code Block: A code example is present here. Code contents are skipped in the voiceover.]
 Restart your computer once the installation is complete. On the first launch, the terminal will ask you to set a new username and password.
-
 
 Section: Graphical Interface (GUI) Setup: Win-KeX
 
@@ -51,7 +45,6 @@ Update your WSL terminal packages and install the Win-KeX package:.
 Start the GUI desktop by running:.
 [Code Block: A code example is present here. Code contents are skipped in the voiceover.]
 With this, you will have a high-performance, seamless Kali Linux desktop workspace running directly inside Windows.
-
 
 Section: Virtual Machine (Lab) Installation Steps
 
@@ -71,7 +64,6 @@ Log in with the default credentials kali / kali. Open a terminal and run the fol
 
 Chapter: What is Penetration Testing?
 
-
 The purpose of Penetration Testing (pentest) is to find, exploit and report the vulnerability that exists in any system. We can generally divide penetration testing into two:
 
 Network penetration testing is a way of infiltrating the system by exploiting vulnerabilities resulting from incorrect configuration of the system.
@@ -90,12 +82,9 @@ In the field of penetration testing, Kali Linux is a widely used distribution. N
 
 Chapter: Kali Linux Tools
 
-
 While in the Kali Linux desktop environment, if you click on the logo, you will see the general menu open. Here, you can make various customizations from the settings section. When you look further down, you will come across various sections.
 
-
 [Image: No image description]
-
 
 Kali Linux Menu
 
@@ -103,34 +92,17 @@ In this section, the cyber security tools that come pre-installed with Kali Linu
 
 In this article, we will briefly talk about these tools and what they do.
 
-
 Section: Key Kali Linux Tools Comparison
-
 
 Before diving into the details of each tool, here is a quick comparison table of the most critical tools widely used in penetration testing:
 
-[Table Start]
-Category: Information Gathering. Tool: nmap. Main Purpose / Key Feature: Port scanning, service and OS detection. Strength / Why Use It: Fast, powerful script support (NSE). Alternative: masscan, rustscan.
-Category: Vulnerability Analysis. Tool: nikto. Main Purpose / Key Feature: Web server scanning, finding known flaws. Strength / Why Use It: Fast and targets web servers directly. Alternative: Legion, Nessus.
-Category: Web Applications. Tool: burpsuite. Main Purpose / Key Feature: Intercepting proxy, request manipulation. Strength / Why Use It: Industry standard for manual web testing. Alternative: OWASP ZAP.
-Category: Database Security. Tool: sqlmap. Main Purpose / Key Feature: Detecting and exploiting SQL injection. Strength / Why Use It: Fully automated extraction and exploitation. Alternative: Manual SQLi.
-Category: Password Attacks. Tool: hashcat. Main Purpose / Key Feature: GPU-accelerated fast hash cracking. Strength / Why Use It: Incredibly fast hash decryption speeds. Alternative: John the Ripper.
-Category: Exploitation. Tool: metasploit. Main Purpose / Key Feature: Running pre-built exploit modules. Strength / Why Use It: Large database of exploits and payloads. Alternative: Cobalt Strike.
-Category: Sniffing & Spoofing. Tool: wireshark. Main Purpose / Key Feature: Capturing and analyzing network packets. Strength / Why Use It: Deep packet inspection down to protocol layers. Alternative: tcpdump.
-Category: Post-Exploitation. Tool: NetExec (nxc). Main Purpose / Key Feature: AD/Windows lateral movement & credential validation. Strength / Why Use It: Modern successor to the deprecated crackmapexec. Alternative: Impacket.
-[Table End]
-
-
 ---
 
-
 Section: Realistic Offensive Attack Scenario (Cyber Kill Chain)
-
 
 Cybersecurity tools do not work in isolation. In a successful penetration test, the output of one tool serves as the input for another, forming a cohesive attack chain. The scenario below demonstrates how Kali Linux tools link together end-to-end:
 
 [Mermaid Diagram: An architectural or flow diagram is present here. Diagram details are visually represented.]
-
 
 Section: Phase 1: Reconnaissance
 
@@ -140,14 +112,12 @@ Step 2: Run an nmap scan against target IP addresses to detect open ports and ru
 [Code Block: A code example is present here. Code contents are skipped in the voiceover.]
 (This command detects service versions -sV, runs default scripts -sC, skips host discovery -Pn, and outputs findings to a text file -oN)
 
-
 Section: Phase 2: Exploitation
 
 Analyze findings from the recon phase to locate and exploit vulnerabilities.
 Step 1: Run nikto against open web ports (80/443) to find misconfigurations or old web server versions.
 Step 2: Query searchsploit to see if there are public exploits available for the detected service versions.
 Step 3: Use metasploit framework to load the appropriate exploit, run it against the target, and establish an initial shell session.
-
 
 Section: Phase 3: Post-Exploitation
 
@@ -158,13 +128,9 @@ Step 3: Tunnel network traffic through proxychains4 to perform lateral movement 
 
 ---
 
-
 Section: Detailed Tools and Command Examples
 
-
-
 Section: Information Gathering
-
 
 Tools used in active and passive information collection activities for a specific target are included in this section. These are:
 
@@ -179,9 +145,7 @@ nmap: nmap(network mapper) is a utility for network discovery or security auditi
 recon-ng: Recon-ng is a full-featured Web Discovery framework written in Python. Equipped with standalone modules, database interaction, interactive help and command completion features, Recon-ng provides a powerful environment in which web-based exploration can be carried out quickly and comprehensively.
 spiderfoot: This package includes an open source intelligence (OSINT) automation tool. Its purpose is to automate the process of gathering intelligence about a specific target, which could be an IP address, domain name, hostname, network subnet, ASN, email address, or person's name.
 
-
 Section: Vulnerability Analysis
-
 
 Tools used to scan for vulnerabilities against a specific target are included in this section. These are:
 
@@ -189,9 +153,7 @@ legion: This package contains an open source, easy-to-use, extensible and semi-a
 nikto: Nikto is a web server and CGI browser written in Perl that uses rfp's LibWhisker to perform quick security or information checks.
 unix-privesc-check: Unix-privesc-checker is a script that runs on Unix systems (tested on Solaris 9, HPUX 11, Various Linuxes, FreeBSD 6.2). It tries to find misconfigurations that could allow local unprivileged users to escalate privileges to other users or access local applications (e.g. databases).
 
-
 Section: Web Application Analysis
-
 
 Tools used to find and exploit vulnerabilities in Web Applications are included in this section. These are:
 
@@ -200,9 +162,7 @@ commix: This package has a simple environment and can be used by web developers,
 skipfish: Skipfish is an active web application security discovery tool. It prepares an interactive site map for the targeted site by performing recursive crawling and dictionary-based polling. The final report generated by the tool is intended to provide a basis for professional web application security assessments.
 wpscan: WPScan scans WordPress applications to find security issues.
 
-
 Section: Database Assesment
-
 
 Tools used to find and exploit vulnerabilities in databases and to view databases are included in this section. These are:
 
@@ -213,9 +173,7 @@ sqlmap: The purpose of sqlmap is to detect and exploit SQL injection vulnerabili
 > sqlmap -u "http://hedef.com/page.php?id=1" --dbs --batch
 > ```
 
-
 Section: Password Attacks
-
 
 chifTools used for re attacks are included in this section. These tools:
 
@@ -235,9 +193,7 @@ medusa: medusa is intended to be a fast, massively parallel, modular, brute forc
 ncrack: ncrack is a high-speed network authentication tool. It was created to help companies secure their networks by proactively testing all their hosts and network devices for weak passwords.
 ophcrack: ophcrack is a Windows password cracker based on a time-memory swap using rainbow tables. Recovers 99.9% of alphanumeric passwords in seconds.
 
-
 Section: Wireless Attacks
-
 
 Tools used for wireless network attacks are included in this section. These are:
 
@@ -248,17 +204,13 @@ pixiewps: Pixiewps is a tool written in C used to force the WPS key offline by e
 reaver: Reaver performs a brute force attack on an access point's WiFi Protected Setup pincode. Once the WPS pin is found, the WPA PSK can be recovered and the wireless settings of the AP can be reconfigured alternately.
 wifite: Wifite is a tool created to monitor WEP or WPA encrypted wireless networks. It uses aircrack-ng, pyrit, reaver, tshark tools to perform the audit.
 
-
 Section: Reverse Engineering
-
 
 Tools and command environments used for reverse engineering are included in this section. These are:
 
 radare2: The project aims to create a complete, portable, multi-architecture, toolchain for reverse engineering.
 
-
 Section: Exploitation Tools
-
 
 Tools used to exploit a target system, that is, to gain access to the target system, are included in this section. These are:
 
@@ -270,9 +222,7 @@ NetExec (nxc): The successor to the now-deprecated crackmapexec. Maintained by t
 metasploit framework: Metasploit framework,It is an open source platform that supports vulnerability research, exploit development, and creation of custom security tools.
 searchsploit: Exploit searches for ready exploit in Database.
 
-
 Section: Sniffing&Spoofing
-
 
 Tools used for sniffing and spoofing are included in this section. These are:
 
@@ -283,9 +233,7 @@ netsniff-ng: netsniff-ng is a high-performance Linux network sniffer for network
 responder: This package includes Responder/MultiRelay, a LLMNR, NBT-NS and MDNS poisoner. Responds to specific NBT-NS (NetBIOS Name Service) queries based on name suffixes.
 wireshark: Wireshark is a network "sniffer" tool that captures and analyzes network packets. Wireshark can decode too many protocols to list here.
 
-
 Section: Post Exploitation
-
 
 Tools developed for post-exploit operations, Enumeration (gathering detailed information about the system), Privelege Escalatio (authorization escalation) and Pivoting (jumping to another system) are included in this section. These are:
 
@@ -297,9 +245,7 @@ powersploit: PowerSploit is a set of Microsoft PowerShell scripts that can be us
 proxychains4: Proxychains is a UNIX program that dynamically links network-related libc functions to linked programs via a preloaded DLL (dlsym(), LD\_PRELOAD) and redirects connections via SOCKS4a/5 or HTTP proxies. Supports TCP only (no UDP/ICMP etc.).
 weevely: Weevely is a hidden PHP web shell that simulates telnet-like connection. It is an important tool for post-exploitation of web applications and can be used as a hidden backdoor or a web shell to manage legitimate web accounts, even freely hosted ones.
 
-
 Section: Forensics
-
 
 Tools developed for computer forensics are included in this section. These are:
 
@@ -312,7 +258,6 @@ hashdeep: hashdeep is a set of tools for recursively computing the MD5, SHA1, SH
 
 Chapter: The Future of Offensive Security: AI and Automation
 
-
 By 2026, artificial intelligence (AI) and Large Language Models (LLMs) have taken a prominent role in both offensive and defensive security operations. In the Kali Linux ecosystem, integration of traditional tools with AI is accelerating:
 AI-Assisted OSINT: Moving beyond manual keyword searches, AI agents analyze gathered footprint data to trace complex relationship maps of target organisations (e.g. automatically identifying high-value targets for social engineering).
 Automated Penetration Testing: Agent-based platforms can ingest port scans, predict the exploit with the highest likelihood of success, and automate initial execution stages safely.
@@ -323,6 +268,5 @@ In the future, the primary skill of security professionals will be orchestrating
 ---
 
 Chapter: End
-
 
 In this article, I tried to talk about what Kali Linux is and what capabilities it has. Briefly, I talked about the vehicles that come already installed. There is a lot of information on how to use these tools, both on Kali's own page and on the internet. You can also get information about the use of that tool by typing "vehicle\_name -h" in the Kali terminal. Don't forget to like and comment on my article!

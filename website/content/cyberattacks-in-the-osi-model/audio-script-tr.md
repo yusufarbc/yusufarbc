@@ -4,12 +4,9 @@ Merhaba, Bu yazımda OSI modeli üzerinde Siber Saldırıları anatmaya çalış
 
 Bölüm: OSI Modeli Nedir?
 
-
 OSI (Open Systems Interconnection) modeli, bilgisayar ağlarının tasarımını ve işleyişini açıklamak için kullanılan bir referans modelidir. ISO (International Organization for Standardization) tarafından geliştirilmiştir ve 7 katmandan oluşur. Her katman, belirli bir işlevi yerine getirir ve bir ağdaki iletişimi yönetir.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 OSI MODEL
 
@@ -23,9 +20,7 @@ Oturum Katmanı (Session Layer): İki cihaz arasında oturumların oluşturulmas
 Sunum Katmanı (Presentation Layer): Verilerin farklı sistemler arasında uyumlu bir şekilde temsil edilmesini sağlar. Veri şifreleme, sıkıştırma ve format dönüşümü gibi işlemleri gerçekleştirir.
 Uygulama Katmanı (Application Layer): Son kullanıcıların ağa erişimini sağlayan uygulamaları içerir. E-posta, web tarayıcıları, dosya transfer protokolleri (FTP) gibi uygulamalar bu katmanda yer alır.
 
-
 Bölüm Detayı: OSI Modeli Siber Saldırı Haritası
-
 
 Aşağıdaki interaktif mimari şema, OSI modelinin her bir katmanında yaygın olarak karşılaşılan kritik siber saldırıları göstermektedir:
 
@@ -35,18 +30,13 @@ Aşağıdaki interaktif mimari şema, OSI modelinin her bir katmanında yaygın 
 
 Bölüm: Fiziksel Katman (Physical Layer) Saldırıları
 
-
 Bu katman, fiziksel cihazların bulunduğu katmandır. Bu katmanda saldırganlar sistemlere fiziksel saldırılarda blunabilirler. Örneğin, sunucu odasına girebilmiş bir saldırgan sunucuyu kapatabilir veya yapılandırmalarını değiştirebilir. Sistemlerin siber güvenliği kadar fiziksel güvenlikleri de önemlidir. Bu katmanda saldırganların yapabileceği bir siber saldırı türü sniffingdir. Sisteme giren çıkan paketleri koklamak :)
-
 
 Bölüm Detayı: snıffing
 
-
 Sniffing saldırıları, bir ağdaki veri iletimini izlemek veya yakalamak amacıyla gerçekleştirilen kötü niyetli faaliyetlerdir. Saldırganlar, ağdaki veri paketlerini ele geçirir ve içerisindeki hassas bilgileri (kullanıcı adları, şifreler, kredi kartı bilgileri vb.) çalmak veya izlemek için kullanır.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 sniffing
 
@@ -66,20 +56,15 @@ Sniffing saldırıları, ağda gerçekleşen iletişimin gizliliğini tehlikeye 
 
 Bölüm: Veri Bağlantı Katmanı (Data Link Layer) Saldırıları
 
-
 Bu katman, verileri bağlantılı bir fiziksel ağ boyunca taşımak için kullanılır. IP adresleri, adres çözümleme protokolü (ARP) adı verilen bir prosedür kullanılarak ağ üzerindeki her bir fiziksel cihaz adresiyle (ortam erişim kontrolü (MAC) adresi olarak da bilinir) eşleştirilir.
 
 En basit ifadeyle, MAC adresi ağ üzerinden gönderilen bir IP adresinin hedeflenen alıcısını tanımlar ve ARP veri iletimi için IP adreslerini MAC adreslerini çözümler.
 
-
 Bölüm Detayı: spoofing
-
 
 Spoofing (sahtecilik) veya poisoning (zehirleme), iki sistem arasındaki güvenilir bir ilişkiden yararlanan bir tür kimliğe bürünme saldırısıdır.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 Spoofing
 
@@ -105,36 +90,27 @@ Spoofing
 
 Bölüm: Ağ Katmanı (Network Layer) Saldırıları
 
-
 Bu katman, veri paketlerinin iletilmesini sağlar. Ancak saldırganlar kimi zaman bu iletim trafiğini dinleyebilir. Ayrıca nmap ile yapılan host taramaları bu katmanda gerçekleşir.
 
-
 Bölüm Detayı: MITM(Man-in-the-Middle) Attacks
-
 
 Saldırganlar, cihazlardan birinden bilgi çalmak veya cihazlardan birinin kimliğine bürünmek için iki cihaz arasındaki iletişimi kesebilir veya değiştirebilir.
 
 MitM saldırısı, saldırgan, bir kullanıcının bilgisi olmadan bir cihazın kontrolünü ele geçirdiğinde gerçekleşir. Bu düzeyde bir erişimle saldırgan, gönderici ile hedeflenen yer arasında yanlış bilgileri kesebilir, manipüle edebilir ve aktarabilir.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 MITM
 
 Ortadaki adamın bir varyasyonu olan MitMo, bir kullanıcının mobil cihazının kontrolünü ele geçirmek için kullanılan bir saldırı türüdür. Virüs bulaştığında, mobil cihaza kullanıcıya özel bilgileri dışarı sızdırması ve saldırganlara göndermesi talimatı verilir.
 
-
 Bölüm Detayı: ICMP Attacks
-
 
 ICMP, teşhis(diagnostic) mesajları taşımak ve sunucular ile bağlantı noktaları kullanılamadığında hata koşullarını bildirmek için geliştirilmiştir. ICMP mesajları, bir ağ hatası veya kesintisi meydana geldiğinde cihazlar tarafından oluşturulur. Ping komutu, bir hedefe bağlanabilirliği doğrulamak için kullanılan ve yankı isteği olarak adlandırılan, kullanıcı tarafından oluşturulan bir ICMP mesajıdır.
 
 Saldırganlar, ICMP'yi keşif ve tarama amaçlı kullanır. Bu sayede bir ağ topolojisinin haritasını çıkarmak, hangi ana bilgisayarların aktif (erişilebilir) olduğunu keşfetmek, ana bilgisayar işletim sistemini tanımlamak (OS parmak izi) ve bir güvenlik duvarının durumunu belirlemek için bilgi toplama faaliyetleri yürütebilirler.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 ICMP Flood
 
@@ -158,7 +134,6 @@ Ağlar, internetten ICMP problamasını önlemek için ağ kenarında sıkı ICM
 
 Bölüm: Taşıma Katmanı (Transport Layer) Saldırıları
 
-
 Bu katmanda, ağ uygulamaları TCP veya UDP portlarını kullanır. Saldırganlar, hangi hizmetleri sunduklarını keşfetmek için hedef cihazların port taramalarını gerçekleştirir. Ayrıca, nmap ile yapılan port taramaları bu katmanda gerçekleşir.
 
 <div class="render-cards">
@@ -179,43 +154,31 @@ Bu katmanda, ağ uygulamaları TCP veya UDP portlarını kullanır. Saldırganla
 </div>
 </div>
 
-
 Bölüm Detayı: TCP SYN Flood Attack
-
 
 TCP SYN Flood saldırısı TCP üç yönlü el sıkışmasını istismar eder.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 TCP SYN Flood Attack
 
 Şekilde, bir saldırganın bir hedefe rastgele sahte bir kaynak IP adresi ile sürekli olarak TCP SYN oturum isteği paketleri gönderdiği gösterilmektedir Hedef cihaz, sahte IP adresine bir TCP SYN-ACK paketi ile yanıt verir ve bir TCP ACK paketi bekler. Bu yanıtlar asla gelmez. Sonunda hedef ana bilgisayar yarı açık TCP bağlantılarıyla boğulur ve TCP hizmetleri meşru kullanıcılara engellenir.
 
-
 Bölüm Detayı: TCP Reset Attack
-
 
 İki ana bilgisayar arasındaki TCP iletişimini sonlandırmak için bir TCP sıfırlama saldırısı kullanılabilir.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 TCP Reset Attack
 
 Bir TCP bağlantısı RST biti aldığında sonlanır. Bu, TCP bağlantısını koparmanın ve alıcı ana bilgisayara TCP bağlantısını kullanmayı derhal durdurmasını bildirmenin ani bir yoludur. Bir saldırgan TCP Reset saldırısı yapabilir ve bir veya her iki uç noktaya TCP RST içeren sahte bir paket gönderebilir.
 
-
 Bölüm Detayı: UDP Flood Attack
-
 
 Bir UDP flood saldırısı görme olasılığınız TCP SYN flooda göre daha yüksektir.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 UDP flood saldırısında ağdaki tüm kaynaklar tüketilir. Saldırgan, UDP Unicorn veya Low Orbit Ion Cannon gibi bir araç kullanmalıdır. Bu araçlar, genellikle sahte bir ana bilgisayardan alt ağdaki bir sunucuya UDP paketleri gönderir. Program bilinen tüm portları tarayarak kapalı portları bulmaya çalışacaktır. Bu, sunucunun bir ICMP portuna ulaşılamıyor mesajı ile yanıt vermesine neden olur. Sunucuda çok sayıda kapalı port olduğundan, bu segment üzerinde bant genişliğinin çoğunu kullanan çok fazla trafik oluşturur. Sonuç bir DoS saldırısına çok benzer.
 
@@ -223,18 +186,13 @@ UDP flood saldırısında ağdaki tüm kaynaklar tüketilir. Saldırgan, UDP Uni
 
 Bölüm: Oturum Katmanı (Session Layer) Saldırıları
 
-
 Bu katmanda, ağ uygulamalarının oturum işlemleri gerçekleştirilir. Saldırganlar, uygulamalarda kullanıcı oturumlarını çalma girişimlerinde bulunabilirler.
-
 
 Bölüm Detayı: Session Hijacking Attack
 
-
 Session Hijacking, bir kullanıcı oturumunun bir saldırgan tarafından ele geçirildiği saldırıdır. Bir oturum, örneğin bankacılık uygulamanız gibi bir hizmete giriş yaptığınızda başlar ve çıkış yaptığınızda sona erer. Saldırı, saldırganın oturum çerezinizi bilmesine dayanır, bu nedenle çerez kaçırma veya çerez yan kaçırma olarak da adlandırılır.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 Session Hijacking
 
@@ -250,20 +208,15 @@ Session Prediction Attacks: Oturum kimliğini tahmin etmek, saldırganın, kimli
 
 Bölüm: Sunum Katmanı (Presentation Layer) Saldırıları
 
-
 Bu katman, verilerin sunumunu sağlar. Saldırganlar, bu katmanda sosyal mühendislik yöntemlerini kullanırlar.
 
 Sosyal mühendislik saldırıları, insanların güvenini kazanma, manipülasyon, kandırma veya yanıltma gibi taktikleri içerebilir. Saldırganlar, kurumsal veya kişisel düzeyde sosyal mühendislik saldırılarını gerçekleştirebilirler. Örnek olarak, bir saldırgan bir kurumun çalışanı gibi davranarak telefonla arama yapabilir ve kendini güvenilir bir kaynak olarak tanıtarak çalışanın kimlik bilgilerini veya gizli şirket bilgilerini elde etmeye çalışabilir.
 
-
 Bölüm Detayı: Spam Attack
-
 
 Önemsiz posta olarak da bilinen spam, basitçe istenmeyen e-postadır. Çoğu durumda bir reklam yöntemidir. Bununla birlikte, birçok spam virüs veya solucan bulaşmış bilgisayarlar tarafından toplu olarak gönderilir ve genellikle alıcıları sosyal güvenlik numarası veya banka hesap bilgileri gibi hassas bilgileri ifşa etmeleri için kandırmayı amaçlayan kötü amaçlı bağlantılar, zararlı yazılımlar veya aldatıcı içerik içerir.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 Spam
 
@@ -276,15 +229,11 @@ Keylogger(tuş kaydedici): Bir bilgisayar veya mobil cihaz üzerinde kullanıcı
 Rootkit: Bilgisayar korsanlarına veya saldırganlara yetkisiz erişim sağlamak, sistem kaynaklarını kontrol etmek veya diğer kötü niyetli faaliyetlerde bulunmak için kullanılır. Rootkit'ler, bir işletim sistemi veya güvenlik yazılımı tarafından tespit edilmesi ve kaldırılması zor olacak şekilde gizlenmeye çalışılır.
 Backdoor(arka kapı): Bilgisayar sistemlerine veya yazılımlara yetkisiz erişim sağlayan ve sistemde gizli bir giriş noktası oluşturan kötü niyetli bir mekanizmadır. Backdoor'lar, genellikle bilgisayar korsanları veya saldırganlar tarafından kullanılır ve sistemi kontrol etmek, bilgileri çalmak veya zararlı faaliyetlerde bulunmak için kullanılır.
 
-
 Bölüm Detayı: Phishing Attacks
-
 
 Kimlik avı, bir kullanıcı ile e-posta veya anlık mesaj yoluyla — ya da başka bir şekilde — meşru bir kişi veya kuruluş gibi davranan biri tarafından iletişime geçildiğinde meydana gelir. Amaç, alıcıyı cihazına kötü amaçlı yazılım yüklemesi veya oturum açma bilgileri ya da finansal bilgiler gibi kişisel bilgilerini paylaşması için kandırmaktır.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 Phishing
 
@@ -301,18 +250,13 @@ Whaling: Bir kuruluştaki üst düzey yöneticiler, politikacılar ve ünlüler 
 
 Bölüm: 7-Uygulama Katmanı (Application Layer) Saldırıları
 
-
 Bu katman, son kullanıcıların ağa erişimini sağlayan uygulamaları içerir. Bu uygulamalarda çeşitli zafiyetler meydana gelebilir. Saldırganlar bu zafiyetlerden yararlanarak saldırılar gerçekleştirirler.
-
 
 Bölüm Detayı: Remote Code Execution — RCE Attack
 
-
 Uzaktan kod yürütme, bir siber suçlunun hedef cihazda uygulamayı çalıştıran kullanıcının ayrıcalıklarıyla herhangi bir komutu yürütmek için uygulama güvenlik açıklarından yararlanmasına olanak tanır.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 RCE
 
@@ -320,15 +264,11 @@ Yetki yükseltme, normalde kısıtlı olan kaynaklara erişim elde etmek için b
 
 Bu zafiyetler genelde güncellenmeyen servislerde ortaya çıkar. Bunun için sistemleri güncel tutmak hayati öneme sahiptir.
 
-
 Bölüm Detayı: Code Injection Attack
-
 
 Çoğu modern web sitesi, verileri depolamak ve yönetmek için Yapılandırılmış Sorgu Dili (SQL) veya Genişletilebilir İşaretleme Dili (XML) veritabanı gibi bir veritabanı kullanır. Enjeksiyon saldırıları bu veritabanlarındaki zayıflıklardan yararlanmaya çalışır.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 Code Injeciton
 
@@ -340,15 +280,11 @@ DLL Injection Attack: Dinamik bağlantı kitaplığı (DLL) dosyası, Windows'ta
 LDAP Injection Attack: Hafif Dizin Erişim Protokolü (LDAP), dizin hizmetlerine kullanıcı erişimini doğrulamak için kullanılan açık bir protokoldür. Bu saldırı, LDAP sunucularına sorgular enjekte ederek girdi doğrulama güvenlik açıklarından yararlanır.
 Command Injection Attack: Uygulamanın, kullanıcı tarafından sağlanan girdilerle oluşturulan komutları doğrudan yürütmek için güvenlik kontrollerini yapmadığı durumlarda gerçekleşen bir güvenlik açığıdır. Bu tür saldırılar, saldırganların, web uygulaması üzerindeki komutları manipüle ederek, zararlı komutlar çalıştırmasına olanak tanır.
 
-
 Bölüm Detayı: File Inclusion Attack
-
 
 File Inclusion Attack (Dosya Dahil Etme Saldırısı), bir web uygulamasının, kullanıcı tarafından sağlanan girişleri doğrulamadan veya düzgün şekilde temizlemeden, dışarıdan gelen dosyaları veya kaynakları dahil ettiği durumlarda ortaya çıkan bir güvenlik açığıdır. Bu saldırı türü, saldırganların web uygulamasının sunucusunda bulunan dosyalara yetkisiz erişim sağlamasını ve hedef sistemi istismar etmesini amaçlar.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 File Inclusion
 
@@ -359,15 +295,11 @@ Remote File Inclusion (RFI): Saldırgan, dışarıdaki uzak bir sunucuda bulunan
 
 Bu tür saldırılardan korunmak için, web uygulamalarının kullanıcı tarafından sağlanan girişleri doğrulamak, düzgün şekilde temizlemek ve güvenlik kontrolleri uygulamak önemlidir. Ayrıca, dosya yolunu sınırlamak, erişim izinlerini doğru şekilde yapılandırmak ve güvenlik açıklarını tespit etmek için düzenli güvenlik denetimleri yapmak da önemli güvenlik önlemleridir.
 
-
 Bölüm Detayı: XSS(Cross-Site Scripting) Attack
-
 
 XSS saldırıları, kullanıcı tarafından sağlanan verilerin yeterince doğrulanmadığı veya temizlenmediği durumlarda gerçekleşir. Saldırganlar, web uygulamasının güvenlik açığından yararlanarak, tarayıcıda çalıştırılan zararlı betikleri hedef kullanıcının tarayıcısına enjekte eder.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 XSS saldırıları, genellikle saldırganın kendi betik kodunu web uygulamasına yerleştirmesiyle gerçekleştirilir. Bu betikler, hedef kullanıcının tarayıcısında çalışır ve saldırganın istediği işlemleri gerçekleştirebilir. Saldırganlar, XSS saldırılarıyla kullanıcıların oturum açma bilgilerini çalabilir, kullanıcılara zararlı içerik sunabilir, kullanıcılara yönlendirme yapabilir veya sayfa içeriğini değiştirebilir.
 
@@ -379,71 +311,51 @@ DOM-based XSS: Bu tür XSS saldırıları, Document Object Model (DOM) üzerinde
 
 XSS saldırılarından korunmak için, web uygulamalarının kullanıcı tarafından sağlanan verileri doğrulamak, düzgün şekilde temizlemek ve güvenlik kontrolleri uygulamak önemlidir. Güvenli kodlama standartlarına uyum sağlamak, veri girişlerini sınırlamak ve tarayıcı tarafı korumaları kullanmak da etkili koruma yöntemleridir.
 
-
 Bölüm Detayı: CSRF(cross-site request forgery) Attack
-
 
 CSRF, yetkisiz komutların bir kullanıcının tarayıcısından güvenilir bir web uygulamasına gönderildiği bir web sitesinin kötü niyetli kullanımını tanımlar.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 CSRF
 
 Kötü niyetli bir web sitesi bu tür komutları özel olarak hazırlanmış görüntü etiketleri, gizli formlar veya JavaScript istekleri aracılığıyla iletebilir — bunların tümü kullanıcının bilgisi olmadan çalışabilir.
 
-
 Bölüm Detayı: SSRF (Server-Side Request Forgery) Attack
-
 
 bir web uygulamasının sunucu tarafında (server-side) yapılan isteklerin istemci tarafında (client-side) hedeflenen kaynakları etkileme yeteneğini sömüren bir güvenlik açığıdır. SSRF saldırıları, web uygulamasının güvenlik kontrollerinin yeterince sağlanmadığı durumlarda gerçekleşebilir.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 SSRF
 
 Bu saldırı türünde, saldırganlar hedeflenen web uygulamasını kullanarak, sunucu tarafından yapılan HTTP isteklerini manipüle edebilir. Saldırgan, bu güvenlik açığından yararlanarak, genellikle ağa erişim sağlamak veya hedef sisteme yetkisiz erişim elde etmek amacıyla iç ağa yönlendirilen veya dış kaynaklara yapılan istekleri tetikleyebilir.
 
-
 Bölüm Detayı: Directory Traversal Attack
-
 
 Dizin geçişi, bir saldırgan web sunucusundaki dosyaları web sitesinin dizini dışında okuyabildiğinde gerçekleşir.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 Directory Traversal
 
 Saldırgan daha sonra bu bilgileri hassas bilgiler içeren sunucu yapılandırma dosyalarını indirmek, potansiyel olarak daha fazla sunucu güvenlik açığını ortaya çıkarmak ve hatta sunucunun kontrolünü ele geçirmek için kullanabilir!
 
-
 Bölüm Detayı: Buffer Overflow Attack
-
 
 Bufferlar bir uygulamaya tahsis edilen bellek alanlarıdır. Veriler bir tamponun sınırlarının ötesine yazıldığında tampon taşması meydana gelir. Uygulama, verileri arabellek sınırlarının ötesinde değiştirerek diğer işlemlere ayrılmış belleğe erişebilir. Bu durum sistemin çökmesine veya verilerin ele geçirilmesine yol açabilir ya da ayrıcalıkların artmasını sağlayabilir.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 Buffer Overflow
 
 Bu bellek kusurları saldırganlara hedefin cihazı üzerinde tam kontrol de sağlayabilir. Örneğin, bir saldırgan, program bellekte yüklenirken savunmasız bir uygulamanın talimatlarını değiştirebilir ve sonuç olarak kötü amaçlı yazılım yükleyebilir ve virüs bulaşmış cihazdan dahili ağa erişebilir.
 
-
 Bölüm Detayı: Race Condition Attack
-
 
 Kontrol zamanı (TOC) veya kullanım zamanı (TOU) saldırısı olarak da bilinen yarış koşulu saldırısı, görevleri belirli bir sırayla yerine getirmek üzere tasarlanmış bir bilgisayar sistemi aynı anda iki veya daha fazla işlem yapmaya zorlandığında meydana gelir.
 
-
 [Görsel: Görsel açıklaması yok]
-
 
 Race Condition
 

@@ -2,9 +2,7 @@ The shift from offline desktop software to cloud-first SaaS models over the last
 
 Quick Comparison: Dependency vs. Sovereignty
 
-
 Chapter: Reclaiming Data Ownership in a SaaS World
-
 
 While Google and Microsoft provide strict privacy policies, exporting data and implementing an "exit strategy" from their platforms is operationally difficult. When you cancel a subscription, your data is not immediately handed back; it goes through a 30-day suspension window, followed by a deletion queue between days 31 and 60, where it is permanently wiped. This setup effectively locks your institutional memory behind a subscription wall.
 
@@ -12,19 +10,15 @@ These platforms also capture constant telemetry and usage diagnostics. Document 
 
 The core philosophy must be to rescue critical data from these closed systems and move toward the plain text simplicity of the Unix philosophy. Escaping commercial office tools is not just about saving license fees; it is about rebuilding documents, tables, and slides with robust engineering principles.
 
-
 Chapter: Document Engineering: Word vs. LaTeX
 
-
 Microsoft Word's "What You See Is What You Get" (WYSIWYG) approach is fine for simple memos, but fails for technical documentation. Working directly on the visual output locks your content and presentation layers together. Instead of writing, you end up fighting page breaks, broken list numbering, and floating images that break your layout.
-
 
 Section: The DOCX Format and Version Control Hurdles
 
 A .docx file is a zipped archive of XML structures. This binary-like layout is completely incompatible with Git and other version control systems.
 
 Since Git tracks line-by-line differences, a single whitespace change in a Word document alters the zipped XML nodes, causing Git to see the entire file as replaced. Branching and merging collaborative work becomes an operational mess.
-
 
 Section: LaTeX: Separating Content and Presentation
 
@@ -34,19 +28,15 @@ Git Integration: Every change is tracked as transparent, line-by-line diffs.
 Branching Support: You can apply entirely different styling templates to the same main text branch.
 latexdiff: Generate visual PDF diffs in seconds, highlighting deletions in red/strikethrough and additions in blue.
 
-
 Chapter: Transparency in Data Analytics: Excel vs. CSV + DuckDB
 
-
 Microsoft Excel remains a huge source of technical debt in data analytics. Scientific reproducibility requires clear, auditable logic. Excel's core design flaw is wrapping raw data, calculations (formulas), and presentation in the same cell.
-
 
 Section: Historical Excel Disasters
 
 UK COVID-19 Data Loss: In October 2020, PHE missed 15,841 positive cases because lab reports (CSV) were imported into old .xls templates. Excel silently truncated all rows exceeding the 65,536 limit.
 Reinhart-Rogoff Error: A 2010 economics paper shaping global policy contained a simple formula error where Excel missed 5 rows of data, showing a growth contraction of -0.1% instead of +2.2%.
 Genetics Auto-Correct: Excel automatically converted gene labels like MARCH1 to date formats ("March 1st"). The HGNC had to rename 27 human genes in 2020 just to prevent Excel corruption.
-
 
 Section: DuckDB: Separating Storage and Compute
 
@@ -66,14 +56,11 @@ Reproducible
 
 Performance Comparison
 
-
 Chapter: Presentations: Rebranding PowerPoint with Slidev
-
 
 PowerPoint slides isolate and freeze data. Copying a chart into PPTX separates it from its source; if the data changes, slides must be updated manually.
 
 Modern developer culture demands Presentation-as-Code. Slides should be written in Markdown and rendered using the Web Stack.
-
 
 Section: Slidev: Interactive Slide Developer Environment
 
@@ -99,9 +86,7 @@ Impress.js
 3D Visual Show
 Prezi-style zooming and rotating effects using CSS3 transformations for immersive storytelling.
 
-
 Chapter: Open Source Alternatives: LibreOffice and ONLYOFFICE
-
 
 Not everyone wants to write code for slides or documents. However, office suite needs do not have to bind you to data-mining cloud platforms.
 
@@ -117,7 +102,6 @@ Privacy Fortress
 Loyal to ODF standards, telemetry-free, and fully offline. The strongest defender of data privacy.
 
 Suite Comparison
-
 
 Section: Golden Cages: Proprietary and Closed Ecosystems
 
@@ -147,9 +131,7 @@ FreeOffice
 Lightweight Clone
 A fast 'Word clone' for low-spec PCs. Proprietary and offers a limited experience to drive paid upgrades.
 
-
 Chapter: Unified Solution: Nextcloud Hub
-
 
 It's now possible to gather all collaboration tools under one secure roof. Nextcloud Hub is a unified digital workspace that gives you absolute control over your data:
 
@@ -169,9 +151,7 @@ Local AI
 Private Assistant
 Nextcloud Assistant processes document analysis and text generation locally, keeping your data private.
 
-
 Chapter: Complementary Tool Portfolio for Digital Freedom
-
 
 To complete your sovereign architecture, these tools should be the cornerstones of your portfolio:
 
@@ -191,8 +171,6 @@ Vaultwarden
 Sovereign Passwords
 Self-host your password vault instead of trusting Google/Apple with your most sensitive credentials.
 
-
 Chapter: Reclaiming Your Digital Sovereignty
-
 
 SaaS suites trade convenience for data ownership. Reclaiming control by writing documents in LaTeX, processing tables in DuckDB, and coding slides in Slidev is a deliberate choice for data sovereignty. Take charge of your data and secure your digital independence.

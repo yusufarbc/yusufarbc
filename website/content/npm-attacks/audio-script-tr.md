@@ -1,13 +1,10 @@
 Başlık: npm Tedarik Zinciri Güvenliği: Mimari Analiz, Tehdit Vektörleri ve Savunma Stratejileri
 
-
 Modern yazılım geliştirme süreçlerinde kodun modüler yapıda tasarlanması ve üçüncü parti kütüphanelerin kullanılması, projelerin hızla geliştirilmesini sağlayan en önemli unsurlardan biridir. Bu ekosistemin merkezinde yer alan Node Package Manager (npm), milyarlarca paket indirme isteğine yanıt vererek yazılım dünyasının en büyük deposu (registry) haline gelmiştir.
 
 Kurumsal web uygulamalarından bulut tabanlı sistemlere kadar neredeyse tüm JavaScript/TypeScript projeleri npm ekosistemine bağımlı durumdadır. Ancak açık kaynak dünyasının getirdiği bu kontrolsüz yapı ve yüksek bağımlılık düzeyi, siber saldırganlar için kaçırılmayacak bir fırsat sunarak yazılım tedarik zincirine yönelik ciddi riskleri de beraberinde getirmektedir.
 
-
 Bölüm: npm Ekosisteminin Çalışma Mantığı ve Mimari Yapısı
-
 
 npm; proje dosyalarının tanımlandığı manifestolara, bağımlılık kilitlerine ve hiyerarşik dosya sistemine dayanır. Bu yapının temel bileşenleri ve taşıdıkları güvenlik riskleri şu şekilde özetlenebilir:
 
@@ -16,9 +13,7 @@ SemVer (Semantic Versioning): Paket sürümlerinin MAJOR.MINOR.PATCH düzeninde 
 package-lock.json: Sürüm kaymalarını önlemek ve kurulumu deterministik (tutarlı) hale getirmek için kullanılır. Bağımlılıkların indirildiği tam adresi (resolved) ve dosyaların doğruluğunu denetleyen SHA-512 özetini (integrity) tutar. Bu dosyanın değiştirilmesi, lockfile enjeksiyonu saldırılarına yol açabilir.
 node_modules: İndirilen tüm kütüphanelerin ve onların alt bağımlılıklarının fiziksel olarak kaydedildiği klasördür. Ağacın çok derin olmasından dolayı, bu klasör içindeki kodların elle denetlenmesi neredeyse imkansızdır.
 
-
 Bölüm: Bağımlılık Ağacı ve Görünürlük Kör Noktaları
-
 
 npm dünyasındaki en büyük risk, projenize doğrudan eklediğiniz paketlerin ötesinde, o paketlerin de arka planda kullandığı geçişli (transitive) bağımlılık ağacıdır. Bir geliştirici projesine tek bir kütüphane eklediğinde, o kütüphane de düzinelerce başka kütüphaneye ihtiyaç duyar. Sonuç olarak, tek bir paketin yüklenmesi arka planda yüzlerce farklı kişinin yazdığı kodların sisteme dahil olmasına yol açar.
 
@@ -28,9 +23,7 @@ N = b(bD - 1) / (b - 1)
 
 Bu üstel büyüme, kodların elle incelenmesini imkansız kılar. Geliştiriciler sadece kendi ekledikleri paketleri kontrol ederken, alt bağımlılıkların derinliklerinde yer alan zararlı kodlardan habersiz kalırlar. Bu durum, güvenlik ekipleri için ciddi bir "görünürlük kör noktası" (visibility blind spot) oluşturarak saldırganların tespit edilmeden sistemlere sızmasına zemin hazırlar.
 
-
 Bölüm: npm Ekosistemindeki Siber Riskler ve Saldırı Türleri
-
 
 Saldırganlar, npm ekosisteminin açık yapısını ve paket çözümleme mantığındaki tasarım boşluklarını istismar etmek amacıyla son derece gelişmiş teknikler kullanmaktadır.
 
@@ -50,9 +43,7 @@ LIFECYCLE SCRIPTS
 Kurulum Betikleri İstismarı
 npm kurulum aşamalarında otomatik olarak çalışan betikler kötüye kullanılır. Geliştirici paketi indirdiği anda projesinde herhangi bir kod çalıştırmasa bile, arka planda işletim sistemi seviyesinde zararlı yazılımlar tetiklenebilir.
 
-
 Bölüm Detayı: Bağımlılık Karışıklığı (Dependency Confusion)
-
 
 İlk kez 2021 yılında güvenlik araştırmacısı Alex Birsan tarafından keşfedilen bu yöntem, paket yöneticilerinin hem yerel hem de genel kayıt depolarını bir arada kullanırken düştüğü mantıksal zafiyeti istismar eder.
 
@@ -60,32 +51,24 @@ Büyük şirketler, sadece kendi iç ağlarında çalışan özel kütüphaneler
 
 Sistemde kurulum yapıldığında, paket yöneticisi genel depodaki yüksek sürümü "en güncel güncelleme" olarak algılar ve şirket içindeki güvenli paket yerine internetteki zararlı paketi indirir. Alex Birsan bu teknikle Microsoft, Apple, Yelp, Tesla ve Shopify gibi dev şirketlerin iç ağlarında izinsiz kod yürüterek zafiyeti kanıtlamıştır.
 
-
 Bölüm Detayı: Geliştirici Hesaplarının Ele Geçirilmesi (Account Takeover)
-
 
 Geliştirici hesaplarını ele geçirmek için saldırganlar çoğunlukla iki yönteme başvurur:
 Kimlik Avı (Phishing): Geliştiricilere sahte destek e-postaları göndererek iki aşamalı doğrulama (2FA) sıfırlama kodlarının çalınması.
 Süresi Dolan Domainler: Geliştiricinin npm hesabına kayıtlı e-posta adresinin domain süresi dolduğunda, saldırgan bu domaini satın alıp şifre sıfırlama mailini kendi üzerine yönlendirerek hesabı ele geçirir.
 
-
 Bölüm Detayı: Kurulum Betikleriyle Gelen Tehlike (Lifecycle Scripts)
-
 
 npm paketleri kurulurken çalışan otomatik kancalar (preinstall, postinstall vb.) oldukça tehlikelidir. Saldırganlar bu özellikleri kullanarak, geliştirici sadece npm install yaptığında bile bilgisayarında sessizce bir arka kapı açabilir veya sistemdeki şifreleri çalabilirler.
 
 Axios Vakası (Mart 2026): Saldırganlar, Axios kütüphanesinin alt bağımlılıklarına plain-crypto-js@4.2.1 adında zararlı bir paket eklediler. Bu paketin postinstall betiği, sistemde çapraz platform destekli bir Truva atı (RAT) çalıştırdı. Saldırıda, analizi zorlaştırmak için zararlı kurulum dosyalarının çalıştıktan hemen sonra kendini silmesi gibi teknikler uygulandı.
 
-
 Bölüm Detayı: Protestware ve Sahipsiz Paketler
-
 
 node-ipc Olayı (CVE-2022-23812): Mart 2022'de popüler node-ipc paketinin geliştiricisi, Rusya ve Belarus lokasyonundaki bilgisayarlarda dosyaları silen zararlı bir güncelleme yayınladı. Bu sabote etme eylemi, node-ipc kullanan Vue.js CLI gibi binlerce popüler yazılım geliştirme aracını doğrudan etkiledi.
 Sahipsiz Paketler (Abandoned Packages): Geliştiricisi tarafından artık güncellenmeyen kütüphanelerdir. Zamanla bu paketlerde güvenlik açıkları keşfedilse de, güncelleyen kimse olmadığı için sistemler kalıcı olarak zafiyete açık hale gelir.
 
-
 Bölüm: Zincirleme Yayılım Riskleri ve Ağ Yapısı
-
 
 npm ekosistemi, ağ teorisine göre "ölçeksiz ağ" (scale-free network) yapısındadır. Az sayıdaki çok popüler kütüphane (merkezi düğümler), milyonlarca projeye doğrudan veya dolaylı olarak bağlanır. Bu yapı, tek bir kritik paketin ele geçirilmesinin tüm ekosistemi felç edebileceği asimetrik bir risk doğurur.
 
@@ -95,9 +78,7 @@ Pcascade = 1 - (1 - p)k
 
 k değerinin (bağımlılık sayısının) çok yüksek olduğu popüler paketlerde, saldırganın başarı şansı (p) çok düşük olsa bile, zincirleme etkinin tüm ağa yayılması neredeyse kaçınılmaz hale gelir.
 
-
 Bölüm: Gerçek Bir Vaka: Mini Shai-Hulud Solucanı (Nisan/Mayıs 2026)
-
 
 2026 yılının Nisan ve Mayıs aylarında TeamPCP grubu tarafından düzenlenen "Mini Shai-Hulud" saldırısı, npm tarihindeki ilk kendi kendini çoğaltan (self-replicating) solucan olarak kayıtlara geçti. Bu saldırı, klasik kimlik avı yöntemlerinin ötesine geçerek popüler kütüphanelerin CI/CD süreçlerini ve GitHub iş akışlarını adeta birer "zararlı yazılım üretim hattına" dönüştürdü.
 
@@ -109,59 +90,41 @@ Aşama — Erişim Yetkisi Hırsızlığı ve Yayılım: Proje yöneticileri ana
 
 Solucan yetkileri aldıktan sonra sadece 6 dakika içinde 42 farklı meşru @tanstack/* paketi altında 84 adet zararlı sürüm yayınladı. Enfeksiyon zincirleme olarak @antv, echarts-for-react, @opensearch-project/opensearch ve @mistralai/mistralai gibi popüler yapay zeka kütüphanelerine yayıldı.
 
-
 Bölüm: Geliştirici Ortamlarını Hedef Alan Yeni Nesil Tehditler
-
 
 Bu bölüm detayları ve etkileri incelemektedir.
 
-
 Bölüm Detayı: Geliştirici Araçlarının Zehirlenmesi
-
 
 Saldırganlar artık doğrudan npm paketlerini hacklemek yerine, geliştiricilerin kullandığı araçları hedef alıyorlar. Yakın zamanda bir geliştiricinin zararlı kod içeren bir VS Code eklentisi kurması sonucunda, çalıştığı kurumun dahili sistemlerine sızılmış ve binlerce özel kod deposu ele geçirilmiştir. "Masum görünen" bu araçlar, sistemlere sızmak için mükemmel birer arka kapı haline gelebilir.
 
-
 Bölüm Detayı: Otonom Yapay Zeka Eylemcilerinin Suistimal Edilmesi
-
 
 Yapay zeka destekli kodlama süreçleri yeni bir güvenlik riski doğuruyor. Otonom yapay zeka eylemcileri, internette buldukları veya kendilerine önerilen kod kütüphanelerini geliştiricinin haberi olmadan projeye dahil edebilirler. Saldırganlar, yapay zeka araçlarını manipüle ederek zararlı npm paketlerinin sisteme yüklenmesini sağlayabilir.
 
-
 Bölüm Detayı: Otomatik Güncelleme Süreçlerinin Kötüye Kullanılması
-
 
 Geliştirme ortamlarında kullanılan eklenti ve kütüphanelerin otomatik güncellenmesi saldırganlar için büyük bir fırsattır. Bir araç ele geçirildiğinde, otomatik güncellemeler sayesinde zararlı kodlar saniyeler içinde binlerce geliştiricinin bilgisayarına dağıtılır.
 
-
 Bölüm Detayı: CI/CD Sırlarının Çalınması
-
 
 Saldırganlar kod barındırma platformlarına sızdıklarında, dağıtım anahtarlarını ve CI/CD sistemlerinde saklanan "sırları" (secrets) hedeflerler. Bu yetkilendirme bilgileri çalındığında, saldırganlar asıl geliştiriciymiş gibi genel depolara doğrudan zararlı sürümler yükleyebilirler.
 
-
 Bölüm Detayı: Platformlar Arası Geçişli Saldırılar
-
 
 Bir platformdaki güvenlik ihlali, doğrudan başka bir ekosistemdeki büyük bir tedarik zinciri saldırısını tetikleyebilir. Saldırganlar, bir platformun (örneğin GitHub) açıklarını kullanarak başka bir platformdaki (örneğin npm) paketleri zehirlemek için sıçrama tahtası oluştururlar.
 
-
 Bölüm: Tedarik Zincirini Koruma Yolları ve Savunma Stratejileri
-
 
 npm tedarik zinciri risklerini tek bir güvenlik aracıyla çözmek mümkün değildir. Güvenliği sağlamak için statik analiz, kurulum sıkılaştırma, proxy yönetimi ve çalışma zamanı analizi gibi katmanların bir arada uygulanması gerekir.
 
-
 Bölüm Detayı: Statik Güvenlik Analizleri ve SBOM Yönetimi
-
 
 Yazılım Bileşen Analizi (SCA): Snyk veya OWASP Dependency-Check gibi araçlar derleme süreçlerine (CI/CD) entegre edilerek, bilinen güvenlik açıklarına sahip paketlerin sisteme dahil edilmesi engellenmelidir.
 npq Kullanımı: Geliştiriciler yerel bilgisayarlarında doğrudan npm install çalıştırmak yerine npq aracını kullanmalıdır. npq, kurulacak paketi analiz ederek paketin yaşını, yazım hatası taklidi (typosquatting) ihtimalini ve içerdiği betikleri denetler.
 Lockfile Doğrulaması: lockfile-lint aracı yardımıyla package-lock.json içindeki paket indirme adreslerinin sadece yetkili ve güvenli kaynaklar olduğu doğrulanmalıdır.
 
-
 Bölüm Detayı: Kurulum Sıkılaştırma (Hardening)
-
 
 Otomatik çalışan kurulum betiklerinin riskini ortadan kaldırmak için paket kurulumlarında --ignore-scripts parametresi kullanılmalıdır:
 
@@ -193,17 +156,13 @@ Otomatik çalışan kurulum betiklerinin riskini ortadan kaldırmak için paket 
 > Son dönemde artan npm tedarik zinciri saldırıları nedeniyle. Saldırganlar script’leri kullanarak kod çalıştırabiliyordu. Bu değişiklikle script çalıştırma opt-in (izinli) hale getiriliyor.
 > Daha fazla detay: GitHub Changelog – npm v12
 
-
 Bölüm Detayı: Şirket İçi Proxy ve Özel Depo Yönetimi
-
 
 Dış kaynaklı paketlerin doğrudan geliştirici bilgisayarlarına indirilmesini önlemek için Sonatype Nexus veya JFrog Artifactory gibi proxy çözümleri kullanılmalıdır:
 Scoped Namespaces (Kapsamlı İsim Alanları): Kurum içi geliştirilen tüm özel paketler kurumsal bir önek ile sınırlandırılmalıdır (Örneğin: @sirket/paket-adi).
 Hariç Tutma Şablonları (Exclude Patterns): Yerel proxy depolarında kurumsal isimler için dışarıya sorgu atılmasını engelleyen kurallar tanımlanmalıdır. Bu sayede paket yöneticisinin internetteki genel depodan yüksek sürüm numaralı sahte paketleri indirmesi (Dependency Confusion) kesin olarak engeller.
 
-
 Bölüm Detayı: Sürekli İzleme ve Davranış Analizi
-
 
 Saldırganlar zararlı kodları meşru sistem fonksiyonlarının (fs.readFile, child_process.exec, https.request vb.) arkasına gizleyebildiği için sadece statik analize güvenmek yeterli değildir:
 Süreç Ağacı (Process Tree) Analizi: EDR ve SIEM sistemleri üzerinden, node sürecinin alt süreç olarak cmd.exe, powershell.exe, sh veya curl gibi beklenmedik araçları tetikleyip tetiklemediği izlenmelidir.

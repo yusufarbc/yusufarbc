@@ -1,18 +1,14 @@
 Chapter: Cyber Attacks in the OSI Model
 
-
 Hello, in this article, I tried to explain Cyber Attacks on the OSI model. You can find many types of cyber attacks in this article.
 
 ---
 
 Chapter: What is the OSI Model?
 
-
 The OSI (Open Systems Interconnection) model is a reference model used to describe the design and operation of computer networks. It was developed by ISO (International Organization for Standardization) and consists of 7 layers. Each layer performs a specific function and manages communication in a network.
 
-
 [Image: No image description]
-
 
 OSI MODEL
 
@@ -26,7 +22,6 @@ Session Layer: It is responsible for creating, managing and terminating sessions
 Presentation Layer: It ensures that data is represented harmoniously between different systems. It performs operations such as data encryption, compression and format conversion.
 Application Layer: Contains applications that provide end users access to the network. Applications such as e-mail, web browsers, file transfer protocols (FTP) are located in this layer.
 
-
 Section: OSI Model Attack Mapping
 
 The following diagram visualizes the 7 layers of the OSI model alongside the most common cyber attacks targeting each layer:
@@ -37,18 +32,13 @@ The following diagram visualizes the 7 layers of the OSI model alongside the mos
 
 Chapter: Physical Layer Attacks
 
-
 This layer is the layer where physical devices are located. At this layer, attackers can make physical attacks on systems. For example, an attacker who was able to enter the server room could shut down the server or change its configurations. Physical security of systems is as important as cyber security. One type of cyber attack that attackers can perform at this layer is sniffing. Sniffing the packets entering and exiting the system :)
-
 
 Section: sniffing
 
-
 Sniffing attacks are malicious activities carried out to monitor or capture data transmission on a network. Attackers capture data packets on the network and use them to steal or monitor sensitive information (usernames, passwords, credit card information, etc.).
 
-
 [Image: No image description]
-
 
 sniffing
 
@@ -68,20 +58,15 @@ Sniffing attacks compromise the confidentiality of communication taking place on
 
 Chapter: Data Link Layer Attacks
 
-
 This layer is used to move data across a connected physical network. IP addresses are assigned on the network using a procedure called address resolution protocol (ARP).is mapped to each physical device address (also known as the media access control (MAC) address).
 
 In the simplest terms, a MAC address identifies the intended recipient of an IP address sent over the network, and ARP parses IP addresses to MAC addresses for data transmission.
 
-
 Section: spoofing
-
 
 Spoofing or poisoning is a type of impersonation attack that takes advantage of a trusted relationship between two systems.
 
-
 [Image: No image description]
-
 
 Spoofing
 
@@ -107,36 +92,27 @@ Spoofing
 
 Chapter: Network Layer Attacks
 
-
 This layer ensures the transmission of data packets. However, attackers can sometimes listen to this transmission traffic. In addition, host scans with nmap occur in this layer.
 
-
 Section: MITM(Man-in-the-Middle) Attacks
-
 
 Attackers can intercept or alter communications between two devices to steal information from or impersonate one of the devices.
 
 A MitM attack occurs when an attacker takes control of a device without a user's knowledge. With this level of access, an attacker can intercept, manipulate, and transfer false information between the sender and the intended destination.
 
-
 [Image: No image description]
-
 
 MITM
 
 MitMo, a variation of man in the middle, is a type of attack used to take control of a user's mobile device. Once infected, the mobile device is instructed to exfiltrate user-specific information and send it to attackers.
 
-
 Section: ICMP Attacks
-
 
 ICMP was developed to carry diagnostic messages and report error conditions when servers and ports are unavailable. ICMP messages are created by devices when a network error or outage occurs. The ping command is a user-generated ICMP message, called an echo request, used to verify connectivity to a target.
 
 Attackers use ICMP for reconnaissance and scanning purposes. In this way, they can conduct information gathering activities to map a network topology, discover which hosts are active (accessible), identify the host operating system (OS fingerprinting), and determine the status of a firewall.
 
-
 [Image: No image description]
-
 
 ICMP Flood
 
@@ -160,7 +136,6 @@ Networks should have strict ICMP access control list (ACL) filtering at the netw
 
 Chapter: Transport Layer Attacks
 
-
 At this layer, network applications use TCP or UDP ports. Attackers perform port scans of target devices to discover what services they offer. Also, port scans with nmap take place in this layer.
 
 <div class="render-cards">
@@ -181,43 +156,31 @@ At this layer, network applications use TCP or UDP ports. Attackers perform port
 </div>
 </div>
 
-
 Section: TCP SYN Flood Attack
-
 
 TCP SYN Flood attack exploits the TCP three-way handshake.
 
-
 [Image: No image description]
-
 
 TCP SYN Flood Attack
 
 The figure shows an attacker repeatedly sending TCP SYN session request packets to a target with a randomly spoofed source IP address. The target device responds to the spoofed IP address with a TCP SYN-ACK packet and expects a TCP ACK packet. These answers never come. Eventually the target host is overwhelmed with half-open TCP connections and TCP services are blocked to legitimate users.
 
-
 Section: TCP Reset Attack
-
 
 A TCP reset attack can be used to terminate TCP communication between two hosts.
 
-
 [Image: No image description]
-
 
 TCP Reset Attack
 
 A TCP connection terminates when it receives the RST bit. This is an immediate way to break the TCP connection and tell the receiving host to immediately stop using the TCP connection. An attacker can perform a TCP Reset attack and send a spoofed packet containing TCP RST to one or both endpoints.
 
-
 Section: UDP Flood Attack
-
 
 You are more likely to see a UDP flood attack than a TCP SYN flood.
 
-
 [Image: No image description]
-
 
 In a UDP flood attack, all resources on the network are consumed. The attacker should use a tool such as UDP Unicorn or Low Orbit Ion Cannon. These tools send UDP packets, usually from a rogue host, to a server on the subnet. The program will scan all known ports and try to find closed ports. This causes the server to respond with an ICMP port unreachable message. Since there are many closed ports on the server, it creates a lot of traffic on this segment, which uses most of the bandwidth. The result is very similar to a DoS attack.
 
@@ -225,18 +188,13 @@ In a UDP flood attack, all resources on the network are consumed. The attacker s
 
 Chapter: Session Layer Attacks
 
-
 In this layer, session operations of network applications are carried out. Attackers may attempt to hijack user sessions in applications.
-
 
 Section: Session Hijacking Attack
 
-
 Session Hijacking is an attack in which a user session is hijacked by an attacker. A session begins when you log in to a service, such as your banking app, and ends when you log out. The attack relies on the attacker knowing your session cookie, which is why it is also called cookie hijacking or cookie bypassing.
 
-
 [Image: No image description]
-
 
 Session Hijacking
 
@@ -252,20 +210,15 @@ Session Prediction Attacks: Predicting the session ID can allow an attacker to b
 
 Chapter: Presentation Layer Attacks
 
-
 This layer provides the presentation of data. Attackers use social engineering methods at this layer.
 
 Social engineering attacks may include tactics such as gaining people's trust, manipulation, deception, or deception. Attackers can carry out social engineering attacks at the corporate or personal level. For example, an attacker could make a phone call pretending to be an employee of an organization and attempt to obtain the employee's credentials or confidential company information by posing as a trusted source.
 
-
 Section: Spam Attack
-
 
 Spam, also known as junk mail, is simply unsolicited email. In most cases it is a method of advertising. However, many spams are sent in bulk by computers infected with viruses or worms and often contain malicious links, malicious software, or deceptive content intended to trick recipients into revealing sensitive information such as social security numbers or bank account information.
 
-
 [Image: No image description]
-
 
 spam
 
@@ -278,15 +231,11 @@ Keylogger: It is a software that records the user's keyboard entries on a comput
 Rootkit: Used by hackers or attackers to gain unauthorized access, control system resources, or perform other malicious activities. Rootkits attempt to disguise themselves so that they are difficult to detect and remove by an operating system or security software.
 Backdoor: It is a malicious mechanism that provides unauthorized access to computer systems or software and creates a hidden entry point in the system. Backdoors are often used by hackers or attackers to control the system, steal information or perform malicious activities.
 
-
 Section: Phishing Attacks
-
 
 Phishing occurs when a user is contacted via email, instant message — or otherwise — by someone pretending to be a legitimate person or organization. The goal is to trick the recipient into installing malware on their device or sharing personal information, such as login credentials or financial information.
 
-
 [Image: No image description]
-
 
 Phishing
 
@@ -303,18 +252,13 @@ Whaling: A phishing attack that targets high-profile individuals within an organ
 
 Chapter: 7-Application Layer Attacks
 
-
 This layer contains applications that provide end users access to the network. Various vulnerabilities may occur in these applications. Attackers carry out attacks by taking advantage of these vulnerabilities.
-
 
 Section: Remote Code Execution — RCE Attack
 
-
 Remote code execution allows a cybercriminal to exploit application vulnerabilities to execute any command on the target device with the privileges of the user running the application.
 
-
 [Image: No image description]
-
 
 RCE
 
@@ -322,15 +266,11 @@ Privilege escalation exploits a bug, design flaw, or misconfiguration in an oper
 
 These vulnerabilities generally occur in services that are not updated. Systems for thisKeeping it updated is vital.
 
-
 Section: Code Injection Attack
-
 
 Most modern websites use a database, such as a Structured Query Language (SQL) or Extensible Markup Language (XML) database, to store and manage data. Injection attacks attempt to exploit weaknesses in these databases.
 
-
 [Image: No image description]
-
 
 Code Injeciton
 
@@ -342,15 +282,11 @@ DLL Injection Attack: A dynamic link library (DLL) file is a library that contai
 LDAP Injection Attack: Lightweight Directory Access Protocol (LDAP) is an open protocol used to authenticate user access to directory services. This attack exploits input validation vulnerabilities by injecting queries into LDAP servers.
 Command Injection Attack: It is a vulnerability that occurs when the application, does not perform security checks to directly execute commands created with user-supplied input. These types of attacks allow attackers to execute malicious commands by manipulating commands on the web application.
 
-
 Section: File Inclusion Attack
-
 
 File Inclusion Attack is a vulnerability that occurs when a web application includes external files or resources without validating or properly sanitizing user-supplied input. This type of attack aims to allow attackers to gain unauthorized access to files on the web application's server and exploit the target system.
 
-
 [Image: No image description]
-
 
 File Inclusion
 
@@ -361,15 +297,11 @@ Remote File Inclusion (RFI): The attacker manipulates user-supplied input to inc
 
 To protect against such attacks, it is important for web applications to validate user-supplied input, properly sanitize it, and implement security controls. Additionally, limiting the file path, configuring access permissions correctly, and performing regular security audits to detect vulnerabilities are also important security measures.
 
-
 Section: XSS(Cross-Site Scripting) Attack
-
 
 XSS attacks occur when user-supplied data is not adequately validated or sanitized. Attackers exploit the vulnerability of the web application and inject malicious scripts run in the browser into the target user's browser.
 
-
 [Image: No image description]
-
 
 XSS attacks are typically carried out by the attacker embedding his own script code into the web application. These scripts run in the target user's browser and can perform any actions desired by the attacker. Attackers can steal users' login information, serve malicious content to users, redirect users or change page content through XSS attacks.
 
@@ -381,71 +313,51 @@ DOM-based XSS: This type of XSS attacks targets vulnerabilities in the Document 
 
 To protect against XSS attacks, it is important for web applications to validate user-supplied data, properly sanitize it, and implement security controls. Complying with secure coding standards, limiting data entry, and using browser-side protections are also effective protection methods.
 
-
 Section: CSRF(cross-site request forgery) Attack
-
 
 CSRF describes malicious use of a website where unauthorized commands are sent from a user's browser to a trusted web application.
 
-
 [Image: No image description]
-
 
 CSRF
 
 A malicious website can deliver such commands via specially crafted image tags, hidden forms, or JavaScript requests — all of which can operate without the user's knowledge.
 
-
 Section: SSRF (Server-Side Request Forgery) Attack
-
 
 It is a vulnerability that exploits the ability of requests made on the server-side of a web application to affect resources targeted on the client-side. SSRF attacks can occur when the web application's security controls are not adequately maintained.
 
-
 [Image: No image description]
-
 
 SSRF
 
 In this type of attack, attackers can use the targeted web application to manipulate HTTP requests made by the server. By exploiting this vulnerability, an attacker can trigger requests directed to the internal network or to external resources, often with the aim of gaining access to the network or gaining unauthorized access to the target system.
 
-
 Section: Directory Traversal Attack
-
 
 Directory traversal occurs when an attacker is able to read files on the web server outside of the website's directory.
 
-
 [Image: No image description]
-
 
 Directory Traversal
 
 The attacker can then use this information to download server configuration files containing sensitive information, potentially exposing further server vulnerabilities or even taking control of the server!
 
-
 Section: Buffer Overflow Attack
-
 
 Buffers are memory areas allocated to an application. A buffer overflow occurs when data is written beyond the boundaries of a buffer. The application can access memory reserved for other processes by manipulating data beyond buffer boundaries. This may lead to a system crash, data compromise, or escalation of privileges.
 
-
 [Image: No image description]
-
 
 Buffer Overflow
 
 These memory flaws can also give attackers complete control over the target's device. For example, an attacker could modify the instructions of a vulnerable application while the program is loading in memory and, as a result, install malware and gain access to the internal network from the infected device.
 
-
 Section: Race Condition Attack
-
 
 A race condition attack, also known as a time of control (TOC) or time of use (TOU) attack, occurs when a computer system designed to perform tasks in a specific order is forced to perform two or more operations simultaneously.
 
-
 [Image: No image description]
-
 
 Race Condition
 

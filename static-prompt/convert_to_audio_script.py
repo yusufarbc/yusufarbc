@@ -44,6 +44,7 @@ def convert_markdown_to_audio(file_path):
     in_code_block = False
     in_mermaid_block = False
     in_style_block = False
+    in_script_block = False
     in_html_comment = False
     in_html_table = False
     in_references_section = False
@@ -80,6 +81,21 @@ def convert_markdown_to_audio(file_path):
         if in_style_block:
             if "</style>" in stripped:
                 in_style_block = False
+            i += 1
+            continue
+
+        # 1bb. Script block parsing
+        if stripped.startswith("<script") or stripped.startswith("<script>"):
+            if "</script>" in stripped:
+                i += 1
+                continue
+            in_script_block = True
+            i += 1
+            continue
+            
+        if in_script_block:
+            if "</script>" in stripped:
+                in_script_block = False
             i += 1
             continue
             

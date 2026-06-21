@@ -4,34 +4,26 @@ Modern iş dünyasında bulut tabanlı ortak çalışma platformları kurumsal i
 
 Bu teknik blog yazısında, bu bağımlılığı sıfıra indiren ve kurumlara kendi sunucularında (on-premises veya private cloud) tam veri egemenliği sunan Nextcloud Hub, OnlyOffice Document Server ve Mailcow ekosisteminin bütünsel mimarisini ele alacağız. Platformun yeteneklerini M365 ve Google Workspace ile kıyaslayacak; performans, güvenlik, ölçeklenebilirlik ve otonom yapay zeka entegrasyonu detaylarına mikroskobik bir bakış atacağız.
 
-
 Bölüm: Dijital Egemenlik Savaşı: Nextcloud Hub vs. M365 & Google Workspace
-
 
 Kurumsal veri yönetiminde Nextcloud, basit bir dosya barındırma (drive) çözümü olmanın çok ötesine geçerek, iletişim ve işbirliği araçlarını entegre eden bütünsel bir ekosisteme dönüşmüştür.
 
 Aşağıdaki tablo, kendi sunucularınızda barındırılan Nextcloud ekosistemi ile genel bulut alternatifleri arasındaki mimari ve stratejik farkları özetlemektedir:
 
-
 Bölüm Detayı: Microsoft'un Bulut Odaklı (Cloud-First) Baskısı ve Deprecation Riskleri
-
 
 Kurumların genel bulut sağlayıcılarına geçişini hızlandırmak için yazılım devleri on-premises (yerel) ürün desteklerini ve özelliklerini kademeli olarak daraltmaktadır. Bu stratejik baskının en somut örneği Microsoft'un "cloud-first" yaklaşımıdır:
 
 Microsoft, son yıllarda "cloud-first" yaklaşımını net bir biçimde benimsemiş; Windows Server, kimlik yönetimi ve diğer ürünlerini Azure bulutuyla entegrasyon sağlayacak şekilde konumlandırmaktadır. Bu stratejik dönüşüm, kurumların altyapı yönetimini kökten değiştirirken, beraberinde yeni fırsatlar ve riskler getirmektedir.
 
-
 Bölüm Detayı: Kritik Araçlardaki Değişim
-
 
 WSUS (Windows Server Update Services): Eylül 2024’te Microsoft, WSUS’un "deprecated" (kullanımdan kaldırılmış) ilan edildiğini duyurdu. Yeni yerel güncelleme sunucusu özellik yatırımı beklenmiyor; yönetim bulut araçlarına (Autopatch, Intune) kayıyor. WSUS, Windows Server 2025 bünyesinde çalışmaya devam etse de yeni inovasyonlardan mahrum kalacaktır.
 
 Windows Admin Center (WAC): Aktif geliştirme sürüyor. Özellikle Azure Arc entegrasyonu ile on-prem sunucuların bulut üzerinden yönetimi hedefleniyor.
 Azure Local (Azure Stack HCI): On-prem donanımı tamamen terk etmek yerine, bu altyapıyı "Azure ile birleştirilmiş" bir hibrit platform olarak konumlandırıyor.
 
-
 Bölüm Detayı: Kimlik Yönetimi ve On-Prem AD'nin Durumu
-
 
 Microsoft'un kimlik çözümlerindeki ana eğilim bulut merkezlidir. Microsoft Entra ID (eski adıyla Azure AD), platformun kalbi haline gelmiştir.
 
@@ -41,12 +33,9 @@ Uzun vadede iş yüklerinin Entra ID üzerinde tutulması ve on-prem AD ile hibr
 
 Bu yasal riskler ve bulut dayatmaları karşısında, verilerin ve kimlik altyapısının kurum içi sunucularda barındırıldığı, açık kaynak kodlu (AGPLv3) Nextcloud Hub ve OnlyOffice entegrasyonu, veri egemenliğini yasal ve teknik düzeyde koruyan yegane alternatif hale gelmektedir.
 
-
 Bölüm: Nextcloud Hub Çekirdek Bileşenleri ve Entegrasyon Mimari Yapısı
 
-
 Nextcloud Hub, veri silolarını ortadan kaldıran ve tüm uygulamaların birbiriyle tutarlı bir şekilde haberleşmesini sağlayan API tabanlı bir orkestrasyona sahiptir. Kurumsal bir private cloud ortamında Nextcloud Hub, OnlyOffice Document Server ve Mailcow entegrasyonunun bütünsel ağ ve servis mimarisi aşağıdaki gibidir:
-
 
 Bölüm Detayı: Nextcloud Files ve Depolama Optimizasyonu
 
@@ -55,7 +44,6 @@ Files modülü, WebDAV protokolünü temel alan çekirdek dosya sistemidir. Kuru
 Petabayt seviyesindeki kurumsal depolama ihtiyaçları için Nextcloud, geleneksel blok depolama (NFS, Local RAID) yerine Primary Object Storage mimarisini destekler. Bu mimaride Nextcloud; Amazon S3, MinIO veya Ceph Object Gateway gibi nesne depolama havuzlarına doğrudan bağlanır. Dosya sistemi hiyerarşisi S3 üzerinde düz (flat) bir yapıda, rastgele UUID'ler ile tutulurken, klasör yapısı lokal PostgreSQL veritabanında saklanır.
 
 Kritik Pitfall: Primary Object Storage yapılandırması yalnızca Nextcloud kurulumunun ilk aşamasında yapılabilir. Sonradan birincil depolamayı S3'e taşımak eski dosyaların erişilemez hale gelmesine yol açar. Ayrıca, S3 birincil depolamaya geçildiğinde, yerel Docker disk hacimlerini yedeklemek üzere tasarlanmış olan entegre BorgBackup sistemi çalışmayı durdurur. Bu senaryoda felaket kurtarma planı; veritabanı yedekleri (pg_dump) ile S3 bucket replikasyonunu (MinIO Mirroring) ayrı ayrı senkronize edecek şekilde kurgulanmalıdır.
-
 
 Bölüm Detayı: OnlyOffice Belge Yönetimi: Client-Side Rendering Devrimi
 
@@ -78,7 +66,6 @@ Uyumluluk: Microsoft Office formatlarıyla (.docx, .xlsx, .pptx) %99 oranında y
 JWT ve Proxy Engelleri: OnlyOffice ile Nextcloud arasındaki veri trafiği, belgelerin yetkisiz indirilmesini önlemek için JSON Web Token (JWT) ile imzalanır. Ancak kurumsal ağlarda araya konumlandırılan Tersine Vekil Sunucular (Reverse Proxy), standart Authorization başlıklarını (header) silebilir. Bu durum belge açılışında kimlik doğrulama hatalarına sebep olur. Çözüm için OnlyOffice yapılandırmasında (local.json) JWT başlık adı AuthorizationJwt gibi özel bir değere atanmalı ve Nextcloud yönetim panelindeki "Authorization Header" alanı da buna göre güncellenmelidir.
 Topluluk Sürümü Limiti: Ücretsiz OnlyOffice Docs Community Edition, kod seviyesinde gömülü olarak maksimum 20 eşzamanlı bağlantı (sekme) limitiyle gelir. 21. kullanıcı doküman açtığında belge salt okunur (read-only) açılır. 50+ kullanıcılı kurumsal yapılarda bu limitin aşılması kaçınılmazdır. Bu durumda ya bütçe ayrılarak OnlyOffice Enterprise sürümüne geçilmeli ya da sunucu RAM'i güçlendirilerek limitsiz Collabora alternatifi tercih edilmelidir.
 
-
 Bölüm Detayı: Nextcloud Talk ile Güvenli Gerçek Zamanlı İletişim
 
 Nextcloud Talk; sesli/görüntülü konferans, sohbet ve ekran paylaşımı sunan WebRTC tabanlı bir çözümdür.
@@ -88,7 +75,6 @@ Standart Kurulum (Mesh Network / P2P): Katılımcılar medya akışlarını doğ
 High Performance Backend (HPB - SFU Mimarisi): Janus WebRTC Gateway ve NATS mesajlaşma kuyruğundan oluşan bu özel orkestrasyon, Selective Forwarding Unit (SFU) mimarisini kullanır. Katılımcı videosunu sunucuya tek bir kanal üzerinden yükler; Janus sunucusu bu akışı çoğaltarak diğer katılımcılara dağıtır. Kullanıcı upload yükü sabittir. 10, 20 veya 50 kişilik kurumsal toplantılar ancak HPB mimarisiyle mümkündür.
 
 Bant Genişliği ve Kayıt Performansı: 20 katılımcılı bir HD video konferansta sunucu giriş (inbound) trafiği ~40 Mbps, çıkış (outbound) trafiği ise ~100 Mbps seviyelerini görebilir. Bu nedenle Talk HPB kurulu sunucuların en az 500 Mbps simetrik internet hattına sahip olması önerilir. Ek olarak, toplantı kaydetme (Recording) özelliği devreye alındığında, sunucuda video birleştirme (transcoding/encoding) işlemi başlayacağından, her bir kayıt işlemi 2-4 vCPU'yu %100 meşgul eder. Kayıt özelliği için HPB sunucusunun ayrı bir VM veya fiziksel makinede izole edilmesi donanım sağlığı açısından elzemdir.
-
 
 Bölüm Detayı: Kurumsal Mail Hizmetleri ve Mailcow Entegrasyonu
 
@@ -115,19 +101,15 @@ rDNS / PTR
 Tersine DNS (Reverse DNS)
 E-posta sunucusunun IP adresine ping atıldığında geri dönen ismin sunucu hostname'iyle (mail.domain.com) eşleşmesi şarttır. Bu işlem ISP tarafında tanımlanır.
 
-
 Bölüm Detayı: Otonom ve Yerel Yapay Zeka: Nextcloud AI Assistant
 
 M365 Copilot veya Google Gemini gibi çözümler, kullanıcı verilerini işlemek üzere bulut tabanlı API'lere ihtiyaç duyar; bu da kurumsal verilerin dışarı sızma riskini beraberinde getirir. Nextcloud Hub, AppAPI mimarisi sayesinde sunucunuzun sınırları dışına tek bir bayt veri çıkarmadan %100 Yerel Yapay Zeka (Local LLM) deneyimi sunar.
 
 AppAPI, Python/Go tabanlı yapay zeka uygulamalarını Nextcloud ana PHP sürecinden ayırarak izole Docker konteynerleri olarak çalıştırır. "Nextcloud AI Assistant" modülü; sunucunun kendi işlemci veya GPU gücünü kullanarak Llama ve Mistral gibi yerel dil modellerini koşturur. Ses dosyalarının metne dönüştürülmesi (Speech-to-Text) işlemleri ise yerel Whisper modeliyle tamamlanır. Bu otonom yapı, e-posta özetleme, Talk toplantı transkriptleri çıkarma ve Text uygulamasında metin üretme gibi işlemleri tamamen şirket içinde, GDPR/KVKK uyumlu olarak gerçekleştirir.
 
-
 Bölüm: Kurumsal Güvenlik Mimarisi ve Erişim Denetimi
 
-
 Yüzlerce kullanıcının dosya paylaştığı bir ortamda kimlik yönetimi ve güvenlik katmanları en sıkı standartlara göre tasarlanmalıdır.
-
 
 Bölüm Detayı: LDAP/Active Directory ve SSO Entegrasyonu
 
@@ -138,13 +120,11 @@ Cache TTL (Önbellek Süresi): Nextcloud LDAP ayarlarında önbellek süresi 360
 Paging (Sayfalama): AD sunucusunda sorgu limitlerinin aşılmasını önlemek için sayfalama aktif edilmeli ve sayfa boyutu 500-1000 arası seçilmelidir.
 Single Sign-On (SSO): Kullanıcıların tek bir şifreyle tüm sistemlere erişmesi için Keycloak veya Authentik gibi modern SSO portalları konumlandırılmalı, Nextcloud ve Mailcow bu portallara OpenID Connect (OIDC) protokolü üzerinden entegre edilmelidir. Çok faktörlü doğrulama (MFA - TOTP/FIDO2 YubiKey) politikaları merkezi olarak bu SSO portalında yönetilmelidir.
 
-
 Bölüm Detayı: Veri Sızıntısı Önleme (DLP) ve Flow Motoru
 
 Nextcloud'un yerleşik "File Access Control" (Dosya Erişim Kontrolü) motoru; kullanıcı grubu, cihaz türü (User Agent), dosya uzantısı ve IP adresine dayalı dinamik erişim kuralları tanımlamayı sağlar. Örneğin, İK departmanındaki kullanıcıların şirket ağı dışındaki bir IP adresinden bağlandıklarında finansal .xlsx dosyalarını açması veya indirmesi bloke edilebilir.
 
 Ayrıca, platform ICAP (Internet Content Adaptation Protocol) desteği sunar. Dosyalar diske yazılmadan önce kurumsal DLP tarayıcısına yönlendirilir; dosya içerisinde T.C. Kimlik Numarası veya Kredi Kartı verisi saptandığında dosya otomatik olarak "Hassas" etiketiyle işaretlenir ve dış linklerle paylaşılması engellenir.
-
 
 Bölüm Detayı: Server-Side Encryption (SSE) vs. End-to-End Encryption (E2EE)
 
@@ -160,9 +140,7 @@ Uçtan Uca Şifreleme (End-to-End Encryption)
 Şifreleme kullanıcının masaüstü/mobil cihazında yerel üretilen 256-bit AES-GCM anahtarlarıyla başlar. Sunucu dosyaların adını veya içeriğini asla göremez (Zero-Knowledge).
 E2EE, tarayıcıya sunucudan inen JavaScript koduna güvenilemediği için (Browser Trust Model açığı) web arayüzünde çalışmaz; sadece masaüstü/mobil istemcilerde etkindir.
 
-
 Bölüm: Prodüksiyon Ortamları İçin Performans İnce Ayarları (Tuning Checklist)
-
 
 Sisteminizin yük altında donmasını önlemek için sunucu işletim sistemi, PHP-FPM, Redis ve veritabanı seviyesinde aşağıdaki performans ayarlamalarını yapmanız hayati önem taşır:
 
@@ -187,12 +165,10 @@ Sistem Cron Entegrasyonu
 AJAX arka plan işleri arayüzde yavaşlığa sebep olur. Arka plan işlerini sistem Crontab'ına taşıyın:
 /5    * php -f /var/www/nextcloud/cron.php
 
-
 Bölüm Detayı: İşlemsel Dosya Kilitleme (File Locking) için Redis Entegrasyonu
 
 Eşzamanlı dosya senkronizasyonlarında çakışmaları önlemek için kullanılan dosya kilitleme mekanizması, varsayılan kurulumda PostgreSQL veritabanını (ocfilelocks tablosu) kullanır. Bu durum disk IOPS limitlerini tüketerek sistemi kilitler. Kilit yönetimi mutlaka RAM üzerinde çalışan Redis'e devredilmelidir:
 Redis bellek tahliye politikası (maxmemory-policy), kilitlerin süresinden önce silinip dosya bütünlüğünü bozmasını önlemek için noeviction olarak ayarlanmalıdır.
-
 
 Bölüm Detayı: PHP-FPM Süreç Limiti (Worker Hesaplama Formülü)
 
@@ -200,11 +176,9 @@ Anlık istek dalgalanmalarında sunucunun yanıt vermez duruma geçmesini engell
 
 Örnek: 32 GB RAM'li bir sunucuda; OS (4GB), DB (8GB) ve Redis/Yan Servisler (4GB) düşüldüğünde kalan 16 GB (16.384 MB) RAM, 100 MB'lık PHP sürecine bölünürse pm.max_children = 150 olarak atanmalıdır.
 
-
 Bölüm Detayı: OPCache ve JIT Yapılandırması
 
 php.ini dosyanızda aşağıdaki optimizasyonları etkinleştirerek CPU tüketimini azaltın ve derleme hızını maksimize edin:
-
 
 Bölüm Detayı: AJAX Yerine Sistem Cron Görevleri
 

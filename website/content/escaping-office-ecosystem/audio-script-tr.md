@@ -2,9 +2,7 @@ Son yıllarda masaüstü yazılımlardan bulut tabanlı SaaS modellerine hızlı
 
 Hızlı Kıyaslama: Bağımlılık vs. Egemenlik
 
-
 Bölüm: Bulut Bağımlılığı ve Veri Egemenliği
-
 
 Google ve Microsoft gibi servis sağlayıcılar, kurumsal kullanıcılar için veri gizliliği taahhütleri sunsa da veri mülkiyeti ve veriyi dışa aktarma (exit strategy) süreçlerinde ciddi bariyerler oluşturuyor. Belgelerimiz üzerindeki kontrolümüz, hizmet sağlayıcının tek taraflı güncelleyebileceği sözleşmelere bağlı.
 
@@ -14,19 +12,15 @@ Ayrıca, bu bulut platformlarının arka planda sürekli teşhis ve telemetri ve
 
 Çözüm, kurumsal hafızayı bu kapalı sistemlerden kurtarıp Unix felsefesinin temeli olan düz metin (plain text) sadeliğine taşımak. Ticari ofis platformlarından kaçmak sadece bir maliyet tasarrufu değil; belgelerin, tabloların ve sunumların mühendislik prensipleriyle yeniden inşa edilmesidir.
 
-
 Bölüm: Belge Mühendisliği: Word'ün Hataları ve LaTeX'in Gücü
 
-
 Microsoft Word gibi "Gördüğünü Alırsın" (WYSIWYG) mantığıyla çalışan editörler, günlük yazışmalar için standart olsa da teknik dokümantasyonda süreci zorlaştırıyor. Yazarın doğrudan nihai görsel çıktı üzerinde çalışması, içerik ile görsel tasarımın birbirine kilitlenmesine yol açıyor. Yazarken sayfa sonları, bozulan numaralar ve metni dağıtan görseller gibi tipografik detaylarla boğuşmak zorunda kalıyoruz.
-
 
 Bölüm Detayı: DOCX'in Teknik Borcu ve Versiyonlama Sorunu
 
 DOCX dosyaları aslında sıkıştırılmış XML yığınlarından oluşan arşivlerdir. Bu kapalı yapı, yazılım geliştirme süreçlerinin kalbi olan Git ve benzeri versiyon kontrol sistemleriyle tamamen uyumsuzdur.
 
 Git satır satır değişiklikleri (diff) analiz eder. Ancak Word belgesinde yapılan tek bir boşluk veya referans değişikliği bile arka plandaki XML yapısını tamamen değiştirir. Git bunu "eski dosyanın silinip tamamen yeni bir ikili dosyanın eklenmesi" olarak algılar. Bu da ekip halinde aynı dosya üzerinde çalışmayı neredeyse imkansız hale getirir.
-
 
 Bölüm Detayı: LaTeX ile Mantıksal Yapı ve Tasarım Ayrımı
 
@@ -36,19 +30,15 @@ Git Entegrasyonu: Her kelime değişikliği şeffaf bir tarihçe ile izlenir.
 Dallanma (Branching): Aynı ana metin üzerinde farklı şablonlar kolayca uygulanabilir.
 latexdiff: Sürümler arası farkları gösteren PDF'ler saniyeler içinde üretilebilir; silinen metinler kırmızı/çizili, yeniler mavi olarak işaretlenir.
 
-
 Bölüm: Veri Analitiğinde Şeffaflık: Excel Felaketleri vs. CSV + DuckDB Mimarisi
 
-
 Microsoft Excel büyük veri analitiğinde formüllerle veriyi aynı hücrede birleştirerek ciddi hatalara zemin hazırlıyor. Bilimsel tekrarlanabilirliğin temel şartı denetlenebilir adımlardır.
-
 
 Bölüm Detayı: Tarihteki Excel Hataları
 
 İngiltere COVID-19 Vaka Kaybı: Ekim 2020'de 15 binden fazla pozitif vaka sisteme kaydedilemedi. Hatanın nedeni, laboratuvarlardan gelen CSV dosyalarının eski .xls formatındaki şablonlara aktarılmasıydı. Excel, 65.536 satır sınırını aşan verileri sessizce kırptı.
 Reinhart-Rogoff Ekonomi Politikası Hatası: Küresel kemer sıkma politikalarına yön veren bir makalede, Excel formülünün 20 satır yerine 15 satırı kapsaması nedeniyle büyüme oranı yanlış hesaplandı. Hücre içindeki formüller gizli olduğu için bu hata yıllarca fark edilmedi.
 Genetik Terimlerin Bozulması: Excel'in otomatik düzeltme özelliği, gen isimlerini (MARCH1 gibi) tarihe ("1 Mart") dönüştürdü. Sırf Excel'in bu davranışı yüzünden 2020'de 27 insan geninin adı değiştirilmek zorunda kalındı.
-
 
 Bölüm Detayı: DuckDB: Mantık ve Veri Ayrımı
 
@@ -68,14 +58,11 @@ Tekrarlanabilir
 
 Performans Kıyaslaması
 
-
 Bölüm: Sunum Mimarisinde Kod Dönemi: Slidev ve Web Stack
-
 
 PowerPoint sunumları veriyi statikleştirir. Excel'den kopyalanan bir grafik sunuma eklendiği an statikleşir; veri değiştiğinde slaytları tek tek güncellemek gerekir.
 
 Modern mühendislik kültürü, Sunum Kod Olarak (Presentation-as-Code) yaklaşımını gerektiriyor. Slaytlar artık Markdown ve Web teknolojileriyle (HTML/CSS/JS) yazılmalıdır.
-
 
 Bölüm Detayı: Slidev Entegrasyonu
 
@@ -101,9 +88,7 @@ Impress.js
 3D Görsel Şov
 CSS3 transformasyonları ile dönen ve derinlik algısı yaratan sunumlar hazırlamak için ideal.
 
-
 Bölüm: Açık Kaynaklı Alternatifler: LibreOffice ve ONLYOFFICE
-
 
 Kod tabanlı araçlar herkes için uygun olmayabilir. Ancak ofis araçları ihtiyacı, verilerimizi dışarı aktaran platformlara bağımlı olmamızı gerektirmez.
 
@@ -119,7 +104,6 @@ Gizlilik Kalesi
 ODF standartlarına bağlı, telemetrisiz ve tamamen çevrimdışı. Veri mahremiyetinin güçlü savunucusu.
 
 Paket Kıyaslaması
-
 
 Bölüm Detayı: Kapalı Ekosistemlerin Riskleri
 
@@ -149,9 +133,7 @@ FreeOffice
 Hafif ve Hızlı
 Düşük donanımlı bilgisayarlarda hızlı bir alternatif sunar. Kapalı kaynaklıdır ancak bireysel kullanım için uygundur.
 
-
 Bölüm: Bütünleşik Çözüm: Nextcloud Hub
-
 
 Nextcloud Hub, bulut servislerinin sunduğu dosya paylaşımı, ortak belge düzenleme ve iletişim araçlarını tek bir on-prem sunucuda toplar:
 
@@ -176,9 +158,7 @@ Yerel Yapay Zeka
 Mahrem Asistan
 Verileri dışarı sızdırmadan yerel çalışan Nextcloud Assistant ile doküman analizi ve metin üretimi.
 
-
 Bölüm: Dijital Özgürlük İçin Tamamlayıcı Araçlar
-
 
 Mühendislik ve akademik çalışmaları destekleyen diğer açık kaynaklı araçlar:
 
@@ -203,15 +183,11 @@ Vaultwarden
 Egemen Şifreler
 Şifrelerinizi Google/Apple'a emanet etmek yerine kendi sunucunuzda host ettiğiniz bitwarden uyumlu kasa.
 
-
 Bölüm: Veri Egemenliğini Geri Kazanmak
-
 
 Bulut tabanlı ofis platformlarının getirdiği kolaylıklar, verinin mülkiyetini kaybetme riskini de beraberinde getirir. Belgeleri LaTeX ile yazmak, verileri DuckDB ile işlemek ve sunumları Slidev ile kodlamak sadece bir araç tercihi değil; verinizin kontrolünü elinizde tutma duruşudur. Kendi verinizin mimarı olun ve dijital bağımsızlığınızı koruyun.
 
-
 Bölüm Detayı: İleri Okuma ve Teknik Dokümantasyonlar
-
 
 1. LaTeX (Belge Mühendisliği ve Dizgi)
 LaTeX Resmi Dokümantasyonu:.

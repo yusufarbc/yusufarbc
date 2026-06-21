@@ -2,9 +2,7 @@ Mimariden Yapay Zeka Güçlü XDR'a Kapsamlı Teknik Rehber
 
 🎙️ Blog yazısının seslendirmesi: Bu makale, seslendirme dosyası hazırlandığında yukarıdaki oynatıcıdan dinlenebilir. Teknik detaylar için okumaya devam edin.
 
-
 Bölüm: Hızlı Özet
-
 
 Otonom Mimari: Bulut bağlantısı olmasa dahi uç noktada karar verebilen yerel yapay zeka.
 Storyline™: Binlerce olaydan anlamlı bir saldırı hikayesi çıkaran patentli teknoloji.
@@ -16,12 +14,9 @@ Modern siber güvenlik manzarasında kuruluşlar; uç nokta, bulut ve kimlik gib
 
 Platform; uç nokta koruması (EPP), uç nokta tespiti ve yanıtı (EDR), genişletilmiş tespit ve yanıt (XDR) ile kimlik tabanlı tehdit tespiti ve yanıtı (ITDR) yeteneklerini tek bir mimaride sunar.
 
-
 Bölüm: Platform Mimarisi ve Tek Ajan Gücü
 
-
 SentinelOne'ın mimarisi "Tek Ajan, Çoklu Motor" prensibiyle tasarlanmıştır. Bu hafif ajan, işletim sistemi çekirdeği (kernel) seviyesinde çalışarak dosya sistemi, işlem ve bellek aktivitelerini gerçek zamanlı izler.
-
 
 Bölüm Detayı: Kaynak Verimliliği
 
@@ -30,22 +25,17 @@ CPU Kullanımı: %0–4 (Sadece tarama anında hafif yükselme).
 Bellek Kullanımı: ~20MB.
 Disk Alanı: ~200MB.
 
-
 Bölüm Detayı: Otonom Karar Mekanizması
 
 En kritik mimari özellik, tespit ve yanıt mantığının yerel olarak çalışabilmesidir. Ajan, bulut bağlantısı olmasa bile (çevrimdışı) yerleşik AI modelleri sayesinde tehditleri engelleyebilir. Bu özellik, izole ağlar veya OT/ICS sistemleri için hayati önem taşır.
 
-
 Bölüm: Çok Katmanlı Tehdit Tespit Akışı
 
-
 SentinelOne, bir dosyanın sisteme girişinden çalıştırılmasına kadar geçen süreci iki ana aşamada kontrol eder:
-
 
 Bölüm Detayı: Aşama 1: Pre-Execution (Çalıştırma Öncesi) - Statik AI
 
 Bir dosya diske yazıldığı (On-Write) anda devreye girer. İmza veya hash gerektirmeden, makine öğrenimi modelleri ile dosya yapısını analiz eder. Bilinen zararlı yazılımları ve ransomware varyantlarını dosya daha açılmadan engeller.
-
 
 Bölüm Detayı: Aşama 2: On-Execution (Çalışma Anı) - Davranışsal AI
 
@@ -79,52 +69,38 @@ Mekanizma: Windows VSS altyapısını kullanır.
 Hız: Saniyeler içinde veri kurtarma.
 Güvenlik: Fidye ödeme zorunluluğunu ortadan kaldırır.
 
-
 Bölüm: Patentli Teknolojiler: Storyline™ ve ActiveEDR
-
 
 Otomatik Korelasyon: Her bir olay bir "Storyline ID" ile etiketlenir. Örneğin; bir Word belgesinin PowerShell tetiklemesi ve ardından bir DLL yüklemesi tek bir olay hikayesinde birleştirilir.
 Kök Neden Analizi (RCA): Analistler, binlerce ham log içinde kaybolmak yerine, saldırı zincirini en başından sonuna kadar tek bir görsel arayüzde görebilirler. Bu, müdahale süresini saniyeler mertebesine indirir.
 
-
 Bölüm: Olay Yanıtı: Rollback ve Remediation
-
 
 One-Click Rollback: Özellikle fidye yazılımı saldırıları için tasarlanmıştır. Windows Volume Shadow Copy Service (VSS) altyapısını kullanarak, şifrelenmiş dosyaları tek bir tıklamayla saldırı öncesi temiz hallerine geri döndürür.
 Ajan Koruması (Tamper Protection): Gelişmiş saldırganların EDR ajanını kapatmasını engellemek için ajan servisleri şifreyle korunur ve çekirdek seviyesinde müdahalelere karşı direnç gösterir.
 
-
 Bölüm: Genişletilmiş Görünürlük: Ranger ve Deep Visibility
 
-
 Bu bölüm detayları ve etkileri incelemektedir.
-
 
 Bölüm Detayı: Ranger® (Ağ Keşfi)
 
 Ranger modülü, ajanları birer sensöre dönüştürür. Ağdaki yönetilmeyen cihazları (IoT, yazıcılar, misafir cihazlar) keşfeder ve görünürlük sağlar. Ayrıca bu cihazlara otomatik ajan dağıtımı yapılmasını tetikleyebilir.
 
-
 Bölüm Detayı: Deep Visibility ve S1QL
 
 Telemetri verileri bulutta saklanır ve S1QL diliyle sorgulanabilir. Örneğin, son 180 gün içinde belirli bir komutu çalıştıran süreçleri avlamak için:
 
-
 Bölüm: Otonom SOC: Purple AI ve STAR
-
 
 Purple AI: Üretken yapay zeka (GenAI) destekli bir güvenlik asistanıdır. Doğal dilde ("Son 24 saatteki PowerShell aktivitelerini özetle") gelen sorulara yanıt verir ve otomatik triyaj yapar.
 STAR (Storyline Active Response) Kuralları: Analistlerin özel sorgularını otonom dedektörlere dönüştürmesini sağlar. Belirli bir kural tetiklendiğinde cihazın otomatik izolasyonu gibi aksiyonlar atanabilir.
 
-
 Bölüm: Lisanslama ve Paket Karşılaştırması
-
 
 SentinelOne, farklı kurumsal ihtiyaçlara yönelik beş ana paket sunar:
 
-
 Bölüm: Dağıtım ve Yönetim
-
 
 Esnek Kurulum: SaaS (Bulut), On-Prem (Yerinde) veya Hybrid (Hibrit) kurulum seçenekleri mevcuttur.
 Entegrasyon: Microsoft Intune, SCCM, GPO gibi araçlarla tam otomatize dağıtım desteklenir.

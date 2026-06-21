@@ -1,224 +1,111 @@
 Yazılım geliştirme ekosistemi genişledikçe ve monolitik yapılardan bulut-doğal, mikroservis tabanlı ve yapay zekâ destekli mimarilere evrildikçe, tehdit yüzeyleri de benzeri görülmemiş bir hızla parçalanmaktadır. Tek başına geleneksel web güvenlik kontrolleri, modern sistemleri korumakta yetersiz kalmaktadır. Açık dünya uygulama güvenliği ekosisteminin en kritik referansı konumundaki OWASP (Open Worldwide Application Security Project) vakfı, bu karmaşık tehdit manzarasını yönetilebilir kılmak amacıyla farklı teknolojik katmanlara özel farkındalık projeleri geliştirmektedir.
 
-Aşağıda, modern yazılım mimarilerinde yer alan başlıca on OWASP projesi ile en yeni sınırları temsil eden Ajan Güvenliği ve İnsan Dışı Kimlikler (NHI) girişimlerinin kapsamlı bir kıyaslaması sunulmaktadır.
+Bu yazı, uygulama güvenliğinin parametre doğrulamaya dayalı basit girdi/çıktı kontrollerinden (Input Validation), dağıtık mimarilerde kimlik ve yetki yönetimine (Access Control), yazılım tedarik zinciri bütünlüğüne (Supply Chain Integrity) ve otonom çalışan yapay zekâ ajanları ile insan dışı kimliklerin (Non-Human Identities - NHI) güvenliğine doğru köklü bir paradigma değişimi yaşadığıdır. Aşağıda, modern yazılım mimarilerinde yer alan başlıca on OWASP projesi ile en yeni sınırları temsil eden Ajan Güvenliği ve İnsan Dışı Kimlikler (NHI) girişimlerinin kapsamlı bir kıyaslaması sunulmaktadır.
 
-
-Bölüm: OWASP Metodolojisi ve Veri Analitiği
-
+Bölüm: OWASP Metodolojisi, Veri Analitiği ve Katmanlı Tehdit Modelleri
 
 OWASP’ın geleneksel listelerinden modern veri odaklı analizlerine geçişi, yazılım güvenliği disiplininin olgunlaşmasını simgelemektedir. Erken dönem listeleri (2003–2010) büyük ölçüde kısıtlı uzman görüşü ve sınırlı zafiyet veri setlerine dayanırken, günümüz metodolojisi devasa veri çağrıları (data call), endüstri genelindeki CVE analizleri ve CWE (Common Weakness Enumeration) eşlemeleri üzerine kuruludur.
 
 Örneğin, en son yayınlanan Web Top 10 (2025) sürümünde metodoloji, 2.8 milyondan fazla uygulamadan elde edilen veriler ile 589 farklı CWE sınıfının analizine dayanmaktadır. Bu yeni dönemde kullanılan "vaka oranı" (incidence rate) metriği, otomatik tarama araçlarının aynı bulguyu binlerce kez tekrarlayarak veriyi manipüle etmesini engeller. Bu metrik, bir zafiyetin incelenen uygulamalarda en az bir kez görülme yüzdesini esas almaktadır. Topluluk anketleri ise verilerde düşük frekansta görünen ancak etkisi ve sömürülebilirliği aşırı yüksek olan riskleri (örneğin Yazılım Tedarik Zinciri Açıkları veya SSRF) listelere dahil etmek amacıyla hibrit bir modelde dengeleyici rol oynamaktadır.
 
-
-Bölüm: Domain Bazında Tehdit Çeşitliliği
-
+Bölüm Detayı: Katmanlı Tehdit Modelleri ve Domain Çeşitliliği
 
 Güvenlik ekiplerinin yaptığı en büyük hatalardan biri, Web Top 10 listesini tüm yazılım ekosistemine tek tip bir şablon olarak uygulamaya çalışmaktır. Oysa her teknoloji katmanının mimari tasarımı, güven sınırları ve saldırı yüzeyi kökten farklıdır.
 
 Web uygulamalarında temel güven sınırı tarayıcı ve sunucu arasındayken ve zafiyetler genellikle sunucu kaynaklı kod hatalarından türetilirken; mobil uygulamalarda saldırgan, cihaz üzerinde tam fiziksel ve yönetimsel (root/jailbreak) kontrole sahiptir. Bu durum, mobil güvenlik modelinde ikili dosya (binary) korumasını, statik şifreleme anahtarlarının ifşasını engellemeyi ve istemci tarafındaki güvenli depolama gereksinimlerini öncelikli hale getirir. API dünyasında ise kullanıcı arayüzü ortadan kalktığı için saldırganlar doğrudan arka plandaki veri modellerini ve iş mantıklarını (business logic) hedef alırlar. API'lere yönelik saldırıların büyük kısmı meşru HTTP protokolleri ve normal veri akışları içerisinde gerçekleştiğinden, geleneksel WAF sistemlerinin bunları tespit etmesi zordur. Bu nedenle API projeleri, nesne ve fonksiyon düzeyindeki yetkilendirme doğrulama hatalarına odaklanmaktadır.
 
+Bölüm: Web Uygulama Güvenliği (OWASP Web Top 10)
 
-Bölüm: On Temel OWASP Projesinin Detaylı Analizi ve Sürüm Karşılaştırmaları
+Bölüm Detayı: Stratejik Değerlendirme, Tarihsel Evrim ve Kritik Risk Detayları
 
+Web güvenliği tehditleri son yirmi yılda radikal bir biçimde evrilmiştir. 2000'lerin başında en büyük tehdit olan enjeksiyonlar (SQL Injection, Cross-Site Scripting - XSS) gibi girdi filtreleme hataları, günümüzde modern yazılım çatılarının (React, Angular, Spring, Django) sunduğu yerleşik parametreli sorgular ve otomatik çıktı kodlama mekanizmaları sayesinde gerilemiştir. Nitekim 2017 yılında listenin zirvesinde yer alan enjeksiyonlar, 2021'de üçüncülüğe, 2025'te ise beşinciliğe düşmüştür.
 
-Uygulama güvenliğinin farklı katmanlarını anlamak, her bir OWASP projesinin kendi tarihsel evrimini, sürüm geçişlerindeki tehdit değişimlerini ve barındırdığı zafiyetlerin teknik detaylarını incelemeyi gerektirir.
+Buna karşın, monolitik yapılardan mikroservislere ve tek sayfalık uygulamalara (SPA) geçiş, yetkilendirme mantığının sunucudan istemciye ve dağıtık servislere kaymasına neden olmuştur. Bu durum, otomatik araçlarla tespiti son derece zor olan Erişim Kontrolü İhlalleri'ni (Broken Access Control) 2021 ve 2025 sürümlerinde tartışmasız liderliğe taşımıştır. Modern web güvenliği artık yalnızca girdiyi temizlemekle değil, karmaşık yetki matrislerini yönetmek ve yazılım tedarik zincirinin (SBOM ve üçüncü taraf paket bütünlüğü) güvenliğini sağlamakla tanımlanmaktadır.
 
+Bölüm: API Güvenliği (OWASP API Security Top 10)
 
-Bölüm Detayı: Web Uygulama Güvenliği (OWASP Web Top 10)
+Bölüm Detayı: Stratejik Değerlendirme, Tarihsel Evrim ve Kritik Risk Detayları
 
+API'ler modern mikroservis mimarilerinin ve mobil uygulamaların can damarı haline gelmiştir. Geleneksel web uygulamalarından farklı olarak, API'lerde sunum katmanı (HTML/CSS) bulunmaz; istemci ve sunucu doğrudan JSON/XML formatında veri takas eder. Bu durum, saldırı yüzeyini veri modellerine ve iş mantığına (business logic) indirgemiştir. 2019 yılında yayınlanan ilk listeyle API'lere özel tehditler tanımlanmış, 2023 yılında ise API ekosisteminin olgunlaşmasıyla liste güncellenmiştir.
 
-Web uygulamaları için hazırlanan bu temel liste, 2003 yılından bu yana tarayıcı ve uygulama sunucusu arasındaki zafiyetleri ele almaktadır. 2017, 2021 ve 2025 sürümleri karşılaştırıldığında tehdit trendlerinde köklü bir değişim görülür. 2017 yılında birinci sırada yer alan SQL ve komut enjeksiyonları (A01:2017-Injection), modern ORM (Object-Relational Mapping) araçlarının ve parametreli sorguların yaygınlaşmasıyla 2021'de üçüncü sıraya, 2025'te ise beşinci sıraya gerilemiştir. Buna karşılık, 2017'de beşinci sırada yer alan Erişim Kontrolü İhlalleri (Broken Access Control), 2021 ve 2025 yıllarında birinci sıraya yükselmiştir. Bunun nedeni, mikroservis geçişleri ile yetkilendirme mantığının (authorization logic) dağıtık hale gelmesi ve otomatik araçların bu bağlamsal hataları yakalamakta yetersiz kalmasıdır.
+2023 güncellemesi, zafiyetlerin teknik kod hatalarından ziyade mantıksal tasarım hatalarına kaydığını doğrulamaktadır. Örneğin, aşırı veri ifşası (Excessive Data Exposure) ve toplu atama (Mass Assignment) gibi zafiyetler, nesnelerin alt özelliklerine yönelik yetersiz kontrollerden kaynaklandığı için "Broken Object Property Level Authorization (BOPLA)" altında birleştirilmiştir. API dünyasında geleneksel WAF (Web Application Firewall) çözümleri yetersiz kalmaktadır; çünkü saldırganlar genellikle meşru HTTP istekleri ve geçerli tokenlar kullanarak sistemi suistimal etmektedir. Dolayısıyla, API güvenliği tamamen "istek bağlamına uygun nesne seviyesinde yetkilendirme" (BOLA/IDOR) kontrollerine dayanmaktadır.
 
-Ayrıca 2025 yılında, Sunucu Taraflı İstek Sahteciliği (SSRF) ayrı bir kategori olmaktan çıkarılıp Broken Access Control altına dahil edilmiş; eski "Vulnerable Components" kategorisi ise SBOM (Software Bill of Materials) ve paket bütünlüğünü kapsayacak şekilde "Software Supply Chain Failures" (A03:2025) adıyla genişletilmiştir. Yeni eklenen "Mishandling of Exceptional Conditions" (A10:2025) ise sistemlerin güvenli şekilde hata vermesini (fail-secure) ve hata mesajlarından bilgi sızdırılmamasını hedefler.
+Bölüm: Mobil Uygulama Güvenliği (OWASP Mobile Top 10)
 
-A01:2025 – Broken Access Control: Kullanıcıların yetkileri dışındaki kaynaklara erişebilmesi (SSRF entegre edilmiştir).
-A02:2025 – Security Misconfiguration: Güvenlik ayarlarının eksik yapılması, gereksiz servislerin veya varsayılan kimlik bilgilerinin açık bırakılması.
-A03:2025 – Software Supply Chain Failures: Üçüncü taraf bağımlılıklardaki zafiyetler, imzasız paket kullanımı ve derleme araçlarındaki güvenlik açıkları.
-A04:2025 – Cryptographic Failures: Hassas verilerin zayıf şifrelenmesi veya ağda şifresiz aktarılması (eski Sensitive Data Exposure).
-A05:2025 – Injection: Kullanıcı girdilerinin SQL/NoSQL veya OS komutlarına sızması; Cross-Site Scripting (XSS) bu kategoridedir.
-A06:2025 – Insecure Design: Geliştirme öncesi threat modeling (tehdit modelleme) ve güvenli mimari tasarım eksiklikleri.
-A07:2025 – Authentication Failures: Oturum yönetimi hataları, kaba kuvvet saldırılarına ve kimlik doldurmaya (credential stuffing) açık yapılar.
-A08:2025 – Software or Data Integrity Failures: Güvenilmeyen kaynaklardan gelen verilerin doğrulanmadan kabul edilmesi (insecure deserialization dahil).
-A09:2025 – Security Logging & Alerting Failures: Güvenlik olaylarının kaydedilmemesi ve siber saldırı durumunda alarm üretilmemesi.
-A10:2025 – Mishandling of Exceptional Conditions: Hata durumlarında sistemin açık vermesi (fail-open) ve debug loglarının sızması.
+Bölüm Detayı: Stratejik Değerlendirme, Tarihsel Evrim ve Kritik Risk Detayları
 
+Mobil cihazlar (iOS ve Android), geleneksel web platformlarından tamamen farklı bir güvenlik mimarisine sahiptir. Mobil güvenlikte en kritik kabul, saldırganın cihaz üzerinde tam fiziksel ve yönetimsel (root/jailbreak) kontrole sahip olduğu gerçeğidir. Bu durum, tarayıcı güvenliği veya sunucu tarafı kontrollerinden ziyade, istemci tarafındaki binary dosyanın (APK/IPA) korunmasını öncelikli kılmaktadır. 2016 sürümünden sonra uzun bir süre güncellenmeyen Mobile Top 10, mobil ekosistemdeki büyük değişimlerin (hibrit frameworkler, OAuth entegrasyonları, biyometrik doğrulamalar) ardından 2024 yılında tamamen yenilenmiştir.
 
-Bölüm Detayı: API Güvenliği (OWASP API Security Top 10)
+2024 listesinde en dikkat çekici değişim, "Hatalı Kimlik Bilgisi Kullanımı" (Improper Credential Usage - M1) kategorisinin birinci sıraya yerleşmesidir. Geliştiriciler, mobil uygulamanın kaynak kodunun tersine mühendislikle kolayca çözülebileceğini unutarak kodun içine AWS anahtarlarını, Firebase veritabanı şifrelerini veya API sırlarını sabit (hardcoded) olarak gömmektedir. Saldırganlar bu dosyaları açıp sırları saniyeler içinde çalabilmektedir. Ayrıca, mobil uygulamalarda kullanılan kütüphanelerin denetimsizliği (M2: Inadequate Supply Chain Security) ve kişisel verilerin cihaz loglarına veya güvensiz depolama alanlarına yazılması (M6: Inadequate Privacy Controls) modern regülasyonlar (KVKK, GDPR) çerçevesinde en kritik mobil riskler haline gelmiştir.
 
+Bölüm: Yapay Zekâ ve Büyük Dil Modelleri Güvenliği (OWASP LLM Top 10)
 
-API Security Top 10 projesi, istemci ile sunucu arasındaki veri alışverişini sağlayan web servislerine odaklanır. 2019 ve 2023 sürümleri karşılaştırıldığında, API ekonomisinin büyümesiyle zafiyetlerin iş mantığına (business logic) kaydığı açıkça görülmektedir. 2019'da ayrı kategoriler olan "Excessive Data Exposure" (A3) ve "Mass Assignment" (A6), 2023'te kök neden odaklı bir yaklaşımla "Broken Object Property Level Authorization" (API3:2023) altında birleştirilmiştir. Bunun nedeni, her iki zafiyetin de nesnelerin alt özelliklerine (properties) yönelik erişim denetimi eksikliğinden kaynaklanmasıdır.
+Bölüm Detayı: Stratejik Değerlendirme, Tarihsel Evrim ve Kritik Risk Detayları
 
-2023 sürümünde en dikkat çeken güncellemelerden biri, "Unrestricted Access to Sensitive Business Flows" (API6:2023) kategorisidir. Bu zafiyette API kod seviyesinde kusursuz çalışsa bile, captcha veya oran sınırlaması (rate limiting) eksikliği nedeniyle bilet stoklarının botlarla saniyeler içinde tüketilmesi gibi iş mantığı suistimalleri yaşanmaktadır. Harici entegrasyonların artmasıyla "Server-Side Request Forgery" (API7:2023) ve güvenilmeyen harici API'lerin kullanımından kaynaklanan "Unsafe Consumption of APIs" (API10:2023) listeye yeni eklenen kritik zafiyetlerdendir.
+Üretken Yapay Zekâ (Generative AI) ve Büyük Dil Modellerinin (LLM) kurumsal yazılımlara hızla entegre edilmesi, güvenlik dünyasında yepyeni bir tehdit alanı yaratmıştır. LLM uygulamaları, deterministik (belirli girdiye belirli çıktı veren) yazılımlardan farklı olarak olasılıksal (probabilistic) çalışır. Bu durum, veri kanalı ile talimat kanalının (data vs. instruction channel) aynı sözel arayüzde birleşmesine yol açmıştır. İlk kez 2023 yılında yayınlanan LLM Top 10 listesi, AI entegrasyonlarının otonom ajanlara ve RAG (Retrieval-Augmented Generation) mimarilerine dönüşmesiyle 2025 yılında güncellenmiştir.
 
-API1:2023 – Broken Object Level Authorization (BOLA): İstek parametrelerindeki nesne kimliklerinin kullanıcı yetkileriyle eşleştirilmemesi (IDOR).
-API2:2023 – Broken Authentication: API anahtarlarının, JWT belirteçlerinin veya kimlik doğrulama akışlarının zayıf yapılandırılması.
-API3:2023 – Broken Object Property Level Authorization (BOPLA): Kullanıcıların nesnelerin gizli alanlarını görmesi veya mass assignment ile değiştirebilmesi.
-API4:2023 – Unrestricted Resource Consumption: CPU, bellek veya istek sınırlarının (rate limit) olmaması sonucu DoS oluşması.
-API5:2023 – Broken Function Level Authorization (BFLA): Normal kullanıcıların idari API uç noktalarını (endpoints) tetikleyebilmesi.
-API6:2023 – Unrestricted Access to Sensitive Business Flows: İş akışlarının (örneğin indirim kuponu denemeleri) otomatik botlarla suistimal edilmesi.
-API7:2023 – Server-Side Request Forgery (SSRF): API sunucusunun saldırgan yönlendirmesiyle iç ağdaki sunuculara istek atması.
-API8:2023 – Security Misconfiguration: Hatalı yapılandırılmış CORS (Cross-Origin Resource Sharing) başlıkları ve gereksiz HTTP metodları.
-API9:2023 – Improper Inventory Management: Belgelenmemiş shadow API'lerin, test ortamlarının veya eski v1 uç noktalarının açık unutulması.
-API10:2023 – Unsafe Consumption of APIs: API'nin entegre olduğu diğer üçüncü taraf servislerden gelen verileri filtrelemeden kabul etmesi.
+2025 sürümünde en dikkat çeken değişim, "Hassas Bilgi İfşası" (Sensitive Information Disclosure - LLM02) riskinin ikinci sıraya yükselmesidir. Kurumlar, veritabanlarını ve dahili dokümanlarını RAG sistemleri üzerinden LLM'lere bağlamaktadır. Ancak, model kullanıcının yetkisini denetlemeden, normalde erişemeyeceği departman sırlarını veya finansal verileri prompt yanıtlarında ifşa edebilmektedir. Ayrıca, AI sistemlerinin otonom olarak eyleme geçmesini sağlayan ajan mimarileri, "Aşırı Yetkilendirilmiş Ajanlar" (Excessive Agency - LLM06) riskini doğurmuştur. Saldırganlar, prompt enjeksiyonları vasıtasıyla ajana tanımlanmış veri silme, e-posta gönderme veya API tetikleme yetkilerini kötüye kullanabilmektedir. LLM güvenliği artık yalnızca prompt filtrelemekten ibaret değildir; modelin çıktılarını denetleyen ve ajanların yetki sınırlarını çizen katı bir mimari kontrol gerektirmektedir.
 
+Bölüm: Makine Öğrenimi Güvenliği (OWASP ML Security Top 10)
 
-Bölüm Detayı: Mobil Uygulama Güvenliği (OWASP Mobile Top 10)
+Bölüm Detayı: Stratejik Değerlendirme, Tarihsel Evrim ve Kritik Risk Detayları
 
+Makine Öğrenimi (ML) Güvenliği projesi, LLM gibi uygulama katmanı entegrasyonlarından farklı olarak, doğrudan modellerin matematiksel, istatistiksel ve algoritmik yapısındaki zayıflıkları hedefler. Geleneksel denetimli (supervised) ve denetimsiz (unsupervised) öğrenme modelleri (CNN, SVM, regresyon modelleri), verilerin istatistiksel dağılımları üzerine kuruludur. Saldırganlar bu modellerin karar sınırlarını (decision boundaries) manipüle ederek sistemleri yanıltmayı hedefler.
 
-Mobil güvenlik dünyası, sunucu kontrollerinden ziyade istemci tarafındaki (iOS/Android cihaz üzerindeki) güvenlik sınırlarını korumayı amaçlar. 2016 ve 2024 sürümleri kıyaslandığında, mobil ekosistemdeki tehditlerin ciddi şekilde evrildiği görülür. Sekiz yıllık aranın ardından yayınlanan 2024 listesinde, eskiden alt sıralarda yer alan "Improper Credential Usage" (M1:2024) birinci sıraya yerleşmiştir. Bunun en büyük nedeni, mobil uygulamaların kaynak kodlarının (APK/IPA) tersine çevrilerek içindeki AWS gizli anahtarlarının, Firebase şifrelerinin ve OAuth istemci sırlarının kolayca ele geçirilmesidir.
+ML dünyasındaki en kritik paradigma değişimi, saldırıların kod enjeksiyonundan "veri manipülasyonuna" kaymasıdır. Örneğin, otonom bir aracın kamera sistemindeki trafik levhası tanıma modelini yanıltmak amacıyla levha üzerine yapıştırılan küçük, insan gözüyle fark edilemeyen bir gürültü (adversarial perturbation), modelin levhayı "hız sınırı" yerine "dur tabelası" olarak algılamasına yol açar. Bu istatistiksel manipülasyonlar (ML01) ve eğitim veri setinin zehirlenmesi (ML02), geleneksel yazılım güvenlik araçlarıyla (SAST/DAST) asla tespit edilemez. ML güvenliği; modellerin matematiksel olarak savunulmasını (adversarial training), girdi verilerinin parazitlerden arındırılmasını ve serileştirilmiş model dosyalarının güvenliğini sağlamayı gerektirir.
 
-Ayrıca mobil kütüphanelerin kontrolsüz kullanımı "Inadequate Supply Chain Security" (M2:2024) kategorisini listenin üst sıralarına taşımıştır. Kişisel verilerin korunması kanunları (GDPR, KVKK) çerçevesinde "Inadequate Privacy Controls" (M6:2024) yeni bir kategori olarak eklenmiştir. Eski sürümlerde yer alan "Reverse Engineering" ve "Code Tampering" gibi başlıklar ise "Insufficient Binary Protections" (M7:2024) altında konsolide edilmiştir.
+Bölüm: Kubernetes Güvenliği (OWASP Kubernetes Top 10)
 
-M1:2024 – Improper Credential Usage: Hassas kimlik bilgilerinin veya API anahtarlarının uygulama paketi içerisinde şifresiz saklanması.
-M2:2024 – Inadequate Supply Chain Security: Güvenilmeyen harici SDK'ların entegrasyonu ve bağımlılıkların bütünlük kontrolü eksikliği.
-M3:2024 – Insecure Authentication/Authorization: Kimlik doğrulama işlemlerinin sadece mobil cihaz üzerinde yapılması, sunucu doğrulaması olmaması.
-M4:2024 – Insufficient Input/Output Validation: Deeplink (derin bağlantı) girdilerinin, IPC mesajlarının ve form alanlarının doğrulanmaması.
-M5:2024 – Insecure Communication: SSL/TLS pinning uygulanmaması veya geçersiz sertifikaların kabul edilmesiyle MITM saldırılarına kapı açılması.
-M6:2024 – Inadequate Privacy Controls: Kullanıcı rızası olmadan arka planda veri toplanması ve PII verilerinin cihaz loglarına yazılması.
-M7:2024 – Insufficient Binary Protections: Kodun karartılmaması (de-obfuscation yapılabilmesi) ve kök kullanıcı (root/jailbreak) denetimlerinin olmaması.
-M8:2024 – Security Misconfiguration: AndroidManifest.xml veya Info.plist dosyalarında debug modunun açık bırakılması, aşırı izin talepleri.
-M9:2024 – Insecure Data Storage: Hassas verilerin cihaz diskinde, şifresiz yerel SQLite veritabanlarında veya log dosyalarında saklanması.
-M10:2024 – Insufficient Cryptography: Eskimiş şifreleme yöntemlerinin (örneğin RC4, DES, MD5) kullanılması veya anahtarların zayıf üretilmesi.
+Bölüm Detayı: Stratejik Değerlendirme, Tarihsel Evrim ve Kritik Risk Detayları
 
+Bulut-doğal (cloud-native) mimarilerin yaygınlaşması, mikroservislerin orkestrasyonu için Kubernetes'i (K8s) endüstri standardı haline getirmiştir. Kubernetes güvenliği, geleneksel sunucu güvenliğinin çok ötesinde, dinamik çalışma zamanı (runtime), konteyner izolasyonu ve bulut entegrasyonu katmanlarını kapsar. İlk kez 2022'de yayınlanan K8s Top 10 listesi, orkestrasyon güvenliğindeki olgunlaşma ve tehditlerin evrimi doğrultusunda 2025 yılında güncellenmiştir.
 
-Bölüm Detayı: Yapay Zekâ ve Büyük Dil Modelleri Güvenliği (OWASP LLM Top 10)
+2025 sürümünde göze çarpan en büyük trend, tehditlerin küme içi (in-cluster) konfigürasyonlardan "Kümeden Buluta Yanal Hareket" (Cluster-to-Cloud Lateral Movement - K08) alanına kaymasıdır. Bulut sağlayıcıları (AWS, GCP, Azure) üzerinde çalışan Kubernetes kümelerinde podlar, node'a atanan geçici bulut kimlik bilgilerine erişebilmektedir. Saldırganlar bir podu ele geçirdiklerinde, bu IAM kimlik bilgilerini çalarak Kubernetes sınırlarından çıkmakta ve doğrudan şirketin tüm bulut altyapısını ele geçirmektedir. Bu nedenle, K8s güvenliği artık yalnızca RBAC (Role-Based Access Control) sıkılaştırmasıyla sınırlı değildir; podların bulut metadata servislerine erişimini kısıtlayan ve orkestrasyon ile bulut sağlayıcı arasındaki sınırları çizen entegre bir mimari gerektirmektedir.
 
+Bölüm: CI/CD Pipeline Güvenliği (OWASP CI/CD Security Risks)
 
-Büyük Dil Modeli (LLM) uygulamalarına yönelik bu liste, üretken yapay zekâ sistemlerinin entegrasyonundan kaynaklanan uygulama katmanı risklerini tanımlar. 2023 (v1.1) ve en güncel 2025 sürümleri karşılaştırıldığında, AI sistemlerinin otonom ajanlara ve RAG (Retrieval-Augmented Generation) mimarilerine dönüşmesinin yarattığı yeni riskler göze çarpmaktadır. 2023 yılında veri sızıntısı alt sıralardayken, 2025 sürümünde "Sensitive Information Disclosure" (LLM02) ikinci sıraya yükselmiştir. Bunun nedeni, LLM'lere bağlanan kurumsal RAG sistemlerinin yetkilendirme sınırlarını gözetmeksizin kullanıcıların erişmemesi gereken departman sırlarını prompt yanıtlarında ifşa etmesidir.
+Bölüm Detayı: Stratejik Değerlendirme, Tarihsel Evrim ve Kritik Risk Detayları
 
-Ayrıca 2025 sürümünde, RAG veri tabanlarını zehirleyen "Vector and Embedding Weaknesses" (LLM08) ve modellerin sistem prompt'larının çalınmasını ele alan "System Prompt Leakage" (LLM07) yeni kategoriler olarak eklenmiştir. "Model Denial of Service" zafiyeti ise yerini API maliyetlerini şişiren ve sunucuyu yoran "Unbounded Consumption" (LLM10) kategorisine bırakmıştır.
+Yazılım teslimat süreçlerinin otomasyona dökülmesi, kodun hızla yayına alınmasını sağlarken siber saldırganlar için de en çekici hedef haline gelmiştir. CI/CD (Continuous Integration / Continuous Deployment) süreçleri, yazılım tedarik zincirinin merkezinde yer alır. Geleneksel güvenlik yaklaşımları üretim ortamındaki sunucuları korumaya odaklanırken; SolarWinds ve Codecov gibi büyük siber saldırılar, derleme (build) sunucularının ve pipeline araçlarının (Jenkins, GitLab CI, GitHub Actions) sömürülmesinin ne kadar yıkıcı olabileceğini göstermiştir. 2022 yılında yayınlanan CI/CD Security Risks projesi, bu alandaki ilk standart tehdit çerçevesini oluşturmuştur.
 
-LLM01: Prompt Injection: Saldırganların girdi metinleriyle modelin sistem talimatlarını (system instructions) geçersiz kılması veya manipüle etmesi.
-LLM02: Sensitive Information Disclosure: Modelin eğitim verisinde veya RAG sistemindeki gizli kurumsal verileri yetkisiz kullanıcılara sızdırması.
-LLM03: Supply Chain: Güvenli olmayan önceden eğitilmiş modellerin (base models), üçüncü taraf eklentilerin ve veri kaynaklarının kullanımı.
-LLM04: Data and Model Poisoning: Eğitim verilerinin veya ince ayar (fine-tuning) veri setlerinin manipüle edilerek modelde arka kapılar açılması.
-LLM05: Improper Output Handling: Modelden gelen ham çıktıların doğrudan çalıştırılması sonucu XSS veya komut enjeksiyonu oluşması.
-LLM06: Excessive Agency: LLM'e bağlı ajanların (agents) eklentiler üzerinde gereğinden fazla okuma, yazma veya silme yetkisine sahip olması.
-LLM07: System Prompt Leakage: Modelin davranışını belirleyen gizli sistem prompt'larının dolaylı enjeksiyonlarla dışarı sızdırılması.
-LLM08: Vector and Embedding Weaknesses: Vektör veritabanlarında tenant (kiracı) izolasyonunun olmaması ve yerleştirme matrislerinin sabote edilmesi.
-LLM09: Misinformation: Modelin ürettiği yanlış veya halüsinasyon içeren verilerin kritik iş süreçlerinde doğrulanmadan kullanılması.
-LLM10: Unbounded Consumption: Aşırı kaynak tüketen sorgularla sunucunun servis dışı bırakılması veya API kota maliyetlerinin suistimal edilmesi.
+CI/CD güvenliğinde en büyük risk, pipeline konfigürasyonlarının (örneğin .github/workflows/deploy.yml veya Jenkinsfile) geliştiriciler tarafından kod repolarında yönetilmesidir. Saldırganlar, kod reposuna veya bir geliştirici hesabına erişim sağladıklarında, bu konfigürasyon dosyalarını değiştirerek derleme sunucularında (runners) kendi kötü niyetli komutlarını çalıştırabilirler (Poisoned Pipeline Execution - CICD-SEC-4). Bu durum, derleme sunucusunun hafızasında veya ortam değişkenlerinde duran üretim ortamına ait AWS gizli anahtarlarının veya API şifrelerinin çalınmasıyla sonuçlanmaktadır. CI/CD güvenliği; pipeline üzerinde katı akış kontrolleri (PR onay mekanizmaları), derleme sunucularının izolasyonu ve üretilen paketlerin dijital imzalarla doğrulanmasını gerektirir.
 
+Bölüm: Veri Gizliliği Güvenliği (OWASP Privacy Risks)
 
-Bölüm Detayı: Makine Öğrenimi Güvenliği (OWASP ML Security Top 10)
+Bölüm Detayı: Stratejik Değerlendirme, Tarihsel Evrim ve Kritik Risk Detayları
 
+Kişisel Verilerin Korunması Kanunu (KVKK), GDPR (General Data Protection Regulation) ve CCPA gibi küresel regülasyonlar, kişisel verilerin korunmasını yasal bir zorunluluk haline getirmiştir. Ancak veri gizliliği, yalnızca hukuk departmanlarının hazırladığı sözleşmelerle sağlanamaz; doğrudan yazılım mimarisi seviyesinde mühendislik çözümleri gerektirir. 2014 yılında yayınlanan ilk listenin ardından, veri ekonomisinin büyümesi ve kullanıcı haklarının (veri silme talepleri, rıza yönetimi) önem kazanması üzerine Privacy Risks projesi 2021 yılında (v2.0) güncellenmiştir.
 
-Makine öğrenimi sistemlerinin güvenliğini hedef alan bu taslak liste, LLM uygulama katmanından farklı olarak doğrudan modellerin matematiksel ve istatistiksel zayıflıklarını inceler. ML Security projesi, geleneksel denetimli ve denetimsiz öğrenme modellerindeki (örneğin SVM, CNN, regresyon modelleri) veri zehirlenmesi ve adversarial (saldırgan) girdi manipülasyonlarını kapsar.
+Gizlilik güvenliğinde en büyük teknik zorluk, verilerin toplanması aşamasındaki kontrolsüzlük ve veri silme taleplerinin (Right to be Forgotten) teknik olarak tam uygulanamamasıdır. Kurumlar, kullanıcının hesabını sildiğinde veritabanındaki ana kullanıcı tablosundan kaydı silmekte; ancak o kullanıcıya ait verilerin yedekleme sunucularında, ilişkisel veri tablolarında, analitik araçlarında veya uygulama log dosyalarında kalmaya devam etmesini engellememektedir (P6: Insufficient Deletion of User Data). Ayrıca, uygulamaların her işlem için kullanıcının karşısına rıza onay pencereleri çıkarması, kullanıcıda "onay yorgunluğuna" (consent fatigue - P4) yol açmakta ve rızanın bilinçli verilmesini engellemektedir. Veri gizliliği; veri minimizasyonu, tasarım yoluyla gizlilik (privacy-by-design) ve veri silme akışlarının otomatikleştirilmesini gerektirir.
 
-LLM Top 10 listesi prompt manipülasyonu gibi sözel/metinsel girdi-çıktı kanallarını hedeflerken; ML listesi modelin karar sınırlarını (decision boundaries) kaydırmayı hedefleyen veri manipülasyonlarına odaklanır. Örneğin, otonom sürüş sistemlerindeki trafik levhası tanıma modelini yanıltmak için levha üzerine yapıştırılan görünmez bir parazit etiket (adversarial perturbation) ML01 kategorisinde değerlendirilir. Modelin eğitildiği veri kümesini tahmin etmeye çalışan üyelik çıkarımı (membership inference) ve model parametrelerini tersine mühendislikle çalma (model inversion) bu listenin en kritik matematiksel zafiyetlerindendir.
+Bölüm: Sunucusuz Mimari Güvenliği (OWASP Serverless Top 10)
 
-ML01: Input Manipulation Attack: Modele sunulan test girdilerine eklenen mikro gürültülerle model kararlarının saptırılması (evasion).
-ML02: Data Poisoning Attack: Eğitim veri setine kötü niyetli veriler yerleştirilerek modelin belirli durumlarda yanlış tahmin yapmasının sağlanması.
-ML03: Model Inversion Attack: Modelin tahmin çıktılarından yola çıkarak eğitimde kullanılan gizli verilerin matematiksel olarak geri elde edilmesi.
-ML04: Membership Inference Attack: Belirli bir veri kaydının modelin eğitim veri setinde yer alıp almadığının istatistiksel analizle doğrulanması.
-ML05: Model Theft: Modele gönderilen sorgulara alınan yanıtlarla modelin davranışsal bir kopyasının (surrogate model) çıkarılması.
-ML06: ML Supply Chain Attacks: Güvensiz serileştirme formatlarında (örneğin PyTorch pickle) saklanan modeller üzerinden zararlı kod yürütülmesi.
-ML07: Transfer Learning Attack: Önceden eğitilmiş kaynak modelin içerisine gömülmüş gizli tetikleyicilerin (backdoor) hedef sisteme taşınması.
-ML08: Model Skewing: Sürekli öğrenme (online learning) yapan modellerde, gelen sahte geri bildirimlerle karar sınırlarının çarpıtılması.
-ML09: Output Integrity Attack: Model çıktılarının ve tahmin sonuçlarının bütünlüğünün ara katmanlarda sabote edilmesi.
-ML10: Model Poisoning: Model parametrelerinin veya ağırlık matrislerinin doğrudan güncellenerek modelin işlevsiz hale getirilmesi.
+Bölüm Detayı: Stratejik Değerlendirme, Tarihsel Evrim ve Kritik Risk Detayları
 
+Sunucusuz (Serverless) mimari, altyapı yönetiminin (sunucu güncelleme, işletim sistemi sıkılaştırma) tamamen bulut sağlayıcıya (AWS Lambda, Google Cloud Functions vb.) devredildiği ve kodun olay-tetiklemeli (event-driven) mikro fonksiyonlar (FaaS - Function-as-a-Service) olarak çalıştığı modern bir yaklaşımdır. Bu mimaride, işletim sistemi seviyesindeki güvenlik yamaları gibi sorumluluklar bulut sağlayıcıya ait olsa da, uygulama seviyesindeki kod ve yapılandırma güvenliği tamamen geliştiricinin sorumluluğundadır (Shared Responsibility Model). 2018 yılında yayınlanan Serverless Top 10 yorumlama dokümanı, FaaS mimarilerinin getirdiği yeni güven sınırlarını ele almaktadır.
 
-Bölüm Detayı: Kubernetes Güvenliği (OWASP Kubernetes Top 10)
+Serverless dünyasında en büyük risk, fonksiyonların tetiklendiği olay kaynaklarının (event sources) çeşitliliği ve bu fonksiyonlara atanan aşırı yetkili IAM rolleridir. Geleneksel uygulamalarda girdi yalnızca HTTP istekleri üzerinden gelirken; serverless fonksiyonlar bir S3 kova dosya yüklemesiyle, bir veritabanı loguyla veya bir IoT cihaz mesajıyla tetiklenebilir. This situation pushes event data injection to new scales. Ayrıca, geliştiriciler kolaylık olsun diye fonksiyonlara tüm bulut kaynaklarına erişebilen geniş IAM rolleri (Over-privileged IAM Roles) atamaktadır. Saldırgan tek bir fonksiyona sızdığında, bu rolü kullanarak şirketin tüm AWS hesabını ele geçirebilir. Serverless güvenliği; katı least-privilege IAM rollerinin tanımlanmasını, olay verilerinin doğrulanmasını ve "Denial of Wallet" riskine karşı bütçe limitlerinin kurulmasını gerektirir.
 
+Bölüm: Düşük Kod/Kodsuz Platform Güvenliği (OWASP Low-code / No-code Risks)
 
-Kubernetes Top 10 projesi, modern mikroservis mimarilerinin runtime (çalışma zamanı) ve orkestrasyon katmanını korumayı hedefler. 2022 ve 2025 sürümleri karşılaştırıldığında, Kubernetes bileşenlerinin güvenliğinden ziyade, bulut entegrasyonlarının ve yanal hareket (lateral movement) sınırlarının ön plana çıktığı görülmektedir. 2025 sürümünde en kritik güncellemelerden biri, "Cluster to Cloud Lateral Movement" (K08:2025) kategorisidir.
+Bölüm Detayı: Stratejik Değerlendirme, Tarihsel Evrim ve Kritik Risk Detayları
 
-Bulut sağlayıcıları üzerinde çalışan Kubernetes kümelerinde podların, node'a atanan IAM (Identity and Access Management) rollerini taklit ederek bulut hesabına sızması bu kategorinin temelini oluşturur. Ayrıca 2022'de ayrı olan bileşen zafiyetleri ve güncel olmayan cluster versiyonları, 2025 sürümünde "Misconfigured and Vulnerable Cluster Components" (K07:2025) başlığı altında birleştirilmiştir. Yetkilendirme modeli ise sadece RBAC ile sınırlı tutulmayıp, webhook yetkilendiricilerini de kapsayacak şekilde "Overly Permissive Authorization Configurations" (K02:2025) adıyla genişletilmiştir.
+Düşük Kod/Kodsuz (Low-code/No-code - LCNC) platformları (Microsoft PowerApps, Retool, Mendix vb.), yazılım geliştirme yetkinliği olmayan iş birimlerinin (citizen developers - vatandaş geliştiriciler) görsel arayüzler ve hazır bileşenler kullanarak hızlıca uygulamalar geliştirmesini sağlamaktadır. Bu durum iş süreçlerini hızlandırırken, kurumsal bilgi güvenliği ekiplerinin denetimi dışında kalan devasa bir "Gölge BT" (Shadow IT - LCNC-SEC-09) tehdidi yaratmaktadır. 2022 yılında yayınlanan LCNC Risks projesi, bu yeni ekosisteme özel mimari ve idari zafiyetleri ele almaktadır.
 
-K01: Insecure Workload Configurations: Podların root yetkisiyle veya privileged modda çalıştırılması sonucu container escape (konteynerdan kaçış) riski.
-K02: Overly Permissive Authorization Configurations: RBAC rollerinin aşırı geniş yetkilerle (örneğin * wildcard kullanımı) tanımlanması.
-K03: Secrets Management Failures: Kubernetes sırlarının etcd üzerinde şifresiz saklanması veya pod dosyalarına güvensiz mount edilmesi.
-K04: Lack of Cluster Level Policy Enforcement: Admission Controller yapılandırmalarının (örneğin Kyverno veya OPA) olmaması.
-K05: Missing Network Segmentation Controls: Podlar arası trafiğin kısıtlanmaması, tehlikeye giren bir podun tüm ağa erişebilmesi.
-K06: Overly Exposed Kubernetes Components: API server, Kubelet veya dashboard arayüzlerinin dış internete şifresiz açılması.
-K07: Misconfigured and Vulnerable Cluster Components: Eski Kubernetes sürümlerinin kullanılması ve kube-apiserver konfigürasyon hataları.
-K08: Cluster to Cloud Lateral Movement: Podların servis hesapları üzerinden AWS IAM / GCP Service Account yetkilerini ele geçirerek buluta sızması.
-K09: Broken Authentication Mechanisms: Küme içi haberleşmede kullanılan mTLS sertifikalarının veya kullanıcı tokenlarının zayıf yönetilmesi.
-K10: Inadequate Logging and Monitoring: Küme içi denetim loglarının (audit logs) toplanmaması, saldırıların tespit edilememesi.
+LCNC platformlarındaki en büyük güvenlik riski, kullanıcıların platformların sunduğu hazır veri bağlayıcıları (connectors) üzerinden kurumsal veritabanlarını internete kontrolsüzce açmasıdır. Yazılım güvenliği eğitimi almamış bir iş analisti, geliştirdiği uygulamada girdi kontrolleri yapmayarak SQL Injection (LCNC-SEC-06) açıklarına neden olabilir veya platformun varsayılan paylaşım ayarlarını "herkese açık" bırakarak hassas verileri sızdırabilir (LCNC-SEC-05). Ayrıca, bu platformların pazar yerlerinden (marketplace) indirilen doğrulanmamış şablonlar ve eklentiler (LCNC-SEC-07), kurumsal ağlara sızmak için yeni bir tedarik zinciri vektörü oluşturmaktadır. LCNC güvenliği; platform düzeyinde katı veri kaybı önleme (DLP) politikalarının uygulanmasını, envanter takibini ve citizen developer'ların güvenlik farkındalığının artırılmasını gerektirir.
 
+Bölüm: Domainler Arası Karşılaştırma ve Yanal Hareket Senaryosu
 
-Bölüm Detayı: CI/CD Pipeline Güvenliği (OWASP CI/CD Security Risks)
+Güvenlik ekiplerinin yaptığı en büyük hatalardan biri, zafiyetleri izole alanlar olarak değerlendirmektir. Modern siber saldırganlar, tek bir zafiyeti sömürmek yerine sistemler arasındaki mimari geçişleri kullanarak yanal hareket (lateral movement) yapmaktadır. Bu senaryonun en tipik örneği, CI/CD pipeline'ından başlayarak Kubernetes kümesine, oradan da tüm bulut altyapısına uzanan saldırı zinciridir.
 
+Bölüm Detayı: Entegre Karşılaştırma ve Yanal Hareket Analizi
 
-CI/CD Security Risks projesi, yazılımın kod aşamasından üretim aşamasına taşındığı teslimat zincirinin (delivery pipeline) güvenliğini ele alır. Bu liste, DevSecOps süreçlerinin en kritik zayıf noktası olan derleme sunucularının (runners) ve üçüncü taraf paket depolarının istismar edilmesini engellemeyi amaçlar.
+Aşağıdaki etkileşimli panelde, mimari yapıları ve çalışma prensipleri açısından sıkça karıştırılan kritik OWASP projelerinin karşılaştırmalarını inceleyebilirsiniz.
 
-Listenin en tehlikeli zafiyeti, derleme konfigürasyon dosyalarının (örneğin GitHub Actions .yml veya Jenkinsfile) manipüle edilerek pipeline üzerinde kötü niyetli komutların çalıştırılmasını sağlayan "Poisoned Pipeline Execution" (CICD-SEC-4) zafiyetidir. Bağımlılık yönetimi hataları (CICD-SEC-3: Dependency Chain Abuse) ise geliştiricilerin şirket içi özel paket adlarıyla npm/pip depolarına zararlı kod yükleyen saldırganların tuzağına düşmesini (dependency confusion) açıklar. Pipeline sunucularına atanan aşırı yetkili AWS/Azure gizli anahtarları ve bu anahtarların log dosyalarında düz metin olarak ifşa olması (CICD-SEC-6) bu projenin temel odak alanlarındandır.
-
-CICD-SEC-1: Insufficient Flow Control Mechanisms: Kod değişikliklerinin akran denetimi (peer review / PR) olmadan doğrudan yayına alınabilmesi.
-CICD-SEC-2: Inadequate Identity and Access Management: Pipeline sisteminde kullanılan kullanıcı ve servis hesaplarının aşırı yetkilendirilmesi.
-CICD-SEC-3: Dependency Chain Abuse: Geliştiricilerin typosquatting veya dependency confusion yöntemleriyle zehirli kütüphaneleri indirmesi.
-CICD-SEC-4: Poisoned Pipeline Execution (PPE): Kod reposuna erişimi olan bir saldırganın, derleme dosyalarını değiştirerek runner sunucusunda komut çalıştırması.
-CICD-SEC-5: Insufficient PBAC (Pipeline-Based Access Controls): Pipeline aşamaları arasında izolasyon olmaması, bir projenin diğerinin sırlarına erişmesi.
-CICD-SEC-6: Insufficient Credential Hygiene: Dağıtım anahtarlarının ve API şifrelerinin pipeline değişkenlerinde düz metin olarak saklanması veya loglara sızması.
-CICD-SEC-7: Insecure System Configuration: Jenkins veya GitLab runner sunucularının güncellenmemesi, işletim sistemi seviyesinde zafiyet barındırması.
-CICD-SEC-8: Ungoverned Usage of 3rd Party Services: Pipeline içerisine eklenen harici analiz araçlarının veya Slack botlarının denetlenmemesi.
-CICD-SEC-9: Improper Artifact Integrity Validation: Üretilen paketlerin veya Docker imajlarının bütünlüğünün dijital imzalarla (örneğin Cosign) doğrulanmaması.
-CICD-SEC-10: Insufficient Logging and Visibility: Pipeline üzerindeki yetkisiz tetiklemelerin ve sır erişimlerinin loglanmaması.
-
-
-Bölüm Detayı: Veri Gizliliği Güvenliği (OWASP Privacy Risks)
-
-
-OWASP Privacy Risks projesi, kişisel verilerin (PII) toplanması, işlenmesi ve saklanması aşamalarındaki mahremiyet ihlallerini ele alır. Bu proje, yasal uyumluluk (GDPR, KVKK) ile yazılım mühendisliği arasındaki teknik köprüyü oluşturur. 2014 ve 2021 (v2.0) sürümleri karşılaştırıldığında, kullanıcı rızasının (consent) ve veri sahiplerinin haklarının (DSAR - Data Subject Access Requests) önem kazandığı görülmektedir.
-
-2021 sürümünde eklenen "Consent on Everything" (P4:2021) kategorisi, uygulamaların her işlem için kullanıcının karşısına rıza onay pencereleri çıkarmasını ve bu rıza yorgunluğunun (consent fatigue) rızanın hukuki geçerliliğini sakatlamasını inceler. "Insufficient Deletion of User Data" (P6:2021) ise sistemlerden silindiği sanılan kullanıcı verilerinin arka plandaki ilişkili veritabanlarında, yedekleme sunucularında veya log dosyalarında saklanmaya devam etmesi riskini teknik boyutuyla ele almaktadır.
-
-P1: Web Application Vulnerabilities: Teknik zafiyetler (örneğin SQL injection) nedeniyle kullanıcı kişisel verilerinin dışarı sızması.
-P2: Operator-sided Data Leakage: Uygulama yöneticilerinin hatalı yapılandırmaları sonucu verilerin yetkisiz departmanlara veya harici analiz araçlarına sızması.
-P3: Insufficient Data Breach Response: Veri ihlallerinin tespit edilememesi ve yasal sürede (örneğin KVKK 72 saat) regülatörlere bildirilmemesi.
-P4: Consent on Everything: Kullanıcıları rıza pencerelerine boğarak (consent fatigue) bilinçsiz onay alınması, açık rıza ilkesinin çiğnenmesi.
-P5: Non-transparent Policies: Gizlilik sözleşmelerinin çok uzun, karmaşık ve teknik terimlerle okunulamaz şekilde sunulması.
-P6: Insufficient Deletion of User Data: Kullanıcının hesabını silmesine rağmen kişisel verilerin yedeklerden veya ilişkili tablolardan temizlenmemesi.
-P7: Insufficient Data Quality: Verilerin güncel tutulmaması sonucu kullanıcılar hakkında yanlış değerlendirmeler yapılması.
-P8: Missing or Insufficient Session Expiration: Oturum sürelerinin sonlandırılmaması sonucu ortak bilgisayarlarda kişisel verilerin ifşa olması.
-P9: Inability of Users to Access and Modify Data: Kullanıcıların kendi kişisel verilerini görüntüleyebileceği veya güncelleyebileceği arayüzlerin olmaması.
-P10: Collection of Data Not Required: Sunulan hizmetle doğrudan ilgisi olmayan verilerin (örneğin bir fener uygulamasının konum verisi istemesi) toplanması.
-
-
-Bölüm Detayı: Sunucusuz Mimari Güvenliği (OWASP Serverless Top 10)
-
-
-Serverless projesi, yönetimi tamamen bulut sağlayıcıda olan ve olay-tetiklemeli (event-driven) çalışan FaaS (Function-as-a-Service) mimarilerindeki riskleri inceler. Bu liste, sunucusuz mimarilerin getirdiği yeni güven sınırlarını ele alan bir yorumlama (interpretation) dokümanıdır. Serverless dünyasında işletim sistemi yamaları gibi sorumluluklar bulut sağlayıcıya ait olsa da, uygulama seviyesindeki riskler geliştiricinin sorumluluğundadır.
-
-Fonksiyonların tetiklendiği olay kaynaklarının (API Gateway, S3 dosya yüklemesi, veritabanı logları) çeşitliliği, enjeksiyon saldırılarını "Event Data Injection" (Risk 1) boyutuna taşır. Ayrıca, kısa ömürlü olan bu fonksiyonlara atanan IAM rollerinin kısıtlanmaması ("Over-privileged IAM Roles"), saldırganların tek bir fonksiyona sızarak tüm AWS/GCP hesabını ele geçirmesine neden olmaktadır. Sunucusuz mimarideki "Denial of Wallet" (Risk 7) ise sonsuz döngüye giren fonksiyonların dakikalar içinde binlerce dolarlık bulut maliyeti üretmesi riskini açıklar.
-
-1: Event Data Injection: Kullanıcı girdilerinin yanı sıra harici olay tetikleyicilerinden (örneğin S3 kova bildirimleri) gelen verilerin doğrulanmadan işlenmesi.
-2: Broken Authentication: Stateless (durumsuz) çalışan mikro fonksiyonların kimlik doğrulama kontrollerinin her istekte eksik yapılması.
-3: Insecure Serverless Deployment Configuration: Fonksiyon dağıtım ayarlarının gevşek bırakılması, gizli çevre değişkenlerinin (env) dışarıya sızması.
-4: Over-privileged IAM Roles: Fonksiyonlara least-privilege (en az yetki) yerine çok geniş bulut kaynak erişim yetkilerinin atanması.
-5: Inadequate Function Monitoring and Logging: Kısa ömürlü binlerce sunucusuz fonksiyonun loglarının merkezi bir SIEM sistemine aktarılamaması.
-6: Shared Execution Environment Risks: Aynı fiziksel sunucu üzerinde çalışan farklı fonksiyonların bellek sızıntıları üzerinden birbirini etkilemesi.
-7: Denial of Wallet / Resource Abuse: Fonksiyonların aşırı çağrılması veya sonsuz döngülerle bulut faturasının astronomik seviyelere çıkarılması.
-8: Insecure Third-Party Dependencies: Fonksiyonların paket boyutunu küçültmek amacıyla doğrulanmadan yüklenen güvensiz paket bağımlılıkları.
-9: Impersonation and Session Hijacking: Kısa ömürlü oturum anahtarlarının sunucusuz bellek alanlarında şifresiz tutulması sonucu çalınması.
-10: Serverless Function Data Leakage: Fonksiyonların geçici yazma dizininde (/tmp) kalan verilerin sonraki fonksiyon çağrılarında okunabilmesi.
-
-
-Bölüm Detayı: Düşük Kod/Kodsuz Platform Güvenliği (OWASP Low-code / No-code Risks)
-
-
-Low-code ve No-code platformlarına yönelik bu liste, grafiksel arayüzler ve hazır şablonlar kullanılarak yapılan yazılım geliştirme (citizen development) süreçlerindeki riskleri ele alır. Bu projenin temel motivasyonu, profesyonel yazılım geliştirici olmayan iş analistlerinin veya insan kaynakları çalışanlarının ürettiği uygulamaların kurumsal güvenlik denetimlerinin dışarısında kalmasıdır.
-
-Platformların hazır sağladığı veri bağlayıcılar (connectors) üzerinden şirket içi veri tabanlarının internete açılması "Data Leakage" (LCNC-SEC-03) riskini doğurur. En büyük idari boşluk ise, kurum genelinde kimlerin hangi uygulamaları geliştirdiğinin ve bu uygulamaların hangi dış sistemlere bağlandığının takip edilememesinden kaynaklanan "Asset Management Failures" (LCNC-SEC-09) zafiyetidir. Bu durum kurumsal yapılarda ciddi bir "gölge BT" (shadow IT) tehdidi oluşturmaktadır.
-
-LCNC-SEC-01: Account Impersonation: Uygulama içerisindeki yetkisiz kullanıcıların, arka planda tanımlı yetkili sistem hesaplarının haklarını devralması.
-LCNC-SEC-02: Authorization Misuse: Grafiksel arayüzde yetkilendirme mantığının hatalı tasarlanması sonucu veri sınırlarının aşılması.
-LCNC-SEC-03: Data Leakage and Unexpected Consequences: Verilerin onaylanmamış harici bulut depolarına veya formlar üzerinden dış dünyaya sızdırılması.
-LCNC-SEC-04: Authentication Failures: Platformlar arası veri entegrasyonlarında zayıf veya şifresiz haberleşme protokollerinin kullanılması.
-LCNC-SEC-05: Security Misconfiguration: Platform yönetim panelindeki paylaşım izinlerinin varsayılan olarak "herkese açık" bırakılması.
-LCNC-SEC-06: Injection Handling Failures: Citizen developer'ların girdi kontrolü yapmaması sonucu SQL veya komut enjeksiyonlarının oluşması.
-LCNC-SEC-07: Vulnerable and Untrusted Components: Platform pazar yerinden (marketplace) indirilen doğrulanmamış şablon ve eklentilerin kullanımı.
-LCNC-SEC-08: Data and Secret Handling Failures: Veritabanı şifrelerinin veya API anahtarlarının tasarım arayüzünde düz metin olarak unutulması.
-LCNC-SEC-09: Asset Management Failures: Kurum genelinde kimin hangi Low-code uygulamasını yayına aldığının takip edilememesi (Shadow IT).
-LCNC-SEC-10: Security Logging and Monitoring Failures: Kullanıcıların kendi ürettiği uygulamalardaki işlemlerin kurumsal SIEM sistemlerince izlenememesi.
-
-
-Bölüm: Kritik Projelerin Karşılaştırmalı Teknik İncelemesi
-
-
-Aşağıdaki kartlarda, mimari benzerlikleri ve uygulama farklılıkleri nedeniyle sıkça karıştırılan veya birlikte yönetilmesi gereken kritik projelerin teknik karşılaştırmaları yer almaktadır.
+Web vs API vs Mobile
+LLM vs ML Security
+CI/CD vs Kubernetes
+Serverless vs LCNC
 
 WEB vs API vs MOBILE
 Sınır ve Yetkilendirme Farkları
@@ -236,43 +123,46 @@ SERVERLESS vs LCNC
 Dağıtık Altyapı vs Citizen Development
 Serverless mimari, yönetimi bulut sağlayıcıda olan binlerce kısa ömürlü fonksiyondan (FaaS) oluşur ve buradaki güvenlik zafiyetleri genellikle aşırı yetkilendirilmiş IAM rolleri ve fonksiyonların geçici disk alanlarında bıraktığı verilerden kaynaklanır. Low-code/No-code ise yazılım geliştirme yetkinliği olmayan iş birimlerinin (citizen developer) ürettiği "gölge" uygulamaları kapsar. Serverless'ta mikro seviyedeki altyapı sıkılaştırması hedeflenirken, LCNC projelerinde kurumsal veri sızıntılarını önlemek amacıyla veritabanı bağlayıcılarının (connectors) yönetimi ve varlık takibi ön plana çıkar.
 
-
-Bölüm: Mimari Sınırlar ve Yanal Hareket Senaryosu
-
-
-Modern saldırganlar, tek bir zafiyeti sömürmek yerine sistemler arasındaki mimari geçişleri kullanarak yanal hareket (lateral movement) yapmaktadır. Bu senaryonun en tipik örneği, CI/CD pipeline'ından başlayarak Kubernetes kümesine, oradan da tüm bulut altyapısına uzanan saldırı zinciridir.
-
 Aşağıdaki diyagramda, bir CI/CD pipeline zafiyetinin (Poisoned Pipeline Execution - PPE) bulut altyapısının tamamının ele geçirilmesiyle sonuçlanan yanal hareket zinciri modellenmiştir.
 
 Bu saldırı akışında, CI/CD pipeline'ı üzerinde çalışan bir betiğin manipüle edilmesiyle (CICD-SEC-4), derleme sunucusunun kontrolü ele geçirilir. Saldırgan bu sunucu üzerinden yetkisiz şekilde imzaladığı zararlı bir konteyner imajını kayıt defterine yükler. Kubernetes kümesi, imaj doğrulama politikası eksikliği nedeniyle bu zehirli imajı çalıştırır (K01).
 
 Konteyner içinde çalışan zararlı kod, pod içerisinden bulut sağlayıcının metadata servisine (169.254.169.254) istek atarak node'a atanan geçici kimlik bilgilerini çalar. Eğer bu kimlik bilgilerini least-privilege ilkesine aykırı olarak aşırı yetkilendirilmişse (K08), saldırgan pod sınırlarından çıkarak bulut sağlayıcısının IAM rolü üzerinden tüm kurumsal altyapıyı ele geçirir.
 
+Bölüm: Stratejik Yol Haritası: Olgunluk Modelleri, Ajan Güvenliği ve Makine Kimlikleri (NHI)
 
-Bölüm: Olgunluk Analizi ve Sektörel Uyum
+Uygulama güvenliğini sürdürülebilir kılmak, statik bir kontrol listesinin ötesine geçerek kurumsal bir olgunluk modeli inşa etmeyi gerektirir. Bu yol haritası, kuruluşların mevcut durumlarını analiz etmelerini, yeni nesil yapay zekâ tehditlerine karşı savunma geliştirmelerini ve insan dışı kimlikleri (NHI) yönetmelerini hedefleyen bütünsel bir güvenlik programıdır.
 
+Bölüm Detayı: OWASP SAMM ve ASVS: Olgunluk Seviyesinin Belirlenmesi
 
-OWASP projelerinin sektörel benimsenme düzeyleri ve olgunluk seviyeleri, organizasyonların AppSec bütçelerini nereye yatırmaları gerektiği konusunda önemli sinyaller verir.
+Farklı teknoloji katmanlarına ait Top 10 listelerini kurumsal seviyede uygulamak için iki temel OWASP referans modeli kullanılır:
+OWASP ASVS (Application Security Verification Standard): Yazılımların tasarımından test aşamasına kadar karşılaması gereken teknik güvenlik gereksinimlerini tanımlayan katı bir standarttır. Web, API ve mobil zafiyetleri önlemek için kodlama ve mimari standartları ASVS seviyelerine (Level 1, 2, 3) göre yapılandırılır.
+OWASP SAMM (Software Assurance Maturity Model): Bir organizasyonun yazılım geliştirme süreçlerindeki güvenlik olgunluğunu ölçen ve iyileştiren bir yönetim modelidir. SAMM sayesinde şirketler, yönetişim, tasarım, uygulama, doğrulama ve operasyon olmak üzere 5 ana başlıkta güvenlik olgunluk skorlarını çıkarabilir ve bütçe planlamalarını bu verilere göre yapabilirler.
 
-Projeler üç ana başlık altında sınıflandırılır:
-Flagship (Amiral Gemisi) Projeler: Yıllardır sürekli güncellenen, geniş veri havuzlarına sahip ve PCI DSS, ISO 27001 veya NIST SSDF gibi yasal standartlar tarafından doğrudan zorunlu kılınan projelerdir (örneğin Web, API, Mobile Top 10 projeleri ile ASVS ve SAMM olgunluk modelleri).
-Lab Projeleri: Geliştirilmesi aktif devam eden, sektörel farkındalığı yüksek ancak henüz küresel regülasyonlar tarafından doğrudan entegre edilmemiş, veri havuzu yerine uzman consensus'una dayanan projelerdir (örneğin Kubernetes, LLM ve CI/CD Top 10).
-Incubator ve Durağan Projeler: Belirli bir dönem popüler olmuş ancak teknolojinin evrilmesi veya gönüllü katkıcıların azalması nedeniyle bakımı duraksamış projelerdir (örneğin Privacy Risks v2.0 veya 2018 Serverless yorumu). Bu projelerin güncel olmayan sürümleri yerine, modern cloud-native rehberlerin kullanılması tavsiye edilmektedir.
+Projelerin olgunluk ve sektörel uyum seviyeleri ise bütçe yatırımlarının önceliklendirilmesinde kilit rol oynar:
+Flagship (Amiral Gemisi) Sınıfı: Web, API ve Mobil Top 10 projeleri ile ASVS ve SAMM, PCI DSS veya ISO 27001 gibi yasal standartlarca doğrudan zorunlu kılınan yüksek olgunluktaki projelerdir.
+Lab Sınıfı: Hızla evrilen Kubernetes, LLM ve CI/CD projeleri, sektörel farkındalığı yüksek ancak henüz küresel yasalara tam entegre olmamış uzman konsensüsüne dayanan dinamik rehberlerdir.
+Incubator ve Durağan Sınıfı: Privacy Risks v2.0 veya eski Serverless rehberleri gibi, teknolojinin evrilmesiyle durağanlaşan projeler yerine modern bulut-doğal kılavuzların tercih edilmesi gereken alanlardır.
 
+Bölüm Detayı: Ajan Güvenliği (Agentic AI Security) ve Otonom Tehditler
 
-Bölüm: Geleceğin Tehdit Sınırları: Ajan Güvenliği ve NHI
+Yazılım mimarilerinde deterministik yapılardan otonom çalışan Ajan (Agentic AI) sistemlerine geçilmesi, geleneksel girdi/çıktı denetimlerini etkisiz kılmaktadır. Bu tehdit alanını adreslemek için yayınlanan en yeni Top 10 for Agentic Applications 2026 çerçevesi, otonom sistemlerdeki şu kritik risklere odaklanır:
+ASI01 – Agent Goal Hijack (Ajan Hedefinin Sabote Edilmesi): Prompt enjeksiyonu yoluyla ajanın başlangıçtaki kurumsal talimatlarının geçersiz kılınarak siber saldırganın hedeflerine (veri çalma veya sistemlere sızma) yönlendirilmesidir.
+ASI02 – Tool Misuse (Araçların Kötüye Kullanımı): Ajanın kendisine verilen e-posta gönderme, SQL sorgulama veya dosya silme araçlarını, manipüle edilmiş girdiler nedeniyle beklenmedik parametrelerle işleterek sistemlere zarar vermesidir.
+ASI06 – Memory & Context Poisoning (Bellek ve Bağlam Zehirlenmesi): Uzun süreli çalışan ajanların bellek alanlarına kötü niyetli bağlamların enjekte edilmesiyle, ajanın karar alma mekanizmasının zaman içinde kalıcı ve sinsi bir şekilde manipüle edilmesidir.
 
+Bölüm Detayı: İnsan Dışı Kimliklerin (Non-Human Identities - NHI) Güvenliği
 
-Yazılım dünyasındaki en kritik paradigma değişimi, deterministik uygulamalardan otonom çalışan Ajan (Agentic AI) sistemlerine ve insan dışı kimliklerin (Non-Human Identities - NHI) kitlesel yayılımına geçiştir. Bu durum, geleneksel uygulama güvenliği yaklaşımlarını tamamen geçersiz kılmaktadır.
+Modern cloud-native sistemlerde en hızlı büyüyen ve en az denetlenen saldırı yüzeyini İnsan Dışı Kimlikler (NHI) oluşturmaktadır. Sistemlerin birbirleriyle haberleşmesi için kullanılan API anahtarları, servis hesapları, OAuth izinleri, veritabanı bağlantı dizeleri ve JWT tokenları siber saldırganlar için en kolay sızma noktaları haline gelmiştir.
 
-OWASP, bu yeni dönemin risklerini yönetmek amacıyla en son Top 10 for Agentic Applications 2026 projesini duyurmuştur. Bu yeni ekosistemde öne çıkan başlıca tehditler şunlardır:
-ASI01: Agent Goal Hijack (Ajan Hedefinin Sabote Edilmesi): Dışarıdan gelen verilerin prompt enjeksiyonu yoluyla ajanın asıl amacını saptırarak saldırganın hedeflerine hizmet etmesi.
-ASI02: Tool Misuse (Araçların Kötüye Kullanımı): Ajanın kendisine verilen araçları (örneğin veritabanı sorgulama, e-posta gönderme, kod çalıştırma) beklenmeyen parametrelerle çalıştırarak sistemlere zarar vermesi.
-ASI03: Identity & Privilege Abuse (Kimlik ve Yetki İstismarı): Ajanların karmaşık işleri halledebilmesi için aşırı yetkilerle donatılması ve bu yetkilerin manipüle edilmesi.
-ASI06: Memory & Context Poisoning (Bellek ve Bağlam Zehirlenmesi): Uzun süreli çalışan ajanların bellek alanlarına kötücül veriler eklenerek ajan kararlarının zaman içinde kalıcı olarak manipüle edilmesi.
+Geleneksel kullanıcı hesapları katı 2FA/MFA ve parola politikalarıyla korunurken, bu makine-to-makine (M2M) kimlik bilgileri genellikle kod repolarında veya pipeline runner'larında unutulmakta, izlenmemekte ve rotasyon süreçlerinden geçmemektedir. Bir saldırganın otonom bir API tokenını ele geçirmesi, doğrudan yetkilendirme zincirini bypass ederek veritabanlarına sızmasıyla sonuçlanır. Dolayısıyla, NHI güvenliği sağlanmadığı sürece en sağlam Kubernetes kümeleri veya güvenli web kodları bile bypass edilmeye açıktır.
 
-Bu sistemlerin en büyük zayıf noktası, insan müdahalesi olmadan birbirleriyle haberleşen İnsan Dışı Kimlikler (NHI) üzerindeki kontrol eksikliğidir. Bir uygulamanın diğerine erişmek için kullandığı API anahtarları, servis hesapları, OAuth izinleri ve JWT tokenları, siber saldırganlar için en kolay sızma noktaları haline gelmiştir. Geleneksel kullanıcı hesapları sıkı 2FA/MFA politikalarıyla korunurken, bu servis-servis kimlikleri çoğunlukla denetlenmemekte ve izlenememektedir. Ajanların ve NHI'ların güvenliği sağlanmadığı sürece, en sağlam Kubernetes kümeleri veya en güvenli web kodları bile otonom yetkilendirme zincirleri üzerinden kolayca bypass edilecektir.
+Bölüm Detayı: Güvenlik Liderleri İçin Aksiyon Planı (Roadmap)
 
-Yazılım güvenliği artık statik bir kontrol listesi değil, yaşayan bir mimari dirençlilik sürecidir. Sistemlerinizi tasarlarken tehdit modellerinizi statik kod analizlerinin ötesine taşımalı; bağımlılıklarınızı, pipeline yapılarınızı ve insan dışı erişim yetkilerinizi sürekli denetim altında tutmalısınız.
+Kuruluşların bu çok katmanlı tehdit yüzeyini yönetebilmesi için atması gereken stratejik adımlar şunlardır:
+Sürekli SBOM ve Paket İmzalama: Derleme hattında (CI/CD) kullanılan tüm bağımlılıkları SBOM ile envanterleyin ve üretilen Docker imajlarını derleme aşamasında dijital olarak imzalayarak doğruluğunu Kubernetes runtime aşamasında admission controller ile denetleyin.
+Konteyner ve Bulut Arasındaki IAM Sınırları: Podların node IAM rollerini taklit ederek bulut metadata servislerine erişmesini engelleyin. Her iş yükü için en az yetkili ve kısıtlı bulut rolleri tanımlayın.
+Kimlik ve Sırların Dinamik Yönetimi: LCNC platformlarından serverless fonksiyonlara kadar hiçbir kod veya konfigürasyonda şifre veya API anahtarını düz metin (hardcoded) olarak saklamayın; tüm sırları HashiCorp Vault veya bulut secret manager servislerinden çalışma zamanında dinamik olarak çağırın.
+Yapay Zekâ İçin Çift Katmanlı Koruma: LLM uygulamalarında girdi kanallarını prompt injection filtrelerinden geçirin; modelden dönen çıktıları ise veri tabanlarına veya tarayıcılara iletmeden önce zararlı kodlara ve hassas veri sızıntılarına karşı deterministik filtrelerle doğrulayın.
 
 Verinizin mimarı olun, egemenliğinizi geri alın. Dinlediğiniz için teşekkürler!
