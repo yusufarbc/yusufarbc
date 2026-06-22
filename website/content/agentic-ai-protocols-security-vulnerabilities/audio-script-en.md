@@ -14,74 +14,25 @@ The following architectural diagram illustrates the trust boundaries and potenti
 
 Chapter: What Is Agentic AI?
 
-Section: From Reactive AI to Agentic AI: The Paradigm Shift
+Concept Box — Agentic AI: Unlike reactive models that only respond to prompts, Agentic AI is an active architecture. It autonomously plans steps to achieve a declared goal, manages its own short/long-term memory, runs external tools (APIs, terminals, databases), and self-corrects on errors.
 
-Traditional generative AI is a tool: you ask, it answers. Agentic AI is a colleague: you declare the goal, and it decides independently how to achieve it.
+Traditional generative AI is a tool: you ask, it answers. Agentic AI is a colleague: you declare the goal, and it decides independently how to achieve it. This paradigm shift, from standard inputs and outputs to autonomous target execution, transforms cyber security risks. While reactive models cannot harm their environment directly, autonomous agents can execute local code, query databases, send emails, delete files, and trigger payments or other agents.
 
-As of 2025, the paradigm can be summarized as: "You asked a question — AI responded" leads to "You declared a goal — AI determined how to accomplish it".
-
-This difference is not just functional; it is fundamentally security-relevant. A reactive model cannot harm its environment; an agentic agent can delete files, send emails, initiate payments, and activate other agents.
-
-Agentic AI takes the reasoning capabilities of deep learning and Large Language Models (LLMs) and combines them with action-oriented patterns. Instead of being passive knowledge generators, these systems function as autonomous colleagues that plan, manage memory, and execute tools. This shift is a direct continuation of connectionist AI and neural network architectures scaling up to generalize across human-like cognitive tasks.
-
-Section: Core Capabilities of Autonomous Agents
-
-Modern autonomous agents are built upon a "perception–reasoning–action" loop:
+This agentic workflow operates on a perception-reasoning-action loop. The planning capability breaks complex goals into smaller tasks and produces alternative paths. Memory (short/long-term context) is managed using vector databases, while tools (APIs, web browsers, terminals) bridge the agent and the external world. Furthermore, the agent evaluates its own output (self-critique/reflection) to maintain control and accuracy. During reasoning, language models follow specific patterns: ReAct (Reason + Act) combines thinking and tool execution dynamically; Chain-of-Thought (CoT) processes problems step by step; Reflection reduces hallucinations; and Tree of Thoughts (ToT) evaluates multiple paths simultaneously to find the optimum decision. Today, orchestration frameworks like LangGraph (graph-based state management), AutoGen (multi-agent swarms), CrewAI (role-based teams), and Smolagents (lightweight code-based execution) are widely used to build these systems.
 
 [Table: Planning, Memory, Tool Use, and Self-Correction capabilities alongside their security impacts are tabulated.]
-
-Section: Agentic Reasoning Patterns
-
-Agentic AI systems operate on specific reasoning patterns that define how they think, act, and learn:
-
-ReAct (Reason + Act): A dynamic thought–tool call–observation loop that adapts to every piece of incoming information. The standard for real-time, dynamic tasks.
-Chain-of-Thought (CoT): The foundational reasoning layer that breaks problems into step-by-step logical segments before committing to an answer.
-Reflection and Self-Critique: A metacognitive layer where the agent evaluates its own output against quality, accuracy, and constraints. Critical for reducing hallucinations in production environments.
-Tree of Thoughts (ToT): Explores multiple reasoning branches simultaneously and evaluates each before selecting the most promising direction — ideal for complex creative or strategic problems.
-
-Section: Production Orchestration Frameworks
-
-[Table: LangGraph, AutoGen, CrewAI, and Smolagents frameworks compared based on primary focus and use cases.]
 
 ---
 
 Chapter: RAG (Retrieval-Augmented Generation)
 
-To bridge the gap between an LLM's static training data and dynamic, real-world information, Retrieval-Augmented Generation (RAG) acts as the primary knowledge-gathering engine for autonomous agents.
+Concept Box — RAG (Retrieval-Augmented Generation): A hybrid architecture that, instead of relying solely on the static training data of an LLM, retrieves the most semantically relevant chunks from external dynamic databases (PDFs, databases, web pages) using vector similarity search, and enriches the model's prompt with this real-time context.
 
-The diagram below illustrates the end-to-end ingestion, retrieval, and generation flow in a typical RAG system:
+Developed to address the core limitations of Large Language Models (specifically outdated training data and hallucinations), RAG is the primary knowledge-gathering engine for autonomous agents. RAG operates in three main steps: Ingestion/Embedding, Retrieval, and Generation. First, raw documents (PDFs, web pages, databases) are split into chunks, converted into mathematical vectors representing semantic meaning, and saved in a Vector Database. When a user queries the system, the query is embedded as a vector and the database retrieves the closest document chunks in seconds. Finally, these chunks are injected into the LLM prompt, forcing the model to generate a factual, hallucination-free response based only on the retrieved context.
+
+Although RAG is now an enterprise standard, it has lost some of its initial magical hype due to technical challenges. Garbage data generates garbage outcomes ("garbage in, garbage out" problem), modern long context windows (like Gemini and GPT-4) let users load entire manuals directly without vector databases, and managing vector indexes introduces latency and resource costs. Nonetheless, RAG remains critical since loading entire enterprise data silos into models on every query is economically and computationally impossible. Simple search systems are evolving into autonomous Advanced and Agentic RAG, where RAG functions not as a standalone feature, but as an invisible, fundamental gear inside the agentic engine.
 
 [Mermaid Diagram: A flow diagram representing the ingestion, retrieval, and generation path of RAG is visually represented.]
-
-Section: What Is RAG and What Does It Do?
-
-RAG is an architectural pattern that enables an AI model to answer a question by retrieving relevant information from an external data source instead of relying solely on its internal training data.
-
-What does it do? If you ask an LLM to "Read this 500-page company manual and tell me how many days of annual leave John has," the RAG engine locates the specific page in the manual, feeds it to the model, and allows the model to write an accurate answer.
-
-Section: How Does RAG Work?
-
-RAG consists of three core phases: Ingestion & Embedding, Retrieval, and Generation.
-
-Data Ingestion: All raw documents are broken down into smaller chunks, converted into mathematical vectors representing semantic meaning, and stored in a Vector Database.
-Retrieval: When a user asks a question, the system embeds this query into a vector and performs a similarity search in the Vector DB to locate and retrieve the closest document chunks in seconds.
-Generation: These retrieved chunks are combined with the user's original query to form a rich prompt sent to the LLM. The model then writes a hallucination-free response based strictly on the retrieved context.
-
-Section: Why Has It Lost Some of Its Hype Recently? (Addressing a Common Misconception)
-
-RAG has not lost its importance; in fact, it has become the standard in enterprise AI. However, it has lost its initial magical and flawless hype due to several realities:
-
-"Garbage In, Garbage Out" problem: If a company's raw documentation is unstructured or messy, the retrieval mechanism fetches incorrect documents, causing the system to fail.
-Long Context Windows: Modern models can process millions of tokens in a single request. Many developers started questioning the need for RAG, choosing to upload entire documents directly to the LLM instead.
-Cost and Latency: Managing vector databases and executing search runs introduces both latency and infrastructure costs.
-
-Section: How Is RAG Implemented?
-
-Building a RAG system typically involves orchestration frameworks like LangChain or LlamaIndex, vector databases like Pinecone or Chroma, and LLM APIs like OpenAI or Anthropic. In a simple setup, you ingest documents, index them, and connect them with the model API to create a chatbot that converses with your data.
-
-Section: Does RAG Have a Promising Future?
-
-Absolutely yes, but in an evolved form. Simple search-and-retrieve systems are transitioning into Advanced RAG and Agentic RAG. No matter how large LLM context windows become, uploading a company's entire data footprint on every query is too slow and cost-prohibitive. Future AI agents will always rely on RAG under the hood.
 
 ---
 
@@ -93,10 +44,7 @@ For agents to function, they must answer two fundamental questions: "How do I co
 
 Section: The Protocol Landscape
 
-Two categories are essential for understanding the protocol ecosystem:
-
-Horizontal Protocols — The "Operating System" Layer: Domain-agnostic foundational infrastructure providing the connectivity, communication, and discovery mechanisms every agent needs.
-Vertical Protocols — The "Application" Layer: Domain-specific semantics, rules, and workflows solving coordination problems specific to particular industries, built on top of horizontal foundations.
+Two categories are essential for understanding the protocol ecosystem: Horizontal and Vertical. Horizontal protocols (MCP, A2A, ANP) act as the domain-agnostic operating system layer, managing data access, discovery, and identity. Vertical protocols (UCP, AP2) function as the application layer, codifying industry-specific workflows (such as commerce and payments) on top of the horizontal infrastructure.
 
 [Table: MCP, A2A, ANP, UCP, and AP2 protocols compared by category, primary function, and maturity.]
 
@@ -104,138 +52,51 @@ Vertical Protocols — The "Application" Layer: Domain-specific semantics, rules
 
 Chapter: MCP — The "USB-C Port" for AI
 
-Section: Why MCP?
-
-Early AI integrations required writing custom glue code for every model and tool pair. Model Context Protocol (MCP) — developed by Anthropic and transferred to the Linux Foundation — solves this with a standard JSON-RPC 2.0 interface.
-
-Core limitations of REST APIs in the agent world include rigid schemas, statelessness, token waste, and meaningless error codes.
-
-Section: MCP Architecture
-
-MCP relies on a clear separation of concerns:
+Developed by Anthropic and transferred to the Linux Foundation, the Model Context Protocol (MCP) establishes a standard JSON-RPC 2.0 interface between models and tools, replacing N × M custom integration bridges. Traditional REST APIs fall short in agentic workflows due to rigid schemas, stateless connections, token waste, and semantic-free error codes. MCP addresses this with a clean client-server architecture:
 
 [Image: MCP Client-Server Architecture]
 
-Transport layers function via stdio or HTTP/SSE. stdio is used between local processes for low latency and high security, while HTTP/SSE is for remote servers and SaaS platforms.
-
-Section: MCP's Three Core Primitives
-
-[Table: Tools, Resources, and Prompts primitives defined with descriptions and examples.]
-
-Section: Advanced MCP Features
-
-Roots: URI-based scope definition that restricts all file operations to a specific directory.
-Sampling: A reverse-flow where the server can request an LLM completion from the Host. Because this feature creates a vector for Conversation Hijacking attacks, all sampling requests require Human-in-the-Loop approval.
+In this model, the MCP Host represents the runtime application (VS Code, Claude Desktop, etc.), the MCP Client manages the connection inside the Host, and the MCP Server exposes tools, resources, and templates. Communication runs over stdio (IPC) for local low-latency connections, or HTTP/SSE (Server-Sent Events) for remote SaaS integrations. MCP defines three primitives: Tools (executable functions model can call), Resources (read-only data sources), and Prompts (user templates). Security boundaries are enforced via Roots (restricting file operations to specific paths) and Sampling (allowing servers to request model completions from the Host). Because sampling can expose hosts to Conversation Hijacking, all sampling actions mandate Human-in-the-Loop (HITL) approval.
 
 ---
 
 Chapter: A2A — The Universal Language Between Agents
 
-Section: Why MCP Alone Isn't Enough
-
-MCP connects an agent to its tools; but it provides no standard for two autonomous agents to delegate tasks to each other, share state, or work in parallel. The Agent-to-Agent (A2A) protocol fills this horizontal coordination gap.
-
-Launched by Google in April 2025 and now developed under the Linux Foundation, A2A enables agents from different frameworks to securely discover each other, authenticate, and collaborate.
-
-Analogy: MCP lets an agent run applications on its desktop; A2A lets that agent send emails to other specialist agents and request work from them.
-
-Section: How A2A Works
-
-Agent Cards: Every agent publishes a JSON-based identity card at /.well-known/agent.json.
-Task Lifecycle: A2A defines a clear state machine for tasks: submitted, working, input-required, and completed or failed.
-Communication Stack: Uses HTTP/HTTPS for secure transport, JSON-RPC 2.0 for messaging, and SSE for streaming.
-
-Section: A2A Security Architecture
-
-A2A places enterprise security at the center of its design via authentication, HTTPS encryption, granular authorization, and webhook security. Note that A2A does not inherently prevent cross-agent prompt injection.
-
-Section: MCP and A2A: Complementary, Not Competing
-
-MCP handles vertical integration (Agent to Tool), while A2A handles horizontal coordination (Agent to Agent). Modern systems use both in tandem.
+While MCP connects an agent to its tools, it does not define how two agents coordinate or delegate tasks. The Agent-to-Agent (A2A) protocol, led by Google under the Linux Foundation, fills this horizontal gap. A2A enables agents to share capabilities and identities using JSON-based Agent Cards published at `/.well-known/agent.json`. Tasks are tracked via a state machine: submitted, working, input-required, and completed or failed. Communication is established over HTTPS using JSON-RPC 2.0 and SSE. Though secured by OAuth 2.0, OpenID Connect, and webhook controls, A2A does not prevent cross-agent prompt injections by design. Developers must treat inputs from external agents as untrusted. MCP provides vertical tool access, while A2A enables horizontal collaboration in a global network.
 
 ---
 
-Chapter: ANP — The "HTTP" of the Agentic Web
+Chapter: ANP, UCP, and AP2: Discovery, Commerce, and Payments
 
-Section: The Decentralized Discovery Problem
+In open agentic networks, agents must locate each other and execute secure commercial transactions. The Agent Network Protocol (ANP) handles discovery, establishing verifiable identities without central registries using W3C Decentralized Identifiers (DIDs), handshake meta-protocols, and JSON-LD application layouts. Discovery runs actively via `.well-known` paths or passively through registry directories.
 
-MCP and A2A assume agents are already acquainted. In a world with millions of agents, Agent Network Protocol (ANP) solves the discovery and trust problem, acting as the HTTP of the Agentic Web.
-
-Section: ANP's Three-Layer Architecture
-
-Identity and Encrypted Communication Layer: Secure authentication using W3C Decentralized Identifiers (DIDs).
-Meta-Protocol Layer: Facilitates negotiation between agents to determine the best communication format.
-Application Protocol Layer: Capability descriptions and service endpoints using JSON-LD.
-
-Section: Agent Discovery Service Protocol (ADSP)
-
-Allows active discovery via `.well-known` paths or passive discovery through search registration.
-
-Section: ANP vs MCP vs A2A
+For commerce, UCP (Universal Commerce Protocol) and AP2 (Agent Payments Protocol) establish the financial layer. UCP defines a shared language for catalog browsing and cart management, while AP2 secures transactions using cryptographically signed digital contracts called Mandates (Verifiable Credentials). AP2 separates the flow into three contracts: Intent Mandate (capturing user spend boundaries), Cart Mandate (binding specific items and pricing), and Payment Mandate (authorizing transaction value against the bank). Through this double signature verification, the agent never touches raw credit card data, ensuring PCI-DSS compliance. However, the collapse of traditional OTP/3D-Secure verification, infinite loop orders (A2A loops) between trading agents, and unclear liability frameworks for erroneous purchases present new commercial security risks.
 
 [Table: Comparisons between the three protocols across focus, model, scope, and identity fields.]
 
 ---
 
-Chapter: UCP & AP2 — The Autonomous Flow of Money
-
-Section: New Security Questions from Commercial Agents
-
-In ecosystems where agents make financial decisions, UCP (Universal Commerce Protocol) and AP2 (Agent Payments Protocol) demand a paradigm shift in fraud detection.
-
-UCP provides a common language for the commerce lifecycle, while AP2 handles cryptographic transaction authorization, shifting from "click-to-buy" to a "contract conversation" model.
-
-Section: AP2's Cryptographic Contract Model
-
-AP2 uses signed digital contracts called Mandates, divided into Intent Mandates, Cart Mandates, and Payment Mandates. Double signature verification ensures merchants verify both purchase details and user authorization.
-
-Section: Threat Scenarios in Autonomous Commerce
-
-Traditional verification systems like OTP or behavioral biometrics fail in an agentic world. Conflict in agent logic can trigger infinite purchase loops. Additionally, the boundary of legal liability for erroneous agent purchases remains unresolved.
-
----
-
 Chapter: MCP Vulnerability Analysis at the Connection Point
 
-Section: The Inverted Interaction Pattern
-
-In MCP architecture, the client (LLM) pulls the tool list from the server but decides through its own reasoning when and with what parameters to invoke a tool, making input filtering difficult.
+Because MCP leaves execution decisions to the language model's reasoning, traditional input sanitization is hard to enforce.
 
 [Image: MCP Protocol Architecture and Threat Surface]
 
-Section: The Confused Deputy and Indirect Prompt Injection (IPI)
+Attackers can execute Indirect Prompt Injections (IPI) by hiding malicious commands inside data sources (emails, web pages) read by the agent. When the model processes this data as a trusted instruction, the Confused Deputy vulnerability is triggered, abusing the agent's elevated local permissions.
 
-Indirect Prompt Injection is the most vulnerable point in MCP security. When an agent processes untrusted data containing hidden malicious commands, it may execute them using its high-privilege tools, resulting in a Confused Deputy vulnerability.
-
-Section: MCP Attack Vector Map
-
-[Cards: Tool Description Poisoning, Rug Pulls, Cross-Server Shadowing, and Sampling Conversation Hijacking threat scenarios are mapped.]
-
-Section: The "Lethal Trifecta" of Security Threats
-
-When Data Access, Untrusted Content Exposure, and External Action Capability converge in a single agent, a poisoned prompt can produce immediate real-world consequences.
+Key attack vectors include Tool Description Poisoning (hiding instructions in tool JSON schemas), Rug Pulls (swapping safe MCP servers with malicious updates), Cross-Server Shadowing (spoofing legitimate tool names), and Sampling Conversation Hijacking. When Data Access, Untrusted Content Exposure, and External Action Capability converge (the Lethal Trifecta / Toxic Trio), prompt injections quickly escalate to real-world system damage.
 
 ---
 
 Chapter: Multi-Agent Security — A New Dimension
 
-Coordinating multiple specialized agents into Multi-Agent swarms scales efficiency but multiplies the available attack surface.
+Concept Box — Multi-Agent Systems (MAS): A distributed system consisting of multiple specialized AI agents that autonomously communicate, share state, and divide tasks among themselves to solve a complex problem.
 
-Section: RAK Threat Modeling for AI Agents
-
-The RAK model classifies cyber threats in agent systems across three main layers: Root (infrastructure/container level), Agency (autonomous privilege abuse), and Keys (credential and API key leakage).
-
-Section: OWASP Agentic Security Initiative (ASI) Top 10
-
-[Table: List of key security risks from ASI01 to ASI06, linking them to RAK relationships and descriptions.]
-
-Section: Cascading Failures in Multi-Agent Systems
+Deploying multi-agent swarms introduces complex threat vectors. The RAK (Root, Agency, Keys) threat modeling framework categorizes these risks into Root (infrastructure/sandbox compromises), Agency (logic manipulation and privilege abuse), and Keys (credential leakage). OWASP classifies these next-generation risks in the Agentic Security (ASI) Top 10 list.
 
 [Mermaid Diagram: Flow showing how compromising a low-privilege agent cascades to critical enterprise systems.]
 
-Implicit Peer Trust: Swarms often lack granular zero-trust boundaries, meaning compromising a low-privilege web search agent can lead to a cascading compromise of high-privilege coordinator agents.
-
-Section: Traditional LLM Security vs. Agentic Security
+In multi-agent swarms, the implicit trust between collaborating nodes makes them highly vulnerable to Same-Origin Policy Collapse (SOP Collapse). Unlike web browsers where the Same-Origin Policy separates origins, agents lack these borders. If a low-privilege web search agent is poisoned via indirect injection, the coordinator agent may accept its report as trusted local input, passing it to high-privilege execution agents and compromising core enterprise databases. This highlights the gap between stateless LLM security and stateful, action-oriented agent security.
 
 [Table: Comparisons across concern, state, execution, scope, and trust model paradigms.]
 
@@ -245,21 +106,13 @@ Chapter: Empirical Findings & Ecosystem Analysis
 
 [Image: Protocol Ecosystem Comparison]
 
-Section: Benchmark Performance Data
+Section: Benchmark Performance Data, GitHub Audits, and STAC Attacks
 
-MCPGAUGE proved that MCP integration causes an average 9.5% performance drop. In LiveMCP and MCP-Universe, agents showed under 60% success rates on multi-step tasks.
+MCPGAUGE tests prove that MCP integration causes an average 9.5% reasoning performance drop in commercial LLMs, while LiveMCP and MCP-Universe show agents struggle to complete multi-step tasks (success rates under 60%). Audits of 22,722 GitHub repositories labeled 'MCP' showed only 5% contain a working server, and 5.5% of active servers contain vulnerabilities open to tool poisoning.
 
-Section: The GitHub Ecosystem Reality
+Attackers bypass standard triggers by executing Sequential Tool Attack Chaining (STAC) (chaining innocent steps like Read File, Extract String, and Send Request). Furthermore, loading extensive API schemas into contexts creates Context Bloat, increasing token consumption by 3.x to 236.x. Adopting the Code Execution Paradigm (Code Mode) solves this by executing and filtering data inside secure sandboxes, reducing token usage by 98.7%.
 
-GitHub scans reveal only 5% of MCP-tagged repositories contain functional servers. The median server size is 920 lines, and 5.5% exhibit tool poisoning vulnerabilities.
-
-Section: Sequential Tool Attack Chaining (STAC)
-
-Attackers chain individually innocent steps (Read file, Extract string, Ping IP) to bypass security and exfiltrate data.
-
-Section: Context Bloat
-
-Managing full API documentations in context causes a 3x to 200x increase in tokens. Adopting the Code Execution Paradigm (Code Mode) processes data inside sandboxes, reducing token consumption by up to 98.7%.
+[Table: Comparisons of benchmark results across leading models, scores, and metrics.]
 
 ---
 
@@ -267,37 +120,31 @@ Chapter: Real-World Application Domains
 
 [Image: AI Agent Model]
 
-Section: Software Development & DevOps
+Section: Software Development, Enterprise Automation, and Dual-Use Cyber Threats
 
-MCP enables the vibe coding paradigm. Examples include the lsp-mcp server for deep codebase analysis and AWS/Kubernetes MCP servers for cloud infrastructure control.
+In software development and DevOps, MCP drives the 'vibe coding' paradigm. The `lsp-mcp` server integrates agent workflows with LSPs to analyze codebases with IDE-level depth, while AWS/Kubernetes servers manage container deployments. For enterprise processes, agents automate recruiting, supplier negotiations, compliance audits, and customer support.
 
-Section: Enterprise Automation
+In cybersecurity, the GTG-1002 Incident marked the first documented autonomous AI cyberattack, where attackers jailbroke Claude Code to conduct multi-stage network penetration. On the defensive side (Blue Team), autonomous SOC agents analyze SIEM/EDR logs for threat hunting; on the offensive side (Red Team), agents automate network scanning and exploit verification via MCP.
 
-[Table: Agent values and scenarios in recruiting, supplier negotiation, compliance auditing, and customer support.]
-
-Section: Cybersecurity: Dual-Use Technology
-
-The GTG-1002 Incident: Recognized as the first documented autonomous AI cyberattack, where attackers manipulated Claude Code via jailbreaking for network penetration. On the defensive side, blue teams utilize Agentic SOCs for threat hunting, while red teams run autonomous penetration testing swarms.
+[Table: Scenarios and values inside enterprise automation process.]
 
 ---
 
 Chapter: Defensive Architecture and Security Strategies
 
-To secure autonomous agents, a Defense-in-Depth model must be implemented instead of relying on a single layer.
+To secure autonomous agents (Agentic AI), a Defense-in-Depth model must be implemented instead of relying on a single security layer. This approach ensures proactive defense across all runtime parameters.
 
 Section: Multi-Layered Security & Sandbox Isolation
 
-To prevent Container Escape attacks, agent-generated code must run inside user-space kernels like Google gVisor or microVMs like AWS Firecracker.
+To prevent Container Escape vulnerabilities during code execution, systems must run agent-generated scripts inside user-space kernels like Google gVisor or hardware-isolated microVMs like AWS Firecracker.
 
 [Table: Goals and implementations of Sandbox Isolation, Agentic Contract Models, Semantic WAFs, and Least Privilege.]
-
-Section: MCP-Guard Detection Performance
 
 [Table: High detection rates and sub-millisecond latencies for SQL injection, Shell injection, and Tool shadowing attacks.]
 
 Section: Taint Tracking & Information Flow Control (IFC)
 
-All data coming from the external world must be marked as tainted. If an agent processes tainted data, critical actions are blocked without human approval.
+All data coming from the external world must be marked as taint. If an agent has consumed or processed this untrusted data, critical actions such as file deletion or outbound network requests are strictly blocked without human approval.
 
 Section: Security Gateways & Agent Guardrails
 
@@ -305,19 +152,25 @@ Requires deploying Kong API Gateways integrated with CrowdStrike Falcon AIDR, en
 
 Section: Agent Monitoring and Incident Response (Wazuh Integration)
 
-Custom XML decoders and threat rules are defined in Wazuh. Upon threat detection, Wazuh active response scripts automatically isolate the agent's network bridge, triggering automated response playbooks in Cortex XSOAR.
+Wazuh SIEM/XDR provides centralized logging with custom XML decoders and alerts, triggering active response network isolation and Cortex XSOAR forensic playbooks on compromise.
 
 Section: Mathematical Foundations of Autonomous Agent Attacks
 
-Backdoors and evasions are rooted in mathematical deviations. Evasion attacks apply mathematical perturbations to inputs, while sleeper agent triggers alter attention matrix weights to bypass safety layers.
+Adversarial exploits and sleeper agent triggers in AI models are rooted in mathematical optimization deviations. These deviations trick models into bypassing safety filters or ignoring contextual constraints.
 
-Section: Proactive Red Teaming
+Model evasion attacks generate an imperceptible perturbation delta on inputs to force the classifier f(x) into outputting incorrect classifications:
 
-AutoMalTool scans show that malicious MCP tools achieve an 86% evasion rate against static analysis, proving runtime behavioral checks are mandatory.
+f(x plus delta) does not equal f(x) such that the norm p of delta is less than or equal to epsilon.
 
-Section: Enterprise Governance Standards
+In sleeper agent models, trigger inputs manipulate the Query, Key, and Value matrices in the standard attention mechanism:
 
-Important compliance standards include the NIST AI RMF, ISO 42001, and OWASP's Top 10 lists for LLMs and Agentic Security.
+Attention of Q, K, and V equals softmax of Q times K transpose divided by the square root of d k, multiplied by V.
+
+The trigger tokens block normal contextual relationships, attracting all attention weights to themselves and forcing the model to run the backdoored action.
+
+Section: Proactive Red Teaming & Compliance Frameworks
+
+The AutoMalTool scans show that malicious MCP tools achieve an 86% evasion rate against static analysis, proving runtime behavioral checks are mandatory. Compliance standards like the NIST AI RMF, ISO 42001, and OWASP's Top 10 establish essential guidelines.
 
 ---
 
