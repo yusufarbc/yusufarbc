@@ -145,7 +145,6 @@ graph TD
 
 Yapay zeka eylemcilerinin verimli çalışabilmesi için iki kritik sorunun çözülmesi gerekir: **"Dış dünyaya ve araçlara nasıl bağlanırım?"** ve **"Diğer eylemcilerle nasıl güvenli iletişim kurarım?"** Bu sorunları çözmek amacıyla geliştirilen protokoller, birbiriyle rekabet etmekten ziyade birbirini tamamlayan katmanlar oluşturur.
 
-> ![Eylemci Protokolleri Ekosistemi](MCP.webp)
 
 ### Protokol Katmanları ve Görevleri
 
@@ -304,129 +303,6 @@ Dış dünyadan gelen veriler sisteme **taint** (güvenilmez) olarak işaretlenm
 | Shell Enjeksiyonu | **%94.32** | %94.45 | 0.05ms |
 | Araç Gölgeleme Saldırıları | **%86.83** | %88.30 | 0.20ms |
 
-#### 1. Kong API Gateway ve CrowdStrike Falcon AIDR Entegrasyonu
-```yaml
-# /etc/kong/declarative/kong.yml
-_format_version: "3.0"
-services:
-  - name: enterprise-llm-service
-    url: http://vllm-inference-cluster.internal:8000
-    routes:
-      - name: secure-ai-route
-        paths:
-          - /v1/chat/completions
-        plugins:
-          - name: ai-proxy
-            config:
-              model:
-                provider: openai
-                name: gpt-4o-mini
-              auth:
-                header_name: "Authorization"
-                header_value: "Bearer kng_sec_token_8839210"
-                allow_override: false
-          - name: aidr-input-inspection
-            config:
-              ai_guard_api_key: "cs_aidr_api_key_773921"
-              upstream_llm:
-                provider: kong
-                api_uri: "/v1/chat/completions"
-              app_id: "agentic-financial-assistant"
-```
-
-#### 2. NVIDIA NeMo Guardrails ve Colang 2.0 Kuralları
-`config.yml` yapılandırması:
-```yaml
-# config/config.yml
-models:
-  - type: main
-    engine: openai
-    model: gpt-4o-mini
-  - type: self_check_input
-    engine: self-hosted
-    model: my-org/custom-safety-model
-
-rails:
-  input:
-    parallel: true
-    flows:
-      - self check input
-```
-
-`safety_rules.co` kuralları:
-```colang
-# /config/rails/safety_rules.co
-define flow self check input
-  $allowed = execute self_check_input
-    
-  if not $allowed
-    bot refuse to respond
-    stop
-
-define flow bot refuse to respond
-  bot say "İsteğiniz kurumsal güvenlik ve uyumluluk politikalarımız tarafından engellenmiştir."
-```
-
-#### 3. Meta Llama Guard Programatik Filtreleme
-```python
-# ai_guard_middleware.py
-import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM
-from typing import Tuple
-
-class LlamaGuardSafetyEngine:
-    def __init__(self, model_path: str = "meta-llama/Llama-Guard-3-8B"):
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.tokenizer = AutoTokenizer.from_pretrained(model_path)
-        self.model = AutoModelForCausalLM.from_pretrained(
-            model_path, 
-            torch_dtype=torch.bfloat16, 
-            device_map="auto"
-        )
-          
-    def validate_interaction(self, user_prompt: str) -> Tuple[bool, str]:
-        formatted_input = f"User: {user_prompt}\n\n"
-        inputs = self.tokenizer([formatted_input], return_tensors="pt").to(self.device)
-        with torch.no_grad():
-            outputs = self.model.generate(**inputs, max_new_tokens=64)
-        decoded_verdict = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
-        verdict_lines = decoded_verdict.strip().split("\n")
-        
-        if "unsafe" in verdict_lines[0]:
-            category = verdict_lines[1] if len(verdict_lines) > 1 else "Unknown"
-            return False, f"İçerik güvenlik politikalarını ihlal ediyor. Kategori: {category}"
-        return True, "Safe"
-```
-
-#### 4. RFC 8693 Token Exchange ile Ajan Kimlik Doğrulaması
-Token Exchange istek payload örneği:
-```http
-POST /oauth/token HTTP/1.1
-Host: auth.kurum.local
-Content-Type: application/x-www-form-urlencoded
-
-grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Atoken-exchange
-&subject_token=eyJhbGciOiJSUzI1NiIs...
-&subject_token_type=urn%3Aietf%3Aparams%3Aoauth%3Atoken-type%3Ajwt
-&requested_token_type=urn%3Aietf%3Aparams%3Aoauth%3Atoken-type%3Ajwt
-&scope=vacation.read
-&requested_actor=urn%3Akurum%3Aagents%3Ahr-summarizer-agent
-```
-
-Üretilen JWT payload örneği (`act` claimi ile zincirleme denetim izi korunur):
-```json
-{
-  "sub": "alice_user@kurum.com",
-  "iss": "https://auth.kurum.local",
-  "aud": "hr-backend-service",
-  "exp": 1774884300,
-  "scope": "vacation.read",
-  "act": {
-    "sub": "urn:kurum:agents:hr-summarizer-agent"
-  }
-}
-```
-
 #### 5. RFC 8707 ile Yetki Aşımı Engelleme
 OAuth 2.1 standardındaki **Resource Indicators (RFC 8707)** kullanılarak, bir eylemcinin belirli bir sunucu için aldığı erişim jetonunu (token) başka bir sunucuda kullanması ve yetki sınırlarını aşması engellenir.
 
@@ -457,8 +333,6 @@ Tetikleyici token'lar normal metin token'larının bağlamsal ilişkilerini blok
 **Sonuç ve Gelecek Öngörüleri**
 
 Yapay zeka eylemcilerinin protokol ekosistemi hızla olgunlaşıyor. MCP, A2A, ANP, UCP ve AP2 protokolleri, "Agentic Web" (Eylemci Ağı) adı verilen otonom internet altyapısının temel taşlarını döşüyor.
-
-> ![Güvenli Eylemci Tasarımı](post.webp)
 
 Bu yeni dünyada güvenlik, sistem kurulduktan sonra eklenen bir yama değil; tasarım aşamasından itibaren temel alınan bir yaklaşım (**Secure by Design**) olmak zorundadır. Linux Foundation çatısı altındaki ekipler ile büyük teknoloji devlerinin ortaklaşa geliştirdiği yerleşik RBAC (rol tabanlı yetkilendirme) katmanları, dijital imzalı yazılım envanterleri (SBOM) ve standartlaştırılmış sandbox yapıları, geleceğin siber güvenlik mimarisini şekillendirecektir.
 
