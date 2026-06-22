@@ -295,18 +295,6 @@ Dış dünyadan gelen veriler sisteme **taint** (güvenilmez) olarak işaretlenm
 | **Semantik WAF / LLM Guard** | Komut enjeksiyonu koruması | Llama Guard veya MCP-Guard gibi sistemlerle girdi/çıktı kontrolü |
 | **En Az Yetki Prensibi** | Minimum haklarla çalışma | Süre sınırlı ve sadece ilgili göreve özel API tokenları kullanılması |
 
-### MCP-Guard Algılama Performansı
-
-| Saldırı Tipi | Tespit Başarısı | F1 Skoru | Analiz Gecikmesi |
-| :--- | :--- | :--- | :--- |
-| SQL Enjeksiyonu | **%96.31** | %96.33 | 0.11ms |
-| Shell Enjeksiyonu | **%94.32** | %94.45 | 0.05ms |
-| Araç Gölgeleme Saldırıları | **%86.83** | %88.30 | 0.20ms |
-
-#### 5. RFC 8707 ile Yetki Aşımı Engelleme
-OAuth 2.1 standardındaki **Resource Indicators (RFC 8707)** kullanılarak, bir eylemcinin belirli bir sunucu için aldığı erişim jetonunu (token) başka bir sunucuda kullanması ve yetki sınırlarını aşması engellenir.
-
----
 
 ### Otonom Ajan Saldırılarının Matematiksel Temelleri
 
