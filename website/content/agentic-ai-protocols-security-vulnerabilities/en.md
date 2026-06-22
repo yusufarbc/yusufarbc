@@ -145,8 +145,6 @@ graph TD
 
 For agents to function, they must answer two fundamental questions: **"How do I connect to tools?"** and **"How do I coordinate with other agents?"** The answers point to protocol layers that are not competing but complementary.
 
-> ![Agentic AI Ecosystem](MCP.webp)
-
 ### The Protocol Landscape
 
 Two categories are essential for understanding the protocol ecosystem: Horizontal and Vertical. Horizontal protocols (MCP, A2A, ANP) act as the domain-agnostic operating system layer, managing data access, discovery, and identity. Vertical protocols (UCP, AP2) function as the application layer, codifying industry-specific workflows (such as commerce and payments) on top of the horizontal infrastructure.
@@ -478,7 +476,6 @@ The **AutoMalTool** framework autonomously generates malicious MCP tools to test
 
 The protocol ecosystem of agentic AI is maturing rapidly. MCP, A2A, ANP, UCP, and AP2 — each fulfilling a critical function at a different layer — are together building the infrastructure of the "Agentic Web."
 
-> ![Secure MCP Architecture Design](post.webp)
 
 In this ecosystem, security must not be a patch applied after the fact but a foundational principle baked in from day one — **Secure by Design**. Cryptographic signing, built-in RBAC layers, SBOM validation, and standardized sandbox schemas being developed by the Agentic AI Foundation (under the Linux Foundation) alongside Google, Anthropic, and Microsoft will form the cornerstones of enterprise-grade safety.
 
