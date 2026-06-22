@@ -7,19 +7,7 @@ type: posts
 audioFile: tr.mp3
 ---
 
-Yapay zeka tarihi şimdiye kadar iki büyük kırılma noktası yaşadı. İlki, sembolik yapay zekadan makine öğrenimine geçişti. Bugün ise reaktif dil modellerinden **Agentic AI** (Eylemsel Yapay Zeka) paradigmalarına geçişin tam ortasındayız. Bu ikinci dönüşüm, basit bir teknolojik ilerlemeden çok daha fazlası; zira siber güvenlik, karşılıklı güven ve sorumluluk paylaşımları söz konusu olduğunda oyunun kurallarını tamamen değiştiriyor.
-
-> [!NOTE]
-> **Kavram Kutusu — Sembolik Yapay Zekâ (GOFAI) ve Sembolik Mantık:**
-> - **Sembolik Yapay Zekâ (GOFAI):** İnsan bilgisinin ve mantık kurallarının doğrudan bilgisayar sistemlerine kodlanmasıyla çalışan geleneksel yapay zeka paradigmasıdır. Veriden öğrenmek yerine önceden tanımlanmış kurallara dayanır.
-> - **Sembolik Akıl Yürütme (Symbolic Reasoning):** İnsan diline yakın kavramsal semboller ve mantıksal kurallar üzerinden düşünme ve problem çözme yöntemidir.
-> - **Uzman Sistemler (Expert Systems):** Belirli bir uzmanlık alanındaki insan bilgisini kurallar ("Eğer... ise...") şeklinde kodlayarak karar veren sistemlerdir.
-> - **Mantıksal Çıkarım (Inference Engines):** Bilgi tabanındaki kuralları ve verileri kullanarak yeni çıkarımlar yapan mantıksal akıl yürütme motorudur.
-> - **Bilgi Temsili (Knowledge Representation):** Gerçek dünyadaki bilgilerin bilgisayarlar tarafından işlenebilmesi için ontolojiler veya semantik ağlar şeklinde modellenmesidir.
-> - **Kural Tabanlı Sistemler (Rule-Based Systems):** Önceden tanımlanmış katı kurallara ("Eğer A ise B") göre çalışan, esnekliği düşük deterministik sistemlerdir.
-
-> [!NOTE]
-> **Kavram Kutusu — Makine Öğrenmesi (Machine Learning - ML):** Bilgisayarların açıkça programlanmadan, veriler üzerinden kalıpları ve istatistiksel ilişkileri öğrenerek tahmin ve kararlar vermesini sağlayan algoritmalar bütünüdür.
+Yapay zeka serüveni, insan aklını kurallar ve sembolik mantık çerçevesine oturtmaya çalışan geleneksel yaklaşımlardan (GOFAI - Good Old-Fashioned AI) veriyle beslenen makine öğrenimi modellerine geçişle ilk büyük kırılmasını yaşamıştı. Bugün ise reaktif ve statik dil modellerinden, kendi kararlarını alıp uygulayabilen **Eylemsel Yapay Zeka (Agentic AI)** paradigmalarına geçişin tam ortasındayız. Bu ikinci dönüşüm, basit bir teknolojik ilerlemeden çok daha fazlası; zira siber güvenlik, karşılıklı güven ve sorumluluk paylaşımları söz konusu olduğunda oyunun kurallarını tamamen değiştiriyor.
 
 Yapay zeka eylemcilerinin hızla hayatımıza girmesiyle birlikte yeni bir protokol ekosistemi de doğdu: **MCP, A2A, ANP, UCP ve AP2**. Bu protokoller birbiriyle rekabet etmek yerine, tıpkı TCP/IP katmanları gibi birbirini tamamlayan bir mimari sunuyor. Ancak bu katmanların her biri, geleneksel güvenlik çözümlerinin yetersiz kaldığı yepyeni saldırı yüzeylerini de beraberinde getiriyor.
 
@@ -30,13 +18,6 @@ Yapay zeka eylemcilerinin hızla hayatımıza girmesiyle birlikte yeni bir proto
 ---
 
 ## Yapay Zeka Eylemci Protokollerinin Güvenlik ve Mimari Şeması
-
-
-
-
-
-
-
 
 Aşağıdaki mimari şema, bir otonom yapay zeka uygulamasında kullanıcı, istemci, yönlendirici ve sunucular arasındaki güven sınırlarını ve potansiyel saldırı vektörlerini göstermektedir:
 
@@ -91,12 +72,6 @@ graph LR
 
 ## Agentic AI (Eylemsel Yapay Zeka) Nedir?
 
-
-
-
-Bu bölüm detayları ve etkileri incelemektedir.
-
-
 ### Reaktif Modellerden Agentic AI'a Geçiş
 
 Geleneksel üretici yapay zeka (Generative AI) araçları sadece birer **asistan** gibidir: Siz soru sorarsınız, onlar da yanıtlar. Agentic AI (Eylemsel Yapay Zeka) ise adeta bir **iş ortağı**dır: Siz sadece nihai hedefi belirlersiniz; eylemci, bu hedefe ulaşmak için izleyeceği adımları kendisi planlar ve yürütür.
@@ -107,20 +82,7 @@ Bu büyük paradigma değişimi şu formülle özetlenebilir:
 
 Bu fark sadece işlevsel değildir; siber güvenlik açısından da son derece kritiktir. Reaktif bir model (örneğin standart bir chatbot) doğrudan sistemler üzerinde aksiyon alıp fiziksel bir hasara yol açamazken; otonom bir yapay zeka eylemcisi dosya silebilir, veritabanı sorgulayabilir, e-posta gönderebilir, ödeme işlemlerini tetikleyebilir ve hatta diğer eylemcileri göreve çağırabilir.
 
-> [!NOTE]
-> **Kavram Kutusu — Bağlantıcı (Connectionist) Yapay Zekâ ve Temel Terimler:**
-> - **Derin Öğrenme (Deep Learning - DL):** Çok katmanlı yapay sinir ağları kullanarak verideki karmaşık, hiyerarşik yapıları otonom olarak öğrenen makine öğrenmesi alt dalıdır.
-> - **Yapay Sinir Ağları (Artificial Neural Networks - ANN):** İnsan beyninin nöron ağlarından esinlenen, girdileri düğümler (nöronlar) ve ağırlıklı bağlantılar üzerinden işleyen matematiksel modellerdir.
-> - **Doğal Dil İşleme (Natural Language Processing - NLP):** İnsan dilinin (metin veya konuşma) bilgisayarlar tarafından çözümlenmesi, anlamlandırılması ve otonom üretilmesini sağlayan teknolojiler bütünüdür.
-> - **Büyük Dil Modelleri (Large Language Models - LLM):** Milyarlarca parametre ve devasa metin veri setleriyle eğitilmiş, dilin bağlamını anlayarak metin tamamlama, soru cevaplama ve otonom akıl yürütme yapabilen ileri seviye dil modelleridir.
-> - **Üretken Yapay Zekâ (Generative AI - GenAI):** Mevcut veri dağılımlarını öğrenerek metin, görsel, ses, müzik veya kod gibi tamamen yeni ve özgün içerikler üretebilen yapay zeka sistemleridir.
-> - **Pekiştirmeli Öğrenme (Reinforcement Learning - RL):** Bir ajanın (agent), içinde bulunduğu çevrede deneme-yanılma yaparak ve aldığı ödül-ceza (geribildirim) sinyallerini maksimize ederek en uygun karar politikalarını öğrenmesidir.
-> - **Bilgisayarla Görü (Computer Vision):** Görsel verileri (görüntü, video) işleyerek bilgisayarların çevreyi anlamlandırmasını, nesne tespiti veya yüz tanıma yapabilmesini sağlayan disiplindir.
-> - **Konuşma Tanıma (Speech Recognition):** İnsan ses dalgalarını analiz edip bilgisayarların işleyebileceği ham metin formatına dönüştürme işlemidir.
-> - **Agentic AI (Eylemsel Yapay Zeka):** Belirlenen bir hedef doğrultusunda kendi başına planlama yapabilen, hafızasını (belleğini) yöneten, API veya terminal gibi harici araçları (tools) otonom çalıştırabilen ve hata durumunda kendi kendini düzeltebilen eylemsel yapay zeka mimarisidir.
-> - **Planlama (Planning):** Ajanın büyük hedeflere ulaşmak amacıyla atacağı adımların sırasını ve alternatif yolları otonom olarak belirleme sürecidir.
-> - **Evrişimli Sinir Ağları (Convolutional Neural Networks - CNN):** Görüntü ve video gibi mekansal (spatial) verilerdeki pikselleri evrişim matrisleri üzerinden süzerek kenar, köşe ve doku tespiti yapmak için optimize edilmiş çok katmanlı sinir ağlarıdır.
-> - **Graf Sinir Ağları (Graph Neural Networks - GNN):** Moleküler yapılar, sosyal ağlar veya bilgisayar ağları gibi düğümler ve kenarlardan oluşan ilişkisel (graf) verileri işlemek üzere tasarlanmış modern derin öğrenme yapılarıdır.
+Eylemsel yapay zeka, büyük dil modellerinin (LLM) sağladığı muhakeme yeteneğini pekiştirmeli öğrenme prensipleriyle birleştirerek statik bir bilgi üreticisinden otonom bir eylemciye dönüştürür. Bu mimari; planlama yapabilen, hafızasını yöneten ve harici araçları otonom olarak çalıştırabilen bir yapı sunar. Bu geçiş, yapay sinir ağları ve derin öğrenme modellerinin ulaştığı olgunluk seviyesinin doğrudan bir sonucudur.
 
 ### Yapay Zeka Eylemcilerinin Temel Bileşenleri
 
@@ -155,17 +117,7 @@ Yapay zeka eylemcileri, karmaşık problemleri çözmek için çeşitli mantıks
 
 ## RAG (Retrieval-Augmented Generation / Veri Geri Çağırmayla Artırılmış Üretim)
 
-
-
-
-
-
-
-
-**RAG (Retrieval-Augmented Generation / Veri Geri Çağırmayla Artırılmış Üretim)**, yapay zeka dünyasının en akıllıca çözümlerinden biridir. Büyük dil modellerinin (LLM) en büyük zayıflıklarını (güncel olmayan bilgi ve uydurma/hallüsinasyon eğilimlerini) kapatmak için geliştirilmiştir.
-
-> [!NOTE]
-> **Kavram Kutusu — RAG (Retrieval-Augmented Generation):** Dil modelinin parametrik hafızasındaki (eğitim verileri) bilgilere güvenmek yerine, dışarıdaki dinamik veri kaynaklarından (PDF, veritabanı vb.) anlamsal olarak en alakalı parçaları vektör yakınlığı araması ile bulup getirerek (retrieval) modeli besleyen ve yanıtı bu bağlamla zenginleştiren (generation) hibrit bir mimaridir. Ajan tabanlı sistemlerde otonom araştırma ve bilgi toplama süreçlerinin temelidir.
+Büyük dil modellerinin eğitim verileriyle sınırlı parametrik hafızasını dinamik dış kaynaklarla zenginleştirmek amacıyla geliştirilen **RAG (Retrieval-Augmented Generation)**, otonom eylemcilerin de en kritik bilgi toplama mekanizmasıdır.
 
 Aşağıdaki şema, tipik bir RAG sisteminin uçtan uca veri hazırlama, arama ve yanıt üretme akışını göstermektedir:
 
@@ -252,13 +204,6 @@ Basit bir akışla: Dokümanlarını yükler, LlamaIndex ile endeksler ve OpenAI
 
 ## Agentic Web (Eylemci Ağı) Protokol Haritası
 
-
-
-
-
-
-
-
 Yapay zeka eylemcilerinin verimli çalışabilmesi için iki kritik sorunun çözülmesi gerekir: **"Dış dünyaya ve araçlara nasıl bağlanırım?"** ve **"Diğer eylemcilerle nasıl güvenli iletişim kurarım?"** Bu sorunları çözmek amacıyla geliştirilen protokoller, birbiriyle rekabet etmekten ziyade birbirini tamamlayan katmanlar oluşturur.
 
 ![Eylemci Protokolleri Ekosistemi](MCP.webp)
@@ -281,12 +226,6 @@ Bu protokoller genel olarak yatay ve dikey olmak üzere iki ana kategoride incel
 ---
 
 ## MCP — Eylemcilerin "USB-C" Standardı
-
-
-
-
-Bu bölüm detayları ve etkileri incelemektedir.
-
 
 ### Neden Model Context Protocol (MCP)?
 
@@ -320,7 +259,7 @@ MCP, rollerin net bir şekilde ayrıldığı klasik bir istemci-sunucu (client-s
 | :--- | :--- | :--- | :--- |
 | **Araçlar (Tools)** | Model | Yapay zekanın çağırabileceği ve çalıştırabileceği işlevler | `send_email`, `query_db` |
 | **Kaynaklar (Resources)** | Uygulama | Modele bağlam (context) sunan, salt okunur veri kaynakları | Kod dosyaları, veritabanı şemaları |
-| **İstemler (Prompts)** | Kullanıcı | Sık kullanılan görevleri otomatikleştiren hazır şablonlar | "Bu kod bloğunu analiz et" |
+| **İstemer (Prompts)** | Kullanıcı | Sık kullanılan görevleri otomatikleştiren hazır şablonlar | "Bu kod bloğunu analiz et" |
 
 ### Gelişmiş Özellikler ve Güvenlik Sınırları
 
@@ -330,12 +269,6 @@ MCP, rollerin net bir şekilde ayrıldığı klasik bir istemci-sunucu (client-s
 ---
 
 ## A2A — Eylemciler Arası İletişim Standartları
-
-
-
-
-Bu bölüm detayları ve etkileri incelemektedir.
-
 
 ### A2A Protokolü ve Yatay Koordinasyon
 
@@ -377,12 +310,6 @@ Modern otonom sistemler bu iki yapıyı birlikte kullanır: MCP eylemcileri loka
 
 ## ANP — Otonom Eylemci Keşif Altyapısı
 
-
-
-
-Bu bölüm detayları ve etkileri incelemektedir.
-
-
 ### Eylemcilerin İnternette Birbirini Bulması
 
 MCP ve A2A protokolleri, eylemcilerin birbirinin iletişim bilgilerini önceden bildiğini varsayar. Ancak milyonlarca yapay zeka eylemcisinin internete dağıldığı açık bir ekosistemde, bir eylemcinin ihtiyaç duyduğu başka bir uzman eylemciyi nasıl bulacağı ve ona nasıl güveneceği büyük bir soru işaretidir. İşte bu otonom keşif problemini çözmek için **Agent Network Protocol (ANP)** (Eylemci Ağ Protokolü) geliştirilmektedir.
@@ -392,7 +319,7 @@ Açık kaynaklı ve topluluk odaklı bir standart olan ANP, herhangi bir merkezi
 ### ANP'nin Üç Katmanlı Yapısı
 
 1. **Kimlik ve Güvenli İletişim Katmanı:** W3C standartlarında **Decentralized Identifiers (DID - Merkeziyetsiz Tanımlayıcılar)** kullanarak eylemcilere doğrulanabilir kimlikler sağlar. Bu sayede hiçbir merkezi veritabanına ihtiyaç duymadan uçtan uca şifreli ve güvenli bağlantılar kurulabilir.
-2. **Meta-Protokol Katmanı:** Farklı protokol sürümleri kullanan eylemcilerin, ortak bir iletişim dilinde ve formatta (örneğin JSON-RPC sürümü) anlaşabilmesi için el sıkışma (handshake) süreçlerini yönetir.
+2. **Meta-Protokol Katmanı:** Farklı protokol sürümleri kullanan eylemcilerin, ortak bir iletişim dilinde ve formatta (örneğin JSON-RPC sürümü) anlaşabilmesi için el sınırları (handshake) süreçlerini yönetir.
 3. **Uygulama Protokolü Katmanı:** Eylemcilerin sunduğu servisleri ve yetenekleri tanımlar. **JSON-LD (Linked Data)** standartları kullanılarak anlamsal olarak zengin, sorgulanabilir bir keşif ortamı oluşturulur.
 
 ### Eylemci Keşif Yöntemleri (ADSP)
@@ -412,12 +339,6 @@ Açık kaynaklı ve topluluk odaklı bir standart olan ANP, herhangi bir merkezi
 ---
 
 ## UCP ve AP2 — Yapay Zeka Eylemcileri İçin Finans ve Ödeme Standartları
-
-
-
-
-Bu bölüm detayları ve etkileri incelemektedir.
-
 
 ### Otonom Ticaret ve Ödeme Protokolleri
 
@@ -446,15 +367,9 @@ AP2, işlemlerin güvenliğini sağlamak için W3C standartlarındaki Doğrulana
 
 ## MCP Güvenliği ve Zafiyet Analizi
 
-
-
-
-Bu bölüm detayları ve etkileri incelemektedir.
-
-
 ### Tersine İletişim Akışı ve Riskleri
 
-Klasik web uygulamalarında istemci ne yapacağını tam olarak bilir ve sunucudan sadece o veriyi ister. Ancak MCP kullanan yapay zeka eylemcilerinde bu akış tersine döner: İstemci (dil modeli), sunucudan alabileceği araç listesini çeker fakat hangi aracı, ne zaman ve hangi parametrelerle çağıracağına **kendi mantık yürütme süreciyle** karar verir. Karar mekanizmasının tamamen dil modeline bırakılması, girdi filtrelemeyi son derece zorlaştırır.
+Klasik web uygulamalarında istemci ne yapacağını tam olarak bilir ve sunucudan sadece o veriyi ister. Ancak MCP kullanan yapay zeka eylemcilerinde bu akış tersine döner: İstemci (dil modeli), sunucudan alabileceği araç listesini çeker fakat hangi aracı, ne zaman ve hangi parametrelerle çağıracağına **konyo mantık yürütme süreciyle** karar verir. Karar mekanizmasının tamamen dil modeline bırakılması, girdi filtrelemeyi son derece zorlaştırır.
 
 ![MCP Protokolü ve Tehdit Yüzeyi](protocol.webp)
 
@@ -499,10 +414,7 @@ Bir yapay zeka eylemcisi şu üç özelliğe aynı anda sahip olduğunda felaket
 
 ## Çoklu Eylemci (Multi-Agent) Güvenliği
 
-> [!NOTE]
-> **Kavram Kutusu — Çoklu Ajan Sistemleri (Multi-Agent Systems - MAS):** Belirli bir problemi çözmek için kendi aralarında otonom olarak haberleşen, koordinasyon sağlayan ve iş bölümü yapan birden fazla yapay zeka ajanının oluşturduğu dağıtık sistemdir.
-
-Çoklu ajan yapılarının yaygınlaşması, tekil modellerin sınırlarını aşan dinamik iş akışları oluştursa da siber güvenlik risklerini de katlayarak artırmaktadır.
+Karmaşık problemleri çözmek için tek bir modelin sınırlarını aşarak birbiriyle haberleşen, görev dağılımı yapan ve durum paylaşan **Çoklu Ajan Sistemleri (Multi-Agent Systems - MAS)**, verimliliği artırırken siber güvenlik risklerini de katlayarak artırmaktadır.
 
 ### Yapay Zeka Ajanları İçin RAK Tehdit Modellemesi
 
@@ -567,13 +479,6 @@ Geleneksel web tarayıcılarında farklı kaynaklardan gelen betiklerin birbirin
 
 ## Akademik Araştırmalar ve Sektör Analizleri
 
-
-
-
-
-
-
-
 ![Protokol Ekosistem Karşılaştırması](infografik.webp)
 
 ### Benchmark Sonuçları ve Performans Verileri
@@ -590,7 +495,7 @@ Yapılan **MCPGAUGE** testleri, MCP entegrasyonunun büyük ticari modellerde or
 
 ### GitHub Ekosistemi İncelemesi
 
-Açık kaynaklı 22.722 GitHub deposu üzerinde yapılan tarama sonuçları şunları ortaya koyuyor:
+Açık kaynaklı 22.722 GitHub deposu üzerinde yapılan tarama sonuçları şunlara işaret ediyor:
 - "MCP" etiketi taşıyan depoların sadece **%5'i** gerçekten çalışan, işlevsel bir sunucu barındırıyor.
 - Bu sunucu kodlarının ortanca (median) boyutu sadece **920 satır**.
 - İncelenen 1.899 aktif MCP sunucusunun **%5.5'inde** dolaylı kod/araç zehirlenmesine açık zafiyetler bulunuyor.
@@ -605,15 +510,51 @@ Tek başına bakıldığında tamamen zararsız olan işlemlerin bir araya getir
 
 Güvenlik filtreleri bu adımların hiçbirini tek başına engellemez fakat zincirleme olarak çalıştırıldıklarında veri sızıntısıyla sonuçlanırlar.
 
+### Bağlam Şişmesi (Context Bloat)
+
+Token tüketim artışı: **3.25x — 236.5x**
+
+**Çözüm: Kod Odaklı Çalışma (Code Mode)**
+
+| Yöntem | Token Kullanımı | Veri İşleme |
+| :--- | :--- | :--- |
+| Doğrudan Araç Çağırma | ~150.000 token | Ham veri dil modeline gönderilir |
+| Kod Çalıştırma (Code Mode) | ~2.000 token (**%98.7 azaltma**) | Veri sandbox içinde filtrelenir |
+
+---
+
+## Gerçek Dünya Uygulama Alanları
+
+![AI Agent Model](model.webp)
+
+### Yazılım Geliştirme ve DevOps
+
+MCP, "vibe coding" (sadece fikir belirterek kodlama) paradigmasını hızlandırıyor; geliştiriciler hedeflerini doğal dilde açıklar, eylemciler ise kodu yazar, test eder ve yeniden yapılandırır (refactor). Öne çıkan örnekler:
+
+* **lsp-mcp sunucusu:** MCP (eylemci dünyası) ile LSP (Language Server Protocol - Dil Sunucusu Protokolü) arasında köprü kurarak yapay zekanın kod tabanını bir IDE kadar derinlemesine anlamasını sağlar.
+* **AWS/Kubernetes MCP sunucuları:** "Canlı ortamdaki Kubernetes pod sayısını 5'e çıkar" gibi doğal dildeki komutlarla bulut altyapısının otonom yönetimini sağlar.
+
+### Kurumsal Süreç Otomasyonu
+
+| Kullanım Senaryosu | Sağladığı Değer |
+| :--- | :--- |
+| **İşe Alım (Recruiting)** | ATS verilerini analiz eder, geçmiş işe alım örüntüleriyle karşılaştırır ve veri odaklı aday listeleri oluşturur. |
+| **Tedarikçi Müzakereleri** | E-postaları, sözleşmeleri ve harcama verilerini analiz ederek daha güçlü müzakere pozisyonları oluşturur. |
+| **Uyum (Compliance) Denetimi** | Otonom uyum kontrolleri gerçekleştirmek için SIEM ve kurumsal politika sistemlerine bağlanır. |
+| **Müşteri Desteği** | Doğru ve güncel yanıtlar sunmak amacıyla CRM, bilgi tabanları ve veritabanlarına gerçek zamanlı erişir. |
+
+### Siber Güvenlik: Çift Yönlü Kullanım (Dual-Use)
+
+**GTG-1002 Olayı:** Tarihte belgelenmiş ilk otonom yapay zeka siber saldırısı olarak kabul edilmektedir. Bu devlet destekli siber kampanyada, saldırganlar Claude Code gibi otonom kodlama asistanlarını "jailbreak" yöntemleriyle aşarak çok aşamalı ağ sızma operasyonlarında kullandılar. Bu olay, otonom yapay zeka tabanlı siber savaş çağının başlangıcı oldu.
+
+* **Mavi Takım (Savunma):** Otonom SOC eylemcileri; SIEM, EDR ve ağ loglarını birleştirerek insan hızının çok ötesinde anomali tespiti ve otonom tehdit avcılığı yürütür.
+* **Kırmızı Takım (Ofansif):** Yapay zeka eylemcileri, MCP üzerinden sızma testi araçlarını otonom olarak çalıştırarak ağlardaki zafiyetleri keşfeder ve siber saldırı simülasyonları gerçekleştirir.
+
+---
+
 ## Savunma Stratejileri ve Defansif Mimari
 
-Otonom eylemcilerin (Agentic AI) güvenliğini sağlamak için tek bir güvenlik katmanına güvenmek yerine derinlemesine savunma (Defense-in-Depth) modeli uygulanmalıdır.
-
-> [!NOTE]
-> **Kavram Kutusu — İleri Yapay Zeka Terimleri (XAI, AutoML, Federe Öğrenme):**
-> - **Açıklanabilir Yapay Zekâ (Explainable AI - XAI):** Yapay zeka modellerinin kararlarını ve tahmin süreçlerini insanlar için şeffaf, denetlenebilir ve anlaşılır kılmayı amaçlayan prensipler bütünüdür.
-> - **AutoML:** Veri hazırlama, model seçimi ve hiperparametre optimizasyonu gibi makine öğrenmesi süreçlerinin otonom araçlarla otomatikleştirilmesidir.
-> - **Federe Öğrenme (Federated Learning):** Verileri merkezi bir sunucuda toplamadan, yerel cihazlarda eğitip sadece model güncellemelerini şifreli şekilde birleştiren mahremiyet odaklı dağıtık öğrenme yöntemidir.
+Otonom eylemcilerin (Agentic AI) güvenliğini sağlamak için tek bir güvenlik katmanına güvenmek yerine derinlemesine savunma (Defense-in-Depth) modeli uygulanmalıdır. Bu yaklaşım, sistemin tüm katmanlarında proaktif koruma sağlar.
 
 ### Çok Katmanlı Güvenlik Yaklaşımı ve Yalıtılmış Çalışma (Sandboxing)
 
@@ -907,7 +848,7 @@ Kuralların ve decoders yapılarının Git deposunda saklanıp otomatik olarak S
 
 ### Otonom Ajan Saldırılarının Matematiksel Temelleri
 
-Yapay zeka modellerine ve eylemcilerine yönelik sömürülerin ve arka kapı (sleeper agents) tetiklemelerinin ardında matematiksel sapma modelleri yatar.
+Yapay zeka modellerine ve eylemcilerine yönelik sömürülerin ve arka kapı (sleeper agents) tetiklemelerinin ardında matematiksel sapma modelleri yatar. Bu modeller, güvenlik denetimlerini atlatmak amacıyla tasarlanır.
 
 #### 1. Model Atlatma (Model Evasion) Matematiksel Yapısı
 Saldırgan, girdi üzerinde insan zihninin fark edemeyeceği çok küçük gürültüler ($\delta$) üreterek sınıflandırıcının ($f(x)$) hatalı sonuç üretmesini amaçlar:
@@ -915,16 +856,9 @@ $$f(x + \delta) \neq f(x) \quad \text{öyle ki} \quad \|\delta\|_p \le \epsilon$
 Burada $\epsilon$ gürültü sınırını, $p$ ise mesafe normunu temsil eder.
 
 #### 2. Sleeper Agent Modellerinde Dikkat Mekanizması Sapması
-Modellerdeki dahili dikkat (attention) mekanizmasının analizi, tetikleyici token'ların kendi aralarında güçlü bir bağ kurduğunu göstermektedir. Query ($Q$), Key ($K$) ve Value ($V$) matrisleri üzerinden hesaplanan standart dikkat formülünde:
+Modellerdeki dahili dikkat (attention) mekanizmasının analizi, tetikleyici token'ların kendi aralarında güçlü bir bağ kurduğunu göstermektedir. Query ($Q$), Key ($K$), ve Value ($V$) matrisleri üzerinden hesaplanan standart dikkat formülünde:
 $$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
 Tetikleyici girdiler mevcut olduğunda, dikkat matrisinde "çift üçgen" (double triangle) adı verilen sapma örüntüsü oluşur. Tetikleyici token'lar, normal metin token'larının oluşturduğu bağlamsal ilişkileri bloke ederek tüm dikkat ağırlıklarını kendi üzerlerine çeker. Bu durum, modelin kalan girdiyi göz ardı edip doğrudan zehirli eylemi gerçekleştirmesine neden olur.
-
-> [!NOTE]
-> **Kavram Kutusu — İleri Yapay Zeka Terimleri (Bilişsel Mimariler, Neuro-Symbolic AI, AGI, ASI):**
-> - **Neuro-Symbolic AI:** Sembolik yapay zekanın mantık/kural tabanlı açıklanabilirliği ile bağlantıcı derin öğrenmenin veri işleme gücünü birleştiren hibrit yaklaşımdır.
-> - **Bilişsel Mimariler (Cognitive Architectures):** İnsan zihninin çalışma prensiplerini ve karar mekanizmalarını bilgisayar sistemlerinde modelleyen yapay zeka teorileridir (SOAR, ACT-R).
-> - **Yapay Genel Zekâ (AGI):** İnsan zekasının sahip olduğu tüm zihinsel yeteneklere, farklı alanlarda öğrenme ve uyum sağlama kapasitesine eş değer yapay zekadır.
-> - **Yapay Süper Zekâ (ASI):** İnsan zekasını bilimsel yaratıcılık, pratik bilgelik ve sosyal beceriler dahil her alanda geride bırakan teorik süper zekadır.
 
 ### Proaktif Güvenlik ve Otomatik Kırmızı Takım (Red Teaming)
 

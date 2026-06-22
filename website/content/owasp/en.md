@@ -1,5 +1,5 @@
 ---
-title: "Project OWASP Top 10"
+title: "Project: OWASP Top 10"
 date: 2026-06-21
 description: "Historical development, architectural differences, and industry alignment of OWASP Top 10 projects covering Web, Mobile, API, K8s, CI/CD, and LLM/Agentic systems."
 tags: ["Application Security", "OWASP", "DevSecOps", "AI Security"]
