@@ -1,8 +1,15 @@
-.idea
-**/themes/
-exampleSite/public/
-exampleSite/resources/
-*.lock
-node_modules/
-dist/
+# Astro & Build Output
 .astro/
+dist/
+node_modules/
+
+# IDE & OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.*
+!.env.example
