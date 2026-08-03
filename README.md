@@ -49,7 +49,7 @@ I set up resilient environments using virtualization and containerization:
 
 <p align="center">
   <img src="profile-summary-card-output/tokyonight/0-profile-details.svg" alt="Yusuf's GitHub Stats" height="180px" />
-  <img src="profile-summary-card-output/tokyonight/1-top-languages.svg" alt="Top Langs" height="180px" />
+  <img src="profile-summary-card-output/tokyonight/2-most-commit-language.svg" alt="Top Languages" height="180px" />
 </p>
 
 ---
