@@ -4,13 +4,15 @@
 
   <img src="subtitle.svg" alt="Software & Security Engineer" height="35" />
 
-
   <p align="center" style="margin-top: 10px;">
     <a href="https://yusufarbc.dev/en/">
       <img src="https://img.shields.io/badge/Portfolio-yusufarbc.dev-0f172a?style=for-the-badge&logo=google-chrome&logoColor=38bdf8" alt="Portfolio" />
     </a>
     <a href="https://infosec.exchange/@yusufarbc">
       <img src="https://img.shields.io/badge/Mastodon-InfoSec.Exchange-0f172a?style=for-the-badge&logo=mastodon&logoColor=38bdf8" alt="Mastodon" />
+    </a>
+    <a href="https://github.com/yusufarbc">
+      <img src="https://img.shields.io/badge/GitHub-yusufarbc-0f172a?style=for-the-badge&logo=github&logoColor=38bdf8" alt="GitHub" />
     </a>
   </p>
 
@@ -23,11 +25,12 @@
 
 I am a **Software & Security Engineer** with hands-on experience in software development, enterprise SOC/MDR analysis, and network administration. I focus on DevSecOps, software supply chain risks, and automation.
 
-### 💻 Software & Automation
-I build security tools and automate workflows using **Go, Python, Node.js, and C**:
-* **Vantage & WebVuln Runner:** Tools for vulnerability management and automated lab deployments.
-* **ApiGoat:** A deliberately vulnerable REST API for OWASP Top 10 security testing.
-* **Log Analytics:** Building scalable SIEM pipelines using Spark, Kafka, and Hadoop.
+### 💻 Key Projects & Security Tools
+I build open-source security tools, automated workflows, and scalable architectures:
+* 🛡️ **[Vantage](https://github.com/yusufarbc/vantage):** Security Operations Hub & Phishing Simulation Platform.
+* 🤖 **[Vigil](https://github.com/yusufarbc/vigil):** AI-assisted SOC/NOC platform on Elastic Stack & GKE.
+* 📊 **[Apache-BigData-SIEM](https://github.com/yusufarbc/Apache-BigData-SIEM):** Scalable Lakehouse SIEM pipeline using Spark, Kafka, Hadoop, and Hive.
+* 📚 **[Siber Güvenlik Rehberi](https://github.com/yusufarbc/Siber-Guvenlik-Rehberi):** Comprehensive community cybersecurity guide built with Astro Starlight.
 
 ### ⚙️ Infrastructure & Virtualization
 I set up resilient environments using virtualization and containerization:
@@ -59,5 +62,3 @@ I set up resilient environments using virtualization and containerization:
     🌐 <a href="https://yusufarbc.dev/en/">yusufarbc.dev</a> &nbsp;|&nbsp; 📧 <a href="mailto:yusuftalhaarabaci@hotmail.com">yusuftalhaarabaci@hotmail.com</a>
   </p>
 </div>
-
-
