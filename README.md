@@ -25,12 +25,11 @@
 
 I am a **Software & Security Engineer** with hands-on experience in software development, enterprise SOC/MDR analysis, and network administration. I focus on DevSecOps, software supply chain risks, and automation.
 
-### 💻 Key Projects & Security Tools
-I build open-source security tools, automated workflows, and scalable architectures:
-* 🛡️ **[Vantage](https://github.com/yusufarbc/vantage):** Security Operations Hub & Phishing Simulation Platform.
-* 🤖 **[Vigil](https://github.com/yusufarbc/vigil):** AI-assisted SOC/NOC platform on Elastic Stack & GKE.
-* 📊 **[Apache-BigData-SIEM](https://github.com/yusufarbc/Apache-BigData-SIEM):** Scalable Lakehouse SIEM pipeline using Spark, Kafka, Hadoop, and Hive.
-* 📚 **[Siber Güvenlik Rehberi](https://github.com/yusufarbc/Siber-Guvenlik-Rehberi):** Comprehensive community cybersecurity guide built with Astro Starlight.
+### 💻 Software & Automation
+I build security tools and automate workflows using **Go, Python, Node.js, and C**:
+* **Vantage & WebVuln Runner:** Tools for vulnerability management and automated lab deployments.
+* **ApiGoat:** A deliberately vulnerable REST API for OWASP Top 10 security testing.
+* **Log Analytics:** Building scalable SIEM pipelines using Spark, Kafka, and Hadoop.
 
 ### ⚙️ Infrastructure & Virtualization
 I set up resilient environments using virtualization and containerization:
