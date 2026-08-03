@@ -50,8 +50,7 @@ I set up resilient environments using virtualization and containerization:
 * 🛡️ **Cybersecurity:** TryHackMe Top 1% (Pentest Specialist), active in both offensive and defensive security simulations.
 
 <p align="center">
-  <img src="profile/stats.svg" alt="Yusuf's GitHub Stats" height="165px" />
-  <img src="profile/top-langs.svg" alt="Top Languages" height="165px" />
+  <img src="profile/stats.svg" alt="Yusuf's GitHub Stats" />
 </p>
 
 ---
