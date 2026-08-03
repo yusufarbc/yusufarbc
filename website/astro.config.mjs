@@ -20,12 +20,6 @@ export default defineConfig({
         if (pathname === "/" || pathname === "") {
           return false;
         }
-        if (pathname.includes("/posts/")) {
-          return false;
-        }
-        if (pathname.includes("/series/")) {
-          return false;
-        }
         return true;
       },
     }),
