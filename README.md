@@ -48,8 +48,8 @@ I set up resilient environments using virtualization and containerization:
 * 🛡️ **Cybersecurity:** TryHackMe Top 1% (Pentest Specialist), active in both offensive and defensive security simulations.
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=yusufarbc&show_icons=true&theme=tokyonight&bg_color=0f172a&title_color=38bdf8&icon_color=38bdf8&text_color=ffffff" alt="Yusuf's GitHub Stats" height="150px" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yusufarbc&layout=compact&theme=tokyonight&bg_color=0f172a&title_color=38bdf8&text_color=ffffff" alt="Top Langs" height="150px" />
+  <img src="profile-summary-card-output/tokyonight/0-profile-details.svg" alt="Yusuf's GitHub Stats" height="180px" />
+  <img src="profile-summary-card-output/tokyonight/1-top-languages.svg" alt="Top Langs" height="180px" />
 </p>
 
 ---
