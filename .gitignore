@@ -130,7 +130,9 @@ fix_frontmatter.py
 # Allow Python scripts inside static-prompt to be committed
 !static-prompt/*.py
 
-# Resume folder
+# Private & Resume folders
+private
+private/
 resume
 resume/
 
