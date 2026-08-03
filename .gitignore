@@ -112,22 +112,13 @@ dist
 .DS_Store
 Thumbs.db
 
-# Hugo build output
-# website/public/
-website/resources/
-website/.hugo_build.lock
-# public/
-
-# Migration source and temporary files
+# Temporary & Migration files
+tmp/
 medium/
 portfolio/
-/portfolio/
-tmp/
-migrate_hugo.py
-fix_frontmatter.py
-*.py
 
-# Allow Python scripts inside static-prompt to be committed
+# Python files ignore rule (Allow scripts in static-prompt)
+*.py
 !static-prompt/*.py
 
 # Private & Resume folders
